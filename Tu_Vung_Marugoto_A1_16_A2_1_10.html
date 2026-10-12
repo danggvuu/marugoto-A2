@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Từ Vựng Marugoto: A1 (Bài 16-18) & A2-1 (Bài 1-10)</title>
+    <style>
+        :root {
+            --primary: #6c5ce7;
+            --primary-light: #a29bfe;
+            --primary-bg: #f3f0ff;
+            --accent: #fd79a8;
+            --success: #00b894;
+            --dark: #2d3436;
+            --gray: #636e72;
+            --light-gray: #f8f9fa;
+            --border: #e2e8f0;
+            --shadow: 0 10px 25px rgba(0,0,0,0.06);
+            --card-radius: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f7f8fc;
+            color: var(--dark);
+            line-height: 1.6;
+            padding: 20px 10px;
+        }
+
+        .container {
+            max-width: 1050px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);
+            color: white;
+            padding: 30px 20px;
+            border-radius: var(--card-radius);
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(108, 92, 231, 0.25);
+            margin-bottom: 25px;
+        }
+
+        header h1 {
+            font-size: 1.9rem;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        header p {
+            font-size: 1rem;
+            opacity: 0.95;
+        }
+
+        /* Mode Switcher Tabs */
+        .mode-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .mode-btn {
+            background: white;
+            border: 2px solid transparent;
+            padding: 10px 22px;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            color: var(--dark);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+            transition: all 0.2s ease;
+        }
+
+        .mode-btn:hover {
+            border-color: var(--primary-light);
+            color: var(--primary);
+        }
+
+        .mode-btn.active {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 4px 15px rgba(108, 92, 231, 0.35);
+        }
+
+        /* Filter & Control Bar */
+        .controls-card {
+            background: white;
+            padding: 20px;
+            border-radius: var(--card-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 25px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .filter-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        select, input[type="text"] {
+            padding: 10px 14px;
+            border: 1.5px solid var(--border);
+            border-radius: 10px;
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color 0.2s;
+            background: white;
+        }
+
+        select:focus, input[type="text"]:focus {
+            border-color: var(--primary);
+        }
+
+        .btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: opacity 0.2s;
+        }
+
+        .btn:hover { opacity: 0.9; }
+
+        .btn-quizlet {
+            background: #2ed573;
+        }
+
+        /* Views */
+        .view-panel {
+            display: none;
+        }
+        .view-panel.active {
+            display: block;
+        }
+
+        /* Table View */
+        .vocab-table-container {
+            background: white;
+            border-radius: var(--card-radius);
+            box-shadow: var(--shadow);
+            overflow-x: auto;
+        }
+
+        .vocab-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 650px;
+        }
+
+        .vocab-table th, .vocab-table td {
+            padding: 14px 18px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .vocab-table th {
+            background: #fbfbfe;
+            color: var(--gray);
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        .vocab-table tr:hover {
+            background-color: #faf9ff;
+        }
+
+        .jp-word {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .vi-word {
+            font-size: 1rem;
+            color: #4a5568;
+        }
+
+        .tag-lesson {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            background: var(--primary-bg);
+            color: var(--primary);
+        }
+
+        /* Flashcard View */
+        .flashcard-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            padding: 20px 0;
+        }
+
+        .flashcard {
+            width: 100%;
+            max-width: 480px;
+            height: 260px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(108, 92, 231, 0.12);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 30px;
+            cursor: pointer;
+            border: 2px solid #f1f2f6;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            position: relative;
+            user-select: none;
+        }
+
+        .flashcard:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 40px rgba(108, 92, 231, 0.18);
+        }
+
+        .flashcard-lesson {
+            position: absolute;
+            top: 18px;
+            left: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--primary);
+            background: var(--primary-bg);
+            padding: 3px 12px;
+            border-radius: 20px;
+        }
+
+        .flashcard-hint {
+            position: absolute;
+            bottom: 15px;
+            font-size: 0.8rem;
+            color: #a4b0be;
+        }
+
+        .card-main-text {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 12px;
+        }
+
+        .card-sub-text {
+            font-size: 1.3rem;
+            color: var(--primary);
+            font-weight: 600;
+            min-height: 1.6em;
+        }
+
+        .card-controls {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .btn-card {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            background: white;
+            box-shadow: var(--shadow);
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .btn-card:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Quiz View */
+        .quiz-box {
+            background: white;
+            border-radius: var(--card-radius);
+            box-shadow: var(--shadow);
+            padding: 35px 25px;
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .quiz-question {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin: 15px 0 25px 0;
+        }
+
+        .quiz-options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .quiz-opt-btn {
+            background: #f8f9fa;
+            border: 2px solid var(--border);
+            padding: 14px 18px;
+            border-radius: 12px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-align: left;
+            transition: all 0.2s;
+        }
+
+        .quiz-opt-btn:hover {
+            border-color: var(--primary-light);
+            background: #fefefe;
+        }
+
+        .quiz-opt-btn.correct {
+            background: #e6f9f5 !important;
+            border-color: var(--success) !important;
+            color: #00796b !important;
+        }
+
+        .quiz-opt-btn.wrong {
+            background: #ffebee !important;
+            border-color: #ff7675 !important;
+            color: #c2185b !important;
+        }
+
+        /* Toast notification */
+        .toast {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: #2d3436;
+            color: white;
+            padding: 12px 22px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            font-size: 0.95rem;
+            display: none;
+            z-index: 999;
+        }
+
+        @media (max-width: 600px) {
+            header h1 { font-size: 1.5rem; }
+            .controls-card { flex-direction: column; align-items: stretch; }
+            .filter-group { flex-direction: column; align-items: stretch; }
+            .flashcard { height: 220px; }
+            .card-main-text { font-size: 1.6rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>📖 TỪ VỰNG MARUGOTO TỔNG HỢP</h1>
+        <p>A1 (Bài 16 - 18) & A2-1 (Bài 1 - 10) • Gồm 380+ từ vựng chuẩn giáo trình</p>
+    </header>
+
+    <!-- Switch View Mode -->
+    <div class="mode-tabs">
+        <button class="mode-btn active" onclick="switchView('view-table')">📋 Bảng Tra Cứu</button>
+        <button class="mode-btn" onclick="switchView('view-flashcard')">🎴 Thẻ Lật (Flashcards)</button>
+        <button class="mode-btn" onclick="switchView('view-quiz')">✍️ Trắc Nghiệm Nhanh</button>
+    </div>
+
+    <!-- Controls & Filters -->
+    <div class="controls-card">
+        <div class="filter-group">
+            <select id="lessonFilter" onchange="applyFilter()">
+                <option value="ALL">🌟 Tất Cả Các Bài (380+ từ)</option>
+                <optgroup label="Marugoto A1">
+                    <option value="A1-16">A1 - Bài 16: これ、ください</option>
+                    <option value="A1-17">A1 - Bài 17: たのしかったです</option>
+                    <option value="A1-18">A1 - Bài 18: つぎは きょうとに いきたいです</option>
+                </optgroup>
+                <optgroup label="Marugoto A2-1">
+                    <option value="A2-1">A2-1 - Bài 1: 東京に すんでいます</option>
+                    <option value="A2-2">A2-1 - Bài 2: しゅみは クラシックを聞くことです</option>
+                    <option value="A2-3">A2-1 - Bài 3: 日本はいま、はるです</option>
+                    <option value="A2-4">A2-1 - Bài 4: いい てんきですね</option>
+                    <option value="A2-5">A2-1 - Bài 5: この こうえんは ひろくてきれいです</option>
+                    <option value="A2-6">A2-1 - Bài 6: まっすぐ 行ってください</option>
+                    <option value="A2-7">A2-1 - Bài 7: 10 時でも いいですか</option>
+                    <option value="A2-8">A2-1 - Bài 8: もうやけいを見に行きましたか</option>
+                    <option value="A2-9">A2-1 - Bài 9: 日本語は はつおんが かんたんです (1)</option>
+                    <option value="A2-10">A2-1 - Bài 10: 日本語は はつおんが かんたんです (2)</option>
+                </optgroup>
+            </select>
+            <input type="text" id="searchInput" placeholder="🔍 Tìm kiếm từ vựng..." oninput="applyFilter()">
+        </div>
+
+        <button class="btn btn-quizlet" onclick="copyQuizletFormat()">
+            📋 Copy Format Quizlet Bài Đang Chọn
+        </button>
+    </div>
+
+    <!-- VIEW 1: TABLE -->
+    <div id="view-table" class="view-panel active">
+        <div class="vocab-table-container">
+            <table class="vocab-table">
+                <thead>
+                    <tr>
+                        <th style="width: 60px;">STT</th>
+                        <th style="width: 110px;">Bài</th>
+                        <th style="width: 320px;">Tiếng Nhật</th>
+                        <th>Ý Nghĩa Tiếng Việt</th>
+                    </tr>
+                </thead>
+                <tbody id="vocabTableBody">
+                    <!-- Populated via JS -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- VIEW 2: FLASHCARD -->
+    <div id="view-flashcard" class="view-panel">
+        <div class="flashcard-wrapper">
+            <div class="flashcard" onclick="flipCard()">
+                <div class="flashcard-lesson" id="fcLesson">Bài</div>
+                <div class="card-main-text" id="fcFront">Từ vựng</div>
+                <div class="card-sub-text" id="fcBack">???</div>
+                <div class="flashcard-hint">💡 Nhấp vào thẻ để xem nghĩa</div>
+            </div>
+
+            <div class="card-controls">
+                <button class="btn-card" onclick="prevCard()">⬅️</button>
+                <span id="fcProgress" style="font-weight: 600; color: var(--gray);">1 / 50</span>
+                <button class="btn-card" onclick="nextCard()">➡️</button>
+                <button class="btn-card" onclick="shuffleCards()" title="Xáo trộn thẻ">🔀</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- VIEW 3: QUIZ -->
+    <div id="view-quiz" class="view-panel">
+        <div class="quiz-box">
+            <span class="tag-lesson" id="quizLesson">A1-16</span>
+            <div class="quiz-question" id="quizQuestion">Từ vựng</div>
+            <p style="color: var(--gray); margin-bottom: 20px; font-size: 0.95rem;">Chọn nghĩa tiếng Việt chính xác nhất:</p>
+            <div class="quiz-options" id="quizOptions"></div>
+            <button class="btn" id="nextQuizBtn" style="display: none; margin: 0 auto;" onclick="loadNextQuiz()">Câu Tiếp Theo ➔</button>
+        </div>
+    </div>
+</div>
+
+<div id="toast" class="toast">Đã copy vào bộ nhớ tạm!</div>
+
+<script>
+    // Master Vocabulary Data
+    const rawVocab = [
+        // A1-16
+        { l: "A1-16", jp: "ふく", vi: "Quần áo" },
+        { l: "A1-16", jp: "パンツ/ズボン", vi: "Quần" },
+        { l: "A1-16", jp: "ジーンズ", vi: "Quần bò, quần jeans" },
+        { l: "A1-16", jp: "スカート", vi: "Chân váy" },
+        { l: "A1-16", jp: "コート", vi: "Áo khoác dài (Coat)" },
+        { l: "A1-16", jp: "ジャケット", vi: "Áo khoác ngắn (Jacket)" },
+        { l: "A1-16", jp: "スーツ", vi: "Bộ vest, com-lê, âu phục" },
+        { l: "A1-16", jp: "ワンピース", vi: "Váy liền, váy dài" },
+        { l: "A1-16", jp: "くつした", vi: "Đôi tất" },
+        { l: "A1-16", jp: "ネクタイ", vi: "Cà vạt" },
+        { l: "A1-16", jp: "スカーフ", vi: "Khăn quàng" },
+        { l: "A1-16", jp: "めがね", vi: "Kính" },
+        { l: "A1-16", jp: "サイズ", vi: "Kích cỡ (size)" },
+        { l: "A1-16", jp: "エス", vi: "Size S" },
+        { l: "A1-16", jp: "エム", vi: "Size M" },
+        { l: "A1-16", jp: "エル", vi: "Size L" },
+        { l: "A1-16", jp: "いろ", vi: "Màu sắc" },
+        { l: "A1-16", jp: "あか", vi: "Màu đỏ" },
+        { l: "A1-16", jp: "くろ", vi: "Màu đen" },
+        { l: "A1-16", jp: "しろ", vi: "Màu trắng" },
+        { l: "A1-16", jp: "あお", vi: "Màu xanh dương" },
+        { l: "A1-16", jp: "みどり", vi: "Màu xanh lá cây" },
+        { l: "A1-16", jp: "きいろ", vi: "Màu vàng" },
+        { l: "A1-16", jp: "ピンク", vi: "Màu hồng" },
+        { l: "A1-16", jp: "オレンジ", vi: "Màu cam" },
+        { l: "A1-16", jp: "ちゃいろ", vi: "Màu nâu" },
+        { l: "A1-16", jp: "グレー", vi: "Màu xám" },
+        { l: "A1-16", jp: "シャツを きます", vi: "Mặc áo sơ mi" },
+        { l: "A1-16", jp: "ジーンズを はきます", vi: "Mặc quần jeans" },
+        { l: "A1-16", jp: "めがねを かけます", vi: "Đeo kính" },
+        { l: "A1-16", jp: "~ひゃく", vi: "... trăm" },
+        { l: "A1-16", jp: "~せん", vi: "... nghìn" },
+        { l: "A1-16", jp: "~まん", vi: "... mười nghìn (vạn)" },
+        { l: "A1-16", jp: "~えん", vi: "... Yên" },
+        { l: "A1-16", jp: "ほか(の + N)", vi: "N khác (VD: ほかのいろ)" },
+        { l: "A1-16", jp: "まあまあ", vi: "Tàm tạm, bình thường" },
+        { l: "A1-16", jp: "いらっしゃいませ", vi: "Kính chào quý khách" },
+        { l: "A1-16", jp: "きて みても いいですか", vi: "Tôi mặc thử cũng được chứ?" },
+        { l: "A1-16", jp: "にあいます", vi: "Hợp" },
+        { l: "A1-16", jp: "どれ？", vi: "Cái nào?" },
+        { l: "A1-16", jp: "N を ください", vi: "Lấy cho tôi N" },
+        { l: "A1-16", jp: "じゃあ, いいです", vi: "Vậy thì không cần đâu (Từ chối)" },
+        { l: "A1-16", jp: "おきゃくさん", vi: "Khách hàng" },
+        { l: "A1-16", jp: "てんいん", vi: "Nhân viên cửa hàng" },
+        { l: "A1-16", jp: "ねだん", vi: "Giá cả" },
+        { l: "A1-16", jp: "しょうひん", vi: "Sản phẩm" },
+
+        // A1-17
+        { l: "A1-17", jp: "ともだちに あいます", vi: "Gặp gỡ bạn bè" },
+        { l: "A1-17", jp: "あそびます", vi: "Chơi" },
+        { l: "A1-17", jp: "うたいます", vi: "Hát" },
+        { l: "A1-17", jp: "カラオケを します", vi: "Hát Karaoke" },
+        { l: "A1-17", jp: "アルバイト(を) します", vi: "Làm thêm" },
+        { l: "A1-17", jp: "そうじ(を) します", vi: "Dọn dẹp" },
+        { l: "A1-17", jp: "せんたく(を) します", vi: "Giặt giũ" },
+        { l: "A1-17", jp: "つかれます", vi: "Mệt, mệt mỏi" },
+        { l: "A1-17", jp: "かちます", vi: "Thắng" },
+        { l: "A1-17", jp: "たのしい", vi: "Vui vẻ" },
+        { l: "A1-17", jp: "うれしい", vi: "Vui mừng, hạnh phúc" },
+        { l: "A1-17", jp: "おおい", vi: "Nhiều, đông (ひとがおおい: đông người)" },
+        { l: "A1-17", jp: "すばらしい", vi: "Tuyệt vời" },
+        { l: "A1-17", jp: "いそがしい", vi: "Bận rộn" },
+        { l: "A1-17", jp: "おもしろい", vi: "Thú vị" },
+        { l: "A1-17", jp: "たいへん(な)", vi: "Vất vả" },
+        { l: "A1-17", jp: "まあまあ", vi: "Tàm tạm, bình thường" },
+        { l: "A1-17", jp: "どこにも いきません", vi: "Không đi đâu cả" },
+        { l: "A1-17", jp: "なにも しません", vi: "Không làm gì cả" },
+        { l: "A1-17", jp: "また", vi: "Lại, lại nữa, ngoài ra..." },
+        { l: "A1-17", jp: "いちばん", vi: "Nhất, số một" },
+        { l: "A1-17", jp: "とても", vi: "Rất... (+ADJ)" },
+        { l: "A1-17", jp: "まご", vi: "Cháu" },
+        { l: "A1-17", jp: "ショッピングセンター", vi: "Trung tâm thương mại" },
+        { l: "A1-17", jp: "バーベキュー", vi: "Nướng BBQ, thịt nướng ngoài trời" },
+
+        // A1-18
+        { l: "A1-18", jp: "でかけます", vi: "Ra ngoài (khỏi nhà để đi đâu đó)" },
+        { l: "A1-18", jp: "りょこう(します)", vi: "Du lịch" },
+        { l: "A1-18", jp: "かいます", vi: "Mua" },
+        { l: "A1-18", jp: "ホテルに とまります", vi: "Trọ lại, ở lại khách sạn" },
+        { l: "A1-18", jp: "やすみます", vi: "Nghỉ ngơi, nghỉ" },
+        { l: "A1-18", jp: "つりを します", vi: "Câu cá" },
+        { l: "A1-18", jp: "やまのぼりを します", vi: "Leo núi" },
+        { l: "A1-18", jp: "やまに のぼります", vi: "Leo núi" },
+        { l: "A1-18", jp: "きょうと", vi: "Kyoto" },
+        { l: "A1-18", jp: "てんぷら", vi: "Món Tempura (chiên bột kiểu Nhật)" },
+        { l: "A1-18", jp: "ふね", vi: "Thuyền, tàu" },
+        { l: "A1-18", jp: "しんかんせん", vi: "Tàu siêu tốc" },
+        { l: "A1-18", jp: "かぶき", vi: "Kịch Kabuki" },
+        { l: "A1-18", jp: "きもの", vi: "Kimono" },
+        { l: "A1-18", jp: "なつやすみ", vi: "Nghỉ hè" },
+        { l: "A1-18", jp: "アイスクリーム", vi: "Kem" },
+        { l: "A1-18", jp: "ながい", vi: "Dài" },
+        { l: "A1-18", jp: "みじかい", vi: "Ngắn" },
+        { l: "A1-18", jp: "おもしろい", vi: "Thú vị" },
+        { l: "A1-18", jp: "つまらない", vi: "Nhàm chán" },
+        { l: "A1-18", jp: "むずかしい", vi: "Khó" },
+        { l: "A1-18", jp: "やさしい", vi: "Dễ, đơn giản" },
+        { l: "A1-18", jp: "かんたん(な)", vi: "Đơn giản" },
+        { l: "A1-18", jp: "まず,~", vi: "Đầu tiên, trước hết..." },
+        { l: "A1-18", jp: "つぎ,~", vi: "Tiếp theo..." },
+        { l: "A1-18", jp: "それから,~", vi: "Sau đó..., Và..." },
+        { l: "A1-18", jp: "でも,~", vi: "Nhưng..." },
+        { l: "A1-18", jp: "にもつ", vi: "Hành lý, kiện hàng" },
+        { l: "A1-18", jp: "パスポート", vi: "Hộ chiếu" },
+        { l: "A1-18", jp: "スーツケース", vi: "Vali" },
+        { l: "A1-18", jp: "ビザ", vi: "Visa" },
+
+        // A2-1
+        { l: "A2-1", jp: "りょうしん", vi: "Bố mẹ" },
+        { l: "A2-1", jp: "きょうだい", vi: "Anh chị em" },
+        { l: "A2-1", jp: "しまい", vi: "Chị em gái" },
+        { l: "A2-1", jp: "しんせき", vi: "Họ hàng" },
+        { l: "A2-1", jp: "そふ/おじいさん", vi: "Ông" },
+        { l: "A2-1", jp: "そぼ/おばあさん", vi: "Bà" },
+        { l: "A2-1", jp: "おじ/おじさん", vi: "Chú, bác trai" },
+        { l: "A2-1", jp: "おば/おばさん", vi: "Cô, bác gái, dì" },
+        { l: "A2-1", jp: "おっと/ごしゅじん", vi: "Chồng mình / Chồng người khác" },
+        { l: "A2-1", jp: "つま/おくさん", vi: "Vợ mình / Vợ người khác" },
+        { l: "A2-1", jp: "むすこ/むすこさん", vi: "Con trai mình / Con trai người khác" },
+        { l: "A2-1", jp: "むすめ/むすめさん", vi: "Con gái mình / Con gái người khác" },
+        { l: "A2-1", jp: "わたしたち", vi: "Chúng tôi" },
+        { l: "A2-1", jp: "イタリア", vi: "Nước Ý" },
+        { l: "A2-1", jp: "ブラジル", vi: "Nước Brazil" },
+        { l: "A2-1", jp: "オーストラリア", vi: "Nước Úc" },
+        { l: "A2-1", jp: "オペラ", vi: "Opera" },
+        { l: "A2-1", jp: "すみます/すんでいます", vi: "Sinh sống" },
+        { l: "A2-1", jp: "はたらきます", vi: "Làm việc" },
+        { l: "A2-1", jp: "おしえます", vi: "Dạy, chỉ cho biết" },
+        { l: "A2-1", jp: "かいご", vi: "Điều dưỡng" },
+        { l: "A2-1", jp: "ところ", vi: "Nơi" },
+        { l: "A2-1", jp: "けっこん(します)", vi: "Kết hôn" },
+
+        // A2-2
+        { l: "A2-2", jp: "(りょうりを)つくります", vi: "Làm, nấu (món ăn)" },
+        { l: "A2-2", jp: "(きってを)あつめます", vi: "Sưu tập (tem)" },
+        { l: "A2-2", jp: "ともだちに なります", vi: "Trở thành bạn bè" },
+        { l: "A2-2", jp: "うたいます", vi: "Hát" },
+        { l: "A2-2", jp: "およぎます", vi: "Bơi" },
+        { l: "A2-2", jp: "すいえい", vi: "Việc bơi lội" },
+        { l: "A2-2", jp: "ドライブ", vi: "Lái xe đi chơi" },
+        { l: "A2-2", jp: "ひま(な)", vi: "Rảnh rỗi" },
+        { l: "A2-2", jp: "わかい", vi: "Trẻ" },
+        { l: "A2-2", jp: "きって", vi: "Tem" },
+        { l: "A2-2", jp: "コイン", vi: "Đồng xu" },
+        { l: "A2-2", jp: "おかし", vi: "Bánh kẹo" },
+        { l: "A2-2", jp: "たこあげ", vi: "Thả diều" },
+        { l: "A2-2", jp: "コメント", vi: "Nhận xét, bình luận" },
+        { l: "A2-2", jp: "チキン", vi: "Thịt gà" },
+        { l: "A2-2", jp: "しょうかい(します)", vi: "Giới thiệu" },
+        { l: "A2-2", jp: "じこしょうかい", vi: "Giới thiệu bản thân" },
+        { l: "A2-2", jp: "とくい(な)", vi: "Giỏi, thành thạo" },
+        { l: "A2-2", jp: "しあい", vi: "Trận đấu" },
+        { l: "A2-2", jp: "えんげき", vi: "Kịch" },
+        { l: "A2-2", jp: "あみもの", vi: "Đan móc len" },
+        { l: "A2-2", jp: "ガーデニング", vi: "Làm vườn" },
+        { l: "A2-2", jp: "サイクリング", vi: "Đạp xe dạo" },
+        { l: "A2-2", jp: "フルーツ", vi: "Trái cây, hoa quả" },
+        { l: "A2-2", jp: "フルーツケーキ", vi: "Bánh trái cây" },
+        { l: "A2-2", jp: "チェス", vi: "Cờ vua" },
+        { l: "A2-2", jp: "ざんぎょう", vi: "Tăng ca, OT" },
+        { l: "A2-2", jp: "ぎゅうどん", vi: "Cơm thịt bò kiểu Nhật" },
+        { l: "A2-2", jp: "いろいろ(な)", vi: "Nhiều, đa dạng" },
+
+        // A2-3
+        { l: "A2-3", jp: "きせつ", vi: "Mùa" },
+        { l: "A2-3", jp: "てんき", vi: "Thời tiết" },
+        { l: "A2-3", jp: "はる", vi: "Mùa xuân" },
+        { l: "A2-3", jp: "なつ", vi: "Mùa hè" },
+        { l: "A2-3", jp: "あき", vi: "Mùa thu" },
+        { l: "A2-3", jp: "ふゆ", vi: "Mùa đông" },
+        { l: "A2-3", jp: "あつい", vi: "Nóng" },
+        { l: "A2-3", jp: "むしあつい", vi: "Nóng nồm, ẩm, oi bức" },
+        { l: "A2-3", jp: "さむい", vi: "Lạnh" },
+        { l: "A2-3", jp: "すずしい", vi: "Mát mẻ" },
+        { l: "A2-3", jp: "あたたかい", vi: "Ấm áp" },
+        { l: "A2-3", jp: "あめ", vi: "Mưa" },
+        { l: "A2-3", jp: "あめが ふります", vi: "Mưa rơi" },
+        { l: "A2-3", jp: "うき", vi: "Mùa mưa (nhiệt đới)" },
+        { l: "A2-3", jp: "かんき", vi: "Mùa khô" },
+        { l: "A2-3", jp: "つゆ", vi: "Mùa mưa đầu hè (Nhật Bản)" },
+        { l: "A2-3", jp: "ゆき", vi: "Tuyết" },
+        { l: "A2-3", jp: "ゆきが ふります", vi: "Tuyết rơi" },
+        { l: "A2-3", jp: "~ど", vi: "... độ" },
+        { l: "A2-3", jp: "きおん", vi: "Nhiệt độ không khí" },
+        { l: "A2-3", jp: "(お)しょうがつ", vi: "Tết Dương Lịch" },
+        { l: "A2-3", jp: "はなが さきます", vi: "Hoa nở" },
+        { l: "A2-3", jp: "(お)はなみ", vi: "Ngắm hoa anh đào" },
+        { l: "A2-3", jp: "にゅうがくしき", vi: "Lễ nhập học" },
+        { l: "A2-3", jp: "ひまわり", vi: "Hoa hướng dương" },
+        { l: "A2-3", jp: "あじさい", vi: "Hoa cẩm tú cầu" },
+        { l: "A2-3", jp: "たんぼ", vi: "Đồng lúa" },
+        { l: "A2-3", jp: "すいか", vi: "Dưa hấu" },
+        { l: "A2-3", jp: "ゆかた", vi: "Bộ Yukata (Kimono mùa hè)" },
+        { l: "A2-3", jp: "もみじ", vi: "Lá phong" },
+        { l: "A2-3", jp: "つきみ", vi: "Trung thu, ngắm trăng" },
+        { l: "A2-3", jp: "ぶどう", vi: "Nho" },
+        { l: "A2-3", jp: "スキー", vi: "Trượt tuyết" },
+        { l: "A2-3", jp: "こたつ", vi: "Bàn sưởi" },
+        { l: "A2-3", jp: "みかん", vi: "Quả quýt" },
+        { l: "A2-3", jp: "なべりょうり", vi: "Lẩu" },
+        { l: "A2-3", jp: "セーター", vi: "Áo len" },
+        { l: "A2-3", jp: "うみ", vi: "Biển" },
+        { l: "A2-3", jp: "やま", vi: "Núi" },
+        { l: "A2-3", jp: "かわ", vi: "Sông" },
+        { l: "A2-3", jp: "だんだん", vi: "Dần dần" },
+        { l: "A2-3", jp: "にがて(な)", vi: "Tệ, kém, không hợp..." },
+        { l: "A2-3", jp: "なります", vi: "Trở nên, trở thành" },
+        { l: "A2-3", jp: "だいたい", vi: "Đại khái" },
+
+        // A2-4
+        { l: "A2-4", jp: "はれ/はれます", vi: "Trời đẹp, quang đãng" },
+        { l: "A2-4", jp: "くもり/くもります", vi: "Âm u, nhiều mây" },
+        { l: "A2-4", jp: "あめが やみます", vi: "Mưa tạnh" },
+        { l: "A2-4", jp: "ゆきが つもります", vi: "Tuyết chất dày, chất đống" },
+        { l: "A2-4", jp: "かぜ", vi: "Gió" },
+        { l: "A2-4", jp: "かぜが ふきます", vi: "Gió thổi" },
+        { l: "A2-4", jp: "たいふう", vi: "Bão" },
+        { l: "A2-4", jp: "ゆきだるま", vi: "Người tuyết" },
+        { l: "A2-4", jp: "そら", vi: "Bầu trời" },
+        { l: "A2-4", jp: "くも", vi: "Mây" },
+        { l: "A2-4", jp: "つき", vi: "Trăng" },
+        { l: "A2-4", jp: "ほし", vi: "Sao" },
+        { l: "A2-4", jp: "ほしが でます", vi: "Sao xuất hiện trên trời" },
+        { l: "A2-4", jp: "ごぜんちゅう", vi: "Ban ngày" },
+        { l: "A2-4", jp: "いちにちじゅう", vi: "Cả ngày" },
+        { l: "A2-4", jp: "いちねんじゅう", vi: "Cả năm" },
+        { l: "A2-4", jp: "せかい", vi: "Thế giới" },
+        { l: "A2-4", jp: "てんきよほう", vi: "Dự báo thời tiết" },
+        { l: "A2-4", jp: "げんき(な)", vi: "Khỏe mạnh" },
+        { l: "A2-4", jp: "きもちが いい", vi: "Sảng khoái, dễ chịu" },
+        { l: "A2-4", jp: "つよい", vi: "Mạnh" },
+        { l: "A2-4", jp: "よわい", vi: "Yếu" },
+        { l: "A2-4", jp: "でかけます", vi: "Ra ngoài" },
+        { l: "A2-4", jp: "おかげさまで", vi: "Ơn trời" },
+        { l: "A2-4", jp: "(お)ひさしぶりです", vi: "Đã lâu không gặp" },
+
+        // A2-5
+        { l: "A2-5", jp: "ばしょ", vi: "Địa điểm" },
+        { l: "A2-5", jp: "ところ", vi: "Nơi" },
+        { l: "A2-5", jp: "このあたり", vi: "Khu vực này" },
+        { l: "A2-5", jp: "どうぶつえん", vi: "Sở thú" },
+        { l: "A2-5", jp: "ゆうえんち", vi: "Công viên giải trí" },
+        { l: "A2-5", jp: "でんきてん", vi: "Cửa hàng đồ điện" },
+        { l: "A2-5", jp: "こうきょ", vi: "Hoàng cung" },
+        { l: "A2-5", jp: "いざかや", vi: "Quán nhậu" },
+        { l: "A2-5", jp: "うおいちば", vi: "Chợ cá" },
+        { l: "A2-5", jp: "ゲームセンター", vi: "Game center" },
+        { l: "A2-5", jp: "ちず", vi: "Bản đồ" },
+        { l: "A2-5", jp: "ひろい", vi: "Rộng" },
+        { l: "A2-5", jp: "せまい", vi: "Hẹp, chật" },
+        { l: "A2-5", jp: "ちかい", vi: "Gần" },
+        { l: "A2-5", jp: "とおい", vi: "Xa" },
+        { l: "A2-5", jp: "べんり", vi: "Tiện lợi" },
+        { l: "A2-5", jp: "ふべん", vi: "Bất tiện" },
+        { l: "A2-5", jp: "はやい", vi: "Nhanh, sớm" },
+        { l: "A2-5", jp: "おそい", vi: "Chậm, muộn" },
+        { l: "A2-5", jp: "あかるい", vi: "Sáng sủa" },
+        { l: "A2-5", jp: "くらい", vi: "Tối tăm" },
+        { l: "A2-5", jp: "おおい", vi: "Nhiều" },
+        { l: "A2-5", jp: "すくない", vi: "Ít" },
+        { l: "A2-5", jp: "あぶない", vi: "Nguy hiểm" },
+        { l: "A2-5", jp: "おとな", vi: "Người lớn, trưởng thành" },
+        { l: "A2-5", jp: "わかいひと", vi: "Người trẻ" },
+        { l: "A2-5", jp: "にんき(があります)", vi: "Được yêu thích, ưa chuộng" },
+        { l: "A2-5", jp: "おすすめ", vi: "Đề xuất, gợi ý" },
+        { l: "A2-5", jp: "ジョギング", vi: "Chạy bộ" },
+        { l: "A2-5", jp: "ぜひ", vi: "Nhất định" },
+        { l: "A2-5", jp: "ぜひ~てください", vi: "Nhất định hãy..." },
+
+        // A2-6
+        { l: "A2-6", jp: "たてもの", vi: "Tòa nhà, kiến trúc" },
+        { l: "A2-6", jp: "ビル", vi: "Tòa nhà" },
+        { l: "A2-6", jp: "ゆうびんきょく", vi: "Bưu điện" },
+        { l: "A2-6", jp: "たいしかん", vi: "Đại sứ quán" },
+        { l: "A2-6", jp: "びじゅつかん", vi: "Bảo tàng mỹ thuật" },
+        { l: "A2-6", jp: "はくぶつかん", vi: "Bảo tàng" },
+        { l: "A2-6", jp: "みち", vi: "Con đường" },
+        { l: "A2-6", jp: "とおり", vi: "Con đường, phố" },
+        { l: "A2-6", jp: "はし", vi: "Cây cầu" },
+        { l: "A2-6", jp: "こうさてん", vi: "Ngã tư" },
+        { l: "A2-6", jp: "かど", vi: "Góc" },
+        { l: "A2-6", jp: "しんごう", vi: "Đèn giao thông" },
+        { l: "A2-6", jp: "ひとつめの N", vi: "N thứ nhất" },
+        { l: "A2-6", jp: "ふたつめの N", vi: "N thứ hai" },
+        { l: "A2-6", jp: "みぎ", vi: "Bên phải" },
+        { l: "A2-6", jp: "ひだり", vi: "Bên trái" },
+        { l: "A2-6", jp: "まっすぐ", vi: "Thẳng" },
+        { l: "A2-6", jp: "(はしを)わたります", vi: "Đi qua, băng qua (cầu)" },
+        { l: "A2-6", jp: "まがります", vi: "Rẽ" },
+        { l: "A2-6", jp: "こうさてんを ひだり/みぎ に まがります", vi: "Rẽ phải/trái tại ngã tư" },
+        { l: "A2-6", jp: "N が みえます", vi: "Có thể nhìn thấy..." },
+        { l: "A2-6", jp: "N が きこえます", vi: "Có thể nghe thấy..." },
+        { l: "A2-6", jp: "たかい", vi: "Cao" },
+        { l: "A2-6", jp: "ひくい", vi: "Thấp" },
+        { l: "A2-6", jp: "まるい", vi: "Tròn" },
+        { l: "A2-6", jp: "しろい", vi: "Trắng" },
+        { l: "A2-6", jp: "くろい", vi: "Đen" },
+        { l: "A2-6", jp: "あかい", vi: "Đỏ" },
+        { l: "A2-6", jp: "あおい", vi: "Xanh dương" },
+        { l: "A2-6", jp: "ほそながい", vi: "Thon dài, dài và hẹp" },
+
+        // A2-7
+        { l: "A2-7", jp: "(時間に)おくれます", vi: "Muộn (giờ)" },
+        { l: "A2-7", jp: "(バスを)まちます", vi: "Đợi, chờ (xe bus)" },
+        { l: "A2-7", jp: "(時間を)まちがえます", vi: "Nhầm, nhầm lẫn (giờ)" },
+        { l: "A2-7", jp: "(でんしゃが)とまります", vi: "Tàu điện dừng lại, dừng chạy" },
+        { l: "A2-7", jp: "みちに まよいます", vi: "Lạc đường" },
+        { l: "A2-7", jp: "(かぞくと)でかけます", vi: "Ra ngoài (với gia đình)" },
+        { l: "A2-7", jp: "(くるまに)きを つけます", vi: "Chú ý, cẩn thận (ô tô)" },
+        { l: "A2-7", jp: "(ともだちに)れんらくします", vi: "Liên lạc (với bạn bè)" },
+        { l: "A2-7", jp: "(くうこうに)つきます", vi: "Đến nơi (sân bay)" },
+        { l: "A2-7", jp: "まちあわせ", vi: "Cuộc hẹn" },
+        { l: "A2-7", jp: "まちあわせ(をします)", vi: "Hẹn gặp" },
+        { l: "A2-7", jp: "じゅうたい", vi: "Tắc đường" },
+        { l: "A2-7", jp: "じこ", vi: "Tai nạn, sự cố" },
+        { l: "A2-7", jp: "ロビー", vi: "Sảnh chờ (Lobby)" },
+        { l: "A2-7", jp: "いりぐち", vi: "Lối vào, cửa vào" },
+        { l: "A2-7", jp: "ほんや", vi: "Tiệm sách" },
+        { l: "A2-7", jp: "ちこく(します)", vi: "Muộn (chỉ dùng cho người)" },
+        { l: "A2-7", jp: "はやく + V", vi: "Làm V nhanh, sớm" },
+        { l: "A2-7", jp: "たのしみ", vi: "Mong chờ, mong đợi" },
+        { l: "A2-7", jp: "りゆう", vi: "Lý do" },
+
+        // A2-8
+        { l: "A2-8", jp: "すいぞくかん", vi: "Thủy cung" },
+        { l: "A2-8", jp: "やたい", vi: "Quầy bán hàng lưu động" },
+        { l: "A2-8", jp: "タワー", vi: "Tháp" },
+        { l: "A2-8", jp: "すいじょうバス", vi: "Thuyền bus" },
+        { l: "A2-8", jp: "れきし", vi: "Lịch sử" },
+        { l: "A2-8", jp: "どうぶつ", vi: "Động vật" },
+        { l: "A2-8", jp: "やけい", vi: "Cảnh đêm" },
+        { l: "A2-8", jp: "かんこう", vi: "Tham quan" },
+        { l: "A2-8", jp: "かんこうち", vi: "Địa điểm tham quan" },
+        { l: "A2-8", jp: "せかい", vi: "Thế giới" },
+        { l: "A2-8", jp: "せかいいち", vi: "Số một thế giới" },
+        { l: "A2-8", jp: "りょうがえ", vi: "Đổi ngoại tệ" },
+        { l: "A2-8", jp: "おすすめ", vi: "Đề xuất, gợi ý" },
+        { l: "A2-8", jp: "ライトアップ", vi: "Lên đèn, chiếu sáng" },
+        { l: "A2-8", jp: "めずらしい", vi: "Hiếm" },
+        { l: "A2-8", jp: "ちず", vi: "Bản đồ" },
+        { l: "A2-8", jp: "てんぷら", vi: "Món Tempura" },
+        { l: "A2-8", jp: "ふね", vi: "Thuyền, tàu" },
+        { l: "A2-8", jp: "まだ", vi: "Vẫn chưa..." },
+        { l: "A2-8", jp: "もう~V ました", vi: "Đã làm V" },
+        { l: "A2-8", jp: "よてい", vi: "Dự định" },
+        { l: "A2-8", jp: "イルカ", vi: "Cá heo" },
+        { l: "A2-8", jp: "カラオケ", vi: "Karaoke" },
+        { l: "A2-8", jp: "ショー", vi: "Show, biểu diễn" },
+        { l: "A2-8", jp: "スカイツリー", vi: "Tháp Skytree" },
+        { l: "A2-8", jp: "こんばん", vi: "Tối nay" },
+        { l: "A2-8", jp: "おみやげ", vi: "Quà lưu niệm" },
+        { l: "A2-8", jp: "(しょくじの)まえ", vi: "Trước (bữa ăn)" },
+        { l: "A2-8", jp: "(しょくじの)あと", vi: "Sau (bữa ăn)" },
+        { l: "A2-8", jp: "あとで", vi: "Xíu nữa, sau đó..." },
+
+        // A2-9
+        { l: "A2-9", jp: "しょうがっこう", vi: "Trường tiểu học" },
+        { l: "A2-9", jp: "ちゅうがっこう", vi: "Trường cấp hai" },
+        { l: "A2-9", jp: "こうこう", vi: "Trường cấp ba" },
+        { l: "A2-9", jp: "だいがく", vi: "Đại học" },
+        { l: "A2-9", jp: "だいがくいん", vi: "Cao học" },
+        { l: "A2-9", jp: "じゅぎょう", vi: "Giờ học, tiết học" },
+        { l: "A2-9", jp: "クラス", vi: "Lớp học" },
+        { l: "A2-9", jp: "N を おしえます", vi: "Dạy, chỉ cho biết N" },
+        { l: "A2-9", jp: "はなします", vi: "Nói chuyện, trò chuyện" },
+        { l: "A2-9", jp: "かきます", vi: "Viết" },
+        { l: "A2-9", jp: "ききます", vi: "Nghe, hỏi" },
+        { l: "A2-9", jp: "よみます", vi: "Đọc" },
+        { l: "A2-9", jp: "はつおん", vi: "Phát âm" },
+        { l: "A2-9", jp: "もじ", vi: "Ký tự, chữ cái" },
+        { l: "A2-9", jp: "ぶん", vi: "Câu văn" },
+        { l: "A2-9", jp: "ぶんぽう", vi: "Ngữ pháp" },
+        { l: "A2-9", jp: "たんご", vi: "Từ vựng" },
+        { l: "A2-9", jp: "いみ", vi: "Ý nghĩa" },
+        { l: "A2-9", jp: "がいこくご", vi: "Ngoại ngữ" },
+        { l: "A2-9", jp: "いままでに", vi: "Cho đến bây giờ, từ trước đến nay" },
+        { l: "A2-9", jp: "(はつおんを)れんしゅうします", vi: "Luyện tập (phát âm)" },
+        { l: "A2-9", jp: "(たんごを)おぼえます", vi: "Ghi nhớ (từ vựng)" },
+        { l: "A2-9", jp: "(たんごを)わすれます", vi: "Quên (từ vựng)" },
+        { l: "A2-9", jp: "(じしょを)かします", vi: "Cho mượn, cho vay" },
+        { l: "A2-9", jp: "(じしょを)かります", vi: "Mượn, vay" },
+        { l: "A2-9", jp: "(じしょを)つかいます", vi: "Sử dụng" },
+        { l: "A2-9", jp: "(ベトナム語と)にて います", vi: "Giống với (tiếng Việt)" },
+        { l: "A2-9", jp: "(日本語と)ちがいます", vi: "Khác với (tiếng Nhật)" },
+        { l: "A2-9", jp: "おなじ", vi: "Giống (hệt)" },
+        { l: "A2-9", jp: "しつもん", vi: "Câu hỏi" },
+        { l: "A2-9", jp: "こたえ", vi: "Câu trả lời" },
+        { l: "A2-9", jp: "しゅくだい", vi: "Bài tập về nhà" },
+        { l: "A2-9", jp: "じしょ", vi: "Từ điển" },
+        { l: "A2-9", jp: "でんしじしょ", vi: "Kim từ điển" },
+        { l: "A2-9", jp: "リスト", vi: "Danh sách, list" },
+        { l: "A2-9", jp: "でんわばんごう", vi: "Số điện thoại" },
+        { l: "A2-9", jp: "チェック(します)", vi: "Check, kiểm tra" },
+        { l: "A2-9", jp: "かんたん(な)", vi: "Đơn giản" },
+        { l: "A2-9", jp: "むずかしい", vi: "Khó" },
+        { l: "A2-9", jp: "せつめいします", vi: "Giải thích" },
+        { l: "A2-9", jp: "てつだいます", vi: "Giúp đỡ" },
+        { l: "A2-9", jp: "みせます", vi: "Cho xem" },
+        { l: "A2-9", jp: "スピーチ", vi: "Phát biểu" },
+        { l: "A2-9", jp: "ちゃわん", vi: "Bát" },
+
+        // A2-10
+        { l: "A2-10", jp: "(日本に)きょうみが あります", vi: "Có hứng thú (với Nhật Bản)" },
+        { l: "A2-10", jp: "(しゅくだいを)てつだいます", vi: "Giúp đỡ (bài tập về nhà)" },
+        { l: "A2-10", jp: "(日本に)りゅうがくします", vi: "Du học (ở Nhật Bản)" },
+        { l: "A2-10", jp: "(日本に)しゅっちょうします", vi: "Công tác (ở Nhật Bản)" },
+        { l: "A2-10", jp: "つうやくします", vi: "Phiên dịch, dịch nói" },
+        { l: "A2-10", jp: "ほんやくします", vi: "Biên dịch, dịch viết" },
+        { l: "A2-10", jp: "日本語を おしえます", vi: "Dạy tiếng Nhật" },
+        { l: "A2-10", jp: "日本語を ならいます", vi: "Học (có người dạy, năng khiếu)" },
+        { l: "A2-10", jp: "でんわします", vi: "Gọi điện thoại" },
+        { l: "A2-10", jp: "ぶんか", vi: "Văn hóa" },
+        { l: "A2-10", jp: "しょうらい", vi: "Tương lai" },
+        { l: "A2-10", jp: "(ウェブ)サイト", vi: "Website" },
+        { l: "A2-10", jp: "ことば", vi: "Ngôn từ, từ ngữ..." },
+        { l: "A2-10", jp: "せいかつ", vi: "Cuộc sống, sinh hoạt" },
+        { l: "A2-10", jp: "うた", vi: "Bài hát" },
+        { l: "A2-10", jp: "おどり/ダンス", vi: "Nhảy múa" },
+        { l: "A2-10", jp: "きっぷ", vi: "Vé" },
+        { l: "A2-10", jp: "かんこうきゃく", vi: "Khách du lịch" },
+        { l: "A2-10", jp: "どうしたんですか", vi: "Bạn làm sao vậy?" },
+        { l: "A2-10", jp: "まいつき、まいげつ", vi: "Mỗi tháng" },
+        { l: "A2-10", jp: "まいとし、まいねん", vi: "Mỗi năm" },
+        { l: "A2-10", jp: "~かい", vi: "... lần" },
+        { l: "A2-10", jp: "いちにち", vi: "Một ngày" },
+        { l: "A2-10", jp: "いっしゅかん/しゅう", vi: "Một tuần" },
+        { l: "A2-10", jp: "いっかげつ/つき", vi: "Một tháng" },
+        { l: "A2-10", jp: "いちねん/ねん", vi: "Một năm" },
+        { l: "A2-10", jp: "ガイド", vi: "Hướng dẫn viên" }
+    ];
+
+    let currentFiltered = [...rawVocab];
+    let currentCardIndex = 0;
+    let cardFlipped = false;
+
+    // View Switching
+    function switchView(viewId) {
+        document.querySelectorAll('.view-panel').forEach(p => p.classList.remove('active'));
+        document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
+        document.getElementById(viewId).classList.add('active');
+        event.currentTarget.classList.add('active');
+
+        if (viewId === 'view-flashcard') {
+            currentCardIndex = 0;
+            renderCard();
+        } else if (viewId === 'view-quiz') {
+            loadNextQuiz();
+        }
+    }
+
+    // Filter Logic
+    function applyFilter() {
+        const lesson = document.getElementById('lessonFilter').value;
+        const query = document.getElementById('searchInput').value.trim().toLowerCase();
+
+        currentFiltered = rawVocab.filter(item => {
+            const matchLesson = (lesson === 'ALL') || (item.l === lesson);
+            const matchQuery = !query || item.jp.toLowerCase().includes(query) || item.vi.toLowerCase().includes(query);
+            return matchLesson && matchQuery;
+        });
+
+        renderTable();
+        currentCardIndex = 0;
+        if (document.getElementById('view-flashcard').classList.contains('active')) {
+            renderCard();
+        }
+        if (document.getElementById('view-quiz').classList.contains('active')) {
+            loadNextQuiz();
+        }
+    }
+
+    // Render Table
+    function renderTable() {
+        const tbody = document.getElementById('vocabTableBody');
+        tbody.innerHTML = '';
+
+        if (currentFiltered.length === 0) {
+            tbody.innerHTML = `<tr><td colspan="4" style="text-align: center; color: var(--gray); padding: 30px;">Không tìm thấy từ vựng nào phù hợp!</td></tr>`;
+            return;
+        }
+
+        currentFiltered.forEach((item, idx) => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td><strong>${idx + 1}</strong></td>
+                <td><span class="tag-lesson">${item.l}</span></td>
+                <td><span class="jp-word">${item.jp}</span></td>
+                <td><span class="vi-word">${item.vi}</span></td>
+            `;
+            tbody.appendChild(tr);
+        });
+    }
+
+    // Flashcard Logic
+    function renderCard() {
+        if (currentFiltered.length === 0) {
+            document.getElementById('fcLesson').innerText = 'Trống';
+            document.getElementById('fcFront').innerText = 'Không có từ';
+            document.getElementById('fcBack').innerText = '';
+            document.getElementById('fcProgress').innerText = '0 / 0';
+            return;
+        }
+
+        const item = currentFiltered[currentCardIndex];
+        document.getElementById('fcLesson').innerText = item.l;
+        document.getElementById('fcFront').innerText = item.jp;
+        document.getElementById('fcBack').innerText = cardFlipped ? item.vi : '???';
+        document.getElementById('fcProgress').innerText = `${currentCardIndex + 1} / ${currentFiltered.length}`;
+    }
+
+    function flipCard() {
+        cardFlipped = !cardFlipped;
+        renderCard();
+    }
+
+    function nextCard() {
+        if (currentFiltered.length === 0) return;
+        currentCardIndex = (currentCardIndex + 1) % currentFiltered.length;
+        cardFlipped = false;
+        renderCard();
+    }
+
+    function prevCard() {
+        if (currentFiltered.length === 0) return;
+        currentCardIndex = (currentCardIndex - 1 + currentFiltered.length) % currentFiltered.length;
+        cardFlipped = false;
+        renderCard();
+    }
+
+    function shuffleCards() {
+        for (let i = currentFiltered.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [currentFiltered[i], currentFiltered[j]] = [currentFiltered[j], currentFiltered[i]];
+        }
+        currentCardIndex = 0;
+        cardFlipped = false;
+        renderCard();
+        showToast("Đã xáo trộn danh sách thẻ!");
+    }
+
+    // Quiz Logic
+    function loadNextQuiz() {
+        if (currentFiltered.length === 0) return;
+        const correctItem = currentFiltered[Math.floor(Math.random() * currentFiltered.length)];
+        
+        // Pick 3 random wrong answers
+        const wrongPool = rawVocab.filter(x => x.vi !== correctItem.vi);
+        const shuffledPool = wrongPool.sort(() => 0.5 - Math.random());
+        const options = [correctItem.vi, shuffledPool[0].vi, shuffledPool[1].vi, shuffledPool[2].vi].sort(() => 0.5 - Math.random());
+
+        document.getElementById('quizLesson').innerText = correctItem.l;
+        document.getElementById('quizQuestion').innerText = correctItem.jp;
+        document.getElementById('nextQuizBtn').style.display = 'none';
+
+        const optContainer = document.getElementById('quizOptions');
+        optContainer.innerHTML = '';
+
+        options.forEach(opt => {
+            const btn = document.createElement('button');
+            btn.className = 'quiz-opt-btn';
+            btn.innerText = opt;
+            btn.onclick = () => {
+                const allBtns = optContainer.querySelectorAll('.quiz-opt-btn');
+                allBtns.forEach(b => b.disabled = true);
+
+                if (opt === correctItem.vi) {
+                    btn.classList.add('correct');
+                } else {
+                    btn.classList.add('wrong');
+                    allBtns.forEach(b => {
+                        if (b.innerText === correctItem.vi) b.classList.add('correct');
+                    });
+                }
+                document.getElementById('nextQuizBtn').style.display = 'inline-flex';
+            };
+            optContainer.appendChild(btn);
+        });
+    }
+
+    // Copy format for Quizlet
+    function copyQuizletFormat() {
+        const text = currentFiltered.map(item => `${item.jp} : ${item.vi}`).join('\n');
+        navigator.clipboard.writeText(text).then(() => {
+            showToast(`Đã copy ${currentFiltered.length} từ vựng chuẩn Quizlet!`);
+        }).catch(() => {
+            showToast("Lỗi sao chép, vui lòng thử lại!");
+        });
+    }
+
+    function showToast(msg) {
+        const toast = document.getElementById('toast');
+        toast.innerText = msg;
+        toast.style.display = 'block';
+        setTimeout(() => { toast.style.display = 'none'; }, 2500);
+    }
+
+    // Initial render
+    window.addEventListener('DOMContentLoaded', () => {
+        applyFilter();
+    });
+</script>
+
+</body>
+</html>
