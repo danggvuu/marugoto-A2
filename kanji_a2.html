@@ -42,29 +42,37 @@
             margin: 0 auto;
         }
 
-        /* Top Nav */
-        .quick-nav {
+        /* Global Hub Navigation */
+        .global-hub-nav {
             display: flex;
-            justify-content: flex-end;
+            justify-content: center;
             gap: 10px;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             flex-wrap: wrap;
         }
-
-        .nav-link {
+        .hub-nav-item {
             text-decoration: none;
             background: white;
-            color: var(--primary);
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 0.85rem;
+            color: #4a5568;
+            padding: 8px 18px;
+            border-radius: 25px;
+            font-size: 0.92rem;
             font-weight: 600;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.06);
-            transition: all 0.2s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            border: 1.5px solid transparent;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
         }
-
-        .nav-link:hover {
-            background: var(--primary-light);
+        .hub-nav-item:hover {
+            border-color: #cbd5e0;
+            transform: translateY(-1px);
+        }
+        .hub-nav-item.active-hub {
+            background: #2980b9;
+            color: white;
+            box-shadow: 0 4px 12px rgba(41, 128, 185, 0.35);
         }
 
         /* Header */
@@ -382,12 +390,12 @@
             margin-bottom: 2px;
         }
 
-        /* Traditional Japanese Writing Grid Box + Drawing Canvas */
+        /* Traditional Japanese Writing Grid Box + Stroke Order Animator */
         .kanji-grid-box {
             width: 165px;
             height: 165px;
             border: 2.5px solid #2980b9;
-            border-radius: 6px;
+            border-radius: 8px;
             position: relative;
             background: white;
             display: flex;
@@ -405,6 +413,7 @@
             height: 0;
             border-top: 1px dashed var(--grid-line);
             pointer-events: none;
+            z-index: 1;
         }
 
         .grid-line-v {
@@ -415,45 +424,54 @@
             width: 0;
             border-left: 1px dashed var(--grid-line);
             pointer-events: none;
+            z-index: 1;
+        }
+
+        .kanji-svg-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .kanjivg-svg {
+            width: 100%;
+            height: 100%;
+            padding: 6px;
         }
 
         .kanji-char-large {
-            font-size: 6rem;
+            font-size: 5.8rem;
             font-family: "Klee One", "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif;
             color: #1a252f;
             position: relative;
-            z-index: 1;
+            z-index: 2;
             line-height: 1;
             user-select: none;
-            pointer-events: none;
-            transition: opacity 0.2s;
         }
 
-        .kanji-char-large.trace-mode {
-            opacity: 0.18;
+        .anim-status-bar {
+            width: 100%;
+            text-align: center;
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: #2980b9;
         }
 
-        .draw-canvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 165px;
-            height: 165px;
-            z-index: 3;
-            cursor: crosshair;
-            touch-action: none;
-        }
-
-        .canvas-controls {
+        .anim-controls {
             display: flex;
-            gap: 6px;
+            gap: 5px;
             width: 100%;
             justify-content: center;
+            flex-wrap: wrap;
         }
 
-        .btn-mini {
+        .btn-anim {
             font-size: 0.78rem;
-            padding: 5px 10px;
+            padding: 5px 8px;
             border-radius: 6px;
             border: 1px solid var(--border);
             background: white;
@@ -463,16 +481,28 @@
             transition: all 0.15s;
         }
 
-        .btn-mini:hover {
+        .btn-anim:hover {
             background: var(--primary-light);
             border-color: var(--primary);
             color: var(--primary);
         }
 
-        .btn-mini.active-trace {
-            background: var(--primary);
+        .btn-anim-play {
+            background: #eaf2f8;
+            color: #2980b9;
+            border-color: #a9cce3;
+            font-weight: bold;
+        }
+
+        .btn-anim-play:hover {
+            background: #2980b9;
             color: white;
-            border-color: var(--primary);
+        }
+
+        .btn-anim.active-tool {
+            background: #2980b9;
+            color: white;
+            border-color: #2980b9;
         }
 
         /* TAB 2: WRITING RULES */
@@ -680,11 +710,12 @@
 <body>
 
 <div class="container">
-    <!-- Top Nav -->
-    <div class="quick-nav">
-        <a href="index.html" class="nav-link">🌸 Thể TE (～て)</a>
-        <a href="the_ru.html" class="nav-link">📘 Thể RU (Từ Điển)</a>
-        <a href="Tu_Vung_Marugoto_A1_16_A2_1_10.html" class="nav-link">📖 Kho Từ Vựng</a>
+    <!-- Global Hub Navigation -->
+    <div class="global-hub-nav">
+        <a href="index.html" class="hub-nav-item">🌸 Thể TE (～て)</a>
+        <a href="the_ru.html" class="hub-nav-item">📘 Thể RU (Từ Điển)</a>
+        <a href="kanji_a2.html" class="hub-nav-item active-hub">⛩️ Học Kanji & Nét Viết</a>
+        <a href="Tu_Vung_Marugoto_A1_16_A2_1_10.html" class="hub-nav-item">📖 Kho Từ Vựng A1-A2</a>
     </div>
 
     <!-- Header -->
@@ -1725,99 +1756,342 @@
                         </div>
                     </div>
 
-                    <!-- Right Column: Formula & Interactive Grid Box -->
+                    <!-- Right Column: Formula & Stroke Order Animator -->
                     <div class="visual-column">
                         <div class="mnemonic-visual-box">
                             <div class="radical-formula">${item.formula}</div>
                             <div style="font-size: 0.78rem; color: #888;">Chiết tự bộ thủ</div>
                         </div>
 
-                        <div class="kanji-grid-box">
-                            <div class="grid-line-h"></div>
-                            <div class="grid-line-v"></div>
-                            <div class="kanji-char-large" id="char-bg-${index}">${item.char}</div>
-                            <canvas class="draw-canvas" id="canvas-${index}" width="165" height="165"></canvas>
+                        <div class="anim-status-bar" id="anim-status-${index}">
+                            <span>Nét: <strong id="stroke-curr-${index}">${item.strokes}</strong> / ${item.strokes}</span>
                         </div>
 
-                        <div class="canvas-controls">
-                            <button class="btn-mini" id="trace-btn-${index}" onclick="toggleTraceMode(${index})">👁️ Làm mờ mẫu</button>
-                            <button class="btn-mini" onclick="clearCanvas(${index})">🗑️ Xóa nét</button>
+                        <div class="kanji-grid-box" id="grid-box-${index}">
+                            <div class="grid-line-h"></div>
+                            <div class="grid-line-v"></div>
+                            <div class="kanji-svg-container" id="kanji-svg-container-${index}">
+                                <span class="kanji-char-large" id="kanji-fallback-${index}">${item.char}</span>
+                            </div>
+                        </div>
+
+                        <div class="anim-controls">
+                            <button class="btn-anim" id="btn-prev-${index}" onclick="stepPrevStroke(${index})" title="Lùi 1 nét">⏮️ Lùi</button>
+                            <button class="btn-anim btn-anim-play" id="btn-play-${index}" onclick="togglePlayAnimation(${index})" title="Phát từng nét chuyển động">▶️ Phát nét</button>
+                            <button class="btn-anim" id="btn-next-${index}" onclick="stepNextStroke(${index})" title="Tiến 1 nét">⏭️ Tiến</button>
+                            <button class="btn-anim" id="btn-replay-${index}" onclick="replayAnimation(${index})" title="Xem vẽ lại từ đầu">🔄 Lại</button>
+                            <button class="btn-anim active-tool" id="btn-num-${index}" onclick="toggleNumbers(${index})" title="Bật/tắt số thứ tự nét">🔢 Số nét</button>
                         </div>
                     </div>
                 </div>
             `;
             container.appendChild(card);
 
-            // Init Canvas Drawing
-            initCanvas(index);
+            // Init Animated Kanji Player
+            initKanjiPlayer(item, index);
         });
     }
 
-    // Interactive Drawing Pad Logic
-    function initCanvas(index) {
-        const canvas = document.getElementById(`canvas-${index}`);
-        if (!canvas) return;
-        const ctx = canvas.getContext('2d');
-        let drawing = false;
+    // ==========================================
+    // KANJIVG STROKE ORDER ANIMATION PLAYER LOGIC
+    // ==========================================
+    const svgCache = new Map();
+    const kanjiPlayers = {};
 
-        ctx.strokeStyle = '#e74c3c';
-        ctx.lineWidth = 6;
-        ctx.lineCap = 'round';
-        ctx.lineJoin = 'round';
-
-        function getPos(e) {
-            const rect = canvas.getBoundingClientRect();
-            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-            return {
-                x: clientX - rect.left,
-                y: clientY - rect.top
-            };
+    function initKanjiPlayer(item, index) {
+        if (kanjiPlayers[index] && kanjiPlayers[index].timer) {
+            clearTimeout(kanjiPlayers[index].timer);
         }
 
-        function startDraw(e) {
-            e.preventDefault();
-            drawing = true;
-            // Automatically dim background char when user starts writing
-            document.getElementById(`char-bg-${index}`).classList.add('trace-mode');
-            document.getElementById(`trace-btn-${index}`).classList.add('active-trace');
-            const pos = getPos(e);
-            ctx.beginPath();
-            ctx.moveTo(pos.x, pos.y);
+        kanjiPlayers[index] = {
+            char: item.char,
+            totalStrokes: item.strokes,
+            currentStroke: item.strokes,
+            isPlaying: false,
+            showNumbers: true,
+            paths: [],
+            ghostPaths: [],
+            numbersGroup: null,
+            timer: null
+        };
+
+        const hex = item.char.codePointAt(0).toString(16).padStart(5, '0');
+        const url = `https://cdn.jsdelivr.net/gh/KanjiVG/kanjivg/kanji/${hex}.svg`;
+
+        if (svgCache.has(item.char)) {
+            setupSvgPlayer(index, svgCache.get(item.char));
+        } else {
+            fetch(url)
+                .then(res => {
+                    if (!res.ok) throw new Error('Network error');
+                    return res.text();
+                })
+                .then(svgText => {
+                    svgCache.set(item.char, svgText);
+                    setupSvgPlayer(index, svgText);
+                })
+                .catch(err => {
+                    const status = document.getElementById(`anim-status-${index}`);
+                    if (status) {
+                        status.innerHTML = `<span style="color:#7f8c8d; font-size:0.8rem;">(Xem nét tĩnh)</span>`;
+                    }
+                });
         }
-
-        function moveDraw(e) {
-            if (!drawing) return;
-            e.preventDefault();
-            const pos = getPos(e);
-            ctx.lineTo(pos.x, pos.y);
-            ctx.stroke();
-        }
-
-        function endDraw() {
-            drawing = false;
-        }
-
-        canvas.addEventListener('mousedown', startDraw);
-        canvas.addEventListener('mousemove', moveDraw);
-        window.addEventListener('mouseup', endDraw);
-
-        canvas.addEventListener('touchstart', startDraw, { passive: false });
-        canvas.addEventListener('touchmove', moveDraw, { passive: false });
-        canvas.addEventListener('touchend', endDraw);
     }
 
-    function toggleTraceMode(index) {
-        const bg = document.getElementById(`char-bg-${index}`);
-        const btn = document.getElementById(`trace-btn-${index}`);
-        bg.classList.toggle('trace-mode');
-        btn.classList.toggle('active-trace');
+    function setupSvgPlayer(index, svgText) {
+        const player = kanjiPlayers[index];
+        if (!player) return;
+
+        const container = document.getElementById(`kanji-svg-container-${index}`);
+        if (!container) return;
+
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(svgText, 'image/svg+xml');
+        const rawSvg = doc.querySelector('svg');
+        if (!rawSvg) return;
+
+        const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        svg.setAttribute('viewBox', '0 0 109 109');
+        svg.setAttribute('class', 'kanjivg-svg');
+
+        // Extract stroke paths
+        const rawPaths = Array.from(rawSvg.querySelectorAll('path'));
+        if (rawPaths.length > 0) {
+            player.totalStrokes = rawPaths.length;
+            player.currentStroke = rawPaths.length;
+        }
+
+        // 1. Ghost Group (light gray guide background)
+        const ghostGroup = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+        ghostGroup.setAttribute('class', 'ghost-strokes');
+        player.ghostPaths = [];
+        rawPaths.forEach(rp => {
+            const gp = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+            gp.setAttribute('d', rp.getAttribute('d'));
+            gp.setAttribute('fill', 'none');
+            gp.setAttribute('stroke', '#e2e8f0');
+            gp.setAttribute('stroke-width', '4');
+            gp.setAttribute('stroke-linecap', 'round');
+            gp.setAttribute('stroke-linejoin', 'round');
+            ghostGroup.appendChild(gp);
+            player.ghostPaths.push(gp);
+        });
+        svg.appendChild(ghostGroup);
+
+        // 2. Active Animated Strokes Group
+        const activeGroup = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+        activeGroup.setAttribute('class', 'active-strokes');
+        player.paths = [];
+        rawPaths.forEach(rp => {
+            const ap = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+            ap.setAttribute('d', rp.getAttribute('d'));
+            ap.setAttribute('fill', 'none');
+            ap.setAttribute('stroke', '#2c3e50');
+            ap.setAttribute('stroke-width', '4.5');
+            ap.setAttribute('stroke-linecap', 'round');
+            ap.setAttribute('stroke-linejoin', 'round');
+            activeGroup.appendChild(ap);
+            player.paths.push(ap);
+        });
+        svg.appendChild(activeGroup);
+
+        // 3. Stroke Numbers Group
+        const rawNumbersGroup = rawSvg.querySelector('[id*="StrokeNumbers"]');
+        if (rawNumbersGroup) {
+            const numbersGroup = rawNumbersGroup.cloneNode(true);
+            numbersGroup.querySelectorAll('text').forEach(t => {
+                t.setAttribute('fill', '#e74c3c');
+                t.setAttribute('font-size', '8');
+                t.setAttribute('font-weight', 'bold');
+                t.setAttribute('font-family', '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif');
+            });
+            svg.appendChild(numbersGroup);
+            player.numbersGroup = numbersGroup;
+            numbersGroup.style.display = player.showNumbers ? 'inline' : 'none';
+        }
+
+        container.innerHTML = '';
+        container.appendChild(svg);
+
+        // Setup path strokeDasharray & default fully visible
+        player.paths.forEach(p => {
+            const len = p.getTotalLength();
+            p.dataset.length = len;
+            p.style.strokeDasharray = `${len} ${len}`;
+            p.style.strokeDashoffset = '0';
+            p.style.stroke = '#2c3e50';
+        });
+
+        updatePlayerUI(index);
     }
 
-    function clearCanvas(index) {
-        const canvas = document.getElementById(`canvas-${index}`);
-        const ctx = canvas.getContext('2d');
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+    function updatePlayerUI(index) {
+        const player = kanjiPlayers[index];
+        if (!player) return;
+
+        const currEl = document.getElementById(`stroke-curr-${index}`);
+        if (currEl) currEl.textContent = player.currentStroke;
+
+        const statusEl = document.getElementById(`anim-status-${index}`);
+        if (statusEl) {
+            if (player.isPlaying) {
+                statusEl.innerHTML = `<span>Đang vẽ nét: <strong style="color:#e74c3c;">${player.currentStroke + 1}</strong> / ${player.totalStrokes}</span>`;
+            } else if (player.currentStroke === player.totalStrokes) {
+                statusEl.innerHTML = `<span>Nét: <strong>${player.totalStrokes}</strong> / ${player.totalStrokes} <span style="color:#27ae60;">(Đầy đủ)</span></span>`;
+            } else {
+                statusEl.innerHTML = `<span>Nét: <strong>${player.currentStroke}</strong> / ${player.totalStrokes}</span>`;
+            }
+        }
+
+        const playBtn = document.getElementById(`btn-play-${index}`);
+        if (playBtn) {
+            if (player.isPlaying) {
+                playBtn.innerHTML = '⏸️ Tạm dừng';
+                playBtn.classList.add('active-tool');
+            } else {
+                playBtn.innerHTML = '▶️ Phát nét';
+                playBtn.classList.remove('active-tool');
+            }
+        }
+    }
+
+    function drawStroke(index, strokeIdx, onDone) {
+        const player = kanjiPlayers[index];
+        if (!player || strokeIdx < 0 || strokeIdx >= player.paths.length) {
+            if (onDone) onDone();
+            return;
+        }
+
+        const p = player.paths[strokeIdx];
+        p.style.transition = 'stroke-dashoffset 0.42s ease-in-out';
+        p.style.stroke = '#e74c3c';
+        p.style.strokeDashoffset = '0';
+
+        setTimeout(() => {
+            p.style.stroke = '#2c3e50';
+            if (onDone) onDone();
+        }, 440);
+    }
+
+    function hideStroke(index, strokeIdx) {
+        const player = kanjiPlayers[index];
+        if (!player || strokeIdx < 0 || strokeIdx >= player.paths.length) return;
+
+        const p = player.paths[strokeIdx];
+        const len = parseFloat(p.dataset.length) || 100;
+        p.style.transition = 'none';
+        p.style.strokeDashoffset = len;
+        p.style.stroke = '#2c3e50';
+    }
+
+    function playLoop(index) {
+        const player = kanjiPlayers[index];
+        if (!player || !player.isPlaying) return;
+
+        if (player.currentStroke >= player.totalStrokes) {
+            player.isPlaying = false;
+            updatePlayerUI(index);
+            return;
+        }
+
+        updatePlayerUI(index);
+        const strokeToDraw = player.currentStroke;
+        drawStroke(index, strokeToDraw, () => {
+            if (!player.isPlaying) return;
+            player.currentStroke = strokeToDraw + 1;
+            updatePlayerUI(index);
+
+            if (player.currentStroke < player.totalStrokes) {
+                player.timer = setTimeout(() => {
+                    playLoop(index);
+                }, 160);
+            } else {
+                player.isPlaying = false;
+                updatePlayerUI(index);
+            }
+        });
+    }
+
+    function togglePlayAnimation(index) {
+        const player = kanjiPlayers[index];
+        if (!player) return;
+
+        if (player.isPlaying) {
+            player.isPlaying = false;
+            if (player.timer) clearTimeout(player.timer);
+            updatePlayerUI(index);
+            return;
+        }
+
+        if (player.currentStroke >= player.totalStrokes) {
+            player.paths.forEach((p, sIdx) => hideStroke(index, sIdx));
+            player.currentStroke = 0;
+        }
+
+        player.isPlaying = true;
+        playLoop(index);
+    }
+
+    function replayAnimation(index) {
+        const player = kanjiPlayers[index];
+        if (!player) return;
+
+        if (player.timer) clearTimeout(player.timer);
+        player.isPlaying = false;
+        player.paths.forEach((p, sIdx) => hideStroke(index, sIdx));
+        player.currentStroke = 0;
+        updatePlayerUI(index);
+
+        player.isPlaying = true;
+        playLoop(index);
+    }
+
+    function stepNextStroke(index) {
+        const player = kanjiPlayers[index];
+        if (!player) return;
+
+        if (player.isPlaying) {
+            player.isPlaying = false;
+            if (player.timer) clearTimeout(player.timer);
+        }
+
+        if (player.currentStroke < player.totalStrokes) {
+            drawStroke(index, player.currentStroke);
+            player.currentStroke++;
+            updatePlayerUI(index);
+        }
+    }
+
+    function stepPrevStroke(index) {
+        const player = kanjiPlayers[index];
+        if (!player) return;
+
+        if (player.isPlaying) {
+            player.isPlaying = false;
+            if (player.timer) clearTimeout(player.timer);
+        }
+
+        if (player.currentStroke > 0) {
+            player.currentStroke--;
+            hideStroke(index, player.currentStroke);
+            updatePlayerUI(index);
+        }
+    }
+
+    function toggleNumbers(index) {
+        const player = kanjiPlayers[index];
+        if (!player) return;
+
+        player.showNumbers = !player.showNumbers;
+        if (player.numbersGroup) {
+            player.numbersGroup.style.display = player.showNumbers ? 'inline' : 'none';
+        }
+
+        const btn = document.getElementById(`btn-num-${index}`);
+        if (btn) {
+            btn.classList.toggle('active-tool', player.showNumbers);
+        }
     }
 
     // EXERCISE 1: TYPING READING

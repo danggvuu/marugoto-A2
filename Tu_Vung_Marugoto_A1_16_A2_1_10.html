@@ -38,6 +38,39 @@
             margin: 0 auto;
         }
 
+        /* Global Hub Navigation */
+        .global-hub-nav {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .hub-nav-item {
+            text-decoration: none;
+            background: white;
+            color: #4a5568;
+            padding: 8px 18px;
+            border-radius: 25px;
+            font-size: 0.92rem;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            border: 1.5px solid transparent;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .hub-nav-item:hover {
+            border-color: #cbd5e0;
+            transform: translateY(-1px);
+        }
+        .hub-nav-item.active-hub {
+            background: #6c5ce7;
+            color: white;
+            box-shadow: 0 4px 12px rgba(108, 92, 231, 0.35);
+        }
+
         /* Header */
         header {
             background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);
@@ -384,6 +417,14 @@
 <body>
 
 <div class="container">
+    <!-- Global Hub Navigation -->
+    <div class="global-hub-nav">
+        <a href="index.html" class="hub-nav-item">🌸 Thể TE (～て)</a>
+        <a href="the_ru.html" class="hub-nav-item">📘 Thể RU (Từ Điển)</a>
+        <a href="kanji_a2.html" class="hub-nav-item">⛩️ Học Kanji & Nét Viết</a>
+        <a href="Tu_Vung_Marugoto_A1_16_A2_1_10.html" class="hub-nav-item active-hub">📖 Kho Từ Vựng A1-A2</a>
+    </div>
+
     <header>
         <h1>📖 TỪ VỰNG MARUGOTO TỔNG HỢP</h1>
         <p>A1 (Bài 16 - 18) & A2-1 (Bài 1 - 10) • Gồm 380+ từ vựng chuẩn giáo trình</p>
