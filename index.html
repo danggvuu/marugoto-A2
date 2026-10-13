@@ -411,12 +411,124 @@
             font-size: 0.9rem;
         }
 
+        /* Global Hub Navigation */
+        .global-hub-nav {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .hub-nav-item {
+            text-decoration: none;
+            background: white;
+            color: #4a5568;
+            padding: 8px 18px;
+            border-radius: 25px;
+            font-size: 0.92rem;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            border: 1.5px solid transparent;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .hub-nav-item:hover {
+            border-color: #cbd5e0;
+            transform: translateY(-1px);
+        }
+        .hub-nav-item.active-hub {
+            background: #e84393;
+            color: white;
+            box-shadow: 0 4px 12px rgba(232, 67, 147, 0.35);
+        }
+
+        /* MOBILE RESPONSIVE OPTIMIZATION */
         @media (max-width: 768px) {
-            header h1 { font-size: 1.7rem; }
-            .card { padding: 20px; }
-            .controls-bar { flex-direction: column; align-items: stretch; }
-            .search-box input { width: 100%; }
-            .btn-group { justify-content: center; }
+            body {
+                padding: 12px 10px;
+            }
+
+            .global-hub-nav {
+                display: flex;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                justify-content: flex-start;
+                gap: 8px;
+                margin-bottom: 15px;
+                padding: 2px 2px 8px 2px;
+                scrollbar-width: none;
+            }
+            .global-hub-nav::-webkit-scrollbar {
+                display: none;
+            }
+            .hub-nav-item {
+                flex-shrink: 0;
+                padding: 7px 14px;
+                font-size: 0.84rem;
+                white-space: nowrap;
+            }
+
+            header {
+                padding: 20px 14px;
+                border-radius: 14px;
+                margin-bottom: 15px;
+            }
+            header h1 {
+                font-size: 1.35rem;
+                line-height: 1.3;
+            }
+            header p {
+                font-size: 0.86rem;
+                margin-top: 6px;
+            }
+
+            .nav-tabs {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                margin-bottom: 15px;
+            }
+            .nav-tab-btn {
+                width: 100%;
+                padding: 11px 14px;
+                font-size: 0.92rem;
+                text-align: center;
+                border-radius: 10px;
+            }
+
+            .card {
+                padding: 16px 14px;
+                border-radius: 14px;
+                margin-bottom: 16px;
+            }
+
+            .controls-bar {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 10px;
+            }
+            .search-box input {
+                width: 100%;
+                font-size: 16px !important; /* Prevents auto-zoom on iOS */
+                min-height: 44px;
+            }
+            .btn-group {
+                justify-content: stretch;
+                gap: 8px;
+            }
+            .btn-group .btn {
+                flex: 1;
+                min-height: 42px;
+                font-size: 0.85rem;
+                padding: 8px 10px;
+            }
+
+            .group-select, .text-input {
+                font-size: 16px !important;
+            }
         }
     </style>
 </head>
@@ -424,11 +536,11 @@
 
 <div class="container">
     <!-- Global Hub Navigation -->
-    <div style="display: flex; justify-content: center; gap: 10px; margin-bottom: 20px; flex-wrap: wrap;">
-        <a href="index.html" style="text-decoration: none; background: #e84393; color: white; padding: 8px 18px; border-radius: 25px; font-size: 0.92rem; font-weight: 600; box-shadow: 0 4px 12px rgba(232, 67, 147, 0.35);">🌸 Thể TE (～て)</a>
-        <a href="the_ru.html" style="text-decoration: none; background: white; color: #4a5568; padding: 8px 18px; border-radius: 25px; font-size: 0.92rem; font-weight: 600; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">📘 Thể RU (Từ Điển)</a>
-        <a href="kanji_a2.html" style="text-decoration: none; background: white; color: #4a5568; padding: 8px 18px; border-radius: 25px; font-size: 0.92rem; font-weight: 600; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">⛩️ Học Kanji & Nét Viết</a>
-        <a href="Tu_Vung_Marugoto_A1_16_A2_1_10.html" style="text-decoration: none; background: white; color: #4a5568; padding: 8px 18px; border-radius: 25px; font-size: 0.92rem; font-weight: 600; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">📖 Kho Từ Vựng A1-A2</a>
+    <div class="global-hub-nav">
+        <a href="index.html" class="hub-nav-item active-hub">🌸 Thể TE (～て)</a>
+        <a href="the_ru.html" class="hub-nav-item">📘 Thể RU (Từ Điển)</a>
+        <a href="kanji_a2.html" class="hub-nav-item">⛩️ Học Kanji & Nét Viết</a>
+        <a href="Tu_Vung_Marugoto_A1_16_A2_1_10.html" class="hub-nav-item">📖 Kho Từ Vựng A1-A2</a>
     </div>
 
     <!-- Header -->

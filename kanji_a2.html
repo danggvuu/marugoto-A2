@@ -693,11 +693,272 @@
             font-size: 0.9rem;
         }
 
+        /* MOBILE RESPONSIVE OPTIMIZATION */
         @media (max-width: 768px) {
-            .card-body { grid-template-columns: 1fr; }
-            .visual-column { flex-direction: column; align-items: center; }
-            .quiz-options { grid-template-columns: 1fr; }
-            .controls { flex-direction: column; align-items: stretch; }
+            body {
+                padding: 12px 10px;
+            }
+
+            .container {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            /* Global Hub Nav: Horizontal Touch-scrollable pills */
+            .global-hub-nav {
+                display: flex;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                justify-content: flex-start;
+                gap: 8px;
+                margin-bottom: 15px;
+                padding: 2px 2px 8px 2px;
+                scrollbar-width: none;
+            }
+            .global-hub-nav::-webkit-scrollbar {
+                display: none;
+            }
+            .hub-nav-item {
+                flex-shrink: 0;
+                padding: 7px 14px;
+                font-size: 0.84rem;
+                white-space: nowrap;
+            }
+
+            /* Header */
+            header {
+                padding: 20px 14px;
+                border-radius: 14px;
+                margin-bottom: 15px;
+            }
+            header h1 {
+                font-size: 1.35rem;
+                line-height: 1.3;
+            }
+            header p {
+                font-size: 0.86rem;
+                margin-top: 6px;
+            }
+
+            /* Mode Tabs */
+            .mode-tabs {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                margin-bottom: 16px;
+            }
+            .mode-tab-btn {
+                width: 100%;
+                padding: 11px 14px;
+                font-size: 0.92rem;
+                text-align: center;
+                border-radius: 10px;
+            }
+
+            /* Filters */
+            .controls {
+                flex-direction: column;
+                align-items: stretch;
+                padding: 14px;
+                border-radius: 14px;
+                margin-bottom: 16px;
+                gap: 10px;
+            }
+            .filter-group {
+                flex-direction: column;
+                gap: 10px;
+                width: 100%;
+            }
+            .filter-group select,
+            .filter-group input {
+                width: 100%;
+                font-size: 16px !important; /* Prevents auto-zoom on iOS */
+                min-height: 44px;
+                padding: 10px 12px;
+                border-radius: 10px;
+            }
+            .filter-stats {
+                text-align: center;
+                font-size: 0.82rem;
+                margin-top: 4px;
+            }
+
+            /* Kanji Card */
+            .kanji-card {
+                padding: 16px 14px;
+                border-radius: 14px;
+                margin-bottom: 16px;
+            }
+            .card-header-bar {
+                gap: 8px;
+                margin-bottom: 12px;
+            }
+            .kanji-badge {
+                font-size: 1.25rem;
+                padding: 4px 14px;
+            }
+            .han-viet-title {
+                font-size: 1.35rem;
+            }
+            .stroke-badge {
+                font-size: 0.78rem;
+                padding: 2px 8px;
+            }
+            .lesson-tag {
+                margin-left: 0;
+                width: 100%;
+                order: 4;
+                font-size: 0.78rem;
+                padding: 4px 10px;
+                text-align: center;
+            }
+
+            /* Card Body: Place Visual Column (Stroke Animator) at TOP of info for intuitive mobile UX */
+            .card-body {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            .visual-column {
+                order: -1;
+                width: 100%;
+                align-items: center;
+                background: #f8fbfd;
+                border: 1.5px solid #e1effa;
+                border-radius: 14px;
+                padding: 14px 10px;
+            }
+            .mnemonic-visual-box {
+                margin-bottom: 5px;
+                background: white;
+            }
+            .kanji-grid-box {
+                width: 170px;
+                height: 170px;
+            }
+            .anim-status-bar {
+                font-size: 0.85rem;
+                margin: 4px 0;
+            }
+            .anim-controls {
+                display: grid;
+                grid-template-columns: repeat(5, 1fr);
+                gap: 6px;
+                width: 100%;
+                max-width: 330px;
+                margin-top: 6px;
+            }
+            .btn-anim {
+                font-size: 0.75rem;
+                padding: 8px 2px;
+                min-height: 42px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 8px;
+            }
+
+            .info-box {
+                padding: 14px 12px;
+                border-radius: 12px;
+            }
+            .info-item {
+                font-size: 0.95rem;
+            }
+            .info-label {
+                min-width: 65px;
+            }
+            .example-line {
+                font-size: 0.92rem;
+            }
+            .stroke-guide-note, .mnemonic-note {
+                font-size: 0.85rem;
+                padding: 8px 10px;
+            }
+
+            /* TAB 2: Exercises */
+            .exercise-section {
+                padding: 16px 14px;
+                border-radius: 14px;
+            }
+            .exercise-section h2 {
+                font-size: 1.25rem;
+            }
+            .ex-controls-bar {
+                flex-direction: column;
+                gap: 8px;
+            }
+            .ex-controls-bar .btn {
+                width: 100%;
+                min-height: 44px;
+            }
+            /* Convert Exercise Table into Mobile Cards */
+            .ex-table-container {
+                overflow-x: visible;
+            }
+            .ex-table, .ex-table tbody, .ex-table tr, .ex-table td {
+                display: block;
+                width: 100%;
+            }
+            .ex-table thead {
+                display: none;
+            }
+            .ex-table tr {
+                background: #fafcfe;
+                border: 1.5px solid var(--border);
+                border-radius: 12px;
+                padding: 12px 14px;
+                margin-bottom: 12px;
+                box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+            }
+            .ex-table td {
+                padding: 3px 0;
+                border-bottom: none;
+            }
+            .ex-table td:nth-child(1) {
+                font-size: 0.8rem;
+                color: #7f8c8d;
+                font-weight: 700;
+            }
+            .ex-kanji-word {
+                font-size: 1.5rem;
+                color: #2c3e50;
+                display: block;
+            }
+            .ex-input {
+                width: 100%;
+                min-height: 44px;
+                font-size: 16px !important;
+                padding: 10px 12px;
+                margin-top: 6px;
+                border-radius: 8px;
+            }
+            .quiz-container {
+                padding: 18px 14px;
+                border-radius: 14px;
+            }
+            .quiz-prompt {
+                font-size: 1.8rem;
+            }
+            .quiz-options {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            .quiz-opt {
+                min-height: 46px;
+                font-size: 1rem;
+                padding: 12px;
+            }
+
+            /* TAB 3: Rules */
+            .rules-card {
+                padding: 18px 14px;
+                border-radius: 14px;
+            }
+            .rules-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
         }
 
         @media print {
