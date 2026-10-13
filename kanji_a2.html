@@ -3,19 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thẻ Học Chữ Hán Kanji Marugoto A2-1 (Kèm Âm Hán Việt, On, Kun & Mẹo Nhớ)</title>
+    <title>Thẻ Học, Tập Viết & Bài Tập Kanji Marugoto A2-1</title>
     <style>
         :root {
             --primary: #2980b9;
             --primary-dark: #1f618d;
             --primary-light: #ebf5fb;
             --accent: #e74c3c;
+            --success: #00b894;
+            --success-bg: #e6f9f5;
+            --danger: #d63031;
+            --danger-bg: #ffebee;
             --dark: #2c3e50;
             --gray: #7f8c8d;
             --border: #d6dbdf;
             --card-border: #85c1e9;
             --grid-line: #5dade2;
             --bg: #f4f6f9;
+            --shadow: 0 8px 22px rgba(0,0,0,0.06);
         }
 
         * {
@@ -33,7 +38,7 @@
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 1050px;
             margin: 0 auto;
         }
 
@@ -70,7 +75,7 @@
             border-radius: 16px;
             text-align: center;
             box-shadow: 0 8px 20px rgba(41, 128, 185, 0.25);
-            margin-bottom: 25px;
+            margin-bottom: 22px;
         }
 
         header h1 {
@@ -82,6 +87,53 @@
         header p {
             font-size: 1rem;
             opacity: 0.95;
+        }
+
+        /* Mode Tabs */
+        .mode-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 22px;
+            flex-wrap: wrap;
+        }
+
+        .mode-tab-btn {
+            background: white;
+            border: 2px solid transparent;
+            padding: 11px 24px;
+            border-radius: 30px;
+            font-size: 0.96rem;
+            font-weight: 600;
+            cursor: pointer;
+            color: var(--dark);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+            transition: all 0.25s ease;
+        }
+
+        .mode-tab-btn:hover {
+            border-color: var(--card-border);
+            color: var(--primary);
+        }
+
+        .mode-tab-btn.active {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 4px 15px rgba(41, 128, 185, 0.35);
+        }
+
+        .tab-panel {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .tab-panel.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* Controls */
@@ -119,23 +171,35 @@
             border-color: var(--primary);
         }
 
-        .btn-print {
+        .btn {
             background: var(--primary);
             color: white;
             border: none;
             padding: 10px 18px;
             border-radius: 10px;
             font-weight: 600;
+            font-size: 0.92rem;
             cursor: pointer;
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            transition: background 0.2s;
+            transition: all 0.2s;
         }
 
-        .btn-print:hover {
-            background: var(--primary-dark);
+        .btn:hover { background: var(--primary-dark); }
+        .btn-success { background: var(--success); }
+        .btn-success:hover { background: #00997b; }
+        .btn-outline {
+            background: white;
+            color: var(--primary);
+            border: 1.5px solid var(--primary);
         }
+        .btn-outline:hover { background: var(--primary-light); }
+        .btn-secondary {
+            background: #dfe6e9;
+            color: var(--dark);
+        }
+        .btn-secondary:hover { background: #b2bec3; }
 
         /* Kanji Cards Grid */
         .cards-list {
@@ -144,19 +208,12 @@
             gap: 25px;
         }
 
-        /* Single Kanji Card Container */
         .kanji-card {
             background: white;
             border-radius: 18px;
             padding: 24px;
-            box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+            box-shadow: var(--shadow);
             border: 1px solid #eef2f5;
-            transition: transform 0.2s ease;
-        }
-
-        .kanji-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
         }
 
         /* Top Title Badge */
@@ -165,12 +222,13 @@
             align-items: center;
             gap: 12px;
             margin-bottom: 16px;
+            flex-wrap: wrap;
         }
 
         .kanji-badge {
             background: #2980b9;
             color: white;
-            font-size: 1.3rem;
+            font-size: 1.35rem;
             font-weight: bold;
             padding: 4px 18px;
             border-radius: 6px;
@@ -183,6 +241,16 @@
             font-size: 1.6rem;
             font-weight: 800;
             color: #2c3e50;
+        }
+
+        .stroke-badge {
+            background: #fef9e7;
+            color: #b7950b;
+            border: 1px solid #f9e79f;
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 15px;
         }
 
         .lesson-tag {
@@ -198,8 +266,8 @@
         /* Main Content 2 Columns */
         .card-body {
             display: grid;
-            grid-template-columns: 1fr 240px;
-            gap: 20px;
+            grid-template-columns: 1fr 250px;
+            gap: 22px;
             align-items: stretch;
         }
 
@@ -216,7 +284,7 @@
 
         .info-list {
             list-style: none;
-            margin-bottom: 14px;
+            margin-bottom: 12px;
         }
 
         .info-item {
@@ -262,31 +330,45 @@
             color: #2c3e50;
         }
 
+        .guides-wrapper {
+            margin-top: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .stroke-guide-note {
+            background: #eaf2f8;
+            border-left: 4px solid #2980b9;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            color: #1b4f72;
+        }
+
         .mnemonic-note {
             background: #fff9e6;
             border-left: 4px solid #f39c12;
             padding: 8px 12px;
             border-radius: 6px;
-            font-size: 0.92rem;
+            font-size: 0.9rem;
             color: #7f6000;
-            margin-top: 10px;
         }
 
-        /* Right Column: Visual Box & Grid Box */
+        /* Right Column: Visual Box & Interactive Grid Box */
         .visual-column {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: space-between;
-            gap: 15px;
+            gap: 12px;
         }
 
-        /* Mnemonic Visual / Radical Hint */
         .mnemonic-visual-box {
             text-align: center;
-            font-size: 0.95rem;
+            font-size: 0.92rem;
             color: #555;
-            padding: 8px 12px;
+            padding: 8px 10px;
             background: #f8f9fa;
             border-radius: 10px;
             border: 1px dashed #ccd1d9;
@@ -294,16 +376,16 @@
         }
 
         .radical-formula {
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             font-weight: 700;
             color: #2c3e50;
-            margin-bottom: 4px;
+            margin-bottom: 2px;
         }
 
-        /* Traditional Japanese Writing Grid Box */
+        /* Traditional Japanese Writing Grid Box + Drawing Canvas */
         .kanji-grid-box {
-            width: 150px;
-            height: 150px;
+            width: 165px;
+            height: 165px;
             border: 2.5px solid #2980b9;
             border-radius: 6px;
             position: relative;
@@ -312,9 +394,9 @@
             align-items: center;
             justify-content: center;
             box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+            overflow: hidden;
         }
 
-        /* Crosshair Dashed Lines */
         .grid-line-h {
             position: absolute;
             top: 50%;
@@ -322,6 +404,7 @@
             width: 100%;
             height: 0;
             border-top: 1px dashed var(--grid-line);
+            pointer-events: none;
         }
 
         .grid-line-v {
@@ -331,19 +414,247 @@
             height: 100%;
             width: 0;
             border-left: 1px dashed var(--grid-line);
+            pointer-events: none;
         }
 
         .kanji-char-large {
-            font-size: 5.5rem;
+            font-size: 6rem;
             font-family: "Klee One", "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif;
             color: #1a252f;
             position: relative;
-            z-index: 2;
+            z-index: 1;
             line-height: 1;
             user-select: none;
+            pointer-events: none;
+            transition: opacity 0.2s;
         }
 
-        /* Footer */
+        .kanji-char-large.trace-mode {
+            opacity: 0.18;
+        }
+
+        .draw-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 165px;
+            height: 165px;
+            z-index: 3;
+            cursor: crosshair;
+            touch-action: none;
+        }
+
+        .canvas-controls {
+            display: flex;
+            gap: 6px;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .btn-mini {
+            font-size: 0.78rem;
+            padding: 5px 10px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            background: white;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--dark);
+            transition: all 0.15s;
+        }
+
+        .btn-mini:hover {
+            background: var(--primary-light);
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-mini.active-trace {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* TAB 2: WRITING RULES */
+        .rules-card {
+            background: white;
+            border-radius: 18px;
+            padding: 28px;
+            box-shadow: var(--shadow);
+            margin-bottom: 25px;
+        }
+
+        .rules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+            gap: 18px;
+            margin-top: 20px;
+        }
+
+        .rule-item {
+            border: 1.5px solid var(--border);
+            border-radius: 12px;
+            padding: 16px;
+            background: #fafcfe;
+        }
+
+        .rule-item h4 {
+            color: var(--primary);
+            font-size: 1.05rem;
+            margin-bottom: 8px;
+        }
+
+        .rule-demo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: white;
+            padding: 8px 12px;
+            border-radius: 8px;
+            border: 1px dashed var(--card-border);
+            margin-top: 8px;
+            text-align: center;
+            color: var(--dark);
+        }
+
+        /* TAB 3: EXERCISES */
+        .exercise-section {
+            background: white;
+            border-radius: 18px;
+            padding: 28px;
+            box-shadow: var(--shadow);
+            margin-bottom: 25px;
+        }
+
+        .exercise-section h2 {
+            color: var(--primary);
+            margin-bottom: 8px;
+            font-size: 1.4rem;
+        }
+
+        .score-banner {
+            background: linear-gradient(135deg, #00b894 0%, #00cec9 100%);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            text-align: center;
+            margin: 15px 0;
+            display: none;
+        }
+
+        .ex-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        .ex-table th, .ex-table td {
+            padding: 12px 14px;
+            border-bottom: 1px solid var(--border);
+            text-align: left;
+        }
+
+        .ex-table th {
+            background: #f8fbfd;
+            color: var(--dark);
+            font-weight: 700;
+        }
+
+        .ex-kanji-word {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .ex-input {
+            padding: 8px 12px;
+            border: 1.5px solid var(--border);
+            border-radius: 8px;
+            font-size: 0.95rem;
+            width: 100%;
+            max-width: 240px;
+            outline: none;
+        }
+
+        .ex-input.correct {
+            border-color: var(--success) !important;
+            background: var(--success-bg) !important;
+            color: #00796b !important;
+        }
+
+        .ex-input.wrong {
+            border-color: var(--danger) !important;
+            background: var(--danger-bg) !important;
+            color: #c2185b !important;
+        }
+
+        .ex-hint {
+            display: none;
+            font-size: 0.85rem;
+            color: #00796b;
+            font-weight: 600;
+            margin-top: 4px;
+        }
+
+        /* Quiz Card */
+        .quiz-container {
+            max-width: 620px;
+            margin: 20px auto 0 auto;
+            text-align: center;
+            padding: 25px;
+            border: 2px solid var(--primary-light);
+            border-radius: 16px;
+            background: #fafcfe;
+        }
+
+        .quiz-prompt {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin: 12px 0;
+        }
+
+        .quiz-sub {
+            color: var(--gray);
+            margin-bottom: 18px;
+        }
+
+        .quiz-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .quiz-opt {
+            padding: 14px;
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            background: white;
+            font-size: 1.05rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .quiz-opt:hover {
+            border-color: var(--primary);
+            background: var(--primary-light);
+        }
+
+        .quiz-opt.correct {
+            background: var(--success-bg) !important;
+            border-color: var(--success) !important;
+            color: #00796b !important;
+        }
+
+        .quiz-opt.wrong {
+            background: var(--danger-bg) !important;
+            border-color: var(--danger) !important;
+            color: #c2185b !important;
+        }
+
         footer {
             text-align: center;
             margin-top: 40px;
@@ -353,29 +664,15 @@
         }
 
         @media (max-width: 768px) {
-            .card-body {
-                grid-template-columns: 1fr;
-            }
-            .visual-column {
-                flex-direction: row;
-                justify-content: space-around;
-            }
-            .kanji-grid-box {
-                width: 130px;
-                height: 130px;
-            }
-            .kanji-char-large {
-                font-size: 4.8rem;
-            }
-            .controls {
-                flex-direction: column;
-                align-items: stretch;
-            }
+            .card-body { grid-template-columns: 1fr; }
+            .visual-column { flex-direction: column; align-items: center; }
+            .quiz-options { grid-template-columns: 1fr; }
+            .controls { flex-direction: column; align-items: stretch; }
         }
 
         @media print {
             body { background: white; padding: 0; }
-            .quick-nav, .controls, footer { display: none; }
+            .quick-nav, .mode-tabs, .controls, .canvas-controls, footer { display: none; }
             .kanji-card { page-break-inside: avoid; box-shadow: none; border: 1px solid #ccc; margin-bottom: 15px; }
         }
     </style>
@@ -392,1186 +689,980 @@
 
     <!-- Header -->
     <header>
-        <h1>⛩️ THẺ HỌC CHỮ HÁN KANJI MARUGOTO A2-1</h1>
-        <p>Tổng hợp chi tiết từng chữ: Âm Hán Việt • Nghĩa • Âm Kun • Âm On • Từ vựng thực tế • Mẹo nhớ tượng hình</p>
+        <h1>⛩️ THẺ HỌC, TẬP VIẾT & BÀI TẬP KANJI A2-1</h1>
+        <p>Học bộ thủ • Hướng dẫn thứ tự nét viết • Tập tô chữ trực tiếp trên ô • Bài tập luyện từ vựng Kanji</p>
     </header>
 
-    <!-- Controls -->
-    <div class="controls">
+    <!-- Mode Switcher -->
+    <div class="mode-tabs">
+        <button class="mode-tab-btn active" onclick="switchTab('tab-cards')">🎴 Thẻ Học & Tập Viết Kanji</button>
+        <button class="mode-tab-btn" onclick="switchTab('tab-exercises')">✍️ Bài Tập Từ Vựng Kanji</button>
+        <button class="mode-tab-btn" onclick="switchTab('tab-rules')">📏 8 Quy Tắc Viết Chữ Hán</button>
+    </div>
+
+    <!-- Shared Filter Bar -->
+    <div class="controls" id="filterBar">
         <div class="filter-group">
-            <select id="lessonFilter" onchange="filterCards()">
+            <select id="lessonFilter" onchange="applyLessonFilter()">
                 <option value="ALL">🌟 Tất Cả Các Bài (Trọn bộ A2-1)</option>
-                <option value="L1">Bài 1: Tôi và gia đình (私, 父, 母, 子, 男, 女, 人, 何)</option>
+                <option value="L1">Bài 1: Tôi và gia đình (私, 父, 母, 子, 男, 女, 人)</option>
                 <option value="L2">Bài 2: Sở thích & Ngôn ngữ (国, 外, 語, 本, 読, 好, 何)</option>
                 <option value="L3" selected>Bài 3: Mùa & Thiên nhiên (春, 夏, 秋, 冬, 今, 花, 海, 山, 川)</option>
                 <option value="L4">Bài 4: Thời tiết (天, 気, 晴, 雨, 雪, 雲, 風, 空)</option>
                 <option value="L5">Bài 5: Thị trấn & Phố xá (町, 店, 多, 少, 高, 安, 広)</option>
                 <option value="L6">Bài 6: Phương hướng & Màu sắc (道, 通, 右, 左, 赤, 青, 黒, 白)</option>
-                <option value="L7">Bài 7: Ra ngoài & Đi lại (時, 間, 場, 所, 駅, 日, 出, 待, 止)</option>
-                <option value="L8">Bài 8: Bữa ăn & Thời gian (食, 事, 仕, 前, 後, 朝, 昼, 夜, 乗)</option>
-                <option value="L9">Bài 9: Trường học & Học tập (校, 学, 先, 生, 年, 勉, 強)</option>
-                <option value="L10">Bài 10: Văn hóa & Du lịch (文, 化, 音, 楽, 旅, 行, 友, 週, 回)</option>
+                <option value="L7">Bài 7: Ra ngoài & Đi lại (時, 間, 場, 所, 駅, 出, 待, 止)</option>
+                <option value="L8">Bài 8: Bữa ăn & Thời gian (食, 事, 前, 後, 朝, 昼, 夜, 乗)</option>
+                <option value="L9">Bài 9: Trường học & Học tập (学, 校, 先, 生, 勉, 強)</option>
+                <option value="L10">Bài 10: Văn hóa & Du lịch (文, 化, 音, 楽, 旅, 友, 週)</option>
             </select>
-            <input type="text" id="searchInput" placeholder="🔍 Tìm chữ Hán, Hán Việt, âm Kun/On..." oninput="filterCards()">
+            <input type="text" id="searchInput" placeholder="🔍 Tìm chữ Hán, Hán Việt, nghĩa..." oninput="applyLessonFilter()">
         </div>
-        <button class="btn-print" onclick="window.print()">🖨️ In / Xuất PDF Thẻ Học</button>
+        <button class="btn" onclick="window.print()">🖨️ In Thẻ Học</button>
     </div>
 
-    <!-- Cards List -->
-    <div class="cards-list" id="cardsContainer">
-        <!-- Rendered via JS -->
+    <!-- TAB 1: KANJI CARDS & INTERACTIVE WRITING -->
+    <div id="tab-cards" class="tab-panel active">
+        <div style="margin-bottom: 14px; font-size: 0.92rem; color: #1f618d; background: #ebf5fb; padding: 10px 16px; border-radius: 10px;">
+            💡 <strong>Mẹo luyện viết:</strong> Bạn có thể dùng chuột (hoặc ngón tay trên điện thoại/iPad) <strong>vẽ trực tiếp vào ô chữ Hán bên phải</strong> mỗi thẻ để luyện nhớ nét chữ! Bấm nút <em>"Làm mờ mẫu"</em> để tự viết.
+        </div>
+        <div class="cards-list" id="cardsContainer"></div>
+    </div>
+
+    <!-- TAB 2: KANJI VOCABULARY EXERCISES -->
+    <div id="tab-exercises" class="tab-panel">
+        <!-- Part 1: Typing Reading Exercise -->
+        <div class="exercise-section">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+                <div>
+                    <h2>📝 Bài Tập 1: Điền Cách Đọc Hiragana Cho Từ Kanji</h2>
+                    <p style="color: var(--gray); font-size: 0.95rem;">Gõ cách đọc bằng Hiragana cho các từ vựng thuộc bài đang chọn ở trên:</p>
+                </div>
+                <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                    <button class="btn btn-success" onclick="gradeTypingExercise()">✅ Chấm Điểm</button>
+                    <button class="btn btn-outline" onclick="toggleExerciseHints()">👁️ Hiện Đáp Án</button>
+                    <button class="btn btn-secondary" onclick="resetTypingExercise()">🔄 Làm Lại</button>
+                </div>
+            </div>
+
+            <div id="exScoreBanner" class="score-banner"></div>
+
+            <div style="overflow-x: auto;">
+                <table class="ex-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 50px;">STT</th>
+                            <th style="width: 200px;">Từ Vựng Kanji</th>
+                            <th style="width: 240px;">Ý Nghĩa Tiếng Việt</th>
+                            <th>Nhập Cách Đọc (Hiragana)</th>
+                            <th style="width: 80px; text-align: center;">Kết Quả</th>
+                        </tr>
+                    </thead>
+                    <tbody id="exTableBody"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Part 2: Multiple Choice Quiz -->
+        <div class="exercise-section">
+            <h2>🎯 Bài Tập 2: Trắc Nghiệm Phản Xạ Chữ Hán</h2>
+            <p style="color: var(--gray); font-size: 0.95rem;">Kiểm tra nhanh khả năng nhận diện mặt chữ, âm đọc và ý nghĩa:</p>
+
+            <div class="quiz-container">
+                <span class="stroke-badge" id="quizTag">Câu hỏi phản xạ</span>
+                <div class="quiz-prompt" id="quizPrompt">秋</div>
+                <div class="quiz-sub" id="quizQuestionText">Chọn cách đọc và nghĩa đúng của từ trên:</div>
+                <div class="quiz-options" id="quizOptionsBox"></div>
+                <button class="btn" id="nextQuizBtn" style="display: none; margin: 0 auto;" onclick="generateQuiz()">Câu Tiếp Theo ➔</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- TAB 3: STROKE ORDER RULES -->
+    <div id="tab-rules" class="tab-panel">
+        <div class="rules-card">
+            <h2 style="color: var(--primary); margin-bottom: 10px;">📏 8 Quy Tắc Vàng Khi Viết Chữ Hán (Bút Thuận Chuẩn)</h2>
+            <p>Nắm vững 8 quy tắc thứ tự nét viết (Bút thuận) này sẽ giúp bạn viết bất kỳ chữ Hán nào cũng cân đối, đẹp mắt và nhớ mặt chữ nhanh gấp 3 lần:</p>
+
+            <div class="rules-grid">
+                <div class="rule-item">
+                    <h4>1. Ngang trước, Sổ sau</h4>
+                    <p>Nét ngang (一) viết trước, nét sổ thẳng (丨) cắt qua viết sau.</p>
+                    <div class="rule-demo">十 ・ 七 ・ 木 ・ 本</div>
+                </div>
+                <div class="rule-item">
+                    <h4>2. Phẩy (丿) trước, Mác (乀) sau</h4>
+                    <p>Nét phẩy nghiêng sang trái viết trước, nét mác kéo sang phải viết sau.</p>
+                    <div class="rule-demo">人 ・ 八 ・ 入 ・ 父</div>
+                </div>
+                <div class="rule-item">
+                    <h4>3. Trên trước, Dưới sau</h4>
+                    <p>Các bộ phận ở phía trên viết trước, bộ phận ở phía dưới viết sau.</p>
+                    <div class="rule-demo">三 ・ 空 ・ 雪 ・ 男</div>
+                </div>
+                <div class="rule-item">
+                    <h4>4. Trái trước, Phải sau</h4>
+                    <p>Chữ ghép bởi hai phần trái - phải thì viết bộ bên trái trước, bên phải sau.</p>
+                    <div class="rule-demo">秋 ・ 語 ・ 読 ・ 好</div>
+                </div>
+                <div class="rule-item">
+                    <h4>5. Ngoài trước, Trong sau</h4>
+                    <p>Khung bao quanh bên ngoài viết trước, phần nhân bên trong viết sau.</p>
+                    <div class="rule-demo">月 ・ 風 ・ 同 ・ 週</div>
+                </div>
+                <div class="rule-item">
+                    <h4>6. Vào nhà trước, Đóng cửa sau</h4>
+                    <p>Với chữ có khung bao kín 4 phía (như bộ Vi 囗), viết khung ngoài ➔ viết ruột bên trong ➔ nét đáy đóng lại cuối cùng.</p>
+                    <div class="rule-demo">国 ・ 日 ・ 四 ・ 回</div>
+                </div>
+                <div class="rule-item">
+                    <h4>7. Giữa trước, Hai bên sau</h4>
+                    <p>Với các chữ đối xứng có trục dọc ở giữa, viết nét trục giữa trước rồi mới chấm hai bên.</p>
+                    <div class="rule-demo">小 ・ 少 ・ 水 ・ 山</div>
+                </div>
+                <div class="rule-item">
+                    <h4>8. Bộ Xước (辶) viết sau cùng</h4>
+                    <p>Các chữ có bộ dẫn đường (辶: đi lại) luôn viết phần bên trong trước, bộ 辶 bao dưới viết cuối cùng.</p>
+                    <div class="rule-demo">道 ・ 通 ・ 週 ・ 送</div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <footer>
-        <p>Phát triển chuẩn theo tài liệu gốc Japan Foundation & FPT Software • Chúc các bạn nhớ chữ Hán siêu tốc!</p>
+        <p>Hệ thống học Kanji Marugoto A2-1 • Chuẩn giáo trình Japan Foundation & FPT Software</p>
     </footer>
 </div>
 
 <script>
-    // Rich Kanji Dataset matching the exact user image layout
+    // Complete Kanji Dataset with Stroke Guide & Vocabulary Examples
     const kanjiData = [
-        // LESSON 3: SEASONS (Sample like the image)
+        // LESSON 3
         {
-            char: "秋",
-            hv: "Thu",
-            lesson: "L3",
-            lessonName: "Bài 3",
-            meaning: "Mùa thu",
-            kun: "あき、 とき",
-            on: "しゅう",
+            char: "秋", hv: "Thu", lesson: "L3", lessonName: "Bài 3", strokes: 9,
+            meaning: "Mùa thu", kun: "あき、 とき", on: "しゅう",
             examples: [
-                { jp: "秋（あき）", vi: "Mùa thu" },
-                { jp: "秋分（しゅうぶん）", vi: "Thu phân" }
+                { word: "秋", reading: "あき", vi: "Mùa thu" },
+                { word: "秋分", reading: "しゅうぶん", vi: "Thu phân" }
             ],
             formula: "禾 (Lúa) ＋ 火 (Lửa)",
+            strokeGuide: "Trái trước phải sau: Viết bộ Hòa (禾 - 5 nét) bên trái trước, bộ Hỏa (火 - 4 nét) bên phải sau.",
             mnemonic: "Bông lúa vàng ươm (禾) chín rộ bên ngọn lửa (火) sưởi ấm mùa thu hoạch."
         },
         {
-            char: "冬",
-            hv: "Đông",
-            lesson: "L3",
-            lessonName: "Bài 3",
-            meaning: "Mùa đông",
-            kun: "ふゆ",
-            on: "とう",
+            char: "冬", hv: "Đông", lesson: "L3", lessonName: "Bài 3", strokes: 5,
+            meaning: "Mùa đông", kun: "ふゆ", on: "とう",
             examples: [
-                { jp: "冬（ふゆ）", vi: "Mùa đông" },
-                { jp: "春夏秋冬（しゅんかしゅうとう）", vi: "Xuân hạ thu đông" }
+                { word: "冬", reading: "ふゆ", vi: "Mùa đông" },
+                { word: "春夏秋冬", reading: "しゅんかしゅうとう", vi: "Xuân hạ thu đông" }
             ],
             formula: "夂 (Đi chậm) ＋ 冫(Băng tuyết)",
+            strokeGuide: "Trên trước dưới sau: Viết bộ Truy (夂 - 3 nét) ở trên trước, hai nét chấm băng (冫) ở dưới cùng.",
             mnemonic: "Mùa đông đường đóng băng trơn trượt (冫) nên phải bước đi chậm chạp kẻo ngã."
         },
         {
-            char: "春",
-            hv: "Xuân",
-            lesson: "L3",
-            lessonName: "Bài 3",
-            meaning: "Mùa xuân",
-            kun: "はる",
-            on: "しゅん",
+            char: "春", hv: "Xuân", lesson: "L3", lessonName: "Bài 3", strokes: 9,
+            meaning: "Mùa xuân", kun: "はる", on: "しゅん",
             examples: [
-                { jp: "春（はる）", vi: "Mùa xuân" },
-                { jp: "青春（せいしゅん）", vi: "Thanh xuân, tuổi trẻ" }
+                { word: "春", reading: "はる", vi: "Mùa xuân" },
+                { word: "青春", reading: "せいしゅん", vi: "Thanh xuân" }
             ],
             formula: "三 (Ba) ＋ 人 (Người) ＋ 日 (Mặt trời)",
+            strokeGuide: "Trên trước dưới sau: Viết 3 nét ngang ➔ nét phẩy & mác bao lấy bộ Nhật (日 - 4 nét) ở dưới.",
             mnemonic: "Ba người (三人) cùng dạo chơi dưới ánh mặt trời (日) ấm áp của mùa xuân."
         },
         {
-            char: "夏",
-            hv: "Hạ",
-            lesson: "L3",
-            lessonName: "Bài 3",
-            meaning: "Mùa hè",
-            kun: "なつ",
-            on: "か、 げ",
+            char: "夏", hv: "Hạ", lesson: "L3", lessonName: "Bài 3", strokes: 10,
+            meaning: "Mùa hè", kun: "なつ", on: "か、 げ",
             examples: [
-                { jp: "夏（なつ）", vi: "Mùa hè" },
-                { jp: "夏休み（なつやすみ）", vi: "Nghỉ hè" }
+                { word: "夏", reading: "なつ", vi: "Mùa hè" },
+                { word: "夏休み", reading: "なつやすみ", vi: "Nghỉ hè" }
             ],
             formula: "頁 (Đầu) ＋ 夂 (Chân đi)",
-            mnemonic: "Mùa hè nóng bức, người ta đội mũ che đầu (頁) và rảo bước (夂) đi bơi."
+            strokeGuide: "Trên trước dưới sau: Nét ngang đầu tiên ➔ chữ Tự (目) ở giữa ➔ bộ Truy (夂) ở dưới cùng.",
+            mnemonic: "Mùa hè nóng bức, người ta đội mũ che đầu và rảo bước (夂) đi biển."
         },
         {
-            char: "今",
-            hv: "Kim",
-            lesson: "L3",
-            lessonName: "Bài 3",
-            meaning: "Bây giờ, hiện tại",
-            kun: "いま",
-            on: "こん、 きん",
+            char: "今", hv: "Kim", lesson: "L3", lessonName: "Bài 3", strokes: 4,
+            meaning: "Bây giờ, hiện tại", kun: "いま", on: "こん、 きん",
             examples: [
-                { jp: "今（いま）", vi: "Bây giờ" },
-                { jp: "今日（きょう）", vi: "Hôm nay" },
-                { jp: "今月（こんげつ）", vi: "Tháng này" }
+                { word: "今", reading: "いま", vi: "Bây giờ" },
+                { word: "今日", reading: "きょう", vi: "Hôm nay" },
+                { word: "今月", reading: "こんげつ", vi: "Tháng này" }
             ],
-            formula: "𠆢 (Nắp/Mái) ＋ 乛",
+            formula: "𠆢 (Mái) ＋ 一 ＋ 乛",
+            strokeGuide: "Phẩy trước mác sau tạo mái 𠆢 ➔ nét ngang ngắn ➔ nét ngang gập ở dưới cùng.",
             mnemonic: "Chiếc đồng hồ cát đang đọng lại thời khắc quý giá ngay bây giờ."
         },
         {
-            char: "花",
-            hv: "Hoa",
-            lesson: "L3",
-            lessonName: "Bài 3",
-            meaning: "Bông hoa",
-            kun: "はな",
-            on: "か",
+            char: "花", hv: "Hoa", lesson: "L3", lessonName: "Bài 3", strokes: 7,
+            meaning: "Bông hoa", kun: "はな", on: "か",
             examples: [
-                { jp: "花（はな）", vi: "Hoa" },
-                { jp: "花火（はなび）", vi: "Pháo hoa" },
-                { jp: "お花見（おはなみ）", vi: "Ngắm hoa" }
+                { word: "花", reading: "はな", vi: "Hoa" },
+                { word: "お花見", reading: "おはなみ", vi: "Ngắm hoa anh đào" }
             ],
             formula: "艹 (Cỏ) ＋ 化 (Biến hóa)",
+            strokeGuide: "Trên trước dưới sau: Viết bộ Thảo (艹 - 3 nét) ở trên trước, chữ Hóa (化 - 4 nét) ở dưới sau.",
             mnemonic: "Cây cỏ (艹) biến hóa (化) kỳ diệu nở thành những bông hoa rực rỡ."
         },
         {
-            char: "海",
-            hv: "Hải",
-            lesson: "L3",
-            lessonName: "Bài 3",
-            meaning: "Biển",
-            kun: "うみ",
-            on: "かい",
+            char: "海", hv: "Hải", lesson: "L3", lessonName: "Bài 3", strokes: 9,
+            meaning: "Biển", kun: "うみ", on: "かい",
             examples: [
-                { jp: "海（うみ）", vi: "Biển" },
-                { jp: "海外（かいがい）", vi: "Hải ngoại, nước ngoài" }
+                { word: "海", reading: "うみ", vi: "Biển" }
             ],
             formula: "氵(Nước) ＋ 毎 (Mỗi)",
-            mnemonic: "Nước (氵) từ mỗi (毎) con sông ngày đêm không ngừng đổ ra biển cả."
+            strokeGuide: "Trái trước phải sau: 3 chấm thủy (氵) bên trái trước, chữ Mỗi (毎 - 6 nét) bên phải sau.",
+            mnemonic: "Nước (氵) từ mỗi (毎) con sông ngày đêm đổ ra biển cả."
         },
         {
-            char: "山",
-            hv: "Sơn",
-            lesson: "L3",
-            lessonName: "Bài 3",
-            meaning: "Núi",
-            kun: "やま",
-            on: "さん、 ざん",
+            char: "山", hv: "Sơn", lesson: "L3", lessonName: "Bài 3", strokes: 3,
+            meaning: "Núi", kun: "やま", on: "さん",
             examples: [
-                { jp: "山（やま）", vi: "Núi" },
-                { jp: "富士山（ふじさん）", vi: "Núi Phú Sĩ" }
+                { word: "山", reading: "やま", vi: "Núi" }
             ],
-            formula: "Chữ tượng hình",
+            formula: "Chữ tượng hình 3 đỉnh núi",
+            strokeGuide: "Giữa trước hai bên sau: Viết nét sổ thẳng cao ở giữa trước ➔ nét sổ gập trái-dưới ➔ nét sổ phải.",
             mnemonic: "Vẽ lại hình ảnh 3 ngọn núi cao chót vót đứng cạnh nhau."
         },
         {
-            char: "川",
-            hv: "Xuyên",
-            lesson: "L3",
-            lessonName: "Bài 3",
-            meaning: "Sông",
-            kun: "かわ",
-            on: "せん",
+            char: "川", hv: "Xuyên", lesson: "L3", lessonName: "Bài 3", strokes: 3,
+            meaning: "Sông", kun: "かわ", on: "せん",
             examples: [
-                { jp: "川（かわ）", vi: "Con sông" }
+                { word: "川", reading: "かわ", vi: "Con sông" }
             ],
-            formula: "Chữ tượng hình",
+            formula: "Chữ tượng hình 3 dòng chảy",
+            strokeGuide: "Trái sang phải: Nét phẩy cong bên trái ➔ nét sổ ngắn ở giữa ➔ nét sổ dài bên phải.",
             mnemonic: "Hình vẽ 3 dòng nước chảy xiết song song uốn lượn thành sông."
         },
 
-        // LESSON 1: FAMILY
+        // LESSON 1
         {
-            char: "私",
-            hv: "Tư",
-            lesson: "L1",
-            lessonName: "Bài 1",
-            meaning: "Tôi, riêng tư",
-            kun: "わたし、 わたくし",
-            on: "し",
+            char: "私", hv: "Tư", lesson: "L1", lessonName: "Bài 1", strokes: 7,
+            meaning: "Tôi, riêng tư", kun: "わたし", on: "し",
             examples: [
-                { jp: "私（わたし）", vi: "Tôi" }
+                { word: "私", reading: "わたし", vi: "Tôi" }
             ],
             formula: "禾 (Lúa) ＋ 厶 (Riêng tư)",
+            strokeGuide: "Trái trước phải sau: Bộ Hòa (禾 - 5 nét) bên trái trước, bộ Khư (厶 - 2 nét) bên phải sau.",
             mnemonic: "Bông lúa (禾) là tài sản riêng (厶) của chính Tôi."
         },
         {
-            char: "父",
-            hv: "Phụ",
-            lesson: "L1",
-            lessonName: "Bài 1",
-            meaning: "Bố, người cha",
-            kun: "ちち、 とう",
-            on: "ふ",
+            char: "父", hv: "Phụ", lesson: "L1", lessonName: "Bài 1", strokes: 4,
+            meaning: "Bố, cha", kun: "ちち、 とう", on: "ふ",
             examples: [
-                { jp: "父（ちち）", vi: "Bố mình" },
-                { jp: "お父さん（おとうさん）", vi: "Bố người khác" }
+                { word: "父", reading: "ちち", vi: "Bố mình" },
+                { word: "お父さん", reading: "おとうさん", vi: "Bố người khác" }
             ],
-            formula: "Chữ tượng hình",
-            mnemonic: "Hình ảnh người cha uy nghiêm cầm chiếc roi chỉ huy gia đình."
+            formula: "八 ＋ 乂",
+            strokeGuide: "Trên trước dưới sau, Phẩy trước mác sau: Hai nét chấm hai bên trên ➔ nét phẩy ➔ nét mác giao nhau.",
+            mnemonic: "Hình ảnh người cha uy nghiêm trụ cột của gia đình."
         },
         {
-            char: "母",
-            hv: "Mẫu",
-            lesson: "L1",
-            lessonName: "Bài 1",
-            meaning: "Mẹ, người mẹ",
-            kun: "はは、 かあ",
-            on: "ぼ",
+            char: "母", hv: "Mẫu", lesson: "L1", lessonName: "Bài 1", strokes: 5,
+            meaning: "Mẹ", kun: "はは、 かあ", on: "ぼ",
             examples: [
-                { jp: "母（はは）", vi: "Mẹ mình" },
-                { jp: "お母さん（おかあさん）", vi: "Mẹ người khác" }
+                { word: "母", reading: "はは", vi: "Mẹ mình" },
+                { word: "お母さん", reading: "おかあさん", vi: "Mẹ người khác" }
             ],
             formula: "Chữ tượng hình",
-            mnemonic: "Người mẹ cúi xuống ôm con (hai dấu chấm bên trong tượng trưng cho hai bầu sữa)."
+            mnemonic: "Người mẹ ôm con và cho con bú (hai dấu chấm là bầu sữa mẹ).",
+            strokeGuide: "Khung ngoài trước ➔ chấm trên ➔ nét ngang cắt giữa ➔ chấm dưới."
         },
         {
-            char: "子",
-            hv: "Tử",
-            lesson: "L1",
-            lessonName: "Bài 1",
-            meaning: "Con cái, đứa trẻ",
-            kun: "こ",
-            on: "し、 す",
+            char: "子", hv: "Tử", lesson: "L1", lessonName: "Bài 1", strokes: 3,
+            meaning: "Con cái, trẻ em", kun: "こ", on: "し、 す",
             examples: [
-                { jp: "子ども（こども）", vi: "Trẻ con, con cái" },
-                { jp: "男の子（おとこのこ）", vi: "Bé trai" },
-                { jp: "女の子（おんなのこ）", vi: "Bé gái" }
+                { word: "子ども", reading: "こども", vi: "Trẻ con, con cái" }
             ],
-            formula: "Chữ tượng hình",
-            mnemonic: "Em bé sơ sinh quấn tã đang giang hai tay xinh xắn."
+            formula: "了 ＋ 一",
+            strokeGuide: "Nét ngang gập trên (1) ➔ nét cong móc dọc (2) ➔ nét ngang dài cắt qua cuối cùng (3).",
+            mnemonic: "Em bé quấn tã đang giang rộng hai cánh tay."
         },
         {
-            char: "男",
-            hv: "Nam",
-            lesson: "L1",
-            lessonName: "Bài 1",
-            meaning: "Đàn ông, nam giới",
-            kun: "おとこ",
-            on: "だん、 なん",
+            char: "男", hv: "Nam", lesson: "L1", lessonName: "Bài 1", strokes: 7,
+            meaning: "Đàn ông, nam giới", kun: "おとこ", on: "だん、 なん",
             examples: [
-                { jp: "男（おとこ）", vi: "Đàn ông" },
-                { jp: "男の人（おとこのひと）", vi: "Người đàn ông" }
+                { word: "男", reading: "おとこ", vi: "Đàn ông" },
+                { word: "男の人", reading: "おとこのひと", vi: "Người đàn ông" }
             ],
             formula: "田 (Ruộng) ＋ 力 (Sức lực)",
-            mnemonic: "Người dùng sức lực (力) cày cấy ngoài đồng ruộng (田) là người Đàn ông."
+            strokeGuide: "Trên trước dưới sau: Viết bộ Điền (田 - 5 nét) ở trên trước, bộ Lực (力 - 2 nét) ở dưới sau.",
+            mnemonic: "Người bỏ sức lực (力) làm việc ngoài đồng ruộng (田) là người Đàn ông."
         },
         {
-            char: "女",
-            hv: "Nữ",
-            lesson: "L1",
-            lessonName: "Bài 1",
-            meaning: "Phụ nữ, nữ giới",
-            kun: "おんな",
-            on: "じょ",
+            char: "女", hv: "Nữ", lesson: "L1", lessonName: "Bài 1", strokes: 3,
+            meaning: "Phụ nữ, nữ giới", kun: "おんな", on: "じょ",
             examples: [
-                { jp: "女（おんな）", vi: "Phụ nữ" },
-                { jp: "女の人（おんなのひと）", vi: "Người phụ nữ" }
+                { word: "女", reading: "おんな", vi: "Phụ nữ" },
+                { word: "女の人", reading: "おんなのひと", vi: "Người phụ nữ" }
             ],
             formula: "Chữ tượng hình",
-            mnemonic: "Hình dáng người phụ nữ ngồi bắt chéo chân duyên dáng, e ấp."
+            strokeGuide: "Nét phẩy gập (く) trước ➔ nét phẩy cong (丿) ➔ nét ngang dài (一) trên cùng khóa lại.",
+            mnemonic: "Hình dáng người phụ nữ ngồi bắt chéo chân duyên dáng."
         },
         {
-            char: "人",
-            hv: "Nhân",
-            lesson: "L1",
-            lessonName: "Bài 1",
-            meaning: "Người",
-            kun: "ひと",
-            on: "じん、 にん",
+            char: "人", hv: "Nhân", lesson: "L1", lessonName: "Bài 1", strokes: 2,
+            meaning: "Con người", kun: "ひと", on: "じん、 にん",
             examples: [
-                { jp: "人（ひと）", vi: "Con người" },
-                { jp: "日本人（にほんじん）", vi: "Người Nhật" },
-                { jp: "何人（なんにん）", vi: "Mấy người" }
+                { word: "人", reading: "ひと", vi: "Người" },
+                { word: "何人", reading: "なんにん", vi: "Mấy người" },
+                { word: "日本人", reading: "にほんじん", vi: "Người Nhật" }
             ],
-            formula: "Chữ tượng hình",
-            mnemonic: "Hai nét nương tựa vào nhau biểu trưng cho con người luôn cần giúp đỡ nhau sống."
+            formula: "丿 ＋ 乀",
+            strokeGuide: "Phẩy trước mác sau: Nét phẩy dài bên trái (1) ➔ nét mác tựa vào bên phải (2).",
+            mnemonic: "Hai con người nương tựa vào nhau mà sống."
         },
 
-        // LESSON 2: COUNTRIES & LANGUAGES
+        // LESSON 2
         {
-            char: "国",
-            hv: "Quốc",
-            lesson: "L2",
-            lessonName: "Bài 2",
-            meaning: "Đất nước, quốc gia",
-            kun: "くに",
-            on: "こく",
+            char: "国", hv: "Quốc", lesson: "L2", lessonName: "Bài 2", strokes: 8,
+            meaning: "Đất nước", kun: "くに", on: "こく",
             examples: [
-                { jp: "国（くに）", vi: "Đất nước" },
-                { jp: "外国（がいこく）", vi: "Nước ngoài" }
+                { word: "国", reading: "くに", vi: "Đất nước" },
+                { word: "外国", reading: "がいこく", vi: "Nước ngoài" }
             ],
-            formula: "囗 (Vây quanh) ＋ 玉 (Ngọc)",
-            mnemonic: "Có bờ cõi bao quanh (囗) bảo vệ viên ngọc quý (玉) của Đất nước."
+            formula: "囗 (Biên giới) ＋ 玉 (Ngọc)",
+            strokeGuide: "Vào nhà trước đóng cửa sau: Viết 2 nét khung ngoài ➔ viết chữ Ngọc (玉 - 5 nét) ở trong ➔ nét ngang đáy đóng lại cuối cùng.",
+            mnemonic: "Biên giới bao quanh (囗) bảo vệ viên ngọc quý (玉) của Đất nước."
         },
         {
-            char: "外",
-            hv: "Ngoại",
-            lesson: "L2",
-            lessonName: "Bài 2",
-            meaning: "Ngoài, phía ngoài",
-            kun: "そと",
-            on: "がい",
+            char: "外", hv: "Ngoại", lesson: "L2", lessonName: "Bài 2", strokes: 5,
+            meaning: "Bên ngoài", kun: "そと", on: "がい",
             examples: [
-                { jp: "外（そと）", vi: "Bên ngoài" },
-                { jp: "外国（がいこく）", vi: "Nước ngoài" }
+                { word: "外", reading: "そと", vi: "Bên ngoài" },
+                { word: "外国", reading: "がいこく", vi: "Nước ngoài" }
             ],
-            formula: "夕 (Buổi tối) ＋ 卜 (Quẻ bói)",
-            mnemonic: "Buổi tối (夕) đứng ra ngoài cửa xem quẻ bói (卜)."
+            formula: "夕 (Tối) ＋ 卜 (Bói)",
+            strokeGuide: "Trái trước phải sau: Bộ Tịch (夕 - 3 nét) bên trái trước, bộ Bốc (卜 - 2 nét) bên phải sau.",
+            mnemonic: "Buổi tối (夕) đi ra bên ngoài xem bói (卜)."
         },
         {
-            char: "語",
-            hv: "Ngữ",
-            lesson: "L2",
-            lessonName: "Bài 2",
-            meaning: "Ngôn ngữ, tiếng",
-            kun: "かた-る",
-            on: "ご",
+            char: "語", hv: "Ngữ", lesson: "L2", lessonName: "Bài 2", strokes: 14,
+            meaning: "Ngôn ngữ, tiếng", kun: "かた-る", on: "ご",
             examples: [
-                { jp: "日本語（にほんご）", vi: "Tiếng Nhật" },
-                { jp: "英語（えいご）", vi: "Tiếng Anh" },
-                { jp: "中国語（ちゅうごくご）", vi: "Tiếng Trung" }
+                { word: "日本語", reading: "にほんご", vi: "Tiếng Nhật" },
+                { word: "英語", reading: "えいご", vi: "Tiếng Anh" },
+                { word: "中国語", reading: "ちゅうごくご", vi: "Tiếng Trung" }
             ],
             formula: "言 (Lời nói) ＋ 五 (Năm) ＋ 口 (Miệng)",
-            mnemonic: "Lời nói (言) thốt ra từ 5 cái miệng (五口) tạo thành Ngôn ngữ."
+            strokeGuide: "Trái trước phải sau: Bộ Ngôn (言 - 7 nét) bên trái ➔ chữ Ngũ (五 - 4 nét) trên ➔ bộ Khẩu (口 - 3 nét) dưới.",
+            mnemonic: "Lời nói (言) giao tiếp qua năm cái miệng (五口) thành Ngôn ngữ."
         },
         {
-            char: "本",
-            hv: "Bản",
-            lesson: "L2",
-            lessonName: "Bài 2",
-            meaning: "Sách, gốc rễ",
-            kun: "もと",
-            on: "ほん",
+            char: "本", hv: "Bản", lesson: "L2", lessonName: "Bài 2", strokes: 5,
+            meaning: "Sách, gốc rễ", kun: "もと", on: "ほん",
             examples: [
-                { jp: "本（ほん）", vi: "Quyển sách" },
-                { jp: "日本（にほん）", vi: "Nhật Bản" }
+                { word: "本", reading: "ほん", vi: "Quyển sách" },
+                { word: "日本", reading: "にほん", vi: "Nhật Bản" }
             ],
-            formula: "木 (Cây) ＋ 一 (Vạch gốc)",
-            mnemonic: "Vạch một đường ở gốc cây (木) là gốc rễ, gỗ cây dùng làm ra sách (本)."
+            formula: "木 (Cây) ＋ 一 (Gốc)",
+            strokeGuide: "Viết chữ Mộc (木 - 4 nét: ngang, sổ, phẩy, mác) trước ➔ gạch ngang nhỏ ở gốc cuối cùng.",
+            mnemonic: "Gỗ từ gốc cây (木) đem làm giấy đóng thành Sách (本)."
         },
         {
-            char: "読",
-            hv: "Độc",
-            lesson: "L2",
-            lessonName: "Bài 2",
-            meaning: "Đọc",
-            kun: "よ-む",
-            on: "どく",
+            char: "読", hv: "Độc", lesson: "L2", lessonName: "Bài 2", strokes: 14,
+            meaning: "Đọc sách", kun: "よ-む", on: "どく",
             examples: [
-                { jp: "読みます（よみます）", vi: "Đọc sách" },
-                { jp: "読書（どくしょ）", vi: "Việc đọc sách" }
+                { word: "読みます", reading: "よみます", vi: "Đọc" },
+                { word: "読書", reading: "どくしょ", vi: "Việc đọc sách" }
             ],
             formula: "言 (Lời nói) ＋ 売 (Bán)",
-            mnemonic: "Dùng lời nói (言) rao bán (売) chữ nghĩa chính là hành động Đọc."
+            strokeGuide: "Trái trước phải sau: Bộ Ngôn (言 - 7 nét) bên trái ➔ chữ Mại (売 - 7 nét) bên phải.",
+            mnemonic: "Cất tiếng (言) đọc to chữ nghĩa."
         },
         {
-            char: "好",
-            hv: "Hảo",
-            lesson: "L2",
-            lessonName: "Bài 2",
-            meaning: "Thích, tốt đẹp",
-            kun: "す-き",
-            on: "こう",
+            char: "好", hv: "Hảo", lesson: "L2", lessonName: "Bài 2", strokes: 6,
+            meaning: "Thích, yêu thích", kun: "す-き", on: "こう",
             examples: [
-                { jp: "好き（すき）", vi: "Thích" },
-                { jp: "大好き（だいすき）", vi: "Rất thích" }
+                { word: "好き", reading: "すき", vi: "Thích" }
             ],
-            formula: "女 (Phụ nữ) ＋ 子 (Đứa con)",
-            mnemonic: "Mẹ (女) âu yếm đứa con nhỏ (子) là điều tốt lành ai cũng yêu thích."
+            formula: "女 (Phụ nữ) ＋ 子 (Con)",
+            strokeGuide: "Trái trước phải sau: Bộ Nữ (女 - 3 nét) bên trái trước, bộ Tử (子 - 3 nét) bên phải sau.",
+            mnemonic: "Mẹ (女) ôm con (子) là điều tốt đẹp đáng yêu thích."
         },
         {
-            char: "何",
-            hv: "Hà",
-            lesson: "L2",
-            lessonName: "Bài 2",
-            meaning: "Cái gì, mấy",
-            kun: "なに、 なん",
-            on: "か",
+            char: "何", hv: "Hà", lesson: "L2", lessonName: "Bài 2", strokes: 7,
+            meaning: "Cái gì", kun: "なに、 なん", on: "か",
             examples: [
-                { jp: "何（なに／なん）", vi: "Cái gì" },
-                { jp: "何人（なんにん）", vi: "Mấy người" }
+                { word: "何", reading: "なに", vi: "Cái gì" },
+                { word: "何人", reading: "なんにん", vi: "Mấy người" }
             ],
-            formula: "亻(Người) ＋ 可 (Khả năng)",
-            mnemonic: "Người (亻) đang vác trên vai cái gì thế nhỉ?"
+            formula: "亻(Người) ＋ 可",
+            strokeGuide: "Trái trước phải sau: Bộ Nhân đứng (亻 - 2 nét) trước ➔ chữ Khả (可 - 5 nét) bên phải.",
+            mnemonic: "Người (亻) đang mang vác cái gì trên vai?"
         },
 
-        // LESSON 4: WEATHER
+        // LESSON 4
         {
-            char: "天",
-            hv: "Thiên",
-            lesson: "L4",
-            lessonName: "Bài 4",
-            meaning: "Trời, bầu trời",
-            kun: "あめ、 あま",
-            on: "てん",
+            char: "天", hv: "Thiên", lesson: "L4", lessonName: "Bài 4", strokes: 4,
+            meaning: "Trời, bầu trời", kun: "あめ", on: "てん",
             examples: [
-                { jp: "天気（てんき）", vi: "Thời tiết" },
-                { jp: "天国（てんごく）", vi: "Thiên đường" }
+                { word: "天気", reading: "てんき", vi: "Thời tiết" }
             ],
-            formula: "一 (Nhất) ＋ 大 (Lớn)",
-            mnemonic: "Phía trên đầu con người to lớn (大) là vòm trời cao nhất (天)."
+            formula: "一 ＋ 大 (Đại)",
+            strokeGuide: "Nét ngang trên cùng ➔ nét ngang thứ hai ngắn hơn ➔ nét phẩy ➔ nét mác.",
+            mnemonic: "Phía trên con người to lớn (大) là Bầu trời."
         },
         {
-            char: "気",
-            hv: "Khí",
-            lesson: "L4",
-            lessonName: "Bài 4",
-            meaning: "Khí quyển, tinh thần",
-            kun: "き",
-            on: "き",
+            char: "気", hv: "Khí", lesson: "L4", lessonName: "Bài 4", strokes: 6,
+            meaning: "Khí, tinh thần", kun: "き", on: "き",
             examples: [
-                { jp: "天気（てんき）", vi: "Thời tiết" },
-                { jp: "元気（げんき）", vi: "Khỏe mạnh" }
+                { word: "天気", reading: "てんき", vi: "Thời tiết" },
+                { word: "元気", reading: "げんき", vi: "Khỏe mạnh" }
             ],
-            formula: "气 (Khí bốc lên) ＋ 乂",
-            mnemonic: "Hơi nước, luồng không khí bốc lên nghi ngút."
+            formula: "气 ＋ 〆",
+            strokeGuide: "Ngoài trước trong sau: Viết 4 nét bộ Khí (气) ở trên và bao ngoài trước ➔ chữ 〆 (phẩy, chấm) ở trong sau.",
+            mnemonic: "Hơi nước và năng lượng lan tỏa trong không trung."
         },
         {
-            char: "雨",
-            hv: "Vũ",
-            lesson: "L4",
-            lessonName: "Bài 4",
-            meaning: "Cơn mưa",
-            kun: "あめ",
-            on: "う",
+            char: "晴", hv: "Tình", lesson: "L4", lessonName: "Bài 4", strokes: 12,
+            meaning: "Trời nắng, quang đãng", kun: "は-れ", on: "せい",
             examples: [
-                { jp: "雨（あめ）", vi: "Cơn mưa" },
-                { jp: "大雨（おおあめ）", vi: "Mưa lớn" }
-            ],
-            formula: "Chữ tượng hình",
-            mnemonic: "Mây giông trên trời và 4 hạt mưa đang rơi tí tách qua khung cửa sổ."
-        },
-        {
-            char: "雪",
-            hv: "Tuyết",
-            lesson: "L4",
-            lessonName: "Bài 4",
-            meaning: "Bông tuyết",
-            kun: "ゆき",
-            on: "せつ",
-            examples: [
-                { jp: "雪（ゆき）", vi: "Tuyết" },
-                { jp: "雪だるま（ゆきだるま）", vi: "Người tuyết" }
-            ],
-            formula: "雨 (Mưa) ＋ 彐 (Bàn tay/chổi)",
-            mnemonic: "Mưa (雨) đông đặc lại rơi thành tuyết, dùng chổi (彐) quét dọn."
-        },
-        {
-            char: "風",
-            hv: "Phong",
-            lesson: "L4",
-            lessonName: "Bài 4",
-            meaning: "Cơn gió",
-            kun: "かぜ",
-            on: "ふう",
-            examples: [
-                { jp: "風（かぜ）", vi: "Gió" },
-                { jp: "台風（たいふう）", vi: "Bão" }
-            ],
-            formula: "几 (Bao quanh) ＋ 虫 (Côn trùng)",
-            mnemonic: "Gió lốc thổi mạnh cuốn cả đàn côn trùng (虫) bay tứ tung."
-        },
-        {
-            char: "空",
-            hv: "Không",
-            lesson: "L4",
-            lessonName: "Bài 4",
-            meaning: "Bầu trời, trống rỗng",
-            kun: "そら",
-            on: "くう",
-            examples: [
-                { jp: "空（そら）", vi: "Bầu trời" },
-                { jp: "空気（くうき）", vi: "Không khí" }
-            ],
-            formula: "穴 (Hang) ＋ 工 (Thợ)",
-            mnemonic: "Từ trong hang sâu (穴) ngước nhìn ra bầu trời cao rộng bao la."
-        },
-
-        // LESSON 5: TOWN & ADJECTIVES
-        {
-            char: "町",
-            hv: "Đinh",
-            lesson: "L5",
-            lessonName: "Bài 5",
-            meaning: "Thị trấn, khu phố",
-            kun: "まち",
-            on: "ちょう",
-            examples: [
-                { jp: "町（まち）", vi: "Thị trấn, khu phố" }
-            ],
-            formula: "田 (Ruộng) ＋ 丁 (Đường đi)",
-            mnemonic: "Nơi các thửa ruộng (田) nằm cạnh các con đường (丁) sầm uất họp thành thị trấn."
-        },
-        {
-            char: "店",
-            hv: "Điếm",
-            lesson: "L5",
-            lessonName: "Bài 5",
-            meaning: "Cửa hàng, tiệm",
-            kun: "みせ",
-            on: "てん",
-            examples: [
-                { jp: "店（みせ）", vi: "Cửa hàng, quán" },
-                { jp: "店員（てんいん）", vi: "Nhân viên tiệm" }
-            ],
-            formula: "广 (Mái nhà) ＋ 占 (Chiếm)",
-            mnemonic: "Chiếm (占) một góc dưới mái nhà (广) để mở tiệm buôn bán."
-        },
-        {
-            char: "高",
-            hv: "Cao",
-            lesson: "L5",
-            lessonName: "Bài 5",
-            meaning: "Cao, đắt",
-            kun: "たか-い",
-            on: "こう",
-            examples: [
-                { jp: "高い（たかい）", vi: "Cao, đắt tiền" },
-                { jp: "高校（こうこう）", vi: "Trường cấp 3" }
-            ],
-            formula: "Chữ tượng hình",
-            mnemonic: "Tòa tháp cao nguy nga có chòi ngắm cảnh và cổng vòm."
-        },
-        {
-            char: "安",
-            hv: "An",
-            lesson: "L5",
-            lessonName: "Bài 5",
-            meaning: "Rẻ, an tâm",
-            kun: "やす-い",
-            on: "あん",
-            examples: [
-                { jp: "安い（やすい）", vi: "Rẻ" },
-                { jp: "安心（あんしん）", vi: "An tâm" }
-            ],
-            formula: "宀 (Mái nhà) ＋ 女 (Phụ nữ)",
-            mnemonic: "Người phụ nữ (女) ở yên ấm dưới mái nhà (宀) thì an tâm và chi tiêu tiết kiệm."
-        },
-        {
-            char: "広",
-            hv: "Quảng",
-            lesson: "L5",
-            lessonName: "Bài 5",
-            meaning: "Rộng rãi",
-            kun: "ひろ-い",
-            on: "こう",
-            examples: [
-                { jp: "広い（ひろい）", vi: "Rộng rãi" },
-                { jp: "広告（こうこく）", vi: "Quảng cáo" }
-            ],
-            formula: "广 (Mái nhà) ＋ 厶 (Dang tay)",
-            mnemonic: "Dưới mái nhà (广) dang rộng hai tay (厶) thấy thênh thang rộng mở."
-        },
-
-        // LESSON 6: DIRECTIONS & COLORS
-        {
-            char: "道",
-            hv: "Đạo",
-            lesson: "L6",
-            lessonName: "Bài 6",
-            meaning: "Con đường",
-            kun: "みち",
-            on: "どう",
-            examples: [
-                { jp: "道（みち）", vi: "Con đường" },
-                { jp: "柔道（じゅうどう）", vi: "Môn võ Judo" }
-            ],
-            formula: "辶 (Bước đi) ＋ 首 (Cái đầu)",
-            mnemonic: "Dẫn đầu (首) dẫn dắt mọi người bước đi (辶) trên con đường chính đạo."
-        },
-        {
-            char: "右",
-            hv: "Hữu",
-            lesson: "L6",
-            lessonName: "Bài 6",
-            meaning: "Bên phải",
-            kun: "みぎ",
-            on: "う、 ゆう",
-            examples: [
-                { jp: "右（みぎ）", vi: "Bên phải" }
-            ],
-            formula: "𠂇 (Tay) ＋ 口 (Miệng)",
-            mnemonic: "Cánh tay đưa thức ăn vào miệng (口) là bàn tay phải."
-        },
-        {
-            char: "左",
-            hv: "Tả",
-            lesson: "L6",
-            lessonName: "Bài 6",
-            meaning: "Bên trái",
-            kun: "ひだり",
-            on: "さ",
-            examples: [
-                { jp: "左（ひだり）", vi: "Bên trái" }
-            ],
-            formula: "𠂇 (Tay) ＋ 工 (Thước thợ)",
-            mnemonic: "Tay cầm chiếc thước vuông thợ xây (工) là tay trái."
-        },
-        {
-            char: "赤",
-            hv: "Xích",
-            lesson: "L6",
-            lessonName: "Bài 6",
-            meaning: "Màu đỏ",
-            kun: "あか-い",
-            on: "せき",
-            examples: [
-                { jp: "赤い（あかい）", vi: "Màu đỏ" },
-                { jp: "赤ちゃん（あかちゃん）", vi: "Em bé sơ sinh" }
-            ],
-            formula: "土 (Đất) ＋ 火 (Lửa)",
-            mnemonic: "Đất (土) bị ngọn lửa (火) nung nóng chuyển thành màu đỏ son."
-        },
-        {
-            char: "青",
-            hv: "Thanh",
-            lesson: "L6",
-            lessonName: "Bài 6",
-            meaning: "Màu xanh dương",
-            kun: "あお-い",
-            on: "せい",
-            examples: [
-                { jp: "青い（あおい）", vi: "Màu xanh dương" },
-                { jp: "青年（せいねん）", vi: "Thanh niên" }
-            ],
-            formula: "生 (Mầm non) ＋ 月 (Trăng)",
-            mnemonic: "Mầm non tươi mới lớn lên dưới ánh trăng xanh biếc."
-        },
-        {
-            char: "白",
-            hv: "Bạch",
-            lesson: "L6",
-            lessonName: "Bài 6",
-            meaning: "Màu trắng",
-            kun: "しろ-い",
-            on: "はく",
-            examples: [
-                { jp: "白い（しろい）", vi: "Màu trắng" },
-                { jp: "面白い（おもしろい）", vi: "Thú vị" }
-            ],
-            formula: "Chữ tượng hình",
-            mnemonic: "Ánh mặt trời chiếu xuyên qua hạt gạo trắng tinh khiết."
-        },
-        {
-            char: "黒",
-            hv: "Hắc",
-            lesson: "L6",
-            lessonName: "Bài 6",
-            meaning: "Màu đen",
-            kun: "くろ-い",
-            on: "こく",
-            examples: [
-                { jp: "黒い（くろい）", vi: "Màu đen" },
-                { jp: "黒板（こくばん）", vi: "Bảng đen" }
-            ],
-            formula: "里 (Làng) ＋ 灬 (Lửa)",
-            mnemonic: "Khói lửa (灬) bốc lên bám muội than đen kịt khắp xóm làng."
-        },
-        {
-            char: "晴",
-            hv: "Tình",
-            lesson: "L4",
-            lessonName: "Bài 4",
-            meaning: "Trời nắng, quang đãng",
-            kun: "は-れる、 は-れ",
-            on: "せい",
-            examples: [
-                { jp: "晴れ（はれ）", vi: "Trời nắng đẹp" },
-                { jp: "晴れます（はれます）", vi: "Trời hửng nắng" }
+                { word: "晴れ", reading: "はれ", vi: "Trời nắng đẹp" }
             ],
             formula: "日 (Mặt trời) ＋ 青 (Xanh)",
-            mnemonic: "Mặt trời (日) tỏa sáng trên bầu trời xanh (青) trong vắt."
+            strokeGuide: "Trái trước phải sau: Bộ Nhật (日 - 4 nét) bên trái ➔ chữ Thanh (青 - 8 nét) bên phải.",
+            mnemonic: "Mặt trời (日) tỏa nắng trên nền trời xanh (青)."
         },
         {
-            char: "雲",
-            hv: "Vân",
-            lesson: "L4",
-            lessonName: "Bài 4",
-            meaning: "Đám mây",
-            kun: "くも",
-            on: "うん",
+            char: "雨", hv: "Vũ", lesson: "L4", lessonName: "Bài 4", strokes: 8,
+            meaning: "Cơn mưa", kun: "あめ", on: "う",
             examples: [
-                { jp: "雲（くも）", vi: "Đám mây" }
+                { word: "雨", reading: "あめ", vi: "Mưa" }
             ],
-            formula: "雨 (Mưa) ＋ 云 (Cuộn lại)",
-            mnemonic: "Hơi mưa (雨) cuộn tròn lại (云) trên bầu trời tạo thành đám mây."
+            formula: "Chữ tượng hình hạt mưa",
+            strokeGuide: "Nét ngang trên ➔ khung bao ➔ nét sổ giữa ➔ 4 dấu chấm hạt mưa hai bên.",
+            mnemonic: "Bốn hạt mưa rơi qua khung cửa sổ."
         },
         {
-            char: "多",
-            hv: "Đa",
-            lesson: "L5",
-            lessonName: "Bài 5",
-            meaning: "Nhiều, đông",
-            kun: "おお-い",
-            on: "た",
+            char: "雪", hv: "Tuyết", lesson: "L4", lessonName: "Bài 4", strokes: 11,
+            meaning: "Tuyết", kun: "ゆき", on: "せつ",
             examples: [
-                { jp: "多い（おおい）", vi: "Nhiều, đông" }
+                { word: "雪", reading: "ゆき", vi: "Tuyết" }
             ],
-            formula: "夕 (Tịch) ＋ 夕 (Tịch)",
-            mnemonic: "Hai mặt trăng / hai miếng thịt xếp chồng lên nhau biểu thị sự nhiều."
+            formula: "雨 (Mưa) ＋ 彐 (Chổi)",
+            strokeGuide: "Trên trước dưới sau: Bộ Vũ (雨 - 8 nét) ở trên ➔ bộ Kệ (彐 - 3 nét) ở dưới.",
+            mnemonic: "Mưa (雨) đông cứng thành tuyết phải dùng chổi (彐) quét."
         },
         {
-            char: "少",
-            hv: "Thiểu",
-            lesson: "L5",
-            lessonName: "Bài 5",
-            meaning: "Ít, một chút",
-            kun: "すく-ない、 すこ-し",
-            on: "しょう",
+            char: "雲", hv: "Vân", lesson: "L4", lessonName: "Bài 4", strokes: 12,
+            meaning: "Đám mây", kun: "くも", on: "うん",
             examples: [
-                { jp: "少ない（すくない）", vi: "Ít" },
-                { jp: "少し（すこし）", vi: "Một chút" }
+                { word: "雲", reading: "くも", vi: "Mây" }
             ],
-            formula: "小 (Nhỏ) ＋ 丿 (Nét phẩy)",
-            mnemonic: "Đã nhỏ bé (小) lại còn bị cắt bớt đi nên chỉ còn rất ít."
+            formula: "雨 (Mưa) ＋ 云 (Cuộn)",
+            strokeGuide: "Trên trước dưới sau: Bộ Vũ (雨 - 8 nét) ở trên ➔ chữ Vân (云 - 4 nét) ở dưới.",
+            mnemonic: "Hơi mưa (雨) cuộn tròn (云) thành đám mây."
         },
         {
-            char: "通",
-            hv: "Thông",
-            lesson: "L6",
-            lessonName: "Bài 6",
-            meaning: "Đường phố, đi qua",
-            kun: "とお-り、 とお-る",
-            on: "つう",
+            char: "風", hv: "Phong", lesson: "L4", lessonName: "Bài 4", strokes: 9,
+            meaning: "Cơn gió", kun: "かぜ", on: "ふう",
             examples: [
-                { jp: "通り（とおり）", vi: "Con phố, đại lộ" },
-                { jp: "通訳（つうやく）", vi: "Thông dịch, phiên dịch" }
+                { word: "風", reading: "かぜ", vi: "Gió" }
             ],
-            formula: "辶 (Đi) ＋ 甬 (Con đường ống)",
-            mnemonic: "Bước chân đi (辶) thông suốt qua con phố lớn."
+            formula: "几 (Khung) ＋ 虫 (Côn trùng)",
+            strokeGuide: "Ngoài trước trong sau: Viết khung bộ Kỷ (几 - 2 nét) bao ngoài trước ➔ nét phẩy + bộ Trùng (虫) bên trong.",
+            mnemonic: "Gió thổi lồng lộng cuốn côn trùng bay đi."
+        },
+        {
+            char: "空", hv: "Không", lesson: "L4", lessonName: "Bài 4", strokes: 8,
+            meaning: "Bầu trời", kun: "そら", on: "くう",
+            examples: [
+                { word: "空", reading: "そら", vi: "Bầu trời" },
+                { word: "空港", reading: "くうこう", vi: "Sân bay" }
+            ],
+            formula: "穴 (Hang) ＋ 工 (Thợ)",
+            strokeGuide: "Trên trước dưới sau: Bộ Huyệt (穴 - 5 nét) ở trên ➔ bộ Công (工 - 3 nét) ở dưới.",
+            mnemonic: "Ngước nhìn lên khoảng không bầu trời rộng lớn."
         },
 
-        // LESSON 7: GOING OUT
+        // LESSON 5
         {
-            char: "時",
-            hv: "Thời",
-            lesson: "L7",
-            lessonName: "Bài 7",
-            meaning: "Thời gian, giờ",
-            kun: "とき",
-            on: "じ",
+            char: "町", hv: "Đinh", lesson: "L5", lessonName: "Bài 5", strokes: 7,
+            meaning: "Thị trấn, khu phố", kun: "まち", on: "ちょう",
             examples: [
-                { jp: "時間（じかん）", vi: "Thời gian, tiếng đồng hồ" },
-                { jp: "７時（しちじ）", vi: "7 giờ" }
+                { word: "町", reading: "まち", vi: "Thị trấn, thành phố" }
             ],
-            formula: "日 (Mặt trời) ＋ 寺 (Ngôi chùa)",
-            mnemonic: "Nhìn bóng mặt trời (日) chiếu lên mái chùa (寺) để tính thời gian."
+            formula: "田 (Ruộng) ＋ 丁 (Đường)",
+            strokeGuide: "Trái trước phải sau: Bộ Điền (田 - 5 nét) bên trái ➔ chữ Đinh (丁 - 2 nét) bên phải.",
+            mnemonic: "Ruộng đồng (田) giao với con đường (丁) tạo nên thị trấn."
         },
         {
-            char: "間",
-            hv: "Gian",
-            lesson: "L7",
-            lessonName: "Bài 7",
-            meaning: "Khoảng không, thời gian",
-            kun: "あいだ、 ま",
-            on: "かん、 けん",
+            char: "店", hv: "Điếm", lesson: "L5", lessonName: "Bài 5", strokes: 8,
+            meaning: "Cửa hàng", kun: "みせ", on: "てん",
             examples: [
-                { jp: "時間（じかん）", vi: "Thời gian" },
-                { jp: "一週間（いっしゅうかん）", vi: "Một tuần" }
+                { word: "店", reading: "みせ", vi: "Cửa hàng" }
             ],
-            formula: "門 (Cổng) ＋ 日 (Mặt trời)",
-            mnemonic: "Ánh mặt trời (日) lọt qua khe cửa cổng (門) tạo thành khoảng không gian."
+            formula: "广 (Mái hiên) ＋ 占 (Chiếm)",
+            strokeGuide: "Ngoài trước trong sau: Bộ Quảng (广 - 3 nét) bao ngoài ➔ chữ Chiêm (占 - 5 nét) ở trong.",
+            mnemonic: "Chiếm một mặt bằng dưới mái nhà để mở Cửa hàng."
         },
         {
-            char: "場",
-            hv: "Trường",
-            lesson: "L7",
-            lessonName: "Bài 7",
-            meaning: "Địa điểm, nơi, sân",
-            kun: "ば",
-            on: "じょう",
+            char: "多", hv: "Đa", lesson: "L5", lessonName: "Bài 5", strokes: 6,
+            meaning: "Nhiều, đông", kun: "おお-い", on: "た",
             examples: [
-                { jp: "場所（ばしょ）", vi: "Địa điểm, nơi chốn" },
-                { jp: "広場（ひろば）", vi: "Quảng trường" }
+                { word: "多い", reading: "おおい", vi: "Nhiều, đông" }
             ],
-            formula: "土 (Đất) ＋ 易 (Dễ dàng)",
-            mnemonic: "Vùng đất rộng (土) bằng phẳng dễ (易) tụ họp là một địa điểm lớn."
+            formula: "夕 ＋ 夕",
+            strokeGuide: "Trên trước dưới sau: Viết bộ Tịch (夕 - 3 nét) ở trên trước ➔ bộ Tịch thứ hai ở dưới.",
+            mnemonic: "Hai bộ Tịch chồng lên nhau biểu thị sự nhiều."
         },
         {
-            char: "所",
-            hv: "Sở",
-            lesson: "L7",
-            lessonName: "Bài 7",
-            meaning: "Nơi chốn, chỗ",
-            kun: "ところ",
-            on: "しょ",
+            char: "少", hv: "Thiểu", lesson: "L5", lessonName: "Bài 5", strokes: 4,
+            meaning: "Ít, một chút", kun: "すく-ない、 すこ-し", on: "しょう",
             examples: [
-                { jp: "場所（ばしょ）", vi: "Địa điểm" },
-                { jp: "台所（だいどころ）", vi: "Nhà bếp" }
+                { word: "少ない", reading: "すくない", vi: "Ít" },
+                { word: "少し", reading: "すこし", vi: "Một chút" }
             ],
-            formula: "戸 (Cửa) ＋ 斤 (Cái rìu)",
-            mnemonic: "Dùng rìu (斤) đẽo gỗ dựng cửa (戸) làm nơi cư trú."
+            formula: "小 (Nhỏ) ＋ 丿",
+            strokeGuide: "Giữa trước hai bên sau: Nét sổ móc giữa ➔ chấm trái ➔ chấm phải ➔ nét phẩy dài cắt chéo dưới.",
+            mnemonic: "Đã nhỏ (小) lại vơi đi nên chỉ còn rất ít."
         },
         {
-            char: "駅",
-            hv: "Dịch",
-            lesson: "L7",
-            lessonName: "Bài 7",
-            meaning: "Nhà ga",
-            kun: "えき",
-            on: "えき",
+            char: "高", hv: "Cao", lesson: "L5", lessonName: "Bài 5", strokes: 10,
+            meaning: "Cao, đắt", kun: "たか-い", on: "こう",
             examples: [
-                { jp: "駅（えき）", vi: "Nhà ga" },
-                { jp: "東京駅（とうきょうえき）", vi: "Ga Tokyo" }
+                { word: "高い", reading: "たかい", vi: "Cao, đắt" },
+                { word: "高校", reading: "こうこう", vi: "Trường cấp 3" }
             ],
-            formula: "馬 (Ngựa) ＋ 尺 (Thước)",
-            mnemonic: "Ngày xưa trạm dừng ngựa (馬) đổi ngựa gọi là trạm dịch, nay là Nhà ga."
+            formula: "亠 ＋ 口 ＋ 冂 ＋ 口",
+            strokeGuide: "Trên xuống dưới: Chấm ngang trên cùng ➔ bộ Khẩu nhỏ ➔ khung vòm dưới ➔ bộ Khẩu trong cùng.",
+            mnemonic: "Hình tòa tháp cao nhiều tầng."
         },
         {
-            char: "出",
-            hv: "Xuất",
-            lesson: "L7",
-            lessonName: "Bài 7",
-            meaning: "Ra ngoài, xuất phát",
-            kun: "で-る、 だ-す",
-            on: "しゅつ",
+            char: "安", hv: "An", lesson: "L5", lessonName: "Bài 5", strokes: 6,
+            meaning: "Rẻ, an tâm", kun: "やす-い", on: "あん",
             examples: [
-                { jp: "出かけます（でかけます）", vi: "Ra ngoài" },
-                { jp: "出発（しゅっぱつ）", vi: "Xuất phát" }
+                { word: "安い", reading: "やすい", vi: "Rẻ" }
             ],
-            formula: "山 (Núi) ＋ 山 (Núi)",
-            mnemonic: "Bước vượt qua hai ngọn núi trùng điệp để đi ra ngoài."
+            formula: "宀 (Mái nhà) ＋ 女 (Phụ nữ)",
+            strokeGuide: "Trên trước dưới sau: Bộ Miên (宀 - 3 nét) ở trên ➔ bộ Nữ (女 - 3 nét) ở dưới.",
+            mnemonic: "Người phụ nữ (女) dưới mái nhà (宀) luôn bình an."
         },
         {
-            char: "待",
-            hv: "Đãi",
-            lesson: "L7",
-            lessonName: "Bài 7",
-            meaning: "Đợi, chờ đợi",
-            kun: "ま-つ",
-            on: "たい",
+            char: "広", hv: "Quảng", lesson: "L5", lessonName: "Bài 5", strokes: 5,
+            meaning: "Rộng rãi", kun: "ひろ-い", on: "こう",
             examples: [
-                { jp: "待ちます（まちます）", vi: "Đợi, chờ" },
-                { jp: "招待（しょうたい）", vi: "Mời, chiêu đãi" }
+                { word: "広い", reading: "ひろい", vi: "Rộng" }
+            ],
+            formula: "广 (Mái hiên) ＋ 厶",
+            strokeGuide: "Ngoài trước trong sau: Bộ Quảng (广 - 3 nét) trước ➔ bộ Khư (厶 - 2 nét) bên trong.",
+            mnemonic: "Ngôi nhà có mái hiên rộng thênh thang."
+        },
+
+        // LESSON 6
+        {
+            char: "道", hv: "Đạo", lesson: "L6", lessonName: "Bài 6", strokes: 12,
+            meaning: "Con đường", kun: "みち", on: "どう",
+            examples: [
+                { word: "道", reading: "みち", vi: "Con đường" }
+            ],
+            formula: "首 (Đầu) ＋ 辶 (Bước đi)",
+            strokeGuide: "Bộ Xước viết sau cùng: Viết bộ Thủ (首 - 9 nét) bên trong trước ➔ bộ Xước (辶 - 3 nét) bao dưới sau cùng.",
+            mnemonic: "Bước đi (辶) trên con đường lớn."
+        },
+        {
+            char: "通", hv: "Thông", lesson: "L6", lessonName: "Bài 6", strokes: 10,
+            meaning: "Đường phố, đi qua", kun: "とお-り", on: "つう",
+            examples: [
+                { word: "通り", reading: "とおり", vi: "Đường phố, đại lộ" }
+            ],
+            formula: "甬 ＋ 辶 (Bước đi)",
+            strokeGuide: "Viết phần chữ Dũng (甬 - 7 nét) bên trong trước ➔ bộ Xước (辶 - 3 nét) sau cùng.",
+            mnemonic: "Đi lại thông suốt trên đại lộ."
+        },
+        {
+            char: "右", hv: "Hữu", lesson: "L6", lessonName: "Bài 6", strokes: 5,
+            meaning: "Bên phải", kun: "みぎ", on: "う、 ゆう",
+            examples: [
+                { word: "右", reading: "みぎ", vi: "Bên phải" }
+            ],
+            formula: "𠂇 (Tay) ＋ 口 (Miệng)",
+            strokeGuide: "Viết nét phẩy (丿) trước ➔ nét ngang (一) ➔ bộ Khẩu (口 - 3 nét) ở dưới.",
+            mnemonic: "Tay phải cầm đũa đưa cơm vào miệng (口)."
+        },
+        {
+            char: "左", hv: "Tả", lesson: "L6", lessonName: "Bài 6", strokes: 5,
+            meaning: "Bên trái", kun: "ひだり", on: "さ",
+            examples: [
+                { word: "左", reading: "ひだり", vi: "Bên trái" }
+            ],
+            formula: "𠂇 (Tay) ＋ 工 (Thước)",
+            strokeGuide: "Viết nét ngang (一) trước ➔ nét phẩy (丿) ➔ bộ Công (工 - 3 nét) ở dưới.",
+            mnemonic: "Tay trái giữ chiếc thước thợ (工)."
+        },
+        {
+            char: "赤", hv: "Xích", lesson: "L6", lessonName: "Bài 6", strokes: 7,
+            meaning: "Màu đỏ", kun: "あか-い", on: "せき",
+            examples: [
+                { word: "赤い", reading: "あかい", vi: "Màu đỏ" }
+            ],
+            formula: "土 (Đất) ＋ 火 (Lửa)",
+            strokeGuide: "Trên trước dưới sau: Bộ Thổ (土 - 3 nét) ở trên ➔ 4 nét lửa ở dưới.",
+            mnemonic: "Đất (土) nung trong lửa đỏ rực."
+        },
+        {
+            char: "青", hv: "Thanh", lesson: "L6", lessonName: "Bài 6", strokes: 8,
+            meaning: "Màu xanh dương", kun: "あお-い", on: "せい",
+            examples: [
+                { word: "青い", reading: "あおい", vi: "Màu xanh dương" }
+            ],
+            formula: "生 ＋ 月",
+            strokeGuide: "Trên trước dưới sau: 3 nét ngang + 1 nét sổ ở trên ➔ bộ Nguyệt (月 - 4 nét) ở dưới.",
+            mnemonic: "Cây cỏ xanh tươi dưới ánh trăng."
+        },
+        {
+            char: "黒", hv: "Hắc", lesson: "L6", lessonName: "Bài 6", strokes: 11,
+            meaning: "Màu đen", kun: "くろ-い", on: "こく",
+            examples: [
+                { word: "黒い", reading: "くろい", vi: "Màu đen" }
+            ],
+            formula: "里 ＋ 灬 (Lửa)",
+            strokeGuide: "Trên trước dưới sau: Chữ Lý (里 - 7 nét) ở trên ➔ 4 chấm hỏa (灬) ở dưới cùng.",
+            mnemonic: "Khói lửa đốt bám muội than đen nhánh."
+        },
+        {
+            char: "白", hv: "Bạch", lesson: "L6", lessonName: "Bài 6", strokes: 5,
+            meaning: "Màu trắng", kun: "しろ-い", on: "はく",
+            examples: [
+                { word: "白い", reading: "しろい", vi: "Màu trắng" }
+            ],
+            formula: "丿 ＋ 日",
+            strokeGuide: "Nét phẩy ngắn trên đầu ➔ viết bộ Nhật (日 - 4 nét) ở dưới.",
+            mnemonic: "Ánh nắng mặt trời chiếu sáng trắng tinh."
+        },
+
+        // LESSON 7
+        {
+            char: "時", hv: "Thời", lesson: "L7", lessonName: "Bài 7", strokes: 10,
+            meaning: "Thời gian, giờ", kun: "とき", on: "じ",
+            examples: [
+                { word: "時間", reading: "じかん", vi: "Thời gian" }
+            ],
+            formula: "日 (Mặt trời) ＋ 寺 (Chùa)",
+            strokeGuide: "Trái trước phải sau: Bộ Nhật (日 - 4 nét) bên trái ➔ chữ Tự (寺 - 6 nét) bên phải.",
+            mnemonic: "Nhìn mặt trời trên mái chùa để biết Giờ giấc."
+        },
+        {
+            char: "場", hv: "Trường", lesson: "L7", lessonName: "Bài 7", strokes: 12,
+            meaning: "Địa điểm", kun: "ば", on: "じょう",
+            examples: [
+                { word: "場所", reading: "ばしょ", vi: "Địa điểm" }
+            ],
+            formula: "土 (Đất) ＋ 易",
+            strokeGuide: "Trái trước phải sau: Bộ Thổ (土 - 3 nét) bên trái ➔ chữ Dị (易 - 9 nét) bên phải.",
+            mnemonic: "Vùng đất rộng làm địa điểm tụ họp."
+        },
+        {
+            char: "駅", hv: "Dịch", lesson: "L7", lessonName: "Bài 7", strokes: 14,
+            meaning: "Nhà ga", kun: "えき", on: "えき",
+            examples: [
+                { word: "駅", reading: "えき", vi: "Nhà ga" }
+            ],
+            formula: "馬 (Ngựa) ＋ 尺",
+            strokeGuide: "Trái trước phải sau: Bộ Mã (馬 - 10 nét) bên trái ➔ bộ Xích (尺 - 4 nét) bên phải.",
+            mnemonic: "Trạm dừng tàu xe (Nhà ga)."
+        },
+        {
+            char: "出", hv: "Xuất", lesson: "L7", lessonName: "Bài 7", strokes: 5,
+            meaning: "Ra ngoài", kun: "で-る", on: "しゅつ",
+            examples: [
+                { word: "出かけます", reading: "でかけます", vi: "Đi ra ngoài" }
+            ],
+            formula: "山 ＋ 山",
+            strokeGuide: "Viết nét sổ dài ở trục giữa trước ➔ khung núi trên ➔ khung núi dưới.",
+            mnemonic: "Vượt núi đi ra ngoài."
+        },
+        {
+            char: "待", hv: "Đãi", lesson: "L7", lessonName: "Bài 7", strokes: 9,
+            meaning: "Chờ đợi", kun: "ま-つ", on: "たい",
+            examples: [
+                { word: "待ちます", reading: "まちます", vi: "Đợi, chờ" }
             ],
             formula: "彳(Bước chân) ＋ 寺 (Chùa)",
-            mnemonic: "Dừng bước chân (彳) đứng trước cổng chùa (寺) chờ đợi bạn."
+            strokeGuide: "Trái trước phải sau: Bộ Xích (彳 - 3 nét) bên trái ➔ chữ Tự (寺 - 6 nét) bên phải.",
+            mnemonic: "Đứng trước cổng chùa chờ đợi bạn."
         },
         {
-            char: "止",
-            hv: "Chỉ",
-            lesson: "L7",
-            lessonName: "Bài 7",
-            meaning: "Dừng lại",
-            kun: "と-まる、 と-める",
-            on: "し",
+            char: "止", hv: "Chỉ", lesson: "L7", lessonName: "Bài 7", strokes: 4,
+            meaning: "Dừng lại", kun: "と-まる", on: "し",
             examples: [
-                { jp: "止まります（とまります）", vi: "Dừng lại" },
-                { jp: "中止（ちゅうし）", vi: "Dừng, hủy bỏ" }
+                { word: "止まります", reading: "とまります", vi: "Dừng lại" }
             ],
-            formula: "Chữ tượng hình",
-            mnemonic: "Hình bàn chân đứng im tại vạch kẻ đường (Dừng lại)."
+            formula: "Chữ tượng hình bàn chân",
+            strokeGuide: "Nét sổ giữa ➔ nét ngang ngắn phải ➔ nét sổ ngắn trái ➔ nét ngang dài đáy.",
+            mnemonic: "Bàn chân đứng yên tại vạch dừng."
         },
 
-        // LESSON 8: MEALS & TIME OF DAY
+        // LESSON 8
         {
-            char: "食",
-            hv: "Thực",
-            lesson: "L8",
-            lessonName: "Bài 8",
-            meaning: "Ăn, bữa ăn",
-            kun: "た-べる",
-            on: "しょく",
+            char: "食", hv: "Thực", lesson: "L8", lessonName: "Bài 8", strokes: 9,
+            meaning: "Ăn, bữa ăn", kun: "た-べる", on: "しょく",
             examples: [
-                { jp: "食事（しょくじ）", vi: "Bữa ăn, dùng bữa" },
-                { jp: "食べ物（たべもの）", vi: "Đồ ăn" }
+                { word: "食事", reading: "しょくじ", vi: "Bữa ăn, dùng bữa" },
+                { word: "食べ物", reading: "たべもの", vi: "Đồ ăn" }
             ],
-            formula: "𠆢 (Mái che) ＋ 良 (Tốt lành)",
-            mnemonic: "Dưới mái nhà có đồ ăn ngon lành (良) là niềm vui ẩm thực."
+            formula: "𠆢 ＋ 良",
+            strokeGuide: "Trên xuống dưới: Nét phẩy & mác tạo mái trên ➔ chấm ➔ phần thân chữ Lương ở dưới.",
+            mnemonic: "Đồ ăn tốt lành dưới mái nhà."
         },
         {
-            char: "事",
-            hv: "Sự",
-            lesson: "L8",
-            lessonName: "Bài 8",
-            meaning: "Công việc, sự việc",
-            kun: "こと",
-            on: "じ",
+            char: "事", hv: "Sự", lesson: "L8", lessonName: "Bài 8", strokes: 8,
+            meaning: "Công việc, sự việc", kun: "こと", on: "じ",
             examples: [
-                { jp: "仕事（しごと）", vi: "Công việc" },
-                { jp: "食事（しょくじ）", vi: "Dùng bữa" }
+                { word: "仕事", reading: "しごと", vi: "Công việc" }
             ],
-            formula: "一 ＋ 口 ＋ 彐",
-            mnemonic: "Bàn tay cầm bút ghi chép lại mọi công việc, sự việc."
+            formula: "一 ＋ 口 ＋ 彐 ＋ 亅",
+            strokeGuide: "Ngang trên ➔ bộ Khẩu ➔ bộ Kệ ➔ nét sổ móc thẳng từ trên xuống dưới cuối cùng.",
+            mnemonic: "Bàn tay cầm bút giải quyết công việc."
         },
         {
-            char: "前",
-            hv: "Tiền",
-            lesson: "L8",
-            lessonName: "Bài 8",
-            meaning: "Phía trước, trước khi",
-            kun: "まえ",
-            on: "ぜん",
+            char: "前", hv: "Tiền", lesson: "L8", lessonName: "Bài 8", strokes: 9,
+            meaning: "Phía trước", kun: "まえ", on: "ぜん",
             examples: [
-                { jp: "前（まえ）", vi: "Phía trước, trước" },
-                { jp: "午前（ごぜん）", vi: "Buổi sáng (AM)" }
+                { word: "前", reading: "まえ", vi: "Phía trước" },
+                { word: "午前", reading: "ごぜん", vi: "Buổi sáng (AM)" }
             ],
             formula: "䒑 ＋ 月 ＋ 刂",
-            mnemonic: "Con thuyền rẽ sóng tiến thẳng về phía trước."
+            strokeGuide: "Trên trước dưới sau: 2 chấm + ngang trên ➔ bộ Nguyệt bên trái ➔ bộ Đao đứng (刂) bên phải.",
+            mnemonic: "Tiến thẳng về phía trước."
         },
         {
-            char: "後",
-            hv: "Hậu",
-            lesson: "L8",
-            lessonName: "Bài 8",
-            meaning: "Phía sau, sau khi",
-            kun: "あと、 うし-ろ",
-            on: "ご、 こう",
+            char: "後", hv: "Hậu", lesson: "L8", lessonName: "Bài 8", strokes: 9,
+            meaning: "Phía sau, sau khi", kun: "あと、 うし-ろ", on: "ご",
             examples: [
-                { jp: "後（あと）", vi: "Sau, sau đó" },
-                { jp: "午後（ごご）", vi: "Buổi chiều (PM)" }
+                { word: "後", reading: "あと", vi: "Sau đó" },
+                { word: "午後", reading: "ごご", vi: "Buổi chiều (PM)" }
             ],
-            formula: "彳(Bước đi) ＋ 幺 (Nhỏ) ＋ 夂 (Chậm)",
-            mnemonic: "Bước chân (彳) đi chậm rãi (夂) tụt lại ở phía sau."
+            formula: "彳 ＋ 幺 ＋ 夂",
+            strokeGuide: "Trái trước phải sau: Bộ Xích (彳 - 3 nét) bên trái ➔ bộ Yêu (幺) trên ➔ bộ Truy (夂) dưới.",
+            mnemonic: "Bước đi chậm lại ở phía sau."
         },
         {
-            char: "朝",
-            hv: "Triêu",
-            lesson: "L8",
-            lessonName: "Bài 8",
-            meaning: "Buổi sáng",
-            kun: "あさ",
-            on: "ちょう",
+            char: "朝", hv: "Triêu", lesson: "L8", lessonName: "Bài 8", strokes: 12,
+            meaning: "Buổi sáng", kun: "あさ", on: "ちょう",
             examples: [
-                { jp: "朝（あさ）", vi: "Buổi sáng" },
-                { jp: "毎朝（まいあさ）", vi: "Mỗi sáng" }
+                { word: "朝", reading: "あさ", vi: "Buổi sáng" },
+                { word: "毎朝", reading: "まいあさ", vi: "Mỗi sáng" }
             ],
             formula: "十 ＋ 日 ＋ 十 ＋ 月",
-            mnemonic: "Khi mặt trời (日) mọc lên khỏi đám cỏ còn mặt trăng (月) vừa lặn là Buổi sáng."
+            strokeGuide: "Trái trước phải sau: Cụm 十日十 (8 nét) bên trái trước ➔ bộ Nguyệt (月 - 4 nét) bên phải sau.",
+            mnemonic: "Mặt trời mọc khi trăng vừa lặn vào buổi sáng."
         },
         {
-            char: "昼",
-            hv: "Trú",
-            lesson: "L8",
-            lessonName: "Bài 8",
-            meaning: "Buổi trưa",
-            kun: "ひる",
-            on: "ちゅう",
+            char: "昼", hv: "Trú", lesson: "L8", lessonName: "Bài 8", strokes: 9,
+            meaning: "Buổi trưa", kun: "ひる", on: "ちゅう",
             examples: [
-                { jp: "昼（ひる）", vi: "Buổi trưa" },
-                { jp: "昼ごはん（ひるごはん）", vi: "Bữa trưa" }
+                { word: "昼", reading: "ひる", vi: "Buổi trưa" }
             ],
-            formula: "尺 ＋ 日 (Mặt trời) ＋ 一",
-            mnemonic: "Mặt trời (日) lên cao rọi thẳng xuống mái nhà lúc giữa trưa."
+            formula: "尺 ＋ 日 ＋ 一",
+            strokeGuide: "Bộ Xích (尺 - 4 nét) ở trên ➔ bộ Nhật (日 - 4 nét) ở dưới ➔ nét ngang đáy cuối cùng.",
+            mnemonic: "Mặt trời rọi thẳng lúc giữa trưa."
         },
         {
-            char: "夜",
-            hv: "Dạ",
-            lesson: "L8",
-            lessonName: "Bài 8",
-            meaning: "Buổi tối, ban đêm",
-            kun: "よる、 よ",
-            on: "や",
+            char: "夜", hv: "Dạ", lesson: "L8", lessonName: "Bài 8", strokes: 8,
+            meaning: "Buổi tối, đêm", kun: "よる", on: "や",
             examples: [
-                { jp: "夜（よる）", vi: "Buổi tối, ban đêm" },
-                { jp: "夜景（やけい）", vi: "Cảnh đêm" }
+                { word: "夜", reading: "よる", vi: "Buổi tối, đêm" }
             ],
-            formula: "亠 ＋ 亻(Người) ＋ 夕 (Trăng khuya)",
-            mnemonic: "Con người (亻) nghỉ ngơi dưới ánh trăng khuya (夕) khi màn đêm buông xuống."
+            formula: "亠 ＋ 亻 ＋ 夕",
+            strokeGuide: "Chấm ngang đầu (亠) ➔ bộ Nhân đứng (亻) bên trái ➔ bộ Tịch (夕) + nét mác bên phải.",
+            mnemonic: "Người nghỉ ngơi dưới ánh trăng đêm."
         },
         {
-            char: "乗",
-            hv: "Thừa",
-            lesson: "L8",
-            lessonName: "Bài 8",
-            meaning: "Lên xe, cưỡi",
-            kun: "の-る",
-            on: "じょう",
+            char: "乗", hv: "Thừa", lesson: "L8", lessonName: "Bài 8", strokes: 9,
+            meaning: "Lên xe/tàu", kun: "の-る", on: "じょう",
             examples: [
-                { jp: "乗ります（のります）", vi: "Lên tàu/xe" }
+                { word: "乗ります", reading: "のります", vi: "Lên xe" }
             ],
             formula: "禾 ＋ 北",
-            mnemonic: "Trèo lên ngọn cây cao hoặc bước lên tàu xe."
+            strokeGuide: "Nét phẩy đầu ➔ các nét ngang ➔ sổ giữa ➔ phẩy và mác hai bên chân.",
+            mnemonic: "Bước chân lên tàu xe."
         },
 
-        // LESSON 9: SCHOOL & STUDY
+        // LESSON 9
         {
-            char: "学",
-            hv: "Học",
-            lesson: "L9",
-            lessonName: "Bài 9",
-            meaning: "Học tập",
-            kun: "まな-ぶ",
-            on: "がく",
+            char: "学", hv: "Học", lesson: "L9", lessonName: "Bài 9", strokes: 8,
+            meaning: "Học tập", kun: "まな-ぶ", on: "がく",
             examples: [
-                { jp: "学校（がっこう）", vi: "Trường học" },
-                { jp: "学生（がくせい）", vi: "Học sinh, sinh viên" },
-                { jp: "大学（だいがく）", vi: "Đại học" }
+                { word: "学校", reading: "がっこう", vi: "Trường học" },
+                { word: "学生", reading: "がくせい", vi: "Học sinh, sinh viên" },
+                { word: "大学", reading: "だいがく", vi: "Đại học" }
             ],
-            formula: "⺍ ＋ 冖 (Mái nhà) ＋ 子 (Đứa trẻ)",
-            mnemonic: "Đứa trẻ (子) ngồi dưới mái trường (冖) chăm chỉ Học tập."
+            formula: "⺍ ＋ 冖 ＋ 子",
+            strokeGuide: "Trên xuống dưới: 3 chấm trên đầu ➔ mái 冖 ➔ bộ Tử (子 - 3 nét) ở dưới.",
+            mnemonic: "Đứa trẻ (子) dưới mái nhà trường đang học tập."
         },
         {
-            char: "校",
-            hv: "Hiệu",
-            lesson: "L9",
-            lessonName: "Bài 9",
-            meaning: "Trường học",
-            kun: "こう",
-            on: "こう",
+            char: "校", hv: "Hiệu", lesson: "L9", lessonName: "Bài 9", strokes: 10,
+            meaning: "Trường học", kun: "こう", on: "こう",
             examples: [
-                { jp: "学校（がっこう）", vi: "Trường học" },
-                { jp: "高校（こうこう）", vi: "Trường cấp 3" }
+                { word: "学校", reading: "がっこう", vi: "Trường học" },
+                { word: "高校", reading: "こうこう", vi: "Trường cấp 3" }
             ],
             formula: "木 (Cây) ＋ 交 (Giao lưu)",
-            mnemonic: "Ngôi trường có hàng cây xanh (木) nơi học sinh giao lưu (交) học hỏi."
+            strokeGuide: "Trái trước phải sau: Bộ Mộc (木 - 4 nét) bên trái ➔ chữ Giao (交 - 6 nét) bên phải.",
+            mnemonic: "Trường học rợp bóng cây xanh nơi bạn bè giao lưu."
         },
         {
-            char: "先",
-            hv: "Tiên",
-            lesson: "L9",
-            lessonName: "Bài 9",
-            meaning: "Trước, tiên sinh",
-            kun: "さき",
-            on: "せん",
+            char: "先", hv: "Tiên", lesson: "L9", lessonName: "Bài 9", strokes: 6,
+            meaning: "Trước, thầy cô", kun: "さき", on: "せん",
             examples: [
-                { jp: "先生（せんせい）", vi: "Thầy/cô giáo" },
-                { jp: "先週（せんしゅう）", vi: "Tuần trước" }
+                { word: "先生", reading: "せんせい", vi: "Thầy/cô giáo" },
+                { word: "先週", reading: "せんしゅう", vi: "Tuần trước" }
             ],
-            formula: "土 ＋ 儿 (Đôi chân)",
-            mnemonic: "Người bước đôi chân (儿) đi phía trước dẫn đường là bậc thầy (Tiên sinh)."
+            formula: "土 ＋ 儿",
+            strokeGuide: "Nét phẩy ngắn ➔ ngang ➔ sổ ➔ ngang dài ➔ đôi chân (儿) ở dưới.",
+            mnemonic: "Người đi trước dẫn đường là Tiên sinh (thầy cô)."
         },
         {
-            char: "生",
-            hv: "Sinh",
-            lesson: "L9",
-            lessonName: "Bài 9",
-            meaning: "Sống, sinh ra, học sinh",
-            kun: "い-きる、 う-まれる",
-            on: "せい、 しょう",
+            char: "生", hv: "Sinh", lesson: "L9", lessonName: "Bài 9", strokes: 5,
+            meaning: "Sống, học sinh", kun: "い-きる", on: "せい",
             examples: [
-                { jp: "先生（せんせい）", vi: "Giáo viên" },
-                { jp: "学生（がくせい）", vi: "Sinh viên, học sinh" },
-                { jp: "１年生（いちねんせい）", vi: "Sinh viên năm nhất" }
+                { word: "先生", reading: "せんせい", vi: "Giáo viên" },
+                { word: "学生", reading: "がくせい", vi: "Học sinh" }
             ],
-            formula: "Chữ tượng hình",
-            mnemonic: "Mầm cây non đâm chồi nảy lộc vươn lên từ mặt đất (土)."
+            formula: "Chữ tượng hình mầm cây",
+            strokeGuide: "Phẩy ngắn ➔ ngang trên ➔ sổ thẳng giữa ➔ ngang giữa ➔ ngang dài đáy cuối cùng.",
+            mnemonic: "Mầm cây vươn lên đầy sức sống."
         },
         {
-            char: "勉",
-            hv: "Miễn",
-            lesson: "L9",
-            lessonName: "Bài 9",
-            meaning: "Cố gắng, nỗ lực",
-            kun: "つと-める",
-            on: "べん",
+            char: "勉", hv: "Miễn", lesson: "L9", lessonName: "Bài 9", strokes: 10,
+            meaning: "Chăm chỉ, nỗ lực", kun: "つと-める", on: "べん",
             examples: [
-                { jp: "勉強（べんきょう）", vi: "Học tập" }
+                { word: "勉強", reading: "べんきょう", vi: "Học tập" }
             ],
-            formula: "免 (Tránh) ＋ 力 (Sức lực)",
-            mnemonic: "Bỏ sức lực (力) ra rèn luyện để tránh (免) sự dốt nát."
+            formula: "免 ＋ 力",
+            strokeGuide: "Viết chữ Miễn (免 - 8 nét, có nét chân kéo dài) trước ➔ bộ Lực (力 - 2 nét) bên phải.",
+            mnemonic: "Nỗ lực bỏ sức rèn luyện học tập."
         },
         {
-            char: "強",
-            hv: "Cường",
-            lesson: "L9",
-            lessonName: "Bài 9",
-            meaning: "Mạnh mẽ, học hành",
-            kun: "つよ-い",
-            on: "きょう",
+            char: "強", hv: "Cường", lesson: "L9", lessonName: "Bài 9", strokes: 11,
+            meaning: "Mạnh mẽ", kun: "つよ-い", on: "きょう",
             examples: [
-                { jp: "勉強（べんきょう）", vi: "Học tập" },
-                { jp: "強い（つよい）", vi: "Mạnh mẽ" }
+                { word: "勉強", reading: "べんきょう", vi: "Học tập" },
+                { word: "強い", reading: "つよい", vi: "Mạnh mẽ" }
             ],
-            formula: "弓 (Cây cung) ＋ 虫 (Sâu/Côn trùng)",
-            mnemonic: "Giương cây cung (弓) thật căng và mạnh mẽ."
+            formula: "弓 (Cung) ＋ 厶 ＋ 虫",
+            strokeGuide: "Trái trước phải sau: Bộ Cung (弓 - 3 nét) bên trái ➔ bộ Khư (厶) + bộ Trùng (虫) bên phải.",
+            mnemonic: "Giương cây cung thật căng và mạnh mẽ."
         },
 
-        // LESSON 10: CULTURE & TRAVEL
+        // LESSON 10
         {
-            char: "文",
-            hv: "Văn",
-            lesson: "L10",
-            lessonName: "Bài 10",
-            meaning: "Văn hóa, câu văn",
-            kun: "ふみ",
-            on: "ぶん、 もん",
+            char: "文", hv: "Văn", lesson: "L10", lessonName: "Bài 10", strokes: 4,
+            meaning: "Văn hóa, câu văn", kun: "ふみ", on: "ぶん",
             examples: [
-                { jp: "文化（ぶんか）", vi: "Văn hóa" },
-                { jp: "文学（ぶんがく）", vi: "Văn học" }
+                { word: "文化", reading: "ぶんか", vi: "Văn hóa" }
             ],
-            formula: "亠 ＋ 父",
-            mnemonic: "Những nét hoa văn bắt chéo nhau tạo nên chữ viết và văn hóa."
+            formula: "亠 ＋ 乂",
+            strokeGuide: "Chấm trên cùng ➔ nét ngang ➔ nét phẩy ➔ nét mác.",
+            mnemonic: "Những nét chữ đan chéo tạo nên Văn hóa."
         },
         {
-            char: "化",
-            hv: "Hóa",
-            lesson: "L10",
-            lessonName: "Bài 10",
-            meaning: "Biến hóa, thay đổi",
-            kun: "ば-ける",
-            on: "か",
+            char: "化", hv: "Hóa", lesson: "L10", lessonName: "Bài 10", strokes: 4,
+            meaning: "Biến đổi", kun: "ば-ける", on: "か",
             examples: [
-                { jp: "文化（ぶんか）", vi: "Văn hóa" }
+                { word: "文化", reading: "ぶんか", vi: "Văn hóa" }
             ],
-            formula: "亻(Người đứng) ＋ 匕 (Người ngồi)",
-            mnemonic: "Một người đang đứng (亻) biến hóa thành người ngồi xoay lưng (匕)."
+            formula: "亻 ＋ 匕",
+            strokeGuide: "Trái trước phải sau: Bộ Nhân đứng (亻 - 2 nét) bên trái ➔ bộ Chủy (匕 - 2 nét) bên phải.",
+            mnemonic: "Con người thay đổi, văn minh hóa."
         },
         {
-            char: "音",
-            hv: "Âm",
-            lesson: "L10",
-            lessonName: "Bài 10",
-            meaning: "Âm thanh, tiếng",
-            kun: "おと、 ね",
-            on: "おん",
+            char: "音", hv: "Âm", lesson: "L10", lessonName: "Bài 10", strokes: 9,
+            meaning: "Âm thanh", kun: "おと", on: "おん",
             examples: [
-                { jp: "音楽（おんがく）", vi: "Âm nhạc" },
-                { jp: "発音（はつおん）", vi: "Phát âm" }
+                { word: "音楽", reading: "おんがく", vi: "Âm nhạc" }
             ],
-            formula: "立 (Đứng) ＋ 日 (Lời nói/Mặt trời)",
-            mnemonic: "Lời nói phát ra vang vọng trong không trung tạo thành Âm thanh."
+            formula: "立 (Đứng) ＋ 日",
+            strokeGuide: "Trên trước dưới sau: Bộ Lập (立 - 5 nét) ở trên ➔ bộ Nhật (日 - 4 nét) ở dưới.",
+            mnemonic: "Tiếng vang vọng tạo thành Âm thanh."
         },
         {
-            char: "楽",
-            hv: "Lạc / Nhạc",
-            lesson: "L10",
-            lessonName: "Bài 10",
-            meaning: "Vui vẻ, âm nhạc",
-            kun: "たの-しい",
-            on: "がく、 らく",
+            char: "楽", hv: "Lạc / Nhạc", lesson: "L10", lessonName: "Bài 10", strokes: 13,
+            meaning: "Vui vẻ, âm nhạc", kun: "たの-しい", on: "がく、 らく",
             examples: [
-                { jp: "音楽（おんがく）", vi: "Âm nhạc" },
-                { jp: "楽しい（たのしい）", vi: "Vui vẻ" }
+                { word: "音楽", reading: "おんがく", vi: "Âm nhạc" },
+                { word: "楽しい", reading: "たのしい", vi: "Vui vẻ" }
             ],
-            formula: "白 ＋ 幺 ＋ 木 (Gỗ)",
-            mnemonic: "Trống nhạc treo trên giá gỗ (木) gõ lên mang lại niềm vui (楽しい)."
+            formula: "白 ＋ 冫 ＋ 木",
+            strokeGuide: "Giữa trước hai bên sau ở tầng trên (chữ Bạch ở giữa ➔ 4 chấm hai bên) ➔ bộ Mộc (木) ở dưới.",
+            mnemonic: "Nhạc cụ trên giá gỗ mang lại niềm vui."
         },
         {
-            char: "旅",
-            hv: "Lữ",
-            lesson: "L10",
-            lessonName: "Bài 10",
-            meaning: "Chuyến đi, du lịch",
-            kun: "たび",
-            on: "りょ",
+            char: "旅", hv: "Lữ", lesson: "L10", lessonName: "Bài 10", strokes: 10,
+            meaning: "Du lịch", kun: "たび", on: "りょ",
             examples: [
-                { jp: "旅行（りょこう）", vi: "Du lịch" }
+                { word: "旅行", reading: "りょこう", vi: "Du lịch" }
             ],
-            formula: "方 (Phương hướng) ＋ 𠂉 ＋ 氏",
-            mnemonic: "Đoàn người cầm cờ đi về các phương trời xa để Du lịch."
+            formula: "方 (Phương) ＋ 𠂉 ＋ 氏",
+            strokeGuide: "Trái trước phải sau: Bộ Phương (方 - 4 nét) bên trái ➔ phần bên phải (6 nét).",
+            mnemonic: "Xách ba lô đi về muôn phương Du lịch."
         },
         {
-            char: "友",
-            hv: "Hữu",
-            lesson: "L10",
-            lessonName: "Bài 10",
-            meaning: "Bạn bè, bằng hữu",
-            kun: "とも",
-            on: "ゆう",
+            char: "友", hv: "Hữu", lesson: "L10", lessonName: "Bài 10", strokes: 4,
+            meaning: "Bạn bè", kun: "とも", on: "ゆう",
             examples: [
-                { jp: "友だち（ともだち）", vi: "Bạn bè" }
+                { word: "友だち", reading: "ともだち", vi: "Bạn bè" }
             ],
-            formula: "𠂇 (Bàn tay) ＋ 又 (Bàn tay)",
-            mnemonic: "Hai bàn tay nắm chặt lấy nhau biểu tượng cho tình bạn bè gắn kết."
+            formula: "𠂇 ＋ 又",
+            strokeGuide: "Nét ngang (1) ➔ nét phẩy dài (2) ➔ bộ Hựu (又 - 2 nét) bên trong.",
+            mnemonic: "Hai bàn tay bắt chặt lấy nhau là Bạn bè."
         },
         {
-            char: "週",
-            hv: "Chu",
-            lesson: "L10",
-            lessonName: "Bài 10",
-            meaning: "Tuần lễ",
-            kun: "しゅう",
-            on: "しゅう",
+            char: "週", hv: "Chu", lesson: "L10", lessonName: "Bài 10", strokes: 11,
+            meaning: "Tuần lễ", kun: "しゅう", on: "しゅう",
             examples: [
-                { jp: "週（しゅう）", vi: "Tuần" },
-                { jp: "週末（しゅうまつ）", vi: "Cuối tuần" },
-                { jp: "先週（せんしゅう）", vi: "Tuần trước" }
+                { word: "週", reading: "しゅう", vi: "Tuần" },
+                { word: "週末", reading: "しゅうまつ", vi: "Cuối tuần" }
             ],
-            formula: "辶 (Đi) ＋ 周 (Chu kỳ/Vòng quanh)",
-            mnemonic: "Thời gian trôi đi (辶) hết một vòng tuần hoàn 7 ngày là 1 Tuần."
+            formula: "周 ＋ 辶",
+            strokeGuide: "Viết chữ Chu (周 - 8 nét) bên trong trước ➔ bộ Xước (辶 - 3 nét) bao dưới sau cùng.",
+            mnemonic: "Một chu kỳ 7 ngày là 1 Tuần."
         }
     ];
 
+    let filteredKanji = [];
+    let currentVocabExercises = [];
+    let showHints = false;
+
+    // Switch Tabs
+    function switchTab(tabId) {
+        document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+        document.querySelectorAll('.mode-tab-btn').forEach(b => b.classList.remove('active'));
+        document.getElementById(tabId).classList.add('active');
+        event.currentTarget.classList.add('active');
+
+        if (tabId === 'tab-exercises') {
+            renderTypingExercise();
+            generateQuiz();
+        }
+    }
+
+    // Filter by Lesson & Search
+    function applyLessonFilter() {
+        const lesson = document.getElementById('lessonFilter').value;
+        const query = document.getElementById('searchInput').value.trim().toLowerCase();
+
+        filteredKanji = kanjiData.filter(item => {
+            const matchLesson = (lesson === 'ALL') || (item.lesson === lesson);
+            const matchQuery = !query ||
+                item.char.includes(query) ||
+                item.hv.toLowerCase().includes(query) ||
+                item.meaning.toLowerCase().includes(query) ||
+                item.kun.toLowerCase().includes(query) ||
+                item.on.toLowerCase().includes(query);
+            return matchLesson && matchQuery;
+        });
+
+        renderCards(filteredKanji);
+        renderTypingExercise();
+        generateQuiz();
+    }
+
+    // Render Kanji Cards with Interactive Writing Canvas
     function renderCards(data) {
         const container = document.getElementById('cardsContainer');
         container.innerHTML = '';
@@ -1581,18 +1672,19 @@
             return;
         }
 
-        data.forEach(item => {
+        data.forEach((item, index) => {
             const card = document.createElement('div');
             card.className = 'kanji-card';
 
             const examplesHtml = item.examples.map(ex => 
-                `<div class="example-line">• <span class="example-jp">${ex.jp}</span> : ${ex.vi}</div>`
+                `<div class="example-line">• <span class="example-jp">${ex.word}（${ex.reading}）</span> : ${ex.vi}</div>`
             ).join('');
 
             card.innerHTML = `
                 <div class="card-header-bar">
                     <div class="kanji-badge">${item.char}</div>
                     <div class="han-viet-title">${item.hv}</div>
+                    <span class="stroke-badge">✍️ ${item.strokes} nét</span>
                     <div class="lesson-tag">${item.lessonName}</div>
                 </div>
 
@@ -1623,50 +1715,261 @@
                             </div>
                         </div>
 
-                        <div class="mnemonic-note">
-                            💡 <strong>Mẹo nhớ:</strong> ${item.mnemonic}
+                        <div class="guides-wrapper">
+                            <div class="stroke-guide-note">
+                                🖌️ <strong>Cách viết (${item.strokes} nét):</strong> ${item.strokeGuide}
+                            </div>
+                            <div class="mnemonic-note">
+                                💡 <strong>Mẹo nhớ:</strong> ${item.mnemonic}
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Right Column: Formula & Grid Box -->
+                    <!-- Right Column: Formula & Interactive Grid Box -->
                     <div class="visual-column">
                         <div class="mnemonic-visual-box">
                             <div class="radical-formula">${item.formula}</div>
-                            <div style="font-size: 0.8rem; color: #888;">Chiết tự bộ thủ</div>
+                            <div style="font-size: 0.78rem; color: #888;">Chiết tự bộ thủ</div>
                         </div>
 
                         <div class="kanji-grid-box">
                             <div class="grid-line-h"></div>
                             <div class="grid-line-v"></div>
-                            <div class="kanji-char-large">${item.char}</div>
+                            <div class="kanji-char-large" id="char-bg-${index}">${item.char}</div>
+                            <canvas class="draw-canvas" id="canvas-${index}" width="165" height="165"></canvas>
+                        </div>
+
+                        <div class="canvas-controls">
+                            <button class="btn-mini" id="trace-btn-${index}" onclick="toggleTraceMode(${index})">👁️ Làm mờ mẫu</button>
+                            <button class="btn-mini" onclick="clearCanvas(${index})">🗑️ Xóa nét</button>
                         </div>
                     </div>
                 </div>
             `;
             container.appendChild(card);
+
+            // Init Canvas Drawing
+            initCanvas(index);
         });
     }
 
-    function filterCards() {
-        const lesson = document.getElementById('lessonFilter').value;
-        const query = document.getElementById('searchInput').value.trim().toLowerCase();
+    // Interactive Drawing Pad Logic
+    function initCanvas(index) {
+        const canvas = document.getElementById(`canvas-${index}`);
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        let drawing = false;
 
-        const filtered = kanjiData.filter(item => {
-            const matchLesson = (lesson === 'ALL') || (item.lesson === lesson);
-            const matchQuery = !query || 
-                item.char.includes(query) ||
-                item.hv.toLowerCase().includes(query) ||
-                item.meaning.toLowerCase().includes(query) ||
-                item.kun.toLowerCase().includes(query) ||
-                item.on.toLowerCase().includes(query);
-            return matchLesson && matchQuery;
+        ctx.strokeStyle = '#e74c3c';
+        ctx.lineWidth = 6;
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+
+        function getPos(e) {
+            const rect = canvas.getBoundingClientRect();
+            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+            return {
+                x: clientX - rect.left,
+                y: clientY - rect.top
+            };
+        }
+
+        function startDraw(e) {
+            e.preventDefault();
+            drawing = true;
+            // Automatically dim background char when user starts writing
+            document.getElementById(`char-bg-${index}`).classList.add('trace-mode');
+            document.getElementById(`trace-btn-${index}`).classList.add('active-trace');
+            const pos = getPos(e);
+            ctx.beginPath();
+            ctx.moveTo(pos.x, pos.y);
+        }
+
+        function moveDraw(e) {
+            if (!drawing) return;
+            e.preventDefault();
+            const pos = getPos(e);
+            ctx.lineTo(pos.x, pos.y);
+            ctx.stroke();
+        }
+
+        function endDraw() {
+            drawing = false;
+        }
+
+        canvas.addEventListener('mousedown', startDraw);
+        canvas.addEventListener('mousemove', moveDraw);
+        window.addEventListener('mouseup', endDraw);
+
+        canvas.addEventListener('touchstart', startDraw, { passive: false });
+        canvas.addEventListener('touchmove', moveDraw, { passive: false });
+        canvas.addEventListener('touchend', endDraw);
+    }
+
+    function toggleTraceMode(index) {
+        const bg = document.getElementById(`char-bg-${index}`);
+        const btn = document.getElementById(`trace-btn-${index}`);
+        bg.classList.toggle('trace-mode');
+        btn.classList.toggle('active-trace');
+    }
+
+    function clearCanvas(index) {
+        const canvas = document.getElementById(`canvas-${index}`);
+        const ctx = canvas.getContext('2d');
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+
+    // EXERCISE 1: TYPING READING
+    function renderTypingExercise() {
+        const tbody = document.getElementById('exTableBody');
+        tbody.innerHTML = '';
+        document.getElementById('exScoreBanner').style.display = 'none';
+        showHints = false;
+
+        // Collect all unique vocabulary examples from filtered Kanji
+        const map = new Map();
+        filteredKanji.forEach(k => {
+            k.examples.forEach(ex => {
+                if (!map.has(ex.word)) {
+                    map.set(ex.word, ex);
+                }
+            });
         });
 
-        renderCards(filtered);
+        currentVocabExercises = Array.from(map.values());
+
+        currentVocabExercises.forEach((ex, idx) => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td><strong>${idx + 1}</strong></td>
+                <td><span class="ex-kanji-word">${ex.word}</span></td>
+                <td>${ex.vi}</td>
+                <td>
+                    <input type="text" class="ex-input" id="ex-in-${idx}" placeholder="Nhập Hiragana...">
+                    <div class="ex-hint" id="ex-hint-${idx}">👉 Đáp án: <strong>${ex.reading}</strong></div>
+                </td>
+                <td style="text-align: center;" id="ex-status-${idx}"></td>
+            `;
+            tbody.appendChild(tr);
+        });
+    }
+
+    function gradeTypingExercise() {
+        let correct = 0;
+        const total = currentVocabExercises.length;
+        if (total === 0) return;
+
+        currentVocabExercises.forEach((ex, idx) => {
+            const input = document.getElementById(`ex-in-${idx}`);
+            const status = document.getElementById(`ex-status-${idx}`);
+            const val = input.value.trim();
+
+            if (val === ex.reading) {
+                correct++;
+                input.classList.remove('wrong');
+                input.classList.add('correct');
+                status.innerHTML = '✅';
+            } else {
+                input.classList.remove('correct');
+                input.classList.add('wrong');
+                status.innerHTML = '❌';
+            }
+        });
+
+        const banner = document.getElementById('exScoreBanner');
+        const percent = Math.round((correct / total) * 100);
+        banner.style.display = 'block';
+        banner.innerHTML = `🎉 Kết quả: Đúng ${correct}/${total} từ (${percent}%)`;
+    }
+
+    function toggleExerciseHints() {
+        showHints = !showHints;
+        currentVocabExercises.forEach((_, idx) => {
+            const h = document.getElementById(`ex-hint-${idx}`);
+            if (h) h.style.display = showHints ? 'block' : 'none';
+        });
+    }
+
+    function resetTypingExercise() {
+        renderTypingExercise();
+    }
+
+    // EXERCISE 2: MULTIPLE CHOICE QUIZ
+    function generateQuiz() {
+        const pool = filteredKanji.length >= 4 ? filteredKanji : kanjiData;
+        const target = pool[Math.floor(Math.random() * pool.length)];
+        const ex = target.examples[0];
+
+        // Randomly pick quiz type: 0 = Kanji -> Reading/Meaning, 1 = Reading -> Kanji
+        const quizType = Math.random() > 0.5 ? 0 : 1;
+
+        const promptEl = document.getElementById('quizPrompt');
+        const subEl = document.getElementById('quizQuestionText');
+        const tagEl = document.getElementById('quizTag');
+        const optBox = document.getElementById('quizOptionsBox');
+        const nextBtn = document.getElementById('nextQuizBtn');
+
+        nextBtn.style.display = 'none';
+        optBox.innerHTML = '';
+
+        const wrongPool = kanjiData.filter(k => k.char !== target.char).sort(() => 0.5 - Math.random()).slice(0, 3);
+
+        if (quizType === 0) {
+            tagEl.innerText = `${target.lessonName} • Hán Việt: ${target.hv.toUpperCase()}`;
+            promptEl.innerText = ex.word;
+            subEl.innerText = "Chọn cách đọc và nghĩa đúng của từ Kanji trên:";
+
+            const correctAns = `${ex.reading} (${ex.vi})`;
+            const options = [
+                correctAns,
+                `${wrongPool[0].examples[0].reading} (${wrongPool[0].examples[0].vi})`,
+                `${wrongPool[1].examples[0].reading} (${wrongPool[1].examples[0].vi})`,
+                `${wrongPool[2].examples[0].reading} (${wrongPool[2].examples[0].vi})`
+            ].sort(() => 0.5 - Math.random());
+
+            renderQuizOptions(options, correctAns, optBox, nextBtn);
+        } else {
+            tagEl.innerText = `${target.lessonName} • Chọn Chữ Hán Đúng`;
+            promptEl.innerText = `${ex.reading}`;
+            subEl.innerText = `Nghĩa là "${ex.vi}". Đâu là chữ Kanji đúng?`;
+
+            const correctAns = `${ex.word} [Hán Việt: ${target.hv}]`;
+            const options = [
+                correctAns,
+                `${wrongPool[0].examples[0].word} [Hán Việt: ${wrongPool[0].hv}]`,
+                `${wrongPool[1].examples[0].word} [Hán Việt: ${wrongPool[1].hv}]`,
+                `${wrongPool[2].examples[0].word} [Hán Việt: ${wrongPool[2].hv}]`
+            ].sort(() => 0.5 - Math.random());
+
+            renderQuizOptions(options, correctAns, optBox, nextBtn);
+        }
+    }
+
+    function renderQuizOptions(options, correctAns, optBox, nextBtn) {
+        options.forEach(opt => {
+            const btn = document.createElement('button');
+            btn.className = 'quiz-opt';
+            btn.innerText = opt;
+            btn.onclick = () => {
+                const all = optBox.querySelectorAll('.quiz-opt');
+                all.forEach(b => b.disabled = true);
+                if (opt === correctAns) {
+                    btn.classList.add('correct');
+                } else {
+                    btn.classList.add('wrong');
+                    all.forEach(b => {
+                        if (b.innerText === correctAns) b.classList.add('correct');
+                    });
+                }
+                nextBtn.style.display = 'inline-flex';
+            };
+            optBox.appendChild(btn);
+        });
     }
 
     window.addEventListener('DOMContentLoaded', () => {
-        filterCards();
+        applyLessonFilter();
     });
 </script>
 
