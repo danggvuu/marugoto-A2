@@ -12,6 +12,7 @@ Bạn có thể truy cập và sử dụng trực tiếp trên điện thoại h
 | :--- | :--- | :--- |
 | ✍️ **Luyện Tập Thể TE (～て)** | [👉 Bấm để vào làm bài](https://danggvuu.github.io/marugoto-A2/) | Bảng 56 động từ tương tác, chấm điểm tự động & lý thuyết chi tiết |
 | 📘 **Luyện Tập Thể RU (Thể từ điển)** | [👉 Bấm để vào làm bài](https://danggvuu.github.io/marugoto-A2/the_ru.html) | Bảng 56 động từ chia thể RU, ngữ pháp sở thích `～Vること です` |
+| ⛩️ **Thẻ Học Chữ Hán Kanji A2-1** | [👉 Bấm để học Kanji](https://danggvuu.github.io/marugoto-A2/kanji_a2.html) | Thẻ Kanji chi tiết (Hán Việt, On, Kun, chiết tự, mẹo nhớ & ô tập viết) |
 | 📖 **Kho Từ Vựng Tổng Hợp** | [👉 Bấm để học từ vựng](https://danggvuu.github.io/marugoto-A2/Tu_Vung_Marugoto_A1_16_A2_1_10.html) | 380+ từ vựng A1 (Bài 16-18) & A2-1 (Bài 1-10) kèm Flashcard & Quiz |
 
 ---
