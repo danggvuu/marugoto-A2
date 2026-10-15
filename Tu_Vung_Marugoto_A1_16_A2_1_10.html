@@ -187,6 +187,274 @@
             background: #2ed573;
         }
 
+        
+        /* Multi-Lesson Selection Component */
+        .controls-card {
+            background: white;
+            border-radius: var(--card-radius);
+            box-shadow: var(--shadow);
+            padding: 22px 20px;
+            margin-bottom: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .search-action-row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .search-input-wrap {
+            position: relative;
+            flex: 1;
+            min-width: 260px;
+        }
+
+        .search-input-wrap input {
+            width: 100%;
+            padding: 12px 36px 12px 16px;
+            border: 1.5px solid var(--border);
+            border-radius: 12px;
+            font-size: 0.95rem;
+            outline: none;
+            transition: all 0.2s;
+            background: #fafcfe;
+        }
+        .search-input-wrap input:focus {
+            border-color: var(--primary);
+            background: white;
+            box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.15);
+        }
+
+        .search-clear-btn {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #a0aec0;
+            font-size: 1.1rem;
+            cursor: pointer;
+            padding: 2px 6px;
+            display: none;
+        }
+
+        .lesson-picker-container {
+            background: #fbfbfd;
+            border: 1.5px solid #edf2f7;
+            border-radius: 14px;
+            padding: 16px 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 13px;
+        }
+
+        .picker-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .picker-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .selection-badge {
+            background: #ede9fe;
+            color: var(--primary);
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid #ddd6fe;
+        }
+
+        .quick-presets {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .preset-pill {
+            background: white;
+            border: 1.5px solid #e2e8f0;
+            color: #4a5568;
+            padding: 5px 11px;
+            border-radius: 16px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+
+        .preset-pill:hover {
+            border-color: var(--primary-light);
+            color: var(--primary);
+            transform: translateY(-1px);
+        }
+
+        .preset-pill.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+            box-shadow: 0 2px 6px rgba(108, 92, 231, 0.3);
+        }
+
+        .preset-clear {
+            color: #e53e3e;
+            border-color: #feb2b2;
+        }
+        .preset-clear:hover {
+            background: #fff5f5;
+            border-color: #e53e3e;
+            color: #c53030;
+        }
+
+        /* Range Selector Row */
+        .range-selector-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            padding: 9px 14px;
+            background: white;
+            border: 1px dashed #cbd5e0;
+            border-radius: 10px;
+            font-size: 0.88rem;
+            color: #4a5568;
+        }
+
+        .range-label {
+            font-weight: 700;
+            color: #2d3748;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .range-dropdown {
+            padding: 6px 10px;
+            border: 1.5px solid #cbd5e0;
+            border-radius: 8px;
+            font-size: 0.88rem;
+            background: white;
+            font-weight: 600;
+            color: #2d3748;
+            outline: none;
+            cursor: pointer;
+        }
+        .range-dropdown:focus {
+            border-color: var(--primary);
+        }
+
+        .btn-range-apply {
+            background: #6c5ce7;
+            color: white;
+            border: none;
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+        .btn-range-apply:hover {
+            background: #5b4bc4;
+            transform: translateY(-1px);
+        }
+
+        .range-tip {
+            font-size: 0.78rem;
+            color: #718096;
+            margin-left: auto;
+        }
+
+        /* Chips Grid */
+        .chips-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .chips-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .chips-group-title {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: #718096;
+            min-width: 95px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .chips-grid {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            flex: 1;
+        }
+
+        .lesson-chip {
+            background: white;
+            border: 1.5px solid #e2e8f0;
+            padding: 7px 13px;
+            border-radius: 10px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: #4a5568;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.15s ease;
+            user-select: none;
+        }
+
+        .lesson-chip:hover {
+            border-color: var(--primary-light);
+            background: #fdfcff;
+            transform: translateY(-1px);
+        }
+
+        .lesson-chip.active {
+            background: #6c5ce7;
+            border-color: #6c5ce7;
+            color: white;
+            box-shadow: 0 3px 8px rgba(108, 92, 231, 0.25);
+        }
+
+        .chip-check {
+            font-size: 0.78rem;
+            font-weight: bold;
+        }
+
+        .chip-count {
+            font-size: 0.75rem;
+            opacity: 0.85;
+            background: rgba(0,0,0,0.06);
+            padding: 1px 6px;
+            border-radius: 10px;
+        }
+        .lesson-chip.active .chip-count {
+            background: rgba(255,255,255,0.22);
+            color: white;
+        }
+
         /* Views */
         .view-panel {
             display: none;
@@ -640,35 +908,59 @@
         <button class="mode-btn" onclick="switchView('view-quiz')">✍️ Trắc Nghiệm Nhanh</button>
     </div>
 
-    <!-- Controls & Filters -->
+    <!-- Controls & Multi-Lesson Selection -->
     <div class="controls-card">
-        <div class="filter-group">
-            <select id="lessonFilter" onchange="applyFilter()">
-                <option value="ALL">🌟 Tất Cả Các Bài (380+ từ)</option>
-                <optgroup label="Marugoto A1">
-                    <option value="A1-16">A1 - Bài 16: これ、ください</option>
-                    <option value="A1-17">A1 - Bài 17: たのしかったです</option>
-                    <option value="A1-18">A1 - Bài 18: つぎは きょうとに いきたいです</option>
-                </optgroup>
-                <optgroup label="Marugoto A2-1">
-                    <option value="A2-1">A2-1 - Bài 1: 東京に すんでいます</option>
-                    <option value="A2-2">A2-1 - Bài 2: しゅみは クラシックを聞くことです</option>
-                    <option value="A2-3">A2-1 - Bài 3: 日本はいま、はるです</option>
-                    <option value="A2-4">A2-1 - Bài 4: いい てんきですね</option>
-                    <option value="A2-5">A2-1 - Bài 5: この こうえんは ひろくてきれいです</option>
-                    <option value="A2-6">A2-1 - Bài 6: まっすぐ 行ってください</option>
-                    <option value="A2-7">A2-1 - Bài 7: 10 時でも いいですか</option>
-                    <option value="A2-8">A2-1 - Bài 8: もうやけいを見に行きましたか</option>
-                    <option value="A2-9">A2-1 - Bài 9: 日本語は はつおんが かんたんです (1)</option>
-                    <option value="A2-10">A2-1 - Bài 10: 日本語は はつおんが かんたんです (2)</option>
-                </optgroup>
-            </select>
-            <input type="text" id="searchInput" placeholder="🔍 Tìm kiếm từ vựng..." oninput="applyFilter()">
+        <!-- Search & Action Row -->
+        <div class="search-action-row">
+            <div class="search-input-wrap">
+                <input type="text" id="searchInput" placeholder="🔍 Tìm kiếm từ vựng (Nhật, Việt, Romaji)..." oninput="onSearchChange()">
+                <button id="searchClearBtn" class="search-clear-btn" onclick="clearSearch()" title="Xóa tìm kiếm">✕</button>
+            </div>
+            <button class="btn btn-quizlet" id="btnQuizlet" onclick="copyQuizletFormat()">
+                📋 Copy Format Quizlet (<span id="quizletCount">380</span> từ)
+            </button>
         </div>
 
-        <button class="btn btn-quizlet" onclick="copyQuizletFormat()">
-            📋 Copy Format Quizlet Bài Đang Chọn
-        </button>
+        <!-- Multi-Lesson Picker -->
+        <div class="lesson-picker-container">
+            <div class="picker-header">
+                <div class="picker-title">
+                    <span>📚 <strong>Chọn bài học ôn tập:</strong></span>
+                    <span class="selection-badge" id="selectionSummary">Đang chọn: Tất cả 13 bài (380+ từ)</span>
+                </div>
+                <div class="quick-presets">
+                    <button class="preset-pill active" id="preset-all" onclick="selectPreset('ALL')">🌟 Tất cả</button>
+                    <button class="preset-pill" id="preset-a1" onclick="selectPreset('A1')">A1 (16-18)</button>
+                    <button class="preset-pill" id="preset-a2-1-5" onclick="selectPreset('A2_1_5')">A2-1 (1-5)</button>
+                    <button class="preset-pill" id="preset-a2-6-10" onclick="selectPreset('A2_6_10')">A2-1 (6-10)</button>
+                    <button class="preset-pill" id="preset-a2-all" onclick="selectPreset('A2_ALL')">Trọn bộ A2-1</button>
+                    <button class="preset-pill preset-clear" onclick="selectPreset('NONE')">🗑️ Bỏ chọn hết</button>
+                </div>
+            </div>
+
+            <!-- Range Selector Bar ("chọn liên tục từ bài X đến bài Y") -->
+            <div class="range-selector-row">
+                <span class="range-label">⚡ Chọn liên tục dải bài:</span>
+                <span>Từ</span>
+                <select id="rangeStart" class="range-dropdown" onchange="onRangeDropdownChange()"></select>
+                <span>Đến</span>
+                <select id="rangeEnd" class="range-dropdown" onchange="onRangeDropdownChange()"></select>
+                <button class="btn-range-apply" onclick="applyRangeSelection()">🎯 Chọn dải bài này</button>
+                <span class="range-tip">💡 Mẹo: Nhấp các nút bài ở dưới để chọn nhiều bài, hoặc giữ Shift khi nhấp để chọn dải bài liên tục!</span>
+            </div>
+
+            <!-- Interactive Chips Grid -->
+            <div class="chips-wrapper">
+                <div class="chips-group">
+                    <span class="chips-group-title">Marugoto A1:</span>
+                    <div class="chips-grid" id="chipsContainerA1"></div>
+                </div>
+                <div class="chips-group">
+                    <span class="chips-group-title">Marugoto A2-1:</span>
+                    <div class="chips-grid" id="chipsContainerA2"></div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- VIEW 1: TABLE -->
@@ -1177,16 +1469,226 @@
         }
     }
 
-    // Filter Logic
+    // ==========================================
+    // MULTI-LESSON SELECTION & FILTER LOGIC
+    // ==========================================
+    const LESSON_ORDER = [
+        "A1-16", "A1-17", "A1-18",
+        "A2-1", "A2-2", "A2-3", "A2-4", "A2-5",
+        "A2-6", "A2-7", "A2-8", "A2-9", "A2-10"
+    ];
+
+    const LESSON_TITLES = {
+        "A1-16": "Bài 16: Mua sắm (これ、ください)",
+        "A1-17": "Bài 17: Trải nghiệm (たのしかったです)",
+        "A1-18": "Bài 18: Du lịch (つぎは きょうとに いきたいです)",
+        "A2-1":  "Bài 1: Nơi ở (東京に すんでいます)",
+        "A2-2":  "Bài 2: Sở thích (しゅみは クラシックを聞くことです)",
+        "A2-3":  "Bài 3: Mùa & Khí hậu (日本はいま、はるです)",
+        "A2-4":  "Bài 4: Thời tiết (いい てんきですね)",
+        "A2-5":  "Bài 5: Phố xá & Công viên (この こうえんは ひろくてきれいです)",
+        "A2-6":  "Bài 6: Chỉ đường (まっすぐ 行ってください)",
+        "A2-7":  "Bài 7: Hẹn gặp (10 時でも いいですか)",
+        "A2-8":  "Bài 8: Cảnh đêm (夜景を見に行きましたか)",
+        "A2-9":  "Bài 9: Ngôn ngữ 1 (日本語は はつおんが かんたんです)",
+        "A2-10": "Bài 10: Ngôn ngữ 2 (日本語は はつおんが かんたんです)"
+    };
+
+    let selectedLessons = new Set(LESSON_ORDER); // Mặc định chọn tất cả
+    let lastClickedLessonIdx = -1;
+
+    // Đếm số từ vựng từng bài
+    const lessonCounts = {};
+    rawVocab.forEach(item => {
+        lessonCounts[item.l] = (lessonCounts[item.l] || 0) + 1;
+    });
+
+    // Khởi tạo các Chip & Dropdown dải bài
+    function initLessonChips() {
+        const containerA1 = document.getElementById('chipsContainerA1');
+        const containerA2 = document.getElementById('chipsContainerA2');
+        const rangeStart = document.getElementById('rangeStart');
+        const rangeEnd = document.getElementById('rangeEnd');
+
+        containerA1.innerHTML = '';
+        containerA2.innerHTML = '';
+        rangeStart.innerHTML = '';
+        rangeEnd.innerHTML = '';
+
+        LESSON_ORDER.forEach((lid, idx) => {
+            const isA1 = lid.startsWith('A1');
+            const targetCont = isA1 ? containerA1 : containerA2;
+            const count = lessonCounts[lid] || 0;
+            const title = LESSON_TITLES[lid] || lid;
+
+            // 1. Tạo Chip Button
+            const chip = document.createElement('button');
+            chip.className = `lesson-chip ${selectedLessons.has(lid) ? 'active' : ''}`;
+            chip.id = `chip-${lid}`;
+            chip.title = `${title} (${count} từ)`;
+            chip.innerHTML = `
+                <span class="chip-check">${selectedLessons.has(lid) ? '✓' : '+'}</span>
+                <span>${lid}</span>
+                <span class="chip-count">${count}</span>
+            `;
+            chip.onclick = (e) => toggleLesson(lid, idx, e);
+            targetCont.appendChild(chip);
+
+            // 2. Tạo Dropdown dải bài
+            const opt1 = document.createElement('option');
+            opt1.value = lid;
+            opt1.textContent = `${lid} - ${title.split('(')[0]}`;
+            rangeStart.appendChild(opt1);
+
+            const opt2 = document.createElement('option');
+            opt2.value = lid;
+            opt2.textContent = `${lid} - ${title.split('(')[0]}`;
+            rangeEnd.appendChild(opt2);
+        });
+
+        rangeStart.value = "A2-1";
+        rangeEnd.value = "A2-5";
+    }
+
+    // Toggle một bài học (Hỗ trợ Shift + Click chọn liên tục dải bài)
+    function toggleLesson(lid, idx, event) {
+        if (event && event.shiftKey && lastClickedLessonIdx !== -1) {
+            // Shift + Click: Chọn liên tục từ lastClickedLessonIdx đến idx
+            const start = Math.min(lastClickedLessonIdx, idx);
+            const end = Math.max(lastClickedLessonIdx, idx);
+            for (let i = start; i <= end; i++) {
+                selectedLessons.add(LESSON_ORDER[i]);
+            }
+            showToast(`Đã chọn liên tục từ bài ${LESSON_ORDER[start]} đến ${LESSON_ORDER[end]}!`);
+        } else {
+            // Click thường: Bật / Tắt bài học đó
+            if (selectedLessons.has(lid)) {
+                selectedLessons.delete(lid);
+            } else {
+                selectedLessons.add(lid);
+            }
+        }
+
+        lastClickedLessonIdx = idx;
+        updatePresetPillsState();
+        updateChipsUI();
+        applyFilter();
+    }
+
+    // Áp dụng chọn dải bài liên tục từ Range Dropdown
+    function applyRangeSelection() {
+        const startId = document.getElementById('rangeStart').value;
+        const endId = document.getElementById('rangeEnd').value;
+        const sIdx = LESSON_ORDER.indexOf(startId);
+        const eIdx = LESSON_ORDER.indexOf(endId);
+
+        if (sIdx === -1 || eIdx === -1) return;
+        const start = Math.min(sIdx, eIdx);
+        const end = Math.max(sIdx, eIdx);
+
+        selectedLessons.clear();
+        for (let i = start; i <= end; i++) {
+            selectedLessons.add(LESSON_ORDER[i]);
+        }
+
+        updatePresetPillsState();
+        updateChipsUI();
+        applyFilter();
+        showToast(`Đã chọn dải bài: ${LESSON_ORDER[start]} ➔ ${LESSON_ORDER[end]} (${end - start + 1} bài)!`);
+    }
+
+    function onRangeDropdownChange() {
+        // Tự động kiểm tra dải
+    }
+
+    // Chọn nhanh theo các Preset
+    function selectPreset(type) {
+        selectedLessons.clear();
+
+        if (type === 'ALL') {
+            LESSON_ORDER.forEach(l => selectedLessons.add(l));
+        } else if (type === 'A1') {
+            ["A1-16", "A1-17", "A1-18"].forEach(l => selectedLessons.add(l));
+        } else if (type === 'A2_1_5') {
+            ["A2-1", "A2-2", "A2-3", "A2-4", "A2-5"].forEach(l => selectedLessons.add(l));
+        } else if (type === 'A2_6_10') {
+            ["A2-6", "A2-7", "A2-8", "A2-9", "A2-10"].forEach(l => selectedLessons.add(l));
+        } else if (type === 'A2_ALL') {
+            ["A2-1", "A2-2", "A2-3", "A2-4", "A2-5", "A2-6", "A2-7", "A2-8", "A2-9", "A2-10"].forEach(l => selectedLessons.add(l));
+        } else if (type === 'NONE') {
+            // Bỏ chọn hết
+        }
+
+        lastClickedLessonIdx = -1;
+        updatePresetPillsState(type);
+        updateChipsUI();
+        applyFilter();
+    }
+
+    function updatePresetPillsState(activeType) {
+        document.querySelectorAll('.preset-pill').forEach(btn => btn.classList.remove('active'));
+        if (activeType && activeType !== 'NONE') {
+            const btn = document.getElementById(`preset-${activeType.toLowerCase().replace(/_/g, '-')}`);
+            if (btn) btn.classList.add('active');
+        } else if (selectedLessons.size === LESSON_ORDER.length) {
+            const btn = document.getElementById('preset-all');
+            if (btn) btn.classList.add('active');
+        }
+    }
+
+    function updateChipsUI() {
+        LESSON_ORDER.forEach(lid => {
+            const chip = document.getElementById(`chip-${lid}`);
+            if (!chip) return;
+            const isSel = selectedLessons.has(lid);
+            chip.classList.toggle('active', isSel);
+            const check = chip.querySelector('.chip-check');
+            if (check) check.textContent = isSel ? '✓' : '+';
+        });
+    }
+
+    function onSearchChange() {
+        const query = document.getElementById('searchInput').value;
+        const clearBtn = document.getElementById('searchClearBtn');
+        if (clearBtn) clearBtn.style.display = query ? 'block' : 'none';
+        applyFilter();
+    }
+
+    function clearSearch() {
+        const input = document.getElementById('searchInput');
+        input.value = '';
+        const clearBtn = document.getElementById('searchClearBtn');
+        if (clearBtn) clearBtn.style.display = 'none';
+        applyFilter();
+    }
+
+    // Filter Logic Chính (Kết hợp các bài đã chọn + Từ khóa)
     function applyFilter() {
-        const lesson = document.getElementById('lessonFilter').value;
         const query = document.getElementById('searchInput').value.trim().toLowerCase();
 
         currentFiltered = rawVocab.filter(item => {
-            const matchLesson = (lesson === 'ALL') || (item.l === lesson);
-            const matchQuery = !query || item.jp.toLowerCase().includes(query) || item.vi.toLowerCase().includes(query);
+            const matchLesson = selectedLessons.has(item.l);
+            const matchQuery = !query || 
+                item.jp.toLowerCase().includes(query) || 
+                item.vi.toLowerCase().includes(query);
             return matchLesson && matchQuery;
         });
+
+        // Cập nhật Badge số lượng & Quizlet count
+        const summary = document.getElementById('selectionSummary');
+        if (summary) {
+            if (selectedLessons.size === LESSON_ORDER.length) {
+                summary.textContent = `Đang chọn: Tất cả 13 bài (${currentFiltered.length} từ)`;
+            } else if (selectedLessons.size === 0) {
+                summary.textContent = `Chưa chọn bài nào (vui lòng chọn bài)`;
+            } else {
+                const sortedSel = LESSON_ORDER.filter(l => selectedLessons.has(l));
+                summary.textContent = `Đang chọn: ${selectedLessons.size} bài (${sortedSel.join(', ')}) • ${currentFiltered.length} từ`;
+            }
+        }
+
+        const qCount = document.getElementById('quizletCount');
+        if (qCount) qCount.textContent = currentFiltered.length;
 
         renderTable();
         currentCardIndex = 0;
@@ -1325,6 +1827,7 @@
 
     // Initial render
     window.addEventListener('DOMContentLoaded', () => {
+        initLessonChips();
         applyFilter();
     });
 </script>

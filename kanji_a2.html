@@ -149,25 +149,275 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Controls */
-        .controls {
+        /* Multi-Lesson Selection & Filter Component */
+        .controls-card {
             background: white;
-            padding: 18px 22px;
-            border-radius: 14px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            padding: 20px 22px;
             margin-bottom: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .search-action-row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .search-input-wrap {
+            position: relative;
+            flex: 1;
+            min-width: 260px;
+        }
+
+        .search-input-wrap input {
+            width: 100%;
+            padding: 12px 36px 12px 16px;
+            border: 1.5px solid var(--border);
+            border-radius: 12px;
+            font-size: 0.95rem;
+            outline: none;
+            transition: all 0.2s;
+            background: #fafcfe;
+        }
+        .search-input-wrap input:focus {
+            border-color: var(--primary);
+            background: white;
+            box-shadow: 0 0 0 3px rgba(41, 128, 185, 0.15);
+        }
+
+        .search-clear-btn {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #a0aec0;
+            font-size: 1.1rem;
+            cursor: pointer;
+            padding: 2px 6px;
+            display: none;
+        }
+
+        .lesson-picker-container {
+            background: #fbfbfd;
+            border: 1.5px solid #edf2f7;
+            border-radius: 14px;
+            padding: 16px 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 13px;
+        }
+
+        .picker-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 15px;
+            gap: 10px;
         }
 
-        .filter-group {
+        .picker-title {
             display: flex;
-            gap: 12px;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            font-weight: 700;
+            color: #2c3e50;
+            font-size: 0.98rem;
+        }
+
+        .selection-badge {
+            background: var(--primary-light);
+            color: var(--primary);
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid #d4e6f1;
+        }
+
+        .quick-presets {
+            display: flex;
+            gap: 6px;
             flex-wrap: wrap;
             align-items: center;
+        }
+
+        .preset-pill {
+            background: white;
+            border: 1.5px solid #e2e8f0;
+            color: #4a5568;
+            padding: 5px 12px;
+            border-radius: 16px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+
+        .preset-pill:hover {
+            border-color: var(--card-border);
+            color: var(--primary);
+            transform: translateY(-1px);
+        }
+
+        .preset-pill.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+            box-shadow: 0 2px 6px rgba(41, 128, 185, 0.3);
+        }
+
+        .preset-clear {
+            color: #e53e3e;
+            border-color: #feb2b2;
+        }
+        .preset-clear:hover {
+            background: #fff5f5;
+            border-color: #e53e3e;
+            color: #c53030;
+        }
+
+        /* Range Selector Row */
+        .range-selector-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            padding: 9px 14px;
+            background: white;
+            border: 1px dashed #cbd5e0;
+            border-radius: 10px;
+            font-size: 0.88rem;
+            color: #4a5568;
+        }
+
+        .range-label {
+            font-weight: 700;
+            color: #2d3748;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .range-dropdown {
+            padding: 6px 10px;
+            border: 1.5px solid #cbd5e0;
+            border-radius: 8px;
+            font-size: 0.88rem;
+            background: white;
+            font-weight: 600;
+            color: #2d3748;
+            outline: none;
+            cursor: pointer;
+        }
+        .range-dropdown:focus {
+            border-color: var(--primary);
+        }
+
+        .btn-range-apply {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+        .btn-range-apply:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+
+        .range-tip {
+            font-size: 0.78rem;
+            color: #718096;
+            margin-left: auto;
+        }
+
+        /* Chips Grid */
+        .chips-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .chips-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .chips-group-title {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: #718096;
+            min-width: 95px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .chips-grid {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            flex: 1;
+        }
+
+        .lesson-chip {
+            background: white;
+            border: 1.5px solid #e2e8f0;
+            padding: 7px 13px;
+            border-radius: 10px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: #4a5568;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.15s ease;
+            user-select: none;
+        }
+
+        .lesson-chip:hover {
+            border-color: var(--card-border);
+            background: #fafdfe;
+            transform: translateY(-1px);
+        }
+
+        .lesson-chip.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+            box-shadow: 0 3px 8px rgba(41, 128, 185, 0.25);
+        }
+
+        .chip-check {
+            font-size: 0.78rem;
+            font-weight: bold;
+        }
+
+        .chip-count {
+            font-size: 0.75rem;
+            opacity: 0.85;
+            background: rgba(0,0,0,0.06);
+            padding: 1px 6px;
+            border-radius: 10px;
+        }
+        .lesson-chip.active .chip-count {
+            background: rgba(255,255,255,0.25);
+            color: white;
         }
 
         select, input[type="text"] {
@@ -508,6 +758,180 @@
             background: #2980b9;
             color: white;
             border-color: #2980b9;
+        }
+
+        /* Practice Canvas & Canvas Tools */
+        .practice-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10;
+            cursor: crosshair;
+            touch-action: none;
+            display: none;
+        }
+        .practice-canvas.active {
+            display: block;
+        }
+
+        .canvas-tools-bar {
+            display: flex;
+            gap: 5px;
+            width: 100%;
+            justify-content: center;
+            margin-top: 4px;
+            flex-wrap: wrap;
+        }
+
+        .btn-canvas {
+            font-size: 0.76rem;
+            padding: 4px 8px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            background: white;
+            cursor: pointer;
+            font-weight: 600;
+            color: #34495e;
+            transition: all 0.15s;
+        }
+
+        .btn-canvas:hover {
+            background: #f0f3f6;
+            border-color: #95a5a6;
+        }
+
+        .btn-canvas.active-tool {
+            background: #27ae60;
+            color: white;
+            border-color: #27ae60;
+        }
+
+        /* Step-by-Step Stroke Breakdown Diagram */
+        .stroke-breakdown-section {
+            margin-top: 18px;
+            padding-top: 14px;
+            border-top: 1.5px dashed var(--border);
+        }
+
+        .stroke-breakdown-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .stroke-breakdown-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .stroke-breakdown-hint {
+            font-size: 0.8rem;
+            color: #7f8c8d;
+            font-style: italic;
+        }
+
+        .stroke-steps-strip {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding: 6px 2px 10px 2px;
+            scrollbar-width: thin;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .stroke-steps-strip::-webkit-scrollbar {
+            height: 6px;
+        }
+        .stroke-steps-strip::-webkit-scrollbar-track {
+            background: #f1f2f6;
+            border-radius: 4px;
+        }
+        .stroke-steps-strip::-webkit-scrollbar-thumb {
+            background: #cbd5e0;
+            border-radius: 4px;
+        }
+
+        .stroke-step-box {
+            flex: 0 0 54px;
+            width: 54px;
+            height: 64px;
+            background: white;
+            border: 1.5px solid #d6dbdf;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.2s ease;
+            padding: 2px;
+            user-select: none;
+        }
+
+        .stroke-step-box:hover {
+            border-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 3px 10px rgba(41, 128, 185, 0.2);
+        }
+
+        .stroke-step-box.active-step {
+            border-color: #e74c3c;
+            background: #fef5f4;
+            box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .stroke-step-box.active-step .step-num-badge {
+            background: #e74c3c;
+            color: white;
+        }
+
+        .step-mini-svg {
+            width: 42px;
+            height: 42px;
+        }
+
+        .step-num-badge {
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: #7f8c8d;
+            margin-top: 1px;
+            padding: 0 5px;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+
+        /* Toast Notifications */
+        .toast-msg {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: #2c3e50;
+            color: white;
+            padding: 12px 22px;
+            border-radius: 10px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+            font-weight: 600;
+            font-size: 0.92rem;
+            z-index: 9999;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            pointer-events: none;
+        }
+        .toast-msg.show {
+            transform: translateY(0);
+            opacity: 1;
         }
 
         /* TAB 2: WRITING RULES */
@@ -1017,25 +1441,50 @@
         <button class="mode-tab-btn" onclick="switchTab('tab-rules')">📏 8 Quy Tắc Viết Chữ Hán</button>
     </div>
 
-    <!-- Shared Filter Bar -->
-    <div class="controls" id="filterBar">
-        <div class="filter-group">
-            <select id="lessonFilter" onchange="applyLessonFilter()">
-                <option value="ALL">🌟 Tất Cả Các Bài (Trọn bộ A2-1)</option>
-                <option value="L1">Bài 1: Tôi và gia đình (私, 父, 母, 子, 男, 女, 人)</option>
-                <option value="L2">Bài 2: Sở thích & Ngôn ngữ (国, 外, 語, 本, 読, 好, 何)</option>
-                <option value="L3" selected>Bài 3: Mùa & Thiên nhiên (春, 夏, 秋, 冬, 今, 花, 海, 山, 川)</option>
-                <option value="L4">Bài 4: Thời tiết (天, 気, 晴, 雨, 雪, 雲, 風, 空)</option>
-                <option value="L5">Bài 5: Thị trấn & Phố xá (町, 店, 多, 少, 高, 安, 広)</option>
-                <option value="L6">Bài 6: Phương hướng & Màu sắc (道, 通, 右, 左, 赤, 青, 黒, 白)</option>
-                <option value="L7">Bài 7: Ra ngoài & Đi lại (時, 間, 場, 所, 駅, 出, 待, 止)</option>
-                <option value="L8">Bài 8: Bữa ăn & Thời gian (食, 事, 前, 後, 朝, 昼, 夜, 乗)</option>
-                <option value="L9">Bài 9: Trường học & Học tập (学, 校, 先, 生, 勉, 強)</option>
-                <option value="L10">Bài 10: Văn hóa & Du lịch (文, 化, 音, 楽, 旅, 友, 週)</option>
-            </select>
-            <input type="text" id="searchInput" placeholder="🔍 Tìm chữ Hán, Hán Việt, nghĩa..." oninput="applyLessonFilter()">
+    <!-- Multi-Lesson Filter Component -->
+    <div class="controls-card" id="filterBar">
+        <div class="search-action-row">
+            <div class="search-input-wrap">
+                <input type="text" id="searchInput" placeholder="🔍 Tìm chữ Hán, Hán Việt (Thu, Đông...), Kunyomi, Onyomi, nghĩa..." oninput="onSearchChange()">
+                <button class="search-clear-btn" id="searchClearBtn" onclick="clearSearch()" title="Xóa tìm kiếm">✕</button>
+            </div>
+            <button class="btn btn-outline" onclick="window.print()">🖨️ In Thẻ Học</button>
         </div>
-        <button class="btn" onclick="window.print()">🖨️ In Thẻ Học</button>
+
+        <div class="lesson-picker-container">
+            <div class="picker-header">
+                <div class="picker-title">
+                    <span>📚 Chọn bài học Kanji (Hỗ trợ chọn nhiều bài liên tục):</span>
+                    <span class="selection-badge" id="selectionSummary">Đang chọn: Tất cả 10 bài (73 chữ Hán)</span>
+                </div>
+                <div class="quick-presets">
+                    <button class="preset-pill active" id="preset-all" onclick="selectPreset('ALL')">🌟 Tất cả (1-10)</button>
+                    <button class="preset-pill" id="preset-l1-5" onclick="selectPreset('L1_5')">Bài 1-5</button>
+                    <button class="preset-pill" id="preset-l6-10" onclick="selectPreset('L6_10')">Bài 6-10</button>
+                    <button class="preset-pill" id="preset-l3" onclick="selectPreset('L3')">Bài 3 (Mùa)</button>
+                    <button class="preset-pill preset-clear" id="preset-none" onclick="selectPreset('NONE')">Bỏ chọn</button>
+                </div>
+            </div>
+
+            <!-- Continuous Range Selector -->
+            <div class="range-selector-row">
+                <span class="range-label">🎯 Chọn dải bài liên tục:</span>
+                <span>Từ</span>
+                <select class="range-dropdown" id="rangeStart"></select>
+                <span>đến</span>
+                <select class="range-dropdown" id="rangeEnd"></select>
+                <button class="btn-range-apply" onclick="applyRangeSelection()">🎯 Chọn dải bài này</button>
+                <span class="range-tip">💡 Giữ phím <strong>Shift + Click</strong> vào 2 bài để chọn dải liên tục</span>
+            </div>
+
+            <!-- Chips Grid -->
+            <div class="chips-wrapper">
+                <div class="chips-group">
+                    <span class="chips-group-title">10 BÀI KANJI:</span>
+                    <div class="chips-grid" id="chipsContainerKanji"></div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- TAB 1: KANJI CARDS & INTERACTIVE WRITING -->
@@ -1958,13 +2407,202 @@
         }
     }
 
+    // Multi-Lesson Filter System
+    const KANJI_LESSON_ORDER = ['L1', 'L2', 'L3', 'L4', 'L5', 'L6', 'L7', 'L8', 'L9', 'L10'];
+    const KANJI_LESSON_TITLES = {
+        'L1': 'Bài 1: Tôi và gia đình',
+        'L2': 'Bài 2: Sở thích & Ngôn ngữ',
+        'L3': 'Bài 3: Mùa & Thiên nhiên',
+        'L4': 'Bài 4: Thời tiết',
+        'L5': 'Bài 5: Thị trấn & Phố xá',
+        'L6': 'Bài 6: Phương hướng & Màu sắc',
+        'L7': 'Bài 7: Ra ngoài & Đi lại',
+        'L8': 'Bài 8: Bữa ăn & Thời gian',
+        'L9': 'Bài 9: Trường học & Học tập',
+        'L10': 'Bài 10: Văn hóa & Du lịch'
+    };
+    let selectedLessons = new Set(KANJI_LESSON_ORDER); // Mặc định chọn tất cả 10 bài
+    let lastClickedLessonIdx = -1;
+
+    // Đếm số Kanji theo từng bài
+    const lessonCounts = {};
+    kanjiData.forEach(item => {
+        lessonCounts[item.lesson] = (lessonCounts[item.lesson] || 0) + 1;
+    });
+
+    // Toast notification
+    function showToast(msg) {
+        let toast = document.getElementById('toastMsg');
+        if (!toast) {
+            toast = document.createElement('div');
+            toast.className = 'toast-msg';
+            toast.id = 'toastMsg';
+            document.body.appendChild(toast);
+        }
+        toast.textContent = msg;
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2600);
+    }
+
+    // Khởi tạo các Chip & Dropdown dải bài một lần duy nhất
+    function initKanjiLessonChips() {
+        const container = document.getElementById('chipsContainerKanji');
+        const rangeStart = document.getElementById('rangeStart');
+        const rangeEnd = document.getElementById('rangeEnd');
+
+        if (!container || !rangeStart || !rangeEnd) return;
+
+        container.innerHTML = '';
+        rangeStart.innerHTML = '';
+        rangeEnd.innerHTML = '';
+
+        KANJI_LESSON_ORDER.forEach((lid, idx) => {
+            const count = lessonCounts[lid] || 0;
+            const title = KANJI_LESSON_TITLES[lid] || lid;
+
+            // 1. Tạo Chip Button
+            const chip = document.createElement('button');
+            chip.className = `lesson-chip ${selectedLessons.has(lid) ? 'active' : ''}`;
+            chip.id = `chip-${lid}`;
+            chip.title = `${title} (${count} chữ Hán)`;
+            chip.innerHTML = `
+                <span class="chip-check">${selectedLessons.has(lid) ? '✓' : '+'}</span>
+                <span>${lid.replace('L', 'Bài ')}</span>
+                <span class="chip-count">${count}</span>
+            `;
+            chip.onclick = (e) => toggleLesson(lid, idx, e);
+            container.appendChild(chip);
+
+            // 2. Tạo Dropdown dải bài
+            const opt1 = document.createElement('option');
+            opt1.value = lid;
+            opt1.textContent = `${lid.replace('L', 'Bài ')} - ${title.split(':')[1]?.trim() || title}`;
+            rangeStart.appendChild(opt1);
+
+            const opt2 = document.createElement('option');
+            opt2.value = lid;
+            opt2.textContent = `${lid.replace('L', 'Bài ')} - ${title.split(':')[1]?.trim() || title}`;
+            rangeEnd.appendChild(opt2);
+        });
+
+        rangeStart.value = "L1";
+        rangeEnd.value = "L5";
+    }
+
+    // Toggle một bài học (Hỗ trợ Shift + Click chọn dải bài liên tục)
+    function toggleLesson(lid, idx, event) {
+        if (event && event.shiftKey && lastClickedLessonIdx !== -1) {
+            const start = Math.min(lastClickedLessonIdx, idx);
+            const end = Math.max(lastClickedLessonIdx, idx);
+            for (let i = start; i <= end; i++) {
+                selectedLessons.add(KANJI_LESSON_ORDER[i]);
+            }
+            showToast(`Đã chọn liên tục từ ${KANJI_LESSON_ORDER[start].replace('L', 'Bài ')} đến ${KANJI_LESSON_ORDER[end].replace('L', 'Bài ')}!`);
+        } else {
+            if (selectedLessons.has(lid)) {
+                selectedLessons.delete(lid);
+            } else {
+                selectedLessons.add(lid);
+            }
+        }
+
+        lastClickedLessonIdx = idx;
+        updatePresetPillsState();
+        updateChipsUI();
+        applyLessonFilter();
+    }
+
+    // Chọn dải bài liên tục từ Range Dropdown
+    function applyRangeSelection() {
+        const startId = document.getElementById('rangeStart').value;
+        const endId = document.getElementById('rangeEnd').value;
+        const sIdx = KANJI_LESSON_ORDER.indexOf(startId);
+        const eIdx = KANJI_LESSON_ORDER.indexOf(endId);
+
+        if (sIdx === -1 || eIdx === -1) return;
+        const start = Math.min(sIdx, eIdx);
+        const end = Math.max(sIdx, eIdx);
+
+        selectedLessons.clear();
+        for (let i = start; i <= end; i++) {
+            selectedLessons.add(KANJI_LESSON_ORDER[i]);
+        }
+
+        updatePresetPillsState();
+        updateChipsUI();
+        applyLessonFilter();
+        showToast(`Đã chọn dải bài: ${KANJI_LESSON_ORDER[start].replace('L', 'Bài ')} ➔ ${KANJI_LESSON_ORDER[end].replace('L', 'Bài ')} (${end - start + 1} bài)!`);
+    }
+
+    function onRangeDropdownChange() {
+        // Tự động kiểm tra
+    }
+
+    // Chọn nhanh theo các Preset
+    function selectPreset(type) {
+        selectedLessons.clear();
+
+        if (type === 'ALL') {
+            KANJI_LESSON_ORDER.forEach(l => selectedLessons.add(l));
+        } else if (type === 'L1_5') {
+            ['L1', 'L2', 'L3', 'L4', 'L5'].forEach(l => selectedLessons.add(l));
+        } else if (type === 'L6_10') {
+            ['L6', 'L7', 'L8', 'L9', 'L10'].forEach(l => selectedLessons.add(l));
+        } else if (type === 'L3') {
+            selectedLessons.add('L3');
+        } else if (type === 'NONE') {
+            // Rỗng
+        }
+
+        lastClickedLessonIdx = -1;
+        updatePresetPillsState(type);
+        updateChipsUI();
+        applyLessonFilter();
+    }
+
+    function updatePresetPillsState(activeType) {
+        document.querySelectorAll('.preset-pill').forEach(btn => btn.classList.remove('active'));
+        if (activeType && activeType !== 'NONE') {
+            const btn = document.getElementById(`preset-${activeType.toLowerCase().replace(/_/g, '-')}`);
+            if (btn) btn.classList.add('active');
+        } else if (selectedLessons.size === KANJI_LESSON_ORDER.length) {
+            const btn = document.getElementById('preset-all');
+            if (btn) btn.classList.add('active');
+        }
+    }
+
+    function updateChipsUI() {
+        KANJI_LESSON_ORDER.forEach(lid => {
+            const chip = document.getElementById(`chip-${lid}`);
+            if (!chip) return;
+            const isSel = selectedLessons.has(lid);
+            chip.classList.toggle('active', isSel);
+            const check = chip.querySelector('.chip-check');
+            if (check) check.textContent = isSel ? '✓' : '+';
+        });
+    }
+
+    function onSearchChange() {
+        const query = document.getElementById('searchInput').value;
+        const clearBtn = document.getElementById('searchClearBtn');
+        if (clearBtn) clearBtn.style.display = query ? 'block' : 'none';
+        applyLessonFilter();
+    }
+
+    function clearSearch() {
+        const input = document.getElementById('searchInput');
+        input.value = '';
+        const clearBtn = document.getElementById('searchClearBtn');
+        if (clearBtn) clearBtn.style.display = 'none';
+        applyLessonFilter();
+    }
+
     // Filter by Lesson & Search
     function applyLessonFilter() {
-        const lesson = document.getElementById('lessonFilter').value;
-        const query = document.getElementById('searchInput').value.trim().toLowerCase();
+        const query = document.getElementById('searchInput') ? document.getElementById('searchInput').value.trim().toLowerCase() : '';
 
         filteredKanji = kanjiData.filter(item => {
-            const matchLesson = (lesson === 'ALL') || (item.lesson === lesson);
+            const matchLesson = selectedLessons.has(item.lesson);
             const matchQuery = !query ||
                 item.char.includes(query) ||
                 item.hv.toLowerCase().includes(query) ||
@@ -1974,18 +2612,31 @@
             return matchLesson && matchQuery;
         });
 
+        // Cập nhật tóm tắt số lượng
+        const summary = document.getElementById('selectionSummary');
+        if (summary) {
+            if (selectedLessons.size === KANJI_LESSON_ORDER.length) {
+                summary.textContent = `Đang chọn: Tất cả 10 bài (${filteredKanji.length} chữ Hán)`;
+            } else if (selectedLessons.size === 0) {
+                summary.textContent = `Chưa chọn bài nào (vui lòng bấm chọn bài)`;
+            } else {
+                const sortedSel = KANJI_LESSON_ORDER.filter(l => selectedLessons.has(l)).map(l => l.replace('L', 'Bài '));
+                summary.textContent = `Đang chọn: ${selectedLessons.size} bài (${sortedSel.join(', ')}) • ${filteredKanji.length} chữ Hán`;
+            }
+        }
+
         renderCards(filteredKanji);
         renderTypingExercise();
         generateQuiz();
     }
 
-    // Render Kanji Cards with Interactive Writing Canvas
+    // Render Kanji Cards with Interactive Writing Canvas & Step-by-Step Breakdown
     function renderCards(data) {
         const container = document.getElementById('cardsContainer');
         container.innerHTML = '';
 
         if (data.length === 0) {
-            container.innerHTML = '<div style="text-align: center; padding: 40px; color: #888;">Không tìm thấy chữ Hán nào phù hợp!</div>';
+            container.innerHTML = '<div style="text-align: center; padding: 40px; color: #888;">Không tìm thấy chữ Hán nào phù hợp với bộ lọc hiện tại!</div>';
             return;
         }
 
@@ -2042,7 +2693,7 @@
                         </div>
                     </div>
 
-                    <!-- Right Column: Formula & Stroke Order Animator -->
+                    <!-- Right Column: Formula & Stroke Order Animator & Interactive Canvas -->
                     <div class="visual-column">
                         <div class="mnemonic-visual-box">
                             <div class="radical-formula">${item.formula}</div>
@@ -2056,11 +2707,20 @@
                         <div class="kanji-grid-box" id="grid-box-${index}">
                             <div class="grid-line-h"></div>
                             <div class="grid-line-v"></div>
-                            <div class="kanji-svg-container" id="kanji-svg-container-${index}">
+                            <div class="kanji-svg-container" id="kanji-svg-container-${index}" data-opacity="1">
                                 <span class="kanji-char-large" id="kanji-fallback-${index}">${item.char}</span>
                             </div>
+                            <canvas class="practice-canvas" id="canvas-${index}" width="165" height="165"></canvas>
                         </div>
 
+                        <!-- Canvas Tools -->
+                        <div class="canvas-tools-bar">
+                            <button class="btn-canvas" id="btn-draw-${index}" onclick="togglePracticeMode(${index})" title="Bật chế độ tự dùng tay hoặc chuột viết chữ vào ô vuông">✍️ Tập viết</button>
+                            <button class="btn-canvas" id="btn-clear-${index}" onclick="clearPracticeCanvas(${index})" title="Xóa các nét bạn đã tự vẽ">🗑️ Xóa nét</button>
+                            <button class="btn-canvas" id="btn-ghost-${index}" onclick="cycleGhostOpacity(${index})" title="Thay đổi độ mờ chữ mẫu để tự nhớ cách viết">👁️ Mẫu: Rõ</button>
+                        </div>
+
+                        <!-- Animation & Step Controls -->
                         <div class="anim-controls">
                             <button class="btn-anim" id="btn-prev-${index}" onclick="stepPrevStroke(${index})" title="Lùi 1 nét">⏮️ Lùi</button>
                             <button class="btn-anim btn-anim-play" id="btn-play-${index}" onclick="togglePlayAnimation(${index})" title="Phát từng nét chuyển động">▶️ Phát nét</button>
@@ -2070,19 +2730,58 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Step-by-Step Stroke Breakdown Strip -->
+                <div class="stroke-breakdown-section">
+                    <div class="stroke-breakdown-header">
+                        <div class="stroke-breakdown-title">
+                            <span>🖌️ Bảng phân rã từng bước vẽ (${item.strokes} nét):</span>
+                        </div>
+                        <span class="stroke-breakdown-hint">👉 Bấm vào từng ô để xem nét đó hoặc tự luyện viết theo thứ tự</span>
+                    </div>
+                    <div class="stroke-steps-strip" id="stroke-steps-${index}">
+                        <span style="font-size: 0.85rem; color: #7f8c8d; padding: 4px;">Đang tải thứ tự nét KanjiVG...</span>
+                    </div>
+                </div>
             `;
             container.appendChild(card);
 
-            // Init Animated Kanji Player
+            // Init Animated Kanji Player & Canvas
             initKanjiPlayer(item, index);
         });
     }
 
     // ==========================================
-    // KANJIVG STROKE ORDER ANIMATION PLAYER LOGIC
+    // KANJIVG STROKE ORDER ANIMATION & BREAKDOWN PLAYER LOGIC
     // ==========================================
     const svgCache = new Map();
     const kanjiPlayers = {};
+
+    async function fetchKanjiSvg(char) {
+        if (svgCache.has(char)) return svgCache.get(char);
+        const hex = char.codePointAt(0).toString(16).padStart(5, '0');
+        const urls = [
+            `https://cdn.jsdelivr.net/gh/KanjiVG/kanjivg/kanji/${hex}.svg`,
+            `https://raw.githubusercontent.com/KanjiVG/kanjivg/master/kanji/${hex}.svg`,
+            `https://unpkg.com/kanjivg@latest/kanji/${hex}.svg`
+        ];
+
+        for (const url of urls) {
+            try {
+                const res = await fetch(url);
+                if (res.ok) {
+                    const text = await res.text();
+                    if (text && text.includes('<path')) {
+                        svgCache.set(char, text);
+                        return text;
+                    }
+                }
+            } catch (e) {
+                // Thử nguồn tiếp theo
+            }
+        }
+        return null;
+    }
 
     function initKanjiPlayer(item, index) {
         if (kanjiPlayers[index] && kanjiPlayers[index].timer) {
@@ -2101,28 +2800,20 @@
             timer: null
         };
 
-        const hex = item.char.codePointAt(0).toString(16).padStart(5, '0');
-        const url = `https://cdn.jsdelivr.net/gh/KanjiVG/kanjivg/kanji/${hex}.svg`;
-
-        if (svgCache.has(item.char)) {
-            setupSvgPlayer(index, svgCache.get(item.char));
-        } else {
-            fetch(url)
-                .then(res => {
-                    if (!res.ok) throw new Error('Network error');
-                    return res.text();
-                })
-                .then(svgText => {
-                    svgCache.set(item.char, svgText);
-                    setupSvgPlayer(index, svgText);
-                })
-                .catch(err => {
-                    const status = document.getElementById(`anim-status-${index}`);
-                    if (status) {
-                        status.innerHTML = `<span style="color:#7f8c8d; font-size:0.8rem;">(Xem nét tĩnh)</span>`;
-                    }
-                });
-        }
+        fetchKanjiSvg(item.char).then(svgText => {
+            if (svgText) {
+                setupSvgPlayer(index, svgText);
+            } else {
+                const status = document.getElementById(`anim-status-${index}`);
+                if (status) {
+                    status.innerHTML = `<span style="color:#7f8c8d; font-size:0.8rem;">(Xem nét tĩnh)</span>`;
+                }
+                const stepsStrip = document.getElementById(`stroke-steps-${index}`);
+                if (stepsStrip) {
+                    stepsStrip.innerHTML = `<span style="color:#7f8c8d; font-size:0.82rem; padding:4px;">Chữ này đang hiển thị phông chuẩn (${item.strokes} nét)</span>`;
+                }
+            }
+        });
     }
 
     function setupSvgPlayer(index, svgText) {
@@ -2191,6 +2882,7 @@
                 t.setAttribute('font-size', '8');
                 t.setAttribute('font-weight', 'bold');
                 t.setAttribute('font-family', '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif');
+                t.style.transition = 'opacity 0.2s';
             });
             svg.appendChild(numbersGroup);
             player.numbersGroup = numbersGroup;
@@ -2208,6 +2900,40 @@
             p.style.strokeDashoffset = '0';
             p.style.stroke = '#2c3e50';
         });
+
+        // 4. TẠO BẢNG PHÂN RÃ TỪNG BƯỚC VẼ (1 -> N nét) TRỰC QUAN
+        const stepsContainer = document.getElementById(`stroke-steps-${index}`);
+        if (stepsContainer && rawPaths.length > 0) {
+            stepsContainer.innerHTML = '';
+            rawPaths.forEach((_, stepIdx) => {
+                const k = stepIdx + 1;
+                const stepBox = document.createElement('div');
+                stepBox.className = `stroke-step-box ${k === player.currentStroke ? 'active-step' : ''}`;
+                stepBox.id = `step-box-${index}-${k}`;
+                stepBox.title = `Nét ${k}/${player.totalStrokes} (Bấm để nhảy tới nét này)`;
+                stepBox.onclick = () => jumpToStroke(index, k);
+
+                // Tạo mini SVG biểu diễn nét đến bước k
+                let pathsHtml = '';
+                for (let i = 0; i < stepIdx; i++) {
+                    pathsHtml += `<path d="${rawPaths[i].getAttribute('d')}" fill="none" stroke="#4a5568" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" />`;
+                }
+                pathsHtml += `<path d="${rawPaths[stepIdx].getAttribute('d')}" fill="none" stroke="#e74c3c" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />`;
+
+                stepBox.innerHTML = `
+                    <svg viewBox="0 0 109 109" class="step-mini-svg">
+                        <line x1="0" y1="54.5" x2="109" y2="54.5" stroke="#f1f5f9" stroke-width="1.5" stroke-dasharray="3 3"/>
+                        <line x1="54.5" y1="0" x2="54.5" y2="109" stroke="#f1f5f9" stroke-width="1.5" stroke-dasharray="3 3"/>
+                        ${pathsHtml}
+                    </svg>
+                    <div class="step-num-badge">${k}</div>
+                `;
+                stepsContainer.appendChild(stepBox);
+            });
+        }
+
+        // 5. Khởi tạo Canvas tập viết
+        initPracticeCanvas(index);
 
         updatePlayerUI(index);
     }
@@ -2242,6 +2968,56 @@
         }
     }
 
+    function highlightStepBox(index, stepNumber) {
+        const container = document.getElementById(`stroke-steps-${index}`);
+        if (!container) return;
+        const boxes = container.querySelectorAll('.stroke-step-box');
+        boxes.forEach(b => b.classList.remove('active-step'));
+        const target = document.getElementById(`step-box-${index}-${stepNumber}`);
+        if (target) {
+            target.classList.add('active-step');
+            target.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
+        }
+    }
+
+    function jumpToStroke(index, targetStroke) {
+        const player = kanjiPlayers[index];
+        if (!player) return;
+
+        if (player.isPlaying) {
+            player.isPlaying = false;
+            if (player.timer) clearTimeout(player.timer);
+        }
+
+        targetStroke = Math.max(0, Math.min(targetStroke, player.totalStrokes));
+        player.currentStroke = targetStroke;
+
+        player.paths.forEach((p, sIdx) => {
+            const len = parseFloat(p.dataset.length) || p.getTotalLength();
+            p.style.transition = 'none';
+            if (sIdx < targetStroke - 1) {
+                p.style.strokeDashoffset = '0';
+                p.style.stroke = '#2c3e50';
+            } else if (sIdx === targetStroke - 1) {
+                p.style.strokeDashoffset = '0';
+                p.style.stroke = '#e74c3c'; // Làm nổi bật nét hiện tại
+            } else {
+                p.style.strokeDashoffset = len;
+                p.style.stroke = '#2c3e50';
+            }
+        });
+
+        if (player.numbersGroup) {
+            const numTexts = player.numbersGroup.querySelectorAll('text');
+            numTexts.forEach((t, sIdx) => {
+                t.style.opacity = (sIdx < targetStroke && player.showNumbers) ? '1' : '0';
+            });
+        }
+
+        highlightStepBox(index, targetStroke);
+        updatePlayerUI(index);
+    }
+
     function drawStroke(index, strokeIdx, onDone) {
         const player = kanjiPlayers[index];
         if (!player || strokeIdx < 0 || strokeIdx >= player.paths.length) {
@@ -2250,14 +3026,31 @@
         }
 
         const p = player.paths[strokeIdx];
-        p.style.transition = 'stroke-dashoffset 0.42s ease-in-out';
+        const len = parseFloat(p.dataset.length) || p.getTotalLength();
+
+        // Ép reflow (Forced Reflow) để trình duyệt không bỏ qua transition cho nét đầu tiên
+        p.style.transition = 'none';
+        p.style.strokeDashoffset = len;
+        void p.getBoundingClientRect();
+
+        const duration = Math.min(0.55, Math.max(0.28, (len / 120) * 0.45));
+        p.style.transition = `stroke-dashoffset ${duration}s ease-in-out`;
         p.style.stroke = '#e74c3c';
         p.style.strokeDashoffset = '0';
+
+        if (player.numbersGroup) {
+            const numTexts = player.numbersGroup.querySelectorAll('text');
+            if (numTexts[strokeIdx]) {
+                numTexts[strokeIdx].style.opacity = player.showNumbers ? '1' : '0';
+            }
+        }
+
+        highlightStepBox(index, strokeIdx + 1);
 
         setTimeout(() => {
             p.style.stroke = '#2c3e50';
             if (onDone) onDone();
-        }, 440);
+        }, duration * 1000 + 40);
     }
 
     function hideStroke(index, strokeIdx) {
@@ -2269,6 +3062,13 @@
         p.style.transition = 'none';
         p.style.strokeDashoffset = len;
         p.style.stroke = '#2c3e50';
+
+        if (player.numbersGroup) {
+            const numTexts = player.numbersGroup.querySelectorAll('text');
+            if (numTexts[strokeIdx]) {
+                numTexts[strokeIdx].style.opacity = '0';
+            }
+        }
     }
 
     function playLoop(index) {
@@ -2311,7 +3111,7 @@
         }
 
         if (player.currentStroke >= player.totalStrokes) {
-            player.paths.forEach((p, sIdx) => hideStroke(index, sIdx));
+            player.paths.forEach((_, sIdx) => hideStroke(index, sIdx));
             player.currentStroke = 0;
         }
 
@@ -2325,7 +3125,7 @@
 
         if (player.timer) clearTimeout(player.timer);
         player.isPlaying = false;
-        player.paths.forEach((p, sIdx) => hideStroke(index, sIdx));
+        player.paths.forEach((_, sIdx) => hideStroke(index, sIdx));
         player.currentStroke = 0;
         updatePlayerUI(index);
 
@@ -2361,6 +3161,7 @@
         if (player.currentStroke > 0) {
             player.currentStroke--;
             hideStroke(index, player.currentStroke);
+            highlightStepBox(index, player.currentStroke);
             updatePlayerUI(index);
         }
     }
@@ -2378,6 +3179,115 @@
         if (btn) {
             btn.classList.toggle('active-tool', player.showNumbers);
         }
+    }
+
+    // ==========================================
+    // INTERACTIVE PRACTICE CANVAS LOGIC (TẬP VIẾT)
+    // ==========================================
+    function initPracticeCanvas(index) {
+        const canvas = document.getElementById(`canvas-${index}`);
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        let isDrawing = false;
+        let lastX = 0, lastY = 0;
+
+        function getCoords(e) {
+            const rect = canvas.getBoundingClientRect();
+            const clientX = e.clientX || (e.touches && e.touches[0] ? e.touches[0].clientX : 0);
+            const clientY = e.clientY || (e.touches && e.touches[0] ? e.touches[0].clientY : 0);
+            return {
+                x: (clientX - rect.left) * (canvas.width / rect.width),
+                y: (clientY - rect.top) * (canvas.height / rect.height)
+            };
+        }
+
+        function startDraw(e) {
+            e.preventDefault();
+            isDrawing = true;
+            const { x, y } = getCoords(e);
+            lastX = x;
+            lastY = y;
+            ctx.beginPath();
+            ctx.arc(x, y, 2.5, 0, Math.PI * 2);
+            ctx.fillStyle = '#2980b9';
+            ctx.fill();
+        }
+
+        function draw(e) {
+            if (!isDrawing) return;
+            e.preventDefault();
+            const { x, y } = getCoords(e);
+            ctx.beginPath();
+            ctx.moveTo(lastX, lastY);
+            ctx.lineTo(x, y);
+            ctx.strokeStyle = '#2980b9';
+            ctx.lineWidth = 5.5;
+            ctx.lineCap = 'round';
+            ctx.lineJoin = 'round';
+            ctx.stroke();
+            lastX = x;
+            lastY = y;
+        }
+
+        function stopDraw(e) {
+            if (!isDrawing) return;
+            e.preventDefault();
+            isDrawing = false;
+        }
+
+        canvas.addEventListener('pointerdown', startDraw);
+        canvas.addEventListener('pointermove', draw);
+        canvas.addEventListener('pointerup', stopDraw);
+        canvas.addEventListener('pointercancel', stopDraw);
+        canvas.addEventListener('pointerleave', stopDraw);
+    }
+
+    function togglePracticeMode(index) {
+        const canvas = document.getElementById(`canvas-${index}`);
+        const btn = document.getElementById(`btn-draw-${index}`);
+        if (!canvas || !btn) return;
+
+        const isActive = canvas.classList.toggle('active');
+        btn.classList.toggle('active-tool', isActive);
+        if (isActive) {
+            showToast("Đã bật bảng vẽ! Hãy vẽ bằng chuột hoặc ngón tay lên ô vuông.");
+        } else {
+            showToast("Đã tắt bảng vẽ.");
+        }
+    }
+
+    function clearPracticeCanvas(index) {
+        const canvas = document.getElementById(`canvas-${index}`);
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        showToast("Đã xóa sạch nét vẽ trên ô!");
+    }
+
+    function cycleGhostOpacity(index) {
+        const svgCont = document.getElementById(`kanji-svg-container-${index}`);
+        const btn = document.getElementById(`btn-ghost-${index}`);
+        if (!svgCont || !btn) return;
+
+        let curr = parseFloat(svgCont.dataset.opacity || "1");
+        if (curr > 0.6) {
+            curr = 0.25;
+            btn.innerHTML = '👁️ Mẫu: Mờ';
+            btn.title = 'Mẫu chữ đang mờ 25% để bạn tập nhớ nét';
+            showToast("Mẫu chữ đã làm mờ 25% để bạn tập nhớ!");
+        } else if (curr > 0.1) {
+            curr = 0;
+            btn.innerHTML = '🙈 Mẫu: Ẩn';
+            btn.title = 'Mẫu chữ đã ẩn để bạn tự nhớ và viết hoàn toàn';
+            showToast("Đã ẩn mẫu chữ để bạn tự nhớ viết hoàn toàn!");
+        } else {
+            curr = 1;
+            btn.innerHTML = '👁️ Mẫu: Rõ';
+            btn.title = 'Mẫu chữ hiển thị đầy đủ 100%';
+            showToast("Đã hiện mẫu chữ rõ 100%!");
+        }
+        svgCont.dataset.opacity = curr;
+        svgCont.style.opacity = curr;
     }
 
     // EXERCISE 1: TYPING READING
@@ -2529,9 +3439,12 @@
     }
 
     window.addEventListener('DOMContentLoaded', () => {
+        initKanjiLessonChips();
         applyLessonFilter();
     });
 </script>
+
+<div class="toast-msg" id="toastMsg"></div>
 
 </body>
 </html>
