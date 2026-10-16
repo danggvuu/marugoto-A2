@@ -169,6 +169,284 @@
             align-items: center;
         }
 
+        /* Custom Multi-Select Dropdown */
+        .custom-multiselect {
+            position: relative;
+            min-width: 290px;
+            max-width: 380px;
+            flex: 1;
+        }
+
+        .ms-trigger {
+            width: 100%;
+            padding: 11px 14px;
+            background: white;
+            border: 1.5px solid var(--border);
+            border-radius: 12px;
+            font-size: 0.93rem;
+            font-weight: 600;
+            color: #2d3748;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            text-align: left;
+            transition: all 0.2s;
+            user-select: none;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+        }
+
+        .ms-trigger:hover {
+            border-color: var(--primary);
+            background: #fafcfe;
+        }
+
+        .custom-multiselect.open .ms-trigger {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(41, 128, 185, 0.18);
+        }
+
+        .ms-trigger-text {
+            flex: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .ms-trigger-badge {
+            background: var(--primary-light);
+            color: var(--primary);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 2px 7px;
+            border-radius: 10px;
+            white-space: nowrap;
+        }
+
+        .ms-trigger-arrow {
+            font-size: 0.8rem;
+            color: #718096;
+            transition: transform 0.2s;
+        }
+
+        .custom-multiselect.open .ms-trigger-arrow {
+            transform: rotate(180deg);
+        }
+
+        /* Dropdown Menu Popup */
+        .ms-dropdown-menu {
+            position: absolute;
+            top: calc(100% + 6px);
+            left: 0;
+            width: 420px;
+            max-width: 95vw;
+            background: white;
+            border: 1.5px solid #cbd5e0;
+            border-radius: 14px;
+            box-shadow: 0 14px 35px rgba(0,0,0,0.18);
+            z-index: 1000;
+            display: none;
+            flex-direction: column;
+            animation: msFadeIn 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .custom-multiselect.open .ms-dropdown-menu {
+            display: flex;
+        }
+
+        @keyframes msFadeIn {
+            from { opacity: 0; transform: translateY(-8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .ms-header {
+            padding: 12px 14px 10px 14px;
+            border-bottom: 1px solid #edf2f7;
+            background: #f8fafc;
+            border-top-left-radius: 14px;
+            border-top-right-radius: 14px;
+        }
+
+        .ms-header-title {
+            font-size: 0.78rem;
+            font-weight: 800;
+            color: #718096;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .ms-presets {
+            display: flex;
+            gap: 5px;
+            flex-wrap: wrap;
+        }
+
+        .ms-preset-btn {
+            background: white;
+            border: 1px solid #cbd5e0;
+            color: #4a5568;
+            padding: 4px 9px;
+            border-radius: 12px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+
+        .ms-preset-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .ms-clear {
+            color: #e53e3e;
+            border-color: #feb2b2;
+        }
+        .ms-clear:hover {
+            background: #fff5f5;
+            border-color: #e53e3e;
+        }
+
+        .ms-range-row {
+            padding: 8px 14px;
+            background: #f1f5f9;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.82rem;
+            color: #475569;
+            flex-wrap: wrap;
+        }
+
+        .ms-range-select {
+            padding: 3px 6px;
+            border: 1px solid #cbd5e0;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            background: white;
+            font-weight: 600;
+        }
+
+        .ms-range-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            cursor: pointer;
+        }
+        .ms-range-btn:hover {
+            opacity: 0.9;
+        }
+
+        .ms-hint-text {
+            font-size: 0.74rem;
+            color: #718096;
+            padding: 5px 14px;
+            background: #fafcfe;
+            border-bottom: 1px solid #edf2f7;
+            font-style: italic;
+        }
+
+        .ms-list {
+            max-height: 290px;
+            overflow-y: auto;
+            padding: 4px 0;
+        }
+
+        .ms-option-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 9px 14px;
+            cursor: pointer;
+            transition: background 0.12s;
+            user-select: none;
+        }
+
+        .ms-option-item:hover {
+            background: #f1f5f9;
+        }
+
+        .ms-option-item.selected {
+            background: var(--primary-light);
+        }
+
+        .ms-checkbox {
+            width: 17px;
+            height: 17px;
+            accent-color: var(--primary);
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .ms-item-tag {
+            font-weight: 700;
+            font-size: 0.82rem;
+            color: var(--primary);
+            min-width: 48px;
+            flex-shrink: 0;
+        }
+
+        .ms-item-title {
+            flex: 1;
+            font-size: 0.86rem;
+            color: #2d3748;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .ms-item-count {
+            font-size: 0.75rem;
+            color: #718096;
+            background: rgba(0,0,0,0.05);
+            padding: 1px 6px;
+            border-radius: 8px;
+            flex-shrink: 0;
+        }
+        .ms-option-item.selected .ms-item-count {
+            background: rgba(41, 128, 185, 0.2);
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .ms-footer {
+            padding: 10px 14px;
+            border-top: 1px solid #edf2f7;
+            background: #f8fafc;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom-left-radius: 14px;
+            border-bottom-right-radius: 14px;
+        }
+
+        .ms-footer-count {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: #4a5568;
+        }
+
+        .ms-btn-done {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            cursor: pointer;
+        }
+        .ms-btn-done:hover {
+            opacity: 0.9;
+        }
+
         .search-input-wrap {
             position: relative;
             flex: 1;
@@ -1444,6 +1722,47 @@
     <!-- Multi-Lesson Filter Component -->
     <div class="controls-card" id="filterBar">
         <div class="search-action-row">
+            <!-- Custom Multi-Select Dropdown cho Kanji -->
+            <div class="custom-multiselect" id="msContainerKanji">
+                <button type="button" class="ms-trigger" id="msTriggerKanji" onclick="toggleMsDropdownKanji(event)" title="Bấm để chọn nhiều bài học Kanji">
+                    <span class="ms-trigger-text" id="msTriggerTextKanji">🌟 Tất Cả 10 Bài (73 chữ Hán)</span>
+                    <span class="ms-trigger-badge" id="msTriggerBadgeKanji">10/10</span>
+                    <span class="ms-trigger-arrow">▾</span>
+                </button>
+
+                <div class="ms-dropdown-menu" id="msDropdownMenuKanji" onclick="event.stopPropagation()">
+                    <div class="ms-header">
+                        <div class="ms-header-title">Chọn nhiều bài học Kanji:</div>
+                        <div class="ms-presets">
+                            <button type="button" class="ms-preset-btn" onclick="selectPreset('ALL')">🌟 Tất cả</button>
+                            <button type="button" class="ms-preset-btn" onclick="selectPreset('L1_5')">Bài 1-5</button>
+                            <button type="button" class="ms-preset-btn" onclick="selectPreset('L6_10')">Bài 6-10</button>
+                            <button type="button" class="ms-preset-btn" onclick="selectPreset('L3')">Bài 3 (Mùa)</button>
+                            <button type="button" class="ms-preset-btn ms-clear" onclick="selectPreset('NONE')">Bỏ chọn</button>
+                        </div>
+                    </div>
+
+                    <!-- Range Selector inside Dropdown -->
+                    <div class="ms-range-row">
+                        <span>Dải bài: Từ</span>
+                        <select id="rangeStart" class="ms-range-select" onchange="onRangeDropdownChange()"></select>
+                        <span>➔</span>
+                        <select id="rangeEnd" class="ms-range-select" onchange="onRangeDropdownChange()"></select>
+                        <button type="button" class="ms-range-btn" onclick="applyRangeSelection()">Chọn</button>
+                    </div>
+                    <div class="ms-hint-text">💡 Giữ phím <strong>Shift + Click</strong> vào 2 bài để chọn dải liên tục!</div>
+
+                    <!-- Scrollable Checkbox Options List -->
+                    <div class="ms-list" id="msOptionsListKanji"></div>
+
+                    <!-- Footer -->
+                    <div class="ms-footer">
+                        <span class="ms-footer-count" id="msFooterCountKanji">Đang chọn: 10 bài (73 chữ Hán)</span>
+                        <button type="button" class="ms-btn-done" onclick="closeMsDropdownKanji()">Đóng / Xong ✓</button>
+                    </div>
+                </div>
+            </div>
+
             <div class="search-input-wrap">
                 <input type="text" id="searchInput" placeholder="🔍 Tìm chữ Hán, Hán Việt (Thu, Đông...), Kunyomi, Onyomi, nghĩa..." oninput="onSearchChange()">
                 <button class="search-clear-btn" id="searchClearBtn" onclick="clearSearch()" title="Xóa tìm kiếm">✕</button>
@@ -2444,50 +2763,93 @@
         setTimeout(() => toast.classList.remove('show'), 2600);
     }
 
-    // Khởi tạo các Chip & Dropdown dải bài một lần duy nhất
+    // Khởi tạo các Chip & Dropdown dải bài & Custom Multi-Select Dropdown một lần duy nhất
     function initKanjiLessonChips() {
         const container = document.getElementById('chipsContainerKanji');
         const rangeStart = document.getElementById('rangeStart');
         const rangeEnd = document.getElementById('rangeEnd');
+        const msList = document.getElementById('msOptionsListKanji');
 
-        if (!container || !rangeStart || !rangeEnd) return;
-
-        container.innerHTML = '';
-        rangeStart.innerHTML = '';
-        rangeEnd.innerHTML = '';
+        if (container) container.innerHTML = '';
+        if (rangeStart) rangeStart.innerHTML = '';
+        if (rangeEnd) rangeEnd.innerHTML = '';
+        if (msList) msList.innerHTML = '';
 
         KANJI_LESSON_ORDER.forEach((lid, idx) => {
             const count = lessonCounts[lid] || 0;
             const title = KANJI_LESSON_TITLES[lid] || lid;
 
-            // 1. Tạo Chip Button
-            const chip = document.createElement('button');
-            chip.className = `lesson-chip ${selectedLessons.has(lid) ? 'active' : ''}`;
-            chip.id = `chip-${lid}`;
-            chip.title = `${title} (${count} chữ Hán)`;
-            chip.innerHTML = `
-                <span class="chip-check">${selectedLessons.has(lid) ? '✓' : '+'}</span>
-                <span>${lid.replace('L', 'Bài ')}</span>
-                <span class="chip-count">${count}</span>
-            `;
-            chip.onclick = (e) => toggleLesson(lid, idx, e);
-            container.appendChild(chip);
+            // A. Tạo Option Item trong Custom Multi-Select Dropdown
+            if (msList) {
+                const itemEl = document.createElement('label');
+                itemEl.className = `ms-option-item ${selectedLessons.has(lid) ? 'selected' : ''}`;
+                itemEl.id = `ms-item-kanji-${lid}`;
+                itemEl.onclick = (e) => {
+                    if (e.target && e.target.type === 'checkbox') return;
+                    toggleLesson(lid, idx, e);
+                };
+                itemEl.innerHTML = `
+                    <input type="checkbox" class="ms-checkbox" id="ms-cb-kanji-${lid}" ${selectedLessons.has(lid) ? 'checked' : ''} onchange="toggleLesson('${lid}', ${idx}, event)">
+                    <span class="ms-item-tag">${lid.replace('L', 'Bài ')}</span>
+                    <span class="ms-item-title">${title.split(':')[1]?.trim() || title}</span>
+                    <span class="ms-item-count">${count} chữ</span>
+                `;
+                msList.appendChild(itemEl);
+            }
 
-            // 2. Tạo Dropdown dải bài
-            const opt1 = document.createElement('option');
-            opt1.value = lid;
-            opt1.textContent = `${lid.replace('L', 'Bài ')} - ${title.split(':')[1]?.trim() || title}`;
-            rangeStart.appendChild(opt1);
+            // B. Tạo Chip Button bên dưới
+            if (container) {
+                const chip = document.createElement('button');
+                chip.className = `lesson-chip ${selectedLessons.has(lid) ? 'active' : ''}`;
+                chip.id = `chip-${lid}`;
+                chip.title = `${title} (${count} chữ Hán)`;
+                chip.innerHTML = `
+                    <span class="chip-check">${selectedLessons.has(lid) ? '✓' : '+'}</span>
+                    <span>${lid.replace('L', 'Bài ')}</span>
+                    <span class="chip-count">${count}</span>
+                `;
+                chip.onclick = (e) => toggleLesson(lid, idx, e);
+                container.appendChild(chip);
+            }
 
-            const opt2 = document.createElement('option');
-            opt2.value = lid;
-            opt2.textContent = `${lid.replace('L', 'Bài ')} - ${title.split(':')[1]?.trim() || title}`;
-            rangeEnd.appendChild(opt2);
+            // C. Tạo Dropdown dải bài
+            if (rangeStart && rangeEnd) {
+                const opt1 = document.createElement('option');
+                opt1.value = lid;
+                opt1.textContent = `${lid.replace('L', 'Bài ')} - ${title.split(':')[1]?.trim() || title}`;
+                rangeStart.appendChild(opt1);
+
+                const opt2 = document.createElement('option');
+                opt2.value = lid;
+                opt2.textContent = `${lid.replace('L', 'Bài ')} - ${title.split(':')[1]?.trim() || title}`;
+                rangeEnd.appendChild(opt2);
+            }
         });
 
-        rangeStart.value = "L1";
-        rangeEnd.value = "L5";
+        if (rangeStart && rangeEnd) {
+            rangeStart.value = "L1";
+            rangeEnd.value = "L5";
+        }
     }
+
+    // Toggle Dropdown Mở/Đóng cho Kanji
+    function toggleMsDropdownKanji(e) {
+        if (e) e.stopPropagation();
+        const container = document.getElementById('msContainerKanji');
+        if (container) container.classList.toggle('open');
+    }
+
+    function closeMsDropdownKanji() {
+        const container = document.getElementById('msContainerKanji');
+        if (container) container.classList.remove('open');
+    }
+
+    document.addEventListener('click', (e) => {
+        const container = document.getElementById('msContainerKanji');
+        if (container && !container.contains(e.target)) {
+            closeMsDropdownKanji();
+        }
+    });
 
     // Toggle một bài học (Hỗ trợ Shift + Click chọn dải bài liên tục)
     function toggleLesson(lid, idx, event) {
@@ -2573,13 +2935,50 @@
 
     function updateChipsUI() {
         KANJI_LESSON_ORDER.forEach(lid => {
-            const chip = document.getElementById(`chip-${lid}`);
-            if (!chip) return;
             const isSel = selectedLessons.has(lid);
-            chip.classList.toggle('active', isSel);
-            const check = chip.querySelector('.chip-check');
-            if (check) check.textContent = isSel ? '✓' : '+';
+
+            // 1. Cập nhật Chip Button
+            const chip = document.getElementById(`chip-${lid}`);
+            if (chip) {
+                chip.classList.toggle('active', isSel);
+                const check = chip.querySelector('.chip-check');
+                if (check) check.textContent = isSel ? '✓' : '+';
+            }
+
+            // 2. Cập nhật Checkbox trong Dropdown
+            const itemEl = document.getElementById(`ms-item-kanji-${lid}`);
+            if (itemEl) itemEl.classList.toggle('selected', isSel);
+            const cb = document.getElementById(`ms-cb-kanji-${lid}`);
+            if (cb) cb.checked = isSel;
         });
+
+        // 3. Cập nhật Label & Badge trên nút Dropdown Kanji
+        const triggerText = document.getElementById('msTriggerTextKanji');
+        const triggerBadge = document.getElementById('msTriggerBadgeKanji');
+        const footerCount = document.getElementById('msFooterCountKanji');
+
+        if (triggerText) {
+            if (selectedLessons.size === KANJI_LESSON_ORDER.length) {
+                triggerText.textContent = "🌟 Tất Cả 10 Bài (73 chữ Hán)";
+                if (triggerBadge) triggerBadge.textContent = "10/10";
+            } else if (selectedLessons.size === 0) {
+                triggerText.textContent = "⚠️ Chưa chọn bài nào (vui lòng chọn)";
+                if (triggerBadge) triggerBadge.textContent = "0/10";
+            } else if (selectedLessons.size === 1) {
+                const only = Array.from(selectedLessons)[0];
+                const t = KANJI_LESSON_TITLES[only] || only;
+                triggerText.textContent = `${only.replace('L', 'Bài ')}: ${t.split(':')[1]?.trim() || t}`;
+                if (triggerBadge) triggerBadge.textContent = "1/10";
+            } else {
+                const sortedSel = KANJI_LESSON_ORDER.filter(l => selectedLessons.has(l)).map(l => l.replace('L', 'Bài '));
+                triggerText.textContent = `📚 Đang chọn ${selectedLessons.size} bài (${sortedSel.join(', ')})`;
+                if (triggerBadge) triggerBadge.textContent = `${selectedLessons.size}/10`;
+            }
+        }
+
+        if (footerCount) {
+            footerCount.textContent = `Đang chọn: ${selectedLessons.size} bài (${filteredKanji ? filteredKanji.length : 0} chữ Hán)`;
+        }
     }
 
     function onSearchChange() {
