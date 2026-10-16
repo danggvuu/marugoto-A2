@@ -486,6 +486,42 @@
             color: var(--primary);
         }
 
+        .btn-quizlet {
+            background: linear-gradient(135deg, #4257b2, #3ccfcf);
+            color: var(--white);
+            border: none;
+            padding: 9px 18px;
+            border-radius: var(--radius-md);
+            font-size: 0.88rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 8px rgba(66, 87, 178, 0.25);
+        }
+        .btn-quizlet:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 14px rgba(66, 87, 178, 0.35);
+            opacity: 0.95;
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: #1e293b;
+            color: white;
+            padding: 12px 22px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.25);
+            font-size: 0.95rem;
+            font-weight: 600;
+            display: none;
+            z-index: 9999;
+        }
+
         /* Vocab Grid */
         .vocab-grid {
             display: grid;
@@ -946,6 +982,11 @@
             <span class="stat-pill">⛩️ 31 Chữ Hán Kanji</span>
             <span class="stat-pill">✍️ 30 Câu thi thử có giải thích</span>
         </div>
+        <div style="margin-top: 18px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+            <button type="button" class="btn-quizlet" onclick="copyFull121QuizletFormat()" style="padding: 10px 22px; font-size: 0.92rem;">
+                📋 Copy Trọn Bộ 121 Từ Cho Quizlet (Bài 1 - 4)
+            </button>
+        </div>
     </header>
 
     <!-- Sticky Tab Navigation -->
@@ -1279,6 +1320,9 @@
                 <button class="tool-toggle-btn" id="hideMeaningBtn" onclick="toggleHideMeaning()">
                     👁️ Ẩn nghĩa tiếng Việt (Tự dò)
                 </button>
+                <button type="button" class="btn-quizlet" id="btnQuizletCopy" onclick="copyVocabQuizletFormat()">
+                    📋 Copy Format Quizlet (<span id="quizletVocabCount">121</span> từ)
+                </button>
             </div>
         </div>
 
@@ -1463,6 +1507,8 @@
         applyVocabFilter();
     }
 
+    let currentFilteredVocab = [...rawVocab];
+
     function applyVocabFilter() {
         const keyword = document.getElementById('vocabSearchInput').value.trim().toLowerCase();
         let filtered = rawVocab;
@@ -1475,7 +1521,56 @@
                 v.vi.toLowerCase().includes(keyword)
             );
         }
+        currentFilteredVocab = filtered;
+        const countEl = document.getElementById('quizletVocabCount');
+        if (countEl) countEl.innerText = filtered.length;
+
         renderVocab(filtered);
+    }
+
+    function copyVocabQuizletFormat() {
+        if (!currentFilteredVocab || currentFilteredVocab.length === 0) {
+            showToast("Không có từ vựng nào để sao chép!");
+            return;
+        }
+        const text = currentFilteredVocab.map(item => `${item.jp} : ${item.vi}`).join('\n');
+        navigator.clipboard.writeText(text).then(() => {
+            showToast(`Đã copy ${currentFilteredVocab.length} từ vựng chuẩn Quizlet!`);
+        }).catch(() => {
+            fallbackCopyText(text, currentFilteredVocab.length);
+        });
+    }
+
+    function copyFull121QuizletFormat() {
+        const text = rawVocab.map(item => `${item.jp} : ${item.vi}`).join('\n');
+        navigator.clipboard.writeText(text).then(() => {
+            showToast(`Đã copy toàn bộ 121 từ vựng (Bài 1 - 4) chuẩn Quizlet!`);
+        }).catch(() => {
+            fallbackCopyText(text, 121);
+        });
+    }
+
+    function fallbackCopyText(text, count) {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        showToast(`Đã copy ${count} từ vựng chuẩn Quizlet!`);
+    }
+
+    function showToast(msg) {
+        let toast = document.getElementById('toast');
+        if (!toast) {
+            toast = document.createElement('div');
+            toast.id = 'toast';
+            toast.className = 'toast';
+            document.body.appendChild(toast);
+        }
+        toast.innerText = msg;
+        toast.style.display = 'block';
+        setTimeout(() => { toast.style.display = 'none'; }, 2800);
     }
 
     function toggleHideMeaning() {
@@ -1675,11 +1770,13 @@
 
     // Khởi tạo ban đầu
     document.addEventListener('DOMContentLoaded', () => {
-        renderVocab(rawVocab);
+        applyVocabFilter();
         renderKanji(rawKanji);
         renderQuiz();
     });
 </script>
+
+<div id="toast" class="toast">Đã copy vào bộ nhớ tạm!</div>
 
 </body>
 </html>
