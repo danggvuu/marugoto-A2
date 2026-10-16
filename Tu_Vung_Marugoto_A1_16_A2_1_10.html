@@ -3048,10 +3048,17 @@
             const promptType = (direction === 'vi') ? 'Tiếng Nhật ➔ Chọn Tiếng Việt' : 'Tiếng Việt ➔ Chọn Tiếng Nhật';
             const instruction = (direction === 'vi') ? 'Chọn nghĩa tiếng Việt chính xác nhất:' : 'Chọn từ tiếng Nhật tương ứng:';
 
-            // 3 đáp án sai
-            const wrongPool = rawVocab.filter(x => (direction === 'vi' ? x.vi !== item.vi : x.jp !== item.jp));
-            // Shuffle wrong pool
-            const shuffledWrong = wrongPool.sort(() => 0.5 - Math.random());
+            // 3 đáp án sai: CHỈ lấy từ vựng trong các bài ĐANG CHỌN (tuyệt đối không lấy từ bài cao hơn chưa học)
+            let distractorPool = basePool.filter(x => (direction === 'vi' ? x.vi !== item.vi : x.jp !== item.jp));
+
+            // Nếu bài đang chọn có quá ít từ, chỉ được phép lấy thêm từ các bài CŨ HƠN (không bao giờ lấy bài tương lai)
+            if (distractorPool.length < 3) {
+                const maxSelectedIdx = Math.max(...Array.from(selectedLessons).map(l => LESSON_ORDER.indexOf(l)), 0);
+                const allowedLessons = rawVocab.filter(x => LESSON_ORDER.indexOf(x.l) <= maxSelectedIdx);
+                distractorPool = allowedLessons.filter(x => (direction === 'vi' ? x.vi !== item.vi : x.jp !== item.jp));
+            }
+
+            const shuffledWrong = distractorPool.sort(() => 0.5 - Math.random());
             const wrongOptions = [];
             for (let w of shuffledWrong) {
                 const val = (direction === 'vi') ? w.vi : w.jp;
