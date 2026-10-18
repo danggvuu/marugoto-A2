@@ -1670,15 +1670,45 @@
         renderKanji(filtered);
     }
 
-    // Speech Synthesis
+    // Speech Audio Helper (Google Native Studio Voice + Fallback)
+    let currentMiniAudio = null;
+
     function speakText(text) {
+        if (!text) return;
+        let clean = text.split('/')[0].replace(/[~〜()（）]/g, '').trim();
+        if (!clean) return;
+
+        if (currentMiniAudio) {
+            try {
+                currentMiniAudio.pause();
+                currentMiniAudio.currentTime = 0;
+            } catch(e) {}
+        }
         if ('speechSynthesis' in window) {
-            window.speechSynthesis.cancel();
-            const cleanText = text.replace(/[()]/g, '');
-            const utter = new SpeechSynthesisUtterance(cleanText);
-            utter.lang = 'ja-JP';
-            utter.rate = 0.85;
-            window.speechSynthesis.speak(utter);
+            try { window.speechSynthesis.cancel(); } catch(e) {}
+        }
+
+        // ƯU TIÊN 1: Âm thanh giọng bản xứ Nhật Bản chuẩn (Google Studio TTS)
+        const audioUrl = `https://translate.google.com/translate_tts?ie=UTF-8&tl=ja&client=tw-ob&q=${encodeURIComponent(clean)}`;
+        const audio = new Audio(audioUrl);
+        currentMiniAudio = audio;
+
+        const playPromise = audio.play();
+        if (playPromise !== undefined) {
+            playPromise.catch(() => {
+                // Fallback: Web Speech API ép chọn giọng Nhật
+                if ('speechSynthesis' in window) {
+                    try {
+                        const utter = new SpeechSynthesisUtterance(clean);
+                        utter.lang = 'ja-JP';
+                        utter.rate = 0.9;
+                        const voices = window.speechSynthesis.getVoices();
+                        const jaVoice = voices.find(v => v.lang === 'ja-JP' || v.lang === 'ja' || (v.lang && v.lang.startsWith('ja')));
+                        if (jaVoice) utter.voice = jaVoice;
+                        window.speechSynthesis.speak(utter);
+                    } catch(e) {}
+                }
+            });
         }
     }
 

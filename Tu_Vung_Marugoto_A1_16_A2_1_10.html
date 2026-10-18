@@ -1947,7 +1947,7 @@
                 </div>
 
                 <label class="qsettings-checkbox">
-                    <input type="checkbox" id="qsettingAutoSpeak" checked>
+                    <input type="checkbox" id="qsettingAutoSpeak">
                     <span>🔊 Tự động phát âm tiếng Nhật khi sang câu hỏi mới</span>
                 </label>
 
@@ -2856,21 +2856,57 @@
     }
 
     // ==========================================
-    // AUDIO HELPER (Phát âm tiếng Nhật chuẩn)
+    // AUDIO HELPER (Phát âm tiếng Nhật chuẩn giọng bản xứ)
     // ==========================================
+    let currentAudioPlayer = null;
+
     function speakJapanese(text) {
+        if (!text) return;
+        // Lấy từ chính trước dấu gạch chéo /, bỏ ký tự đặc biệt ~ ( )
+        let clean = text.split('/')[0].replace(/[~〜()（）]/g, '').trim();
+        if (!clean) return;
+
+        // Dừng âm thanh đang phát trước đó
+        if (currentAudioPlayer) {
+            try {
+                currentAudioPlayer.pause();
+                currentAudioPlayer.currentTime = 0;
+            } catch(e) {}
+        }
+        if ('speechSynthesis' in window) {
+            try { window.speechSynthesis.cancel(); } catch(e) {}
+        }
+
+        // ƯU TIÊN 1: Âm thanh giọng bản xứ Nhật Bản chuẩn (Google Studio TTS)
+        // Trong trẻo, ngữ điệu Tokyo tự nhiên, không bao giờ bị méo mó giọng robot
+        const audioUrl = `https://translate.google.com/translate_tts?ie=UTF-8&tl=ja&client=tw-ob&q=${encodeURIComponent(clean)}`;
+        const audio = new Audio(audioUrl);
+        currentAudioPlayer = audio;
+
+        const playPromise = audio.play();
+        if (playPromise !== undefined) {
+            playPromise.catch(() => {
+                // Dự phòng khi offline hoặc bị trình duyệt chặn: Web Speech API nhưng ÉP CHỌN GIỌNG NHẬT
+                fallbackWebSpeech(clean);
+            });
+        }
+    }
+
+    function fallbackWebSpeech(cleanText) {
         if (!('speechSynthesis' in window)) return;
         try {
             window.speechSynthesis.cancel();
-            // Lấy từ chính trước dấu gạch chéo /, bỏ ký tự đặc biệt ~ ( )
-            const clean = text.split('/')[0].replace(/[~〜()]/g, '').trim();
-            const utter = new SpeechSynthesisUtterance(clean);
+            const utter = new SpeechSynthesisUtterance(cleanText);
             utter.lang = 'ja-JP';
-            utter.rate = 0.92;
+            utter.rate = 0.9;
+
+            const voices = window.speechSynthesis.getVoices();
+            const jaVoice = voices.find(v => v.lang === 'ja-JP' || v.lang === 'ja' || (v.lang && v.lang.startsWith('ja')));
+            if (jaVoice) {
+                utter.voice = jaVoice;
+            }
             window.speechSynthesis.speak(utter);
-        } catch (e) {
-            console.warn("Speech error:", e);
-        }
+        } catch(e) {}
     }
 
     function speakCurrent(e) {
@@ -2982,7 +3018,7 @@
         answerWith: 'vi', // 'vi' (Đề Nhật -> Chọn Việt), 'jp' (Đề Việt -> Chọn Nhật), 'both'
         count: 20,       // 10, 20, 30, 'all'
         mode: 'instant',  // 'instant' (báo đúng/sai ngay), 'test' (làm hết rồi nộp bài)
-        autoSpeak: true   // Tự động phát âm tiếng Nhật khi sang câu mới
+        autoSpeak: false  // Tắt mặc định để không gây ồn ào giật mình
     };
 
     let quizSession = {
@@ -3200,8 +3236,7 @@
                     feedbackText.innerHTML = `✓ Chính xác! Rất tốt.`;
                 } else {
                     banner.className = 'quiz-feedback-banner feedback-wrong';
-                    feedbackText.innerHTML = `✕ Chưa đúng! Đáp án đúng: <strong>${questionObj.correctAnswer}</strong> (${questionObj.rawItem.jp} : ${questionObj.rawItem.vi})`;
-                    speakJapanese(questionObj.rawItem.jp);
+                    feedbackText.innerHTML = `✕ Chưa đúng! Đáp án đúng: <strong>${questionObj.correctAnswer}</strong> (${questionObj.rawItem.jp} : ${questionObj.rawItem.vi}) <button type="button" class="fc-audio-btn" style="position:static; width:32px; height:32px; font-size:0.9rem; display:inline-flex;" onclick="speakJapanese('${questionObj.rawItem.jp.replace(/'/g, "\\'")}')" title="Nghe đọc">🔊</button>`;
                 }
                 banner.style.display = 'flex';
             }
