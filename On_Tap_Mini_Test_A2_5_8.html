@@ -1,0 +1,2390 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎯 Cẩm Nang Ôn Tập & Bài Thi Thử Bài 5 - 8 (Marugoto A2-1)</title>
+    <meta name="description" content="Hệ thống toàn diện Lý thuyết chuyên sâu Bài 5 - 8, 111+ Từ vựng chuẩn Japan Foundation, 29 Chữ Hán Kanji, 30 Câu trắc nghiệm thi thử có giải thích & Cẩm nang bỏ túi Marugoto A2-1.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-light: #e0e7ff;
+            --primary-dark: #3730a3;
+            --secondary: #0ea5e9;
+            --secondary-light: #e0f2fe;
+            --accent: #f43f5e;
+            --accent-light: #ffe4e6;
+            --success: #10b981;
+            --success-light: #d1fae5;
+            --warning: #f59e0b;
+            --warning-light: #fef3c7;
+            --dark: #0f172a;
+            --gray-900: #0f172a;
+            --gray-800: #1e293b;
+            --gray-700: #334155;
+            --gray-600: #475569;
+            --gray-500: #64748b;
+            --gray-400: #94a3b8;
+            --gray-200: #e2e8f0;
+            --gray-100: #f1f5f9;
+            --gray-50: #f8fafc;
+            --white: #ffffff;
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 18px;
+            --radius-full: 9999px;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.07);
+            --shadow-lg: 0 12px 28px rgba(0,0,0,0.09);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        body {
+            background-color: #f8fafc;
+            color: var(--gray-800);
+            line-height: 1.6;
+            padding: 20px 12px 60px 12px;
+        }
+
+        .jp-text {
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+
+        .container {
+            max-width: 1240px;
+            margin: 0 auto;
+        }
+
+        /* Global Hub Navigation */
+        .global-hub-nav {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+        .hub-nav-item {
+            text-decoration: none;
+            background: var(--white);
+            color: var(--gray-600);
+            padding: 9px 18px;
+            border-radius: var(--radius-full);
+            font-size: 0.9rem;
+            font-weight: 700;
+            border: 1.5px solid var(--gray-200);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .hub-nav-item:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+        .hub-nav-item.active-hub {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            color: var(--white);
+            border-color: transparent;
+            box-shadow: 0 4px 15px rgba(79, 70, 229, 0.35);
+        }
+
+        /* Hero Header */
+        .hero-header {
+            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4338ca 100%);
+            color: var(--white);
+            padding: 36px 24px;
+            border-radius: var(--radius-lg);
+            text-align: center;
+            margin-bottom: 24px;
+            box-shadow: 0 10px 30px rgba(49, 46, 129, 0.25);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-header::before {
+            content: "合格";
+            position: absolute;
+            right: -20px;
+            bottom: -30px;
+            font-size: 8rem;
+            font-weight: 900;
+            color: rgba(255, 255, 255, 0.05);
+            font-family: 'Noto Sans JP', sans-serif;
+            pointer-events: none;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px);
+            padding: 6px 16px;
+            border-radius: var(--radius-full);
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .hero-title {
+            font-size: 2.1rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+        .hero-desc {
+            font-size: 1.05rem;
+            color: #c7d2fe;
+            max-width: 820px;
+            margin: 0 auto 20px auto;
+        }
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .stat-pill {
+            background: rgba(255, 255, 255, 0.12);
+            padding: 8px 18px;
+            border-radius: var(--radius-full);
+            font-size: 0.88rem;
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        /* Tab Navigation Bar */
+        .tab-nav-wrapper {
+            position: sticky;
+            top: 12px;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.94);
+            backdrop-filter: blur(12px);
+            padding: 8px;
+            border-radius: var(--radius-lg);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            margin-bottom: 25px;
+        }
+        .tab-nav {
+            display: flex;
+            gap: 6px;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+        .tab-nav::-webkit-scrollbar {
+            display: none;
+        }
+        .tab-btn {
+            flex: 1;
+            white-space: nowrap;
+            padding: 12px 18px;
+            border: none;
+            background: transparent;
+            color: var(--gray-600);
+            font-size: 0.95rem;
+            font-weight: 700;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .tab-btn:hover {
+            color: var(--primary);
+            background: var(--gray-100);
+        }
+        .tab-btn.active {
+            background: var(--primary);
+            color: var(--white);
+            box-shadow: 0 4px 14px rgba(79, 70, 229, 0.3);
+        }
+
+        /* Tab Content Panels */
+        .tab-panel {
+            display: none;
+            animation: fadeIn 0.25s ease;
+        }
+        .tab-panel.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Card Common */
+        .content-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--gray-200);
+            padding: 28px;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 25px;
+        }
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--gray-100);
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--gray-900);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .section-badge {
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: var(--radius-full);
+            background: var(--primary-light);
+            color: var(--primary);
+        }
+
+        /* Grammar Styles */
+        .theory-quicknav {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding: 4px 4px 18px 4px;
+            margin-bottom: 22px;
+            border-bottom: 1px dashed var(--gray-200);
+            -webkit-overflow-scrolling: touch;
+        }
+        .quicknav-pill {
+            padding: 6px 14px;
+            border-radius: var(--radius-full);
+            background: #f1f5f9;
+            color: var(--gray-700);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.85rem;
+            white-space: nowrap;
+            transition: all 0.2s ease;
+            border: 1px solid var(--gray-200);
+            display: inline-block;
+        }
+        .quicknav-pill:hover, .quicknav-pill:active {
+            background: var(--primary);
+            color: var(--white);
+            border-color: var(--primary);
+            transform: translateY(-1px);
+        }
+        .grammar-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--gray-200);
+            margin-bottom: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.2s;
+        }
+        .grammar-header {
+            background: linear-gradient(135deg, #f8fafc 0%, #edf2f7 100%);
+            padding: 18px 24px;
+            border-bottom: 1px solid var(--gray-200);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .grammar-tag {
+            background: var(--primary);
+            color: var(--white);
+            padding: 4px 10px;
+            border-radius: var(--radius-sm);
+            font-size: 0.78rem;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+        .grammar-title {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--gray-900);
+            margin: 0;
+        }
+        .grammar-body {
+            padding: 24px;
+        }
+        .formula-box {
+            background: #f0fdf4;
+            border-left: 5px solid var(--success);
+            padding: 14px 18px;
+            border-radius: var(--radius-sm);
+            margin-bottom: 18px;
+            font-weight: 700;
+            color: #166534;
+            font-size: 1.05rem;
+        }
+        .grammar-explain {
+            color: var(--gray-700);
+            margin-bottom: 16px;
+            line-height: 1.7;
+        }
+        .example-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .example-item {
+            background: var(--gray-50);
+            padding: 12px 16px;
+            border-radius: var(--radius-sm);
+            border-left: 3px solid var(--secondary);
+        }
+        .ex-jp {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 4px;
+        }
+        .ex-vi {
+            font-size: 0.92rem;
+            color: var(--gray-600);
+        }
+        .trap-box {
+            background: #fff1f2;
+            border-left: 5px solid var(--accent);
+            padding: 14px 18px;
+            border-radius: var(--radius-sm);
+            margin-top: 16px;
+            color: #9f1239;
+            font-size: 0.95rem;
+        }
+        .trap-box strong {
+            display: block;
+            margin-bottom: 4px;
+            font-size: 1rem;
+        }
+
+        /* Two Column Family Table */
+        .family-table-container {
+            overflow-x: auto;
+            margin-top: 14px;
+        }
+        .family-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.92rem;
+        }
+        .family-table th, .family-table td {
+            padding: 10px 14px;
+            border: 1px solid var(--gray-200);
+            text-align: left;
+        }
+        .family-table th {
+            background: #f1f5f9;
+            color: var(--gray-800);
+            font-weight: 700;
+        }
+        .family-table tr:nth-child(even) {
+            background: #f8fafc;
+        }
+        .family-badge-self {
+            background: #e0f2fe;
+            color: #0369a1;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 0.78rem;
+        }
+        .family-badge-other {
+            background: #fce7f3;
+            color: #be185d;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 0.78rem;
+        }
+
+        /* Toolbar Filter & Search */
+        .toolbar-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--gray-200);
+            padding: 18px 22px;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        .filter-row {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .filter-btn {
+            background: var(--gray-100);
+            border: 1.5px solid transparent;
+            color: var(--gray-700);
+            padding: 7px 16px;
+            border-radius: var(--radius-full);
+            font-size: 0.85rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+        .filter-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+        .filter-btn.active {
+            background: var(--primary);
+            color: var(--white);
+            box-shadow: 0 2px 8px rgba(79, 70, 229, 0.3);
+        }
+        .action-row {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .search-input-box {
+            flex: 1;
+            min-width: 240px;
+            position: relative;
+        }
+        .search-input-box input {
+            width: 100%;
+            padding: 10px 16px 10px 38px;
+            border: 1.5px solid var(--gray-200);
+            border-radius: var(--radius-md);
+            font-size: 0.95rem;
+            transition: all 0.2s;
+            outline: none;
+        }
+        .search-input-box input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+        }
+        .search-icon {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gray-400);
+            font-size: 1rem;
+        }
+        .tool-toggle-btn {
+            background: var(--white);
+            border: 1.5px solid var(--gray-200);
+            padding: 9px 16px;
+            border-radius: var(--radius-md);
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: var(--gray-700);
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .tool-toggle-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+        .tool-toggle-btn.active {
+            background: #ede9fe;
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-quizlet {
+            background: linear-gradient(135deg, #4257b2, #3ccfcf);
+            color: var(--white);
+            border: none;
+            padding: 9px 18px;
+            border-radius: var(--radius-md);
+            font-size: 0.88rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 8px rgba(66, 87, 178, 0.25);
+        }
+        .btn-quizlet:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 14px rgba(66, 87, 178, 0.35);
+            opacity: 0.95;
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: #1e293b;
+            color: white;
+            padding: 12px 22px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.25);
+            font-size: 0.95rem;
+            font-weight: 600;
+            display: none;
+            z-index: 9999;
+        }
+
+        /* Vocab Grid */
+        .vocab-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 14px;
+        }
+        .vocab-card {
+            background: var(--white);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--gray-200);
+            padding: 16px;
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 10px;
+            transition: all 0.2s ease;
+        }
+        .vocab-card:hover {
+            border-color: var(--primary-light);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+        .vocab-top {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 8px;
+        }
+        .vocab-badge {
+            font-size: 0.72rem;
+            font-weight: 800;
+            padding: 3px 8px;
+            border-radius: 4px;
+            background: #eef2ff;
+            color: #4338ca;
+        }
+        .vocab-jp {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            line-height: 1.3;
+        }
+        .vocab-vi {
+            font-size: 0.95rem;
+            color: var(--gray-600);
+            padding-top: 6px;
+            border-top: 1px dashed var(--gray-200);
+            transition: all 0.2s;
+        }
+        .vocab-vi.hidden-meaning {
+            filter: blur(5px);
+            user-select: none;
+            cursor: pointer;
+        }
+        .vocab-vi.hidden-meaning:hover {
+            filter: blur(0);
+        }
+        .sound-btn {
+            background: #f1f5f9;
+            border: none;
+            width: 32px;
+            height: 32px;
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--gray-600);
+            font-size: 0.85rem;
+            transition: all 0.15s;
+            flex-shrink: 0;
+        }
+        .sound-btn:hover {
+            background: var(--primary-light);
+            color: var(--primary);
+            transform: scale(1.1);
+        }
+
+        /* Kanji Cards */
+        .kanji-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 18px;
+        }
+        .kanji-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--gray-200);
+            padding: 20px;
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            transition: all 0.2s;
+        }
+        .kanji-card:hover {
+            border-color: var(--secondary);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+        .kanji-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .kanji-char-box {
+            width: 72px;
+            height: 72px;
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            border: 2px solid #86efac;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #15803d;
+            flex-shrink: 0;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .kanji-meta {
+            flex: 1;
+        }
+        .kanji-hv {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: var(--gray-900);
+            line-height: 1.2;
+        }
+        .kanji-meaning {
+            font-size: 0.95rem;
+            color: var(--gray-600);
+            margin-top: 3px;
+        }
+        .kanji-sub-row {
+            display: flex;
+            gap: 6px;
+            margin-top: 6px;
+        }
+        .kanji-tag {
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 4px;
+            background: #f1f5f9;
+            color: var(--gray-600);
+        }
+        .kanji-detail-box {
+            background: var(--gray-50);
+            border-radius: var(--radius-sm);
+            padding: 10px 14px;
+            font-size: 0.88rem;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .kanji-reading-item strong {
+            color: var(--gray-700);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            margin-right: 4px;
+        }
+        .kanji-mnemonic {
+            background: #fffbeb;
+            border-left: 3px solid var(--warning);
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 0.86rem;
+            color: #92400e;
+        }
+        .kanji-words {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            border-top: 1px dashed var(--gray-200);
+            padding-top: 10px;
+        }
+        .kanji-word-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.88rem;
+        }
+        .kw-jp {
+            font-weight: 700;
+            color: var(--gray-900);
+        }
+        .kw-vi {
+            color: var(--gray-600);
+        }
+
+        /* Quiz Styles */
+        .quiz-stats-card {
+            background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%);
+            border-radius: var(--radius-lg);
+            padding: 20px 24px;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+            border: 1px solid #c7d2fe;
+        }
+        .quiz-score-box {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .score-circle {
+            width: 58px;
+            height: 58px;
+            border-radius: var(--radius-full);
+            background: var(--primary);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            font-weight: 800;
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.35);
+        }
+        .score-info h4 {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--gray-900);
+        }
+        .score-info p {
+            font-size: 0.88rem;
+            color: var(--gray-600);
+        }
+        .quiz-action-btns {
+            display: flex;
+            gap: 10px;
+        }
+        .quiz-btn {
+            background: var(--white);
+            color: var(--primary);
+            border: 1.5px solid var(--primary);
+            padding: 9px 18px;
+            border-radius: var(--radius-md);
+            font-size: 0.9rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .quiz-btn:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+        .quiz-btn.primary {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .question-card {
+            background: var(--white);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--gray-200);
+            padding: 22px;
+            margin-bottom: 18px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.2s;
+        }
+        .q-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+        .q-num {
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: var(--primary);
+            background: #eef2ff;
+            padding: 3px 10px;
+            border-radius: var(--radius-full);
+        }
+        .q-category {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--gray-500);
+            background: var(--gray-100);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+        .q-text {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 16px;
+            line-height: 1.4;
+        }
+        .options-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 10px;
+        }
+        .opt-btn {
+            background: var(--gray-50);
+            border: 1.5px solid var(--gray-200);
+            border-radius: var(--radius-sm);
+            padding: 12px 16px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--gray-800);
+            cursor: pointer;
+            text-align: left;
+            transition: all 0.15s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .opt-btn:hover:not(:disabled) {
+            border-color: var(--primary);
+            background: #fafcfe;
+        }
+        .opt-key {
+            width: 24px;
+            height: 24px;
+            border-radius: var(--radius-full);
+            background: var(--white);
+            border: 1px solid var(--gray-300);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--gray-600);
+            flex-shrink: 0;
+        }
+        .opt-btn.correct {
+            background: #ecfdf5 !important;
+            border-color: #10b981 !important;
+            color: #065f46 !important;
+        }
+        .opt-btn.correct .opt-key {
+            background: #10b981;
+            color: white;
+            border-color: #10b981;
+        }
+        .opt-btn.wrong {
+            background: #fff1f2 !important;
+            border-color: #f43f5e !important;
+            color: #9f1239 !important;
+        }
+        .opt-btn.wrong .opt-key {
+            background: #f43f5e;
+            color: white;
+            border-color: #f43f5e;
+        }
+        .q-explain {
+            margin-top: 14px;
+            padding: 12px 16px;
+            background: #f0f9ff;
+            border-left: 4px solid var(--secondary);
+            border-radius: var(--radius-sm);
+            font-size: 0.9rem;
+            color: #0369a1;
+            display: none;
+            animation: fadeIn 0.2s ease;
+        }
+
+        /* Cheat Sheet */
+        .cheatsheet-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 18px;
+        }
+        .cheat-card {
+            background: var(--white);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--gray-200);
+            padding: 20px;
+            box-shadow: var(--shadow-sm);
+        }
+        .cheat-badge {
+            display: inline-block;
+            background: #fee2e2;
+            color: #b91c1c;
+            padding: 3px 9px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+        .cheat-title {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--gray-900);
+            margin-bottom: 10px;
+        }
+        .cheat-content {
+            font-size: 0.92rem;
+            color: var(--gray-700);
+            line-height: 1.6;
+        }
+
+        /* Responsive Mobile */
+        @media (max-width: 768px) {
+            body {
+                padding: 12px 8px 40px 8px;
+            }
+            .hero-header {
+                padding: 24px 16px;
+                border-radius: var(--radius-md);
+            }
+            .hero-title {
+                font-size: 1.5rem;
+            }
+            .hero-desc {
+                font-size: 0.92rem;
+            }
+            .tab-nav {
+                display: flex;
+                gap: 4px;
+            }
+            .tab-btn {
+                padding: 10px 12px;
+                font-size: 0.85rem;
+            }
+            .content-card {
+                padding: 16px;
+            }
+            .kanji-grid {
+                grid-template-columns: 1fr;
+            }
+            .options-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Global Hub Navigation -->
+    <div class="global-hub-nav">
+        <a href="index.html" class="hub-nav-item">🌸 Thể TE (～て)</a>
+        <a href="the_ru.html" class="hub-nav-item">📘 Thể RU (Từ Điển)</a>
+        <a href="kanji_a2.html" class="hub-nav-item">⛩️ Học Kanji & Nét Viết</a>
+        <a href="Tu_Vung_Marugoto_A1_16_A2_1_10.html" class="hub-nav-item">📖 Kho Từ Vựng A1-A2</a>
+        <a href="On_Tap_Mini_Test_A2_1_4.html" class="hub-nav-item active-hub">🎯 Ôn Tập & Mini Test (Bài 5-8)</a>
+    </div>
+
+    <!-- Hero Header -->
+    <header class="hero-header">
+        <div class="hero-badge">🌟 Trọng Tâm Giáo Trình Marugoto A2-1 • Bài 5 - 8</div>
+        <h1 class="hero-title">CẨM NANG ÔN TẬP & BÀI THI THỬ MARUGOTO A2-1 (BÀI 5 - 8)</h1>
+        <p class="hero-desc">Hệ thống toàn diện Lý thuyết chuyên sâu Bài 5 - 8, 111+ Từ vựng chuẩn Japan Foundation, 29 Chữ Hán Kanji, 30 Câu trắc nghiệm thi thử có giải thích & Cẩm nang bỏ túi</p>
+        <div class="hero-stats">
+            <span class="stat-pill">📘 Trọng tâm Bài 5 - 8</span>
+            <span class="stat-pill">🎴 111 Từ vựng 100%</span>
+            <span class="stat-pill">⛩️ 29 Chữ Hán Kanji</span>
+            <span class="stat-pill">✍️ 30 Câu thi thử có giải thích</span>
+        </div>
+        <div style="margin-top: 18px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+            <button type="button" class="btn-quizlet" onclick="copyFull121QuizletFormat()" style="padding: 10px 22px; font-size: 0.92rem;">
+                📋 Copy Trọn Bộ 111 Từ Cho Quizlet (Bài 5 - 8)
+            </button>
+        </div>
+    </header>
+
+    <!-- Sticky Tab Navigation -->
+    <div class="tab-nav-wrapper">
+        <nav class="tab-nav">
+            <button class="tab-btn active" onclick="switchMainTab('tab-theory')">📖 Lý Thuyết (Bài 5 - 8)</button>
+            <button class="tab-btn" onclick="switchMainTab('tab-vocab')">🎴 111 Từ Vựng</button>
+            <button class="tab-btn" onclick="switchMainTab('tab-kanji')">⛩️ 29 Chữ Hán</button>
+            <button class="tab-btn" onclick="switchMainTab('tab-quiz')">🎯 Đề Thi Thử (30 Câu)</button>
+            <button class="tab-btn" onclick="switchMainTab('tab-cheatsheet')">⚡ Cẩm Nang Bỏ Túi</button>
+            <button class="tab-btn" onclick="switchMainTab('tab-minato')">⛩️ Dữ Liệu Gốc Minato JF</button>
+        </nav>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- TAB 1: LÝ THUYẾT NGỮ PHÁP TOÀN BỘ (10 BÀI) -->
+        <!-- ========================================== -->
+    <!-- TAB 1: LÝ THUYẾT NGỮ PHÁP (TRỌNG TÂM 5 - 8)-->
+    <!-- ========================================== -->
+    <div id="tab-theory" class="tab-panel active">
+
+        <!-- Quick Jump Bar -->
+        <div class="theory-quicknav">
+            <a href="#grammar-l5" class="quicknav-pill" style="background: var(--primary); color: white; border-color: var(--primary);">⭐ Bài 5: 私の町 (～くて／で)</a>
+            <a href="#grammar-l6" class="quicknav-pill" style="background: var(--primary); color: white; border-color: var(--primary);">⭐ Bài 6: 道案内 (～てください／ないで)</a>
+            <a href="#grammar-l7" class="quicknav-pill" style="background: var(--primary); color: white; border-color: var(--primary);">⭐ Bài 7: 約束 (～でもいいですか)</a>
+            <a href="#grammar-l8" class="quicknav-pill" style="background: var(--primary); color: white; border-color: var(--primary);">⭐ Bài 8: 週末 (～に行きます／まえに)</a>
+            <a href="#grammar-l9" class="quicknav-pill">Bài 9: 外国語 (～のが好き／方)</a>
+            <a href="#grammar-l10" class="quicknav-pill">Bài 10: 外国文化 (～たい／てみる)</a>
+            <a href="#grammar-review-14" class="quicknav-pill" style="background: #e2e8f0; color: #475569;">📂 Xem Lại Bài 1 - 4</a>
+        </div>
+
+        <!-- BÀI 5 -->
+        <div class="grammar-card" id="grammar-l5">
+            <div class="grammar-header">
+                <div>
+                    <span class="grammar-tag">BÀI 5 (A2-1)</span>
+                    <h2 class="grammar-title">私の町 (Nối tính từ くて／で, Tương phản けど／だけど & Liệt kê や～など)</h2>
+                </div>
+                <span class="section-badge">Trọng điểm học kỳ</span>
+            </div>
+            <div class="grammar-body">
+                <div class="formula-box">
+                    ① Nối tính từ cùng chiều (và / vừa... vừa...):<br>
+                    &nbsp;&nbsp;&nbsp;• Tính từ đuôi い: [Bỏ い] ＋ くて (安くて おいしい / 広くて きれい)<br>
+                    &nbsp;&nbsp;&nbsp;• Tính từ đuôi な: [Bỏ な] ＋ で (静かで きれい / にぎやかで おもしろい)<br>
+                    &nbsp;&nbsp;&nbsp;• Danh từ: N ＋ で (新しい 町で 人気がある)<br>
+                    ② Nối mệnh đề tương phản (nhưng mà...):<br>
+                    &nbsp;&nbsp;&nbsp;• Tính từ đuôi い: A-い ＋ けど (楽しいけど 高い)<br>
+                    &nbsp;&nbsp;&nbsp;• Tính từ đuôi な: Na ＋ だけど (ちょっと 不便だけど 楽しい)<br>
+                    &nbsp;&nbsp;&nbsp;• Danh từ: N ＋ だけど (遊園地だけど 大人も 多い)<br>
+                    ③ Liệt kê không toàn bộ: N1 や N2 (など) が あります<br>
+                    ④ Nhấn mạnh phạm vi / chủ đề địa điểm: [Địa điểm] には ... が あります
+                </div>
+
+                <p class="grammar-explain">
+                    <strong>1. Quy tắc nối tính từ cùng chiều (Liệt kê tính chất tích cực + tích cực, hoặc tiêu cực + tiêu cực):</strong><br>
+                    Khi muốn miêu tả một địa điểm hay sự vật có từ 2 tính chất trở lên, ta biến đổi đuôi của tính từ đứng trước để nối sang tính từ tiếp theo.
+                </p>
+                <ul class="example-list">
+                    <li class="example-item">
+                        <div class="ex-jp">この 公園 (こうえん) は 広くて (ひろくて) きれいです。</div>
+                        <div class="ex-vi">Công viên này rộng và đẹp. (広い [い] ➔ 広くて).</div>
+                    </li>
+                    <li class="example-item">
+                        <div class="ex-jp">この 店 (みせ) の 料理 (りょうり) は 安くて (やすくて)、とても おいしいです。</div>
+                        <div class="ex-vi">Món ăn của quán này rẻ và rất ngon. (安い [い] ➔ 安くて).</div>
+                    </li>
+                    <li class="example-item">
+                        <div class="ex-jp">この 辺り (あたり) は 静かで (しずかで) いい ところです。</div>
+                        <div class="ex-vi">Khu vực quanh đây yên tĩnh và là một nơi tốt. (静か [な] ➔ 静かで).</div>
+                    </li>
+                    <li class="example-item">
+                        <div class="ex-jp">渋谷 (しぶや) は にぎやかで おもしろい 町 (まち) です。</div>
+                        <div class="ex-vi">Shibuya là một khu phố náo nhiệt và thú vị. (にぎやか [な] ➔ にぎやかで).</div>
+                    </li>
+                    <li class="example-item">
+                        <div class="ex-jp">この 辺りは 新しい 町 (まち) で、とても 人気 (にんき) が あります。</div>
+                        <div class="ex-vi">Khu vực này là khu đô thị mới và rất được ưa chuộng. (Danh từ 町 ＋ で).</div>
+                    </li>
+                </ul>
+
+                <p class="grammar-explain" style="margin-top: 18px;">
+                    <strong>2. Mẫu câu nối tương phản đối lập với <code>けど / だけど</code> (Nhưng mà...):</strong><br>
+                    Dùng khi vế trước và vế sau mang ý nghĩa trái ngược nhau (khen vế trước nhưng chê vế sau, hoặc ngược lại).
+                </p>
+                <ul class="example-list">
+                    <li class="example-item">
+                        <div class="ex-jp">この 遊園地 (ゆうえんち) は 楽しい (たのしい) けど、ちょっと 高い (たかい) です。</div>
+                        <div class="ex-vi">Khu vui chơi này vui nhưng mà hơi đắt. (Tính từ đuôi い giữ nguyên + けど).</div>
+                    </li>
+                    <li class="example-item">
+                        <div class="ex-jp">私の 町は ちょっと 不便 (ふべん) だけど、緑 (みどり) が 多くて 好きです。</div>
+                        <div class="ex-vi">Thị trấn của tôi hơi bất tiện nhưng nhiều cây xanh nên tôi thích. (Tính từ đuôi な ➔ だけど).</div>
+                    </li>
+                    <li class="example-item">
+                        <div class="ex-jp">ここは 遊園地 (ゆうえんち) だけど、大人 (おとな) も 多いです。</div>
+                        <div class="ex-vi">Nơi đây là công viên giải trí nhưng người lớn cũng rất đông. (Danh từ ＋ だけど).</div>
+                    </li>
+                </ul>
+
+                <p class="grammar-explain" style="margin-top: 18px;">
+                    <strong>3. Liệt kê tiêu biểu với <code>や～など</code> (Không đầy đủ) vs <code>と</code> (Toàn bộ):</strong>
+                </p>
+                <ul class="example-list">
+                    <li class="example-item">
+                        <div class="ex-jp">この 辺りには 高い ビルや ホテルなどが あります。</div>
+                        <div class="ex-vi">Quanh khu này có những thứ như tòa nhà cao tầng, khách sạn... (Chỉ kể ra vài thứ tiêu biểu, thực tế còn có nhà hàng, ga tàu...).</div>
+                    </li>
+                </ul>
+
+                <div class="trap-box" style="background: #ecfdf5; border-left-color: #059669; color: #065f46;">
+                    <strong>💡 GIẢI THÍCH SƯ PHẠM: TẠI SAO DÙNG <code>には</code> TRONG "日本には東京や大阪などの有名な町があります"?</strong>
+                    1. <strong>Trợ từ に:</strong> Xác định vị trí không gian tồn tại của sự vật (日本に... があります = Ở Nhật Bản có...).<br>
+                    2. <strong>Trợ từ は:</strong> Đưa đối tượng lên làm <em>Chủ đề chính của câu chuyện (Topic)</em> hoặc để <em>Nhấn mạnh / Giới hạn phạm vi</em>.<br>
+                    ➔ Kết hợp thành <strong>には</strong>: Nhấn mạnh <em>"Còn riêng tại đất nước Nhật Bản thì..."</em> (tạo sắc thái so sánh tương phản với những quốc gia khác trên thế giới).<br>
+                    3. <strong>N1 や N2 などの N3:</strong> Mang nghĩa <em>"Những N3 như là N1, N2..."</em>. Dùng <code>や</code> và <code>など</code> để đưa ra đại diện tiêu biểu (vì Nhật Bản còn nhiều thành phố nổi tiếng khác nữa như Kyoto, Fukuoka, Nagoya, Sapporo!).
+                </div>
+
+                <div class="trap-box">
+                    <strong>⚠️ BẪY THI CỰC KỲ DỄ MẮC:</strong>
+                    - <strong>Tính từ いい (tốt) là bất quy tắc:</strong> Chuyển thành <code>よくて</code> (Ví dụ: <code>頭が よくて 親切です</code>). Tuyệt đối <strong>KHÔNG</strong> dùng <code>いくて</code> ❌!<br>
+                    - <strong>Không dùng đuôi lộn xộn:</strong> Đuôi -i đi với <code>くて</code> và <code>けど</code>. Đuôi -na và Danh từ đi với <code>で</code> và <code>だけど</code>!
+                </div>
+            </div>
+        </div>
+
+        <!-- BÀI 6 -->
+        <div class="grammar-card" id="grammar-l6">
+            <div class="grammar-header">
+                <div>
+                    <span class="grammar-tag">BÀI 6 (A2-1)</span>
+                    <h2 class="grammar-title">道案内 (Chỉ đường: Thể TE liên hoàn, Đi qua を & Cấm đoán ないで)</h2>
+                </div>
+                <span class="section-badge">Giao tiếp hằng ngày</span>
+            </div>
+            <div class="grammar-body">
+                <div class="formula-box">
+                    ① Chỉ đường từng bước: [Hành động 1] て、[Hành động 2] て、～てください<br>
+                    ② Rẽ hướng: [Vị trí rẽ] を [Hướng] に まがってください (信号を 右に 曲がる)<br>
+                    ③ Không gian chuyển động xuyên qua: [Con đường / Cây cầu] を [まっすぐ / わたる]<br>
+                    ④ Rời khỏi phương tiện: [Phương tiện] を おります (電車を 降りる)<br>
+                    ⑤ Đính chính thông tin: [Sai] じゃなくて、[Đúng] です<br>
+                    ⑥ Yêu cầu không làm gì (Cấm đoán lịch sự): V-ないで ください
+                </div>
+
+                <p class="grammar-explain">
+                    <strong>1. Cấu trúc chỉ đường chuẩn người Nhật:</strong><br>
+                    Dùng thể <code>～て</code> để kết nối chuỗi hành động di chuyển liên tiếp, kết thúc bằng lời nhờ vả lịch sự <code>～てください</code>.
+                </p>
+                <ul class="example-list">
+                    <li class="example-item">
+                        <div class="ex-jp">この 道 (みち) を まっすぐ 行って (いって)、2つ目 (ふたつめ) の 信号 (しんごう) を 右 (みぎ) に 曲がって (まがって) ください。</div>
+                        <div class="ex-vi">Hãy đi thẳng con đường này, rồi ở cột đèn tín hiệu thứ hai hãy rẽ phải. (Trợ từ <strong>を</strong> chỉ không gian đi qua, <strong>に</strong> chỉ hướng rẽ).</div>
+                    </li>
+                    <li class="example-item">
+                        <div class="ex-jp">橋 (はし) を わたって、すぐ 左 (ひだり) に あります。</div>
+                        <div class="ex-vi">Băng qua cây cầu, nó nằm ngay ở phía bên trái. (わたります = băng qua).</div>
+                    </li>
+                    <li class="example-item">
+                        <div class="ex-jp">あそこに 大きくて (おおきくて) 白い (しろい) ビルが 見えますね。あれです。</div>
+                        <div class="ex-vi">Bạn có nhìn thấy tòa nhà to và màu trắng đằng kia không? Chính là nó đấy. (Nối tính từ: 大きい ➔ 大きくて).</div>
+                    </li>
+                </ul>
+
+                <p class="grammar-explain" style="margin-top: 18px;">
+                    <strong>2. Đính chính thông tin hiểu nhầm với <code>～じゃなくて～</code>:</strong>
+                </p>
+                <ul class="example-list">
+                    <li class="example-item">
+                        <div class="ex-jp">1つ目 (ひとつめ) じゃなくて、2つ目 (ふたつめ) の 角 (かど) ですよ。</div>
+                        <div class="ex-vi">Không phải góc cua thứ nhất đâu, mà là góc cua thứ hai đấy nhé.</div>
+                    </li>
+                    <li class="example-item">
+                        <div class="ex-jp">左 (ひだり) じゃなくて、右 (みぎ) に まがります。</div>
+                        <div class="ex-vi">Không phải rẽ trái, mà rẽ sang bên phải.</div>
+                    </li>
+                </ul>
+
+                <p class="grammar-explain" style="margin-top: 18px;">
+                    <strong>3. Cấm đoán lịch sự với <code>V-ないで ください</code> (Xin đừng làm gì):</strong>
+                </p>
+                <ul class="example-list">
+                    <li class="example-item">
+                        <div class="ex-jp">あぶないですから、ここには 入らないで (はいらないで) ください。</div>
+                        <div class="ex-vi">Vì nguy hiểm nên xin đừng đi vào khu vực này. (入る ➔ 入らない ＋ でください).</div>
+                    </li>
+                    <li class="example-item">
+                        <div class="ex-jp">美術館 (びじゅつかん) の 中で 写真 (しゃしん) を とらないで ください。</div>
+                        <div class="ex-vi">Xin vui lòng không chụp ảnh trong viện bảo tàng. (とる ➔ とらない ＋ でください).</div>
+                    </li>
+                </ul>
+
+                <div class="trap-box">
+                    <strong>⚠️ BẪY TRỢ TỪ CỦA ĐỘNG TỪ DI CHUYỂN (100% CÓ TRONG ĐỀ THI):</strong>
+                    - <strong>Lên xe dùng に:</strong> <code>電車に のります</code> (Trợ từ に chỉ điểm đến/tiếp xúc).<br>
+                    - <strong>Xuống xe dùng を:</strong> <code>電車を おります</code> (Trợ từ を chỉ điểm xuất phát/rời khỏi).<br>
+                    - <strong>Đi xuyên qua không gian dùng を:</strong> <code>道を あるく</code> (đi bộ trên đường), <code>空を とぶ</code> (bay trên trời), <code>公園を さんぽする</code> (đi dạo qua công viên). KHÔNG DÙNG で!
+                </div>
+            </div>
+        </div>
+
+        <!-- BÀI 7 -->
+        <div class="grammar-card" id="grammar-l7">
+            <div class="grammar-header">
+                <div>
+                    <span class="grammar-tag">BÀI 7 (A2-1)</span>
+                    <h2 class="grammar-title">約束・お出かけ (Hẹn hò, Thỏa thuận thời gian & Giải thích trễ hẹn)</h2>
+                </div>
+                <span class="section-badge">Giao tiếp thực tế</span>
+            </div>
+            <div class="grammar-body">
+                <div class="formula-box">
+                    ① Thỏa thuận / Thay đổi giờ hẹn: [Thời gian / Địa điểm] ＋ でもいいですか<br>
+                    ② Giải thích nguyên nhân khách quan trễ hẹn: [Sự cố N] で おくれます<br>
+                    ③ Nêu lý do bằng thể TE: [V1-て]、おくれます / まにあいません<br>
+                    ④ Văn hóa xin lỗi khi đến muộn: おそくなって すみません / おまたせして すみません
+                </div>
+
+                <p class="grammar-explain">
+                    <strong>1. Đề xuất điều chỉnh thời gian / địa điểm linh hoạt <code>～でもいいですか</code>:</strong><br>
+                    Khi muốn thương lượng giờ hẹn muộn hơn hoặc một địa điểm khác thuận tiện hơn, thêm <code>でもいいですか</code> sau danh từ để thể hiện thái độ nhã nhặn, tôn trọng đối phương.
+                </p>
+                <ul class="example-list">
+                    <li class="example-item">
+                        <div class="ex-jp">日曜日の 待ち合わせ (まちあわせ)、11時 (じゅういちじ) でも いいですか。</div>
+                        <div class="ex-vi">Cuộc hẹn Chủ nhật, 11 giờ có được không bạn? (Thương lượng đổi giờ hẹn).</div>
+                    </li>
+                    <li class="example-item">
+                        <div class="ex-jp">ホテルの ロビーでも いいですか。</div>
+                        <div class="ex-vi">Gặp ở sảnh khách sạn có được không? (Thương lượng địa điểm hẹn).</div>
+                    </li>
+                </ul>
+
+                <p class="grammar-explain" style="margin-top: 18px;">
+                    <strong>2. Trợ từ <code>で</code> chỉ nguyên nhân khách quan & Thể <code>～て</code> giải thích sự cố:</strong><br>
+                    Dùng khi thông báo bị muộn vì lý do thời tiết, giao thông hoặc sự cố ngoài ý muốn.
+                </p>
+                <ul class="example-list">
+                    <li class="example-item">
+                        <div class="ex-jp">すみません、渋滞 (じゅうたい) で 15分 (じゅうごふん) ぐらい 遅れます (おくれます)。</div>
+                        <div class="ex-vi">Xin lỗi, do kẹt xe nên tôi sẽ bị muộn khoảng 15 phút. (Trợ từ <strong>で</strong> chỉ nguyên nhân kẹt xe).</div>
+                    </li>
+                    <li class="example-item">
+                        <div class="ex-jp">道に 迷って (まよって)、遅くなって すみません。</div>
+                        <div class="ex-vi">Tôi bị lạc đường nên đến muộn, xin lỗi bạn nhiều nhé! (まよいます ➔ まよって).</div>
+                    </li>
+                    <li class="example-item">
+                        <div class="ex-jp">事故 (じこ) で 電車 (でんしゃ) が 止まりました (とまりました)。</div>
+                        <div class="ex-vi">Vì có tai nạn nên tàu điện đã bị dừng lại. (Trợ từ <strong>で</strong> chỉ lý do tai nạn).</div>
+                    </li>
+                </ul>
+
+                <div class="trap-box">
+                    <strong>⚠️ BẢN CHẤT TRỢ TỪ で TRONG GIAO TIẾP VÀ PHÒNG THI:</strong>
+                    - <code>で</code> chỉ nguyên nhân chỉ áp dụng cho <strong>hiện tượng tự nhiên, tai nạn, sự cố bất khả kháng</strong>: <code>じけん で</code> (do vụ án), <code>たいふう で</code> (do bão), <code>かぜ で</code> (do cảm cúm), <code>じゅうたい で</code> (do tắc đường).<br>
+                    - Câu xin lỗi kinh điển người Nhật luôn nói khi đến muộn: <strong><code>おそくなって すみません</code></strong> (Xin lỗi vì tôi đến trễ).
+                </div>
+            </div>
+        </div>
+
+        <!-- BÀI 8 -->
+        <div class="grammar-card" id="grammar-l8">
+            <div class="grammar-header">
+                <div>
+                    <span class="grammar-tag">BÀI 8 (A2-1)</span>
+                    <h2 class="grammar-title">週末の過ごし方 (Mục đích di chuyển に行きます & Trình tự まえに／あとで)</h2>
+                </div>
+                <span class="section-badge">Trọng điểm ngữ pháp</span>
+            </div>
+            <div class="grammar-body">
+                <div class="formula-box">
+                    ① Mục đích di chuyển: [Địa điểm] へ / に ＋ [V(bỏ ます) / Danh từ] ＋ に 行きます / 来ます<br>
+                    ② Trình tự TRƯỚC: [V-る] 前 (まえ) に / [N の] 前 (まえ) に<br>
+                    ③ Trình tự SAU: [V-た] 後 (あと) で / [N の] 後 (あと) で<br>
+                    ④ Hỏi hoàn thành: もう [V-ました] か ➔ はい、もう... / いいえ、まだです
+                </div>
+
+                <p class="grammar-explain">
+                    <strong>1. Cấu trúc chỉ mục đích di chuyển <code>～に 行きます / 来ます / 帰ります</code> (Đi đâu để làm gì):</strong><br>
+                    Động từ chỉ hành động bỏ <code>ます</code>, hoặc Danh từ hành động ghép trực tiếp với trợ từ <code>に</code> rồi đi với động từ di chuyển.
+                </p>
+                <ul class="example-list">
+                    <li class="example-item">
+                        <div class="ex-jp">デパートへ 買い物 (かいもの) に 行きます。</div>
+                        <div class="ex-vi">Tôi đi trung tâm thương mại để mua sắm. (Danh từ hành động ＋ に 行きます).</div>
+                    </li>
+                    <li class="example-item">
+                        <div class="ex-jp">上野公園 (うえのこうえん) へ 桜 (さくら) を 見に (みに) 行きました。</div>
+                        <div class="ex-vi">Tôi đã đến công viên Ueno để ngắm hoa anh đào. (見ます ➔ 見に 行きました).</div>
+                    </li>
+                    <li class="example-item">
+                        <div class="ex-jp">友達が 家へ 遊びに (あそびに) 来ます。</div>
+                        <div class="ex-vi">Bạn bè sẽ đến nhà tôi chơi. (遊びます ➔ 遊びに 来ます).</div>
+                    </li>
+                </ul>
+
+                <p class="grammar-explain" style="margin-top: 18px;">
+                    <strong>2. Trình tự thời gian với <code>前 (まえ) に</code> (Trước khi) và <code>後 (あと) で</code> (Sau khi):</strong>
+                </p>
+                <ul class="example-list">
+                    <li class="example-item">
+                        <div class="ex-jp">寝る (ねる) 前に、本を 読みます。</div>
+                        <div class="ex-vi">Trước khi đi ngủ, tôi đọc sách. (V-る ＋ 前に).</div>
+                    </li>
+                    <li class="example-item">
+                        <div class="ex-jp">食事 (しょくじ) の 前に、手を 洗って (あらって) ください。</div>
+                        <div class="ex-vi">Trước bữa ăn, hãy rửa tay nhé. (Danh từ ＋ の 前に).</div>
+                    </li>
+                    <li class="example-item">
+                        <div class="ex-jp">映画 (えいが) を 見た (みた) 後で、カフェに 行きましょう。</div>
+                        <div class="ex-vi">Sau khi xem phim xong, chúng ta cùng đi cà phê nhé. (V-た ＋ 後で).</div>
+                    </li>
+                    <li class="example-item">
+                        <div class="ex-jp">仕事 (しごと) の 後で、ビールを 飲みます。</div>
+                        <div class="ex-vi">Sau giờ làm việc, tôi đi uống bia. (Danh từ ＋ の 後で).</div>
+                    </li>
+                </ul>
+
+                <div class="trap-box">
+                    <strong>⚠️ 2 BẪY KINH ĐIỂN CỦA BÀI 8 TRONG PHÒNG THI:</strong>
+                    - <strong>Bẫy thì của まえに:</strong> Đứng trước <code>まえに</code> LUÔN LUÔN là <strong>thể từ điển (V-る)</strong>, tuyệt đối không chia quá khứ kể cả khi câu diễn ra hôm qua!<br>
+                    (Đúng: <code>きのう 寝る 前に 勉強しました</code> ✅ | Sai: <code>きのう ねた まえに...</code> ❌).<br>
+                    - <strong>Bẫy trả lời もう:</strong> Khi được hỏi <code>もう 美術館に 行きましたか</code> (Bạn đã đi bảo tàng chưa?), nếu chưa đi phải trả lời <strong><code>いいえ、まだです</code></strong> (Chưa, tôi chưa làm). Tuyệt đối không trả lời <code>いいえ、行きませんでした</code> (vì thế sẽ mang nghĩa là bạn từ chối không bao giờ đi).
+                </div>
+            </div>
+        </div>
+
+        <!-- BÀI 9 -->
+        <div class="grammar-card" id="grammar-l9">
+            <div class="grammar-header">
+                <div>
+                    <span class="grammar-tag">BÀI 9 (A2-1)</span>
+                    <h2 class="grammar-title">外国語の勉強 (Học tiếng: Danh từ hóa V-るのが, Đánh giá & Nhờ vả lịch sự)</h2>
+                </div>
+                <span class="section-badge">Năng lực ngôn ngữ</span>
+            </div>
+            <div class="grammar-body">
+                <div class="formula-box">
+                    ① Đánh giá đối tượng: N は [Kỹ năng / Thành phần] が [Tính từ] です<br>
+                    ② Danh từ hóa hành động: [V-る] のが ＋ [Tính từ: 好き / おもしろい / 難しい / 大変]<br>
+                    ③ Cách thức làm gì: [V-bỏ ます] ＋ 方 (かた) (読み方 / 使い方 / 作り方)<br>
+                    ④ Nhờ vả cực kỳ lịch sự: V-て くださいませんか
+                </div>
+
+                <p class="grammar-explain">
+                    <strong>1. Cấu trúc đánh giá năng lực & Danh từ hóa hành động bằng trợ từ <code>の</code>:</strong><br>
+                    Để biến một hành động thành một danh từ đóng vai trò chủ ngữ hoặc bổ ngữ trong câu đánh giá cảm xúc/mức độ khó dễ, ta chuyển động từ về thể từ điển rồi thêm <code>のが</code>.
+                </p>
+                <ul class="example-list">
+                    <li class="example-item">
+                        <div class="ex-jp">日本語は 発音 (はつおん) が 簡単 (かんたん) です。</div>
+                        <div class="ex-vi">Tiếng Nhật thì phát âm khá đơn giản. (Đánh giá đặc điểm bằng trợ từ <strong>が</strong>).</div>
+                    </li>
+                    <li class="example-item">
+                        <div class="ex-jp">中国語 (ちゅうごくご) は 話す (はなす) のが おもしろいです。</div>
+                        <div class="ex-vi">Tiếng Trung Quốc thì việc nói chuyện rất thú vị. (話す ＋ のが おもしろい).</div>
+                    </li>
+                    <li class="example-item">
+                        <div class="ex-jp">漢字 (かんじ) を 覚える (おぼえる) のが 大変 (たいへん) です。</div>
+                        <div class="ex-vi">Việc ghi nhớ chữ Hán rất vất vả. (覚える ＋ のが 大変).</div>
+                    </li>
+                </ul>
+
+                <p class="grammar-explain" style="margin-top: 18px;">
+                    <strong>2. Hậu tố cách thức <code>～かた (方)</code>:</strong><br>
+                    Động từ bỏ <code>ます</code> ghép với <code>方 (かた)</code> để biểu thị "cách làm điều gì đó". Danh từ bổ nghĩa phía trước nối bằng trợ từ <code>の</code>.
+                </p>
+                <ul class="example-list">
+                    <li class="example-item">
+                        <div class="ex-jp">この 漢字 (かんじ) の 読み方 (よみかた) が わかりません。</div>
+                        <div class="ex-vi">Tôi không biết cách đọc của chữ Hán này. (読みます ➔ 読み方).</div>
+                    </li>
+                    <li class="example-item">
+                        <div class="ex-jp">この アプリの 使い方 (つかいかた) を 教えて ください。</div>
+                        <div class="ex-vi">Hãy chỉ cho tôi cách sử dụng ứng dụng này nhé. (使います ➔ 使い方).</div>
+                    </li>
+                </ul>
+
+                <p class="grammar-explain" style="margin-top: 18px;">
+                    <strong>3. Lời nhờ vả lịch sự bậc cao <code>V-て くださいませんか</code>:</strong><br>
+                    Sử dụng khi nhờ người trên, thầy cô hoặc người lạ giúp đỡ mình giải thích từ ngữ hoặc mượn đồ.
+                </p>
+                <ul class="example-list">
+                    <li class="example-item">
+                        <div class="ex-jp">この 言葉 (ことば) の 意味 (いみ) を 教えて (おしえて) くださいませんか。</div>
+                        <div class="ex-vi">Thầy/Bạn có thể vui lòng giải thích ý nghĩa của từ này giúp tôi được không ạ? (Lịch sự hơn nhiều so với <code>教えてください</code>).</div>
+                    </li>
+                    <li class="example-item">
+                        <div class="ex-jp">その 辞書 (じしょ) を ちょっと 貸して (かして) くださいませんか。</div>
+                        <div class="ex-vi">Bạn có thể vui lòng cho tôi mượn cuốn từ điển đó một chút được không ạ?</div>
+                    </li>
+                </ul>
+
+                <div class="trap-box">
+                    <strong>⚠️ PHÂN BIỆT <code>V-る こと</code> (BÀI 2) VS <code>V-る の</code> (BÀI 9):</strong>
+                    - <strong>V-る こと:</strong> Dùng khi định nghĩa bản chất hoặc câu có đuôi là <code>～です</code> (Ví dụ: <code>趣味は 音楽を 聞くことです</code>).<br>
+                    - <strong>V-る の:</strong> Dùng khi đi kèm trực tiếp với tính từ cảm xúc, cảm giác, khả năng (Ví dụ: <code>～のが 好きです</code>, <code>～のが 上手です</code>, <code>～のが 難しいです</code>).
+                </div>
+            </div>
+        </div>
+
+        <!-- BÀI 10 -->
+        <div class="grammar-card" id="grammar-l10">
+            <div class="grammar-header">
+                <div>
+                    <span class="grammar-tag">BÀI 10 (A2-1)</span>
+                    <h2 class="grammar-title">外国の文化 (Trải nghiệm & Kế hoạch: Nguyện vọng たい, Thử làm てみる & Tần suất)</h2>
+                </div>
+                <span class="section-badge">Tổng kết khóa A2-1</span>
+            </div>
+            <div class="grammar-body">
+                <div class="formula-box">
+                    ① Nguyện vọng cá nhân: [V(bỏ ます)] ＋ たいです (Muốn làm gì)<br>
+                    &nbsp;&nbsp;&nbsp;• Phủ định: [V(bỏ ます)] ＋ たくないです (Không muốn làm)<br>
+                    &nbsp;&nbsp;&nbsp;• Quá khứ: [V(bỏ ます)] ＋ たかったです (Đã từng muốn làm)<br>
+                    ② Thử nghiệm hành động: V-て ＋ みます (Làm thử xem sao)<br>
+                    ③ Tần suất định kỳ: [Khoảng thời gian] に [Số lần] 回 (週に1回 / 月に2回)<br>
+                    ④ Đề nghị lịch sự / Rủ cùng làm: V-ましょうか (Để tôi làm giúp nhé? / Cùng làm nhé?)
+                </div>
+
+                <p class="grammar-explain">
+                    <strong>1. Cấu trúc bày tỏ nguyện vọng <code>～たいです</code> (Muốn làm gì):</strong><br>
+                    Bỏ <code>ます</code> thêm <code>たいです</code>. Lưu ý trợ từ tác động của hành động có thể dùng cả <code>を</code> hoặc <code>が</code> (dùng <code>が</code> khi muốn nhấn mạnh đối tượng).
+                </p>
+                <ul class="example-list">
+                    <li class="example-item">
+                        <div class="ex-jp">いつか 日本へ 行きたい (いきたい) です。</div>
+                        <div class="ex-vi">Một ngày nào đó tôi muốn được đến Nhật Bản. (行きます ➔ 行きたい).</div>
+                    </li>
+                    <li class="example-item">
+                        <div class="ex-jp">将来 (しょうらい)、翻訳 (ほんやく) の 仕事 (しごと) を したいです。</div>
+                        <div class="ex-vi">Trong tương lai, tôi muốn làm công việc biên dịch. (します ➔ したい).</div>
+                    </li>
+                    <li class="example-item">
+                        <div class="ex-jp">今日は 疲れた (つかれた) から、何も したくないです。</div>
+                        <div class="ex-vi">Hôm nay tôi mệt rồi nên không muốn làm bất cứ việc gì cả. (Phủ định: したくない).</div>
+                    </li>
+                </ul>
+
+                <p class="grammar-explain" style="margin-top: 18px;">
+                    <strong>2. Thử làm một việc gì đó với <code>V-て みます</code>:</strong><br>
+                    Diễn tả việc thử trải nghiệm một điều mới mẻ để biết cảm giác hoặc kết quả ra sao.
+                </p>
+                <ul class="example-list">
+                    <li class="example-item">
+                        <div class="ex-jp">日本人 (にほんじん) と 日本語 (にほんご) で 話して (はなして) みます。</div>
+                        <div class="ex-vi">Tôi sẽ thử nói chuyện với người Nhật bằng tiếng Nhật xem sao. (話します ➔ 話してみます).</div>
+                    </li>
+                    <li class="example-item">
+                        <div class="ex-jp">日本の 着物 (きもの) を 着て (きて) みたいです。</div>
+                        <div class="ex-vi">Tôi muốn mặc thử bộ Kimono của Nhật Bản. (Kết hợp: 着てみる ＋ たい ➔ 着てみたい).</div>
+                    </li>
+                </ul>
+
+                <p class="grammar-explain" style="margin-top: 18px;">
+                    <strong>3. Mẫu câu tần suất định kỳ <code>[Thời gian] に [Số lần] 回</code>:</strong>
+                </p>
+                <ul class="example-list">
+                    <li class="example-item">
+                        <div class="ex-jp">週 (しゅう) に 1回 (いっかい)、フラメンコを 習って (ならって) います。</div>
+                        <div class="ex-vi">Mỗi tuần 1 lần, tôi đang theo học nhảy Flamenco. (Trợ từ <strong>に</strong> chỉ mốc định kỳ).</div>
+                    </li>
+                    <li class="example-item">
+                        <div class="ex-jp">年 (ねん) に 2回 (にかい) ぐらい、海外旅行 (かいがいりょこう) に 行きます。</div>
+                        <div class="ex-vi">Khoảng 1 năm 2 lần, tôi đi du lịch nước ngoài.</div>
+                    </li>
+                </ul>
+
+                <p class="grammar-explain" style="margin-top: 18px;">
+                    <strong>4. Đề nghị chủ động giúp đỡ với <code>～ましょうか</code>:</strong>
+                </p>
+                <ul class="example-list">
+                    <li class="example-item">
+                        <div class="ex-jp">駅まで 一緒に (いっしょに) 行きましょうか。ー ええ、ありがとうございます。</div>
+                        <div class="ex-vi">Chúng ta cùng đi ra ga nhé? - Vâng, cảm ơn bạn nhiều nhé.</div>
+                    </li>
+                    <li class="example-item">
+                        <div class="ex-jp">その 重い (おもい) 荷物 (にもつ) を 持ちましょうか (もちましょうか)。</div>
+                        <div class="ex-vi">Để tôi xách hộ bạn hành lý nặng kia nhé? (Chủ động giúp đỡ).</div>
+                    </li>
+                </ul>
+
+                <div class="trap-box">
+                    <strong>⚠️ QUY TẮC VĂN HÓA CỦA ～たいです:</strong>
+                    - <code>～たいです</code> chỉ dùng cho <strong>bản thân người nói (Tôi / Chúng tôi)</strong>.<br>
+                    - Khi muốn hỏi người khác có muốn làm gì không, người Nhật lịch sự KHÔNG hỏi thẳng <code>～たいですか</code> mà sẽ dùng cách mời mọc / rủ rê nhã nhặn: <strong><code>～ませんか</code></strong> (Ví dụ: <code>コーヒーを 飲みませんか</code> thay vì <code>コーヒーを 飲みたいですか</code>).
+                </div>
+            </div>
+        </div>
+
+        <!-- COLLAPSIBLE SECTION: REVIEW LESSONS 1 TO 4 -->
+        <details id="grammar-review-14" style="background: white; border-radius: 16px; border: 2px dashed var(--gray-300); padding: 18px 24px; margin-top: 24px; box-shadow: var(--shadow-sm);">
+            <summary style="font-weight: 800; font-size: 1.15rem; color: var(--gray-800); cursor: pointer; padding: 6px 0; user-select: none;">
+                📂 Bấm Để Xem Lại Lý Thuyết Nền Tảng (Bài 1 - 4 đã thi xong)
+            </summary>
+            <div style="margin-top: 20px;">
+                <!-- BÀI 1 -->
+                <div class="grammar-card" id="grammar-l1" style="box-shadow: none; border: 1px solid var(--gray-200);">
+                    <div class="grammar-header">
+                        <div>
+                            <span class="grammar-tag">BÀI 1 (A2-1)</span>
+                            <h2 class="grammar-title">東京に すんでいます (Nơi ở, Gia đình & Công việc)</h2>
+                        </div>
+                    </div>
+                    <div class="grammar-body">
+                        <div class="formula-box">
+                            ① Nơi ở: [Địa điểm] に すんでいます<br>
+                            ② Nơi làm việc: [Địa điểm] で はたらいています<br>
+                            ③ Hôn nhân: けっこんしています / けっこんしていません
+                        </div>
+                        <p class="grammar-explain">
+                            <strong>Mẫu câu trạng thái kết quả <code>～ています</code>:</strong> Nơi ở dùng に, nơi làm việc dùng で. Phủ định của <code>しっています</code> luôn là <strong><code>しりません</code></strong>.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- BÀI 2 -->
+                <div class="grammar-card" id="grammar-l2" style="box-shadow: none; border: 1px solid var(--gray-200);">
+                    <div class="grammar-header">
+                        <div>
+                            <span class="grammar-tag">BÀI 2 (A2-1)</span>
+                            <h2 class="grammar-title">私の 趣味は クラシック音楽を 聞くこと です (Sở thích & Năng khiếu)</h2>
+                        </div>
+                    </div>
+                    <div class="grammar-body">
+                        <div class="formula-box">
+                            ① Sở thích: しゅみは [V-る] こと です<br>
+                            ② Năng khiếu: [Môn / Kỹ năng] が とくい / にがて / 好き です<br>
+                            ③ Mốc thời gian: [N の / Tính từ / V-る] とき
+                        </div>
+                        <p class="grammar-explain">
+                            Danh từ hóa động từ bằng <code>こと</code>. Năng khiếu bản thân dùng <code>とくい/にがて</code> đi với trợ từ <code>が</code>.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- BÀI 3 -->
+                <div class="grammar-card" id="grammar-l3" style="box-shadow: none; border: 1px solid var(--gray-200);">
+                    <div class="grammar-header">
+                        <div>
+                            <span class="grammar-tag">BÀI 3 (A2-1)</span>
+                            <h2 class="grammar-title">日本はいま、はるです (Mùa màng, Biến đổi trạng thái & So sánh)</h2>
+                        </div>
+                    </div>
+                    <div class="grammar-body">
+                        <div class="formula-box">
+                            ① Biến đổi: A-い bỏ い + くなります / A-な & N + になります<br>
+                            ② So sánh: A は B より [Tính từ] です / A と B と どちらが 好きですか
+                        </div>
+                        <p class="grammar-explain">
+                            Cứ hễ sang mùa thu trời mát mẻ dần: <code>秋になると、だんだん すずしく なります</code> (Liên từ quy luật tự nhiên <code>と</code>).
+                        </p>
+                    </div>
+                </div>
+
+                <!-- BÀI 4 -->
+                <div class="grammar-card" id="grammar-l4" style="box-shadow: none; border: 1px solid var(--gray-200);">
+                    <div class="grammar-header">
+                        <div>
+                            <span class="grammar-tag">BÀI 4 (A2-1)</span>
+                            <h2 class="grammar-title">いい てんきですね (Thời tiết, Hiện tượng tự nhiên & Giao tiếp xã giao)</h2>
+                        </div>
+                    </div>
+                    <div class="grammar-body">
+                        <div class="formula-box">
+                            ① Hiện tượng tự nhiên (Trợ từ が): 雨が ふります / やみます / 風が ふきます / 雪が つもります<br>
+                            ② Chào hỏi: おひさしぶりです ➔ おかげさまで、げんきです
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </details>
+
+    </div>
+
+    <!-- ========================================== -->
+        <div id="tab-vocab" class="tab-panel">
+        <div class="toolbar-card">
+            <div class="filter-row">
+                <span style="font-size: 0.85rem; font-weight: 800; color: var(--gray-600); margin-right: 4px;">CHỌN BÀI:</span>
+                <button class="filter-btn active" onclick="filterVocab('ALL', this)">🌟 Tất Cả (111 từ Bài 5-8)</button>
+                <button class="filter-btn" onclick="filterVocab('A2-5', this)">Bài 5 (31 từ)</button>
+                <button class="filter-btn" onclick="filterVocab('A2-6', this)">Bài 6 (30 từ)</button>
+                <button class="filter-btn" onclick="filterVocab('A2-7', this)">Bài 7 (20 từ)</button>
+                <button class="filter-btn" onclick="filterVocab('A2-8', this)">Bài 8 (30 từ)</button>
+            </div>
+            <div class="action-row">
+                <div class="search-input-box">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="vocabSearchInput" placeholder="Tìm kiếm từ vựng (Nhật, Romaji, tiếng Việt)..." oninput="handleVocabSearch()">
+                </div>
+                <button class="tool-toggle-btn" id="hideMeaningBtn" onclick="toggleHideMeaning()">
+                    👁️ Ẩn nghĩa tiếng Việt (Tự dò)
+                </button>
+                <button type="button" class="btn-quizlet" id="btnQuizletCopy" onclick="copyVocabQuizletFormat()">
+                    📋 Copy Format Quizlet (<span id="quizletVocabCount">121</span> từ)
+                </button>
+            </div>
+        </div>
+
+        <div class="vocab-grid" id="vocabContainer">
+            <!-- Render via JS -->
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- TAB 3: 31 CHỮ HÁN KANJI TRỌN BỘ 100%       -->
+    <!-- ========================================== -->
+        <div id="tab-kanji" class="tab-panel">
+        <div class="toolbar-card">
+            <div class="filter-row">
+                <span style="font-size: 0.85rem; font-weight: 800; color: var(--gray-600); margin-right: 4px;">CHỌN BÀI:</span>
+                <button class="filter-btn active" onclick="filterKanji('ALL', this)">⛩️ Tất Cả (29 Chữ Hán Bài 5-8)</button>
+                <button class="filter-btn" onclick="filterKanji('L5', this)">Bài 5 (7 chữ)</button>
+                <button class="filter-btn" onclick="filterKanji('L6', this)">Bài 6 (8 chữ)</button>
+                <button class="filter-btn" onclick="filterKanji('L7', this)">Bài 7 (6 chữ)</button>
+                <button class="filter-btn" onclick="filterKanji('L8', this)">Bài 8 (8 chữ)</button>
+            </div>
+            <div class="action-row">
+                <div class="search-input-box">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="kanjiSearchInput" placeholder="Tìm theo chữ Hán, Hán Việt, cách đọc On/Kun..." oninput="handleKanjiSearch()">
+                </div>
+            </div>
+        </div>
+
+        <div class="kanji-grid" id="kanjiContainer">
+            <!-- Render via JS -->
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- TAB 4: ĐỀ THI THỬ MINI TEST (30 CÂU)       -->
+    <!-- ========================================== -->
+    <div id="tab-quiz" class="tab-panel">
+        <div class="quiz-stats-card">
+            <div class="quiz-score-box">
+                <div class="score-circle" id="scoreDisplay">0</div>
+                <div class="score-info">
+                    <h4 id="quizStatusTitle">Bài Thi Thử Trọng Tâm Bài 5 - 8 (30 Câu Chuẩn Sư Phạm)</h4>
+                    <p id="quizProgressText">Đã làm: 0/30 câu • Điểm số: 0%</p>
+                </div>
+            </div>
+            <div class="quiz-action-btns">
+                <button class="quiz-btn primary" onclick="resetQuiz()">🔄 Làm Lại Đề Thi</button>
+            </div>
+        </div>
+
+        <div id="questionsContainer">
+            <!-- Render questions via JS -->
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- TAB 5: CẨM NANG BỎ TÚI (CHEAT SHEET)       -->
+    <!-- ========================================== -->
+    <!-- TAB 5: CẨM NANG BỎ TÚI (BÀI 5 - 8)       -->
+    <!-- ========================================== -->
+    <div id="tab-cheatsheet" class="tab-panel">
+        <div class="cheatsheet-grid">
+            <div class="cheat-card">
+                <span class="cheat-badge">BẪY 1 • NỐI TÍNH TỪ (BÀI 5)</span>
+                <h3 class="cheat-title">くて (Đuôi い) vs で (Đuôi な & Danh từ)</h3>
+                <p class="cheat-content">
+                    • <strong>Tính từ đuôi い:</strong> Bỏ [い] ＋ <strong>くて</strong> (安くて おいしい).<br>
+                    • <strong>Ngoại lệ bắt buộc:</strong> <code>いい</code> ➔ <strong><code>よくて</code></strong> (CẤM dùng <code>いくて</code> ❌).<br>
+                    • <strong>Tính từ đuôi な:</strong> Bỏ [な] ＋ <strong>で</strong> (静かで きれい).<br>
+                    • <strong>Danh từ:</strong> N ＋ <strong>で</strong> (新しい 町で 有名).
+                </p>
+            </div>
+
+            <div class="cheat-card">
+                <span class="cheat-badge">BẪY 2 • TƯƠNG PHẢN (BÀI 5)</span>
+                <h3 class="cheat-title">けど (Đuôi い) vs だけど (Đuôi な & Danh từ)</h3>
+                <p class="cheat-content">
+                    • <strong>Tính từ đuôi い:</strong> Đi thẳng với <strong>けど</strong> (楽しいけど 高い).<br>
+                    • <strong>Tính từ đuôi な:</strong> Bắt buộc dùng <strong>だけど</strong> (不便だけど 楽しい).<br>
+                    • <strong>Danh từ:</strong> N ＋ <strong>だけど</strong> (遊園地だけど 大人も 多い).<br>
+                    👉 Không được dùng lẫn lộn <code>不便けど</code> ❌!
+                </p>
+            </div>
+
+            <div class="cheat-card">
+                <span class="cheat-badge">BẪY 3 • TRỢ TỪ DI CHUYỂN (BÀI 6)</span>
+                <h3 class="cheat-title">Lên xe に vs Xuống xe を vs Không gian を</h3>
+                <p class="cheat-content">
+                    • <strong>Lên tàu xe:</strong> <code>電車に のる</code> (Trợ từ に chỉ điểm đến tiếp xúc).<br>
+                    • <strong>Xuống tàu xe:</strong> <code>電車を おりる</code> (Trợ từ を chỉ điểm xuất phát rời khỏi).<br>
+                    • <strong>Đi xuyên qua không gian:</strong> <code>この とおりを まっすぐ 行く</code>, <code>道を あるく</code>, <code>橋を わたる</code> (Luôn dùng を, KHÔNG DÙNG で).<br>
+                    • <strong>Rẽ hướng:</strong> <code>信号を 右に 曲がる</code> (Chỗ rẽ dùng を, hướng rẽ dùng に).
+                </p>
+            </div>
+
+            <div class="cheat-card">
+                <span class="cheat-badge">BẪY 4 • CẤM ĐOÁN LỊCH SỰ (BÀI 6)</span>
+                <h3 class="cheat-title">V-ないで ください (Xin đừng làm gì)</h3>
+                <p class="cheat-content">
+                    • Chuyển động từ sang thể Nai + <strong>で ください</strong>.<br>
+                    • <code>入る (はいる)</code>: Động từ nhóm 1 ➔ <strong>入らないで ください</strong> (Xin đừng vào).<br>
+                    • <code>とる</code> ➔ <strong>とらないで ください</strong> (Xin đừng chụp ảnh).<br>
+                    • Đính chính thông tin: <code>1つ目じゃなくて、2つ目です</code> (Không phải 1 mà là 2).
+                </p>
+            </div>
+
+            <div class="cheat-card">
+                <span class="cheat-badge">BẪY 5 • TRỄ HẸN & XIN LỖI (BÀI 7)</span>
+                <h3 class="cheat-title">Thỏa thuận でもいいですか & Lý do で</h3>
+                <p class="cheat-content">
+                    • <strong>Thương lượng giờ hẹn:</strong> <code>11時でも いいですか</code> (11h có được không?).<br>
+                    • <strong>Nguyên nhân khách quan dùng で:</strong> <code>渋滞で 遅れます</code> (trễ do kẹt xe), <code>事故で 電車が 止まりました</code> (tàu dừng do tai nạn).<br>
+                    • <strong>Thể TE nêu lý do:</strong> <code>道に 迷って、遅くなりました</code>.<br>
+                    • <strong>Câu xin lỗi chuẩn mực:</strong> <strong><code>遅くなって すみません</code></strong>.
+                </p>
+            </div>
+
+            <div class="cheat-card">
+                <span class="cheat-badge">BẪY 6 • MỤC ĐÍCH & TRÌNH TỰ (BÀI 8)</span>
+                <h3 class="cheat-title">V-bỏ masu に行きます & まえに vs あとで</h3>
+                <p class="cheat-content">
+                    • <strong>Mục đích di chuyển:</strong> <code>桜を 見に 行きます</code> (V bỏ masu + に行きます), <code>買い物に 行きます</code> (Danh từ + に行きます).<br>
+                    • <strong>Trước khi (まえに):</strong> LUÔN LUÔN là <strong>V-る</strong> (<code>寝る 前に 本を読む</code>), Danh từ thì <code>N の 前に</code>.<br>
+                    • <strong>Sau khi (あとで):</strong> LUÔN LUÔN là <strong>V-た</strong> (<code>映画を 見た あとで お茶を飲む</code>), Danh từ thì <code>N の あとで</code>.<br>
+                    • <strong>Đáp câu hỏi もう:</strong> <code>いいえ、まだです</code> (Tuyệt đối không dùng <code>行きませんでした</code> ❌).
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <div id="tab-minato" class="tab-panel">
+        <!-- Verification Banner -->
+        <div style="background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); color: white; border-radius: var(--radius-lg); padding: 26px; margin-bottom: 25px; box-shadow: var(--shadow-md);">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+                <div>
+                    <span style="background: rgba(255,255,255,0.2); padding: 4px 12px; border-radius: 20px; font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">Verified Source • Japan Foundation</span>
+                    <h2 style="font-size: 1.55rem; font-weight: 800; margin: 10px 0 6px 0;">Hệ Thống Dữ Liệu Gốc Minato JF & Marugoto Online</h2>
+                    <p style="font-size: 0.95rem; opacity: 0.92; line-height: 1.5;">Dữ liệu đồng bộ trực tiếp từ máy chủ Trung tâm Giao lưu Quốc tế Nhật Bản (The Japan Foundation - minato-jf.jp & marugoto-online.jp).</p>
+                </div>
+                <div style="background: rgba(255,255,255,0.12); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.25); border-radius: 12px; padding: 14px 20px; text-align: right; font-size: 0.88rem;">
+                    <div>Học viên: <strong>danggvuu (dang08)</strong></div>
+                    <div>Khóa học: <span style="color: #55efc4; font-weight: 700;">Marugoto A2-1 Self-Study</span></div>
+                    <div style="font-size: 0.78rem; opacity: 0.8; margin-top: 4px;">ID: KC26_MGRS_A201_EN02</div>
+                </div>
+            </div>
+            <div style="margin-top: 18px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.2); display: flex; gap: 12px; flex-wrap: wrap;">
+                <a href="https://minato-jf.jp/LearningCourse/Index" target="_blank" style="background: white; color: #1e3c72; padding: 8px 18px; border-radius: 8px; font-weight: 700; text-decoration: none; font-size: 0.88rem; display: inline-flex; align-items: center; gap: 6px;">🔗 Cổng Học Minato JF ↗</a>
+                <a href="https://www.marugoto-online.jp/a2/course/1001-1/" target="_blank" style="background: rgba(255,255,255,0.2); color: white; padding: 8px 18px; border-radius: 8px; font-weight: 700; text-decoration: none; font-size: 0.88rem; display: inline-flex; align-items: center; gap: 6px;">🌐 Marugoto Online A2 ↗</a>
+            </div>
+        </div>
+
+        <!-- Download Original Master PDFs -->
+        <div class="content-card" style="border-left: 5px solid #0984e3;">
+            <div class="section-header">
+                <div>
+                    <h3 class="section-title">📥 Kho Tài Liệu Gốc Tải Về Trực Tiếp (PDF Master Files)</h3>
+                    <p style="color: var(--gray-500); font-size: 0.9rem; margin-top: 4px;">Toàn bộ sách từ vựng và khung giáo trình chính thức tải nguyên gốc từ máy chủ Japan Foundation.</p>
+                </div>
+                <span class="section-badge" style="background: #eaf2fd; color: #0984e3;">Bản Quyền JF</span>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; margin-top: 12px;">
+                <a href="MarugotoA2-1Wordbook_eng.pdf" target="_blank" style="display: block; padding: 18px; background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 12px; text-decoration: none; color: inherit; transition: all 0.2s ease;">
+                    <div style="font-size: 1.8rem; margin-bottom: 8px;">📕</div>
+                    <div style="font-weight: 800; color: var(--primary); font-size: 1.05rem;">Marugoto A2-1 Wordbook</div>
+                    <div style="font-size: 0.85rem; color: var(--gray-600); margin-top: 4px;">Toàn bộ từ vựng chính thức Bài 1 - 9 (3.2 MB PDF). Tra cứu chuẩn xác.</div>
+                    <div style="margin-top: 10px; font-size: 0.8rem; font-weight: 700; color: #0984e3;">Mở / Tải file PDF ➔</div>
+                </a>
+                <a href="MarugotoA2-2Wordbook_eng.pdf" target="_blank" style="display: block; padding: 18px; background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 12px; text-decoration: none; color: inherit; transition: all 0.2s ease;">
+                    <div style="font-size: 1.8rem; margin-bottom: 8px;">📗</div>
+                    <div style="font-weight: 800; color: #10b981; font-size: 1.05rem;">Marugoto A2-2 Wordbook</div>
+                    <div style="font-size: 0.85rem; color: var(--gray-600); margin-top: 4px;">Toàn bộ từ vựng chính thức Bài 10 - 18 (2.6 MB PDF).</div>
+                    <div style="margin-top: 10px; font-size: 0.8rem; font-weight: 700; color: #10b981;">Mở / Tải file PDF ➔</div>
+                </a>
+                <a href="R_contents_eng.pdf" target="_blank" style="display: block; padding: 18px; background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 12px; text-decoration: none; color: inherit; transition: all 0.2s ease;">
+                    <div style="font-size: 1.8rem; margin-bottom: 8px;">📑</div>
+                    <div style="font-weight: 800; color: #f59e0b; font-size: 1.05rem;">Rikai Course Contents</div>
+                    <div style="font-size: 0.85rem; color: var(--gray-600); margin-top: 4px;">Khung mục tiêu ngữ pháp & lý giải toàn bộ khóa học A2 (PDF).</div>
+                    <div style="margin-top: 10px; font-size: 0.8rem; font-weight: 700; color: #f59e0b;">Mở / Tải file PDF ➔</div>
+                </a>
+                <a href="K_contents_eng.pdf" target="_blank" style="display: block; padding: 18px; background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 12px; text-decoration: none; color: inherit; transition: all 0.2s ease;">
+                    <div style="font-size: 1.8rem; margin-bottom: 8px;">🗣️</div>
+                    <div style="font-weight: 800; color: #8b5cf6; font-size: 1.05rem;">Katsudoo Course Contents</div>
+                    <div style="font-size: 0.85rem; color: var(--gray-600); margin-top: 4px;">Khung hoạt động giao tiếp Can-do toàn bộ khóa học A2 (PDF).</div>
+                    <div style="margin-top: 10px; font-size: 0.8rem; font-weight: 700; color: #8b5cf6;">Mở / Tải file PDF ➔</div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Section 1: Official Appendix 04 - Complete Particles Matrix -->
+        <div class="content-card">
+            <div class="section-header">
+                <div>
+                    <h3 class="section-title">📌 Bảng Tra Cứu Trợ Từ Gốc (Official Appendix 04)</h3>
+                    <p style="color: var(--gray-500); font-size: 0.9rem; margin-top: 4px;">Trích xuất chính xác 100% từ mục Phụ lục trợ từ (じょし) của Marugoto Online A2.</p>
+                </div>
+                <div style="display: flex; gap: 8px;">
+                    <input type="text" id="particleSearchInput" placeholder="Tìm trợ từ (が, に, で...)..." oninput="filterParticlesTable()" style="padding: 7px 14px; border: 1.5px solid var(--gray-300); border-radius: 8px; font-size: 0.88rem; outline: none;">
+                </div>
+            </div>
+            <div style="overflow-x: auto;">
+                <table style="width: 100%; border-collapse: collapse; font-size: 0.92rem; text-align: left;">
+                    <thead>
+                        <tr style="background: #f1f5f9; border-bottom: 2px solid #cbd5e1; color: var(--gray-700);">
+                            <th style="padding: 12px 14px; width: 90px;">Trợ từ</th>
+                            <th style="padding: 12px 14px;">Mẫu câu chuẩn gốc JF</th>
+                            <th style="padding: 12px 14px; width: 230px;">Cấu trúc ngữ pháp</th>
+                            <th style="padding: 12px 14px; width: 170px;">Chức năng / Lưu ý</th>
+                            <th style="padding: 12px 14px; width: 75px; text-align: center;">Bài</th>
+                        </tr>
+                    </thead>
+                    <tbody id="particlesTableBody">
+                        <!-- Render via JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Section 2: Official Appendix 03 - Adjectives & Nouns Connections -->
+        <div class="content-card">
+            <div class="section-header">
+                <div>
+                    <h3 class="section-title">🔗 Bảng Thể Nối Tính Từ & Danh Từ (Official Appendix 03)</h3>
+                    <p style="color: var(--gray-500); font-size: 0.9rem; margin-top: 4px;">Quy tắc biến đổi thể nối <code>～くて / ～で</code>, thể phủ định <code>～くなくて / ～じゃなくて</code>, thể đối lập <code>～けど / ～だけど</code>.</p>
+                </div>
+            </div>
+            <div style="overflow-x: auto;">
+                <table style="width: 100%; border-collapse: collapse; font-size: 0.92rem; text-align: left;">
+                    <thead>
+                        <tr style="background: #fdf2f8; border-bottom: 2px solid #fbcfe8; color: #831843;">
+                            <th style="padding: 12px 14px;">Từ gốc</th>
+                            <th style="padding: 12px 14px;">Khẳng định</th>
+                            <th style="padding: 12px 14px;">Phủ định</th>
+                            <th style="padding: 12px 14px; background: #fef08a;">Thể nối (～くて / ～で)</th>
+                            <th style="padding: 12px 14px;">Nối phủ định</th>
+                            <th style="padding: 12px 14px; background: #e0e7ff;">Đối lập (～けど)</th>
+                            <th style="padding: 12px 14px;">Biến đổi (～なります)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="adjectivesTableBody">
+                        <!-- Render via JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Section 3: Official 9 Topics Kanji Syllabus -->
+        <div class="content-card">
+            <div class="section-header">
+                <div>
+                    <h3 class="section-title">⛩️ Ma Trận Chữ Hán Toàn Bộ 9 Topic (Official Kanji Table)</h3>
+                    <p style="color: var(--gray-500); font-size: 0.9rem; margin-top: 4px;">Bảng phân bổ chính thức toàn bộ chữ Hán từ Bài 1 đến Bài 18 của Japan Foundation.</p>
+                </div>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px;" id="kanjiTopicsContainer">
+                <!-- Render via JS -->
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    // ==========================================
+    // DỮ LIỆU GỐC TRÍCH XUẤT TỪ MINATO JF
+    // ==========================================
+    const minatoParticles = [
+        { p: "か", ex: "かぞくは 何人ですか。", st: "Sか。", l: "L1", note: "Câu hỏi nghi vấn" },
+        { p: "か", ex: "火よう日か木よう日は どうですか。", st: "N1かN2", l: "L9", note: "Lựa chọn hoặc/hay" },
+        { p: "が", ex: "冬が好きです。", st: "N／イA‐いの／ナA‐なのが好きです。", l: "L3", note: "Đối tượng của tính từ yêu thích" },
+        { p: "が", ex: "スキーができます。", st: "Nができます。", l: "L3", note: "Khả năng, có thể làm gì" },
+        { p: "が", ex: "花がたくさん さきます。", st: "NがVます。", l: "L4", note: "Hiện tượng tự nhiên khách quan" },
+        { p: "が", ex: "外は 強い 風が ふいています。", st: "NがVます。", l: "L4", note: "Gió thổi (Hiện tượng tự nhiên)" },
+        { p: "が", ex: "この ホテルは 古いですが、きれいです。", st: "S1が、S2。", l: "L13", note: "Liên từ nối tương phản 'nhưng'" },
+        { p: "が", ex: "すみません、JFビルに 行きたいんですが。", st: "～んですが", l: "L6", note: "Mào đầu câu chuyện nhờ vả/hỏi đường" },
+        { p: "が", ex: "スペイン語は、たんごがかんたんです。", st: "N1は N2がイA／ナA です。", l: "L9", note: "Vị ngữ chỉ bộ phận / đặc điểm" },
+        { p: "から", ex: "らいねんから びょういんで はたらきます。", st: "Nから", l: "L1", note: "Mốc thời gian bắt đầu (từ...)" },
+        { p: "から", ex: "うちから かいしゃまで どうやって 行きますか。", st: "N1から N2まで", l: "L1", note: "Từ địa điểm A đến địa điểm B" },
+        { p: "から", ex: "さとうさんは ジョイさんから 花を もらいます。", st: "Nから もらいます", l: "L17", note: "Nhận từ ai đó" },
+        { p: "から", ex: "夏休みが ありますから、夏が いちばん 好きです。", st: "S1から、S2。", l: "L3", note: "Chỉ lý do, nguyên nhân (vì... nên...)" },
+        { p: "ぐらい", ex: "でんしゃで 30分ぐらいです。", st: "Số lượng + ぐらい", l: "L1", note: "Khoảng chừng (thời gian/số lượng)" },
+        { p: "ぐらい", ex: "年に 3回ぐらい マレーシアへ 行きます。", st: "Khoảng thời gian + ぐらい", l: "L10", note: "Mức độ tần suất (khoảng ~ lần)" },
+        { p: "けど", ex: "この ゆうえんちは たのしいけど、とおいです。", st: "Nだけど／イA‐いけど／ナA‐だけど", l: "L5", note: "Liên từ nhưng (văn nói tự nhiên thân mật)" },
+        { p: "で", ex: "東京で 日本語を べんきょうしています。", st: "Địa điểm + で + V", l: "L1", note: "Nơi diễn ra hành động cụ thể" },
+        { p: "で", ex: "でんしゃで 行きます。", st: "Phương tiện + で", l: "L1", note: "Phương tiện đi lại / công cụ" },
+        { p: "で", ex: "中国人の ともだちと 何語で 話しますか。", st: "Ngôn ngữ + で", l: "L2", note: "Phương tiện ngôn ngữ giao tiếp" },
+        { p: "で", ex: "じゅうたいで おくれます。", st: "Nguyên nhân + で", l: "L7", note: "Nguyên nhân khách quan (tắc đường...)" },
+        { p: "で", ex: "結婚の お祝いに 2人で 使う ものを あげます。", st: "Số người + で", l: "L17", note: "Phạm vi số lượng người thực hiện" },
+        { p: "でも", ex: "６時半でも いいですか。", st: "Nでも いいですか", l: "L7", note: "Đưa ra gợi ý / dù là... cũng được chứ" },
+        { p: "と", ex: "かぞくは 父と 母と 私です。", st: "N1 と N2", l: "L1", note: "Liệt kê toàn bộ (và/với)" },
+        { p: "と", ex: "中国人の ともだちと 話します。", st: "Người + と", l: "L2", note: "Cùng làm gì với ai đó" },
+        { p: "と", ex: "ドイツ語は 日本語と ちがいます。", st: "N1は N2と ちがいます", l: "L9", note: "So sánh khác với cái gì" },
+        { p: "と", ex: "誕生日の お祝いは パーティーが いいと思います。", st: "～と 思います", l: "L18", note: "Trợ từ trích dẫn ý nghĩ / quan điểm" },
+        { p: "と", ex: "夜 ねる 前に、おふろに 入ると いいですよ。", st: "V‐ると いいです", l: "L15", note: "Quy luật / Lời khuyên hễ... thì tốt" },
+        { p: "など", ex: "この あたりに 高い ビルや ホテルなどが あります。", st: "N1や N2など", l: "L5", note: "Liệt kê không đầy đủ (vân vân...)" },
+        { p: "や", ex: "この あたりは ゆうえんちや こうえんが あります。", st: "N1 や N2", l: "L5", note: "Liệt kê tiêu biểu đại diện" },
+        { p: "に", ex: "東京に すんでいます。", st: "Địa điểm + に すんでいます", l: "L1", note: "Nơi cư trú, tồn tại cố định" },
+        { p: "に", ex: "まいにち １０時に かいしゃに 行きます。", st: "Thời gian + に / Điểm đến + に", l: "L1", note: "Thời điểm xác định / Đích đến di chuyển" },
+        { p: "に", ex: "春に なります。", st: "Nに / ナA‐に なります", l: "L3", note: "Biến đổi trạng thái (trở thành, sang)" },
+        { p: "に", ex: "しんごうを みぎに まがってください。", st: "Hướng + に まがります", l: "L6", note: "Hướng rẽ / chuyển hướng" },
+        { p: "に", ex: "ともだちに えいごを おしえています。", st: "Đối tượng + に", l: "L1", note: "Đối tượng tiếp nhận hành động" },
+        { p: "に", ex: "ともだちと カラオケに 行きます。", st: "N / V-(bỏ masu) + に 行きます", l: "L8", note: "Mục đích của việc đi / đến" },
+        { p: "に", ex: "週に １回 フラメンコを ならっています。", st: "Khoảng thời gian + に ～回", l: "L10", note: "Tần suất trong một khoảng thời gian" },
+        { p: "ね", ex: "きのうは すごい 雨でしたね。", st: "Sね。", l: "L4", note: "Đồng tình / Tìm kiếm sự đồng cảm" },
+        { p: "の", ex: "私の かぞく / でんしゃの かいしゃ", st: "N1の N2", l: "L1", note: "Sở hữu / Thuộc tính bổ nghĩa" },
+        { p: "の", ex: "あついのが にがてです。", st: "Tính từ + の", l: "L3", note: "Danh từ hóa tính từ (cái nóng...)" },
+        { p: "の", ex: "スペイン語は 読むのが ちょっと むずかしいです。", st: "V-る + のが Tính từ", l: "L9", note: "Danh từ hóa hành động (việc đọc...)" },
+        { p: "は", ex: "私は ジョイ・カーターです。", st: "Nは", l: "L1", note: "Chủ đề chính của câu nói" },
+        { p: "は", ex: "しごとは していません。", st: "Tân ngữ + は + Phủ định", l: "L1", note: "Đưa lên nhấn mạnh phủ định" },
+        { p: "まで", ex: "うちから かいしゃまで", st: "Nまで", l: "L1", note: "Giới hạn điểm đến / thời gian kết thúc" },
+        { p: "も", ex: "おじいちゃんも いっしょに 行きます。", st: "Nも", l: "L1", note: "Đồng nhất (cũng...)" },
+        { p: "よ", ex: "らいしゅう、広島に 行きますよ。", st: "Sよ。", l: "L1", note: "Cung cấp thông tin mới cho người nghe" },
+        { p: "を", ex: "日本語を べんきょうしています。", st: "Nを Vます", l: "L1", note: "Tân ngữ trực tiếp của ngoại động từ" },
+        { p: "を", ex: "この とおりを まっすぐ 行きます。", st: "Đoạn đường + を 行きます", l: "L6", note: "Không gian đi qua / di chuyển xuyên qua" },
+        { p: "を", ex: "ふじみえきで でんしゃを おります。", st: "Phương tiện + を おります", l: "L6", note: "Rời khỏi / bước xuống phương tiện" },
+        { p: "（の）ために", ex: "けんこうの ために うんどうを しましょう。", st: "Nのために", l: "L15", note: "Vì mục đích / cho lợi ích của..." },
+        { p: "について", ex: "らいしゅうの ピクニックに ついて れんらくします。", st: "Nについて", l: "L11", note: "Về chủ đề / nội dung gì đó" }
+    ];
+
+    const minatoAdjectives = [
+        { jp: "あつい (Nóng)", plain: "あついです", neg: "あつくないです", connect: "あつくて", connectNeg: "あつくなくて", contrast: "あつい けど (L5)", become: "あつく なります (L3)" },
+        { jp: "おいしい (Ngon)", plain: "おいしいです", neg: "おいしくないです", connect: "おいしくて", connectNeg: "おいしくなくて", contrast: "おいしい けど (L5)", become: "おいしく なります" },
+        { jp: "いたい (Đau)", plain: "いたいです", neg: "いたくないです", connect: "いたくて", connectNeg: "いたくなくて", contrast: "いたい けど", become: "いたく なります" },
+        { jp: "いい / よい (Tốt)", plain: "いいです", neg: "よくないです", connect: "よくて", connectNeg: "よくなくて", contrast: "いい けど (L5)", become: "よく なります" },
+        { jp: "すき (Thích)", plain: "すきです", neg: "すきじゃないです", connect: "すきで", connectNeg: "すきじゃなくて", contrast: "すき だけど (L5)", become: "すきに なります" },
+        { jp: "きれい (Đẹp/Sạch)", plain: "きれいです", neg: "きれいじゃないです", connect: "きれいで", connectNeg: "きれいじゃなくて", contrast: "きれい だけど (L5)", become: "きれいに なります (L3)" },
+        { jp: "べんり (Tiện lợi)", plain: "べんりです", neg: "べんりじゃないです", connect: "べんりで", connectNeg: "べんりじゃなくて", contrast: "べんり だけど (L5)", become: "べんりに なります" },
+        { jp: "しずか (Yên tĩnh)", plain: "しずかです", neg: "しずかじゃないです", connect: "しずかで", connectNeg: "しずかじゃなくて", contrast: "しずか だけど (L5)", become: "しずかに なります" },
+        { jp: "あめ (Mưa - N)", plain: "あめです", neg: "あめじゃないです", connect: "あめで", connectNeg: "あめじゃなくて", contrast: "あめ だけど (L5)", become: "あめに なります" },
+        { jp: "こども (Trẻ em - N)", plain: "こどもです", neg: "こどもじゃないです", connect: "こどもで", connectNeg: "こどもじゃなくて", contrast: "こども だけど (L5)", become: "こどもに なります" }
+    ];
+
+    const minatoKanjiTopics = [
+        { topic: "Topic 1: 私と家族 (Bài 1 - 2)", l1: "私 父 母 子 男 女 人 何", l2: "国 外 語 日 本 英 中 人 好 読 書 何", desc: "Bản thân, gia đình, ngôn ngữ và quốc tịch" },
+        { topic: "Topic 2: 季節と天気 (Bài 3 - 4)", l1: "春 夏 秋 冬 今 花 海 山 川", l2: "今 日 天 気 晴 雨 雪 雲 風 空", desc: "Bốn mùa, thiên nhiên và hiện tượng thời tiết khí tượng" },
+        { topic: "Topic 3: わたしの町 (Bài 5 - 6)", l1: "町 店 人 気 多 少 高 安 広", l2: "道 通 右 左 一 二 赤 青 黒 白", desc: "Phố xá, cửa hàng, chỉ đường và màu sắc" },
+        { topic: "Topic 4: 出かける (Bài 7 - 8)", l1: "時 間 場 所 駅 日 出 待 止", l2: "食 事 仕 前 後 朝 昼 夜 乗", desc: "Thời gian, địa điểm, ga tàu và ăn uống" },
+        { topic: "Topic 5: 日本語と文化 (Bài 9 - 10)", l1: "学 校 小 中 高 大 先 生 年 勉 強", l2: "文 化 音 楽 旅 行 留 学 友 週 回", desc: "Trường học, văn hóa, âm nhạc và du học" },
+        { topic: "Topic 6: 外食 (Bài 11 - 12)", l1: "食 物 飲 茶 酒 作 持 願", l2: "料 理 味 色 野 菜 少 中 入", desc: "Đồ ăn, thức uống, gọi món và hương vị" },
+        { topic: "Topic 7: 出張 (Bài 13 - 14)", l1: "会 社 本 支 出 張 空 港 発 到 着 午 前 後", l2: "自 分 電 話 気 車 送 使 借", desc: "Công ty, công tác, sân bay và phương tiện" },
+        { topic: "Topic 8: 健康 (Bài 15 - 16)", l1: "体 頭 目 口 耳 手 足 上 下", l2: "毎 朝 日 週 末 元 気 外 起 歩 走 泳", desc: "Bộ phận cơ thể, sức khỏe và thể dục thể thao" },
+        { topic: "Topic 9: お祝い (Bài 17 - 18)", l1: "祝 誕 生 日 結 婚 絵 写 真 時 計 着", l2: "先 週 今 月 来 年 去 家 思", desc: "Chúc mừng, sinh nhật, kết hôn và quà tặng" }
+    ];
+
+    function renderMinatoData() {
+        // Render Particles
+        filterParticlesTable();
+
+        // Render Adjectives
+        const adjBody = document.getElementById('adjectivesTableBody');
+        if (adjBody) {
+            adjBody.innerHTML = minatoAdjectives.map(item => `
+                <tr style="border-bottom: 1px solid #f1f5f9;">
+                    <td style="padding: 10px 14px; font-weight: 700; color: #1e293b;">${item.jp}</td>
+                    <td style="padding: 10px 14px;">${item.plain}</td>
+                    <td style="padding: 10px 14px;">${item.neg}</td>
+                    <td style="padding: 10px 14px; font-weight: 700; color: #854d0e; background: #fefce8;">${item.connect}</td>
+                    <td style="padding: 10px 14px; color: #dc2626;">${item.connectNeg}</td>
+                    <td style="padding: 10px 14px; font-weight: 700; color: #3730a3; background: #eef2ff;">${item.contrast}</td>
+                    <td style="padding: 10px 14px; color: #047857;">${item.become}</td>
+                </tr>
+            `).join('');
+        }
+
+        // Render Kanji Topics
+        const kanjiBox = document.getElementById('kanjiTopicsContainer');
+        if (kanjiBox) {
+            kanjiBox.innerHTML = minatoKanjiTopics.map(t => `
+                <div style="background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 12px; padding: 18px;">
+                    <div style="font-weight: 800; color: var(--primary); font-size: 1.02rem; margin-bottom: 4px;">${t.topic}</div>
+                    <div style="font-size: 0.82rem; color: var(--gray-500); margin-bottom: 12px;">${t.desc}</div>
+                    <div style="background: white; border: 1px solid #cbd5e1; border-radius: 8px; padding: 10px 12px; margin-bottom: 8px;">
+                        <span style="font-size: 0.78rem; font-weight: 700; color: #64748b;">BÀI LẺ:</span>
+                        <div style="font-size: 1.25rem; font-weight: 800; color: #0f172a; letter-spacing: 4px; margin-top: 2px;">${t.l1}</div>
+                    </div>
+                    <div style="background: white; border: 1px solid #cbd5e1; border-radius: 8px; padding: 10px 12px;">
+                        <span style="font-size: 0.78rem; font-weight: 700; color: #64748b;">BÀI CHẴN:</span>
+                        <div style="font-size: 1.25rem; font-weight: 800; color: #0f172a; letter-spacing: 4px; margin-top: 2px;">${t.l2}</div>
+                    </div>
+                </div>
+            `).join('');
+        }
+    }
+
+    function filterParticlesTable() {
+        const query = (document.getElementById('particleSearchInput')?.value || '').trim().toLowerCase();
+        const tbody = document.getElementById('particlesTableBody');
+        if (!tbody) return;
+
+        const filtered = minatoParticles.filter(item => {
+            if (!query) return true;
+            return item.p.toLowerCase().includes(query) ||
+                   item.ex.toLowerCase().includes(query) ||
+                   item.st.toLowerCase().includes(query) ||
+                   item.note.toLowerCase().includes(query) ||
+                   item.l.toLowerCase().includes(query);
+        });
+
+        if (filtered.length === 0) {
+            tbody.innerHTML = '<tr><td colspan="5" style="text-align: center; padding: 25px; color: var(--gray-500);">Không tìm thấy trợ từ phù hợp.</td></tr>';
+            return;
+        }
+
+        tbody.innerHTML = filtered.map(item => `
+            <tr style="border-bottom: 1px solid #f1f5f9; transition: background 0.15s;" onmouseover="this.style.background='#f8fafc'" onmouseout="this.style.background='transparent'">
+                <td style="padding: 10px 14px; font-weight: 800; color: var(--primary); font-size: 1.05rem;">${item.p}</td>
+                <td style="padding: 10px 14px; font-family: inherit;" class="jp-text">${item.ex}</td>
+                <td style="padding: 10px 14px; color: #475569; font-weight: 600; font-size: 0.88rem;"><code>${item.st}</code></td>
+                <td style="padding: 10px 14px; color: #334155; font-size: 0.88rem;">${item.note}</td>
+                <td style="padding: 10px 14px; text-align: center;"><span style="background: #e2e8f0; color: #334155; padding: 2px 8px; border-radius: 6px; font-weight: 700; font-size: 0.8rem;">${item.l}</span></td>
+            </tr>
+        `).join('');
+    }
+
+    // Dữ liệu nhúng trực tiếp
+    const rawVocab = [{"l": "A2-5", "jp": "ばしょ", "vi": "Địa điểm"}, {"l": "A2-5", "jp": "ところ", "vi": "Nơi"}, {"l": "A2-5", "jp": "このあたり", "vi": "Khu vực này"}, {"l": "A2-5", "jp": "どうぶつえん", "vi": "Sở thú"}, {"l": "A2-5", "jp": "ゆうえんち", "vi": "Công viên giải trí"}, {"l": "A2-5", "jp": "でんきてん", "vi": "Cửa hàng đồ điện"}, {"l": "A2-5", "jp": "こうきょ", "vi": "Hoàng cung"}, {"l": "A2-5", "jp": "いざかや", "vi": "Quán nhậu"}, {"l": "A2-5", "jp": "うおいちば", "vi": "Chợ cá"}, {"l": "A2-5", "jp": "ゲームセンター", "vi": "Game center"}, {"l": "A2-5", "jp": "ちず", "vi": "Bản đồ"}, {"l": "A2-5", "jp": "ひろい", "vi": "Rộng"}, {"l": "A2-5", "jp": "せまい", "vi": "Hẹp, chật"}, {"l": "A2-5", "jp": "ちかい", "vi": "Gần"}, {"l": "A2-5", "jp": "とおい", "vi": "Xa"}, {"l": "A2-5", "jp": "べんり", "vi": "Tiện lợi"}, {"l": "A2-5", "jp": "ふべん", "vi": "Bất tiện"}, {"l": "A2-5", "jp": "はやい", "vi": "Nhanh, sớm"}, {"l": "A2-5", "jp": "おそい", "vi": "Chậm, muộn"}, {"l": "A2-5", "jp": "あかるい", "vi": "Sáng sủa"}, {"l": "A2-5", "jp": "くらい", "vi": "Tối tăm"}, {"l": "A2-5", "jp": "おおい", "vi": "Nhiều"}, {"l": "A2-5", "jp": "すくない", "vi": "Ít"}, {"l": "A2-5", "jp": "あぶない", "vi": "Nguy hiểm"}, {"l": "A2-5", "jp": "おとな", "vi": "Người lớn, trưởng thành"}, {"l": "A2-5", "jp": "わかいひと", "vi": "Người trẻ"}, {"l": "A2-5", "jp": "にんき(があります)", "vi": "Được yêu thích, ưa chuộng"}, {"l": "A2-5", "jp": "おすすめ", "vi": "Đề xuất, gợi ý"}, {"l": "A2-5", "jp": "ジョギング", "vi": "Chạy bộ"}, {"l": "A2-5", "jp": "ぜひ", "vi": "Nhất định"}, {"l": "A2-5", "jp": "ぜひ~てください", "vi": "Nhất định hãy..."}, {"l": "A2-6", "jp": "たてもの", "vi": "Tòa nhà, kiến trúc"}, {"l": "A2-6", "jp": "ビル", "vi": "Tòa nhà"}, {"l": "A2-6", "jp": "ゆうびんきょく", "vi": "Bưu điện"}, {"l": "A2-6", "jp": "たいしかん", "vi": "Đại sứ quán"}, {"l": "A2-6", "jp": "びじゅつかん", "vi": "Bảo tàng mỹ thuật"}, {"l": "A2-6", "jp": "はくぶつかん", "vi": "Bảo tàng"}, {"l": "A2-6", "jp": "みち", "vi": "Con đường"}, {"l": "A2-6", "jp": "とおり", "vi": "Con đường, phố"}, {"l": "A2-6", "jp": "はし", "vi": "Cây cầu"}, {"l": "A2-6", "jp": "こうさてん", "vi": "Ngã tư"}, {"l": "A2-6", "jp": "かど", "vi": "Góc"}, {"l": "A2-6", "jp": "しんごう", "vi": "Đèn giao thông"}, {"l": "A2-6", "jp": "ひとつめの N", "vi": "N thứ nhất"}, {"l": "A2-6", "jp": "ふたつめの N", "vi": "N thứ hai"}, {"l": "A2-6", "jp": "みぎ", "vi": "Bên phải"}, {"l": "A2-6", "jp": "ひだり", "vi": "Bên trái"}, {"l": "A2-6", "jp": "まっすぐ", "vi": "Thẳng"}, {"l": "A2-6", "jp": "(はしを)わたります", "vi": "Đi qua, băng qua (cầu)"}, {"l": "A2-6", "jp": "まがります", "vi": "Rẽ"}, {"l": "A2-6", "jp": "こうさてんを ひだり/みぎ に まがります", "vi": "Rẽ phải/trái tại ngã tư"}, {"l": "A2-6", "jp": "N が みえます", "vi": "Có thể nhìn thấy..."}, {"l": "A2-6", "jp": "N が きこえます", "vi": "Có thể nghe thấy..."}, {"l": "A2-6", "jp": "たかい", "vi": "Cao"}, {"l": "A2-6", "jp": "ひくい", "vi": "Thấp"}, {"l": "A2-6", "jp": "まるい", "vi": "Tròn"}, {"l": "A2-6", "jp": "しろい", "vi": "Trắng"}, {"l": "A2-6", "jp": "くろい", "vi": "Đen"}, {"l": "A2-6", "jp": "あかい", "vi": "Đỏ"}, {"l": "A2-6", "jp": "あおい", "vi": "Xanh dương"}, {"l": "A2-6", "jp": "ほそながい", "vi": "Thon dài, dài và hẹp"}, {"l": "A2-7", "jp": "(時間に)おくれます", "vi": "Muộn (giờ)"}, {"l": "A2-7", "jp": "(バスを)まちます", "vi": "Đợi, chờ (xe bus)"}, {"l": "A2-7", "jp": "(時間を)まちがえます", "vi": "Nhầm, nhầm lẫn (giờ)"}, {"l": "A2-7", "jp": "(でんしゃが)とまります", "vi": "Tàu điện dừng lại, dừng chạy"}, {"l": "A2-7", "jp": "みちに まよいます", "vi": "Lạc đường"}, {"l": "A2-7", "jp": "(かぞくと)でかけます", "vi": "Ra ngoài (với gia đình)"}, {"l": "A2-7", "jp": "(くるまに)きを つけます", "vi": "Chú ý, cẩn thận (ô tô)"}, {"l": "A2-7", "jp": "(ともだちに)れんらくします", "vi": "Liên lạc (với bạn bè)"}, {"l": "A2-7", "jp": "(くうこうに)つきます", "vi": "Đến nơi (sân bay)"}, {"l": "A2-7", "jp": "まちあわせ", "vi": "Cuộc hẹn"}, {"l": "A2-7", "jp": "まちあわせ(をします)", "vi": "Hẹn gặp"}, {"l": "A2-7", "jp": "じゅうたい", "vi": "Tắc đường"}, {"l": "A2-7", "jp": "じこ", "vi": "Tai nạn, sự cố"}, {"l": "A2-7", "jp": "ロビー", "vi": "Sảnh chờ (Lobby)"}, {"l": "A2-7", "jp": "いりぐち", "vi": "Lối vào, cửa vào"}, {"l": "A2-7", "jp": "ほんや", "vi": "Tiệm sách"}, {"l": "A2-7", "jp": "ちこく(します)", "vi": "Muộn (chỉ dùng cho người)"}, {"l": "A2-7", "jp": "はやく + V", "vi": "Làm V nhanh, sớm"}, {"l": "A2-7", "jp": "たのしみ", "vi": "Mong chờ, mong đợi"}, {"l": "A2-7", "jp": "りゆう", "vi": "Lý do"}, {"l": "A2-8", "jp": "すいぞくかん", "vi": "Thủy cung"}, {"l": "A2-8", "jp": "やたい", "vi": "Quầy bán hàng lưu động"}, {"l": "A2-8", "jp": "タワー", "vi": "Tháp"}, {"l": "A2-8", "jp": "すいじょうバス", "vi": "Thuyền bus"}, {"l": "A2-8", "jp": "れきし", "vi": "Lịch sử"}, {"l": "A2-8", "jp": "どうぶつ", "vi": "Động vật"}, {"l": "A2-8", "jp": "やけい", "vi": "Cảnh đêm"}, {"l": "A2-8", "jp": "かんこう", "vi": "Tham quan"}, {"l": "A2-8", "jp": "かんこうち", "vi": "Địa điểm tham quan"}, {"l": "A2-8", "jp": "せかい", "vi": "Thế giới"}, {"l": "A2-8", "jp": "せかいいち", "vi": "Số một thế giới"}, {"l": "A2-8", "jp": "りょうがえ", "vi": "Đổi ngoại tệ"}, {"l": "A2-8", "jp": "おすすめ", "vi": "Đề xuất, gợi ý"}, {"l": "A2-8", "jp": "ライトアップ", "vi": "Lên đèn, chiếu sáng"}, {"l": "A2-8", "jp": "めずらしい", "vi": "Hiếm"}, {"l": "A2-8", "jp": "ちず", "vi": "Bản đồ"}, {"l": "A2-8", "jp": "てんぷら", "vi": "Món Tempura"}, {"l": "A2-8", "jp": "ふね", "vi": "Thuyền, tàu"}, {"l": "A2-8", "jp": "まだ", "vi": "Vẫn chưa..."}, {"l": "A2-8", "jp": "もう~V ました", "vi": "Đã làm V"}, {"l": "A2-8", "jp": "よてい", "vi": "Dự định"}, {"l": "A2-8", "jp": "イルカ", "vi": "Cá heo"}, {"l": "A2-8", "jp": "カラオケ", "vi": "Karaoke"}, {"l": "A2-8", "jp": "ショー", "vi": "Show, biểu diễn"}, {"l": "A2-8", "jp": "スカイツリー", "vi": "Tháp Skytree"}, {"l": "A2-8", "jp": "こんばん", "vi": "Tối nay"}, {"l": "A2-8", "jp": "おみやげ", "vi": "Quà lưu niệm"}, {"l": "A2-8", "jp": "(しょくじの)まえ", "vi": "Trước (bữa ăn)"}, {"l": "A2-8", "jp": "(しょくじの)あと", "vi": "Sau (bữa ăn)"}, {"l": "A2-8", "jp": "あとで", "vi": "Xíu nữa, sau đó..."}];
+    const rawKanji = [{"char": "町", "hv": "Đinh", "lesson": "L5", "lessonName": "Bài 5", "strokes": 7, "meaning": "Thị trấn, khu phố", "kun": "まち", "on": "ちょう", "examples": [{"word": "町", "reading": "まち", "vi": "Thị trấn, thành phố"}], "formula": "田 (Ruộng) ＋ 丁 (Đường)", "strokeGuide": "Trái trước phải sau: Bộ Điền (田 - 5 nét) bên trái ➔ chữ Đinh (丁 - 2 nét) bên phải.", "mnemonic": "Ruộng đồng (田) giao với con đường (丁) tạo nên thị trấn."}, {"char": "店", "hv": "Điếm", "lesson": "L5", "lessonName": "Bài 5", "strokes": 8, "meaning": "Cửa hàng", "kun": "みせ", "on": "てん", "examples": [{"word": "店", "reading": "みせ", "vi": "Cửa hàng"}], "formula": "广 (Mái hiên) ＋ 占 (Chiếm)", "strokeGuide": "Ngoài trước trong sau: Bộ Quảng (广 - 3 nét) bao ngoài ➔ chữ Chiêm (占 - 5 nét) ở trong.", "mnemonic": "Chiếm một mặt bằng dưới mái nhà để mở Cửa hàng."}, {"char": "多", "hv": "Đa", "lesson": "L5", "lessonName": "Bài 5", "strokes": 6, "meaning": "Nhiều, đông", "kun": "おお-い", "on": "た", "examples": [{"word": "多い", "reading": "おおい", "vi": "Nhiều, đông"}], "formula": "夕 ＋ 夕", "strokeGuide": "Trên trước dưới sau: Viết bộ Tịch (夕 - 3 nét) ở trên trước ➔ bộ Tịch thứ hai ở dưới.", "mnemonic": "Hai bộ Tịch chồng lên nhau biểu thị sự nhiều."}, {"char": "少", "hv": "Thiểu", "lesson": "L5", "lessonName": "Bài 5", "strokes": 4, "meaning": "Ít, một chút", "kun": "すく-ない、 すこ-し", "on": "しょう", "examples": [{"word": "少ない", "reading": "すくない", "vi": "Ít"}, {"word": "少し", "reading": "すこし", "vi": "Một chút"}], "formula": "小 (Nhỏ) ＋ 丿", "strokeGuide": "Giữa trước hai bên sau: Nét sổ móc giữa ➔ chấm trái ➔ chấm phải ➔ nét phẩy dài cắt chéo dưới.", "mnemonic": "Đã nhỏ (小) lại vơi đi nên chỉ còn rất ít."}, {"char": "高", "hv": "Cao", "lesson": "L5", "lessonName": "Bài 5", "strokes": 10, "meaning": "Cao, đắt", "kun": "たか-い", "on": "こう", "examples": [{"word": "高い", "reading": "たかい", "vi": "Cao, đắt"}, {"word": "高校", "reading": "こうこう", "vi": "Trường cấp 3"}], "formula": "亠 ＋ 口 ＋ 冂 ＋ 口", "strokeGuide": "Trên xuống dưới: Chấm ngang trên cùng ➔ bộ Khẩu nhỏ ➔ khung vòm dưới ➔ bộ Khẩu trong cùng.", "mnemonic": "Hình tòa tháp cao nhiều tầng."}, {"char": "安", "hv": "An", "lesson": "L5", "lessonName": "Bài 5", "strokes": 6, "meaning": "Rẻ, an tâm", "kun": "やす-い", "on": "あん", "examples": [{"word": "安い", "reading": "やすい", "vi": "Rẻ"}], "formula": "宀 (Mái nhà) ＋ 女 (Phụ nữ)", "strokeGuide": "Trên trước dưới sau: Bộ Miên (宀 - 3 nét) ở trên ➔ bộ Nữ (女 - 3 nét) ở dưới.", "mnemonic": "Người phụ nữ (女) dưới mái nhà (宀) luôn bình an."}, {"char": "広", "hv": "Quảng", "lesson": "L5", "lessonName": "Bài 5", "strokes": 5, "meaning": "Rộng rãi", "kun": "ひろ-い", "on": "こう", "examples": [{"word": "広い", "reading": "ひろい", "vi": "Rộng"}], "formula": "广 (Mái hiên) ＋ 厶", "strokeGuide": "Ngoài trước trong sau: Bộ Quảng (广 - 3 nét) trước ➔ bộ Khư (厶 - 2 nét) bên trong.", "mnemonic": "Ngôi nhà có mái hiên rộng thênh thang."}, {"char": "道", "hv": "Đạo", "lesson": "L6", "lessonName": "Bài 6", "strokes": 12, "meaning": "Con đường", "kun": "みち", "on": "どう", "examples": [{"word": "道", "reading": "みち", "vi": "Con đường"}], "formula": "首 (Đầu) ＋ 辶 (Bước đi)", "strokeGuide": "Bộ Xước viết sau cùng: Viết bộ Thủ (首 - 9 nét) bên trong trước ➔ bộ Xước (辶 - 3 nét) bao dưới sau cùng.", "mnemonic": "Bước đi (辶) trên con đường lớn."}, {"char": "通", "hv": "Thông", "lesson": "L6", "lessonName": "Bài 6", "strokes": 10, "meaning": "Đường phố, đi qua", "kun": "とお-り", "on": "つう", "examples": [{"word": "通り", "reading": "とおり", "vi": "Đường phố, đại lộ"}], "formula": "甬 ＋ 辶 (Bước đi)", "strokeGuide": "Viết phần chữ Dũng (甬 - 7 nét) bên trong trước ➔ bộ Xước (辶 - 3 nét) sau cùng.", "mnemonic": "Đi lại thông suốt trên đại lộ."}, {"char": "右", "hv": "Hữu", "lesson": "L6", "lessonName": "Bài 6", "strokes": 5, "meaning": "Bên phải", "kun": "みぎ", "on": "う、 ゆう", "examples": [{"word": "右", "reading": "みぎ", "vi": "Bên phải"}], "formula": "𠂇 (Tay) ＋ 口 (Miệng)", "strokeGuide": "Viết nét phẩy (丿) trước ➔ nét ngang (一) ➔ bộ Khẩu (口 - 3 nét) ở dưới.", "mnemonic": "Tay phải cầm đũa đưa cơm vào miệng (口)."}, {"char": "左", "hv": "Tả", "lesson": "L6", "lessonName": "Bài 6", "strokes": 5, "meaning": "Bên trái", "kun": "ひだり", "on": "さ", "examples": [{"word": "左", "reading": "ひだり", "vi": "Bên trái"}], "formula": "𠂇 (Tay) ＋ 工 (Thước)", "strokeGuide": "Viết nét ngang (一) trước ➔ nét phẩy (丿) ➔ bộ Công (工 - 3 nét) ở dưới.", "mnemonic": "Tay trái giữ chiếc thước thợ (工)."}, {"char": "赤", "hv": "Xích", "lesson": "L6", "lessonName": "Bài 6", "strokes": 7, "meaning": "Màu đỏ", "kun": "あか-い", "on": "せき", "examples": [{"word": "赤い", "reading": "あかい", "vi": "Màu đỏ"}], "formula": "土 (Đất) ＋ 火 (Lửa)", "strokeGuide": "Trên trước dưới sau: Bộ Thổ (土 - 3 nét) ở trên ➔ 4 nét lửa ở dưới.", "mnemonic": "Đất (土) nung trong lửa đỏ rực."}, {"char": "青", "hv": "Thanh", "lesson": "L6", "lessonName": "Bài 6", "strokes": 8, "meaning": "Màu xanh dương", "kun": "あお-い", "on": "せい", "examples": [{"word": "青い", "reading": "あおい", "vi": "Màu xanh dương"}], "formula": "生 ＋ 月", "strokeGuide": "Trên trước dưới sau: 3 nét ngang + 1 nét sổ ở trên ➔ bộ Nguyệt (月 - 4 nét) ở dưới.", "mnemonic": "Cây cỏ xanh tươi dưới ánh trăng."}, {"char": "黒", "hv": "Hắc", "lesson": "L6", "lessonName": "Bài 6", "strokes": 11, "meaning": "Màu đen", "kun": "くろ-い", "on": "こく", "examples": [{"word": "黒い", "reading": "くろい", "vi": "Màu đen"}], "formula": "里 ＋ 灬 (Lửa)", "strokeGuide": "Trên trước dưới sau: Chữ Lý (里 - 7 nét) ở trên ➔ 4 chấm hỏa (灬) ở dưới cùng.", "mnemonic": "Khói lửa đốt bám muội than đen nhánh."}, {"char": "白", "hv": "Bạch", "lesson": "L6", "lessonName": "Bài 6", "strokes": 5, "meaning": "Màu trắng", "kun": "しろ-い", "on": "はく", "examples": [{"word": "白い", "reading": "しろい", "vi": "Màu trắng"}], "formula": "丿 ＋ 日", "strokeGuide": "Nét phẩy ngắn trên đầu ➔ viết bộ Nhật (日 - 4 nét) ở dưới.", "mnemonic": "Ánh nắng mặt trời chiếu sáng trắng tinh."}, {"char": "時", "hv": "Thời", "lesson": "L7", "lessonName": "Bài 7", "strokes": 10, "meaning": "Thời gian, giờ", "kun": "とき", "on": "じ", "examples": [{"word": "時間", "reading": "じかん", "vi": "Thời gian"}], "formula": "日 (Mặt trời) ＋ 寺 (Chùa)", "strokeGuide": "Trái trước phải sau: Bộ Nhật (日 - 4 nét) bên trái ➔ chữ Tự (寺 - 6 nét) bên phải.", "mnemonic": "Nhìn mặt trời trên mái chùa để biết Giờ giấc."}, {"char": "場", "hv": "Trường", "lesson": "L7", "lessonName": "Bài 7", "strokes": 12, "meaning": "Địa điểm", "kun": "ば", "on": "じょう", "examples": [{"word": "場所", "reading": "ばしょ", "vi": "Địa điểm"}], "formula": "土 (Đất) ＋ 易", "strokeGuide": "Trái trước phải sau: Bộ Thổ (土 - 3 nét) bên trái ➔ chữ Dị (易 - 9 nét) bên phải.", "mnemonic": "Vùng đất rộng làm địa điểm tụ họp."}, {"char": "駅", "hv": "Dịch", "lesson": "L7", "lessonName": "Bài 7", "strokes": 14, "meaning": "Nhà ga", "kun": "えき", "on": "えき", "examples": [{"word": "駅", "reading": "えき", "vi": "Nhà ga"}], "formula": "馬 (Ngựa) ＋ 尺", "strokeGuide": "Trái trước phải sau: Bộ Mã (馬 - 10 nét) bên trái ➔ bộ Xích (尺 - 4 nét) bên phải.", "mnemonic": "Trạm dừng tàu xe (Nhà ga)."}, {"char": "出", "hv": "Xuất", "lesson": "L7", "lessonName": "Bài 7", "strokes": 5, "meaning": "Ra ngoài", "kun": "で-る", "on": "しゅつ", "examples": [{"word": "出かけます", "reading": "でかけます", "vi": "Đi ra ngoài"}], "formula": "山 ＋ 山", "strokeGuide": "Viết nét sổ dài ở trục giữa trước ➔ khung núi trên ➔ khung núi dưới.", "mnemonic": "Vượt núi đi ra ngoài."}, {"char": "待", "hv": "Đãi", "lesson": "L7", "lessonName": "Bài 7", "strokes": 9, "meaning": "Chờ đợi", "kun": "ま-つ", "on": "たい", "examples": [{"word": "待ちます", "reading": "まちます", "vi": "Đợi, chờ"}], "formula": "彳(Bước chân) ＋ 寺 (Chùa)", "strokeGuide": "Trái trước phải sau: Bộ Xích (彳 - 3 nét) bên trái ➔ chữ Tự (寺 - 6 nét) bên phải.", "mnemonic": "Đứng trước cổng chùa chờ đợi bạn."}, {"char": "止", "hv": "Chỉ", "lesson": "L7", "lessonName": "Bài 7", "strokes": 4, "meaning": "Dừng lại", "kun": "と-まる", "on": "し", "examples": [{"word": "止まります", "reading": "とまります", "vi": "Dừng lại"}], "formula": "Chữ tượng hình bàn chân", "strokeGuide": "Nét sổ giữa ➔ nét ngang ngắn phải ➔ nét sổ ngắn trái ➔ nét ngang dài đáy.", "mnemonic": "Bàn chân đứng yên tại vạch dừng."}, {"char": "食", "hv": "Thực", "lesson": "L8", "lessonName": "Bài 8", "strokes": 9, "meaning": "Ăn, bữa ăn", "kun": "た-べる", "on": "しょく", "examples": [{"word": "食事", "reading": "しょくじ", "vi": "Bữa ăn, dùng bữa"}, {"word": "食べ物", "reading": "たべもの", "vi": "Đồ ăn"}], "formula": "𠆢 ＋ 良", "strokeGuide": "Trên xuống dưới: Nét phẩy & mác tạo mái trên ➔ chấm ➔ phần thân chữ Lương ở dưới.", "mnemonic": "Đồ ăn tốt lành dưới mái nhà."}, {"char": "事", "hv": "Sự", "lesson": "L8", "lessonName": "Bài 8", "strokes": 8, "meaning": "Công việc, sự việc", "kun": "こと", "on": "じ", "examples": [{"word": "仕事", "reading": "しごと", "vi": "Công việc"}], "formula": "一 ＋ 口 ＋ 彐 ＋ 亅", "strokeGuide": "Ngang trên ➔ bộ Khẩu ➔ bộ Kệ ➔ nét sổ móc thẳng từ trên xuống dưới cuối cùng.", "mnemonic": "Bàn tay cầm bút giải quyết công việc."}, {"char": "前", "hv": "Tiền", "lesson": "L8", "lessonName": "Bài 8", "strokes": 9, "meaning": "Phía trước", "kun": "まえ", "on": "ぜん", "examples": [{"word": "前", "reading": "まえ", "vi": "Phía trước"}, {"word": "午前", "reading": "ごぜん", "vi": "Buổi sáng (AM)"}], "formula": "䒑 ＋ 月 ＋ 刂", "strokeGuide": "Trên trước dưới sau: 2 chấm + ngang trên ➔ bộ Nguyệt bên trái ➔ bộ Đao đứng (刂) bên phải.", "mnemonic": "Tiến thẳng về phía trước."}, {"char": "後", "hv": "Hậu", "lesson": "L8", "lessonName": "Bài 8", "strokes": 9, "meaning": "Phía sau, sau khi", "kun": "あと、 うし-ろ", "on": "ご", "examples": [{"word": "後", "reading": "あと", "vi": "Sau đó"}, {"word": "午後", "reading": "ごご", "vi": "Buổi chiều (PM)"}], "formula": "彳 ＋ 幺 ＋ 夂", "strokeGuide": "Trái trước phải sau: Bộ Xích (彳 - 3 nét) bên trái ➔ bộ Yêu (幺) trên ➔ bộ Truy (夂) dưới.", "mnemonic": "Bước đi chậm lại ở phía sau."}, {"char": "朝", "hv": "Triêu", "lesson": "L8", "lessonName": "Bài 8", "strokes": 12, "meaning": "Buổi sáng", "kun": "あさ", "on": "ちょう", "examples": [{"word": "朝", "reading": "あさ", "vi": "Buổi sáng"}, {"word": "毎朝", "reading": "まいあさ", "vi": "Mỗi sáng"}], "formula": "十 ＋ 日 ＋ 十 ＋ 月", "strokeGuide": "Trái trước phải sau: Cụm 十日十 (8 nét) bên trái trước ➔ bộ Nguyệt (月 - 4 nét) bên phải sau.", "mnemonic": "Mặt trời mọc khi trăng vừa lặn vào buổi sáng."}, {"char": "昼", "hv": "Trú", "lesson": "L8", "lessonName": "Bài 8", "strokes": 9, "meaning": "Buổi trưa", "kun": "ひる", "on": "ちゅう", "examples": [{"word": "昼", "reading": "ひる", "vi": "Buổi trưa"}], "formula": "尺 ＋ 日 ＋ 一", "strokeGuide": "Bộ Xích (尺 - 4 nét) ở trên ➔ bộ Nhật (日 - 4 nét) ở dưới ➔ nét ngang đáy cuối cùng.", "mnemonic": "Mặt trời rọi thẳng lúc giữa trưa."}, {"char": "夜", "hv": "Dạ", "lesson": "L8", "lessonName": "Bài 8", "strokes": 8, "meaning": "Buổi tối, đêm", "kun": "よる", "on": "や", "examples": [{"word": "夜", "reading": "よる", "vi": "Buổi tối, đêm"}], "formula": "亠 ＋ 亻 ＋ 夕", "strokeGuide": "Chấm ngang đầu (亠) ➔ bộ Nhân đứng (亻) bên trái ➔ bộ Tịch (夕) + nét mác bên phải.", "mnemonic": "Người nghỉ ngơi dưới ánh trăng đêm."}, {"char": "乗", "hv": "Thừa", "lesson": "L8", "lessonName": "Bài 8", "strokes": 9, "meaning": "Lên xe/tàu", "kun": "の-る", "on": "じょう", "examples": [{"word": "乗ります", "reading": "のります", "vi": "Lên xe"}], "formula": "禾 ＋ 北", "strokeGuide": "Nét phẩy đầu ➔ các nét ngang ➔ sổ giữa ➔ phẩy và mác hai bên chân.", "mnemonic": "Bước chân lên tàu xe."}];
+    const quizData = [{"id": 1, "category": "Tính từ đuôi い: Nối câu cùng chiều", "lesson": "A2-5", "q": "この 店の 料理は [____]、とても おいしいです。", "options": ["安いで", "安くては", "安い", "安くて"], "correct": 3, "explain": "Quy tắc nối tính từ đuôi い: Bỏ đuôi 「い」 và thêm 「くて」 (安[い] ➔ 安くて - vừa rẻ vừa ngon). Đuôi 「で」 chỉ dùng nối cho tính từ đuôi な và danh từ. Tuyệt đối không dùng 「安いで」."}, {"id": 2, "category": "Tính từ đuôi な: Nối câu cùng chiều", "lesson": "A2-5", "q": "この 辺りは [____]、おもしろい 町です。", "options": ["にぎやかくて", "にぎやかだ", "にぎやかで", "にぎやかに"], "correct": 2, "explain": "Quy tắc nối tính từ đuôi な: Bỏ 「な」 và thêm 「で」 (にぎやか[な] ➔ にぎやかで - náo nhiệt và thú vị). 「にぎやかくて」 là sai vì đây là tính từ đuôi な, không biến đổi như đuôi い."}, {"id": 3, "category": "Tính từ đuôi い: Nối tương phản đối lập", "lesson": "A2-5", "q": "この 遊園地は [____]、ちょっと 高いです。", "options": ["楽しいだけど", "楽しくて", "楽しいけど", "楽しいから"], "correct": 2, "explain": "Quy tắc nối mệnh đề tương phản đối lập (nhưng mà...): Tính từ đuôi い đi trực tiếp với 「けど」 (楽しい ＋ けど). Dạng 「だけど」 chỉ đi sau tính từ đuôi な và danh từ (ví dụ: 不便だけど)."}, {"id": 4, "category": "Tính từ đuôi な: Nối tương phản đối lập", "lesson": "A2-5", "q": "私の 町は ちょっと [____]、緑が多くて 好きです。", "options": ["不便けど", "不便で", "不便だけど", "不便くて"], "correct": 2, "explain": "Tính từ đuôi な (不便な) khi nối tương phản đối lập bắt buộc phải dùng 「～だけど」 (不便 ＋ だけど - hơi bất tiện nhưng nhiều cây xanh nên tôi thích). Không được nói 「不便けど」."}, {"id": 5, "category": "Trợ từ: Liệt kê tiêu biểu や～など", "lesson": "A2-5", "q": "この 辺りには 高い ビル [____] ホテルなどが あります。", "options": ["と", "も", "や", "を"], "correct": 2, "explain": "Cấu trúc liệt kê không toàn bộ: 「N1 や N2 (など) が あります」 (Có những thứ như N1, N2...). Khác với 「と」 là liệt kê toàn bộ đóng khung, 「や」 chỉ đưa ra một vài đại diện tiêu biểu (ngoài ra còn có những tòa nhà khác nữa)."}, {"id": 6, "category": "Trợ từ: Nhấn mạnh chủ đề / phạm vi には", "lesson": "A2-5", "q": "日本 [____] 東京や 大阪などの 有名な 町が あります。", "options": ["では", "へは", "には", "をは"], "correct": 2, "explain": "Trợ từ kép 「には」 = 「に」 (vị trí tồn tại khách quan) + 「は」 (đưa lên làm chủ đề / so sánh phạm vi: \"Còn riêng tại đất nước Nhật Bản thì có...\"). Tồn tại có danh từ chỉ vật thì đi với あります."}, {"id": 7, "category": "Trợ từ: Không gian di chuyển xuyên qua", "lesson": "A2-6", "q": "この とおり [____] まっすぐ 行って ください。", "options": ["で", "を", "に", "へ"], "correct": 1, "explain": "Trợ từ 「を」 trong trường hợp này chỉ không gian di chuyển xuyên qua: 「とおりを まっすぐ 行く」 (đi thẳng qua con phố này). Tương tự: 「道を あるく」 (đi trên đường), 「橋を わたる」 (băng qua cầu). Tuyệt đối không dùng 「で」."}, {"id": 8, "category": "Trợ từ: Rời khỏi phương tiện", "lesson": "A2-6", "q": "次の 駅で 電車 [____] おります。", "options": ["を", "に", "で", "へ"], "correct": 0, "explain": "Bẫy thi kinh điển của trợ từ di chuyển: Lên xe dùng に (電車に のる - tiếp xúc), còn xuống xe dùng を (電車を おりる - rời khỏi điểm xuất phát). Do đó câu này bắt buộc dùng 「を」."}, {"id": 9, "category": "Trợ từ: Tiếp xúc lên phương tiện", "lesson": "A2-6", "q": "新宿駅で 山手線 [____] のって ください。", "options": ["を", "で", "から", "に"], "correct": 3, "explain": "Động từ lên tàu xe 「乗る (のる)」 luôn luôn đi với trợ từ 「に」: 「電車に のる」, 「バスに のる」 (Trợ từ に chỉ điểm tiếp xúc đến của cơ thể)."}, {"id": 10, "category": "Trợ từ: Hướng rẽ tại điểm giao cắt", "lesson": "A2-6", "q": "2つ目の 信号を 右 [____] 曲がって ください。", "options": ["を", "で", "と", "に"], "correct": 3, "explain": "Cấu trúc chỉ đường: 「[Vị trí rẽ] を [Hướng rẽ: 右 / 左] に 曲がる」. Chỗ rẽ dùng 「を」 (信号を), còn hướng rẽ trái/phải dùng 「に」 (右に 曲がる)."}, {"id": 11, "category": "Giao tiếp: Đính chính thông tin じゃなくて", "lesson": "A2-6", "q": "「1つ目の 角ですか。」ー「いいえ、1つ目 [____]、2つ目ですよ。」", "options": ["で", "じゃなくて", "くて", "だけど"], "correct": 1, "explain": "Cấu trúc đính chính, phủ định thông tin sai để khẳng định thông tin đúng: 「A じゃなくて、B です」 (Không phải là A, mà là B cơ)."}, {"id": 12, "category": "Ngữ pháp: Cấm đoán lịch sự ないでください", "lesson": "A2-6", "q": "あぶないですから、ここには [____] ください。", "options": ["入って", "入らないで", "入らなくて", "入らない"], "correct": 1, "explain": "Mẫu câu yêu cầu không làm gì một cách lịch sự: 「V-ないで ください」. Động từ 「入る (はいる)」 là động từ Nhóm 1 kết thúc bằng đuôi -ru ➔ chuyển sang thể Nai là 「入らない (はいらない)」 ➔ 「入らないで ください」."}, {"id": 13, "category": "Giao tiếp: Thỏa thuận điều chỉnh giờ hẹn", "lesson": "A2-7", "q": "日曜日の 待ち合わせ、11時 [____] いいですか。", "options": ["にも", "でも", "とも", "へも"], "correct": 1, "explain": "Mẫu câu đề xuất / thỏa thuận một phương án thời gian hoặc địa điểm linh hoạt: 「[Thời gian / Địa điểm] ＋ でもいいですか」 (Khoảng... có được không ạ?)."}, {"id": 14, "category": "Trợ từ: Nguyên nhân khách quan gây trễ hẹn", "lesson": "A2-7", "q": "すみません、じゅうたい [____] 15分ぐらい 遅れます。", "options": ["に", "で", "を", "が"], "correct": 1, "explain": "Trợ từ 「で」 chỉ lý do / nguyên nhân khách quan (thiên tai, tai nạn, sự cố giao thông): 「渋滞で (do tắc đường)」, 「事故で (do tai nạn)」. Đi kèm với hậu quả phía sau: 「遅れます (bị trễ/muộn)」."}, {"id": 15, "category": "Thể TE: Nêu lý do sự cố trễ hẹn", "lesson": "A2-7", "q": "道に [____]、遅くなって すみません。", "options": ["まよって", "まよわないで", "まよう", "まよった"], "correct": 0, "explain": "Cụm từ 「道に 迷います (lạc đường)」 khi dùng thể TE 「道に まよって」 để nối câu nêu lý do dẫn tới kết quả trễ hẹn: \"Tôi bị lạc đường nên đến muộn, xin lỗi bạn nhiều nhé!\"."}, {"id": 16, "category": "Từ vựng: Tàu điện dừng chạy vì sự cố", "lesson": "A2-7", "q": "じこで 電車が [____] しまいました。", "options": ["おりて", "まよって", "まちがえて", "とまって"], "correct": 3, "explain": "Động từ 「止まる (とまる)」 nghĩa là dừng lại, ngừng hoạt động. 「電車が 止まる」 = tàu điện dừng chạy. 「おりる」 là người xuống xe, 「まよう」 là lạc đường, 「まちがえる」 là nhầm lẫn."}, {"id": 17, "category": "Văn hóa: Câu xin lỗi khi đến muộn", "lesson": "A2-7", "q": "「[____] すみませんでした！」ー「いいえ、大丈夫ですよ。」", "options": ["早くなって", "遅くなって", "元気になって", "寒くなって"], "correct": 1, "explain": "Câu xin lỗi chuẩn mực không thể thiếu khi đến muộn cuộc hẹn trong giao tiếp tiếng Nhật: 「遅くなって すみません (でした)」 (Tôi xin lỗi vì đã đến muộn). Tính từ 遅い ➔ 遅くなって."}, {"id": 18, "category": "Thỏa thuận địa điểm gặp gỡ", "lesson": "A2-7", "q": "待ち合わせの 場所は、ホテルの ロビー [____] いいですか。", "options": ["にも", "でも", "を", "へ"], "correct": 1, "explain": "Mẫu câu thương lượng địa điểm: 「[Địa điểm] ＋ でもいいですか」 (Hẹn ở sảnh khách sạn có được không bạn?). 「でも」 mang sắc thái gợi ý nhẹ nhàng, tôn trọng ý kiến người nghe."}, {"id": 19, "category": "Mục đích di chuyển: Động từ bỏ ます + に行きます", "lesson": "A2-8", "q": "上野公園へ 桜を [____] に 行きました。", "options": ["見る", "見て", "見", "見た"], "correct": 2, "explain": "Công thức chỉ mục đích di chuyển: 「[V-bỏ ます] ＋ に 行きます / 来ます / 帰ります」. Động từ 「見ます」 bỏ ます còn 「見」 ghép với に ➔ 「見に 行きました」 (đã đi đến để ngắm)."}, {"id": 20, "category": "Mục đích di chuyển: Danh từ hành động + に行きます", "lesson": "A2-8", "q": "デパートへ [____] に 行きます。", "options": ["買う", "買って", "買い物", "買います"], "correct": 2, "explain": "Với danh từ chỉ hành vi (買い物 - mua sắm, 散歩 - đi dạo, 食事 - ăn uống), ta ghép thẳng với trợ từ 「に」: 「買い物に 行きます」. Không dùng dạng động từ chia dở."}, {"id": 21, "category": "Trình tự thời gian: Trước khi (V-る まえに)", "lesson": "A2-8", "q": "寝る [____]、本を 読みます。", "options": ["あとで", "まえに", "ときに", "あいだに"], "correct": 1, "explain": "Công thức chỉ trình tự TRƯỚC KHI: 「V-る ＋ まえに」. Quy tắc vàng: Động từ đứng trước まえに luôn ở thể từ điển V-る (寝る 前に = trước khi đi ngủ)."}, {"id": 22, "category": "Trình tự thời gian: Trước Danh từ (Nの まえに)", "lesson": "A2-8", "q": "食事 [____] まえに、手を あらって ください。", "options": ["の", "に", "で", "を"], "correct": 0, "explain": "Khi đi kèm Danh từ, cấu trúc trước khi bắt buộc phải có trợ từ 「の」: 「[Danh từ] ＋ の まえに」 (食事の 前に = trước bữa ăn). Phân biệt với động từ đi thẳng V-る 前に."}, {"id": 23, "category": "Trình tự thời gian: Sau khi (V-た あとで)", "lesson": "A2-8", "q": "映画を [____] あとで、カフェに 行きましょう。", "options": ["見た", "見る", "見て", "見ます"], "correct": 0, "explain": "Công thức chỉ trình tự SAU KHI: 「V-た ＋ あとで」. Hành động xem phim đã hoàn tất trước rồi mới đi cà phê nên động từ bắt buộc chia ở thể quá khứ Ta: 「見た あとで」."}, {"id": 24, "category": "Hội thoại: Phản hồi câu hỏi đã làm chưa もう", "lesson": "A2-8", "q": "「もう 美術館に 行きましたか。」ー「いいえ、[____]。」", "options": ["まだです", "行きませんでした", "行きます", "だめです"], "correct": 0, "explain": "Bẫy thi đắt giá nhất của Bài 8: Khi trả lời phủ định cho câu hỏi 「もう ～ましたか」 (Đã làm... chưa?), bắt buộc phải trả lời là 「いいえ、まだです」 (Chưa, tôi chưa làm). Nếu trả lời 「行きませんでした」 sẽ bị hiểu lầm là bạn từ chối không bao giờ muốn đi."}, {"id": 25, "category": "Kanji Bài 5: Chiết tự chữ 町", "lesson": "A2-5", "q": "Chữ Hán 「町」 (Đinh - thị trấn) được tạo nên từ 2 bộ thủ nào?", "options": ["Bộ Mộc (木) và bộ Thổ (土)", "Bộ Ngôn (言) và bộ Khẩu (口)", "Bộ Nhân (人) và bộ Nhật (日)", "Bộ Điền (田 - ruộng) và bộ Đinh (丁 - góc đường)"], "correct": 3, "explain": "Chữ 「町」 (Đinh) gồm bộ Điền (田 - ruộng lúa) ở bên trái và bộ Đinh (丁 - ngã ba đường) ở bên phải: Khu dân cư đông đúc cạnh cánh đồng tạo nên một thị trấn, góc phố."}, {"id": 26, "category": "Kanji Bài 5: Cặp từ trái nghĩa 高い vs 安い", "lesson": "A2-5", "q": "Cặp chữ Hán trái nghĩa 「高い」 (cao/đắt) và 「安い」 (rẻ/yên ổn) có âm Hán Việt tương ứng là gì?", "options": ["Cao - An", "Đa - Thiểu", "Quảng - Trắc", "Trường - Đoản"], "correct": 0, "explain": "Chữ 「高」 có âm Hán Việt là Cao (trong cao lớn, đắt đỏ), chữ 「安」 có âm Hán Việt là An (trong an toàn, an tâm, rẻ). Cả hai đều là tính từ trọng tâm của Bài 5."}, {"id": 27, "category": "Kanji Bài 6: Đạo & Thông", "lesson": "A2-6", "q": "Hai chữ Hán 「道」 và 「通」 trong cụm từ chỉ đường có cách đọc Kunyomi là gì?", "options": ["みぎ (bên phải) và ひだり (bên trái)", "あか (màu đỏ) và あお (màu xanh)", "しろ (màu trắng) và くろ (màu đen)", "みち (con đường) và とおり (đường phố)"], "correct": 3, "explain": "Chữ 「道」 (Đạo) có âm Kunyomi là 「みち」 (con đường), chữ 「通」 (Thông) có âm Kunyomi là 「とおり」 (con phố, tuyến đường). Cả hai chữ đều có bộ Quai xước (辶) chỉ sự di chuyển."}, {"id": 28, "category": "Kanji Bài 7: Nhà ga", "lesson": "A2-7", "q": "Chữ Hán 「駅」 (âm Hán Việt: Dịch) trong từ 「えき」 (nhà ga) gồm bộ thủ nào bên trái?", "options": ["Bộ Mã (馬 - con ngựa)", "Bộ Xích (彳- bước chân)", "Bộ Nhật (日 - mặt trời)", "Bộ Thổ (土 - đất đai)"], "correct": 0, "explain": "Chữ 「駅」 (Dịch) có bộ Mã (馬 - con ngựa) bên trái và chữ Xích (尺) bên phải. Thời xưa trạm bưu cục/ga ngựa là nơi đổi ngựa để chuyển công văn ➔ nay dùng làm Nhà ga tàu điện."}, {"id": 29, "category": "Kanji Bài 7: Động từ chờ đợi", "lesson": "A2-7", "q": "Chữ Hán 「待」 trong động từ 「待つ (まつ - chờ đợi)」 gồm những thành phần nào?", "options": ["Bộ Nhân (亻) ghép với chữ Mộc (木)", "Bộ Thủy (氵) ghép với chữ Thổ (土)", "Bộ Tâm (心) ghép với chữ Hỏa (火)", "Bộ Xích (彳 - bước chân đi) ghép với chữ Tự (寺 - ngôi chùa)"], "correct": 3, "explain": "Chữ 「待」 (Đãi) gồm bộ Xích (彳 - bước chân) đứng bên chữ Tự (寺 - ngôi chùa): Đứng dừng chân trước cổng chùa để chờ đợi ai đó."}, {"id": 30, "category": "Kanji Bài 8: Ghép từ 食事の 前に", "lesson": "A2-8", "q": "Cụm từ 「しょくじの まえに」 (trước bữa ăn) được viết bằng những chữ Hán nào?", "options": ["食事の 前に", "食言の 後に", "乗事の 前に", "朝昼の 後に"], "correct": 0, "explain": "Ghép chuẩn từ 3 chữ Hán trọng tâm Bài 8: 食 (Thực - ăn) + 事 (Sự - công việc/sự việc) ➔ 「食事 (しょくじ - bữa ăn)」 + 前 (Tiền - trước) ➔ 「食事の 前に (trước bữa ăn)」."}];
+
+    // Trạng thái ứng dụng
+    let currentVocabFilter = 'ALL';
+    let currentKanjiFilter = 'ALL';
+    let isMeaningHidden = false;
+    let userAnswers = {};
+
+    // Switch Main Tabs
+    function switchMainTab(tabId) {
+        document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        
+        document.getElementById(tabId).classList.add('active');
+        event.currentTarget.classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Render Vocab
+    function renderVocab(list) {
+        const container = document.getElementById('vocabContainer');
+        if (!list || list.length === 0) {
+            container.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--gray-500);">Không tìm thấy từ vựng phù hợp.</div>';
+            return;
+        }
+
+        container.innerHTML = list.map((item, idx) => `
+            <div class="vocab-card">
+                <div class="vocab-top">
+                    <span class="vocab-badge">${item.l}</span>
+                    <button class="sound-btn" onclick="speakText('${item.jp.replace(/'/g, "\'")}')" title="Nghe phát âm">🔊</button>
+                </div>
+                <div class="vocab-jp jp-text">${item.jp}</div>
+                <div class="vocab-vi ${isMeaningHidden ? 'hidden-meaning' : ''}" title="${isMeaningHidden ? 'Bấm để xem' : ''}" onclick="this.classList.toggle('hidden-meaning')">
+                    ${item.vi}
+                </div>
+            </div>
+        `).join('');
+    }
+
+    function filterVocab(lesson, btn) {
+        currentVocabFilter = lesson;
+        if (btn) {
+            btn.parentElement.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        }
+        applyVocabFilter();
+    }
+
+    function handleVocabSearch() {
+        applyVocabFilter();
+    }
+
+    let currentFilteredVocab = [...rawVocab];
+
+    function applyVocabFilter() {
+        const keyword = document.getElementById('vocabSearchInput').value.trim().toLowerCase();
+        let filtered = rawVocab;
+        if (currentVocabFilter !== 'ALL') {
+            filtered = filtered.filter(v => v.l === currentVocabFilter);
+        }
+        if (keyword) {
+            filtered = filtered.filter(v => 
+                v.jp.toLowerCase().includes(keyword) || 
+                v.vi.toLowerCase().includes(keyword)
+            );
+        }
+        currentFilteredVocab = filtered;
+        const countEl = document.getElementById('quizletVocabCount');
+        if (countEl) countEl.innerText = filtered.length;
+
+        renderVocab(filtered);
+    }
+
+    function copyVocabQuizletFormat() {
+        if (!currentFilteredVocab || currentFilteredVocab.length === 0) {
+            showToast("Không có từ vựng nào để sao chép!");
+            return;
+        }
+        const text = currentFilteredVocab.map(item => `${item.jp} : ${item.vi}`).join('\n');
+        navigator.clipboard.writeText(text).then(() => {
+            showToast(`Đã copy ${currentFilteredVocab.length} từ vựng chuẩn Quizlet!`);
+        }).catch(() => {
+            fallbackCopyText(text, currentFilteredVocab.length);
+        });
+    }
+
+    function copyFull121QuizletFormat() {
+        const text = rawVocab.map(item => `${item.jp} : ${item.vi}`).join('\n');
+        navigator.clipboard.writeText(text).then(() => {
+            showToast(`Đã copy toàn bộ ${rawVocab.length} từ vựng (Bài 5 - 8) chuẩn Quizlet!`);
+        }).catch(() => {
+            fallbackCopyText(text, rawVocab.length);
+        });
+    }
+
+    function fallbackCopyText(text, count) {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        showToast(`Đã copy ${count} từ vựng chuẩn Quizlet!`);
+    }
+
+    function showToast(msg) {
+        let toast = document.getElementById('toast');
+        if (!toast) {
+            toast = document.createElement('div');
+            toast.id = 'toast';
+            toast.className = 'toast';
+            document.body.appendChild(toast);
+        }
+        toast.innerText = msg;
+        toast.style.display = 'block';
+        setTimeout(() => { toast.style.display = 'none'; }, 2800);
+    }
+
+    function toggleHideMeaning() {
+        isMeaningHidden = !isMeaningHidden;
+        const btn = document.getElementById('hideMeaningBtn');
+        if (isMeaningHidden) {
+            btn.classList.add('active');
+            btn.innerHTML = '👁️ Đang ẩn nghĩa (Chạm vào thẻ để xem)';
+        } else {
+            btn.classList.remove('active');
+            btn.innerHTML = '👁️ Ẩn nghĩa tiếng Việt (Tự dò)';
+        }
+        document.querySelectorAll('.vocab-vi').forEach(el => {
+            if (isMeaningHidden) el.classList.add('hidden-meaning');
+            else el.classList.remove('hidden-meaning');
+        });
+    }
+
+    // Render Kanji
+    function renderKanji(list) {
+        const container = document.getElementById('kanjiContainer');
+        if (!list || list.length === 0) {
+            container.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--gray-500);">Không tìm thấy chữ Hán phù hợp.</div>';
+            return;
+        }
+
+        container.innerHTML = list.map(item => `
+            <div class="kanji-card">
+                <div class="kanji-header">
+                    <div class="kanji-char-box jp-text">${item.char}</div>
+                    <div class="kanji-meta">
+                        <div class="kanji-hv">${item.hv}</div>
+                        <div class="kanji-meaning">${item.meaning}</div>
+                        <div class="kanji-sub-row">
+                            <span class="kanji-tag">${item.lessonName}</span>
+                            <span class="kanji-tag">${item.strokes} nét</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="kanji-detail-box">
+                    <div class="kanji-reading-item">
+                        <strong>KUN:</strong> <span class="jp-text">${item.kun || '—'}</span>
+                    </div>
+                    <div class="kanji-reading-item">
+                        <strong>ON:</strong> <span class="jp-text">${item.on || '—'}</span>
+                    </div>
+                    <div class="kanji-reading-item">
+                        <strong>Chiết tự:</strong> <span>${item.formula}</span>
+                    </div>
+                </div>
+
+                <div class="kanji-mnemonic">
+                    💡 <strong>Mẹo nhớ:</strong> ${item.mnemonic}
+                </div>
+
+                <ul class="kanji-words">
+                    ${(item.examples || []).map(ex => `
+                        <li class="kanji-word-item">
+                            <span class="kw-jp jp-text">${ex.word} (${ex.reading})</span>
+                            <span class="kw-vi">${ex.vi}</span>
+                        </li>
+                    `).join('')}
+                </ul>
+            </div>
+        `).join('');
+    }
+
+    function filterKanji(lesson, btn) {
+        currentKanjiFilter = lesson;
+        if (btn) {
+            btn.parentElement.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        }
+        applyKanjiFilter();
+    }
+
+    function handleKanjiSearch() {
+        applyKanjiFilter();
+    }
+
+    function applyKanjiFilter() {
+        const keyword = document.getElementById('kanjiSearchInput').value.trim().toLowerCase();
+        let filtered = rawKanji;
+        if (currentKanjiFilter !== 'ALL') {
+            filtered = filtered.filter(k => k.lesson === currentKanjiFilter);
+        }
+        if (keyword) {
+            filtered = filtered.filter(k => 
+                k.char.includes(keyword) ||
+                k.hv.toLowerCase().includes(keyword) ||
+                k.meaning.toLowerCase().includes(keyword) ||
+                (k.kun && k.kun.toLowerCase().includes(keyword)) ||
+                (k.on && k.on.toLowerCase().includes(keyword))
+            );
+        }
+        renderKanji(filtered);
+    }
+
+    // Speech Audio Helper (Google Native Studio Voice + Fallback)
+    let currentMiniAudio = null;
+
+    function speakText(text) {
+        if (!text) return;
+        let clean = text.split('/')[0].replace(/[~〜()（）]/g, '').trim();
+        if (!clean) return;
+
+        if (currentMiniAudio) {
+            try {
+                currentMiniAudio.pause();
+                currentMiniAudio.currentTime = 0;
+            } catch(e) {}
+        }
+        if ('speechSynthesis' in window) {
+            try { window.speechSynthesis.cancel(); } catch(e) {}
+        }
+
+        // ƯU TIÊN 1: Âm thanh giọng bản xứ Nhật Bản chuẩn (Google Studio TTS)
+        const audioUrl = `https://translate.google.com/translate_tts?ie=UTF-8&tl=ja&client=tw-ob&q=${encodeURIComponent(clean)}`;
+        const audio = new Audio(audioUrl);
+        currentMiniAudio = audio;
+
+        const playPromise = audio.play();
+        if (playPromise !== undefined) {
+            playPromise.catch(() => {
+                // Fallback: Web Speech API ép chọn giọng Nhật
+                if ('speechSynthesis' in window) {
+                    try {
+                        const utter = new SpeechSynthesisUtterance(clean);
+                        utter.lang = 'ja-JP';
+                        utter.rate = 0.9;
+                        const voices = window.speechSynthesis.getVoices();
+                        const jaVoice = voices.find(v => v.lang === 'ja-JP' || v.lang === 'ja' || (v.lang && v.lang.startsWith('ja')));
+                        if (jaVoice) utter.voice = jaVoice;
+                        window.speechSynthesis.speak(utter);
+                    } catch(e) {}
+                }
+            });
+        }
+    }
+
+    // Render Quiz Questions
+    function renderQuiz() {
+        const container = document.getElementById('questionsContainer');
+        container.innerHTML = quizData.map((item, idx) => `
+            <div class="question-card" id="qCard_${item.id}">
+                <div class="q-header">
+                    <span class="q-num">Câu ${idx + 1} / ${quizData.length}</span>
+                    <span class="q-category">${item.lesson} • ${item.category}</span>
+                </div>
+                <div class="q-text jp-text">${item.q}</div>
+                <div class="options-list">
+                    ${item.options.map((opt, oIdx) => `
+                        <button class="opt-btn" id="optBtn_${item.id}_${oIdx}" onclick="selectAnswer(${item.id}, ${oIdx})">
+                            <span class="opt-key">${['A', 'B', 'C', 'D'][oIdx]}</span>
+                            <span class="jp-text">${opt}</span>
+                        </button>
+                    `).join('')}
+                </div>
+                <div class="q-explain" id="explain_${item.id}">
+                    💡 <strong>Giải thích chi tiết:</strong> ${item.explain}
+                </div>
+            </div>
+        `).join('');
+    }
+
+    function selectAnswer(qId, selectedIdx) {
+        if (userAnswers[qId] !== undefined) return; // Đã trả lời rồi thì không đổi
+
+        userAnswers[qId] = selectedIdx;
+        const qItem = quizData.find(q => q.id === qId);
+        const correctIdx = qItem.correct;
+
+        // Vô hiệu hóa các nút trong câu
+        qItem.options.forEach((_, idx) => {
+            const btn = document.getElementById(`optBtn_${qId}_${idx}`);
+            btn.disabled = true;
+            if (idx === correctIdx) {
+                btn.classList.add('correct');
+            } else if (idx === selectedIdx) {
+                btn.classList.add('wrong');
+            }
+        });
+
+        // Hiển thị giải thích
+        const explainEl = document.getElementById(`explain_${qId}`);
+        explainEl.style.display = 'block';
+
+        // Cập nhật điểm
+        updateScore();
+    }
+
+    function updateScore() {
+        let correctCount = 0;
+        let answeredCount = Object.keys(userAnswers).length;
+
+        quizData.forEach(q => {
+            if (userAnswers[q.id] === q.correct) {
+                correctCount++;
+            }
+        });
+
+        const percent = Math.round((correctCount / quizData.length) * 100);
+        document.getElementById('scoreDisplay').innerText = correctCount;
+        document.getElementById('quizProgressText').innerText = 
+            `Đã làm: ${answeredCount}/${quizData.length} câu • Tỷ lệ đúng: ${percent}%`;
+
+        if (answeredCount === quizData.length) {
+            let rank = "🏆 XUẤT SẮC!";
+            if (percent < 60) rank = "⚠️ CẦN ÔN TẬP THÊM!";
+            else if (percent < 80) rank = "👍 KHÁ TỐT!";
+            else if (percent < 90) rank = "🌟 RẤT GIỎI!";
+            
+            document.getElementById('quizStatusTitle').innerText = 
+                `HOÀN THÀNH: ${correctCount}/${quizData.length} ĐIỂM (${percent}%) - ${rank}`;
+        }
+    }
+
+    function resetQuiz() {
+        userAnswers = {};
+        document.getElementById('scoreDisplay').innerText = '0';
+        document.getElementById('quizStatusTitle').innerText = 'Bài Thi Thử Trọng Tâm Bài 5 - 8 (30 Câu Chuẩn Sư Phạm)';
+        document.getElementById('quizProgressText').innerText = `Đã làm: 0/${quizData.length} câu • Điểm số: 0%`;
+        renderQuiz();
+        window.scrollTo({ top: document.getElementById('tab-quiz').offsetTop - 60, behavior: 'smooth' });
+    }
+
+    // Khởi tạo ban đầu
+    document.addEventListener('DOMContentLoaded', () => {
+        applyVocabFilter();
+        renderKanji(rawKanji);
+        renderQuiz();
+        renderMinatoData();
+    });
+</script>
+
+<div id="toast" class="toast">Đã copy vào bộ nhớ tạm!</div>
+
+</body>
+</html>
