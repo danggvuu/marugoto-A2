@@ -14,7 +14,8 @@ Bạn có thể truy cập và sử dụng trực tiếp trên điện thoại h
 | 📘 **Luyện Tập Thể RU (Thể từ điển)** | [👉 Bấm để vào làm bài](https://danggvuu.github.io/marugoto-A2/the_ru.html) | Bảng 56 động từ chia thể RU, ngữ pháp sở thích `～Vること です` |
 | ⛩️ **Thẻ Học Chữ Hán Kanji A2-1** | [👉 Bấm để học Kanji](https://danggvuu.github.io/marugoto-A2/kanji_a2.html) | Thẻ Kanji chi tiết (Hán Việt, On, Kun, chiết tự, mẹo nhớ & ô tập viết) |
 | 📖 **Kho Từ Vựng Tổng Hợp** | [👉 Bấm để học từ vựng](https://danggvuu.github.io/marugoto-A2/Tu_Vung_Marugoto_A1_16_A2_1_10.html) | 380+ từ vựng A1 (Bài 16-18) & A2-1 (Bài 1-10) kèm Flashcard & Quiz |
-| 🎯 **Ôn Tập Mini Test (Bài 1-4)** | [👉 Bấm để vào ôn tập](https://danggvuu.github.io/marugoto-A2/On_Tap_Mini_Test_A2_1_4.html) | Trọn bộ 100% ngữ pháp, 121 từ vựng, 31 chữ Hán & 30 câu thi thử có giải thích |
+| 🎯 **Ôn Tập Mini Test (Bài 1-4)** | [👉 Bấm để vào ôn tập](https://danggvuu.github.io/marugoto-A2/On_Tap_Mini_Test_A2_1_4.html) | Trọn bộ 100% ngữ pháp, 121 từ vựng, 31 chữ Hán, 30 câu thi thử có giải thích & Dữ liệu gốc Minato JF |
+| ⛩️ **Tài Liệu Gốc Japan Foundation** | [👉 Marugoto A2-1 Wordbook](MarugotoA2-1Wordbook_eng.pdf) • [A2-2 Wordbook](MarugotoA2-2Wordbook_eng.pdf) | Bản quyền chính thức từ Trung tâm Giao lưu Quốc tế Nhật Bản (minato-jf.jp) |
 
 ---
 

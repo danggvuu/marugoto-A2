@@ -1,5 +1,9 @@
 .DS_Store
 *.pdf
+!MarugotoA2-1Wordbook_eng.pdf
+!MarugotoA2-2Wordbook_eng.pdf
+!K_contents_eng.pdf
+!R_contents_eng.pdf
 *.py
 Ke_Hoach_10_Ngay/
 Kiem_Tra_Marugoto_L6_7_8.html

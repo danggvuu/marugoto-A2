@@ -997,6 +997,7 @@
             <button class="tab-btn" onclick="switchMainTab('tab-kanji')">⛩️ 31 Chữ Hán</button>
             <button class="tab-btn" onclick="switchMainTab('tab-quiz')">🎯 Đề Thi Thử (30 Câu)</button>
             <button class="tab-btn" onclick="switchMainTab('tab-cheatsheet')">⚡ Cẩm Nang Bỏ Túi</button>
+            <button class="tab-btn" onclick="switchMainTab('tab-minato')">⛩️ Dữ Liệu Gốc Minato JF</button>
         </nav>
     </div>
 
@@ -1449,9 +1450,292 @@
         </div>
     </div>
 
+    <!-- ========================================== -->
+    <!-- TAB 6: DỮ LIỆU GỐC MINATO JF (OFFICIAL)     -->
+    <!-- ========================================== -->
+    <div id="tab-minato" class="tab-panel">
+        <!-- Verification Banner -->
+        <div style="background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); color: white; border-radius: var(--radius-lg); padding: 26px; margin-bottom: 25px; box-shadow: var(--shadow-md);">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+                <div>
+                    <span style="background: rgba(255,255,255,0.2); padding: 4px 12px; border-radius: 20px; font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">Verified Source • Japan Foundation</span>
+                    <h2 style="font-size: 1.55rem; font-weight: 800; margin: 10px 0 6px 0;">Hệ Thống Dữ Liệu Gốc Minato JF & Marugoto Online</h2>
+                    <p style="font-size: 0.95rem; opacity: 0.92; line-height: 1.5;">Dữ liệu đồng bộ trực tiếp từ máy chủ Trung tâm Giao lưu Quốc tế Nhật Bản (The Japan Foundation - minato-jf.jp & marugoto-online.jp).</p>
+                </div>
+                <div style="background: rgba(255,255,255,0.12); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.25); border-radius: 12px; padding: 14px 20px; text-align: right; font-size: 0.88rem;">
+                    <div>Học viên: <strong>danggvuu (dang08)</strong></div>
+                    <div>Khóa học: <span style="color: #55efc4; font-weight: 700;">Marugoto A2-1 Self-Study</span></div>
+                    <div style="font-size: 0.78rem; opacity: 0.8; margin-top: 4px;">ID: KC26_MGRS_A201_EN02</div>
+                </div>
+            </div>
+            <div style="margin-top: 18px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.2); display: flex; gap: 12px; flex-wrap: wrap;">
+                <a href="https://minato-jf.jp/LearningCourse/Index" target="_blank" style="background: white; color: #1e3c72; padding: 8px 18px; border-radius: 8px; font-weight: 700; text-decoration: none; font-size: 0.88rem; display: inline-flex; align-items: center; gap: 6px;">🔗 Cổng Học Minato JF ↗</a>
+                <a href="https://www.marugoto-online.jp/a2/course/1001-1/" target="_blank" style="background: rgba(255,255,255,0.2); color: white; padding: 8px 18px; border-radius: 8px; font-weight: 700; text-decoration: none; font-size: 0.88rem; display: inline-flex; align-items: center; gap: 6px;">🌐 Marugoto Online A2 ↗</a>
+            </div>
+        </div>
+
+        <!-- Download Original Master PDFs -->
+        <div class="content-card" style="border-left: 5px solid #0984e3;">
+            <div class="section-header">
+                <div>
+                    <h3 class="section-title">📥 Kho Tài Liệu Gốc Tải Về Trực Tiếp (PDF Master Files)</h3>
+                    <p style="color: var(--gray-500); font-size: 0.9rem; margin-top: 4px;">Toàn bộ sách từ vựng và khung giáo trình chính thức tải nguyên gốc từ máy chủ Japan Foundation.</p>
+                </div>
+                <span class="section-badge" style="background: #eaf2fd; color: #0984e3;">Bản Quyền JF</span>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; margin-top: 12px;">
+                <a href="MarugotoA2-1Wordbook_eng.pdf" target="_blank" style="display: block; padding: 18px; background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 12px; text-decoration: none; color: inherit; transition: all 0.2s ease;">
+                    <div style="font-size: 1.8rem; margin-bottom: 8px;">📕</div>
+                    <div style="font-weight: 800; color: var(--primary); font-size: 1.05rem;">Marugoto A2-1 Wordbook</div>
+                    <div style="font-size: 0.85rem; color: var(--gray-600); margin-top: 4px;">Toàn bộ từ vựng chính thức Bài 1 - 9 (3.2 MB PDF). Tra cứu chuẩn xác.</div>
+                    <div style="margin-top: 10px; font-size: 0.8rem; font-weight: 700; color: #0984e3;">Mở / Tải file PDF ➔</div>
+                </a>
+                <a href="MarugotoA2-2Wordbook_eng.pdf" target="_blank" style="display: block; padding: 18px; background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 12px; text-decoration: none; color: inherit; transition: all 0.2s ease;">
+                    <div style="font-size: 1.8rem; margin-bottom: 8px;">📗</div>
+                    <div style="font-weight: 800; color: #10b981; font-size: 1.05rem;">Marugoto A2-2 Wordbook</div>
+                    <div style="font-size: 0.85rem; color: var(--gray-600); margin-top: 4px;">Toàn bộ từ vựng chính thức Bài 10 - 18 (2.6 MB PDF).</div>
+                    <div style="margin-top: 10px; font-size: 0.8rem; font-weight: 700; color: #10b981;">Mở / Tải file PDF ➔</div>
+                </a>
+                <a href="R_contents_eng.pdf" target="_blank" style="display: block; padding: 18px; background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 12px; text-decoration: none; color: inherit; transition: all 0.2s ease;">
+                    <div style="font-size: 1.8rem; margin-bottom: 8px;">📑</div>
+                    <div style="font-weight: 800; color: #f59e0b; font-size: 1.05rem;">Rikai Course Contents</div>
+                    <div style="font-size: 0.85rem; color: var(--gray-600); margin-top: 4px;">Khung mục tiêu ngữ pháp & lý giải toàn bộ khóa học A2 (PDF).</div>
+                    <div style="margin-top: 10px; font-size: 0.8rem; font-weight: 700; color: #f59e0b;">Mở / Tải file PDF ➔</div>
+                </a>
+                <a href="K_contents_eng.pdf" target="_blank" style="display: block; padding: 18px; background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 12px; text-decoration: none; color: inherit; transition: all 0.2s ease;">
+                    <div style="font-size: 1.8rem; margin-bottom: 8px;">🗣️</div>
+                    <div style="font-weight: 800; color: #8b5cf6; font-size: 1.05rem;">Katsudoo Course Contents</div>
+                    <div style="font-size: 0.85rem; color: var(--gray-600); margin-top: 4px;">Khung hoạt động giao tiếp Can-do toàn bộ khóa học A2 (PDF).</div>
+                    <div style="margin-top: 10px; font-size: 0.8rem; font-weight: 700; color: #8b5cf6;">Mở / Tải file PDF ➔</div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Section 1: Official Appendix 04 - Complete Particles Matrix -->
+        <div class="content-card">
+            <div class="section-header">
+                <div>
+                    <h3 class="section-title">📌 Bảng Tra Cứu Trợ Từ Gốc (Official Appendix 04)</h3>
+                    <p style="color: var(--gray-500); font-size: 0.9rem; margin-top: 4px;">Trích xuất chính xác 100% từ mục Phụ lục trợ từ (じょし) của Marugoto Online A2.</p>
+                </div>
+                <div style="display: flex; gap: 8px;">
+                    <input type="text" id="particleSearchInput" placeholder="Tìm trợ từ (が, に, で...)..." oninput="filterParticlesTable()" style="padding: 7px 14px; border: 1.5px solid var(--gray-300); border-radius: 8px; font-size: 0.88rem; outline: none;">
+                </div>
+            </div>
+            <div style="overflow-x: auto;">
+                <table style="width: 100%; border-collapse: collapse; font-size: 0.92rem; text-align: left;">
+                    <thead>
+                        <tr style="background: #f1f5f9; border-bottom: 2px solid #cbd5e1; color: var(--gray-700);">
+                            <th style="padding: 12px 14px; width: 90px;">Trợ từ</th>
+                            <th style="padding: 12px 14px;">Mẫu câu chuẩn gốc JF</th>
+                            <th style="padding: 12px 14px; width: 230px;">Cấu trúc ngữ pháp</th>
+                            <th style="padding: 12px 14px; width: 170px;">Chức năng / Lưu ý</th>
+                            <th style="padding: 12px 14px; width: 75px; text-align: center;">Bài</th>
+                        </tr>
+                    </thead>
+                    <tbody id="particlesTableBody">
+                        <!-- Render via JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Section 2: Official Appendix 03 - Adjectives & Nouns Connections -->
+        <div class="content-card">
+            <div class="section-header">
+                <div>
+                    <h3 class="section-title">🔗 Bảng Thể Nối Tính Từ & Danh Từ (Official Appendix 03)</h3>
+                    <p style="color: var(--gray-500); font-size: 0.9rem; margin-top: 4px;">Quy tắc biến đổi thể nối <code>～くて / ～で</code>, thể phủ định <code>～くなくて / ～じゃなくて</code>, thể đối lập <code>～けど / ～だけど</code>.</p>
+                </div>
+            </div>
+            <div style="overflow-x: auto;">
+                <table style="width: 100%; border-collapse: collapse; font-size: 0.92rem; text-align: left;">
+                    <thead>
+                        <tr style="background: #fdf2f8; border-bottom: 2px solid #fbcfe8; color: #831843;">
+                            <th style="padding: 12px 14px;">Từ gốc</th>
+                            <th style="padding: 12px 14px;">Khẳng định</th>
+                            <th style="padding: 12px 14px;">Phủ định</th>
+                            <th style="padding: 12px 14px; background: #fef08a;">Thể nối (～くて / ～で)</th>
+                            <th style="padding: 12px 14px;">Nối phủ định</th>
+                            <th style="padding: 12px 14px; background: #e0e7ff;">Đối lập (～けど)</th>
+                            <th style="padding: 12px 14px;">Biến đổi (～なります)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="adjectivesTableBody">
+                        <!-- Render via JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Section 3: Official 9 Topics Kanji Syllabus -->
+        <div class="content-card">
+            <div class="section-header">
+                <div>
+                    <h3 class="section-title">⛩️ Ma Trận Chữ Hán Toàn Bộ 9 Topic (Official Kanji Table)</h3>
+                    <p style="color: var(--gray-500); font-size: 0.9rem; margin-top: 4px;">Bảng phân bổ chính thức toàn bộ chữ Hán từ Bài 1 đến Bài 18 của Japan Foundation.</p>
+                </div>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px;" id="kanjiTopicsContainer">
+                <!-- Render via JS -->
+            </div>
+        </div>
+    </div>
+
 </div>
 
 <script>
+    // ==========================================
+    // DỮ LIỆU GỐC TRÍCH XUẤT TỪ MINATO JF
+    // ==========================================
+    const minatoParticles = [
+        { p: "か", ex: "かぞくは 何人ですか。", st: "Sか。", l: "L1", note: "Câu hỏi nghi vấn" },
+        { p: "か", ex: "火よう日か木よう日は どうですか。", st: "N1かN2", l: "L9", note: "Lựa chọn hoặc/hay" },
+        { p: "が", ex: "冬が好きです。", st: "N／イA‐いの／ナA‐なのが好きです。", l: "L3", note: "Đối tượng của tính từ yêu thích" },
+        { p: "が", ex: "スキーができます。", st: "Nができます。", l: "L3", note: "Khả năng, có thể làm gì" },
+        { p: "が", ex: "花がたくさん さきます。", st: "NがVます。", l: "L4", note: "Hiện tượng tự nhiên khách quan" },
+        { p: "が", ex: "外は 強い 風が ふいています。", st: "NがVます。", l: "L4", note: "Gió thổi (Hiện tượng tự nhiên)" },
+        { p: "が", ex: "この ホテルは 古いですが、きれいです。", st: "S1が、S2。", l: "L13", note: "Liên từ nối tương phản 'nhưng'" },
+        { p: "が", ex: "すみません、JFビルに 行きたいんですが。", st: "～んですが", l: "L6", note: "Mào đầu câu chuyện nhờ vả/hỏi đường" },
+        { p: "が", ex: "スペイン語は、たんごがかんたんです。", st: "N1は N2がイA／ナA です。", l: "L9", note: "Vị ngữ chỉ bộ phận / đặc điểm" },
+        { p: "から", ex: "らいねんから びょういんで はたらきます。", st: "Nから", l: "L1", note: "Mốc thời gian bắt đầu (từ...)" },
+        { p: "から", ex: "うちから かいしゃまで どうやって 行きますか。", st: "N1から N2まで", l: "L1", note: "Từ địa điểm A đến địa điểm B" },
+        { p: "から", ex: "さとうさんは ジョイさんから 花を もらいます。", st: "Nから もらいます", l: "L17", note: "Nhận từ ai đó" },
+        { p: "から", ex: "夏休みが ありますから、夏が いちばん 好きです。", st: "S1から、S2。", l: "L3", note: "Chỉ lý do, nguyên nhân (vì... nên...)" },
+        { p: "ぐらい", ex: "でんしゃで 30分ぐらいです。", st: "Số lượng + ぐらい", l: "L1", note: "Khoảng chừng (thời gian/số lượng)" },
+        { p: "ぐらい", ex: "年に 3回ぐらい マレーシアへ 行きます。", st: "Khoảng thời gian + ぐらい", l: "L10", note: "Mức độ tần suất (khoảng ~ lần)" },
+        { p: "けど", ex: "この ゆうえんちは たのしいけど、とおいです。", st: "Nだけど／イA‐いけど／ナA‐だけど", l: "L5", note: "Liên từ nhưng (văn nói tự nhiên thân mật)" },
+        { p: "で", ex: "東京で 日本語を べんきょうしています。", st: "Địa điểm + で + V", l: "L1", note: "Nơi diễn ra hành động cụ thể" },
+        { p: "で", ex: "でんしゃで 行きます。", st: "Phương tiện + で", l: "L1", note: "Phương tiện đi lại / công cụ" },
+        { p: "で", ex: "中国人の ともだちと 何語で 話しますか。", st: "Ngôn ngữ + で", l: "L2", note: "Phương tiện ngôn ngữ giao tiếp" },
+        { p: "で", ex: "じゅうたいで おくれます。", st: "Nguyên nhân + で", l: "L7", note: "Nguyên nhân khách quan (tắc đường...)" },
+        { p: "で", ex: "結婚の お祝いに 2人で 使う ものを あげます。", st: "Số người + で", l: "L17", note: "Phạm vi số lượng người thực hiện" },
+        { p: "でも", ex: "６時半でも いいですか。", st: "Nでも いいですか", l: "L7", note: "Đưa ra gợi ý / dù là... cũng được chứ" },
+        { p: "と", ex: "かぞくは 父と 母と 私です。", st: "N1 と N2", l: "L1", note: "Liệt kê toàn bộ (và/với)" },
+        { p: "と", ex: "中国人の ともだちと 話します。", st: "Người + と", l: "L2", note: "Cùng làm gì với ai đó" },
+        { p: "と", ex: "ドイツ語は 日本語と ちがいます。", st: "N1は N2と ちがいます", l: "L9", note: "So sánh khác với cái gì" },
+        { p: "と", ex: "誕生日の お祝いは パーティーが いいと思います。", st: "～と 思います", l: "L18", note: "Trợ từ trích dẫn ý nghĩ / quan điểm" },
+        { p: "と", ex: "夜 ねる 前に、おふろに 入ると いいですよ。", st: "V‐ると いいです", l: "L15", note: "Quy luật / Lời khuyên hễ... thì tốt" },
+        { p: "など", ex: "この あたりに 高い ビルや ホテルなどが あります。", st: "N1や N2など", l: "L5", note: "Liệt kê không đầy đủ (vân vân...)" },
+        { p: "や", ex: "この あたりは ゆうえんちや こうえんが あります。", st: "N1 や N2", l: "L5", note: "Liệt kê tiêu biểu đại diện" },
+        { p: "に", ex: "東京に すんでいます。", st: "Địa điểm + に すんでいます", l: "L1", note: "Nơi cư trú, tồn tại cố định" },
+        { p: "に", ex: "まいにち １０時に かいしゃに 行きます。", st: "Thời gian + に / Điểm đến + に", l: "L1", note: "Thời điểm xác định / Đích đến di chuyển" },
+        { p: "に", ex: "春に なります。", st: "Nに / ナA‐に なります", l: "L3", note: "Biến đổi trạng thái (trở thành, sang)" },
+        { p: "に", ex: "しんごうを みぎに まがってください。", st: "Hướng + に まがります", l: "L6", note: "Hướng rẽ / chuyển hướng" },
+        { p: "に", ex: "ともだちに えいごを おしえています。", st: "Đối tượng + に", l: "L1", note: "Đối tượng tiếp nhận hành động" },
+        { p: "に", ex: "ともだちと カラオケに 行きます。", st: "N / V-(bỏ masu) + に 行きます", l: "L8", note: "Mục đích của việc đi / đến" },
+        { p: "に", ex: "週に １回 フラメンコを ならっています。", st: "Khoảng thời gian + に ～回", l: "L10", note: "Tần suất trong một khoảng thời gian" },
+        { p: "ね", ex: "きのうは すごい 雨でしたね。", st: "Sね。", l: "L4", note: "Đồng tình / Tìm kiếm sự đồng cảm" },
+        { p: "の", ex: "私の かぞく / でんしゃの かいしゃ", st: "N1の N2", l: "L1", note: "Sở hữu / Thuộc tính bổ nghĩa" },
+        { p: "の", ex: "あついのが にがてです。", st: "Tính từ + の", l: "L3", note: "Danh từ hóa tính từ (cái nóng...)" },
+        { p: "の", ex: "スペイン語は 読むのが ちょっと むずかしいです。", st: "V-る + のが Tính từ", l: "L9", note: "Danh từ hóa hành động (việc đọc...)" },
+        { p: "は", ex: "私は ジョイ・カーターです。", st: "Nは", l: "L1", note: "Chủ đề chính của câu nói" },
+        { p: "は", ex: "しごとは していません。", st: "Tân ngữ + は + Phủ định", l: "L1", note: "Đưa lên nhấn mạnh phủ định" },
+        { p: "まで", ex: "うちから かいしゃまで", st: "Nまで", l: "L1", note: "Giới hạn điểm đến / thời gian kết thúc" },
+        { p: "も", ex: "おじいちゃんも いっしょに 行きます。", st: "Nも", l: "L1", note: "Đồng nhất (cũng...)" },
+        { p: "よ", ex: "らいしゅう、広島に 行きますよ。", st: "Sよ。", l: "L1", note: "Cung cấp thông tin mới cho người nghe" },
+        { p: "を", ex: "日本語を べんきょうしています。", st: "Nを Vます", l: "L1", note: "Tân ngữ trực tiếp của ngoại động từ" },
+        { p: "を", ex: "この とおりを まっすぐ 行きます。", st: "Đoạn đường + を 行きます", l: "L6", note: "Không gian đi qua / di chuyển xuyên qua" },
+        { p: "を", ex: "ふじみえきで でんしゃを おります。", st: "Phương tiện + を おります", l: "L6", note: "Rời khỏi / bước xuống phương tiện" },
+        { p: "（の）ために", ex: "けんこうの ために うんどうを しましょう。", st: "Nのために", l: "L15", note: "Vì mục đích / cho lợi ích của..." },
+        { p: "について", ex: "らいしゅうの ピクニックに ついて れんらくします。", st: "Nについて", l: "L11", note: "Về chủ đề / nội dung gì đó" }
+    ];
+
+    const minatoAdjectives = [
+        { jp: "あつい (Nóng)", plain: "あついです", neg: "あつくないです", connect: "あつくて", connectNeg: "あつくなくて", contrast: "あつい けど (L5)", become: "あつく なります (L3)" },
+        { jp: "おいしい (Ngon)", plain: "おいしいです", neg: "おいしくないです", connect: "おいしくて", connectNeg: "おいしくなくて", contrast: "おいしい けど (L5)", become: "おいしく なります" },
+        { jp: "いたい (Đau)", plain: "いたいです", neg: "いたくないです", connect: "いたくて", connectNeg: "いたくなくて", contrast: "いたい けど", become: "いたく なります" },
+        { jp: "いい / よい (Tốt)", plain: "いいです", neg: "よくないです", connect: "よくて", connectNeg: "よくなくて", contrast: "いい けど (L5)", become: "よく なります" },
+        { jp: "すき (Thích)", plain: "すきです", neg: "すきじゃないです", connect: "すきで", connectNeg: "すきじゃなくて", contrast: "すき だけど (L5)", become: "すきに なります" },
+        { jp: "きれい (Đẹp/Sạch)", plain: "きれいです", neg: "きれいじゃないです", connect: "きれいで", connectNeg: "きれいじゃなくて", contrast: "きれい だけど (L5)", become: "きれいに なります (L3)" },
+        { jp: "べんり (Tiện lợi)", plain: "べんりです", neg: "べんりじゃないです", connect: "べんりで", connectNeg: "べんりじゃなくて", contrast: "べんり だけど (L5)", become: "べんりに なります" },
+        { jp: "しずか (Yên tĩnh)", plain: "しずかです", neg: "しずかじゃないです", connect: "しずかで", connectNeg: "しずかじゃなくて", contrast: "しずか だけど (L5)", become: "しずかに なります" },
+        { jp: "あめ (Mưa - N)", plain: "あめです", neg: "あめじゃないです", connect: "あめで", connectNeg: "あめじゃなくて", contrast: "あめ だけど (L5)", become: "あめに なります" },
+        { jp: "こども (Trẻ em - N)", plain: "こどもです", neg: "こどもじゃないです", connect: "こどもで", connectNeg: "こどもじゃなくて", contrast: "こども だけど (L5)", become: "こどもに なります" }
+    ];
+
+    const minatoKanjiTopics = [
+        { topic: "Topic 1: 私と家族 (Bài 1 - 2)", l1: "私 父 母 子 男 女 人 何", l2: "国 外 語 日 本 英 中 人 好 読 書 何", desc: "Bản thân, gia đình, ngôn ngữ và quốc tịch" },
+        { topic: "Topic 2: 季節と天気 (Bài 3 - 4)", l1: "春 夏 秋 冬 今 花 海 山 川", l2: "今 日 天 気 晴 雨 雪 雲 風 空", desc: "Bốn mùa, thiên nhiên và hiện tượng thời tiết khí tượng" },
+        { topic: "Topic 3: わたしの町 (Bài 5 - 6)", l1: "町 店 人 気 多 少 高 安 広", l2: "道 通 右 左 一 二 赤 青 黒 白", desc: "Phố xá, cửa hàng, chỉ đường và màu sắc" },
+        { topic: "Topic 4: 出かける (Bài 7 - 8)", l1: "時 間 場 所 駅 日 出 待 止", l2: "食 事 仕 前 後 朝 昼 夜 乗", desc: "Thời gian, địa điểm, ga tàu và ăn uống" },
+        { topic: "Topic 5: 日本語と文化 (Bài 9 - 10)", l1: "学 校 小 中 高 大 先 生 年 勉 強", l2: "文 化 音 楽 旅 行 留 学 友 週 回", desc: "Trường học, văn hóa, âm nhạc và du học" },
+        { topic: "Topic 6: 外食 (Bài 11 - 12)", l1: "食 物 飲 茶 酒 作 持 願", l2: "料 理 味 色 野 菜 少 中 入", desc: "Đồ ăn, thức uống, gọi món và hương vị" },
+        { topic: "Topic 7: 出張 (Bài 13 - 14)", l1: "会 社 本 支 出 張 空 港 発 到 着 午 前 後", l2: "自 分 電 話 気 車 送 使 借", desc: "Công ty, công tác, sân bay và phương tiện" },
+        { topic: "Topic 8: 健康 (Bài 15 - 16)", l1: "体 頭 目 口 耳 手 足 上 下", l2: "毎 朝 日 週 末 元 気 外 起 歩 走 泳", desc: "Bộ phận cơ thể, sức khỏe và thể dục thể thao" },
+        { topic: "Topic 9: お祝い (Bài 17 - 18)", l1: "祝 誕 生 日 結 婚 絵 写 真 時 計 着", l2: "先 週 今 月 来 年 去 家 思", desc: "Chúc mừng, sinh nhật, kết hôn và quà tặng" }
+    ];
+
+    function renderMinatoData() {
+        // Render Particles
+        filterParticlesTable();
+
+        // Render Adjectives
+        const adjBody = document.getElementById('adjectivesTableBody');
+        if (adjBody) {
+            adjBody.innerHTML = minatoAdjectives.map(item => `
+                <tr style="border-bottom: 1px solid #f1f5f9;">
+                    <td style="padding: 10px 14px; font-weight: 700; color: #1e293b;">${item.jp}</td>
+                    <td style="padding: 10px 14px;">${item.plain}</td>
+                    <td style="padding: 10px 14px;">${item.neg}</td>
+                    <td style="padding: 10px 14px; font-weight: 700; color: #854d0e; background: #fefce8;">${item.connect}</td>
+                    <td style="padding: 10px 14px; color: #dc2626;">${item.connectNeg}</td>
+                    <td style="padding: 10px 14px; font-weight: 700; color: #3730a3; background: #eef2ff;">${item.contrast}</td>
+                    <td style="padding: 10px 14px; color: #047857;">${item.become}</td>
+                </tr>
+            `).join('');
+        }
+
+        // Render Kanji Topics
+        const kanjiBox = document.getElementById('kanjiTopicsContainer');
+        if (kanjiBox) {
+            kanjiBox.innerHTML = minatoKanjiTopics.map(t => `
+                <div style="background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 12px; padding: 18px;">
+                    <div style="font-weight: 800; color: var(--primary); font-size: 1.02rem; margin-bottom: 4px;">${t.topic}</div>
+                    <div style="font-size: 0.82rem; color: var(--gray-500); margin-bottom: 12px;">${t.desc}</div>
+                    <div style="background: white; border: 1px solid #cbd5e1; border-radius: 8px; padding: 10px 12px; margin-bottom: 8px;">
+                        <span style="font-size: 0.78rem; font-weight: 700; color: #64748b;">BÀI LẺ:</span>
+                        <div style="font-size: 1.25rem; font-weight: 800; color: #0f172a; letter-spacing: 4px; margin-top: 2px;">${t.l1}</div>
+                    </div>
+                    <div style="background: white; border: 1px solid #cbd5e1; border-radius: 8px; padding: 10px 12px;">
+                        <span style="font-size: 0.78rem; font-weight: 700; color: #64748b;">BÀI CHẴN:</span>
+                        <div style="font-size: 1.25rem; font-weight: 800; color: #0f172a; letter-spacing: 4px; margin-top: 2px;">${t.l2}</div>
+                    </div>
+                </div>
+            `).join('');
+        }
+    }
+
+    function filterParticlesTable() {
+        const query = (document.getElementById('particleSearchInput')?.value || '').trim().toLowerCase();
+        const tbody = document.getElementById('particlesTableBody');
+        if (!tbody) return;
+
+        const filtered = minatoParticles.filter(item => {
+            if (!query) return true;
+            return item.p.toLowerCase().includes(query) ||
+                   item.ex.toLowerCase().includes(query) ||
+                   item.st.toLowerCase().includes(query) ||
+                   item.note.toLowerCase().includes(query) ||
+                   item.l.toLowerCase().includes(query);
+        });
+
+        if (filtered.length === 0) {
+            tbody.innerHTML = '<tr><td colspan="5" style="text-align: center; padding: 25px; color: var(--gray-500);">Không tìm thấy trợ từ phù hợp.</td></tr>';
+            return;
+        }
+
+        tbody.innerHTML = filtered.map(item => `
+            <tr style="border-bottom: 1px solid #f1f5f9; transition: background 0.15s;" onmouseover="this.style.background='#f8fafc'" onmouseout="this.style.background='transparent'">
+                <td style="padding: 10px 14px; font-weight: 800; color: var(--primary); font-size: 1.05rem;">${item.p}</td>
+                <td style="padding: 10px 14px; font-family: inherit;" class="jp-text">${item.ex}</td>
+                <td style="padding: 10px 14px; color: #475569; font-weight: 600; font-size: 0.88rem;"><code>${item.st}</code></td>
+                <td style="padding: 10px 14px; color: #334155; font-size: 0.88rem;">${item.note}</td>
+                <td style="padding: 10px 14px; text-align: center;"><span style="background: #e2e8f0; color: #334155; padding: 2px 8px; border-radius: 6px; font-weight: 700; font-size: 0.8rem;">${item.l}</span></td>
+            </tr>
+        `).join('');
+    }
+
     // Dữ liệu nhúng trực tiếp
     const rawVocab = [{"l": "A2-1", "jp": "りょうしん", "vi": "Bố mẹ"}, {"l": "A2-1", "jp": "きょうだい", "vi": "Anh chị em"}, {"l": "A2-1", "jp": "しまい", "vi": "Chị em gái"}, {"l": "A2-1", "jp": "しんせき", "vi": "Họ hàng"}, {"l": "A2-1", "jp": "そふ/おじいさん", "vi": "Ông"}, {"l": "A2-1", "jp": "そぼ/おばあさん", "vi": "Bà"}, {"l": "A2-1", "jp": "おじ/おじさん", "vi": "Chú, bác trai"}, {"l": "A2-1", "jp": "おば/おばさん", "vi": "Cô, bác gái, dì"}, {"l": "A2-1", "jp": "おっと/ごしゅじん", "vi": "Chồng mình / Chồng người khác"}, {"l": "A2-1", "jp": "つま/おくさん", "vi": "Vợ mình / Vợ người khác"}, {"l": "A2-1", "jp": "むすこ/むすこさん", "vi": "Con trai mình / Con trai người khác"}, {"l": "A2-1", "jp": "むすめ/むすめさん", "vi": "Con gái mình / Con gái người khác"}, {"l": "A2-1", "jp": "わたしたち", "vi": "Chúng tôi"}, {"l": "A2-1", "jp": "イタリア", "vi": "Nước Ý"}, {"l": "A2-1", "jp": "ブラジル", "vi": "Nước Brazil"}, {"l": "A2-1", "jp": "オーストラリア", "vi": "Nước Úc"}, {"l": "A2-1", "jp": "オペラ", "vi": "Opera"}, {"l": "A2-1", "jp": "すみます/すんでいます", "vi": "Sinh sống"}, {"l": "A2-1", "jp": "はたらきます", "vi": "Làm việc"}, {"l": "A2-1", "jp": "おしえます", "vi": "Dạy, chỉ cho biết"}, {"l": "A2-1", "jp": "かいご", "vi": "Điều dưỡng"}, {"l": "A2-1", "jp": "ところ", "vi": "Nơi"}, {"l": "A2-1", "jp": "けっこん(します)", "vi": "Kết hôn"}, {"l": "A2-2", "jp": "(りょうりを)つくります", "vi": "Làm, nấu (món ăn)"}, {"l": "A2-2", "jp": "(きってを)あつめます", "vi": "Sưu tập (tem)"}, {"l": "A2-2", "jp": "ともだちに なります", "vi": "Trở thành bạn bè"}, {"l": "A2-2", "jp": "うたいます", "vi": "Hát"}, {"l": "A2-2", "jp": "およぎます", "vi": "Bơi"}, {"l": "A2-2", "jp": "すいえい", "vi": "Việc bơi lội"}, {"l": "A2-2", "jp": "ドライブ", "vi": "Lái xe đi chơi"}, {"l": "A2-2", "jp": "ひま(な)", "vi": "Rảnh rỗi"}, {"l": "A2-2", "jp": "わかい", "vi": "Trẻ"}, {"l": "A2-2", "jp": "きって", "vi": "Tem"}, {"l": "A2-2", "jp": "コイン", "vi": "Đồng xu"}, {"l": "A2-2", "jp": "おかし", "vi": "Bánh kẹo"}, {"l": "A2-2", "jp": "たこあげ", "vi": "Thả diều"}, {"l": "A2-2", "jp": "コメント", "vi": "Nhận xét, bình luận"}, {"l": "A2-2", "jp": "チキン", "vi": "Thịt gà"}, {"l": "A2-2", "jp": "しょうかい(します)", "vi": "Giới thiệu"}, {"l": "A2-2", "jp": "じこしょうかい", "vi": "Giới thiệu bản thân"}, {"l": "A2-2", "jp": "とくい(な)", "vi": "Giỏi, thành thạo"}, {"l": "A2-2", "jp": "しあい", "vi": "Trận đấu"}, {"l": "A2-2", "jp": "えんげき", "vi": "Kịch"}, {"l": "A2-2", "jp": "あみもの", "vi": "Đan móc len"}, {"l": "A2-2", "jp": "ガーデニング", "vi": "Làm vườn"}, {"l": "A2-2", "jp": "サイクリング", "vi": "Đạp xe dạo"}, {"l": "A2-2", "jp": "フルーツ", "vi": "Trái cây, hoa quả"}, {"l": "A2-2", "jp": "フルーツケーキ", "vi": "Bánh trái cây"}, {"l": "A2-2", "jp": "チェス", "vi": "Cờ vua"}, {"l": "A2-2", "jp": "ざんぎょう", "vi": "Tăng ca, OT"}, {"l": "A2-2", "jp": "ぎゅうどん", "vi": "Cơm thịt bò kiểu Nhật"}, {"l": "A2-2", "jp": "いろいろ(な)", "vi": "Nhiều, đa dạng"}, {"l": "A2-3", "jp": "きせつ", "vi": "Mùa"}, {"l": "A2-3", "jp": "てんき", "vi": "Thời tiết"}, {"l": "A2-3", "jp": "はる", "vi": "Mùa xuân"}, {"l": "A2-3", "jp": "なつ", "vi": "Mùa hè"}, {"l": "A2-3", "jp": "あき", "vi": "Mùa thu"}, {"l": "A2-3", "jp": "ふゆ", "vi": "Mùa đông"}, {"l": "A2-3", "jp": "あつい", "vi": "Nóng"}, {"l": "A2-3", "jp": "むしあつい", "vi": "Nóng nồm, ẩm, oi bức"}, {"l": "A2-3", "jp": "さむい", "vi": "Lạnh"}, {"l": "A2-3", "jp": "すずしい", "vi": "Mát mẻ"}, {"l": "A2-3", "jp": "あたたかい", "vi": "Ấm áp"}, {"l": "A2-3", "jp": "あめ", "vi": "Mưa"}, {"l": "A2-3", "jp": "あめが ふります", "vi": "Mưa rơi"}, {"l": "A2-3", "jp": "うき", "vi": "Mùa mưa (nhiệt đới)"}, {"l": "A2-3", "jp": "かんき", "vi": "Mùa khô"}, {"l": "A2-3", "jp": "つゆ", "vi": "Mùa mưa đầu hè (Nhật Bản)"}, {"l": "A2-3", "jp": "ゆき", "vi": "Tuyết"}, {"l": "A2-3", "jp": "ゆきが ふります", "vi": "Tuyết rơi"}, {"l": "A2-3", "jp": "~ど", "vi": "... độ"}, {"l": "A2-3", "jp": "きおん", "vi": "Nhiệt độ không khí"}, {"l": "A2-3", "jp": "(お)しょうがつ", "vi": "Tết Dương Lịch"}, {"l": "A2-3", "jp": "はなが さきます", "vi": "Hoa nở"}, {"l": "A2-3", "jp": "(お)はなみ", "vi": "Ngắm hoa anh đào"}, {"l": "A2-3", "jp": "にゅうがくしき", "vi": "Lễ nhập học"}, {"l": "A2-3", "jp": "ひまわり", "vi": "Hoa hướng dương"}, {"l": "A2-3", "jp": "あじさい", "vi": "Hoa cẩm tú cầu"}, {"l": "A2-3", "jp": "たんぼ", "vi": "Đồng lúa"}, {"l": "A2-3", "jp": "すいか", "vi": "Dưa hấu"}, {"l": "A2-3", "jp": "ゆかた", "vi": "Bộ Yukata (Kimono mùa hè)"}, {"l": "A2-3", "jp": "もみじ", "vi": "Lá phong"}, {"l": "A2-3", "jp": "つきみ", "vi": "Trung thu, ngắm trăng"}, {"l": "A2-3", "jp": "ぶどう", "vi": "Nho"}, {"l": "A2-3", "jp": "スキー", "vi": "Trượt tuyết"}, {"l": "A2-3", "jp": "こたつ", "vi": "Bàn sưởi"}, {"l": "A2-3", "jp": "みかん", "vi": "Quả quýt"}, {"l": "A2-3", "jp": "なべりょうり", "vi": "Lẩu"}, {"l": "A2-3", "jp": "セーター", "vi": "Áo len"}, {"l": "A2-3", "jp": "うみ", "vi": "Biển"}, {"l": "A2-3", "jp": "やま", "vi": "Núi"}, {"l": "A2-3", "jp": "かわ", "vi": "Sông"}, {"l": "A2-3", "jp": "だんだん", "vi": "Dần dần"}, {"l": "A2-3", "jp": "にがて(な)", "vi": "Tệ, kém, không hợp..."}, {"l": "A2-3", "jp": "なります", "vi": "Trở nên, trở thành"}, {"l": "A2-3", "jp": "だいたい", "vi": "Đại khái"}, {"l": "A2-4", "jp": "はれ/はれます", "vi": "Trời đẹp, quang đãng"}, {"l": "A2-4", "jp": "くもり/くもります", "vi": "Âm u, nhiều mây"}, {"l": "A2-4", "jp": "あめが やみます", "vi": "Mưa tạnh"}, {"l": "A2-4", "jp": "ゆきが つもります", "vi": "Tuyết chất dày, chất đống"}, {"l": "A2-4", "jp": "かぜ", "vi": "Gió"}, {"l": "A2-4", "jp": "かぜが ふきます", "vi": "Gió thổi"}, {"l": "A2-4", "jp": "たいふう", "vi": "Bão"}, {"l": "A2-4", "jp": "ゆきだるま", "vi": "Người tuyết"}, {"l": "A2-4", "jp": "そら", "vi": "Bầu trời"}, {"l": "A2-4", "jp": "くも", "vi": "Mây"}, {"l": "A2-4", "jp": "つき", "vi": "Trăng"}, {"l": "A2-4", "jp": "ほし", "vi": "Sao"}, {"l": "A2-4", "jp": "ほしが でます", "vi": "Sao xuất hiện trên trời"}, {"l": "A2-4", "jp": "ごぜんちゅう", "vi": "Ban ngày"}, {"l": "A2-4", "jp": "いちにちじゅう", "vi": "Cả ngày"}, {"l": "A2-4", "jp": "いちねんじゅう", "vi": "Cả năm"}, {"l": "A2-4", "jp": "せかい", "vi": "Thế giới"}, {"l": "A2-4", "jp": "てんきよほう", "vi": "Dự báo thời tiết"}, {"l": "A2-4", "jp": "げんき(な)", "vi": "Khỏe mạnh"}, {"l": "A2-4", "jp": "きもちが いい", "vi": "Sảng khoái, dễ chịu"}, {"l": "A2-4", "jp": "つよい", "vi": "Mạnh"}, {"l": "A2-4", "jp": "よわい", "vi": "Yếu"}, {"l": "A2-4", "jp": "でかけます", "vi": "Ra ngoài"}, {"l": "A2-4", "jp": "おかげさまで", "vi": "Ơn trời"}, {"l": "A2-4", "jp": "(お)ひさしぶりです", "vi": "Đã lâu không gặp"}];
     const rawKanji = [{"char": "秋", "hv": "Thu", "lesson": "L3", "lessonName": "Bài 3", "strokes": 9, "meaning": "Mùa thu", "kun": "あき、 とき", "on": "しゅう", "examples": [{"word": "秋", "reading": "あき", "vi": "Mùa thu"}, {"word": "秋分", "reading": "しゅうぶん", "vi": "Thu phân"}], "formula": "禾 (Lúa) ＋ 火 (Lửa)", "strokeGuide": "Trái trước phải sau: Viết bộ Hòa (禾 - 5 nét) bên trái trước, bộ Hỏa (火 - 4 nét) bên phải sau.", "mnemonic": "Bông lúa vàng ươm (禾) chín rộ bên ngọn lửa (火) sưởi ấm mùa thu hoạch."}, {"char": "冬", "hv": "Đông", "lesson": "L3", "lessonName": "Bài 3", "strokes": 5, "meaning": "Mùa đông", "kun": "ふゆ", "on": "とう", "examples": [{"word": "冬", "reading": "ふゆ", "vi": "Mùa đông"}, {"word": "春夏秋冬", "reading": "しゅんかしゅうとう", "vi": "Xuân hạ thu đông"}], "formula": "夂 (Đi chậm) ＋ 冫(Băng tuyết)", "strokeGuide": "Trên trước dưới sau: Viết bộ Truy (夂 - 3 nét) ở trên trước, hai nét chấm băng (冫) ở dưới cùng.", "mnemonic": "Mùa đông đường đóng băng trơn trượt (冫) nên phải bước đi chậm chạp kẻo ngã."}, {"char": "春", "hv": "Xuân", "lesson": "L3", "lessonName": "Bài 3", "strokes": 9, "meaning": "Mùa xuân", "kun": "はる", "on": "しゅん", "examples": [{"word": "春", "reading": "はる", "vi": "Mùa xuân"}, {"word": "青春", "reading": "せいしゅん", "vi": "Thanh xuân"}], "formula": "三 (Ba) ＋ 人 (Người) ＋ 日 (Mặt trời)", "strokeGuide": "Trên trước dưới sau: Viết 3 nét ngang ➔ nét phẩy & mác bao lấy bộ Nhật (日 - 4 nét) ở dưới.", "mnemonic": "Ba người (三人) cùng dạo chơi dưới ánh mặt trời (日) ấm áp của mùa xuân."}, {"char": "夏", "hv": "Hạ", "lesson": "L3", "lessonName": "Bài 3", "strokes": 10, "meaning": "Mùa hè", "kun": "なつ", "on": "か、 げ", "examples": [{"word": "夏", "reading": "なつ", "vi": "Mùa hè"}, {"word": "夏休み", "reading": "なつやすみ", "vi": "Nghỉ hè"}], "formula": "頁 (Đầu) ＋ 夂 (Chân đi)", "strokeGuide": "Trên trước dưới sau: Nét ngang đầu tiên ➔ chữ Tự (目) ở giữa ➔ bộ Truy (夂) ở dưới cùng.", "mnemonic": "Mùa hè nóng bức, người ta đội mũ che đầu và rảo bước (夂) đi biển."}, {"char": "今", "hv": "Kim", "lesson": "L3", "lessonName": "Bài 3", "strokes": 4, "meaning": "Bây giờ, hiện tại", "kun": "いま", "on": "こん、 きん", "examples": [{"word": "今", "reading": "いま", "vi": "Bây giờ"}, {"word": "今日", "reading": "きょう", "vi": "Hôm nay"}, {"word": "今月", "reading": "こんげつ", "vi": "Tháng này"}], "formula": "𠆢 (Mái) ＋ 一 ＋ 乛", "strokeGuide": "Phẩy trước mác sau tạo mái 𠆢 ➔ nét ngang ngắn ➔ nét ngang gập ở dưới cùng.", "mnemonic": "Chiếc đồng hồ cát đang đọng lại thời khắc quý giá ngay bây giờ."}, {"char": "花", "hv": "Hoa", "lesson": "L3", "lessonName": "Bài 3", "strokes": 7, "meaning": "Bông hoa", "kun": "はな", "on": "か", "examples": [{"word": "花", "reading": "はな", "vi": "Hoa"}, {"word": "お花見", "reading": "おはなみ", "vi": "Ngắm hoa anh đào"}], "formula": "艹 (Cỏ) ＋ 化 (Biến hóa)", "strokeGuide": "Trên trước dưới sau: Viết bộ Thảo (艹 - 3 nét) ở trên trước, chữ Hóa (化 - 4 nét) ở dưới sau.", "mnemonic": "Cây cỏ (艹) biến hóa (化) kỳ diệu nở thành những bông hoa rực rỡ."}, {"char": "海", "hv": "Hải", "lesson": "L3", "lessonName": "Bài 3", "strokes": 9, "meaning": "Biển", "kun": "うみ", "on": "かい", "examples": [{"word": "海", "reading": "うみ", "vi": "Biển"}], "formula": "氵(Nước) ＋ 毎 (Mỗi)", "strokeGuide": "Trái trước phải sau: 3 chấm thủy (氵) bên trái trước, chữ Mỗi (毎 - 6 nét) bên phải sau.", "mnemonic": "Nước (氵) từ mỗi (毎) con sông ngày đêm đổ ra biển cả."}, {"char": "山", "hv": "Sơn", "lesson": "L3", "lessonName": "Bài 3", "strokes": 3, "meaning": "Núi", "kun": "やま", "on": "さん", "examples": [{"word": "山", "reading": "やま", "vi": "Núi"}], "formula": "Chữ tượng hình 3 đỉnh núi", "strokeGuide": "Giữa trước hai bên sau: Viết nét sổ thẳng cao ở giữa trước ➔ nét sổ gập trái-dưới ➔ nét sổ phải.", "mnemonic": "Vẽ lại hình ảnh 3 ngọn núi cao chót vót đứng cạnh nhau."}, {"char": "川", "hv": "Xuyên", "lesson": "L3", "lessonName": "Bài 3", "strokes": 3, "meaning": "Sông", "kun": "かわ", "on": "せん", "examples": [{"word": "川", "reading": "かわ", "vi": "Con sông"}], "formula": "Chữ tượng hình 3 dòng chảy", "strokeGuide": "Trái sang phải: Nét phẩy cong bên trái ➔ nét sổ ngắn ở giữa ➔ nét sổ dài bên phải.", "mnemonic": "Hình vẽ 3 dòng nước chảy xiết song song uốn lượn thành sông."}, {"char": "私", "hv": "Tư", "lesson": "L1", "lessonName": "Bài 1", "strokes": 7, "meaning": "Tôi, riêng tư", "kun": "わたし", "on": "し", "examples": [{"word": "私", "reading": "わたし", "vi": "Tôi"}], "formula": "禾 (Lúa) ＋ 厶 (Riêng tư)", "strokeGuide": "Trái trước phải sau: Bộ Hòa (禾 - 5 nét) bên trái trước, bộ Khư (厶 - 2 nét) bên phải sau.", "mnemonic": "Bông lúa (禾) là tài sản riêng (厶) của chính Tôi."}, {"char": "父", "hv": "Phụ", "lesson": "L1", "lessonName": "Bài 1", "strokes": 4, "meaning": "Bố, cha", "kun": "ちち、 とう", "on": "ふ", "examples": [{"word": "父", "reading": "ちち", "vi": "Bố mình"}, {"word": "お父さん", "reading": "おとうさん", "vi": "Bố người khác"}], "formula": "八 ＋ 乂", "strokeGuide": "Trên trước dưới sau, Phẩy trước mác sau: Hai nét chấm hai bên trên ➔ nét phẩy ➔ nét mác giao nhau.", "mnemonic": "Hình ảnh người cha uy nghiêm trụ cột của gia đình."}, {"char": "母", "hv": "Mẫu", "lesson": "L1", "lessonName": "Bài 1", "strokes": 5, "meaning": "Mẹ", "kun": "はは、 かあ", "on": "ぼ", "examples": [{"word": "母", "reading": "はは", "vi": "Mẹ mình"}, {"word": "お母さん", "reading": "おかあさん", "vi": "Mẹ người khác"}], "formula": "Chữ tượng hình", "mnemonic": "Người mẹ ôm con và cho con bú (hai dấu chấm là bầu sữa mẹ).", "strokeGuide": "Khung ngoài trước ➔ chấm trên ➔ nét ngang cắt giữa ➔ chấm dưới."}, {"char": "子", "hv": "Tử", "lesson": "L1", "lessonName": "Bài 1", "strokes": 3, "meaning": "Con cái, trẻ em", "kun": "こ", "on": "し、 す", "examples": [{"word": "子ども", "reading": "こども", "vi": "Trẻ con, con cái"}], "formula": "了 ＋ 一", "strokeGuide": "Nét ngang gập trên (1) ➔ nét cong móc dọc (2) ➔ nét ngang dài cắt qua cuối cùng (3).", "mnemonic": "Em bé quấn tã đang giang rộng hai cánh tay."}, {"char": "男", "hv": "Nam", "lesson": "L1", "lessonName": "Bài 1", "strokes": 7, "meaning": "Đàn ông, nam giới", "kun": "おとこ", "on": "だん、 なん", "examples": [{"word": "男", "reading": "おとこ", "vi": "Đàn ông"}, {"word": "男の人", "reading": "おとこのひと", "vi": "Người đàn ông"}], "formula": "田 (Ruộng) ＋ 力 (Sức lực)", "strokeGuide": "Trên trước dưới sau: Viết bộ Điền (田 - 5 nét) ở trên trước, bộ Lực (力 - 2 nét) ở dưới sau.", "mnemonic": "Người bỏ sức lực (力) làm việc ngoài đồng ruộng (田) là người Đàn ông."}, {"char": "女", "hv": "Nữ", "lesson": "L1", "lessonName": "Bài 1", "strokes": 3, "meaning": "Phụ nữ, nữ giới", "kun": "おんな", "on": "じょ", "examples": [{"word": "女", "reading": "おんな", "vi": "Phụ nữ"}, {"word": "女の人", "reading": "おんなのひと", "vi": "Người phụ nữ"}], "formula": "Chữ tượng hình", "strokeGuide": "Nét phẩy gập (く) trước ➔ nét phẩy cong (丿) ➔ nét ngang dài (一) trên cùng khóa lại.", "mnemonic": "Hình dáng người phụ nữ ngồi bắt chéo chân duyên dáng."}, {"char": "人", "hv": "Nhân", "lesson": "L1", "lessonName": "Bài 1", "strokes": 2, "meaning": "Con người", "kun": "ひと", "on": "じん、 にん", "examples": [{"word": "人", "reading": "ひと", "vi": "Người"}, {"word": "何人", "reading": "なんにん", "vi": "Mấy người"}, {"word": "日本人", "reading": "にほんじん", "vi": "Người Nhật"}], "formula": "丿 ＋ 乀", "strokeGuide": "Phẩy trước mác sau: Nét phẩy dài bên trái (1) ➔ nét mác tựa vào bên phải (2).", "mnemonic": "Hai con người nương tựa vào nhau mà sống."}, {"char": "国", "hv": "Quốc", "lesson": "L2", "lessonName": "Bài 2", "strokes": 8, "meaning": "Đất nước", "kun": "くに", "on": "こく", "examples": [{"word": "国", "reading": "くに", "vi": "Đất nước"}, {"word": "外国", "reading": "がいこく", "vi": "Nước ngoài"}], "formula": "囗 (Biên giới) ＋ 玉 (Ngọc)", "strokeGuide": "Vào nhà trước đóng cửa sau: Viết 2 nét khung ngoài ➔ viết chữ Ngọc (玉 - 5 nét) ở trong ➔ nét ngang đáy đóng lại cuối cùng.", "mnemonic": "Biên giới bao quanh (囗) bảo vệ viên ngọc quý (玉) của Đất nước."}, {"char": "外", "hv": "Ngoại", "lesson": "L2", "lessonName": "Bài 2", "strokes": 5, "meaning": "Bên ngoài", "kun": "そと", "on": "がい", "examples": [{"word": "外", "reading": "そと", "vi": "Bên ngoài"}, {"word": "外国", "reading": "がいこく", "vi": "Nước ngoài"}], "formula": "夕 (Tối) ＋ 卜 (Bói)", "strokeGuide": "Trái trước phải sau: Bộ Tịch (夕 - 3 nét) bên trái trước, bộ Bốc (卜 - 2 nét) bên phải sau.", "mnemonic": "Buổi tối (夕) đi ra bên ngoài xem bói (卜)."}, {"char": "語", "hv": "Ngữ", "lesson": "L2", "lessonName": "Bài 2", "strokes": 14, "meaning": "Ngôn ngữ, tiếng", "kun": "かた-る", "on": "ご", "examples": [{"word": "日本語", "reading": "にほんご", "vi": "Tiếng Nhật"}, {"word": "英語", "reading": "えいご", "vi": "Tiếng Anh"}, {"word": "中国語", "reading": "ちゅうごくご", "vi": "Tiếng Trung"}], "formula": "言 (Lời nói) ＋ 五 (Năm) ＋ 口 (Miệng)", "strokeGuide": "Trái trước phải sau: Bộ Ngôn (言 - 7 nét) bên trái ➔ chữ Ngũ (五 - 4 nét) trên ➔ bộ Khẩu (口 - 3 nét) dưới.", "mnemonic": "Lời nói (言) giao tiếp qua năm cái miệng (五口) thành Ngôn ngữ."}, {"char": "本", "hv": "Bản", "lesson": "L2", "lessonName": "Bài 2", "strokes": 5, "meaning": "Sách, gốc rễ", "kun": "もと", "on": "ほん", "examples": [{"word": "本", "reading": "ほん", "vi": "Quyển sách"}, {"word": "日本", "reading": "にほん", "vi": "Nhật Bản"}], "formula": "木 (Cây) ＋ 一 (Gốc)", "strokeGuide": "Viết chữ Mộc (木 - 4 nét: ngang, sổ, phẩy, mác) trước ➔ gạch ngang nhỏ ở gốc cuối cùng.", "mnemonic": "Gỗ từ gốc cây (木) đem làm giấy đóng thành Sách (本)."}, {"char": "読", "hv": "Độc", "lesson": "L2", "lessonName": "Bài 2", "strokes": 14, "meaning": "Đọc sách", "kun": "よ-む", "on": "どく", "examples": [{"word": "読みます", "reading": "よみます", "vi": "Đọc"}, {"word": "読書", "reading": "どくしょ", "vi": "Việc đọc sách"}], "formula": "言 (Lời nói) ＋ 売 (Bán)", "strokeGuide": "Trái trước phải sau: Bộ Ngôn (言 - 7 nét) bên trái ➔ chữ Mại (売 - 7 nét) bên phải.", "mnemonic": "Cất tiếng (言) đọc to chữ nghĩa."}, {"char": "好", "hv": "Hảo", "lesson": "L2", "lessonName": "Bài 2", "strokes": 6, "meaning": "Thích, yêu thích", "kun": "す-き", "on": "こう", "examples": [{"word": "好き", "reading": "すき", "vi": "Thích"}], "formula": "女 (Phụ nữ) ＋ 子 (Con)", "strokeGuide": "Trái trước phải sau: Bộ Nữ (女 - 3 nét) bên trái trước, bộ Tử (子 - 3 nét) bên phải sau.", "mnemonic": "Mẹ (女) ôm con (子) là điều tốt đẹp đáng yêu thích."}, {"char": "何", "hv": "Hà", "lesson": "L2", "lessonName": "Bài 2", "strokes": 7, "meaning": "Cái gì", "kun": "なに、 なん", "on": "か", "examples": [{"word": "何", "reading": "なに", "vi": "Cái gì"}, {"word": "何人", "reading": "なんにん", "vi": "Mấy người"}], "formula": "亻(Người) ＋ 可", "strokeGuide": "Trái trước phải sau: Bộ Nhân đứng (亻 - 2 nét) trước ➔ chữ Khả (可 - 5 nét) bên phải.", "mnemonic": "Người (亻) đang mang vác cái gì trên vai?"}, {"char": "天", "hv": "Thiên", "lesson": "L4", "lessonName": "Bài 4", "strokes": 4, "meaning": "Trời, bầu trời", "kun": "あめ", "on": "てん", "examples": [{"word": "天気", "reading": "てんき", "vi": "Thời tiết"}], "formula": "一 ＋ 大 (Đại)", "strokeGuide": "Nét ngang trên cùng ➔ nét ngang thứ hai ngắn hơn ➔ nét phẩy ➔ nét mác.", "mnemonic": "Phía trên con người to lớn (大) là Bầu trời."}, {"char": "気", "hv": "Khí", "lesson": "L4", "lessonName": "Bài 4", "strokes": 6, "meaning": "Khí, tinh thần", "kun": "き", "on": "き", "examples": [{"word": "天気", "reading": "てんき", "vi": "Thời tiết"}, {"word": "元気", "reading": "げんき", "vi": "Khỏe mạnh"}], "formula": "气 ＋ 〆", "strokeGuide": "Ngoài trước trong sau: Viết 4 nét bộ Khí (气) ở trên và bao ngoài trước ➔ chữ 〆 (phẩy, chấm) ở trong sau.", "mnemonic": "Hơi nước và năng lượng lan tỏa trong không trung."}, {"char": "晴", "hv": "Tình", "lesson": "L4", "lessonName": "Bài 4", "strokes": 12, "meaning": "Trời nắng, quang đãng", "kun": "は-れ", "on": "せい", "examples": [{"word": "晴れ", "reading": "はれ", "vi": "Trời nắng đẹp"}], "formula": "日 (Mặt trời) ＋ 青 (Xanh)", "strokeGuide": "Trái trước phải sau: Bộ Nhật (日 - 4 nét) bên trái ➔ chữ Thanh (青 - 8 nét) bên phải.", "mnemonic": "Mặt trời (日) tỏa nắng trên nền trời xanh (青)."}, {"char": "雨", "hv": "Vũ", "lesson": "L4", "lessonName": "Bài 4", "strokes": 8, "meaning": "Cơn mưa", "kun": "あめ", "on": "う", "examples": [{"word": "雨", "reading": "あめ", "vi": "Mưa"}], "formula": "Chữ tượng hình hạt mưa", "strokeGuide": "Nét ngang trên ➔ khung bao ➔ nét sổ giữa ➔ 4 dấu chấm hạt mưa hai bên.", "mnemonic": "Bốn hạt mưa rơi qua khung cửa sổ."}, {"char": "雪", "hv": "Tuyết", "lesson": "L4", "lessonName": "Bài 4", "strokes": 11, "meaning": "Tuyết", "kun": "ゆき", "on": "せつ", "examples": [{"word": "雪", "reading": "ゆき", "vi": "Tuyết"}], "formula": "雨 (Mưa) ＋ 彐 (Chổi)", "strokeGuide": "Trên trước dưới sau: Bộ Vũ (雨 - 8 nét) ở trên ➔ bộ Kệ (彐 - 3 nét) ở dưới.", "mnemonic": "Mưa (雨) đông cứng thành tuyết phải dùng chổi (彐) quét."}, {"char": "雲", "hv": "Vân", "lesson": "L4", "lessonName": "Bài 4", "strokes": 12, "meaning": "Đám mây", "kun": "くも", "on": "うん", "examples": [{"word": "雲", "reading": "くも", "vi": "Mây"}], "formula": "雨 (Mưa) ＋ 云 (Cuộn)", "strokeGuide": "Trên trước dưới sau: Bộ Vũ (雨 - 8 nét) ở trên ➔ chữ Vân (云 - 4 nét) ở dưới.", "mnemonic": "Hơi mưa (雨) cuộn tròn (云) thành đám mây."}, {"char": "風", "hv": "Phong", "lesson": "L4", "lessonName": "Bài 4", "strokes": 9, "meaning": "Cơn gió", "kun": "かぜ", "on": "ふう", "examples": [{"word": "風", "reading": "かぜ", "vi": "Gió"}], "formula": "几 (Khung) ＋ 虫 (Côn trùng)", "strokeGuide": "Ngoài trước trong sau: Viết khung bộ Kỷ (几 - 2 nét) bao ngoài trước ➔ nét phẩy + bộ Trùng (虫) bên trong.", "mnemonic": "Gió thổi lồng lộng cuốn côn trùng bay đi."}, {"char": "空", "hv": "Không", "lesson": "L4", "lessonName": "Bài 4", "strokes": 8, "meaning": "Bầu trời", "kun": "そら", "on": "くう", "examples": [{"word": "空", "reading": "そら", "vi": "Bầu trời"}, {"word": "空港", "reading": "くうこう", "vi": "Sân bay"}], "formula": "穴 (Hang) ＋ 工 (Thợ)", "strokeGuide": "Trên trước dưới sau: Bộ Huyệt (穴 - 5 nét) ở trên ➔ bộ Công (工 - 3 nét) ở dưới.", "mnemonic": "Ngước nhìn lên khoảng không bầu trời rộng lớn."}];
@@ -1804,6 +2088,7 @@
         applyVocabFilter();
         renderKanji(rawKanji);
         renderQuiz();
+        renderMinatoData();
     });
 </script>
 
