@@ -3921,17 +3921,18 @@
         ]
     }
 ];
+    const TOTAL_EXAM_SECONDS = 40 * 60; // 40 phút = 2400 giây
     let currentCode = '101';
     let userAnswers = {}; // key: globalNum, value: user answer
     let isSubmitted = false;
-    let timerSeconds = 40 * 60;
+    let timerSeconds = TOTAL_EXAM_SECONDS;
     let timerInterval = null;
+    let examStartTime = null;
     let immediateMode = false;
 
     window.addEventListener('DOMContentLoaded', () => {
         initExamTabs();
         loadExam('101');
-        startTimer();
     });
 
     function initExamTabs() {
@@ -3956,14 +3957,70 @@
         loadExam(code);
     }
 
+    function stopTimer() {
+        if (timerInterval) {
+            clearInterval(timerInterval);
+            timerInterval = null;
+        }
+    }
+
+    function startTimer() {
+        stopTimer();
+        examStartTime = Date.now() - ((TOTAL_EXAM_SECONDS - timerSeconds) * 1000);
+
+        timerInterval = setInterval(() => {
+            const elapsed = Math.floor((Date.now() - examStartTime) / 1000);
+            timerSeconds = Math.max(0, TOTAL_EXAM_SECONDS - elapsed);
+            
+            updateTimerDisplay();
+
+            if (timerSeconds <= 0) {
+                stopTimer();
+                submitExam(true /* isTimeOut */);
+            }
+        }, 1000);
+    }
+
+    function updateTimerDisplay() {
+        const sec = Math.max(0, timerSeconds);
+        const m = Math.floor(sec / 60).toString().padStart(2, '0');
+        const s = (sec % 60).toString().padStart(2, '0');
+        const timerDisplay = document.getElementById('timerDisplay');
+        if (timerDisplay) {
+            timerDisplay.textContent = `${m}:${s}`;
+        }
+
+        const timerBox = document.querySelector('.timer-box');
+        if (timerBox && !isSubmitted) {
+            if (sec <= 300) { // Dưới 5 phút báo đỏ
+                timerBox.style.color = '#e11d48';
+                timerBox.style.background = '#ffe4e6';
+            } else {
+                timerBox.style.color = 'var(--dark)';
+                timerBox.style.background = 'var(--gray-100)';
+            }
+        }
+    }
+
     function loadExam(code) {
         const exam = EXAMS_DATA.find(e => e.code === code) || EXAMS_DATA[0];
         userAnswers = {};
         isSubmitted = false;
-        clearInterval(timerInterval);
-        timerSeconds = 40 * 60;
+        
+        // Reset Timer
+        stopTimer();
+        timerSeconds = TOTAL_EXAM_SECONDS;
         updateTimerDisplay();
         startTimer();
+
+        // Reset submit button state
+        const submitBtn = document.querySelector('.btn-submit-exam');
+        if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Nộp Bài Thi ➔';
+            submitBtn.style.opacity = '1';
+            submitBtn.style.cursor = 'pointer';
+        }
 
         const container = document.getElementById('questionsContainer');
         let html = '';
@@ -3998,7 +4055,6 @@
                                     </div>
                                 `).join('')}
                             </div>
-                            
                         </div>
                     `;
                 } else if (sec.type === 'text_vocab' || sec.type === 'text_kanji_reading') {
@@ -4033,7 +4089,7 @@
                                       placeholder="${item.placeholder}" 
                                       oninput="handleTextInput(${item.globalNum}, this.value)"></textarea>
                             <div style="margin-top: 10px;">
-                                <button class="btn-check-input" onclick="checkSingleSentenceTranslation(${item.globalNum})">Kiểm Tra Câu Mẫu & Phân Tích</button>
+                                <button class="btn-check-input" onclick="checkSingleSentenceTranslation(${item.globalNum})">Kiểm Tra Câu Mẫu</button>
                             </div>
                             <div class="explanation-box" id="explain_${item.globalNum}">🎯 <b>Câu mẫu:</b> <span class="expected-answer-pill" style="font-size:1rem; padding:4px 10px;">${item.standard}</span></div>
                         </div>
@@ -4051,14 +4107,16 @@
 
     // Xử lý chọn Trắc Nghiệm
     function selectOption(globalNum, oIdx) {
-        if (isSubmitted && !immediateMode) return;
+        if (isSubmitted) return;
         userAnswers[globalNum] = oIdx;
 
         const card = document.getElementById(`qCard_${globalNum}`);
-        card.classList.add('answered');
-        card.querySelectorAll('.opt-btn').forEach((btn, idx) => {
-            btn.classList.toggle('selected', idx === oIdx);
-        });
+        if (card) {
+            card.classList.add('answered');
+            card.querySelectorAll('.opt-btn').forEach((btn, idx) => {
+                btn.classList.toggle('selected', idx === oIdx);
+            });
+        }
 
         if (immediateMode) {
             showSingleExplainMC(globalNum);
@@ -4068,12 +4126,15 @@
 
     // Xử lý nhập Tự Luận
     function handleTextInput(globalNum, val) {
+        if (isSubmitted) return;
         if (val.trim()) {
             userAnswers[globalNum] = val.trim();
-            document.getElementById(`qCard_${globalNum}`).classList.add('answered');
+            const card = document.getElementById(`qCard_${globalNum}`);
+            if (card) card.classList.add('answered');
         } else {
             delete userAnswers[globalNum];
-            document.getElementById(`qCard_${globalNum}`).classList.remove('answered');
+            const card = document.getElementById(`qCard_${globalNum}`);
+            if (card) card.classList.remove('answered');
         }
         updateProgress();
     }
@@ -4088,6 +4149,7 @@
 
     // Kiểm tra câu tự luận ngắn
     function checkSingleTextInput(globalNum) {
+        if (isSubmitted) return;
         const exam = EXAMS_DATA.find(e => e.code === currentCode);
         let foundItem = null;
         for (const sec of exam.sections) {
@@ -4105,11 +4167,13 @@
             inputEl.classList.add(isMatch ? 'correct' : 'wrong');
         }
 
-        // no explanation box for MC
+        const explainBox = document.getElementById(`explain_${globalNum}`);
+        if (explainBox) explainBox.classList.add('show');
     }
 
     // Kiểm tra câu dịch dài
     function checkSingleSentenceTranslation(globalNum) {
+        if (isSubmitted) return;
         const exam = EXAMS_DATA.find(e => e.code === currentCode);
         let foundItem = null;
         for (const sec of exam.sections) {
@@ -4127,7 +4191,8 @@
             inputEl.classList.add(hasKeywords ? 'correct' : 'wrong');
         }
 
-        // no explanation box for MC
+        const explainBox = document.getElementById(`explain_${globalNum}`);
+        if (explainBox) explainBox.classList.add('show');
     }
 
     function showSingleExplainMC(globalNum) {
@@ -4140,7 +4205,6 @@
         if (!item || item.correct === undefined) return;
 
         const selected = userAnswers[globalNum];
-        // no explanation box for MC
 
         item.options.forEach((opt, idx) => {
             const btn = document.getElementById(`opt_${globalNum}_${idx}`);
@@ -4172,40 +4236,79 @@
                     if (sec.type.startsWith('multiple_choice') && userAnswers[item.globalNum] !== undefined) {
                         showSingleExplainMC(item.globalNum);
                     } else if (userAnswers[item.globalNum] !== undefined) {
-                        document.getElementById(`explain_${item.globalNum}`).classList.add('show');
+                        const exp = document.getElementById(`explain_${item.globalNum}`);
+                        if (exp) exp.classList.add('show');
                     }
                 });
             });
         }
     }
 
-    function startTimer() {
-        timerInterval = setInterval(() => {
-            if (timerSeconds <= 0) {
-                clearInterval(timerInterval);
-                alert('Đã hết 40 phút làm bài! Hệ thống tự động thu bài và chấm điểm.');
-                submitExam();
-                return;
-            }
-            timerSeconds--;
-            updateTimerDisplay();
-        }, 1000);
-    }
-
-    function updateTimerDisplay() {
-        const m = Math.floor(timerSeconds / 60).toString().padStart(2, '0');
-        const s = (timerSeconds % 60).toString().padStart(2, '0');
-        document.getElementById('timerDisplay').textContent = `${m}:${s}`;
-    }
-
-    function submitExam() {
+    function submitExam(isTimeOut = false) {
+        if (isSubmitted) return;
         isSubmitted = true;
-        clearInterval(timerInterval);
+        stopTimer();
 
         const exam = EXAMS_DATA.find(e => e.code === currentCode);
         let correctCount = 0;
         const resultsMap = {}; // globalNum -> bool
 
+        // 1. Thu thập và khóa tất cả ô nhập liệu
+        exam.sections.forEach(sec => {
+            sec.items.forEach(item => {
+                const gNum = item.globalNum;
+                const inputEl = document.getElementById(`input_${gNum}`);
+                if (inputEl) {
+                    const currentText = inputEl.value.trim();
+                    if (currentText) {
+                        userAnswers[gNum] = currentText;
+                    }
+                    inputEl.disabled = true;
+                    inputEl.readOnly = true;
+                }
+            });
+        });
+
+        // 2. Khóa tất cả nút trắc nghiệm & nút kiểm tra
+        document.querySelectorAll('.opt-btn').forEach(btn => {
+            btn.style.pointerEvents = 'none';
+        });
+        document.querySelectorAll('.btn-check-input').forEach(btn => {
+            btn.disabled = true;
+            btn.style.opacity = '0.5';
+            btn.style.cursor = 'not-allowed';
+        });
+
+        // 3. Khóa nút Nộp Bài
+        const submitBtn = document.querySelector('.btn-submit-exam');
+        if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Đã Nộp Bài ✓';
+            submitBtn.style.opacity = '0.7';
+            submitBtn.style.cursor = 'default';
+        }
+
+        // 4. Cập nhật thanh Timer hiển thị trạng thái hoàn thành
+        const timerDisplay = document.getElementById('timerDisplay');
+        const timerBox = document.querySelector('.timer-box');
+        const usedSeconds = TOTAL_EXAM_SECONDS - timerSeconds;
+        const usedM = Math.floor(usedSeconds / 60);
+        const usedS = usedSeconds % 60;
+        const timeUsedStr = `${usedM} phút ${usedS} giây`;
+
+        if (timerDisplay && timerBox) {
+            if (isTimeOut) {
+                timerDisplay.textContent = 'Hết giờ (40:00)';
+                timerBox.style.background = '#ffe4e6';
+                timerBox.style.color = '#e11d48';
+            } else {
+                timerDisplay.textContent = `${Math.floor(timerSeconds/60).toString().padStart(2,'0')}:${(timerSeconds%60).toString().padStart(2,'0')} (Đã nộp)`;
+                timerBox.style.background = '#d1fae5';
+                timerBox.style.color = '#065f46';
+            }
+        }
+
+        // 5. Chấm điểm từng câu
         exam.sections.forEach(sec => {
             sec.items.forEach(item => {
                 const gNum = item.globalNum;
@@ -4246,7 +4349,7 @@
             });
         });
 
-        // Show Score Modal
+        // 6. Hiển thị Modal Kết Quả
         const total = 44;
         const pct = Math.round((correctCount / total) * 100);
 
@@ -4254,19 +4357,20 @@
         document.getElementById('modalScorePercent').textContent = `${pct}%`;
 
         let title = 'Cần Ôn Luyện Thêm!';
-        let desc = 'Hãy xem kỹ các câu sai và đọc giải thích chi tiết của Sensei nhé.';
+        let desc = isTimeOut 
+            ? `⏰ Đã hết 40 phút làm bài! Hệ thống tự động thu bài. Kết quả: ${correctCount}/${total} câu đúng (${pct}%).`
+            : `Thời gian hoàn thành: ${timeUsedStr}. Kết quả: ${correctCount}/${total} câu đúng (${pct}%).`;
+
         if (pct >= 90) {
             title = 'Xuất Sắc! Điểm Gần Tuyệt Đối!';
-            desc = 'Bạn nắm cực kỳ vững toàn bộ kiến thức ngữ pháp và chữ Hán Bài 5 - 8!';
         } else if (pct >= 70) {
             title = 'Đạt Chuẩn Tốt!';
-            desc = 'Kết quả rất ấn tượng! Xem lại các câu sai để hoàn thiện 100% kiến thức.';
         }
 
         document.getElementById('modalTitle').textContent = title;
         document.getElementById('modalDesc').textContent = desc;
 
-        // Render Indicator grid
+        // 7. Lưới chỉ thị 44 câu
         const indContainer = document.getElementById('modalIndicators');
         let indHtml = '';
         for (let i = 1; i <= total; i++) {
