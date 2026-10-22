@@ -762,7 +762,230 @@
             .result-grid-indicators { grid-template-columns: repeat(4, 1fr); }
             .options-list { grid-template-columns: 1fr; }
         }
+
+        /* History Button & Modal Styles */
+        .btn-history {
+            background: white;
+            border: 1.5px solid var(--gray-300);
+            color: var(--gray-700);
+            border-radius: var(--radius-full);
+            padding: 8px 16px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-history:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            background: var(--primary-light);
+        }
+
+        .history-badge {
+            background: var(--primary);
+            color: white;
+            font-size: 0.72rem;
+            font-weight: 800;
+            padding: 2px 8px;
+            border-radius: var(--radius-full);
+            min-width: 18px;
+            text-align: center;
+        }
+
+        .modal-history-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 18px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .btn-close-history {
+            background: var(--gray-100);
+            border: none;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--gray-600);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            flex-shrink: 0;
+        }
+
+        .btn-close-history:hover {
+            background: #ffe4e6;
+            color: var(--accent);
+        }
+
+        .history-list-container {
+            max-height: 420px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding-right: 4px;
+        }
+
+        .history-card {
+            background: var(--gray-50);
+            border: 1.5px solid var(--gray-200);
+            border-radius: var(--radius-md);
+            padding: 14px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 14px;
+            transition: all 0.2s ease;
+            text-align: left;
+        }
+
+        .history-card:hover {
+            border-color: var(--primary);
+            background: white;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .history-card-left {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            flex: 1;
+        }
+
+        .history-exam-title {
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--gray-800);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .history-meta {
+            font-size: 0.82rem;
+            color: var(--gray-500);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .history-card-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+
+        .history-score-badge {
+            padding: 6px 14px;
+            border-radius: var(--radius-full);
+            font-weight: 800;
+            font-size: 0.95rem;
+            white-space: nowrap;
+            text-align: center;
+        }
+
+        .score-pass {
+            background: var(--success-light);
+            color: #065f46;
+            border: 1px solid #a7f3d0;
+        }
+
+        .score-review {
+            background: var(--warning-light);
+            color: #92400e;
+            border: 1px solid #fde68a;
+        }
+
+        .score-fail {
+            background: var(--accent-light);
+            color: #9f1239;
+            border: 1px solid #fecdd3;
+        }
+
+        .btn-history-action {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            border: none;
+            padding: 6px 12px;
+            border-radius: var(--radius-full);
+            font-size: 0.8rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .btn-history-action:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-del-history-item {
+            background: transparent;
+            border: none;
+            color: var(--gray-400);
+            cursor: pointer;
+            font-size: 1.1rem;
+            padding: 4px 6px;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-del-history-item:hover {
+            color: var(--accent);
+            background: var(--accent-light);
+        }
+
+        .history-empty-state {
+            text-align: center;
+            padding: 40px 16px;
+            color: var(--gray-500);
+        }
+
+        .history-empty-icon {
+            font-size: 2.8rem;
+            margin-bottom: 8px;
+        }
+
+        .btn-clear-history {
+            background: transparent;
+            border: none;
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-weight: 700;
+            cursor: pointer;
+            padding: 6px 12px;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-clear-history:hover {
+            background: var(--accent-light);
+        }
+
+        .history-badge-count-large {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            font-size: 0.78rem;
+            font-weight: 800;
+            padding: 3px 10px;
+            border-radius: var(--radius-full);
+        }
     </style>
+
 </head>
 <body>
 
@@ -818,6 +1041,10 @@
                 <span>Hiện đáp án ngay khi làm</span>
             </label>
 
+            <button class="btn-history" onclick="openHistoryModal()" title="Xem lịch sử các lần thi">
+                <span>📜 Lịch Sử</span>
+                <span class="history-badge" id="historyCountBadge">0</span>
+            </button>
             <button class="btn-submit-exam" onclick="submitExam()">Nộp Bài Thi ➔</button>
         </div>
 
@@ -842,8 +1069,34 @@
             </div>
 
             <div class="modal-btn-row">
+                <button class="btn-modal-action btn-review" onclick="openHistoryModal(); closeModal();">📜 Xem Lịch Sử</button>
                 <button class="btn-modal-action btn-review" onclick="closeModal()">Xem Lại Từng Câu</button>
                 <button class="btn-modal-action btn-retry" onclick="restartCurrentExam()">Làm Lại Mã Đề Này</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal History -->
+    <div class="modal-overlay" id="historyModal">
+        <div class="modal-card" style="max-width: 680px; text-align: left;">
+            <div class="modal-history-header">
+                <div>
+                    <h3 class="modal-title" style="margin: 0; text-align: left; display: flex; align-items: center; gap: 8px;">
+                        <span>📜 Lịch Sử Làm Bài Thi</span>
+                        <span class="history-badge-count-large" id="historyTotalCount">0 bài</span>
+                    </h3>
+                    <p class="modal-desc" style="margin: 4px 0 0 0; text-align: left;">Lưu lại toàn bộ kết quả, điểm số và thời gian làm bài của bạn qua các lần thi.</p>
+                </div>
+                <button class="btn-close-history" onclick="closeHistoryModal()">✕</button>
+            </div>
+
+            <div class="history-list-container" id="historyListContainer">
+                <!-- Render via JS -->
+            </div>
+
+            <div class="modal-btn-row" style="margin-top: 20px; justify-content: space-between; align-items: center;">
+                <button class="btn-clear-history" onclick="clearAllHistory()">🗑️ Xóa Toàn Bộ Lịch Sử</button>
+                <button class="btn-modal-action btn-review" onclick="closeHistoryModal()">Đóng Cửa Sổ</button>
             </div>
         </div>
     </div>
@@ -3933,6 +4186,7 @@
     window.addEventListener('DOMContentLoaded', () => {
         initExamTabs();
         loadExam('101');
+        updateHistoryBadge();
     });
 
     function initExamTabs() {
@@ -4384,6 +4638,28 @@
         indContainer.innerHTML = indHtml;
 
         document.getElementById('scoreModal').classList.add('show');
+
+        // Tự động lưu vào lịch sử thi (localStorage)
+        saveExamToHistory({
+            id: Date.now(),
+            code: currentCode,
+            name: exam.name,
+            tag: exam.tag,
+            date: new Date().toLocaleString('vi-VN', { 
+                day: '2-digit', 
+                month: '2-digit', 
+                year: 'numeric', 
+                hour: '2-digit', 
+                minute: '2-digit' 
+            }),
+            correct: correctCount,
+            total: total,
+            pct: pct,
+            timeUsed: timeUsedStr,
+            isTimeOut: isTimeOut,
+            answers: { ...userAnswers },
+            resultsMap: { ...resultsMap }
+        });
     }
 
     function scrollToQuestion(globalNum) {
@@ -4404,6 +4680,259 @@
         closeModal();
         loadExam(currentCode);
     }
+
+    // ==========================================
+    // HISTORY STORAGE & MANAGEMENT (LỊCH SỬ THI)
+    // ==========================================
+    const HISTORY_STORAGE_KEY = 'marugoto_a2_exam_history_v1';
+
+    function getExamHistory() {
+        try {
+            const raw = localStorage.getItem(HISTORY_STORAGE_KEY);
+            return raw ? JSON.parse(raw) : [];
+        } catch(e) {
+            console.error('Error reading exam history:', e);
+            return [];
+        }
+    }
+
+    function saveExamToHistory(record) {
+        try {
+            const list = getExamHistory();
+            list.unshift(record); // Add to beginning
+            if (list.length > 50) list.pop(); // Keep max 50 records
+            localStorage.setItem(HISTORY_STORAGE_KEY, JSON.stringify(list));
+            updateHistoryBadge();
+        } catch(e) {
+            console.error('Error saving exam history:', e);
+        }
+    }
+
+    function updateHistoryBadge() {
+        const list = getExamHistory();
+        const count = list.length;
+        const b1 = document.getElementById('historyCountBadge');
+        if (b1) b1.textContent = count;
+        const b2 = document.getElementById('historyTotalCount');
+        if (b2) b2.textContent = `${count} bài`;
+    }
+
+    function openHistoryModal() {
+        renderHistoryList();
+        const modal = document.getElementById('historyModal');
+        if (modal) modal.classList.add('show');
+    }
+
+    function closeHistoryModal() {
+        const modal = document.getElementById('historyModal');
+        if (modal) modal.classList.remove('show');
+    }
+
+    function renderHistoryList() {
+        const list = getExamHistory();
+        const container = document.getElementById('historyListContainer');
+        updateHistoryBadge();
+
+        if (list.length === 0) {
+            container.innerHTML = `
+                <div class="history-empty-state">
+                    <div class="history-empty-icon">📝</div>
+                    <div style="font-weight: 700; font-size: 1.05rem; margin-bottom: 4px;">Chưa có bài thi nào được lưu</div>
+                    <div>Hãy chọn một mã đề và bấm <b>Nộp Bài Thi</b> để lưu lại kết quả thi tại đây nhé!</div>
+                </div>
+            `;
+            return;
+        }
+
+        container.innerHTML = list.map(item => {
+            let scoreClass = 'score-fail';
+            if (item.pct >= 90) scoreClass = 'score-pass';
+            else if (item.pct >= 70) scoreClass = 'score-review';
+
+            const statusText = item.isTimeOut ? '⏰ Hết giờ' : '✓ Hoàn thành';
+            const statusColor = item.isTimeOut ? '#e11d48' : '#059669';
+
+            return `
+                <div class="history-card" id="histItem_${item.id}">
+                    <div class="history-card-left">
+                        <div class="history-exam-title">
+                            <span>📝 ${item.name}</span>
+                            <span style="font-size: 0.75rem; background: var(--gray-200); padding: 2px 8px; border-radius: 9999px; font-weight: 600;">${item.tag}</span>
+                        </div>
+                        <div class="history-meta">
+                            <span>📅 ${item.date}</span>
+                            <span>⏱️ Làm bài: ${item.timeUsed}</span>
+                            <span style="color: ${statusColor}; font-weight: 700;">${statusText}</span>
+                        </div>
+                    </div>
+                    <div class="history-card-right">
+                        <div class="history-score-badge ${scoreClass}">
+                            ${item.correct}/${item.total} (${item.pct}%)
+                        </div>
+                        <button class="btn-history-action" onclick="reviewHistoryExam(${item.id})" title="Xem lại bài làm và các câu đúng sai">Xem Lại</button>
+                        <button class="btn-del-history-item" onclick="deleteHistoryItem(${item.id})" title="Xóa bài thi này">✕</button>
+                    </div>
+                </div>
+            `;
+        }).join('');
+    }
+
+    function deleteHistoryItem(id) {
+        if (!confirm('Bạn có muốn xóa bài thi này khỏi lịch sử không?')) return;
+        let list = getExamHistory();
+        list = list.filter(item => item.id !== id);
+        try {
+            localStorage.setItem(HISTORY_STORAGE_KEY, JSON.stringify(list));
+        } catch(e) {}
+        renderHistoryList();
+    }
+
+    function clearAllHistory() {
+        if (!confirm('Bạn có chắc chắn muốn xóa TOÀN BỘ lịch sử các lần thi không? Thao tác này không thể hoàn tác!')) return;
+        try {
+            localStorage.removeItem(HISTORY_STORAGE_KEY);
+        } catch(e) {}
+        renderHistoryList();
+    }
+
+    function reviewHistoryExam(id) {
+        const list = getExamHistory();
+        const record = list.find(item => item.id === id);
+        if (!record) return;
+
+        closeHistoryModal();
+
+        // 1. Switch to exam code if needed
+        if (currentCode !== record.code) {
+            currentCode = record.code;
+            initExamTabs();
+        }
+
+        // 2. Load and render exam structure
+        const exam = EXAMS_DATA.find(e => e.code === record.code) || EXAMS_DATA[0];
+        stopTimer();
+        isSubmitted = true;
+        userAnswers = { ...(record.answers || {}) };
+
+        // 3. Render questions
+        const container = document.getElementById('questionsContainer');
+        let html = '';
+
+        exam.sections.forEach((sec, sIdx) => {
+            html += `
+                <div class="section-block" id="section_${sIdx}">
+                    <div class="section-header-card">
+                        <div>
+                            <div class="section-header-title">${sec.secTitle}</div>
+                            <div class="section-header-desc">${sec.secDesc}</div>
+                        </div>
+                        <span class="section-tag-badge">${sec.secBadge}</span>
+                    </div>
+            `;
+
+            sec.items.forEach(item => {
+                const gNum = item.globalNum;
+                const isCorr = !!(record.resultsMap && record.resultsMap[gNum]);
+                const userVal = userAnswers[gNum];
+
+                if (sec.type === 'multiple_choice_grammar' || sec.type === 'multiple_choice_kanji_fill') {
+                    html += `
+                        <div class="question-card answered" id="qCard_${gNum}">
+                            <div class="q-header">
+                                <span class="q-badge">Câu ${gNum} / 44</span>
+                                <span class="q-category">${sec.secBadge}</span>
+                            </div>
+                            <div class="q-title jp-text">${item.q}</div>
+                            <div class="options-list">
+                                ${item.options.map((opt, oIdx) => {
+                                    let cls = '';
+                                    if (oIdx === item.correct) cls = 'correct-ans';
+                                    else if (oIdx === userVal) cls = 'wrong-ans';
+                                    return `
+                                        <div class="opt-btn jp-text ${cls}" style="pointer-events:none;">
+                                            <span class="opt-index">${String.fromCharCode(65 + oIdx)}</span>
+                                            <span>${opt}</span>
+                                        </div>
+                                    `;
+                                }).join('')}
+                            </div>
+                        </div>
+                    `;
+                } else if (sec.type === 'text_vocab' || sec.type === 'text_kanji_reading') {
+                    const inputCls = isCorr ? 'correct' : 'wrong';
+                    html += `
+                        <div class="question-card answered" id="qCard_${gNum}">
+                            <div class="q-header">
+                                <span class="q-badge">Câu ${gNum} / 44</span>
+                                <span class="q-category">${sec.secBadge}</span>
+                            </div>
+                            <div class="q-title jp-text">${item.prompt}</div>
+                            <div class="text-input-wrap">
+                                <input type="text" class="exam-text-input jp-text ${inputCls}" 
+                                       value="${userVal || ''}" disabled readonly>
+                            </div>
+                            <div class="explanation-box show" id="explain_${gNum}">🎯 <b>Đáp án:</b> <span class="expected-answer-pill">${item.standard}</span></div>
+                        </div>
+                    `;
+                } else if (sec.type === 'text_translation_sentence') {
+                    const inputCls = isCorr ? 'correct' : 'wrong';
+                    html += `
+                        <div class="question-card answered" id="qCard_${gNum}">
+                            <div class="q-header">
+                                <span class="q-badge">Câu ${gNum} / 44</span>
+                                <span class="q-category">${sec.secBadge}</span>
+                            </div>
+                            <div class="q-title jp-text">${item.prompt}</div>
+                            <textarea class="exam-textarea jp-text ${inputCls}" disabled readonly>${userVal || ''}</textarea>
+                            <div class="explanation-box show" id="explain_${gNum}">🎯 <b>Câu mẫu:</b> <span class="expected-answer-pill" style="font-size:1rem; padding:4px 10px;">${item.standard}</span></div>
+                        </div>
+                    `;
+                }
+            });
+
+            html += `</div>`;
+        });
+
+        container.innerHTML = html;
+        updateProgress();
+
+        // 4. Update Header Buttons & Timer Bar
+        const submitBtn = document.querySelector('.btn-submit-exam');
+        if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Đang Xem Lại Lịch Sử';
+            submitBtn.style.opacity = '0.7';
+        }
+
+        const timerDisplay = document.getElementById('timerDisplay');
+        const timerBox = document.querySelector('.timer-box');
+        if (timerDisplay && timerBox) {
+            timerDisplay.textContent = `Lịch sử: ${record.date}`;
+            timerBox.style.background = '#e0f2fe';
+            timerBox.style.color = '#0369a1';
+        }
+
+        // 5. Open Score Modal for this record
+        document.getElementById('modalScoreNum').textContent = `${record.correct}/${record.total}`;
+        document.getElementById('modalScorePercent').textContent = `${record.pct}%`;
+        document.getElementById('modalTitle').textContent = `Kết Quả Bài Thi (${record.name})`;
+        document.getElementById('modalDesc').textContent = `Ngày thi: ${record.date} • Thời gian làm: ${record.timeUsed}. Đã làm đúng ${record.correct}/${record.total} câu (${record.pct}%).`;
+
+        const indContainer = document.getElementById('modalIndicators');
+        let indHtml = '';
+        for (let i = 1; i <= record.total; i++) {
+            const isCorr = !!(record.resultsMap && record.resultsMap[i]);
+            indHtml += `
+                <div class="indicator-item ${isCorr ? 'correct' : 'wrong'}" onclick="scrollToQuestion(${i})">
+                    C${i}: ${isCorr ? '✓' : '✗'}
+                </div>
+            `;
+        }
+        indContainer.innerHTML = indHtml;
+
+        document.getElementById('scoreModal').classList.add('show');
+    }
+
     </script>
 </body>
 </html>
