@@ -1766,12 +1766,12 @@
                         "prompt": "Dịch câu sau sang tiếng Nhật:<br><b>\"Hôm qua tôi đã đi Tokyo, cảnh đêm rất đẹp nhưng nhiều người.\"</b>",
                         "placeholder": "Nhập câu tiếng Nhật tại đây...",
                         "keywords": [
-                            "きのう",
-                            "とうきょう",
-                            "やけい",
-                            "きれい",
-                            "けど",
-                            "おお"
+                            ["きのう", "昨日"],
+                            ["とうきょう", "東京"],
+                            ["やけい", "夜景"],
+                            ["きれい", "綺麗"],
+                            ["けど", "が", "けれど"],
+                            ["おお", "多"]
                         ],
                         "standard": "きのう とうきょうへ いきました。やけいが きれいでしたけど、人が 多かったです。",
                         "explain": ""
@@ -2382,12 +2382,13 @@
                         "prompt": "Dịch câu sau sang tiếng Nhật:<br><b>\"Sau bữa ăn, tôi uống cà phê rồi cùng bạn đi xem phim.\"</b>",
                         "placeholder": "Nhập câu tiếng Nhật tại đây...",
                         "keywords": [
-                            "しょくじ",
-                            "あと",
-                            "コーヒー",
-                            "のんで",
-                            "ともだち",
-                            "えいが"
+                            ["しょくじ", "食事"],
+                            ["あと", "後"],
+                            ["コーヒー", "こーひー", "珈琲"],
+                            ["のんで", "飲んで"],
+                            ["ともだち", "友達", "友だち"],
+                            ["えいが", "映画"],
+                            ["みにいき", "見に行き", "見にいき", "みに行", "みにいっ", "見にいっ", "みに行っ", "みにいこう", "みに行く", "みにいく"]
                         ],
                         "standard": "食事の あとで、コーヒーを のんで、ともだちと えいがを みに いきました。",
                         "explain": ""
@@ -2994,11 +2995,12 @@
                         "prompt": "Dịch câu sau sang tiếng Nhật:<br><b>\"Trước khi đi ngủ, tôi luôn nghe nhạc và đọc sách.\"</b>",
                         "placeholder": "Nhập câu tiếng Nhật tại đây...",
                         "keywords": [
-                            "ねる",
-                            "まえに",
-                            "おんがく",
-                            "ほん",
-                            "よみ"
+                            ["ねる", "寝る"],
+                            ["まえ", "前"],
+                            ["おんがく", "音楽"],
+                            ["きいて", "聞いて"],
+                            ["ほん", "本"],
+                            ["よみ", "読み", "よんで", "読んで", "よむ", "読む"]
                         ],
                         "standard": "ねる まえに、いつも おんがくを きいて、ほんを よみます。",
                         "explain": ""
@@ -3606,12 +3608,12 @@
                         "prompt": "Dịch câu sau sang tiếng Nhật:<br><b>\"Công viên này rất rộng và đẹp nhưng vào buổi tối hơi tối một chút.\"</b>",
                         "placeholder": "Nhập câu tiếng Nhật tại đây...",
                         "keywords": [
-                            "こうえん",
-                            "ひろくて",
-                            "きれい",
-                            "けど",
-                            "よる",
-                            "くらい"
+                            ["こうえん", "公園"],
+                            ["ひろく", "広く"],
+                            ["きれい", "綺麗"],
+                            ["けど", "が", "けれど"],
+                            ["よる", "夜"],
+                            ["くらい", "暗い"]
                         ],
                         "standard": "この こうえんは ひろくて きれいですけど、よるは ちょっと くらいです。",
                         "explain": ""
@@ -4216,11 +4218,11 @@
                         "prompt": "Dịch câu sau sang tiếng Nhật:<br><b>\"Từ nhà tôi đi bộ đến nhà ga mất khoảng 10 phút, rất tiện lợi.\"</b>",
                         "placeholder": "Nhập câu tiếng Nhật tại đây...",
                         "keywords": [
-                            "うち",
-                            "えき",
-                            "あるいて",
-                            "10",
-                            "べんり"
+                            ["うち", "家", "いえ"],
+                            ["えき", "駅"],
+                            ["あるいて", "歩いて"],
+                            ["10", "じゅっ", "じっ"],
+                            ["べんり", "便利"]
                         ],
                         "standard": "わたしの うちから 駅まで あるいて 10ぷんぐらいで、とても べんりです。",
                         "explain": ""
@@ -4664,6 +4666,18 @@
         if (explainBox) explainBox.classList.add('show');
     }
 
+    // Kiểm tra câu dịch dài hỗ trợ cả Kanji và Hiragana
+    function checkSentenceTranslationMatch(userText, keywords) {
+        const norm = normalizeStr(userText);
+        if (!norm) return false;
+        return keywords.every(kwGroup => {
+            if (Array.isArray(kwGroup)) {
+                return kwGroup.some(v => norm.includes(normalizeStr(v)));
+            }
+            return norm.includes(normalizeStr(kwGroup));
+        });
+    }
+
     // Kiểm tra câu dịch dài
     function checkSingleSentenceTranslation(globalNum) {
         if (isSubmitted) return;
@@ -4676,12 +4690,11 @@
         if (!foundItem) return;
 
         const inputEl = document.getElementById(`input_${globalNum}`);
-        const userVal = normalizeStr(inputEl.value);
-        const hasKeywords = foundItem.keywords.every(kw => userVal.includes(normalizeStr(kw)));
+        const isMatch = checkSentenceTranslationMatch(inputEl.value, foundItem.keywords);
 
         inputEl.classList.remove('correct', 'wrong');
-        if (userVal.length > 0) {
-            inputEl.classList.add(hasKeywords ? 'correct' : 'wrong');
+        if (normalizeStr(inputEl.value).length > 0) {
+            inputEl.classList.add(isMatch ? 'correct' : 'wrong');
         }
 
         const explainBox = document.getElementById(`explain_${globalNum}`);
@@ -4829,8 +4842,7 @@
                     const exp = document.getElementById(`explain_${gNum}`);
                     if (exp) exp.classList.add('show');
                 } else if (sec.type === 'text_translation_sentence') {
-                    const normUser = normalizeStr(userVal);
-                    const isMatch = normUser.length > 0 && item.keywords.every(kw => normUser.includes(normalizeStr(kw)));
+                    const isMatch = checkSentenceTranslationMatch(userVal, item.keywords);
                     if (isMatch) correctCount++;
                     resultsMap[gNum] = isMatch;
 
