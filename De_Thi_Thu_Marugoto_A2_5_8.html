@@ -1041,6 +1041,58 @@
             gap: 10px;
             flex-wrap: wrap;
         }
+
+        /* Auto-Save & Recovery Toast */
+        .autosave-toast {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: #1e1b4b;
+            color: white;
+            padding: 12px 20px;
+            border-radius: var(--radius-lg);
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+            z-index: 9999;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            pointer-events: none;
+        }
+        .autosave-toast.show {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .autosave-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.78rem;
+            color: #065f46;
+            background: #d1fae5;
+            border: 1px solid #a7f3d0;
+            padding: 4px 10px;
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        .autosave-indicator .dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #10b981;
+            display: inline-block;
+            animation: pulse-dot 2s infinite;
+        }
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(0.85); }
+        }
     </style>
 
 </head>
@@ -1048,11 +1100,11 @@
 
     <!-- Global Hub Navigation -->
     <div class="global-hub-nav">
-        <a href="index.html" class="hub-nav-item">🌸 Thể TE (～て)</a>
-        <a href="the_ru.html" class="hub-nav-item">📘 Thể RU (Từ Điển)</a>
-        <a href="kanji_a2.html" class="hub-nav-item">⛩️ Học Kanji & Nét Viết</a>
-        <a href="Tu_Vung_Marugoto_A1_16_A2_1_10.html" class="hub-nav-item">📖 Kho Từ Vựng A1-A2</a>
-        <a href="On_Tap_Mini_Test_A2_5_8.html" class="hub-nav-item">🎯 Cẩm Nang Bài 5 - 8</a>
+        <a href="index.html" target="_blank" rel="noopener" class="hub-nav-item" title="Mở trong tab mới để không làm gián đoạn bài thi">🌸 Thể TE (～て) ↗</a>
+        <a href="the_ru.html" target="_blank" rel="noopener" class="hub-nav-item" title="Mở trong tab mới để không làm gián đoạn bài thi">📘 Thể RU (Từ Điển) ↗</a>
+        <a href="kanji_a2.html" target="_blank" rel="noopener" class="hub-nav-item" title="Mở trong tab mới để không làm gián đoạn bài thi">⛩️ Học Kanji & Nét Viết ↗</a>
+        <a href="Tu_Vung_Marugoto_A1_16_A2_1_10.html" target="_blank" rel="noopener" class="hub-nav-item" title="Mở trong tab mới để không làm gián đoạn bài thi">📖 Kho Từ Vựng A1-A2 ↗</a>
+        <a href="On_Tap_Mini_Test_A2_5_8.html" target="_blank" rel="noopener" class="hub-nav-item" title="Mở Cẩm Nang trong tab mới để tra cứu không mất bài làm">🎯 Cẩm Nang Bài 5 - 8 ↗</a>
         <a href="De_Thi_Thu_Marugoto_A2_5_8.html" class="hub-nav-item active-hub">📝 5 Mã Đề Thi Thử (Bài 5 - 8)</a>
     </div>
 
@@ -1102,6 +1154,10 @@
                 <span>📜 Lịch Sử</span>
                 <span class="history-badge" id="historyCountBadge">0</span>
             </button>
+            <div class="autosave-indicator" id="autosaveIndicator" title="Tiến trình làm bài luôn được tự động lưu vào trình duyệt">
+                <span class="dot"></span>
+                <span>Tự Lưu</span>
+            </div>
             <button class="btn-reset-exam" id="topResetBtn" onclick="confirmResetExam()" title="Làm lại bài thi từ đầu">
                 <span>🔄 Làm Lại</span>
             </button>
@@ -4256,10 +4312,90 @@
     let examStartTime = null;
     let immediateMode = false;
 
+    // ==========================================
+    // AUTO-SAVE DRAFT & RECOVERY (LƯU NHÁP TỰ ĐỘNG)
+    // ==========================================
+    const DRAFT_STORAGE_KEY = 'marugoto_a2_exam_draft_v1';
+
+    function getExamDrafts() {
+        try {
+            const raw = localStorage.getItem(DRAFT_STORAGE_KEY);
+            return raw ? JSON.parse(raw) : { activeCode: '101', exams: {} };
+        } catch(e) {
+            console.error('Error reading drafts:', e);
+            return { activeCode: '101', exams: {} };
+        }
+    }
+
+    function saveCurrentDraft() {
+        if (isSubmitted) return;
+        try {
+            const draftData = getExamDrafts();
+            draftData.activeCode = currentCode;
+            if (!draftData.exams) draftData.exams = {};
+            draftData.exams[currentCode] = {
+                userAnswers: { ...userAnswers },
+                timerSeconds: timerSeconds,
+                lastSaved: Date.now()
+            };
+            localStorage.setItem(DRAFT_STORAGE_KEY, JSON.stringify(draftData));
+        } catch(e) {
+            console.error('Error saving draft:', e);
+        }
+    }
+
+    function clearDraft(code) {
+        try {
+            const draftData = getExamDrafts();
+            if (draftData.exams && draftData.exams[code]) {
+                delete draftData.exams[code];
+                localStorage.setItem(DRAFT_STORAGE_KEY, JSON.stringify(draftData));
+            }
+        } catch(e) {
+            console.error('Error clearing draft:', e);
+        }
+    }
+
+    let toastTimeout = null;
+    function showAutoSaveToast(message, duration = 3500) {
+        let toast = document.getElementById('autosaveToast');
+        if (!toast) {
+            toast = document.createElement('div');
+            toast.id = 'autosaveToast';
+            toast.className = 'autosave-toast';
+            document.body.appendChild(toast);
+        }
+        toast.innerHTML = `<span style="font-size:1.2rem">💾</span> <span>${message}</span>`;
+        toast.classList.add('show');
+        if (toastTimeout) clearTimeout(toastTimeout);
+        toastTimeout = setTimeout(() => {
+            toast.classList.remove('show');
+        }, duration);
+    }
+
     window.addEventListener('DOMContentLoaded', () => {
+        const draftData = getExamDrafts();
+        const initialCode = (draftData.activeCode && EXAMS_DATA.some(e => e.code === draftData.activeCode))
+            ? draftData.activeCode
+            : '101';
+        currentCode = initialCode;
         initExamTabs();
-        loadExam('101');
+        loadExam(initialCode);
         updateHistoryBadge();
+    });
+
+    window.addEventListener('beforeunload', (e) => {
+        saveCurrentDraft();
+        if (!isSubmitted && Object.keys(userAnswers).length > 0) {
+            e.preventDefault();
+            e.returnValue = '';
+        }
+    });
+
+    document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'hidden') {
+            saveCurrentDraft();
+        }
     });
 
     function initExamTabs() {
@@ -4274,11 +4410,7 @@
 
     function switchExam(code) {
         if (code === currentCode) return;
-        if (!isSubmitted && Object.keys(userAnswers).length > 0) {
-            if (!confirm('Bạn đang làm dở bài thi này. Bạn có chắc muốn đổi sang mã đề khác không?')) {
-                return;
-            }
-        }
+        saveCurrentDraft();
         currentCode = code;
         initExamTabs();
         loadExam(code);
@@ -4300,6 +4432,10 @@
             timerSeconds = Math.max(0, TOTAL_EXAM_SECONDS - elapsed);
             
             updateTimerDisplay();
+
+            if (timerSeconds % 5 === 0) {
+                saveCurrentDraft();
+            }
 
             if (timerSeconds <= 0) {
                 stopTimer();
@@ -4329,14 +4465,29 @@
         }
     }
 
-    function loadExam(code) {
+    function loadExam(code, forceReset = false) {
         const exam = EXAMS_DATA.find(e => e.code === code) || EXAMS_DATA[0];
-        userAnswers = {};
+        currentCode = code;
         isSubmitted = false;
+
+        // Kiểm tra xem mã đề này có bài làm dở được lưu tự động không
+        const draftData = getExamDrafts();
+        const draft = (!forceReset && draftData.exams && draftData.exams[code]) ? draftData.exams[code] : null;
+
+        let restoredCount = 0;
+        if (draft && draft.userAnswers && Object.keys(draft.userAnswers).length > 0) {
+            userAnswers = { ...draft.userAnswers };
+            timerSeconds = (typeof draft.timerSeconds === 'number' && draft.timerSeconds > 0)
+                ? draft.timerSeconds
+                : TOTAL_EXAM_SECONDS;
+            restoredCount = Object.keys(userAnswers).length;
+        } else {
+            userAnswers = {};
+            timerSeconds = TOTAL_EXAM_SECONDS;
+        }
         
         // Reset Timer
         stopTimer();
-        timerSeconds = TOTAL_EXAM_SECONDS;
         updateTimerDisplay();
         startTimer();
 
@@ -4367,10 +4518,13 @@
             `;
 
             sec.items.forEach(item => {
+                const userVal = userAnswers[item.globalNum];
+                const isAnswered = userVal !== undefined && userVal !== '';
+
                 if (sec.type === 'multiple_choice_grammar' || sec.type === 'multiple_choice_kanji_fill') {
                     // Trắc nghiệm MC
                     html += `
-                        <div class="question-card" id="qCard_${item.globalNum}">
+                        <div class="question-card ${isAnswered ? 'answered' : ''}" id="qCard_${item.globalNum}">
                             <div class="q-header">
                                 <span class="q-badge">Câu ${item.globalNum} / 44</span>
                                 <span class="q-category">${sec.secBadge}</span>
@@ -4378,7 +4532,7 @@
                             <div class="q-title jp-text">${item.q}</div>
                             <div class="options-list">
                                 ${item.options.map((opt, oIdx) => `
-                                    <div class="opt-btn jp-text" id="opt_${item.globalNum}_${oIdx}" onclick="selectOption(${item.globalNum}, ${oIdx})">
+                                    <div class="opt-btn jp-text ${userVal === oIdx ? 'selected' : ''}" id="opt_${item.globalNum}_${oIdx}" onclick="selectOption(${item.globalNum}, ${oIdx})">
                                         <span class="opt-index">${String.fromCharCode(65 + oIdx)}</span>
                                         <span>${opt}</span>
                                     </div>
@@ -4388,8 +4542,9 @@
                     `;
                 } else if (sec.type === 'text_vocab' || sec.type === 'text_kanji_reading') {
                     // Tự luận ngắn 1 dòng
+                    const escapedVal = userVal ? String(userVal).replace(/"/g, '&quot;') : '';
                     html += `
-                        <div class="question-card" id="qCard_${item.globalNum}">
+                        <div class="question-card ${isAnswered ? 'answered' : ''}" id="qCard_${item.globalNum}">
                             <div class="q-header">
                                 <span class="q-badge">Câu ${item.globalNum} / 44</span>
                                 <span class="q-category">${sec.secBadge}</span>
@@ -4398,6 +4553,7 @@
                             <div class="text-input-wrap">
                                 <input type="text" class="exam-text-input jp-text" id="input_${item.globalNum}" 
                                        placeholder="${item.placeholder}" 
+                                       value="${escapedVal}"
                                        oninput="handleTextInput(${item.globalNum}, this.value)"
                                        onkeydown="if(event.key==='Enter') checkSingleTextInput(${item.globalNum})">
                                 <button class="btn-check-input" onclick="checkSingleTextInput(${item.globalNum})">Kiểm Tra Đáp Án</button>
@@ -4407,8 +4563,9 @@
                     `;
                 } else if (sec.type === 'text_translation_sentence') {
                     // Tự luận dịch cả câu dài
+                    const textVal = userVal ? String(userVal) : '';
                     html += `
-                        <div class="question-card" id="qCard_${item.globalNum}">
+                        <div class="question-card ${isAnswered ? 'answered' : ''}" id="qCard_${item.globalNum}">
                             <div class="q-header">
                                 <span class="q-badge">Câu ${item.globalNum} / 44</span>
                                 <span class="q-category">${sec.secBadge}</span>
@@ -4416,7 +4573,7 @@
                             <div class="q-title jp-text">${item.prompt}</div>
                             <textarea class="exam-textarea jp-text" id="input_${item.globalNum}" 
                                       placeholder="${item.placeholder}" 
-                                      oninput="handleTextInput(${item.globalNum}, this.value)"></textarea>
+                                      oninput="handleTextInput(${item.globalNum}, this.value)">${textVal}</textarea>
                             <div style="margin-top: 10px;">
                                 <button class="btn-check-input" onclick="checkSingleSentenceTranslation(${item.globalNum})">Kiểm Tra Câu Mẫu</button>
                             </div>
@@ -4431,6 +4588,11 @@
 
         container.innerHTML = html;
         updateProgress();
+
+        if (restoredCount > 0) {
+            showAutoSaveToast(`🔄 Đã tự động khôi phục bài làm dở (${exam.name}: đã làm ${restoredCount}/44 câu)!`);
+        }
+
         window.scrollTo({ top: 120, behavior: 'smooth' });
     }
 
@@ -4451,6 +4613,7 @@
             showSingleExplainMC(globalNum);
         }
         updateProgress();
+        saveCurrentDraft();
     }
 
     // Xử lý nhập Tự Luận
@@ -4466,6 +4629,7 @@
             if (card) card.classList.remove('answered');
         }
         updateProgress();
+        saveCurrentDraft();
     }
 
     // Chuẩn hóa chuỗi so sánh tự luận
@@ -4577,6 +4741,7 @@
         if (isSubmitted) return;
         isSubmitted = true;
         stopTimer();
+        clearDraft(currentCode);
 
         const exam = EXAMS_DATA.find(e => e.code === currentCode);
         let correctCount = 0;
@@ -4755,7 +4920,7 @@
 
     function confirmResetExam() {
         if (!isSubmitted && Object.keys(userAnswers).length > 0) {
-            if (!confirm('Bạn có chắc muốn làm lại bài thi này từ đầu không? Toàn bộ câu trả lời hiện tại sẽ được đặt lại.')) {
+            if (!confirm('Bạn có chắc muốn làm lại bài thi này từ đầu không? Toàn bộ câu trả lời nháp hiện tại của mã đề này sẽ được xóa để làm lại.')) {
                 return;
             }
         }
@@ -4765,7 +4930,8 @@
     function restartCurrentExam() {
         closeModal();
         closeHistoryModal();
-        loadExam(currentCode);
+        clearDraft(currentCode);
+        loadExam(currentCode, true /* forceReset */);
         window.scrollTo({ top: 120, behavior: 'smooth' });
     }
 
@@ -4887,6 +5053,11 @@
         const list = getExamHistory();
         const record = list.find(item => item.id === id);
         if (!record) return;
+
+        // Lưu bài nháp hiện tại nếu đang làm dở trước khi xem lại lịch sử
+        if (!isSubmitted) {
+            saveCurrentDraft();
+        }
 
         closeHistoryModal();
 
