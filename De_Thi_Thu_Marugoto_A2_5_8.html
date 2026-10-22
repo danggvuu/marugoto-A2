@@ -984,6 +984,63 @@
             padding: 3px 10px;
             border-radius: var(--radius-full);
         }
+
+        /* Reset Exam Button & Bottom Card */
+        .btn-reset-exam {
+            background: white;
+            border: 1.5px solid var(--gray-300);
+            color: var(--gray-700);
+            border-radius: var(--radius-full);
+            padding: 8px 16px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-reset-exam:hover {
+            border-color: var(--warning);
+            color: #b45309;
+            background: var(--warning-light);
+            transform: translateY(-1px);
+        }
+
+        .bottom-action-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 22px 24px;
+            margin-top: 24px;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow-sm);
+            border: 1.5px solid var(--gray-200);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .bottom-action-info h4 {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--gray-800);
+            margin-bottom: 4px;
+        }
+
+        .bottom-action-info p {
+            font-size: 0.88rem;
+            color: var(--gray-600);
+        }
+
+        .bottom-action-btns {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
     </style>
 
 </head>
@@ -1045,12 +1102,28 @@
                 <span>📜 Lịch Sử</span>
                 <span class="history-badge" id="historyCountBadge">0</span>
             </button>
-            <button class="btn-submit-exam" onclick="submitExam()">Nộp Bài Thi ➔</button>
+            <button class="btn-reset-exam" id="topResetBtn" onclick="confirmResetExam()" title="Làm lại bài thi từ đầu">
+                <span>🔄 Làm Lại</span>
+            </button>
+            <button class="btn-submit-exam" id="topSubmitBtn" onclick="submitExam()">Nộp Bài Thi ➔</button>
         </div>
 
         <!-- Questions List Container -->
         <div id="questionsContainer">
             <!-- Render via JS -->
+        </div>
+
+        <!-- Bottom Action Card -->
+        <div class="bottom-action-card">
+            <div class="bottom-action-info">
+                <h4>🎯 Đã hoàn thành bài làm?</h4>
+                <p>Kiểm tra kỹ các câu trả lời trước khi nộp bài hoặc làm lại từ đầu.</p>
+            </div>
+            <div class="bottom-action-btns">
+                <button class="btn-reset-exam" onclick="confirmResetExam()">🔄 Làm Lại Bài Thi</button>
+                <button class="btn-history" onclick="openHistoryModal()">📜 Xem Lịch Sử</button>
+                <button class="btn-submit-exam" id="bottomSubmitBtn" onclick="submitExam()">Nộp Bài Thi ➔</button>
+            </div>
         </div>
     </div>
 
@@ -4267,14 +4340,16 @@
         updateTimerDisplay();
         startTimer();
 
-        // Reset submit button state
-        const submitBtn = document.querySelector('.btn-submit-exam');
-        if (submitBtn) {
-            submitBtn.disabled = false;
-            submitBtn.textContent = 'Nộp Bài Thi ➔';
-            submitBtn.style.opacity = '1';
-            submitBtn.style.cursor = 'pointer';
-        }
+        // Reset submit button state (cả thanh trên và thanh dưới)
+        document.querySelectorAll('.btn-submit-exam').forEach(btn => {
+            btn.disabled = false;
+            btn.textContent = 'Nộp Bài Thi ➔';
+            btn.onclick = () => submitExam();
+            btn.style.background = 'linear-gradient(135deg, var(--primary), var(--primary-dark))';
+            btn.style.boxShadow = '0 4px 12px rgba(79, 70, 229, 0.35)';
+            btn.style.opacity = '1';
+            btn.style.cursor = 'pointer';
+        });
 
         const container = document.getElementById('questionsContainer');
         let html = '';
@@ -4533,14 +4608,16 @@
             btn.style.cursor = 'not-allowed';
         });
 
-        // 3. Khóa nút Nộp Bài
-        const submitBtn = document.querySelector('.btn-submit-exam');
-        if (submitBtn) {
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Đã Nộp Bài ✓';
-            submitBtn.style.opacity = '0.7';
-            submitBtn.style.cursor = 'default';
-        }
+        // 3. Chuyển nút Nộp Bài thành nút "🔄 Làm Lại Mã Đề Này" để học sinh bấm thi lại ngay
+        document.querySelectorAll('.btn-submit-exam').forEach(btn => {
+            btn.disabled = false;
+            btn.textContent = '🔄 Làm Lại Mã Đề Này';
+            btn.onclick = () => confirmResetExam();
+            btn.style.background = 'linear-gradient(135deg, #f59e0b, #d97706)';
+            btn.style.boxShadow = '0 4px 12px rgba(217, 119, 6, 0.35)';
+            btn.style.opacity = '1';
+            btn.style.cursor = 'pointer';
+        });
 
         // 4. Cập nhật thanh Timer hiển thị trạng thái hoàn thành
         const timerDisplay = document.getElementById('timerDisplay');
@@ -4676,9 +4753,20 @@
         document.getElementById('scoreModal').classList.remove('show');
     }
 
+    function confirmResetExam() {
+        if (!isSubmitted && Object.keys(userAnswers).length > 0) {
+            if (!confirm('Bạn có chắc muốn làm lại bài thi này từ đầu không? Toàn bộ câu trả lời hiện tại sẽ được đặt lại.')) {
+                return;
+            }
+        }
+        restartCurrentExam();
+    }
+
     function restartCurrentExam() {
         closeModal();
+        closeHistoryModal();
         loadExam(currentCode);
+        window.scrollTo({ top: 120, behavior: 'smooth' });
     }
 
     // ==========================================
@@ -4897,12 +4985,15 @@
         updateProgress();
 
         // 4. Update Header Buttons & Timer Bar
-        const submitBtn = document.querySelector('.btn-submit-exam');
-        if (submitBtn) {
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Đang Xem Lại Lịch Sử';
-            submitBtn.style.opacity = '0.7';
-        }
+        document.querySelectorAll('.btn-submit-exam').forEach(btn => {
+            btn.disabled = false;
+            btn.textContent = '🔄 Làm Lại Mã Đề Này';
+            btn.onclick = () => confirmResetExam();
+            btn.style.background = 'linear-gradient(135deg, #f59e0b, #d97706)';
+            btn.style.boxShadow = '0 4px 12px rgba(217, 119, 6, 0.35)';
+            btn.style.opacity = '1';
+            btn.style.cursor = 'pointer';
+        });
 
         const timerDisplay = document.getElementById('timerDisplay');
         const timerBox = document.querySelector('.timer-box');
