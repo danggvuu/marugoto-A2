@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📝 5 Mã Đề Thi Thử Marugoto A2-1 (Bài 5 - 8) • Chuẩn Phiếu Của Thầy</title>
+    <meta name="description" content="5 Mã đề thi thử Marugoto A2-1 Bài 5-8 mô phỏng 100% phiếu bài tập của thầy. Chỉ dùng chữ Hán đã học, tự động chấm điểm và giải thích chi tiết.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-light: #e0e7ff;
+            --primary-dark: #3730a3;
+            --secondary: #0ea5e9;
+            --secondary-light: #e0f2fe;
+            --accent: #f43f5e;
+            --accent-light: #ffe4e6;
+            --success: #10b981;
+            --success-light: #d1fae5;
+            --warning: #f59e0b;
+            --warning-light: #fef3c7;
+            --dark: #0f172a;
+            --gray-50: #f8fafc;
+            --gray-100: #f1f5f9;
+            --gray-200: #e2e8f0;
+            --gray-300: #cbd5e1;
+            --gray-500: #64748b;
+            --gray-600: #475569;
+            --gray-700: #334155;
+            --gray-800: #1e293b;
+            --radius-md: 10px;
+            --radius-lg: 16px;
+            --radius-full: 9999px;
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        body {
+            background-color: #f1f5f9;
+            color: var(--gray-800);
+            line-height: 1.6;
+            padding-bottom: 80px;
+        }
+
+        .jp-text {
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+
+        /* Top Global Hub Nav */
+        .global-hub-nav {
+            background: white;
+            border-bottom: 1px solid var(--gray-200);
+            padding: 10px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .hub-nav-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            border-radius: var(--radius-full);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--gray-600);
+            background: var(--gray-100);
+            transition: all 0.2s ease;
+        }
+
+        .hub-nav-item:hover {
+            background: var(--primary-light);
+            color: var(--primary);
+        }
+
+        .hub-nav-item.active-hub {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 2px 8px rgba(79, 70, 229, 0.35);
+        }
+
+        .main-container {
+            max-width: 960px;
+            margin: 25px auto;
+            padding: 0 16px;
+        }
+
+        /* Hero Banner */
+        .hero-banner {
+            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4338ca 100%);
+            color: white;
+            border-radius: var(--radius-lg);
+            padding: 28px 24px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow-md);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-banner h1 {
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .hero-badge {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: var(--radius-full);
+            backdrop-filter: blur(4px);
+        }
+
+        .hero-desc {
+            font-size: 0.95rem;
+            opacity: 0.92;
+            max-width: 780px;
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
+
+        .hero-features {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .feature-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 255, 255, 0.12);
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 0.82rem;
+            font-weight: 600;
+        }
+
+        /* Exam Code Selector Tabs */
+        .code-selector-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 16px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-sm);
+            border: 1.5px solid var(--gray-200);
+        }
+
+        .selector-label {
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: var(--gray-500);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .code-tab-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 10px;
+        }
+
+        .code-tab-btn {
+            background: var(--gray-50);
+            border: 1.5px solid var(--gray-300);
+            border-radius: 12px;
+            padding: 12px 14px;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .code-tab-btn:hover {
+            border-color: var(--primary);
+            background: var(--primary-light);
+        }
+
+        .code-tab-btn.active {
+            background: white;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+        }
+
+        .code-tab-btn .tab-code {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--primary);
+            display: block;
+        }
+
+        .code-tab-btn.active .tab-code {
+            color: var(--primary-dark);
+        }
+
+        .code-tab-btn .tab-sub {
+            font-size: 0.78rem;
+            color: var(--gray-600);
+            margin-top: 2px;
+            display: block;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Sticky Control Bar */
+        .control-bar {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 14px 20px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--gray-200);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 14px;
+            position: sticky;
+            top: 60px;
+            z-index: 90;
+        }
+
+        .timer-box {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--gray-800);
+        }
+
+        .timer-icon {
+            font-size: 1.4rem;
+        }
+
+        .progress-box {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex: 1;
+            max-width: 280px;
+        }
+
+        .progress-bar-bg {
+            flex: 1;
+            height: 10px;
+            background: var(--gray-200);
+            border-radius: var(--radius-full);
+            overflow: hidden;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .progress-text {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--gray-600);
+            white-space: nowrap;
+        }
+
+        .btn-submit-exam {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            border: none;
+            padding: 10px 22px;
+            border-radius: var(--radius-full);
+            font-size: 0.95rem;
+            font-weight: 800;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(16, 185, 129, 0.35);
+            transition: all 0.2s ease;
+        }
+
+        .btn-submit-exam:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.45);
+        }
+
+        .mode-toggle {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--gray-600);
+            cursor: pointer;
+            user-select: none;
+        }
+
+        /* Question Cards */
+        .question-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 22px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-sm);
+            border: 1.5px solid var(--gray-200);
+            transition: border-color 0.2s ease;
+        }
+
+        .question-card.answered {
+            border-color: #cbd5e1;
+        }
+
+        .q-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .q-badge {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            font-size: 0.8rem;
+            font-weight: 800;
+            padding: 3px 10px;
+            border-radius: var(--radius-full);
+        }
+
+        .q-category {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--gray-500);
+            background: var(--gray-100);
+            padding: 3px 10px;
+            border-radius: 6px;
+        }
+
+        .q-title {
+            font-size: 1.12rem;
+            font-weight: 700;
+            color: var(--gray-800);
+            margin-bottom: 18px;
+            line-height: 1.6;
+        }
+
+        .q-title b, .q-title u {
+            color: var(--primary-dark);
+        }
+
+        .options-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .opt-btn {
+            background: var(--gray-50);
+            border: 1.5px solid var(--gray-300);
+            border-radius: 10px;
+            padding: 12px 16px;
+            text-align: left;
+            font-size: 0.98rem;
+            font-weight: 600;
+            color: var(--gray-800);
+            cursor: pointer;
+            transition: all 0.15s ease;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .opt-btn:hover {
+            border-color: var(--primary);
+            background: white;
+        }
+
+        .opt-btn.selected {
+            border-color: var(--primary);
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            font-weight: 700;
+        }
+
+        .opt-btn.correct-ans {
+            border-color: var(--success) !important;
+            background: var(--success-light) !important;
+            color: #065f46 !important;
+        }
+
+        .opt-btn.wrong-ans {
+            border-color: var(--accent) !important;
+            background: var(--accent-light) !important;
+            color: #9f1239 !important;
+        }
+
+        .opt-index {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: white;
+            border: 1.5px solid var(--gray-300);
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: var(--gray-600);
+            flex-shrink: 0;
+        }
+
+        .opt-btn.selected .opt-index {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+        }
+
+        .opt-btn.correct-ans .opt-index {
+            background: var(--success);
+            border-color: var(--success);
+            color: white;
+        }
+
+        .opt-btn.wrong-ans .opt-index {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: white;
+        }
+
+        .explanation-box {
+            display: none;
+            margin-top: 14px;
+            background: #eff6ff;
+            border-left: 4px solid var(--secondary);
+            border-radius: 0 8px 8px 0;
+            padding: 14px 16px;
+            font-size: 0.92rem;
+            color: #1e3a8a;
+            line-height: 1.5;
+        }
+
+        .explanation-box.show {
+            display: block;
+        }
+
+        /* Result Score Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+        }
+
+        .modal-overlay.show {
+            display: flex;
+        }
+
+        .modal-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            max-width: 540px;
+            width: 100%;
+            padding: 28px;
+            box-shadow: var(--shadow-lg);
+            text-align: center;
+            position: relative;
+            animation: popIn 0.3s ease;
+        }
+
+        @keyframes popIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .score-circle-large {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px auto;
+            box-shadow: 0 4px 15px rgba(79, 70, 229, 0.4);
+        }
+
+        .score-num {
+            font-size: 2.1rem;
+            font-weight: 900;
+            line-height: 1;
+        }
+
+        .score-sub {
+            font-size: 0.72rem;
+            opacity: 0.85;
+            text-transform: uppercase;
+        }
+
+        .modal-title {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 6px;
+            color: var(--gray-800);
+        }
+
+        .modal-desc {
+            font-size: 0.92rem;
+            color: var(--gray-600);
+            margin-bottom: 20px;
+        }
+
+        .result-grid-indicators {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+
+        .indicator-item {
+            padding: 8px 4px;
+            border-radius: 8px;
+            font-size: 0.82rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+
+        .indicator-item.correct {
+            background: var(--success-light);
+            color: #065f46;
+        }
+
+        .indicator-item.wrong {
+            background: var(--accent-light);
+            color: #9f1239;
+        }
+
+        .modal-btn-row {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .btn-modal-action {
+            padding: 10px 20px;
+            border-radius: var(--radius-full);
+            font-size: 0.92rem;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-review {
+            background: var(--gray-100);
+            color: var(--gray-700);
+        }
+
+        .btn-retry {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 2px 8px rgba(79, 70, 229, 0.3);
+        }
+
+        @media (max-width: 640px) {
+            .hero-banner { padding: 20px 16px; }
+            .hero-banner h1 { font-size: 1.35rem; }
+            .control-bar { top: 50px; }
+            .code-tab-grid { grid-template-columns: repeat(2, 1fr); }
+            .result-grid-indicators { grid-template-columns: repeat(5, 1fr); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Global Hub Navigation -->
+    <div class="global-hub-nav">
+        <a href="index.html" class="hub-nav-item">🌸 Thể TE (～て)</a>
+        <a href="the_ru.html" class="hub-nav-item">📘 Thể RU (Từ Điển)</a>
+        <a href="kanji_a2.html" class="hub-nav-item">⛩️ Học Kanji & Nét Viết</a>
+        <a href="Tu_Vung_Marugoto_A1_16_A2_1_10.html" class="hub-nav-item">📖 Kho Từ Vựng A1-A2</a>
+        <a href="On_Tap_Mini_Test_A2_5_8.html" class="hub-nav-item">🎯 Cẩm Nang Bài 5 - 8</a>
+        <a href="De_Thi_Thu_Marugoto_A2_5_8.html" class="hub-nav-item active-hub">📝 5 Mã Đề Thi Thử (Bài 5 - 8)</a>
+    </div>
+
+    <div class="main-container">
+        <!-- Hero Banner -->
+        <div class="hero-banner">
+            <span class="hero-badge">Chuẩn Sư Phạm 100% • Bài 5 - 8</span>
+            <h1>📝 Luyện Thi Thử Marugoto A2-1 • Hệ Thống 5 Mã Đề</h1>
+            <p class="hero-desc">Được xây dựng chuẩn xác 100% theo các phiếu bài tập ôn tập của Sensei. Tuyệt đối chỉ sử dụng các chữ Hán đã học (32 Kanji Bài 5-8), các từ còn lại dùng Hiragana chuẩn. Có chấm điểm tự động và lời giải thích chi tiết từng câu.</p>
+            <div class="hero-features">
+                <div class="feature-pill">🎯 5 Mã Đề (101 - 105)</div>
+                <div class="feature-pill">⏱️ Đếm Giờ 40 Phút</div>
+                <div class="feature-pill">⛩️ Chuẩn Chữ Hán Đã Học</div>
+                <div class="feature-pill">💡 Giải Thích Chi Tiết 100%</div>
+            </div>
+        </div>
+
+        <!-- Exam Code Selector Card -->
+        <div class="code-selector-card">
+            <span class="selector-label">CHỌN MÃ ĐỀ THI ĐỂ BẮT ĐẦU:</span>
+            <div class="code-tab-grid" id="examCodeTabsContainer">
+                <!-- Render via JS -->
+            </div>
+        </div>
+
+        <!-- Sticky Control Bar -->
+        <div class="control-bar">
+            <div class="timer-box">
+                <span class="timer-icon">⏱️</span>
+                <span id="timerDisplay">40:00</span>
+            </div>
+
+            <div class="progress-box">
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" id="progressBarFill"></div>
+                </div>
+                <span class="progress-text" id="progressText">0/25 câu</span>
+            </div>
+
+            <label class="mode-toggle">
+                <input type="checkbox" id="immediateExplainToggle" onchange="toggleImmediateMode()">
+                <span>Hiện đáp án ngay khi chọn</span>
+            </label>
+
+            <button class="btn-submit-exam" onclick="submitExam()">Nộp Bài Thi ➔</button>
+        </div>
+
+        <!-- Questions List Container -->
+        <div id="questionsContainer">
+            <!-- Render via JS -->
+        </div>
+    </div>
+
+    <!-- Modal Score & Result -->
+    <div class="modal-overlay" id="scoreModal">
+        <div class="modal-card">
+            <div class="score-circle-large">
+                <span class="score-num" id="modalScoreNum">0</span>
+                <span class="score-sub" id="modalScorePercent">0%</span>
+            </div>
+            <h3 class="modal-title" id="modalTitle">Kết Quả Bài Thi</h3>
+            <p class="modal-desc" id="modalDesc">Bạn đã hoàn thành bài thi.</p>
+
+            <div class="result-grid-indicators" id="modalIndicators">
+                <!-- Render indicators -->
+            </div>
+
+            <div class="modal-btn-row">
+                <button class="btn-modal-action btn-review" onclick="closeModal()">Xem Lại Từng Câu</button>
+                <button class="btn-modal-action btn-retry" onclick="restartCurrentExam()">Làm Lại Mã Đề Này</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    const EXAMS_DATA = [{"code": "101", "name": "Mã Đề 101", "tag": "Đề Gốc Của Thầy (Phiếu 1)", "desc": "Mô phỏng 100% nguyên mẫu phiếu bài tập ôn tập Bài 5-6 và 7-8 thầy đã phát trên lớp.", "questions": [{"id": 1, "category": "Đọc Chữ Hán", "q": "みせの <u>前</u> で ともだちを 待ちます。<br>Cách đọc của chữ Hán gạch chân <b>前</b> là gì?", "options": ["まえ", "あと", "ひる", "あさ"], "correct": 0, "explain": "Chữ 前 (Tiền) trong cụm 「みせの 前で」 (trước cửa hàng) có âm đọc Kunyomi là 「まえ」."}, {"id": 2, "category": "Đọc Chữ Hán", "q": "みせの 前で ともだちを <u>待</u>ちます。<br>Cách đọc của chữ Hán gạch chân <b>待</b> trong 「待ちます」 là gì?", "options": ["と", "ま", "も", "で"], "correct": 1, "explain": "Chữ 待 (Đãi) gồm bộ Xích 彳 + chữ Tự 寺, trong động từ 「待ちます (まちます)」 đọc là 「ま」."}, {"id": 3, "category": "Đọc Chữ Hán", "q": "<u>駅</u> で でんしゃに <u>乗</u>ります。<br>Cách đọc của 2 chữ Hán gạch chân <b>駅</b> và <b>乗</b> là gì?", "options": ["まち / の", "えき / の", "えき / と", "みせ / の"], "correct": 1, "explain": "駅 (Dịch - nhà ga) đọc là 「えき」. 乗 (Thừa - lên xe) đọc là 「の」 trong 「乗ります (のります)」."}, {"id": 4, "category": "Đọc Chữ Hán", "q": "待ちあわせの <u>時間</u> と <u>場所</u> を おしえて ください。<br>Cách đọc của <b>時間</b> và <b>場所</b> là gì?", "options": ["とき / ところ", "じかん / ひろば", "じかん / ばしょ", "とき / ばしょ"], "correct": 2, "explain": "時間 (Thời Gian) đọc là 「じかん」; 場所 (Trường Sở) đọc là 「ばしょ」."}, {"id": 5, "category": "Đọc Chữ Hán", "q": "<u>仕事</u> の <u>後</u> で <u>食事</u> を します。<br>Cách đọc của <b>仕事</b>, <b>後</b>, <b>食事</b> là gì?", "options": ["しごと / あと / しょくじ", "こと / まえ / たべもの", "しごと / うしろ / しょくじ", "じこ / あと / しょくじ"], "correct": 0, "explain": "仕事 (Sĩ Sự - công việc) ➔ 「しごと」; 後 (Hậu - sau khi) ➔ 「あと」; 食事 (Thực Sự - bữa ăn) ➔ 「しょくじ」."}, {"id": 6, "category": "Từ Trái Nghĩa", "q": "Từ trái nghĩa với tính từ <b>「あかるいです」</b> (sáng sủa) trong khung là gì?", "options": ["やすいです", "ふべんです", "くらいです", "とおいです"], "correct": 2, "explain": "あかるい (sáng sủa) trái nghĩa với くらい (tối tăm)."}, {"id": 7, "category": "Từ Trái Nghĩa", "q": "Từ trái nghĩa với tính từ <b>「あたらしいです」</b> (mới) là gì?", "options": ["ふるいです", "すくないです", "おおいです", "たかいです"], "correct": 0, "explain": "あたらしい (mới) trái nghĩa với ふるい (cũ)."}, {"id": 8, "category": "Từ Trái Nghĩa", "q": "Từ trái nghĩa với tính từ <b>「べんりです」</b> (tiện lợi) là gì?", "options": ["ふべんです", "くらいです", "やすいです", "とおいです"], "correct": 0, "explain": "べんり[な] (tiện lợi) trái nghĩa với ふべん[な] (bất tiện)."}, {"id": 9, "category": "Từ Trái Nghĩa", "q": "Từ trái nghĩa với tính từ <b>「ちかいです」</b> (gần) là gì?", "options": ["ひろいです", "せまいです", "とおいです", "ふべんです"], "correct": 2, "explain": "ちかい (gần) trái nghĩa với とおい (xa)."}, {"id": 10, "category": "Từ Vựng Tình Huống", "q": "Khi đường phố bị tắc nghẽn, nhiều xe ô tô nối đuôi nhau không di chuyển được thì gọi là gì?", "options": ["道に まよいます", "じこです", "じゅうたいです", "じかんを まちがえます"], "correct": 2, "explain": "じゅうたい (渋滞 - tắc đường, kẹt xe)."}, {"id": 11, "category": "Trợ Từ", "q": "この あたりに テレビ [____] カメラなどの 店が あります。", "options": ["と", "や", "も", "で"], "correct": 1, "explain": "Cấu trúc liệt kê tiêu biểu không toàn bộ: 「N1 や N2 など」 (những thứ như N1, N2...)."}, {"id": 12, "category": "Trợ Từ", "q": "ゆうえんちは でんしゃ [____] 2じかん ぐらいです。", "options": ["に", "で", "を", "の"], "correct": 1, "explain": "Trợ từ 「で」 chỉ phương tiện di chuyển: 「でんしゃで」 (đi bằng tàu điện)."}, {"id": 13, "category": "Trợ Từ", "q": "こうえん [____] なか [____] おしろが あります。", "options": ["の / に", "に / で", "で / の", "の / を"], "correct": 0, "explain": "「こうえんの なか」 (bên trong công viên) ＋ 「に」 (vị trí tồn tại có lâu đài)."}, {"id": 14, "category": "Trợ Từ", "q": "1つめ [____] しんごうを 右 [____] まがります。", "options": ["を / に", "の / に", "に / を", "で / へ"], "correct": 1, "explain": "「1つめの しんごう」 (đèn giao thông thứ nhất) ＋ 「右に まがる」 (hướng rẽ dùng trợ từ に)."}, {"id": 15, "category": "Trợ Từ", "q": "メール [____] ともだち [____] れんらく します。", "options": ["で / に", "に / で", "を / と", "で / と"], "correct": 0, "explain": "「メールで」 (bằng phương tiện email) ＋ 「ともだちに」 (đối tượng tiếp nhận liên lạc dùng に)."}, {"id": 16, "category": "Trợ Từ", "q": "とうきょうスカイツリーは にほん [____] いちばん たかい タワーです。", "options": ["に", "で", "の", "を"], "correct": 1, "explain": "Trợ từ 「で」 chỉ phạm vi so sánh nhất: 「にほんで いちばん」 (cao nhất ở nước Nhật)."}, {"id": 17, "category": "Sắp Xếp Câu", "q": "Sắp xếp các từ sau thành câu đúng:<br>この店は (a. とおい  b. うち  c. けど  d. から) おいしい です。", "options": ["b - d - a - c", "a - c - b - d", "b - a - d - c", "d - b - a - c"], "correct": 0, "explain": "Thứ tự đúng: この店は [うち (b)] [から (d)] [とおい (a)] [けど (c)] おいしい です (Quán này xa nhà tôi nhưng mà ngon)."}, {"id": 18, "category": "Sắp Xếp Câu", "q": "Sắp xếp các từ sau thành câu đúng:<br>パーティーは (a. けど  b. つかれます  c. たのしい  d. ちょっと)。", "options": ["c - a - d - b", "a - c - b - d", "c - d - a - b", "d - b - c - a"], "correct": 0, "explain": "Thứ tự đúng: パーティーは [たのしい (c)] [けど (a)] [ちょっと (d)] [つかれます (b)] (Bữa tiệc vui nhưng hơi mệt một chút)."}, {"id": 19, "category": "Sắp Xếp Câu", "q": "Sắp xếp các từ sau thành câu đúng:<br>食事の (a. に  b. すいぞくかん  c. あとで  d. 行きませんか)。", "options": ["c - b - a - d", "b - a - c - d", "a - b - c - d", "c - a - b - d"], "correct": 0, "explain": "Thứ tự đúng: 食事の [あとで (c)] [すいぞくかん (b)] [に (a)] [行きませんか (d)] (Sau bữa ăn cùng đi thủy cung không?)."}, {"id": 20, "category": "Chia Thể TE", "q": "バスていで バスに [____]、がっこうに 行きます。(Động từ: のります)", "options": ["のりて", "のるて", "のって", "のんで"], "correct": 2, "explain": "のります (nhóm 1, đuôi り) chia sang thể Te là 「のって」 (lên xe bus rồi sau đó đi học)."}, {"id": 21, "category": "Chia Thể TE", "q": "みどりえきで バスを [____]、かいしゃまで あるきます。(Động từ: おります)", "options": ["おって", "おりて", "おれて", "おるて"], "correct": 1, "explain": "おります (nhóm 2 - xuống tàu xe) chia sang thể Te là 「おりて」."}, {"id": 22, "category": "Chia Thể TE", "q": "この あたりは よる、[____]、あぶないです。(Tính từ: くらいです)", "options": ["くらいて", "くらいで", "くらくて", "くらくだ"], "correct": 2, "explain": "Tính từ đuôi い (くらい) nối câu cùng chiều bằng cách bỏ い thêm くて ➔ 「くらくて」 (vừa tối vừa nguy hiểm)."}, {"id": 23, "category": "Mục Đích Di Chuyển", "q": "ラーメンを [____] に 行きます。(Động từ: たべます)", "options": ["食べる", "食べ", "食べて", "食べた"], "correct": 1, "explain": "Mục đích di chuyển: Động từ bỏ ます + に 行きます ➔ 「食べに 行きます」 (đi ăn mì ramen)."}, {"id": 24, "category": "Hội Thoại Thực Tế", "q": "A:「日よう日、8時は どうですか。」<br>B:「すみません。[____]」", "options": ["だいじょうぶですよ。", "8時は ちょっと…。", "8時に しましょう。", "わかりました。"], "correct": 1, "explain": "Từ chối khéo léo thời gian hẹn trong tiếng Nhật: 「～は ちょっと…」 (8 giờ thì hơi kẹt cho tôi...)."}, {"id": 25, "category": "Hội Thoại Thực Tế", "q": "A:「ハさん、もう はくぶつかんに 行きましたか。」<br>B:「いいえ、[____]。」", "options": ["行きました。", "行きませんでした。", "まだです。", "だめです。"], "correct": 2, "explain": "Phản hồi phủ định cho câu hỏi 「もう ～ましたか」 (Đã làm... chưa?) bắt buộc dùng 「いいえ、まだです」 (Chưa, tôi vẫn chưa)."}]}, {"code": "102", "name": "Mã Đề 102", "tag": "Biến Thể 1 (Đề Gốc Phiếu 2)", "desc": "Tập hợp toàn bộ các câu hỏi còn lại trên phiếu của thầy: Chữ Hán Bài 5-6, nối câu tính từ, chỉ đường và hội thoại trễ hẹn.", "questions": [{"id": 1, "category": "Đọc Chữ Hán", "q": "この <u>店</u> は わかい <u>人</u> に <u>人気</u> が あります。<br>Cách đọc của <b>店</b>, <b>人</b>, <b>人気</b> là gì?", "options": ["まち / ひと / にんき", "みせ / ひと / にんき", "みせ / ひと / ひとけ", "ところ / ひと / にんき"], "correct": 1, "explain": "店 (Điếm) ➔ 「みせ」; 人 (Nhân) ➔ 「ひと」; 人気 (Nhân Khí - được ưa chuộng) ➔ 「にんき」."}, {"id": 2, "category": "Đọc Chữ Hán", "q": "この <u>町</u> は デパートが <u>少</u>ないです。<br>Cách đọc của <b>町</b> và <b>少</b> trong 「少ない」 là gì?", "options": ["みせ / すく", "まち / すこ", "まち / すく", "ところ / おお"], "correct": 2, "explain": "町 (Đinh - thị trấn) ➔ 「まち」; 少ない (Thiểu - ít) ➔ 「すくない」."}, {"id": 3, "category": "Đọc Chữ Hán", "q": "<u>高</u>い コンピューターは こちらです。<u>安</u>い コンピューターは あちらです。<br>Cách đọc của <b>高</b> và <b>安</b> là gì?", "options": ["たか / やす", "やす / たか", "たか / ひく", "しろ / くろ"], "correct": 0, "explain": "高い (Cao - đắt, cao lớn) ➔ 「たかい」; 安い (An - rẻ) ➔ 「やすい」."}, {"id": 4, "category": "Đọc Chữ Hán", "q": "この <u>通り</u> に <u>白</u>い ビルが <u>一つ</u> あります。<br>Cách đọc của <b>通り</b>, <b>白</b>, <b>一つ</b> là gì?", "options": ["みち / しろ / ひとつ", "とおり / あか / ひとつ", "とおり / しろ / ひとつ", "とおり / くろ / ふたつ"], "correct": 2, "explain": "通り (Thông - con phố) ➔ 「とおり」; 白い (Bạch - màu trắng) ➔ 「しろい」; 一つ ➔ 「ひとつ」."}, {"id": 5, "category": "Đọc Chữ Hán", "q": "<u>右</u> と <u>左</u> を 見て、<u>道</u> を わたります。<br>Cách đọc của <b>右</b>, <b>左</b>, <b>道</b> là gì?", "options": ["ひだり / みぎ / みち", "みぎ / ひだり / みち", "みぎ / ひだり / とおり", "みぎ / ひだり / はし"], "correct": 1, "explain": "右 (Hữu - phải) ➔ 「みぎ」; 左 (Tả - trái) ➔ 「ひだり」; 道 (Đạo - đường) ➔ 「みち」."}, {"id": 6, "category": "Từ Trái Nghĩa", "q": "Từ trái nghĩa với tính từ <b>「おおいです」</b> (nhiều) là gì?", "options": ["すくないです", "ふるいです", "ひくいです", "せまいです"], "correct": 0, "explain": "おおい (nhiều) trái nghĩa với すくない (ít)."}, {"id": 7, "category": "Từ Trái Nghĩa", "q": "Từ trái nghĩa với tính từ <b>「たかいです」</b> (đắt / cao) trong các từ sau là gì?", "options": ["やすいです", "みじかいです", "ふべんです", "とおいです"], "correct": 0, "explain": "たかい (đắt) trái nghĩa với やすい (rẻ)."}, {"id": 8, "category": "Trợ Từ", "q": "あそこ [____] 大きい ビル [____] 見えますね。", "options": ["で / を", "に / が", "に / を", "へ / が"], "correct": 1, "explain": "Cấu trúc khả năng tự nhiên: 「[Địa điểm] に N が 見えます」 (Tại đằng kia có thể nhìn thấy tòa nhà to)."}, {"id": 9, "category": "Trợ Từ", "q": "この通りは バイク [____] 多いです。", "options": ["を", "に", "が", "で"], "correct": 2, "explain": "Chủ ngữ của tính từ 多い bắt buộc dùng trợ từ 「が」: 「バイクが 多い」 (nhiều xe máy)."}, {"id": 10, "category": "Trợ Từ", "q": "でんしゃは 9時 [____] えき [____] つきます。", "options": ["に / に", "で / に", "に / で", "を / に"], "correct": 0, "explain": "Thời điểm xác định dùng 「9時に」 + địa điểm đến nơi dùng 「えきに つきます」."}, {"id": 11, "category": "Trợ Từ", "q": "6時半 [____] レストラン [____] いりぐち [____] 会いましょう。", "options": ["に / の / で", "で / の / に", "に / に / で", "で / で / に"], "correct": 0, "explain": "「6時半に」 (vào lúc 6h30) + 「レストランの いりぐち」 (cửa vào nhà hàng) + 「で 会う」 (gặp nhau tại địa điểm dùng で)."}, {"id": 12, "category": "Trợ Từ", "q": "はくぶつかん [____] ベトナムの れきし [____] わかります。", "options": ["に / を", "で / が", "で / を", "に / が"], "correct": 1, "explain": "Địa điểm diễn ra việc tìm hiểu dùng 「で」 + đối tượng của わかる dùng trợ từ 「が」: 「れきしが わかります」."}, {"id": 13, "category": "Trợ Từ", "q": "休み [____] 日、ともだち [____] 出かけます。", "options": ["の / と", "に / と", "の / に", "で / と"], "correct": 0, "explain": "「休みの 日」 (ngày nghỉ) + 「ともだちと」 (cùng với bạn bè đi ra ngoài)."}, {"id": 14, "category": "Sắp Xếp Câu", "q": "Sắp xếp các từ sau thành câu đúng:<br>この (a. こうえんは  b. しずかで  c. いいです  d. きもちが)。", "options": ["a - b - d - c", "b - a - d - c", "a - d - c - b", "d - c - a - b"], "correct": 0, "explain": "Thứ tự đúng: この [こうえんは (a)] [しずかで (b)] [きもちが (d)] [いいです (c)] (Công viên này yên tĩnh và cảm giác rất dễ chịu)."}, {"id": 15, "category": "Sắp Xếp Câu", "q": "Sắp xếp các từ sau thành câu đúng:<br>えきの (a. みせが  b. すてきな  c. ちかくに  d. くつの  e. あります)。", "options": ["c - b - d - a - e", "b - d - a - c - e", "c - d - b - a - e", "a - e - c - b - d"], "correct": 0, "explain": "Thứ tự đúng: えきの [ちかくに (c)] [すてきな (b)] [くつの (d)] [みせが (a)] [あります (e)] (Ở gần nhà ga có một tiệm giày rất đẹp)."}, {"id": 16, "category": "Sắp Xếp Câu", "q": "Sắp xếp các từ sau thành câu đúng:<br>私の うちは (a. から  b. 10分  c. がっこう  d. ぐらい  e. あるいて) です。", "options": ["c - a - e - b - d", "c - b - d - a - e", "b - d - c - a - e", "e - c - a - b - d"], "correct": 0, "explain": "Thứ tự đúng: 私の うちは [がっこう (c)] [から (a)] [あるいて (e)] [10分 (b)] [ぐらい (d)] です (Nhà tôi đi bộ từ trường mất khoảng 10 phút)."}, {"id": 17, "category": "Chia Thể TE", "q": "この こうえんは [____]、きれいです。(Tính từ: ひろいです)", "options": ["ひろくて", "ひろいで", "ひろいて", "ひろく"], "correct": 0, "explain": "Tính từ đuôi い (ひろい) bỏ い thêm くて ➔ 「ひろくて」 (rộng rãi và sạch đẹp)."}, {"id": 18, "category": "Chia Thể TE", "q": "わたしの いえは [____]、ひろいです。(Tính từ: にぎやかです)", "options": ["にぎやかくて", "にぎやかで", "にぎやかだ", "にぎやかに"], "correct": 1, "explain": "Tính từ đuôi な (にぎやか[な]) bỏ な thêm で ➔ 「にぎやかで」 (náo nhiệt và rộng rãi)."}, {"id": 19, "category": "Chia Thể TE", "q": "ここを まっすぐ [____]、左に [____] ください。(行きます / まがります)", "options": ["行って / まがって", "行きて / まがりて", "行って / まがりて", "行きて / まがって"], "correct": 0, "explain": "行きます chia thể Te đặc biệt là 「行って」; まがります chia là 「まがって」."}, {"id": 20, "category": "Chia Thể Nguyên Nhân", "q": "道に [____] て、おくれました。(Động từ: まよいます)", "options": ["まよっ", "まよい", "まよる", "まよん"], "correct": 0, "explain": "まよいます (lạc đường, nhóm 1 đuôi い) chia thể Te là 「まよって」 (do bị lạc đường nên tôi đã đến muộn)."}, {"id": 21, "category": "Chia Thể Nguyên Nhân", "q": "じかんを [____] て、じゅぎょうに おくれました。(Động từ: まちがえます)", "options": ["まちがえ", "まちがっ", "まちがいて", "まちがう"], "correct": 0, "explain": "まちがえます (nhầm lẫn, nhóm 2) bỏ ます thêm て ➔ 「まちがえて」 (do nhầm giờ nên muộn tiết học)."}, {"id": 22, "category": "Nguyên Nhân Khách Quan", "q": "[____] で、でんしゃが とまりました。(Cụm từ: すごい 雨です)", "options": ["すごい 雨", "すごい 雨だ", "すごい 雨な", "すごい 雨の"], "correct": 0, "explain": "Danh từ chỉ thiên tai, thời tiết đi trực tiếp với 「で」 để chỉ nguyên nhân khách quan: 「すごい 雨で」 (vì mưa to)."}, {"id": 23, "category": "Hội Thoại Thực Tế", "q": "A:「あした、6時半でも いいですか。」<br>B:「ええ。じゃあ [____]。」", "options": ["6時半にします。", "6時半にしましょう。", "6時半でした。", "6時半ではありません。"], "correct": 1, "explain": "Khi cả hai cùng thống nhất chốt giờ hẹn thì dùng cấu trúc rủ rê/đồng thuận 「～に しましょう」 (chốt 6h30 nhé)."}, {"id": 24, "category": "Hội Thoại Thực Tế", "q": "A:「ホアさん、いっしょに カラオケに 行きませんか。」<br>B:「いいですね。[____]」", "options": ["行きません。", "行きましょう。", "行きます。", "行かないでください。"], "correct": 1, "explain": "Hưởng ứng lời mời rủ rê 「行きませんか」 bằng câu đồng ý hào hứng: 「いいですね。行きましょう」."}, {"id": 25, "category": "Hội Thoại Thực Tế", "q": "A:「すみません。10分ぐらい おくれます。すごい 雨で…。」<br>B:「[____] きを つけて 来て ください。」", "options": ["わかりました。", "だめですよ。", "いけません。", "遅いです。"], "correct": 0, "explain": "Phản hồi lịch sự, thông cảm khi bạn báo trễ giờ vì lý do thời tiết: 「わかりました。きを つけて 来て ください」 (Tôi hiểu rồi. Cậu đi cẩn thận nhé)."}]}, {"code": "103", "name": "Mã Đề 103", "tag": "Biến Thể 2 (Trợ Từ & Ngữ Pháp Trọng Tâm)", "desc": "Xoáy sâu vào các bẫy trợ từ (を, に, で, や), các cặp liên từ đối lập (けど vs だけど) và các cấu trúc thời gian.", "questions": [{"id": 1, "category": "Đọc Chữ Hán", "q": "休みの <u>日</u>、ともだちと <u>出</u>かけて <u>昼</u>ごはんを 食べます。<br>Cách đọc của <b>日</b>, <b>出</b>, <b>昼</b> là gì?", "options": ["ひ / で / ひる", "にち / だ / あさ", "ひ / で / よる", "つき / で / ひる"], "correct": 0, "explain": "休みの 日 (ngày nghỉ) ➔ 「ひ」; 出かけて ➔ 「で」; 昼ごはん ➔ 「ひる」."}, {"id": 2, "category": "Đọc Chữ Hán", "q": "<u>朝</u> から <u>夜</u> まで 会社に います。<br>Cách đọc của <b>朝</b> và <b>夜</b> là gì?", "options": ["あさ / ひる", "あさ / よる", "ひる / よる", "ばん / あさ"], "correct": 1, "explain": "朝 (Triêu - buổi sáng) ➔ 「あさ」; 夜 (Dạ - buổi tối, đêm) ➔ 「よる」."}, {"id": 3, "category": "Đọc Chữ Hán", "q": "この <u>道</u> を まっすぐ 行って ください。<br>Cách đọc của chữ Hán <b>道</b> là gì?", "options": ["とおり", "みち", "はし", "かど"], "correct": 1, "explain": "道 (Đạo - con đường) đọc là 「みち」."}, {"id": 4, "category": "Đọc Chữ Hán", "q": "東京<u>駅</u> の <u>前</u> で まちあわせを します。<br>Cách đọc của <b>駅</b> và <b>前</b> là gì?", "options": ["えき / まえ", "まち / まえ", "えき / あと", "ところ / まえ"], "correct": 0, "explain": "駅 ➔ 「えき」; 前 ➔ 「まえ」."}, {"id": 5, "category": "Đọc Chữ Hán", "q": "<u>赤</u>い 車と <u>白</u>い 車が 止まります。<br>Cách đọc của <b>赤</b> và <b>白</b> là gì?", "options": ["あお / くろ", "あか / しろ", "くろ / しろ", "あか / あお"], "correct": 1, "explain": "赤い ➔ 「あかい」; 白い ➔ 「しろい」."}, {"id": 6, "category": "Trợ Từ Di Chuyển", "q": "この とおり [____] まっすぐ 行って ください。", "options": ["で", "を", "に", "へ"], "correct": 1, "explain": "Chuyển động xuyên qua một không gian (con đường, cây cầu, công viên) luôn dùng trợ từ 「を」."}, {"id": 7, "category": "Trợ Từ Di Chuyển", "q": "大きな はし [____] わたって、右に まがります。", "options": ["を", "で", "に", "と"], "correct": 0, "explain": "「はしを わたる」 (băng qua cầu) đi với trợ từ を."}, {"id": 8, "category": "Trợ Từ Chỗ Rẽ", "q": "二つ目の こうさてん [____] 左 [____] まがって ください。", "options": ["を / に", "に / を", "で / へ", "を / で"], "correct": 0, "explain": "Địa điểm rẽ dùng 「を」 (`こうさてんを`) + hướng rẽ dùng 「に」 (`左に`)."}, {"id": 9, "category": "Trợ Từ Nguyên Nhân", "q": "たいふう [____]、学校が 休みになりました。", "options": ["に", "で", "を", "が"], "correct": 1, "explain": "Danh từ sự cố, bão gió đi với trợ từ 「で」 chỉ nguyên nhân."}, {"id": 10, "category": "Nối Câu Đối Lập", "q": "この レストランは 料理が おいしい [____]、ちょっと 高いです。", "options": ["だけど", "けど", "くて", "で"], "correct": 1, "explain": "Tính từ đuôi い (おいしい) đi trực tiếp với 「けど」 để nối tương phản (ngon nhưng đắt)."}, {"id": 11, "category": "Nối Câu Đối Lập", "q": "私の まちは しずか [____]、店が 少なくて 不便です。", "options": ["けど", "だけど", "くて", "で"], "correct": 1, "explain": "Tính từ đuôi な (しずか[な]) bắt buộc phải dùng 「だけど」 để nối tương phản đối lập."}, {"id": 12, "category": "Ngoại Lệ Tính Từ", "q": "この カメラは デザインが [____]、安いです。(Tính từ: いいです)", "options": ["いいて", "いいで", "よくて", "よいで"], "correct": 2, "explain": "いい là trường hợp ngoại lệ bắt buộc chia thành 「よくて」."}, {"id": 13, "category": "Sắp Xếp Câu", "q": "Sắp xếp các từ sau thành câu đúng:<br>どうぶつが (a. 行きません  b. から  c. どうぶつえん  d. に  e. にがてです)。", "options": ["e - b - c - d - a", "c - d - a - e - b", "e - c - d - b - a", "b - e - c - d - a"], "correct": 0, "explain": "Thứ tự đúng: どうぶつが [にがてです (e)] [から (b)] [どうぶつえん (c)] [に (d)] [行きません (a)] (Vì tôi sợ động vật nên không đi sở thú)."}, {"id": 14, "category": "Sắp Xếp Câu", "q": "Sắp xếp các từ sau thành câu đúng:<br>あの みせは (a. いちばん  b. このまち  c. で  d. おいしいです) よ。", "options": ["b - c - a - d", "a - d - b - c", "b - a - c - d", "c - b - a - d"], "correct": 0, "explain": "Thứ tự đúng: あの みせは [このまち (b)] [で (c)] [いちばん (a)] [おいしいです (d)] よ (Quán kia ngon nhất thị trấn này đấy)."}, {"id": 15, "category": "Sắp Xếp Câu", "q": "Sắp xếp các từ sau thành câu đúng:<br>すいぞくかんに (a. います  b. めずらしい  c. たくさん  d. 魚  e. が) よ。", "options": ["b - d - e - c - a", "c - a - b - d - e", "b - c - d - e - a", "d - e - b - c - a"], "correct": 0, "explain": "Thứ tự đúng: すいぞくかんに [めずらしい (b)] [魚 (d)] [が (e)] [たくさん (c)] [います (a)] よ (Ở thủy cung có nhiều loài cá hiếm lắm đấy)."}, {"id": 16, "category": "Sắp Xếp Câu", "q": "Sắp xếp các từ sau thành câu đúng:<br>(a. 見えます  b. 高いビル  c. が  d. 町の  e. やけい  f. から)。", "options": ["b - f - d - e - c - a", "d - e - c - b - f - a", "b - c - a - d - e - f", "f - b - d - e - c - a"], "correct": 0, "explain": "Thứ tự đúng: [高いビル (b)] [から (f)] [町の (d)] [やけい (e)] [が (c)] [見えます (a)] (Từ tòa nhà cao tầng có thể ngắm được cảnh đêm thành phố)."}, {"id": 17, "category": "Mục Đích Di Chuyển", "q": "いっしょに お茶を [____] に 行きませんか。(Động từ: のみます)", "options": ["飲む", "飲み", "飲んで", "飲んだ"], "correct": 1, "explain": "Động từ bỏ ます + に 行きます ➔ 「飲みに 行きませんか」 (cùng đi uống trà không?)."}, {"id": 18, "category": "Mục Đích Di Chuyển", "q": "ともだちが うちに [____] に 来ます。(Động từ: あそびます)", "options": ["あそび", "あそぶ", "あそんで", "あそば"], "correct": 0, "explain": "Động từ bỏ ます + に 来ます ➔ 「あそびに 来ます」 (bạn đến nhà tôi chơi)."}, {"id": 19, "category": "Cấm Đoán Lịch Sự", "q": "あぶないですから、川に [____] ください。(Động từ: はいります)", "options": ["入らないで", "入らなくて", "入りないで", "入るないで"], "correct": 0, "explain": "はいります (nhóm 1) chia thể Nai là 「入らない」 + で ください ➔ 「入らないで ください」."}, {"id": 20, "category": "Đính Chính Thông Tin", "q": "「田中さんは エンジニアですか。」ー「いいえ、エンジニア [____]、医者です。」", "options": ["じゃなくて", "なくて", "じゃないで", "ではありません"], "correct": 0, "explain": "Cấu trúc đính chính thông tin: 「N1 じゃなくて、N2」 (Không phải N1 mà là N2)."}, {"id": 21, "category": "Thương Lượng Giờ Hẹn", "q": "「すみません、あした 2時は ちょっと…。3時 [____] いいですか。」", "options": ["でも", "にも", "では", "で"], "correct": 0, "explain": "Đưa ra phương án thay thế để thương lượng: 「N でも いいですか」 (3 giờ có được không?)."}, {"id": 22, "category": "Trình Tự Trước Khi", "q": "寝る [____]、本を 読みます。", "options": ["まえに", "あとで", "から", "ので"], "correct": 0, "explain": "Hành động TRƯỚC KHI: Động từ thể từ điển đi với 「まえに」 ➔ 「寝る 前に」."}, {"id": 23, "category": "Trình Tự Sau Khi", "q": "映画を [____] あとで、カフェに 行きましょう。(Động từ: みます)", "options": ["見た", "見る", "見て", "見ます"], "correct": 0, "explain": "Hành động SAU KHI: Động từ bắt buộc chia ở thể quá khứ Ta đi với 「あとで」 ➔ 「見た あとで」."}, {"id": 24, "category": "Trình Tự Danh Từ", "q": "食事 [____] まえに、手を 洗います。", "options": ["の", "に", "を", "で"], "correct": 0, "explain": "Danh từ kết hợp với まえに bắt buộc phải có trợ từ 「の」: 「食事の 前に」."}, {"id": 25, "category": "Câu Xin Lỗi Trễ Hẹn", "q": "「道に 迷って、[____] すみません。」", "options": ["遅くなって", "遅くて", "遅い", "遅れた"], "correct": 0, "explain": "Câu xin lỗi chuẩn mực khi đến muộn: 「遅くなって すみません」 (Em xin lỗi vì đã đến muộn)."}]}, {"code": "104", "name": "Mã Đề 104", "tag": "Biến Thể 3 (Chữ Hán & Bản Đồ Chỉ Đường)", "desc": "Tập trung kiểm tra toàn bộ 32 Kanji Bài 5-8, bài tập đọc bản đồ chỉ đường và các cụm từ ghép quan trọng.", "questions": [{"id": 1, "category": "Chữ Hán Bài 5", "q": "Chữ Hán nào sau đây có nghĩa là <b>「Thị trấn, khu phố」</b>?", "options": ["町", "店", "道", "場"], "correct": 0, "explain": "町 (Đinh) đọc là 「まち」, có nghĩa là thị trấn, góc phố."}, {"id": 2, "category": "Chữ Hán Bài 5", "q": "Cặp chữ Hán trái nghĩa <b>「高い」</b> và <b>「安い」</b> có âm Hán Việt là gì?", "options": ["Cao - An", "Đa - Thiểu", "Quảng - Trắc", "Trường - Đoản"], "correct": 0, "explain": "高 (Cao - đắt/cao) và 安 (An - rẻ/an tâm)."}, {"id": 3, "category": "Chữ Hán Bài 6", "q": "Chữ Hán nào sau đây có nghĩa là <b>「Bên phải」</b>?", "options": ["左", "右", "通", "前"], "correct": 1, "explain": "右 (Hữu - bên phải), âm đọc Kunyomi là 「みぎ」."}, {"id": 4, "category": "Chữ Hán Bài 6", "q": "Chữ Hán nào sau đây có nghĩa là <b>「Bên trái」</b>?", "options": ["右", "左", "後", "白"], "correct": 1, "explain": "左 (Tả - bên trái), âm đọc Kunyomi là 「ひだり」."}, {"id": 5, "category": "Chữ Hán Bài 6", "q": "Bộ 4 màu sắc <b>赤、青、黒、白</b> có âm Hán Việt lần lượt là gì?", "options": ["Xích - Thanh - Hắc - Bạch", "Hồng - Lam - Hắc - Bạch", "Xích - Hoàng - Hắc - Bạch", "Thanh - Xích - Hắc - Bạch"], "correct": 0, "explain": "赤 (Xích - đỏ), 青 (Thanh - xanh), 黒 (Hắc - đen), 白 (Bạch - trắng)."}, {"id": 6, "category": "Chữ Hán Bài 7", "q": "Từ ghép chữ Hán <b>「中止」</b> (ちゅうし) có nghĩa là gì?", "options": ["Đang diễn ra", "Hoãn, hủy bỏ", "Bắt đầu", "Tạm dừng"], "correct": 1, "explain": "中止 (Trung Chỉ) có nghĩa là hoãn hoặc hủy bỏ một sự kiện/hoạt động."}, {"id": 7, "category": "Chữ Hán Bài 7", "q": "Từ ghép chữ Hán <b>「出口」</b> (でぐち) có nghĩa là gì?", "options": ["Lối vào", "Cửa ra", "Nhà ga", "Bến xe"], "correct": 1, "explain": "出口 (Xuất Khẩu) có nghĩa là cửa ra, lối ra."}, {"id": 8, "category": "Chữ Hán Bài 8", "q": "Cặp từ ghép <b>「朝食」</b> và <b>「昼食」</b> có nghĩa là gì?", "options": ["Bữa sáng và bữa trưa", "Bữa trưa và bữa tối", "Bữa sáng và bữa tối", "Cơm hộp và tiệc"], "correct": 0, "explain": "朝食 (Triêu Thực - bữa sáng) và 昼食 (Trú Thực - bữa trưa)."}, {"id": 9, "category": "Chữ Hán Bài 8", "q": "Từ ghép <b>「夜景」</b> (やけい) có nghĩa là gì?", "options": ["Cảnh đêm", "Làm ca đêm", "Bữa tối", "Bầu trời"], "correct": 0, "explain": "夜景 (Dạ Cảnh) nghĩa là cảnh đêm, cảnh sắc ban đêm."}, {"id": 10, "category": "Bản Đồ Chỉ Đường", "q": "Xem chỉ dẫn: <i>Đi thẳng, đến ngã rẽ thứ hai thì rẽ phải</i>. Câu tiếng Nhật nào diễn đạt đúng?", "options": ["まっすぐ 行って、一つ目の かどを 右に まがります。", "まっすぐ 行って、二つ目の かどを 左に まがります。", "まっすぐ 行って、二つ目の かどを 右に まがります。", "まっすぐ 行って、一つ目の かどを 左に まがります。"], "correct": 2, "explain": "「二つ目の かど」 (ngã rẽ thứ 2) + 「右に まがる」 (rẽ phải)."}, {"id": 11, "category": "Bản Đồ Chỉ Đường", "q": "Xem chỉ dẫn: <i>Băng qua cây cầu, sau đó rẽ trái tại đèn giao thông thứ nhất</i>. Câu nào đúng?", "options": ["橋を わたって、一つ目の 信号を 左に 曲がります。", "橋を わたって、二つ目の 信号を 右に 曲がります。", "道を 行って、一つ目の 信号を 右に 曲がります。", "橋を おりて、一つ目の 信号を 左に 曲がります。"], "correct": 0, "explain": "橋を わたる (băng qua cầu) ➔ 「わたって」 + 「一つ目の 信号を 左に 曲がる」."}, {"id": 12, "category": "Từ Trái Nghĩa", "q": "Từ trái nghĩa với <b>「ひろいです」</b> (rộng rãi) là gì?", "options": ["せまいです", "とおいです", "みじかいです", "ふべんです"], "correct": 0, "explain": "ひろい (rộng) trái nghĩa với せまい (hẹp, chật chội)."}, {"id": 13, "category": "Từ Trái Nghĩa", "q": "Từ trái nghĩa với <b>「はやいです」</b> (nhanh, sớm) là gì?", "options": ["おそいです", "すくないです", "ふるいです", "くらいです"], "correct": 0, "explain": "はやい (nhanh/sớm) trái nghĩa với おそい (chậm/muộn)."}, {"id": 14, "category": "Điền Trợ Từ", "q": "この 店の ケーキは おいしい [____]、とても 有名です。", "options": ["くて", "で", "に", "を"], "correct": 0, "explain": "Nối tính từ đuôi い cùng chiều: bỏ い thêm くて ➔ 「おいしくて」."}, {"id": 15, "category": "Điền Trợ Từ", "q": "この 部屋は 静か [____]、きれいです。", "options": ["くて", "で", "に", "だ"], "correct": 1, "explain": "Nối tính từ đuôi な cùng chiều: bỏ な thêm で ➔ 「静かで」."}, {"id": 16, "category": "Điền Trợ Từ", "q": "日本 [____] 東京や 大阪などの 有名な 町が あります。", "options": ["には", "では", "へは", "をは"], "correct": 0, "explain": "Trợ từ nhấn mạnh phạm vi: 「には」 (riêng tại đất nước Nhật Bản thì có...)."}, {"id": 17, "category": "Ngữ Pháp Thời Gian", "q": "友だちと 会う [____]、おみやげを 買いました。", "options": ["まえに", "あとで", "から", "ので"], "correct": 0, "explain": "Trước khi gặp bạn bè thì mua quà lưu niệm: V-る đi với 「まえに」 ➔ 「会う 前に」."}, {"id": 18, "category": "Ngữ Pháp Thời Gian", "q": "花火大会を [____] あとで、ラーメンを 食べに行きました。(Động từ: みます)", "options": ["見た", "見る", "見て", "見ます"], "correct": 0, "explain": "Hành động xem pháo hoa đã hoàn thành trước đó ➔ dùng thể Ta: 「見た あとで」."}, {"id": 19, "category": "Chia Thể TE", "q": "駅で 電車に [____]、会社へ 行きます。(Động từ: のります)", "options": ["のって", "のりて", "のるて", "のんで"], "correct": 0, "explain": "のります chia sang thể Te là 「のって」."}, {"id": 20, "category": "Chia Thể TE", "q": "ここで 写真を [____] ください。(Động từ: とります - xin đừng chụp ảnh)", "options": ["とらないで", "とらなくて", "とりないで", "とるないで"], "correct": 0, "explain": "Xin đừng chụp ảnh: thể Nai + で ください ➔ 「とらないで ください」."}, {"id": 21, "category": "Từ Vựng Sự Cố", "q": "Khi đi ra ngoài đường mà không biết đường đi, bị lạc phương hướng thì gọi là gì?", "options": ["道に まよいます", "じこです", "じかんを まちがえます", "じゅうたいです"], "correct": 0, "explain": "みちに まよいます (迷う - lạc đường)."}, {"id": 22, "category": "Từ Vựng Sự Cố", "q": "Khi xem nhầm giờ hẹn 2 giờ thành 3 giờ thì gọi là gì?", "options": ["じかんを まちがえます", "じこです", "みちに まよいます", "おくれます"], "correct": 0, "explain": "じかんを まちがえます (間違える - nhầm giờ)."}, {"id": 23, "category": "Hội Thoại Thực Tế", "q": "A:「もう 夏祭りの チケットを 買いましたか。」<br>B:「いいえ、[____]。」", "options": ["まだです", "買いました", "買いませんでした", "だめです"], "correct": 0, "explain": "Đáp lại 「もう ～ましたか」 ở dạng phủ định luôn là 「いいえ、まだです」."}, {"id": 24, "category": "Hội Thoại Thực Tế", "q": "A:「あしたの 待ち合わせは どこに しますか。」<br>B:「駅の 改札の 前 [____] どうですか。」", "options": ["は", "に", "で", "を"], "correct": 0, "explain": "Đưa địa điểm ra làm chủ đề gợi ý: 「Nは どうですか」 (ở trước cửa soát vé thì thế nào?)."}, {"id": 25, "category": "Hội Thoại Thực Tế", "q": "A:「いっしょに 夜景を 見に 行きませんか。」<br>B:「[____] ぜひ 行きましょう。」", "options": ["いいですね。", "行きません。", "だめです。", "ちょっと…."], "correct": 0, "explain": "Hưởng ứng hào hứng lời rủ đi ngắm cảnh đêm: 「いいですね。ぜひ 行きましょう」."}]}, {"code": "105", "name": "Mã Đề 105", "tag": "Đề Tổng Hợp Mô Phỏng Thi Thật", "desc": "Trộn đều tất cả các dạng từ Bài 5 đến Bài 8 mô phỏng một đề thi kết thúc học phần hoàn chỉnh.", "questions": [{"id": 1, "category": "Đọc Chữ Hán", "q": "この <u>道</u> を まっすぐ 行くと、<u>駅</u> が あります。<br>Cách đọc của <b>道</b> và <b>駅</b> là gì?", "options": ["みち / えき", "とおり / えき", "みち / まち", "はし / えき"], "correct": 0, "explain": "道 (Đạo) ➔ 「みち」; 駅 (Dịch) ➔ 「えき」."}, {"id": 2, "category": "Đọc Chữ Hán", "q": "スーパーの <u>前</u> に <u>車</u> が たくさん 止まります。<br>Cách đọc của <b>前</b> và <b>車</b> là gì?", "options": ["まえ / くるま", "あと / くるま", "まえ / でんしゃ", "うしろ / くるま"], "correct": 0, "explain": "前 (Tiền) ➔ 「まえ」; 車 (Xa) ➔ 「くるま」."}, {"id": 3, "category": "Đọc Chữ Hán", "q": "<u>朝</u> ごはんを 食べた <u>後</u> で、学校へ 行きます。<br>Cách đọc của <b>朝</b> và <b>後</b> là gì?", "options": ["あさ / あと", "ひる / まえ", "あさ / まえ", "よる / あと"], "correct": 0, "explain": "朝 (Triêu) ➔ 「あさ」; 後 (Hậu) ➔ 「あと」."}, {"id": 4, "category": "Đọc Chữ Hán", "q": "父は <u>会社</u> で <u>仕事</u> を します。<br>Cách đọc của <b>会社</b> và <b>仕事</b> là gì?", "options": ["かいしゃ / しごと", "みせ / しごと", "かいしゃ / じこ", "がっこう / しごと"], "correct": 0, "explain": "会社 ➔ 「かいしゃ」; 仕事 ➔ 「しごと」."}, {"id": 5, "category": "Đọc Chữ Hán", "q": "<u>右</u> に 曲がると、<u>白</u>い ビルが 見えます。<br>Cách đọc của <b>右</b> và <b>白</b> là gì?", "options": ["みぎ / しろ", "ひだり / しろ", "みぎ / あか", "ひだり / くろ"], "correct": 0, "explain": "右 ➔ 「みぎ」; 白い ➔ 「しろい」."}, {"id": 6, "category": "Từ Trái Nghĩa", "q": "Cặp từ nào sau đây là một cặp từ trái nghĩa đúng?", "options": ["あかるい ー くらい", "たかい ー おおい", "ちかい ー ひろい", "あたらしい ー やすい"], "correct": 0, "explain": "あかるい (sáng) trái nghĩa với くらい (tối)."}, {"id": 7, "category": "Từ Trái Nghĩa", "q": "Từ trái nghĩa với <b>「べんりな」</b> (tiện lợi) là gì?", "options": ["ふべんな", "すくない", "せまい", "ふるい"], "correct": 0, "explain": "べんり[な] trái nghĩa với ふべん[な]."}, {"id": 8, "category": "Trợ Từ", "q": "この 通り [____] まっすぐ 行って ください。", "options": ["を", "で", "に", "へ"], "correct": 0, "explain": "Không gian chuyển động xuyên qua: 「とおりを まっすぐ 行く」."}, {"id": 9, "category": "Trợ Từ", "q": "駅で 電車 [____] 乗ります。", "options": ["に", "を", "で", "へ"], "correct": 0, "explain": "Lên tàu xe đi với trợ từ 「に」: 「電車に 乗る」."}, {"id": 10, "category": "Trợ Từ", "q": "電車 [____] 降りて、バスに 乗りかえます。", "options": ["を", "に", "で", "から"], "correct": 0, "explain": "Xuống tàu xe rời khỏi không gian dùng trợ từ 「を」: 「電車を 降りる」."}, {"id": 11, "category": "Trợ Từ", "q": "じこ [____]、バスが 30分 遅れました。", "options": ["で", "に", "を", "が"], "correct": 0, "explain": "Trợ từ 「で」 chỉ nguyên nhân sự cố: 「じこで」 (do tai nạn)."}, {"id": 12, "category": "Trợ Từ", "q": "駅の 近くに 本屋 [____] カフェなどが あります。", "options": ["や", "と", "も", "で"], "correct": 0, "explain": "Liệt kê tiêu biểu: 「N1 や N2 など」."}, {"id": 13, "category": "Nối Tính Từ", "q": "この 店は 安い [____]、料理が とても おいしいです。", "options": ["くて", "で", "けど", "だ"], "correct": 0, "explain": "Nối tính từ đuôi い cùng chiều: 安[い] ➔ 「安くて」."}, {"id": 14, "category": "Nối Tính Từ", "q": "あの ホテルは きれい [____]、とても 静かです。", "options": ["で", "くて", "だけど", "だ"], "correct": 0, "explain": "Nối tính từ đuôi な cùng chiều: きれい[な] ➔ 「きれいで」."}, {"id": 15, "category": "Nối Tính Từ Đối Lập", "q": "この 遊園地は 楽しい [____]、人が 多くて つかれます。", "options": ["けど", "だけど", "くて", "で"], "correct": 0, "explain": "Tính từ đuôi い đi thẳng với 「けど」 để nối đối lập (vui nhưng mệt)."}, {"id": 16, "category": "Chia Thể TE", "q": "橋を [____]、一つ目の 角を 左に 曲がります。(渡ります)", "options": ["渡って", "渡りて", "渡るて", "渡んで"], "correct": 0, "explain": "渡ります (nhóm 1, đuôi り) chia thể Te là 「渡って」."}, {"id": 17, "category": "Chia Thể TE", "q": "危ないですから、ここで 走ら [____] ください。(走ります - xin đừng chạy)", "options": ["ないで", "なくて", "ない", "ぬで"], "correct": 0, "explain": "Cấm đoán nhẹ nhàng: chia thể Nai + で ください ➔ 「走らないで ください」."}, {"id": 18, "category": "Mục Đích Di Chuyển", "q": "友だちと デパートへ 服を [____] に 行きます。(買います)", "options": ["買い", "買う", "買って", "買った"], "correct": 0, "explain": "V bỏ ます + に 行きます ➔ 「買いに 行きます」 (đi mua quần áo)."}, {"id": 19, "category": "Trình Tự Thời Gian", "q": "食事の [____]、「いただきます」と 言います。", "options": ["まえに", "あとで", "ときに", "から"], "correct": 0, "explain": "Trước bữa ăn: Danh từ + の 前に ➔ 「食事の 前に」."}, {"id": 20, "category": "Trình Tự Thời Gian", "q": "食事の [____]、「ごちそうさま」と 言います。", "options": ["あとで", "まえに", "ときに", "まで"], "correct": 0, "explain": "Sau bữa ăn: Danh từ + の あとで ➔ 「食事の あとで」."}, {"id": 21, "category": "Trình Tự Thời Gian", "q": "国へ [____] 前に、おみやげを 買います。(帰ります)", "options": ["帰る", "帰った", "帰って", "帰ります"], "correct": 0, "explain": "Trước 前に luôn là động từ thể từ điển: 「帰る 前に」."}, {"id": 22, "category": "Trình Tự Thời Gian", "q": "宿題を [____] あとで、ゲームを します。(します)", "options": ["した", "する", "して", "します"], "correct": 0, "explain": "Sau あとで động từ chia thể quá khứ Ta: 「した あとで」."}, {"id": 23, "category": "Hội Thoại Thực Tế", "q": "A:「もう 昼ごはんを 食べましたか。」<br>B:「いいえ、[____]。」", "options": ["まだです", "食べませんでした", "食べます", "だめです"], "correct": 0, "explain": "Phủ định của 「もう ～ましたか」 là 「いいえ、まだです」."}, {"id": 24, "category": "Hội Thoại Thực Tế", "q": "A:「あした 10時に 会いましょう。」<br>B:「すみません、10時は ちょっと…。11時 [____] いいですか。」", "options": ["でも", "にも", "では", "で"], "correct": 0, "explain": "Đưa ra phương án thay thế: 「11時でも いいですか」."}, {"id": 25, "category": "Hội Thoại Thực Tế", "q": "A:「遅くなって すみません。道に 迷いました。」<br>B:「[____] 大丈夫ですよ。」", "options": ["いいえ、", "はい、", "どうも、", "すみません、"], "correct": 0, "explain": "Đáp lại lời xin lỗi khi bạn đến muộn: 「いいえ、大丈夫ですよ」 (Không sao đâu mà)."}]}];
+
+    let currentCode = '101';
+    let userAnswers = {}; // { qId: selectedOptionIndex }
+    let isSubmitted = false;
+    let timerSeconds = 40 * 60;
+    let timerInterval = null;
+    let immediateMode = false;
+
+    window.addEventListener('DOMContentLoaded', () => {
+        initExamTabs();
+        loadExam('101');
+        startTimer();
+    });
+
+    function initExamTabs() {
+        const container = document.getElementById('examCodeTabsContainer');
+        container.innerHTML = EXAMS_DATA.map(ex => `
+            <div class="code-tab-btn ${ex.code === currentCode ? 'active' : ''}" onclick="switchExam('${ex.code}')">
+                <span class="tab-code">${ex.name}</span>
+                <span class="tab-sub">${ex.tag}</span>
+            </div>
+        `).join('');
+    }
+
+    function switchExam(code) {
+        if (code === currentCode) return;
+        if (!isSubmitted && Object.keys(userAnswers).length > 0) {
+            if (!confirm('Bạn đang làm dở bài thi này. Bạn có muốn đổi sang mã đề khác không?')) {
+                return;
+            }
+        }
+        currentCode = code;
+        initExamTabs();
+        loadExam(code);
+    }
+
+    function loadExam(code) {
+        const exam = EXAMS_DATA.find(e => e.code === code) || EXAMS_DATA[0];
+        userAnswers = {};
+        isSubmitted = false;
+        clearInterval(timerInterval);
+        timerSeconds = 40 * 60;
+        updateTimerDisplay();
+        startTimer();
+
+        // Render Questions
+        const container = document.getElementById('questionsContainer');
+        container.innerHTML = exam.questions.map((item, idx) => `
+            <div class="question-card" id="qCard_${item.id}">
+                <div class="q-header">
+                    <span class="q-badge">Câu ${idx + 1} / ${exam.questions.length}</span>
+                    <span class="q-category">${item.category}</span>
+                </div>
+                <div class="q-title jp-text">${item.q}</div>
+                <div class="options-list">
+                    ${item.options.map((opt, oIdx) => `
+                        <div class="opt-btn jp-text" id="opt_${item.id}_${oIdx}" onclick="selectOption(${item.id}, ${oIdx})">
+                            <span class="opt-index">${String.fromCharCode(65 + oIdx)}</span>
+                            <span>${opt}</span>
+                        </div>
+                    `).join('')}
+                </div>
+                <div class="explanation-box" id="explain_${item.id}">
+                    💡 <b>Giải thích:</b> ${item.explain}
+                </div>
+            </div>
+        `).join('');
+
+        updateProgress();
+        window.scrollTo({ top: 120, behavior: 'smooth' });
+    }
+
+    function selectOption(qId, oIdx) {
+        if (isSubmitted && !immediateMode) return;
+        userAnswers[qId] = oIdx;
+
+        const exam = EXAMS_DATA.find(e => e.code === currentCode);
+        const qItem = exam.questions.find(q => q.id === qId);
+
+        // Update UI selection
+        const card = document.getElementById(`qCard_${qId}`);
+        card.classList.add('answered');
+        card.querySelectorAll('.opt-btn').forEach((btn, idx) => {
+            btn.classList.toggle('selected', idx === oIdx);
+        });
+
+        if (immediateMode) {
+            showSingleExplain(qItem);
+        }
+
+        updateProgress();
+    }
+
+    function showSingleExplain(qItem) {
+        const qId = qItem.id;
+        const selected = userAnswers[qId];
+        const explainBox = document.getElementById(`explain_${qId}`);
+        explainBox.classList.add('show');
+
+        qItem.options.forEach((opt, idx) => {
+            const btn = document.getElementById(`opt_${qId}_${idx}`);
+            btn.classList.remove('correct-ans', 'wrong-ans');
+            if (idx === qItem.correct) {
+                btn.classList.add('correct-ans');
+            } else if (idx === selected) {
+                btn.classList.add('wrong-ans');
+            }
+        });
+    }
+
+    function updateProgress() {
+        const exam = EXAMS_DATA.find(e => e.code === currentCode);
+        const total = exam.questions.length;
+        const answeredCount = Object.keys(userAnswers).length;
+        const pct = Math.round((answeredCount / total) * 100);
+
+        document.getElementById('progressBarFill').style.width = pct + '%';
+        document.getElementById('progressText').textContent = `${answeredCount}/${total} câu`;
+    }
+
+    function toggleImmediateMode() {
+        immediateMode = document.getElementById('immediateExplainToggle').checked;
+        if (immediateMode) {
+            const exam = EXAMS_DATA.find(e => e.code === currentCode);
+            exam.questions.forEach(q => {
+                if (userAnswers[q.id] !== undefined) {
+                    showSingleExplain(q);
+                }
+            });
+        }
+    }
+
+    function startTimer() {
+        timerInterval = setInterval(() => {
+            if (timerSeconds <= 0) {
+                clearInterval(timerInterval);
+                alert('Đã hết 40 phút làm bài! Hệ thống tự động thu bài và chấm điểm.');
+                submitExam();
+                return;
+            }
+            timerSeconds--;
+            updateTimerDisplay();
+        }, 1000);
+    }
+
+    function updateTimerDisplay() {
+        const m = Math.floor(timerSeconds / 60).toString().padStart(2, '0');
+        const s = (timerSeconds % 60).toString().padStart(2, '0');
+        document.getElementById('timerDisplay').textContent = `${m}:${s}`;
+    }
+
+    function submitExam() {
+        isSubmitted = true;
+        clearInterval(timerInterval);
+
+        const exam = EXAMS_DATA.find(e => e.code === currentCode);
+        let correctCount = 0;
+
+        exam.questions.forEach(q => {
+            const sel = userAnswers[q.id];
+            const isCorrect = sel === q.correct;
+            if (isCorrect) correctCount++;
+            showSingleExplain(q);
+        });
+
+        // Show Score Modal
+        const total = exam.questions.length;
+        const pct = Math.round((correctCount / total) * 100);
+
+        document.getElementById('modalScoreNum').textContent = `${correctCount}/${total}`;
+        document.getElementById('modalScorePercent').textContent = `${pct}%`;
+
+        let title = 'Cần Ôn Luyện Thêm!';
+        let desc = 'Hãy kiểm tra lại các câu sai để ghi nhớ quy tắc của thầy nhé.';
+        if (pct >= 90) {
+            title = 'Xuất Sắc! Chuẩn Điểm Tuyệt Đối!';
+            desc = 'Bạn đã nắm vững toàn bộ kiến thức và chữ Hán của Bài 5 - 8!';
+        } else if (pct >= 70) {
+            title = 'Đạt Chuẩn Tốt!';
+            desc = 'Kiến thức rất vững. Xem lại các câu giải thích để tối ưu điểm số.';
+        }
+
+        document.getElementById('modalTitle').textContent = title;
+        document.getElementById('modalDesc').textContent = desc;
+
+        // Render Indicator grid
+        const indContainer = document.getElementById('modalIndicators');
+        indContainer.innerHTML = exam.questions.map((q, idx) => {
+            const isCorrect = userAnswers[q.id] === q.correct;
+            return `
+                <div class="indicator-item ${isCorrect ? 'correct' : 'wrong'}" onclick="scrollToQuestion(${q.id})">
+                    Câu ${idx + 1}: ${isCorrect ? 'Đúng' : 'Sai'}
+                </div>
+            `;
+        }).join('');
+
+        document.getElementById('scoreModal').classList.add('show');
+    }
+
+    function scrollToQuestion(qId) {
+        closeModal();
+        const el = document.getElementById(`qCard_${qId}`);
+        if (el) {
+            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            el.style.transform = 'scale(1.02)';
+            setTimeout(() => { el.style.transform = 'none'; }, 400);
+        }
+    }
+
+    function closeModal() {
+        document.getElementById('scoreModal').classList.remove('show');
+    }
+
+    function restartCurrentExam() {
+        closeModal();
+        loadExam(currentCode);
+    }
+    </script>
+</body>
+</html>
