@@ -3315,11 +3315,9 @@
 
     function speakJapanese(text) {
         if (!text) return;
-        // Lấy từ chính trước dấu gạch chéo /, bỏ ký tự đặc biệt ~ ( )
-        let clean = text.split('/')[0].replace(/[~〜()（）]/g, '').trim();
+        let clean = cleanJapaneseText(text);
         if (!clean) return;
 
-        // Dừng âm thanh đang phát trước đó
         if (currentAudioPlayer) {
             try {
                 currentAudioPlayer.pause();
@@ -3331,7 +3329,6 @@
         }
 
         // ƯU TIÊN 1: Âm thanh giọng bản xứ Nhật Bản chuẩn (Google Studio TTS)
-        // Trong trẻo, ngữ điệu Tokyo tự nhiên, không bao giờ bị méo mó giọng robot
         const audioUrl = `https://translate.google.com/translate_tts?ie=UTF-8&tl=ja&client=tw-ob&q=${encodeURIComponent(clean)}`;
         const audio = new Audio(audioUrl);
         currentAudioPlayer = audio;
@@ -3339,10 +3336,23 @@
         const playPromise = audio.play();
         if (playPromise !== undefined) {
             playPromise.catch(() => {
-                // Dự phòng khi offline hoặc bị trình duyệt chặn: Web Speech API nhưng ÉP CHỌN GIỌNG NHẬT
                 fallbackWebSpeech(clean);
             });
         }
+    }
+
+    function cleanJapaneseText(text) {
+        if (!text) return '';
+        let t = text.split('/')[0];
+        return t
+            .replace(/\(.*?\)/g, '')
+            .replace(/（.*?）/g, '')
+            .replace(/\[.*?\]/g, '')
+            .replace(/【.*?】/g, '')
+            .replace(/[a-zA-Z]/g, '')
+            .replace(/[～〜・→➔*#_]/g, '')
+            .replace(/[\n\r\t]/g, ' ')
+            .trim();
     }
 
     function fallbackWebSpeech(cleanText) {
@@ -3351,12 +3361,24 @@
             window.speechSynthesis.cancel();
             const utter = new SpeechSynthesisUtterance(cleanText);
             utter.lang = 'ja-JP';
-            utter.rate = 0.9;
+            utter.rate = 0.92;
+            utter.pitch = 1.0;
 
             const voices = window.speechSynthesis.getVoices();
-            const jaVoice = voices.find(v => v.lang === 'ja-JP' || v.lang === 'ja' || (v.lang && v.lang.startsWith('ja')));
-            if (jaVoice) {
-                utter.voice = jaVoice;
+            const bestVoice = voices.find(v => 
+                v.lang.startsWith('ja') && (
+                    v.name.includes('Kyoko') ||
+                    v.name.includes('Otoya') ||
+                    v.name.includes('Google') ||
+                    v.name.includes('Nanami') ||
+                    v.name.includes('Keita') ||
+                    v.name.includes('Natural') ||
+                    v.name.includes('Enhanced')
+                )
+            ) || voices.find(v => v.lang === 'ja-JP' || v.lang === 'ja' || (v.lang && v.lang.startsWith('ja')));
+
+            if (bestVoice) {
+                utter.voice = bestVoice;
             }
             window.speechSynthesis.speak(utter);
         } catch(e) {}

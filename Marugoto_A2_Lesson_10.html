@@ -1331,7 +1331,7 @@
                     </div>
                     <div class="demo-body">
                         <div class="demo-tag">Ví dụ 2: Nghề nghiệp tương lai</div>
-                        <div class="demo-jp jp-text">ほんやくの しごとを したいです。</div>
+                        <div class="demo-jp jp-text"><span>ほんやくの しごとを したいです。</span><button class="sound-btn" onclick="speakText('ほんやくの しごとを したいです。')" title="Nghe phát âm bản xứ">🔊</button></div>
                         <div class="demo-vi">Tôi muốn làm công việc biên dịch.</div>
                         <div class="demo-notes"><b>します</b> (Làm) ➔ bỏ ます ➔ <b>したいです</b>.</div>
                     </div>
@@ -1357,7 +1357,7 @@
                     </div>
                     <div class="demo-body">
                         <div class="demo-tag">Ví dụ 3: Phủ định (Không muốn)</div>
-                        <div class="demo-jp jp-text">今日は 勉強したくないです。</div>
+                        <div class="demo-jp jp-text"><span>今日は 勉強したくないです。</span><button class="sound-btn" onclick="speakText('今日は 勉強したくないです。')" title="Nghe phát âm bản xứ">🔊</button></div>
                         <div class="demo-vi">Hôm nay tôi mệt quá, không muốn học bài.</div>
                         <div class="demo-notes"><b>勉強します</b> ➔ bỏ ます ➔ <b>勉強したくないです</b>.</div>
                     </div>
@@ -1458,7 +1458,7 @@
                     </div>
                     <div class="demo-body">
                         <div class="demo-tag">Ví dụ 1: Điệu nhảy Flamenco</div>
-                        <div class="demo-jp jp-text">週に 1回 フラメンコを ならっています。</div>
+                        <div class="demo-jp jp-text"><span>週に 1回 フラメンコを ならっています。</span><button class="sound-btn" onclick="speakText('週に 1回 フラメンコを ならっています。')" title="Nghe phát âm bản xứ">🔊</button></div>
                         <div class="demo-vi">Tôi học nhảy Flamenco mỗi tuần một lần.</div>
                         <div class="demo-notes">Đơn vị tuần dùng <code>週に (しゅうに)</code> + số lần <code>1回 (いっかい)</code>.</div>
                     </div>
@@ -1482,7 +1482,7 @@
                     </div>
                     <div class="demo-body">
                         <div class="demo-tag">Ví dụ 2: Thể thao / Thể hình</div>
-                        <div class="demo-jp jp-text">週に 2回 ジムへ 行きます。</div>
+                        <div class="demo-jp jp-text"><span>週に 2回 ジムへ 行きます。</span><button class="sound-btn" onclick="speakText('週に 2回 ジムへ 行きます。')" title="Nghe phát âm bản xứ">🔊</button></div>
                         <div class="demo-vi">Tôi đi phòng tập gym mỗi tuần 2 lần.</div>
                         <div class="demo-notes"><code>週に 2回 (しゅうに にかい)</code>.</div>
                     </div>
@@ -1507,7 +1507,7 @@
                     </div>
                     <div class="demo-body">
                         <div class="demo-tag">Ví dụ 3: Ước lượng (Khoảng ~ lần)</div>
-                        <div class="demo-jp jp-text">月に 3回ぐらい えいがを 見ます。</div>
+                        <div class="demo-jp jp-text"><span>月に 3回ぐらい えいがを 見ます。</span><button class="sound-btn" onclick="speakText('月に 3回ぐらい えいがを 見ます。')" title="Nghe phát âm bản xứ">🔊</button></div>
                         <div class="demo-vi">Tôi xem phim khoảng 3 lần một tháng.</div>
                         <div class="demo-notes">Thêm <code>ぐらい</code> để chỉ ước lượng: <code>3回ぐらい</code> (khoảng 3 lần).</div>
                     </div>
@@ -1570,7 +1570,7 @@
                     </div>
                     <div class="demo-body">
                         <div class="demo-tag">Trải nghiệm 1: Nếm thử món ăn</div>
-                        <div class="demo-jp jp-text">この りょうりを 食べてみます。</div>
+                        <div class="demo-jp jp-text"><span>この りょうりを 食べてみます。</span><button class="sound-btn" onclick="speakText('この りょうりを 食べてみます。')" title="Nghe phát âm bản xứ">🔊</button></div>
                         <div class="demo-vi">Tôi sẽ thử ăn món ăn này xem sao.</div>
                         <div class="demo-notes"><b>食べます</b> ➔ <b>食べてみます</b>.</div>
                     </div>
@@ -1592,7 +1592,7 @@
                     </div>
                     <div class="demo-body">
                         <div class="demo-tag">Trải nghiệm 2: Thử giao tiếp</div>
-                        <div class="demo-jp jp-text">日本人と 日本語で 話してみます。</div>
+                        <div class="demo-jp jp-text"><span>日本人と 日本語で 話してみます。</span><button class="sound-btn" onclick="speakText('日本人と 日本語で 話してみます。')" title="Nghe phát âm bản xứ">🔊</button></div>
                         <div class="demo-vi">Tôi sẽ thử nói chuyện bằng tiếng Nhật với người Nhật.</div>
                         <div class="demo-notes"><b>話します</b> (nhóm 1) ➔ thể Te: <b>話して</b> ➔ <b>話してみます</b>.</div>
                     </div>
@@ -1743,19 +1743,102 @@
         const QUIZ_QUESTIONS = [{"id": 1, "category": "Ngữ pháp: V-たいです (Mong muốn)", "q": "わたしは しょうらい 日本に [____] です。(いきます)", "options": ["行きたい", "行きたくない", "行って", "行きます"], "correct": 0, "explain": "Cấu trúc nói về mong muốn của bản thân: 「V-ます (bỏ ます) ＋ たいです」. Động từ 「いきます」 bỏ ます thành 「いき」 ➔ 「行きたい (いきたい) です」 (Tôi muốn đi Nhật Bản)."}, {"id": 2, "category": "Ngữ pháp: V-たくないです (Không muốn)", "q": "きょうは とても つかれましたから、勉強 [____] です。(します)", "options": ["したくない", "したい", "しないで", "して"], "correct": 0, "explain": "Dạng phủ định của mong muốn (không muốn làm): 「V-ます (bỏ ます) ＋ たくないです」. Động từ 「します」 bỏ ます thành 「し」 ➔ 「したくないです」 (Hôm nay tôi mệt quá nên không muốn học)."}, {"id": 3, "category": "Trợ từ: を vs が với V-たい", "q": "のどが かわきましたから、冷たい 水 [____] 飲みたいです。", "options": ["が", "に", "で", "へ"], "correct": 0, "explain": "Trong mẫu câu 「～たいです」, tân ngữ vốn đi với trợ từ 「を」 có thể chuyển thành 「が」 để nhấn mạnh cảm xúc mong mỏi, thèm muốn của người nói: 「水が 飲みたいです」 (Thèm nước quá / Muốn uống nước)."}, {"id": 4, "category": "Ngữ pháp: Tần suất trong tuần (週に～回)", "q": "わたしは 週 [____] 2回 ジムへ 行きます。", "options": ["に", "で", "を", "から"], "correct": 0, "explain": "Cấu trúc tần suất trong một khoảng thời gian: 「[Khoảng thời gian] ＋ に ＋ [Số lần]」. Do đó đứng sau khoảng thời gian 「週 (mỗi tuần)」 bắt buộc dùng trợ từ 「に」: 「週に 2回」 (Mỗi tuần 2 lần)."}, {"id": 5, "category": "Cách đếm số lần: Biến âm 1 lần (一回)", "q": "「この レストランに 何回 来ましたか。」ー「[____] 来ました。(1回)」", "options": ["いっかい", "いちかい", "いっかげつ", "ひとつ"], "correct": 0, "explain": "Số 1 kết hợp với lượng từ 回 (かい) có biến âm ngắt: 1回 đọc chuẩn là 「いっかい」 (viết là 一回), tuyệt đối không đọc là 「いちかい」."}, {"id": 6, "category": "Từ để hỏi tần suất: 何回 (なんかい)", "q": "「1年間に [____] ベトナムへ 帰りますか。」ー「2回です。」", "options": ["なんかい", "なんにん", "なんじ", "いくつ"], "correct": 0, "explain": "Từ để hỏi về số lần làm một việc trong khoảng thời gian là 「何回 (なんかい - mấy lần)」."}, {"id": 7, "category": "Ngữ pháp: V-てみます (Thử làm gì đó)", "q": "この 日本の おかしは おいしそうですから、[____] みます。(たべます)", "options": ["たべて", "たべ", "たべる", "たべた"], "correct": 0, "explain": "Cấu trúc thử làm một việc để trải nghiệm / biết kết quả: 「V-て ＋ みます」. Động từ 「たべます」 nhóm 2 chuyển sang thể Te là 「たべて」 ➔ 「食べてみます」 (Tôi sẽ ăn thử)."}, {"id": 8, "category": "Ngữ pháp kết hợp: V-てみたいです (Muốn thử làm)", "q": "日本の 会社で [____] みたいです。(はたらきます)", "options": ["はたらいて", "はたらき", "はたらく", "はたらいた"], "correct": 0, "explain": "Mẫu câu kết hợp đỉnh cao: Thử (V-てみる) + Muốn (たい) ➔ 「V-てみたいです」 (Tôi muốn thử làm V xem sao). 「はたらきます」 nhóm 1 chia thể Te là 「はたらいて」 ➔ 「はたらいてみたいです」."}, {"id": 9, "category": "Quy tắc văn hóa lịch sự với V-たい", "q": "A:「先生、お茶を [____]。」(Mời thầy cô giáo uống trà)", "options": ["飲みませんか", "飲みたいですか", "飲むでしょう", "飲みます"], "correct": 0, "explain": "LƯU Ý CỐT LÕI BÀI 10: Tuyệt đối KHÔNG dùng 「～たいですか」 để hỏi người trên (thầy cô, khách hàng, sếp) vì mang sắc thái tọc mạch ý muốn cá nhân thiếu tôn kính. Khi muốn mời mọc người trên phải dùng thể rủ rê lịch sự: 「～ませんか」."}, {"id": 10, "category": "Từ vựng: Biên dịch vs Phiên dịch", "q": "しょうらい、ほんを ベトナム語に [____] しごとを したいです。", "options": ["ほんやくする", "つうやくする", "おしえる", "ならう"], "correct": 0, "explain": "Dịch sách, văn bản, tài liệu trên giấy/máy tính (dịch viết) gọi là 「翻訳 (ほんやく)」. Còn dịch nói trực tiếp trong cuộc họp hay hội thảo mới dùng 「通訳 (つうやく)」."}, {"id": 11, "category": "Từ vựng: 日本に きょうみが あります", "q": "わたしは 日本の アニメや ぶんかに [____] が あります。", "options": ["きょうみ", "せいかつ", "しょうらい", "ことば"], "correct": 0, "explain": "Cụm thành ngữ cố định Bài 10: 「[Danh từ] に きょうみが あります」 nghĩa là có niềm yêu thích, hứng thú với điều gì đó."}, {"id": 12, "category": "Ngữ pháp: Ước lượng tần suất (～回ぐらい)", "q": "月に 3回 [____] えいがを 見に 行きます。(khoảng 3 lần)", "options": ["ぐらい", "ごろ", "まで", "から"], "correct": 0, "explain": "Hậu tố 「ぐらい」 đi sau số lượng / số lần để chỉ ước lượng (\"khoảng\"): 「3回ぐらい」 (khoảng 3 lần). Còn 「ごろ」 chỉ dùng cho mốc thời điểm (ví dụ: 3時ごろ = khoảng 3 giờ)."}, {"id": 13, "category": "Cách đếm số lần: Biến âm 8 lần & 6 lần", "q": "Trong các cách đọc sau, từ nào có ÂM NGẮT (っ)?", "options": ["8回 (はっかい)", "2回 (にかい)", "3回 (さんかい)", "5回 (ごかい)"], "correct": 0, "explain": "Quy tắc vàng biến âm đếm số lần: Các số có âm ngắt là 1回 (いっかい), 6回 (ろっかい), 8回 (はっかい), 10回 (じゅっかい). Số 2 (にかい), 3 (さんかい), 5 (ごかい) đọc trơn không có âm ngắt."}, {"id": 14, "category": "Ngữ pháp: V-てみます (Trải nghiệm giao tiếp)", "q": "今度、日本人と 日本語で [____] みます。(はなします)", "options": ["はなして", "はなし", "はなす", "はなした"], "correct": 0, "explain": "Động từ 「はなします」 (nhóm 1) kết thúc bằng し, chia sang thể Te là 「はなして」 ➔ 「話してみます」 (Tôi sẽ thử nói chuyện xem sao)."}, {"id": 15, "category": "Từ vựng: Nghề nghiệp trong ngành du lịch", "q": "がいこくじんの かんこうきゃくを あんないする [____] の しごとを したいです。", "options": ["ガイド", "サイト", "ダンス", "きっぷ"], "correct": 0, "explain": "Người hướng dẫn du khách tham quan gọi là 「ガイド」 (Tour Guide - Hướng dẫn viên du lịch)."}];
         const VERB_MORPH_DATA = [{"masu": "いきます", "kanji": "行きます", "tai": "いきたいです", "takunai": "いきたくないです", "temiru": "いってみます", "temitai": "いってみたいです", "vi": "Đi"}, {"masu": "たべます", "kanji": "食べます", "tai": "たべたいです", "takunai": "たべたくないです", "temiru": "たべてみます", "temitai": "たべてみたいです", "vi": "Ăn"}, {"masu": "のみます", "kanji": "飲みます", "tai": "のみたいです", "takunai": "のみたくないです", "temiru": "のんでみます", "temitai": "のんでみたいです", "vi": "Uống"}, {"masu": "はなします", "kanji": "話します", "tai": "はなしたいです", "takunai": "はなしたくないです", "temiru": "はなしてみます", "temitai": "はなしてみたいです", "vi": "Nói chuyện"}, {"masu": "します", "kanji": "します", "tai": "したいです", "takunai": "したくないです", "temiru": "してみます", "temitai": "してみたいです", "vi": "Làm"}, {"masu": "ならいます", "kanji": "習います", "tai": "ならいたいです", "takunai": "ならいたくないです", "temiru": "ならってみます", "temitai": "ならってみたいです", "vi": "Học"}, {"masu": "はたらきます", "kanji": "働きます", "tai": "はたらきたいです", "takunai": "はたらきたくないです", "temiru": "はたらいてみます", "temitai": "はたらいてみたいです", "vi": "Làm việc"}, {"masu": "みます", "kanji": "見ます", "tai": "みたいです", "takunai": "みたくないです", "temiru": "みてみます", "temitai": "みてみたいです", "vi": "Xem, ngắm"}, {"masu": "かいます", "kanji": "買います", "tai": "かいたいです", "takunai": "かいたくないです", "temiru": "かってみます", "temitai": "かってみたいです", "vi": "Mua"}, {"masu": "てつだいます", "kanji": "手伝います", "tai": "てつだいたいです", "takunai": "てつだいたくないです", "temiru": "てつだってみます", "temitai": "てつだってみたいです", "vi": "Giúp đỡ"}];
 
-        // 1. Text-to-Speech Helper
-        function speakText(text) {
+        
+        // ==========================================
+        // 1. NATIVE JAPANESE VOICE ENGINE (GOOGLE STUDIO TTS + HIGH QUALITY FALLBACK)
+        // ==========================================
+        let currentAudioPlayer = null;
+        let cachedJaVoices = [];
+
+        function initJaVoices() {
             if ('speechSynthesis' in window) {
-                window.speechSynthesis.cancel();
-                const clean = text.replace(/[\(\)\[\]「」・\/→➔]/g, '').trim();
-                const u = new SpeechSynthesisUtterance(clean);
-                u.lang = 'ja-JP';
-                u.rate = 0.9;
-                window.speechSynthesis.speak(u);
-            } else {
-                alert('Trình duyệt của bạn không hỗ trợ SpeechSynthesis.');
+                cachedJaVoices = window.speechSynthesis.getVoices().filter(v => 
+                    v.lang === 'ja-JP' || v.lang === 'ja' || (v.lang && v.lang.startsWith('ja'))
+                );
+                window.speechSynthesis.onvoiceschanged = () => {
+                    cachedJaVoices = window.speechSynthesis.getVoices().filter(v => 
+                        v.lang === 'ja-JP' || v.lang === 'ja' || (v.lang && v.lang.startsWith('ja'))
+                    );
+                };
             }
         }
+        initJaVoices();
+
+        function cleanJapaneseText(text) {
+            if (!text) return '';
+            // If contains slash e.g. はれ/はれます, take the first option
+            let t = text.split('/')[0];
+            return t
+                .replace(/\(.*?\)/g, '')         // Bỏ romaji/chú thích trong ngoặc đơn
+                .replace(/（.*?）/g, '')         // Bỏ ngoặc full-width
+                .replace(/\[.*?\]/g, '')         // Bỏ ngoặc vuông
+                .replace(/【.*?】/g, '')         // Bỏ ngoặc vuông tiếng Nhật
+                .replace(/[a-zA-Z]/g, '')        // Bỏ toàn bộ chữ Romaji / La-tinh
+                .replace(/[～〜・→➔*#_]/g, '')   // Bỏ ký tự đặc biệt
+                .replace(/\s+/g, ' ')
+                .trim();
+        }
+
+        function speakText(text) {
+            if (!text) return;
+            const clean = cleanJapaneseText(text);
+            if (!clean) return;
+
+            // Dừng ngay âm thanh cũ nếu đang phát
+            if (currentAudioPlayer) {
+                try {
+                    currentAudioPlayer.pause();
+                    currentAudioPlayer.currentTime = 0;
+                } catch(e) {}
+            }
+            if ('speechSynthesis' in window) {
+                try { window.speechSynthesis.cancel(); } catch(e) {}
+            }
+
+            // ƯU TIÊN 1: Âm thanh giọng bản xứ Nhật Bản chuẩn (Google Studio TTS)
+            // Trong trẻo, ngữ điệu Tokyo chuẩn, tự nhiên 100%, không bị robot
+            const audioUrl = `https://translate.google.com/translate_tts?ie=UTF-8&tl=ja&client=tw-ob&q=${encodeURIComponent(clean)}`;
+            const audio = new Audio(audioUrl);
+            currentAudioPlayer = audio;
+
+            const playPromise = audio.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(() => {
+                    // ƯU TIÊN 2 (Dự phòng): Web Speech API có lọc voice Nhật chuẩn
+                    fallbackWebSpeech(clean);
+                });
+            }
+        }
+
+        function fallbackWebSpeech(cleanText) {
+            if (!('speechSynthesis' in window)) return;
+            try {
+                window.speechSynthesis.cancel();
+                const utter = new SpeechSynthesisUtterance(cleanText);
+                utter.lang = 'ja-JP';
+                utter.rate = 0.92;
+                utter.pitch = 1.0;
+
+                const voices = cachedJaVoices.length > 0 ? cachedJaVoices : window.speechSynthesis.getVoices();
+                const bestVoice = voices.find(v => 
+                    v.lang.startsWith('ja') && (
+                        v.name.includes('Kyoko') ||
+                        v.name.includes('Otoya') ||
+                        v.name.includes('Google') ||
+                        v.name.includes('Nanami') ||
+                        v.name.includes('Keita') ||
+                        v.name.includes('Natural') ||
+                        v.name.includes('Enhanced')
+                    )
+                ) || voices.find(v => v.lang === 'ja-JP' || v.lang === 'ja' || (v.lang && v.lang.startsWith('ja')));
+
+                if (bestVoice) {
+                    utter.voice = bestVoice;
+                }
+                window.speechSynthesis.speak(utter);
+            } catch(e) {}
+        }
+
 
         // 2. Smooth Scroll
         function scrollToSection(id) {

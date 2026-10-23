@@ -2708,47 +2708,103 @@
         renderKanji(filtered);
     }
 
-    // Speech Audio Helper (Google Native Studio Voice + Fallback)
-    let currentMiniAudio = null;
+    
+        // ==========================================
+        // 1. NATIVE JAPANESE VOICE ENGINE (GOOGLE STUDIO TTS + HIGH QUALITY FALLBACK)
+        // ==========================================
+        let currentAudioPlayer = null;
+        let cachedJaVoices = [];
 
-    function speakText(text) {
-        if (!text) return;
-        let clean = text.split('/')[0].replace(/[~〜()（）]/g, '').trim();
-        if (!clean) return;
+        function initJaVoices() {
+            if ('speechSynthesis' in window) {
+                cachedJaVoices = window.speechSynthesis.getVoices().filter(v => 
+                    v.lang === 'ja-JP' || v.lang === 'ja' || (v.lang && v.lang.startsWith('ja'))
+                );
+                window.speechSynthesis.onvoiceschanged = () => {
+                    cachedJaVoices = window.speechSynthesis.getVoices().filter(v => 
+                        v.lang === 'ja-JP' || v.lang === 'ja' || (v.lang && v.lang.startsWith('ja'))
+                    );
+                };
+            }
+        }
+        initJaVoices();
 
-        if (currentMiniAudio) {
+        function cleanJapaneseText(text) {
+            if (!text) return '';
+            // If contains slash e.g. はれ/はれます, take the first option
+            let t = text.split('/')[0];
+            return t
+                .replace(/\(.*?\)/g, '')         // Bỏ romaji/chú thích trong ngoặc đơn
+                .replace(/（.*?）/g, '')         // Bỏ ngoặc full-width
+                .replace(/\[.*?\]/g, '')         // Bỏ ngoặc vuông
+                .replace(/【.*?】/g, '')         // Bỏ ngoặc vuông tiếng Nhật
+                .replace(/[a-zA-Z]/g, '')        // Bỏ toàn bộ chữ Romaji / La-tinh
+                .replace(/[～〜・→➔*#_]/g, '')   // Bỏ ký tự đặc biệt
+                .replace(/\s+/g, ' ')
+                .trim();
+        }
+
+        function speakText(text) {
+            if (!text) return;
+            const clean = cleanJapaneseText(text);
+            if (!clean) return;
+
+            // Dừng ngay âm thanh cũ nếu đang phát
+            if (currentAudioPlayer) {
+                try {
+                    currentAudioPlayer.pause();
+                    currentAudioPlayer.currentTime = 0;
+                } catch(e) {}
+            }
+            if ('speechSynthesis' in window) {
+                try { window.speechSynthesis.cancel(); } catch(e) {}
+            }
+
+            // ƯU TIÊN 1: Âm thanh giọng bản xứ Nhật Bản chuẩn (Google Studio TTS)
+            // Trong trẻo, ngữ điệu Tokyo chuẩn, tự nhiên 100%, không bị robot
+            const audioUrl = `https://translate.google.com/translate_tts?ie=UTF-8&tl=ja&client=tw-ob&q=${encodeURIComponent(clean)}`;
+            const audio = new Audio(audioUrl);
+            currentAudioPlayer = audio;
+
+            const playPromise = audio.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(() => {
+                    // ƯU TIÊN 2 (Dự phòng): Web Speech API có lọc voice Nhật chuẩn
+                    fallbackWebSpeech(clean);
+                });
+            }
+        }
+
+        function fallbackWebSpeech(cleanText) {
+            if (!('speechSynthesis' in window)) return;
             try {
-                currentMiniAudio.pause();
-                currentMiniAudio.currentTime = 0;
+                window.speechSynthesis.cancel();
+                const utter = new SpeechSynthesisUtterance(cleanText);
+                utter.lang = 'ja-JP';
+                utter.rate = 0.92;
+                utter.pitch = 1.0;
+
+                const voices = cachedJaVoices.length > 0 ? cachedJaVoices : window.speechSynthesis.getVoices();
+                const bestVoice = voices.find(v => 
+                    v.lang.startsWith('ja') && (
+                        v.name.includes('Kyoko') ||
+                        v.name.includes('Otoya') ||
+                        v.name.includes('Google') ||
+                        v.name.includes('Nanami') ||
+                        v.name.includes('Keita') ||
+                        v.name.includes('Natural') ||
+                        v.name.includes('Enhanced')
+                    )
+                ) || voices.find(v => v.lang === 'ja-JP' || v.lang === 'ja' || (v.lang && v.lang.startsWith('ja')));
+
+                if (bestVoice) {
+                    utter.voice = bestVoice;
+                }
+                window.speechSynthesis.speak(utter);
             } catch(e) {}
         }
-        if ('speechSynthesis' in window) {
-            try { window.speechSynthesis.cancel(); } catch(e) {}
-        }
 
-        // ƯU TIÊN 1: Âm thanh giọng bản xứ Nhật Bản chuẩn (Google Studio TTS)
-        const audioUrl = `https://translate.google.com/translate_tts?ie=UTF-8&tl=ja&client=tw-ob&q=${encodeURIComponent(clean)}`;
-        const audio = new Audio(audioUrl);
-        currentMiniAudio = audio;
 
-        const playPromise = audio.play();
-        if (playPromise !== undefined) {
-            playPromise.catch(() => {
-                // Fallback: Web Speech API ép chọn giọng Nhật
-                if ('speechSynthesis' in window) {
-                    try {
-                        const utter = new SpeechSynthesisUtterance(clean);
-                        utter.lang = 'ja-JP';
-                        utter.rate = 0.9;
-                        const voices = window.speechSynthesis.getVoices();
-                        const jaVoice = voices.find(v => v.lang === 'ja-JP' || v.lang === 'ja' || (v.lang && v.lang.startsWith('ja')));
-                        if (jaVoice) utter.voice = jaVoice;
-                        window.speechSynthesis.speak(utter);
-                    } catch(e) {}
-                }
-            });
-        }
-    }
 
     // Render Quiz Questions
     function renderQuiz() {
