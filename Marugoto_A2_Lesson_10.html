@@ -1,0 +1,1595 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cẩm Nang & Luyện Tập Toàn Diện Bài 10 - Marugoto A2-1</title>
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --primary-light: #e0e7ff;
+            --secondary: #ec4899;
+            --secondary-light: #fce7f3;
+            --success: #10b981;
+            --success-light: #d1fae5;
+            --warning: #f59e0b;
+            --warning-light: #fef3c7;
+            --danger: #ef4444;
+            --danger-light: #fee2e2;
+            --dark: #1e293b;
+            --gray: #64748b;
+            --light-gray: #f8fafc;
+            --border: #e2e8f0;
+            --radius-lg: 16px;
+            --radius-md: 12px;
+            --radius-sm: 8px;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.04);
+            --shadow-md: 0 6px 16px rgba(0,0,0,0.06);
+            --shadow-lg: 0 12px 30px rgba(0,0,0,0.08);
+            --font-main: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+            --font-jp: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', Meiryo, 'Noto Sans JP', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: #f1f5f9;
+            color: var(--dark);
+            line-height: 1.6;
+            padding-bottom: 80px;
+        }
+
+        .jp-text {
+            font-family: var(--font-jp);
+        }
+
+        /* Global Hub Navigation */
+        .global-hub-nav {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            overflow-x: auto;
+            white-space: nowrap;
+            padding: 12px 20px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+        .global-hub-nav::-webkit-scrollbar {
+            height: 4px;
+        }
+        .global-hub-nav::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        .hub-nav-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-decoration: none;
+            color: var(--gray);
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            transition: all 0.2s ease;
+        }
+        .hub-nav-item:hover {
+            color: var(--primary-dark);
+            border-color: var(--primary);
+            background: var(--primary-light);
+            transform: translateY(-1px);
+        }
+        .hub-nav-item.active {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: #fff;
+            border-color: transparent;
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 24px 20px;
+        }
+
+        /* Hero Header */
+        .hero-banner {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #ec4899 100%);
+            border-radius: var(--radius-lg);
+            padding: 40px 32px;
+            color: white;
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+        .hero-banner::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+        .hero-banner::after {
+            content: '';
+            position: absolute;
+            bottom: -80px;
+            left: -30px;
+            width: 220px;
+            height: 220px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+        }
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(6px);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .hero-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+        .hero-subtitle {
+            font-size: 1.05rem;
+            color: #e0e7ff;
+            max-width: 750px;
+            margin: 0 auto 24px auto;
+            font-weight: 400;
+        }
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .hero-stat-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px);
+            padding: 10px 20px;
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* Section Navigation Tabs */
+        .section-nav {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+        }
+        .tab-btn {
+            flex: 1;
+            min-width: 150px;
+            padding: 12px 16px;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--gray);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.2s;
+            box-shadow: var(--shadow-sm);
+        }
+        .tab-btn:hover {
+            background: var(--light-gray);
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+        .tab-btn.active {
+            background: var(--primary);
+            color: #fff;
+            border-color: var(--primary);
+            box-shadow: 0 4px 14px rgba(99, 102, 241, 0.35);
+        }
+
+        /* Content Sections */
+        .section-card {
+            background: #fff;
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            box-shadow: var(--shadow-md);
+            margin-bottom: 30px;
+            border: 1px solid var(--border);
+        }
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 2px solid var(--light-gray);
+            padding-bottom: 16px;
+            margin-bottom: 24px;
+        }
+        .section-title-wrap {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .section-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: var(--radius-md);
+            background: var(--primary-light);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+        }
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+        .section-badge {
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 20px;
+            background: var(--secondary-light);
+            color: var(--secondary);
+        }
+
+        /* Visual Demo Showcase Grid */
+        .visual-demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .demo-card {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .demo-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+        .demo-svg-wrap {
+            background: linear-gradient(135deg, #eef2ff, #fdf2f8);
+            padding: 24px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid var(--border);
+        }
+        .demo-body {
+            padding: 20px;
+        }
+        .demo-tag {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--primary);
+            margin-bottom: 6px;
+        }
+        .demo-jp {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 6px;
+        }
+        .demo-vi {
+            font-size: 0.95rem;
+            color: var(--gray);
+            margin-bottom: 12px;
+        }
+        .demo-notes {
+            background: var(--light-gray);
+            padding: 10px 14px;
+            border-radius: var(--radius-sm);
+            font-size: 0.85rem;
+            color: #475569;
+            border-left: 3px solid var(--primary);
+        }
+
+        /* Formula Box */
+        .formula-box {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border: 2px dashed var(--primary);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            text-align: center;
+            margin: 20px 0;
+        }
+        .formula-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+        .formula-text {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--dark);
+        }
+        .formula-highlight {
+            color: var(--secondary);
+            background: var(--secondary-light);
+            padding: 2px 8px;
+            border-radius: 6px;
+        }
+
+        /* Comparison Table */
+        .grammar-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95rem;
+        }
+        .grammar-table th, .grammar-table td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        .grammar-table th {
+            background: var(--light-gray);
+            font-weight: 700;
+            color: var(--dark);
+        }
+        .grammar-table tr:hover {
+            background: #fafafa;
+        }
+
+        /* Sound Alert Callout */
+        .callout-box {
+            background: var(--warning-light);
+            border-left: 4px solid var(--warning);
+            padding: 16px 20px;
+            border-radius: var(--radius-sm);
+            margin: 20px 0;
+            font-size: 0.92rem;
+            color: #92400e;
+        }
+        .callout-box b {
+            color: #78350f;
+        }
+
+        /* Frequency Counting Grid */
+        .count-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(135px, 1fr));
+            gap: 12px;
+            margin: 20px 0;
+        }
+        .count-card {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 14px 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            position: relative;
+            box-shadow: var(--shadow-sm);
+        }
+        .count-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        .count-card.highlight {
+            border: 2px solid var(--secondary);
+            background: #fff5f8;
+        }
+        .count-badge {
+            position: absolute;
+            top: 4px;
+            right: 6px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            background: var(--secondary);
+            color: white;
+            padding: 1px 6px;
+            border-radius: 10px;
+        }
+        .count-num {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 2px;
+        }
+        .count-reading {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+        .count-romaji {
+            font-size: 0.75rem;
+            color: var(--gray);
+        }
+
+        /* Verb Morphing Laboratory */
+        .lab-box {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            border-radius: var(--radius-lg);
+            padding: 30px;
+            color: white;
+            box-shadow: var(--shadow-lg);
+            margin-bottom: 30px;
+        }
+        .lab-header {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+        .lab-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 6px;
+        }
+        .lab-desc {
+            font-size: 0.9rem;
+            color: #94a3b8;
+        }
+        .verb-picker {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 26px;
+        }
+        .verb-pill {
+            padding: 8px 16px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #e2e8f0;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .verb-pill:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+        }
+        .verb-pill.active {
+            background: var(--primary);
+            color: #fff;
+            border-color: var(--primary);
+            box-shadow: 0 0 16px rgba(99, 102, 241, 0.6);
+        }
+        .morph-display {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+        }
+        .morph-card {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: var(--radius-md);
+            padding: 18px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        .morph-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--primary-light);
+        }
+        .morph-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #94a3b8;
+            margin-bottom: 6px;
+        }
+        .morph-val {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #38bdf8;
+            margin-bottom: 6px;
+        }
+        .morph-vi {
+            font-size: 0.85rem;
+            color: #cbd5e1;
+        }
+        .sound-btn {
+            background: transparent;
+            border: none;
+            color: #cbd5e1;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-left: 6px;
+            transition: color 0.2s;
+        }
+        .sound-btn:hover {
+            color: #38bdf8;
+        }
+
+        /* Flashcard Section */
+        .flashcard-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .filter-group {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .filter-btn {
+            padding: 6px 14px;
+            border-radius: 20px;
+            background: #fff;
+            border: 1px solid var(--border);
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--gray);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        .flashcard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 20px;
+        }
+        .fc-card {
+            background: transparent;
+            perspective: 1000px;
+            height: 240px;
+            cursor: pointer;
+        }
+        .fc-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+            transform-style: preserve-3d;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+        }
+        .fc-card.flipped .fc-inner {
+            transform: rotateY(180deg);
+        }
+        .fc-front, .fc-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: var(--radius-md);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border: 1px solid var(--border);
+            background: #fff;
+        }
+        .fc-front {
+            border-top: 4px solid var(--primary);
+        }
+        .fc-back {
+            transform: rotateY(180deg);
+            background: linear-gradient(135deg, #faf5ff 0%, #fff 100%);
+            border-top: 4px solid var(--secondary);
+            text-align: left;
+        }
+        .fc-badge {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 12px;
+            background: var(--light-gray);
+            color: var(--gray);
+            align-self: flex-start;
+        }
+        .fc-jp {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin: auto 0;
+        }
+        .fc-hint {
+            font-size: 0.75rem;
+            color: #94a3b8;
+        }
+        .fc-vi {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 8px;
+        }
+        .fc-ex-jp {
+            font-size: 0.85rem;
+            color: var(--dark);
+            margin-bottom: 4px;
+            line-height: 1.4;
+        }
+        .fc-ex-vi {
+            font-size: 0.75rem;
+            color: var(--gray);
+            line-height: 1.3;
+        }
+
+        /* Mini Test Section */
+        .quiz-card {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.2s;
+        }
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        .quiz-q {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
+        .quiz-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 10px;
+        }
+        .quiz-opt-btn {
+            padding: 12px 16px;
+            background: var(--light-gray);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--dark);
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+        .quiz-opt-btn:hover:not(:disabled) {
+            background: var(--primary-light);
+            border-color: var(--primary);
+            color: var(--primary-dark);
+        }
+        .quiz-opt-btn.correct {
+            background: var(--success-light) !important;
+            border-color: var(--success) !important;
+            color: #065f46 !important;
+        }
+        .quiz-opt-btn.wrong {
+            background: var(--danger-light) !important;
+            border-color: var(--danger) !important;
+            color: #991b1b !important;
+        }
+        .quiz-explain {
+            display: none;
+            margin-top: 14px;
+            padding: 12px 16px;
+            border-radius: var(--radius-sm);
+            background: #f8fafc;
+            border-left: 3px solid var(--primary);
+            font-size: 0.88rem;
+            color: #334155;
+            line-height: 1.5;
+        }
+        .quiz-explain.show {
+            display: block;
+            animation: fadeIn 0.3s;
+        }
+
+        /* Score Summary Box */
+        .score-box {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            border: 2px solid var(--success);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            text-align: center;
+            margin: 30px 0;
+            display: none;
+        }
+        .score-box.show {
+            display: block;
+            animation: bounceIn 0.5s;
+        }
+        .score-num {
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: #166534;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-4px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes bounceIn {
+            0% { transform: scale(0.9); opacity: 0; }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* Floating Confetti Canvas */
+        #confettiCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Global Hub Navigation -->
+    <div class="global-hub-nav">
+        <a href="index.html" class="hub-nav-item">🌸 Thể TE (～て)</a>
+        <a href="the_ru.html" class="hub-nav-item">📘 Thể RU (Từ Điển)</a>
+        <a href="kanji_a2.html" class="hub-nav-item">⛩️ Học Kanji & Nét Viết</a>
+        <a href="Tu_Vung_Marugoto_A1_16_A2_1_10.html" class="hub-nav-item">📖 Kho Từ Vựng A1-A2</a>
+        <a href="On_Tap_Mini_Test_A2_5_8.html" class="hub-nav-item">🎯 Cẩm Nang Bài 5 - 8</a>
+        <a href="De_Thi_Thu_Marugoto_A2_5_8.html" class="hub-nav-item">📝 5 Mã Đề Thi Thử (5–8)</a>
+        <a href="Marugoto_A2_Lesson_10.html" class="hub-nav-item active">🚀 Cẩm Nang & Từ Vựng Bài 10 🌟</a>
+    </div>
+
+    <canvas id="confettiCanvas"></canvas>
+
+    <div class="container">
+        <!-- Hero Header -->
+        <header class="hero-banner">
+            <span class="hero-badge">MARUGOTO A2-1 • LESSON 10</span>
+            <h1 class="hero-title">CHINH PHỤC TOÀN DIỆN BÀI 10</h1>
+            <p class="hero-subtitle">Bí kíp làm chủ 3 mẫu ngữ pháp trọng tâm (V-たい, Tần suất ～に～回, V-てみる), bảng đếm số lần chuẩn và trọn bộ 27 từ mới kèm hình ảnh minh họa sinh động!</p>
+            <div class="hero-stats">
+                <div class="hero-stat-card">🎯 3 Điểm Ngữ Pháp Cốt Lõi</div>
+                <div class="hero-stat-card">🎴 27 Flashcards Kèm Âm Thanh</div>
+                <div class="hero-stat-card">🔬 Máy Biến Thể Động Từ Tự Động</div>
+                <div class="hero-stat-card">🏆 15 Câu Trắc Nghiệm Phản Xạ</div>
+            </div>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <div class="section-nav">
+            <button class="tab-btn active" onclick="scrollToSection('sec-grammar-1')">① Nguyện Vọng (V-たい)</button>
+            <button class="tab-btn" onclick="scrollToSection('sec-grammar-2')">② Tần Suất (～に～回)</button>
+            <button class="tab-btn" onclick="scrollToSection('sec-grammar-3')">③ Trải Nghiệm (V-てみる)</button>
+            <button class="tab-btn" onclick="scrollToSection('sec-morph')">🔬 Máy Luyện Chia Thể</button>
+            <button class="tab-btn" onclick="scrollToSection('sec-vocab')">🎴 27 Từ Mới Flashcard</button>
+            <button class="tab-btn" onclick="scrollToSection('sec-quiz')">🏆 Mini Test 15 Câu</button>
+        </div>
+
+        <!-- ==================== PHẦN 1: NGỮ PHÁP 1 (V-たいです / V-たくないです) ==================== -->
+        <section class="section-card" id="sec-grammar-1">
+            <div class="section-header">
+                <div class="section-title-wrap">
+                    <div class="section-icon">🌟</div>
+                    <div>
+                        <h2 class="section-title">1. Mẫu Câu Bày Tỏ Nguyện Vọng: V-たいです / V-たくないです</h2>
+                        <p style="color:var(--gray); font-size:0.9rem;">Diễn tả mong muốn hoặc không muốn làm một việc gì đó của bản thân người nói.</p>
+                    </div>
+                </div>
+                <span class="section-badge">Ngữ Pháp Trọng Tâm #1</span>
+            </div>
+
+            <!-- Formula Box -->
+            <div class="formula-box">
+                <div class="formula-title">CÔNG THỨC BIẾN ĐỔI CHUẨN</div>
+                <div class="formula-text">
+                    [Động từ thể ます] <span style="color:#ef4444; text-decoration:line-through;">bỏ ます</span> ＋ <span class="formula-highlight">たいです</span> (Muốn làm) / <span class="formula-highlight">たくないです</span> (Không muốn làm)
+                </div>
+            </div>
+
+            <!-- Demo Graphics & Visual Cards -->
+            <div class="visual-demo-grid">
+                <!-- Demo 1: Muốn đi Nhật -->
+                <div class="demo-card">
+                    <div class="demo-svg-wrap">
+                        <svg width="220" height="130" viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Sky -->
+                            <rect width="220" height="130" rx="12" fill="#e0f2fe"/>
+                            <!-- Sun -->
+                            <circle cx="110" cy="45" r="30" fill="#f87171" opacity="0.8"/>
+                            <!-- Fuji Mountain -->
+                            <polygon points="40,110 110,35 180,110" fill="#3b82f6"/>
+                            <polygon points="85,62 110,35 135,62 125,70 118,65 110,72 102,65 95,70" fill="#ffffff"/>
+                            <!-- Airplane -->
+                            <path d="M165,30 L185,25 L180,33 L195,35 L175,42 L165,37 Z" fill="#6366f1"/>
+                            <!-- Torii gate -->
+                            <rect x="25" y="85" width="4" height="25" fill="#ef4444"/>
+                            <rect x="50" y="85" width="4" height="25" fill="#ef4444"/>
+                            <rect x="20" y="82" width="39" height="5" rx="2" fill="#ef4444"/>
+                            <rect x="23" y="90" width="33" height="3" fill="#ef4444"/>
+                        </svg>
+                    </div>
+                    <div class="demo-body">
+                        <div class="demo-tag">Ví dụ 1: Đi du lịch / Ước mơ</div>
+                        <div class="demo-jp jp-text">日本に 行きたいです。</div>
+                        <div class="demo-vi">Tôi muốn đi Nhật Bản.</div>
+                        <div class="demo-notes"><b>行きます</b> (Đi) ➔ bỏ ます ➔ <b>行きたいです</b>.</div>
+                    </div>
+                </div>
+
+                <!-- Demo 2: Muốn làm biên dịch -->
+                <div class="demo-card">
+                    <div class="demo-svg-wrap">
+                        <svg width="220" height="130" viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="220" height="130" rx="12" fill="#fdf2f8"/>
+                            <!-- Desk -->
+                            <rect x="30" y="95" width="160" height="8" rx="4" fill="#cbd5e1"/>
+                            <!-- Laptop -->
+                            <rect x="75" y="55" width="70" height="42" rx="4" fill="#334155"/>
+                            <rect x="80" y="60" width="60" height="32" rx="2" fill="#38bdf8"/>
+                            <text x="85" y="78" font-size="9" fill="#0f172a" font-weight="bold">JP ➔ VN</text>
+                            <rect x="65" y="97" width="90" height="4" rx="2" fill="#64748b"/>
+                            <!-- Books Stack -->
+                            <rect x="40" y="75" width="28" height="7" rx="2" fill="#ec4899"/>
+                            <rect x="42" y="83" width="28" height="7" rx="2" fill="#8b5cf6"/>
+                            <rect x="38" y="90" width="32" height="7" rx="2" fill="#3b82f6"/>
+                            <!-- Coffee Mug -->
+                            <rect x="155" y="80" width="14" height="16" rx="2" fill="#f59e0b"/>
+                        </svg>
+                    </div>
+                    <div class="demo-body">
+                        <div class="demo-tag">Ví dụ 2: Nghề nghiệp tương lai</div>
+                        <div class="demo-jp jp-text">ほんやくの しごとを したいです。</div>
+                        <div class="demo-vi">Tôi muốn làm công việc biên dịch.</div>
+                        <div class="demo-notes"><b>します</b> (Làm) ➔ bỏ ます ➔ <b>したいです</b>.</div>
+                    </div>
+                </div>
+
+                <!-- Demo 3: Hôm nay lười không muốn học -->
+                <div class="demo-card">
+                    <div class="demo-svg-wrap">
+                        <svg width="220" height="130" viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="220" height="130" rx="12" fill="#fef3c7"/>
+                            <!-- Pillow -->
+                            <ellipse cx="60" cy="85" rx="30" ry="16" fill="#fde68a" stroke="#d97706" stroke-width="2"/>
+                            <!-- Snoozing character face -->
+                            <circle cx="110" cy="80" r="24" fill="#fed7aa"/>
+                            <!-- Sleeping eyes -->
+                            <path d="M100,78 Q105,83 110,78" stroke="#78350f" stroke-width="2" fill="none"/>
+                            <path d="M115,78 Q120,83 125,78" stroke="#78350f" stroke-width="2" fill="none"/>
+                            <!-- ZZZ bubbles -->
+                            <text x="145" y="55" font-size="16" font-weight="bold" fill="#d97706">Z</text>
+                            <text x="160" y="42" font-size="20" font-weight="bold" fill="#d97706">Z</text>
+                            <text x="178" y="28" font-size="24" font-weight="bold" fill="#b45309">Z</text>
+                        </svg>
+                    </div>
+                    <div class="demo-body">
+                        <div class="demo-tag">Ví dụ 3: Phủ định (Không muốn)</div>
+                        <div class="demo-jp jp-text">今日は 勉強したくないです。</div>
+                        <div class="demo-vi">Hôm nay tôi mệt quá, không muốn học bài.</div>
+                        <div class="demo-notes"><b>勉強します</b> ➔ bỏ ます ➔ <b>勉強したくないです</b>.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bảng Tổng Hợp 4 Dạng Của V-たい -->
+            <h3 style="font-size:1.1rem; color:var(--dark); margin-bottom:12px;">📊 Bảng 4 Thể Biến Đổi Của V-たい (Như Tính Từ Đuôi い):</h3>
+            <table class="grammar-table">
+                <thead>
+                    <tr>
+                        <th>Thể</th>
+                        <th>Công thức</th>
+                        <th>Ví dụ: 食べます (Ăn)</th>
+                        <th>Ý nghĩa</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Khẳng định hiện tại</b></td>
+                        <td>V-ます (bỏ ます) ＋ <b>たいです</b></td>
+                        <td class="jp-text"><b>食べたいです</b></td>
+                        <td>Tôi muốn ăn</td>
+                    </tr>
+                    <tr>
+                        <td><b>Phủ định hiện tại</b></td>
+                        <td>V-ます (bỏ ます) ＋ <b>たくないです</b></td>
+                        <td class="jp-text"><b>食べたくないです</b></td>
+                        <td>Tôi không muốn ăn</td>
+                    </tr>
+                    <tr>
+                        <td><b>Khẳng định quá khứ</b></td>
+                        <td>V-ます (bỏ ます) ＋ <b>たかったです</b></td>
+                        <td class="jp-text"><b>食べたかったです</b></td>
+                        <td>Đã từng rất muốn ăn</td>
+                    </tr>
+                    <tr>
+                        <td><b>Phủ định quá khứ</b></td>
+                        <td>V-ます (bỏ ます) ＋ <b>たくなかったです</b></td>
+                        <td class="jp-text"><b>食べたくなかったです</b></td>
+                        <td>Lúc đó đã không muốn ăn</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Bẫy Thi & Văn Hóa Quan Trọng -->
+            <div class="callout-box">
+                <b>⚠️ 2 BẪY THI CỰC KỲ QUAN TRỌNG VỀ V-たい:</b><br>
+                1. <b>Trợ từ を hay が?</b>: Trong câu 「～たいです」, tân ngữ vốn đi với <code>を</code> có thể đổi thành <code>が</code> khi người nói muốn nhấn mạnh cảm xúc thèm muốn mãnh liệt (VD: <code>冷たい水が 飲みたいです！</code> = Thèm nước mát quá!). Đi thi chọn <code>を</code> hay <code>が</code> đều đúng!<br>
+                2. <b>Quy tắc văn hóa kính ngữ:</b> Tuyệt đối <b>KHÔNG</b> dùng <code>～たいですか</code> để hỏi người trên, thầy cô giáo hoặc đối tác (sẽ bị coi là hỏi thẳng vào lòng tham/ý muốn cá nhân, rất bất lịch sự). Thay vào đó, hãy dùng thể mời mọc rủ rê lịch sự: <code>お茶を 飲みませんか。</code> (Thầy có muốn dùng trà không ạ?)
+            </div>
+        </section>
+
+        <!-- ==================== PHẦN 2: NGỮ PHÁP 2 (TẦN SUẤT: ～に～回) ==================== -->
+        <section class="section-card" id="sec-grammar-2">
+            <div class="section-header">
+                <div class="section-title-wrap">
+                    <div class="section-icon">📅</div>
+                    <div>
+                        <h2 class="section-title">2. Mẫu Câu Nói Tần Suất: 週 / 月 / 年 に ～回 (ぐらい)</h2>
+                        <p style="color:var(--gray); font-size:0.9rem;">Diễn tả tần suất lặp lại của một hành động trong một khoảng thời gian nhất định.</p>
+                    </div>
+                </div>
+                <span class="section-badge">Ngữ Pháp Trọng Tâm #2</span>
+            </div>
+
+            <!-- Formula Box -->
+            <div class="formula-box">
+                <div class="formula-title">CÔNG THỨC TẦN SUẤT CHUẨN</div>
+                <div class="formula-text">
+                    [Khoảng thời gian: <span class="formula-highlight">一日 / 週 / 月 / 年</span>] ＋ <span style="color:#ef4444; font-weight:900;">に</span> ＋ [<span class="formula-highlight">～回</span> (ぐらい)] ＋ [Hành động V]
+                </div>
+            </div>
+
+            <!-- Visual Timeline Graphic -->
+            <div class="visual-demo-grid">
+                <!-- Flamenco -->
+                <div class="demo-card">
+                    <div class="demo-svg-wrap">
+                        <svg width="220" height="130" viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="220" height="130" rx="12" fill="#fff1f2"/>
+                            <!-- Calendar header -->
+                            <rect x="30" y="20" width="160" height="90" rx="8" fill="#ffffff" stroke="#f43f5e" stroke-width="2"/>
+                            <rect x="30" y="20" width="160" height="24" rx="8" fill="#f43f5e"/>
+                            <text x="45" y="37" font-size="11" font-weight="bold" fill="#ffffff">THÁNG NÀY (WEEKLY)</text>
+                            <!-- Days circles -->
+                            <circle cx="55" cy="65" r="12" fill="#fecdd3"/>
+                            <text x="50" y="69" font-size="10" fill="#9f1239">T2</text>
+                            <circle cx="90" cy="65" r="12" fill="#fecdd3"/>
+                            <text x="85" y="69" font-size="10" fill="#9f1239">T4</text>
+                            <circle cx="125" cy="65" r="12" fill="#fecdd3"/>
+                            <text x="120" y="69" font-size="10" fill="#9f1239">T6</text>
+                            <!-- Active Sunday dance badge -->
+                            <circle cx="160" cy="65" r="14" fill="#e11d48"/>
+                            <text x="153" y="70" font-size="14">💃</text>
+                            <text x="60" y="100" font-size="11" font-weight="bold" fill="#be123c">MỖI TUẦN ĐÚNG 1 LẦN</text>
+                        </svg>
+                    </div>
+                    <div class="demo-body">
+                        <div class="demo-tag">Ví dụ 1: Điệu nhảy Flamenco</div>
+                        <div class="demo-jp jp-text">週に 1回 フラメンコを ならっています。</div>
+                        <div class="demo-vi">Tôi học nhảy Flamenco mỗi tuần một lần.</div>
+                        <div class="demo-notes">Đơn vị tuần dùng <code>週に (しゅうに)</code> + số lần <code>1回 (いっかい)</code>.</div>
+                    </div>
+                </div>
+
+                <!-- Gym -->
+                <div class="demo-card">
+                    <div class="demo-svg-wrap">
+                        <svg width="220" height="130" viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="220" height="130" rx="12" fill="#ecfdf5"/>
+                            <!-- Dumbbell graphic -->
+                            <rect x="50" y="60" width="120" height="10" rx="5" fill="#64748b"/>
+                            <rect x="40" y="45" width="16" height="40" rx="4" fill="#0f172a"/>
+                            <rect x="25" y="50" width="12" height="30" rx="3" fill="#334155"/>
+                            <rect x="164" y="45" width="16" height="40" rx="4" fill="#0f172a"/>
+                            <rect x="183" y="50" width="12" height="30" rx="3" fill="#334155"/>
+                            <!-- Frequency badge -->
+                            <rect x="75" y="85" width="70" height="24" rx="12" fill="#10b981"/>
+                            <text x="85" y="101" font-size="11" font-weight="bold" fill="#ffffff">週に 2回</text>
+                        </svg>
+                    </div>
+                    <div class="demo-body">
+                        <div class="demo-tag">Ví dụ 2: Thể thao / Thể hình</div>
+                        <div class="demo-jp jp-text">週に 2回 ジムへ 行きます。</div>
+                        <div class="demo-vi">Tôi đi phòng tập gym mỗi tuần 2 lần.</div>
+                        <div class="demo-notes"><code>週に 2回 (しゅうに にかい)</code>.</div>
+                    </div>
+                </div>
+
+                <!-- Cinema -->
+                <div class="demo-card">
+                    <div class="demo-svg-wrap">
+                        <svg width="220" height="130" viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="220" height="130" rx="12" fill="#f5f3ff"/>
+                            <!-- Movie Ticket & Popcorn -->
+                            <rect x="35" y="40" width="70" height="45" rx="6" fill="#8b5cf6"/>
+                            <circle cx="50" cy="62" r="5" fill="#f5f3ff"/>
+                            <line x1="65" y1="45" x2="65" y2="80" stroke="#f5f3ff" stroke-dasharray="3,3" stroke-width="2"/>
+                            <text x="75" y="66" font-size="11" font-weight="bold" fill="#ffffff">TICKET</text>
+                            <!-- Popcorn -->
+                            <polygon points="135,55 170,55 165,100 140,100" fill="#ef4444"/>
+                            <circle cx="145" cy="50" r="8" fill="#fef08a"/>
+                            <circle cx="155" cy="45" r="9" fill="#fef08a"/>
+                            <circle cx="165" cy="52" r="7" fill="#fef08a"/>
+                        </svg>
+                    </div>
+                    <div class="demo-body">
+                        <div class="demo-tag">Ví dụ 3: Ước lượng (Khoảng ~ lần)</div>
+                        <div class="demo-jp jp-text">月に 3回ぐらい えいがを 見ます。</div>
+                        <div class="demo-vi">Tôi xem phim khoảng 3 lần một tháng.</div>
+                        <div class="demo-notes">Thêm <code>ぐらい</code> để chỉ ước lượng: <code>3回ぐらい</code> (khoảng 3 lần).</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bảng Đếm Số Lần Đặc Biệt -->
+            <h3 style="font-size:1.1rem; color:var(--dark); margin-bottom:8px;">🔢 Bảng Số Đếm Lần 「～回 (かい)」 (Bấm vào thẻ để nghe phát âm giọng chuẩn):</h3>
+            <p style="font-size:0.88rem; color:var(--gray); margin-bottom:14px;">⚠️ Chú ý các số có viền hồng là <b>ÂM NGẮT (っ)</b> hay ra trong đề thi!</p>
+            
+            <div class="count-grid" id="countGrid">
+                <!-- Javascript will render 1 to 10 + nankai cards -->
+            </div>
+        </section>
+
+        <!-- ==================== PHẦN 3: NGỮ PHÁP 3 (V-てみます / V-てみたいです) ==================== -->
+        <section class="section-card" id="sec-grammar-3">
+            <div class="section-header">
+                <div class="section-title-wrap">
+                    <div class="section-icon">🧪</div>
+                    <div>
+                        <h2 class="section-title">3. Mẫu Câu Thử Làm Gì Đó: V-てみます</h2>
+                        <p style="color:var(--gray); font-size:0.9rem;">Dùng khi muốn thử trải nghiệm một hành động nào đó xem kết quả hoặc cảm giác ra sao.</p>
+                    </div>
+                </div>
+                <span class="section-badge">Ngữ Pháp Trọng Tâm #3</span>
+            </div>
+
+            <!-- Formula Box -->
+            <div class="formula-box">
+                <div class="formula-title">CÔNG THỨC THỬ NGHIỆM CHUẨN</div>
+                <div class="formula-text">
+                    [Động từ thể て] ＋ <span class="formula-highlight">みます</span> (Thử làm xem sao) / <span class="formula-highlight">みたいです</span> (Muốn thử làm)
+                </div>
+            </div>
+
+            <!-- Visual Cards for V-temiru -->
+            <div class="visual-demo-grid">
+                <!-- Ramen -->
+                <div class="demo-card">
+                    <div class="demo-svg-wrap">
+                        <svg width="220" height="130" viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="220" height="130" rx="12" fill="#fffbeb"/>
+                            <!-- Ramen Bowl -->
+                            <ellipse cx="110" cy="85" rx="50" ry="25" fill="#f59e0b"/>
+                            <ellipse cx="110" cy="80" rx="46" ry="20" fill="#fef08a"/>
+                            <!-- Noodles -->
+                            <path d="M75,78 Q90,70 105,78 Q120,85 145,76" stroke="#ca8a04" stroke-width="3" fill="none"/>
+                            <!-- Egg & Meat -->
+                            <circle cx="95" cy="76" r="8" fill="#ffffff"/>
+                            <circle cx="95" cy="76" r="4" fill="#ea580c"/>
+                            <rect x="115" y="70" width="16" height="12" rx="3" fill="#b91c1c"/>
+                            <!-- Steam -->
+                            <path d="M100,50 Q105,40 100,30" stroke="#d97706" stroke-width="2" fill="none"/>
+                            <path d="M115,52 Q120,42 115,32" stroke="#d97706" stroke-width="2" fill="none"/>
+                            <!-- Chopsticks -->
+                            <line x1="80" y1="20" x2="140" y2="75" stroke="#78350f" stroke-width="3"/>
+                            <line x1="75" y1="22" x2="135" y2="77" stroke="#78350f" stroke-width="3"/>
+                        </svg>
+                    </div>
+                    <div class="demo-body">
+                        <div class="demo-tag">Trải nghiệm 1: Nếm thử món ăn</div>
+                        <div class="demo-jp jp-text">この りょうりを 食べてみます。</div>
+                        <div class="demo-vi">Tôi sẽ thử ăn món ăn này xem sao.</div>
+                        <div class="demo-notes"><b>食べます</b> ➔ <b>食べてみます</b>.</div>
+                    </div>
+                </div>
+
+                <!-- Talk Japanese Native -->
+                <div class="demo-card">
+                    <div class="demo-svg-wrap">
+                        <svg width="220" height="130" viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="220" height="130" rx="12" fill="#eff6ff"/>
+                            <!-- Person A -->
+                            <circle cx="65" cy="65" r="20" fill="#93c5fd"/>
+                            <!-- Person B -->
+                            <circle cx="155" cy="65" r="20" fill="#fca5a5"/>
+                            <!-- Dialogue Bubble -->
+                            <path d="M85,35 Q110,25 135,35 Q145,45 130,52 L135,62 L120,53 Q85,55 85,35 Z" fill="#6366f1"/>
+                            <text x="94" y="42" font-size="9" font-weight="bold" fill="#ffffff">こんにちは!</text>
+                        </svg>
+                    </div>
+                    <div class="demo-body">
+                        <div class="demo-tag">Trải nghiệm 2: Thử giao tiếp</div>
+                        <div class="demo-jp jp-text">日本人と 日本語で 話してみます。</div>
+                        <div class="demo-vi">Tôi sẽ thử nói chuyện bằng tiếng Nhật với người Nhật.</div>
+                        <div class="demo-notes"><b>話します</b> (nhóm 1) ➔ thể Te: <b>話して</b> ➔ <b>話してみます</b>.</div>
+                    </div>
+                </div>
+
+                <!-- Work in Japan -->
+                <div class="demo-card">
+                    <div class="demo-svg-wrap">
+                        <svg width="220" height="130" viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="220" height="130" rx="12" fill="#f0fdf4"/>
+                            <!-- Office Building -->
+                            <rect x="70" y="30" width="80" height="85" rx="4" fill="#334155"/>
+                            <!-- Windows -->
+                            <rect x="80" y="40" width="14" height="12" fill="#38bdf8"/>
+                            <rect x="103" y="40" width="14" height="12" fill="#fef08a"/>
+                            <rect x="126" y="40" width="14" height="12" fill="#38bdf8"/>
+                            <rect x="80" y="60" width="14" height="12" fill="#fef08a"/>
+                            <rect x="103" y="60" width="14" height="12" fill="#38bdf8"/>
+                            <rect x="126" y="60" width="14" height="12" fill="#fef08a"/>
+                            <!-- Entrance -->
+                            <rect x="98" y="90" width="24" height="25" fill="#e2e8f0"/>
+                        </svg>
+                    </div>
+                    <div class="demo-body">
+                        <div class="demo-tag">Mẫu kết hợp: V-て ＋ みたい (Muốn thử)</div>
+                        <div class="demo-jp jp-text">日本の 会社で 働いてみたいです。</div>
+                        <div class="demo-vi">Tôi muốn thử làm việc ở công ty Nhật Bản.</div>
+                        <div class="demo-notes">Kết hợp: <code>働いてみる</code> (Thử) ＋ <code>たい</code> (Muốn) ➔ <code>働いてみたいです</code>.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== PHẦN 4: MÁY LUYỆN CHIA THỂ ĐỘNG TỪ ==================== -->
+        <section class="section-card lab-box" id="sec-morph">
+            <div class="lab-header">
+                <span class="hero-badge" style="background:rgba(99,102,241,0.3);">PHÒNG THÍ NGHIỆM TƯƠNG TÁC</span>
+                <h2 class="lab-title">🔬 MÁY BIẾN THỂ ĐỘNG TỪ TỰ ĐỘNG BÀI 10</h2>
+                <p class="lab-desc">Bấm chọn một động từ bất kỳ để theo dõi cỗ máy tự động phân tích và biến đổi sang các dạng ngữ pháp cốt lõi của Bài 10!</p>
+            </div>
+
+            <div class="verb-picker" id="verbPicker">
+                <!-- Javascript will render verb pills -->
+            </div>
+
+            <div class="morph-display">
+                <div class="morph-card">
+                    <div class="morph-label">① Thể Lịch Sự (ます形)</div>
+                    <div class="morph-val jp-text" id="morphMasu">いきます</div>
+                    <div class="morph-vi" id="morphVi">Đi</div>
+                    <button class="sound-btn" onclick="speakText(document.getElementById('morphMasu').textContent)" title="Nghe phát âm">🔊</button>
+                </div>
+
+                <div class="morph-card" style="border-top:3px solid #10b981;">
+                    <div class="morph-label">② Muốn làm (～たいです)</div>
+                    <div class="morph-val jp-text" id="morphTai" style="color:#34d399;">いきたいです</div>
+                    <div class="morph-vi">Tôi muốn đi</div>
+                    <button class="sound-btn" onclick="speakText(document.getElementById('morphTai').textContent)" title="Nghe phát âm">🔊</button>
+                </div>
+
+                <div class="morph-card" style="border-top:3px solid #f43f5e;">
+                    <div class="morph-label">③ Không muốn làm (～たくないです)</div>
+                    <div class="morph-val jp-text" id="morphTakunai" style="color:#fb7185;">いきたくないです</div>
+                    <div class="morph-vi">Tôi không muốn đi</div>
+                    <button class="sound-btn" onclick="speakText(document.getElementById('morphTakunai').textContent)" title="Nghe phát âm">🔊</button>
+                </div>
+
+                <div class="morph-card" style="border-top:3px solid #a855f7;">
+                    <div class="morph-label">④ Thử làm xem sao (～てみます)</div>
+                    <div class="morph-val jp-text" id="morphTemiru" style="color:#c084fc;">いってみます</div>
+                    <div class="morph-vi">Tôi sẽ đi thử xem sao</div>
+                    <button class="sound-btn" onclick="speakText(document.getElementById('morphTemiru').textContent)" title="Nghe phát âm">🔊</button>
+                </div>
+
+                <div class="morph-card" style="border-top:3px solid #f59e0b;">
+                    <div class="morph-label">⑤ Muốn thử làm (～てみたいです)</div>
+                    <div class="morph-val jp-text" id="morphTemitai" style="color:#fbbf24;">いってみたいです</div>
+                    <div class="morph-vi">Tôi muốn thử đi</div>
+                    <button class="sound-btn" onclick="speakText(document.getElementById('morphTemitai').textContent)" title="Nghe phát âm">🔊</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== PHẦN 5: 27 TỪ MỚI BÀI 10 & FLASHCARD 3D ==================== -->
+        <section class="section-card" id="sec-vocab">
+            <div class="section-header">
+                <div class="section-title-wrap">
+                    <div class="section-icon">🎴</div>
+                    <div>
+                        <h2 class="section-title">4. Trọn Bộ 27 Từ Vựng Bài 10 (Flashcard 3D Lật Mặt)</h2>
+                        <p style="color:var(--gray); font-size:0.9rem;">Bấm vào thẻ để lật mặt xem nghĩa tiếng Việt & câu ví dụ. Có nút loa để luyện nghe phát âm chuẩn.</p>
+                    </div>
+                </div>
+                <span class="section-badge" id="learnedCounter">Đã thuộc: 0 / 27</span>
+            </div>
+
+            <!-- Controls & Filters -->
+            <div class="flashcard-controls">
+                <div class="filter-group">
+                    <button class="filter-btn active" onclick="filterVocab('all', this)">Tất cả (27)</button>
+                    <button class="filter-btn" onclick="filterVocab('verb', this)">Cụm Động Từ (9)</button>
+                    <button class="filter-btn" onclick="filterVocab('noun', this)">Danh Từ & Xã Hội (10)</button>
+                    <button class="filter-btn" onclick="filterVocab('time', this)">Thời Gian & Tần Suất (8)</button>
+                </div>
+                <div style="font-size:0.85rem; color:var(--gray);">
+                    💡 <i>Gợi ý: Bấm trực tiếp vào thẻ để lật 180°</i>
+                </div>
+            </div>
+
+            <!-- Flashcards Grid -->
+            <div class="flashcard-grid" id="flashcardGrid">
+                <!-- Javascript will render 27 3D Flashcards -->
+            </div>
+        </section>
+
+        <!-- ==================== PHẦN 6: MINI TEST 15 CÂU ==================== -->
+        <section class="section-card" id="sec-quiz">
+            <div class="section-header">
+                <div class="section-title-wrap">
+                    <div class="section-icon">🏆</div>
+                    <div>
+                        <h2 class="section-title">5. Mini Test Phản Xạ Ngữ Pháp & Từ Vựng Bài 10 (15 Câu)</h2>
+                        <p style="color:var(--gray); font-size:0.9rem;">Kiểm tra ngay kiến thức vừa học: Chọn đáp án để xem giải thích chi tiết tức thì!</p>
+                    </div>
+                </div>
+                <span class="section-badge" id="quizProgress">Tiến độ: 0 / 15</span>
+            </div>
+
+            <!-- Score Box -->
+            <div class="score-box" id="scoreBox">
+                <div class="score-num" id="scoreNum">0 / 15</div>
+                <h3 id="scoreTitle" style="color:#15803d; margin:6px 0;">Xuất sắc! Bạn đã nắm vững kiến thức Bài 10!</h3>
+                <p id="scoreDesc" style="color:#166534; font-size:0.95rem; margin-bottom:14px;">Bạn đã hoàn thành toàn bộ bài trắc nghiệm phản xạ.</p>
+                <button class="hub-nav-item active" onclick="resetQuiz()" style="cursor:pointer; border:none; padding:10px 24px; font-size:0.95rem;">🔄 Làm Lại Bài Thi</button>
+            </div>
+
+            <!-- Quiz Questions Container -->
+            <div id="quizContainer">
+                <!-- Javascript will render 15 questions -->
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Scripts Data & Logic -->
+    <script>
+        const VOCAB_DATA = [{"id": 1, "cat": "verb", "catName": "Cụm Động Từ", "jp": "日本に きょうみが あります", "kana": "にほんに きょうみがあります", "romaji": "nihon ni kyoumi ga arimasu", "vi": "Có hứng thú với Nhật Bản", "kanji": "日本に 興味が あります", "exJp": "日本の ぶんかに きょうみが ありますから、日本語を べんきょうしています。", "exVi": "Vì có hứng thú với văn hóa Nhật Bản nên tôi đang học tiếng Nhật.", "badge": "🌸 Văn Hóa & Hứng Thú", "icon": "🇯🇵"}, {"id": 2, "cat": "verb", "catName": "Cụm Động Từ", "jp": "しゅくだいを てつだいます", "kana": "しゅくだいを てつだいます", "romaji": "shukudai o tetsudaimasu", "vi": "Giúp đỡ bài tập về nhà", "kanji": "宿題を 手伝います", "exJp": "ともだちの 日本語の しゅくだいを てつだいました。", "exVi": "Tôi đã giúp bạn làm bài tập về nhà môn tiếng Nhật.", "badge": "🤝 Giúp Đỡ", "icon": "📝"}, {"id": 3, "cat": "verb", "catName": "Cụm Động Từ", "jp": "日本に りゅうがくします", "kana": "にほんに りゅうがくします", "romaji": "nihon ni ryuugakushimasu", "vi": "Du học ở Nhật Bản", "kanji": "日本に 留学します", "exJp": "しょうらい、日本に りゅうがくしたいです。", "exVi": "Trong tương lai, tôi muốn đi du học ở Nhật Bản.", "badge": "🎓 Du Học", "icon": "🎓"}, {"id": 4, "cat": "verb", "catName": "Cụm Động Từ", "jp": "日本に しゅっちょうします", "kana": "にほんに しゅっちょうします", "romaji": "nihon ni shucchoushimasu", "vi": "Đi công tác ở Nhật Bản", "kanji": "日本に 出張します", "exJp": "らいげつ、かいしゃの しごとで 日本に しゅっちょうします。", "exVi": "Tháng sau tôi đi công tác Nhật Bản vì công việc của công ty.", "badge": "💼 Công Tác", "icon": "💼"}, {"id": 5, "cat": "verb", "catName": "Cụm Động Từ", "jp": "つうやくします", "kana": "つうやくします", "romaji": "tsuuyakushimasu", "vi": "Phiên dịch (dịch nói)", "kanji": "通訳します", "exJp": "かいぎで 日本語を つうやくします。", "exVi": "Tôi phiên dịch tiếng Nhật trong cuộc họp.", "badge": "🗣️ Dịch Nói", "icon": "🗣️"}, {"id": 6, "cat": "verb", "catName": "Cụm Động Từ", "jp": "ほんやくします", "kana": "ほんやくします", "romaji": "honyakushimasu", "vi": "Biên dịch (dịch viết)", "kanji": "翻訳します", "exJp": "ほんやくの しごとを したいです。", "exVi": "Tôi muốn làm công việc biên dịch sách/tài liệu.", "badge": "📖 Dịch Viết", "icon": "📚"}, {"id": 7, "cat": "verb", "catName": "Cụm Động Từ", "jp": "日本語を おしえます", "kana": "にほんごを おしえます", "romaji": "nihongo o oshiemasu", "vi": "Dạy tiếng Nhật", "kanji": "日本語を 教えます", "exJp": "大学で がくせいに 日本語を おしえています。", "exVi": "Tôi đang dạy tiếng Nhật cho sinh viên ở trường đại học.", "badge": "👨‍🏫 Giảng Dạy", "icon": "👨‍🏫"}, {"id": 8, "cat": "verb", "catName": "Cụm Động Từ", "jp": "日本語を ならいます", "kana": "にほんごを ならいます", "romaji": "nihongo o naraimasu", "vi": "Học tiếng Nhật (có người dạy)", "kanji": "日本語を 習います", "exJp": "週に 1回 せんせいに 日本語を ならっています。", "exVi": "Mỗi tuần 1 lần tôi học tiếng Nhật với thầy cô.", "badge": "🧑‍🎓 Học Tập", "icon": "✍️"}, {"id": 9, "cat": "verb", "catName": "Cụm Động Từ", "jp": "でんわします", "kana": "でんわします", "romaji": "denwashimasu", "vi": "Gọi điện thoại", "kanji": "電話します", "exJp": "あとで かぞくに でんわします。", "exVi": "Lát nữa tôi sẽ gọi điện thoại về cho gia đình.", "badge": "📞 Liên Lạc", "icon": "📱"}, {"id": 10, "cat": "noun", "catName": "Danh Từ & Xã Hội", "jp": "ぶんか", "kana": "ぶんか", "romaji": "bunka", "vi": "Văn hóa", "kanji": "文化", "exJp": "ベトナムと 日本の ぶんかは ちがいます。", "exVi": "Văn hóa Việt Nam và Nhật Bản khác nhau.", "badge": "⛩️ Đời Sống", "icon": "🎭"}, {"id": 11, "cat": "noun", "catName": "Danh Từ & Xã Hội", "jp": "しょうらい", "kana": "しょうらい", "romaji": "shourai", "vi": "Tương lai", "kanji": "将来", "exJp": "しょうらい、日本で はたらきたいです。", "exVi": "Trong tương lai, tôi muốn làm việc tại Nhật Bản.", "badge": "🚀 Ước Mơ", "icon": "🌟"}, {"id": 12, "cat": "noun", "catName": "Danh Từ & Xã Hội", "jp": "ウェブサイト", "kana": "ウェブサイト", "romaji": "webusaito", "vi": "Website, trang web", "kanji": "ウェブサイト", "exJp": "この ウェブサイトで 日本語の ぶんぽうを べんきょうします。", "exVi": "Tôi học ngữ pháp tiếng Nhật trên trang web này.", "badge": "💻 Công Nghệ", "icon": "🌐"}, {"id": 13, "cat": "noun", "catName": "Danh Từ & Xã Hội", "jp": "ことば", "kana": "ことば", "romaji": "kotoba", "vi": "Ngôn từ, từ ngữ", "kanji": "言葉", "exJp": "まいにち あたらしい ことばを 3つ おぼえます。", "exVi": "Mỗi ngày tôi học thuộc 3 từ vựng mới.", "badge": "💬 Ngôn Ngữ", "icon": "💬"}, {"id": 14, "cat": "noun", "catName": "Danh Từ & Xã Hội", "jp": "せいかつ", "kana": "せいかつ", "romaji": "seikatsu", "vi": "Cuộc sống, đời sống sinh hoạt", "kanji": "生活", "exJp": "日本での せいかつに もう なれましたか。", "exVi": "Bạn đã quen với cuộc sống ở Nhật Bản chưa?", "badge": "🏠 Cuộc Sống", "icon": "🏙️"}, {"id": 15, "cat": "noun", "catName": "Danh Từ & Xã Hội", "jp": "うた", "kana": "うた", "romaji": "uta", "vi": "Bài hát", "kanji": "歌", "exJp": "日本の うたを うたいたいです。", "exVi": "Tôi muốn hát các bài hát tiếng Nhật.", "badge": "🎵 Nghệ Thuật", "icon": "🎤"}, {"id": 16, "cat": "noun", "catName": "Danh Từ & Xã Hội", "jp": "おどり / ダンス", "kana": "おどり / ダンス", "romaji": "odori / dansu", "vi": "Điệu nhảy, nhảy múa", "kanji": "踊り", "exJp": "週に 1回 フラメンコの おどりを ならっています。", "exVi": "Mỗi tuần 1 lần tôi học nhảy điệu Flamenco.", "badge": "💃 Nhảy Múa", "icon": "💃"}, {"id": 17, "cat": "noun", "catName": "Danh Từ & Xã Hội", "jp": "きっぷ", "kana": "きっぷ", "romaji": "kippu", "vi": "Vé (tàu, xe, máy bay)", "kanji": "切符", "exJp": "駅で でんしゃの きっぷを かいました。", "exVi": "Tôi đã mua vé tàu điện ở nhà ga.", "badge": "🎫 Đi Lại", "icon": "🎫"}, {"id": 18, "cat": "noun", "catName": "Danh Từ & Xã Hội", "jp": "かんこうきゃく", "kana": "かんこうきゃく", "romaji": "kankoukyaku", "vi": "Khách du lịch", "kanji": "観光客", "exJp": "とうきょうは がいこくじんの かんこうきゃくが 多いです。", "exVi": "Tokyo có rất đông khách du lịch nước ngoài.", "badge": "🧳 Du Lịch", "icon": "📸"}, {"id": 19, "cat": "noun", "catName": "Hội Thoại", "jp": "どうしたんですか", "kana": "どうしたんですか", "romaji": "doushitan desu ka", "vi": "Bạn bị làm sao vậy? / Có chuyện gì thế?", "kanji": "どうしたんですか", "exJp": "A:「どうしたんですか。」ー B:「ちょっと つかれました。」", "exVi": "A: Bạn làm sao vậy? - B: Tôi hơi mệt một chút.", "badge": "❓ Quan Tâm", "icon": "🤔"}, {"id": 20, "cat": "time", "catName": "Thời Gian & Tần Suất", "jp": "まいつき / まいげつ", "kana": "まいつき / まいげつ", "romaji": "maitsuki / maigetsu", "vi": "Mỗi tháng, hàng tháng", "kanji": "毎月", "exJp": "まいつき 日本語の 本を 2さつ よみます。", "exVi": "Mỗi tháng tôi đọc 2 quyển sách tiếng Nhật.", "badge": "📅 Chu Kỳ Tháng", "icon": "🗓️"}, {"id": 21, "cat": "time", "catName": "Thời Gian & Tần Suất", "jp": "まいとし / まいねん", "kana": "まいとし / まいねん", "romaji": "maitoshi / mainen", "vi": "Mỗi năm, hàng năm", "kanji": "毎年", "exJp": "まいとし 日本へ りょこうに いきます。", "exVi": "Hàng năm tôi đều đi du lịch Nhật Bản.", "badge": "🎆 Chu Kỳ Năm", "icon": "📅"}, {"id": 22, "cat": "time", "catName": "Thời Gian & Tần Suất", "jp": "～かい", "kana": "～かい", "romaji": "~kai", "vi": "... lần (hậu tố đếm số lần)", "kanji": "～回", "exJp": "月に 3回 えいがを 見ます。", "exVi": "Một tháng tôi xem phim 3 lần.", "badge": "🔢 Số Lần", "icon": "🔢"}, {"id": 23, "cat": "time", "catName": "Thời Gian & Tần Suất", "jp": "いちにち", "kana": "いちにち", "romaji": "ichinichi", "vi": "Một ngày", "kanji": "一日", "exJp": "1日に 3回 ごはんを 食べます。", "exVi": "Một ngày tôi ăn cơm 3 bữa.", "badge": "☀️ Đơn Vị Ngày", "icon": "☀️"}, {"id": 24, "cat": "time", "catName": "Thời Gian & Tần Suất", "jp": "いっしゅうかん / 週", "kana": "いっしゅうかん / しゅう", "romaji": "isshuukan / shuu", "vi": "Một tuần", "kanji": "一週間 / 週", "exJp": "週に 2回 ジムへ 行きます。", "exVi": "Một tuần tôi đi phòng gym 2 lần.", "badge": "📆 Đơn Vị Tuần", "icon": "🏋️"}, {"id": 25, "cat": "time", "catName": "Thời Gian & Tần Suất", "jp": "いっかげつ / 月", "kana": "いっかげつ / つき", "romaji": "ikkagetsu / tsuki", "vi": "Một tháng", "kanji": "一か月 / 月", "exJp": "月に 1回 かぞくに れんらくします。", "exVi": "Một tháng 1 lần tôi gọi điện liên lạc với gia đình.", "badge": "🌙 Đơn Vị Tháng", "icon": "🌙"}, {"id": 26, "cat": "time", "catName": "Thời Gian & Tần Suất", "jp": "いちねん / 年", "kana": "いちねん / ねん", "romaji": "ichinen / nen", "vi": "Một năm", "kanji": "一年 / 年", "exJp": "年に 1回 ベトナムへ かえります。", "exVi": "Một năm 1 lần tôi về thăm Việt Nam.", "badge": "🌟 Đơn Vị Năm", "icon": "✈️"}, {"id": 27, "cat": "noun", "catName": "Danh Từ & Nghề Nghiệp", "jp": "ガイド", "kana": "ガイド", "romaji": "gaido", "vi": "Hướng dẫn viên du lịch", "kanji": "ガイド", "exJp": "しょうらい、かんこうガイドの しごとを したいです。", "exVi": "Trong tương lai, tôi muốn làm nghề hướng dẫn viên du lịch.", "badge": "🚩 Nghề Nghiệp", "icon": "🚩"}];
+        const QUIZ_QUESTIONS = [{"id": 1, "category": "Ngữ pháp: V-たいです (Mong muốn)", "q": "わたしは しょうらい 日本に [____] です。(いきます)", "options": ["行きたい", "行きたくない", "行って", "行きます"], "correct": 0, "explain": "Cấu trúc nói về mong muốn của bản thân: 「V-ます (bỏ ます) ＋ たいです」. Động từ 「いきます」 bỏ ます thành 「いき」 ➔ 「行きたい (いきたい) です」 (Tôi muốn đi Nhật Bản)."}, {"id": 2, "category": "Ngữ pháp: V-たくないです (Không muốn)", "q": "きょうは とても つかれましたから、勉強 [____] です。(します)", "options": ["したくない", "したい", "しないで", "して"], "correct": 0, "explain": "Dạng phủ định của mong muốn (không muốn làm): 「V-ます (bỏ ます) ＋ たくないです」. Động từ 「します」 bỏ ます thành 「し」 ➔ 「したくないです」 (Hôm nay tôi mệt quá nên không muốn học)."}, {"id": 3, "category": "Trợ từ: を vs が với V-たい", "q": "のどが かわきましたから、冷たい 水 [____] 飲みたいです。", "options": ["が", "に", "で", "へ"], "correct": 0, "explain": "Trong mẫu câu 「～たいです」, tân ngữ vốn đi với trợ từ 「を」 có thể chuyển thành 「が」 để nhấn mạnh cảm xúc mong mỏi, thèm muốn của người nói: 「水が 飲みたいです」 (Thèm nước quá / Muốn uống nước)."}, {"id": 4, "category": "Ngữ pháp: Tần suất trong tuần (週に～回)", "q": "わたしは 週 [____] 2回 ジムへ 行きます。", "options": ["に", "で", "を", "から"], "correct": 0, "explain": "Cấu trúc tần suất trong một khoảng thời gian: 「[Khoảng thời gian] ＋ に ＋ [Số lần]」. Do đó đứng sau khoảng thời gian 「週 (mỗi tuần)」 bắt buộc dùng trợ từ 「に」: 「週に 2回」 (Mỗi tuần 2 lần)."}, {"id": 5, "category": "Cách đếm số lần: Biến âm 1 lần (一回)", "q": "「この レストランに 何回 来ましたか。」ー「[____] 来ました。(1回)」", "options": ["いっかい", "いちかい", "いっかげつ", "ひとつ"], "correct": 0, "explain": "Số 1 kết hợp với lượng từ 回 (かい) có biến âm ngắt: 1回 đọc chuẩn là 「いっかい」 (viết là 一回), tuyệt đối không đọc là 「いちかい」."}, {"id": 6, "category": "Từ để hỏi tần suất: 何回 (なんかい)", "q": "「1年間に [____] ベトナムへ 帰りますか。」ー「2回です。」", "options": ["なんかい", "なんにん", "なんじ", "いくつ"], "correct": 0, "explain": "Từ để hỏi về số lần làm một việc trong khoảng thời gian là 「何回 (なんかい - mấy lần)」."}, {"id": 7, "category": "Ngữ pháp: V-てみます (Thử làm gì đó)", "q": "この 日本の おかしは おいしそうですから、[____] みます。(たべます)", "options": ["たべて", "たべ", "たべる", "たべた"], "correct": 0, "explain": "Cấu trúc thử làm một việc để trải nghiệm / biết kết quả: 「V-て ＋ みます」. Động từ 「たべます」 nhóm 2 chuyển sang thể Te là 「たべて」 ➔ 「食べてみます」 (Tôi sẽ ăn thử)."}, {"id": 8, "category": "Ngữ pháp kết hợp: V-てみたいです (Muốn thử làm)", "q": "日本の 会社で [____] みたいです。(はたらきます)", "options": ["はたらいて", "はたらき", "はたらく", "はたらいた"], "correct": 0, "explain": "Mẫu câu kết hợp đỉnh cao: Thử (V-てみる) + Muốn (たい) ➔ 「V-てみたいです」 (Tôi muốn thử làm V xem sao). 「はたらきます」 nhóm 1 chia thể Te là 「はたらいて」 ➔ 「はたらいてみたいです」."}, {"id": 9, "category": "Quy tắc văn hóa lịch sự với V-たい", "q": "A:「先生、お茶を [____]。」(Mời thầy cô giáo uống trà)", "options": ["飲みませんか", "飲みたいですか", "飲むでしょう", "飲みます"], "correct": 0, "explain": "LƯU Ý CỐT LÕI BÀI 10: Tuyệt đối KHÔNG dùng 「～たいですか」 để hỏi người trên (thầy cô, khách hàng, sếp) vì mang sắc thái tọc mạch ý muốn cá nhân thiếu tôn kính. Khi muốn mời mọc người trên phải dùng thể rủ rê lịch sự: 「～ませんか」."}, {"id": 10, "category": "Từ vựng: Biên dịch vs Phiên dịch", "q": "しょうらい、ほんを ベトナム語に [____] しごとを したいです。", "options": ["ほんやくする", "つうやくする", "おしえる", "ならう"], "correct": 0, "explain": "Dịch sách, văn bản, tài liệu trên giấy/máy tính (dịch viết) gọi là 「翻訳 (ほんやく)」. Còn dịch nói trực tiếp trong cuộc họp hay hội thảo mới dùng 「通訳 (つうやく)」."}, {"id": 11, "category": "Từ vựng: 日本に きょうみが あります", "q": "わたしは 日本の アニメや ぶんかに [____] が あります。", "options": ["きょうみ", "せいかつ", "しょうらい", "ことば"], "correct": 0, "explain": "Cụm thành ngữ cố định Bài 10: 「[Danh từ] に きょうみが あります」 nghĩa là có niềm yêu thích, hứng thú với điều gì đó."}, {"id": 12, "category": "Ngữ pháp: Ước lượng tần suất (～回ぐらい)", "q": "月に 3回 [____] えいがを 見に 行きます。(khoảng 3 lần)", "options": ["ぐらい", "ごろ", "まで", "から"], "correct": 0, "explain": "Hậu tố 「ぐらい」 đi sau số lượng / số lần để chỉ ước lượng (\"khoảng\"): 「3回ぐらい」 (khoảng 3 lần). Còn 「ごろ」 chỉ dùng cho mốc thời điểm (ví dụ: 3時ごろ = khoảng 3 giờ)."}, {"id": 13, "category": "Cách đếm số lần: Biến âm 8 lần & 6 lần", "q": "Trong các cách đọc sau, từ nào có ÂM NGẮT (っ)?", "options": ["8回 (はっかい)", "2回 (にかい)", "3回 (さんかい)", "5回 (ごかい)"], "correct": 0, "explain": "Quy tắc vàng biến âm đếm số lần: Các số có âm ngắt là 1回 (いっかい), 6回 (ろっかい), 8回 (はっかい), 10回 (じゅっかい). Số 2 (にかい), 3 (さんかい), 5 (ごかい) đọc trơn không có âm ngắt."}, {"id": 14, "category": "Ngữ pháp: V-てみます (Trải nghiệm giao tiếp)", "q": "今度、日本人と 日本語で [____] みます。(はなします)", "options": ["はなして", "はなし", "はなす", "はなした"], "correct": 0, "explain": "Động từ 「はなします」 (nhóm 1) kết thúc bằng し, chia sang thể Te là 「はなして」 ➔ 「話してみます」 (Tôi sẽ thử nói chuyện xem sao)."}, {"id": 15, "category": "Từ vựng: Nghề nghiệp trong ngành du lịch", "q": "がいこくじんの かんこうきゃくを あんないする [____] の しごとを したいです。", "options": ["ガイド", "サイト", "ダンス", "きっぷ"], "correct": 0, "explain": "Người hướng dẫn du khách tham quan gọi là 「ガイド」 (Tour Guide - Hướng dẫn viên du lịch)."}];
+        const VERB_MORPH_DATA = [{"masu": "いきます", "kanji": "行きます", "tai": "いきたいです", "takunai": "いきたくないです", "temiru": "いってみます", "temitai": "いってみたいです", "vi": "Đi"}, {"masu": "たべます", "kanji": "食べます", "tai": "たべたいです", "takunai": "たべたくないです", "temiru": "たべてみます", "temitai": "たべてみたいです", "vi": "Ăn"}, {"masu": "のみます", "kanji": "飲みます", "tai": "のみたいです", "takunai": "のみたくないです", "temiru": "のんでみます", "temitai": "のんでみたいです", "vi": "Uống"}, {"masu": "はなします", "kanji": "話します", "tai": "はなしたいです", "takunai": "はなしたくないです", "temiru": "はなしてみます", "temitai": "はなしてみたいです", "vi": "Nói chuyện"}, {"masu": "します", "kanji": "します", "tai": "したいです", "takunai": "したくないです", "temiru": "してみます", "temitai": "してみたいです", "vi": "Làm"}, {"masu": "ならいます", "kanji": "習います", "tai": "ならいたいです", "takunai": "ならいたくないです", "temiru": "ならってみます", "temitai": "ならってみたいです", "vi": "Học"}, {"masu": "はたらきます", "kanji": "働きます", "tai": "はたらきたいです", "takunai": "はたらきたくないです", "temiru": "はたらいてみます", "temitai": "はたらいてみたいです", "vi": "Làm việc"}, {"masu": "みます", "kanji": "見ます", "tai": "みたいです", "takunai": "みたくないです", "temiru": "みてみます", "temitai": "みてみたいです", "vi": "Xem, ngắm"}, {"masu": "かいます", "kanji": "買います", "tai": "かいたいです", "takunai": "かいたくないです", "temiru": "かってみます", "temitai": "かってみたいです", "vi": "Mua"}, {"masu": "てつだいます", "kanji": "手伝います", "tai": "てつだいたいです", "takunai": "てつだいたくないです", "temiru": "てつだってみます", "temitai": "てつだってみたいです", "vi": "Giúp đỡ"}];
+
+        // 1. Text-to-Speech Helper
+        function speakText(text) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                const clean = text.replace(/[\(\)\[\]「」・\/→➔]/g, '').trim();
+                const u = new SpeechSynthesisUtterance(clean);
+                u.lang = 'ja-JP';
+                u.rate = 0.9;
+                window.speechSynthesis.speak(u);
+            } else {
+                alert('Trình duyệt của bạn không hỗ trợ SpeechSynthesis.');
+            }
+        }
+
+        // 2. Smooth Scroll
+        function scrollToSection(id) {
+            const el = document.getElementById(id);
+            if (el) {
+                const offset = 80;
+                const pos = el.getBoundingClientRect().top + window.pageYOffset - offset;
+                window.scrollTo({ top: pos, behavior: 'smooth' });
+            }
+            // Update Tab Active State
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            if (event && event.target) event.target.classList.add('active');
+        }
+
+        // 3. Render Counting Cards (1 to 10 + nankai)
+        const countData = [
+            { num: "1回", reading: "いっかい", romaji: "ikkai", isSpecial: true, tag: "Âm ngắt" },
+            { num: "2回", reading: "にかい", romaji: "nikai", isSpecial: false, tag: "" },
+            { num: "3回", reading: "さんかい", romaji: "sankai", isSpecial: false, tag: "" },
+            { num: "4回", reading: "よんかい", romaji: "yonkai", isSpecial: false, tag: "" },
+            { num: "5回", reading: "ごかい", romaji: "gokai", isSpecial: false, tag: "" },
+            { num: "6回", reading: "ろっかい", romaji: "rokkai", isSpecial: true, tag: "Âm ngắt" },
+            { num: "7回", reading: "ななかい", romaji: "nanakai", isSpecial: false, tag: "" },
+            { num: "8回", reading: "はっかい", romaji: "hakkai", isSpecial: true, tag: "Âm ngắt" },
+            { num: "9回", reading: "きゅうかい", romaji: "kyuukai", isSpecial: false, tag: "" },
+            { num: "10回", reading: "じゅっかい", romaji: "jukkai", isSpecial: true, tag: "Âm ngắt" },
+            { num: "何回", reading: "なんかい", romaji: "nankai", isSpecial: true, tag: "Hỏi số lần" }
+        ];
+
+        function renderCountGrid() {
+            const grid = document.getElementById('countGrid');
+            grid.innerHTML = countData.map(c => `
+                <div class="count-card ${c.isSpecial ? 'highlight' : ''}" onclick="speakText('${c.reading}')">
+                    ${c.tag ? `<span class="count-badge">${c.tag}</span>` : ''}
+                    <div class="count-num jp-text">${c.num}</div>
+                    <div class="count-reading jp-text">${c.reading}</div>
+                    <div class="count-romaji">${c.romaji} 🔊</div>
+                </div>
+            `).join('');
+        }
+
+        // 4. Verb Morphing Laboratory Logic
+        function renderVerbPicker() {
+            const picker = document.getElementById('verbPicker');
+            picker.innerHTML = VERB_MORPH_DATA.map((v, i) => `
+                <button class="verb-pill ${i === 0 ? 'active' : ''}" onclick="selectVerb(${i}, this)">
+                    ${v.kanji} (${v.vi})
+                </button>
+            `).join('');
+            updateMorphCards(0);
+        }
+
+        function selectVerb(idx, btn) {
+            document.querySelectorAll('.verb-pill').forEach(p => p.classList.remove('active'));
+            btn.classList.add('active');
+            updateMorphCards(idx);
+        }
+
+        function updateMorphCards(idx) {
+            const v = VERB_MORPH_DATA[idx];
+            document.getElementById('morphMasu').textContent = `${v.kanji} (${v.masu})`;
+            document.getElementById('morphVi').textContent = v.vi;
+            document.getElementById('morphTai').textContent = v.tai;
+            document.getElementById('morphTakunai').textContent = v.takunai;
+            document.getElementById('morphTemiru').textContent = v.temiru;
+            document.getElementById('morphTemitai').textContent = v.temitai;
+        }
+
+        // 5. Flashcards Render & Logic
+        let learnedSet = new Set(JSON.parse(localStorage.getItem('mrg_l10_learned') || '[]'));
+
+        function renderFlashcards(filter = 'all') {
+            const grid = document.getElementById('flashcardGrid');
+            const items = filter === 'all' ? VOCAB_DATA : VOCAB_DATA.filter(v => v.cat === filter);
+
+            grid.innerHTML = items.map(v => {
+                const isLearned = learnedSet.has(v.id);
+                return `
+                    <div class="fc-card" id="fc_${v.id}" onclick="flipCard(this)">
+                        <div class="fc-inner">
+                            <!-- Mặt trước -->
+                            <div class="fc-front">
+                                <div style="display:flex; justify-content:space-between; align-items:center;">
+                                    <span class="fc-badge">${v.badge}</span>
+                                    <button class="sound-btn" onclick="event.stopPropagation(); speakText('${v.jp}')">🔊</button>
+                                </div>
+                                <div class="fc-jp jp-text">${v.jp}</div>
+                                <div class="fc-hint">💡 Bấm để lật xem nghĩa</div>
+                            </div>
+                            <!-- Mặt sau -->
+                            <div class="fc-back">
+                                <div>
+                                    <div class="fc-vi">${v.vi}</div>
+                                    <div style="font-size:0.75rem; color:#64748b; margin-bottom:8px;">${v.romaji}</div>
+                                </div>
+                                <div>
+                                    <div class="fc-ex-jp jp-text"><b>Ví dụ:</b> ${v.exJp}</div>
+                                    <div class="fc-ex-vi">${v.exVi}</div>
+                                </div>
+                                <div style="display:flex; justify-content:space-between; align-items:center; margin-top:8px;">
+                                    <button class="sound-btn" onclick="event.stopPropagation(); speakText('${v.exJp}')">🔊 Đọc câu</button>
+                                    <button style="border:none; background:${isLearned ? '#10b981' : '#e2e8f0'}; color:${isLearned ? '#fff' : '#475569'}; border-radius:12px; padding:3px 10px; font-size:0.75rem; font-weight:700; cursor:pointer;" onclick="event.stopPropagation(); toggleLearned(${v.id}, this)">
+                                        ${isLearned ? '✓ Đã thuộc' : '+ Đánh dấu thuộc'}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            updateLearnedCounter();
+        }
+
+        function flipCard(card) {
+            card.classList.toggle('flipped');
+        }
+
+        function filterVocab(cat, btn) {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            renderFlashcards(cat);
+        }
+
+        function toggleLearned(id, btn) {
+            if (learnedSet.has(id)) {
+                learnedSet.delete(id);
+                btn.style.background = '#e2e8f0';
+                btn.style.color = '#475569';
+                btn.textContent = '+ Đánh dấu thuộc';
+            } else {
+                learnedSet.add(id);
+                btn.style.background = '#10b981';
+                btn.style.color = '#fff';
+                btn.textContent = '✓ Đã thuộc';
+            }
+            localStorage.setItem('mrg_l10_learned', JSON.stringify([...learnedSet]));
+            updateLearnedCounter();
+        }
+
+        function updateLearnedCounter() {
+            document.getElementById('learnedCounter').textContent = `Đã thuộc: ${learnedSet.size} / ${VOCAB_DATA.length}`;
+        }
+
+        // 6. Mini Test Logic
+        let userQuizAnswers = {};
+
+        function renderQuiz() {
+            const container = document.getElementById('quizContainer');
+            container.innerHTML = QUIZ_QUESTIONS.map(q => `
+                <div class="quiz-card" id="quizCard_${q.id}">
+                    <div class="quiz-header">
+                        <span>Câu ${q.id} / 15</span>
+                        <span>${q.category}</span>
+                    </div>
+                    <div class="quiz-q jp-text">${q.q}</div>
+                    <div class="quiz-options">
+                        ${q.options.map((opt, oIdx) => `
+                            <button class="quiz-opt-btn jp-text" id="opt_${q.id}_${oIdx}" onclick="selectQuizOption(${q.id}, ${oIdx})">
+                                ${String.fromCharCode(65 + oIdx)}. ${opt}
+                            </button>
+                        `).join('')}
+                    </div>
+                    <div class="quiz-explain" id="explain_${q.id}">
+                        <b>🎯 Giải thích chi tiết:</b> ${q.explain}
+                    </div>
+                </div>
+            `).join('');
+            updateQuizProgress();
+        }
+
+        function selectQuizOption(qId, oIdx) {
+            if (userQuizAnswers[qId] !== undefined) return; // already answered
+            userQuizAnswers[qId] = oIdx;
+
+            const q = QUIZ_QUESTIONS.find(item => item.id === qId);
+            const isCorrect = oIdx === q.correct;
+
+            const selectedBtn = document.getElementById(`opt_${qId}_${oIdx}`);
+            if (isCorrect) {
+                selectedBtn.classList.add('correct');
+            } else {
+                selectedBtn.classList.add('wrong');
+                document.getElementById(`opt_${qId}_${q.correct}`).classList.add('correct');
+            }
+
+            // Disable all buttons in this question
+            q.options.forEach((_, idx) => {
+                document.getElementById(`opt_${qId}_${idx}`).disabled = true;
+            });
+
+            // Show explanation
+            document.getElementById(`explain_${qId}`).classList.add('show');
+            updateQuizProgress();
+
+            // Check if finished
+            if (Object.keys(userQuizAnswers).length === QUIZ_QUESTIONS.length) {
+                showQuizResult();
+            }
+        }
+
+        function updateQuizProgress() {
+            const answered = Object.keys(userQuizAnswers).length;
+            document.getElementById('quizProgress').textContent = `Tiến độ: ${answered} / ${QUIZ_QUESTIONS.length}`;
+        }
+
+        function showQuizResult() {
+            let score = 0;
+            QUIZ_QUESTIONS.forEach(q => {
+                if (userQuizAnswers[q.id] === q.correct) score++;
+            });
+
+            const pct = Math.round((score / QUIZ_QUESTIONS.length) * 100);
+            document.getElementById('scoreNum').textContent = `${score} / ${QUIZ_QUESTIONS.length} (${pct}%)`;
+
+            const box = document.getElementById('scoreBox');
+            box.classList.add('show');
+
+            if (pct >= 80) {
+                launchConfetti();
+            }
+
+            box.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        function resetQuiz() {
+            userQuizAnswers = {};
+            document.getElementById('scoreBox').classList.remove('show');
+            renderQuiz();
+            document.getElementById('sec-quiz').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // 7. Confetti Effect
+        function launchConfetti() {
+            const canvas = document.getElementById('confettiCanvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            const pieces = [];
+            const colors = ['#f43f5e', '#3b82f6', '#10b981', '#f59e0b', '#8b5cf6', '#ec4899'];
+
+            for (let i = 0; i < 120; i++) {
+                pieces.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height - canvas.height,
+                    size: Math.random() * 8 + 4,
+                    color: colors[Math.floor(Math.random() * colors.length)],
+                    speed: Math.random() * 4 + 2,
+                    angle: Math.random() * 360,
+                    spin: Math.random() * 10 - 5
+                });
+            }
+
+            let frame = 0;
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                pieces.forEach(p => {
+                    p.y += p.speed;
+                    p.angle += p.spin;
+                    ctx.save();
+                    ctx.translate(p.x, p.y);
+                    ctx.rotate((p.angle * Math.PI) / 180);
+                    ctx.fillStyle = p.color;
+                    ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size);
+                    ctx.restore();
+                });
+
+                frame++;
+                if (frame < 180) {
+                    requestAnimationFrame(animate);
+                } else {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                }
+            }
+            animate();
+        }
+
+        // Initialize on Load
+        window.addEventListener('DOMContentLoaded', () => {
+            renderCountGrid();
+            renderVerbPicker();
+            renderFlashcards();
+            renderQuiz();
+        });
+    </script>
+</body>
+</html>
