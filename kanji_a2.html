@@ -1693,21 +1693,472 @@
             .quick-nav, .mode-tabs, .controls, .canvas-controls, footer { display: none; }
             .kanji-card { page-break-inside: avoid; box-shadow: none; border: 1px solid #ccc; margin-bottom: 15px; }
         }
-    </style>
+    
+/* ===================================================
+   GLOBAL STICKY DOCK & QUICK DRAWER (OPTION 1)
+   =================================================== */
+.global-sticky-dock-wrapper {
+    position: sticky;
+    top: 0;
+    z-index: 99999;
+    width: 100%;
+    margin: 0 0 20px 0;
+    padding: 0;
+}
+
+.global-sticky-dock {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid #e2e8f0;
+    box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.06);
+}
+
+.dock-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 0.95rem;
+    color: #0f172a;
+    padding: 6px 12px;
+    border-radius: 12px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+}
+
+.dock-brand:hover {
+    background: #f1f5f9;
+    border-color: #cbd5e1;
+    transform: translateY(-1px);
+}
+
+.dock-brand-text {
+    background: linear-gradient(135deg, #4f46e5, #ec4899);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.dock-pill-track {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    overflow-x: auto;
+    scrollbar-width: thin;
+    padding: 2px 4px;
+    -webkit-overflow-scrolling: touch;
+    flex: 1;
+}
+
+.dock-pill-track::-webkit-scrollbar {
+    height: 4px;
+}
+.dock-pill-track::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+
+.dock-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 13px;
+    border-radius: 20px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #475569;
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    flex-shrink: 0;
+}
+
+.dock-pill:hover {
+    background: #eef2ff;
+    color: #4f46e5;
+    border-color: #c7d2fe;
+    transform: translateY(-1px);
+}
+
+.dock-pill.active {
+    background: linear-gradient(135deg, #4f46e5, #ec4899) !important;
+    color: #ffffff !important;
+    border-color: transparent !important;
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.35);
+}
+
+.dock-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.dock-action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 14px;
+    border-radius: 12px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    border: 1px solid #cbd5e1;
+    background: #ffffff;
+    color: #0f172a;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.dock-action-btn:hover {
+    background: #f8fafc;
+    border-color: #94a3b8;
+    transform: translateY(-1px);
+}
+
+.dock-action-btn.btn-mega-sheet {
+    background: #0f172a;
+    color: #ffffff;
+    border-color: #0f172a;
+}
+.dock-action-btn.btn-mega-sheet:hover {
+    background: #334155;
+}
+
+.dock-dropdown-wrapper {
+    position: relative;
+}
+
+.dock-tools-menu {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 8px);
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    box-shadow: 0 15px 30px -5px rgba(0,0,0,0.15);
+    min-width: 220px;
+    padding: 8px;
+    display: none;
+    flex-direction: column;
+    gap: 2px;
+    z-index: 100000;
+    animation: dockFadeIn 0.2s ease;
+}
+
+.dock-tools-menu.open {
+    display: flex;
+}
+
+.dock-tool-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #334155;
+    text-decoration: none;
+    transition: all 0.15s ease;
+}
+
+.dock-tool-item:hover {
+    background: #f1f5f9;
+    color: #4f46e5;
+    transform: translateX(2px);
+}
+
+.dock-tool-item.active {
+    background: #eef2ff;
+    color: #4f46e5;
+    font-weight: 700;
+}
+
+.global-mega-sheet {
+    display: none;
+    background: #ffffff;
+    border-bottom: 2px solid #4f46e5;
+    box-shadow: 0 20px 40px -10px rgba(0,0,0,0.2);
+    padding: 24px;
+    animation: dockSlideDown 0.25s ease;
+}
+
+.global-mega-sheet.open {
+    display: block;
+}
+
+.sheet-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.sheet-header-title {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #0f172a;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.sheet-close-btn {
+    border: none;
+    background: #f1f5f9;
+    color: #64748b;
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.sheet-close-btn:hover {
+    background: #e2e8f0;
+    color: #0f172a;
+}
+
+.sheet-topics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 14px;
+}
+
+.sheet-topic-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 14px;
+    transition: all 0.2s ease;
+}
+
+.sheet-topic-card:hover {
+    border-color: #cbd5e1;
+    background: #f1f5f9;
+}
+
+.sheet-topic-badge {
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #4f46e5;
+    margin-bottom: 10px;
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.sheet-lesson-link {
+    display: block;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 9px 12px;
+    margin-bottom: 8px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.sheet-lesson-link:hover {
+    border-color: #4f46e5;
+    background: #eef2ff;
+    transform: translateY(-1px);
+}
+
+.sheet-lesson-link.active {
+    border-color: #ec4899;
+    background: #fff0f5;
+    box-shadow: 0 2px 8px rgba(236, 72, 153, 0.15);
+}
+
+.sheet-lesson-name {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #0f172a;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.sheet-lesson-desc {
+    font-size: 0.75rem;
+    color: #64748b;
+    margin-top: 3px;
+}
+
+@keyframes dockSlideDown {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes dockFadeIn {
+    from { opacity: 0; transform: scale(0.97); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@media (max-width: 768px) {
+    .global-sticky-dock {
+        flex-wrap: wrap;
+        padding: 8px 12px;
+    }
+    .dock-pill-track {
+        order: 3;
+        width: 100%;
+        margin-top: 6px;
+    }
+    .sheet-topics-grid {
+        grid-template-columns: 1fr;
+    }
+}
+\n</style>
 </head>
 <body>
 
 <div class="container">
     <!-- Global Hub Navigation -->
-    <div class="global-hub-nav">
-        <a href="index.html" class="hub-nav-item">🌸 Thể TE (～て)</a>
-        <a href="the_ru.html" class="hub-nav-item">📘 Thể RU (Từ Điển)</a>
-        <a href="kanji_a2.html" class="hub-nav-item active-hub">⛩️ Học Kanji & Nét Viết</a>
-        <a href="Tu_Vung_Marugoto_A1_16_A2_1_10.html" class="hub-nav-item">📖 Kho Từ Vựng A1-A2</a>
-        <a href="On_Tap_Mini_Test_A2_1_4.html" class="hub-nav-item">🎯 Ôn Tập & Bài Thi Thử (Bài 5-8)</a>
-        <a href="De_Thi_Thu_Marugoto_A2_5_8.html" class="hub-nav-item">📝 5 Mã Đề Thi Thử</a>
-        <a href="Marugoto_A2_Lesson_10.html" class="hub-nav-item">🚀 Cẩm Nang & Từ Vựng Bài 10 🌟</a>
+    
+<!-- GLOBAL STICKY FLOATING DOCK (OPTION 1) -->
+<div class="global-sticky-dock-wrapper">
+    <div class="global-sticky-dock">
+        <!-- Brand / Home -->
+        <a href="index.html" class="dock-brand" title="Về Trang Chủ Luyện Tập Thể TE">
+            <span>⛩️</span>
+            <span class="dock-brand-text">Marugoto A2-1</span>
+        </a>
+
+        <!-- Lesson Track (10 Pills) -->
+        <div class="dock-pill-track" id="dockPillTrack">
+            <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l1" class="dock-pill" data-lesson="1"><span class="pill-ico">🏠</span> Bài 1</a>
+            <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l2" class="dock-pill" data-lesson="2"><span class="pill-ico">🎨</span> Bài 2</a>
+            <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l3" class="dock-pill" data-lesson="3"><span class="pill-ico">🍁</span> Bài 3</a>
+            <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l4" class="dock-pill" data-lesson="4"><span class="pill-ico">⛅</span> Bài 4</a>
+            <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l5" class="dock-pill" data-lesson="5"><span class="pill-ico">🏙️</span> Bài 5</a>
+            <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l6" class="dock-pill" data-lesson="6"><span class="pill-ico">🗺️</span> Bài 6</a>
+            <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l7" class="dock-pill" data-lesson="7"><span class="pill-ico">⏰</span> Bài 7</a>
+            <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l8" class="dock-pill" data-lesson="8"><span class="pill-ico">⛩️</span> Bài 8</a>
+            <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l9" class="dock-pill" data-lesson="9"><span class="pill-ico">🗣️</span> Bài 9</a>
+            <a href="Marugoto_A2_Lesson_10.html" class="dock-pill" data-lesson="10"><span class="pill-ico">🌟</span> Bài 10 (Chuyên Sâu)</a>
+        </div>
+
+        <!-- Action Controls -->
+        <div class="dock-actions">
+            <button type="button" class="dock-action-btn btn-mega-sheet" onclick="toggleGlobalMegaSheet(event)" title="Xem mục lục toàn bộ 10 bài học">
+                <span>📑 10 Bài Học</span>
+                <span class="caret">▾</span>
+            </button>
+            <div class="dock-dropdown-wrapper">
+                <button type="button" class="dock-action-btn btn-tools" onclick="toggleGlobalToolsDropdown(event)" title="Các công cụ học tập khác">
+                    <span>🛠️ Tiện Ích</span>
+                    <span class="caret">▾</span>
+                </button>
+                <div class="dock-tools-menu" id="globalToolsMenu">
+                    <a href="index.html" class="dock-tool-item">🌸 Thể TE (～て)</a>
+                    <a href="the_ru.html" class="dock-tool-item">📘 Thể RU (Từ Điển)</a>
+                    <a href="kanji_a2.html" class="dock-tool-item active">⛩️ Học Kanji & Nét Viết</a>
+                    <a href="Tu_Vung_Marugoto_A1_16_A2_1_10.html" class="dock-tool-item">📖 Kho Từ Vựng A1-A2</a>
+                    <a href="On_Tap_Mini_Test_A2_5_8.html" class="dock-tool-item">🎯 Cẩm Nang Toàn Diện 10 Bài</a>
+                    <a href="De_Thi_Thu_Marugoto_A2_5_8.html" class="dock-tool-item">📝 5 Mã Đề Thi Thử</a>
+                    <a href="Marugoto_A2_Lesson_10.html" class="dock-tool-item">🚀 Web Chuyên Sâu Bài 10 ✨</a>
+                </div>
+            </div>
+        </div>
     </div>
+
+    
+    <!-- Mega Drawer Sheet -->
+    <div class="global-mega-sheet" id="globalMegaSheet">
+        <div class="sheet-header">
+            <div class="sheet-header-title">
+                <span>📚 Mục Lục Toàn Diện 10 Bài Học (Marugoto A2-1)</span>
+            </div>
+            <button type="button" class="sheet-close-btn" onclick="closeGlobalMegaSheet()">✕ Đóng</button>
+        </div>
+        <div class="sheet-topics-grid">
+            <!-- Topic 1 -->
+            <div class="sheet-topic-card">
+                <div class="sheet-topic-badge">Topic 1: Gia Đình & Bản Thân</div>
+                <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l1" class="sheet-lesson-link">
+                    <div class="sheet-lesson-name"><span>🏠 Bài 1: Nơi ở & Gia đình</span></div>
+                    <div class="sheet-lesson-desc">～に住んでいます / Thể ている / で働いています</div>
+                </a>
+                <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l2" class="sheet-lesson-link">
+                    <div class="sheet-lesson-name"><span>🎨 Bài 2: Sở thích của tôi</span></div>
+                    <div class="sheet-lesson-desc">V-ること / Thể từ điển (RU) / Năng khiếu</div>
+                </a>
+            </div>
+
+            <!-- Topic 2 -->
+            <div class="sheet-topic-card">
+                <div class="sheet-topic-badge">Topic 2: Mùa & Thời Tiết</div>
+                <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l3" class="sheet-lesson-link">
+                    <div class="sheet-lesson-name"><span>🍁 Bài 3: Bốn mùa khí hậu</span></div>
+                    <div class="sheet-lesson-desc">V-ると / になる・くなる (Thay đổi trạng thái)</div>
+                </a>
+                <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l4" class="sheet-lesson-link">
+                    <div class="sheet-lesson-name"><span>⛅ Bài 4: Dự báo thời tiết</span></div>
+                    <div class="sheet-lesson-desc">～でしょう / ～かもしれません (Phán đoán)</div>
+                </a>
+            </div>
+
+            <!-- Topic 3 -->
+            <div class="sheet-topic-card">
+                <div class="sheet-topic-badge">Topic 3: Thị Trấn Của Tôi</div>
+                <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l5" class="sheet-lesson-link">
+                    <div class="sheet-lesson-name"><span>🏙️ Bài 5: Nơi chốn & Phố xá</span></div>
+                    <div class="sheet-lesson-desc">Nối tính từ ～くて / ～で / Liệt kê や・など</div>
+                </a>
+                <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l6" class="sheet-lesson-link">
+                    <div class="sheet-lesson-name"><span>🗺️ Bài 6: Chỉ đường & Giao thông</span></div>
+                    <div class="sheet-lesson-desc">V1て, V2 (Hành động liên tiếp) / Qua đường を</div>
+                </a>
+            </div>
+
+            <!-- Topic 4 -->
+            <div class="sheet-topic-card">
+                <div class="sheet-topic-badge">Topic 4: Đi Ra Ngoài & Gặp Gỡ</div>
+                <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l7" class="sheet-lesson-link">
+                    <div class="sheet-lesson-name"><span>⏰ Bài 7: Hẹn hò & Đi lại</span></div>
+                    <div class="sheet-lesson-desc">～てしまいました (Lỡ muộn giờ) / Trợ từ に・で</div>
+                </a>
+                <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l8" class="sheet-lesson-link">
+                    <div class="sheet-lesson-name"><span>⛩️ Bài 8: Đi du lịch & Trải nghiệm</span></div>
+                    <div class="sheet-lesson-desc">Điểm tham quan / Lời khuyên ～ほうがいい</div>
+                </a>
+            </div>
+
+            <!-- Topic 5 -->
+            <div class="sheet-topic-card">
+                <div class="sheet-topic-badge">Topic 5: Ngôn Ngữ & Văn Hóa</div>
+                <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l9" class="sheet-lesson-link">
+                    <div class="sheet-lesson-name"><span>🗣️ Bài 9: Khả năng ngôn ngữ</span></div>
+                    <div class="sheet-lesson-desc">V-ることができます (Có thể làm gì) / Cách học</div>
+                </a>
+                <a href="Marugoto_A2_Lesson_10.html" class="sheet-lesson-link">
+                    <div class="sheet-lesson-name"><span>🌟 Bài 10: Ước muốn & Tần suất ✨</span></div>
+                    <div class="sheet-lesson-desc">V-たい / ～に～回 (ぐらい) / V-てみる (Chuyên sâu)</div>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
 
     <!-- Header -->
     <header>
@@ -3928,5 +4379,47 @@
 
 <div class="toast-msg" id="toastMsg"></div>
 
-</body>
+
+<script>
+function toggleGlobalMegaSheet(e) {
+    if (e) e.stopPropagation();
+    const sheet = document.getElementById('globalMegaSheet');
+    const tools = document.getElementById('globalToolsMenu');
+    if (tools) tools.classList.remove('open');
+    if (sheet) sheet.classList.toggle('open');
+}
+
+function closeGlobalMegaSheet() {
+    const sheet = document.getElementById('globalMegaSheet');
+    if (sheet) sheet.classList.remove('open');
+}
+
+function toggleGlobalToolsDropdown(e) {
+    if (e) e.stopPropagation();
+    const tools = document.getElementById('globalToolsMenu');
+    const sheet = document.getElementById('globalMegaSheet');
+    if (sheet) sheet.classList.remove('open');
+    if (tools) tools.classList.toggle('open');
+}
+
+document.addEventListener('click', function(e) {
+    const sheet = document.getElementById('globalMegaSheet');
+    const tools = document.getElementById('globalToolsMenu');
+    if (sheet && !sheet.contains(e.target) && !e.target.closest('.btn-mega-sheet')) {
+        sheet.classList.remove('open');
+    }
+    if (tools && !tools.contains(e.target) && !e.target.closest('.btn-tools')) {
+        tools.classList.remove('open');
+    }
+});
+
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeGlobalMegaSheet();
+        const tools = document.getElementById('globalToolsMenu');
+        if (tools) tools.classList.remove('open');
+    }
+});
+</script>
+\n</body>
 </html>
