@@ -2183,8 +2183,8 @@
             <!-- Custom Multi-Select Dropdown cho Kanji -->
             <div class="custom-multiselect" id="msContainerKanji">
                 <button type="button" class="ms-trigger" id="msTriggerKanji" onclick="toggleMsDropdownKanji(event)" title="Bấm để chọn nhiều bài học Kanji">
-                    <span class="ms-trigger-text" id="msTriggerTextKanji">🌟 Tất Cả 10 Bài (73 chữ Hán)</span>
-                    <span class="ms-trigger-badge" id="msTriggerBadgeKanji">10/10</span>
+                    <span class="ms-trigger-text" id="msTriggerTextKanji">🌟 Tất Cả 11 Bài (86 chữ Hán)</span>
+                    <span class="ms-trigger-badge" id="msTriggerBadgeKanji">11/11</span>
                     <span class="ms-trigger-arrow">▾</span>
                 </button>
 
@@ -2195,7 +2195,7 @@
                             <button type="button" class="ms-preset-btn" onclick="selectPreset('ALL')">🌟 Tất cả</button>
                             <button type="button" class="ms-preset-btn" onclick="selectPreset('L1_5')">Bài 1-5</button>
                             <button type="button" class="ms-preset-btn" onclick="selectPreset('L6_10')">Bài 6-10</button>
-                            <button type="button" class="ms-preset-btn" onclick="selectPreset('L3')">Bài 3 (Mùa)</button>
+                            <button type="button" class="ms-preset-btn" onclick="selectPreset('L10_11')">Bài 10-11 (Mới ✨)</button>
                             <button type="button" class="ms-preset-btn ms-clear" onclick="selectPreset('NONE')">Bỏ chọn</button>
                         </div>
                     </div>
@@ -2206,7 +2206,7 @@
                         <select id="rangeStart" class="ms-range-select" onchange="onRangeDropdownChange()"></select>
                         <span>➔</span>
                         <select id="rangeEnd" class="ms-range-select" onchange="onRangeDropdownChange()"></select>
-                        <button type="button" class="ms-range-btn" onclick="applyRangeSelection()">Chọn</button>
+                        <button type="button" class="ms-range-btn" onclick="applyRangeSelection(false)">Chọn</button>
                     </div>
                     <div class="ms-hint-text">💡 Giữ phím <strong>Shift + Click</strong> vào 2 bài để chọn dải liên tục!</div>
 
@@ -2215,7 +2215,7 @@
 
                     <!-- Footer -->
                     <div class="ms-footer">
-                        <span class="ms-footer-count" id="msFooterCountKanji">Đang chọn: 10 bài (73 chữ Hán)</span>
+                        <span class="ms-footer-count" id="msFooterCountKanji">Đang chọn: 11 bài (86 chữ Hán)</span>
                         <button type="button" class="ms-btn-done" onclick="closeMsDropdownKanji()">Đóng / Xong ✓</button>
                     </div>
                 </div>
@@ -2232,13 +2232,13 @@
             <div class="picker-header">
                 <div class="picker-title">
                     <span>📚 Chọn bài học Kanji (Hỗ trợ chọn nhiều bài liên tục):</span>
-                    <span class="selection-badge" id="selectionSummary">Đang chọn: Tất cả 10 bài (73 chữ Hán)</span>
+                    <span class="selection-badge" id="selectionSummary">Đang chọn: Tất cả 11 bài (86 chữ Hán)</span>
                 </div>
                 <div class="quick-presets">
-                    <button class="preset-pill active" id="preset-all" onclick="selectPreset('ALL')">🌟 Tất cả (1-10)</button>
+                    <button class="preset-pill active" id="preset-all" onclick="selectPreset('ALL')">🌟 Tất cả (1-11)</button>
                     <button class="preset-pill" id="preset-l1-5" onclick="selectPreset('L1_5')">Bài 1-5</button>
                     <button class="preset-pill" id="preset-l6-10" onclick="selectPreset('L6_10')">Bài 6-10</button>
-                    <button class="preset-pill" id="preset-l3" onclick="selectPreset('L3')">Bài 3 (Mùa)</button>
+                    <button class="preset-pill" id="preset-l10-11" onclick="selectPreset('L10_11')">Bài 10-11 (Mới ✨)</button>
                     <button class="preset-pill preset-clear" id="preset-none" onclick="selectPreset('NONE')">Bỏ chọn</button>
                 </div>
             </div>
@@ -2247,19 +2247,20 @@
             <div class="range-selector-row">
                 <span class="range-label">🎯 Chọn dải bài liên tục:</span>
                 <span>Từ</span>
-                <select class="range-dropdown" id="rangeStart"></select>
+                <select class="range-dropdown" id="rangeStartBar"></select>
                 <span>đến</span>
-                <select class="range-dropdown" id="rangeEnd"></select>
-                <button class="btn-range-apply" onclick="applyRangeSelection()">🎯 Chọn dải bài này</button>
+                <select class="range-dropdown" id="rangeEndBar"></select>
+                <button class="btn-range-apply" onclick="applyRangeSelection(true)">🎯 Chọn dải bài này</button>
                 <span class="range-tip">💡 Giữ phím <strong>Shift + Click</strong> vào 2 bài để chọn dải liên tục</span>
             </div>
 
             <!-- Chips Grid -->
             <div class="chips-wrapper">
                 <div class="chips-group">
-                    <span class="chips-group-title">10 BÀI KANJI:</span>
+                    <span class="chips-group-title">DANH SÁCH BÀI HỌC (1-11):</span>
                     <div class="chips-grid" id="chipsContainerKanji"></div>
                 </div>
+            </div>
             </div>
         </div>
     </div>
@@ -3172,78 +3173,223 @@
             mnemonic: "Cây cung (弓) cứng cáp bắn gục cả loài bọ (虫) mạnh mẽ."
         },
 
-        // LESSON 10
+        // LESSON 10: VĂN HÓA & DU LỊCH (11 CHỮ HÁN)
         {
             char: "文", hv: "Văn", lesson: "L10", lessonName: "Bài 10", strokes: 4,
-            meaning: "Văn hóa, câu văn", kun: "ふみ", on: "ぶん",
+            meaning: "Văn học, câu văn, văn hóa", kun: "ふみ、あや", on: "ぶん、もん",
             examples: [
+                { word: "文", reading: "ぶん", vi: "Câu văn, đoạn văn" },
+                { word: "文学", reading: "ぶんがく", vi: "Văn học" },
+                { word: "作文", reading: "さくぶん", vi: "Bài tập làm văn" },
                 { word: "文化", reading: "ぶんか", vi: "Văn hóa" }
             ],
             formula: "亠 ＋ 乂",
             strokeGuide: "Chấm trên cùng ➔ nét ngang ➔ nét phẩy ➔ nét mác.",
-            mnemonic: "Những nét chữ đan chéo tạo nên Văn hóa."
+            mnemonic: "Những nét chữ đan chéo tạo nên áng Văn hóa đặc sắc."
         },
         {
             char: "化", hv: "Hóa", lesson: "L10", lessonName: "Bài 10", strokes: 4,
-            meaning: "Biến đổi", kun: "ば-ける", on: "か",
+            meaning: "Biến hóa, thay đổi", kun: "ば-ける", on: "か、け",
             examples: [
-                { word: "文化", reading: "ぶんか", vi: "Văn hóa" }
+                { word: "文化", reading: "ぶんか", vi: "Văn hóa" },
+                { word: "化学", reading: "かがく", vi: "Hóa học" }
             ],
-            formula: "亻 ＋ 匕",
+            formula: "亻 (Nhân đứng) ＋ 匕 (Chủy)",
             strokeGuide: "Trái trước phải sau: Bộ Nhân đứng (亻 - 2 nét) bên trái ➔ bộ Chủy (匕 - 2 nét) bên phải.",
-            mnemonic: "Con người thay đổi, văn minh hóa."
+            mnemonic: "Con người (亻) biến đổi, xã hội văn minh hóa (文化)."
         },
         {
             char: "音", hv: "Âm", lesson: "L10", lessonName: "Bài 10", strokes: 9,
-            meaning: "Âm thanh", kun: "おと", on: "おん",
+            meaning: "Âm thanh, tiếng động", kun: "おと、ね", on: "おん、いん",
             examples: [
+                { word: "音", reading: "おと", vi: "Âm thanh, tiếng động" },
+                { word: "発音", reading: "はつおん", vi: "Phát âm" },
                 { word: "音楽", reading: "おんがく", vi: "Âm nhạc" }
             ],
-            formula: "立 (Đứng) ＋ 日",
+            formula: "立 (Đứng) ＋ 日 (Mặt trời)",
             strokeGuide: "Trên trước dưới sau: Bộ Lập (立 - 5 nét) ở trên ➔ bộ Nhật (日 - 4 nét) ở dưới.",
-            mnemonic: "Tiếng vang vọng tạo thành Âm thanh."
+            mnemonic: "Người đứng (立) dưới ánh mặt trời (日) cất lên Âm thanh."
         },
         {
             char: "楽", hv: "Lạc / Nhạc", lesson: "L10", lessonName: "Bài 10", strokes: 13,
-            meaning: "Vui vẻ, âm nhạc", kun: "たの-しい", on: "がく、 らく",
+            meaning: "Vui vẻ, âm nhạc, thoải mái", kun: "たの-しい、たの-しみ", on: "がく、らく",
             examples: [
+                { word: "楽しい", reading: "たのしい", vi: "Vui vẻ" },
+                { word: "楽しみ", reading: "たのしみ", vi: "Niềm vui, sự mong đợi" },
                 { word: "音楽", reading: "おんがく", vi: "Âm nhạc" },
-                { word: "楽しい", reading: "たのしい", vi: "Vui vẻ" }
+                { word: "楽", reading: "らく", vi: "Nhàn hạ, thoải mái, dễ chịu" }
             ],
             formula: "白 ＋ 冫 ＋ 木",
-            strokeGuide: "Giữa trước hai bên sau ở tầng trên (chữ Bạch ở giữa ➔ 4 chấm hai bên) ➔ bộ Mộc (木) ở dưới.",
-            mnemonic: "Nhạc cụ trên giá gỗ mang lại niềm vui."
+            strokeGuide: "Chữ Bạch (白) ở giữa ➔ 4 chấm hai bên (冫) ➔ bộ Mộc (木) ở dưới cùng.",
+            mnemonic: "Cây đàn gỗ (木) phím trắng (白) tấu khúc ca Âm nhạc vui tươi."
+        },
+        {
+            char: "留", hv: "Lưu", lesson: "L10", lessonName: "Bài 10", strokes: 10,
+            meaning: "Lưu lại, giữ lại, du học", kun: "と-まる、と-める", on: "りゅう、る",
+            examples: [
+                { word: "留学", reading: "りゅうがく", vi: "Du học" },
+                { word: "留学生", reading: "りゅうがくせい", vi: "Du học sinh" }
+            ],
+            formula: "卯 (Mão) ＋ 田 (Điền)",
+            strokeGuide: "Phần trên (5 nét) ➔ bộ Điền (田 - 5 nét: sổ trái, gập ngang xuống, sổ giữa, ngang giữa, ngang đáy).",
+            mnemonic: "Lưu lại mảnh ruộng (田) quê hương để trau dồi kiến thức đi du học."
         },
         {
             char: "旅", hv: "Lữ", lesson: "L10", lessonName: "Bài 10", strokes: 10,
-            meaning: "Du lịch", kun: "たび", on: "りょ",
+            meaning: "Du lịch, chuyến đi", kun: "たび", on: "りょ",
             examples: [
-                { word: "旅行", reading: "りょこう", vi: "Du lịch" }
+                { word: "旅", reading: "たび", vi: "Chuyến đi, cuộc hành trình" },
+                { word: "旅行", reading: "りょこう", vi: "Du lịch" },
+                { word: "一人旅", reading: "ひとりたび", vi: "Đi du lịch một mình" }
             ],
             formula: "方 (Phương) ＋ 𠂉 ＋ 氏",
-            strokeGuide: "Trái trước phải sau: Bộ Phương (方 - 4 nét) bên trái ➔ phần bên phải (6 nét).",
+            strokeGuide: "Bộ Phương (方 - 4 nét) bên trái ➔ nét phẩy ngang trên phải ➔ phần dưới phải (4 nét).",
             mnemonic: "Xách ba lô đi về muôn phương Du lịch."
         },
         {
-            char: "友", hv: "Hữu", lesson: "L10", lessonName: "Bài 10", strokes: 4,
-            meaning: "Bạn bè", kun: "とも", on: "ゆう",
+            char: "行", hv: "Hành", lesson: "L10", lessonName: "Bài 10", strokes: 6,
+            meaning: "Đi, tiến hành, hàng lối", kun: "い-く、ゆ-く、おこな-う", on: "こう、ぎょう、あん",
             examples: [
-                { word: "友だち", reading: "ともだち", vi: "Bạn bè" }
+                { word: "行きます", reading: "いきます", vi: "Đi" },
+                { word: "旅行", reading: "りょこう", vi: "Du lịch" },
+                { word: "銀行", reading: "ぎんこう", vi: "Ngân hàng" },
+                { word: "行事", reading: "ぎょうじ", vi: "Sự kiện, lễ hội" }
             ],
-            formula: "𠂇 ＋ 又",
+            formula: "彳 (Xích) ＋ 亍 (Xúc)",
+            strokeGuide: "Bộ Xích (彳 - 3 nét) bên trái ➔ bộ Xúc (亍 - 3 nét: 2 ngang, 1 móc) bên phải.",
+            mnemonic: "Hai bước chân sải bước trên ngã tư đường là Hành (行)."
+        },
+        {
+            char: "友", hv: "Hữu", lesson: "L10", lessonName: "Bài 10", strokes: 4,
+            meaning: "Bạn bè, tình bạn", kun: "とも", on: "ゆう",
+            examples: [
+                { word: "友達", reading: "ともだち", vi: "Bạn bè" },
+                { word: "友人", reading: "ゆうじん", vi: "Bạn thân, người bạn" },
+                { word: "親友", reading: "しんゆう", vi: "Bạn chí cốt, bạn thân" }
+            ],
+            formula: "𠂇 ＋ 又 (Hựu)",
             strokeGuide: "Nét ngang (1) ➔ nét phẩy dài (2) ➔ bộ Hựu (又 - 2 nét) bên trong.",
-            mnemonic: "Hai bàn tay bắt chặt lấy nhau là Bạn bè."
+            mnemonic: "Hai bàn tay bắt chặt lấy nhau là Bạn bè (友)."
+        },
+        {
+            char: "達", hv: "Đạt", lesson: "L10", lessonName: "Bài 10", strokes: 12,
+            meaning: "Đạt tới, thông đạt, số nhiều (các bạn)", kun: "たち", on: "たつ、だ",
+            examples: [
+                { word: "友達", reading: "ともだち", vi: "Bạn bè" },
+                { word: "私達", reading: "わたしたち", vi: "Chúng tôi, chúng ta" },
+                { word: "上達", reading: "じょうたつ", vi: "Tiến bộ, thành thạo" }
+            ],
+            formula: "幸 ＋ 辶 (Xước)",
+            strokeGuide: "Viết phần bên phải (chữ Hạnh 幸 - 9 nét: Thổ + Dương) trước ➔ bộ Xước (辶 - 3 nét) bao dưới sau cùng.",
+            mnemonic: "Dắt bạn bè đồng hành (辶) để cùng nhau đạt (達) tới hạnh phúc (幸)."
         },
         {
             char: "週", hv: "Chu", lesson: "L10", lessonName: "Bài 10", strokes: 11,
-            meaning: "Tuần lễ", kun: "しゅう", on: "しゅう",
+            meaning: "Tuần lễ, vòng quanh", kun: "-", on: "しゅう",
             examples: [
-                { word: "週", reading: "しゅう", vi: "Tuần" },
+                { word: "先週", reading: "せんしゅう", vi: "Tuần trước" },
+                { word: "今週", reading: "こんしゅう", vi: "Tuần này" },
+                { word: "来週", reading: "らいしゅう", vi: "Tuần sau" },
+                { word: "一週間", reading: "いっしゅうかん", vi: "Một tuần lễ" },
                 { word: "週末", reading: "しゅうまつ", vi: "Cuối tuần" }
             ],
-            formula: "周 ＋ 辶",
+            formula: "周 (Chu) ＋ 辶 (Xước)",
             strokeGuide: "Viết chữ Chu (周 - 8 nét) bên trong trước ➔ bộ Xước (辶 - 3 nét) bao dưới sau cùng.",
-            mnemonic: "Một chu kỳ 7 ngày là 1 Tuần."
+            mnemonic: "Bước đi (辶) trọn vẹn một chu kỳ (周) 7 ngày là đúng 1 Tuần (週)."
+        },
+        {
+            char: "回", hv: "Hồi", lesson: "L10", lessonName: "Bài 10", strokes: 6,
+            meaning: "Quay quanh, quay lại, số lần", kun: "まわ-す、まわ-る、めぐ-る", on: "かい、え",
+            examples: [
+                { word: "一回", reading: "いっかい", vi: "Một lần" },
+                { word: "何回", reading: "なんかい", vi: "Mấy lần?" },
+                { word: "今回", reading: "こんかい", vi: "Lần này" },
+                { word: "回します", reading: "まわします", vi: "Vặn, xoay quanh" }
+            ],
+            formula: "囗 (Vi) ＋ 口 (Khẩu)",
+            strokeGuide: "Sổ trái ngoài ➔ gập ngang xuống ngoài ➔ viết chữ Khẩu (口 - 3 nét) bên trong ➔ đóng đáy ngoài.",
+            mnemonic: "Khung vuông to bao lấy khung vuông nhỏ quay vòng luân hồi (回)."
+        },
+
+        // LESSON 11: ẨM THỰC & QUÁN ĂN (6 CHỮ HÁN)
+        {
+            char: "酒", hv: "Tửu", lesson: "L11", lessonName: "Bài 11", strokes: 10,
+            meaning: "Rượu, đồ uống có cồn", kun: "さけ、さか", on: "しゅ",
+            examples: [
+                { word: "お酒", reading: "おさけ", vi: "Rượu, đồ uống có cồn" },
+                { word: "日本酒", reading: "にほんしゅ", vi: "Rượu sake truyền thống Nhật Bản" },
+                { word: "梅酒", reading: "うめしゅ", vi: "Rượu mơ" },
+                { word: "居酒屋", reading: "いざかや", vi: "Quán rượu, quán nhậu kiểu Nhật" }
+            ],
+            formula: "氵 (Thủy) ＋ 酉 (Dậu)",
+            strokeGuide: "Bộ Thủy (氵 - 3 nét) bên trái ➔ bộ Dậu (酉 - 7 nét: ngang trên, sổ trái, gập ngang, sổ giữa, ngang trong, đóng đáy) bên phải.",
+            mnemonic: "Nước (氵) ủ kín trong bình dậu (酉) lên men thành Rượu (酒)."
+        },
+        {
+            char: "作", hv: "Tác", lesson: "L11", lessonName: "Bài 11", strokes: 7,
+            meaning: "Làm, chế tạo, tạo ra, nấu nướng", kun: "つく-る", on: "さく、さ",
+            examples: [
+                { word: "作ります", reading: "つくります", vi: "Làm, tạo ra, nấu (món)" },
+                { word: "作文", reading: "さくぶん", vi: "Bài tập làm văn" },
+                { word: "手作り", reading: "てづくり", vi: "Làm bằng tay, đồ nhà làm" },
+                { word: "作品", reading: "さくひん", vi: "Tác phẩm" }
+            ],
+            formula: "亻 (Nhân đứng) ＋ 乍 (Sạ)",
+            strokeGuide: "Bộ Nhân đứng (亻 - 2 nét) bên trái ➔ chữ Sạ (乍 - 5 nét: nét phẩy, nét ngang, nét sổ, nét ngang ngắn, nét phẩy chéo) bên phải.",
+            mnemonic: "Con người (亻) khéo léo dùng tay chế tác ra đồ vật ngon lành (作)."
+        },
+        {
+            char: "物", hv: "Vật", lesson: "L11", lessonName: "Bài 11", strokes: 8,
+            meaning: "Vật chất, đồ vật, sự vật", kun: "もの", on: "ぶつ、もつ",
+            examples: [
+                { word: "食べ物", reading: "たべもの", vi: "Đồ ăn, thức ăn" },
+                { word: "飲み物", reading: "のみもの", vi: "Đồ uống" },
+                { word: "乗り物", reading: "のりもの", vi: "Phương tiện giao thông" },
+                { word: "荷物", reading: "にもつ", vi: "Hành lý, đồ đạc" },
+                { word: "博物館", reading: "はくぶつかん", vi: "Viện bảo tàng" }
+            ],
+            formula: "牜 (Ngưu) ＋ 勿 (Vật)",
+            strokeGuide: "Bộ Ngưu (牜 - 4 nét: phẩy, ngang ngắn, sổ dài, hất lên) bên trái ➔ chữ Vật (勿 - 4 nét: phẩy, gập móc, 2 phẩy trong) bên phải.",
+            mnemonic: "Con trâu bò (牜) là động vật đại diện cho vạn vật (物) sinh sôi."
+        },
+        {
+            char: "茶", hv: "Trà", lesson: "L11", lessonName: "Bài 11", strokes: 9,
+            meaning: "Cây chè, lá trà, nước trà", kun: "-", on: "ちゃ、さ",
+            examples: [
+                { word: "お茶", reading: "おちゃ", vi: "Trà, nước chè" },
+                { word: "喫茶店", reading: "きっさてん", vi: "Quán cà phê, tiệm giải khát" },
+                { word: "緑茶", reading: "りょくちゃ", vi: "Trà xanh" },
+                { word: "紅茶", reading: "こうちゃ", vi: "Hồng trà, trà đen" }
+            ],
+            formula: "艹 (Thảo) ＋ 人 ＋ 木 (Mộc)",
+            strokeGuide: "Bộ Thảo (艹 - 3 nét) ở trên ➔ bộ Nhân (人 - 2 nét: phẩy, mác) ở giữa ➔ bộ Mộc (木 - 4 nét: ngang, sổ móc, 2 phẩy mác) ở dưới cùng.",
+            mnemonic: "Lá thảo mộc (艹) trên cây gỗ (木) hái về cho người (人) thưởng thức Trà (茶)."
+        },
+        {
+            char: "持", hv: "Trì", lesson: "L11", lessonName: "Bài 11", strokes: 9,
+            meaning: "Cầm, giữ, duy trì, sở hữu", kun: "も-つ", on: "じ",
+            examples: [
+                { word: "持ちます", reading: "もちます", vi: "Cầm, mang / Có, sở hữu" },
+                { word: "持ってきます", reading: "もってきます", vi: "Mang theo, đem đến" },
+                { word: "持っています", reading: "もっています", vi: "Đang có, đang sở hữu" },
+                { word: "気持ち", reading: "きもち", vi: "Tâm trạng, cảm giác" }
+            ],
+            formula: "扌 (Thủ) ＋ 寺 (Tự - Chùa)",
+            strokeGuide: "Bộ Thủ (扌 - 3 nét) bên trái ➔ chữ Tự (寺 - 6 nét: chữ Thổ 土 3 nét + chữ Thốn 寸 3 nét) bên phải.",
+            mnemonic: "Đôi tay (扌) nâng niu lễ vật lên chùa (寺) để gìn giữ, duy trì (持) phúc lành."
+        },
+        {
+            char: "願", hv: "Nguyện", lesson: "L11", lessonName: "Bài 11", strokes: 19,
+            meaning: "Cầu chúc, mong ước, nhờ cậy", kun: "ねが-う", on: "がん",
+            examples: [
+                { word: "お願いします", reading: "おねがいします", vi: "Làm ơn, xin vui lòng (gọi món / nhờ vả)" },
+                { word: "お願い", reading: "おねがい", vi: "Lời yêu cầu, điều nhờ cậy" },
+                { word: "願い事", reading: "ねがいごと", vi: "Điều ước, nguyện vọng" },
+                { word: "願書", reading: "がんしょ", vi: "Đơn xin, đơn nguyện vọng" }
+            ],
+            formula: "原 (Nguyên) ＋ 頁 (Hiệt - đầu)",
+            strokeGuide: "Chữ Nguyên (原 - 10 nét: Hán 厂 + Bạch 白 + Tiểu 小) bên trái ➔ bộ Hiệt (頁 - 9 nét: ngang, phẩy, mục 目, 2 chấm) bên phải.",
+            mnemonic: "Cúi đầu (頁) nhớ về nguồn cội nguyên sơ (原) thành tâm cầu Nguyện (願)."
         }
     ];
 
@@ -3265,7 +3411,7 @@
     }
 
     // Multi-Lesson Filter System
-    const KANJI_LESSON_ORDER = ['L1', 'L2', 'L3', 'L4', 'L5', 'L6', 'L7', 'L8', 'L9', 'L10'];
+    const KANJI_LESSON_ORDER = ['L1', 'L2', 'L3', 'L4', 'L5', 'L6', 'L7', 'L8', 'L9', 'L10', 'L11'];
     const KANJI_LESSON_TITLES = {
         'L1': 'Bài 1: Tôi và gia đình',
         'L2': 'Bài 2: Sở thích & Ngôn ngữ',
@@ -3276,9 +3422,10 @@
         'L7': 'Bài 7: Ra ngoài & Đi lại',
         'L8': 'Bài 8: Bữa ăn & Thời gian',
         'L9': 'Bài 9: Trường học & Học tập',
-        'L10': 'Bài 10: Văn hóa & Du lịch'
+        'L10': 'Bài 10: Văn hóa & Du lịch',
+        'L11': 'Bài 11: Ẩm thực & Quán ăn'
     };
-    let selectedLessons = new Set(KANJI_LESSON_ORDER); // Mặc định chọn tất cả 10 bài
+    let selectedLessons = new Set(KANJI_LESSON_ORDER); // Mặc định chọn tất cả các bài
     let lastClickedLessonIdx = -1;
 
     // Đếm số Kanji theo từng bài
@@ -3306,11 +3453,15 @@
         const container = document.getElementById('chipsContainerKanji');
         const rangeStart = document.getElementById('rangeStart');
         const rangeEnd = document.getElementById('rangeEnd');
+        const rangeStartBar = document.getElementById('rangeStartBar');
+        const rangeEndBar = document.getElementById('rangeEndBar');
         const msList = document.getElementById('msOptionsListKanji');
 
         if (container) container.innerHTML = '';
         if (rangeStart) rangeStart.innerHTML = '';
         if (rangeEnd) rangeEnd.innerHTML = '';
+        if (rangeStartBar) rangeStartBar.innerHTML = '';
+        if (rangeEndBar) rangeEndBar.innerHTML = '';
         if (msList) msList.innerHTML = '';
 
         KANJI_LESSON_ORDER.forEach((lid, idx) => {
@@ -3350,23 +3501,33 @@
                 container.appendChild(chip);
             }
 
-            // C. Tạo Dropdown dải bài
-            if (rangeStart && rangeEnd) {
-                const opt1 = document.createElement('option');
-                opt1.value = lid;
-                opt1.textContent = `${lid.replace('L', 'Bài ')} - ${title.split(':')[1]?.trim() || title}`;
-                rangeStart.appendChild(opt1);
+            // C. Tạo Dropdown dải bài (cho cả 2 cặp)
+            [
+                { s: rangeStart, e: rangeEnd },
+                { s: rangeStartBar, e: rangeEndBar }
+            ].forEach(pair => {
+                if (pair.s && pair.e) {
+                    const opt1 = document.createElement('option');
+                    opt1.value = lid;
+                    opt1.textContent = `${lid.replace('L', 'Bài ')} - ${title.split(':')[1]?.trim() || title}`;
+                    pair.s.appendChild(opt1);
 
-                const opt2 = document.createElement('option');
-                opt2.value = lid;
-                opt2.textContent = `${lid.replace('L', 'Bài ')} - ${title.split(':')[1]?.trim() || title}`;
-                rangeEnd.appendChild(opt2);
-            }
+                    const opt2 = document.createElement('option');
+                    opt2.value = lid;
+                    opt2.textContent = `${lid.replace('L', 'Bài ')} - ${title.split(':')[1]?.trim() || title}`;
+                    pair.e.appendChild(opt2);
+                }
+            });
         });
 
+        const lastLesson = KANJI_LESSON_ORDER[KANJI_LESSON_ORDER.length - 1];
         if (rangeStart && rangeEnd) {
             rangeStart.value = "L1";
-            rangeEnd.value = "L5";
+            rangeEnd.value = lastLesson;
+        }
+        if (rangeStartBar && rangeEndBar) {
+            rangeStartBar.value = "L1";
+            rangeEndBar.value = lastLesson;
         }
     }
 
@@ -3413,9 +3574,11 @@
     }
 
     // Chọn dải bài liên tục từ Range Dropdown
-    function applyRangeSelection() {
-        const startId = document.getElementById('rangeStart').value;
-        const endId = document.getElementById('rangeEnd').value;
+    function applyRangeSelection(isBar = false) {
+        const startEl = isBar ? document.getElementById('rangeStartBar') : document.getElementById('rangeStart');
+        const endEl = isBar ? document.getElementById('rangeEndBar') : document.getElementById('rangeEnd');
+        const startId = startEl ? startEl.value : 'L1';
+        const endId = endEl ? endEl.value : KANJI_LESSON_ORDER[KANJI_LESSON_ORDER.length - 1];
         const sIdx = KANJI_LESSON_ORDER.indexOf(startId);
         const eIdx = KANJI_LESSON_ORDER.indexOf(endId);
 
@@ -3448,6 +3611,10 @@
             ['L1', 'L2', 'L3', 'L4', 'L5'].forEach(l => selectedLessons.add(l));
         } else if (type === 'L6_10') {
             ['L6', 'L7', 'L8', 'L9', 'L10'].forEach(l => selectedLessons.add(l));
+        } else if (type === 'L10_11') {
+            ['L10', 'L11'].forEach(l => selectedLessons.add(l));
+        } else if (type === 'L11') {
+            selectedLessons.add('L11');
         } else if (type === 'L3') {
             selectedLessons.add('L3');
         } else if (type === 'NONE') {
@@ -3497,20 +3664,20 @@
 
         if (triggerText) {
             if (selectedLessons.size === KANJI_LESSON_ORDER.length) {
-                triggerText.textContent = "🌟 Tất Cả 10 Bài (73 chữ Hán)";
-                if (triggerBadge) triggerBadge.textContent = "10/10";
+                triggerText.textContent = `🌟 Tất Cả ${KANJI_LESSON_ORDER.length} Bài (${kanjiData.length} chữ Hán)`;
+                if (triggerBadge) triggerBadge.textContent = `${KANJI_LESSON_ORDER.length}/${KANJI_LESSON_ORDER.length}`;
             } else if (selectedLessons.size === 0) {
                 triggerText.textContent = "⚠️ Chưa chọn bài nào (vui lòng chọn)";
-                if (triggerBadge) triggerBadge.textContent = "0/10";
+                if (triggerBadge) triggerBadge.textContent = `0/${KANJI_LESSON_ORDER.length}`;
             } else if (selectedLessons.size === 1) {
                 const only = Array.from(selectedLessons)[0];
                 const t = KANJI_LESSON_TITLES[only] || only;
                 triggerText.textContent = `${only.replace('L', 'Bài ')}: ${t.split(':')[1]?.trim() || t}`;
-                if (triggerBadge) triggerBadge.textContent = "1/10";
+                if (triggerBadge) triggerBadge.textContent = `1/${KANJI_LESSON_ORDER.length}`;
             } else {
                 const sortedSel = KANJI_LESSON_ORDER.filter(l => selectedLessons.has(l)).map(l => l.replace('L', 'Bài '));
                 triggerText.textContent = `📚 Đang chọn ${selectedLessons.size} bài (${sortedSel.join(', ')})`;
-                if (triggerBadge) triggerBadge.textContent = `${selectedLessons.size}/10`;
+                if (triggerBadge) triggerBadge.textContent = `${selectedLessons.size}/${KANJI_LESSON_ORDER.length}`;
             }
         }
 
@@ -3553,7 +3720,7 @@
         const summary = document.getElementById('selectionSummary');
         if (summary) {
             if (selectedLessons.size === KANJI_LESSON_ORDER.length) {
-                summary.textContent = `Đang chọn: Tất cả 10 bài (${filteredKanji.length} chữ Hán)`;
+                summary.textContent = `Đang chọn: Tất cả ${KANJI_LESSON_ORDER.length} bài (${filteredKanji.length} chữ Hán)`;
             } else if (selectedLessons.size === 0) {
                 summary.textContent = `Chưa chọn bài nào (vui lòng bấm chọn bài)`;
             } else {
