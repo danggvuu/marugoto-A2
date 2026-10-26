@@ -30,6 +30,38 @@
 }
 
 /* ==========================================================================
+   0. Global Sticky Offsets & Scroll Margins (Zero Overlap Protection)
+   ========================================================================== */
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 75px;
+}
+
+[id] {
+  scroll-margin-top: 75px;
+}
+
+/* Double Sticky Bar Protection (Pages with Dock + Subnav) */
+#sec-grammar-1,
+#sec-grammar-2,
+#sec-grammar-3,
+#sec-morph,
+#sec-vocab,
+#sec-quiz,
+.grammar-card[id],
+.test-section[id],
+.unit-card[id] {
+  scroll-margin-top: 130px !important;
+}
+
+/* Fix sticky table headers to sit right below the global dock */
+table th,
+.table-sticky-th {
+  top: 54px !important;
+}
+
+/* ==========================================================================
    1. Interactive Buttons, Tabs & Pills (Animate UI Spring Tap & Scale)
    ========================================================================== */
 

@@ -185,8 +185,20 @@
             display: flex;
             gap: 10px;
             overflow-x: auto;
-            padding-bottom: 10px;
+            padding: 10px 6px;
             margin-bottom: 25px;
+            position: sticky;
+            top: 54px;
+            z-index: 900;
+            background: rgba(241, 245, 249, 0.96);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-radius: var(--radius-md);
+            box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.06);
+            scrollbar-width: none;
+        }
+        .section-nav::-webkit-scrollbar {
+            display: none;
         }
         .tab-btn {
             flex: 1;
@@ -1865,14 +1877,33 @@
         function scrollToSection(id) {
             const el = document.getElementById(id);
             if (el) {
-                const offset = 80;
+                // Dock height (54px) + sticky section-nav (~54px) + buffer (18px) = 126px
+                const offset = 126;
                 const pos = el.getBoundingClientRect().top + window.pageYOffset - offset;
                 window.scrollTo({ top: pos, behavior: 'smooth' });
             }
             // Update Tab Active State
             document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-            if (event && event.target) event.target.classList.add('active');
+            if (window.event && window.event.target) {
+                const btn = window.event.target.closest('.tab-btn');
+                if (btn) btn.classList.add('active');
+            }
         }
+
+        // Auto-update active tab on scroll (ScrollSpy)
+        window.addEventListener('scroll', () => {
+            const sectionIds = ['sec-grammar-1', 'sec-grammar-2', 'sec-grammar-3', 'sec-morph', 'sec-vocab', 'sec-quiz'];
+            const scrollPos = window.pageYOffset + 140;
+            for (let i = sectionIds.length - 1; i >= 0; i--) {
+                const sec = document.getElementById(sectionIds[i]);
+                if (sec && sec.offsetTop <= scrollPos) {
+                    const tabs = document.querySelectorAll('.section-nav .tab-btn');
+                    tabs.forEach(t => t.classList.remove('active'));
+                    if (tabs[i]) tabs[i].classList.add('active');
+                    break;
+                }
+            }
+        }, { passive: true });
 
         // 3. Render Counting Cards (1 to 10 + nankai)
         const countData = [
