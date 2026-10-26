@@ -1,0 +1,2301 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cẩm Nang & Luyện Tập Toàn Diện Bài 11 - Marugoto A2-1 | そとで食べる</title>
+    <meta name="description" content="Chinh phục toàn diện Marugoto A2-1 Bài 11: そとで食べる (Ăn uống ngoài trời). Đầy đủ ngữ pháp V-ていきます/きます, Nghi vấn từ + でも, どちらがいいですか, 28 từ vựng Flashcard 3D, Máy biến thể động từ và Mini Test 15 câu.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <!-- Animate UI Core (Spring Physics & Micro-Interactions) -->
+    <link rel="stylesheet" href="animate-ui.css">
+    <script src="animate-ui.js" defer></script>
+    <style>
+        :root {
+            --primary: #059669;
+            --primary-dark: #047857;
+            --primary-light: #10b981;
+            --primary-soft: #ecfdf5;
+            --accent: #f59e0b;
+            --accent-orange: #ea580c;
+            --accent-soft: #fffbeb;
+            --text-dark: #0f172a;
+            --text-muted: #475569;
+            --bg-light: #f8fafc;
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+            --radius-sm: 8px;
+            --radius-md: 14px;
+            --radius-lg: 20px;
+            --shadow-subtle: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+            --shadow-card: 0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 20px 25px -5px rgba(5, 150, 105, 0.12), 0 8px 10px -6px rgba(5, 150, 105, 0.08);
+            --jp-font: 'Noto Sans JP', sans-serif;
+            --main-font: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--main-font);
+            background-color: #f1f5f9;
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding-bottom: 90px;
+            overflow-x: hidden;
+        }
+
+        .jp-text {
+            font-family: var(--jp-font);
+        }
+
+        /* -------------------------------------------------------------
+           1. GLOBAL FLOATING DOCK & MEGA SHEET
+        ------------------------------------------------------------- */
+        .global-sticky-dock-wrapper {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.85);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+        }
+
+        .global-sticky-dock {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .dock-brand {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: var(--primary-dark);
+            font-weight: 800;
+            font-size: 1.05rem;
+            flex-shrink: 0;
+        }
+
+        .dock-pill-track {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            overflow-x: auto;
+            scrollbar-width: none;
+            padding: 2px 0;
+        }
+
+        .dock-pill-track::-webkit-scrollbar {
+            display: none;
+        }
+
+        .dock-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 6px 12px;
+            border-radius: 999px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-decoration: none;
+            color: #64748b;
+            background: #f1f5f9;
+            border: 1px solid #e2e8f0;
+            white-space: nowrap;
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .dock-pill:hover {
+            color: var(--primary-dark);
+            background: var(--primary-soft);
+            border-color: #a7f3d0;
+            transform: translateY(-1px);
+        }
+
+        .dock-pill.active {
+            color: #ffffff;
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+            border-color: #047857;
+            box-shadow: 0 2px 6px rgba(5, 150, 105, 0.35);
+        }
+
+        .dock-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-shrink: 0;
+        }
+
+        .dock-action-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            color: #334155;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .dock-action-btn:hover {
+            background: #f8fafc;
+            border-color: #94a3b8;
+            color: #0f172a;
+        }
+
+        .dock-dropdown-wrapper {
+            position: relative;
+        }
+
+        .dock-tools-menu {
+            display: none;
+            position: absolute;
+            top: calc(100% + 8px);
+            right: 0;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+            padding: 8px;
+            min-width: 220px;
+            z-index: 1010;
+        }
+
+        .dock-tools-menu.show {
+            display: block;
+            animation: fadeInDown 0.2s ease;
+        }
+
+        .dock-tool-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #334155;
+            text-decoration: none;
+            transition: all 0.15s;
+        }
+
+        .dock-tool-item:hover, .dock-tool-item.active {
+            background: var(--primary-soft);
+            color: var(--primary-dark);
+        }
+
+        /* Mega Drawer Sheet */
+        .global-mega-sheet {
+            display: none;
+            position: fixed;
+            top: 54px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(8px);
+            z-index: 1050;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .global-mega-sheet.show {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .sheet-content {
+            background: #ffffff;
+            border-radius: 20px;
+            max-width: 960px;
+            width: 100%;
+            padding: 28px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            margin-top: 10px;
+        }
+
+        .sheet-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 14px;
+            margin-bottom: 20px;
+        }
+
+        .sheet-header-title {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: #0f172a;
+        }
+
+        .sheet-close-btn {
+            background: #f1f5f9;
+            border: none;
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #64748b;
+        }
+
+        .sheet-close-btn:hover {
+            background: #e2e8f0;
+            color: #0f172a;
+        }
+
+        .sheet-topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 16px;
+        }
+
+        .sheet-topic-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            padding: 16px;
+        }
+
+        .sheet-topic-badge {
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: var(--primary-dark);
+            margin-bottom: 8px;
+        }
+
+        .sheet-lesson-link {
+            display: block;
+            text-decoration: none;
+            padding: 8px 10px;
+            border-radius: 8px;
+            margin-bottom: 6px;
+            transition: all 0.15s;
+        }
+
+        .sheet-lesson-link:hover {
+            background: #ffffff;
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .sheet-lesson-name {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #1e293b;
+        }
+
+        .sheet-lesson-desc {
+            font-size: 0.76rem;
+            color: #64748b;
+        }
+
+        /* -------------------------------------------------------------
+           2. STICKY SUB-NAVIGATION (SECTION NAV)
+        ------------------------------------------------------------- */
+        .section-nav {
+            position: sticky;
+            top: 54px;
+            z-index: 900;
+            background: #ffffff;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 8px 16px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+
+        .section-nav::-webkit-scrollbar {
+            display: none;
+        }
+
+        .sec-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: #475569;
+            background: #f1f5f9;
+            white-space: nowrap;
+            transition: all 0.2s;
+        }
+
+        .sec-link:hover, .sec-link.active {
+            background: var(--primary-soft);
+            color: var(--primary-dark);
+        }
+
+        /* -------------------------------------------------------------
+           3. MAIN CONTAINER & HERO
+        ------------------------------------------------------------- */
+        .main-container {
+            max-width: 1100px;
+            margin: 24px auto;
+            padding: 0 20px;
+        }
+
+        .hero-banner {
+            background: linear-gradient(135deg, #064e3b 0%, #065f46 45%, #047857 100%);
+            border-radius: var(--radius-lg);
+            padding: 40px 32px;
+            color: #ffffff;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+            margin-bottom: 32px;
+        }
+
+        .hero-banner::after {
+            content: "🍱 🧺 🍣";
+            position: absolute;
+            right: 20px;
+            bottom: 10px;
+            font-size: 5rem;
+            opacity: 0.15;
+            pointer-events: none;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(16, 185, 129, 0.25);
+            border: 1px solid rgba(52, 211, 153, 0.4);
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: #6ee7b7;
+            margin-bottom: 14px;
+        }
+
+        .hero-title {
+            font-size: 2.2rem;
+            font-weight: 900;
+            line-height: 1.25;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+
+        .hero-jp-quote {
+            font-family: var(--jp-font);
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: #fef08a;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.02rem;
+            color: #e2e8f0;
+            max-width: 800px;
+            margin-bottom: 24px;
+        }
+
+        .hero-stats-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 12px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            padding: 12px 16px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: #a7f3d0;
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 0.78rem;
+            color: #e2e8f0;
+            font-weight: 600;
+        }
+
+        /* -------------------------------------------------------------
+           4. CONTENT SECTIONS & CARDS
+        ------------------------------------------------------------- */
+        .content-section {
+            background: #ffffff;
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            margin-bottom: 32px;
+            box-shadow: var(--shadow-subtle);
+            border: 1px solid var(--border-color);
+            scroll-margin-top: 130px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 24px;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: 1.45rem;
+            font-weight: 800;
+            color: #0f172a;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-tag {
+            font-size: 0.78rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 999px;
+            background: var(--primary-soft);
+            color: var(--primary-dark);
+            text-transform: uppercase;
+        }
+
+        /* Grammar Box Styles */
+        .grammar-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: var(--radius-md);
+            padding: 22px;
+            margin-bottom: 24px;
+        }
+
+        .rule-box {
+            background: #ffffff;
+            border-left: 5px solid var(--primary);
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin: 14px 0;
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .rule-formula {
+            font-family: var(--jp-font);
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            margin-bottom: 6px;
+        }
+
+        .rule-meaning {
+            font-size: 0.95rem;
+            color: #334155;
+            font-weight: 600;
+        }
+
+        .example-list {
+            margin-top: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .example-item {
+            background: #ffffff;
+            border-radius: 10px;
+            padding: 12px 16px;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 12px;
+            transition: all 0.2s;
+        }
+
+        .example-item:hover {
+            border-color: #a7f3d0;
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .ex-text-wrap {
+            flex-grow: 1;
+        }
+
+        .ex-jp {
+            font-family: var(--jp-font);
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 3px;
+        }
+
+        .ex-vi {
+            font-size: 0.88rem;
+            color: #475569;
+        }
+
+        .btn-speak {
+            background: #ecfdf5;
+            border: 1px solid #a7f3d0;
+            color: var(--primary-dark);
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            flex-shrink: 0;
+            transition: all 0.2s;
+        }
+
+        .btn-speak:hover {
+            background: var(--primary);
+            color: #ffffff;
+            transform: scale(1.08);
+        }
+
+        /* Comparison Table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 0.92rem;
+            background: #ffffff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .comparison-table th {
+            background: #065f46;
+            color: #ffffff;
+            padding: 12px 16px;
+            text-align: left;
+            font-weight: 700;
+        }
+
+        .comparison-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background: #f8fafc;
+        }
+
+        /* -------------------------------------------------------------
+           5. VERB MORPHING LAB
+        ------------------------------------------------------------- */
+        .verb-picker-row {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding-bottom: 12px;
+            margin-bottom: 20px;
+            scrollbar-width: thin;
+        }
+
+        .verb-pill {
+            padding: 8px 16px;
+            border-radius: 999px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            border: 1px solid #cbd5e1;
+            background: #ffffff;
+            color: #334155;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s;
+        }
+
+        .verb-pill:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .verb-pill.active {
+            background: var(--primary);
+            color: #ffffff;
+            border-color: var(--primary-dark);
+            box-shadow: 0 4px 8px rgba(5, 150, 105, 0.3);
+        }
+
+        .morph-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 14px;
+            margin-bottom: 18px;
+        }
+
+        .morph-box {
+            background: #ffffff;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+            transition: all 0.25s;
+        }
+
+        .morph-box.featured {
+            border-color: var(--primary);
+            background: #ecfdf5;
+        }
+
+        .morph-tag {
+            font-size: 0.72rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: #64748b;
+            margin-bottom: 6px;
+        }
+
+        .morph-box.featured .morph-tag {
+            color: var(--primary-dark);
+        }
+
+        .morph-val {
+            font-family: var(--jp-font);
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: #0f172a;
+        }
+
+        .morph-ex-box {
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            border-radius: 10px;
+            padding: 14px 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* -------------------------------------------------------------
+           6. INTERACTIVE DIALOGUE SIMULATOR
+        ------------------------------------------------------------- */
+        .dialogue-wrap {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: var(--radius-md);
+            padding: 24px;
+        }
+
+        .chat-container {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-bottom: 20px;
+        }
+
+        .chat-bubble {
+            display: flex;
+            gap: 12px;
+            max-width: 80%;
+        }
+
+        .chat-bubble.bot {
+            align-self: flex-start;
+        }
+
+        .chat-bubble.user {
+            align-self: flex-end;
+            flex-direction: row-reverse;
+        }
+
+        .chat-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .chat-msg {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            padding: 12px 16px;
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .chat-bubble.user .chat-msg {
+            background: #059669;
+            color: #ffffff;
+            border-color: #047857;
+        }
+
+        .chat-name {
+            font-size: 0.72rem;
+            font-weight: 800;
+            color: #64748b;
+            margin-bottom: 2px;
+        }
+
+        .chat-bubble.user .chat-name {
+            color: #a7f3d0;
+            text-align: right;
+        }
+
+        .chat-jp {
+            font-family: var(--jp-font);
+            font-size: 0.98rem;
+            font-weight: 700;
+        }
+
+        .chat-vi {
+            font-size: 0.8rem;
+            color: #64748b;
+            margin-top: 3px;
+        }
+
+        .chat-bubble.user .chat-vi {
+            color: #e2e8f0;
+        }
+
+        .chat-options-panel {
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            border-radius: 12px;
+            padding: 16px;
+        }
+
+        .chat-opt-title {
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: #334155;
+            margin-bottom: 10px;
+        }
+
+        .chat-btn-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 10px;
+        }
+
+        .btn-chat-choice {
+            background: #f8fafc;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 10px;
+            padding: 10px 14px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: #1e293b;
+            cursor: pointer;
+            text-align: left;
+            transition: all 0.2s;
+        }
+
+        .btn-chat-choice:hover {
+            border-color: var(--primary);
+            background: var(--primary-soft);
+            color: var(--primary-dark);
+        }
+
+        /* -------------------------------------------------------------
+           7. FLASHCARD 3D GRID
+        ------------------------------------------------------------- */
+        .vocab-filter-bar {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 22px;
+        }
+
+        .vocab-filter-btn {
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            color: #475569;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+
+        .vocab-filter-btn:hover, .vocab-filter-btn.active {
+            background: var(--primary);
+            color: #ffffff;
+            border-color: var(--primary-dark);
+        }
+
+        .vocab-stats-badge {
+            margin-left: auto;
+            font-size: 0.85rem;
+            color: #64748b;
+            font-weight: 700;
+        }
+
+        .flashcards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .flashcard {
+            background: transparent;
+            perspective: 1000px;
+            height: 310px;
+            cursor: pointer;
+        }
+
+        .fc-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+            box-shadow: var(--shadow-subtle);
+            border-radius: 16px;
+        }
+
+        .flashcard.flipped .fc-inner {
+            transform: rotateY(180deg);
+        }
+
+        .fc-front, .fc-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 16px;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border: 1px solid #e2e8f0;
+            background: #ffffff;
+        }
+
+        .fc-back {
+            transform: rotateY(180deg);
+            background: #f8fafc;
+            border-color: #a7f3d0;
+            text-align: left;
+        }
+
+        .fc-badge {
+            display: inline-block;
+            align-self: flex-start;
+            font-size: 0.7rem;
+            font-weight: 800;
+            padding: 3px 10px;
+            border-radius: 999px;
+            background: var(--primary-soft);
+            color: var(--primary-dark);
+        }
+
+        .fc-illustration {
+            width: 100%;
+            height: 105px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .fc-illustration svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .fc-jp {
+            font-family: var(--jp-font);
+            font-size: 1.35rem;
+            font-weight: 900;
+            color: #0f172a;
+        }
+
+        .fc-kana {
+            font-family: var(--jp-font);
+            font-size: 0.9rem;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .fc-romaji {
+            font-size: 0.78rem;
+            color: #94a3b8;
+        }
+
+        .fc-hint {
+            font-size: 0.72rem;
+            color: #94a3b8;
+            font-weight: 600;
+        }
+
+        .fc-back-meaning {
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            margin-bottom: 8px;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 6px;
+        }
+
+        .fc-back-ex-jp {
+            font-family: var(--jp-font);
+            font-size: 0.92rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 4px;
+        }
+
+        .fc-back-ex-vi {
+            font-size: 0.8rem;
+            color: #475569;
+        }
+
+        .fc-back-actions {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .btn-learned {
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 5px 10px;
+            border-radius: 6px;
+            border: 1px solid #cbd5e1;
+            background: #ffffff;
+            color: #475569;
+            cursor: pointer;
+        }
+
+        .btn-learned.active {
+            background: #10b981;
+            color: #ffffff;
+            border-color: #059669;
+        }
+
+        /* -------------------------------------------------------------
+           8. KANJI SECTION
+        ------------------------------------------------------------- */
+        .kanji-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 18px;
+        }
+
+        .kanji-detail-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: var(--radius-md);
+            padding: 20px;
+            display: flex;
+            gap: 16px;
+            box-shadow: var(--shadow-subtle);
+            transition: all 0.2s;
+        }
+
+        .kanji-detail-card:hover {
+            border-color: #a7f3d0;
+            box-shadow: var(--shadow-card);
+            transform: translateY(-2px);
+        }
+
+        .kanji-big-char {
+            width: 72px;
+            height: 72px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--jp-font);
+            font-size: 2.5rem;
+            font-weight: 900;
+            flex-shrink: 0;
+            box-shadow: 0 4px 10px rgba(5, 150, 105, 0.3);
+        }
+
+        .kanji-info {
+            flex-grow: 1;
+        }
+
+        .kanji-hv-title {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 2px;
+        }
+
+        .kanji-strokes-badge {
+            font-size: 0.72rem;
+            font-weight: 700;
+            background: #f1f5f9;
+            padding: 2px 8px;
+            border-radius: 4px;
+            color: #475569;
+        }
+
+        .kanji-readings {
+            font-size: 0.82rem;
+            color: #334155;
+            margin: 6px 0;
+            line-height: 1.4;
+        }
+
+        .kanji-mnemonic {
+            font-size: 0.78rem;
+            color: #047857;
+            background: #ecfdf5;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+
+        /* -------------------------------------------------------------
+           9. MINI TEST SECTION
+        ------------------------------------------------------------- */
+        .quiz-progress-bar-wrap {
+            background: #e2e8f0;
+            height: 8px;
+            border-radius: 999px;
+            margin-bottom: 24px;
+            overflow: hidden;
+        }
+
+        .quiz-progress-fill {
+            background: linear-gradient(90deg, #10b981, #059669);
+            height: 100%;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .quiz-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: var(--radius-md);
+            padding: 22px;
+            margin-bottom: 18px;
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .quiz-q-num {
+            font-size: 0.78rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+
+        .quiz-question-text {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 14px;
+        }
+
+        .quiz-options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .quiz-opt-btn {
+            background: #f8fafc;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 10px;
+            padding: 12px 16px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #334155;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .quiz-opt-btn:hover:not(:disabled) {
+            border-color: var(--primary);
+            background: var(--primary-soft);
+            color: var(--primary-dark);
+        }
+
+        .quiz-opt-btn.correct {
+            background: #dcfce7 !important;
+            border-color: #22c55e !important;
+            color: #15803d !important;
+        }
+
+        .quiz-opt-btn.wrong {
+            background: #fee2e2 !important;
+            border-color: #ef4444 !important;
+            color: #b91c1c !important;
+        }
+
+        .quiz-feedback {
+            display: none;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 0.88rem;
+            line-height: 1.5;
+            margin-top: 10px;
+        }
+
+        .quiz-feedback.show {
+            display: block;
+            animation: fadeIn 0.3s;
+        }
+
+        .quiz-feedback.correct {
+            background: #f0fdf4;
+            border: 1px solid #86efac;
+            color: #166534;
+        }
+
+        .quiz-feedback.wrong {
+            background: #fef2f2;
+            border: 1px solid #fca5a5;
+            color: #991b1b;
+        }
+
+        .score-box {
+            display: none;
+            text-align: center;
+            background: linear-gradient(135deg, #064e3b 0%, #065f46 100%);
+            color: #ffffff;
+            border-radius: var(--radius-lg);
+            padding: 36px 20px;
+            margin-top: 24px;
+        }
+
+        .score-box.show {
+            display: block;
+            animation: zoomIn 0.35s ease;
+        }
+
+        .score-val {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: #a7f3d0;
+            margin: 10px 0;
+        }
+
+        .btn-retry {
+            background: #ffffff;
+            color: #064e3b;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 999px;
+            font-weight: 800;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 14px;
+            transition: all 0.2s;
+        }
+
+        .btn-retry:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 1.6rem;
+            }
+            .hero-jp-quote {
+                font-size: 1.1rem;
+            }
+            .content-section {
+                padding: 20px 16px;
+            }
+            .dock-pill-track {
+                width: 100%;
+                order: 3;
+            }
+            .global-sticky-dock {
+                flex-wrap: wrap;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes zoomIn {
+            from { opacity: 0; transform: scale(0.92); }
+            to { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- GLOBAL FLOATING DOCK -->
+    <div class="global-sticky-dock-wrapper">
+        <div class="global-sticky-dock">
+            <a href="index.html" class="dock-brand" title="Trang chủ Luyện tập">
+                <span>⛩️</span>
+                <span class="dock-brand-text">Marugoto A2-1</span>
+            </a>
+
+            <!-- Lesson Track Pills (1 to 11) -->
+            <div class="dock-pill-track" id="dockPillTrack">
+                <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l1" class="dock-pill"><span class="pill-ico">🏠</span> Bài 1</a>
+                <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l2" class="dock-pill"><span class="pill-ico">🎨</span> Bài 2</a>
+                <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l3" class="dock-pill"><span class="pill-ico">🍁</span> Bài 3</a>
+                <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l4" class="dock-pill"><span class="pill-ico">⛅</span> Bài 4</a>
+                <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l5" class="dock-pill"><span class="pill-ico">🏙️</span> Bài 5</a>
+                <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l6" class="dock-pill"><span class="pill-ico">🗺️</span> Bài 6</a>
+                <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l7" class="dock-pill"><span class="pill-ico">⏰</span> Bài 7</a>
+                <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l8" class="dock-pill"><span class="pill-ico">⛩️</span> Bài 8</a>
+                <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l9" class="dock-pill"><span class="pill-ico">🗣️</span> Bài 9</a>
+                <a href="Marugoto_A2_Lesson_10.html" class="dock-pill"><span class="pill-ico">🌟</span> Bài 10</a>
+                <a href="Marugoto_A2_Lesson_11.html" class="dock-pill active"><span class="pill-ico">🍱</span> Bài 11 (Mới ✨)</a>
+            </div>
+
+            <!-- Action Controls -->
+            <div class="dock-actions">
+                <button type="button" class="dock-action-btn" onclick="toggleGlobalMegaSheet(event)" title="Mục lục 11 bài học">
+                    <span>📑 11 Bài Học</span>
+                    <span>▾</span>
+                </button>
+                <div class="dock-dropdown-wrapper">
+                    <button type="button" class="dock-action-btn" onclick="toggleGlobalToolsDropdown(event)" title="Tiện ích học tập">
+                        <span>🛠️ Tiện Ích</span>
+                        <span>▾</span>
+                    </button>
+                    <div class="dock-tools-menu" id="globalToolsMenu">
+                        <a href="index.html" class="dock-tool-item">🌸 Thể TE (～て)</a>
+                        <a href="the_ru.html" class="dock-tool-item">📘 Thể RU (Từ Điển)</a>
+                        <a href="kanji_a2.html" class="dock-tool-item">⛩️ Học Kanji & Nét Viết</a>
+                        <a href="Tu_Vung_Marugoto_A1_16_A2_1_10.html" class="dock-tool-item">📖 Kho Từ Vựng A1-A2</a>
+                        <a href="On_Tap_Mini_Test_A2_5_8.html" class="dock-tool-item">🎯 Cẩm Nang Toàn Diện 10 Bài</a>
+                        <a href="De_Thi_Thu_Marugoto_A2_5_8.html" class="dock-tool-item">📝 5 Mã Đề Thi Thử</a>
+                        <a href="Marugoto_A2_Lesson_10.html" class="dock-tool-item">🚀 Web Chuyên Sâu Bài 10 ✨</a>
+                        <a href="Marugoto_A2_Lesson_11.html" class="dock-tool-item active">🍱 Web Chuyên Sâu Bài 11 ✨</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MEGA DRAWER SHEET -->
+    <div class="global-mega-sheet" id="globalMegaSheet" onclick="closeGlobalMegaSheet()">
+        <div class="sheet-content" onclick="event.stopPropagation()">
+            <div class="sheet-header">
+                <div class="sheet-header-title">📚 Mục Lục Toàn Diện 11 Bài Học (Marugoto A2-1)</div>
+                <button type="button" class="sheet-close-btn" onclick="closeGlobalMegaSheet()">✕</button>
+            </div>
+            <div class="sheet-topics-grid">
+                <div class="sheet-topic-card">
+                    <div class="sheet-topic-badge">Topic 1: Gia Đình & Bản Thân</div>
+                    <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l1" class="sheet-lesson-link">
+                        <div class="sheet-lesson-name">🏠 Bài 1: Nơi ở & Gia đình</div>
+                        <div class="sheet-lesson-desc">～に住んでいます / Thể ている / で働いています</div>
+                    </a>
+                    <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l2" class="sheet-lesson-link">
+                        <div class="sheet-lesson-name">🎨 Bài 2: Sở thích của tôi</div>
+                        <div class="sheet-lesson-desc">V-ること / Thể từ điển (RU) / Năng khiếu</div>
+                    </a>
+                </div>
+                <div class="sheet-topic-card">
+                    <div class="sheet-topic-badge">Topic 2: Mùa & Thời Tiết</div>
+                    <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l3" class="sheet-lesson-link">
+                        <div class="sheet-lesson-name">🍁 Bài 3: Bốn mùa khí hậu</div>
+                        <div class="sheet-lesson-desc">V-ると / になる・くなる (Thay đổi trạng thái)</div>
+                    </a>
+                    <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l4" class="sheet-lesson-link">
+                        <div class="sheet-lesson-name">⛅ Bài 4: Dự báo thời tiết</div>
+                        <div class="sheet-lesson-desc">～でしょう / ～かもしれません (Phán đoán)</div>
+                    </a>
+                </div>
+                <div class="sheet-topic-card">
+                    <div class="sheet-topic-badge">Topic 3: Thị Trấn Của Tôi</div>
+                    <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l5" class="sheet-lesson-link">
+                        <div class="sheet-lesson-name">🏙️ Bài 5: Nơi chốn & Phố xá</div>
+                        <div class="sheet-lesson-desc">Địa điểm, phong cảnh và lối sống thị trấn</div>
+                    </a>
+                    <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l6" class="sheet-lesson-link">
+                        <div class="sheet-lesson-name">🗺️ Bài 6: Mua sắm & Phương hướng</div>
+                        <div class="sheet-lesson-desc">Chỉ đường, hỏi giá cả và mua hàng hóa</div>
+                    </a>
+                </div>
+                <div class="sheet-topic-card">
+                    <div class="sheet-topic-badge">Topic 4: Đi Lại & Ăn Uống</div>
+                    <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l7" class="sheet-lesson-link">
+                        <div class="sheet-lesson-name">⏰ Bài 7: Ra ngoài & Đi lại</div>
+                        <div class="sheet-lesson-desc">Phương tiện giao thông, hẹn giờ và xuất phát</div>
+                    </a>
+                    <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l8" class="sheet-lesson-link">
+                        <div class="sheet-lesson-name">⛩️ Bài 8: Bữa ăn & Thời gian</div>
+                        <div class="sheet-lesson-desc">Món ăn thường ngày, thói quen ăn uống</div>
+                    </a>
+                </div>
+                <div class="sheet-topic-card">
+                    <div class="sheet-topic-badge">Topic 5: Ngôn Ngữ & Văn Hóa</div>
+                    <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l9" class="sheet-lesson-link">
+                        <div class="sheet-lesson-name">🗣️ Bài 9: Giao lưu ngôn ngữ</div>
+                        <div class="sheet-lesson-desc">Học ngoại ngữ, các phương pháp trau dồi</div>
+                    </a>
+                    <a href="Marugoto_A2_Lesson_10.html" class="sheet-lesson-link">
+                        <div class="sheet-lesson-name">🌟 Bài 10: Ước mơ du lịch Nhật</div>
+                        <div class="sheet-lesson-desc">V-たいです / Tần suất ～回 / V-てみます</div>
+                    </a>
+                </div>
+                <div class="sheet-topic-card" style="border: 2px solid #10b981; background: #ecfdf5;">
+                    <div class="sheet-topic-badge" style="color:#047857;">Topic 6: Dã Ngoại & Ăn Ngoài (Mới)</div>
+                    <a href="Marugoto_A2_Lesson_11.html" class="sheet-lesson-link" style="background:#ffffff;">
+                        <div class="sheet-lesson-name" style="color:#047857;">🍱 Bài 11: Ăn Uống Ngoài Trời ✨</div>
+                        <div class="sheet-lesson-desc">V-ていきます/きます / なんでもいい / どちらがいい</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- STICKY SECTION SUB-NAV -->
+    <div class="section-nav">
+        <a href="#sec-grammar1" class="sec-link">① V-ていきます/きます</a>
+        <a href="#sec-grammar2" class="sec-link">② Nghi vấn từ + でも</a>
+        <a href="#sec-grammar3" class="sec-link">③ どちらがいいですか</a>
+        <a href="#sec-verb-lab" class="sec-link">🔬 Máy Biến Thể Động Từ</a>
+        <a href="#sec-dialogue" class="sec-link">💬 Đối Thoại Dã Ngoại</a>
+        <a href="#sec-vocab" class="sec-link">🎴 28 Từ Vựng 3D</a>
+        <a href="#sec-kanji" class="sec-link">⛩️ 6 Chữ Hán Bài 11</a>
+        <a href="#sec-quiz" class="sec-link">📝 Mini Test 15 Câu</a>
+    </div>
+
+    <!-- MAIN WRAPPER -->
+    <div class="main-container">
+
+        <!-- HERO BANNER -->
+        <div class="hero-banner">
+            <div class="hero-badge">🌟 MARUGOTO A2-1 • TOPIC 6: そとで食べる</div>
+            <h1 class="hero-title">CHINH PHỤC TOÀN DIỆN BÀI 11</h1>
+            <div class="hero-jp-quote">
+                <span>「肉と野菜は 私が 買って行きます！」</span>
+                <button type="button" class="btn-speak" style="background:rgba(255,255,255,0.2); border-color:#6ee7b7; color:#fff;" onclick="speakText('肉と野菜は私が買って行きます')">🔊</button>
+            </div>
+            <p class="hero-subtitle">
+                Học trọn vẹn ngữ pháp phân công chuẩn bị tiệc picnic, dã ngoại và ăn uống ngoài trời; cấu trúc thể hiện tự do lựa chọn <strong>「なんでもいい」</strong>, so sánh chọn món <strong>「どちらがいいですか」</strong>, kèm Flashcard 3D và Mini Test 15 câu có giải thích chi tiết.
+            </p>
+            <div class="hero-stats-row">
+                <div class="stat-card">
+                    <div class="stat-number">28</div>
+                    <div class="stat-label">Từ vựng Flashcard</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Mẫu câu trọng tâm</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">10</div>
+                    <div class="stat-label">Động từ biến thể</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">6</div>
+                    <div class="stat-label">Chữ Hán cốt lõi</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">15</div>
+                    <div class="stat-label">Câu Mini Test</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- -------------------------------------------------------------
+             SECTION 1: GRAMMAR 1 (V-ていきます / V-てきます)
+        ------------------------------------------------------------- -->
+        <section class="content-section" id="sec-grammar1">
+            <div class="section-header">
+                <h2 class="section-title"><span>🍖</span> 1. Mẫu Câu Hành Động Rồi Mang Đi / Mang Lại: V-ていきます & V-てきます</h2>
+                <span class="section-tag">Ngữ Pháp Cốt Lõi</span>
+            </div>
+
+            <p style="margin-bottom: 16px; color: #334155;">
+                Khi lên kế hoạch đi dã ngoại, cắm trại hay ăn ngoài, người Nhật dùng cấu trúc <strong>「V-ていきます」</strong> để nói mình sẽ làm gì đó (mua đồ, nấu nướng, cầm đồ) rồi <em>mang đi tới chỗ hẹn</em>; và dùng <strong>「V-てきます」</strong> để diễn tả việc rời vị trí hiện tại đi làm gì rồi <em>quay trở lại đây</em>.
+            </p>
+
+            <div class="grammar-card">
+                <div class="rule-box">
+                    <div class="rule-formula">Món đồ / Đồ vật ＋ は ＋ [Người] が ＋ V-て（thể Te） ＋ 行きます / きます</div>
+                    <div class="rule-meaning">
+                        👉 <strong>～ていきます:</strong> Làm việc gì ở đây/trên đường rồi <strong>mang đi tới điểm đến</strong>.<br>
+                        👉 <strong>～てきます:</strong> Rời khỏi đây làm gì rồi <strong>mang lại / quay trở lại vị trí này</strong>.
+                    </div>
+                </div>
+
+                <!-- Comparison Table -->
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Mẫu Câu</th>
+                            <th>Hướng Di Chuyển & Ý Nghĩa</th>
+                            <th>Ví Dụ Điển Hình Trong Bài 11</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong style="color:#059669; font-size:1.05rem;">～ていきます</strong><br>(V-te ikimasu)</td>
+                            <td>Thực hiện hành động trước hoặc trên đường rồi <strong>đi tới địa điểm dã ngoại</strong>.</td>
+                            <td>
+                                <strong>肉と野菜は 私が 買って行きます。</strong><br>
+                                <span style="font-size:0.82rem; color:#64748b;">(Thịt và rau thì tôi sẽ mua rồi mang tới chỗ picnic.)</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong style="color:#0284c7; font-size:1.05rem;">～てきます</strong><br>(V-te kimasu)</td>
+                            <td>Tạm rời khỏi chỗ hiện tại để làm gì đó rồi <strong>quay lại đây ngay</strong>.</td>
+                            <td>
+                                <strong>車から ゴミ袋を 持ってきます。</strong><br>
+                                <span style="font-size:0.82rem; color:#64748b;">(Tôi ra xe lấy túi rác mang lại đây ngay nhé.)</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="example-list">
+                    <div class="example-item">
+                        <div class="ex-text-wrap">
+                            <div class="ex-jp">私は おすしを 作って行きます。</div>
+                            <div class="ex-vi">Tôi sẽ tự tay làm món sushi rồi mang đến buổi picnic.</div>
+                        </div>
+                        <button type="button" class="btn-speak" onclick="speakText('私はおすしを作って行きます')">🔊</button>
+                    </div>
+
+                    <div class="example-item">
+                        <div class="ex-text-wrap">
+                            <div class="ex-jp">大きな レジャーシートを 持って行きましょうか。</div>
+                            <div class="ex-vi">Để tôi mang theo tấm bạt trải dã ngoại cỡ lớn đi nhé?</div>
+                        </div>
+                        <button type="button" class="btn-speak" onclick="speakText('大きなレジャーシートを持っていきましょうか')">🔊</button>
+                    </div>
+
+                    <div class="example-item">
+                        <div class="ex-text-wrap">
+                            <div class="ex-jp">ちょっと 自販機で 飲み物を 買ってきます。</div>
+                            <div class="ex-vi">Tôi đi ra máy bán hàng tự động mua chút nước rồi về lại ngay.</div>
+                        </div>
+                        <button type="button" class="btn-speak" onclick="speakText('ちょっと自販機で飲み物を買ってきます')">🔊</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- -------------------------------------------------------------
+             SECTION 2: GRAMMAR 2 (Nghi vấn từ + でも)
+        ------------------------------------------------------------- -->
+        <section class="content-section" id="sec-grammar2">
+            <div class="section-header">
+                <h2 class="section-title"><span>🌟</span> 2. Mẫu Câu Biểu Thị Tự Do Lựa Chọn: Nghi Vấn Từ ＋ でもいいです</h2>
+                <span class="section-tag">Thảo Luận Dã Ngoại</span>
+            </div>
+
+            <p style="margin-bottom: 16px; color: #334155;">
+                Khi bạn bè cùng hỏi ý kiến về thời gian, địa điểm, đồ ăn thức uống cho chuyến đi, bạn dùng <strong>Nghi vấn từ ＋ でもいいです</strong> để thể hiện sự dễ tính, thoải mái: <em>"Cái gì/khi nào/ở đâu cũng được"</em>.
+            </p>
+
+            <div class="grammar-card">
+                <div class="rule-box" style="border-left-color: #f59e0b;">
+                    <div class="rule-formula" style="color: #b45309;">Nghi vấn từ (なん / いつ / どこ / だれ / いくつ) ＋ でも ＋ いいです</div>
+                    <div class="rule-meaning">
+                        👉 Dùng để diễn tả: <strong>Cái gì cũng được / Lúc nào cũng được / Ở đâu cũng được / Ai cũng được / Bao nhiêu cũng được</strong>.
+                    </div>
+                </div>
+
+                <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:12px; margin: 16px 0;">
+                    <div style="background:#ffffff; border:1px solid #e2e8f0; border-radius:10px; padding:12px; border-left:4px solid #10b981;">
+                        <div style="font-family:var(--jp-font); font-weight:800; color:#065f46; font-size:1.05rem;">なんでも いいです</div>
+                        <div style="font-size:0.82rem; color:#64748b;">Cái gì cũng được (Đồ ăn, thức uống)</div>
+                    </div>
+                    <div style="background:#ffffff; border:1px solid #e2e8f0; border-radius:10px; padding:12px; border-left:4px solid #3b82f6;">
+                        <div style="font-family:var(--jp-font); font-weight:800; color:#1e40af; font-size:1.05rem;">いつでも いいです</div>
+                        <div style="font-size:0.82rem; color:#64748b;">Khi nào cũng được (Thứ 7 hay CN)</div>
+                    </div>
+                    <div style="background:#ffffff; border:1px solid #e2e8f0; border-radius:10px; padding:12px; border-left:4px solid #f59e0b;">
+                        <div style="font-family:var(--jp-font); font-weight:800; color:#b45309; font-size:1.05rem;">どこでも いいです</div>
+                        <div style="font-size:0.82rem; color:#64748b;">Ở đâu cũng được (Công viên, bờ sông)</div>
+                    </div>
+                    <div style="background:#ffffff; border:1px solid #e2e8f0; border-radius:10px; padding:12px; border-left:4px solid #a855f7;">
+                        <div style="font-family:var(--jp-font); font-weight:800; color:#6b21a8; font-size:1.05rem;">だれでも いいです</div>
+                        <div style="font-size:0.82rem; color:#64748b;">Ai tham gia cùng cũng được</div>
+                    </div>
+                    <div style="background:#ffffff; border:1px solid #e2e8f0; border-radius:10px; padding:12px; border-left:4px solid #ec4899;">
+                        <div style="font-family:var(--jp-font); font-weight:800; color:#9d174d; font-size:1.05rem;">いくつでも いいです</div>
+                        <div style="font-size:0.82rem; color:#64748b;">Bao nhiêu cái cũng được</div>
+                    </div>
+                </div>
+
+                <div class="example-list">
+                    <div class="example-item">
+                        <div class="ex-text-wrap">
+                            <div class="ex-jp">A: 飲み物は 何が いいですか。<br>B: 私は なんでも いいですよ。</div>
+                            <div class="ex-vi">A: Bạn muốn uống gì nào?<br>B: Mình thì uống món gì cũng được cả!</div>
+                        </div>
+                        <button type="button" class="btn-speak" onclick="speakText('飲み物は何がいいですか。私はなんでもいいですよ。')">🔊</button>
+                    </div>
+
+                    <div class="example-item">
+                        <div class="ex-text-wrap">
+                            <div class="ex-jp">A: ピクニックは どこが いいですか。<br>B: 近い 公園なら、どこでも いいです。</div>
+                            <div class="ex-vi">A: Đi dã ngoại ở đâu thì đẹp nhỉ?<br>B: Miễn là công viên gần đây thì ở đâu cũng ổn hết.</div>
+                        </div>
+                        <button type="button" class="btn-speak" onclick="speakText('ピクニックはどこがいいですか。近い公園なら、どこでもいいです。')">🔊</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- -------------------------------------------------------------
+             SECTION 3: GRAMMAR 3 (N1 と N2、どちらがいいですか)
+        ------------------------------------------------------------- -->
+        <section class="content-section" id="sec-grammar3">
+            <div class="section-header">
+                <h2 class="section-title"><span>⚖️</span> 3. Mẫu Câu Hỏi Ý Kiến & So Sánh Chọn Lựa: どちらが いいですか</h2>
+                <span class="section-tag">So Sánh & Quyết Định</span>
+            </div>
+
+            <p style="margin-bottom: 16px; color: #334155;">
+                Dùng khi đưa ra 2 lựa chọn cụ thể để hỏi bạn bè xem phương án nào tốt hơn hoặc thích món nào hơn, và mẫu câu phản hồi tương ứng.
+            </p>
+
+            <div class="grammar-card">
+                <div class="rule-box" style="border-left-color: #3b82f6;">
+                    <div class="rule-formula" style="color: #1d4ed8;">N1 と N2（と）、どちらが いいですか。 ➔ N1 が いいです。</div>
+                    <div class="rule-meaning">
+                        👉 <strong>Hỏi:</strong> Giữa N1 và N2 thì bạn thấy cái nào tốt hơn / thích cái nào hơn?<br>
+                        👉 <strong>Trả lời:</strong> N1 thì tốt hơn / Tôi chọn N1.<br>
+                        👉 <strong>Chốt quyết định:</strong> <em>じゃ、N1 に します (Vậy thì chốt chọn N1 nhé!)</em>
+                    </div>
+                </div>
+
+                <div class="example-list">
+                    <div class="example-item">
+                        <div class="ex-text-wrap">
+                            <div class="ex-jp">おにぎりと サンドイッチ、どちらが いいですか。―― おにぎりが いいです。</div>
+                            <div class="ex-vi">Cơm nắm hay bánh mì sandwich, bạn thích món nào hơn? ―― Cơm nắm thì tốt hơn ạ.</div>
+                        </div>
+                        <button type="button" class="btn-speak" onclick="speakText('おにぎりとサンドイッチ、どちらがいいですか。おにぎりがいいです。')">🔊</button>
+                    </div>
+
+                    <div class="example-item">
+                        <div class="ex-text-wrap">
+                            <div class="ex-jp">ビールと お茶、どちらが いいですか。―― お茶に します。</div>
+                            <div class="ex-vi">Bia hay trà xanh, bạn muốn uống loại nào hơn? ―― Tôi quyết định chọn trà xanh.</div>
+                        </div>
+                        <button type="button" class="btn-speak" onclick="speakText('ビールとお茶、どちらがいいですか。お茶にします。')">🔊</button>
+                    </div>
+
+                    <div class="example-item">
+                        <div class="ex-text-wrap">
+                            <div class="ex-jp">土曜日と 日曜日、どちらが いいですか。―― 私は 日曜日のほうが いいです。</div>
+                            <div class="ex-vi">Thứ Bảy hay Chủ Nhật thì tiện cho bạn hơn? ―― Tôi thì Chủ Nhật tốt hơn.</div>
+                        </div>
+                        <button type="button" class="btn-speak" onclick="speakText('土曜日と日曜日、どちらがいいですか。私は日曜日のほうがいいです。')">🔊</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- -------------------------------------------------------------
+             SECTION 4: VERB MORPHING LAB
+        ------------------------------------------------------------- -->
+        <section class="content-section" id="sec-verb-lab">
+            <div class="section-header">
+                <h2 class="section-title"><span>🔬</span> MÁY BIẾN THỂ ĐỘNG TỪ TỰ ĐỘNG BÀI 11</h2>
+                <span class="section-tag">Interactive Laboratory</span>
+            </div>
+
+            <p style="margin-bottom: 16px; color: #334155;">
+                Bấm vào từng động từ bên dưới để quan sát cách chuyển đổi linh hoạt giữa <strong>Thể ます</strong>, <strong>Thể て</strong>, <strong>～ていきます</strong>, <strong>～てきます</strong> và <strong>～ましょうか</strong>:
+            </p>
+
+            <div class="verb-picker-row" id="verbPickerRow">
+                <!-- Verb pills populated via JS -->
+            </div>
+
+            <div class="morph-grid">
+                <div class="morph-box">
+                    <div class="morph-tag">Thể Hiện Tại (Masu)</div>
+                    <div class="morph-val" id="morphMasu">買います</div>
+                    <div style="font-size:0.8rem; color:#64748b; margin-top:4px;" id="morphVi">Mua</div>
+                </div>
+
+                <div class="morph-box">
+                    <div class="morph-tag">Thể TE (Liên Kết)</div>
+                    <div class="morph-val" style="color:#0284c7;" id="morphTe">買って</div>
+                    <div style="font-size:0.8rem; color:#64748b; margin-top:4px;">Gốc thể て</div>
+                </div>
+
+                <div class="morph-box featured">
+                    <div class="morph-tag">V-ていきます (Làm mang đi)</div>
+                    <div class="morph-val" style="color:#059669;" id="morphTeIki">買って行きます</div>
+                    <div style="font-size:0.8rem; color:#047857; margin-top:4px;">Mang tới chỗ dã ngoại</div>
+                </div>
+
+                <div class="morph-box">
+                    <div class="morph-tag">V-てきます (Đi rồi về lại)</div>
+                    <div class="morph-val" style="color:#7c3aed;" id="morphTeKi">買ってきます</div>
+                    <div style="font-size:0.8rem; color:#64748b; margin-top:4px;">Mua rồi đem về đây</div>
+                </div>
+
+                <div class="morph-box">
+                    <div class="morph-tag">V-ましょうか (Đề nghị giúp)</div>
+                    <div class="morph-val" style="color:#ea580c;" id="morphMashou">買いましょうか</div>
+                    <div style="font-size:0.8rem; color:#64748b; margin-top:4px;">Để tôi mua giúp nhé?</div>
+                </div>
+            </div>
+
+            <div class="morph-ex-box">
+                <div>
+                    <div style="font-size:0.75rem; font-weight:800; color:#047857; text-transform:uppercase;">Câu ví dụ thực tế trong Bài 11:</div>
+                    <div style="font-family:var(--jp-font); font-size:1.05rem; font-weight:800; color:#0f172a; margin-top:2px;" id="morphExText">
+                        肉と野菜は私が買って行きます。
+                    </div>
+                </div>
+                <button type="button" class="btn-speak" id="btnMorphSpeak" onclick="speakCurrentMorph()">🔊</button>
+            </div>
+        </section>
+
+        <!-- -------------------------------------------------------------
+             SECTION 5: INTERACTIVE DIALOGUE SIMULATOR
+        ------------------------------------------------------------- -->
+        <section class="content-section" id="sec-dialogue">
+            <div class="section-header">
+                <h2 class="section-title"><span>💬</span> PHÒNG THẢO LUẬN: LẬP KẾ HOẠCH PICNIC DÃ NGOẠI</h2>
+                <span class="section-tag">Role-play Simulator</span>
+            </div>
+
+            <p style="margin-bottom: 16px; color: #334155;">
+                Bạn cùng nhóm bạn <strong>Tanaka-san</strong> và <strong>Sakura-chan</strong> đang phân công chuẩn bị cho buổi dã ngoại BBQ cuối tuần tại công viên. Hãy bấm chọn câu trả lời phù hợp nhất của bạn:
+            </p>
+
+            <div class="dialogue-wrap">
+                <div class="chat-container" id="chatContainer">
+                    <div class="chat-bubble bot">
+                        <div class="chat-avatar">👩</div>
+                        <div class="chat-msg">
+                            <div class="chat-name">Sakura-chan</div>
+                            <div class="chat-jp">今度の日曜日に、みんなで ピクニックに 行きませんか。</div>
+                            <div class="chat-vi">Chủ Nhật tới mọi người có muốn cùng đi dã ngoại picnic không?</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chat-options-panel">
+                    <div class="chat-opt-title">🎯 Chọn lời thoại phản hồi của bạn:</div>
+                    <div class="chat-btn-grid" id="chatOptionsGrid">
+                        <!-- Populated dynamically via JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- -------------------------------------------------------------
+             SECTION 6: FLASHCARDS 3D
+        ------------------------------------------------------------- -->
+        <section class="content-section" id="sec-vocab">
+            <div class="section-header">
+                <h2 class="section-title"><span>🎴</span> TRỌN BỘ 28 TỪ VỰNG BÀI 11 (FLASHCARD 3D)</h2>
+                <span class="section-tag">Flashcards 3D</span>
+            </div>
+
+            <p style="margin-bottom: 16px; color: #334155;">
+                Bấm trực tiếp vào từng thẻ để lật xem nghĩa tiếng Việt và câu ví dụ trong ngữ cảnh dã ngoại. Bấm biểu tượng 🔊 để nghe phát âm giọng chuẩn Tokyo:
+            </p>
+
+            <div class="vocab-filter-bar">
+                <button class="vocab-filter-btn active" onclick="filterVocab('all', this)">🌟 Tất cả (28)</button>
+                <button class="vocab-filter-btn" onclick="filterVocab('food', this)">🥩 Đồ ăn & Thực phẩm</button>
+                <button class="vocab-filter-btn" onclick="filterVocab('drink', this)">🍶 Đồ uống & Rượu</button>
+                <button class="vocab-filter-btn" onclick="filterVocab('gear', this)">🧺 Dụng cụ dã ngoại</button>
+                <button class="vocab-filter-btn" onclick="filterVocab('verb', this)">🏃 Động từ chuẩn bị</button>
+                <div class="vocab-stats-badge" id="vocabStats">Đã thuộc: 0 / 28 từ</div>
+            </div>
+
+            <div class="flashcards-grid" id="flashcardsGrid">
+                <!-- Cards rendered via JS -->
+            </div>
+        </section>
+
+        <!-- -------------------------------------------------------------
+             SECTION 7: KANJI CARDS (BÀI 11)
+        ------------------------------------------------------------- -->
+        <section class="content-section" id="sec-kanji">
+            <div class="section-header">
+                <h2 class="section-title"><span>⛩️</span> 6 CHỮ HÁN CỐT LÕI BÀI 11 (TỬU, TÁC, VẬT, TRÀ, TRÌ, NGUYỆN)</h2>
+                <span class="section-tag">Kanji Mastery</span>
+            </div>
+
+            <p style="margin-bottom: 20px; color: #334155;">
+                Cả 6 chữ Hán này đã được cập nhật hoàn chỉnh trong ứng dụng <a href="kanji_a2.html" style="color:var(--primary); font-weight:700; text-decoration:underline;">Học Kanji & Nét Viết</a> (hỗ trợ tập viết hoạt họa và trắc nghiệm nét viết):
+            </p>
+
+            <div class="kanji-cards-grid">
+                <!-- 酒 -->
+                <div class="kanji-detail-card">
+                    <div class="kanji-big-char">酒</div>
+                    <div class="kanji-info">
+                        <div class="kanji-hv-title">Tửu (Rượu) <span class="kanji-strokes-badge">10 nét</span></div>
+                        <div class="kanji-readings">
+                            <strong>Kun:</strong> さけ、さか<br>
+                            <strong>On:</strong> しゅ<br>
+                            <strong>Từ ví dụ:</strong> お酒 (rượu), 日本酒 (rượu Sake), 梅酒 (rượu mơ)
+                        </div>
+                        <div class="kanji-mnemonic">💡 Mẹo nhớ: Nước (氵) ủ kín trong bình dậu (酉) lên men thành Rượu.</div>
+                    </div>
+                </div>
+
+                <!-- 作 -->
+                <div class="kanji-detail-card">
+                    <div class="kanji-big-char">作</div>
+                    <div class="kanji-info">
+                        <div class="kanji-hv-title">Tác (Làm, Chế tạo) <span class="kanji-strokes-badge">7 nét</span></div>
+                        <div class="kanji-readings">
+                            <strong>Kun:</strong> つく-る<br>
+                            <strong>On:</strong> さく、さ<br>
+                            <strong>Từ ví dụ:</strong> 作ります (nấu/làm), 作文 (bài văn), 手作り (đồ tự làm)
+                        </div>
+                        <div class="kanji-mnemonic">💡 Mẹo nhớ: Con người (亻) khéo léo dùng tay chế tác (乍) ra món ăn ngon.</div>
+                    </div>
+                </div>
+
+                <!-- 物 -->
+                <div class="kanji-detail-card">
+                    <div class="kanji-big-char">物</div>
+                    <div class="kanji-info">
+                        <div class="kanji-hv-title">Vật (Đồ vật, Sự vật) <span class="kanji-strokes-badge">8 nét</span></div>
+                        <div class="kanji-readings">
+                            <strong>Kun:</strong> もの<br>
+                            <strong>On:</strong> ぶつ、もつ<br>
+                            <strong>Từ ví dụ:</strong> 食べ物 (đồ ăn), 飲み物 (đồ uống), 荷物 (hành lý)
+                        </div>
+                        <div class="kanji-mnemonic">💡 Mẹo nhớ: Con trâu bò (牜) đại diện cho vạn vật (物) sinh sôi.</div>
+                    </div>
+                </div>
+
+                <!-- 茶 -->
+                <div class="kanji-detail-card">
+                    <div class="kanji-big-char">茶</div>
+                    <div class="kanji-info">
+                        <div class="kanji-hv-title">Trà (Cây chè, Lá trà) <span class="kanji-strokes-badge">9 nét</span></div>
+                        <div class="kanji-readings">
+                            <strong>Kun:</strong> -<br>
+                            <strong>On:</strong> ちゃ、さ<br>
+                            <strong>Từ ví dụ:</strong> お茶 (trà), 喫茶店 (quán cà phê/giải khát), 緑茶 (trà xanh)
+                        </div>
+                        <div class="kanji-mnemonic">💡 Mẹo nhớ: Lá thảo mộc (艹) từ cây thân gỗ (木) hái về cho người (人) thưởng thức Trà.</div>
+                    </div>
+                </div>
+
+                <!-- 持 -->
+                <div class="kanji-detail-card">
+                    <div class="kanji-big-char">持</div>
+                    <div class="kanji-info">
+                        <div class="kanji-hv-title">Trì (Cầm, Giữ, Mang) <span class="kanji-strokes-badge">9 nét</span></div>
+                        <div class="kanji-readings">
+                            <strong>Kun:</strong> も-つ<br>
+                            <strong>On:</strong> じ<br>
+                            <strong>Từ ví dụ:</strong> 持ちます (cầm/mang), 持って行きます (mang đi), 気持ち (tâm trạng)
+                        </div>
+                        <div class="kanji-mnemonic">💡 Mẹo nhớ: Đôi tay (扌) nâng niu lễ vật lên chùa (寺) để gìn giữ (持) phúc lành.</div>
+                    </div>
+                </div>
+
+                <!-- 願 -->
+                <div class="kanji-detail-card">
+                    <div class="kanji-big-char">願</div>
+                    <div class="kanji-info">
+                        <div class="kanji-hv-title">Nguyện (Mong ước, Nhờ vả) <span class="kanji-strokes-badge">19 nét</span></div>
+                        <div class="kanji-readings">
+                            <strong>Kun:</strong> ねが-う<br>
+                            <strong>On:</strong> がん<br>
+                            <strong>Từ ví dụ:</strong> お願いします (làm ơn/nhờ vả), 願い事 (điều ước), 願書 (đơn xin)
+                        </div>
+                        <div class="kanji-mnemonic">💡 Mẹo nhớ: Cúi đầu (頁) hướng về nguồn cội nguyên sơ (原) thành tâm cầu Nguyện.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 24px;">
+                <a href="kanji_a2.html" class="dock-action-btn" style="padding: 10px 24px; font-size: 0.95rem; background: var(--primary); color: #fff; border: none; display: inline-flex;">
+                    ⛩️ Mở Ứng Dụng Luyện Viết Từng Nét 6 Chữ Hán Này ➔
+                </a>
+            </div>
+        </section>
+
+        <!-- -------------------------------------------------------------
+             SECTION 8: MINI TEST 15 QUESTIONS
+        ------------------------------------------------------------- -->
+        <section class="content-section" id="sec-quiz">
+            <div class="section-header">
+                <h2 class="section-title"><span>📝</span> MINI TEST PHẢN XẠ BÀI 11 (15 CÂU)</h2>
+                <span class="section-tag">Interactive Exam</span>
+            </div>
+
+            <p style="margin-bottom: 16px; color: #334155;">
+                Bài test gồm 15 câu bao quát toàn bộ ngữ pháp <strong>「～ていきます/きます」</strong>, <strong>「なんでもいい」</strong>, <strong>「どちらがいいですか」</strong>, từ vựng dã ngoại và 6 chữ Hán Bài 11. Bấm vào đáp án để xem giải thích chi tiết ngay lập tức!
+            </p>
+
+            <div class="quiz-progress-bar-wrap">
+                <div class="quiz-progress-fill" id="quizProgressBar"></div>
+            </div>
+
+            <div id="quizContainer">
+                <!-- Questions rendered via JS -->
+            </div>
+
+            <div class="score-box" id="scoreBox">
+                <h3>🎉 KẾT QUẢ BÀI TEST BÀI 11</h3>
+                <div class="score-val" id="scoreVal">15 / 15</div>
+                <p id="scoreMsg" style="font-size: 1.1rem; color: #a7f3d0; margin-bottom: 16px;">
+                    Xuất sắc! Bạn đã nắm vững toàn bộ kiến thức Bài 11!
+                </p>
+                <button type="button" class="btn-retry" onclick="resetQuiz()">🔄 Làm Lại Bài Test</button>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- SCRIPTS -->
+    <script>
+        const VOCAB_DATA = [{"id": 1, "cat": "food", "catName": "Đồ Ăn & Thực Phẩm", "jp": "にく", "kana": "にく", "romaji": "niku", "vi": "Thịt (bò, heo, gà cho picnic)", "kanji": "肉", "exJp": "バーベキューの にくと やさいは、わたしが かって 行きます。", "exVi": "Thịt và rau cho tiệc BBQ thì tôi sẽ đi mua mang đến.", "badge": "🥩 Đồ Ăn Picnic", "icon": "🥩", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\"><defs><linearGradient id=\"gNiku\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0%\" stop-color=\"#ef4444\"/><stop offset=\"100%\" stop-color=\"#991b1b\"/></linearGradient></defs><rect width=\"240\" height=\"120\" rx=\"12\" fill=\"url(#gNiku)\"/><ellipse cx=\"120\" cy=\"55\" rx=\"50\" ry=\"32\" fill=\"#f87171\"/><path d=\"M85,55 Q120,40 155,55 Q120,70 85,55 Z\" fill=\"#ffffff\" opacity=\"0.6\"/><ellipse cx=\"120\" cy=\"55\" rx=\"20\" ry=\"12\" fill=\"#fca5a5\"/><circle cx=\"100\" cy=\"55\" r=\"5\" fill=\"#fff\"/><text x=\"120\" y=\"110\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"sans-serif\">THỊT NƯỚNG BBQ 🥩</text></svg>"}, {"id": 2, "cat": "food", "catName": "Đồ Ăn & Thực Phẩm", "jp": "やさい", "kana": "やさい", "romaji": "yasai", "vi": "Rau củ quả tươi", "kanji": "野菜", "exJp": "スーパーで 新鮮な やさいを たくさん かって きました。", "exVi": "Tôi đã đi siêu thị mua rất nhiều rau củ tươi mang về rồi.", "badge": "🥬 Rau Củ Tươi", "icon": "🥦", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\"><defs><linearGradient id=\"gYasai\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0%\" stop-color=\"#10b981\"/><stop offset=\"100%\" stop-color=\"#047857\"/></linearGradient></defs><rect width=\"240\" height=\"120\" rx=\"12\" fill=\"url(#gYasai)\"/><circle cx=\"100\" cy=\"55\" r=\"22\" fill=\"#34d399\"/><ellipse cx=\"135\" cy=\"55\" rx=\"22\" ry=\"18\" fill=\"#fb923c\"/><polygon points=\"135,32 140,20 130,20\" fill=\"#22c55e\"/><circle cx=\"100\" cy=\"55\" r=\"14\" fill=\"#059669\" opacity=\"0.5\"/><text x=\"120\" y=\"110\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"sans-serif\">RAU CỦ TƯƠI 🥦</text></svg>"}, {"id": 3, "cat": "food", "catName": "Đồ Ăn & Thực Phẩm", "jp": "おにぎり", "kana": "おにぎり", "romaji": "onigiri", "vi": "Cơm nắm Nhật Bản", "kanji": "お握り", "exJp": "あしたの ピクニックの ために、おにぎりを つくって 行きます。", "exVi": "Cho buổi dã ngoại ngày mai, tôi sẽ tự tay làm cơm nắm mang đi.", "badge": "🍙 Món Ăn Truyền Thống", "icon": "🍙", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\"><defs><linearGradient id=\"gOni\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0%\" stop-color=\"#f8fafc\"/><stop offset=\"100%\" stop-color=\"#cbd5e1\"/></linearGradient></defs><rect width=\"240\" height=\"120\" rx=\"12\" fill=\"#0f172a\"/><polygon points=\"120,25 75,85 165,85\" rx=\"8\" fill=\"url(#gOni)\"/><rect x=\"105\" y=\"65\" width=\"30\" height=\"20\" rx=\"3\" fill=\"#1e293b\"/><circle cx=\"120\" cy=\"48\" r=\"4\" fill=\"#ef4444\"/><text x=\"120\" y=\"110\" text-anchor=\"middle\" fill=\"#f8fafc\" font-size=\"12\" font-weight=\"800\" font-family=\"sans-serif\">CƠM NẮM ONIGIRI 🍙</text></svg>"}, {"id": 4, "cat": "food", "catName": "Đồ Ăn & Thực Phẩm", "jp": "サンドイッチ", "kana": "サンドイッチ", "romaji": "sandoicchi", "vi": "Bánh mì kẹp sandwich", "kanji": "サンドイッチ", "exJp": "おにぎりと サンドイッチ、どちらが いいですか。―― サンドイッチが いいです。", "exVi": "Cơm nắm hay sandwich, bạn thích món nào hơn? ―― Tôi thích sandwich hơn.", "badge": "🥪 Bánh Mì Dã Ngoại", "icon": "🥪", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\"><defs><linearGradient id=\"gSand\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0%\" stop-color=\"#f59e0b\"/><stop offset=\"100%\" stop-color=\"#b45309\"/></linearGradient></defs><rect width=\"240\" height=\"120\" rx=\"12\" fill=\"url(#gSand)\"/><polygon points=\"80,85 160,85 120,30\" fill=\"#fef3c7\"/><polygon points=\"85,75 155,75 120,40\" fill=\"#22c55e\"/><polygon points=\"90,68 150,68 120,46\" fill=\"#ef4444\"/><polygon points=\"93,62 147,62 120,50\" fill=\"#fbbf24\"/><text x=\"120\" y=\"110\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"sans-serif\">BÁNH MÌ SANDWICH 🥪</text></svg>"}, {"id": 5, "cat": "food", "catName": "Đồ Ăn & Thực Phẩm", "jp": "おすし", "kana": "おすし", "romaji": "osushi", "vi": "Cơm cuộn sushi", "kanji": "お寿司", "exJp": "みんなで たべる おすしを パックで かって 行きましょう。", "exVi": "Chúng ta hãy mua các hộp sushi để mọi người cùng thưởng thức dã ngoại nhé.", "badge": "🍣 Đặc Sản Nhật", "icon": "🍣", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\"><defs><linearGradient id=\"gSushi\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0%\" stop-color=\"#3b82f6\"/><stop offset=\"100%\" stop-color=\"#1d4ed8\"/></linearGradient></defs><rect width=\"240\" height=\"120\" rx=\"12\" fill=\"url(#gSushi)\"/><rect x=\"75\" y=\"45\" width=\"90\" height=\"35\" rx=\"12\" fill=\"#ffffff\"/><path d=\"M70,45 Q120,30 170,45 L165,55 Q120,45 75,55 Z\" fill=\"#f87171\"/><rect x=\"112\" y=\"40\" width=\"16\" height=\"42\" rx=\"3\" fill=\"#1e293b\"/><text x=\"120\" y=\"110\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"sans-serif\">SUSHI TƯƠI NGON 🍣</text></svg>"}, {"id": 6, "cat": "food", "catName": "Đồ Ăn & Thực Phẩm", "jp": "おべんとう", "kana": "おべんとう", "romaji": "obentou", "vi": "Cơm hộp bento dã ngoại", "kanji": "お弁当", "exJp": "こうえんの ベンチで てづくりの おべんとうを たべました。", "exVi": "Chúng tôi đã cùng ăn hộp cơm bento tự làm trên ghế băng ở công viên.", "badge": "🍱 Cơm Hộp Picnic", "icon": "🍱", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\"><defs><linearGradient id=\"gBen\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0%\" stop-color=\"#ec4899\"/><stop offset=\"100%\" stop-color=\"#be185d\"/></linearGradient></defs><rect width=\"240\" height=\"120\" rx=\"12\" fill=\"url(#gBen)\"/><rect x=\"70\" y=\"28\" width=\"100\" height=\"56\" rx=\"8\" fill=\"#1e293b\"/><rect x=\"76\" y=\"34\" width=\"42\" height=\"44\" rx=\"4\" fill=\"#ffffff\"/><circle cx=\"97\" cy=\"56\" r=\"6\" fill=\"#dc2626\"/><rect x=\"122\" y=\"34\" width=\"42\" height=\"20\" rx=\"4\" fill=\"#f59e0b\"/><rect x=\"122\" y=\"58\" width=\"42\" height=\"20\" rx=\"4\" fill=\"#10b981\"/><text x=\"120\" y=\"110\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"sans-serif\">HỘP CƠM BENTO 🍱</text></svg>"}, {"id": 7, "cat": "food", "catName": "Đồ Ăn & Thực Phẩm", "jp": "くだもの", "kana": "くだもの", "romaji": "kudamono", "vi": "Hoa quả, trái cây tươi", "kanji": "果物", "exJp": "デザートに りんごと ぶどうなどの くだものを もって 行きます。", "exVi": "Làm món tráng miệng, tôi sẽ mang theo trái cây như táo và nho.", "badge": "🍎 Trái Cây Tươi", "icon": "🍇", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\"><defs><linearGradient id=\"gKuda\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0%\" stop-color=\"#a855f7\"/><stop offset=\"100%\" stop-color=\"#6b21a8\"/></linearGradient></defs><rect width=\"240\" height=\"120\" rx=\"12\" fill=\"url(#gKuda)\"/><circle cx=\"100\" cy=\"58\" r=\"22\" fill=\"#ef4444\"/><path d=\"M100,36 Q105,25 115,25\" stroke=\"#78350f\" stroke-width=\"3\" fill=\"none\"/><circle cx=\"140\" cy=\"58\" r=\"18\" fill=\"#eab308\"/><circle cx=\"130\" cy=\"45\" r=\"7\" fill=\"#8b5cf6\"/><circle cx=\"145\" cy=\"43\" r=\"7\" fill=\"#8b5cf6\"/><text x=\"120\" y=\"110\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"sans-serif\">HOA QUẢ TRÁI CÂY 🍎</text></svg>"}, {"id": 8, "cat": "food", "catName": "Đồ Ăn & Thực Phẩm", "jp": "おかし", "kana": "おかし", "romaji": "okashi", "vi": "Bánh kẹo, đồ ăn vặt", "kanji": "お菓子", "exJp": "こどもたちが よろこぶ おかしを たくさん かって おきましょう。", "exVi": "Chúng ta hãy mua sẵn thật nhiều bánh kẹo cho các em nhỏ vui nhé.", "badge": "🍪 Bánh Kẹo Vặt", "icon": "🍪", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\"><defs><linearGradient id=\"gKashi\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0%\" stop-color=\"#f97316\"/><stop offset=\"100%\" stop-color=\"#c2410c\"/></linearGradient></defs><rect width=\"240\" height=\"120\" rx=\"12\" fill=\"url(#gKashi)\"/><circle cx=\"120\" cy=\"55\" r=\"26\" fill=\"#fde047\"/><circle cx=\"110\" cy=\"48\" r=\"4\" fill=\"#78350f\"/><circle cx=\"130\" cy=\"50\" r=\"3\" fill=\"#78350f\"/><circle cx=\"118\" cy=\"62\" r=\"4\" fill=\"#78350f\"/><circle cx=\"128\" cy=\"68\" r=\"3\" fill=\"#78350f\"/><text x=\"120\" y=\"110\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"sans-serif\">BÁNH KẸO ĂN VẶT 🍪</text></svg>"}, {"id": 9, "cat": "food", "catName": "Đồ Ăn & Thực Phẩm", "jp": "やきにく", "kana": "やきにく", "romaji": "yakiniku", "vi": "Thịt nướng kiểu Nhật / BBQ", "kanji": "焼肉", "exJp": "こうえんの バーベキューじょうで やきにくを しました。", "exVi": "Chúng tôi đã cùng tổ chức tiệc nướng thịt tại khu vực BBQ của công viên.", "badge": "🔥 Nướng BBQ", "icon": "🍖", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\"><defs><linearGradient id=\"gYaki\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0%\" stop-color=\"#475569\"/><stop offset=\"100%\" stop-color=\"#0f172a\"/></linearGradient></defs><rect width=\"240\" height=\"120\" rx=\"12\" fill=\"url(#gYaki)\"/><circle cx=\"120\" cy=\"55\" r=\"32\" fill=\"#334155\" stroke=\"#94a3b8\" stroke-width=\"3\"/><line x1=\"95\" y1=\"55\" x2=\"145\" y2=\"55\" stroke=\"#cbd5e1\" stroke-width=\"2\"/><line x1=\"120\" y1=\"30\" x2=\"120\" y2=\"80\" stroke=\"#cbd5e1\" stroke-width=\"2\"/><circle cx=\"110\" cy=\"45\" r=\"7\" fill=\"#dc2626\"/><circle cx=\"130\" cy=\"60\" r=\"8\" fill=\"#ea580c\"/><text x=\"120\" y=\"110\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"sans-serif\">THỊT NƯỚNG YAKINIKU 🔥</text></svg>"}, {"id": 10, "cat": "drink", "catName": "Đồ Uống & Rượu", "jp": "おさけ", "kana": "おさけ", "romaji": "osake", "vi": "Rượu, đồ uống có cồn", "kanji": "お酒", "exJp": "バーベキューで のむ おさけも すこし かって 行きましょう。", "exVi": "Chúng ta hãy mua thêm một ít rượu/đồ uống có cồn để uống lúc tiệc nướng nhé.", "badge": "🍶 Đồ Uống Có Cồn", "icon": "🍶", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\"><defs><linearGradient id=\"gSake\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0%\" stop-color=\"#0284c7\"/><stop offset=\"100%\" stop-color=\"#0369a1\"/></linearGradient></defs><rect width=\"240\" height=\"120\" rx=\"12\" fill=\"url(#gSake)\"/><rect x=\"105\" y=\"45\" width=\"30\" height=\"42\" rx=\"8\" fill=\"#ffffff\"/><rect x=\"114\" y=\"30\" width=\"12\" height=\"15\" fill=\"#f8fafc\"/><circle cx=\"120\" cy=\"62\" r=\"7\" fill=\"#38bdf8\"/><text x=\"120\" y=\"110\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"sans-serif\">RƯỢU O-SAKE 🍶</text></svg>"}, {"id": 11, "cat": "drink", "catName": "Đồ Uống & Rượu", "jp": "にほんしゅ", "kana": "にほんしゅ", "romaji": "nihonshu", "vi": "Rượu sake truyền thống Nhật Bản", "kanji": "日本酒", "exJp": "この にほんしゅは とても のみやすくて おいしいです。", "exVi": "Loại rượu sake Nhật Bản này rất dễ uống và thơm ngon.", "badge": "🍶 Rượu Sake Nhật", "icon": "🍶", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\"><defs><linearGradient id=\"gNihon\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0%\" stop-color=\"#e11d48\"/><stop offset=\"100%\" stop-color=\"#9f1239\"/></linearGradient></defs><rect width=\"240\" height=\"120\" rx=\"12\" fill=\"url(#gNihon)\"/><path d=\"M112,30 L128,30 L132,45 L138,80 L102,80 L108,45 Z\" fill=\"#ffffff\"/><circle cx=\"120\" cy=\"60\" r=\"9\" fill=\"#dc2626\"/><text x=\"120\" y=\"110\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"sans-serif\">RƯỢU SAKE NHẬT 🍶</text></svg>"}, {"id": 12, "cat": "drink", "catName": "Đồ Uống & Rượu", "jp": "ビール", "kana": "ビール", "romaji": "biiru", "vi": "Bia (đồ uống phổ biến khi BBQ)", "kanji": "ビール", "exJp": "つめたい ビールを １パック かって きました。", "exVi": "Tôi vừa đi mua 1 lốc bia ướp lạnh mang về rồi đây.", "badge": "🍺 Đồ Uống Lạnh", "icon": "🍺", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\"><defs><linearGradient id=\"gBeer\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0%\" stop-color=\"#eab308\"/><stop offset=\"100%\" stop-color=\"#ca8a04\"/></linearGradient></defs><rect width=\"240\" height=\"120\" rx=\"12\" fill=\"url(#gBeer)\"/><rect x=\"100\" y=\"38\" width=\"40\" height=\"45\" rx=\"6\" fill=\"#fef08a\"/><path d=\"M140,45 Q158,55 140,70\" stroke=\"#ffffff\" stroke-width=\"5\" fill=\"none\"/><ellipse cx=\"120\" cy=\"38\" rx=\"22\" ry=\"8\" fill=\"#ffffff\"/><text x=\"120\" y=\"110\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"sans-serif\">BIA ƯỚP LẠNH 🍺</text></svg>"}, {"id": 13, "cat": "drink", "catName": "Đồ Uống & Rượu", "jp": "おちゃ", "kana": "おちゃ", "romaji": "ocha", "vi": "Trà, chè xanh giải khát", "kanji": "お茶", "exJp": "ビールを のまない ひとの ために、おちゃも よういします。", "exVi": "Cho những người không uống được bia, tôi cũng chuẩn bị sẵn nước trà.", "badge": "🍵 Trà Xanh Thanh Mát", "icon": "🍵", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\"><defs><linearGradient id=\"gOcha\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0%\" stop-color=\"#16a34a\"/><stop offset=\"100%\" stop-color=\"#15803d\"/></linearGradient></defs><rect width=\"240\" height=\"120\" rx=\"12\" fill=\"url(#gOcha)\"/><ellipse cx=\"120\" cy=\"65\" rx=\"32\" ry=\"18\" fill=\"#f8fafc\"/><path d=\"M88,65 Q120,40 152,65 L145,82 Q120,90 95,82 Z\" fill=\"#86efac\"/><path d=\"M115,35 Q120,25 125,35\" stroke=\"#ffffff\" stroke-width=\"2\" fill=\"none\"/><text x=\"120\" y=\"110\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"sans-serif\">TRÀ XANH O-CHA 🍵</text></svg>"}, {"id": 14, "cat": "drink", "catName": "Đồ Uống & Rượu", "jp": "ジュース", "kana": "ジュース", "romaji": "juusu", "vi": "Nước ép hoa quả, nước ngọt", "kanji": "ジュース", "exJp": "オレンジジュースと リンゴジュース、どちらが いいですか。", "exVi": "Nước ép cam hay nước ép táo, bạn thích loại nào hơn?", "badge": "🧃 Nước Trái Cây", "icon": "🧃", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\"><defs><linearGradient id=\"gJuice\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0%\" stop-color=\"#f97316\"/><stop offset=\"100%\" stop-color=\"#ea580c\"/></linearGradient></defs><rect width=\"240\" height=\"120\" rx=\"12\" fill=\"url(#gJuice)\"/><rect x=\"105\" y=\"35\" width=\"30\" height=\"50\" rx=\"4\" fill=\"#ffedd5\"/><rect x=\"110\" y=\"20\" width=\"4\" height=\"20\" rx=\"2\" fill=\"#ef4444\"/><circle cx=\"120\" cy=\"60\" r=\"8\" fill=\"#f97316\"/><text x=\"120\" y=\"110\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"sans-serif\">NƯỚC ÉP HOA QUẢ 🧃</text></svg>"}, {"id": 15, "cat": "drink", "catName": "Đồ Uống & Rượu", "jp": "のみもの", "kana": "のみもの", "romaji": "nomimono", "vi": "Đồ uống giải khát nói chung", "kanji": "飲み物", "exJp": "のみものは なんでも いいですから、すきな ものを えらんでください。", "exVi": "Đồ uống thì cái gì cũng được, bạn hãy cứ chọn món bạn thích nhé.", "badge": "🥤 Đồ Uống", "icon": "🥤", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\"><defs><linearGradient id=\"gNomi\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0%\" stop-color=\"#06b6d4\"/><stop offset=\"100%\" stop-color=\"#0e7490\"/></linearGradient></defs><rect width=\"240\" height=\"120\" rx=\"12\" fill=\"url(#gNomi)\"/><polygon points=\"105,85 135,85 140,40 100,40\" fill=\"#ffffff\"/><line x1=\"120\" y1=\"20\" x2=\"128\" y2=\"50\" stroke=\"#ef4444\" stroke-width=\"4\" stroke-linecap=\"round\"/><ellipse cx=\"120\" cy=\"40\" rx=\"20\" ry=\"5\" fill=\"#e0f2fe\"/><text x=\"120\" y=\"110\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"sans-serif\">ĐỒ UỐNG GIẢI KHÁT 🥤</text></svg>"}, {"id": 16, "cat": "gear", "catName": "Dụng Cụ Dã Ngoại", "jp": "ピクニック", "kana": "ピクニック", "romaji": "pikunikku", "vi": "Chuyến dã ngoại, picnic", "kanji": "ピクニック", "exJp": "こんしゅうの にちようび、みんなで ピクニックに 行きませんか。", "exVi": "Chủ nhật tuần này, mọi người có muốn cùng nhau đi dã ngoại không?", "badge": "🧺 Dã Ngoại", "icon": "🧺", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\"><defs><linearGradient id=\"gPic\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0%\" stop-color=\"#84cc16\"/><stop offset=\"100%\" stop-color=\"#4d7c0f\"/></linearGradient></defs><rect width=\"240\" height=\"120\" rx=\"12\" fill=\"url(#gPic)\"/><rect x=\"95\" y=\"45\" width=\"50\" height=\"35\" rx=\"6\" fill=\"#b45309\"/><path d=\"M100,45 Q120,20 140,45\" stroke=\"#78350f\" stroke-width=\"4\" fill=\"none\"/><line x1=\"95\" y1=\"62\" x2=\"145\" y2=\"62\" stroke=\"#d97706\" stroke-width=\"3\"/><text x=\"120\" y=\"110\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"sans-serif\">ĐI PICNIC DÃ NGOẠI 🧺</text></svg>"}, {"id": 17, "cat": "gear", "catName": "Dụng Cụ Dã Ngoại", "jp": "バーベキュー", "kana": "バーベキュー", "romaji": "baabekyuu", "vi": "Tiệc nướng BBQ ngoài trời", "kanji": "バーベキュー", "exJp": "かわの ちかくで たのしい バーベキューを しました。", "exVi": "Chúng tôi đã tổ chức một tiệc nướng BBQ rất vui vẻ gần bờ sông.", "badge": "🍖 Tiệc BBQ", "icon": "🥩", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\"><defs><linearGradient id=\"gBbq\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0%\" stop-color=\"#dc2626\"/><stop offset=\"100%\" stop-color=\"#7f1d1d\"/></linearGradient></defs><rect width=\"240\" height=\"120\" rx=\"12\" fill=\"url(#gBbq)\"/><circle cx=\"120\" cy=\"50\" r=\"28\" fill=\"#1e293b\"/><line x1=\"100\" y1=\"75\" x2=\"110\" y2=\"90\" stroke=\"#94a3b8\" stroke-width=\"4\"/><line x1=\"140\" y1=\"75\" x2=\"130\" y2=\"90\" stroke=\"#94a3b8\" stroke-width=\"4\"/><circle cx=\"120\" cy=\"50\" r=\"14\" fill=\"#ea580c\"/><text x=\"120\" y=\"110\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"sans-serif\">TIỆC NƯỚNG BBQ 🍖</text></svg>"}, {"id": 18, "cat": "gear", "catName": "Dụng Cụ Dã Ngoại", "jp": "レジャーシート", "kana": "レジャーシート", "romaji": "rejaashiito", "vi": "Tấm bạt trải ngồi dã ngoại", "kanji": "レジャーシート", "exJp": "芝生（しばふ）の 上に おおきな レジャーシートを ひきました。", "exVi": "Chúng tôi đã trải một tấm bạt ngồi dã ngoại cỡ lớn lên trên bãi cỏ.", "badge": "🟦 Bạt Trải Dã Ngoại", "icon": "🟦", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\"><defs><linearGradient id=\"gSheet\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0%\" stop-color=\"#0284c7\"/><stop offset=\"100%\" stop-color=\"#0369a1\"/></linearGradient></defs><rect width=\"240\" height=\"120\" rx=\"12\" fill=\"url(#gSheet)\"/><polygon points=\"70,75 170,75 190,40 90,40\" fill=\"#38bdf8\"/><polygon points=\"75,70 165,70 180,45 95,45\" fill=\"#bae6fd\" opacity=\"0.4\"/><text x=\"120\" y=\"110\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"sans-serif\">TẤM BẠT DÃ NGOẠI 🟦</text></svg>"}, {"id": 19, "cat": "gear", "catName": "Dụng Cụ Dã Ngoại", "jp": "ゴミぶくろ", "kana": "ごみぶくろ", "romaji": "gomibukuro", "vi": "Túi đựng rác", "kanji": "ゴミ袋", "exJp": "ピクニックの あとは、ゴミぶくろに ゴミを あつめましょう。", "exVi": "Sau buổi dã ngoại, chúng ta hãy gom rác vào túi đựng rác nhé.", "badge": "🗑️ Bảo Vệ Môi Trường", "icon": "🗑️", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\"><defs><linearGradient id=\"gGomi\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0%\" stop-color=\"#64748b\"/><stop offset=\"100%\" stop-color=\"#334155\"/></linearGradient></defs><rect width=\"240\" height=\"120\" rx=\"12\" fill=\"url(#gGomi)\"/><path d=\"M100,45 Q120,30 140,45 Q150,75 135,85 Q105,85 90,75 Z\" fill=\"#e2e8f0\"/><ellipse cx=\"120\" cy=\"42\" rx=\"12\" ry=\"5\" fill=\"#94a3b8\"/><text x=\"120\" y=\"110\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"sans-serif\">TÚI ĐỰNG RÁC 🗑️</text></svg>"}, {"id": 20, "cat": "gear", "catName": "Dụng Cụ Dã Ngoại", "jp": "かみコップ", "kana": "かみコップ", "romaji": "kamikoppu", "vi": "Cốc giấy dùng 1 lần", "kanji": "紙コップ", "exJp": "かみコップと かみざらを １０こずつ かって 行きます。", "exVi": "Tôi sẽ đi mua mỗi loại 10 cái cốc giấy và đĩa giấy mang đi.", "badge": "🥤 Đồ Dùng 1 Lần", "icon": "🥤", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\"><defs><linearGradient id=\"gKoppu\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0%\" stop-color=\"#f59e0b\"/><stop offset=\"100%\" stop-color=\"#d97706\"/></linearGradient></defs><rect width=\"240\" height=\"120\" rx=\"12\" fill=\"url(#gKoppu)\"/><polygon points=\"105,82 135,82 142,38 98,38\" fill=\"#ffffff\"/><ellipse cx=\"120\" cy=\"38\" rx=\"22\" ry=\"6\" fill=\"#f8fafc\"/><ellipse cx=\"120\" cy=\"82\" rx=\"15\" ry=\"4\" fill=\"#e2e8f0\"/><text x=\"120\" y=\"110\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"sans-serif\">CỐC GIẤY TIỆN LỢI 🥤</text></svg>"}, {"id": 21, "cat": "gear", "catName": "Dụng Cụ Dã Ngoại", "jp": "かみざら", "kana": "かみざら", "romaji": "kamizara", "vi": "Đĩa giấy dùng 1 lần", "kanji": "紙皿", "exJp": "やきにくを たべる とき、かみざらが ひつよう（必要）です。", "exVi": "Khi ăn thịt nướng, chúng ta rất cần đĩa giấy.", "badge": "🍽️ Đồ Dùng 1 Lần", "icon": "🍽️", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\"><defs><linearGradient id=\"gZara\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0%\" stop-color=\"#6366f1\"/><stop offset=\"100%\" stop-color=\"#4338ca\"/></linearGradient></defs><rect width=\"240\" height=\"120\" rx=\"12\" fill=\"url(#gZara)\"/><ellipse cx=\"120\" cy=\"58\" rx=\"48\" ry=\"24\" fill=\"#ffffff\"/><ellipse cx=\"120\" cy=\"58\" rx=\"36\" ry=\"16\" fill=\"#e2e8f0\"/><text x=\"120\" y=\"110\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"sans-serif\">ĐĨA GIẤY DÃ NGOẠI 🍽️</text></svg>"}, {"id": 22, "cat": "gear", "catName": "Dụng Cụ Dã Ngoại", "jp": "わりばし", "kana": "わりばし", "romaji": "waribashi", "vi": "Đũa dùng một lần", "kanji": "割り箸", "exJp": "わりばしを わすれずに もって 行ってくださいね。", "exVi": "Bạn nhớ mang theo đũa dùng một lần, đừng quên nhé.", "badge": "🥢 Đũa Dùng 1 Lần", "icon": "🥢", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\"><defs><linearGradient id=\"gBashi\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0%\" stop-color=\"#d97706\"/><stop offset=\"100%\" stop-color=\"#92400e\"/></linearGradient></defs><rect width=\"240\" height=\"120\" rx=\"12\" fill=\"url(#gBashi)\"/><rect x=\"110\" y=\"25\" width=\"8\" height=\"60\" rx=\"2\" fill=\"#fde68a\" transform=\"rotate(-15 110 55)\"/><rect x=\"122\" y=\"25\" width=\"8\" height=\"60\" rx=\"2\" fill=\"#fde68a\" transform=\"rotate(-10 122 55)\"/><text x=\"120\" y=\"110\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"sans-serif\">ĐŨA DÙNG 1 LẦN 🥢</text></svg>"}, {"id": 23, "cat": "gear", "catName": "Dụng Cụ Dã Ngoại", "jp": "にもつ", "kana": "にもつ", "romaji": "nimotsu", "vi": "Hành lý, đồ đạc mang theo", "kanji": "荷物", "exJp": "にもつが おおいですから、くるまで 行きましょう。", "exVi": "Vì đồ đạc hành lý nhiều nên chúng ta hãy đi bằng ô tô nhé.", "badge": "🎒 Hành Lý", "icon": "🎒", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\"><defs><linearGradient id=\"gNimotsu\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0%\" stop-color=\"#059669\"/><stop offset=\"100%\" stop-color=\"#065f46\"/></linearGradient></defs><rect width=\"240\" height=\"120\" rx=\"12\" fill=\"url(#gNimotsu)\"/><rect x=\"95\" y=\"38\" width=\"50\" height=\"45\" rx=\"8\" fill=\"#f87171\"/><path d=\"M108,38 L108,26 Q120,20 132,26 L132,38\" stroke=\"#ffffff\" stroke-width=\"4\" fill=\"none\"/><line x1=\"95\" y1=\"58\" x2=\"145\" y2=\"58\" stroke=\"#ffffff\" stroke-width=\"3\"/><text x=\"120\" y=\"110\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"sans-serif\">HÀNH LÝ ĐỒ ĐẠC 🎒</text></svg>"}, {"id": 24, "cat": "verb", "catName": "Động Từ Chuẩn Bị", "jp": "もって 行きます", "kana": "もっていきます", "romaji": "motte ikimasu", "vi": "Mang đi theo (tới nơi dã ngoại)", "kanji": "持って行きます", "exJp": "わたしは カメラと レジャーシートを もって 行きます。", "exVi": "Tôi sẽ mang theo máy ảnh và tấm bạt dã ngoại đi cùng.", "badge": "🏃 Hành Động", "icon": "🎒", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\"><defs><linearGradient id=\"gMotte\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0%\" stop-color=\"#ec4899\"/><stop offset=\"100%\" stop-color=\"#9d174d\"/></linearGradient></defs><rect width=\"240\" height=\"120\" rx=\"12\" fill=\"url(#gMotte)\"/><circle cx=\"105\" cy=\"40\" r=\"12\" fill=\"#fbcfe8\"/><path d=\"M105,52 L105,75 L118,90\" stroke=\"#fbcfe8\" stroke-width=\"4\" stroke-linecap=\"round\"/><path d=\"M105,60 L90,75\" stroke=\"#fbcfe8\" stroke-width=\"4\" stroke-linecap=\"round\"/><rect x=\"120\" y=\"50\" width=\"25\" height=\"25\" rx=\"4\" fill=\"#fef08a\"/><line x1=\"105\" y1=\"60\" x2=\"120\" y2=\"60\" stroke=\"#fbcfe8\" stroke-width=\"3\"/><text x=\"120\" y=\"110\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"sans-serif\">MANG THEO ĐI 🏃</text></svg>"}, {"id": 25, "cat": "verb", "catName": "Động Từ Chuẩn Bị", "jp": "もって きます", "kana": "もってきます", "romaji": "motte kimasu", "vi": "Mang lại đây, đem đến đây", "kanji": "持って来ます", "exJp": "くるまから のみものを もって きますから、まっていてください。", "exVi": "Tôi đi lấy đồ uống từ xe đem lại đây ngay, bạn đợi chút nhé.", "badge": "🏃 Đem Lại Đây", "icon": "📦", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\"><defs><linearGradient id=\"gKimasu\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0%\" stop-color=\"#8b5cf6\"/><stop offset=\"100%\" stop-color=\"#5b21b6\"/></linearGradient></defs><rect width=\"240\" height=\"120\" rx=\"12\" fill=\"url(#gKimasu)\"/><polygon points=\"85,55 125,35 125,75\" fill=\"#c4b5fd\"/><polygon points=\"125,48 155,48 155,62 125,62\" fill=\"#c4b5fd\"/><circle cx=\"160\" cy=\"55\" r=\"14\" fill=\"#fef08a\"/><text x=\"120\" y=\"110\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"sans-serif\">MANG LẠI ĐÂY 📦</text></svg>"}, {"id": 26, "cat": "verb", "catName": "Động Từ Chuẩn Bị", "jp": "かって 行きます", "kana": "かって いきます", "romaji": "katte ikimasu", "vi": "Mua mang đi", "kanji": "買って行きます", "exJp": "パンと くだものは わたしが かって 行きます。", "exVi": "Bánh mì và hoa quả thì tôi sẽ đi mua rồi mang tới.", "badge": "🛍️ Mua Mang Đi", "icon": "🛍️", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\"><defs><linearGradient id=\"gKatte\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0%\" stop-color=\"#0ea5e9\"/><stop offset=\"100%\" stop-color=\"#0369a1\"/></linearGradient></defs><rect width=\"240\" height=\"120\" rx=\"12\" fill=\"url(#gKatte)\"/><rect x=\"95\" y=\"42\" width=\"50\" height=\"42\" rx=\"6\" fill=\"#f8fafc\"/><path d=\"M108,42 L108,30 Q120,22 132,30 L132,42\" stroke=\"#38bdf8\" stroke-width=\"4\" fill=\"none\"/><circle cx=\"120\" cy=\"62\" r=\"8\" fill=\"#38bdf8\"/><text x=\"120\" y=\"110\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"sans-serif\">MUA MANG ĐI 🛍️</text></svg>"}, {"id": 27, "cat": "verb", "catName": "Động Từ Chuẩn Bị", "jp": "つくって 行きます", "kana": "つくって いきます", "romaji": "tsukutte ikimasu", "vi": "Tự làm / nấu mang đi", "kanji": "作って行きます", "exJp": "おいしい たまごやきを つくって 行きますね。", "exVi": "Tôi sẽ tự tay làm món trứng cuộn thật ngon mang đi nhé.", "badge": "🍳 Tự Làm Mang Đi", "icon": "🍳", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\"><defs><linearGradient id=\"gTsuku\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0%\" stop-color=\"#eab308\"/><stop offset=\"100%\" stop-color=\"#a16207\"/></linearGradient></defs><rect width=\"240\" height=\"120\" rx=\"12\" fill=\"url(#gTsuku)\"/><circle cx=\"115\" cy=\"55\" r=\"28\" fill=\"#1e293b\"/><circle cx=\"115\" cy=\"55\" r=\"22\" fill=\"#ffffff\"/><circle cx=\"115\" cy=\"55\" r=\"10\" fill=\"#f59e0b\"/><line x1=\"140\" y1=\"65\" x2=\"165\" y2=\"80\" stroke=\"#78350f\" stroke-width=\"5\" stroke-linecap=\"round\"/><text x=\"120\" y=\"110\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"sans-serif\">NẤU MANG ĐI 🍳</text></svg>"}, {"id": 28, "cat": "verb", "catName": "Động Từ Chuẩn Bị", "jp": "じゅんびします", "kana": "じゅんびします", "romaji": "junbishimasu", "vi": "Chuẩn bị, sắp xếp trước", "kanji": "準備します", "exJp": "ピクニックの じゅんびを いっしょに しましょう。", "exVi": "Chúng ta hãy cùng nhau chuẩn bị đồ cho chuyến dã ngoại nào.", "badge": "📋 Sắp Xếp Chuẩn Bị", "icon": "📋", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\"><defs><linearGradient id=\"gJunbi\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0%\" stop-color=\"#14b8a6\"/><stop offset=\"100%\" stop-color=\"#0f766e\"/></linearGradient></defs><rect width=\"240\" height=\"120\" rx=\"12\" fill=\"url(#gJunbi)\"/><rect x=\"95\" y=\"30\" width=\"50\" height=\"58\" rx=\"6\" fill=\"#ffffff\"/><rect x=\"105\" y=\"24\" width=\"30\" height=\"10\" rx=\"3\" fill=\"#cbd5e1\"/><line x1=\"105\" y1=\"46\" x2=\"135\" y2=\"46\" stroke=\"#94a3b8\" stroke-width=\"3\"/><line x1=\"105\" y1=\"58\" x2=\"135\" y2=\"58\" stroke=\"#94a3b8\" stroke-width=\"3\"/><line x1=\"105\" y1=\"70\" x2=\"125\" y2=\"70\" stroke=\"#94a3b8\" stroke-width=\"3\"/><text x=\"120\" y=\"110\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"sans-serif\">CHUẨN BỊ ĐỒ ĐẠC 📋</text></svg>"}];
+        const VERB_MORPH_DATA = [{"masu": "かいます", "kanji": "買います", "te": "かって", "te_iki": "買って行きます", "te_ki": "買ってきます", "mashou": "買いましょうか", "vi": "Mua", "ex": "肉と野菜は私が買って行きます。"}, {"masu": "つくります", "kanji": "作ります", "te": "つくって", "te_iki": "作って行きます", "te_ki": "作ってきます", "mashou": "作りましょうか", "vi": "Làm / Nấu", "ex": "私はおにぎりを作って行きます。"}, {"masu": "もちます", "kanji": "持ちます", "te": "もって", "te_iki": "持って行きます", "te_ki": "持ってきます", "mashou": "持ちましょうか", "vi": "Cầm / Mang", "ex": "レジャーシートを持って行きます。"}, {"masu": "もっていきます", "kanji": "持っていきます", "te": "もっていって", "te_iki": "持っていきます", "te_ki": "持ってきます", "mashou": "持っていきましょうか", "vi": "Mang theo đi", "ex": "大きいカメラを持っていきます。"}, {"masu": "てつだいます", "kanji": "手伝います", "te": "てつだって", "te_iki": "手伝って行きます", "te_ki": "手伝ってきます", "mashou": "手伝いましょうか", "vi": "Giúp đỡ", "ex": "料理の準備を手伝いましょうか。"}, {"masu": "じゅんびします", "kanji": "準備します", "te": "じゅんびして", "te_iki": "準備して行きます", "te_ki": "準備してきます", "mashou": "準備しましょうか", "vi": "Chuẩn bị", "ex": "飲み物を準備して行きます。"}, {"masu": "のみます", "kanji": "飲みます", "te": "のんで", "te_iki": "飲んで行きます", "te_ki": "飲んできます", "mashou": "飲みましょうか", "vi": "Uống", "ex": "つめたいお茶を飲んで行きます。"}, {"masu": "たべます", "kanji": "食べます", "te": "たべて", "te_iki": "食べて行きます", "te_ki": "食べてきます", "mashou": "食べましょうか", "vi": "Ăn", "ex": "みんなでお弁当を食べましょう。"}, {"masu": "やきます", "kanji": "焼きます", "te": "やいて", "te_iki": "焼いて行きます", "te_ki": "焼いてきます", "mashou": "焼きましょうか", "vi": "Nướng (thịt)", "ex": "私が肉を焼きましょうか。"}, {"masu": "あつめます", "kanji": "集めます", "te": "あつめて", "te_iki": "集めて行きます", "te_ki": "集めてきます", "mashou": "集めましょうか", "vi": "Gom / Thu dọn", "ex": "ゴミ袋にゴミを集めましょう。"}];
+        const QUIZ_QUESTIONS = [{"id": 1, "category": "Ngữ pháp: V-ていきます (Làm rồi mang đi)", "q": "バーベキューの にくと やさいは、わたしが [____] 行きます。", "options": ["かって", "かいて", "かいます", "かう"], "correct": 0, "explain": "Động từ 「かいます」 (nhóm 1) chia sang thể Te là 「かって」 ➔ 「買って行きます」 (Tôi sẽ mua thịt và rau rồi mang đi đến buổi BBQ)."}, {"id": 2, "category": "Ngữ pháp: V-てきます (Đi làm rồi quay lại)", "q": "くるまから ゴミぶくろを [____] きますから、ちょっと まってください。", "options": ["もって", "まち", "もつ", "もった"], "correct": 0, "explain": "Cấu trúc đi lấy đồ gì đó rồi quay lại vị trí hiện tại: 「V-て ＋ きます」. 「もちます」 chia sang thể Te là 「もって」 ➔ 「持ってきます」 (Tôi đi lấy túi rác đem lại đây)."}, {"id": 3, "category": "Ngữ pháp: Nghi vấn từ + でも (Bất cứ cái gì cũng được)", "q": "A: 「のみものは なにが いいですか。」 ―― B: 「[____] いいですよ。」", "options": ["なんでも", "だれでも", "どこでも", "いつでも"], "correct": 0, "explain": "A hỏi về đồ uống (なに). Để trả lời 'Cái gì cũng được / Đồ gì cũng ổn', ta dùng 「なんでも いいです」."}, {"id": 4, "category": "Ngữ pháp: Nghi vấn từ + でも (Khi nào cũng được)", "q": "A: 「ピクニックは どようびと にちようび、どちらが いいですか。」 ―― B: 「わたしは [____] いいですよ。」", "options": ["いつでも", "どこでも", "なんでも", "いくつでも"], "correct": 0, "explain": "A hỏi về thời gian (thứ Bảy hay Chủ Nhật). Để trả lời 'Khi nào / lúc nào tôi cũng rảnh/được cả', ta dùng 「いつでも いいです」."}, {"id": 5, "category": "Ngữ pháp: So sánh どちらがいいですか", "q": "「おにぎりと サンドイッチ、どちらが いいですか。」 ―― 「おにぎり[____] いいです。」", "options": ["が", "を", "に", "で"], "correct": 0, "explain": "Cặp câu hỏi và trả lời so sánh sự lựa chọn: 「N1 と N2、どちらが いいですか」 ➔ 「N1 が いいです」 (Tôi thích N1 hơn / N1 thì tốt hơn)."}, {"id": 6, "category": "Ngữ pháp: V-ましょうか (Đề nghị giúp đỡ)", "q": "にもつが おもそうですね。わたしが [____] ましょうか。", "options": ["もち", "もって", "もつ", "もった"], "correct": 0, "explain": "Cấu trúc đề nghị làm gì giúp ai đó: 「V-ます (bỏ ます) ＋ ましょうか」. 「もちます」 bỏ ます thành 「もち」 ➔ 「持ちましょうか」 (Để tôi xách giúp đồ nhé?)."}, {"id": 7, "category": "Từ vựng: Vật dụng dã ngoại", "q": "しばふ（bãi cỏ）の うえに すわる ために、[____] を もって 行きます。", "options": ["レジャーシート", "ゴミぶくろ", "わりばし", "メニュー"], "correct": 0, "explain": "Tấm bạt lớn trải trên bãi cỏ để ngồi dã ngoại gọi là 「レジャーシート」 (Leisure sheet)."}, {"id": 8, "category": "Từ vựng: Môi trường & Rác thải", "q": "ピクニックの あと、ゴミを あつめる ために [____] が ひつようです。", "options": ["ゴミぶくろ", "かみコップ", "おべんとう", "くだもの"], "correct": 0, "explain": "Túi dùng để thu gom rác sau buổi dã ngoại là 「ゴミぶくろ」 (ゴミ袋 - Túi đựng rác)."}, {"id": 9, "category": "Từ vựng: Đồ dùng ăn uống picnic", "q": "ジュースを のむ ために [____] を かって 行きましょう。", "options": ["かみコップ", "わりばし", "レジャーシート", "かみざら"], "correct": 0, "explain": "Cốc giấy dùng để uống nước giải khát là 「かみコップ」 (紙コップ)."}, {"id": 10, "category": "Chữ Hán Bài 11: 酒 (Tửu)", "q": "Chữ Hán của từ 「おさけ」 (Rượu, đồ uống có cồn) là chữ nào?", "options": ["お酒", "お茶", "お物", "お作"], "correct": 0, "explain": "Chữ Hán của 「おさけ」 là 「お酒」 (âm Hán Việt là Tửu - 10 nét, bộ Thủy 氵 + bộ Dậu 酉)."}, {"id": 11, "category": "Chữ Hán Bài 11: 作 (Tác)", "q": "Chữ Hán của từ 「つくります」 (Làm ra, nấu ăn, chế tạo) là:", "options": ["作ります", "持ちます", "飲みます", "行きます"], "correct": 0, "explain": "Động từ 「つくります」 viết bằng chữ Hán là 「作ります」 (Tác - 7 nét, bộ Nhân đứng 亻 + chữ Sạ 乍)."}, {"id": 12, "category": "Chữ Hán Bài 11: 物 (Vật)", "q": "Từ 「のみもの」 (Đồ uống) được viết bằng chữ Hán là:", "options": ["飲み物", "飲み茶", "飲み酒", "飲ん事"], "correct": 0, "explain": "「のみもの」 viết Hán tự là 「飲み物」 (Ẩm Vật - 8 nét chữ Vật 物)."}, {"id": 13, "category": "Chữ Hán Bài 11: 茶 (Trà)", "q": "Từ 「きっさてん」 (Quán giải khát, cà phê) chứa chữ Hán nào?", "options": ["喫茶店", "喫酒館", "喫物屋", "喫作処"], "correct": 0, "explain": "「きっさてん」 viết chữ Hán là 「喫茶店」 (Khiết Trà Điếm - chứa chữ Trà 茶 - 9 nét)."}, {"id": 14, "category": "Chữ Hán Bài 11: 持 (Trì)", "q": "「わたしは レジャーシートを [____] 行きます。」 (もちます chia thể Te):", "options": ["持って", "作って", "買って", "待って"], "correct": 0, "explain": "「もちます」 (cầm/mang) có chữ Hán là 「持ちます」, chia thể Te thành 「持って」 (chữ Trì 持 - 9 nét)."}, {"id": 15, "category": "Chữ Hán Bài 11: 願 (Nguyện)", "q": "Cụm từ quen thuộc khi nhờ vả ai chuẩn bị giúp: 「お[____]いします」:", "options": ["願い", "酒い", "茶い", "物い"], "correct": 0, "explain": "「おねがいします」 viết Hán tự là 「お願いします」 (chữ Nguyện 願 - 19 nét, cấu tạo từ chữ Nguyên 原 + bộ Hiệt 頁)."}];
+
+        // Speech Synthesis
+        function cleanJapaneseText(text) {
+            return text.replace(/[／/]/g, ' ').replace(/[（(].*?[）)]/g, '').trim();
+        }
+
+        function speakText(text) {
+            if (!('speechSynthesis' in window)) {
+                alert('Trình duyệt của bạn không hỗ trợ phát âm âm thanh.');
+                return;
+            }
+            window.speechSynthesis.cancel();
+            const clean = cleanJapaneseText(text);
+            const utterance = new SpeechSynthesisUtterance(clean);
+            utterance.lang = 'ja-JP';
+            utterance.rate = 0.9;
+            window.speechSynthesis.speak(utterance);
+        }
+
+        // Verb Morphing Laboratory
+        let currentVerbIdx = 0;
+
+        function renderVerbPicker() {
+            const container = document.getElementById('verbPickerRow');
+            container.innerHTML = VERB_MORPH_DATA.map((v, i) => `
+                <button type="button" class="verb-pill ${i === 0 ? 'active' : ''}" onclick="selectVerb(${i}, this)">
+                    ${v.kanji} (${v.vi})
+                </button>
+            `).join('');
+            updateMorphDisplay(0);
+        }
+
+        function selectVerb(idx, btn) {
+            document.querySelectorAll('.verb-pill').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            currentVerbIdx = idx;
+            updateMorphDisplay(idx);
+        }
+
+        function updateMorphDisplay(idx) {
+            const v = VERB_MORPH_DATA[idx];
+            document.getElementById('morphMasu').textContent = `${v.kanji} (${v.masu})`;
+            document.getElementById('morphVi').textContent = v.vi;
+            document.getElementById('morphTe').textContent = v.te;
+            document.getElementById('morphTeIki').textContent = v.te_iki;
+            document.getElementById('morphTeKi').textContent = v.te_ki;
+            document.getElementById('morphMashou').textContent = v.mashou;
+            document.getElementById('morphExText').textContent = v.ex;
+        }
+
+        function speakCurrentMorph() {
+            const v = VERB_MORPH_DATA[currentVerbIdx];
+            speakText(v.ex);
+        }
+
+        // Flashcards Logic
+        let activeVocabFilter = 'all';
+        let learnedCards = new Set();
+
+        function renderFlashcards() {
+            const container = document.getElementById('flashcardsGrid');
+            const filtered = activeVocabFilter === 'all' 
+                ? VOCAB_DATA 
+                : VOCAB_DATA.filter(v => v.cat === activeVocabFilter);
+
+            container.innerHTML = filtered.map(v => `
+                <div class="flashcard" onclick="flipCard(this, event)">
+                    <div class="fc-inner">
+                        <!-- Front -->
+                        <div class="fc-front">
+                            <div style="display:flex; justify-content:space-between; align-items:center;">
+                                <span class="fc-badge">${v.badge}</span>
+                                <button type="button" class="btn-speak" style="width:28px; height:28px; font-size:0.75rem;" onclick="event.stopPropagation(); speakText('${v.jp}')">🔊</button>
+                            </div>
+                            <div class="fc-illustration">
+                                ${v.svg}
+                            </div>
+                            <div>
+                                <div class="fc-jp jp-text">${v.kanji || v.jp}</div>
+                                <div class="fc-kana jp-text">${v.kana}</div>
+                                <div class="fc-romaji">${v.romaji}</div>
+                            </div>
+                            <div class="fc-hint">💡 Bấm thẻ để lật xem nghĩa & ví dụ</div>
+                        </div>
+
+                        <!-- Back -->
+                        <div class="fc-back">
+                            <div>
+                                <div class="fc-back-meaning">${v.vi}</div>
+                                <div style="font-size:0.75rem; font-weight:800; color:#047857; text-transform:uppercase; margin-bottom:4px;">Ví dụ dã ngoại:</div>
+                                <div class="fc-back-ex-jp jp-text">${v.exJp}</div>
+                                <div class="fc-back-ex-vi">${v.exVi}</div>
+                            </div>
+                            <div class="fc-back-actions">
+                                <button type="button" class="btn-speak" style="width:32px; height:32px; font-size:0.8rem;" onclick="event.stopPropagation(); speakText('${v.exJp}')">🔊</button>
+                                <button type="button" class="btn-learned ${learnedCards.has(v.id) ? 'active' : ''}" onclick="event.stopPropagation(); toggleLearned(${v.id}, this)">
+                                    ${learnedCards.has(v.id) ? '✓ Đã thuộc' : '+ Đánh dấu thuộc'}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+            updateLearnedStats();
+        }
+
+        function flipCard(card, event) {
+            if (event.target.closest('button')) return;
+            card.classList.toggle('flipped');
+        }
+
+        function filterVocab(cat, btn) {
+            activeVocabFilter = cat;
+            document.querySelectorAll('.vocab-filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            renderFlashcards();
+        }
+
+        function toggleLearned(id, btn) {
+            if (learnedCards.has(id)) {
+                learnedCards.delete(id);
+                btn.classList.remove('active');
+                btn.textContent = '+ Đánh dấu thuộc';
+            } else {
+                learnedCards.add(id);
+                btn.classList.add('active');
+                btn.textContent = '✓ Đã thuộc';
+            }
+            updateLearnedStats();
+        }
+
+        function updateLearnedStats() {
+            const badge = document.getElementById('vocabStats');
+            badge.textContent = `Đã thuộc: ${learnedCards.size} / ${VOCAB_DATA.length} từ`;
+        }
+
+        // Dialogue Simulator
+        const dialogueSteps = [
+            {
+                userText: "いいですね！ピクニックに行きましょう。",
+                userVi: "Hay quá! Chúng ta cùng đi dã ngoại nhé.",
+                npcName: "Tanaka-san",
+                npcText: "じゃ、バーベキューの お肉と 野菜は どうしますか。",
+                npcVi: "Vậy thì, thịt và rau cho tiệc BBQ tính sao bây giờ?",
+                options: [
+                    {
+                        text: "肉と 野菜は 私が 買って行きます！",
+                        vi: "Thịt và rau thì tôi sẽ mua rồi mang đi nhé!",
+                        replyNpc: "Sakura-chan",
+                        replyText: "わあ、ありがとうございます！助かります。",
+                        replyVi: "Oa, cảm ơn bạn nhiều nhé! Đỡ quá."
+                    },
+                    {
+                        text: "みんなで スーパーへ 買いに 行きましょう。",
+                        vi: "Mọi người cùng nhau ra siêu thị mua đi nào.",
+                        replyNpc: "Tanaka-san",
+                        replyText: "そうですね。一緒に行きましょう！",
+                        replyVi: "Ý hay đó, chúng ta cùng đi nhé!"
+                    }
+                ]
+            },
+            {
+                userText: "飲み物は 何が いいですか。",
+                userVi: "Đồ uống thì mọi người thích uống gì nào?",
+                npcName: "Sakura-chan",
+                npcText: "私は お茶か ジュースなら、なんでも いいですよ。",
+                npcVi: "Mình thì trà hay nước ngọt gì cũng được hết á.",
+                options: [
+                    {
+                        text: "じゃ、冷たい お茶と ジュースを 買って行きますね。",
+                        vi: "Vậy tôi sẽ mua trà ướp lạnh và nước trái cây mang đi nhé.",
+                        replyNpc: "Tanaka-san",
+                        replyText: "お酒も 少し 買って行きましょうか！",
+                        replyVi: "Chúng ta mua thêm chút bia/rượu nữa nhé!"
+                    },
+                    {
+                        text: "自販機が ありますから、公園で 買いましょう。",
+                        vi: "Ở công viên có máy bán hàng tự động nên ra đó mua nhé.",
+                        replyNpc: "Sakura-chan",
+                        replyText: "賛成です！荷物が 軽くなりますね。",
+                        replyVi: "Nhất trí luôn! Thế thì hành lý đỡ nặng hẳn."
+                    }
+                ]
+            }
+        ];
+
+        let currentStepIdx = 0;
+
+        function initDialogue() {
+            currentStepIdx = 0;
+            renderDialogueOptions(0);
+        }
+
+        function renderDialogueOptions(stepIdx) {
+            const container = document.getElementById('chatOptionsGrid');
+            const step = dialogueSteps[stepIdx];
+            if (!step) {
+                container.innerHTML = `
+                    <div style="grid-column: 1/-1; text-align:center; padding:12px; color:#059669; font-weight:700;">
+                        🎉 Hoàn thành xuất sắc kế hoạch dã ngoại! Mọi người đã sẵn sàng xuất phát!
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = step.options.map((opt, i) => `
+                <button type="button" class="btn-chat-choice" onclick="chooseDialogue(${stepIdx}, ${i})">
+                    <div style="font-family:var(--jp-font);">${opt.text}</div>
+                    <div style="font-size:0.75rem; color:#64748b; margin-top:2px;">${opt.vi}</div>
+                </button>
+            `).join('');
+        }
+
+        function chooseDialogue(stepIdx, optIdx) {
+            const step = dialogueSteps[stepIdx];
+            const opt = step.options[optIdx];
+            const chat = document.getElementById('chatContainer');
+
+            // Add user bubble
+            const userBubble = document.createElement('div');
+            userBubble.className = 'chat-bubble user';
+            userBubble.innerHTML = `
+                <div class="chat-avatar">🧑</div>
+                <div class="chat-msg">
+                    <div class="chat-name">Bạn (Tôi)</div>
+                    <div class="chat-jp">${opt.text}</div>
+                    <div class="chat-vi">${opt.vi}</div>
+                </div>
+            `;
+            chat.appendChild(userBubble);
+            speakText(opt.text);
+
+            // Add NPC reply
+            setTimeout(() => {
+                const npcBubble = document.createElement('div');
+                npcBubble.className = 'chat-bubble bot';
+                npcBubble.innerHTML = `
+                    <div class="chat-avatar">${opt.replyNpc === 'Sakura-chan' ? '👩' : '👨'}</div>
+                    <div class="chat-msg">
+                        <div class="chat-name">${opt.replyNpc}</div>
+                        <div class="chat-jp">${opt.replyText}</div>
+                        <div class="chat-vi">${opt.replyVi}</div>
+                    </div>
+                `;
+                chat.appendChild(npcBubble);
+                speakText(opt.replyText);
+
+                // Move next step
+                if (stepIdx + 1 < dialogueSteps.length) {
+                    setTimeout(() => {
+                        const nextPrompt = dialogueSteps[stepIdx + 1];
+                        const promptBubble = document.createElement('div');
+                        promptBubble.className = 'chat-bubble bot';
+                        promptBubble.innerHTML = `
+                            <div class="chat-avatar">👨</div>
+                            <div class="chat-msg">
+                                <div class="chat-name">${nextPrompt.npcName}</div>
+                                <div class="chat-jp">${nextPrompt.npcText}</div>
+                                <div class="chat-vi">${nextPrompt.npcVi}</div>
+                            </div>
+                        `;
+                        chat.appendChild(promptBubble);
+                        speakText(nextPrompt.npcText);
+                        renderDialogueOptions(stepIdx + 1);
+                    }, 1000);
+                } else {
+                    renderDialogueOptions(stepIdx + 1);
+                }
+            }, 600);
+        }
+
+        // Quiz Logic
+        let quizAnswers = {};
+
+        function renderQuiz() {
+            const container = document.getElementById('quizContainer');
+            container.innerHTML = QUIZ_QUESTIONS.map(q => `
+                <div class="quiz-card" id="quizCard_${q.id}">
+                    <div class="quiz-q-num">Câu ${q.id} / 15 • ${q.category}</div>
+                    <div class="quiz-question-text jp-text">${q.q}</div>
+                    <div class="quiz-options-grid">
+                        ${q.options.map((opt, optIdx) => `
+                            <button type="button" class="quiz-opt-btn jp-text" onclick="answerQuiz(${q.id}, ${optIdx}, this)">
+                                ${opt}
+                            </button>
+                        `).join('')}
+                    </div>
+                    <div class="quiz-feedback" id="quizFeedback_${q.id}">
+                        ${q.explain}
+                    </div>
+                </div>
+            `).join('');
+            updateQuizProgress();
+        }
+
+        function answerQuiz(qId, selectedIdx, btn) {
+            if (quizAnswers[qId] !== undefined) return;
+            quizAnswers[qId] = selectedIdx;
+
+            const q = QUIZ_QUESTIONS.find(item => item.id === qId);
+            const card = document.getElementById(`quizCard_${qId}`);
+            const buttons = card.querySelectorAll('.quiz-opt-btn');
+            const feedback = document.getElementById(`quizFeedback_${qId}`);
+
+            buttons.forEach((b, idx) => {
+                b.disabled = true;
+                if (idx === q.correct) {
+                    b.classList.add('correct');
+                } else if (idx === selectedIdx) {
+                    b.classList.add('wrong');
+                }
+            });
+
+            feedback.classList.add('show');
+            if (selectedIdx === q.correct) {
+                feedback.classList.add('correct');
+                feedback.innerHTML = `✓ <strong>Chính xác!</strong> ${q.explain}`;
+            } else {
+                feedback.classList.add('wrong');
+                feedback.innerHTML = `✕ <strong>Chưa chính xác!</strong> ${q.explain}`;
+            }
+
+            updateQuizProgress();
+            checkQuizFinish();
+        }
+
+        function updateQuizProgress() {
+            const answeredCount = Object.keys(quizAnswers).length;
+            const pct = (answeredCount / QUIZ_QUESTIONS.length) * 100;
+            document.getElementById('quizProgressBar').style.width = `${pct}%`;
+        }
+
+        function checkQuizFinish() {
+            if (Object.keys(quizAnswers).length === QUIZ_QUESTIONS.length) {
+                let score = 0;
+                QUIZ_QUESTIONS.forEach(q => {
+                    if (quizAnswers[q.id] === q.correct) score++;
+                });
+
+                const scoreBox = document.getElementById('scoreBox');
+                const scoreVal = document.getElementById('scoreVal');
+                const scoreMsg = document.getElementById('scoreMsg');
+
+                scoreVal.textContent = `${score} / 15`;
+                if (score >= 13) {
+                    scoreMsg.textContent = "🌟 Tuyệt vời! Bạn đã thành thạo toàn bộ kiến thức Bài 11!";
+                } else if (score >= 9) {
+                    scoreMsg.textContent = "👍 Khá tốt! Hãy ôn lại các câu chưa chính xác nhé.";
+                } else {
+                    scoreMsg.textContent = "💪 Cố lên! Hãy xem lại phần giải thích và thử làm lại nhé.";
+                }
+                scoreBox.classList.add('show');
+                scoreBox.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        function resetQuiz() {
+            quizAnswers = {};
+            document.getElementById('scoreBox').classList.remove('show');
+            renderQuiz();
+            document.getElementById('sec-quiz').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Global Navigation Dropdowns
+        function toggleGlobalMegaSheet(e) {
+            if (e) e.stopPropagation();
+            document.getElementById('globalMegaSheet').classList.toggle('show');
+        }
+
+        function closeGlobalMegaSheet() {
+            document.getElementById('globalMegaSheet').classList.remove('show');
+        }
+
+        function toggleGlobalToolsDropdown(e) {
+            if (e) e.stopPropagation();
+            document.getElementById('globalToolsMenu').classList.toggle('show');
+        }
+
+        document.addEventListener('click', (e) => {
+            const menu = document.getElementById('globalToolsMenu');
+            if (menu && !menu.contains(e.target)) {
+                menu.classList.remove('show');
+            }
+        });
+
+        // Initialize on DOM Ready
+        window.addEventListener('DOMContentLoaded', () => {
+            renderVerbPicker();
+            renderFlashcards();
+            initDialogue();
+            renderQuiz();
+        });
+    </script>
+</body>
+</html>
