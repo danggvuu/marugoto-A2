@@ -10,12 +10,14 @@ Bạn có thể truy cập và sử dụng trực tiếp trên điện thoại h
 
 | Chức Năng | Liên Kết Truy Cập | Mô Tả |
 | :--- | :--- | :--- |
+| 📚 **Tổng Hợp Ngữ Pháp A1-A2 (26 Bài)** | [👉 Bấm để học ngữ pháp](https://danggvuu.github.io/marugoto-A2/Tong_Hop_Ngu_Phap_Marugoto_A1_A2.html) | Trọn bộ 29 chuyên đề ngữ pháp A1 (L11-18), A2-1 (L1-10) & A2-2 (L11-18), 75+ mẫu câu, Audio Tokyo, Phòng biến đổi động từ & Test phản xạ |
 | ✍️ **Luyện Tập Thể TE (～て)** | [👉 Bấm để vào làm bài](https://danggvuu.github.io/marugoto-A2/) | Bảng 56 động từ tương tác, chấm điểm tự động & lý thuyết chi tiết |
 | 📘 **Luyện Tập Thể RU (Thể từ điển)** | [👉 Bấm để vào làm bài](https://danggvuu.github.io/marugoto-A2/the_ru.html) | Bảng 56 động từ chia thể RU, ngữ pháp sở thích `～Vること です` |
-| ⛩️ **Thẻ Học Chữ Hán Kanji A2-1** | [👉 Bấm để học Kanji](https://danggvuu.github.io/marugoto-A2/kanji_a2.html) | Thẻ Kanji chi tiết (Hán Việt, On, Kun, chiết tự, mẹo nhớ & ô tập viết) |
-| 📖 **Kho Từ Vựng Tổng Hợp** | [👉 Bấm để học từ vựng](https://danggvuu.github.io/marugoto-A2/Tu_Vung_Marugoto_A1_16_A2_1_10.html) | 380+ từ vựng A1 (Bài 16-18) & A2-1 (Bài 1-10) kèm Flashcard & Quiz |
+| ⛩️ **Thẻ Học Chữ Hán Kanji A2-1 & A2-2** | [👉 Bấm để học Kanji](https://danggvuu.github.io/marugoto-A2/kanji_a2.html) | Thẻ Kanji chi tiết (Hán Việt, On, Kun, chiết tự, mẹo nhớ & ô tập viết) |
+| 📖 **Kho Từ Vựng Tổng Hợp (600+ Từ)** | [👉 Bấm để học từ vựng](https://danggvuu.github.io/marugoto-A2/Tu_Vung_Marugoto_A1_16_A2_1_10.html) | Bao quát từ vựng A1 (Bài 16-18), A2-1 (Bài 1-10) và A2-2 (Bài 11-18) kèm Flashcard & Quiz |
 | 🎯 **Cẩm Nang Ôn Tập (Bài 5-8)** | [👉 Bấm để vào ôn tập](https://danggvuu.github.io/marugoto-A2/On_Tap_Mini_Test_A2_5_8.html) | Trọng tâm Bài 5-8: Lý thuyết ngữ pháp, 111+ từ vựng, 32 chữ Hán, 30 câu thi thử & Dữ liệu gốc Minato JF |
 | 📝 **Luyện 5 Mã Đề Thi Thử (Bài 5-8)** | [👉 Bấm để làm đề thi](https://danggvuu.github.io/marugoto-A2/De_Thi_Thu_Marugoto_A2_5_8.html) | Hệ thống 5 Mã đề (101 - 105) chuẩn 100% phiếu thầy giao, chỉ dùng Kanji đã học, có tính giờ 40p & chấm điểm tự động |
+| 🌟 **Trang Chuyên Sâu Bài 10 Đến 18** | [👉 Bài 10](https://danggvuu.github.io/marugoto-A2/Marugoto_A2_Lesson_10.html) • [Bài 11](https://danggvuu.github.io/marugoto-A2/Marugoto_A2_Lesson_11.html) • [Bài 12](https://danggvuu.github.io/marugoto-A2/Marugoto_A2_Lesson_12.html) • [Bài 13](https://danggvuu.github.io/marugoto-A2/Marugoto_A2_Lesson_13.html) • [Bài 14](https://danggvuu.github.io/marugoto-A2/Marugoto_A2_Lesson_14.html) • [Bài 15](https://danggvuu.github.io/marugoto-A2/Marugoto_A2_Lesson_15.html) • [Bài 16](https://danggvuu.github.io/marugoto-A2/Marugoto_A2_Lesson_16.html) • [Bài 17](https://danggvuu.github.io/marugoto-A2/Marugoto_A2_Lesson_17.html) • [Bài 18](https://danggvuu.github.io/marugoto-A2/Marugoto_A2_Lesson_18.html) | Hệ thống 9 ứng dụng web độc lập tương tác chuyên sâu đầy đủ Flashcard, Morphing, Ngữ pháp & Mini Test từng bài |
 | ⛩️ **Tài Liệu Gốc Japan Foundation** | [👉 Marugoto A2-1 Wordbook](MarugotoA2-1Wordbook_eng.pdf) • [A2-2 Wordbook](MarugotoA2-2Wordbook_eng.pdf) | Bản quyền chính thức từ Trung tâm Giao lưu Quốc tế Nhật Bản (minato-jf.jp) |
 
 ---
