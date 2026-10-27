@@ -65,41 +65,272 @@
             margin: 0 auto;
         }
 
-        /* Global Hub Navigation */
+        
+        
+        
+        /* ==========================================
+           GLOBAL HUB NAVIGATION (CLEAN & NON-STICKY)
+           ========================================== */
         .global-hub-nav {
             display: flex;
             justify-content: center;
             gap: 10px;
-            margin-bottom: 24px;
+            margin: 10px 0 24px 0;
             flex-wrap: wrap;
         }
         .hub-nav-item {
             text-decoration: none;
-            background: var(--white);
-            color: var(--gray-600);
+            background: #ffffff;
+            color: #475569;
             padding: 9px 18px;
-            border-radius: var(--radius-full);
+            border-radius: 9999px;
             font-size: 0.9rem;
             font-weight: 700;
-            border: 1.5px solid var(--gray-200);
-            box-shadow: var(--shadow-sm);
+            border: 1.5px solid #e2e8f0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
             transition: all 0.2s ease;
             display: inline-flex;
             align-items: center;
             gap: 6px;
+            cursor: pointer;
+            font-family: inherit;
         }
         .hub-nav-item:hover {
-            border-color: var(--primary);
-            color: var(--primary);
+            border-color: #4f46e5;
+            color: #4f46e5;
             transform: translateY(-2px);
         }
         .hub-nav-item.active-hub {
             background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
-            color: var(--white);
+            color: #ffffff !important;
             border-color: transparent;
             box-shadow: 0 4px 15px rgba(79, 70, 229, 0.35);
         }
+        /* Hub Dropdown Menu */
+        .hub-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .hub-dropdown-menu {
+            display: none;
+            position: absolute;
+            top: calc(100% + 6px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ffffff;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 14px;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+            padding: 8px;
+            min-width: 260px;
+            z-index: 9999;
+        }
+        .hub-dropdown-menu.show {
+            display: block;
+        }
+        .hub-drop-link {
+            display: block;
+            padding: 8px 14px;
+            color: #334155;
+            font-size: 0.88rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.15s ease;
+        }
+        .hub-drop-link:hover {
+            background: #eef2ff;
+            color: #4f46e5;
+        }
+        .hub-drop-link.active {
+            background: #4f46e5;
+            color: #ffffff !important;
+        }
+        @media (max-width: 768px) {
+            .global-hub-nav {
+                display: flex;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                justify-content: flex-start;
+                gap: 8px;
+                margin-bottom: 15px;
+                padding: 2px 2px 8px 2px;
+                scrollbar-width: none;
+            }
+            .global-hub-nav::-webkit-scrollbar {
+                display: none;
+            }
+            .hub-nav-item {
+                flex-shrink: 0;
+                padding: 7px 14px;
+                font-size: 0.84rem;
+            }
+        }
 
+        /* Hub Dropdown Menu */
+        .hub-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .hub-dropdown-menu {
+            display: none;
+            position: absolute;
+            top: calc(100% + 6px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ffffff;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 14px;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+            padding: 8px;
+            min-width: 260px;
+            z-index: 9999;
+        }
+        .hub-dropdown-menu.show {
+            display: block;
+        }
+        .hub-drop-link {
+            display: block;
+            padding: 8px 14px;
+            color: #334155;
+            font-size: 0.88rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.15s ease;
+        }
+        .hub-drop-link:hover {
+            background: #eef2ff;
+            color: #4f46e5;
+        }
+        .hub-drop-link.active {
+            background: #4f46e5;
+            color: #ffffff !important;
+        }
+        @media (max-width: 768px) {
+            .global-hub-nav {
+                display: flex;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                justify-content: flex-start;
+                gap: 8px;
+                margin-bottom: 15px;
+                padding: 2px 2px 8px 2px;
+                scrollbar-width: none;
+            }
+            .global-hub-nav::-webkit-scrollbar {
+                display: none;
+            }
+            .hub-nav-item {
+                flex-shrink: 0;
+                padding: 7px 14px;
+                font-size: 0.84rem;
+            }
+        }
+
+        /* Hub Dropdown Menu */
+        .hub-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .hub-dropdown-menu {
+            display: none;
+            position: absolute;
+            top: calc(100% + 6px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ffffff;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 14px;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+            padding: 8px;
+            min-width: 260px;
+            z-index: 9999;
+        }
+        .hub-dropdown-menu.show {
+            display: block;
+        }
+        .hub-drop-link {
+            display: block;
+            padding: 8px 14px;
+            color: #334155;
+            font-size: 0.88rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.15s ease;
+        }
+        .hub-drop-link:hover {
+            background: #eef2ff;
+            color: #4f46e5;
+        }
+        .hub-drop-link.active {
+            background: #4f46e5;
+            color: #ffffff !important;
+        }
+        @media (max-width: 768px) {
+            .global-hub-nav {
+                display: flex;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                justify-content: flex-start;
+                gap: 8px;
+                margin-bottom: 15px;
+                padding: 2px 2px 8px 2px;
+                scrollbar-width: none;
+            }
+            .global-hub-nav::-webkit-scrollbar {
+                display: none;
+            }
+            .hub-nav-item {
+                flex-shrink: 0;
+                padding: 7px 14px;
+                font-size: 0.84rem;
+            }
+        }
+
+
+        
+        /* Hub Dropdown Menu */
+        .hub-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .hub-dropdown-menu {
+            display: none;
+            position: absolute;
+            top: calc(100% + 6px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ffffff;
+            border: 1.5px solid var(--gray-200);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-lg);
+            padding: 8px;
+            min-width: 260px;
+            z-index: 1000;
+        }
+        .hub-dropdown-menu.show {
+            display: block;
+        }
+        .hub-drop-link {
+            display: block;
+            padding: 8px 14px;
+            color: var(--gray-700);
+            font-size: 0.88rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: var(--radius-sm);
+            transition: all 0.15s ease;
+        }
+        .hub-drop-link:hover {
+            background: var(--primary-light);
+            color: var(--primary);
+        }
+        
         /* Hero Header */
         .hero-header {
             background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4338ca 100%);
@@ -168,7 +399,7 @@
         /* Tab Navigation Bar */
         .tab-nav-wrapper {
             position: sticky;
-            top: 56px;
+            top: 12px;
             z-index: 100;
             background: rgba(255, 255, 255, 0.94);
             backdrop-filter: blur(12px);
@@ -986,339 +1217,7 @@
             }
         }
     
-/* ===================================================
-   GLOBAL STICKY DOCK & QUICK DRAWER (OPTION 1)
-   =================================================== */
-.global-sticky-dock-wrapper {
-    position: sticky;
-    top: 0;
-    z-index: 99999;
-    width: 100%;
-    margin: 0 0 20px 0;
-    padding: 0;
-}
-
-.global-sticky-dock {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    padding: 8px 16px;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border-bottom: 1px solid #e2e8f0;
-    box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.06);
-}
-
-.dock-brand {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    font-weight: 800;
-    font-size: 0.95rem;
-    color: #0f172a;
-    padding: 6px 12px;
-    border-radius: 12px;
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
-    flex-shrink: 0;
-    transition: all 0.2s ease;
-}
-
-.dock-brand:hover {
-    background: #f1f5f9;
-    border-color: #cbd5e1;
-    transform: translateY(-1px);
-}
-
-.dock-brand-text {
-    background: linear-gradient(135deg, #4f46e5, #ec4899);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.dock-pill-track {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    overflow-x: auto;
-    scrollbar-width: thin;
-    padding: 2px 4px;
-    -webkit-overflow-scrolling: touch;
-    flex: 1;
-}
-
-.dock-pill-track::-webkit-scrollbar {
-    height: 4px;
-}
-.dock-pill-track::-webkit-scrollbar-thumb {
-    background: #cbd5e1;
-    border-radius: 4px;
-}
-
-.dock-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    padding: 6px 13px;
-    border-radius: 20px;
-    font-size: 0.82rem;
-    font-weight: 700;
-    color: #475569;
-    background: #f1f5f9;
-    border: 1px solid #e2e8f0;
-    text-decoration: none;
-    white-space: nowrap;
-    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-    flex-shrink: 0;
-}
-
-.dock-pill:hover {
-    background: #eef2ff;
-    color: #4f46e5;
-    border-color: #c7d2fe;
-    transform: translateY(-1px);
-}
-
-.dock-pill.active {
-    background: linear-gradient(135deg, #4f46e5, #ec4899) !important;
-    color: #ffffff !important;
-    border-color: transparent !important;
-    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.35);
-}
-
-.dock-actions {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    flex-shrink: 0;
-}
-
-.dock-action-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 7px 14px;
-    border-radius: 12px;
-    font-size: 0.82rem;
-    font-weight: 700;
-    border: 1px solid #cbd5e1;
-    background: #ffffff;
-    color: #0f172a;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    white-space: nowrap;
-}
-
-.dock-action-btn:hover {
-    background: #f8fafc;
-    border-color: #94a3b8;
-    transform: translateY(-1px);
-}
-
-.dock-action-btn.btn-mega-sheet {
-    background: #0f172a;
-    color: #ffffff;
-    border-color: #0f172a;
-}
-.dock-action-btn.btn-mega-sheet:hover {
-    background: #334155;
-}
-
-.dock-dropdown-wrapper {
-    position: relative;
-}
-
-.dock-tools-menu {
-    position: absolute;
-    right: 0;
-    top: calc(100% + 8px);
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 14px;
-    box-shadow: 0 15px 30px -5px rgba(0,0,0,0.15);
-    min-width: 220px;
-    padding: 8px;
-    display: none;
-    flex-direction: column;
-    gap: 2px;
-    z-index: 100000;
-    animation: dockFadeIn 0.2s ease;
-}
-
-.dock-tools-menu.open {
-    display: flex;
-}
-
-.dock-tool-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 12px;
-    border-radius: 8px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: #334155;
-    text-decoration: none;
-    transition: all 0.15s ease;
-}
-
-.dock-tool-item:hover {
-    background: #f1f5f9;
-    color: #4f46e5;
-    transform: translateX(2px);
-}
-
-.dock-tool-item.active {
-    background: #eef2ff;
-    color: #4f46e5;
-    font-weight: 700;
-}
-
-.global-mega-sheet {
-    display: none;
-    background: #ffffff;
-    border-bottom: 2px solid #4f46e5;
-    box-shadow: 0 20px 40px -10px rgba(0,0,0,0.2);
-    padding: 24px;
-    animation: dockSlideDown 0.25s ease;
-}
-
-.global-mega-sheet.open {
-    display: block;
-}
-
-.sheet-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 18px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid #e2e8f0;
-}
-
-.sheet-header-title {
-    font-size: 1.1rem;
-    font-weight: 800;
-    color: #0f172a;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.sheet-close-btn {
-    border: none;
-    background: #f1f5f9;
-    color: #64748b;
-    font-size: 0.85rem;
-    font-weight: 700;
-    padding: 6px 14px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.15s;
-}
-
-.sheet-close-btn:hover {
-    background: #e2e8f0;
-    color: #0f172a;
-}
-
-.sheet-topics-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-    gap: 14px;
-}
-
-.sheet-topic-card {
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
-    border-radius: 14px;
-    padding: 14px;
-    transition: all 0.2s ease;
-}
-
-.sheet-topic-card:hover {
-    border-color: #cbd5e1;
-    background: #f1f5f9;
-}
-
-.sheet-topic-badge {
-    font-size: 0.72rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    color: #4f46e5;
-    margin-bottom: 10px;
-    letter-spacing: 0.05em;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.sheet-lesson-link {
-    display: block;
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 10px;
-    padding: 9px 12px;
-    margin-bottom: 8px;
-    text-decoration: none;
-    transition: all 0.2s ease;
-}
-
-.sheet-lesson-link:hover {
-    border-color: #4f46e5;
-    background: #eef2ff;
-    transform: translateY(-1px);
-}
-
-.sheet-lesson-link.active {
-    border-color: #ec4899;
-    background: #fff0f5;
-    box-shadow: 0 2px 8px rgba(236, 72, 153, 0.15);
-}
-
-.sheet-lesson-name {
-    font-size: 0.88rem;
-    font-weight: 700;
-    color: #0f172a;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.sheet-lesson-desc {
-    font-size: 0.75rem;
-    color: #64748b;
-    margin-top: 3px;
-}
-
-@keyframes dockSlideDown {
-    from { opacity: 0; transform: translateY(-8px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes dockFadeIn {
-    from { opacity: 0; transform: scale(0.97); }
-    to { opacity: 1; transform: scale(1); }
-}
-
-@media (max-width: 768px) {
-    .global-sticky-dock {
-        flex-wrap: wrap;
-        padding: 8px 12px;
-    }
-    .dock-pill-track {
-        order: 3;
-        width: 100%;
-        margin-top: 6px;
-    }
-    .sheet-topics-grid {
-        grid-template-columns: 1fr;
-    }
-}
-\n</style>
+    </style>
     <!-- Animate UI Core (Spring Physics & Micro-Interactions) -->
     <link rel="stylesheet" href="animate-ui.css">
     <script src="animate-ui.js" defer></script>
@@ -1326,190 +1225,32 @@
 <body>
 
 <div class="container">
-
     <!-- Global Hub Navigation -->
-    
-<!-- GLOBAL STICKY FLOATING DOCK (OPTION 1) -->
-<div class="global-sticky-dock-wrapper">
-    <div class="global-sticky-dock">
-        <!-- Brand / Home -->
-        <a href="index.html" class="dock-brand" title="Về Trang Chủ Luyện Tập Thể TE">
-            <span>⛩️</span>
-            <span class="dock-brand-text">Marugoto A2-1</span>
-        </a>
-
-        <!-- Lesson Track (10 Pills) -->
-        <div class="dock-pill-track" id="dockPillTrack">
-            <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l1" class="dock-pill" data-lesson="1"><span class="pill-ico">🏠</span> Bài 1</a>
-            <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l2" class="dock-pill" data-lesson="2"><span class="pill-ico">🎨</span> Bài 2</a>
-            <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l3" class="dock-pill" data-lesson="3"><span class="pill-ico">🍁</span> Bài 3</a>
-            <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l4" class="dock-pill" data-lesson="4"><span class="pill-ico">⛅</span> Bài 4</a>
-            <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l5" class="dock-pill" data-lesson="5"><span class="pill-ico">🏙️</span> Bài 5</a>
-            <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l6" class="dock-pill" data-lesson="6"><span class="pill-ico">🗺️</span> Bài 6</a>
-            <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l7" class="dock-pill" data-lesson="7"><span class="pill-ico">⏰</span> Bài 7</a>
-            <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l8" class="dock-pill" data-lesson="8"><span class="pill-ico">⛩️</span> Bài 8</a>
-            <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l9" class="dock-pill" data-lesson="9"><span class="pill-ico">🗣️</span> Bài 9</a>
-            <a href="Marugoto_A2_Lesson_10.html" class="dock-pill" data-lesson="10"><span class="pill-ico">🌟</span> Bài 10</a>
-            <a href="Marugoto_A2_Lesson_11.html" class="dock-pill" data-lesson="11"><span class="pill-ico">🍱</span> Bài 11</a>
-            <a href="Marugoto_A2_Lesson_12.html" class="dock-pill" data-lesson="12"><span class="pill-ico">🍜</span> Bài 12</a>
-            <a href="Marugoto_A2_Lesson_13.html" class="dock-pill" data-lesson="13"><span class="pill-ico">✈️</span> Bài 13</a>
-            <a href="Marugoto_A2_Lesson_14.html" class="dock-pill" data-lesson="14"><span class="pill-ico">💻</span> Bài 14</a>
-            <a href="Marugoto_A2_Lesson_15.html" class="dock-pill" data-lesson="15"><span class="pill-ico">🏥</span> Bài 15</a>
-            <a href="Marugoto_A2_Lesson_16.html" class="dock-pill" data-lesson="16"><span class="pill-ico">🏃</span> Bài 16</a>
-            <a href="Marugoto_A2_Lesson_17.html" class="dock-pill" data-lesson="17"><span class="pill-ico">🎁</span> Bài 17</a>
-            <a href="Marugoto_A2_Lesson_18.html" class="dock-pill" data-lesson="18"><span class="pill-ico">👘</span> Bài 18</a>
-        </div>
-
-        <!-- Action Controls -->
-        <div class="dock-actions">
-            <button type="button" class="dock-action-btn btn-mega-sheet" onclick="toggleGlobalMegaSheet(event)" title="Xem mục lục toàn bộ 10 bài học">
-                <span>📑 10 Bài Học</span>
-                <span class="caret">▾</span>
-            </button>
-            <div class="dock-dropdown-wrapper">
-                <button type="button" class="dock-action-btn btn-tools" onclick="toggleGlobalToolsDropdown(event)" title="Các công cụ học tập khác">
-                    <span>🛠️ Tiện Ích</span>
-                    <span class="caret">▾</span>
-                </button>
-                <div class="dock-tools-menu" id="globalToolsMenu">
-                        <a href="Tong_Hop_Ngu_Phap_Marugoto_A1_A2.html" class="dock-tool-item">📚 Tổng Hợp Ngữ Pháp A1-A2 (26 Bài) 🔥</a>
-                        <a href="index.html" class="dock-tool-item">🌸 Thể TE (～て)</a>
-                        <a href="the_ru.html" class="dock-tool-item">📘 Thể RU (Từ Điển)</a>
-                        <a href="kanji_a2.html" class="dock-tool-item">⛩️ Học Kanji & Nét Viết</a>
-                        <a href="Tu_Vung_Marugoto_A1_16_A2_1_10.html" class="dock-tool-item">📖 Kho Từ Vựng A1-A2 (600+ Từ)</a>
-                        <a href="On_Tap_Mini_Test_A2_5_8.html" class="dock-tool-item">🎯 Cẩm Nang Toàn Diện 10 Bài</a>
-                        <a href="De_Thi_Thu_Marugoto_A2_5_8.html" class="dock-tool-item">📝 5 Mã Đề Thi Thử</a>
-                        <a href="Marugoto_A2_Lesson_10.html" class="dock-tool-item">🌟 Web Chuyên Sâu Bài 10 ✨</a>
-                        <a href="Marugoto_A2_Lesson_11.html" class="dock-tool-item">🍱 Web Chuyên Sâu Bài 11 ✨</a>
-                        <a href="Marugoto_A2_Lesson_12.html" class="dock-tool-item">🍜 Web Chuyên Sâu Bài 12 ✨</a>
-                        <a href="Marugoto_A2_Lesson_13.html" class="dock-tool-item">✈️ Web Chuyên Sâu Bài 13 ✨</a>
-                        <a href="Marugoto_A2_Lesson_14.html" class="dock-tool-item">💻 Web Chuyên Sâu Bài 14 ✨</a>
-                        <a href="Marugoto_A2_Lesson_15.html" class="dock-tool-item">🏥 Web Chuyên Sâu Bài 15 ✨</a>
-                        <a href="Marugoto_A2_Lesson_16.html" class="dock-tool-item">🏃 Web Chuyên Sâu Bài 16 ✨</a>
-                        <a href="Marugoto_A2_Lesson_17.html" class="dock-tool-item">🎁 Web Chuyên Sâu Bài 17 ✨</a>
-                        <a href="Marugoto_A2_Lesson_18.html" class="dock-tool-item">👘 Web Chuyên Sâu Bài 18 ✨</a>
-                    </div>
+    <div class="global-hub-nav">
+        <a href="index.html" class="hub-nav-item">🌸 Thể TE (～て)</a>
+        <a href="the_ru.html" class="hub-nav-item">📘 Thể RU (Từ Điển)</a>
+        <a href="kanji_a2.html" class="hub-nav-item">⛩️ Học Kanji & Nét Viết</a>
+        <a href="Tu_Vung_Marugoto_A1_16_A2_1_10.html" class="hub-nav-item">📖 Kho Từ Vựng A1-A2</a>
+        <a href="Tong_Hop_Ngu_Phap_Marugoto_A1_A2.html" class="hub-nav-item">📚 Ngữ Pháp A1-A2 (26 Bài)</a>
+        <a href="On_Tap_Mini_Test_A2_1_4.html" class="hub-nav-item">🎯 Ôn Tập Bài 1-4</a>
+        <a href="On_Tap_Mini_Test_A2_5_8.html" class="hub-nav-item active-hub">🎯 Ôn Tập Bài 5-8</a>
+        <a href="De_Thi_Thu_Marugoto_A2_5_8.html" class="hub-nav-item">📝 5 Mã Đề Thi Thử</a>
+        <div class="hub-dropdown">
+            <button type="button" class="hub-nav-item" onclick="toggleLessonsDropdown(event)">🚀 Web Bài Học 10-18 ▾</button>
+            <div class="hub-dropdown-menu" id="lessonsDropdownMenu">
+                <a href="Marugoto_A2_Lesson_10.html" class="hub-drop-link">🌟 Bài 10: 外国文化</a>
+                <a href="Marugoto_A2_Lesson_11.html" class="hub-drop-link">🍱 Bài 11: そとで食べる</a>
+                <a href="Marugoto_A2_Lesson_12.html" class="hub-drop-link">🍜 Bài 12: 特別な日の料理</a>
+                <a href="Marugoto_A2_Lesson_13.html" class="hub-drop-link">✈️ Bài 13: 出張</a>
+                <a href="Marugoto_A2_Lesson_14.html" class="hub-drop-link">💻 Bài 14: 職場のマナー</a>
+                <a href="Marugoto_A2_Lesson_15.html" class="hub-drop-link">🏥 Bài 15: 健康な生活</a>
+                <a href="Marugoto_A2_Lesson_16.html" class="hub-drop-link">🏃 Bài 16: 体にいいこと</a>
+                <a href="Marugoto_A2_Lesson_17.html" class="hub-drop-link">🎁 Bài 17: お祝い</a>
+                <a href="Marugoto_A2_Lesson_18.html" class="hub-drop-link">👘 Bài 18: お祭りやイベント</a>
             </div>
         </div>
     </div>
-
     
-    <!-- Mega Drawer Sheet -->
-        <!-- MEGA DRAWER SHEET -->
-        <!-- MEGA DRAWER SHEET -->
-    <div class="global-mega-sheet" id="globalMegaSheet" onclick="closeGlobalMegaSheet()">
-        <div class="sheet-content" onclick="event.stopPropagation()">
-            <div class="sheet-header">
-                <div class="sheet-header-title">📚 Mục Lục Toàn Diện 18 Bài Học (Marugoto A2-1 & A2-2)</div>
-                <button type="button" class="sheet-close-btn" onclick="closeGlobalMegaSheet()">✕</button>
-            </div>
-            <div class="sheet-topics-grid">
-                <div class="sheet-topic-card">
-                    <div class="sheet-topic-badge">Topic 1: Gia Đình & Bản Thân</div>
-                    <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l1" class="sheet-lesson-link">
-                        <div class="sheet-lesson-name">🏠 Bài 1: Nơi ở & Gia đình</div>
-                        <div class="sheet-lesson-desc">～に住んでいます / Thể ている / で働いています</div>
-                    </a>
-                    <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l2" class="sheet-lesson-link">
-                        <div class="sheet-lesson-name">🎨 Bài 2: Sở thích của tôi</div>
-                        <div class="sheet-lesson-desc">V-ること / Thể từ điển (RU) / Năng khiếu</div>
-                    </a>
-                </div>
-                <div class="sheet-topic-card">
-                    <div class="sheet-topic-badge">Topic 2: Mùa & Thời Tiết</div>
-                    <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l3" class="sheet-lesson-link">
-                        <div class="sheet-lesson-name">🍁 Bài 3: Bốn mùa khí hậu</div>
-                        <div class="sheet-lesson-desc">V-ると / になる・くなる (Thay đổi trạng thái)</div>
-                    </a>
-                    <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l4" class="sheet-lesson-link">
-                        <div class="sheet-lesson-name">⛅ Bài 4: Dự báo thời tiết</div>
-                        <div class="sheet-lesson-desc">～でしょう / ～かもしれません (Phán đoán)</div>
-                    </a>
-                </div>
-                <div class="sheet-topic-card">
-                    <div class="sheet-topic-badge">Topic 3: Thị Trấn Của Tôi</div>
-                    <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l5" class="sheet-lesson-link">
-                        <div class="sheet-lesson-name">🏙️ Bài 5: Nơi chốn & Phố xá</div>
-                        <div class="sheet-lesson-desc">Địa điểm, phong cảnh và lối sống thị trấn</div>
-                    </a>
-                    <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l6" class="sheet-lesson-link">
-                        <div class="sheet-lesson-name">🗺️ Bài 6: Mua sắm & Phương hướng</div>
-                        <div class="sheet-lesson-desc">Chỉ đường, hỏi giá cả và mua hàng hóa</div>
-                    </a>
-                </div>
-                <div class="sheet-topic-card">
-                    <div class="sheet-topic-badge">Topic 4: Đi Lại & Ăn Uống</div>
-                    <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l7" class="sheet-lesson-link">
-                        <div class="sheet-lesson-name">⏰ Bài 7: Ra ngoài & Đi lại</div>
-                        <div class="sheet-lesson-desc">Phương tiện giao thông, hẹn giờ và xuất phát</div>
-                    </a>
-                    <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l8" class="sheet-lesson-link">
-                        <div class="sheet-lesson-name">⛩️ Bài 8: Bữa ăn & Thời gian</div>
-                        <div class="sheet-lesson-desc">Món ăn thường ngày, thói quen ăn uống</div>
-                    </a>
-                </div>
-                <div class="sheet-topic-card">
-                    <div class="sheet-topic-badge">Topic 5: Ngôn Ngữ & Văn Hóa</div>
-                    <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l9" class="sheet-lesson-link">
-                        <div class="sheet-lesson-name">🗣️ Bài 9: Ngôn ngữ & Học tập</div>
-                        <div class="sheet-lesson-desc">Năng khiếu ngôn ngữ, thời lượng học tập</div>
-                    </a>
-                    <a href="Marugoto_A2_Lesson_10.html" class="sheet-lesson-link">
-                        <div class="sheet-lesson-name">🌟 Bài 10: Văn hóa & Du lịch ✨</div>
-                        <div class="sheet-lesson-desc">V-たい / V-に行きます / Tần suất học & Du lịch</div>
-                    </a>
-                </div>
-                <div class="sheet-topic-card">
-                    <div class="sheet-topic-badge">Topic 6: Ăn Ngoài Trời</div>
-                    <a href="Marugoto_A2_Lesson_11.html" class="sheet-lesson-link">
-                        <div class="sheet-lesson-name">🍱 Bài 11: Dã ngoại & Đồ dùng ✨</div>
-                        <div class="sheet-lesson-desc">V-ていきます/きます / Nghi vấn từ + でも / BBQ</div>
-                    </a>
-                    <a href="Marugoto_A2_Lesson_12.html" class="sheet-lesson-link">
-                        <div class="sheet-lesson-name">🍜 Bài 12: Món ăn & Hương vị ✨</div>
-                        <div class="sheet-lesson-desc">～そう (Trông ngon) / ～と似ています / A-くて</div>
-                    </a>
-                </div>
-                <div class="sheet-topic-card">
-                    <div class="sheet-topic-badge">Topic 7: Chuyến Đi Công Tác</div>
-                    <a href="Marugoto_A2_Lesson_13.html" class="sheet-lesson-link">
-                        <div class="sheet-lesson-name">✈️ Bài 13: Lịch trình công tác ✨</div>
-                        <div class="sheet-lesson-desc">V-たことがあります / Sân bay, đưa đón & lịch trình</div>
-                    </a>
-                    <a href="Marugoto_A2_Lesson_14.html" class="sheet-lesson-link">
-                        <div class="sheet-lesson-name">💻 Bài 14: Nơi làm việc ✨</div>
-                        <div class="sheet-lesson-desc">V-てもいいですか (Xin phép) / V-てはいけません (Cấm)</div>
-                    </a>
-                </div>
-                <div class="sheet-topic-card">
-                    <div class="sheet-topic-badge">Topic 8: Cuộc Sống Khỏe Mạnh</div>
-                    <a href="Marugoto_A2_Lesson_15.html" class="sheet-lesson-link">
-                        <div class="sheet-lesson-name">🏥 Bài 15: Cơ thể & Bệnh tật ✨</div>
-                        <div class="sheet-lesson-desc">～んです (Giải thích) / Triệu chứng & Khám bệnh</div>
-                    </a>
-                    <a href="Marugoto_A2_Lesson_16.html" class="sheet-lesson-link">
-                        <div class="sheet-lesson-name">🏃 Bài 16: Giữ gìn sức khỏe ✨</div>
-                        <div class="sheet-lesson-desc">V-たり V-たりします / V-たほうがいい / Lối sống</div>
-                    </a>
-                </div>
-                <div class="sheet-topic-card">
-                    <div class="sheet-topic-badge">Topic 9: Chúc Mừng & Kỷ Niệm</div>
-                    <a href="Marugoto_A2_Lesson_17.html" class="sheet-lesson-link">
-                        <div class="sheet-lesson-name">🎁 Bài 17: Quà tặng & Kỷ niệm ✨</div>
-                        <div class="sheet-lesson-desc">あげます / もらいます / Các dịp lễ kỷ niệm</div>
-                    </a>
-                    <a href="Marugoto_A2_Lesson_18.html" class="sheet-lesson-link">
-                        <div class="sheet-lesson-name">👘 Bài 18: Trang phục & Lễ hội ✨</div>
-                        <div class="sheet-lesson-desc">V-ています (Mặc trang phục) / ～と思います / Lời chúc</div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
-    
-</div>
-
 
     <!-- Hero Header -->
     <header class="hero-header">
@@ -1549,98 +1290,20 @@
     <div id="tab-theory" class="tab-panel active">
 
         
-        <!-- Quick Jump Bar for all 10 lessons -->
+                <!-- Quick Jump Bar for Bài 5-8 -->
         <div class="theory-quicknav">
-            <a href="#grammar-l1" class="quicknav-pill">Bài 1: 東京に すんでいます</a>
-            <a href="#grammar-l2" class="quicknav-pill">Bài 2: 趣味は 聞くこと</a>
-            <a href="#grammar-l3" class="quicknav-pill">Bài 3: あきになると</a>
-            <a href="#grammar-l4" class="quicknav-pill">Bài 4: あめが ふるでしょう</a>
-            <a href="#grammar-l5" class="quicknav-pill">Bài 5: わたしの町 (～くて／で)</a>
-            <a href="#grammar-l6" class="quicknav-pill">Bài 6: 道案内 (～てください)</a>
-            <a href="#grammar-l7" class="quicknav-pill">Bài 7: 約束 (～でもいいですか)</a>
-            <a href="#grammar-l8" class="quicknav-pill">Bài 8: 週末 (～に行きます)</a>
+            <a href="#grammar-l5" class="quicknav-pill" style="background: var(--primary); color: white; border-color: var(--primary);">⭐ Bài 5: わたしの町 (～くて／で)</a>
+            <a href="#grammar-l6" class="quicknav-pill" style="background: var(--primary); color: white; border-color: var(--primary);">⭐ Bài 6: 道案内 (～てください)</a>
+            <a href="#grammar-l7" class="quicknav-pill" style="background: var(--primary); color: white; border-color: var(--primary);">⭐ Bài 7: 約束 (～でもいいですか)</a>
+            <a href="#grammar-l8" class="quicknav-pill" style="background: var(--primary); color: white; border-color: var(--primary);">⭐ Bài 8: 週末 (～に行きます)</a>
             <a href="#grammar-l9" class="quicknav-pill">Bài 9: 外国語 (～のが好き)</a>
-            <a href="Marugoto_A2_Lesson_10.html" class="quicknav-pill" style="background: linear-gradient(135deg, #4f46e5, #ec4899); color: white; border: none;">Bài 10: Ước muốn & Tần suất ✨</a>
+            <a href="#grammar-l10" class="quicknav-pill">Bài 10: 外国文化 (～たい／てみる)</a>
+            <a href="#grammar-review-14" class="quicknav-pill" style="background: #e2e8f0; color: #475569;">📂 Xem Lại Bài 1 - 4</a>
         </div>
 
 
         <!-- BÀI 5 -->
-        
-                <!-- BÀI 1 -->
-                <div class="grammar-card" id="grammar-l1" >
-                    <div class="grammar-header">
-                        <div>
-                            <span class="grammar-tag">BÀI 1 (A2-1)</span>
-                            <h2 class="grammar-title">東京に すんでいます (Nơi ở, Gia đình & Công việc)</h2>
-                        </div>
-                    </div>
-                    <div class="grammar-body">
-                        <div class="formula-box">
-                            ① Nơi ở: [Địa điểm] に すんでいます<br>
-                            ② Nơi làm việc: [Địa điểm] で はたらいています<br>
-                            ③ Hôn nhân: けっこんしています / けっこんしていません
-                        </div>
-                        <p class="grammar-explain">
-                            <strong>Mẫu câu trạng thái kết quả <code>～ています</code>:</strong> Nơi ở dùng に, nơi làm việc dùng で. Phủ định của <code>しっています</code> luôn là <strong><code>しりません</code></strong>.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- BÀI 2 -->
-                <div class="grammar-card" id="grammar-l2" >
-                    <div class="grammar-header">
-                        <div>
-                            <span class="grammar-tag">BÀI 2 (A2-1)</span>
-                            <h2 class="grammar-title">私の 趣味は クラシック音楽を 聞くこと です (Sở thích & Năng khiếu)</h2>
-                        </div>
-                    </div>
-                    <div class="grammar-body">
-                        <div class="formula-box">
-                            ① Sở thích: しゅみは [V-る] こと です<br>
-                            ② Năng khiếu: [Môn / Kỹ năng] が とくい / にがて / 好き です<br>
-                            ③ Mốc thời gian: [N の / Tính từ / V-る] とき
-                        </div>
-                        <p class="grammar-explain">
-                            Danh từ hóa động từ bằng <code>こと</code>. Năng khiếu bản thân dùng <code>とくい/にがて</code> đi với trợ từ <code>が</code>.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- BÀI 3 -->
-                <div class="grammar-card" id="grammar-l3" >
-                    <div class="grammar-header">
-                        <div>
-                            <span class="grammar-tag">BÀI 3 (A2-1)</span>
-                            <h2 class="grammar-title">日本はいま、はるです (Mùa màng, Biến đổi trạng thái & So sánh)</h2>
-                        </div>
-                    </div>
-                    <div class="grammar-body">
-                        <div class="formula-box">
-                            ① Biến đổi: A-い bỏ い + くなります / A-な & N + になります<br>
-                            ② So sánh: A は B より [Tính từ] です / A と B と どちらが 好きですか
-                        </div>
-                        <p class="grammar-explain">
-                            Cứ hễ sang mùa thu trời mát mẻ dần: <code>秋になると、だんだん すずしく なります</code> (Liên từ quy luật tự nhiên <code>と</code>).
-                        </p>
-                    </div>
-                </div>
-
-                <!-- BÀI 4 -->
-                <div class="grammar-card" id="grammar-l4" >
-                    <div class="grammar-header">
-                        <div>
-                            <span class="grammar-tag">BÀI 4 (A2-1)</span>
-                            <h2 class="grammar-title">いい てんきですね (Thời tiết, Hiện tượng tự nhiên & Giao tiếp xã giao)</h2>
-                        </div>
-                    </div>
-                    <div class="grammar-body">
-                        <div class="formula-box">
-                            ① Hiện tượng tự nhiên (Trợ từ が): 雨が ふります / やみます / 風が ふきます / 雪が つもります<br>
-                            ② Chào hỏi: おひさしぶりです ➔ おかげさまで、げんきです
-                        </div>
-                    </div>
-                </div>
-            \n\n        <!-- BÀI 5 -->\n        <div class="grammar-card" id="grammar-l5">
+        <div class="grammar-card" id="grammar-l5">
             <div class="grammar-header">
                 <div>
                     <span class="grammar-tag">BÀI 5 (A2-1)</span>
@@ -2097,9 +1760,89 @@
             </div>
         </div>
 
-        <!-- COLLAPSIBLE SECTION: REVIEW LESSONS 1 TO 4 -->
         
+        <!-- COLLAPSIBLE SECTION: REVIEW LESSONS 1 TO 4 -->
+        <details id="grammar-review-14" style="background: white; border-radius: 16px; border: 2px dashed var(--gray-300); padding: 18px 24px; margin-top: 24px; box-shadow: var(--shadow-sm);">
+            <summary style="font-weight: 800; font-size: 1.15rem; color: var(--gray-800); cursor: pointer; padding: 6px 0; user-select: none;">
+                📂 Bấm Để Xem Lại Lý Thuyết Nền Tảng (Bài 1 - 4 đã thi xong)
+            </summary>
+            <div style="margin-top: 20px;">
+                <!-- BÀI 1 -->
+                <div class="grammar-card" id="grammar-l1" >
+                    <div class="grammar-header">
+                        <div>
+                            <span class="grammar-tag">BÀI 1 (A2-1)</span>
+                            <h2 class="grammar-title">東京に すんでいます (Nơi ở, Gia đình & Công việc)</h2>
+                        </div>
+                    </div>
+                    <div class="grammar-body">
+                        <div class="formula-box">
+                            ① Nơi ở: [Địa điểm] に すんでいます<br>
+                            ② Nơi làm việc: [Địa điểm] で はたらいています<br>
+                            ③ Hôn nhân: けっこんしています / けっこんしていません
+                        </div>
+                        <p class="grammar-explain">
+                            <strong>Mẫu câu trạng thái kết quả <code>～ています</code>:</strong> Nơi ở dùng に, nơi làm việc dùng で. Phủ định của <code>しっています</code> luôn là <strong><code>しりません</code></strong>.
+                        </p>
+                    </div>
+                </div>
 
+                <!-- BÀI 2 -->
+                <div class="grammar-card" id="grammar-l2" >
+                    <div class="grammar-header">
+                        <div>
+                            <span class="grammar-tag">BÀI 2 (A2-1)</span>
+                            <h2 class="grammar-title">私の 趣味は クラシック音楽を 聞くこと です (Sở thích & Năng khiếu)</h2>
+                        </div>
+                    </div>
+                    <div class="grammar-body">
+                        <div class="formula-box">
+                            ① Sở thích: しゅみは [V-る] こと です<br>
+                            ② Năng khiếu: [Môn / Kỹ năng] が とくい / にがて / 好き です<br>
+                            ③ Mốc thời gian: [N の / Tính từ / V-る] とき
+                        </div>
+                        <p class="grammar-explain">
+                            Danh từ hóa động từ bằng <code>こと</code>. Năng khiếu bản thân dùng <code>とくい/にがて</code> đi với trợ từ <code>が</code>.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- BÀI 3 -->
+                <div class="grammar-card" id="grammar-l3" >
+                    <div class="grammar-header">
+                        <div>
+                            <span class="grammar-tag">BÀI 3 (A2-1)</span>
+                            <h2 class="grammar-title">日本はいま、はるです (Mùa màng, Biến đổi trạng thái & So sánh)</h2>
+                        </div>
+                    </div>
+                    <div class="grammar-body">
+                        <div class="formula-box">
+                            ① Biến đổi: A-い bỏ い + くなります / A-な & N + になります<br>
+                            ② So sánh: A は B より [Tính từ] です / A と B と どちらが 好きですか
+                        </div>
+                        <p class="grammar-explain">
+                            Cứ hễ sang mùa thu trời mát mẻ dần: <code>秋になると、だんだん すずしく なります</code> (Liên từ quy luật tự nhiên <code>と</code>).
+                        </p>
+                    </div>
+                </div>
+
+                <!-- BÀI 4 -->
+                <div class="grammar-card" id="grammar-l4" >
+                    <div class="grammar-header">
+                        <div>
+                            <span class="grammar-tag">BÀI 4 (A2-1)</span>
+                            <h2 class="grammar-title">いい てんきですね (Thời tiết, Hiện tượng tự nhiên & Giao tiếp xã giao)</h2>
+                        </div>
+                    </div>
+                    <div class="grammar-body">
+                        <div class="formula-box">
+                            ① Hiện tượng tự nhiên (Trợ từ が): 雨が ふります / やみます / 風が ふきます / 雪が つもります<br>
+                            ② Chào hỏi: おひさしぶりです ➔ おかげさまで、げんきです
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </details>
     </div>
 
     <!-- ========================================== -->
@@ -2295,7 +2038,7 @@
                 </div>
                 <span class="section-badge" style="background: #eaf2fd; color: #0984e3;">Bản Quyền JF</span>
             </div>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; margin-top: 56px;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; margin-top: 12px;">
                 <a href="MarugotoA2-1Wordbook_eng.pdf" target="_blank" style="display: block; padding: 18px; background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 12px; text-decoration: none; color: inherit; transition: all 0.2s ease;">
                     <div style="font-size: 1.8rem; margin-bottom: 8px;">📕</div>
                     <div style="font-weight: 800; color: var(--primary); font-size: 1.05rem;">Marugoto A2-1 Wordbook</div>
@@ -3034,6 +2777,17 @@ document.addEventListener('keydown', function(e) {
         if (tools) tools.classList.remove('open');
     }
 });
+
+    function toggleLessonsDropdown(e) {
+        if (e) e.stopPropagation();
+        const m = document.getElementById('lessonsDropdownMenu');
+        if (m) m.classList.toggle('show');
+    }
+    window.addEventListener('click', () => {
+        const m = document.getElementById('lessonsDropdownMenu');
+        if (m) m.classList.remove('show');
+    });
+
 </script>
 \n</body>
 </html>

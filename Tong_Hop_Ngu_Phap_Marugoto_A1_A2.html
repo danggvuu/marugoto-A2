@@ -52,257 +52,115 @@
         }
 
         /* -------------------------------------------------------------
-           1. GLOBAL FLOATING DOCK & MEGA SHEET
+           1. GLOBAL HUB NAVIGATION (CLEAN & NON-STICKY)
         ------------------------------------------------------------- */
-        .global-sticky-dock-wrapper {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(226, 232, 240, 0.9);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-        }
-
-        .global-sticky-dock {
+        .global-hub-nav {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 12px auto 20px auto;
+            flex-wrap: wrap;
             max-width: 1300px;
-            margin: 0 auto;
-            padding: 10px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 12px;
+            padding: 0 10px;
         }
 
-        .dock-brand {
-            display: flex;
-            align-items: center;
-            gap: 8px;
+        .hub-nav-item {
             text-decoration: none;
-            color: var(--primary-dark);
-            font-weight: 800;
-            font-size: 1.05rem;
-            flex-shrink: 0;
-        }
-
-        .dock-pill-track {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            overflow-x: auto;
-            scrollbar-width: none;
-            padding: 2px 0;
-        }
-
-        .dock-pill-track::-webkit-scrollbar {
-            display: none;
-        }
-
-        .dock-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            padding: 6px 12px;
-            border-radius: 999px;
-            font-size: 0.82rem;
-            font-weight: 600;
-            text-decoration: none;
-            color: #64748b;
-            background: #f1f5f9;
-            border: 1px solid #e2e8f0;
-            white-space: nowrap;
-            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .dock-pill:hover, .dock-pill.active {
-            background: var(--primary);
-            color: #ffffff;
-            border-color: var(--primary);
-            transform: translateY(-1px);
-        }
-
-        .dock-actions {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            flex-shrink: 0;
-            position: relative;
-        }
-
-        .dock-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 7px 14px;
-            border-radius: 999px;
-            font-size: 0.82rem;
-            font-weight: 700;
-            cursor: pointer;
-            border: 1px solid #e2e8f0;
             background: #ffffff;
-            color: var(--text-dark);
+            color: #475569;
+            padding: 9px 18px;
+            border-radius: 9999px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            border: 1.5px solid #e2e8f0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
             transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            font-family: inherit;
         }
 
-        .dock-btn:hover {
-            background: #f8fafc;
-            border-color: #cbd5e1;
+        .hub-nav-item:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-2px);
         }
 
-        .dock-btn-primary {
-            background: linear-gradient(135deg, #4f46e5, #6366f1);
-            color: #ffffff;
-            border: none;
-            box-shadow: 0 4px 10px rgba(79, 70, 229, 0.25);
+        .hub-nav-item.active-hub {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            color: #ffffff !important;
+            border-color: transparent;
+            box-shadow: 0 4px 15px rgba(79, 70, 229, 0.35);
         }
 
-        .dock-btn-primary:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 6px 14px rgba(79, 70, 229, 0.35);
+        /* Hub Dropdown Menu */
+        .hub-dropdown {
+            position: relative;
+            display: inline-block;
         }
 
-        .dock-tools-menu {
+        .hub-dropdown-menu {
             display: none;
             position: absolute;
-            top: calc(100% + 8px);
-            right: 0;
-            width: 290px;
+            top: calc(100% + 6px);
+            left: 50%;
+            transform: translateX(-50%);
             background: #ffffff;
-            border: 1px solid #e2e8f0;
-            border-radius: var(--radius-md);
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+            border: 1.5px solid #e2e8f0;
+            border-radius: 14px;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.12);
             padding: 8px;
-            z-index: 1001;
-            max-height: 480px;
-            overflow-y: auto;
+            min-width: 260px;
+            z-index: 9999;
         }
 
-        .dock-tools-menu.show {
+        .hub-dropdown-menu.show {
             display: block;
         }
 
-        .dock-tool-item {
+        .hub-drop-link {
             display: block;
-            padding: 8px 12px;
-            font-size: 0.84rem;
-            font-weight: 600;
-            color: var(--text-dark);
+            padding: 8px 14px;
+            color: #334155;
+            font-size: 0.88rem;
+            font-weight: 700;
             text-decoration: none;
-            border-radius: var(--radius-sm);
-            transition: background 0.15s ease;
-        }
-
-        .dock-tool-item:hover, .dock-tool-item.active {
-            background: var(--primary-soft);
-            color: var(--primary);
-        }
-
-        /* MEGA SHEET */
-        .global-mega-sheet {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(15, 23, 42, 0.6);
-            backdrop-filter: blur(6px);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-
-        .global-mega-sheet.show {
-            display: flex;
-        }
-
-        .sheet-content {
-            background: #ffffff;
-            width: 100%;
-            max-width: 1050px;
-            max-height: 85vh;
-            border-radius: var(--radius-lg);
-            overflow-y: auto;
-            padding: 28px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-        }
-
-        .sheet-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 20px;
-            padding-bottom: 12px;
-            border-bottom: 1px solid #e2e8f0;
-        }
-
-        .sheet-header-title {
-            font-size: 1.25rem;
-            font-weight: 800;
-            color: var(--primary-dark);
-        }
-
-        .sheet-close-btn {
-            background: none;
-            border: none;
-            font-size: 1.25rem;
-            cursor: pointer;
-            color: var(--text-muted);
-            padding: 4px 8px;
-            border-radius: 6px;
-        }
-
-        .sheet-topics-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-            gap: 16px;
-        }
-
-        .sheet-topic-card {
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
-            border-radius: var(--radius-md);
-            padding: 14px;
-        }
-
-        .sheet-topic-badge {
-            font-size: 0.75rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            color: var(--primary);
-            margin-bottom: 8px;
-            letter-spacing: 0.05em;
-        }
-
-        .sheet-lesson-link {
-            display: block;
-            text-decoration: none;
-            padding: 6px 10px;
             border-radius: 8px;
-            margin-bottom: 6px;
-            background: #ffffff;
-            border: 1px solid #edf2f7;
             transition: all 0.15s ease;
         }
 
-        .sheet-lesson-link:hover {
-            background: var(--primary-soft);
-            border-color: var(--primary-light);
-            transform: translateX(2px);
+        .hub-drop-link:hover {
+            background: #eef2ff;
+            color: #4f46e5;
         }
 
-        .sheet-lesson-name {
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: var(--text-dark);
+        .hub-drop-link.active {
+            background: #4f46e5;
+            color: #ffffff !important;
         }
 
-        .sheet-lesson-desc {
-            font-size: 0.74rem;
-            color: var(--text-muted);
-            margin-top: 2px;
+        @media (max-width: 768px) {
+            .global-hub-nav {
+                display: flex;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                justify-content: flex-start;
+                gap: 8px;
+                margin-bottom: 15px;
+                padding: 2px 2px 8px 2px;
+                scrollbar-width: none;
+            }
+            .global-hub-nav::-webkit-scrollbar {
+                display: none;
+            }
+            .hub-nav-item {
+                flex-shrink: 0;
+                padding: 7px 14px;
+                font-size: 0.84rem;
+            }
         }
 
         /* -------------------------------------------------------------
@@ -1384,178 +1242,34 @@
 </head>
 <body>
 
-    <!-- 1. GLOBAL STICKY DOCK -->
-    <div class="global-sticky-dock-wrapper">
-        <div class="global-sticky-dock">
-            <a href="index.html" class="dock-brand">
-                <span>🌸</span>
-                <span>Marugoto A1-A2 Master</span>
-            </a>
-
-            <!-- Dock Pills 1-18 -->
-            <div class="dock-pill-track" id="dockPillTrack">
-            <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l1" class="dock-pill" data-lesson="1"><span class="pill-ico">🏠</span> Bài 1</a>
-            <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l2" class="dock-pill" data-lesson="2"><span class="pill-ico">🎨</span> Bài 2</a>
-            <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l3" class="dock-pill" data-lesson="3"><span class="pill-ico">🍁</span> Bài 3</a>
-            <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l4" class="dock-pill" data-lesson="4"><span class="pill-ico">⛅</span> Bài 4</a>
-            <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l5" class="dock-pill" data-lesson="5"><span class="pill-ico">🏙️</span> Bài 5</a>
-            <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l6" class="dock-pill" data-lesson="6"><span class="pill-ico">🗺️</span> Bài 6</a>
-            <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l7" class="dock-pill" data-lesson="7"><span class="pill-ico">⏰</span> Bài 7</a>
-            <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l8" class="dock-pill" data-lesson="8"><span class="pill-ico">⛩️</span> Bài 8</a>
-            <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l9" class="dock-pill" data-lesson="9"><span class="pill-ico">🗣️</span> Bài 9</a>
-            <a href="Marugoto_A2_Lesson_10.html" class="dock-pill" data-lesson="10"><span class="pill-ico">🌟</span> Bài 10</a>
-            <a href="Marugoto_A2_Lesson_11.html" class="dock-pill" data-lesson="11"><span class="pill-ico">🍱</span> Bài 11</a>
-            <a href="Marugoto_A2_Lesson_12.html" class="dock-pill" data-lesson="12"><span class="pill-ico">🍜</span> Bài 12</a>
-            <a href="Marugoto_A2_Lesson_13.html" class="dock-pill" data-lesson="13"><span class="pill-ico">✈️</span> Bài 13</a>
-            <a href="Marugoto_A2_Lesson_14.html" class="dock-pill" data-lesson="14"><span class="pill-ico">💻</span> Bài 14</a>
-            <a href="Marugoto_A2_Lesson_15.html" class="dock-pill" data-lesson="15"><span class="pill-ico">🏥</span> Bài 15</a>
-            <a href="Marugoto_A2_Lesson_16.html" class="dock-pill" data-lesson="16"><span class="pill-ico">🏃</span> Bài 16</a>
-            <a href="Marugoto_A2_Lesson_17.html" class="dock-pill" data-lesson="17"><span class="pill-ico">🎁</span> Bài 17</a>
-            <a href="Marugoto_A2_Lesson_18.html" class="dock-pill" data-lesson="18"><span class="pill-ico">👘</span> Bài 18</a>
-        </div>
-
-            <!-- Dock Actions -->
-            <div class="dock-actions">
-                <button type="button" class="dock-btn dock-btn-primary" onclick="startMasterQuiz()">⚡ Thi Thử Phản Xạ</button>
-                <button type="button" class="dock-btn" onclick="openGlobalMegaSheet()">📑 Mục Lục</button>
-                <button type="button" class="dock-btn" id="dockToolsBtn" onclick="toggleGlobalToolsMenu(event)">🛠️ Công Cụ ▾</button>
-                
-                <div class="dock-tools-menu" id="globalToolsMenu">
-                        <a href="Tong_Hop_Ngu_Phap_Marugoto_A1_A2.html" class="dock-tool-item">📚 Tổng Hợp Ngữ Pháp A1-A2 (26 Bài) 🔥</a>
-                        <a href="index.html" class="dock-tool-item">🌸 Thể TE (～て)</a>
-                        <a href="the_ru.html" class="dock-tool-item">📘 Thể RU (Từ Điển)</a>
-                        <a href="kanji_a2.html" class="dock-tool-item">⛩️ Học Kanji & Nét Viết</a>
-                        <a href="Tu_Vung_Marugoto_A1_16_A2_1_10.html" class="dock-tool-item">📖 Kho Từ Vựng A1-A2 (600+ Từ)</a>
-                        <a href="On_Tap_Mini_Test_A2_5_8.html" class="dock-tool-item">🎯 Cẩm Nang Toàn Diện 10 Bài</a>
-                        <a href="De_Thi_Thu_Marugoto_A2_5_8.html" class="dock-tool-item">📝 5 Mã Đề Thi Thử</a>
-                        <a href="Marugoto_A2_Lesson_10.html" class="dock-tool-item">🌟 Web Chuyên Sâu Bài 10 ✨</a>
-                        <a href="Marugoto_A2_Lesson_11.html" class="dock-tool-item">🍱 Web Chuyên Sâu Bài 11 ✨</a>
-                        <a href="Marugoto_A2_Lesson_12.html" class="dock-tool-item">🍜 Web Chuyên Sâu Bài 12 ✨</a>
-                        <a href="Marugoto_A2_Lesson_13.html" class="dock-tool-item">✈️ Web Chuyên Sâu Bài 13 ✨</a>
-                        <a href="Marugoto_A2_Lesson_14.html" class="dock-tool-item">💻 Web Chuyên Sâu Bài 14 ✨</a>
-                        <a href="Marugoto_A2_Lesson_15.html" class="dock-tool-item">🏥 Web Chuyên Sâu Bài 15 ✨</a>
-                        <a href="Marugoto_A2_Lesson_16.html" class="dock-tool-item">🏃 Web Chuyên Sâu Bài 16 ✨</a>
-                        <a href="Marugoto_A2_Lesson_17.html" class="dock-tool-item">🎁 Web Chuyên Sâu Bài 17 ✨</a>
-                        <a href="Marugoto_A2_Lesson_18.html" class="dock-tool-item">👘 Web Chuyên Sâu Bài 18 ✨</a>
-                    </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- MEGA DRAWER SHEET -->
-        <!-- MEGA DRAWER SHEET -->
-    <div class="global-mega-sheet" id="globalMegaSheet" onclick="closeGlobalMegaSheet()">
-        <div class="sheet-content" onclick="event.stopPropagation()">
-            <div class="sheet-header">
-                <div class="sheet-header-title">📚 Mục Lục Toàn Diện 18 Bài Học (Marugoto A2-1 & A2-2)</div>
-                <button type="button" class="sheet-close-btn" onclick="closeGlobalMegaSheet()">✕</button>
-            </div>
-            <div class="sheet-topics-grid">
-                <div class="sheet-topic-card">
-                    <div class="sheet-topic-badge">Topic 1: Gia Đình & Bản Thân</div>
-                    <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l1" class="sheet-lesson-link">
-                        <div class="sheet-lesson-name">🏠 Bài 1: Nơi ở & Gia đình</div>
-                        <div class="sheet-lesson-desc">～に住んでいます / Thể ている / で働いています</div>
-                    </a>
-                    <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l2" class="sheet-lesson-link">
-                        <div class="sheet-lesson-name">🎨 Bài 2: Sở thích của tôi</div>
-                        <div class="sheet-lesson-desc">V-ること / Thể từ điển (RU) / Năng khiếu</div>
-                    </a>
-                </div>
-                <div class="sheet-topic-card">
-                    <div class="sheet-topic-badge">Topic 2: Mùa & Thời Tiết</div>
-                    <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l3" class="sheet-lesson-link">
-                        <div class="sheet-lesson-name">🍁 Bài 3: Bốn mùa khí hậu</div>
-                        <div class="sheet-lesson-desc">V-ると / になる・くなる (Thay đổi trạng thái)</div>
-                    </a>
-                    <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l4" class="sheet-lesson-link">
-                        <div class="sheet-lesson-name">⛅ Bài 4: Dự báo thời tiết</div>
-                        <div class="sheet-lesson-desc">～でしょう / ～かもしれません (Phán đoán)</div>
-                    </a>
-                </div>
-                <div class="sheet-topic-card">
-                    <div class="sheet-topic-badge">Topic 3: Thị Trấn Của Tôi</div>
-                    <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l5" class="sheet-lesson-link">
-                        <div class="sheet-lesson-name">🏙️ Bài 5: Nơi chốn & Phố xá</div>
-                        <div class="sheet-lesson-desc">Địa điểm, phong cảnh và lối sống thị trấn</div>
-                    </a>
-                    <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l6" class="sheet-lesson-link">
-                        <div class="sheet-lesson-name">🗺️ Bài 6: Mua sắm & Phương hướng</div>
-                        <div class="sheet-lesson-desc">Chỉ đường, hỏi giá cả và mua hàng hóa</div>
-                    </a>
-                </div>
-                <div class="sheet-topic-card">
-                    <div class="sheet-topic-badge">Topic 4: Đi Lại & Ăn Uống</div>
-                    <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l7" class="sheet-lesson-link">
-                        <div class="sheet-lesson-name">⏰ Bài 7: Ra ngoài & Đi lại</div>
-                        <div class="sheet-lesson-desc">Phương tiện giao thông, hẹn giờ và xuất phát</div>
-                    </a>
-                    <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l8" class="sheet-lesson-link">
-                        <div class="sheet-lesson-name">⛩️ Bài 8: Bữa ăn & Thời gian</div>
-                        <div class="sheet-lesson-desc">Món ăn thường ngày, thói quen ăn uống</div>
-                    </a>
-                </div>
-                <div class="sheet-topic-card">
-                    <div class="sheet-topic-badge">Topic 5: Ngôn Ngữ & Văn Hóa</div>
-                    <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l9" class="sheet-lesson-link">
-                        <div class="sheet-lesson-name">🗣️ Bài 9: Ngôn ngữ & Học tập</div>
-                        <div class="sheet-lesson-desc">Năng khiếu ngôn ngữ, thời lượng học tập</div>
-                    </a>
-                    <a href="Marugoto_A2_Lesson_10.html" class="sheet-lesson-link">
-                        <div class="sheet-lesson-name">🌟 Bài 10: Văn hóa & Du lịch ✨</div>
-                        <div class="sheet-lesson-desc">V-たい / V-に行きます / Tần suất học & Du lịch</div>
-                    </a>
-                </div>
-                <div class="sheet-topic-card">
-                    <div class="sheet-topic-badge">Topic 6: Ăn Ngoài Trời</div>
-                    <a href="Marugoto_A2_Lesson_11.html" class="sheet-lesson-link">
-                        <div class="sheet-lesson-name">🍱 Bài 11: Dã ngoại & Đồ dùng ✨</div>
-                        <div class="sheet-lesson-desc">V-ていきます/きます / Nghi vấn từ + でも / BBQ</div>
-                    </a>
-                    <a href="Marugoto_A2_Lesson_12.html" class="sheet-lesson-link">
-                        <div class="sheet-lesson-name">🍜 Bài 12: Món ăn & Hương vị ✨</div>
-                        <div class="sheet-lesson-desc">～そう (Trông ngon) / ～と似ています / A-くて</div>
-                    </a>
-                </div>
-                <div class="sheet-topic-card">
-                    <div class="sheet-topic-badge">Topic 7: Chuyến Đi Công Tác</div>
-                    <a href="Marugoto_A2_Lesson_13.html" class="sheet-lesson-link">
-                        <div class="sheet-lesson-name">✈️ Bài 13: Lịch trình công tác ✨</div>
-                        <div class="sheet-lesson-desc">V-たことがあります / Sân bay, đưa đón & lịch trình</div>
-                    </a>
-                    <a href="Marugoto_A2_Lesson_14.html" class="sheet-lesson-link">
-                        <div class="sheet-lesson-name">💻 Bài 14: Nơi làm việc ✨</div>
-                        <div class="sheet-lesson-desc">V-てもいいですか (Xin phép) / V-てはいけません (Cấm)</div>
-                    </a>
-                </div>
-                <div class="sheet-topic-card">
-                    <div class="sheet-topic-badge">Topic 8: Cuộc Sống Khỏe Mạnh</div>
-                    <a href="Marugoto_A2_Lesson_15.html" class="sheet-lesson-link">
-                        <div class="sheet-lesson-name">🏥 Bài 15: Cơ thể & Bệnh tật ✨</div>
-                        <div class="sheet-lesson-desc">～んです (Giải thích) / Triệu chứng & Khám bệnh</div>
-                    </a>
-                    <a href="Marugoto_A2_Lesson_16.html" class="sheet-lesson-link">
-                        <div class="sheet-lesson-name">🏃 Bài 16: Giữ gìn sức khỏe ✨</div>
-                        <div class="sheet-lesson-desc">V-たり V-たりします / V-たほうがいい / Lối sống</div>
-                    </a>
-                </div>
-                <div class="sheet-topic-card">
-                    <div class="sheet-topic-badge">Topic 9: Chúc Mừng & Kỷ Niệm</div>
-                    <a href="Marugoto_A2_Lesson_17.html" class="sheet-lesson-link">
-                        <div class="sheet-lesson-name">🎁 Bài 17: Quà tặng & Kỷ niệm ✨</div>
-                        <div class="sheet-lesson-desc">あげます / もらいます / Các dịp lễ kỷ niệm</div>
-                    </a>
-                    <a href="Marugoto_A2_Lesson_18.html" class="sheet-lesson-link">
-                        <div class="sheet-lesson-name">👘 Bài 18: Trang phục & Lễ hội ✨</div>
-                        <div class="sheet-lesson-desc">V-ています (Mặc trang phục) / ～と思います / Lời chúc</div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
+    
 
     <!-- 2. HERO HEADER & KPI STATS -->
+        <!-- Global Hub Navigation -->
+    <div class="global-hub-nav">
+        <a href="index.html" class="hub-nav-item">🌸 Thể TE (～て)</a>
+        <a href="the_ru.html" class="hub-nav-item">📘 Thể RU (Từ Điển)</a>
+        <a href="kanji_a2.html" class="hub-nav-item">⛩️ Học Kanji & Nét Viết</a>
+        <a href="Tu_Vung_Marugoto_A1_16_A2_1_10.html" class="hub-nav-item">📖 Kho Từ Vựng A1-A2</a>
+        <a href="Tong_Hop_Ngu_Phap_Marugoto_A1_A2.html" class="hub-nav-item active-hub">📚 Ngữ Pháp A1-A2 (26 Bài)</a>
+        <a href="On_Tap_Mini_Test_A2_1_4.html" class="hub-nav-item">🎯 Ôn Tập Bài 1-4</a>
+        <a href="On_Tap_Mini_Test_A2_5_8.html" class="hub-nav-item">🎯 Ôn Tập Bài 5-8</a>
+        <a href="De_Thi_Thu_Marugoto_A2_5_8.html" class="hub-nav-item">📝 5 Mã Đề Thi Thử</a>
+        <div class="hub-dropdown">
+            <button type="button" class="hub-nav-item" onclick="toggleLessonsDropdown(event)">🚀 Web Bài Học 10-18 ▾</button>
+            <div class="hub-dropdown-menu" id="lessonsDropdownMenu">
+                <a href="Marugoto_A2_Lesson_10.html" class="hub-drop-link">🌟 Bài 10: 外国文化</a>
+                <a href="Marugoto_A2_Lesson_11.html" class="hub-drop-link">🍱 Bài 11: そとで食べる</a>
+                <a href="Marugoto_A2_Lesson_12.html" class="hub-drop-link">🍜 Bài 12: 特別な日の料理</a>
+                <a href="Marugoto_A2_Lesson_13.html" class="hub-drop-link">✈️ Bài 13: 出張</a>
+                <a href="Marugoto_A2_Lesson_14.html" class="hub-drop-link">💻 Bài 14: 職場のマナー</a>
+                <a href="Marugoto_A2_Lesson_15.html" class="hub-drop-link">🏥 Bài 15: 健康な生活</a>
+                <a href="Marugoto_A2_Lesson_16.html" class="hub-drop-link">🏃 Bài 16: 体にいいこと</a>
+                <a href="Marugoto_A2_Lesson_17.html" class="hub-drop-link">🎁 Bài 17: お祝い</a>
+                <a href="Marugoto_A2_Lesson_18.html" class="hub-drop-link">👘 Bài 18: お祭りやイベント</a>
+            </div>
+        </div>
+    </div>
     <header class="hero-section">
         <div class="hero-container">
             <div class="hero-badge-pill">
@@ -2345,24 +2059,16 @@
             }
         }
 
-        // DOCK & DRAWER HELPERS
-        function toggleGlobalToolsMenu(e) {
-            e.stopPropagation();
-            const menu = document.getElementById('globalToolsMenu');
-            menu.classList.toggle('show');
-        }
-
-        function openGlobalMegaSheet() {
-            document.getElementById('globalMegaSheet').classList.add('show');
-        }
-
-        function closeGlobalMegaSheet() {
-            document.getElementById('globalMegaSheet').classList.remove('show');
+        // HUB DROPDOWN HELPER
+        function toggleLessonsDropdown(e) {
+            if (e) e.stopPropagation();
+            const m = document.getElementById('lessonsDropdownMenu');
+            if (m) m.classList.toggle('show');
         }
 
         window.addEventListener('click', () => {
-            const menu = document.getElementById('globalToolsMenu');
-            if (menu) menu.classList.remove('show');
+            const m = document.getElementById('lessonsDropdownMenu');
+            if (m) m.classList.remove('show');
         });
 
         // INIT ON DOM LOADED
