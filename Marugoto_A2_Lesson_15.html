@@ -1,0 +1,2269 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cẩm Nang & Luyện Tập Toàn Diện Bài 15 - Marugoto A2-2 | 体操するといいですよ</title>
+    <meta name="description" content="Chinh phục toàn diện Marugoto A2 Bài 15: 体操するといいですよ. Đầy đủ ngữ pháp, 3D Flashcard từ vựng, máy biến thể và Mini Test 15 câu có giải thích chi tiết.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <!-- Animate UI Core (Spring Physics & Micro-Interactions) -->
+    <link rel="stylesheet" href="animate-ui.css">
+    <script src="animate-ui.js" defer></script>
+    <style>
+        :root {
+            --primary: #059669;
+            --primary-dark: #047857;
+            --primary-light: #10b981;
+            --primary-soft: #ecfdf5;
+            --accent: #f59e0b;
+            --accent-orange: #ea580c;
+            --accent-soft: #fffbeb;
+            --text-dark: #0f172a;
+            --text-muted: #475569;
+            --bg-light: #f8fafc;
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+            --radius-sm: 8px;
+            --radius-md: 14px;
+            --radius-lg: 20px;
+            --shadow-subtle: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+            --shadow-card: 0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 20px 25px -5px rgba(5, 150, 105, 0.12), 0 8px 10px -6px rgba(5, 150, 105, 0.08);
+            --jp-font: 'Noto Sans JP', sans-serif;
+            --main-font: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--main-font);
+            background-color: #f1f5f9;
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding-bottom: 90px;
+            overflow-x: hidden;
+        }
+
+        .jp-text {
+            font-family: var(--jp-font);
+        }
+
+        /* Sticky Floating Dock */
+        .global-sticky-dock-wrapper {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.85);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+        }
+
+        .global-sticky-dock {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .dock-brand {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: var(--primary-dark);
+            font-weight: 800;
+            font-size: 1.05rem;
+            flex-shrink: 0;
+        }
+
+        .dock-pill-track {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            overflow-x: auto;
+            scrollbar-width: none;
+            padding: 2px 0;
+        }
+
+        .dock-pill-track::-webkit-scrollbar {
+            display: none;
+        }
+
+        .dock-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 6px 12px;
+            border-radius: 999px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-decoration: none;
+            color: #64748b;
+            background: #f1f5f9;
+            border: 1px solid #e2e8f0;
+            white-space: nowrap;
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .dock-pill:hover {
+            color: var(--primary-dark);
+            background: var(--primary-soft);
+            border-color: #a7f3d0;
+            transform: translateY(-1px);
+        }
+
+        .dock-pill.active {
+            color: #ffffff;
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+            border-color: #047857;
+            box-shadow: 0 2px 6px rgba(5, 150, 105, 0.35);
+        }
+
+        .dock-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-shrink: 0;
+        }
+
+        .dock-action-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            color: #334155;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .dock-action-btn:hover {
+            background: #f8fafc;
+            border-color: #94a3b8;
+            color: #0f172a;
+        }
+
+        .dock-dropdown-wrapper {
+            position: relative;
+        }
+
+        .dock-tools-menu {
+            display: none;
+            position: absolute;
+            top: calc(100% + 8px);
+            right: 0;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+            padding: 8px;
+            min-width: 240px;
+            max-height: 480px;
+            overflow-y: auto;
+            z-index: 1010;
+        }
+
+        .dock-tools-menu.show {
+            display: block;
+            animation: fadeInDown 0.2s ease;
+        }
+
+        .dock-tool-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #334155;
+            text-decoration: none;
+            transition: all 0.15s;
+        }
+
+        .dock-tool-item:hover, .dock-tool-item.active {
+            background: var(--primary-soft);
+            color: var(--primary-dark);
+        }
+
+        /* Mega Drawer Sheet */
+        .global-mega-sheet {
+            display: none;
+            position: fixed;
+            top: 54px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(8px);
+            z-index: 1050;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .global-mega-sheet.show {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .sheet-content {
+            background: #ffffff;
+            border-radius: 20px;
+            max-width: 980px;
+            width: 100%;
+            padding: 28px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            margin-top: 10px;
+        }
+
+        .sheet-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 14px;
+            margin-bottom: 20px;
+        }
+
+        .sheet-header-title {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: #0f172a;
+        }
+
+        .sheet-close-btn {
+            background: #f1f5f9;
+            border: none;
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #64748b;
+        }
+
+        .sheet-topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 16px;
+        }
+
+        .sheet-topic-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            padding: 16px;
+        }
+
+        .sheet-topic-badge {
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: var(--primary-dark);
+            margin-bottom: 8px;
+        }
+
+        .sheet-lesson-link {
+            display: block;
+            text-decoration: none;
+            padding: 8px 10px;
+            border-radius: 8px;
+            margin-bottom: 6px;
+            transition: all 0.15s;
+        }
+
+        .sheet-lesson-link:hover {
+            background: #ffffff;
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .sheet-lesson-name {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #1e293b;
+        }
+
+        .sheet-lesson-desc {
+            font-size: 0.76rem;
+            color: #64748b;
+        }
+
+        /* Section Nav */
+        .section-nav {
+            position: sticky;
+            top: 54px;
+            z-index: 900;
+            background: #ffffff;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 8px 16px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+
+        .section-nav::-webkit-scrollbar {
+            display: none;
+        }
+
+        .sec-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: #475569;
+            background: #f1f5f9;
+            white-space: nowrap;
+            transition: all 0.2s;
+        }
+
+        .sec-link:hover, .sec-link.active {
+            background: var(--primary-soft);
+            color: var(--primary-dark);
+        }
+
+        /* Container & Hero */
+        .main-container {
+            max-width: 1100px;
+            margin: 24px auto;
+            padding: 0 20px;
+        }
+
+        .hero-banner {
+            background: linear-gradient(135deg, #064e3b 0%, #065f46 45%, #047857 100%);
+            border-radius: var(--radius-lg);
+            padding: 40px 32px;
+            color: #ffffff;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+            margin-bottom: 32px;
+        }
+
+        .hero-banner::after {
+            content: "🍱";
+            position: absolute;
+            right: 20px;
+            bottom: 10px;
+            font-size: 5rem;
+            opacity: 0.15;
+            pointer-events: none;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(16, 185, 129, 0.25);
+            border: 1px solid rgba(52, 211, 153, 0.4);
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: #6ee7b7;
+            margin-bottom: 14px;
+        }
+
+        .hero-title {
+            font-size: 2.1rem;
+            font-weight: 900;
+            line-height: 1.25;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+
+        .hero-jp-quote {
+            font-family: var(--jp-font);
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: #fef08a;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.02rem;
+            color: #e2e8f0;
+            max-width: 800px;
+            margin-bottom: 24px;
+        }
+
+        .hero-stats-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 12px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            padding: 12px 16px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: #a7f3d0;
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 0.78rem;
+            color: #e2e8f0;
+            font-weight: 600;
+        }
+
+        /* Content Sections */
+        .content-section {
+            background: #ffffff;
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            margin-bottom: 32px;
+            box-shadow: var(--shadow-subtle);
+            border: 1px solid var(--border-color);
+            scroll-margin-top: 130px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 24px;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #0f172a;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-tag {
+            font-size: 0.78rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 999px;
+            background: var(--primary-soft);
+            color: var(--primary-dark);
+            text-transform: uppercase;
+        }
+
+        /* Grammar Card */
+        .grammar-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: var(--radius-md);
+            padding: 22px;
+            margin-bottom: 24px;
+        }
+
+        .rule-box {
+            background: #ffffff;
+            border-left: 5px solid var(--primary);
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin: 14px 0;
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .rule-formula {
+            font-family: var(--jp-font);
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            margin-bottom: 6px;
+        }
+
+        .rule-meaning {
+            font-size: 0.95rem;
+            color: #334155;
+            font-weight: 600;
+        }
+
+        .example-list {
+            margin-top: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .example-item {
+            background: #ffffff;
+            border-radius: 10px;
+            padding: 12px 16px;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 12px;
+            transition: all 0.2s;
+        }
+
+        .example-item:hover {
+            border-color: #a7f3d0;
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .ex-text-wrap {
+            flex-grow: 1;
+        }
+
+        .ex-jp {
+            font-family: var(--jp-font);
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 3px;
+        }
+
+        .ex-vi {
+            font-size: 0.88rem;
+            color: #475569;
+        }
+
+        .btn-speak {
+            background: #ecfdf5;
+            border: 1px solid #a7f3d0;
+            color: var(--primary-dark);
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            flex-shrink: 0;
+            transition: all 0.2s;
+        }
+
+        .btn-speak:hover {
+            background: var(--primary);
+            color: #ffffff;
+            transform: scale(1.08);
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 0.92rem;
+            background: #ffffff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .comparison-table th {
+            background: #065f46;
+            color: #ffffff;
+            padding: 12px 16px;
+            text-align: left;
+            font-weight: 700;
+        }
+
+        .comparison-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background: #f8fafc;
+        }
+
+        /* Morph Lab */
+        .verb-picker-row {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding-bottom: 12px;
+            margin-bottom: 20px;
+            scrollbar-width: thin;
+        }
+
+        .verb-pill {
+            padding: 8px 16px;
+            border-radius: 999px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            border: 1px solid #cbd5e1;
+            background: #ffffff;
+            color: #334155;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s;
+        }
+
+        .verb-pill:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .verb-pill.active {
+            background: var(--primary);
+            color: #ffffff;
+            border-color: var(--primary-dark);
+            box-shadow: 0 4px 8px rgba(5, 150, 105, 0.3);
+        }
+
+        .morph-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 14px;
+            margin-bottom: 18px;
+        }
+
+        .morph-box {
+            background: #ffffff;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+            transition: all 0.25s;
+        }
+
+        .morph-box.featured {
+            border-color: var(--primary);
+            background: #ecfdf5;
+        }
+
+        .morph-tag {
+            font-size: 0.72rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: #64748b;
+            margin-bottom: 6px;
+        }
+
+        .morph-box.featured .morph-tag {
+            color: var(--primary-dark);
+        }
+
+        .morph-val {
+            font-family: var(--jp-font);
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: #0f172a;
+        }
+
+        .morph-ex-box {
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            border-radius: 10px;
+            padding: 14px 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* Dialogue */
+        .dialogue-wrap {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: var(--radius-md);
+            padding: 24px;
+        }
+
+        .chat-container {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-bottom: 20px;
+        }
+
+        .chat-bubble {
+            display: flex;
+            gap: 12px;
+            max-width: 80%;
+        }
+
+        .chat-bubble.bot {
+            align-self: flex-start;
+        }
+
+        .chat-bubble.user {
+            align-self: flex-end;
+            flex-direction: row-reverse;
+        }
+
+        .chat-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .chat-msg {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            padding: 12px 16px;
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .chat-bubble.user .chat-msg {
+            background: #059669;
+            color: #ffffff;
+            border-color: #047857;
+        }
+
+        .chat-name {
+            font-size: 0.72rem;
+            font-weight: 800;
+            color: #64748b;
+            margin-bottom: 2px;
+        }
+
+        .chat-bubble.user .chat-name {
+            color: #a7f3d0;
+            text-align: right;
+        }
+
+        .chat-jp {
+            font-family: var(--jp-font);
+            font-size: 0.98rem;
+            font-weight: 700;
+        }
+
+        .chat-vi {
+            font-size: 0.8rem;
+            color: #64748b;
+            margin-top: 3px;
+        }
+
+        .chat-bubble.user .chat-vi {
+            color: #e2e8f0;
+        }
+
+        .chat-options-panel {
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            border-radius: 12px;
+            padding: 16px;
+        }
+
+        .chat-opt-title {
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: #334155;
+            margin-bottom: 10px;
+        }
+
+        .chat-btn-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 10px;
+        }
+
+        .btn-chat-choice {
+            background: #f8fafc;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 10px;
+            padding: 10px 14px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: #1e293b;
+            cursor: pointer;
+            text-align: left;
+            transition: all 0.2s;
+        }
+
+        .btn-chat-choice:hover {
+            border-color: var(--primary);
+            background: var(--primary-soft);
+            color: var(--primary-dark);
+        }
+
+        /* Flashcards 3D */
+        .vocab-filter-bar {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 22px;
+        }
+
+        .vocab-filter-btn {
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            color: #475569;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+
+        .vocab-filter-btn:hover, .vocab-filter-btn.active {
+            background: var(--primary);
+            color: #ffffff;
+            border-color: var(--primary-dark);
+        }
+
+        .vocab-stats-badge {
+            margin-left: auto;
+            font-size: 0.85rem;
+            color: #64748b;
+            font-weight: 700;
+        }
+
+        .flashcards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .flashcard {
+            background: transparent;
+            perspective: 1000px;
+            height: 310px;
+            cursor: pointer;
+        }
+
+        .fc-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+            box-shadow: var(--shadow-subtle);
+            border-radius: 16px;
+        }
+
+        .flashcard.flipped .fc-inner {
+            transform: rotateY(180deg);
+        }
+
+        .fc-front, .fc-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 16px;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border: 1px solid #e2e8f0;
+            background: #ffffff;
+        }
+
+        .fc-back {
+            transform: rotateY(180deg);
+            background: #f8fafc;
+            border-color: #a7f3d0;
+            text-align: left;
+        }
+
+        .fc-badge {
+            display: inline-block;
+            align-self: flex-start;
+            font-size: 0.7rem;
+            font-weight: 800;
+            padding: 3px 10px;
+            border-radius: 999px;
+            background: var(--primary-soft);
+            color: var(--primary-dark);
+        }
+
+        .fc-illustration {
+            width: 100%;
+            height: 105px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .fc-illustration svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .fc-jp {
+            font-family: var(--jp-font);
+            font-size: 1.35rem;
+            font-weight: 900;
+            color: #0f172a;
+        }
+
+        .fc-kana {
+            font-family: var(--jp-font);
+            font-size: 0.9rem;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .fc-romaji {
+            font-size: 0.78rem;
+            color: #94a3b8;
+        }
+
+        .fc-hint {
+            font-size: 0.72rem;
+            color: #94a3b8;
+            font-weight: 600;
+        }
+
+        .fc-back-meaning {
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            margin-bottom: 8px;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 6px;
+        }
+
+        .fc-back-ex-jp {
+            font-family: var(--jp-font);
+            font-size: 0.92rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 4px;
+        }
+
+        .fc-back-ex-vi {
+            font-size: 0.8rem;
+            color: #475569;
+        }
+
+        .fc-back-actions {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .btn-learned {
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 5px 10px;
+            border-radius: 6px;
+            border: 1px solid #cbd5e1;
+            background: #ffffff;
+            color: #475569;
+            cursor: pointer;
+        }
+
+        .btn-learned.active {
+            background: #10b981;
+            color: #ffffff;
+            border-color: #059669;
+        }
+
+        /* Kanji Cards */
+        .kanji-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 18px;
+        }
+
+        .kanji-detail-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: var(--radius-md);
+            padding: 20px;
+            display: flex;
+            gap: 16px;
+            box-shadow: var(--shadow-subtle);
+            transition: all 0.2s;
+        }
+
+        .kanji-detail-card:hover {
+            border-color: #a7f3d0;
+            box-shadow: var(--shadow-card);
+            transform: translateY(-2px);
+        }
+
+        .kanji-big-char {
+            width: 72px;
+            height: 72px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--jp-font);
+            font-size: 2.5rem;
+            font-weight: 900;
+            flex-shrink: 0;
+            box-shadow: 0 4px 10px rgba(5, 150, 105, 0.3);
+        }
+
+        .kanji-info {
+            flex-grow: 1;
+        }
+
+        .kanji-hv-title {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 2px;
+        }
+
+        .kanji-strokes-badge {
+            font-size: 0.72rem;
+            font-weight: 700;
+            background: #f1f5f9;
+            padding: 2px 8px;
+            border-radius: 4px;
+            color: #475569;
+        }
+
+        .kanji-readings {
+            font-size: 0.82rem;
+            color: #334155;
+            margin: 6px 0;
+            line-height: 1.4;
+        }
+
+        .kanji-mnemonic {
+            font-size: 0.78rem;
+            color: #047857;
+            background: #ecfdf5;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+
+        /* Quiz */
+        .quiz-progress-bar-wrap {
+            background: #e2e8f0;
+            height: 8px;
+            border-radius: 999px;
+            margin-bottom: 24px;
+            overflow: hidden;
+        }
+
+        .quiz-progress-fill {
+            background: linear-gradient(90deg, #10b981, #059669);
+            height: 100%;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .quiz-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: var(--radius-md);
+            padding: 22px;
+            margin-bottom: 18px;
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .quiz-q-num {
+            font-size: 0.78rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+
+        .quiz-question-text {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 14px;
+        }
+
+        .quiz-options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .quiz-opt-btn {
+            background: #f8fafc;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 10px;
+            padding: 12px 16px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #334155;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .quiz-opt-btn:hover:not(:disabled) {
+            border-color: var(--primary);
+            background: var(--primary-soft);
+            color: var(--primary-dark);
+        }
+
+        .quiz-opt-btn.correct {
+            background: #dcfce7 !important;
+            border-color: #22c55e !important;
+            color: #15803d !important;
+        }
+
+        .quiz-opt-btn.wrong {
+            background: #fee2e2 !important;
+            border-color: #ef4444 !important;
+            color: #b91c1c !important;
+        }
+
+        .quiz-feedback {
+            display: none;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 0.88rem;
+            line-height: 1.5;
+            margin-top: 10px;
+        }
+
+        .quiz-feedback.show {
+            display: block;
+            animation: fadeIn 0.3s;
+        }
+
+        .quiz-feedback.correct {
+            background: #f0fdf4;
+            border: 1px solid #86efac;
+            color: #166534;
+        }
+
+        .quiz-feedback.wrong {
+            background: #fef2f2;
+            border: 1px solid #fca5a5;
+            color: #991b1b;
+        }
+
+        .score-box {
+            display: none;
+            text-align: center;
+            background: linear-gradient(135deg, #064e3b 0%, #065f46 100%);
+            color: #ffffff;
+            border-radius: var(--radius-lg);
+            padding: 36px 20px;
+            margin-top: 24px;
+        }
+
+        .score-box.show {
+            display: block;
+            animation: zoomIn 0.35s ease;
+        }
+
+        .score-val {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: #a7f3d0;
+            margin: 10px 0;
+        }
+
+        .btn-retry {
+            background: #ffffff;
+            color: #064e3b;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 999px;
+            font-weight: 800;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 14px;
+            transition: all 0.2s;
+        }
+
+        .btn-retry:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 1.6rem;
+            }
+            .hero-jp-quote {
+                font-size: 1.1rem;
+            }
+            .content-section {
+                padding: 20px 16px;
+            }
+            .dock-pill-track {
+                width: 100%;
+                order: 3;
+            }
+            .global-sticky-dock {
+                flex-wrap: wrap;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes zoomIn {
+            from { opacity: 0; transform: scale(0.92); }
+            to { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- GLOBAL FLOATING DOCK -->
+    <div class="global-sticky-dock-wrapper">
+        <div class="global-sticky-dock">
+            <a href="index.html" class="dock-brand" title="Trang chủ Luyện tập">
+                <span>⛩️</span>
+                <span class="dock-brand-text">Marugoto A2</span>
+            </a>
+
+            <!-- Lesson Track Pills (1 to 18) -->
+            <div class="dock-pill-track" id="dockPillTrack">
+                <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l1" class="dock-pill"><span class="pill-ico">🏠</span> Bài 1</a>
+                <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l2" class="dock-pill"><span class="pill-ico">🎨</span> Bài 2</a>
+                <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l3" class="dock-pill"><span class="pill-ico">🍁</span> Bài 3</a>
+                <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l4" class="dock-pill"><span class="pill-ico">⛅</span> Bài 4</a>
+                <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l5" class="dock-pill"><span class="pill-ico">🏙️</span> Bài 5</a>
+                <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l6" class="dock-pill"><span class="pill-ico">🗺️</span> Bài 6</a>
+                <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l7" class="dock-pill"><span class="pill-ico">⏰</span> Bài 7</a>
+                <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l8" class="dock-pill"><span class="pill-ico">⛩️</span> Bài 8</a>
+                <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l9" class="dock-pill"><span class="pill-ico">🗣️</span> Bài 9</a>
+                <a href="Marugoto_A2_Lesson_10.html" class="dock-pill"><span class="pill-ico">🌟</span> Bài 10</a>
+                <a href="Marugoto_A2_Lesson_11.html" class="dock-pill"><span class="pill-ico">🍱</span> Bài 11</a>
+                <a href="Marugoto_A2_Lesson_12.html" class="dock-pill"><span class="pill-ico">🍜</span> Bài 12</a>
+                <a href="Marugoto_A2_Lesson_13.html" class="dock-pill"><span class="pill-ico">✈️</span> Bài 13</a>
+                <a href="Marugoto_A2_Lesson_14.html" class="dock-pill"><span class="pill-ico">💻</span> Bài 14</a>
+                <a href="Marugoto_A2_Lesson_15.html" class="dock-pill active"><span class="pill-ico">🏥</span> Bài 15</a>
+                <a href="Marugoto_A2_Lesson_16.html" class="dock-pill"><span class="pill-ico">🏃</span> Bài 16</a>
+                <a href="Marugoto_A2_Lesson_17.html" class="dock-pill"><span class="pill-ico">🎁</span> Bài 17</a>
+                <a href="Marugoto_A2_Lesson_18.html" class="dock-pill"><span class="pill-ico">👘</span> Bài 18</a>
+            </div>
+
+            <!-- Action Controls -->
+            <div class="dock-actions">
+                <button type="button" class="dock-action-btn" onclick="toggleGlobalMegaSheet(event)" title="Mục lục 18 bài học">
+                    <span>📑 18 Bài Học</span>
+                    <span>▾</span>
+                </button>
+                <div class="dock-dropdown-wrapper">
+                    <button type="button" class="dock-action-btn" onclick="toggleGlobalToolsDropdown(event)" title="Tiện ích học tập">
+                        <span>🛠️ Tiện Ích</span>
+                        <span>▾</span>
+                    </button>
+                    <div class="dock-tools-menu" id="globalToolsMenu">
+                        <a href="index.html" class="dock-tool-item">🌸 Thể TE (～て)</a>
+                        <a href="the_ru.html" class="dock-tool-item">📘 Thể RU (Từ Điển)</a>
+                        <a href="kanji_a2.html" class="dock-tool-item">⛩️ Học Kanji & Nét Viết</a>
+                        <a href="Tu_Vung_Marugoto_A1_16_A2_1_10.html" class="dock-tool-item">📖 Kho Từ Vựng A1-A2 (600+ Từ)</a>
+                        <a href="On_Tap_Mini_Test_A2_5_8.html" class="dock-tool-item">🎯 Cẩm Nang Toàn Diện 10 Bài</a>
+                        <a href="De_Thi_Thu_Marugoto_A2_5_8.html" class="dock-tool-item">📝 5 Mã Đề Thi Thử</a>
+                        <a href="Marugoto_A2_Lesson_10.html" class="dock-tool-item">🌟 Web Chuyên Sâu Bài 10 ✨</a>
+                        <a href="Marugoto_A2_Lesson_11.html" class="dock-tool-item">🍱 Web Chuyên Sâu Bài 11 ✨</a>
+                        <a href="Marugoto_A2_Lesson_12.html" class="dock-tool-item">🍜 Web Chuyên Sâu Bài 12 ✨</a>
+                        <a href="Marugoto_A2_Lesson_13.html" class="dock-tool-item">✈️ Web Chuyên Sâu Bài 13 ✨</a>
+                        <a href="Marugoto_A2_Lesson_14.html" class="dock-tool-item">💻 Web Chuyên Sâu Bài 14 ✨</a>
+                        <a href="Marugoto_A2_Lesson_15.html" class="dock-tool-item active">🏥 Web Chuyên Sâu Bài 15 ✨</a>
+                        <a href="Marugoto_A2_Lesson_16.html" class="dock-tool-item">🏃 Web Chuyên Sâu Bài 16 ✨</a>
+                        <a href="Marugoto_A2_Lesson_17.html" class="dock-tool-item">🎁 Web Chuyên Sâu Bài 17 ✨</a>
+                        <a href="Marugoto_A2_Lesson_18.html" class="dock-tool-item">👘 Web Chuyên Sâu Bài 18 ✨</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MEGA DRAWER SHEET -->
+    <div class="global-mega-sheet" id="globalMegaSheet" onclick="closeGlobalMegaSheet()">
+        <div class="sheet-content" onclick="event.stopPropagation()">
+            <div class="sheet-header">
+                <div class="sheet-header-title">📚 Mục Lục Toàn Diện 18 Bài Học (Marugoto A2-1 & A2-2)</div>
+                <button type="button" class="sheet-close-btn" onclick="closeGlobalMegaSheet()">✕</button>
+            </div>
+            <div class="sheet-topics-grid">
+                <div class="sheet-topic-card">
+                    <div class="sheet-topic-badge">Topic 1: Gia Đình & Bản Thân</div>
+                    <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l1" class="sheet-lesson-link">
+                        <div class="sheet-lesson-name">🏠 Bài 1: Nơi ở & Gia đình</div>
+                        <div class="sheet-lesson-desc">～に住んでいます / Thể ている / で働いています</div>
+                    </a>
+                    <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l2" class="sheet-lesson-link">
+                        <div class="sheet-lesson-name">🎨 Bài 2: Sở thích của tôi</div>
+                        <div class="sheet-lesson-desc">V-ること / Thể từ điển (RU) / Năng khiếu</div>
+                    </a>
+                </div>
+                <div class="sheet-topic-card">
+                    <div class="sheet-topic-badge">Topic 2: Mùa & Thời Tiết</div>
+                    <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l3" class="sheet-lesson-link">
+                        <div class="sheet-lesson-name">🍁 Bài 3: Bốn mùa khí hậu</div>
+                        <div class="sheet-lesson-desc">V-ると / になる・くなる (Thay đổi trạng thái)</div>
+                    </a>
+                    <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l4" class="sheet-lesson-link">
+                        <div class="sheet-lesson-name">⛅ Bài 4: Dự báo thời tiết</div>
+                        <div class="sheet-lesson-desc">～でしょう / ～かもしれません (Phán đoán)</div>
+                    </a>
+                </div>
+                <div class="sheet-topic-card">
+                    <div class="sheet-topic-badge">Topic 3: Thị Trấn Của Tôi</div>
+                    <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l5" class="sheet-lesson-link">
+                        <div class="sheet-lesson-name">🏙️ Bài 5: Nơi chốn & Phố xá</div>
+                        <div class="sheet-lesson-desc">Địa điểm, phong cảnh và lối sống thị trấn</div>
+                    </a>
+                    <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l6" class="sheet-lesson-link">
+                        <div class="sheet-lesson-name">🗺️ Bài 6: Mua sắm & Phương hướng</div>
+                        <div class="sheet-lesson-desc">Chỉ đường, hỏi giá cả và mua hàng hóa</div>
+                    </a>
+                </div>
+                <div class="sheet-topic-card">
+                    <div class="sheet-topic-badge">Topic 4: Đi Lại & Ăn Uống</div>
+                    <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l7" class="sheet-lesson-link">
+                        <div class="sheet-lesson-name">⏰ Bài 7: Ra ngoài & Đi lại</div>
+                        <div class="sheet-lesson-desc">Phương tiện giao thông, hẹn giờ và xuất phát</div>
+                    </a>
+                    <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l8" class="sheet-lesson-link">
+                        <div class="sheet-lesson-name">⛩️ Bài 8: Bữa ăn & Thời gian</div>
+                        <div class="sheet-lesson-desc">Món ăn thường ngày, thói quen ăn uống</div>
+                    </a>
+                </div>
+                <div class="sheet-topic-card">
+                    <div class="sheet-topic-badge">Topic 5: Ngôn Ngữ & Văn Hóa</div>
+                    <a href="On_Tap_Mini_Test_A2_5_8.html#grammar-l9" class="sheet-lesson-link">
+                        <div class="sheet-lesson-name">🗣️ Bài 9: Giao lưu ngôn ngữ</div>
+                        <div class="sheet-lesson-desc">Học ngoại ngữ, các phương pháp trau dồi</div>
+                    </a>
+                    <a href="Marugoto_A2_Lesson_10.html" class="sheet-lesson-link">
+                        <div class="sheet-lesson-name">🌟 Bài 10: Ước mơ du lịch Nhật</div>
+                        <div class="sheet-lesson-desc">V-たいです / Tần suất ～回 / V-てみます</div>
+                    </a>
+                </div>
+                <div class="sheet-topic-card">
+                    <div class="sheet-topic-badge">Topic 6: Ăn Uống Ngoài Trời</div>
+                    <a href="Marugoto_A2_Lesson_11.html" class="sheet-lesson-link">
+                        <div class="sheet-lesson-name">🍱 Bài 11: Dã ngoại picnic</div>
+                        <div class="sheet-lesson-desc">V-ていきます/きます / なんでもいい / どちらがいい</div>
+                    </a>
+                    <a href="Marugoto_A2_Lesson_12.html" class="sheet-lesson-link">
+                        <div class="sheet-lesson-name">🍜 Bài 12: Món ăn & Vị giác</div>
+                        <div class="sheet-lesson-desc">V-たことがあります / どちらが / Hương vị ẩm thực</div>
+                    </a>
+                </div>
+                <div class="sheet-topic-card">
+                    <div class="sheet-topic-badge">Topic 7: Chuyến Đi Công Tác</div>
+                    <a href="Marugoto_A2_Lesson_13.html" class="sheet-lesson-link">
+                        <div class="sheet-lesson-name">✈️ Bài 13: Lịch trình công tác</div>
+                        <div class="sheet-lesson-desc">V-てください / Sân bay, đưa đón & lịch trình</div>
+                    </a>
+                    <a href="Marugoto_A2_Lesson_14.html" class="sheet-lesson-link">
+                        <div class="sheet-lesson-name">💻 Bài 14: Nơi làm việc</div>
+                        <div class="sheet-lesson-desc">V-てもいいですか (Xin phép) / V-てはいけません (Cấm)</div>
+                    </a>
+                </div>
+                <div class="sheet-topic-card">
+                    <div class="sheet-topic-badge">Topic 8: Cuộc Sống Khỏe Mạnh</div>
+                    <a href="Marugoto_A2_Lesson_15.html" class="sheet-lesson-link">
+                        <div class="sheet-lesson-name">🏥 Bài 15: Cơ thể & Bệnh tật</div>
+                        <div class="sheet-lesson-desc">～んです (Giải thích) / Triệu chứng & Khám bệnh</div>
+                    </a>
+                    <a href="Marugoto_A2_Lesson_16.html" class="sheet-lesson-link">
+                        <div class="sheet-lesson-name">🏃 Bài 16: Giữ gìn sức khỏe</div>
+                        <div class="sheet-lesson-desc">V-たほうがいい / V-ないほうがいい / V-すぎます</div>
+                    </a>
+                </div>
+                <div class="sheet-topic-card">
+                    <div class="sheet-topic-badge">Topic 9: Chúc Mừng & Kỷ Niệm</div>
+                    <a href="Marugoto_A2_Lesson_17.html" class="sheet-lesson-link">
+                        <div class="sheet-lesson-name">🎁 Bài 17: Quà tặng & Kỷ niệm</div>
+                        <div class="sheet-lesson-desc">あげます / もらいます / Các dịp lễ kỷ niệm</div>
+                    </a>
+                    <a href="Marugoto_A2_Lesson_18.html" class="sheet-lesson-link">
+                        <div class="sheet-lesson-name">👘 Bài 18: Trang phục & Lễ hội</div>
+                        <div class="sheet-lesson-desc">V-ています (Mặc trang phục) / ～と思います / Lời chúc</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- STICKY SECTION SUB-NAV -->
+    <div class="section-nav">
+        <a href="#sec-grammar1" class="sec-link">① Ngữ Pháp 1</a>
+        <a href="#sec-grammar2" class="sec-link">② Ngữ Pháp 2</a>
+        <a href="#sec-grammar3" class="sec-link">③ Ngữ Pháp 3</a>
+        <a href="#sec-verb-lab" class="sec-link">🔬 Máy Biến Thể</a>
+        <a href="#sec-dialogue" class="sec-link">💬 Đối Thoại Tương Tác</a>
+        <a href="#sec-vocab" class="sec-link">🎴 Flashcard 3D (29 từ)</a>
+        <a href="#sec-kanji" class="sec-link">⛩️ 9 Chữ Hán</a>
+        <a href="#sec-quiz" class="sec-link">📝 Mini Test 15 Câu</a>
+    </div>
+
+    <!-- MAIN CONTAINER -->
+    <div class="main-container">
+
+        <!-- HERO BANNER -->
+        <div class="hero-banner">
+            <div class="hero-badge">TOPIC 8: けんこう • BÀI 15</div>
+            <h1 class="hero-title">CHINH PHỤC TOÀN DIỆN BÀI 15</h1>
+            <div class="hero-jp-quote">
+                <span>「体操するといいですよ」</span>
+                <button type="button" class="btn-speak" style="background:rgba(255,255,255,0.2); border-color:#6ee7b7; color:#fff;" onclick="speakText('体操するといいですよ')">🔊</button>
+            </div>
+            <p class="hero-subtitle">
+                Làm chủ từ vựng về các bộ phận cơ thể con người, cách diễn tả các triệu chứng đau ốm, mệt mỏi với cấu trúc ～んです, đưa ra lời khuyên chăm sóc sức khỏe hữu ích (V-るといいですよ), dặn dò đừng làm quá sức (V-ないでください) và câu chúc bình phục lịch thiệp.
+            </p>
+            <div class="hero-stats-row">
+                <div class="stat-card">
+                    <div class="stat-number">29</div>
+                    <div class="stat-label">Từ vựng Flashcard</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Mẫu câu trọng tâm</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">5</div>
+                    <div class="stat-label">Động từ biến thể</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">9</div>
+                    <div class="stat-label">Chữ Hán cốt lõi</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">15</div>
+                    <div class="stat-label">Câu Mini Test</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- GRAMMAR SECTIONS -->
+        <section class="content-section" id="sec-grammar1">
+            <div class="section-header">
+                <h2 class="section-title"><span>🏥</span> 1. Trình bày triệu chứng & Giải thích lý do: ～んです</h2>
+                <span class="section-tag">Giải thích bệnh trạng</span>
+            </div>
+
+            <p style="margin-bottom: 16px; color: #334155;">
+                Dùng để giải thích tình trạng sức khỏe hoặc lý do khiến cơ thể khó chịu, mệt mỏi khi được người khác hỏi thăm (どうしたんですか).
+            </p>
+
+            <div class="grammar-card">
+                <div class="rule-box" style="border-left-color: #ef4444;">
+                    <div class="rule-formula" style="color: #b91c1c;">Động từ thể Thông thường + んです<br>Tính từ đuôi い + んです (痛いんです)<br>Tính từ đuôi な / Danh từ + なんです (病気なんです)</div>
+                    <div class="rule-meaning">
+                        Vì... / Tôi bị... đấy (nhấn mạnh tình trạng thực tế để người nghe thấu hiểu).
+                    </div>
+                </div>
+
+                
+
+                <div class="example-list">
+                    <div class="example-item">
+                        <div class="ex-text-wrap">
+                            <div class="ex-jp">どうしたんですか。―― ちょっと 頭が 痛いんです。</div>
+                            <div class="ex-vi">Bạn bị làm sao thế? ―― Tôi bị đau đầu một chút.</div>
+                        </div>
+                        <button type="button" class="btn-speak" onclick="speakText('どうしたんですか。―― ちょっと 頭が 痛いんです。')">🔊</button>
+                    </div>
+                    <div class="example-item">
+                        <div class="ex-text-wrap">
+                            <div class="ex-jp">昨日から 熱が あって、喉も 痛いんです。</div>
+                            <div class="ex-vi">Từ hôm qua tôi đã bị sốt, cổ họng cũng đau nữa.</div>
+                        </div>
+                        <button type="button" class="btn-speak" onclick="speakText('昨日から 熱が あって、喉も 痛いんです。')">🔊</button>
+                    </div>
+                    <div class="example-item">
+                        <div class="ex-text-wrap">
+                            <div class="ex-jp">昨夜 あまり 眠れなかったんです。</div>
+                            <div class="ex-vi">Đêm qua tôi hầu như không ngủ được.</div>
+                        </div>
+                        <button type="button" class="btn-speak" onclick="speakText('昨夜 あまり 眠れなかったんです。')">🔊</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section" id="sec-grammar2">
+            <div class="section-header">
+                <h2 class="section-title"><span>💊</span> 2. Đưa ra lời khuyên hữu ích cho sức khỏe: V-るといいですよ</h2>
+                <span class="section-tag">Lời khuyên sức khỏe</span>
+            </div>
+
+            <p style="margin-bottom: 16px; color: #334155;">
+                Dùng để gợi ý hoặc khuyên đối phương thực hiện một biện pháp hữu ích để cải thiện sức khỏe hoặc giảm bớt cơn đau.
+            </p>
+
+            <div class="grammar-card">
+                <div class="rule-box" style="border-left-color: #059669;">
+                    <div class="rule-formula" style="color: #047857;">Động từ thể Từ điển (V-る) + といいですよ</div>
+                    <div class="rule-meaning">
+                        Làm ... thì tốt đấy nhé! (Lời khuyên thân thiện, không mang tính ép buộc).
+                    </div>
+                </div>
+
+                                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Triệu chứng</th>
+                            <th>Lời khuyên V-るといいですよ</th>
+                            <th>Ý nghĩa tiếng Việt</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong style="color:var(--primary-dark); font-size:1.02rem;">肩が 痛い (Đau vai)</strong></td>
+                            <td>肩を 回すと いいですよ</td>
+                            <td>Xoay nhẹ vai thì tốt đấy</td>
+                        </tr>                        <tr>
+                            <td><strong style="color:var(--primary-dark); font-size:1.02rem;">かぜを ひいた (Bị cảm)</strong></td>
+                            <td>この 薬を 飲むと いいですよ</td>
+                            <td>Uống thuốc này thì tốt đấy</td>
+                        </tr>                        <tr>
+                            <td><strong style="color:var(--primary-dark); font-size:1.02rem;">つかれている (Mệt mỏi)</strong></td>
+                            <td>お風呂に 入ると いいですよ</td>
+                            <td>Ngâm bồn nước ấm thì tốt đấy</td>
+                        </tr>                        <tr>
+                            <td><strong style="color:var(--primary-dark); font-size:1.02rem;">眠れない (Mất ngủ)</strong></td>
+                            <td>あたたかい 牛乳を 飲むと いいですよ</td>
+                            <td>Uống sữa ấm thì tốt đấy</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="example-list">
+                    <div class="example-item">
+                        <div class="ex-text-wrap">
+                            <div class="ex-jp">寝る前に、この 薬を 飲むと いいですよ。</div>
+                            <div class="ex-vi">Trước khi đi ngủ, bạn uống viên thuốc này thì tốt đấy nhé.</div>
+                        </div>
+                        <button type="button" class="btn-speak" onclick="speakText('寝る前に、この 薬を 飲むと いいですよ。')">🔊</button>
+                    </div>
+                    <div class="example-item">
+                        <div class="ex-text-wrap">
+                            <div class="ex-jp">こうやって 肩を ゆっくり 回すと いいですよ。</div>
+                            <div class="ex-vi">Cứ làm như thế này, xoay vai từ từ thì sẽ dễ chịu đấy.</div>
+                        </div>
+                        <button type="button" class="btn-speak" onclick="speakText('こうやって 肩を ゆっくり 回すと いいですよ。')">🔊</button>
+                    </div>
+                    <div class="example-item">
+                        <div class="ex-text-wrap">
+                            <div class="ex-jp">熱が あるときは、早く 休むと いいですよ。</div>
+                            <div class="ex-vi">Khi bị sốt thì bạn nên nghỉ ngơi sớm thì tốt hơn đấy.</div>
+                        </div>
+                        <button type="button" class="btn-speak" onclick="speakText('熱が あるときは、早く 休むと いいですよ。')">🔊</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section" id="sec-grammar3">
+            <div class="section-header">
+                <h2 class="section-title"><span>⚠️</span> 3. Khuyên can, dặn dò đừng làm quá sức: V-ないでください</h2>
+                <span class="section-tag">Dặn dò chu đáo</span>
+            </div>
+
+            <p style="margin-bottom: 16px; color: #334155;">
+                Dùng để nhắc nhở người bệnh hoặc đồng nghiệp không nên làm những việc gây hại cho cơ thể khi đang ốm đau.
+            </p>
+
+            <div class="grammar-card">
+                <div class="rule-box" style="border-left-color: #ea580c;">
+                    <div class="rule-formula" style="color: #c2410c;">Động từ thể Phủ định ngắn (V-ない) + でください</div>
+                    <div class="rule-meaning">
+                        Xin đừng... nhé! Câu quen thuộc nơi công sở: 「あまり無理をしないでください」 (Đừng cố quá sức nhé).
+                    </div>
+                </div>
+
+                
+
+                <div class="example-list">
+                    <div class="example-item">
+                        <div class="ex-text-wrap">
+                            <div class="ex-jp">まだ 熱が ありますから、あまり 無理を しないでくださいね。</div>
+                            <div class="ex-vi">Vẫn còn sốt nên bạn đừng làm việc quá sức nhé.</div>
+                        </div>
+                        <button type="button" class="btn-speak" onclick="speakText('まだ 熱が ありますから、あまり 無理を しないでくださいね。')">🔊</button>
+                    </div>
+                    <div class="example-item">
+                        <div class="ex-text-wrap">
+                            <div class="ex-jp">おなかが 痛いときは、冷たいものを 飲まないでください。</div>
+                            <div class="ex-vi">Khi bị đau bụng thì xin đừng uống đồ uống lạnh nhé.</div>
+                        </div>
+                        <button type="button" class="btn-speak" onclick="speakText('おなかが 痛いときは、冷たいものを 飲まないでください。')">🔊</button>
+                    </div>
+                    <div class="example-item">
+                        <div class="ex-text-wrap">
+                            <div class="ex-jp">今日は 残業しないで、早く 帰ってください。</div>
+                            <div class="ex-vi">Hôm nay đừng làm thêm giờ nữa, hãy về nhà sớm đi.</div>
+                        </div>
+                        <button type="button" class="btn-speak" onclick="speakText('今日は 残業しないで、早く 帰ってください。')">🔊</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- INTERACTIVE LABORATORY -->
+        <section class="content-section" id="sec-verb-lab">
+            <div class="section-header">
+                <h2 class="section-title"><span>🔬</span> Phòng Thí Nghiệm Động Từ Thể Nai & Lời Khuyên Sức Khỏe</h2>
+                <span class="section-tag">Interactive Laboratory</span>
+            </div>
+
+            <p style="margin-bottom: 16px; color: #334155;">
+                Thực hành chuyển đổi động từ sang thể Nai (Phủ định) để dặn dò không làm quá sức (V-ないでください) và đưa ra lời khuyên hữu ích (V-るといいですよ):
+            </p>
+
+            <div class="verb-picker-row" id="verbPickerRow">
+                <!-- Verb pills populated via JS -->
+            </div>
+
+            <div class="morph-grid">
+                <div class="morph-box">
+                    <div class="morph-tag">Thể MASU</div>
+                    <div class="morph-val" id="morphMasu">---</div>
+                    <div style="font-size:0.8rem; color:#64748b; margin-top:4px;" id="morphVi">---</div>
+                </div>
+                <div class="morph-box">
+                    <div class="morph-tag">Thể NAI</div>
+                    <div class="morph-val" style="color:#0284c7;" id="morphTe">---</div>
+                    <div style="font-size:0.8rem; color:#64748b; margin-top:4px;">Gốc biến đổi</div>
+                </div>
+                <div class="morph-box featured">
+                    <div class="morph-tag">V-ないでください (Khuyên đừng)</div>
+                    <div class="morph-val" style="color:#059669;" id="morphTeIki">---</div>
+                    <div style="font-size:0.8rem; color:#047857; margin-top:4px;">Cấu trúc trọng tâm 1</div>
+                </div>
+                <div class="morph-box">
+                    <div class="morph-tag">V-るといいですよ (Khuyên nên)</div>
+                    <div class="morph-val" style="color:#7c3aed;" id="morphTeKi">---</div>
+                    <div style="font-size:0.8rem; color:#64748b; margin-top:4px;">Cấu trúc trọng tâm 2</div>
+                </div>
+                <div class="morph-box">
+                    <div class="morph-tag">Bệnh trạng ～んです</div>
+                    <div class="morph-val" style="color:#ea580c;" id="morphMashou">---</div>
+                    <div style="font-size:0.8rem; color:#64748b; margin-top:4px;">Mẫu câu giao tiếp</div>
+                </div>
+            </div>
+
+            <div class="morph-ex-box">
+                <div>
+                    <div style="font-size:0.75rem; font-weight:800; color:#047857; text-transform:uppercase;">Câu ví dụ thực tế trong Bài 15:</div>
+                    <div style="font-family:var(--jp-font); font-size:1.05rem; font-weight:800; color:#0f172a; margin-top:2px;" id="morphExText">
+                        ---
+                    </div>
+                </div>
+                <button type="button" class="btn-speak" id="btnMorphSpeak" onclick="speakCurrentMorph()">🔊</button>
+            </div>
+        </section>
+
+        <!-- INTERACTIVE DIALOGUE SIMULATOR -->
+        <section class="content-section" id="sec-dialogue">
+            <div class="section-header">
+                <h2 class="section-title"><span>💬</span> Hỏi Thăm Sức Khỏe & Đưa Ra Lời Khuyên</h2>
+                <span class="section-tag">Role-play Simulator</span>
+            </div>
+
+            <p style="margin-bottom: 16px; color: #334155;">
+                Thực hành tình huống đồng nghiệp thấy bạn mệt mỏi ở công ty, bạn trình bày triệu chứng bệnh và lắng nghe lời khuyên chăm sóc sức khỏe:
+            </p>
+
+            <div class="dialogue-wrap">
+                <div class="chat-container" id="chatContainer">
+                    <div class="chat-bubble bot">
+                        <div class="chat-avatar">👩‍💼</div>
+                        <div class="chat-msg">
+                            <div class="chat-name">Yamada (Đồng nghiệp)</div>
+                            <div class="chat-jp">どうしたんですか。顔色がよくないですよ。</div>
+                            <div class="chat-vi">Bạn bị làm sao thế? Trông sắc mặt bạn không được tốt chút nào cả.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chat-options-panel">
+                    <div class="chat-opt-title">🎯 Chọn lời thoại phản hồi của bạn:</div>
+                    <div class="chat-btn-grid" id="chatOptionsGrid">
+                        <!-- Populated dynamically via JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FLASHCARDS 3D -->
+        <section class="content-section" id="sec-vocab">
+            <div class="section-header">
+                <h2 class="section-title"><span>🎴</span> TRỌN BỘ 29 TỪ VỰNG BÀI 15 (FLASHCARD 3D)</h2>
+                <span class="section-tag">Flashcards 3D</span>
+            </div>
+
+            <p style="margin-bottom: 16px; color: #334155;">
+                Bấm trực tiếp vào từng thẻ để lật xem nghĩa tiếng Việt và câu ví dụ. Bấm biểu tượng 🔊 để nghe phát âm chuẩn Tokyo:
+            </p>
+
+            <div class="vocab-filter-bar" id="vocabFilterBar">
+                <!-- Filters rendered via JS -->
+                <div class="vocab-stats-badge" id="vocabStats">Đã thuộc: 0 / 29 từ</div>
+            </div>
+
+            <div class="flashcards-grid" id="flashcardsGrid">
+                <!-- Cards rendered via JS -->
+            </div>
+        </section>
+
+        <!-- KANJI SECTION -->
+        <section class="content-section" id="sec-kanji">
+            <div class="section-header">
+                <h2 class="section-title"><span>⛩️</span> 9 CHỮ HÁN CỐT LÕI BÀI 15</h2>
+                <span class="section-tag">Kanji Mastery</span>
+            </div>
+
+            <p style="margin-bottom: 20px; color: #334155;">
+                Các chữ Hán này đã được cập nhật hoàn chỉnh trong ứng dụng <a href="kanji_a2.html" style="color:var(--primary); font-weight:700; text-decoration:underline;">Học Kanji & Nét Viết</a>:
+            </p>
+
+            <div class="kanji-cards-grid">
+                <div class="kanji-detail-card">
+                    <div class="kanji-big-char">体</div>
+                    <div class="kanji-info">
+                        <div class="kanji-hv-title">THỂ <span class="kanji-strokes-badge">7 nét</span></div>
+                        <div class="kanji-readings">
+                            <strong>Kun:</strong> からだ<br>
+                            <strong>On:</strong> TAI<br>
+                            <strong>Từ ví dụ:</strong> 体 (からだ - cơ thể), 体操 (たいそう - tập thể dục)
+                        </div>
+                        <div class="kanji-mnemonic">💡 Mẹo nhớ: Con người (亻) có cội rễ (本) chính là THỂ xác khỏe mạnh.</div>
+                    </div>
+                </div>
+                <div class="kanji-detail-card">
+                    <div class="kanji-big-char">頭</div>
+                    <div class="kanji-info">
+                        <div class="kanji-hv-title">ĐẦU <span class="kanji-strokes-badge">16 nét</span></div>
+                        <div class="kanji-readings">
+                            <strong>Kun:</strong> あたま<br>
+                            <strong>On:</strong> TOO<br>
+                            <strong>Từ ví dụ:</strong> 頭 (あたま - cái đầu), 頭痛 (ずつう - đau đầu)
+                        </div>
+                        <div class="kanji-mnemonic">💡 Mẹo nhớ: Cái đĩa đậu (豆) đặt trên trang giấy (頁) đầu mối là ĐẦU não.</div>
+                    </div>
+                </div>
+                <div class="kanji-detail-card">
+                    <div class="kanji-big-char">目</div>
+                    <div class="kanji-info">
+                        <div class="kanji-hv-title">MỤC <span class="kanji-strokes-badge">5 nét</span></div>
+                        <div class="kanji-readings">
+                            <strong>Kun:</strong> め<br>
+                            <strong>On:</strong> MOKU<br>
+                            <strong>Từ ví dụ:</strong> 目 (め - con mắt), 目的 (もくてき - mục đích)
+                        </div>
+                        <div class="kanji-mnemonic">💡 Mẹo nhớ: Hình vẽ tròng mắt có mí và con ngươi nhìn vạn vật (MỤC).</div>
+                    </div>
+                </div>
+                <div class="kanji-detail-card">
+                    <div class="kanji-big-char">口</div>
+                    <div class="kanji-info">
+                        <div class="kanji-hv-title">KHẨU <span class="kanji-strokes-badge">3 nét</span></div>
+                        <div class="kanji-readings">
+                            <strong>Kun:</strong> くち<br>
+                            <strong>On:</strong> KOU<br>
+                            <strong>Từ ví dụ:</strong> 口 (くち - cái miệng), 入口 (いりぐち - cửa vào)
+                        </div>
+                        <div class="kanji-mnemonic">💡 Mẹo nhớ: Hình vẽ cái miệng vuông vắn phát ra lời nói (KHẨU).</div>
+                    </div>
+                </div>
+                <div class="kanji-detail-card">
+                    <div class="kanji-big-char">耳</div>
+                    <div class="kanji-info">
+                        <div class="kanji-hv-title">NHĨ <span class="kanji-strokes-badge">6 nét</span></div>
+                        <div class="kanji-readings">
+                            <strong>Kun:</strong> みみ<br>
+                            <strong>On:</strong> JI<br>
+                            <strong>Từ ví dụ:</strong> 耳 (みみ - cái tai), 耳鼻科 (じびか - khoa tai mũi)
+                        </div>
+                        <div class="kanji-mnemonic">💡 Mẹo nhớ: Hình vành tai hứng lấy âm thanh từ bốn phương (NHĨ).</div>
+                    </div>
+                </div>
+                <div class="kanji-detail-card">
+                    <div class="kanji-big-char">手</div>
+                    <div class="kanji-info">
+                        <div class="kanji-hv-title">THỦ <span class="kanji-strokes-badge">4 nét</span></div>
+                        <div class="kanji-readings">
+                            <strong>Kun:</strong> て<br>
+                            <strong>On:</strong> SHU<br>
+                            <strong>Từ ví dụ:</strong> 手 (て - bàn tay), 手紙 (てがみ - bức thư)
+                        </div>
+                        <div class="kanji-mnemonic">💡 Mẹo nhớ: Hình bàn tay năm ngón xòe ra nắm giữ công việc (THỦ).</div>
+                    </div>
+                </div>
+                <div class="kanji-detail-card">
+                    <div class="kanji-big-char">足</div>
+                    <div class="kanji-info">
+                        <div class="kanji-hv-title">TÚC <span class="kanji-strokes-badge">7 nét</span></div>
+                        <div class="kanji-readings">
+                            <strong>Kun:</strong> あし、た-りる<br>
+                            <strong>On:</strong> SOKU<br>
+                            <strong>Từ ví dụ:</strong> 足 (あし - bàn chân), 足りる (たりる - đầy đủ)
+                        </div>
+                        <div class="kanji-mnemonic">💡 Mẹo nhớ: Cẳng chân bước đi vững vàng mang lại no đủ sung TÚC.</div>
+                    </div>
+                </div>
+                <div class="kanji-detail-card">
+                    <div class="kanji-big-char">上</div>
+                    <div class="kanji-info">
+                        <div class="kanji-hv-title">THƯỢNG <span class="kanji-strokes-badge">3 nét</span></div>
+                        <div class="kanji-readings">
+                            <strong>Kun:</strong> うえ、あ-がる<br>
+                            <strong>On:</strong> JOO<br>
+                            <strong>Từ ví dụ:</strong> 上 (うえ - bên trên), 上手 (じょうず - giỏi giang)
+                        </div>
+                        <div class="kanji-mnemonic">💡 Mẹo nhớ: Nét sổ đứng phía TRÊN một đường ngang chuẩn chỉ vị trí THƯỢNG.</div>
+                    </div>
+                </div>
+                <div class="kanji-detail-card">
+                    <div class="kanji-big-char">下</div>
+                    <div class="kanji-info">
+                        <div class="kanji-hv-title">HẠ <span class="kanji-strokes-badge">3 nét</span></div>
+                        <div class="kanji-readings">
+                            <strong>Kun:</strong> した、さ-がる<br>
+                            <strong>On:</strong> KA, GE<br>
+                            <strong>Từ ví dụ:</strong> 下 (した - bên dưới), 下手 (へた - vụng về)
+                        </div>
+                        <div class="kanji-mnemonic">💡 Mẹo nhớ: Nét sổ chúc xuống phía DƯỚI đường ngang chỉ vị trí HẠ.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 24px;">
+                <a href="kanji_a2.html" class="dock-action-btn" style="padding: 10px 24px; font-size: 0.95rem; background: var(--primary); color: #fff; border: none; display: inline-flex;">
+                    ⛩️ Mở Ứng Dụng Luyện Viết Từng Nét Chữ Hán Bài Này ➔
+                </a>
+            </div>
+        </section>
+
+        <!-- MINI TEST SECTION -->
+        <section class="content-section" id="sec-quiz">
+            <div class="section-header">
+                <h2 class="section-title"><span>📝</span> MINI TEST PHẢN XẠ BÀI 15 (15 CÂU)</h2>
+                <span class="section-tag">Interactive Exam</span>
+            </div>
+
+            <p style="margin-bottom: 16px; color: #334155;">
+                Bài test gồm 15 câu bao quát toàn bộ ngữ pháp, từ vựng và chữ Hán Bài 15. Bấm vào đáp án để xem giải thích chi tiết ngay lập tức!
+            </p>
+
+            <div class="quiz-progress-bar-wrap">
+                <div class="quiz-progress-fill" id="quizProgressBar"></div>
+            </div>
+
+            <div id="quizContainer">
+                <!-- Questions rendered via JS -->
+            </div>
+
+            <div class="score-box" id="scoreBox">
+                <h3>🎉 KẾT QUẢ BÀI TEST BÀI 15</h3>
+                <div class="score-val" id="scoreVal">15 / 15</div>
+                <p id="scoreMsg" style="font-size: 1.1rem; color: #a7f3d0; margin-bottom: 16px;">
+                    Xuất sắc! Bạn đã nắm vững toàn bộ kiến thức Bài 15!
+                </p>
+                <button type="button" class="btn-retry" onclick="resetQuiz()">🔄 Làm Lại Bài Test</button>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- SCRIPTS -->
+    <script>
+        const VOCAB_DATA = [{"id": 1, "cat": "body", "catName": "Bộ phận cơ thể", "badge": "Cơ thể", "jp": "体 (からだ)", "kana": "からだ", "romaji": "karada", "vi": "Cơ thể, thân thể", "kanji": "体", "exJp": "健康のために体を動かします。", "exVi": "Vận động cơ thể để duy trì sức khỏe.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_CƠTHỂ\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#059669\"/>\n      <stop offset=\"100%\" stop-color=\"#047857\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_CƠTHỂ)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🧘‍♂️</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">CƠ THỂ</text>\n</svg>"}, {"id": 2, "cat": "body", "catName": "Bộ phận cơ thể", "badge": "Cơ thể", "jp": "頭 (あたま)", "kana": "あたま", "romaji": "atama", "vi": "Cái đầu", "kanji": "頭", "exJp": "頭が痛いので薬を飲みました。", "exVi": "Vì bị đau đầu nên tôi đã uống thuốc.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_CÁIĐẦU\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#ef4444\"/>\n      <stop offset=\"100%\" stop-color=\"#b91c1c\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_CÁIĐẦU)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🧠</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">CÁI ĐẦU</text>\n</svg>"}, {"id": 3, "cat": "body", "catName": "Bộ phận cơ thể", "badge": "Cơ thể", "jp": "目 (め)", "kana": "め", "romaji": "me", "vi": "Đôi mắt", "kanji": "目", "exJp": "パソコンを見て目が疲れました。", "exVi": "Nhìn máy tính nhiều mắt tôi bị mỏi.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_ĐÔIMẮT\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#3b82f6\"/>\n      <stop offset=\"100%\" stop-color=\"#1d4ed8\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_ĐÔIMẮT)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">👀</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">ĐÔI MẮT</text>\n</svg>"}, {"id": 4, "cat": "body", "catName": "Bộ phận cơ thể", "badge": "Cơ thể", "jp": "口 (くち)", "kana": "くち", "romaji": "kuchi", "vi": "Cái miệng", "kanji": "口", "exJp": "口を大きく開けてください。", "exVi": "Xin hãy há to miệng ra.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_CÁIMIỆNG\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#ec4899\"/>\n      <stop offset=\"100%\" stop-color=\"#be185d\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_CÁIMIỆNG)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">👄</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">CÁI MIỆNG</text>\n</svg>"}, {"id": 5, "cat": "body", "catName": "Bộ phận cơ thể", "badge": "Cơ thể", "jp": "耳 (みみ)", "kana": "みみ", "romaji": "mimi", "vi": "Cái tai", "kanji": "耳", "exJp": "耳が痛くて聞こえにくいです。", "exVi": "Tôi bị đau tai nên khó nghe rõ.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_CÁITAI\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#f59e0b\"/>\n      <stop offset=\"100%\" stop-color=\"#b45309\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_CÁITAI)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">👂</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">CÁI TAI</text>\n</svg>"}, {"id": 6, "cat": "body", "catName": "Bộ phận cơ thể", "badge": "Cơ thể", "jp": "手 (て)", "kana": "て", "romaji": "te", "vi": "Bàn tay", "kanji": "手", "exJp": "食事の前に手を洗います。", "exVi": "Rửa tay trước bữa ăn.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_BÀNTAY\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#10b981\"/>\n      <stop offset=\"100%\" stop-color=\"#047857\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_BÀNTAY)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🖐️</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">BÀN TAY</text>\n</svg>"}, {"id": 7, "cat": "body", "catName": "Bộ phận cơ thể", "badge": "Cơ thể", "jp": "足 (あし)", "kana": "あし", "romaji": "ashi", "vi": "Bàn chân, cẳng chân", "kanji": "足", "exJp": "たくさん歩いて足が痛いです。", "exVi": "Đi bộ nhiều nên chân tôi bị mỏi đau.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_BÀNCHÂN\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#8b5cf6\"/>\n      <stop offset=\"100%\" stop-color=\"#6d28d9\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_BÀNCHÂN)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🦶</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">BÀN CHÂN</text>\n</svg>"}, {"id": 8, "cat": "body", "catName": "Bộ phận cơ thể", "badge": "Cơ thể", "jp": "かお", "kana": "かお", "romaji": "kao", "vi": "Khuôn mặt", "kanji": "顔", "exJp": "朝起きて顔を洗います。", "exVi": "Sáng thức dậy tôi rửa mặt.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_KHUÔNMẶT\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#f43f5e\"/>\n      <stop offset=\"100%\" stop-color=\"#be123c\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_KHUÔNMẶT)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">😊</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">KHUÔN MẶT</text>\n</svg>"}, {"id": 9, "cat": "body", "catName": "Bộ phận cơ thể", "badge": "Cơ thể", "jp": "くび", "kana": "くび", "romaji": "kubi", "vi": "Cổ", "kanji": "首", "exJp": "首が痛くて動きません。", "exVi": "Cổ tôi bị đau không cử động được.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_CỔ\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#d97706\"/>\n      <stop offset=\"100%\" stop-color=\"#78350f\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_CỔ)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🧣</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">CỔ</text>\n</svg>"}, {"id": 10, "cat": "body", "catName": "Bộ phận cơ thể", "badge": "Cơ thể", "jp": "は", "kana": "は", "romaji": "ha", "vi": "Răng", "kanji": "歯", "exJp": "虫歯が痛いので歯医者へ行きます。", "exVi": "Răng sâu bị đau nên tôi đi nha sĩ.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_HÀMRĂNG\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#06b6d4\"/>\n      <stop offset=\"100%\" stop-color=\"#0e7490\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_HÀMRĂNG)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🦷</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">HÀM RĂNG</text>\n</svg>"}, {"id": 11, "cat": "body", "catName": "Bộ phận cơ thể", "badge": "Cơ thể", "jp": "はな", "kana": "はな", "romaji": "hana", "vi": "Cái mũi", "kanji": "鼻", "exJp": "かぜで鼻水が出ます。", "exVi": "Bị cảm nên tôi bị sổ mũi.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_CÁIMŨI\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#64748b\"/>\n      <stop offset=\"100%\" stop-color=\"#334155\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_CÁIMŨI)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">👃</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">CÁI MŨI</text>\n</svg>"}, {"id": 12, "cat": "body", "catName": "Bộ phận cơ thể", "badge": "Cơ thể", "jp": "うで", "kana": "うで", "romaji": "ude", "vi": "Cánh tay", "kanji": "腕", "exJp": "重い荷物を持って腕が痛いです。", "exVi": "Xách hành lý nặng nên cánh tay bị đau.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_CÁNHTAY\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#fb923c\"/>\n      <stop offset=\"100%\" stop-color=\"#c2410c\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_CÁNHTAY)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">💪</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">CÁNH TAY</text>\n</svg>"}, {"id": 13, "cat": "body", "catName": "Bộ phận cơ thể", "badge": "Cơ thể", "jp": "おなか", "kana": "おなか", "romaji": "onaka", "vi": "Bụng", "kanji": "お腹", "exJp": "おなかがすきました。", "exVi": "Bụng tôi đói rồi.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_BỤNG\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#eab308\"/>\n      <stop offset=\"100%\" stop-color=\"#a16207\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_BỤNG)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🤰</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">BỤNG</text>\n</svg>"}, {"id": 14, "cat": "body", "catName": "Bộ phận cơ thể", "badge": "Cơ thể", "jp": "かた", "kana": "かた", "romaji": "kata", "vi": "Bờ vai", "kanji": "肩", "exJp": "パソコン作業で肩がこりました。", "exVi": "Làm việc máy tính vai tôi bị mỏi nhừ.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_BỜVAI\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#a855f7\"/>\n      <stop offset=\"100%\" stop-color=\"#7e22ce\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_BỜVAI)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🤷‍♂️</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">BỜ VAI</text>\n</svg>"}, {"id": 15, "cat": "body", "catName": "Bộ phận cơ thể", "badge": "Cơ thể", "jp": "こし", "kana": "こし", "romaji": "koshi", "vi": "Hông, thắt lưng, eo", "kanji": "腰", "exJp": "腰が痛くて曲がりません。", "exVi": "Lưng tôi bị đau không cúi gập được.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_THẮTLƯNG\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#6366f1\"/>\n      <stop offset=\"100%\" stop-color=\"#4338ca\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_THẮTLƯNG)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🥋</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">THẮT LƯNG</text>\n</svg>"}, {"id": 16, "cat": "body", "catName": "Bộ phận cơ thể", "badge": "Cơ thể", "jp": "せなか", "kana": "せなか", "romaji": "senaka", "vi": "Lưng", "kanji": "背中", "exJp": "背中が痛いです。", "exVi": "Lưng tôi bị đau.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_LƯNG\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#0284c7\"/>\n      <stop offset=\"100%\" stop-color=\"#0369a1\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_LƯNG)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🚶</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">LƯNG</text>\n</svg>"}, {"id": 17, "cat": "body", "catName": "Bộ phận cơ thể", "badge": "Cơ thể", "jp": "むね", "kana": "むね", "romaji": "mune", "vi": "Ngực", "kanji": "胸", "exJp": "胸が痛いときは病院へ行ってください。", "exVi": "Khi đau ngực hãy đến bệnh viện khám ngay.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_LỒNGNGỰC\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#ef4444\"/>\n      <stop offset=\"100%\" stop-color=\"#7f1d1d\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_LỒNGNGỰC)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🫀</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">LỒNG NGỰC</text>\n</svg>"}, {"id": 18, "cat": "symptom", "catName": "Triệu chứng & Bệnh tật", "badge": "Triệu chứng", "jp": "こしが いたいです", "kana": "こしがいたいです", "romaji": "koshi ga itai desu", "vi": "Bị đau thắt lưng, đau eo", "kanji": "腰が痛いです", "exJp": "重い物を持って腰が痛いです。", "exVi": "Khiêng vật nặng nên tôi bị đau lưng.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_ĐAUTHẮTLƯNG\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#ea580c\"/>\n      <stop offset=\"100%\" stop-color=\"#9a3412\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_ĐAUTHẮTLƯNG)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">⚡</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">ĐAU THẮT LƯNG</text>\n</svg>"}, {"id": 19, "cat": "symptom", "catName": "Triệu chứng & Bệnh tật", "badge": "Triệu chứng", "jp": "頭が痛いんです", "kana": "あたまがいたいんです", "romaji": "atama ga itain desu", "vi": "Tôi bị đau đầu (giải thích)", "kanji": "頭が痛いんです", "exJp": "熱があって頭が痛いんです。", "exVi": "Tôi bị sốt và đang bị đau đầu.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_ĐAUĐẦU\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#dc2626\"/>\n      <stop offset=\"100%\" stop-color=\"#991b1b\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_ĐAUĐẦU)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🤕</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">ĐAU ĐẦU</text>\n</svg>"}, {"id": 20, "cat": "symptom", "catName": "Triệu chứng & Bệnh tật", "badge": "Triệu chứng", "jp": "おなかが いたいです", "kana": "おなかがいたいです", "romaji": "onaka ga itai desu", "vi": "Bị đau bụng", "kanji": "お腹が痛いです", "exJp": "冷たい牛乳を飲んでお腹が痛いです。", "exVi": "Uống sữa lạnh nên tôi bị đau bụng.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_ĐAUBỤNG\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#f59e0b\"/>\n      <stop offset=\"100%\" stop-color=\"#b45309\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_ĐAUBỤNG)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🤢</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">ĐAU BỤNG</text>\n</svg>"}, {"id": 21, "cat": "symptom", "catName": "Triệu chứng & Bệnh tật", "badge": "Triệu chứng", "jp": "熱が あります", "kana": "ねつがあります", "romaji": "netsu ga arimasu", "vi": "Bị sốt nóng", "kanji": "熱があります", "exJp": "38度の熱があります。", "exVi": "Tôi đang bị sốt 38 độ.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_BỊSỐT\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#ef4444\"/>\n      <stop offset=\"100%\" stop-color=\"#991b1b\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_BỊSỐT)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🤒</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">BỊ SỐT</text>\n</svg>"}, {"id": 22, "cat": "symptom", "catName": "Triệu chứng & Bệnh tật", "badge": "Bệnh tật", "jp": "かぜを ひきました", "kana": "かぜをひきました", "romaji": "kaze o hikimashita", "vi": "Bị cảm lạnh, cảm cúm", "kanji": "風邪をひきました", "exJp": "かぜをひいて声が出ません。", "exVi": "Tôi bị cảm lạnh nên mất giọng.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_CẢMCÚM\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#0284c7\"/>\n      <stop offset=\"100%\" stop-color=\"#075985\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_CẢMCÚM)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🤧</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">CẢM CÚM</text>\n</svg>"}, {"id": 23, "cat": "symptom", "catName": "Triệu chứng & Bệnh tật", "badge": "Tình trạng", "jp": "つかれています", "kana": "つかれています", "romaji": "tsukarete imasu", "vi": "Đang mệt mỏi, uể oải", "kanji": "疲れています", "exJp": "仕事が多くて疲れています。", "exVi": "Nhiều việc quá nên tôi đang thấy mệt.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_MỆTMỎI\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#64748b\"/>\n      <stop offset=\"100%\" stop-color=\"#334155\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_MỆTMỎI)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">😫</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">MỆT MỎI</text>\n</svg>"}, {"id": 24, "cat": "symptom", "catName": "Triệu chứng & Bệnh tật", "badge": "Mất ngủ", "jp": "ねられません", "kana": "ねられません", "romaji": "neraremasen", "vi": "Không ngủ được, mất ngủ", "kanji": "寝られません", "exJp": "心配で夜寝られません。", "exVi": "Vì lo lắng nên ban đêm tôi không ngủ được.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_MẤTNGỦ\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#475569\"/>\n      <stop offset=\"100%\" stop-color=\"#1e293b\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_MẤTNGỦ)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🥱</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">MẤT NGỦ</text>\n</svg>"}, {"id": 25, "cat": "symptom", "catName": "Triệu chứng & Bệnh tật", "badge": "Khó chịu", "jp": "きもちが わるいです", "kana": "きもちがわるいです", "romaji": "kimochi ga warui desu", "vi": "Khó chịu, nôn nao trong người", "kanji": "気持ちが悪いです", "exJp": "車に酔って気持ちが悪いです。", "exVi": "Tôi bị say xe nên thấy rất khó chịu.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_KHÓCHỊU\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#16a34a\"/>\n      <stop offset=\"100%\" stop-color=\"#14532d\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_KHÓCHỊU)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🤮</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">KHÓ CHỊU</text>\n</svg>"}, {"id": 26, "cat": "symptom", "catName": "Triệu chứng & Bệnh tật", "badge": "Sảng khoái", "jp": "きもちが いいです", "kana": "きもちがいいです", "romaji": "kimochi ga ii desu", "vi": "Dễ chịu, sảng khoái", "kanji": "気持ちがいいです", "exJp": "お風呂に入って気持ちがいいです。", "exVi": "Ngâm mình trong bồn tắm thấy thật dễ chịu.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_SẢNGKHOÁI\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#06b6d4\"/>\n      <stop offset=\"100%\" stop-color=\"#0891b2\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_SẢNGKHOÁI)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🛁</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">SẢNG KHOÁI</text>\n</svg>"}, {"id": 27, "cat": "symptom", "catName": "Triệu chứng & Bệnh tật", "badge": "Sức khỏe", "jp": "げんき（な）", "kana": "げんき", "romaji": "genki", "vi": "Khỏe mạnh, tràn đầy sinh lực", "kanji": "元気（な）", "exJp": "早く元気になってください。", "exVi": "Chúc bạn mau chóng bình phục khỏe mạnh nhé.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_KHỎEMẠNH\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#10b981\"/>\n      <stop offset=\"100%\" stop-color=\"#047857\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_KHỎEMẠNH)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">💪</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">KHỎE MẠNH</text>\n</svg>"}, {"id": 28, "cat": "phrase", "catName": "Mẫu câu giao tiếp", "badge": "Hỏi thăm", "jp": "どう しましたか", "kana": "どうしましたか", "romaji": "dou shimashita ka", "vi": "Bạn bị làm sao thế?", "kanji": "どうしましたか", "exJp": "顔色が悪いですが、どうしましたか。", "exVi": "Sắc mặt bạn trông kém quá, bạn bị sao thế?", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_HỎITHĂM\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#f59e0b\"/>\n      <stop offset=\"100%\" stop-color=\"#b45309\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_HỎITHĂM)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">❓</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">HỎI THĂM</text>\n</svg>"}, {"id": 29, "cat": "phrase", "catName": "Mẫu câu giao tiếp", "badge": "Chúc khỏe", "jp": "お大事に (おだいじに)", "kana": "おだいじに", "romaji": "odaiji ni", "vi": "Chúc bạn mau khỏe lại!", "kanji": "お大事に", "exJp": "無理をしないで、お大事にどうぞ。", "exVi": "Đừng làm quá sức, chúc bạn mau chóng khỏe lại nhé.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_CHÚCMAUKHỎE\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#059669\"/>\n      <stop offset=\"100%\" stop-color=\"#047857\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_CHÚCMAUKHỎE)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🍀</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">CHÚC MAU KHỎE</text>\n</svg>"}];
+        const VERB_MORPH_DATA = [{"kanji": "動かします", "masu": "うごかします", "vi": "Cử động, xoay", "col2": "動かさない", "col3": "無理に動かさないでください", "col4": "肩を回すといいですよ", "col5": "首が痛くて動かないんです", "ex": "首が痛いときは、無理に動かさないでください。"}, {"kanji": "飲みます", "masu": "のみます", "vi": "Uống (thuốc/nước)", "col2": "飲まない", "col3": "冷たい水を飲まないでください", "col4": "薬を飲むといいですよ", "col5": "おなかが痛くて薬を飲んだんです", "ex": "寝る前にこの薬を飲むといいですよ。"}, {"kanji": "無理をします", "masu": "むりをします", "vi": "Làm việc quá sức", "col2": "無理をしない", "col3": "あまり無理をしないでください", "col4": "無理をしないといいですよ", "col5": "昨日働きすぎて無理をしたんです", "ex": "熱がありますから、あまり無理をしないでくださいね。"}, {"kanji": "寝ます", "masu": "ねます", "vi": "Đi ngủ", "col2": "寝ない", "col3": "夜遅くまで起きていないでください", "col4": "早く寝るといいですよ", "col5": "昨夜あまり眠れなかったんです", "ex": "風邪をひいたときは、早く寝るといいですよ。"}, {"kanji": "働きます", "masu": "はたらきます", "vi": "Làm việc", "col2": "働かない", "col3": "働きすぎないでください", "col4": "今日は休むといいですよ", "col5": "ずっと残業して疲れているんです", "ex": "体がだるいときは、働きすぎないでください。"}];
+        const QUIZ_QUESTIONS = [{"id": 1, "category": "Ngữ pháp: ～んです", "q": "「どうしたんですか。」――「ちょっと 頭が [____]。」", "options": ["痛いんです", "痛いです", "痛くなんです", "痛かったんですか"], "correct": 0, "explain": "Tính từ đuôi い kết hợp với ～んです để giải thích tình trạng: 痛い ➔ 「痛いんです」 (Tôi bị đau đầu)."}, {"id": 2, "category": "Ngữ pháp: V-るといいですよ", "q": "寝る 前に、この 薬を [____] と いいですよ。", "options": ["飲む", "飲んだ", "飲んで", "飲み"], "correct": 0, "explain": "Mẫu câu khuyên bảo nhẹ nhàng: V-る (thể từ điển) + といいですよ ➔ 「飲むといいですよ」."}, {"id": 3, "category": "Ngữ pháp: V-ないでください", "q": "熱が ありますから、あまり 無理を [____] ください。", "options": ["しないで", "しなくて", "するな", "しまないで"], "correct": 0, "explain": "Mẫu câu dặn dò đừng làm gì: V-ない + でください: します ➔ 「しないでください」 (Đừng làm quá sức nhé)."}, {"id": 4, "category": "Từ vựng: Cơ thể", "q": "物や 人を 見る ための 身体の 部分は [____] です。", "options": ["目 (め)", "耳 (みみ)", "口 (くち)", "鼻 (はな)"], "correct": 0, "explain": "Bộ phận để nhìn là con mắt: 「目」 (め)."}, {"id": 5, "category": "Từ vựng: Cơ thể", "q": "音や 音楽を 聞く ための 身体の 部分は [____] です。", "options": ["耳 (みみ)", "目 (め)", "手 (て)", "足 (あし)"], "correct": 0, "explain": "Bộ phận để nghe là cái tai: 「耳」 (みみ)."}, {"id": 6, "category": "Từ vựng: Triệu chứng", "q": "体温が 38度以上 ある 状態を [____] と 言います。", "options": ["熱がある", "かぜをひく", "つかれる", "元気"], "correct": 0, "explain": "Thân nhiệt cao từ 38 độ trở lên gọi là bị sốt: 「熱がある」 (ねつがある)."}, {"id": 7, "category": "Từ vựng: Khó chịu", "q": "車に 酔って 吐き気が するときは 「[____]」 と 言います。", "options": ["気持ちが 悪い", "気持ちが いい", "頭が いい", "足が 速い"], "correct": 0, "explain": "Buồn nôn, khó chịu nôn nao trong người là 「気持ちが悪い」 (きもちがわるい)."}, {"id": 8, "category": "Giao tiếp: Chúc bình phục", "q": "Khi nghe người khác bị ốm hoặc mệt, câu chúc mau khỏi bệnh quen thuộc là:", "options": ["お大事に (おだいじに)", "ごちそうさまでした", "お邪魔します", "失礼します"], "correct": 0, "explain": "Câu chúc mau khỏi bệnh: 「お大事に」 (Chúc bạn mau khỏe lại nhé!)."}, {"id": 9, "category": "Từ vựng: Khám bệnh", "q": "かぜを ひいたので [____] へ 行って 薬を もらいます。", "options": ["病院 (びょういん)", "美容院 (びよういん)", "郵便局", "空港"], "correct": 0, "explain": "Bị cảm cúm thì đi bệnh viện khám lấy thuốc: 「病院」 (びょういん)."}, {"id": 10, "category": "Từ vựng: Cơ thể", "q": "手を 上に あげるときに 動く 部分は [____] です。", "options": ["肩 (かた)", "腰 (こし)", "足 (あし)", "お腹 (おなか)"], "correct": 0, "explain": "Bờ vai là 「肩」 (かた)."}, {"id": 11, "category": "Chữ Hán Bài 15: 体 (Thể)", "q": "Chữ Hán 「体」 trong 「からだ」 có bao nhiêu nét viết?", "options": ["7 nét", "5 nét", "6 nét", "8 nét"], "correct": 0, "explain": "Chữ 体 (THỂ) có 7 nét, gồm bộ Nhân đứng 亻 (2 nét) và chữ Bổn 本 (5 nét)."}, {"id": 12, "category": "Chữ Hán Bài 15: 頭 (Đầu)", "q": "Chữ Hán của từ 「あたま」 (Cái đầu) là:", "options": ["頭", "顔", "首", "体"], "correct": 0, "explain": "「あたま」 có chữ Hán là 「頭」 (ĐẦU - 16 nét)."}, {"id": 13, "category": "Chữ Hán Bài 15: 目 & 口", "q": "Hai chữ Hán 「目」 và 「口」 lần lượt có số nét là:", "options": ["5 nét và 3 nét", "4 nét và 3 nét", "5 nét và 4 nét", "6 nét và 3 nét"], "correct": 0, "explain": "Chữ 目 (MỤC) có 5 nét; chữ 口 (KHẨU) có 3 nét."}, {"id": 14, "category": "Chữ Hán Bài 15: 手 & 足", "q": "Cặp từ 「て」 (Bàn tay) và 「あし」 (Bàn chân) được viết là:", "options": ["手 và 足", "毛 và 是", "耳 và 目", "上 và 下"], "correct": 0, "explain": "Bàn tay là 「手」 (THỦ - 4 nét), bàn chân là 「足」 (TÚC - 7 nét)."}, {"id": 15, "category": "Chữ Hán Bài 15: 上 & 下", "q": "Hai chữ Hán đối lập vị trí 「うえ」 và 「した」 là:", "options": ["上 và 下", "左 và 右", "前 và 後", "大 và 小"], "correct": 0, "explain": "Bên trên là 「上」 (THƯỢNG - 3 nét); bên dưới là 「下」 (HẠ - 3 nét)."}];
+        const DIALOGUE_STEPS = [{"options": [{"text": "実は、朝から頭が痛くて、少し熱もあるんです。", "vi": "Thực ra từ sáng đến giờ tôi bị đau đầu, và hình như hơi sốt nữa.", "replyAvatar": "👩‍💼", "replyNpc": "Yamada", "replyText": "それは大変ですね！無理をしないで、早く病院へ行ったほうがいいですよ。", "replyVi": "Thế thì vất vả quá! Bạn đừng cố làm quá sức, nên đi bệnh viện khám sớm đi."}, {"text": "パソコンを見すぎて、首と肩がすごく痛いんです。", "vi": "Nhìn máy tính nhiều quá nên cổ và vai tôi đau nhức kinh khủng.", "replyAvatar": "👩‍💼", "replyNpc": "Yamada", "replyText": "こうやって、ゆっくり肩を回して深呼吸するといいですよ。", "replyVi": "Cứ làm thế này, xoay vai từ từ rồi hít thở sâu thì sẽ đỡ đau đấy."}]}, {"npcName": "Yamada", "avatar": "👩‍💼", "npcText": "今日は残業しないで、あたたかいお風呂に入って早く寝てくださいね。", "npcVi": "Hôm nay đừng làm thêm giờ nhé, về nhà ngâm bồn nước ấm rồi đi ngủ sớm đi nha.", "options": [{"text": "ありがとうございます。そうします。ご迷惑をおかけしてすみません。", "vi": "Cảm ơn bạn. Tôi sẽ làm như vậy. Xin lỗi vì đã làm phiền mọi người.", "replyAvatar": "👩‍💼", "replyNpc": "Yamada", "replyText": "気にしないで！健康が一番ですから。どうぞお大事に！", "replyVi": "Đừng bận tâm! Sức khỏe là trên hết mà. Chúc bạn mau khỏe lại nhé!"}, {"text": "親切にアドバイスをくれて、本当にありがとうございます。", "vi": "Bạn cho tôi lời khuyên chu đáo quá, thật lòng cảm ơn bạn rất nhiều.", "replyAvatar": "👩‍💼", "replyNpc": "Yamada", "replyText": "いいえ、どういたしまして。お大事にね！", "replyVi": "Không có chi đâu. Chúc bạn mau khỏe lại nhé!"}]}];
+
+        // Speech Synthesis
+        function cleanJapaneseText(text) {
+            return text.replace(/[／/]/g, ' ').replace(/[（(].*?[）)]/g, '').trim();
+        }
+
+        function speakText(text) {
+            if (!('speechSynthesis' in window)) return;
+            window.speechSynthesis.cancel();
+            const clean = cleanJapaneseText(text);
+            const utterance = new SpeechSynthesisUtterance(clean);
+            utterance.lang = 'ja-JP';
+            utterance.rate = 0.9;
+            window.speechSynthesis.speak(utterance);
+        }
+
+        // Verb Morphing Laboratory
+        let currentVerbIdx = 0;
+
+        function renderVerbPicker() {
+            const container = document.getElementById('verbPickerRow');
+            if (!container || !VERB_MORPH_DATA.length) return;
+            container.innerHTML = VERB_MORPH_DATA.map((v, i) => `
+                <button type="button" class="verb-pill ${i === 0 ? 'active' : ''}" onclick="selectVerb(${i}, this)">
+                    ${v.kanji} (${v.vi})
+                </button>
+            `).join('');
+            updateMorphDisplay(0);
+        }
+
+        function selectVerb(idx, btn) {
+            document.querySelectorAll('.verb-pill').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            currentVerbIdx = idx;
+            updateMorphDisplay(idx);
+        }
+
+        function updateMorphDisplay(idx) {
+            const v = VERB_MORPH_DATA[idx];
+            if (!v) return;
+            document.getElementById('morphMasu').textContent = `${v.kanji} (${v.masu})`;
+            document.getElementById('morphVi').textContent = v.vi;
+            document.getElementById('morphTe').textContent = v.col2;
+            document.getElementById('morphTeIki').textContent = v.col3;
+            document.getElementById('morphTeKi').textContent = v.col4;
+            document.getElementById('morphMashou').textContent = v.col5;
+            document.getElementById('morphExText').textContent = v.ex;
+        }
+
+        function speakCurrentMorph() {
+            const v = VERB_MORPH_DATA[currentVerbIdx];
+            if (v) speakText(v.ex);
+        }
+
+        // Flashcards Logic
+        let activeVocabFilter = 'all';
+        let learnedCards = new Set();
+
+        function initVocabFilters() {
+            const bar = document.getElementById('vocabFilterBar');
+            const cats = Array.from(new Set(VOCAB_DATA.map(v => v.cat)));
+            const catNames = {};
+            VOCAB_DATA.forEach(v => catNames[v.cat] = v.catName);
+
+            let filterBtns = `<button class="vocab-filter-btn active" onclick="filterVocab('all', this)">🌟 Tất cả (${VOCAB_DATA.length})</button>`;
+            cats.forEach(c => {
+                filterBtns += `<button class="vocab-filter-btn" onclick="filterVocab('${c}', this)">${catNames[c] || c}</button>`;
+            });
+            filterBtns += `<div class="vocab-stats-badge" id="vocabStats">Đã thuộc: 0 / ${VOCAB_DATA.length} từ</div>`;
+            bar.innerHTML = filterBtns;
+        }
+
+        function renderFlashcards() {
+            const container = document.getElementById('flashcardsGrid');
+            const filtered = activeVocabFilter === 'all' 
+                ? VOCAB_DATA 
+                : VOCAB_DATA.filter(v => v.cat === activeVocabFilter);
+
+            container.innerHTML = filtered.map(v => `
+                <div class="flashcard" onclick="flipCard(this, event)">
+                    <div class="fc-inner">
+                        <div class="fc-front">
+                            <div style="display:flex; justify-content:space-between; align-items:center;">
+                                <span class="fc-badge">${v.badge || v.catName}</span>
+                                <button type="button" class="btn-speak" style="width:28px; height:28px; font-size:0.75rem;" onclick="event.stopPropagation(); speakText('${v.jp}')">🔊</button>
+                            </div>
+                            <div class="fc-illustration">
+                                ${v.svg || ''}
+                            </div>
+                            <div>
+                                <div class="fc-jp jp-text">${v.kanji || v.jp}</div>
+                                <div class="fc-kana jp-text">${v.kana}</div>
+                                <div class="fc-romaji">${v.romaji}</div>
+                            </div>
+                            <div class="fc-hint">💡 Bấm thẻ để lật xem nghĩa & ví dụ</div>
+                        </div>
+
+                        <div class="fc-back">
+                            <div>
+                                <div class="fc-back-meaning">${v.vi}</div>
+                                <div style="font-size:0.75rem; font-weight:800; color:#047857; text-transform:uppercase; margin-bottom:4px;">Ví dụ thực tế:</div>
+                                <div class="fc-back-ex-jp jp-text">${v.exJp}</div>
+                                <div class="fc-back-ex-vi">${v.exVi}</div>
+                            </div>
+                            <div class="fc-back-actions">
+                                <button type="button" class="btn-speak" style="width:32px; height:32px; font-size:0.8rem;" onclick="event.stopPropagation(); speakText('${v.exJp}')">🔊</button>
+                                <button type="button" class="btn-learned ${learnedCards.has(v.id) ? 'active' : ''}" onclick="event.stopPropagation(); toggleLearned(${v.id}, this)">
+                                    ${learnedCards.has(v.id) ? '✓ Đã thuộc' : '+ Đánh dấu thuộc'}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+            updateLearnedStats();
+        }
+
+        function flipCard(card, event) {
+            if (event.target.closest('button')) return;
+            card.classList.toggle('flipped');
+        }
+
+        function filterVocab(cat, btn) {
+            activeVocabFilter = cat;
+            document.querySelectorAll('.vocab-filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            renderFlashcards();
+        }
+
+        function toggleLearned(id, btn) {
+            if (learnedCards.has(id)) {
+                learnedCards.delete(id);
+                btn.classList.remove('active');
+                btn.textContent = '+ Đánh dấu thuộc';
+            } else {
+                learnedCards.add(id);
+                btn.classList.add('active');
+                btn.textContent = '✓ Đã thuộc';
+            }
+            updateLearnedStats();
+        }
+
+        function updateLearnedStats() {
+            const badge = document.getElementById('vocabStats');
+            if (badge) badge.textContent = `Đã thuộc: ${learnedCards.size} / ${VOCAB_DATA.length} từ`;
+        }
+
+        // Dialogue Simulator
+        let currentStepIdx = 0;
+
+        function initDialogue() {
+            currentStepIdx = 0;
+            renderDialogueOptions(0);
+        }
+
+        function renderDialogueOptions(stepIdx) {
+            const container = document.getElementById('chatOptionsGrid');
+            const step = DIALOGUE_STEPS[stepIdx];
+            if (!step) {
+                container.innerHTML = `
+                    <div style="grid-column: 1/-1; text-align:center; padding:12px; color:#059669; font-weight:700;">
+                        🎉 Hoàn thành xuất sắc đoạn hội thoại tình huống Bài 15!
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = step.options.map((opt, i) => `
+                <button type="button" class="btn-chat-choice" onclick="chooseDialogue(${stepIdx}, ${i})">
+                    <div style="font-family:var(--jp-font);">${opt.text}</div>
+                    <div style="font-size:0.75rem; color:#64748b; margin-top:2px;">${opt.vi}</div>
+                </button>
+            `).join('');
+        }
+
+        function chooseDialogue(stepIdx, optIdx) {
+            const step = DIALOGUE_STEPS[stepIdx];
+            const opt = step.options[optIdx];
+            const chat = document.getElementById('chatContainer');
+
+            const userBubble = document.createElement('div');
+            userBubble.className = 'chat-bubble user';
+            userBubble.innerHTML = `
+                <div class="chat-avatar">🧑</div>
+                <div class="chat-msg">
+                    <div class="chat-name">Bạn (Tôi)</div>
+                    <div class="chat-jp">${opt.text}</div>
+                    <div class="chat-vi">${opt.vi}</div>
+                </div>
+            `;
+            chat.appendChild(userBubble);
+            speakText(opt.text);
+
+            setTimeout(() => {
+                const npcBubble = document.createElement('div');
+                npcBubble.className = 'chat-bubble bot';
+                npcBubble.innerHTML = `
+                    <div class="chat-avatar">${opt.replyAvatar || '👩'}</div>
+                    <div class="chat-msg">
+                        <div class="chat-name">${opt.replyNpc}</div>
+                        <div class="chat-jp">${opt.replyText}</div>
+                        <div class="chat-vi">${opt.replyVi}</div>
+                    </div>
+                `;
+                chat.appendChild(npcBubble);
+                speakText(opt.replyText);
+
+                if (stepIdx + 1 < DIALOGUE_STEPS.length) {
+                    setTimeout(() => {
+                        const nextPrompt = DIALOGUE_STEPS[stepIdx + 1];
+                        const promptBubble = document.createElement('div');
+                        promptBubble.className = 'chat-bubble bot';
+                        promptBubble.innerHTML = `
+                            <div class="chat-avatar">${nextPrompt.avatar || '👨'}</div>
+                            <div class="chat-msg">
+                                <div class="chat-name">${nextPrompt.npcName}</div>
+                                <div class="chat-jp">${nextPrompt.npcText}</div>
+                                <div class="chat-vi">${nextPrompt.npcVi}</div>
+                            </div>
+                        `;
+                        chat.appendChild(promptBubble);
+                        speakText(nextPrompt.npcText);
+                        renderDialogueOptions(stepIdx + 1);
+                    }, 1000);
+                } else {
+                    renderDialogueOptions(stepIdx + 1);
+                }
+            }, 600);
+        }
+
+        // Quiz Logic
+        let quizAnswers = {};
+
+        function renderQuiz() {
+            const container = document.getElementById('quizContainer');
+            container.innerHTML = QUIZ_QUESTIONS.map(q => `
+                <div class="quiz-card" id="quizCard_${q.id}">
+                    <div class="quiz-q-num">Câu ${q.id} / 15 • ${q.category}</div>
+                    <div class="quiz-question-text jp-text">${q.q}</div>
+                    <div class="quiz-options-grid">
+                        ${q.options.map((opt, optIdx) => `
+                            <button type="button" class="quiz-opt-btn jp-text" onclick="answerQuiz(${q.id}, ${optIdx}, this)">
+                                ${opt}
+                            </button>
+                        `).join('')}
+                    </div>
+                    <div class="quiz-feedback" id="quizFeedback_${q.id}">
+                        ${q.explain}
+                    </div>
+                </div>
+            `).join('');
+            updateQuizProgress();
+        }
+
+        function answerQuiz(qId, selectedIdx, btn) {
+            if (quizAnswers[qId] !== undefined) return;
+            quizAnswers[qId] = selectedIdx;
+
+            const q = QUIZ_QUESTIONS.find(item => item.id === qId);
+            const card = document.getElementById(`quizCard_${qId}`);
+            const buttons = card.querySelectorAll('.quiz-opt-btn');
+            const feedback = document.getElementById(`quizFeedback_${qId}`);
+
+            buttons.forEach((b, idx) => {
+                b.disabled = true;
+                if (idx === q.correct) {
+                    b.classList.add('correct');
+                } else if (idx === selectedIdx) {
+                    b.classList.add('wrong');
+                }
+            });
+
+            feedback.classList.add('show');
+            if (selectedIdx === q.correct) {
+                feedback.classList.add('correct');
+                feedback.innerHTML = `✓ <strong>Chính xác!</strong> ${q.explain}`;
+            } else {
+                feedback.classList.add('wrong');
+                feedback.innerHTML = `✕ <strong>Chưa chính xác!</strong> ${q.explain}`;
+            }
+
+            updateQuizProgress();
+            checkQuizFinish();
+        }
+
+        function updateQuizProgress() {
+            const answeredCount = Object.keys(quizAnswers).length;
+            const pct = (answeredCount / QUIZ_QUESTIONS.length) * 100;
+            document.getElementById('quizProgressBar').style.width = `${pct}%`;
+        }
+
+        function checkQuizFinish() {
+            if (Object.keys(quizAnswers).length === QUIZ_QUESTIONS.length) {
+                let score = 0;
+                QUIZ_QUESTIONS.forEach(q => {
+                    if (quizAnswers[q.id] === q.correct) score++;
+                });
+
+                const scoreBox = document.getElementById('scoreBox');
+                const scoreVal = document.getElementById('scoreVal');
+                const scoreMsg = document.getElementById('scoreMsg');
+
+                scoreVal.textContent = `${score} / 15`;
+                if (score >= 13) {
+                    scoreMsg.textContent = "🌟 Tuyệt vời! Bạn đã thành thạo toàn bộ kiến thức Bài 15!";
+                } else if (score >= 9) {
+                    scoreMsg.textContent = "👍 Khá tốt! Hãy ôn lại các câu chưa chính xác nhé.";
+                } else {
+                    scoreMsg.textContent = "💪 Cố lên! Hãy xem lại phần giải thích và thử làm lại nhé.";
+                }
+                scoreBox.classList.add('show');
+                scoreBox.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        function resetQuiz() {
+            quizAnswers = {};
+            document.getElementById('scoreBox').classList.remove('show');
+            renderQuiz();
+            document.getElementById('sec-quiz').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Global Nav
+        function toggleGlobalMegaSheet(e) {
+            if (e) e.stopPropagation();
+            document.getElementById('globalMegaSheet').classList.toggle('show');
+        }
+
+        function closeGlobalMegaSheet() {
+            document.getElementById('globalMegaSheet').classList.remove('show');
+        }
+
+        function toggleGlobalToolsDropdown(e) {
+            if (e) e.stopPropagation();
+            document.getElementById('globalToolsMenu').classList.toggle('show');
+        }
+
+        document.addEventListener('click', (e) => {
+            const menu = document.getElementById('globalToolsMenu');
+            if (menu && !menu.contains(e.target)) {
+                menu.classList.remove('show');
+            }
+        });
+
+        // Init
+        window.addEventListener('DOMContentLoaded', () => {
+            renderVerbPicker();
+            initVocabFilters();
+            renderFlashcards();
+            initDialogue();
+            renderQuiz();
+        });
+    </script>
+</body>
+</html>
