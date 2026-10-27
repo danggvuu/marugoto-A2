@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
     <title>Cẩm Nang & Luyện Tập Toàn Diện Bài 17 - Marugoto A2-2 | 誕生日に彼にもらったんです</title>
     <meta name="description" content="Chinh phục toàn diện Marugoto A2 Bài 17: 誕生日に彼にもらったんです. Đầy đủ ngữ pháp, 3D Flashcard từ vựng, máy biến thể và Mini Test 15 câu có giải thích chi tiết.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,6 +12,8 @@
     <!-- Animate UI Core (Spring Physics & Micro-Interactions) -->
     <link rel="stylesheet" href="animate-ui.css">
     <script src="animate-ui.js" defer></script>
+    <!-- Unified Tokyo Audio Engine -->
+    <script src="audio-engine.js"></script>
     <style>
         :root {
             --primary: #059669;
@@ -55,7 +58,151 @@
         }
 
         /* Sticky Floating Dock */
-        
+        .global-sticky-dock-wrapper {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.85);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+        }
+
+        .global-sticky-dock {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .dock-brand {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: var(--primary-dark);
+            font-weight: 800;
+            font-size: 1.05rem;
+            flex-shrink: 0;
+        }
+
+        .dock-pill-track {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            overflow-x: auto;
+            scrollbar-width: none;
+            padding: 2px 0;
+        }
+
+        .dock-pill-track::-webkit-scrollbar {
+            display: none;
+        }
+
+        .dock-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 6px 12px;
+            border-radius: 999px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-decoration: none;
+            color: #64748b;
+            background: #f1f5f9;
+            border: 1px solid #e2e8f0;
+            white-space: nowrap;
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .dock-pill:hover {
+            color: var(--primary-dark);
+            background: var(--primary-soft);
+            border-color: #a7f3d0;
+            transform: translateY(-1px);
+        }
+
+        .dock-pill.active {
+            color: #ffffff;
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+            border-color: #047857;
+            box-shadow: 0 2px 6px rgba(5, 150, 105, 0.35);
+        }
+
+        .dock-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-shrink: 0;
+        }
+
+        .dock-action-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            color: #334155;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .dock-action-btn:hover {
+            background: #f8fafc;
+            border-color: #94a3b8;
+            color: #0f172a;
+        }
+
+        .dock-dropdown-wrapper {
+            position: relative;
+        }
+
+        .dock-tools-menu {
+            display: none;
+            position: absolute;
+            top: calc(100% + 8px);
+            right: 0;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+            padding: 8px;
+            min-width: 240px;
+            max-height: 480px;
+            overflow-y: auto;
+            z-index: 1010;
+        }
+
+        .dock-tools-menu.show {
+            display: block;
+            animation: fadeInDown 0.2s ease;
+        }
+
+        .dock-tool-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #334155;
+            text-decoration: none;
+            transition: all 0.15s;
+        }
+
+        .dock-tool-item:hover, .dock-tool-item.active {
+            background: var(--primary-soft);
+            color: var(--primary-dark);
+        }
 
         /* Mega Drawer Sheet */
         .global-mega-sheet {
@@ -1087,7 +1234,9 @@
                 width: 100%;
                 order: 3;
             }
-            
+            .global-sticky-dock {
+                flex-wrap: wrap;
+            }
         }
 
         @keyframes fadeIn {
@@ -1101,6 +1250,9 @@
         }
     
         
+        
+
+    
         /* ==========================================
            GLOBAL HUB NAVIGATION (CLEAN & NON-STICKY)
            ========================================== */
@@ -1139,68 +1291,6 @@
             border-color: transparent;
             box-shadow: 0 4px 15px rgba(79, 70, 229, 0.35);
         }
-        /* Hub Dropdown Menu */
-        .hub-dropdown {
-            position: relative;
-            display: inline-block;
-        }
-        .hub-dropdown-menu {
-            display: none;
-            position: absolute;
-            top: calc(100% + 6px);
-            left: 50%;
-            transform: translateX(-50%);
-            background: #ffffff;
-            border: 1.5px solid #e2e8f0;
-            border-radius: 14px;
-            box-shadow: 0 12px 28px rgba(0,0,0,0.12);
-            padding: 8px;
-            min-width: 260px;
-            z-index: 9999;
-        }
-        .hub-dropdown-menu.show {
-            display: block;
-        }
-        .hub-drop-link {
-            display: block;
-            padding: 8px 14px;
-            color: #334155;
-            font-size: 0.88rem;
-            font-weight: 700;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: all 0.15s ease;
-        }
-        .hub-drop-link:hover {
-            background: #eef2ff;
-            color: #4f46e5;
-        }
-        .hub-drop-link.active {
-            background: #4f46e5;
-            color: #ffffff !important;
-        }
-        @media (max-width: 768px) {
-            .global-hub-nav {
-                display: flex;
-                flex-wrap: nowrap;
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-                justify-content: flex-start;
-                gap: 8px;
-                margin-bottom: 15px;
-                padding: 2px 2px 8px 2px;
-                scrollbar-width: none;
-            }
-            .global-hub-nav::-webkit-scrollbar {
-                display: none;
-            }
-            .hub-nav-item {
-                flex-shrink: 0;
-                padding: 7px 14px;
-                font-size: 0.84rem;
-            }
-        }
-
         /* Hub Dropdown Menu */
         .hub-dropdown {
             position: relative;
@@ -1729,19 +1819,11 @@
         const QUIZ_QUESTIONS = [{"id": 1, "category": "Ngữ pháp: もらいました", "q": "誕生日に 彼 [____] 素敵な ネックレスを もらいました。", "options": ["に", "を", "で", "が"], "correct": 0, "explain": "Nhận cái gì từ ai: [Người tặng] + に もらいました (Nhận từ bạn trai)."}, {"id": 2, "category": "Ngữ pháp: あげます", "q": "母の日に お母さん [____] きれいな 花を あげます。", "options": ["に", "を", "と", "から"], "correct": 0, "explain": "Tặng quà cho ai: [Người nhận] + に あげます (Tặng cho mẹ)."}, {"id": 3, "category": "Ngữ pháp: ～んです giải thích nguồn gốc", "q": "「その 時計、素敵ですね。」――「父に [____] んです。」", "options": ["もらった", "もらう", "もらって", "あげた"], "correct": 0, "explain": "Động từ thể Quá khứ ngắn (Thể た) + んです: もらった ➔ 「もらったんです」 (Tôi được bố tặng đấy)."}, {"id": 4, "category": "Ngữ pháp: Liệt kê ～とか", "q": "結婚の お祝いに 絵 [____] 時計 [____] あげます。", "options": ["とか / とか", "ても / ても", "たり / たり", "など / など"], "correct": 0, "explain": "Liệt kê các danh từ đại diện: 「N1 とか N2 とか」 (Như là tranh, như là đồng hồ)."}, {"id": 5, "category": "Ngữ pháp: Định ngữ V-る + もの", "q": "新居の 部屋に [____] ものを プレゼントしたいです。", "options": ["飾る", "飾って", "飾った", "飾り"], "correct": 0, "explain": "Mệnh đề bổ nghĩa cho danh từ chỉ vật: V thể Từ điển + もの ➔ 「飾るもの」 (Đồ dùng để trang trí)."}, {"id": 6, "category": "Từ vựng: Lễ hội & Kỷ niệm", "q": "12月25日の お祝いは [____] です。", "options": ["クリスマス", "バレンタイン・デー", "母の日", "父の日"], "correct": 0, "explain": "Ngày lễ 25 tháng 12 là Giáng sinh: 「クリスマス」 (Christmas)."}, {"id": 7, "category": "Từ vựng: Lễ hội", "q": "2月14日に チョコレートを あげる 日は [____] です。", "options": ["バレンタイン・デー", "クリスマス", "誕生日", "入学"], "correct": 0, "explain": "Ngày 14 tháng 2 tặng sô-cô-la là Valentine: 「バレンタイン・デー」."}, {"id": 8, "category": "Từ vựng: Sự kiện", "q": "学校の 勉強を 全部 終えて 出る ことを [____] と 言います。", "options": ["卒業 (そつぎょう)", "入学 (にゅうがく)", "就職 (しゅうしょく)", "結婚 (けっこん)"], "correct": 0, "explain": "Hoàn thành việc học và ra trường là 「卒業」 (そつぎょう - Tốt nghiệp)."}, {"id": 9, "category": "Từ vựng: Quà tặng", "q": "時間を 知る ための 道具は [____] です。", "options": ["時計 (とけい)", "写真 (しゃしん)", "絵 (え)", "おもちゃ"], "correct": 0, "explain": "Dụng cụ để xem giờ là đồng hồ: 「時計」 (とけい)."}, {"id": 10, "category": "Từ vựng: Sự kiện", "q": "赤ちゃんが 生まれる ことを [____] と 言います。", "options": ["出産 (しゅっさん)", "就職", "引越し", "入学"], "correct": 0, "explain": "Sinh em bé là 「出産」 (しゅっさん - Xuất sản)."}, {"id": 11, "category": "Chữ Hán Bài 17: 祝 (Chúc)", "q": "Chữ Hán 「祝」 trong 「お祝い (おいわい)」 có âm Hán Việt là:", "options": ["CHÚC", "ĐẢN", "KẾT", "HÔN"], "correct": 0, "explain": "Chữ 祝 có âm Hán Việt là CHÚC (9 nét, bộ Kỳ 礻 + chữ Huynh 兄)."}, {"id": 12, "category": "Chữ Hán Bài 17: 誕 (Đản)", "q": "Từ 「たんじょうび」 (Sinh nhật) có chữ Hán đầu tiên là:", "options": ["誕", "祝", "結", "計"], "correct": 0, "explain": "「たんじょうび」 viết là 「誕生日」 (ĐẢN SINH NHẬT - chữ 誕 có 15 nét)."}, {"id": 13, "category": "Chữ Hán Bài 17: 結婚", "q": "Từ 「けっこん」 (Kết hôn) được viết bằng cặp chữ Hán nào?", "options": ["結婚", "結絵", "婚誕", "祝婚"], "correct": 0, "explain": "「けっこん」 viết là 「結婚」 (KẾT HÔN - chữ 結 12 nét, chữ 婚 11 nét)."}, {"id": 14, "category": "Chữ Hán Bài 17: 写真", "q": "Từ 「しゃしん」 (Bức ảnh) gồm 2 chữ Hán nào?", "options": ["写真", "画真", "絵真", "写計"], "correct": 0, "explain": "「しゃしん」 là 「写真」 (TẢ CHÂN - chữ 写 5 nét, chữ 真 10 nét)."}, {"id": 15, "category": "Chữ Hán Bài 17: 時計", "q": "Từ 「とけい」 (Đồng hồ) viết bằng chữ Hán là:", "options": ["時計", "時真", "時写", "時結"], "correct": 0, "explain": "「とけい」 viết là 「時計」 (THỜI KẾ - chữ 時 10 nét, chữ 計 9 nét)."}];
         const DIALOGUE_STEPS = [{"options": [{"text": "ありがとうございます！実は、先週の誕生日に彼にもらったんです。", "vi": "Cảm ơn bạn! Thực ra là tôi được bạn trai tặng vào ngày sinh nhật tuần trước đấy.", "replyAvatar": "👩‍💼", "replyNpc": "Kobayashi", "replyText": "彼からのプレゼントですか！とても似合っていますよ。羨ましいです。", "replyVi": "Quà bạn trai tặng ư! Trông hợp với bạn lắm luôn. Ghen tị thật đấy."}, {"text": "自分で買ったんじゃなくて、大学の卒業祝いに両親にもらったんです。", "vi": "Không phải tôi tự mua đâu, mà tôi được bố mẹ tặng làm quà mừng tốt nghiệp đại học đấy.", "replyAvatar": "👩‍💼", "replyNpc": "Kobayashi", "replyText": "ご両親からの記念の品なんですね。ずっと大切に使えますね！", "replyVi": "Kỷ vật từ bố mẹ tặng ý nghĩa quá. Bạn có thể giữ gìn và dùng suốt đời được đấy!"}]}, {"npcName": "Kobayashi", "avatar": "👩‍💼", "npcText": "来月、佐藤先輩の結婚式があるんですが、日本のお祝いには何をあげればいいでしょうか。", "npcVi": "Tháng sau có đám cưới của tiền bối Sato, theo phong tục Nhật thì nên tặng quà gì thì hợp lý nhỉ?", "options": [{"text": "そうですね、おしゃれなペアのコーヒーカップとか、部屋に飾る絵がいいと思いますよ。", "vi": "Theo tôi thì một bộ tách cà phê đôi xinh xắn hoặc bức tranh trang trí trong phòng sẽ rất tuyệt đấy.", "replyAvatar": "👩‍💼", "replyNpc": "Kobayashi", "replyText": "ペアカップ！素敵ですね。二人で毎日使ってもらえそうです。探してみます！", "replyVi": "Cốc đôi ư! Hay quá. Hai vợ chồng có thể dùng cùng nhau mỗi ngày. Tôi sẽ đi tìm thử!"}, {"text": "料理が好きな先輩ですから、料理のときに使う上質な鍋や食器はどうですか。", "vi": "Vì chị Sato thích nấu ăn, nên những đồ dùng khi nấu nướng như bộ nồi hay chén đĩa cao cấp thì sao?", "replyAvatar": "👩‍💼", "replyNpc": "Kobayashi", "replyText": "さすが！実用的で絶対に喜んでくれますね。アドバイスありがとう！", "replyVi": "Quả đúng là bạn! Rất thiết thực và chị ấy chắc chắn sẽ thích mê. Cảm ơn bạn nhiều nhé!"}]}];
 
-        // Speech Synthesis
-        function cleanJapaneseText(text) {
-            return text.replace(/[／/]/g, ' ').replace(/[（(].*?[）)]/g, '').trim();
-        }
-
+        // Tokyo Audio Speech Synthesis (Dual Engine via audio-engine.js)
         function speakText(text) {
-            if (!('speechSynthesis' in window)) return;
-            window.speechSynthesis.cancel();
-            const clean = cleanJapaneseText(text);
-            const utterance = new SpeechSynthesisUtterance(clean);
-            utterance.lang = 'ja-JP';
-            utterance.rate = 0.9;
-            window.speechSynthesis.speak(utterance);
+            if (window.speakJapanese) {
+                window.speakJapanese(text);
+            }
         }
 
         // Verb Morphing Laboratory

@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
     <title>Cẩm Nang & Luyện Tập Toàn Diện Bài 13 - Marugoto A2-2 | 田中さんに会ったことがあります</title>
     <meta name="description" content="Chinh phục toàn diện Marugoto A2 Bài 13: 田中さんに会ったことがあります. Đầy đủ ngữ pháp, 3D Flashcard từ vựng, máy biến thể và Mini Test 15 câu có giải thích chi tiết.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,6 +12,8 @@
     <!-- Animate UI Core (Spring Physics & Micro-Interactions) -->
     <link rel="stylesheet" href="animate-ui.css">
     <script src="animate-ui.js" defer></script>
+    <!-- Unified Tokyo Audio Engine -->
+    <script src="audio-engine.js"></script>
     <style>
         :root {
             --primary: #059669;
@@ -55,7 +58,151 @@
         }
 
         /* Sticky Floating Dock */
-        
+        .global-sticky-dock-wrapper {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.85);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+        }
+
+        .global-sticky-dock {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .dock-brand {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: var(--primary-dark);
+            font-weight: 800;
+            font-size: 1.05rem;
+            flex-shrink: 0;
+        }
+
+        .dock-pill-track {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            overflow-x: auto;
+            scrollbar-width: none;
+            padding: 2px 0;
+        }
+
+        .dock-pill-track::-webkit-scrollbar {
+            display: none;
+        }
+
+        .dock-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 6px 12px;
+            border-radius: 999px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-decoration: none;
+            color: #64748b;
+            background: #f1f5f9;
+            border: 1px solid #e2e8f0;
+            white-space: nowrap;
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .dock-pill:hover {
+            color: var(--primary-dark);
+            background: var(--primary-soft);
+            border-color: #a7f3d0;
+            transform: translateY(-1px);
+        }
+
+        .dock-pill.active {
+            color: #ffffff;
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+            border-color: #047857;
+            box-shadow: 0 2px 6px rgba(5, 150, 105, 0.35);
+        }
+
+        .dock-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-shrink: 0;
+        }
+
+        .dock-action-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            color: #334155;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .dock-action-btn:hover {
+            background: #f8fafc;
+            border-color: #94a3b8;
+            color: #0f172a;
+        }
+
+        .dock-dropdown-wrapper {
+            position: relative;
+        }
+
+        .dock-tools-menu {
+            display: none;
+            position: absolute;
+            top: calc(100% + 8px);
+            right: 0;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+            padding: 8px;
+            min-width: 240px;
+            max-height: 480px;
+            overflow-y: auto;
+            z-index: 1010;
+        }
+
+        .dock-tools-menu.show {
+            display: block;
+            animation: fadeInDown 0.2s ease;
+        }
+
+        .dock-tool-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #334155;
+            text-decoration: none;
+            transition: all 0.15s;
+        }
+
+        .dock-tool-item:hover, .dock-tool-item.active {
+            background: var(--primary-soft);
+            color: var(--primary-dark);
+        }
 
         /* Mega Drawer Sheet */
         .global-mega-sheet {
@@ -1087,7 +1234,9 @@
                 width: 100%;
                 order: 3;
             }
-            
+            .global-sticky-dock {
+                flex-wrap: wrap;
+            }
         }
 
         @keyframes fadeIn {
@@ -1101,6 +1250,9 @@
         }
     
         
+        
+
+    
         /* ==========================================
            GLOBAL HUB NAVIGATION (CLEAN & NON-STICKY)
            ========================================== */
@@ -1139,68 +1291,6 @@
             border-color: transparent;
             box-shadow: 0 4px 15px rgba(79, 70, 229, 0.35);
         }
-        /* Hub Dropdown Menu */
-        .hub-dropdown {
-            position: relative;
-            display: inline-block;
-        }
-        .hub-dropdown-menu {
-            display: none;
-            position: absolute;
-            top: calc(100% + 6px);
-            left: 50%;
-            transform: translateX(-50%);
-            background: #ffffff;
-            border: 1.5px solid #e2e8f0;
-            border-radius: 14px;
-            box-shadow: 0 12px 28px rgba(0,0,0,0.12);
-            padding: 8px;
-            min-width: 260px;
-            z-index: 9999;
-        }
-        .hub-dropdown-menu.show {
-            display: block;
-        }
-        .hub-drop-link {
-            display: block;
-            padding: 8px 14px;
-            color: #334155;
-            font-size: 0.88rem;
-            font-weight: 700;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: all 0.15s ease;
-        }
-        .hub-drop-link:hover {
-            background: #eef2ff;
-            color: #4f46e5;
-        }
-        .hub-drop-link.active {
-            background: #4f46e5;
-            color: #ffffff !important;
-        }
-        @media (max-width: 768px) {
-            .global-hub-nav {
-                display: flex;
-                flex-wrap: nowrap;
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-                justify-content: flex-start;
-                gap: 8px;
-                margin-bottom: 15px;
-                padding: 2px 2px 8px 2px;
-                scrollbar-width: none;
-            }
-            .global-hub-nav::-webkit-scrollbar {
-                display: none;
-            }
-            .hub-nav-item {
-                flex-shrink: 0;
-                padding: 7px 14px;
-                font-size: 0.84rem;
-            }
-        }
-
         /* Hub Dropdown Menu */
         .hub-dropdown {
             position: relative;
@@ -1741,19 +1831,11 @@
         const QUIZ_QUESTIONS = [{"id": 1, "category": "Ngữ pháp: V-たことがあります", "q": "私は 田中さんに [____] ことがあります。", "options": ["会った", "会う", "会いて", "会いまし"], "correct": 0, "explain": "Động từ thể Quá khứ ngắn (Thể た): 会います ➔ 会った + ことがあります (Đã từng gặp)."}, {"id": 2, "category": "Ngữ pháp: V-たことがあります", "q": "日本へ 出張に [____] ことがありますか。", "options": ["行った", "行きます", "行かない", "行くて"], "correct": 0, "explain": "行きます có thể Ta bất quy tắc là 「行った」 ➔ 行ったことがありますか (Đã từng đi chưa?)."}, {"id": 3, "category": "Ngữ pháp: Lịch trình", "q": "飛行機は 午後3時に 空港 [____] 着きます。", "options": ["に", "で", "を", "から"], "correct": 0, "explain": "Địa điểm đến nơi đi với trợ từ に: 「空港に着きます」 (Hạ cánh tại sân bay)."}, {"id": 4, "category": "Từ vựng: Công tác", "q": "仕事で よその 土地へ 行く ことを [____] と 言います。", "options": ["出張 (しゅっちょう)", "旅行 (りょこう)", "留学 (りゅうがく)", "引越し (ひっこし)"], "correct": 0, "explain": "Chuyến đi làm việc tại nơi khác gọi là công tác: 「出張」 (しゅっちょう)."}, {"id": 5, "category": "Từ vựng: Công ty", "q": "会社で 一番 中心に なる 建物は [____] です。", "options": ["本社 (ほんしゃ)", "支社 (ししゃ)", "空港 (くうこう)", "ホテル"], "correct": 0, "explain": "Trụ sở chính đầu não của công ty là 「本社」 (ほんしゃ)."}, {"id": 6, "category": "Từ vựng: Sân bay", "q": "飛行機が 飛び立つ 場所は [____] です。", "options": ["空港 (くうこう)", "駅 (えき)", "港 (みなと)", "バス停"], "correct": 0, "explain": "Nơi máy bay cất cánh là sân bay: 「空港」 (くうこう)."}, {"id": 7, "category": "Giao tiếp: Đón khách", "q": "Khi đón đối tác từ phương xa đến, câu chào hỏi lịch sự là:", "options": ["お疲れ様でした。ようこそ！", "いってらっしゃい！", "ごちそうさまでした！", "お大事に！"], "correct": 0, "explain": "「お疲れ様でした。ようこそ！」 (Anh đã vất vả rồi, chào mừng anh đã tới!)."}, {"id": 8, "category": "Giao tiếp: Hỏi thăm", "q": "Để hỏi thăm đối tác chuyến bay có thuận lợi không, ta nói:", "options": ["フライトは いかがでしたか", "お元気ですか", "何時に起きましたか", "どこへ行きますか"], "correct": 0, "explain": "「フライトは いかがでしたか」 (Chuyến bay của anh thế nào ạ?)."}, {"id": 9, "category": "Từ vựng: Đưa đón", "q": "空港まで 友達を [____] 行きます (Đi đón).", "options": ["むかえに", "おくりに", "かえりに", "あいに"], "correct": 0, "explain": "Đi đón ai đó là 「迎えに行きます」 (むかえにいきます)."}, {"id": 10, "category": "Từ vựng: Xuất phát & Đến", "q": "「しゅっぱつ」 có nghĩa đối lập với từ nào?", "options": ["とうちゃく (到着)", "しゅっちょう (出張)", "よてい (予定)", "フライト"], "correct": 0, "explain": "「出発」 (Khởi hành) đối lập với 「到着」 (Đến nơi)."}, {"id": 11, "category": "Chữ Hán Bài 13: 会 & 社", "q": "Từ 「かいしゃ」 (Công ty) gồm 2 chữ Hán nào?", "options": ["会社", "本社", "支社", "社会"], "correct": 0, "explain": "「かいしゃ」 viết chữ Hán là 「会社」 (HỘI XÃ)."}, {"id": 12, "category": "Chữ Hán Bài 13: 支社", "q": "Từ 「ししゃ」 (Chi nhánh công ty) gồm chữ Hán nào?", "options": ["支社", "本社", "張社", "発社"], "correct": 0, "explain": "Chi nhánh là 「支社」 (CHI XÃ - 4 nét chữ 支)."}, {"id": 13, "category": "Chữ Hán Bài 13: 出張", "q": "Từ 「しゅっちょう」 (Chuyến công tác) viết bằng chữ Hán là:", "options": ["出張", "出長", "発張", "着張"], "correct": 0, "explain": "Công tác viết chữ Hán là 「出張」 (XUẤT TRƯƠNG)."}, {"id": 14, "category": "Chữ Hán Bài 13: 空港", "q": "Từ 「くうこう」 (Sân bay) viết Hán tự là:", "options": ["空港", "海港", "発港", "着港"], "correct": 0, "explain": "Sân bay là 「空港」 (KHÔNG CẢNG - gồm chữ 空 và 港)."}, {"id": 15, "category": "Chữ Hán Bài 13: 午前 & 午後", "q": "Chữ Hán 「午」 trong 「午前 / 午後」 mang ý nghĩa gì?", "options": ["Giờ ngọ (12 giờ trưa)", "Buổi sáng", "Buổi tối", "Nửa đêm"], "correct": 0, "explain": "Chữ 午 (NGỌ) là mốc 12 giờ trưa; 午前 (trước trưa = sáng), 午後 (sau trưa = chiều)."}];
         const DIALOGUE_STEPS = [{"options": [{"text": "田中さん、お疲れ様でした。ようこそベトナムへ！", "vi": "Chào anh Tanaka, anh đã vất vả rồi. Chào mừng anh đến với Việt Nam!", "replyAvatar": "👨‍💼", "replyNpc": "Tanaka", "replyText": "ありがとうございます。迎えに来てくれて助かりました。", "replyVi": "Cảm ơn bạn rất nhiều. Bạn ra đón thế này đỡ cho tôi quá."}, {"text": "初めまして！フライトはいかがでしたか。", "vi": "Rất vui được gặp anh lần đầu! Chuyến bay của anh thế nào ạ?", "replyAvatar": "👨‍💼", "replyNpc": "Tanaka", "replyText": "とても快適でしたよ。天気も良くてよかったです。", "replyVi": "Rất thoải mái bạn ạ. Thời tiết đẹp nên chuyến bay êm lắm."}]}, {"npcName": "Tanaka", "avatar": "👨‍💼", "npcText": "今からホテルへ向かいますか。車を手配してくれましたか。", "npcVi": "Bây giờ chúng ta di chuyển về khách sạn chứ nhỉ? Bạn đã sắp xếp xe giúp tôi chưa?", "options": [{"text": "はい、外にタクシーが待っています。荷物を持ちましょうか。", "vi": "Vâng, bên ngoài có xe taxi đang đợi sẵn rồi ạ. Để tôi xách hành lý giúp anh nhé.", "replyAvatar": "👨‍💼", "replyNpc": "Tanaka", "replyText": "すみません、ありがとうございます。よろしくお願いします。", "replyVi": "Ngại quá, cảm ơn bạn nhiều nhé. Nhờ cả vào bạn."}, {"text": "会社の車を用意しました。ホテルまで約30分で着きますよ。", "vi": "Chúng tôi đã chuẩn bị sẵn xe công ty rồi ạ. Về đến khách sạn mất khoảng 30 phút thôi.", "replyAvatar": "👨‍💼", "replyNpc": "Tanaka", "replyText": "素晴らしいですね！とても助かります。", "replyVi": "Tuyệt vời quá! Rất cảm ơn sự chu đáo của công ty bạn."}]}];
 
-        // Speech Synthesis
-        function cleanJapaneseText(text) {
-            return text.replace(/[／/]/g, ' ').replace(/[（(].*?[）)]/g, '').trim();
-        }
-
+        // Tokyo Audio Speech Synthesis (Dual Engine via audio-engine.js)
         function speakText(text) {
-            if (!('speechSynthesis' in window)) return;
-            window.speechSynthesis.cancel();
-            const clean = cleanJapaneseText(text);
-            const utterance = new SpeechSynthesisUtterance(clean);
-            utterance.lang = 'ja-JP';
-            utterance.rate = 0.9;
-            window.speechSynthesis.speak(utterance);
+            if (window.speakJapanese) {
+                window.speakJapanese(text);
+            }
         }
 
         // Verb Morphing Laboratory

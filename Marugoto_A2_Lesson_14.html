@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
     <title>Cẩm Nang & Luyện Tập Toàn Diện Bài 14 - Marugoto A2-2 | これ、使ってもいいですか</title>
     <meta name="description" content="Chinh phục toàn diện Marugoto A2 Bài 14: これ、使ってもいいですか. Đầy đủ ngữ pháp, 3D Flashcard từ vựng, máy biến thể và Mini Test 15 câu có giải thích chi tiết.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,6 +12,8 @@
     <!-- Animate UI Core (Spring Physics & Micro-Interactions) -->
     <link rel="stylesheet" href="animate-ui.css">
     <script src="animate-ui.js" defer></script>
+    <!-- Unified Tokyo Audio Engine -->
+    <script src="audio-engine.js"></script>
     <style>
         :root {
             --primary: #059669;
@@ -55,7 +58,151 @@
         }
 
         /* Sticky Floating Dock */
-        
+        .global-sticky-dock-wrapper {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.85);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+        }
+
+        .global-sticky-dock {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .dock-brand {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: var(--primary-dark);
+            font-weight: 800;
+            font-size: 1.05rem;
+            flex-shrink: 0;
+        }
+
+        .dock-pill-track {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            overflow-x: auto;
+            scrollbar-width: none;
+            padding: 2px 0;
+        }
+
+        .dock-pill-track::-webkit-scrollbar {
+            display: none;
+        }
+
+        .dock-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 6px 12px;
+            border-radius: 999px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-decoration: none;
+            color: #64748b;
+            background: #f1f5f9;
+            border: 1px solid #e2e8f0;
+            white-space: nowrap;
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .dock-pill:hover {
+            color: var(--primary-dark);
+            background: var(--primary-soft);
+            border-color: #a7f3d0;
+            transform: translateY(-1px);
+        }
+
+        .dock-pill.active {
+            color: #ffffff;
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+            border-color: #047857;
+            box-shadow: 0 2px 6px rgba(5, 150, 105, 0.35);
+        }
+
+        .dock-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-shrink: 0;
+        }
+
+        .dock-action-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            color: #334155;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .dock-action-btn:hover {
+            background: #f8fafc;
+            border-color: #94a3b8;
+            color: #0f172a;
+        }
+
+        .dock-dropdown-wrapper {
+            position: relative;
+        }
+
+        .dock-tools-menu {
+            display: none;
+            position: absolute;
+            top: calc(100% + 8px);
+            right: 0;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+            padding: 8px;
+            min-width: 240px;
+            max-height: 480px;
+            overflow-y: auto;
+            z-index: 1010;
+        }
+
+        .dock-tools-menu.show {
+            display: block;
+            animation: fadeInDown 0.2s ease;
+        }
+
+        .dock-tool-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #334155;
+            text-decoration: none;
+            transition: all 0.15s;
+        }
+
+        .dock-tool-item:hover, .dock-tool-item.active {
+            background: var(--primary-soft);
+            color: var(--primary-dark);
+        }
 
         /* Mega Drawer Sheet */
         .global-mega-sheet {
@@ -1087,7 +1234,9 @@
                 width: 100%;
                 order: 3;
             }
-            
+            .global-sticky-dock {
+                flex-wrap: wrap;
+            }
         }
 
         @keyframes fadeIn {
@@ -1101,6 +1250,9 @@
         }
     
         
+        
+
+    
         /* ==========================================
            GLOBAL HUB NAVIGATION (CLEAN & NON-STICKY)
            ========================================== */
@@ -1139,68 +1291,6 @@
             border-color: transparent;
             box-shadow: 0 4px 15px rgba(79, 70, 229, 0.35);
         }
-        /* Hub Dropdown Menu */
-        .hub-dropdown {
-            position: relative;
-            display: inline-block;
-        }
-        .hub-dropdown-menu {
-            display: none;
-            position: absolute;
-            top: calc(100% + 6px);
-            left: 50%;
-            transform: translateX(-50%);
-            background: #ffffff;
-            border: 1.5px solid #e2e8f0;
-            border-radius: 14px;
-            box-shadow: 0 12px 28px rgba(0,0,0,0.12);
-            padding: 8px;
-            min-width: 260px;
-            z-index: 9999;
-        }
-        .hub-dropdown-menu.show {
-            display: block;
-        }
-        .hub-drop-link {
-            display: block;
-            padding: 8px 14px;
-            color: #334155;
-            font-size: 0.88rem;
-            font-weight: 700;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: all 0.15s ease;
-        }
-        .hub-drop-link:hover {
-            background: #eef2ff;
-            color: #4f46e5;
-        }
-        .hub-drop-link.active {
-            background: #4f46e5;
-            color: #ffffff !important;
-        }
-        @media (max-width: 768px) {
-            .global-hub-nav {
-                display: flex;
-                flex-wrap: nowrap;
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-                justify-content: flex-start;
-                gap: 8px;
-                margin-bottom: 15px;
-                padding: 2px 2px 8px 2px;
-                scrollbar-width: none;
-            }
-            .global-hub-nav::-webkit-scrollbar {
-                display: none;
-            }
-            .hub-nav-item {
-                flex-shrink: 0;
-                padding: 7px 14px;
-                font-size: 0.84rem;
-            }
-        }
-
         /* Hub Dropdown Menu */
         .hub-dropdown {
             position: relative;
@@ -1729,19 +1819,11 @@
         const QUIZ_QUESTIONS = [{"id": 1, "category": "Ngữ pháp: V-てもいいですか", "q": "この コンピューター、[____] も いいですか。", "options": ["使って", "使いた", "使います", "使う"], "correct": 0, "explain": "Cấu trúc xin phép lịch sự: V-て + もいいですか ➔ 「使ってもいいですか」 (Tôi dùng có được không?)."}, {"id": 2, "category": "Ngữ pháp: V-てもいいですか", "q": "ペンを [____] も いいですか (かりる)。", "options": ["借りて", "借って", "借りた", "借る"], "correct": 0, "explain": "Động từ nhóm 2: かります ➔ chia thể Te là 「借りて」 + もいいですか."}, {"id": 3, "category": "Ngữ pháp: Phản hồi xin phép", "q": "「使ってもいいですか。」――「[____]、どうぞ。」", "options": ["はい", "いいえ", "だめ", "ごめん"], "correct": 0, "explain": "Khi đồng ý cho phép ai đó sử dụng đồ vật: 「はい、どうぞ」 (Vâng, xin mời)."}, {"id": 4, "category": "Ngữ pháp: Từ chối khéo", "q": "Khi đang bận dùng đồ mà người khác muốn mượn, cách từ chối khéo léo nhất là:", "options": ["すみません、今 使っているんです", "絶対に だめです", "嫌です", "使わないでください"], "correct": 0, "explain": "Cách từ chối lịch sự trong văn hóa Nhật: 「すみません、今 使っているんです」 (Xin lỗi, hiện tại tôi đang dùng mất rồi)."}, {"id": 5, "category": "Ngữ pháp: V-てはいけません", "q": "ここで 写真を [____] は いけません。", "options": ["撮って", "撮り", "撮る", "撮った"], "correct": 0, "explain": "Mẫu câu cấm đoán: V-て + はいけません ➔ 「撮ってはいけません」 (Không được chụp ảnh)."}, {"id": 6, "category": "Từ vựng: Thiết bị văn phòng", "q": "書類を たくさん 紙に コピーする 機械は [____] です。", "options": ["コピー機", "エアコン", "キャビネット", "テレビ"], "correct": 0, "explain": "Máy in và sao chép tài liệu là 「コピー機」 (コピーき - Máy photocopy)."}, {"id": 7, "category": "Từ vựng: Văn phòng", "q": "パソコンを 開く ときに 入力する 秘密の 文字は [____] です。", "options": ["パスワード", "チケット", "スケジュール", "フライト"], "correct": 0, "explain": "Mật khẩu máy tính là 「パスワード」 (Password)."}, {"id": 8, "category": "Từ vựng: Nhân sự", "q": "社長の 身の回りの 仕事を 手伝う 人は [____] です。", "options": ["秘書 (ひしょ)", "ドライバー", "受付", "学生"], "correct": 0, "explain": "Người làm trợ lý, thư ký hỗ trợ giám đốc là 「秘書」 (ひしょ)."}, {"id": 9, "category": "Giao tiếp: Kết thúc công tác", "q": "Khi chào tạm biệt chi nhánh sau chuyến công tác, câu nói cảm ơn chuẩn là:", "options": ["大変 お世話になりました", "ごちそうさまでした", "いただきます", "お大事に"], "correct": 0, "explain": "「大変 お世話になりました」 (Cảm ơn anh chị đã hết lòng giúp đỡ tôi)."}, {"id": 10, "category": "Giao tiếp: Nhờ chuyển lời", "q": "「本社の 皆さんに よろしく [____] ください。」", "options": ["お伝え", "言って", "話して", "書いて"], "correct": 0, "explain": "Nhờ chuyển lời thăm hỏi lịch sự: 「よろしくお伝えください」 (おつたえください)."}, {"id": 11, "category": "Chữ Hán Bài 14: 自 & 分", "q": "Từ 「じぶん」 (Bản thân mình) viết Hán tự là:", "options": ["自分", "白分", "自刀", "目分"], "correct": 0, "explain": "「じぶん」 viết chữ Hán là 「自分」 (TỰ PHÂN)."}, {"id": 12, "category": "Chữ Hán Bài 14: 電 & 話", "q": "Từ 「でんわ」 (Điện thoại) gồm 2 chữ Hán nào?", "options": ["電話", "電気", "電車", "電送"], "correct": 0, "explain": "「でんわ」 là 「電話」 (ĐIỆN THOẠI - cả 2 chữ đều có 13 nét)."}, {"id": 13, "category": "Chữ Hán Bài 14: 使 (Sử)", "q": "Động từ 「つかいます」 (Sử dụng) có chữ Hán là:", "options": ["使います", "借ります", "送ります", "作ります"], "correct": 0, "explain": "「つかいます」 là 「使います」 (SỬ - 8 nét)."}, {"id": 14, "category": "Chữ Hán Bài 14: 借 (Tá)", "q": "Động từ 「かります」 (Vay mượn) có chữ Hán là:", "options": ["借ります", "使います", "送ります", "働きます"], "correct": 0, "explain": "「かります」 là 「借ります」 (TÁ - 10 nét, bộ Nhân đứng 亻 + chữ Tích 昔)."}, {"id": 15, "category": "Chữ Hán Bài 14: 送 (Tống)", "q": "Động từ 「おくります」 trong 「メールを 送ります」 có chữ Hán là:", "options": ["送ります", "通ります", "連ります", "返ります"], "correct": 0, "explain": "「おくります」 viết chữ Hán là 「送ります」 (TỐNG - 9 nét)."}];
         const DIALOGUE_STEPS = [{"options": [{"text": "すみません、このパソコンをお借りしてもいいですか。", "vi": "Xin lỗi cô, tôi mượn chiếc máy tính này một chút có được không ạ?", "replyAvatar": "👩‍💼", "replyNpc": "Kathy", "replyText": "はい、どうぞ！パスワードは画面の横にメモしてありますよ。", "replyVi": "Vâng, xin mời anh cứ tự nhiên dùng! Mật khẩu được ghi chú ngay bên cạnh màn hình đó ạ."}, {"text": "資料を印刷したいのですが、プリンターを使ってもいいですか。", "vi": "Tôi muốn in một số tài liệu, tôi dùng máy in có được không ạ?", "replyAvatar": "👩‍💼", "replyNpc": "Kathy", "replyText": "ええ、大丈夫です。あちらのコピー機に繋がっていますよ。", "replyVi": "Vâng, được chứ ạ. Máy tính đã được kết nối với chiếc máy in đằng kia rồi đó."}]}, {"npcName": "Kathy", "avatar": "👩‍💼", "npcText": "出張のお仕事は順調に進みましたか。もうすぐ空港へ向かいますね。", "npcVi": "Công việc trong chuyến công tác diễn ra thuận lợi chứ ạ? Anh sắp sửa ra sân bay rồi nhỉ.", "options": [{"text": "はい、大変お世話になりました！本社の皆さんによろしくお伝えください。", "vi": "Vâng, cảm ơn mọi người đã hết lòng giúp đỡ tôi! Cho tôi gửi lời chào hỏi thăm tới mọi người ở trụ sở chính nhé.", "replyAvatar": "👩‍💼", "replyNpc": "Kathy", "replyText": "はい、必ず伝えます！お気をつけてお帰りくださいね。", "replyVi": "Vâng, tôi nhất định sẽ chuyển lời ạ! Chúc anh thượng lộ bình an nhé."}, {"text": "おかげさまで無事に終わりました。また東京で会いましょう！", "vi": "Nhờ có mọi người mà công việc đã hoàn thành tốt đẹp. Hẹn sớm gặp lại cô tại Tokyo nhé!", "replyAvatar": "👩‍💼", "replyNpc": "Kathy", "replyText": "こちらこそ！またのお越しを心よりお待ちしております。", "replyVi": "Chúng tôi cũng rất vinh hạnh! Rất mong được đón tiếp anh trong những lần tới."}]}];
 
-        // Speech Synthesis
-        function cleanJapaneseText(text) {
-            return text.replace(/[／/]/g, ' ').replace(/[（(].*?[）)]/g, '').trim();
-        }
-
+        // Tokyo Audio Speech Synthesis (Dual Engine via audio-engine.js)
         function speakText(text) {
-            if (!('speechSynthesis' in window)) return;
-            window.speechSynthesis.cancel();
-            const clean = cleanJapaneseText(text);
-            const utterance = new SpeechSynthesisUtterance(clean);
-            utterance.lang = 'ja-JP';
-            utterance.rate = 0.9;
-            window.speechSynthesis.speak(utterance);
+            if (window.speakJapanese) {
+                window.speakJapanese(text);
+            }
         }
 
         // Verb Morphing Laboratory

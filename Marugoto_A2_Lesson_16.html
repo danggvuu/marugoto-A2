@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
     <title>Cẩm Nang & Luyện Tập Toàn Diện Bài 16 - Marugoto A2-2 | 走ったり、泳いだりしています</title>
     <meta name="description" content="Chinh phục toàn diện Marugoto A2 Bài 16: 走ったり、泳いだりしています. Đầy đủ ngữ pháp, 3D Flashcard từ vựng, máy biến thể và Mini Test 15 câu có giải thích chi tiết.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,6 +12,8 @@
     <!-- Animate UI Core (Spring Physics & Micro-Interactions) -->
     <link rel="stylesheet" href="animate-ui.css">
     <script src="animate-ui.js" defer></script>
+    <!-- Unified Tokyo Audio Engine -->
+    <script src="audio-engine.js"></script>
     <style>
         :root {
             --primary: #059669;
@@ -55,7 +58,151 @@
         }
 
         /* Sticky Floating Dock */
-        
+        .global-sticky-dock-wrapper {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.85);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+        }
+
+        .global-sticky-dock {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .dock-brand {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: var(--primary-dark);
+            font-weight: 800;
+            font-size: 1.05rem;
+            flex-shrink: 0;
+        }
+
+        .dock-pill-track {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            overflow-x: auto;
+            scrollbar-width: none;
+            padding: 2px 0;
+        }
+
+        .dock-pill-track::-webkit-scrollbar {
+            display: none;
+        }
+
+        .dock-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 6px 12px;
+            border-radius: 999px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-decoration: none;
+            color: #64748b;
+            background: #f1f5f9;
+            border: 1px solid #e2e8f0;
+            white-space: nowrap;
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .dock-pill:hover {
+            color: var(--primary-dark);
+            background: var(--primary-soft);
+            border-color: #a7f3d0;
+            transform: translateY(-1px);
+        }
+
+        .dock-pill.active {
+            color: #ffffff;
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+            border-color: #047857;
+            box-shadow: 0 2px 6px rgba(5, 150, 105, 0.35);
+        }
+
+        .dock-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-shrink: 0;
+        }
+
+        .dock-action-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            color: #334155;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .dock-action-btn:hover {
+            background: #f8fafc;
+            border-color: #94a3b8;
+            color: #0f172a;
+        }
+
+        .dock-dropdown-wrapper {
+            position: relative;
+        }
+
+        .dock-tools-menu {
+            display: none;
+            position: absolute;
+            top: calc(100% + 8px);
+            right: 0;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+            padding: 8px;
+            min-width: 240px;
+            max-height: 480px;
+            overflow-y: auto;
+            z-index: 1010;
+        }
+
+        .dock-tools-menu.show {
+            display: block;
+            animation: fadeInDown 0.2s ease;
+        }
+
+        .dock-tool-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #334155;
+            text-decoration: none;
+            transition: all 0.15s;
+        }
+
+        .dock-tool-item:hover, .dock-tool-item.active {
+            background: var(--primary-soft);
+            color: var(--primary-dark);
+        }
 
         /* Mega Drawer Sheet */
         .global-mega-sheet {
@@ -1087,7 +1234,9 @@
                 width: 100%;
                 order: 3;
             }
-            
+            .global-sticky-dock {
+                flex-wrap: wrap;
+            }
         }
 
         @keyframes fadeIn {
@@ -1101,6 +1250,9 @@
         }
     
         
+        
+
+    
         /* ==========================================
            GLOBAL HUB NAVIGATION (CLEAN & NON-STICKY)
            ========================================== */
@@ -1139,68 +1291,6 @@
             border-color: transparent;
             box-shadow: 0 4px 15px rgba(79, 70, 229, 0.35);
         }
-        /* Hub Dropdown Menu */
-        .hub-dropdown {
-            position: relative;
-            display: inline-block;
-        }
-        .hub-dropdown-menu {
-            display: none;
-            position: absolute;
-            top: calc(100% + 6px);
-            left: 50%;
-            transform: translateX(-50%);
-            background: #ffffff;
-            border: 1.5px solid #e2e8f0;
-            border-radius: 14px;
-            box-shadow: 0 12px 28px rgba(0,0,0,0.12);
-            padding: 8px;
-            min-width: 260px;
-            z-index: 9999;
-        }
-        .hub-dropdown-menu.show {
-            display: block;
-        }
-        .hub-drop-link {
-            display: block;
-            padding: 8px 14px;
-            color: #334155;
-            font-size: 0.88rem;
-            font-weight: 700;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: all 0.15s ease;
-        }
-        .hub-drop-link:hover {
-            background: #eef2ff;
-            color: #4f46e5;
-        }
-        .hub-drop-link.active {
-            background: #4f46e5;
-            color: #ffffff !important;
-        }
-        @media (max-width: 768px) {
-            .global-hub-nav {
-                display: flex;
-                flex-wrap: nowrap;
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-                justify-content: flex-start;
-                gap: 8px;
-                margin-bottom: 15px;
-                padding: 2px 2px 8px 2px;
-                scrollbar-width: none;
-            }
-            .global-hub-nav::-webkit-scrollbar {
-                display: none;
-            }
-            .hub-nav-item {
-                flex-shrink: 0;
-                padding: 7px 14px;
-                font-size: 0.84rem;
-            }
-        }
-
         /* Hub Dropdown Menu */
         .hub-dropdown {
             position: relative;
@@ -1753,19 +1843,11 @@
         const QUIZ_QUESTIONS = [{"id": 1, "category": "Ngữ pháp: V-たり V-たりします", "q": "休みの 日は 本を [____]、映画を 見たり します。", "options": ["読んだり", "読んで", "読んだ", "読みたり"], "correct": 0, "explain": "Động từ thể Quá khứ ngắn (Thể た) + り: 読みます ➔ 読んだ ➔ 「読んだり」 (Lúc đọc sách, lúc xem phim)."}, {"id": 2, "category": "Ngữ pháp: V-たり V-たりします", "q": "週末は プールで [____]、公園を 走ったり しています。", "options": ["泳いだり", "泳ぎたり", "泳いで", "泳いだ"], "correct": 0, "explain": "泳ぎます chia thể Quá khứ là 泳いだ ➔ Thêm り thành 「泳いだり」."}, {"id": 3, "category": "Ngữ pháp: N のために", "q": "健康 [____] ために、毎朝 ウォーキングを しています。", "options": ["の", "に", "を", "で"], "correct": 0, "explain": "Cấu trúc chỉ mục đích với danh từ: 「Danh từ + の ために」 (Vì sức khỏe)."}, {"id": 4, "category": "Ngữ pháp: V-たほうがいい", "q": "夜遅くまで 起きていないで、早く [____] ほうが いいですよ。", "options": ["寝た", "寝る", "寝て", "寝ない"], "correct": 0, "explain": "Khuyên nên làm gì: V-た + ほうがいい ➔ 「寝たほうがいい」 (Nên đi ngủ sớm)."}, {"id": 5, "category": "Ngữ pháp: V-ないほうがいい", "q": "お酒を 飲み [____] ほうが いいですよ。", "options": ["すぎない", "すぎた", "すぎる", "すぎて"], "correct": 0, "explain": "Khuyên không nên làm gì: V-ない + ほうがいい ➔ 飲みすぎない ほうがいい (Không nên uống quá nhiều)."}, {"id": 6, "category": "Từ vựng: Thể thao", "q": "プールで 手足を 動かして 進む 運動は [____] です。", "options": ["すいえい (水泳)", "ジョギング", "ヨガ", "たいそう"], "correct": 0, "explain": "Bơi lội trong hồ bơi là 「水泳」 (すいえい) / 泳ぎます."}, {"id": 7, "category": "Từ vựng: Rèn luyện", "q": "道を 一歩一歩 足で 進む 運動は [____] です。", "options": ["ウォーキング (歩く)", "ドライブ", "フライト", "スキー"], "correct": 0, "explain": "Đi bộ thể dục là 「ウォーキング」 (Walking) / 歩きます."}, {"id": 8, "category": "Từ vựng: Thói quen", "q": "「あさはやく おきます」 có nghĩa tiếng Việt là gì?", "options": ["Dậy sớm vào buổi sáng", "Đi ngủ sớm", "Ăn sáng sớm", "Đi làm sớm"], "correct": 0, "explain": "「朝早く起きます」 nghĩa là thức dậy sớm vào buổi sáng."}, {"id": 9, "category": "Từ vựng: Cảnh báo", "q": "自分の 体力以上に 無理をして 働く ことを [____] と 言います。", "options": ["働きすぎます", "休みます", "走ります", "歩きます"], "correct": 0, "explain": "Lao động quá độ quá sức gọi là 「働きすぎます」 (はたらきすぎます)."}, {"id": 10, "category": "Từ vựng: Sức khỏe", "q": "病気が なくて 体が 丈夫な 状態を 表す 言葉は [____] です。", "options": ["元気 (げんき)", "気持ちが悪い", "疲れている", "眠い"], "correct": 0, "explain": "Khỏe khoắn, dồi dào sinh lực là 「元気」 (げんき)."}, {"id": 11, "category": "Chữ Hán Bài 16: 毎 (Mỗi)", "q": "Chữ Hán 「毎」 trong 「毎日 / 毎朝」 có bao nhiêu nét?", "options": ["6 nét", "5 nét", "7 nét", "8 nét"], "correct": 0, "explain": "Chữ 毎 (MỖI) có 6 nét viết."}, {"id": 12, "category": "Chữ Hán Bài 16: 週末", "q": "Từ 「しゅうまつ」 (Cuối tuần) viết bằng cặp chữ Hán nào?", "options": ["週末", "週未", "週末", "週本"], "correct": 0, "explain": "「しゅうまつ」 là 「週末」 (CHU MẠT - chữ 末 có nét ngang trên dài hơn nét dưới)."}, {"id": 13, "category": "Chữ Hán Bài 16: 歩 & 走", "q": "Cặp động từ 「あるきます」 (Đi bộ) và 「はしります」 (Chạy) viết là:", "options": ["歩きます và 走ります", "足きます và 走きます", "止きます và 走ります", "行きます và 来ます"], "correct": 0, "explain": "Đi bộ là 「歩きます」 (BỘ - 8 nét); chạy là 「走ります」 (TẨU - 7 nét)."}, {"id": 14, "category": "Chữ Hán Bài 16: 泳 (Vịnh)", "q": "Động từ 「およぎます」 (Bơi lội) chứa bộ thủ nào?", "options": ["Bộ Thủy (氵)", "Bộ Hỏa (灬)", "Bộ Mộc (木)", "Bộ Kim (金)"], "correct": 0, "explain": "Bơi lội dưới nước nên chữ 泳 (VỊNH) có bộ Thủy (氵 - 3 nét chấm thủy)."}, {"id": 15, "category": "Chữ Hán Bài 16: 起 (Khởi)", "q": "Động từ 「おきます」 trong 「朝早く起きます」 có chữ Hán là:", "options": ["起きます", "走きます", "歩きます", "行きます"], "correct": 0, "explain": "Thức dậy là 「起きます」 (KHỞI - 10 nét, bộ Tẩu 走 + chữ Kỷ 己)."}];
         const DIALOGUE_STEPS = [{"options": [{"text": "はい、休みの日はジョギングをしたり、ジムで泳いだりしています。", "vi": "Vâng, vào ngày nghỉ tôi lúc thì chạy bộ, lúc thì đi bơi ở phòng gym.", "replyAvatar": "👨‍💼", "replyNpc": "Kato", "replyText": "素晴らしいですね！どのくらいのペースで続けているんですか。", "replyVi": "Tuyệt vời quá! Bạn duy trì với tần suất như thế nào vậy?"}, {"text": "朝早く起きて、30分くらい近所をウォーキングしています。", "vi": "Tôi thức dậy sớm vào buổi sáng rồi đi bộ khoảng 30 phút quanh khu phố.", "replyAvatar": "👨‍💼", "replyNpc": "Kato", "replyText": "朝のウォーキングは気持ちがいいですね！見習いたいです。", "replyVi": "Đi bộ buổi sáng không khí trong lành dễ chịu lắm nhỉ! Tôi phải học tập bạn mới được."}]}, {"npcName": "Kato", "avatar": "👨‍💼", "npcText": "実は最近、仕事で疲れて運動不足なんです。どうすればいいでしょうか。", "npcVi": "Thực ra dạo này công việc bận rộn nên tôi ít vận động quá. Tôi nên làm thế nào bây giờ nhỉ?", "options": [{"text": "まずは無理をしないで、エスカレーターを使わずに階段を歩いたほうがいいですよ。", "vi": "Trước tiên đừng quá gượng ép, thay vì đi thang cuốn bạn nên đi cầu thang bộ thì tốt hơn đấy.", "replyAvatar": "👨‍💼", "replyNpc": "Kato", "replyText": "なるほど！駅の階段を使うことから始めてみます。アドバイスありがとう！", "replyVi": "Ra là vậy! Tôi sẽ bắt đầu từ việc leo cầu thang ở nhà ga. Cảm ơn lời khuyên của bạn nhé!"}, {"text": "夜はスマホを見ないで早く寝て、休日に散歩から始めたほうがいいですよ。", "vi": "Ban đêm không nên xem điện thoại mà hãy ngủ sớm, cuối tuần bắt đầu bằng việc đi dạo thì tốt hơn đấy.", "replyAvatar": "👨‍💼", "replyNpc": "Kato", "replyText": "いいアドバイスですね！今夜から実践してみます。", "replyVi": "Lời khuyên hay quá! Tối nay tôi sẽ thực hiện luôn."}]}];
 
-        // Speech Synthesis
-        function cleanJapaneseText(text) {
-            return text.replace(/[／/]/g, ' ').replace(/[（(].*?[）)]/g, '').trim();
-        }
-
+        // Tokyo Audio Speech Synthesis (Dual Engine via audio-engine.js)
         function speakText(text) {
-            if (!('speechSynthesis' in window)) return;
-            window.speechSynthesis.cancel();
-            const clean = cleanJapaneseText(text);
-            const utterance = new SpeechSynthesisUtterance(clean);
-            utterance.lang = 'ja-JP';
-            utterance.rate = 0.9;
-            window.speechSynthesis.speak(utterance);
+            if (window.speakJapanese) {
+                window.speakJapanese(text);
+            }
         }
 
         // Verb Morphing Laboratory

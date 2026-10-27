@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
     <title>Cẩm Nang & Luyện Tập Toàn Diện Bài 15 - Marugoto A2-2 | 体操するといいですよ</title>
     <meta name="description" content="Chinh phục toàn diện Marugoto A2 Bài 15: 体操するといいですよ. Đầy đủ ngữ pháp, 3D Flashcard từ vựng, máy biến thể và Mini Test 15 câu có giải thích chi tiết.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,6 +12,8 @@
     <!-- Animate UI Core (Spring Physics & Micro-Interactions) -->
     <link rel="stylesheet" href="animate-ui.css">
     <script src="animate-ui.js" defer></script>
+    <!-- Unified Tokyo Audio Engine -->
+    <script src="audio-engine.js"></script>
     <style>
         :root {
             --primary: #059669;
@@ -55,7 +58,151 @@
         }
 
         /* Sticky Floating Dock */
-        
+        .global-sticky-dock-wrapper {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.85);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+        }
+
+        .global-sticky-dock {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .dock-brand {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: var(--primary-dark);
+            font-weight: 800;
+            font-size: 1.05rem;
+            flex-shrink: 0;
+        }
+
+        .dock-pill-track {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            overflow-x: auto;
+            scrollbar-width: none;
+            padding: 2px 0;
+        }
+
+        .dock-pill-track::-webkit-scrollbar {
+            display: none;
+        }
+
+        .dock-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 6px 12px;
+            border-radius: 999px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-decoration: none;
+            color: #64748b;
+            background: #f1f5f9;
+            border: 1px solid #e2e8f0;
+            white-space: nowrap;
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .dock-pill:hover {
+            color: var(--primary-dark);
+            background: var(--primary-soft);
+            border-color: #a7f3d0;
+            transform: translateY(-1px);
+        }
+
+        .dock-pill.active {
+            color: #ffffff;
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+            border-color: #047857;
+            box-shadow: 0 2px 6px rgba(5, 150, 105, 0.35);
+        }
+
+        .dock-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-shrink: 0;
+        }
+
+        .dock-action-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            color: #334155;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .dock-action-btn:hover {
+            background: #f8fafc;
+            border-color: #94a3b8;
+            color: #0f172a;
+        }
+
+        .dock-dropdown-wrapper {
+            position: relative;
+        }
+
+        .dock-tools-menu {
+            display: none;
+            position: absolute;
+            top: calc(100% + 8px);
+            right: 0;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+            padding: 8px;
+            min-width: 240px;
+            max-height: 480px;
+            overflow-y: auto;
+            z-index: 1010;
+        }
+
+        .dock-tools-menu.show {
+            display: block;
+            animation: fadeInDown 0.2s ease;
+        }
+
+        .dock-tool-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #334155;
+            text-decoration: none;
+            transition: all 0.15s;
+        }
+
+        .dock-tool-item:hover, .dock-tool-item.active {
+            background: var(--primary-soft);
+            color: var(--primary-dark);
+        }
 
         /* Mega Drawer Sheet */
         .global-mega-sheet {
@@ -1087,7 +1234,9 @@
                 width: 100%;
                 order: 3;
             }
-            
+            .global-sticky-dock {
+                flex-wrap: wrap;
+            }
         }
 
         @keyframes fadeIn {
@@ -1101,6 +1250,9 @@
         }
     
         
+        
+
+    
         /* ==========================================
            GLOBAL HUB NAVIGATION (CLEAN & NON-STICKY)
            ========================================== */
@@ -1139,68 +1291,6 @@
             border-color: transparent;
             box-shadow: 0 4px 15px rgba(79, 70, 229, 0.35);
         }
-        /* Hub Dropdown Menu */
-        .hub-dropdown {
-            position: relative;
-            display: inline-block;
-        }
-        .hub-dropdown-menu {
-            display: none;
-            position: absolute;
-            top: calc(100% + 6px);
-            left: 50%;
-            transform: translateX(-50%);
-            background: #ffffff;
-            border: 1.5px solid #e2e8f0;
-            border-radius: 14px;
-            box-shadow: 0 12px 28px rgba(0,0,0,0.12);
-            padding: 8px;
-            min-width: 260px;
-            z-index: 9999;
-        }
-        .hub-dropdown-menu.show {
-            display: block;
-        }
-        .hub-drop-link {
-            display: block;
-            padding: 8px 14px;
-            color: #334155;
-            font-size: 0.88rem;
-            font-weight: 700;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: all 0.15s ease;
-        }
-        .hub-drop-link:hover {
-            background: #eef2ff;
-            color: #4f46e5;
-        }
-        .hub-drop-link.active {
-            background: #4f46e5;
-            color: #ffffff !important;
-        }
-        @media (max-width: 768px) {
-            .global-hub-nav {
-                display: flex;
-                flex-wrap: nowrap;
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-                justify-content: flex-start;
-                gap: 8px;
-                margin-bottom: 15px;
-                padding: 2px 2px 8px 2px;
-                scrollbar-width: none;
-            }
-            .global-hub-nav::-webkit-scrollbar {
-                display: none;
-            }
-            .hub-nav-item {
-                flex-shrink: 0;
-                padding: 7px 14px;
-                font-size: 0.84rem;
-            }
-        }
-
         /* Hub Dropdown Menu */
         .hub-dropdown {
             position: relative;
@@ -1741,19 +1831,11 @@
         const QUIZ_QUESTIONS = [{"id": 1, "category": "Ngữ pháp: ～んです", "q": "「どうしたんですか。」――「ちょっと 頭が [____]。」", "options": ["痛いんです", "痛いです", "痛くなんです", "痛かったんですか"], "correct": 0, "explain": "Tính từ đuôi い kết hợp với ～んです để giải thích tình trạng: 痛い ➔ 「痛いんです」 (Tôi bị đau đầu)."}, {"id": 2, "category": "Ngữ pháp: V-るといいですよ", "q": "寝る 前に、この 薬を [____] と いいですよ。", "options": ["飲む", "飲んだ", "飲んで", "飲み"], "correct": 0, "explain": "Mẫu câu khuyên bảo nhẹ nhàng: V-る (thể từ điển) + といいですよ ➔ 「飲むといいですよ」."}, {"id": 3, "category": "Ngữ pháp: V-ないでください", "q": "熱が ありますから、あまり 無理を [____] ください。", "options": ["しないで", "しなくて", "するな", "しまないで"], "correct": 0, "explain": "Mẫu câu dặn dò đừng làm gì: V-ない + でください: します ➔ 「しないでください」 (Đừng làm quá sức nhé)."}, {"id": 4, "category": "Từ vựng: Cơ thể", "q": "物や 人を 見る ための 身体の 部分は [____] です。", "options": ["目 (め)", "耳 (みみ)", "口 (くち)", "鼻 (はな)"], "correct": 0, "explain": "Bộ phận để nhìn là con mắt: 「目」 (め)."}, {"id": 5, "category": "Từ vựng: Cơ thể", "q": "音や 音楽を 聞く ための 身体の 部分は [____] です。", "options": ["耳 (みみ)", "目 (め)", "手 (て)", "足 (あし)"], "correct": 0, "explain": "Bộ phận để nghe là cái tai: 「耳」 (みみ)."}, {"id": 6, "category": "Từ vựng: Triệu chứng", "q": "体温が 38度以上 ある 状態を [____] と 言います。", "options": ["熱がある", "かぜをひく", "つかれる", "元気"], "correct": 0, "explain": "Thân nhiệt cao từ 38 độ trở lên gọi là bị sốt: 「熱がある」 (ねつがある)."}, {"id": 7, "category": "Từ vựng: Khó chịu", "q": "車に 酔って 吐き気が するときは 「[____]」 と 言います。", "options": ["気持ちが 悪い", "気持ちが いい", "頭が いい", "足が 速い"], "correct": 0, "explain": "Buồn nôn, khó chịu nôn nao trong người là 「気持ちが悪い」 (きもちがわるい)."}, {"id": 8, "category": "Giao tiếp: Chúc bình phục", "q": "Khi nghe người khác bị ốm hoặc mệt, câu chúc mau khỏi bệnh quen thuộc là:", "options": ["お大事に (おだいじに)", "ごちそうさまでした", "お邪魔します", "失礼します"], "correct": 0, "explain": "Câu chúc mau khỏi bệnh: 「お大事に」 (Chúc bạn mau khỏe lại nhé!)."}, {"id": 9, "category": "Từ vựng: Khám bệnh", "q": "かぜを ひいたので [____] へ 行って 薬を もらいます。", "options": ["病院 (びょういん)", "美容院 (びよういん)", "郵便局", "空港"], "correct": 0, "explain": "Bị cảm cúm thì đi bệnh viện khám lấy thuốc: 「病院」 (びょういん)."}, {"id": 10, "category": "Từ vựng: Cơ thể", "q": "手を 上に あげるときに 動く 部分は [____] です。", "options": ["肩 (かた)", "腰 (こし)", "足 (あし)", "お腹 (おなか)"], "correct": 0, "explain": "Bờ vai là 「肩」 (かた)."}, {"id": 11, "category": "Chữ Hán Bài 15: 体 (Thể)", "q": "Chữ Hán 「体」 trong 「からだ」 có bao nhiêu nét viết?", "options": ["7 nét", "5 nét", "6 nét", "8 nét"], "correct": 0, "explain": "Chữ 体 (THỂ) có 7 nét, gồm bộ Nhân đứng 亻 (2 nét) và chữ Bổn 本 (5 nét)."}, {"id": 12, "category": "Chữ Hán Bài 15: 頭 (Đầu)", "q": "Chữ Hán của từ 「あたま」 (Cái đầu) là:", "options": ["頭", "顔", "首", "体"], "correct": 0, "explain": "「あたま」 có chữ Hán là 「頭」 (ĐẦU - 16 nét)."}, {"id": 13, "category": "Chữ Hán Bài 15: 目 & 口", "q": "Hai chữ Hán 「目」 và 「口」 lần lượt có số nét là:", "options": ["5 nét và 3 nét", "4 nét và 3 nét", "5 nét và 4 nét", "6 nét và 3 nét"], "correct": 0, "explain": "Chữ 目 (MỤC) có 5 nét; chữ 口 (KHẨU) có 3 nét."}, {"id": 14, "category": "Chữ Hán Bài 15: 手 & 足", "q": "Cặp từ 「て」 (Bàn tay) và 「あし」 (Bàn chân) được viết là:", "options": ["手 và 足", "毛 và 是", "耳 và 目", "上 và 下"], "correct": 0, "explain": "Bàn tay là 「手」 (THỦ - 4 nét), bàn chân là 「足」 (TÚC - 7 nét)."}, {"id": 15, "category": "Chữ Hán Bài 15: 上 & 下", "q": "Hai chữ Hán đối lập vị trí 「うえ」 và 「した」 là:", "options": ["上 và 下", "左 và 右", "前 và 後", "大 và 小"], "correct": 0, "explain": "Bên trên là 「上」 (THƯỢNG - 3 nét); bên dưới là 「下」 (HẠ - 3 nét)."}];
         const DIALOGUE_STEPS = [{"options": [{"text": "実は、朝から頭が痛くて、少し熱もあるんです。", "vi": "Thực ra từ sáng đến giờ tôi bị đau đầu, và hình như hơi sốt nữa.", "replyAvatar": "👩‍💼", "replyNpc": "Yamada", "replyText": "それは大変ですね！無理をしないで、早く病院へ行ったほうがいいですよ。", "replyVi": "Thế thì vất vả quá! Bạn đừng cố làm quá sức, nên đi bệnh viện khám sớm đi."}, {"text": "パソコンを見すぎて、首と肩がすごく痛いんです。", "vi": "Nhìn máy tính nhiều quá nên cổ và vai tôi đau nhức kinh khủng.", "replyAvatar": "👩‍💼", "replyNpc": "Yamada", "replyText": "こうやって、ゆっくり肩を回して深呼吸するといいですよ。", "replyVi": "Cứ làm thế này, xoay vai từ từ rồi hít thở sâu thì sẽ đỡ đau đấy."}]}, {"npcName": "Yamada", "avatar": "👩‍💼", "npcText": "今日は残業しないで、あたたかいお風呂に入って早く寝てくださいね。", "npcVi": "Hôm nay đừng làm thêm giờ nhé, về nhà ngâm bồn nước ấm rồi đi ngủ sớm đi nha.", "options": [{"text": "ありがとうございます。そうします。ご迷惑をおかけしてすみません。", "vi": "Cảm ơn bạn. Tôi sẽ làm như vậy. Xin lỗi vì đã làm phiền mọi người.", "replyAvatar": "👩‍💼", "replyNpc": "Yamada", "replyText": "気にしないで！健康が一番ですから。どうぞお大事に！", "replyVi": "Đừng bận tâm! Sức khỏe là trên hết mà. Chúc bạn mau khỏe lại nhé!"}, {"text": "親切にアドバイスをくれて、本当にありがとうございます。", "vi": "Bạn cho tôi lời khuyên chu đáo quá, thật lòng cảm ơn bạn rất nhiều.", "replyAvatar": "👩‍💼", "replyNpc": "Yamada", "replyText": "いいえ、どういたしまして。お大事にね！", "replyVi": "Không có chi đâu. Chúc bạn mau khỏe lại nhé!"}]}];
 
-        // Speech Synthesis
-        function cleanJapaneseText(text) {
-            return text.replace(/[／/]/g, ' ').replace(/[（(].*?[）)]/g, '').trim();
-        }
-
+        // Tokyo Audio Speech Synthesis (Dual Engine via audio-engine.js)
         function speakText(text) {
-            if (!('speechSynthesis' in window)) return;
-            window.speechSynthesis.cancel();
-            const clean = cleanJapaneseText(text);
-            const utterance = new SpeechSynthesisUtterance(clean);
-            utterance.lang = 'ja-JP';
-            utterance.rate = 0.9;
-            window.speechSynthesis.speak(utterance);
+            if (window.speakJapanese) {
+                window.speakJapanese(text);
+            }
         }
 
         // Verb Morphing Laboratory

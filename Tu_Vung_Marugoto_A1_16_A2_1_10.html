@@ -5,6 +5,7 @@
     <meta name="referrer" content="no-referrer">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Từ Vựng Marugoto: A1 (Bài 16-18) & A2-1 (Bài 1-10)</title>
+    <script src="audio-engine.js"></script>
     <style>
         :root {
             --primary: #6c5ce7;
@@ -47,229 +48,15 @@
         
         
         
-        /* ==========================================
-           GLOBAL HUB NAVIGATION (CLEAN & NON-STICKY)
-           ========================================== */
-        .global-hub-nav {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin: 10px 0 24px 0;
-            flex-wrap: wrap;
-        }
-        .hub-nav-item {
-            text-decoration: none;
-            background: #ffffff;
-            color: #475569;
-            padding: 9px 18px;
-            border-radius: 9999px;
-            font-size: 0.9rem;
-            font-weight: 700;
-            border: 1.5px solid #e2e8f0;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
-            transition: all 0.2s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            cursor: pointer;
-            font-family: inherit;
-        }
-        .hub-nav-item:hover {
-            border-color: #4f46e5;
-            color: #4f46e5;
-            transform: translateY(-2px);
-        }
-        .hub-nav-item.active-hub {
-            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
-            color: #ffffff !important;
-            border-color: transparent;
-            box-shadow: 0 4px 15px rgba(79, 70, 229, 0.35);
-        }
-        /* Hub Dropdown Menu */
-        .hub-dropdown {
-            position: relative;
-            display: inline-block;
-        }
-        .hub-dropdown-menu {
-            display: none;
-            position: absolute;
-            top: calc(100% + 6px);
-            left: 50%;
-            transform: translateX(-50%);
-            background: #ffffff;
-            border: 1.5px solid #e2e8f0;
-            border-radius: 14px;
-            box-shadow: 0 12px 28px rgba(0,0,0,0.12);
-            padding: 8px;
-            min-width: 260px;
-            z-index: 9999;
-        }
-        .hub-dropdown-menu.show {
-            display: block;
-        }
-        .hub-drop-link {
-            display: block;
-            padding: 8px 14px;
-            color: #334155;
-            font-size: 0.88rem;
-            font-weight: 700;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: all 0.15s ease;
-        }
-        .hub-drop-link:hover {
-            background: #eef2ff;
-            color: #4f46e5;
-        }
-        .hub-drop-link.active {
-            background: #4f46e5;
-            color: #ffffff !important;
-        }
-        @media (max-width: 768px) {
-            .global-hub-nav {
-                display: flex;
-                flex-wrap: nowrap;
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-                justify-content: flex-start;
-                gap: 8px;
-                margin-bottom: 15px;
-                padding: 2px 2px 8px 2px;
-                scrollbar-width: none;
-            }
-            .global-hub-nav::-webkit-scrollbar {
-                display: none;
-            }
-            .hub-nav-item {
-                flex-shrink: 0;
-                padding: 7px 14px;
-                font-size: 0.84rem;
-            }
-        }
+        
+        
+        
 
-        /* Hub Dropdown Menu */
-        .hub-dropdown {
-            position: relative;
-            display: inline-block;
-        }
-        .hub-dropdown-menu {
-            display: none;
-            position: absolute;
-            top: calc(100% + 6px);
-            left: 50%;
-            transform: translateX(-50%);
-            background: #ffffff;
-            border: 1.5px solid #e2e8f0;
-            border-radius: 14px;
-            box-shadow: 0 12px 28px rgba(0,0,0,0.12);
-            padding: 8px;
-            min-width: 260px;
-            z-index: 9999;
-        }
-        .hub-dropdown-menu.show {
-            display: block;
-        }
-        .hub-drop-link {
-            display: block;
-            padding: 8px 14px;
-            color: #334155;
-            font-size: 0.88rem;
-            font-weight: 700;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: all 0.15s ease;
-        }
-        .hub-drop-link:hover {
-            background: #eef2ff;
-            color: #4f46e5;
-        }
-        .hub-drop-link.active {
-            background: #4f46e5;
-            color: #ffffff !important;
-        }
-        @media (max-width: 768px) {
-            .global-hub-nav {
-                display: flex;
-                flex-wrap: nowrap;
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-                justify-content: flex-start;
-                gap: 8px;
-                margin-bottom: 15px;
-                padding: 2px 2px 8px 2px;
-                scrollbar-width: none;
-            }
-            .global-hub-nav::-webkit-scrollbar {
-                display: none;
-            }
-            .hub-nav-item {
-                flex-shrink: 0;
-                padding: 7px 14px;
-                font-size: 0.84rem;
-            }
-        }
+        
 
-        /* Hub Dropdown Menu */
-        .hub-dropdown {
-            position: relative;
-            display: inline-block;
-        }
-        .hub-dropdown-menu {
-            display: none;
-            position: absolute;
-            top: calc(100% + 6px);
-            left: 50%;
-            transform: translateX(-50%);
-            background: #ffffff;
-            border: 1.5px solid #e2e8f0;
-            border-radius: 14px;
-            box-shadow: 0 12px 28px rgba(0,0,0,0.12);
-            padding: 8px;
-            min-width: 260px;
-            z-index: 9999;
-        }
-        .hub-dropdown-menu.show {
-            display: block;
-        }
-        .hub-drop-link {
-            display: block;
-            padding: 8px 14px;
-            color: #334155;
-            font-size: 0.88rem;
-            font-weight: 700;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: all 0.15s ease;
-        }
-        .hub-drop-link:hover {
-            background: #eef2ff;
-            color: #4f46e5;
-        }
-        .hub-drop-link.active {
-            background: #4f46e5;
-            color: #ffffff !important;
-        }
-        @media (max-width: 768px) {
-            .global-hub-nav {
-                display: flex;
-                flex-wrap: nowrap;
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-                justify-content: flex-start;
-                gap: 8px;
-                margin-bottom: 15px;
-                padding: 2px 2px 8px 2px;
-                scrollbar-width: none;
-            }
-            .global-hub-nav::-webkit-scrollbar {
-                display: none;
-            }
-            .hub-nav-item {
-                flex-shrink: 0;
-                padding: 7px 14px;
-                font-size: 0.84rem;
-            }
-        }
+        
+
+        
 
 
         /* Header */
@@ -1895,7 +1682,108 @@
         }
     
 
-</style>
+
+        /* ==========================================
+           GLOBAL HUB NAVIGATION (CLEAN & NON-STICKY)
+           ========================================== */
+        .global-hub-nav {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 10px 0 24px 0;
+            flex-wrap: wrap;
+        }
+        .hub-nav-item {
+            text-decoration: none;
+            background: #ffffff;
+            color: #475569;
+            padding: 9px 18px;
+            border-radius: 9999px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            border: 1.5px solid #e2e8f0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            font-family: inherit;
+        }
+        .hub-nav-item:hover {
+            border-color: #4f46e5;
+            color: #4f46e5;
+            transform: translateY(-2px);
+        }
+        .hub-nav-item.active-hub {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            color: #ffffff !important;
+            border-color: transparent;
+            box-shadow: 0 4px 15px rgba(79, 70, 229, 0.35);
+        }
+        /* Hub Dropdown Menu */
+        .hub-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .hub-dropdown-menu {
+            display: none;
+            position: absolute;
+            top: calc(100% + 6px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ffffff;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 14px;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+            padding: 8px;
+            min-width: 260px;
+            z-index: 9999;
+        }
+        .hub-dropdown-menu.show {
+            display: block;
+        }
+        .hub-drop-link {
+            display: block;
+            padding: 8px 14px;
+            color: #334155;
+            font-size: 0.88rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.15s ease;
+        }
+        .hub-drop-link:hover {
+            background: #eef2ff;
+            color: #4f46e5;
+        }
+        .hub-drop-link.active {
+            background: #4f46e5;
+            color: #ffffff !important;
+        }
+        @media (max-width: 768px) {
+            .global-hub-nav {
+                display: flex;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                justify-content: flex-start;
+                gap: 8px;
+                margin-bottom: 15px;
+                padding: 2px 2px 8px 2px;
+                scrollbar-width: none;
+            }
+            .global-hub-nav::-webkit-scrollbar {
+                display: none;
+            }
+            .hub-nav-item {
+                flex-shrink: 0;
+                padding: 7px 14px;
+                font-size: 0.84rem;
+            }
+        }
+
+    </style>
     <!-- Animate UI Core (Spring Physics & Micro-Interactions) -->
     <link rel="stylesheet" href="animate-ui.css">
     <script src="animate-ui.js" defer></script>
@@ -1928,6 +1816,8 @@
             </div>
         </div>
     </div>
+    
+    
     
     <!-- Global Hub Navigation -->
     
@@ -3258,79 +3148,12 @@
     }
 
     // ==========================================
-    // AUDIO HELPER (Phát âm tiếng Nhật chuẩn giọng bản xứ)
+    // AUDIO HELPER (Dual Engine via audio-engine.js)
     // ==========================================
-    let currentAudioPlayer = null;
-
     function speakJapanese(text) {
-        if (!text) return;
-        let clean = cleanJapaneseText(text);
-        if (!clean) return;
-
-        if (currentAudioPlayer) {
-            try {
-                currentAudioPlayer.pause();
-                currentAudioPlayer.currentTime = 0;
-            } catch(e) {}
+        if (window.speakText) {
+            window.speakText(text);
         }
-        if ('speechSynthesis' in window) {
-            try { window.speechSynthesis.cancel(); } catch(e) {}
-        }
-
-        // ƯU TIÊN 1: Âm thanh giọng bản xứ Nhật Bản chuẩn (Google Studio TTS)
-        const audioUrl = `https://translate.google.com/translate_tts?ie=UTF-8&tl=ja&client=tw-ob&q=${encodeURIComponent(clean)}`;
-        const audio = new Audio(audioUrl);
-        currentAudioPlayer = audio;
-
-        const playPromise = audio.play();
-        if (playPromise !== undefined) {
-            playPromise.catch(() => {
-                fallbackWebSpeech(clean);
-            });
-        }
-    }
-
-    function cleanJapaneseText(text) {
-        if (!text) return '';
-        let t = text.split('/')[0];
-        return t
-            .replace(/\(.*?\)/g, '')
-            .replace(/（.*?）/g, '')
-            .replace(/\[.*?\]/g, '')
-            .replace(/【.*?】/g, '')
-            .replace(/[a-zA-Z]/g, '')
-            .replace(/[～〜・→➔*#_]/g, '')
-            .replace(/[\n\r\t]/g, ' ')
-            .trim();
-    }
-
-    function fallbackWebSpeech(cleanText) {
-        if (!('speechSynthesis' in window)) return;
-        try {
-            window.speechSynthesis.cancel();
-            const utter = new SpeechSynthesisUtterance(cleanText);
-            utter.lang = 'ja-JP';
-            utter.rate = 0.92;
-            utter.pitch = 1.0;
-
-            const voices = window.speechSynthesis.getVoices();
-            const bestVoice = voices.find(v => 
-                v.lang.startsWith('ja') && (
-                    v.name.includes('Kyoko') ||
-                    v.name.includes('Otoya') ||
-                    v.name.includes('Google') ||
-                    v.name.includes('Nanami') ||
-                    v.name.includes('Keita') ||
-                    v.name.includes('Natural') ||
-                    v.name.includes('Enhanced')
-                )
-            ) || voices.find(v => v.lang === 'ja-JP' || v.lang === 'ja' || (v.lang && v.lang.startsWith('ja')));
-
-            if (bestVoice) {
-                utter.voice = bestVoice;
-            }
-            window.speechSynthesis.speak(utter);
-        } catch(e) {}
     }
 
     function speakCurrent(e) {
