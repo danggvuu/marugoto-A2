@@ -486,41 +486,65 @@
         ------------------------------------------------------------- */
         .verb-picker-row {
             display: flex;
-            gap: 8px;
-            overflow-x: auto;
-            padding-bottom: 12px;
-            margin-bottom: 20px;
-            scrollbar-width: thin;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
+            align-items: center;
         }
 
         .verb-pill {
-            padding: 8px 16px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 9px 18px;
             border-radius: 999px;
-            font-size: 0.9rem;
+            font-size: 0.92rem;
             font-weight: 700;
-            border: 1px solid #cbd5e1;
+            border: 1.5px solid #cbd5e1;
             background: #ffffff;
             color: #334155;
             cursor: pointer;
             white-space: nowrap;
-            transition: all 0.2s;
+            flex-shrink: 0;
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
         }
 
         .verb-pill:hover {
             border-color: var(--primary);
             color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(5, 150, 105, 0.15);
         }
 
         .verb-pill.active {
-            background: var(--primary);
-            color: #ffffff;
-            border-color: var(--primary-dark);
-            box-shadow: 0 4px 8px rgba(5, 150, 105, 0.3);
+            background: var(--primary) !important;
+            color: #ffffff !important;
+            border-color: var(--primary-dark) !important;
+            box-shadow: 0 4px 12px rgba(5, 150, 105, 0.35) !important;
+            transform: translateY(-1px);
+        }
+
+        .verb-pill .pill-kanji {
+            font-family: var(--jp-font);
+            font-weight: 800;
+            font-size: 0.95rem;
+        }
+
+        .verb-pill .pill-meaning {
+            font-size: 0.8rem;
+            font-weight: 600;
+            opacity: 0.75;
+        }
+
+        .verb-pill.active .pill-meaning {
+            opacity: 0.92;
+            color: #ecfdf5;
         }
 
         .morph-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 14px;
             margin-bottom: 18px;
         }
@@ -528,10 +552,20 @@
         .morph-box {
             background: #ffffff;
             border: 2px solid #e2e8f0;
-            border-radius: 12px;
-            padding: 16px;
+            border-radius: 14px;
+            padding: 18px 16px;
             text-align: center;
             transition: all 0.25s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 120px;
+        }
+
+        .morph-box:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-card);
         }
 
         .morph-box.featured {
@@ -1138,6 +1172,10 @@
         
 
     
+        
+        
+
+    
         /* ==========================================
            GLOBAL HUB NAVIGATION (CLEAN & NON-STICKY)
            ========================================== */
@@ -1266,6 +1304,7 @@
             </div>
         </div>
     </div>
+    
     
     
     
@@ -1799,9 +1838,11 @@
 
         function renderVerbPicker() {
             const container = document.getElementById('verbPickerRow');
+            if (!container || !VERB_MORPH_DATA.length) return;
             container.innerHTML = VERB_MORPH_DATA.map((v, i) => `
                 <button type="button" class="verb-pill ${i === 0 ? 'active' : ''}" onclick="selectVerb(${i}, this)">
-                    ${v.kanji} (${v.vi})
+                    <span class="pill-kanji">${v.kanji}</span>
+                    <span class="pill-meaning">(${v.vi})</span>
                 </button>
             `).join('');
             updateMorphDisplay(0);
@@ -1816,7 +1857,14 @@
 
         function updateMorphDisplay(idx) {
             const v = VERB_MORPH_DATA[idx];
-            document.getElementById('morphMasu').textContent = `${v.kanji} (${v.masu})`;
+            if (!v) return;
+            const morphMasuEl = document.getElementById('morphMasu');
+            if (morphMasuEl) {
+                morphMasuEl.innerHTML = `
+                    <div style="font-size:1.35rem; font-weight:800; color:#0f172a; line-height:1.2;">${v.kanji}</div>
+                    <div style="font-size:0.86rem; font-weight:700; color:#059669; margin-top:4px; font-family:var(--jp-font);">${v.masu}</div>
+                `;
+            }
             document.getElementById('morphVi').textContent = v.vi;
             document.getElementById('morphTe').textContent = v.te;
             document.getElementById('morphTeIki').textContent = v.te_iki;
