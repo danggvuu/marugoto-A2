@@ -1562,7 +1562,7 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
                 <span class="wb-part-tag">2. Kanji: Kanji ➔ Hira & Hira ➔ Kanji</span>
                 <span class="wb-part-tag">3. Ngữ pháp: ( ) & Hái sao ☆ & Dịch câu</span>
                 <span class="wb-part-tag">4. Đọc hiểu: 2 câu TN</span>
-                <span class="wb-part-tag">5. Tự luận: Trả lời 2 câu</span>
+                <span class="wb-part-tag">5. Tự luận: 2 câu (≥ 50 từ/ký tự)</span>
             </div>
         </div>
 
@@ -1984,7 +1984,9 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
                               placeholder="${item.placeholder}" 
                               oninput="handleEssayInput(${item.id}, this.value)"></textarea>
                     <div class="essay-meta-row">
-                        <span id="essay_count_${item.id}">Số ký tự: 0</span>
+                        <span id="essay_count_${item.id}" class="essay-char-counter">
+                            ✍️ <strong>Độ dài: 0 / 50 ký tự</strong> (Cần viết ít nhất 50 từ/ký tự)
+                        </span>
                         <button type="button" class="btn-trans-check" onclick="toggleEssayModel(${item.id})">
                             💡 Xem Câu Mẫu & Chấm Can-do
                         </button>
@@ -2052,7 +2054,16 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
                 const cnt = document.getElementById(`essay_count_${item.id}`);
                 if (inp && state.value) {
                     inp.value = state.value;
-                    if (cnt) cnt.textContent = `Số ký tự: ${state.value.length}`;
+                    const len = (state.value || "").trim().length;
+                    if (cnt) {
+                        if (len >= 50) {
+                            cnt.innerHTML = `✅ <strong>Độ dài: ${len} / 50 ký tự</strong> (Đạt yêu cầu tối thiểu)`;
+                            cnt.style.color = "#059669";
+                        } else {
+                            cnt.innerHTML = `✍️ <strong>Độ dài: ${len} / 50 ký tự</strong> (Cần thêm ít nhất ${50 - len} ký tự nữa)`;
+                            cnt.style.color = "#dc2626";
+                        }
+                    }
                 }
             }
 
@@ -2106,7 +2117,13 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
         const s = userAnswers[itemId];
         if (!s) return false;
         if (typeof s.value === "number") return true;
-        if (typeof s.value === "string" && s.value.trim().length > 0) return true;
+        if (typeof s.value === "string") {
+            const trimmed = s.value.trim();
+            if (itemId === 35 || itemId === 36) {
+                return trimmed.length >= 50;
+            }
+            return trimmed.length > 0;
+        }
         return false;
     }
 
@@ -2346,8 +2363,17 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
             ...(userAnswers[itemId] || {}),
             value: val
         };
+        const len = (val || "").trim().length;
         const cnt = document.getElementById(`essay_count_${itemId}`);
-        if (cnt) cnt.textContent = `Số ký tự: ${val.length}`;
+        if (cnt) {
+            if (len >= 50) {
+                cnt.innerHTML = `✅ <strong>Độ dài: ${len} / 50 ký tự</strong> (Đạt yêu cầu tối thiểu)`;
+                cnt.style.color = "#059669";
+            } else {
+                cnt.innerHTML = `✍️ <strong>Độ dài: ${len} / 50 ký tự</strong> (Cần thêm ít nhất ${50 - len} ký tự nữa)`;
+                cnt.style.color = "#dc2626";
+            }
+        }
         updatePaletteBubble(itemId);
         updateProgress();
         saveDraft();
@@ -2389,8 +2415,11 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
             isCorrect = (state.isCorrect !== undefined) ? state.isCorrect : evaluateTranslation(item, state.value || "");
             rightAnsText = item.standard;
         } else if (item.type === "essay") {
-            isCorrect = (state.value && state.value.trim().length >= 10);
-            rightAnsText = "Đã hoàn thành bài tự luận Can-do!";
+            const text = (state.value || "").trim();
+            isCorrect = (text.length >= 50);
+            rightAnsText = isCorrect 
+                ? `Đạt yêu cầu độ dài Can-do (${text.length} / 50 ký tự)!` 
+                : `Chưa đạt độ dài yêu cầu (Hiện có: ${text.length} / 50 ký tự. Cần viết ít nhất 50 từ/ký tự)`;
         }
 
         box.className = `explain-box show ${isCorrect ? 'correct' : 'wrong'}`;
@@ -2529,7 +2558,8 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
             } else if (item.type === "trans") {
                 isCorrect = (st.isCorrect !== undefined) ? st.isCorrect : evaluateTranslation(item, st.value || "");
             } else if (item.type === "essay") {
-                isCorrect = (st.value && st.value.trim().length >= 10);
+                const text = (st.value || "").trim();
+                isCorrect = (text.length >= 50);
             }
 
             st.isCorrect = isCorrect;

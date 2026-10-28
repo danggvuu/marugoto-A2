@@ -1574,4 +1574,200 @@ m102 = next(e for e in BASE_EXAMS if e["code"] == "M102")
 
 EXAMS_DATA_5 = [m101, m102, M103, M104, M105]
 
+# Standardize Part V (Essay) across all 5 exams: REQUIRE AT LEAST 50 WORDS / CHARACTERS
+ESSAY_50_WORDS_DATA = {
+    "M101": {
+        "partDesc": "Tự gõ câu trả lời bằng tiếng Nhật theo tình huống Can-do thực tế (yêu cầu mỗi câu viết ít nhất 50 từ/ký tự).",
+        "items": [
+            {
+                "id": 35,
+                "type": "essay",
+                "prompt": "あなたの 家族について 紹介してください。（何人 家族ですか。どこに 住んで いますか。仕事や 好きな ことも 書いてください。★50字以上で 書いてください）",
+                "promptVi": "Hãy giới thiệu về gia đình bạn (Có mấy người? Sống ở đâu? Làm nghề gì hoặc thích gì? ★Yêu cầu viết ít nhất 50 từ/ký tự bằng tiếng Nhật)",
+                "placeholder": "Gõ đoạn văn tiếng Nhật tại đây (tối thiểu 50 từ/ký tự)... Ví dụ: わたしの家族は4人です。父、母、姉とわたしです...",
+                "hints": [
+                    "Số thành viên: わたしの 家族は ～人です (父、母、...と わたしです)",
+                    "Nơi ở & nghề nghiệp: ～に 住んで います / 父・母は ～の 仕事を して います",
+                    "Sở thích/tính cách: ～が 好きです / とても 親切で 元気です",
+                    "Độ dài: Yêu cầu tối thiểu 50 chữ/ký tự"
+                ],
+                "modelAnswer": "わたしの 家族は 4人です。父、母、姉と わたしです。家族は ベトナムの ハノイに 住んで います。父は 会社員で、母は 英語の 先生です。姉は 大学生で、わたしは 日本語を 勉強して います。週末は いつも みんなで おいしい ごはんを 食べます。とても にぎやかです。",
+                "modelVi": "Gia đình tôi có 4 người: bố, mẹ, chị gái và tôi. Gia đình tôi sống ở Hà Nội, Việt Nam. Bố tôi là nhân viên công ty, mẹ là giáo viên tiếng Anh. Chị gái tôi là sinh viên đại học, còn tôi đang học tiếng Nhật. Cuối tuần mọi người luôn cùng nhau ăn cơm ngon. Rất là náo nhiệt, vui vẻ.",
+                "rubric": "Tiêu chí chấm điểm Can-do: Đạt độ dài tối thiểu ≥ 50 từ/ký tự; giới thiệu đầy đủ số người, nơi ở, nghề nghiệp; dùng đúng trợ từ và ngữ pháp."
+            },
+            {
+                "id": 36,
+                "type": "essay",
+                "prompt": "日本で どんな ことを してみたいですか。行きたい 所や したい こと、りゆうを 書いてください。（★50字以上で 書いてください）",
+                "promptVi": "Bạn muốn làm những điều gì ở Nhật Bản? Hãy viết về nơi muốn đến, điều muốn trải nghiệm và nêu rõ lý do (★Yêu cầu viết ít nhất 50 từ/ký tự)",
+                "placeholder": "Gõ đoạn văn tiếng Nhật tại đây (tối thiểu 50 từ/ký tự)... Ví dụ: わたしは 日本の 京都へ 行ってみたいです...",
+                "hints": [
+                    "Địa điểm muốn đến: わたしは ～へ 行ってみたいです (京都 / 東京 / 北海道)",
+                    "Trải nghiệm: ～を 見たり、～を 食べたり したいです",
+                    "Lý do: 写真で 見て とても きれいでしたから / 有名ですから",
+                    "Độ dài: Yêu cầu tối thiểu 50 chữ/ký tự"
+                ],
+                "modelAnswer": "わたしは 日本の 京都へ 行って、古い お寺や きれいな 桜を 見てみたいです。写真で 見て、とても 美しかったからです。そして、本物の 抹茶を 飲んだり、おいしい 寿司を 食べたり したいです。日本人の 友だちも たくさん つくりたいと 思います。日本へ 行く ことが とても 楽しみです。",
+                "modelVi": "Tôi muốn đến Kyoto của Nhật Bản để ngắm những ngôi chùa cổ và hoa anh đào tuyệt đẹp, vì xem qua ảnh thấy rất đẹp đẽ. Ngoài ra, tôi muốn uống matcha chính gốc và ăn món sushi tươi ngon. Tôi cũng muốn kết bạn với thật nhiều người Nhật. Tôi rất mong chờ được đến Nhật Bản.",
+                "rubric": "Tiêu chí chấm điểm Can-do: Đạt độ dài tối thiểu ≥ 50 từ/ký tự; áp dụng mẫu ngữ pháp ～てみたい / ～たり～たりしたい / ～から."
+            }
+        ]
+    },
+    "M102": {
+        "partDesc": "Tự gõ câu trả lời bằng tiếng Nhật theo tình huống Can-do thực tế (yêu cầu mỗi câu viết ít nhất 50 từ/ký tự).",
+        "items": [
+            {
+                "id": 35,
+                "type": "essay",
+                "prompt": "休みの日は 何を しますか。どこへ 行きますか。だれと どんな ことを しますか。（★50字以上で 書いてください）",
+                "promptVi": "Ngày nghỉ bạn thường làm gì? Đi đâu? Đi với ai và làm những hoạt động gì? (★Yêu cầu viết ít nhất 50 từ/ký tự bằng tiếng Nhật)",
+                "placeholder": "Gõ đoạn văn tiếng Nhật tại đây (tối thiểu 50 từ/ký tự)... Ví dụ: 休みの日は たいてい 家で 映画を 見たり...",
+                "hints": [
+                    "Hoạt động tại nhà: 休みの日は たいてい ～を したり、～を したり します",
+                    "Đi ra ngoài: 天気が いい ときは、友だちと ～へ 行きます",
+                    "Cảm nhận: とても 楽しいです / リラックスできます",
+                    "Độ dài: Yêu cầu tối thiểu 50 chữ/ký tự"
+                ],
+                "modelAnswer": "休みの日は たいてい 家で 映画を 見たり、好きな 音楽を 聞いたり します。天気が いい ときは、友だちと 公園へ 行って、散歩や 写真を 撮ったり します。それから、静かな カフェで おいしい コーヒーを 飲んで、たくさん おしゃべりします。とても 楽しくて リフレッシュできます。",
+                "modelVi": "Vào ngày nghỉ tôi thường xem phim hoặc nghe bản nhạc yêu thích ở nhà. Khi thời tiết đẹp, tôi cùng bạn bè đi công viên dạo bộ và chụp ảnh. Sau đó, chúng tôi vào một quán cà phê yên tĩnh uống cà phê thơm ngon và trò chuyện rất nhiều. Thật sự rất vui vẻ và sảng khoái tinh thần.",
+                "rubric": "Tiêu chí chấm điểm Can-do: Đạt độ dài tối thiểu ≥ 50 từ/ký tự; dùng thành thạo cấu trúc liệt kê ～たり～たりします và liên kết câu."
+            },
+            {
+                "id": 36,
+                "type": "essay",
+                "prompt": "あなたの 好きな 料理（日本料理 または ベトナム料理）について 紹介してください。（どんな 料理ですか。どうして 好きですか。★50字以上で 書いてください）",
+                "promptVi": "Hãy giới thiệu về món ăn yêu thích của bạn (Món Nhật hoặc món Việt: Là món gì? Hương vị ra sao? Vì sao bạn thích? ★Yêu cầu viết ít nhất 50 từ/ký tự)",
+                "placeholder": "Gõ đoạn văn tiếng Nhật tại đây (tối thiểu 50 từ/ký tự)... Ví dụ: わたしは ベトナムの フォーが 大好きです...",
+                "hints": [
+                    "Tên món ăn: わたしは ～が 一番 好きです / 大好きです",
+                    "Thành phần & hương vị: ～が たくさん 入って います / おいしくて あたたかいです",
+                    "Lý do & thói quen ăn: 体に いいですから、週に ～回 食べます",
+                    "Độ dài: Yêu cầu tối thiểu 50 chữ/ký tự"
+                ],
+                "modelAnswer": "わたしは ベトナムの フォーが 一番 大好きです。牛肉や 新鮮な 野菜が たくさん 入って いて、スープが とても あたたかくて おいしいです。レモンや 唐辛子を 入れて 食べると、もっと おいしく なります。体に いいですから、わたしは 週に 2回 食べます。日本人の 友だちにも おすすめしたいです。",
+                "modelVi": "Tôi thích món Phở của Việt Nam nhất. Món này có nhiều thịt bò và rau tươi, nước dùng rất ấm áp và đậm đà thơm ngon. Cho thêm chanh và ớt vào ăn thì càng ngon hơn nữa. Vì rất tốt cho sức khỏe nên mỗi tuần tôi ăn 2 lần. Tôi cũng rất muốn giới thiệu món này cho bạn bè người Nhật.",
+                "rubric": "Tiêu chí chấm điểm Can-do: Đạt độ dài tối thiểu ≥ 50 từ/ký tự; miêu tả rõ hương vị, thành phần nguyên liệu và lý do yêu thích bằng ～から."
+            }
+        ]
+    },
+    "M103": {
+        "partDesc": "Tự gõ câu trả lời bằng tiếng Nhật theo tình huống Can-do thực tế (yêu cầu mỗi câu viết ít nhất 50 từ/ký tự).",
+        "items": [
+            {
+                "id": 35,
+                "type": "essay",
+                "prompt": "あなたの 趣味について 詳しく 紹介してください。（どんな 趣味ですか。いつ しますか。どうして 好きですか。★50字以上で 書いてください）",
+                "promptVi": "Hãy giới thiệu chi tiết về sở thích của bạn (Là sở thích gì? Thường làm khi nào? Vì sao bạn thích? ★Yêu cầu viết ít nhất 50 từ/ký tự)",
+                "placeholder": "Gõ đoạn văn tiếng Nhật tại đây (tối thiểu 50 từ/ký tự)... Ví dụ: わたしの趣味は 写真を 撮る ことです...",
+                "hints": [
+                    "Tên sở thích: わたしの 趣味は ～ことです / ～が 大好きです",
+                    "Thời gian & địa điểm: 休みの日は いつも ～へ 行きます",
+                    "Lý do & cảm nhận: 楽しい気持ちに なります / ストレスが なくなります",
+                    "Độ dài: Yêu cầu tối thiểu 50 chữ/ký tự"
+                ],
+                "modelAnswer": "わたしの 趣味は 写真を 撮る ことです。休みの日は いつも カメラを 持って、きれいな 公園や 古い 町へ 行きます。自然の 花や 街の 人々の 笑顔を 撮る ことが 大好きです。写真を 撮ると、日頃の ストレスが なくなって、とても 楽しい 気持ちに なります。将来は 写真展を 開きたいです。",
+                "modelVi": "Sở thích của tôi là chụp ảnh. Vào ngày nghỉ, tôi luôn mang theo máy ảnh và đến những công viên đẹp hoặc các con phố cổ. Tôi rất thích chụp hoa cỏ thiên nhiên và nụ cười của mọi người trên phố. Mỗi khi chụp ảnh, căng thẳng thường nhật tan biến và tôi cảm thấy rất vui vẻ. Tương lai tôi muốn mở triển lãm ảnh.",
+                "rubric": "Tiêu chí chấm điểm Can-do: Đạt độ dài tối thiểu ≥ 50 từ/ký tự; dùng mẫu danh từ hóa 趣味は～ことです; câu văn giàu cảm xúc và liên kết tốt."
+            },
+            {
+                "id": 36,
+                "type": "essay",
+                "prompt": "あなたの 住んでいる 町について 紹介してください。（どんな 町ですか。何が ありますか。おすすめの 所は どこですか。★50字以上で 書いてください）",
+                "promptVi": "Hãy giới thiệu về thành phố nơi bạn đang sinh sống (Thành phố như thế nào? Có những gì? Nơi bạn muốn giới thiệu nhất? ★Yêu cầu viết ít nhất 50 từ/ký tự)",
+                "placeholder": "Gõ đoạn văn tiếng Nhật tại đây (tối thiểu 50 từ/ký tự)... Ví dụ: わたしは ベトナムの ダナンに 住んで います...",
+                "hints": [
+                    "Đặc điểm thành phố: ～に 住んで います / 海が 近くて きれいな 町です",
+                    "Địa điểm nổi bật: ～が たくさん あります / 有名な レストランや 橋",
+                    "Khuyên trải nghiệm: ～を 散歩する ことが 一番 おすすめです",
+                    "Độ dài: Yêu cầu tối thiểu 50 chữ/ký tự"
+                ],
+                "modelAnswer": "わたしは ベトナムの ダナンに 住んで います。海が 近くて、空気が きれいで、とても 美しい 町です。おいしい 海鮮料理の レストランや 有名な 橋が たくさん あります。夜に 涼しい ビーチを 散歩したり、カフェに 行ったり する ことが 一番 おすすめです。ぜひ 遊びに 来てください。",
+                "modelVi": "Tôi đang sống ở Đà Nẵng, Việt Nam. Đó là thành phố rất đẹp, gần biển và không khí trong lành. Ở đây có nhiều nhà hàng hải sản ngon và những cây cầu nổi tiếng. Đi dạo bãi biển mát mẻ vào ban đêm hoặc ghé quán cà phê là điều tôi muốn giới thiệu nhất. Nhất định hãy ghé chơi nhé.",
+                "rubric": "Tiêu chí chấm điểm Can-do: Đạt độ dài tối thiểu ≥ 50 từ/ký tự; kết hợp tính từ い/な; giới thiệu nét nổi bật và đưa ra lời mời tự nhiên."
+            }
+        ]
+    },
+    "M104": {
+        "partDesc": "Tự gõ câu trả lời bằng tiếng Nhật theo tình huống Can-do thực tế (yêu cầu mỗi câu viết ít nhất 50 từ/ký tự).",
+        "items": [
+            {
+                "id": 35,
+                "type": "essay",
+                "prompt": "日本へ 行ったら、どんな お土産を 買いたいですか。（だれに 買いますか。どうしてですか。★50字以上で 書いてください）",
+                "promptVi": "Nếu sang Nhật Bản, bạn muốn mua quà lưu niệm gì? Mua cho ai? Vì sao? (★Yêu cầu viết ít nhất 50 từ/ký tự bằng tiếng Nhật)",
+                "placeholder": "Gõ đoạn văn tiếng Nhật tại đây (tối thiểu 50 từ/ký tự)... Ví dụ: わたしは 家族に 日本の お菓子を 買いたいです...",
+                "hints": [
+                    "Quà cho gia đình: 家族には ～を 買いたいです (抹茶のお菓子 / 伝統工芸品)",
+                    "Quà cho bạn bè: 友だちには ～を あげたいです (キーホルダー / 文房具)",
+                    "Lý do: かわいくて 有名ですから / みんな 喜ぶと 思いますから",
+                    "Độ dài: Yêu cầu tối thiểu 50 chữ/ký tự"
+                ],
+                "modelAnswer": "わたしは 家族に 日本の おいしい 抹茶のお菓子を 買いたいです。日本の お菓子は パッケージも かわいくて、とても 有名ですから。そして、友だちには 東京タワーの キーホルダーや 日本の 便利な 文房具を あげたいです。みんな 喜ぶと 思います。たくさん お金を 準備して 行きます。",
+                "modelVi": "Tôi muốn mua bánh kẹo matcha thơm ngon của Nhật cho gia đình. Vì bánh kẹo Nhật Bản đóng gói rất dễ thương và rất nổi tiếng. Còn cho bạn bè, tôi muốn tặng móc khóa tháp Tokyo hoặc đồ dùng học tập tiện ích của Nhật. Tôi nghĩ mọi người sẽ rất vui mừng. Tôi sẽ chuẩn bị nhiều tiền trước khi đi.",
+                "rubric": "Tiêu chí chấm điểm Can-do: Đạt độ dài tối thiểu ≥ 50 từ/ký tự; sử dụng đúng cấu trúc mong muốn ～たいです và mục đích tặng quà."
+            },
+            {
+                "id": 36,
+                "type": "essay",
+                "prompt": "あなたの 朝の 習慣（ルーティン）について 書いてください。（起きてから 何を しますか。★50字以上で 書いてください）",
+                "promptVi": "Hãy viết về thói quen buổi sáng của bạn (Sau khi thức dậy bạn làm những gì? ★Yêu cầu viết ít nhất 50 từ/ký tự bằng tiếng Nhật)",
+                "placeholder": "Gõ đoạn văn tiếng Nhật tại đây (tối thiểu 50 từ/ký tự)... Ví dụ: わたしは 毎朝 6時半に 起きます...",
+                "hints": [
+                    "Giờ thức dậy: わたしは 毎朝 ～時に 起きます",
+                    "Thứ tự hành động: 起きてから、～を して、～を します",
+                    "Học tập/tập thể dục: それから、日本語を 勉強します",
+                    "Độ dài: Yêu cầu tối thiểu 50 chữ/ký tự"
+                ],
+                "modelAnswer": "わたしは 毎朝 6時半に 起きます。起きてから、まず 顔を 洗って、熱い コーヒーを 飲みます。それから、軽い 朝ごはんを 食べて、日本語の 単語を 20分 勉強します。朝は 頭が すっきり して いますから、勉強が とても よく できます。7時45分に 家を 出て、学校へ 行きます。",
+                "modelVi": "Mỗi sáng tôi thức dậy lúc 6 giờ 30. Sau khi dậy, trước tiên tôi rửa mặt và uống một cốc cà phê nóng. Sau đó, tôi ăn bữa sáng nhẹ và học từ vựng tiếng Nhật 20 phút. Vì buổi sáng đầu óc rất tỉnh táo nên học tập rất hiệu quả. Đến 7 giờ 45 tôi rời nhà để đến trường.",
+                "rubric": "Tiêu chí chấm điểm Can-do: Đạt độ dài tối thiểu ≥ 50 từ/ký tự; sử dụng thể て và ～てから để miêu tả trình tự thời gian mượt mà."
+            }
+        ]
+    },
+    "M105": {
+        "partDesc": "Tự gõ câu trả lời bằng tiếng Nhật theo tình huống Can-do thực tế (yêu cầu mỗi câu viết ít nhất 50 từ/ký tự).",
+        "items": [
+            {
+                "id": 35,
+                "type": "essay",
+                "prompt": "あなたの 国の おすすめの 観光地（かんこうち）について 紹介してください。（どこですか。何が 有名ですか。どんな ことが できますか。★50字以上で 書いてください）",
+                "promptVi": "Hãy giới thiệu về địa điểm du lịch bạn muốn giới thiệu ở đất nước bạn (Ở đâu? Có gì nổi tiếng? Đến đó có thể trải nghiệm điều gì? ★Yêu cầu viết ít nhất 50 từ/ký tự)",
+                "placeholder": "Gõ đoạn văn tiếng Nhật tại đây (tối thiểu 50 từ/ký tự)... Ví dụ: わたしのおすすめの 観光地は ハロン湾です...",
+                "hints": [
+                    "Tên và vị trí: わたしのおすすめは ～です / ～に あります",
+                    "Đặc điểm nổi bật: 海と 島が きれいで、世界遺産です",
+                    "Hoạt động: 船に 乗ったり、おいしい 料理を 食べたり できます",
+                    "Độ dài: Yêu cầu tối thiểu 50 chữ/ký tự"
+                ],
+                "modelAnswer": "わたしのおすすめの 観光地は ベトナムの ハロン湾です。ハノイから バスで 2時間半ぐらいです。海と たくさんの 島が とても きれいで、有名な 世界遺産です。船に 乗って 洞窟を 見学したり、新鮮で おいしい 海鮮を 食べたり する ことが できます。景色が 素晴らしいですから、ぜひ 行ってみてください。",
+                "modelVi": "Địa điểm du lịch tôi muốn giới thiệu là Vịnh Hạ Long của Việt Nam. Đi xe buýt từ Hà Nội mất khoảng 2 tiếng rưỡi. Biển và hàng ngàn hòn đảo rất đẹp, là di sản thế giới nổi tiếng. Bạn có thể đi thuyền tham quan hang động và thưởng thức hải sản tươi ngon. Phong cảnh tuyệt vời nên nhất định hãy đến thử một lần nhé.",
+                "rubric": "Tiêu chí chấm điểm Can-do: Đạt độ dài tối thiểu ≥ 50 từ/ký tự; cấu trúc ngữ pháp phong phú (～たり～たり、～ことができます、ぜひ～てください)."
+            },
+            {
+                "id": 36,
+                "type": "essay",
+                "prompt": "日本語の 勉強で、何が 一番 難しいですか。どうしてですか。どうやって 練習して いますか。（★50字以上で 書いてください）",
+                "promptVi": "Khi học tiếng Nhật, bạn thấy điều gì khó nhất? Vì sao? Bạn luyện tập bằng cách nào? (★Yêu cầu viết ít nhất 50 từ/ký tự bằng tiếng Nhật)",
+                "placeholder": "Gõ đoạn văn tiếng Nhật tại đây (tối thiểu 50 từ/ký tự)... Ví dụ: わたしは 漢字を 覚える ことが 一番 難しいと 思います...",
+                "hints": [
+                    "Khó khăn lớn nhất: わたしは ～が 一番 難しいと 思います (漢字 / 文法 / 聴解)",
+                    "Nguyên nhân: 形や 読み方が たくさん ありますから / 違いですから",
+                    "Cách khắc phục: 毎日 10回 ノートに 書いて 練習して います",
+                    "Độ dài: Yêu cầu tối thiểu 50 chữ/ký tự"
+                ],
+                "modelAnswer": "わたしは 漢字を 覚える ことが 一番 難しいと 思います。形や 読み方が たくさん あって、すぐに 忘れて しまいますから。ですから、毎日 ノートに 10回 書いたり、アプリを 使ったり して 練習して います。少しずつ 読める ように なって、今は とても 面白いです。これからも 諦めずに 頑張ります。",
+                "modelVi": "Tôi nghĩ việc ghi nhớ chữ Hán là khó nhất. Vì có rất nhiều hình thái và cách đọc, lại rất dễ quên. Do đó, mỗi ngày tôi đều viết 10 lần vào vở hoặc sử dụng ứng dụng để luyện tập. Dần dần đọc được nhiều chữ hơn nên bây giờ tôi thấy rất thú vị. Tôi sẽ không bỏ cuộc và tiếp tục nỗ lực hơn nữa.",
+                "rubric": "Tiêu chí chấm điểm Can-do: Đạt độ dài tối thiểu ≥ 50 từ/ký tự; biểu đạt rõ quan điểm cá nhân, nêu rõ giải pháp học tập tích cực."
+            }
+        ]
+    }
+}
+
+for ex in EXAMS_DATA_5:
+    code = ex["code"]
+    if code in ESSAY_50_WORDS_DATA:
+        sec5 = next(s for s in ex["sections"] if s["id"] == "sec5_essay")
+        sec5["partDesc"] = ESSAY_50_WORDS_DATA[code]["partDesc"]
+        sec5["items"] = ESSAY_50_WORDS_DATA[code]["items"]
+
 print(f"Successfully compiled all 5 Midterm Exam Sets: {[e['code'] for e in EXAMS_DATA_5]}")
