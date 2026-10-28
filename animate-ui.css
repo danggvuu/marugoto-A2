@@ -35,11 +35,11 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 75px;
+  scroll-padding-top: 24px;
 }
 
 [id] {
-  scroll-margin-top: 75px;
+  scroll-margin-top: 24px;
 }
 
 /* Double Sticky Bar Protection (Pages with Dock + Subnav) */
@@ -52,13 +52,13 @@ html {
 .grammar-card[id],
 .test-section[id],
 .unit-card[id] {
-  scroll-margin-top: 130px !important;
+  scroll-margin-top: 24px !important;
 }
 
-/* Fix sticky table headers to sit right below the global dock */
+/* Sticky table headers sit cleanly at top: 0 */
 table th,
 .table-sticky-th {
-  top: 54px !important;
+  top: 0;
 }
 
 /* ==========================================================================

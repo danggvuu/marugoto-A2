@@ -782,7 +782,7 @@
             font-size: 0.88rem;
             text-transform: uppercase;
             position: sticky;
-            top: 54px;
+            top: 0;
             z-index: 10;
         }
 
@@ -3364,8 +3364,10 @@
     function switchView(viewId) {
         document.querySelectorAll('.view-panel').forEach(p => p.classList.remove('active'));
         document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
-        document.getElementById(viewId).classList.add('active');
-        event.currentTarget.classList.add('active');
+        const target = document.getElementById(viewId);
+        if (target) target.classList.add('active');
+        const activeBtn = Array.from(document.querySelectorAll('.mode-btn')).find(b => b.getAttribute('onclick')?.includes(viewId));
+        if (activeBtn) activeBtn.classList.add('active');
 
         if (viewId === 'view-flashcard') {
             currentCardIndex = 0;

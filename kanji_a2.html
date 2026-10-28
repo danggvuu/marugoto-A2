@@ -4122,12 +4122,12 @@
             card.className = 'kanji-card';
 
             const examplesHtml = item.examples.map(ex => 
-                `<div class="example-line">• <span class="example-jp">${ex.word}（${ex.reading}）</span> : ${ex.vi}</div>`
+                `<div class="example-line">• <span class="example-jp" style="cursor:pointer;" onclick="speakJapanese('${ex.word}', this)" title="Bấm để nghe phát âm">${ex.word}（${ex.reading}）</span> <button type="button" class="fc-speaker-btn" style="width:24px; height:24px; font-size:12px; margin-left:4px; vertical-align:middle;" onclick="speakJapanese('${ex.word}', this)" title="Nghe từ vựng này">🔊</button> : ${ex.vi}</div>`
             ).join('');
 
             card.innerHTML = `
                 <div class="card-header-bar">
-                    <div class="kanji-badge">${item.char}</div>
+                    <div class="kanji-badge" style="cursor:pointer;" onclick="speakJapanese('${item.char}', this)" title="Bấm để nghe phát âm chữ Hán này">${item.char}</div>
                     <div class="han-viet-title">${item.hv}</div>
                     <span class="stroke-badge">✍️ ${item.strokes} nét</span>
                     <div class="lesson-tag">${item.lessonName}</div>
@@ -4146,12 +4146,12 @@
                                 <li class="info-item">
                                     <span class="info-bullet">•</span>
                                     <span class="info-label">Kun:</span>
-                                    <span class="info-value-kun">${item.kun}</span>
+                                    <span class="info-value-kun" style="cursor:pointer;" onclick="speakJapanese('${item.kun}', this)" title="Nghe âm Kun">${item.kun}</span> <button type="button" class="fc-speaker-btn" style="width:20px; height:20px; font-size:10px; margin-left:4px; vertical-align:middle;" onclick="speakJapanese('${item.kun}', this)" title="Nghe âm Kun">🔊</button>
                                 </li>
                                 <li class="info-item">
                                     <span class="info-bullet">•</span>
                                     <span class="info-label">On:</span>
-                                    <span class="info-value-on">${item.on}</span>
+                                    <span class="info-value-on" style="cursor:pointer;" onclick="speakJapanese('${item.on}', this)" title="Nghe âm On">${item.on}</span> <button type="button" class="fc-speaker-btn" style="width:20px; height:20px; font-size:10px; margin-left:4px; vertical-align:middle;" onclick="speakJapanese('${item.on}', this)" title="Nghe âm On">🔊</button>
                                 </li>
                             </ul>
 

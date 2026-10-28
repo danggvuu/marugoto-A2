@@ -303,7 +303,7 @@
             font-weight: 700;
             color: #2d3436;
             position: sticky;
-            top: 54px;
+            top: 0;
             z-index: 10;
         }
 
@@ -655,9 +655,135 @@
     
     
     
-    <!-- Global Hub Navigation -->
-    
+        <!-- Header -->
+    <header>
+        <h1>📘 BẢNG CHIA THỂ RU (THỂ TỪ ĐIỂN - 辞書形)</h1>
+        <p>Hệ thống toàn diện lý thuyết chia thể RU & Cấu trúc nói về sở thích: <strong>しゅみは ～Vること です</strong> (Marugoto A2-1)</p>
+    </header>
 
+    <!-- Nav Tabs -->
+    <div class="nav-tabs">
+        <button class="nav-tab-btn active" onclick="switchTab('tab-practice')">✍️ Luyện Tập Chia Thể RU (56 Từ)</button>
+        <button class="nav-tab-btn" onclick="switchTab('tab-theory')">📖 Quy Tắc Chia Thể RU Chuẩn</button>
+        <button class="nav-tab-btn" onclick="switchTab('tab-grammar')">💡 Mẫu Câu Sở Thích: ～Vる こと です</button>
+    </div>
+
+    <!-- TAB 1: PRACTICE TABLE -->
+    <div id="tab-practice" class="tab-panel active">
+        <div class="controls-bar">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="🔍 Tìm kiếm động từ..." oninput="filterVerbs()">
+            </div>
+            <div class="btn-group">
+                <button class="btn btn-primary" onclick="gradeAll()">✅ Nộp Bài / Chấm Điểm</button>
+                <button class="btn btn-outline" onclick="toggleAnswers()">👁️ Hiện / Ẩn Đáp Án</button>
+                <button class="btn btn-secondary" onclick="resetExercise()">🔄 Làm Lại</button>
+            </div>
+        </div>
+
+        <div id="scoreBanner" class="score-banner"></div>
+
+        <div class="table-responsive">
+            <table class="exercise-table" id="verbsTable">
+                <thead>
+                    <tr>
+                        <th style="width: 50px;">STT</th>
+                        <th style="width: 240px;">Vます (Động từ)</th>
+                        <th style="width: 120px;">Nhóm</th>
+                        <th>Thể RU (Thể Từ Điển)</th>
+                        <th style="width: 100px; text-align: center;">Kết Quả</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <!-- Populated via JS -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- TAB 2: THEORY -->
+    <div id="tab-theory" class="tab-panel">
+        <div class="card">
+            <h2>⚡ Quy Tắc Chia Động Từ Sang Thể RU (Theo Slide Chuẩn FPT)</h2>
+
+            <table class="rule-table">
+                <thead>
+                    <tr>
+                        <th style="width: 130px;">Nhóm</th>
+                        <th style="width: 280px;">Cách Chia</th>
+                        <th>Ví Dụ Minh Họa</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="vertical-align: middle; text-align: center; font-weight: bold; background: #edf6fd;">
+                            <span class="group-tag tag-g1">Nhóm ①</span>
+                        </td>
+                        <td>
+                            Chuyển âm ở <strong>cột い</strong> trước ます sang <strong>cột う</strong>:<br>
+                            <span class="vowel-shift">__i ます ➔ __u</span>
+                        </td>
+                        <td>
+                            • い<strong>き</strong>ます ➔ い<strong>く</strong><br>
+                            • の<strong>み</strong>ます ➔ の<strong>む</strong><br>
+                            • つく<strong>り</strong>ます ➔ つく<strong>る</strong><br>
+                            • はな<strong>し</strong>ます ➔ はな<strong>す</strong><br>
+                            • あ<strong>い</strong>ます ➔ あ<strong>う</strong><br>
+                            • ま<strong>ち</strong>ます ➔ ま<strong>つ</strong><br>
+                            • およ<strong>ぎ</strong>ます ➔ およ<strong>ぐ</strong><br>
+                            • あそ<strong>び</strong>ます ➔ あそ<strong>ぶ</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="vertical-align: middle; text-align: center; font-weight: bold; background: #fff0f6;">
+                            <span class="group-tag tag-g2">Nhóm ②</span>
+                        </td>
+                        <td>
+                            Động từ kết thúc bằng cột <strong>え / い</strong> trước ます:<br>
+                            <span class="vowel-shift">Bỏ ます ➔ Thêm る</span>
+                        </td>
+                        <td>
+                            • た<strong>べ</strong>ます ➔ た<strong>べる</strong><br>
+                            • <strong>み</strong>ます ➔ <strong>みる</strong><br>
+                            • <strong>ね</strong>ます ➔ <strong>ねる</strong><br>
+                            • お<strong>き</strong>ます ➔ お<strong>きる</strong> (đặc biệt)<br>
+                            • か<strong>り</strong>ます ➔ か<strong>りる</strong> (đặc biệt)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="vertical-align: middle; text-align: center; font-weight: bold; background: #f3f0ff;">
+                            <span class="group-tag tag-g3">Nhóm ③</span>
+                        </td>
+                        <td>
+                            Động từ bất quy tắc (Học thuộc lòng):<br>
+                            • <strong>します ➔ する</strong><br>
+                            • <strong>きます ➔ くる</strong>
+                        </td>
+                        <td>
+                            • べんきょう<strong>します</strong> ➔ べんきょう<strong>する</strong><br>
+                            • かいもの<strong>します</strong> ➔ かいもの<strong>する</strong><br>
+                            • <strong>きます</strong> ➔ <strong>くる</strong><br>
+                            • もって<strong>きます</strong> ➔ もって<strong>くる</strong><br>
+                            • つれて<strong>きます</strong> ➔ つれて<strong>くる</strong>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="example-box">
+                <h4 style="color: var(--primary); margin-bottom: 8px;">💡 Bảng chuyển đổi chi tiết cột [い ➔ う] cho Nhóm 1:</h4>
+                <p>• い ➔ <strong>う</strong> (あいます ➔ あう, かいます ➔ かう)</p>
+                <p>• き ➔ <strong>く</strong> (ききます ➔ きく, かきます ➔ かく, いきます ➔ いく)</p>
+                <p>• ぎ ➔ <strong>ぐ</strong> (およぎます ➔ およぐ, いそぎます ➔ いそぐ)</p>
+                <p>• し ➔ <strong>す</strong> (はなします ➔ はなす, かします ➔ かす)</p>
+                <p>• ち ➔ <strong>つ</strong> (まちます ➔ まつ, たちます ➔ たつ)</p>
+                <p>• に ➔ <strong>ぬ</strong> (しにます ➔ しぬ)</p>
+                <p>• び ➔ <strong>ぶ</strong> (あそびます ➔ あそぶ)</p>
+                <p>• み ➔ <strong>む</strong> (のみます ➔ のむ, よみます ➔ よむ, やすみます ➔ やすむ)</p>
+                <p>• り ➔ <strong>る</strong> (かえります ➔ かえる, とります ➔ とる, つくります ➔ つくる)</p>
+            </div>
+        </div>
+    </div>
 
     <!-- TAB 3: GRAMMAR -->
     <div id="tab-grammar" class="tab-panel">
@@ -786,8 +912,10 @@
         document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.remove('active'));
         document.querySelectorAll('.nav-tab-btn').forEach(btn => btn.classList.remove('active'));
         
-        document.getElementById(tabId).classList.add('active');
-        event.currentTarget.classList.add('active');
+        const target = document.getElementById(tabId);
+        if (target) target.classList.add('active');
+        const activeBtn = Array.from(document.querySelectorAll('.nav-tab-btn')).find(b => b.getAttribute('onclick')?.includes(tabId));
+        if (activeBtn) activeBtn.classList.add('active');
     }
 
     function renderTable() {
@@ -799,7 +927,10 @@
             tr.id = `row-${item.id}`;
             tr.innerHTML = `
                 <td><strong>${index + 1}</strong></td>
-                <td><span class="verb-masu">${item.masu}</span></td>
+                <td>
+                    <span class="verb-masu">${item.masu}</span>
+                    <button type="button" class="fc-speaker-btn" style="margin-left:6px; vertical-align:middle; width:28px; height:28px; font-size:13px;" onclick="speakJapanese('${item.masu}', this)" title="Nghe phát âm">🔊</button>
+                </td>
                 <td>
                     <select class="group-select" id="group-${item.id}">
                         <option value="">Nhóm</option>
@@ -810,7 +941,7 @@
                 </td>
                 <td>
                     <input type="text" class="text-input" id="ru-${item.id}" placeholder="Chia thể RU...">
-                    <div class="answer-hint" id="hint-${item.id}">👉 Đáp án: <strong>${item.ru}</strong> (N${item.group}) ${item.note ? `[${item.note}]` : ''}</div>
+                    <div class="answer-hint" id="hint-${item.id}">👉 Đáp án: <strong>${item.ru}</strong> <button type="button" class="fc-speaker-btn" style="margin-left:4px; vertical-align:middle; width:24px; height:24px; font-size:11px;" onclick="speakJapanese('${item.ru}', this)" title="Nghe thể RU">🔊</button> (N${item.group}) ${item.note ? `[${item.note}]` : ''}</div>
                 </td>
                 <td style="text-align: center;">
                     <span id="status-${item.id}" class="status-icon"></span>

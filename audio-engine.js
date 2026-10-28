@@ -65,7 +65,7 @@
         initVoices();
     }
 
-    // 3. Bulletproof Japanese Text Normalizer
+    // 3. Bulletproof Japanese Text Normalizer (Preserves Japanese phrases in brackets like （ドアを）あけます)
     function cleanJapaneseText(text) {
         if (!text) return '';
         let t = String(text).trim();
@@ -73,7 +73,10 @@
         // Remove ruby / furigana HTML elements cleanly
         t = t.replace(/<rt>.*?<\/rt>/gi, '').replace(/<[^>]*>/g, '');
 
-        // If slash alternative exists (e.g. 食べる／たべる), pick the first one
+        // Remove angle bracketed non-Japanese notes (e.g. 〈Số đếm〉)
+        t = t.replace(/〈[^〉]*〉/g, '');
+
+        // If slash alternative exists (e.g. しゃけ／さけ, そふ／おじいさん), pick the first one
         if (t.includes('/') || t.includes('／')) {
             t = t.split('/')[0].split('／')[0].trim();
         }
@@ -81,27 +84,43 @@
         // Replace em-dashes and dialogue separators with natural sentence break
         t = t.replace(/[―—–-]+/g, ' ');
 
-        // Strip furigana parentheses, bracket notes, roman letters and decorative symbols
-        let cleaned = t
-            .replace(/\(.*?\)/g, '')
-            .replace(/（.*?）/g, '')
-            .replace(/\[.*?\]/g, '')
-            .replace(/【.*?】/g, '')
-            .replace(/[a-zA-Z]/g, '')
-            .replace(/[～〜・→➔*#_]/g, '')
-            .replace(/\s+/g, ' ')
-            .trim();
+        // Smart bracket handling:
+        // If content inside brackets is purely Latin notes/translations (e.g. (Coat), (km), (size), (N)), strip it.
+        // If content inside brackets contains Japanese kana/kanji (e.g. （ドアを）あけます, （します）), KEEP the Japanese!
+        const hasJapanese = str => /[\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FFF]/.test(str);
+        const parenFilter = (match, inner) => {
+            let trimmed = (inner || '').trim();
+            // Remove standalone grammar placeholders inside parentheses like (の ＋ N) -> (の)
+            trimmed = trimmed.replace(/\s*[+＋]\s*/g, ' ').replace(/(^|\s)[NPV]($|\s)/g, ' ').trim();
+            return hasJapanese(trimmed) ? trimmed : '';
+        };
 
-        // If completely empty (e.g. original was entirely inside parentheses), just strip brackets
-        if (!cleaned) {
-            cleaned = t
-                .replace(/[()（）\[\]【】]/g, '')
-                .replace(/[a-zA-Z]/g, '')
-                .replace(/[～〜・→➔*#_]/g, '')
-                .replace(/\s+/g, ' ')
-                .trim();
-        }
-        return cleaned;
+        t = t.replace(/\((.*?)\)/g, parenFilter);
+        t = t.replace(/（(.*?)）/g, parenFilter);
+        t = t.replace(/\[(.*?)\]/g, parenFilter);
+        t = t.replace(/【(.*?)】/g, parenFilter);
+
+        // Keep Tシャツ together
+        t = t.replace(/T\s*シャツ/gi, 'Tシャツ');
+
+        // Remove standalone grammar variable placeholders like N, P, V
+        t = t.replace(/(^|[\s（(])[NPV](?=[\s)）をがにはでにへと])/g, '$1');
+        t = t.replace(/([をがにはでにへと\s])[NPV]($|[\s)）])/g, '$1');
+        t = t.replace(/[~～]\s*V\s*/g, '');
+        t = t.replace(/\s*[+＋]\s*/g, ' ');
+        t = t.replace(/(^|\s)[NPV]($|\s)/g, ' ');
+
+        // Convert ～時 / ~時の to natural reading "なんじの"
+        t = t.replace(/[～~]時の/g, 'なんじの');
+        t = t.replace(/[～~]時/g, 'なんじ');
+
+        // Strip lone tildes, bullets, arrows, decorative symbols, question marks
+        t = t.replace(/[～〜・→➔*#_?？]/g, '');
+
+        // Collapse multiple spaces
+        t = t.replace(/\s+/g, ' ').trim();
+
+        return t;
     }
 
     // 4. Secondary Fallback: Web Speech API with Tokyo Native Voices
@@ -199,12 +218,12 @@
             playWithWebSpeech(clean, targetBtn);
         };
 
-        // If audio does not start playing within 3 seconds, invoke fallback
+        // If audio does not start playing within 1.2 seconds, invoke fallback
         const timeoutId = setTimeout(() => {
             if (!hasStarted) {
                 invokeFallback();
             }
-        }, 3000);
+        }, 1200);
 
         audio.onplaying = () => {
             hasStarted = true;
