@@ -98,7 +98,124 @@
             box-shadow: 0 4px 15px rgba(79, 70, 229, 0.35);
         }
 
+        /* Hub Dropdown Menu */
+        .hub-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .hub-dropdown-menu {
+            display: none;
+            position: absolute;
+            top: calc(100% + 6px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ffffff;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 14px;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+            padding: 8px;
+            min-width: 260px;
+            z-index: 9999;
+        }
+
+        .hub-dropdown-menu.show {
+            display: block;
+        }
+
+        .hub-drop-link {
+            display: block;
+            padding: 8px 14px;
+            color: #334155;
+            font-size: 0.88rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.15s ease;
+        }
+
+        .hub-drop-link:hover {
+            background: #eef2ff;
+            color: #4f46e5;
+        }
+
+        .hub-drop-link.active {
+            background: #4f46e5;
+            color: #ffffff !important;
+        }
+
+
         
+
+        
+        /* -------------------------------------------------------------
+           2. HERO HEADER & KPI STATS (PREMIUM CARD DESIGN)
+        ------------------------------------------------------------- */
+        .hero-section {
+            background: linear-gradient(135deg, #1e1b4b 0%, #2e2a72 40%, #4338ca 100%);
+            color: #ffffff;
+            padding: 34px 28px 28px;
+            border-radius: 20px;
+            max-width: 1300px;
+            margin: 0 auto 24px auto;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(67, 56, 202, 0.22);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: -70px;
+            right: -70px;
+            width: 320px;
+            height: 320px;
+            background: radial-gradient(circle, rgba(129, 140, 248, 0.28) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            padding: 5px 14px;
+            border-radius: 999px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            color: #e0e7ff;
+            margin-bottom: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .hero-title {
+            font-size: 2.15rem;
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            margin-bottom: 8px;
+            line-height: 1.25;
+            color: #ffffff;
+        }
+
+        .hero-subtitle {
+            font-size: 0.96rem;
+            color: #c7d2fe;
+            max-width: 860px;
+            margin-bottom: 22px;
+            line-height: 1.6;
+        }
 
         /* KPI STATS CARDS */
         .kpi-grid {
@@ -325,16 +442,17 @@
         }
 
         .level-pill.active {
-            background: var(--text-dark);
+            background: var(--primary);
             color: #ffffff;
-            border-color: var(--text-dark);
+            border-color: var(--primary);
+            box-shadow: 0 2px 8px rgba(79, 70, 229, 0.3);
         }
 
         .category-scroll-row {
             display: flex;
             align-items: center;
             gap: 6px;
-            overflow-x: auto;
+            flex-wrap: wrap;
             padding-bottom: 4px;
         }
 
@@ -1121,103 +1239,31 @@
         
 
     
-        /* ==========================================
-           GLOBAL HUB NAVIGATION (CLEAN & NON-STICKY)
-           ========================================== */
-        .global-hub-nav {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin: 10px 0 24px 0;
-            flex-wrap: wrap;
-        }
-        .hub-nav-item {
-            text-decoration: none;
-            background: #ffffff;
-            color: #475569;
-            padding: 9px 18px;
-            border-radius: 9999px;
-            font-size: 0.9rem;
-            font-weight: 700;
-            border: 1.5px solid #e2e8f0;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
-            transition: all 0.2s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            cursor: pointer;
-            font-family: inherit;
-        }
-        .hub-nav-item:hover {
-            border-color: #4f46e5;
-            color: #4f46e5;
-            transform: translateY(-2px);
-        }
-        .hub-nav-item.active-hub {
-            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
-            color: #ffffff !important;
-            border-color: transparent;
-            box-shadow: 0 4px 15px rgba(79, 70, 229, 0.35);
-        }
-        /* Hub Dropdown Menu */
-        .hub-dropdown {
-            position: relative;
-            display: inline-block;
-        }
-        .hub-dropdown-menu {
-            display: none;
-            position: absolute;
-            top: calc(100% + 6px);
-            left: 50%;
-            transform: translateX(-50%);
-            background: #ffffff;
-            border: 1.5px solid #e2e8f0;
-            border-radius: 14px;
-            box-shadow: 0 12px 28px rgba(0,0,0,0.12);
-            padding: 8px;
-            min-width: 260px;
-            z-index: 9999;
-        }
-        .hub-dropdown-menu.show {
-            display: block;
-        }
-        .hub-drop-link {
-            display: block;
-            padding: 8px 14px;
-            color: #334155;
-            font-size: 0.88rem;
-            font-weight: 700;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: all 0.15s ease;
-        }
-        .hub-drop-link:hover {
-            background: #eef2ff;
-            color: #4f46e5;
-        }
-        .hub-drop-link.active {
-            background: #4f46e5;
-            color: #ffffff !important;
-        }
+        
+
+    
         @media (max-width: 768px) {
-            .global-hub-nav {
-                display: flex;
-                flex-wrap: nowrap;
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-                justify-content: flex-start;
-                gap: 8px;
-                margin-bottom: 15px;
-                padding: 2px 2px 8px 2px;
-                scrollbar-width: none;
+            .hero-section {
+                padding: 22px 16px 18px;
+                border-radius: 16px;
+                margin: 0 10px 18px 10px;
             }
-            .global-hub-nav::-webkit-scrollbar {
-                display: none;
+            .hero-title {
+                font-size: 1.45rem;
             }
-            .hub-nav-item {
-                flex-shrink: 0;
-                padding: 7px 14px;
-                font-size: 0.84rem;
+            .hero-subtitle {
+                font-size: 0.85rem;
+                margin-bottom: 16px;
+            }
+            .kpi-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+            .kpi-card {
+                padding: 10px 12px;
+            }
+            .kpi-value {
+                font-size: 1.25rem;
             }
         }
 
