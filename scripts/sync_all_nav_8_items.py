@@ -1,149 +1,24 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+"""
+scripts/sync_all_nav_8_items.py
+Đồng bộ thanh điều hướng 8 mục toàn hệ thống (Global Hub Nav)
+- Dùng độc quyền assets/js/nav-dropdown.js (không inject script inline trùng lặp)
+- An toàn tuyệt đối với mọi thẻ <script> và dữ liệu nội dung
+"""
+
 import re
 import os
 import glob
 
-HUB_NAV_CSS = '''
-        /* ==========================================
-           GLOBAL HUB NAVIGATION (CLEAN & NON-STICKY)
-           ========================================== */
-        .global-hub-nav {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin: 10px 0 24px 0;
-            flex-wrap: wrap;
-        }
-        .hub-nav-item {
-            text-decoration: none;
-            background: #ffffff;
-            color: #475569;
-            padding: 9px 18px;
-            border-radius: 9999px;
-            font-size: 0.9rem;
-            font-weight: 700;
-            border: 1.5px solid #e2e8f0;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
-            transition: all 0.2s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            cursor: pointer;
-            font-family: inherit;
-        }
-        .hub-nav-item:hover {
-            border-color: #4f46e5;
-            color: #4f46e5;
-            transform: translateY(-2px);
-        }
-        .hub-nav-item.active-hub {
-            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
-            color: #ffffff !important;
-            border-color: transparent;
-            box-shadow: 0 4px 15px rgba(79, 70, 229, 0.35);
-        }
-        /* Hub Dropdown Menu */
-        .hub-dropdown {
-            position: relative;
-            display: inline-block;
-        }
-        .hub-dropdown-menu {
-            display: none;
-            position: absolute;
-            top: calc(100% + 6px);
-            left: 50%;
-            transform: translateX(-50%);
-            background: #ffffff;
-            border: 1.5px solid #e2e8f0;
-            border-radius: 14px;
-            box-shadow: 0 12px 28px rgba(0,0,0,0.12);
-            padding: 8px;
-            min-width: 280px;
-            z-index: 9999;
-        }
-        .hub-dropdown-menu.show {
-            display: block;
-        }
-        .hub-drop-link {
-            display: block;
-            padding: 8px 14px;
-            color: #334155;
-            font-size: 0.88rem;
-            font-weight: 700;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: all 0.15s ease;
-        }
-        .hub-drop-link:hover {
-            background: #eef2ff;
-            color: #4f46e5;
-        }
-        .hub-drop-link.active {
-            background: #4f46e5;
-            color: #ffffff !important;
-        }
-        @media (max-width: 768px) {
-            .global-hub-nav {
-                justify-content: flex-start;
-                overflow-x: auto;
-                flex-wrap: nowrap;
-                padding-bottom: 8px;
-                -webkit-overflow-scrolling: touch;
-            }
-            .hub-nav-item {
-                flex-shrink: 0;
-                white-space: nowrap;
-            }
-        }
-'''
-
-DROPDOWN_JS = '''    function toggleTestsDropdown(e) {
-        if (e) {
-            e.preventDefault();
-            e.stopPropagation();
-        }
-        const m = document.getElementById('testsDropdownMenu');
-        if (m) m.classList.toggle('show');
-        const lm = document.getElementById('lessonsDropdownMenu');
-        if (lm) lm.classList.remove('show');
-    }
-    function toggleLessonsDropdown(e) {
-        if (e) {
-            e.preventDefault();
-            e.stopPropagation();
-        }
-        const m = document.getElementById('lessonsDropdownMenu');
-        if (m) m.classList.toggle('show');
-        const tm = document.getElementById('testsDropdownMenu');
-        if (tm) tm.classList.remove('show');
-    }
-    window.addEventListener('click', function(e) {
-        if (e && e.target && e.target.closest && e.target.closest('.hub-dropdown')) return;
-        const lm = document.getElementById('lessonsDropdownMenu');
-        if (lm) lm.classList.remove('show');
-        const tm = document.getElementById('testsDropdownMenu');
-        if (tm) tm.classList.remove('show');
-    });
-    window.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            const lm = document.getElementById('lessonsDropdownMenu');
-            if (lm) lm.classList.remove('show');
-            const tm = document.getElementById('testsDropdownMenu');
-            if (tm) tm.classList.remove('show');
-        }
-    });
-    window.toggleTestsDropdown = toggleTestsDropdown;
-    window.toggleLessonsDropdown = toggleLessonsDropdown;'''
-
 def clean_file_artifacts(content):
-    content = content.replace('\\n<script>', '')
-    content = content.replace('\n<script>', '')
+    # Dọn dẹp dock cũ (nếu còn)
     content = re.sub(r'<!-- GLOBAL FLOATING DOCK -->\s*(?:</div>\s*)+', '', content)
-    # Remove existing nav-dropdown script tags and their companion inline scripts
-    content = re.sub(r'<script\s+src="[^"]*assets/js/nav-dropdown\.js"></script>\s*', '', content)
+    # Dọn dẹp các khối dropdown js inline cũ
     content = re.sub(r'<script>\s*function toggleTestsDropdown\(.*?window\.toggleLessonsDropdown = toggleLessonsDropdown;\s*</script>\s*', '', content, flags=re.DOTALL)
     content = re.sub(r'<script>\s*// Dropdown Toggles for Hub Nav.*?</script>\s*', '', content, flags=re.DOTALL)
+    content = re.sub(r'<script\s+src="[^"]*assets/js/nav-dropdown\.js"></script>\s*', '', content)
+    content = re.sub(r'\\n<script>\s*</script>\s*', '', content)
     content = re.sub(r'<script>\s*</script>\s*', '', content)
     return content
 
@@ -205,7 +80,7 @@ def sync_lessons():
         c = re.sub(r'<div class="global-hub-nav">.*?</div>\s*</div>\s*</div>', nav_html, c, flags=re.DOTALL)
 
         # Inject script before </body>
-        script_block = f'<script src="../assets/js/nav-dropdown.js"></script>\n<script>\n{DROPDOWN_JS}\n</script>'
+        script_block = '<script src="../assets/js/nav-dropdown.js"></script>'
         if '</body>' in c:
             c = c.replace('</body>', f'{script_block}\n</body>', 1)
 
@@ -268,15 +143,11 @@ def sync_tests():
         </div>
     </div>'''
 
-        # Replace or inject nav
-        if '<div class="global-hub-nav">' in c:
-            c = re.sub(r'<div class="global-hub-nav">.*?</div>\s*</div>\s*</div>', nav_html, c, flags=re.DOTALL)
-        else:
-            if '<body>' in c:
-                c = c.replace('<body>', f'<body>\n{nav_html}', 1)
+        # Replace existing global-hub-nav in test
+        c = re.sub(r'<div class="global-hub-nav">.*?</div>\s*</div>\s*</div>', nav_html, c, flags=re.DOTALL)
 
         # Inject script before </body>
-        script_block = f'<script src="../assets/js/nav-dropdown.js"></script>\n<script>\n{DROPDOWN_JS}\n</script>'
+        script_block = '<script src="../assets/js/nav-dropdown.js"></script>'
         if '</body>' in c:
             c = c.replace('</body>', f'{script_block}\n</body>', 1)
 
@@ -348,7 +219,7 @@ def sync_roots():
                 c = c.replace('<body>', f'<body>\n{nav_html}', 1)
 
         # Inject script before </body>
-        script_block = f'<script src="assets/js/nav-dropdown.js"></script>\n<script>\n{DROPDOWN_JS}\n</script>'
+        script_block = '<script src="assets/js/nav-dropdown.js"></script>'
         if '</body>' in c:
             c = c.replace('</body>', f'{script_block}\n</body>', 1)
 
@@ -360,4 +231,4 @@ if __name__ == '__main__':
     sync_lessons()
     sync_tests()
     sync_roots()
-    print("All navigation bars and dropdown scripts successfully synchronized!")
+    print("All navigation bars and dropdown scripts successfully synchronized without leaks!")

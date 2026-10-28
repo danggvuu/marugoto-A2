@@ -1084,7 +1084,7 @@
 
 <div class="container">
     <!-- Global Hub Navigation -->
-                                        <div class="global-hub-nav">
+                            <div class="global-hub-nav">
         <a href="../index.html" class="hub-nav-item">🌸 Thể TE (～て)</a>
         <a href="../the_ru.html" class="hub-nav-item">📘 Thể RU (Từ Điển)</a>
         <a href="../kanji_a2.html" class="hub-nav-item">⛩️ Học Kanji & Nét Viết</a>
@@ -2010,6 +2010,7 @@
     </div>
 
 </div>
+<script>
     // ==========================================
     // DỮ LIỆU GỐC TRÍCH XUẤT TỪ MINATO JF
     // ==========================================
@@ -2489,6 +2490,7 @@
 
 <div id="toast" class="toast">Đã copy vào bộ nhớ tạm!</div>
 
+<script>
 function handleHashNavigation() {
     const hash = window.location.hash;
     if (hash && hash.startsWith('#grammar-l')) {
@@ -2518,221 +2520,6 @@ function handleHashNavigation() {
 window.addEventListener('load', handleHashNavigation);
 window.addEventListener('hashchange', handleHashNavigation);
 </script>
-
-
-
-
-
-
-
-document.addEventListener('click', function(e) {
-    const sheet = document.getElementById('globalMegaSheet');
-    const tools = document.getElementById('globalToolsMenu');
-    if (sheet && !sheet.contains(e.target) && !e.target.closest('.btn-mega-sheet')) {
-        sheet.classList.remove('open');
-    }
-    if (tools && !tools.contains(e.target) && !e.target.closest('.btn-tools')) {
-        tools.classList.remove('open');
-    }
-});
-
-document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-        closeGlobalMegaSheet();
-        const tools = document.getElementById('globalToolsMenu');
-        if (tools) tools.classList.remove('open');
-    }
-});
-
-    
-    
-
-</script>
-
-    
-    
-    
-</script>
-const m = document.getElementById('testsDropdownMenu');
-        if (m) m.classList.toggle('show');
-        const lm = document.getElementById('lessonsDropdownMenu');
-        if (lm) lm.classList.remove('show');
-    }
-    
-        const m = document.getElementById('lessonsDropdownMenu');
-        if (m) m.classList.toggle('show');
-        const tm = document.getElementById('testsDropdownMenu');
-        if (tm) tm.classList.remove('show');
-    }
-    
-        if (lm) lm.classList.remove('show');
-        const tm = document.getElementById('testsDropdownMenu');
-        if (tm) tm.classList.remove('show');
-    });
-    window.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            const lm = document.getElementById('lessonsDropdownMenu');
-            if (lm) lm.classList.remove('show');
-            const tm = document.getElementById('testsDropdownMenu');
-            if (tm) tm.classList.remove('show');
-        }
-    });
-    window.toggleTestsDropdown = toggleTestsDropdown;
-    window.toggleLessonsDropdown = toggleLessonsDropdown;
-</script>
-function toggleTestsDropdown(e) {
-        if (e) {
-            e.preventDefault();
-            e.stopPropagation();
-        }
-        const m = document.getElementById('testsDropdownMenu');
-        if (m) m.classList.toggle('show');
-        const lm = document.getElementById('lessonsDropdownMenu');
-        if (lm) lm.classList.remove('show');
-    }
-    function toggleLessonsDropdown(e) {
-        if (e) {
-            e.preventDefault();
-            e.stopPropagation();
-        }
-        const m = document.getElementById('lessonsDropdownMenu');
-        if (m) m.classList.toggle('show');
-        const tm = document.getElementById('testsDropdownMenu');
-        if (tm) tm.classList.remove('show');
-    }
-    window.addEventListener('click', function(e) {
-        if (e && e.target && e.target.closest && e.target.closest('.hub-dropdown')) return;
-        const lm = document.getElementById('lessonsDropdownMenu');
-        if (lm) lm.classList.remove('show');
-        const tm = document.getElementById('testsDropdownMenu');
-        if (tm) tm.classList.remove('show');
-    });
-    window.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            const lm = document.getElementById('lessonsDropdownMenu');
-            if (lm) lm.classList.remove('show');
-            const tm = document.getElementById('testsDropdownMenu');
-            if (tm) tm.classList.remove('show');
-        }
-    });
-    window.toggleTestsDropdown = toggleTestsDropdown;
-    window.toggleLessonsDropdown = toggleLessonsDropdown;
-</script>
-function toggleTestsDropdown(e) {
-        if (e) {
-            e.preventDefault();
-            e.stopPropagation();
-        }
-        const m = document.getElementById('testsDropdownMenu');
-        if (m) m.classList.toggle('show');
-        const lm = document.getElementById('lessonsDropdownMenu');
-        if (lm) lm.classList.remove('show');
-    }
-    function toggleLessonsDropdown(e) {
-        if (e) {
-            e.preventDefault();
-            e.stopPropagation();
-        }
-        const m = document.getElementById('lessonsDropdownMenu');
-        if (m) m.classList.toggle('show');
-        const tm = document.getElementById('testsDropdownMenu');
-        if (tm) tm.classList.remove('show');
-    }
-    window.addEventListener('click', function(e) {
-        if (e && e.target && e.target.closest && e.target.closest('.hub-dropdown')) return;
-        const lm = document.getElementById('lessonsDropdownMenu');
-        if (lm) lm.classList.remove('show');
-        const tm = document.getElementById('testsDropdownMenu');
-        if (tm) tm.classList.remove('show');
-    });
-    window.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            const lm = document.getElementById('lessonsDropdownMenu');
-            if (lm) lm.classList.remove('show');
-            const tm = document.getElementById('testsDropdownMenu');
-            if (tm) tm.classList.remove('show');
-        }
-    });
-    window.toggleTestsDropdown = toggleTestsDropdown;
-    window.toggleLessonsDropdown = toggleLessonsDropdown;
-</script>
-function toggleTestsDropdown(e) {
-        if (e) {
-            e.preventDefault();
-            e.stopPropagation();
-        }
-        const m = document.getElementById('testsDropdownMenu');
-        if (m) m.classList.toggle('show');
-        const lm = document.getElementById('lessonsDropdownMenu');
-        if (lm) lm.classList.remove('show');
-    }
-    function toggleLessonsDropdown(e) {
-        if (e) {
-            e.preventDefault();
-            e.stopPropagation();
-        }
-        const m = document.getElementById('lessonsDropdownMenu');
-        if (m) m.classList.toggle('show');
-        const tm = document.getElementById('testsDropdownMenu');
-        if (tm) tm.classList.remove('show');
-    }
-    window.addEventListener('click', function(e) {
-        if (e && e.target && e.target.closest && e.target.closest('.hub-dropdown')) return;
-        const lm = document.getElementById('lessonsDropdownMenu');
-        if (lm) lm.classList.remove('show');
-        const tm = document.getElementById('testsDropdownMenu');
-        if (tm) tm.classList.remove('show');
-    });
-    window.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            const lm = document.getElementById('lessonsDropdownMenu');
-            if (lm) lm.classList.remove('show');
-            const tm = document.getElementById('testsDropdownMenu');
-            if (tm) tm.classList.remove('show');
-        }
-    });
-    window.toggleTestsDropdown = toggleTestsDropdown;
-    window.toggleLessonsDropdown = toggleLessonsDropdown;
-</script>
-<script src="../assets/js/nav-dropdown.js"></script>
-<script>
-    function toggleTestsDropdown(e) {
-        if (e) {
-            e.preventDefault();
-            e.stopPropagation();
-        }
-        const m = document.getElementById('testsDropdownMenu');
-        if (m) m.classList.toggle('show');
-        const lm = document.getElementById('lessonsDropdownMenu');
-        if (lm) lm.classList.remove('show');
-    }
-    function toggleLessonsDropdown(e) {
-        if (e) {
-            e.preventDefault();
-            e.stopPropagation();
-        }
-        const m = document.getElementById('lessonsDropdownMenu');
-        if (m) m.classList.toggle('show');
-        const tm = document.getElementById('testsDropdownMenu');
-        if (tm) tm.classList.remove('show');
-    }
-    window.addEventListener('click', function(e) {
-        if (e && e.target && e.target.closest && e.target.closest('.hub-dropdown')) return;
-        const lm = document.getElementById('lessonsDropdownMenu');
-        if (lm) lm.classList.remove('show');
-        const tm = document.getElementById('testsDropdownMenu');
-        if (tm) tm.classList.remove('show');
-    });
-    window.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            const lm = document.getElementById('lessonsDropdownMenu');
-            if (lm) lm.classList.remove('show');
-            const tm = document.getElementById('testsDropdownMenu');
-            if (tm) tm.classList.remove('show');
-        }
-    });
-    window.toggleTestsDropdown = toggleTestsDropdown;
-    window.toggleLessonsDropdown = toggleLessonsDropdown;
-</script>
+\n<script src="../assets/js/nav-dropdown.js"></script>
 </body>
 </html>
