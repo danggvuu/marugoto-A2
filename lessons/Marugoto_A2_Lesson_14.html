@@ -351,7 +351,7 @@
 
         /* Container & Hero */
         .main-container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 24px auto;
             padding: 0 20px;
         }
@@ -1415,16 +1415,23 @@
 </head>
 <body>
     <!-- Global Hub Navigation -->
-    <div class="global-hub-nav">
+        <div class="global-hub-nav">
         <a href="../index.html" class="hub-nav-item">🌸 Thể TE (～て)</a>
         <a href="../the_ru.html" class="hub-nav-item">📘 Thể RU (Từ Điển)</a>
         <a href="../kanji_a2.html" class="hub-nav-item">⛩️ Học Kanji & Nét Viết</a>
         <a href="../Tu_Vung_Marugoto_A1_16_A2_1_10.html" class="hub-nav-item">📖 Kho Từ Vựng A1-A2</a>
         <a href="../Tong_Hop_Ngu_Phap_Marugoto_A1_A2.html" class="hub-nav-item">📚 Ngữ Pháp A1-A2 (26 Bài)</a>
         <a href="../demo_3d.html" class="hub-nav-item">⛩️ Không Gian 3D</a>
-        <a href="../tests/On_Tap_Mini_Test_A2_1_4.html" class="hub-nav-item">🎯 Ôn Tập Bài 1-4</a>
-        <a href="../tests/On_Tap_Mini_Test_A2_5_8.html" class="hub-nav-item">🎯 Ôn Tập Bài 5-8</a>
-        <a href="../tests/De_Thi_Thu_Marugoto_A2_5_8.html" class="hub-nav-item">📝 5 Mã Đề Thi Thử</a>
+        <div class="hub-dropdown">
+            <button type="button" class="hub-nav-item" onclick="toggleTestsDropdown(event)">🎯 Ôn Tập & Đề Thi ▾</button>
+            <div class="hub-dropdown-menu" id="testsDropdownMenu">
+                <a href="../tests/On_Tap_Mini_Test_A2_1_4.html" class="hub-drop-link">🎯 Ôn Tập Bài 1-4 (Mini Test)</a>
+                <a href="../tests/On_Tap_Mini_Test_A2_5_8.html" class="hub-drop-link">🎯 Ôn Tập Bài 5-8 (Mini Test)</a>
+                <a href="../tests/De_Thi_Thu_Marugoto_A2_5_8.html" class="hub-drop-link">📝 5 Mã Đề Thi Thử (101-105)</a>
+                <a href="../tests/Kiem_Tra_Marugoto_L6_7_8.html" class="hub-drop-link">📑 Đề Kiểm Tra L6, 7, 8</a>
+                <a href="../tests/Luyen_Tap_The_Te_A2_1.html" class="hub-drop-link">🌸 Luyện Tập Thể Te</a>
+            </div>
+        </div>
         <div class="hub-dropdown">
             <button type="button" class="hub-nav-item active-hub" onclick="toggleLessonsDropdown(event)">🚀 Web Bài Học 10-18 ▾</button>
             <div class="hub-dropdown-menu" id="lessonsDropdownMenu">
@@ -1441,12 +1448,56 @@
         </div>
     </div>
 
-    <!-- GLOBAL FLOATING DOCK -->
-    
-        </div>
+    <!-- STICKY SECTION SUB-NAV -->
+    <div class="section-nav">
+        <a href="#sec-grammar1" class="sec-link">① Xin phép (V-てもいいですか)</a>
+        <a href="#sec-grammar2" class="sec-link">② Cấm đoán (V-てはいけません)</a>
+        <a href="#sec-grammar3" class="sec-link">③ Lời chào tạm biệt</a>
+        <a href="#sec-verb-lab" class="sec-link">🔬 Thể Te & Xin Phép</a>
+        <a href="#sec-dialogue" class="sec-link">💬 Giao Tiếp Văn Phòng</a>
+        <a href="#sec-vocab" class="sec-link">🎴 26 Từ Vựng 3D</a>
+        <a href="#sec-kanji" class="sec-link">⛩️ 8 Chữ Hán Bài 14</a>
+        <a href="#sec-quiz" class="sec-link">📝 Mini Test 15 Câu</a>
+        
     </div>
 
-    
+    <!-- MAIN WRAPPER -->
+    <div class="main-container">
+
+        <!-- HERO BANNER -->
+        <div class="hero-banner">
+            <div class="hero-badge">💻 MARUGOTO A2-1 • TOPIC 7: 職場のマナー (Quy Tắc Nơi Làm Việc)</div>
+            <h1 class="hero-title">CHINH PHỤC TOÀN DIỆN BÀI 14</h1>
+            <div class="hero-jp-quote">
+                <span>「これ、使っても いいですか」</span>
+                <button type="button" class="btn-speak" style="background:rgba(255,255,255,0.2); border-color:#6ee7b7; color:#fff;" onclick="speakText('これ、使ってもいいですか')">🔊</button>
+            </div>
+            <p class="hero-subtitle">
+                Học trọn vẹn ngữ pháp xin phép lịch sự trong công việc <strong>「V-てもいいですか」</strong>, quy tắc và cấm đoán <strong>「V-てはいけません」</strong>, lời chào tạm biệt đồng nghiệp, kèm Flashcard 3D và Mini Test 15 câu.
+            </p>
+            <div class="hero-stats-row">
+                <div class="stat-card">
+                    <div class="stat-number">26</div>
+                    <div class="stat-label">Từ vựng Flashcard</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Mẫu câu trọng tâm</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">10</div>
+                    <div class="stat-label">Động từ thể Te</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">8</div>
+                    <div class="stat-label">Chữ Hán cốt lõi</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">15</div>
+                    <div class="stat-label">Câu Mini Test</div>
+                </div>
+                
+            </div>
         </div>
 
         <!-- GRAMMAR SECTIONS -->
@@ -2228,16 +2279,31 @@
             renderQuiz();
         });
     
+    
+    
+
+</script>
+<script>
+    function toggleTestsDropdown(e) {
+        if (e) e.stopPropagation();
+        const m = document.getElementById('testsDropdownMenu');
+        if (m) m.classList.toggle('show');
+        const lm = document.getElementById('lessonsDropdownMenu');
+        if (lm) lm.classList.remove('show');
+    }
     function toggleLessonsDropdown(e) {
         if (e) e.stopPropagation();
         const m = document.getElementById('lessonsDropdownMenu');
         if (m) m.classList.toggle('show');
+        const tm = document.getElementById('testsDropdownMenu');
+        if (tm) tm.classList.remove('show');
     }
     window.addEventListener('click', () => {
-        const m = document.getElementById('lessonsDropdownMenu');
-        if (m) m.classList.remove('show');
+        const lm = document.getElementById('lessonsDropdownMenu');
+        if (lm) lm.classList.remove('show');
+        const tm = document.getElementById('testsDropdownMenu');
+        if (tm) tm.classList.remove('show');
     });
-
 </script>
 </body>
 </html>

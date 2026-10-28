@@ -62,7 +62,7 @@
         }
 
         .container {
-            max-width: 1240px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
@@ -1083,16 +1083,23 @@
 
 <div class="container">
     <!-- Global Hub Navigation -->
-    <div class="global-hub-nav">
+        <div class="global-hub-nav">
         <a href="../index.html" class="hub-nav-item">🌸 Thể TE (～て)</a>
         <a href="../the_ru.html" class="hub-nav-item">📘 Thể RU (Từ Điển)</a>
         <a href="../kanji_a2.html" class="hub-nav-item">⛩️ Học Kanji & Nét Viết</a>
         <a href="../Tu_Vung_Marugoto_A1_16_A2_1_10.html" class="hub-nav-item">📖 Kho Từ Vựng A1-A2</a>
         <a href="../Tong_Hop_Ngu_Phap_Marugoto_A1_A2.html" class="hub-nav-item">📚 Ngữ Pháp A1-A2 (26 Bài)</a>
         <a href="../demo_3d.html" class="hub-nav-item">⛩️ Không Gian 3D</a>
-        <a href="On_Tap_Mini_Test_A2_1_4.html" class="hub-nav-item">🎯 Ôn Tập Bài 1-4</a>
-        <a href="On_Tap_Mini_Test_A2_5_8.html" class="hub-nav-item active-hub">🎯 Ôn Tập Bài 5-8</a>
-        <a href="De_Thi_Thu_Marugoto_A2_5_8.html" class="hub-nav-item">📝 5 Mã Đề Thi Thử</a>
+        <div class="hub-dropdown">
+            <button type="button" class="hub-nav-item active-hub" onclick="toggleTestsDropdown(event)">🎯 Ôn Tập & Đề Thi ▾</button>
+            <div class="hub-dropdown-menu" id="testsDropdownMenu">
+                <a href="On_Tap_Mini_Test_A2_1_4.html" class="hub-drop-link">🎯 Ôn Tập Bài 1-4 (Mini Test)</a>
+                <a href="On_Tap_Mini_Test_A2_5_8.html" class="hub-drop-link active">🎯 Ôn Tập Bài 5-8 (Mini Test)</a>
+                <a href="De_Thi_Thu_Marugoto_A2_5_8.html" class="hub-drop-link">📝 5 Mã Đề Thi Thử (101-105)</a>
+                <a href="Kiem_Tra_Marugoto_L6_7_8.html" class="hub-drop-link">📑 Đề Kiểm Tra L6, 7, 8</a>
+                <a href="Luyen_Tap_The_Te_A2_1.html" class="hub-drop-link">🌸 Luyện Tập Thể Te</a>
+            </div>
+        </div>
         <div class="hub-dropdown">
             <button type="button" class="hub-nav-item" onclick="toggleLessonsDropdown(event)">🚀 Web Bài Học 10-18 ▾</button>
             <div class="hub-dropdown-menu" id="lessonsDropdownMenu">
@@ -2554,16 +2561,31 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
+    
+    
+
+</script>
+\n<script>
+    function toggleTestsDropdown(e) {
+        if (e) e.stopPropagation();
+        const m = document.getElementById('testsDropdownMenu');
+        if (m) m.classList.toggle('show');
+        const lm = document.getElementById('lessonsDropdownMenu');
+        if (lm) lm.classList.remove('show');
+    }
     function toggleLessonsDropdown(e) {
         if (e) e.stopPropagation();
         const m = document.getElementById('lessonsDropdownMenu');
         if (m) m.classList.toggle('show');
+        const tm = document.getElementById('testsDropdownMenu');
+        if (tm) tm.classList.remove('show');
     }
     window.addEventListener('click', () => {
-        const m = document.getElementById('lessonsDropdownMenu');
-        if (m) m.classList.remove('show');
+        const lm = document.getElementById('lessonsDropdownMenu');
+        if (lm) lm.classList.remove('show');
+        const tm = document.getElementById('testsDropdownMenu');
+        if (tm) tm.classList.remove('show');
     });
-
 </script>
-\n</body>
+</body>
 </html>

@@ -156,7 +156,7 @@
             color: #ffffff;
             padding: 34px 28px 28px;
             border-radius: 20px;
-            max-width: 1300px;
+            max-width: 1200px;
             margin: 0 auto 24px auto;
             position: relative;
             overflow: hidden;
@@ -321,7 +321,7 @@
            3. MAIN APP LAYOUT & TABS
         ------------------------------------------------------------- */
         .app-container {
-            max-width: 1300px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 30px 20px;
         }
@@ -1278,7 +1278,7 @@
         
         
         <!-- Global Hub Navigation -->
-        <div class="global-hub-nav">
+            <div class="global-hub-nav">
         <a href="index.html" class="hub-nav-item">🌸 Thể TE (～て)</a>
         <a href="the_ru.html" class="hub-nav-item">📘 Thể RU (Từ Điển)</a>
         <a href="kanji_a2.html" class="hub-nav-item">⛩️ Học Kanji & Nét Viết</a>
@@ -2094,26 +2094,11 @@
 
         // HUB DROPDOWN HELPER
         
-    function toggleTestsDropdown(e) {
-        if (e) e.stopPropagation();
-        const m = document.getElementById('testsDropdownMenu');
-        if (m) m.classList.toggle('show');
-        const lm = document.getElementById('lessonsDropdownMenu');
-        if (lm) lm.classList.remove('show');
-    }
+    
 
-    function toggleLessonsDropdown(e) {
-            if (e) e.stopPropagation();
-            const m = document.getElementById('lessonsDropdownMenu');
-            if (m) m.classList.toggle('show');
-        }
+    
 
-        window.addEventListener('click', () => {
-        const lm = document.getElementById('lessonsDropdownMenu');
-        if (lm) lm.classList.remove('show');
-        const tm = document.getElementById('testsDropdownMenu');
-        if (tm) tm.classList.remove('show');
-    });
+        
 
         // INIT ON DOM LOADED
         document.addEventListener('DOMContentLoaded', () => {
@@ -2122,5 +2107,27 @@
             initVerbLab();
         });
     </script>
+<script>
+    function toggleTestsDropdown(e) {
+        if (e) e.stopPropagation();
+        const m = document.getElementById('testsDropdownMenu');
+        if (m) m.classList.toggle('show');
+        const lm = document.getElementById('lessonsDropdownMenu');
+        if (lm) lm.classList.remove('show');
+    }
+    function toggleLessonsDropdown(e) {
+        if (e) e.stopPropagation();
+        const m = document.getElementById('lessonsDropdownMenu');
+        if (m) m.classList.toggle('show');
+        const tm = document.getElementById('testsDropdownMenu');
+        if (tm) tm.classList.remove('show');
+    }
+    window.addEventListener('click', () => {
+        const lm = document.getElementById('lessonsDropdownMenu');
+        if (lm) lm.classList.remove('show');
+        const tm = document.getElementById('testsDropdownMenu');
+        if (tm) tm.classList.remove('show');
+    });
+</script>
 </body>
 </html>

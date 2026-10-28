@@ -67,7 +67,7 @@
 
         /* Main Container */
         .container {
-            max-width: 1140px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 24px 20px;
         }
@@ -881,16 +881,23 @@
 </head>
 <body>
     <!-- Global Hub Navigation -->
-    <div class="global-hub-nav">
+        <div class="global-hub-nav">
         <a href="../index.html" class="hub-nav-item">🌸 Thể TE (～て)</a>
         <a href="../the_ru.html" class="hub-nav-item">📘 Thể RU (Từ Điển)</a>
         <a href="../kanji_a2.html" class="hub-nav-item">⛩️ Học Kanji & Nét Viết</a>
         <a href="../Tu_Vung_Marugoto_A1_16_A2_1_10.html" class="hub-nav-item">📖 Kho Từ Vựng A1-A2</a>
         <a href="../Tong_Hop_Ngu_Phap_Marugoto_A1_A2.html" class="hub-nav-item">📚 Ngữ Pháp A1-A2 (26 Bài)</a>
         <a href="../demo_3d.html" class="hub-nav-item">⛩️ Không Gian 3D</a>
-        <a href="../tests/On_Tap_Mini_Test_A2_1_4.html" class="hub-nav-item">🎯 Ôn Tập Bài 1-4</a>
-        <a href="../tests/On_Tap_Mini_Test_A2_5_8.html" class="hub-nav-item">🎯 Ôn Tập Bài 5-8</a>
-        <a href="../tests/De_Thi_Thu_Marugoto_A2_5_8.html" class="hub-nav-item">📝 5 Mã Đề Thi Thử</a>
+        <div class="hub-dropdown">
+            <button type="button" class="hub-nav-item" onclick="toggleTestsDropdown(event)">🎯 Ôn Tập & Đề Thi ▾</button>
+            <div class="hub-dropdown-menu" id="testsDropdownMenu">
+                <a href="../tests/On_Tap_Mini_Test_A2_1_4.html" class="hub-drop-link">🎯 Ôn Tập Bài 1-4 (Mini Test)</a>
+                <a href="../tests/On_Tap_Mini_Test_A2_5_8.html" class="hub-drop-link">🎯 Ôn Tập Bài 5-8 (Mini Test)</a>
+                <a href="../tests/De_Thi_Thu_Marugoto_A2_5_8.html" class="hub-drop-link">📝 5 Mã Đề Thi Thử (101-105)</a>
+                <a href="../tests/Kiem_Tra_Marugoto_L6_7_8.html" class="hub-drop-link">📑 Đề Kiểm Tra L6, 7, 8</a>
+                <a href="../tests/Luyen_Tap_The_Te_A2_1.html" class="hub-drop-link">🌸 Luyện Tập Thể Te</a>
+            </div>
+        </div>
         <div class="hub-dropdown">
             <button type="button" class="hub-nav-item active-hub" onclick="toggleLessonsDropdown(event)">🚀 Web Bài Học 10-18 ▾</button>
             <div class="hub-dropdown-menu" id="lessonsDropdownMenu">
@@ -912,9 +919,81 @@
     
     
 
-    <!-- Global Hub Navigation -->
     
+    <div class="container">
+        <!-- Hero Header -->
+        <header class="hero-banner">
+            <span class="hero-badge">MARUGOTO A2-1 • LESSON 10</span>
+            <h1 class="hero-title">CHINH PHỤC TOÀN DIỆN BÀI 10</h1>
+            <div class="hero-jp-quote" style="display:flex; justify-content:center; align-items:center; gap:10px; margin-bottom:12px;">
+                <span style="font-size:1.35rem; color:#fef08a; font-family:var(--font-jp);">「日本で 一番 高い山は 富士山です」</span>
+                <button type="button" class="btn-speak" style="background:rgba(255,255,255,0.2); border:1px solid #e0e7ff; color:#fff; border-radius:50%; width:32px; height:32px; cursor:pointer;" onclick="speakText('日本で一番高い山は富士山です')">🔊</button>
+            </div>
+            <p class="hero-subtitle">Bí kíp làm chủ 3 mẫu ngữ pháp trọng tâm (V-たい, Tần suất ～に～回, V-てみる), bảng đếm số lần chuẩn và trọn bộ 27 từ mới kèm hình ảnh minh họa sinh động!</p>
+            <div class="hero-stats" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(160px, 1fr)); gap:12px; margin-top:20px;">
+                <div class="hero-stat-card" style="background:rgba(255,255,255,0.1); padding:10px 14px; border-radius:12px; border:1px solid rgba(255,255,255,0.2); color:#fff; font-weight:700;">🎯 3 Điểm Ngữ Pháp</div>
+                <div class="hero-stat-card" style="background:rgba(255,255,255,0.1); padding:10px 14px; border-radius:12px; border:1px solid rgba(255,255,255,0.2); color:#fff; font-weight:700;">🎴 27 Flashcards 3D</div>
+                <div class="hero-stat-card" style="background:rgba(255,255,255,0.1); padding:10px 14px; border-radius:12px; border:1px solid rgba(255,255,255,0.2); color:#fff; font-weight:700;">🔬 Máy Biến Thể Động Từ</div>
+                <div class="hero-stat-card" style="background:rgba(255,255,255,0.1); padding:10px 14px; border-radius:12px; border:1px solid rgba(255,255,255,0.2); color:#fff; font-weight:700;">⛩️ 6 Chữ Hán Cốt Lõi</div>
+                <div class="hero-stat-card" style="background:rgba(255,255,255,0.1); padding:10px 14px; border-radius:12px; border:1px solid rgba(255,255,255,0.2); color:#fff; font-weight:700;">🏆 15 Câu Mini Test</div>
+            </div>
+        </header>
 
+        <!-- Navigation Tabs -->
+        <div class="section-nav" style="display:flex; gap:8px; overflow-x:auto; margin-bottom:24px; padding-bottom:4px;">
+            <a href="#sec-grammar-1" class="tab-btn" style="text-decoration:none;">① Nguyện Vọng (V-たい)</a>
+            <a href="#sec-grammar-2" class="tab-btn" style="text-decoration:none;">② Tần Suất (～に～回)</a>
+            <a href="#sec-grammar-3" class="tab-btn" style="text-decoration:none;">③ Trải Nghiệm (V-てみる)</a>
+            <a href="#sec-morph" class="tab-btn" style="text-decoration:none;">🔬 Máy Luyện Chia Thể</a>
+            <a href="#sec-vocab" class="tab-btn" style="text-decoration:none;">🎴 27 Từ Mới Flashcard</a>
+            <a href="#sec-quiz" class="tab-btn" style="text-decoration:none;">🏆 Mini Test 15 Câu</a>
+        </div>
+
+        <!-- ==================== PHẦN 1: NGỮ PHÁP 1 (V-たいです / V-たくないです) ==================== -->
+        <section class="section-card" id="sec-grammar-1">
+            <div class="section-header">
+                <div class="section-title-wrap">
+                    <div class="section-icon">🌟</div>
+                    <div>
+                        <h2 class="section-title">1. Mẫu Câu Bày Tỏ Nguyện Vọng: V-たいです / V-たくないです</h2>
+                        <p style="color:var(--gray); font-size:0.9rem;">Diễn tả mong muốn hoặc không muốn làm một việc gì đó của bản thân người nói.</p>
+                    </div>
+                </div>
+                <span class="section-badge">Ngữ Pháp Trọng Tâm #1</span>
+            </div>
+
+            <!-- Formula Box -->
+            <div class="formula-box">
+                <div class="formula-title">CÔNG THỨC BIẾN ĐỔI CHUẨN</div>
+                <div class="formula-text">
+                    [Động từ thể ます] <span style="color:#ef4444; text-decoration:line-through;">bỏ ます</span> ＋ <span class="formula-highlight">たいです</span> (Muốn làm) / <span class="formula-highlight">たくないです</span> (Không muốn làm)
+                </div>
+            </div>
+
+            <!-- Demo Graphics & Visual Cards -->
+            <div class="visual-demo-grid">
+                <!-- Demo 1: Muốn đi Nhật -->
+                <div class="demo-card">
+                    <div class="demo-svg-wrap">
+                        <svg width="220" height="130" viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="220" height="130" rx="12" fill="#e0f2fe"/>
+                            <circle cx="110" cy="45" r="30" fill="#f87171" opacity="0.8"/>
+                            <polygon points="40,110 110,35 180,110" fill="#3b82f6"/>
+                            <polygon points="85,62 110,35 135,62 125,70 118,65 110,72 102,65 95,70" fill="#ffffff"/>
+                            <path d="M165,30 L185,25 L180,33 L195,35 L175,42 L165,37 Z" fill="#6366f1"/>
+                            <rect x="25" y="85" width="4" height="25" fill="#ef4444"/>
+                            <rect x="50" y="85" width="4" height="25" fill="#ef4444"/>
+                            <rect x="20" y="82" width="39" height="5" rx="2" fill="#ef4444"/>
+                            <rect x="23" y="90" width="33" height="3" fill="#ef4444"/>
+                        </svg>
+                    </div>
+                    <div class="demo-body">
+                        <div class="demo-tag">Ví dụ 1: Đi du lịch / Ước mơ</div>
+                        <div class="demo-jp jp-text"><span>日本に 行きたいです。</span><button class="sound-btn" onclick="speakText('日本に 行きたいです。')" title="Nghe phát âm">🔊</button></div>
+                        <div class="demo-vi">Tôi muốn đi Nhật Bản.</div>
+                        <div class="demo-notes"><b>行きます</b> (Đi) ➔ bỏ ます ➔ <b>行きたいです</b>.</div>
+                    </div>
+                </div>
 
                 <!-- Demo 2: Muốn làm biên dịch -->
                 <div class="demo-card">
@@ -1735,16 +1814,31 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
+    
+    
+
+</script>
+\n<script>
+    function toggleTestsDropdown(e) {
+        if (e) e.stopPropagation();
+        const m = document.getElementById('testsDropdownMenu');
+        if (m) m.classList.toggle('show');
+        const lm = document.getElementById('lessonsDropdownMenu');
+        if (lm) lm.classList.remove('show');
+    }
     function toggleLessonsDropdown(e) {
         if (e) e.stopPropagation();
         const m = document.getElementById('lessonsDropdownMenu');
         if (m) m.classList.toggle('show');
+        const tm = document.getElementById('testsDropdownMenu');
+        if (tm) tm.classList.remove('show');
     }
     window.addEventListener('click', () => {
-        const m = document.getElementById('lessonsDropdownMenu');
-        if (m) m.classList.remove('show');
+        const lm = document.getElementById('lessonsDropdownMenu');
+        if (lm) lm.classList.remove('show');
+        const tm = document.getElementById('testsDropdownMenu');
+        if (tm) tm.classList.remove('show');
     });
-
 </script>
-\n</body>
+</body>
 </html>
