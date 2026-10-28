@@ -1,0 +1,474 @@
+/* ==========================================================================
+   VOCABULARY 3D INTERACTIVE ENGINE & CARD STAGE STYLES
+   ========================================================================== */
+
+/* 3D Flashcard Stage */
+.fc-3d-stage {
+    position: relative;
+    width: 100%;
+    height: 140px;
+    margin: 8px 0 12px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 800px;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 14px;
+    background: linear-gradient(135deg, rgba(241, 245, 249, 0.9) 0%, rgba(226, 232, 240, 0.8) 100%);
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s ease;
+}
+
+.fc-3d-stage:hover {
+    box-shadow: 0 10px 24px -4px rgba(79, 70, 229, 0.18);
+    border-color: rgba(99, 102, 241, 0.4);
+}
+
+.fc-3d-model-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform-style: preserve-3d;
+    transition: transform 0.15s ease-out;
+}
+
+.fc-3d-floating-obj {
+    animation: vocab3dFloat 3.2s ease-in-out infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform-style: preserve-3d;
+    filter: drop-shadow(0 12px 14px rgba(0, 0, 0, 0.15));
+}
+
+@keyframes vocab3dFloat {
+    0%, 100% {
+        transform: translateY(0) rotateY(0deg) rotateZ(0deg);
+    }
+    50% {
+        transform: translateY(-8px) rotateY(12deg) rotateZ(2deg);
+    }
+}
+
+.fc-3d-shadow-blob {
+    position: absolute;
+    bottom: 12px;
+    width: 70px;
+    height: 14px;
+    background: radial-gradient(ellipse at center, rgba(15, 23, 42, 0.22) 0%, rgba(15, 23, 42, 0) 70%);
+    border-radius: 50%;
+    animation: vocab3dShadow 3.2s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes vocab3dShadow {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.6;
+    }
+    50% {
+        transform: scale(0.75);
+        opacity: 0.25;
+    }
+}
+
+/* 3D Action Badge on Card */
+.btn-launch-3d-badge {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: #ffffff;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 4px 9px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    z-index: 10;
+}
+
+.btn-launch-3d-badge:hover {
+    background: #4f46e5;
+    border-color: #6366f1;
+    transform: scale(1.06);
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.4);
+}
+
+/* ==========================================================================
+   FULLSCREEN 3D STUDIO MODAL
+   ========================================================================== */
+.vocab-3d-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(15, 23, 42, 0.88);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    z-index: 99999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+.vocab-3d-modal-overlay.show {
+    display: flex;
+    opacity: 1;
+}
+
+.vocab-3d-studio-window {
+    width: 92%;
+    max-width: 980px;
+    height: 85vh;
+    max-height: 720px;
+    background: linear-gradient(145deg, #1e1b4b 0%, #0f172a 100%);
+    border: 1.5px solid rgba(255, 255, 255, 0.16);
+    border-radius: 24px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    animation: studioScaleIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes studioScaleIn {
+    from { transform: scale(0.92); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* Studio Header */
+.v3d-header {
+    padding: 16px 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(10px);
+    z-index: 10;
+}
+
+.v3d-title-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.v3d-badge {
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 800;
+    padding: 4px 12px;
+    border-radius: 20px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.v3d-title {
+    color: #ffffff;
+    font-size: 1.15rem;
+    font-weight: 800;
+    margin: 0;
+}
+
+.v3d-close-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #cbd5e1;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.v3d-close-btn:hover {
+    background: #ef4444;
+    color: #ffffff;
+    border-color: #ef4444;
+    transform: rotate(90deg);
+}
+
+/* Studio Body Layout: 3D Viewport on Left/Top, Info on Right/Bottom */
+.v3d-body {
+    flex: 1;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+}
+
+.v3d-viewport-container {
+    flex: 1.3;
+    position: relative;
+    background: radial-gradient(circle at center, #1e293b 0%, #0a0f1d 100%);
+    cursor: grab;
+    touch-action: none;
+}
+
+.v3d-viewport-container:active {
+    cursor: grabbing;
+}
+
+#v3dCanvas {
+    width: 100% !important;
+    height: 100% !important;
+    display: block;
+}
+
+/* 3D Tool Controls Overlay */
+.v3d-controls-overlay {
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 6px 12px;
+    border-radius: 30px;
+    z-index: 20;
+}
+
+.v3d-tool-btn {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #e2e8f0;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.18s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-family: inherit;
+}
+
+.v3d-tool-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    transform: translateY(-1.5px);
+}
+
+.v3d-tool-btn.active {
+    background: #4f46e5;
+    border-color: #6366f1;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.4);
+}
+
+.v3d-hint-text {
+    position: absolute;
+    top: 14px;
+    left: 16px;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(8px);
+    padding: 4px 12px;
+    border-radius: 20px;
+    color: #94a3b8;
+    font-size: 0.75rem;
+    font-weight: 600;
+    pointer-events: none;
+    z-index: 15;
+}
+
+/* Right Side: Vocab Details Panel */
+.v3d-info-panel {
+    flex: 1;
+    background: rgba(15, 23, 42, 0.75);
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-y: auto;
+    z-index: 10;
+}
+
+.v3d-kanji-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 6px;
+}
+
+.v3d-kanji-big {
+    font-size: 2.4rem;
+    font-weight: 900;
+    color: #ffffff;
+    font-family: 'Hiragino Sans', 'Meiryo', 'Yu Gothic', sans-serif;
+    line-height: 1.1;
+    letter-spacing: 0.02em;
+}
+
+.v3d-speak-btn {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    border: none;
+    color: #ffffff;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    font-size: 1.25rem;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.v3d-speak-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.55);
+}
+
+.v3d-kana-line {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #6ee7b7;
+    margin-bottom: 2px;
+}
+
+.v3d-romaji-line {
+    font-size: 0.92rem;
+    color: #94a3b8;
+    font-style: italic;
+    margin-bottom: 18px;
+}
+
+.v3d-meaning-box {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 14px;
+    padding: 14px 18px;
+    margin-bottom: 16px;
+}
+
+.v3d-meaning-label {
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #a5b4fc;
+    margin-bottom: 4px;
+}
+
+.v3d-meaning-text {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.4;
+}
+
+.v3d-example-box {
+    background: rgba(30, 41, 59, 0.7);
+    border-left: 3px solid #6366f1;
+    border-radius: 0 12px 12px 0;
+    padding: 12px 16px;
+    margin-bottom: 20px;
+}
+
+.v3d-ex-jp {
+    font-size: 0.98rem;
+    font-weight: 600;
+    color: #f1f5f9;
+    margin-bottom: 4px;
+}
+
+.v3d-ex-vi {
+    font-size: 0.86rem;
+    color: #94a3b8;
+}
+
+/* Studio Bottom Navigation Bar */
+.v3d-nav-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.v3d-nav-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    padding: 8px 16px;
+    border-radius: 12px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.v3d-nav-btn:hover {
+    background: #4f46e5;
+    border-color: #6366f1;
+    transform: translateY(-1.5px);
+}
+
+.v3d-nav-counter {
+    color: #94a3b8;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .vocab-3d-studio-window {
+        width: 96%;
+        height: 92vh;
+        max-height: 92vh;
+    }
+    .v3d-body {
+        flex-direction: column;
+    }
+    .v3d-viewport-container {
+        flex: 1;
+        min-height: 240px;
+    }
+    .v3d-info-panel {
+        flex: 1.2;
+        padding: 16px;
+    }
+    .v3d-kanji-big {
+        font-size: 1.8rem;
+    }
+    .v3d-controls-overlay {
+        bottom: 10px;
+        padding: 4px 8px;
+    }
+    .v3d-tool-btn {
+        padding: 4px 10px;
+        font-size: 0.72rem;
+    }
+}
