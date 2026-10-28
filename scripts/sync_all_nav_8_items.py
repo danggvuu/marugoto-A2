@@ -140,12 +140,11 @@ def clean_file_artifacts(content):
     content = content.replace('\\n<script>', '')
     content = content.replace('\n<script>', '')
     content = re.sub(r'<!-- GLOBAL FLOATING DOCK -->\s*(?:</div>\s*)+', '', content)
-    # Remove any existing toggle functions and empty scripts
-    content = re.sub(r'<script>\s*function toggleTestsDropdown.*?window\.toggleLessonsDropdown = toggleLessonsDropdown;\s*</script>', '', content, flags=re.DOTALL)
-    content = re.sub(r'function toggleLessonsDropdown\([^)]*\)\s*\{[^}]*\}', '', content)
-    content = re.sub(r'function toggleTestsDropdown\([^)]*\)\s*\{[^}]*\}', '', content)
-    content = re.sub(r'window\.addEventListener\([\'"]click[\'"].*?lessonsDropdownMenu.*?\);', '', content, flags=re.DOTALL)
-    content = re.sub(r'<script>\s*</script>', '', content)
+    # Remove existing nav-dropdown script tags and their companion inline scripts
+    content = re.sub(r'<script\s+src="[^"]*assets/js/nav-dropdown\.js"></script>\s*', '', content)
+    content = re.sub(r'<script>\s*function toggleTestsDropdown\(.*?window\.toggleLessonsDropdown = toggleLessonsDropdown;\s*</script>\s*', '', content, flags=re.DOTALL)
+    content = re.sub(r'<script>\s*// Dropdown Toggles for Hub Nav.*?</script>\s*', '', content, flags=re.DOTALL)
+    content = re.sub(r'<script>\s*</script>\s*', '', content)
     return content
 
 def sync_lessons():
@@ -185,7 +184,7 @@ def sync_lessons():
         <div class="hub-dropdown">
             <button type="button" class="hub-nav-item" onclick="toggleTestsDropdown(event)">🎯 Ôn Tập & Đề Thi ▾</button>
             <div class="hub-dropdown-menu" id="testsDropdownMenu">
-                <a href="../tests/De_Thi_Midterm_A2_1.html" class="hub-drop-link">🎯 Đề Thi Giữa Kỳ Midterm (Bảng M102)</a>
+                <a href="../tests/De_Thi_Midterm_A2_1.html" class="hub-drop-link">🎯 Bộ 5 Đề Thi Giữa Kỳ Midterm (M101 - M105)</a>
                 <a href="../tests/On_Tap_Dich_Cau_Lesson_1_10.html" class="hub-drop-link">✍️ Luyện Dịch Câu Bài 1 - 10 (40 Câu)</a>
                 <a href="../tests/On_Tap_Mini_Test_A2_1_4.html" class="hub-drop-link">🎯 Ôn Tập Bài 1-4 (Mini Test)</a>
                 <a href="../tests/On_Tap_Mini_Test_A2_5_8.html" class="hub-drop-link">🎯 Ôn Tập Bài 5-8 (Mini Test)</a>
@@ -227,7 +226,7 @@ def sync_tests():
 
         tests_drop = []
         for t_file, t_title in [
-            ('De_Thi_Midterm_A2_1.html', '🎯 Đề Thi Giữa Kỳ Midterm (Bảng M102)'),
+            ('De_Thi_Midterm_A2_1.html', '🎯 Bộ 5 Đề Thi Giữa Kỳ Midterm (M101 - M105)'),
             ('On_Tap_Dich_Cau_Lesson_1_10.html', '✍️ Luyện Dịch Câu Bài 1 - 10 (40 Câu)'),
             ('On_Tap_Mini_Test_A2_1_4.html', '🎯 Ôn Tập Bài 1-4 (Mini Test)'),
             ('On_Tap_Mini_Test_A2_5_8.html', '🎯 Ôn Tập Bài 5-8 (Mini Test)'),
@@ -316,7 +315,7 @@ def sync_roots():
         <div class="hub-dropdown">
             <button type="button" class="hub-nav-item" onclick="toggleTestsDropdown(event)">🎯 Ôn Tập & Đề Thi ▾</button>
             <div class="hub-dropdown-menu" id="testsDropdownMenu">
-                <a href="tests/De_Thi_Midterm_A2_1.html" class="hub-drop-link">🎯 Đề Thi Giữa Kỳ Midterm (Bảng M102)</a>
+                <a href="tests/De_Thi_Midterm_A2_1.html" class="hub-drop-link">🎯 Bộ 5 Đề Thi Giữa Kỳ Midterm (M101 - M105)</a>
                 <a href="tests/On_Tap_Dich_Cau_Lesson_1_10.html" class="hub-drop-link">✍️ Luyện Dịch Câu Bài 1 - 10 (40 Câu)</a>
                 <a href="tests/On_Tap_Mini_Test_A2_1_4.html" class="hub-drop-link">🎯 Ôn Tập Bài 1-4 (Mini Test)</a>
                 <a href="tests/On_Tap_Mini_Test_A2_5_8.html" class="hub-drop-link">🎯 Ôn Tập Bài 5-8 (Mini Test)</a>

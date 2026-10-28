@@ -519,7 +519,7 @@
     <script src="../assets/js/audio-engine.js"></script>
 </head>
 <body>
-                    <div class="global-hub-nav">
+                            <div class="global-hub-nav">
         <a href="../index.html" class="hub-nav-item">🌸 Thể TE (～て)</a>
         <a href="../the_ru.html" class="hub-nav-item">📘 Thể RU (Từ Điển)</a>
         <a href="../kanji_a2.html" class="hub-nav-item">⛩️ Học Kanji & Nét Viết</a>
@@ -529,7 +529,7 @@
         <div class="hub-dropdown">
             <button type="button" class="hub-nav-item active-hub" onclick="toggleTestsDropdown(event)">🎯 Ôn Tập & Đề Thi ▾</button>
             <div class="hub-dropdown-menu" id="testsDropdownMenu">
-                <a href="De_Thi_Midterm_A2_1.html" class="hub-drop-link">🎯 Đề Thi Giữa Kỳ Midterm (Bảng M102)</a>
+                <a href="De_Thi_Midterm_A2_1.html" class="hub-drop-link">🎯 Bộ 5 Đề Thi Giữa Kỳ Midterm (M101 - M105)</a>
                 <a href="On_Tap_Dich_Cau_Lesson_1_10.html" class="hub-drop-link">✍️ Luyện Dịch Câu Bài 1 - 10 (40 Câu)</a>
                 <a href="On_Tap_Mini_Test_A2_1_4.html" class="hub-drop-link">🎯 Ôn Tập Bài 1-4 (Mini Test)</a>
                 <a href="On_Tap_Mini_Test_A2_5_8.html" class="hub-drop-link">🎯 Ôn Tập Bài 5-8 (Mini Test)</a>
@@ -1059,6 +1059,71 @@
     
     
     
+</script>
+const m = document.getElementById('testsDropdownMenu');
+        if (m) m.classList.toggle('show');
+        const lm = document.getElementById('lessonsDropdownMenu');
+        if (lm) lm.classList.remove('show');
+    }
+    
+        const m = document.getElementById('lessonsDropdownMenu');
+        if (m) m.classList.toggle('show');
+        const tm = document.getElementById('testsDropdownMenu');
+        if (tm) tm.classList.remove('show');
+    }
+    
+        if (lm) lm.classList.remove('show');
+        const tm = document.getElementById('testsDropdownMenu');
+        if (tm) tm.classList.remove('show');
+    });
+    window.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            const lm = document.getElementById('lessonsDropdownMenu');
+            if (lm) lm.classList.remove('show');
+            const tm = document.getElementById('testsDropdownMenu');
+            if (tm) tm.classList.remove('show');
+        }
+    });
+    window.toggleTestsDropdown = toggleTestsDropdown;
+    window.toggleLessonsDropdown = toggleLessonsDropdown;
+</script>
+function toggleTestsDropdown(e) {
+        if (e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+        const m = document.getElementById('testsDropdownMenu');
+        if (m) m.classList.toggle('show');
+        const lm = document.getElementById('lessonsDropdownMenu');
+        if (lm) lm.classList.remove('show');
+    }
+    function toggleLessonsDropdown(e) {
+        if (e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+        const m = document.getElementById('lessonsDropdownMenu');
+        if (m) m.classList.toggle('show');
+        const tm = document.getElementById('testsDropdownMenu');
+        if (tm) tm.classList.remove('show');
+    }
+    window.addEventListener('click', function(e) {
+        if (e && e.target && e.target.closest && e.target.closest('.hub-dropdown')) return;
+        const lm = document.getElementById('lessonsDropdownMenu');
+        if (lm) lm.classList.remove('show');
+        const tm = document.getElementById('testsDropdownMenu');
+        if (tm) tm.classList.remove('show');
+    });
+    window.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            const lm = document.getElementById('lessonsDropdownMenu');
+            if (lm) lm.classList.remove('show');
+            const tm = document.getElementById('testsDropdownMenu');
+            if (tm) tm.classList.remove('show');
+        }
+    });
+    window.toggleTestsDropdown = toggleTestsDropdown;
+    window.toggleLessonsDropdown = toggleLessonsDropdown;
 </script>
 <script src="../assets/js/nav-dropdown.js"></script>
 <script>

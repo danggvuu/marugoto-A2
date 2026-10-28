@@ -1,9 +1,12 @@
 import json
 import os
 import re
+import sys
 
-# Import EXAMS_DATA from build_midterm_exam
-from build_midterm_exam import EXAMS_DATA
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
+# Import EXAMS_DATA from build_5_midterm_exams
+from build_5_midterm_exams import EXAMS_DATA_5 as EXAMS_DATA
 
 print(f"Loaded {len(EXAMS_DATA)} exams.")
 
@@ -13,7 +16,7 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
     <meta charset="UTF-8">
     <meta name="referrer" content="no-referrer">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🎯 Đề Thi Giữa Kỳ Midterm Marugoto A2-1 • Chuẩn Cấu Trúc Bảng Lớp Học (M102)</title>
+    <title>🎯 Trọn Bộ 5 Mã Đề Thi Giữa Kỳ Midterm Marugoto A2-1 • Chuẩn Cấu Trúc Bảng Lớp Học (M101 - M105)</title>
     <meta name="description" content="Đề thi thử giữa kỳ Midterm Marugoto A2-1 chuẩn 100% format bảng lớp: Từ vựng (( ) & câu đồng nghĩa), Kanji (2 chiều), Ngữ pháp (( ), hái sao ☆, dịch câu), Đọc hiểu (2 câu TN), Tự luận Can-do (2 câu).">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1692,7 +1695,7 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
     // ==========================================
     // EXAM CONTROLLER STATE
     // ==========================================
-    let currentExamCode = "M102";
+    let currentExamCode = (typeof EXAMS_DATA !== 'undefined' && EXAMS_DATA.length > 0) ? EXAMS_DATA[0].code : "M101";
     let userAnswers = {}; // { [qId]: { value, starOrder, isCorrect, checked } }
     let timerSeconds = 45 * 60;
     let timerInterval = null;
@@ -2322,7 +2325,7 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
 
         if (item.dir === "vi_to_ja") {
             if (item.acceptable) {
-                return item.acceptable.some(acc => norm(acc) === cleanUser || cleanUser.includes(norm(acc)));
+                return item.acceptable.some(acc => norm(acc) === cleanUser || cleanUser.includes(norm(acc)) || norm(acc).includes(cleanUser));
             }
             return false;
         } else {
@@ -2333,7 +2336,7 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
             keywords.forEach(kw => {
                 if (userLower.includes(kw.toLowerCase())) matched++;
             });
-            return matched >= Math.ceil(keywords.length * 0.7);
+            return matched >= Math.ceil(keywords.length * 0.6);
         }
     }
 
@@ -2409,7 +2412,29 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
             detailHtml += `<div style="margin-top:6px; line-height:1.6;">${item.explain}</div>`;
         }
 
+        if (item.type === "trans" && !isCorrect) {
+            detailHtml += `
+                <div style="margin-top:10px; padding:10px 14px; background:#fef3c7; border:1px solid #f59e0b; border-radius:8px; display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap;">
+                    <span style="font-size:0.85rem; color:#92400e; font-weight:600;">💡 Bạn dùng từ đồng nghĩa hoặc câu dịch tự nhiên theo cách khác?</span>
+                    <button type="button" onclick="overrideTransCorrect(${item.id})" style="background:#f59e0b; color:#fff; border:none; padding:6px 14px; border-radius:6px; font-weight:700; font-size:0.83rem; cursor:pointer;">
+                        🎯 Tôi Thấy Tôi Viết Đúng (Ghi Nhận Điểm)
+                    </button>
+                </div>
+            `;
+        }
+
         content.innerHTML = detailHtml;
+    }
+
+    function overrideTransCorrect(itemId) {
+        userAnswers[itemId] = userAnswers[itemId] || {};
+        userAnswers[itemId].isCorrect = true;
+        userAnswers[itemId].checked = true;
+        showToast("🎯 Đã ghi nhận bản dịch của bạn là ĐÚNG (+điểm)!");
+        showItemExplanation(itemId);
+        updatePaletteBubble(itemId);
+        updateProgress();
+        saveDraft();
     }
 
     function toggleImmediateMode() {
@@ -2502,7 +2527,7 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
             } else if (item.type === "star") {
                 isCorrect = (st.value === item.correctOption);
             } else if (item.type === "trans") {
-                isCorrect = evaluateTranslation(item, st.value || "");
+                isCorrect = (st.isCorrect !== undefined) ? st.isCorrect : evaluateTranslation(item, st.value || "");
             } else if (item.type === "essay") {
                 isCorrect = (st.value && st.value.trim().length >= 10);
             }
@@ -2777,29 +2802,8 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
         }
         return items;
     }
-
-    // Dropdown Toggles for Hub Nav
-    function toggleTestsDropdown(e) {
-        if (e) e.stopPropagation();
-        const m = document.getElementById('testsDropdownMenu');
-        if (m) m.classList.toggle('show');
-        const lm = document.getElementById('lessonsDropdownMenu');
-        if (lm) lm.classList.remove('show');
-    }
-    function toggleLessonsDropdown(e) {
-        if (e) e.stopPropagation();
-        const m = document.getElementById('lessonsDropdownMenu');
-        if (m) m.classList.toggle('show');
-        const tm = document.getElementById('testsDropdownMenu');
-        if (tm) tm.classList.remove('show');
-    }
-    window.addEventListener('click', () => {
-        const lm = document.getElementById('lessonsDropdownMenu');
-        if (lm) lm.classList.remove('show');
-        const tm = document.getElementById('testsDropdownMenu');
-        if (tm) tm.classList.remove('show');
-    });
     </script>
+    <script src="../assets/js/nav-dropdown.js"></script>
 </body>
 </html>
 '''
