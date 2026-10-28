@@ -719,11 +719,6 @@
             word-break: keep-all;
             white-space: normal;
         }
-            padding: 16px;
-            text-align: center;
-            transition: all 0.25s;
-        }
-
         .morph-box.featured {
             border-color: var(--primary);
             background: #ecfdf5;
@@ -1765,7 +1760,6 @@
 
             <div class="vocab-filter-bar" id="vocabFilterBar">
                 <!-- Filters rendered via JS -->
-                <div class="vocab-stats-badge" id="vocabStats">Đã thuộc: 0 / 29 từ</div>
             </div>
 
             <div class="flashcards-grid" id="flashcardsGrid">
@@ -2249,19 +2243,11 @@
         }
 
         // Global Nav
-        function toggleGlobalMegaSheet(e) {
-            if (e) e.stopPropagation();
-            document.getElementById('globalMegaSheet').classList.toggle('show');
-        }
+        
 
-        function closeGlobalMegaSheet() {
-            document.getElementById('globalMegaSheet').classList.remove('show');
-        }
+        
 
-        function toggleGlobalToolsDropdown(e) {
-            if (e) e.stopPropagation();
-            document.getElementById('globalToolsMenu').classList.toggle('show');
-        }
+        
 
         document.addEventListener('click', (e) => {
             const menu = document.getElementById('globalToolsMenu');

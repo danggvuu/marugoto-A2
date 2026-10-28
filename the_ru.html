@@ -1074,26 +1074,11 @@
 
 
 <script>
-function toggleGlobalMegaSheet(e) {
-    if (e) e.stopPropagation();
-    const sheet = document.getElementById('globalMegaSheet');
-    const tools = document.getElementById('globalToolsMenu');
-    if (tools) tools.classList.remove('open');
-    if (sheet) sheet.classList.toggle('open');
-}
 
-function closeGlobalMegaSheet() {
-    const sheet = document.getElementById('globalMegaSheet');
-    if (sheet) sheet.classList.remove('open');
-}
 
-function toggleGlobalToolsDropdown(e) {
-    if (e) e.stopPropagation();
-    const tools = document.getElementById('globalToolsMenu');
-    const sheet = document.getElementById('globalMegaSheet');
-    if (sheet) sheet.classList.remove('open');
-    if (tools) tools.classList.toggle('open');
-}
+
+
+
 
 document.addEventListener('click', function(e) {
     const sheet = document.getElementById('globalMegaSheet');

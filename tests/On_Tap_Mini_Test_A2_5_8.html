@@ -30,6 +30,7 @@
             --gray-600: #475569;
             --gray-500: #64748b;
             --gray-400: #94a3b8;
+            --gray-300: #cbd5e1;
             --gray-200: #e2e8f0;
             --gray-100: #f1f5f9;
             --gray-50: #f8fafc;
@@ -2521,26 +2522,11 @@ window.addEventListener('hashchange', handleHashNavigation);
 </script>
 \n
 <script>
-function toggleGlobalMegaSheet(e) {
-    if (e) e.stopPropagation();
-    const sheet = document.getElementById('globalMegaSheet');
-    const tools = document.getElementById('globalToolsMenu');
-    if (tools) tools.classList.remove('open');
-    if (sheet) sheet.classList.toggle('open');
-}
 
-function closeGlobalMegaSheet() {
-    const sheet = document.getElementById('globalMegaSheet');
-    if (sheet) sheet.classList.remove('open');
-}
 
-function toggleGlobalToolsDropdown(e) {
-    if (e) e.stopPropagation();
-    const tools = document.getElementById('globalToolsMenu');
-    const sheet = document.getElementById('globalMegaSheet');
-    if (sheet) sheet.classList.remove('open');
-    if (tools) tools.classList.toggle('open');
-}
+
+
+
 
 document.addEventListener('click', function(e) {
     const sheet = document.getElementById('globalMegaSheet');

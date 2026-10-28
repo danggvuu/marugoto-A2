@@ -27,6 +27,7 @@
             --gray-100: #f1f5f9;
             --gray-200: #e2e8f0;
             --gray-300: #cbd5e1;
+            --gray-400: #94a3b8;
             --gray-500: #64748b;
             --gray-600: #475569;
             --gray-700: #334155;
@@ -1255,6 +1256,14 @@
     <!-- Global Hub Navigation -->
     
 
+
+            <div class="container">
+        <!-- Hero Banner -->
+        <div class="hero-banner">
+            <span class="hero-badge">MARUGOTO A2-1 • TIÊU CHUẨN JF</span>
+            <h1>📝 BỘ 5 ĐỀ THI THỬ TOÀN DIỆN (BÀI 5 - 8)</h1>
+            <p style="color: rgba(255, 255, 255, 0.85); font-size: 0.95rem; margin-top: 6px;">Luyện thi cấp tốc các mã đề 101, 102, 103, 104, 105 với đồng hồ đếm ngược 40 phút, tự động lưu tiến trình, chấm điểm chuẩn xác và lời giải chi tiết.</p>
+        </div>
 
         <!-- Exam Code Selector Card -->
         <div class="code-selector-card">
@@ -5386,26 +5395,11 @@
     </script>
 
 <script>
-function toggleGlobalMegaSheet(e) {
-    if (e) e.stopPropagation();
-    const sheet = document.getElementById('globalMegaSheet');
-    const tools = document.getElementById('globalToolsMenu');
-    if (tools) tools.classList.remove('open');
-    if (sheet) sheet.classList.toggle('open');
-}
 
-function closeGlobalMegaSheet() {
-    const sheet = document.getElementById('globalMegaSheet');
-    if (sheet) sheet.classList.remove('open');
-}
 
-function toggleGlobalToolsDropdown(e) {
-    if (e) e.stopPropagation();
-    const tools = document.getElementById('globalToolsMenu');
-    const sheet = document.getElementById('globalMegaSheet');
-    if (sheet) sheet.classList.remove('open');
-    if (tools) tools.classList.toggle('open');
-}
+
+
+
 
 document.addEventListener('click', function(e) {
     const sheet = document.getElementById('globalMegaSheet');
