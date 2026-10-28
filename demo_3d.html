@@ -4,29 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="referrer" content="no-referrer">
-    <title>⛩️ Demo Mô Hình 3D Tương Tác - Cổng Torii & Đền Thần Đạo Nhật Bản</title>
+    <title>⛩️ Không Gian Văn Hóa 3D Nhật Bản - Marugoto Learning Portal</title>
     <link rel="stylesheet" href="animate-ui.css">
     <script src="audio-engine.js"></script>
     <style>
         :root {
             --primary: #e84393;
             --primary-dark: #d63031;
-            --dark: #1e293b;
+            --dark: #0f172a;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
         }
 
         body, html {
             width: 100%;
             height: 100%;
             overflow: hidden;
-            background: #0f172a;
+            background: #0a1128;
             color: #ffffff;
+            user-select: none;
         }
 
         #canvas3d {
@@ -40,10 +41,10 @@
             cursor: grabbing;
         }
 
-        /* Top Overlay Header */
-        .header-overlay {
+        /* Top Header Bar */
+        .top-bar {
             position: absolute;
-            top: 20px;
+            top: 16px;
             left: 20px;
             right: 20px;
             display: flex;
@@ -53,132 +54,132 @@
             z-index: 100;
         }
 
-        .brand-box {
+        .brand-card {
             background: rgba(15, 23, 42, 0.85);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.15);
-            padding: 12px 20px;
+            padding: 10px 18px;
             border-radius: 14px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.4);
             pointer-events: auto;
         }
 
         .brand-title {
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             font-weight: 800;
             display: flex;
             align-items: center;
             gap: 8px;
-            color: #f8fafc;
+            color: #ffffff;
         }
 
         .brand-sub {
-            font-size: 0.82rem;
+            font-size: 0.8rem;
             color: #94a3b8;
             margin-top: 2px;
         }
 
-        .nav-back-btn {
+        .nav-actions {
+            display: flex;
+            gap: 10px;
+            pointer-events: auto;
+        }
+
+        .btn-nav-back {
             background: rgba(255, 255, 255, 0.12);
             border: 1px solid rgba(255, 255, 255, 0.2);
             color: #ffffff;
             text-decoration: none;
-            padding: 10px 18px;
+            padding: 8px 16px;
             border-radius: 12px;
-            font-size: 0.88rem;
+            font-size: 0.86rem;
             font-weight: 700;
             backdrop-filter: blur(10px);
-            pointer-events: auto;
             transition: all 0.2s ease;
             display: inline-flex;
             align-items: center;
             gap: 6px;
         }
 
-        .nav-back-btn:hover {
-            background: rgba(232, 67, 147, 0.8);
+        .btn-nav-back:hover {
+            background: rgba(232, 67, 147, 0.85);
             border-color: #e84393;
             transform: translateY(-2px);
         }
 
-        /* Bottom Controls Dock */
-        .controls-dock {
+        /* Object Selector Strip */
+        .object-selector-bar {
             position: absolute;
-            bottom: 25px;
+            top: 80px;
             left: 50%;
             transform: translateX(-50%);
-            background: rgba(15, 23, 42, 0.88);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 20px;
-            padding: 10px 16px;
             display: flex;
-            gap: 10px;
-            align-items: center;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
-            z-index: 100;
+            gap: 8px;
+            background: rgba(15, 23, 42, 0.82);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 6px 12px;
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+            z-index: 99;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
-        .dock-btn {
+        .obj-pill {
             background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            color: #f1f5f9;
-            padding: 8px 14px;
-            border-radius: 12px;
-            font-size: 0.84rem;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: #e2e8f0;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.82rem;
             font-weight: 600;
             cursor: pointer;
+            transition: all 0.15s ease;
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            transition: all 0.15s ease;
+            gap: 5px;
         }
 
-        .dock-btn:hover {
-            background: rgba(255, 255, 255, 0.18);
-            border-color: rgba(255, 255, 255, 0.3);
+        .obj-pill:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: #ffffff;
             transform: translateY(-1.5px);
         }
 
-        .dock-btn:active {
-            transform: scale(0.96);
-        }
-
-        .dock-btn.active {
+        .obj-pill.active {
             background: linear-gradient(135deg, #e84393 0%, #d63031 100%);
             border-color: transparent;
+            color: #ffffff;
             box-shadow: 0 4px 15px rgba(232, 67, 147, 0.4);
         }
 
-        /* Vocab Card Modal Popup */
-        .vocab-popup {
+        /* Floating Vocab Details Card */
+        .vocab-modal-card {
             position: absolute;
-            top: 90px;
-            left: 20px;
+            bottom: 85px;
+            left: 25px;
+            width: 340px;
             background: rgba(15, 23, 42, 0.92);
             backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 16px;
-            padding: 18px 22px;
-            width: 320px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1.5px solid rgba(255, 255, 255, 0.18);
+            border-radius: 18px;
+            padding: 18px 20px;
+            box-shadow: 0 20px 45px rgba(0,0,0,0.55);
             z-index: 100;
-            display: none;
-            animation: fadeIn 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.3, 1);
+            animation: slideInUp 0.3s ease;
         }
 
-        .vocab-popup.show {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-8px); }
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(12px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .popup-close {
+        .card-close-btn {
             position: absolute;
             top: 10px;
             right: 12px;
@@ -187,87 +188,166 @@
             color: #94a3b8;
             font-size: 1.1rem;
             cursor: pointer;
+            padding: 4px;
         }
 
-        .popup-tag {
-            font-size: 0.75rem;
+        .card-tag {
+            font-size: 0.72rem;
             font-weight: 800;
             color: #fd79a8;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.06em;
         }
 
-        .popup-kanji {
-            font-size: 1.7rem;
-            font-weight: 800;
-            margin: 4px 0 2px 0;
-            color: #ffffff;
+        .card-kanji-row {
             display: flex;
             align-items: center;
-            gap: 10px;
+            justify-content: space-between;
+            margin: 4px 0;
         }
 
-        .popup-romaji {
-            font-size: 0.88rem;
+        .card-kanji {
+            font-size: 1.85rem;
+            font-weight: 800;
+            color: #ffffff;
+            line-height: 1.2;
+        }
+
+        .card-audio-btn {
+            background: linear-gradient(135deg, #e84393 0%, #fd79a8 100%);
+            color: white;
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(232, 67, 147, 0.4);
+            transition: all 0.15s ease;
+        }
+
+        .card-audio-btn:hover {
+            transform: scale(1.08);
+        }
+
+        .card-audio-btn:active {
+            transform: scale(0.95);
+        }
+
+        .card-kana {
+            font-size: 0.95rem;
             color: #74b9ff;
+            font-weight: 600;
             margin-bottom: 6px;
         }
 
-        .popup-vi {
-            font-size: 0.95rem;
-            color: #e2e8f0;
+        .card-meaning {
+            font-size: 0.92rem;
+            color: #f1f5f9;
+            line-height: 1.45;
+            margin-bottom: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 8px 12px;
+            border-radius: 10px;
+            border-left: 3px solid #e84393;
+        }
+
+        .card-culture-note {
+            font-size: 0.8rem;
+            color: #94a3b8;
             line-height: 1.4;
         }
 
-        .popup-btn-speak {
-            background: #e84393;
-            color: white;
-            border: none;
-            padding: 6px 12px;
-            border-radius: 8px;
+        /* Bottom Controls Dock */
+        .bottom-dock {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 8px 16px;
+            border-radius: 24px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            z-index: 100;
+            align-items: center;
+        }
+
+        .dock-action-btn {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: #f1f5f9;
+            padding: 7px 14px;
+            border-radius: 14px;
             font-size: 0.82rem;
-            font-weight: 700;
-            margin-top: 10px;
+            font-weight: 600;
             cursor: pointer;
             display: inline-flex;
             align-items: center;
-            gap: 5px;
+            gap: 6px;
+            transition: all 0.15s ease;
         }
 
-        /* Instruction Hint */
-        .hint-badge {
+        .dock-action-btn:hover {
+            background: rgba(255, 255, 255, 0.18);
+            transform: translateY(-1.5px);
+        }
+
+        .dock-action-btn.active {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            border-color: transparent;
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.4);
+        }
+
+        /* Hint bubble */
+        .hint-bubble {
             position: absolute;
-            top: 20px;
+            top: 130px;
             left: 50%;
             transform: translateX(-50%);
-            background: rgba(0,0,0,0.65);
-            border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(0,0,0,0.6);
             backdrop-filter: blur(8px);
-            padding: 6px 16px;
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 5px 14px;
             border-radius: 20px;
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             color: #cbd5e1;
             pointer-events: none;
             z-index: 99;
         }
 
         @media (max-width: 768px) {
-            .header-overlay {
+            .top-bar {
                 flex-direction: column;
                 align-items: stretch;
-                gap: 10px;
+                gap: 8px;
             }
-            .controls-dock {
-                width: 92%;
+            .object-selector-bar {
+                top: 110px;
+                width: 94%;
                 overflow-x: auto;
                 justify-content: flex-start;
-                bottom: 15px;
+                padding: 6px 8px;
             }
-            .vocab-popup {
-                width: calc(100vw - 40px);
-                top: 150px;
+            .vocab-modal-card {
+                width: calc(100vw - 32px);
+                left: 16px;
+                bottom: 75px;
             }
-            .hint-badge {
+            .bottom-dock {
+                width: 94%;
+                overflow-x: auto;
+                justify-content: flex-start;
+                bottom: 12px;
+            }
+            .hint-bubble {
                 display: none;
             }
         }
@@ -278,160 +358,225 @@
 </head>
 <body>
 
-    <!-- Header Overlay -->
-    <div class="header-overlay">
-        <div class="brand-box">
-            <div class="brand-title">⛩️ MÔ HÌNH 3D NHẬT BẢN MẪU</div>
-            <div class="brand-sub">Cổng Torii Thần Đạo & Đèn Lồng Truyền Thống • Tương Tác 360°</div>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="brand-card">
+            <div class="brand-title">⛩️ KHÔNG GIAN VĂN HÓA 3D NHẬT BẢN</div>
+            <div class="brand-sub">Mô hình 3D tương tác WebGL • Học từ vựng & Văn hóa trực quan (Marugoto A1 - A2)</div>
         </div>
-        <a href="index.html" class="nav-back-btn">⬅️ Quay Lại Trang Chủ</a>
+        <div class="nav-actions">
+            <a href="index.html" class="btn-nav-back">🌸 Về Trang Chủ</a>
+        </div>
     </div>
 
-    <!-- Instruction Hint -->
-    <div class="hint-badge">
-        🖱️ Giữ chuột trái để xoay 360° • Cuộn chuột để phóng to/thu nhỏ • Bấm vào Cổng/Đèn để học từ vựng
+    <!-- Object Quick Selector -->
+    <div class="object-selector-bar">
+        <button class="obj-pill active" id="pill-torii" onclick="focusObject('torii')">⛩️ Cổng Torii</button>
+        <button class="obj-pill" id="pill-fuji" onclick="focusObject('fuji')">🗻 Núi Phú Sĩ</button>
+        <button class="obj-pill" id="pill-daruma" onclick="focusObject('daruma')">🎎 Búp Bê Daruma</button>
+        <button class="obj-pill" id="pill-neko" onclick="focusObject('neko')">🐱 Mèo Thần Tài</button>
+        <button class="obj-pill" id="pill-lantern" onclick="focusObject('lantern')">🏮 Đèn Lồng Đá</button>
+        <button class="obj-pill" id="pill-sakura" onclick="focusObject('sakura')">🌸 Hoa Anh Đào</button>
+    </div>
+
+    <div class="hint-bubble">
+        🖱️ Giữ chuột trái để xoay 360° • Cuộn chuột để phóng to/thu nhỏ • Bấm vào vật thể 3D để học từ vựng
     </div>
 
     <!-- 3D Canvas -->
     <canvas id="canvas3d"></canvas>
 
-    <!-- Vocab Modal Popup -->
-    <div class="vocab-popup" id="vocabPopup">
-        <button class="popup-close" onclick="closePopup()">✕</button>
-        <div class="popup-tag" id="popupTag">Văn Hóa Nhật Bản</div>
-        <div class="popup-kanji" id="popupKanji">
-            鳥居
-            <button class="popup-btn-speak" onclick="speakCurrentPopup()">🔊 Nghe</button>
+    <!-- Vocab Details Modal Card -->
+    <div class="vocab-modal-card" id="vocabModal">
+        <button class="card-close-btn" onclick="closeModal()">✕</button>
+        <div class="card-tag" id="cardTag">Kiến Trúc Thần Đạo</div>
+        <div class="card-kanji-row">
+            <div class="card-kanji" id="cardKanji">鳥居</div>
+            <button class="card-audio-btn" id="cardAudioBtn" onclick="speakCurrentCard()" title="Nghe phát âm bản xứ Tokyo">🔊</button>
         </div>
-        <div class="popup-romaji" id="popupRomaji">とりい (Torii)</div>
-        <div class="popup-vi" id="popupVi">Cổng Torii truyền thống của đạo Shinto, tượng trưng cho ranh giới giữa cõi trần và thế giới thần linh.</div>
+        <div class="card-kana" id="cardKana">とりい (Torii)</div>
+        <div class="card-meaning" id="cardMeaning">Cổng Thần đạo truyền thống dẫn vào chốn linh thiêng.</div>
+        <div class="card-culture-note" id="cardCultureNote">
+            💡 Biểu tượng văn hóa đặc trưng xuất hiện xuyên suốt các bài học văn hóa Marugoto. Đánh dấu ranh giới thiêng liêng giữa cõi trần và thế giới thần linh.
+        </div>
     </div>
 
     <!-- Bottom Controls Dock -->
-    <div class="controls-dock">
-        <button class="dock-btn active" id="btnAutoRotate" onclick="toggleAutoRotate()">🔄 Tự Động Xoay: BẬT</button>
-        <button class="dock-btn" id="btnNightMode" onclick="toggleNightMode()">🌙 Chế Độ: Ban Đêm</button>
-        <button class="dock-btn active" id="btnSakura" onclick="toggleSakura()">🌸 Mưa Cánh Hoa: BẬT</button>
-        <button class="dock-btn" onclick="resetCamera()">🎯 Đặt Lại Góc Nhìn</button>
+    <div class="bottom-dock">
+        <button class="dock-action-btn active" id="btnAutoRotate" onclick="toggleAutoRotate()">🔄 Xoay 360°: BẬT</button>
+        <button class="dock-action-btn active" id="btnNightMode" onclick="toggleNightMode()">🌙 Ánh Sáng: Ban Đêm</button>
+        <button class="dock-action-btn active" id="btnSakura" onclick="toggleSakura()">🌸 Mưa Cánh Hoa: BẬT</button>
+        <button class="dock-action-btn" onclick="resetView()">🎯 Toàn Cảnh</button>
     </div>
 
     <script>
         let scene, camera, renderer, controls;
-        let toriiGroup, lanterns = [];
-        let sakuraParticles, sakuraGeo;
-        let isNight = false;
+        let isNight = true;
         let autoRotate = true;
         let sakuraActive = true;
         let dirLight, ambientLight, pointLights = [];
+        let sakuraGeo, sakuraParticles;
 
+        // Model Object References & Camera Targets
+        const models = {};
         const raycaster = new THREE.Raycaster();
         const mouse = new THREE.Vector2();
 
-        // Vocab Data for 3D Hotspots
-        const HOTSPOTS = {
+        // Target camera position for smooth glide
+        let targetCamPos = new THREE.Vector3(0, 3.2, 9.2);
+        let targetLookAt = new THREE.Vector3(0, 1.8, 0);
+
+        // Comprehensive Cultural Vocabulary Database
+        const VOCAB_DATABASE = {
             torii: {
-                tag: "Kiến trúc Thần đạo",
-                kanji: "鳥居",
-                romaji: "とりい (Torii)",
-                vi: "Cổng Torii đỏ rực rỡ, biểu tượng dẫn vào đền thờ Shinto linh thiêng của Nhật Bản."
+                key: 'torii',
+                tag: 'Kiến trúc Thần đạo (Shinto)',
+                kanji: '鳥居',
+                kana: 'とりい (Torii)',
+                meaning: 'Cổng Thần đạo truyền thống sơn đỏ thắm rực rỡ.',
+                culture: '⛩️ Trong Thần đạo, cổng Torii phân định ranh giới giữa cõi trần tục và thế giới linh thiêng của các vị thần (Kami). Màu đỏ chu sa (Shu-iro) được tin là trừ tà ma và xua đuổi dịch bệnh.',
+                camPos: new THREE.Vector3(0, 2.5, 6.2),
+                lookAt: new THREE.Vector3(0, 2.2, 0)
+            },
+            fuji: {
+                key: 'fuji',
+                tag: 'Danh lam & Thiên nhiên Nhật Bản',
+                kanji: '富士山',
+                kana: 'ふじさん (Fuji-san)',
+                meaning: 'Núi Phú Sĩ - Ngọn núi cao nhất và linh thiêng nhất Nhật Bản (3.776m).',
+                culture: '🗻 Di sản thế giới UNESCO, xuất hiện trong Bài 3 & Bài 18 giáo trình Marugoto. Hình tượng đỉnh núi phủ tuyết trắng quanh năm là biểu tượng bất diệt trong tranh khắc gỗ Ukiyo-e của Hokusai.',
+                camPos: new THREE.Vector3(0, 4.5, 12),
+                lookAt: new THREE.Vector3(0, 4.0, -10)
+            },
+            daruma: {
+                key: 'daruma',
+                tag: 'Vật phẩm cầu may & Ý chí',
+                kanji: 'だるま',
+                kana: 'だるま (Daruma)',
+                meaning: 'Búp bê Daruma tròn màu đỏ tượng trưng cho sự kiên trì và ước nguyện.',
+                culture: '🎎 Tượng trưng cho tinh thần "Ngã 7 lần đứng dậy 8 lần" (七転び八起き). Khi đặt mục tiêu, người Nhật vẽ một mắt trái; khi mục tiêu hoàn thành xuất sắc sẽ vẽ nốt mắt phải để tạ ơn.',
+                camPos: new THREE.Vector3(-1.9, 1.4, 3.4),
+                lookAt: new THREE.Vector3(-1.9, 0.7, 1.5)
+            },
+            neko: {
+                key: 'neko',
+                tag: 'Vật phẩm phong thủy truyền thống',
+                kanji: '招き猫',
+                kana: 'まねきねこ (Maneki-neko)',
+                meaning: 'Mèo Thần Tài vẫy tay đem lại may mắn và tài lộc.',
+                culture: '🐱 Tay phải vẫy gọi tiền tài may mắn, tay trái vẫy đón khách quý và bạn bè. Trên cổ đeo lục lạc vàng tượng trưng cho sự sung túc, thường đặt ở lối vào cửa hàng Nhật Bản.',
+                camPos: new THREE.Vector3(1.9, 1.4, 3.4),
+                lookAt: new THREE.Vector3(1.9, 0.7, 1.5)
             },
             lantern: {
-                tag: "Vật dụng truyền thống",
-                kanji: "燈籠",
-                romaji: "とうろう (Tōrō)",
-                vi: "Đèn lồng đá/gỗ truyền thống được thắp sáng hai bên lối vào đền thờ thần đạo."
+                key: 'lantern',
+                tag: 'Vật dụng đền chùa cổ kính',
+                kanji: '燈籠',
+                kana: 'とうろう (Tōrō)',
+                meaning: 'Đèn lồng đá truyền thống dẫn lối trong khuôn viên đền đài.',
+                culture: '🏮 Được đặt dọc hai bên lối vào đền thờ (Sando). Vào buổi tối, ngọn lửa ấm áp bên trong mang lại ánh sáng thanh tịnh và an yên cho khách viếng đền.',
+                camPos: new THREE.Vector3(-2.2, 1.8, 3.8),
+                lookAt: new THREE.Vector3(-2.2, 1.2, 1.6)
             },
             sakura: {
-                tag: "Biểu tượng thiên nhiên",
-                kanji: "桜の花びら",
-                romaji: "さくら の はなびら (Sakura no hanabira)",
-                vi: "Những cánh hoa anh đào hồng rơi nhẹ nhàng trong làn gió mùa xuân Nhật Bản."
+                key: 'sakura',
+                tag: 'Quốc hoa & Tinh thần Nhật Bản',
+                kanji: '桜の花びら',
+                kana: 'さくら の はなびら (Sakura no hanabira)',
+                meaning: 'Những cánh hoa anh đào mùa xuân rơi nhẹ nhàng theo làn gió.',
+                culture: '🌸 Biểu tượng của sự tinh khôi, khởi đầu mới mẻ (năm học và năm tài khóa mới ở Nhật đều bắt đầu vào mùa hoa anh đào tháng 4) và vẻ đẹp trân trọng từng khoảnh khắc (Mono no aware).',
+                camPos: new THREE.Vector3(0, 3.2, 8.5),
+                lookAt: new THREE.Vector3(0, 2.0, 0)
             }
         };
 
-        let currentActiveItem = HOTSPOTS.torii;
+        let currentActiveItem = VOCAB_DATABASE.torii;
 
         function init() {
             const canvas = document.getElementById('canvas3d');
 
-            // 1. Scene
+            // 1. Scene & Atmosphere
             scene = new THREE.Scene();
-            scene.background = new THREE.Color(0x0a1128); // Deep midnight blue
-            scene.fog = new THREE.FogExp2(0x0a1128, 0.035);
+            scene.background = new THREE.Color(0x0a1128);
+            scene.fog = new THREE.FogExp2(0x0a1128, 0.025);
 
             // 2. Camera
-            camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
-            camera.position.set(0, 3.5, 9.5);
+            camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 150);
+            camera.position.copy(targetCamPos);
 
             // 3. Renderer
-            renderer = new THREE.WebGLRenderer({ canvas, antialias: true, powerPreference: "high-performance" });
+            renderer = new THREE.WebGLRenderer({ canvas, antialias: true, powerPreference: 'high-performance' });
             renderer.setSize(window.innerWidth, window.innerHeight);
             renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
             renderer.shadowMap.enabled = true;
             renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
-            // 4. OrbitControls
+            // 4. Orbit Controls
             controls = new THREE.OrbitControls(camera, renderer.domElement);
             controls.enableDamping = true;
-            controls.dampingFactor = 0.05;
-            controls.maxPolarAngle = Math.PI / 2 - 0.02; // Don't go below ground
-            controls.minDistance = 3.5;
-            controls.maxDistance = 18;
+            controls.dampingFactor = 0.06;
+            controls.maxPolarAngle = Math.PI / 2 - 0.03;
+            controls.minDistance = 2.5;
+            controls.maxDistance = 28;
             controls.autoRotate = true;
-            controls.autoRotateSpeed = 0.8;
+            controls.autoRotateSpeed = 0.6;
+            controls.target.copy(targetLookAt);
 
             // 5. Lighting
-            ambientLight = new THREE.AmbientLight(0x404060, 1.2);
+            ambientLight = new THREE.AmbientLight(0x404060, 0.8);
             scene.add(ambientLight);
 
-            dirLight = new THREE.DirectionalLight(0xfff5e6, 1.8);
-            dirLight.position.set(6, 12, 8);
+            dirLight = new THREE.DirectionalLight(0x74b9ff, 0.6); // Moonlight initial
+            dirLight.position.set(10, 18, 12);
             dirLight.castShadow = true;
             dirLight.shadow.mapSize.width = 1024;
             dirLight.shadow.mapSize.height = 1024;
             dirLight.shadow.camera.near = 0.5;
-            dirLight.shadow.camera.far = 30;
-            dirLight.shadow.camera.left = -6;
-            dirLight.shadow.camera.right = 6;
-            dirLight.shadow.camera.top = 6;
-            dirLight.shadow.camera.bottom = -6;
+            dirLight.shadow.camera.far = 40;
+            dirLight.shadow.camera.left = -8;
+            dirLight.shadow.camera.right = 8;
+            dirLight.shadow.camera.top = 8;
+            dirLight.shadow.camera.bottom = -8;
             scene.add(dirLight);
 
-            // 6. Build 3D Japanese Diorama
+            // 6. Build All Procedural 3D Japanese Cultural Assets
             buildGround();
+            buildMountFuji();
             buildToriiGate();
-            buildLanterns();
+            buildStoneLanterns();
+            buildDarumaDoll();
+            buildManekiNeko();
             buildSakuraRain();
 
-            // Set initial Night Mode look
-            setNightModeVisuals();
+            // Set Initial Visuals
+            updateLightingVisuals();
 
-            // 7. Event Listeners
+            // 7. Event Handlers
             window.addEventListener('resize', onWindowResize);
             canvas.addEventListener('click', onCanvasClick);
+
+            // Initial Card Display
+            showModal(VOCAB_DATABASE.torii, false);
 
             animate();
         }
 
-        // Build Stone & Grass Ground
-        function buildGround() {
-            const groundGeo = new THREE.CylinderGeometry(8, 8, 0.5, 48);
-            const groundMat = new THREE.MeshStandardMaterial({
-                color: 0x1e293b,
-                roughness: 0.9,
-                metalness: 0.1
-            });
-            const ground = new THREE.Mesh(groundGeo, groundMat);
-            ground.position.y = -0.25;
-            ground.receiveShadow = true;
-            scene.add(ground);
+        // ==========================================
+        // 3D PROCEDURAL ASSET BUILDERS
+        // ==========================================
 
-            // Cobblestone Stone Path to Torii
-            const pathGeo = new THREE.PlaneGeometry(1.6, 12);
-            const pathMat = new THREE.MeshStandardMaterial({
-                color: 0x475569,
-                roughness: 0.8
-            });
+        function buildGround() {
+            // Main Island Base
+            const islandGeo = new THREE.CylinderGeometry(9, 9.4, 0.6, 64);
+            const islandMat = new THREE.MeshStandardMaterial({ color: 0x1e293b, roughness: 0.9, metalness: 0.05 });
+            const island = new THREE.Mesh(islandGeo, islandMat);
+            island.position.y = -0.3;
+            island.receiveShadow = true;
+            scene.add(island);
+
+            // Central Sacred Cobblestone Path
+            const pathGeo = new THREE.PlaneGeometry(1.8, 14);
+            const pathMat = new THREE.MeshStandardMaterial({ color: 0x475569, roughness: 0.8 });
             const path = new THREE.Mesh(pathGeo, pathMat);
             path.rotation.x = -Math.PI / 2;
             path.position.set(0, 0.01, 2);
@@ -439,288 +584,443 @@
             scene.add(path);
         }
 
-        // Build Japanese Torii Gate ⛩️
-        function buildToriiGate() {
-            toriiGroup = new THREE.Group();
-            toriiGroup.name = "torii";
+        // Mount Fuji (富士山) in the background
+        function buildMountFuji() {
+            const fujiGroup = new THREE.Group();
+            fujiGroup.name = 'fuji';
+            fujiGroup.position.set(0, 0, -18);
 
-            // Vivid Vermilion Vermilion Japanese Lacquer
-            const vermilionMat = new THREE.MeshStandardMaterial({
-                color: 0xd63031,
-                roughness: 0.35,
-                metalness: 0.1
-            });
-
-            // Black Lacquer Caps
-            const blackMat = new THREE.MeshStandardMaterial({
-                color: 0x111111,
-                roughness: 0.25,
-                metalness: 0.3
-            });
-
-            // Stone Pedestals
-            const stoneMat = new THREE.MeshStandardMaterial({
-                color: 0x64748b,
+            // Mountain Cone (Concave realistic Fuji curve)
+            const fujiGeo = new THREE.CylinderGeometry(0.7, 12, 9, 48, 1, true);
+            const fujiMat = new THREE.MeshStandardMaterial({
+                color: 0x1e3a8a,
                 roughness: 0.9
             });
+            const fujiBody = new THREE.Mesh(fujiGeo, fujiMat);
+            fujiBody.position.y = 4.5;
+            fujiGroup.add(fujiBody);
 
-            const pillarRadius = 0.18;
-            const pillarHeight = 3.8;
-            const pillarDist = 1.6;
-
-            // Two Pillars (Hashira)
-            [-pillarDist, pillarDist].forEach(x => {
-                // Stone base
-                const baseGeo = new THREE.CylinderGeometry(0.3, 0.35, 0.35, 16);
-                const baseMesh = new THREE.Mesh(baseGeo, stoneMat);
-                baseMesh.position.set(x, 0.175, 0);
-                baseMesh.castShadow = true;
-                baseMesh.receiveShadow = true;
-                toriiGroup.add(baseMesh);
-
-                // Main wooden pillar (tilted slightly inward)
-                const pillarGeo = new THREE.CylinderGeometry(pillarRadius * 0.9, pillarRadius, pillarHeight, 24);
-                const pillarMesh = new THREE.Mesh(pillarGeo, vermilionMat);
-                pillarMesh.position.set(x, pillarHeight / 2 + 0.35, 0);
-                pillarMesh.rotation.z = x > 0 ? 0.035 : -0.035;
-                pillarMesh.castShadow = true;
-                pillarMesh.receiveShadow = true;
-                toriiGroup.add(pillarMesh);
-
-                // Black bottom ring
-                const ringGeo = new THREE.CylinderGeometry(pillarRadius * 1.05, pillarRadius * 1.05, 0.3, 24);
-                const ringMesh = new THREE.Mesh(ringGeo, blackMat);
-                ringMesh.position.set(x, 0.5, 0);
-                toriiGroup.add(ringMesh);
+            // Snow-capped Summit
+            const snowGeo = new THREE.ConeGeometry(3.2, 3.8, 48);
+            const snowMat = new THREE.MeshStandardMaterial({
+                color: 0xf8fafc,
+                roughness: 0.4
             });
+            const snowCap = new THREE.Mesh(snowGeo, snowMat);
+            snowCap.position.y = 7.6;
+            fujiGroup.add(snowCap);
 
-            // Upper Top Beam (Kasagi 笠木) with elegant upward curved tips
-            const kasagiCurve = new THREE.QuadraticBezierCurve3(
-                new THREE.Vector3(-2.6, 4.15, 0),
-                new THREE.Vector3(0, 3.98, 0),
-                new THREE.Vector3(2.6, 4.15, 0)
-            );
-            const kasagiGeo = new THREE.TubeGeometry(kasagiCurve, 32, 0.18, 8, false);
-            const kasagiMesh = new THREE.Mesh(kasagiGeo, blackMat);
-            kasagiMesh.scale.set(1, 1.1, 0.85);
-            kasagiMesh.castShadow = true;
-            toriiGroup.add(kasagiMesh);
+            // Glowing Celestial Sun/Moon behind peak
+            const sunGeo = new THREE.CircleGeometry(3.2, 48);
+            const sunMat = new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.85 });
+            const sun = new THREE.Mesh(sunGeo, sunMat);
+            sun.position.set(0, 8.5, -0.2);
+            fujiGroup.add(sun);
+            models.sun = sun;
 
-            // Secondary Top Beam (Shimaki 島木)
-            const shimakiGeo = new THREE.BoxGeometry(4.6, 0.22, 0.38);
-            const shimakiMesh = new THREE.Mesh(shimakiGeo, vermilionMat);
-            shimakiMesh.position.set(0, 3.82, 0);
-            shimakiMesh.castShadow = true;
-            toriiGroup.add(shimakiMesh);
-
-            // Lower Crossbar (Nuki 貫)
-            const nukiGeo = new THREE.BoxGeometry(4.1, 0.19, 0.28);
-            const nukiMesh = new THREE.Mesh(nukiGeo, vermilionMat);
-            nukiMesh.position.set(0, 3.15, 0);
-            nukiMesh.castShadow = true;
-            toriiGroup.add(nukiMesh);
-
-            // Central Inscription Tablet (Gakuzuka 額束)
-            const tabletGeo = new THREE.BoxGeometry(0.35, 0.55, 0.08);
-            const tabletMesh = new THREE.Mesh(tabletGeo, blackMat);
-            tabletMesh.position.set(0, 3.48, 0.12);
-            toriiGroup.add(tabletMesh);
-
-            scene.add(toriiGroup);
+            scene.add(fujiGroup);
+            models.fuji = fujiGroup;
         }
 
-        // Build Japanese Lanterns (Tōrō) with warm glowing lights
-        function buildLanterns() {
-            const stoneMat = new THREE.MeshStandardMaterial({ color: 0x64748b, roughness: 0.85 });
-            const glowMat = new THREE.MeshBasicMaterial({ color: 0xffaa44 });
+        // Japanese Torii Gate (鳥居)
+        function buildToriiGate() {
+            const torii = new THREE.Group();
+            torii.name = 'torii';
 
-            [-2.4, 2.4].forEach((x, i) => {
+            const vermilionMat = new THREE.MeshStandardMaterial({ color: 0xd63031, roughness: 0.35, metalness: 0.1 });
+            const blackMat = new THREE.MeshStandardMaterial({ color: 0x111111, roughness: 0.25, metalness: 0.25 });
+            const stoneMat = new THREE.MeshStandardMaterial({ color: 0x64748b, roughness: 0.9 });
+
+            const dist = 1.7;
+            const h = 4.0;
+            const r = 0.2;
+
+            // Hashira (Pillars)
+            [-dist, dist].forEach(x => {
+                const base = new THREE.Mesh(new THREE.CylinderGeometry(0.32, 0.38, 0.35, 20), stoneMat);
+                base.position.set(x, 0.175, 0);
+                base.castShadow = true;
+                torii.add(base);
+
+                const pillar = new THREE.Mesh(new THREE.CylinderGeometry(r * 0.9, r, h, 24), vermilionMat);
+                pillar.position.set(x, h / 2 + 0.35, 0);
+                pillar.rotation.z = x > 0 ? 0.03 : -0.03;
+                pillar.castShadow = true;
+                torii.add(pillar);
+
+                const ring = new THREE.Mesh(new THREE.CylinderGeometry(r * 1.05, r * 1.05, 0.3, 24), blackMat);
+                ring.position.set(x, 0.5, 0);
+                torii.add(ring);
+            });
+
+            // Kasagi (Top curved beam)
+            const kasagiCurve = new THREE.QuadraticBezierCurve3(
+                new THREE.Vector3(-2.8, 4.45, 0),
+                new THREE.Vector3(0, 4.25, 0),
+                new THREE.Vector3(2.8, 4.45, 0)
+            );
+            const kasagi = new THREE.Mesh(new THREE.TubeGeometry(kasagiCurve, 32, 0.2, 10, false), blackMat);
+            kasagi.scale.set(1, 1.15, 0.85);
+            kasagi.castShadow = true;
+            torii.add(kasagi);
+
+            // Shimaki (Secondary beam)
+            const shimaki = new THREE.Mesh(new THREE.BoxGeometry(5.0, 0.24, 0.4), vermilionMat);
+            shimaki.position.set(0, 4.05, 0);
+            shimaki.castShadow = true;
+            torii.add(shimaki);
+
+            // Nuki (Lower crossbar)
+            const nuki = new THREE.Mesh(new THREE.BoxGeometry(4.4, 0.22, 0.3), vermilionMat);
+            nuki.position.set(0, 3.35, 0);
+            nuki.castShadow = true;
+            torii.add(nuki);
+
+            // Gakuzuka (Center tablet)
+            const gakuzuka = new THREE.Mesh(new THREE.BoxGeometry(0.38, 0.62, 0.09), blackMat);
+            gakuzuka.position.set(0, 3.7, 0.13);
+            torii.add(gakuzuka);
+
+            scene.add(torii);
+            models.torii = torii;
+        }
+
+        // Stone Lanterns (燈籠 - Tōrō)
+        function buildStoneLanterns() {
+            const stoneMat = new THREE.MeshStandardMaterial({ color: 0x64748b, roughness: 0.85 });
+            const glowMat = new THREE.MeshBasicMaterial({ color: 0xffaa33 });
+
+            models.lanterns = [];
+
+            [-2.6, 2.6].forEach(x => {
                 const lantern = new THREE.Group();
-                lantern.name = "lantern";
+                lantern.name = 'lantern';
                 lantern.position.set(x, 0, 1.8);
 
-                // Base
-                const base = new THREE.Mesh(new THREE.CylinderGeometry(0.35, 0.45, 0.25, 8), stoneMat);
-                base.position.y = 0.125;
+                const base = new THREE.Mesh(new THREE.CylinderGeometry(0.38, 0.48, 0.3, 8), stoneMat);
+                base.position.y = 0.15;
                 base.castShadow = true;
                 lantern.add(base);
 
-                // Shaft
-                const shaft = new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.15, 1.0, 8), stoneMat);
-                shaft.position.y = 0.75;
+                const shaft = new THREE.Mesh(new THREE.CylinderGeometry(0.14, 0.17, 1.1, 8), stoneMat);
+                shaft.position.y = 0.85;
                 shaft.castShadow = true;
                 lantern.add(shaft);
 
-                // Lamp Chamber (Light source)
-                const fireBox = new THREE.Mesh(new THREE.BoxGeometry(0.42, 0.42, 0.42), glowMat);
-                fireBox.position.y = 1.45;
-                lantern.add(fireBox);
+                const lamp = new THREE.Mesh(new THREE.BoxGeometry(0.46, 0.46, 0.46), glowMat);
+                lamp.position.y = 1.6;
+                lantern.add(lamp);
 
-                // Roof (Kasa)
-                const roof = new THREE.Mesh(new THREE.ConeGeometry(0.55, 0.35, 6), stoneMat);
-                roof.position.y = 1.85;
+                const roof = new THREE.Mesh(new THREE.ConeGeometry(0.62, 0.38, 6), stoneMat);
+                roof.position.y = 2.05;
                 roof.castShadow = true;
                 lantern.add(roof);
 
-                // Point Light inside lantern
-                const pLight = new THREE.PointLight(0xff9922, 1.8, 6);
-                pLight.position.set(x, 1.45, 1.8);
+                const pLight = new THREE.PointLight(0xff9922, 2.0, 7);
+                pLight.position.set(x, 1.6, 1.8);
                 pLight.castShadow = true;
                 scene.add(pLight);
                 pointLights.push(pLight);
 
-                lanterns.push(lantern);
                 scene.add(lantern);
+                models.lanterns.push(lantern);
             });
         }
 
-        // Build Floating Sakura (Cherry Blossom) Petals
+        // Daruma Doll (だるま)
+        function buildDarumaDoll() {
+            const daruma = new THREE.Group();
+            daruma.name = 'daruma';
+            daruma.position.set(-1.9, 0, 1.5);
+
+            // Stone Altar base
+            const altar = new THREE.Mesh(new THREE.CylinderGeometry(0.5, 0.55, 0.45, 16), new THREE.MeshStandardMaterial({ color: 0x475569 }));
+            altar.position.y = 0.225;
+            altar.castShadow = true;
+            daruma.add(altar);
+
+            // Red Body (Sphere with slight scale)
+            const bodyMat = new THREE.MeshStandardMaterial({ color: 0xd63031, roughness: 0.3 });
+            const body = new THREE.Mesh(new THREE.SphereGeometry(0.38, 24, 24), bodyMat);
+            body.position.y = 0.65;
+            body.scale.set(1.1, 1.0, 0.95);
+            body.castShadow = true;
+            daruma.add(body);
+
+            // White Face Plate
+            const faceMat = new THREE.MeshStandardMaterial({ color: 0xfaf5ff, roughness: 0.5 });
+            const face = new THREE.Mesh(new THREE.CircleGeometry(0.24, 24), faceMat);
+            face.position.set(0, 0.72, 0.34);
+            daruma.add(face);
+
+            // Intense Black Eyebrows & Mustache (Crane & Tortoise symbols)
+            const blackInkMat = new THREE.MeshBasicMaterial({ color: 0x111111 });
+            [-0.09, 0.09].forEach(ex => {
+                const brow = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.03, 0.01), blackInkMat);
+                brow.position.set(ex, 0.81, 0.35);
+                brow.rotation.z = ex > 0 ? -0.2 : 0.2;
+                daruma.add(brow);
+
+                const eye = new THREE.Mesh(new THREE.CircleGeometry(0.045, 16), blackInkMat);
+                eye.position.set(ex, 0.73, 0.35);
+                daruma.add(eye);
+            });
+
+            // Golden Kanji Badge (福 - Fuku / Good Fortune)
+            const goldMat = new THREE.MeshStandardMaterial({ color: 0xf1c40f, metalness: 0.6, roughness: 0.2 });
+            const kanjiPlat = new THREE.Mesh(new THREE.CircleGeometry(0.12, 16), goldMat);
+            kanjiPlat.position.set(0, 0.48, 0.37);
+            daruma.add(kanjiPlat);
+
+            scene.add(daruma);
+            models.daruma = daruma;
+        }
+
+        // Maneki-Neko Lucky Cat (招き猫)
+        function buildManekiNeko() {
+            const neko = new THREE.Group();
+            neko.name = 'neko';
+            neko.position.set(1.9, 0, 1.5);
+
+            // Stone Altar base
+            const altar = new THREE.Mesh(new THREE.CylinderGeometry(0.5, 0.55, 0.45, 16), new THREE.MeshStandardMaterial({ color: 0x475569 }));
+            altar.position.y = 0.225;
+            altar.castShadow = true;
+            neko.add(altar);
+
+            const whiteMat = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.25 });
+            const pinkMat = new THREE.MeshStandardMaterial({ color: 0xff80bf, roughness: 0.4 });
+            const redMat = new THREE.MeshStandardMaterial({ color: 0xe84393, roughness: 0.3 });
+            const goldMat = new THREE.MeshStandardMaterial({ color: 0xf1c40f, metalness: 0.7, roughness: 0.2 });
+
+            // White Body
+            const body = new THREE.Mesh(new THREE.SphereGeometry(0.35, 24, 24), whiteMat);
+            body.position.y = 0.62;
+            body.scale.set(0.9, 1.1, 0.9);
+            body.castShadow = true;
+            neko.add(body);
+
+            // Head
+            const head = new THREE.Mesh(new THREE.SphereGeometry(0.28, 24, 24), whiteMat);
+            head.position.y = 0.95;
+            head.castShadow = true;
+            neko.add(head);
+
+            // Pointed Cat Ears with Pink Inside
+            [-0.14, 0.14].forEach(ex => {
+                const ear = new THREE.Mesh(new THREE.ConeGeometry(0.1, 0.18, 4), whiteMat);
+                ear.position.set(ex, 1.18, 0);
+                ear.rotation.z = ex > 0 ? -0.2 : 0.2;
+                neko.add(ear);
+
+                const innerEar = new THREE.Mesh(new THREE.ConeGeometry(0.06, 0.12, 4), pinkMat);
+                innerEar.position.set(ex, 1.18, 0.04);
+                innerEar.rotation.z = ex > 0 ? -0.2 : 0.2;
+                neko.add(innerEar);
+            });
+
+            // Red Collar & Golden Bell
+            const collar = new THREE.Mesh(new THREE.TorusGeometry(0.22, 0.035, 12, 24), redMat);
+            collar.position.set(0, 0.78, 0.05);
+            collar.rotation.x = Math.PI / 2;
+            neko.add(collar);
+
+            const bell = new THREE.Mesh(new THREE.SphereGeometry(0.06, 16, 16), goldMat);
+            bell.position.set(0, 0.74, 0.25);
+            neko.add(bell);
+
+            // Right Raised Paw (Vẫy khách)
+            const arm = new THREE.Mesh(new THREE.CylinderGeometry(0.07, 0.09, 0.3, 16), whiteMat);
+            arm.position.set(0.25, 0.88, 0.18);
+            arm.rotation.set(0.4, 0, -0.4);
+            neko.add(arm);
+
+            const paw = new THREE.Mesh(new THREE.SphereGeometry(0.08, 16, 16), whiteMat);
+            paw.position.set(0.3, 1.05, 0.25);
+            neko.add(paw);
+
+            scene.add(neko);
+            models.neko = neko;
+        }
+
+        // Drifting Sakura Rain Particles
         function buildSakuraRain() {
-            const count = 350;
+            const count = 400;
             sakuraGeo = new THREE.BufferGeometry();
-            const positions = new Float32Array(count * 3);
-            const speeds = new Float32Array(count * 3);
+            const pos = new Float32Array(count * 3);
+            const spd = new Float32Array(count * 3);
 
             for (let i = 0; i < count; i++) {
-                positions[i * 3] = (Math.random() - 0.5) * 14;
-                positions[i * 3 + 1] = Math.random() * 8 + 1;
-                positions[i * 3 + 2] = (Math.random() - 0.5) * 14;
+                pos[i * 3] = (Math.random() - 0.5) * 16;
+                pos[i * 3 + 1] = Math.random() * 9 + 0.5;
+                pos[i * 3 + 2] = (Math.random() - 0.5) * 16;
 
-                speeds[i * 3] = (Math.random() - 0.5) * 0.02;     // drift x
-                speeds[i * 3 + 1] = -(Math.random() * 0.02 + 0.015); // fall y
-                speeds[i * 3 + 2] = Math.random() * 0.01 + 0.005; // drift z
+                spd[i * 3] = (Math.random() - 0.5) * 0.025;
+                spd[i * 3 + 1] = -(Math.random() * 0.02 + 0.015);
+                spd[i * 3 + 2] = Math.random() * 0.015 + 0.005;
             }
 
-            sakuraGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-            sakuraGeo.userData.speeds = speeds;
+            sakuraGeo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+            sakuraGeo.userData.speeds = spd;
 
-            // Soft Pink Sakura Texture using programmatic canvas
+            // Soft glowing pink particle texture
             const canvas = document.createElement('canvas');
-            canvas.width = 64;
-            canvas.height = 64;
+            canvas.width = 64; canvas.height = 64;
             const ctx = canvas.getContext('2d');
-            const grad = ctx.createRadialGradient(32, 32, 2, 32, 32, 30);
-            grad.addColorStop(0, 'rgba(255, 182, 193, 1)');
-            grad.addColorStop(0.6, 'rgba(255, 105, 180, 0.85)');
-            grad.addColorStop(1, 'rgba(255, 192, 203, 0)');
-            ctx.fillStyle = grad;
+            const g = ctx.createRadialGradient(32, 32, 2, 32, 32, 30);
+            g.addColorStop(0, 'rgba(255, 182, 193, 1)');
+            g.addColorStop(0.6, 'rgba(255, 105, 180, 0.8)');
+            g.addColorStop(1, 'rgba(255, 192, 203, 0)');
+            ctx.fillStyle = g;
             ctx.beginPath();
             ctx.arc(32, 32, 30, 0, Math.PI * 2);
             ctx.fill();
 
-            const texture = new THREE.CanvasTexture(canvas);
-
-            const sakuraMat = new THREE.PointsMaterial({
-                size: 0.22,
-                map: texture,
+            const pTexture = new THREE.CanvasTexture(canvas);
+            const pMat = new THREE.PointsMaterial({
+                size: 0.24,
+                map: pTexture,
                 transparent: true,
                 depthWrite: false,
                 blending: THREE.NormalBlending
             });
 
-            sakuraParticles = new THREE.Points(sakuraGeo, sakuraMat);
+            sakuraParticles = new THREE.Points(sakuraGeo, pMat);
             scene.add(sakuraParticles);
+            models.sakura = sakuraParticles;
         }
 
-        // Day/Night Toggle Styles
-        function setNightModeVisuals() {
+        // ==========================================
+        // LIGHTING & ATMOSPHERE TOGGLE
+        // ==========================================
+        function updateLightingVisuals() {
             if (isNight) {
-                scene.background.set(0x0a1128);
+                scene.background.set(0x0a1128); // Deep starry midnight
                 scene.fog.color.set(0x0a1128);
-                ambientLight.intensity = 0.7;
-                dirLight.intensity = 0.5;
-                dirLight.color.set(0x74b9ff); // moonlight
+                ambientLight.intensity = 0.65;
+                dirLight.intensity = 0.55;
+                dirLight.color.set(0x74b9ff); // Silvery moonlight
                 pointLights.forEach(pl => pl.intensity = 2.4);
-                document.getElementById('btnNightMode').innerText = '🌙 Chế Độ: Ban Đêm';
+                if (models.sun) models.sun.material.color.set(0xe0e7ff);
+                document.getElementById('btnNightMode').innerText = '🌙 Ánh Sáng: Ban Đêm';
                 document.getElementById('btnNightMode').classList.add('active');
             } else {
-                scene.background.set(0xe0f2fe);
-                scene.fog.color.set(0xe0f2fe);
-                ambientLight.intensity = 1.3;
-                dirLight.intensity = 1.8;
-                dirLight.color.set(0xfff5e6); // sunlight
-                pointLights.forEach(pl => pl.intensity = 0.4);
-                document.getElementById('btnNightMode').innerText = '☀️ Chế Độ: Ban Ngày';
+                scene.background.set(0xdbeafe); // Soft morning daylight
+                scene.fog.color.set(0xdbeafe);
+                ambientLight.intensity = 1.35;
+                dirLight.intensity = 1.9;
+                dirLight.color.set(0xfff7ed); // Warm golden sun
+                pointLights.forEach(pl => pl.intensity = 0.5);
+                if (models.sun) models.sun.material.color.set(0xff4757); // Red rising sun
+                document.getElementById('btnNightMode').innerText = '☀️ Ánh Sáng: Ban Ngày';
                 document.getElementById('btnNightMode').classList.remove('active');
             }
         }
 
-        // Click detection to trigger Vocabulary Popups
+        // ==========================================
+        // INTERACTIVE RAYCASTING & HOTSPOTS
+        // ==========================================
         function onCanvasClick(e) {
             mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
             mouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
 
             raycaster.setFromCamera(mouse, camera);
-            const intersects = raycaster.intersectObjects(scene.children, true);
+            const hits = raycaster.intersectObjects(scene.children, true);
 
-            if (intersects.length > 0) {
-                let obj = intersects[0].object;
-                let isTorii = false;
-                let isLantern = false;
+            if (hits.length > 0) {
+                let obj = hits[0].object;
+                let foundKey = null;
 
                 while (obj && obj !== scene) {
-                    if (obj.name === "torii") { isTorii = true; break; }
-                    if (obj.name === "lantern") { isLantern = true; break; }
+                    if (obj.name && VOCAB_DATABASE[obj.name]) {
+                        foundKey = obj.name;
+                        break;
+                    }
                     obj = obj.parent;
                 }
 
-                if (isTorii) {
-                    showVocabPopup(HOTSPOTS.torii);
-                } else if (isLantern) {
-                    showVocabPopup(HOTSPOTS.lantern);
+                if (foundKey) {
+                    focusObject(foundKey);
                 }
             }
         }
 
-        function showVocabPopup(item) {
-            currentActiveItem = item;
-            document.getElementById('popupTag').innerText = item.tag;
-            document.getElementById('popupKanji').innerHTML = `${item.kanji} <button class="popup-btn-speak" onclick="speakCurrentPopup()">🔊 Nghe</button>`;
-            document.getElementById('popupRomaji').innerText = item.romaji;
-            document.getElementById('popupVi').innerText = item.vi;
-            document.getElementById('vocabPopup').classList.add('show');
+        function focusObject(key) {
+            const data = VOCAB_DATABASE[key];
+            if (!data) return;
 
-            if (window.speakText) {
+            currentActiveItem = data;
+
+            // Highlight Pill
+            document.querySelectorAll('.obj-pill').forEach(p => p.classList.remove('active'));
+            const activePill = document.getElementById(`pill-${key}`);
+            if (activePill) activePill.classList.add('active');
+
+            // Set Smooth Camera Glide Target
+            targetCamPos.copy(data.camPos);
+            targetLookAt.copy(data.lookAt);
+
+            // Temporarily pause auto-rotate while inspecting object
+            controls.autoRotate = false;
+
+            // Display Card
+            showModal(data, true);
+        }
+
+        function showModal(item, autoPlayAudio = false) {
+            document.getElementById('cardTag').innerText = item.tag;
+            document.getElementById('cardKanji').innerText = item.kanji;
+            document.getElementById('cardKana').innerText = item.kana;
+            document.getElementById('cardMeaning').innerText = item.meaning;
+            document.getElementById('cardCultureNote').innerHTML = `💡 ${item.culture}`;
+            document.getElementById('vocabModal').style.display = 'block';
+
+            if (autoPlayAudio && window.speakText) {
                 window.speakText(item.kanji);
             }
         }
 
-        function closePopup() {
-            document.getElementById('vocabPopup').classList.remove('show');
+        function closeModal() {
+            document.getElementById('vocabModal').style.display = 'none';
         }
 
-        function speakCurrentPopup() {
+        function speakCurrentCard() {
             if (currentActiveItem && window.speakText) {
-                window.speakText(currentActiveItem.kanji);
+                window.speakText(currentActiveItem.kanji, document.getElementById('cardAudioBtn'));
             }
         }
 
-        // Toggles
+        // ==========================================
+        // DOCK CONTROLS
+        // ==========================================
         function toggleAutoRotate() {
             autoRotate = !autoRotate;
             controls.autoRotate = autoRotate;
             const btn = document.getElementById('btnAutoRotate');
-            btn.innerText = `🔄 Tự Động Xoay: ${autoRotate ? 'BẬT' : 'TẮT'}`;
+            btn.innerText = `🔄 Xoay 360°: ${autoRotate ? 'BẬT' : 'TẮT'}`;
             btn.classList.toggle('active', autoRotate);
         }
 
         function toggleNightMode() {
             isNight = !isNight;
-            setNightModeVisuals();
+            updateLightingVisuals();
         }
 
         function toggleSakura() {
             sakuraActive = !sakuraActive;
-            sakuraParticles.visible = sakuraActive;
+            if (sakuraParticles) sakuraParticles.visible = sakuraActive;
             const btn = document.getElementById('btnSakura');
             btn.innerText = `🌸 Mưa Cánh Hoa: ${sakuraActive ? 'BẬT' : 'TẮT'}`;
             btn.classList.toggle('active', sakuraActive);
         }
 
-        function resetCamera() {
-            camera.position.set(0, 3.5, 9.5);
-            controls.target.set(0, 2, 0);
-            controls.update();
+        function resetView() {
+            document.querySelectorAll('.obj-pill').forEach(p => p.classList.remove('active'));
+            targetCamPos.set(0, 3.2, 9.2);
+            targetLookAt.set(0, 1.8, 0);
+            controls.autoRotate = autoRotate;
+            showModal(VOCAB_DATABASE.torii, false);
+            document.getElementById('pill-torii').classList.add('active');
         }
 
         function onWindowResize() {
@@ -729,11 +1029,17 @@
             renderer.setSize(window.innerWidth, window.innerHeight);
         }
 
-        // Main Animation Loop
+        // ==========================================
+        // MAIN ANIMATION LOOP (120 FPS SMOOTH)
+        // ==========================================
         function animate() {
             requestAnimationFrame(animate);
 
-            // Update Sakura Falling Particles
+            // Smooth Camera Glide (Linear Interpolation)
+            camera.position.lerp(targetCamPos, 0.05);
+            controls.target.lerp(targetLookAt, 0.05);
+
+            // Animate Falling Sakura Petals
             if (sakuraActive && sakuraGeo) {
                 const pos = sakuraGeo.attributes.position.array;
                 const spd = sakuraGeo.userData.speeds;
@@ -744,10 +1050,9 @@
                     pos[i * 3 + 1] += spd[i * 3 + 1];
                     pos[i * 3 + 2] += spd[i * 3 + 2];
 
-                    // Loop back to top
                     if (pos[i * 3 + 1] < 0) {
-                        pos[i * 3 + 1] = 8.5;
-                        pos[i * 3] = (Math.random() - 0.5) * 14;
+                        pos[i * 3 + 1] = 9.0;
+                        pos[i * 3] = (Math.random() - 0.5) * 16;
                     }
                 }
                 sakuraGeo.attributes.position.needsUpdate = true;
@@ -757,7 +1062,6 @@
             renderer.render(scene, camera);
         }
 
-        // Start 3D
         window.addEventListener('DOMContentLoaded', init);
     </script>
 </body>
