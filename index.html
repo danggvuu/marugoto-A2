@@ -638,7 +638,7 @@
 
 <div class="container">
     <!-- Global Hub Navigation -->
-            <div class="global-hub-nav">
+                    <div class="global-hub-nav">
         <a href="index.html" class="hub-nav-item active-hub">🌸 Thể TE (～て)</a>
         <a href="the_ru.html" class="hub-nav-item">📘 Thể RU (Từ Điển)</a>
         <a href="kanji_a2.html" class="hub-nav-item">⛩️ Học Kanji & Nét Viết</a>
@@ -648,6 +648,7 @@
         <div class="hub-dropdown">
             <button type="button" class="hub-nav-item" onclick="toggleTestsDropdown(event)">🎯 Ôn Tập & Đề Thi ▾</button>
             <div class="hub-dropdown-menu" id="testsDropdownMenu">
+                <a href="tests/De_Thi_Midterm_A2_1.html" class="hub-drop-link">🎯 Đề Thi Giữa Kỳ Midterm (Bảng M102)</a>
                 <a href="tests/On_Tap_Mini_Test_A2_1_4.html" class="hub-drop-link">🎯 Ôn Tập Bài 1-4 (Mini Test)</a>
                 <a href="tests/On_Tap_Mini_Test_A2_5_8.html" class="hub-drop-link">🎯 Ôn Tập Bài 5-8 (Mini Test)</a>
                 <a href="tests/De_Thi_Thu_Marugoto_A2_5_8.html" class="hub-drop-link">📝 5 Mã Đề Thi Thử (101-105)</a>
@@ -900,7 +901,6 @@
         <p>Phát triển cho lớp học tiếng Nhật Marugoto A2-1 • Chúc các bạn luyện tập tốt!</p>
     </footer>
 </div>
-
 <script>
     // 56 Verbs data from the classroom assignment
     const verbsData = [
@@ -1179,7 +1179,6 @@
     });
 </script>
 
-
 <script>
 
 
@@ -1214,26 +1213,9 @@ document.addEventListener('keydown', function(e) {
 
 </script>
 \n<script>
-    function toggleTestsDropdown(e) {
-        if (e) e.stopPropagation();
-        const m = document.getElementById('testsDropdownMenu');
-        if (m) m.classList.toggle('show');
-        const lm = document.getElementById('lessonsDropdownMenu');
-        if (lm) lm.classList.remove('show');
-    }
-    function toggleLessonsDropdown(e) {
-        if (e) e.stopPropagation();
-        const m = document.getElementById('lessonsDropdownMenu');
-        if (m) m.classList.toggle('show');
-        const tm = document.getElementById('testsDropdownMenu');
-        if (tm) tm.classList.remove('show');
-    }
-    window.addEventListener('click', () => {
-        const lm = document.getElementById('lessonsDropdownMenu');
-        if (lm) lm.classList.remove('show');
-        const tm = document.getElementById('testsDropdownMenu');
-        if (tm) tm.classList.remove('show');
-    });
+    
+    
+    
 </script>
 </body>
 </html>

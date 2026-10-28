@@ -161,6 +161,7 @@ def sync_lessons():
         <div class="hub-dropdown">
             <button type="button" class="hub-nav-item" onclick="toggleTestsDropdown(event)">🎯 Ôn Tập & Đề Thi ▾</button>
             <div class="hub-dropdown-menu" id="testsDropdownMenu">
+                <a href="../tests/De_Thi_Midterm_A2_1.html" class="hub-drop-link">🎯 Đề Thi Giữa Kỳ Midterm (Bảng M102)</a>
                 <a href="../tests/On_Tap_Mini_Test_A2_1_4.html" class="hub-drop-link">🎯 Ôn Tập Bài 1-4 (Mini Test)</a>
                 <a href="../tests/On_Tap_Mini_Test_A2_5_8.html" class="hub-drop-link">🎯 Ôn Tập Bài 5-8 (Mini Test)</a>
                 <a href="../tests/De_Thi_Thu_Marugoto_A2_5_8.html" class="hub-drop-link">📝 5 Mã Đề Thi Thử (101-105)</a>
@@ -187,7 +188,8 @@ def sync_lessons():
 
         # Inject unified DROPDOWN_JS before </body>
         if '</body>' in c:
-            c = c.replace('</body>', f'<script>{DROPDOWN_JS}</script>\n</body>', 1)
+            if 'toggleTestsDropdown' not in c:
+                c = c.replace('</body>', f'<script>{DROPDOWN_JS}</script>\n</body>', 1)
 
         with open(fn, 'w', encoding='utf-8') as f:
             f.write(c)
@@ -206,6 +208,7 @@ def sync_tests():
 
         tests_drop = []
         for t_file, t_title in [
+            ('De_Thi_Midterm_A2_1.html', '🎯 Đề Thi Giữa Kỳ Midterm (Bảng M102)'),
             ('On_Tap_Mini_Test_A2_1_4.html', '🎯 Ôn Tập Bài 1-4 (Mini Test)'),
             ('On_Tap_Mini_Test_A2_5_8.html', '🎯 Ôn Tập Bài 5-8 (Mini Test)'),
             ('De_Thi_Thu_Marugoto_A2_5_8.html', '📝 5 Mã Đề Thi Thử (101-105)'),
@@ -264,7 +267,8 @@ def sync_tests():
         c = re.sub(r'window\.addEventListener\(\'click\',\s*\(\)\s*=>\s*\{[^}]*lessonsDropdownMenu[^}]*\}\);', '', c)
 
         if '</body>' in c:
-            c = c.replace('</body>', f'<script>{DROPDOWN_JS}</script>\n</body>', 1)
+            if 'toggleTestsDropdown' not in c:
+                c = c.replace('</body>', f'<script>{DROPDOWN_JS}</script>\n</body>', 1)
 
         with open(fn, 'w', encoding='utf-8') as f:
             f.write(c)
@@ -301,6 +305,7 @@ def sync_roots():
         <div class="hub-dropdown">
             <button type="button" class="hub-nav-item" onclick="toggleTestsDropdown(event)">🎯 Ôn Tập & Đề Thi ▾</button>
             <div class="hub-dropdown-menu" id="testsDropdownMenu">
+                <a href="tests/De_Thi_Midterm_A2_1.html" class="hub-drop-link">🎯 Đề Thi Giữa Kỳ Midterm (Bảng M102)</a>
                 <a href="tests/On_Tap_Mini_Test_A2_1_4.html" class="hub-drop-link">🎯 Ôn Tập Bài 1-4 (Mini Test)</a>
                 <a href="tests/On_Tap_Mini_Test_A2_5_8.html" class="hub-drop-link">🎯 Ôn Tập Bài 5-8 (Mini Test)</a>
                 <a href="tests/De_Thi_Thu_Marugoto_A2_5_8.html" class="hub-drop-link">📝 5 Mã Đề Thi Thử (101-105)</a>
@@ -331,7 +336,8 @@ def sync_roots():
         c = re.sub(r'window\.addEventListener\(\'click\',\s*\(\)\s*=>\s*\{[^}]*lessonsDropdownMenu[^}]*\}\);', '', c)
 
         if '</body>' in c:
-            c = c.replace('</body>', f'<script>{DROPDOWN_JS}</script>\n</body>', 1)
+            if 'toggleTestsDropdown' not in c:
+                c = c.replace('</body>', f'<script>{DROPDOWN_JS}</script>\n</body>', 1)
 
         with open(fn, 'w', encoding='utf-8') as f:
             f.write(c)
