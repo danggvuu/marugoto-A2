@@ -1,0 +1,1033 @@
+# -*- coding: utf-8 -*-
+"""
+Data for Marugoto A2-2 Lesson 15:
+Topic 8: けんこう (Sức khỏe)
+Bài 15: Cơ Thể & Triệu Chứng Bệnh (体操するといいですよ)
+"""
+
+def make_svg(title, emoji, c1="#059669", c2="#047857"):
+    safe_id = "".join(c for c in title if c.isalnum()) or "card"
+    return f'''<svg viewBox="0 0 240 120" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g_{safe_id}" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="{c1}"/>
+      <stop offset="100%" stop-color="{c2}"/>
+    </linearGradient>
+  </defs>
+  <rect width="240" height="120" rx="14" fill="url(#g_{safe_id})"/>
+  <circle cx="120" cy="50" r="30" fill="rgba(255,255,255,0.2)"/>
+  <text x="120" y="60" text-anchor="middle" font-size="34">{emoji}</text>
+  <text x="120" y="105" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="800" font-family="system-ui, -apple-system, sans-serif">{title}</text>
+</svg>'''
+
+CFG_15 = {
+    "num": 15,
+    "title_vi": "Cơ Thể & Triệu Chứng Bệnh",
+    "title_jp": "体操するといいですよ",
+    "topic_name": "Sức Khỏe (けんこう)",
+    "topic_badge": "TOPIC 8: けんこう • BÀI 15",
+    "desc": "Làm chủ từ vựng về các bộ phận cơ thể con người, cách diễn tả các triệu chứng đau ốm, mệt mỏi với cấu trúc ～んです, đưa ra lời khuyên chăm sóc sức khỏe hữu ích (V-るといいですよ), dặn dò đừng làm quá sức (V-ないでください) và câu chúc bình phục lịch thiệp.",
+
+    "grammars": [
+        {
+            "title": "Trình bày triệu chứng & Giải thích lý do: ～んです",
+            "icon": "🏥",
+            "tag": "Giải thích bệnh trạng",
+            "color": "#ef4444",
+            "color_dark": "#b91c1c",
+            "intro": "Dùng để giải thích tình trạng sức khỏe hoặc lý do khiến cơ thể khó chịu, mệt mỏi khi được người khác hỏi thăm (どうしたんですか).",
+            "formula": "Động từ thể Thông thường + んです<br>Tính từ đuôi い + んです (痛いんです)<br>Tính từ đuôi な / Danh từ + なんです (病気なんです)",
+            "meaning": "Vì... / Tôi bị... đấy (nhấn mạnh tình trạng thực tế để người nghe thấu hiểu).",
+            "examples": [
+                {"jp": "どうしたんですか。―― ちょっと 頭が 痛いんです。", "vi": "Bạn bị làm sao thế? ―― Tôi bị đau đầu một chút."},
+                {"jp": "昨日から 熱が あって、喉も 痛いんです。", "vi": "Từ hôm qua tôi đã bị sốt, cổ họng cũng đau nữa."},
+                {"jp": "昨夜 あまり 眠れなかったんです。", "vi": "Đêm qua tôi hầu như không ngủ được."}
+            ]
+        },
+        {
+            "title": "Đưa ra lời khuyên hữu ích cho sức khỏe: V-るといいですよ",
+            "icon": "💊",
+            "tag": "Lời khuyên sức khỏe",
+            "color": "#059669",
+            "color_dark": "#047857",
+            "intro": "Dùng để gợi ý hoặc khuyên đối phương thực hiện một biện pháp hữu ích để cải thiện sức khỏe hoặc giảm bớt cơn đau.",
+            "formula": "Động từ thể Từ điển (V-る) + といいですよ",
+            "meaning": "Làm ... thì tốt đấy nhé! (Lời khuyên thân thiện, không mang tính ép buộc).",
+            "table": {
+                "headers": ["Triệu chứng", "Lời khuyên V-るといいですよ", "Ý nghĩa tiếng Việt"],
+                "rows": [
+                    ["肩が 痛い (Đau vai)", "肩を 回すと いいですよ", "Xoay nhẹ vai thì tốt đấy"],
+                    ["かぜを ひいた (Bị cảm)", "この 薬を 飲むと いいですよ", "Uống thuốc này thì tốt đấy"],
+                    ["つかれている (Mệt mỏi)", "お風呂に 入ると いいですよ", "Ngâm bồn nước ấm thì tốt đấy"],
+                    ["眠れない (Mất ngủ)", "あたたかい 牛乳を 飲むと いいですよ", "Uống sữa ấm thì tốt đấy"]
+                ]
+            },
+            "examples": [
+                {"jp": "寝る前に、この 薬を 飲むと いいですよ。", "vi": "Trước khi đi ngủ, bạn uống viên thuốc này thì tốt đấy nhé."},
+                {"jp": "こうやって 肩を ゆっくり 回すと いいですよ。", "vi": "Cứ làm như thế này, xoay vai từ từ thì sẽ dễ chịu đấy."},
+                {"jp": "熱が あるときは、早く 休むと いいですよ。", "vi": "Khi bị sốt thì bạn nên nghỉ ngơi sớm thì tốt hơn đấy."}
+            ]
+        },
+        {
+            "title": "Khuyên can, dặn dò đừng làm quá sức: V-ないでください",
+            "icon": "⚠️",
+            "tag": "Dặn dò chu đáo",
+            "color": "#ea580c",
+            "color_dark": "#c2410c",
+            "intro": "Dùng để nhắc nhở người bệnh hoặc đồng nghiệp không nên làm những việc gây hại cho cơ thể khi đang ốm đau.",
+            "formula": "Động từ thể Phủ định ngắn (V-ない) + でください",
+            "meaning": "Xin đừng... nhé! Câu quen thuộc nơi công sở: 「あまり無理をしないでください」 (Đừng cố quá sức nhé).",
+            "examples": [
+                {"jp": "まだ 熱が ありますから、あまり 無理を しないでくださいね。", "vi": "Vẫn còn sốt nên bạn đừng làm việc quá sức nhé."},
+                {"jp": "おなかが 痛いときは、冷たいものを 飲まないでください。", "vi": "Khi bị đau bụng thì xin đừng uống đồ uống lạnh nhé."},
+                {"jp": "今日は 残業しないで、早く 帰ってください。", "vi": "Hôm nay đừng làm thêm giờ nữa, hãy về nhà sớm đi."}
+            ]
+        }
+    ],
+
+    "vocab": [
+        {
+                "id": 1,
+                "cat": "body",
+                "catName": "Bộ phận cơ thể",
+                "badge": "Đầu",
+                "jp": "あたま",
+                "kana": "あたま",
+                "kanji": "頭",
+                "romaji": "atama",
+                "vi": "Đầu",
+                "exJp": "頭が 痛いんです。",
+                "exVi": "Tôi bị đau đầu.",
+                "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_837592\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#3b82f6\"/>\n      <stop offset=\"100%\" stop-color=\"#1d4ed8\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_837592)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🧠</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">ĐẦU</text>\n</svg>"
+        },
+        {
+                "id": 2,
+                "cat": "body",
+                "catName": "Bộ phận cơ thể",
+                "badge": "Khuôn mặt",
+                "jp": "かお",
+                "kana": "かお",
+                "kanji": "顔",
+                "romaji": "kao",
+                "vi": "Khuôn mặt",
+                "exJp": "朝、顔を 洗います。",
+                "exVi": "Rửa mặt vào buổi sáng.",
+                "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_17671\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#3b82f6\"/>\n      <stop offset=\"100%\" stop-color=\"#1d4ed8\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_17671)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🙂</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">KHUÔN MẶT</text>\n</svg>"
+        },
+        {
+                "id": 3,
+                "cat": "body",
+                "catName": "Bộ phận cơ thể",
+                "badge": "Mắt",
+                "jp": "め",
+                "kana": "め",
+                "kanji": "目",
+                "romaji": "me",
+                "vi": "Mắt",
+                "exJp": "目が 疲れています。",
+                "exVi": "Mắt tôi đang bị mỏi.",
+                "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_800432\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#3b82f6\"/>\n      <stop offset=\"100%\" stop-color=\"#1d4ed8\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_800432)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">👀</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">MẮT</text>\n</svg>"
+        },
+        {
+                "id": 4,
+                "cat": "body",
+                "catName": "Bộ phận cơ thể",
+                "badge": "Mũi",
+                "jp": "はな",
+                "kana": "はな",
+                "kanji": "鼻",
+                "romaji": "hana",
+                "vi": "Mũi",
+                "exJp": "鼻が つまっています。",
+                "exVi": "Mũi tôi đang bị nghẹt.",
+                "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_504125\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#3b82f6\"/>\n      <stop offset=\"100%\" stop-color=\"#1d4ed8\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_504125)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">👃</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">MŨI</text>\n</svg>"
+        },
+        {
+                "id": 5,
+                "cat": "body",
+                "catName": "Bộ phận cơ thể",
+                "badge": "Miệng",
+                "jp": "くち",
+                "kana": "くち",
+                "kanji": "口",
+                "romaji": "kuchi",
+                "vi": "Miệng",
+                "exJp": "口を 大きく 開けてください。",
+                "exVi": "Xin hãy há to miệng ra.",
+                "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_912290\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#3b82f6\"/>\n      <stop offset=\"100%\" stop-color=\"#1d4ed8\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_912290)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">👄</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">MIỆNG</text>\n</svg>"
+        },
+        {
+                "id": 6,
+                "cat": "body",
+                "catName": "Bộ phận cơ thể",
+                "badge": "Răng",
+                "jp": "は",
+                "kana": "は",
+                "kanji": "歯",
+                "romaji": "ha",
+                "vi": "Răng",
+                "exJp": "食後に 歯を みがきます。",
+                "exVi": "Đánh răng sau bữa ăn.",
+                "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_857082\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#3b82f6\"/>\n      <stop offset=\"100%\" stop-color=\"#1d4ed8\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_857082)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🦷</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">RĂNG</text>\n</svg>"
+        },
+        {
+                "id": 7,
+                "cat": "body",
+                "catName": "Bộ phận cơ thể",
+                "badge": "Tai",
+                "jp": "みみ",
+                "kana": "みみ",
+                "kanji": "耳",
+                "romaji": "mimi",
+                "vi": "Tai",
+                "exJp": "耳が 痛いです。",
+                "exVi": "Tai tôi bị đau.",
+                "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_47517\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#3b82f6\"/>\n      <stop offset=\"100%\" stop-color=\"#1d4ed8\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_47517)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">👂</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">TAI</text>\n</svg>"
+        },
+        {
+                "id": 8,
+                "cat": "body",
+                "catName": "Bộ phận cơ thể",
+                "badge": "Tóc",
+                "jp": "かみ",
+                "kana": "かみ",
+                "kanji": "髪",
+                "romaji": "kami",
+                "vi": "Tóc",
+                "exJp": "髪が 長くなりました。",
+                "exVi": "Tóc tôi đã dài rồi.",
+                "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_243693\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#3b82f6\"/>\n      <stop offset=\"100%\" stop-color=\"#1d4ed8\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_243693)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">💇</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">TÓC</text>\n</svg>"
+        },
+        {
+                "id": 9,
+                "cat": "body",
+                "catName": "Bộ phận cơ thể",
+                "badge": "Cơ thể",
+                "jp": "からだ",
+                "kana": "からだ",
+                "kanji": "体",
+                "romaji": "karada",
+                "vi": "Cơ thể",
+                "exJp": "体に 気をつけてください。",
+                "exVi": "Xin hãy chú ý giữ gìn cơ thể nhé.",
+                "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_781703\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#3b82f6\"/>\n      <stop offset=\"100%\" stop-color=\"#1d4ed8\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_781703)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🏃</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">CƠ THỂ</text>\n</svg>"
+        },
+        {
+                "id": 10,
+                "cat": "body",
+                "catName": "Bộ phận cơ thể",
+                "badge": "Cổ",
+                "jp": "くび",
+                "kana": "くび",
+                "kanji": "首",
+                "romaji": "kubi",
+                "vi": "Cổ",
+                "exJp": "首が こっています。",
+                "exVi": "Cổ tôi bị mỏi cứng.",
+                "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_757285\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#3b82f6\"/>\n      <stop offset=\"100%\" stop-color=\"#1d4ed8\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_757285)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🧣</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">CỔ</text>\n</svg>"
+        },
+        {
+                "id": 11,
+                "cat": "body",
+                "catName": "Bộ phận cơ thể",
+                "badge": "Vai",
+                "jp": "かた",
+                "kana": "かた",
+                "kanji": "肩",
+                "romaji": "kata",
+                "vi": "Vai",
+                "exJp": "肩を まわします。",
+                "exVi": "Xoay bả vai.",
+                "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_296627\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#3b82f6\"/>\n      <stop offset=\"100%\" stop-color=\"#1d4ed8\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_296627)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">💪</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">VAI</text>\n</svg>"
+        },
+        {
+                "id": 12,
+                "cat": "body",
+                "catName": "Bộ phận cơ thể",
+                "badge": "Ngực",
+                "jp": "むね",
+                "kana": "むね",
+                "kanji": "胸",
+                "romaji": "mune",
+                "vi": "Ngực",
+                "exJp": "胸が 苦しいです。",
+                "exVi": "Ngực tôi cảm thấy tức khó thở.",
+                "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_520055\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#3b82f6\"/>\n      <stop offset=\"100%\" stop-color=\"#1d4ed8\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_520055)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🫁</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">NGỰC</text>\n</svg>"
+        },
+        {
+                "id": 13,
+                "cat": "body",
+                "catName": "Bộ phận cơ thể",
+                "badge": "Bụng",
+                "jp": "おなか",
+                "kana": "おなか",
+                "kanji": "お腹",
+                "romaji": "onaka",
+                "vi": "Bụng",
+                "exJp": "お腹が 痛いです。",
+                "exVi": "Tôi bị đau bụng.",
+                "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_443435\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#3b82f6\"/>\n      <stop offset=\"100%\" stop-color=\"#1d4ed8\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_443435)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🤰</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">BỤNG</text>\n</svg>"
+        },
+        {
+                "id": 14,
+                "cat": "body",
+                "catName": "Bộ phận cơ thể",
+                "badge": "Lưng",
+                "jp": "せなか",
+                "kana": "せなか",
+                "kanji": "背中",
+                "romaji": "senaka",
+                "vi": "Lưng",
+                "exJp": "背中が 痛いです。",
+                "exVi": "Tôi bị đau lưng.",
+                "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_211289\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#3b82f6\"/>\n      <stop offset=\"100%\" stop-color=\"#1d4ed8\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_211289)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🚶</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">LƯNG</text>\n</svg>"
+        },
+        {
+                "id": 15,
+                "cat": "body",
+                "catName": "Bộ phận cơ thể",
+                "badge": "Eo",
+                "jp": "こし",
+                "kana": "こし",
+                "kanji": "腰",
+                "romaji": "koshi",
+                "vi": "Eo, thắt lưng",
+                "exJp": "腰を まげないでください。",
+                "exVi": "Đừng cúi gập thắt lưng.",
+                "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_740494\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#3b82f6\"/>\n      <stop offset=\"100%\" stop-color=\"#1d4ed8\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_740494)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🧍</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">THẮT LƯNG</text>\n</svg>"
+        },
+        {
+                "id": 16,
+                "cat": "body",
+                "catName": "Bộ phận cơ thể",
+                "badge": "Bàn tay",
+                "jp": "て",
+                "kana": "て",
+                "kanji": "手",
+                "romaji": "te",
+                "vi": "Bàn tay",
+                "exJp": "手を きれいに 洗います。",
+                "exVi": "Rửa tay thật sạch.",
+                "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_491681\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#3b82f6\"/>\n      <stop offset=\"100%\" stop-color=\"#1d4ed8\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_491681)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">✋</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">BÀN TAY</text>\n</svg>"
+        },
+        {
+                "id": 17,
+                "cat": "body",
+                "catName": "Bộ phận cơ thể",
+                "badge": "Cánh tay",
+                "jp": "うで",
+                "kana": "うで",
+                "kanji": "腕",
+                "romaji": "ude",
+                "vi": "Cánh tay",
+                "exJp": "腕を 上にあげます。",
+                "exVi": "Giơ cánh tay lên trên.",
+                "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_142695\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#3b82f6\"/>\n      <stop offset=\"100%\" stop-color=\"#1d4ed8\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_142695)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">💪</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">CÁNH TAY</text>\n</svg>"
+        },
+        {
+                "id": 18,
+                "cat": "body",
+                "catName": "Bộ phận cơ thể",
+                "badge": "Ngón tay",
+                "jp": "ゆび",
+                "kana": "ゆび",
+                "kanji": "指",
+                "romaji": "yubi",
+                "vi": "Ngón tay, ngón chân",
+                "exJp": "指を 切ってしまいました。",
+                "exVi": "Tôi lỡ cắt vào ngón tay mất rồi.",
+                "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_318772\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#3b82f6\"/>\n      <stop offset=\"100%\" stop-color=\"#1d4ed8\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_318772)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">☝️</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">NGÓN TAY</text>\n</svg>"
+        },
+        {
+                "id": 19,
+                "cat": "body",
+                "catName": "Bộ phận cơ thể",
+                "badge": "Bàn chân",
+                "jp": "あし",
+                "kana": "あし",
+                "kanji": "足",
+                "romaji": "ashi",
+                "vi": "Bàn chân, cẳng chân",
+                "exJp": "足が つかれました。",
+                "exVi": "Chân tôi mỏi rã rời.",
+                "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_407188\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#3b82f6\"/>\n      <stop offset=\"100%\" stop-color=\"#1d4ed8\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_407188)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🦶</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">BÀN CHÂN</text>\n</svg>"
+        },
+        {
+                "id": 20,
+                "cat": "health",
+                "catName": "Sức khỏe & Khám bệnh",
+                "badge": "Tình trạng sức khỏe",
+                "jp": "ちょうし",
+                "kana": "ちょうし",
+                "kanji": "調子",
+                "romaji": "choushi",
+                "vi": "Tình trạng sức khỏe",
+                "exJp": "体の 調子は どうですか。",
+                "exVi": "Tình trạng cơ thể bạn thế nào?",
+                "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_682820\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#3b82f6\"/>\n      <stop offset=\"100%\" stop-color=\"#1d4ed8\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_682820)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🩺</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">TÌNH TRẠNG</text>\n</svg>"
+        },
+        {
+                "id": 21,
+                "cat": "health",
+                "catName": "Sức khỏe & Khám bệnh",
+                "badge": "Thể trạng cơ thể",
+                "jp": "たいちょう",
+                "kana": "たいちょう",
+                "kanji": "体調",
+                "romaji": "taichou",
+                "vi": "Thể trạng cơ thể",
+                "exJp": "体調を くずしました。",
+                "exVi": "Tôi bị suy giảm thể trạng.",
+                "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_440627\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#3b82f6\"/>\n      <stop offset=\"100%\" stop-color=\"#1d4ed8\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_440627)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🤒</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">THỂ TRẠNG</text>\n</svg>"
+        },
+        {
+                "id": 22,
+                "cat": "health",
+                "catName": "Sức khỏe & Khám bệnh",
+                "badge": "Bị đau...",
+                "jp": "～が いたい",
+                "kana": "～が いたい",
+                "kanji": "～が痛い",
+                "romaji": "~ga itai",
+                "vi": "Bị đau...",
+                "exJp": "のどが 痛いです。",
+                "exVi": "Cổ họng tôi bị đau.",
+                "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_192095\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#3b82f6\"/>\n      <stop offset=\"100%\" stop-color=\"#1d4ed8\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_192095)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">😣</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">BỊ ĐAU</text>\n</svg>"
+        },
+        {
+                "id": 23,
+                "cat": "health",
+                "catName": "Sức khỏe & Khám bệnh",
+                "badge": "Tâm trạng thoải mái",
+                "jp": "きもちが いい",
+                "kana": "きもちが いい",
+                "kanji": "気持ちがいい",
+                "romaji": "kimochi ga ii",
+                "vi": "Tâm trạng thoải mái, sảng khoái",
+                "exJp": "おふろは 気持ちがいいです。",
+                "exVi": "Ngâm bồn tắm thật sảng khoái.",
+                "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_728474\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#3b82f6\"/>\n      <stop offset=\"100%\" stop-color=\"#1d4ed8\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_728474)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🍃</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">SẢNG KHOÁI</text>\n</svg>"
+        },
+        {
+                "id": 24,
+                "cat": "health",
+                "catName": "Sức khỏe & Khám bệnh",
+                "badge": "Thể trạng sức khỏe tốt",
+                "jp": "たいちょうが いい",
+                "kana": "たいちょうが いい",
+                "kanji": "体調がいい",
+                "romaji": "taichou ga ii",
+                "vi": "Thể trạng sức khỏe tốt",
+                "exJp": "きょうは 体調がいいです。",
+                "exVi": "Hôm nay thể trạng tôi rất tốt.",
+                "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_620480\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#3b82f6\"/>\n      <stop offset=\"100%\" stop-color=\"#1d4ed8\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_620480)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">😊</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">SỨC KHỎE TỐT</text>\n</svg>"
+        },
+        {
+                "id": 25,
+                "cat": "health",
+                "catName": "Sức khỏe & Khám bệnh",
+                "badge": "Thể trạng sức khỏe không tốt",
+                "jp": "たいちょうが わるい",
+                "kana": "たいちょうが わるい",
+                "kanji": "体調が悪い",
+                "romaji": "taichou ga warui",
+                "vi": "Thể trạng sức khỏe không tốt",
+                "exJp": "体調が悪いので 休みます。",
+                "exVi": "Vì sức khỏe không tốt nên tôi xin nghỉ.",
+                "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_336769\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#3b82f6\"/>\n      <stop offset=\"100%\" stop-color=\"#1d4ed8\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_336769)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">😷</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">SỨC KHỎE XẤU</text>\n</svg>"
+        },
+        {
+                "id": 26,
+                "cat": "health",
+                "catName": "Sức khỏe & Khám bệnh",
+                "badge": "Không ngủ được",
+                "jp": "ねられません",
+                "kana": "ねられません",
+                "kanji": "寝られません",
+                "romaji": "neraremasen",
+                "vi": "Không ngủ được, mất ngủ",
+                "exJp": "ゆうべは ねられませんでした。",
+                "exVi": "Đêm qua tôi không tài nào chợp mắt được.",
+                "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_421182\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#3b82f6\"/>\n      <stop offset=\"100%\" stop-color=\"#1d4ed8\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_421182)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🥱</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">MẤT NGỦ</text>\n</svg>"
+        },
+        {
+                "id": 27,
+                "cat": "health",
+                "catName": "Sức khỏe & Khám bệnh",
+                "badge": "Mệt mỏi",
+                "jp": "つかれます",
+                "kana": "つかれます",
+                "kanji": "疲れます",
+                "romaji": "tsukaremasu",
+                "vi": "Mệt mỏi, kiệt sức",
+                "exJp": "しごとで つかれました。",
+                "exVi": "Mệt mỏi vì công việc.",
+                "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_420922\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#3b82f6\"/>\n      <stop offset=\"100%\" stop-color=\"#1d4ed8\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_420922)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">😫</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">MỆT MỎI</text>\n</svg>"
+        },
+        {
+                "id": 28,
+                "cat": "exercise",
+                "catName": "Vận động & Thể dục",
+                "badge": "Giơ cánh tay lên",
+                "jp": "うでを あげます",
+                "kana": "うでを あげます",
+                "kanji": "腕を上げます",
+                "romaji": "ude wo agemasu",
+                "vi": "Giơ cánh tay lên",
+                "exJp": "息をすいながら 腕を上げます。",
+                "exVi": "Vừa hít vào vừa giơ tay lên.",
+                "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_146690\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#3b82f6\"/>\n      <stop offset=\"100%\" stop-color=\"#1d4ed8\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_146690)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🙆‍♂️</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">GIƠ TAY</text>\n</svg>"
+        },
+        {
+                "id": 29,
+                "cat": "exercise",
+                "catName": "Vận động & Thể dục",
+                "badge": "Xoay bả vai",
+                "jp": "かたを まわします",
+                "kana": "かたを まわします",
+                "kanji": "肩を回します",
+                "romaji": "kata wo mawashimasu",
+                "vi": "Xoay bả vai",
+                "exJp": "ゆっくり 肩を回してください。",
+                "exVi": "Hãy xoay bả vai một cách từ từ.",
+                "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_459230\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#3b82f6\"/>\n      <stop offset=\"100%\" stop-color=\"#1d4ed8\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_459230)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🔄</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">XOAY VAI</text>\n</svg>"
+        },
+        {
+                "id": 30,
+                "cat": "exercise",
+                "catName": "Vận động & Thể dục",
+                "badge": "Nghiêng bẻ cổ",
+                "jp": "くびを まげます",
+                "kana": "くびを まげます",
+                "kanji": "首を曲げます",
+                "romaji": "kubi wo magemasu",
+                "vi": "Nghiêng bẻ cổ",
+                "exJp": "左右に 首を曲げます。",
+                "exVi": "Nghiêng cổ sang hai bên trái phải.",
+                "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_386541\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#3b82f6\"/>\n      <stop offset=\"100%\" stop-color=\"#1d4ed8\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_386541)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">↔️</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">BẺ CỔ</text>\n</svg>"
+        },
+        {
+                "id": 31,
+                "cat": "exercise",
+                "catName": "Vận động & Thể dục",
+                "badge": "Hít không khí vào",
+                "jp": "いきを すいます",
+                "kana": "いきを すいます",
+                "kanji": "息を吸います",
+                "romaji": "iki wo suimasu",
+                "vi": "Hít không khí vào",
+                "exJp": "はなから 息を吸います。",
+                "exVi": "Hít không khí vào bằng mũi.",
+                "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_937631\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#3b82f6\"/>\n      <stop offset=\"100%\" stop-color=\"#1d4ed8\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_937631)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">💨</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">HÍT VÀO</text>\n</svg>"
+        },
+        {
+                "id": 32,
+                "cat": "exercise",
+                "catName": "Vận động & Thể dục",
+                "badge": "Thở không khí ra",
+                "jp": "いきを はきます",
+                "kana": "いきを はきます",
+                "kanji": "息を吐きます",
+                "romaji": "iki wo hakimasu",
+                "vi": "Thở không khí ra",
+                "exJp": "くちから 息を吐きます。",
+                "exVi": "Thở không khí ra bằng miệng.",
+                "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_935717\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#3b82f6\"/>\n      <stop offset=\"100%\" stop-color=\"#1d4ed8\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_935717)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🌬️</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">THỞ RA</text>\n</svg>"
+        },
+        {
+                "id": 33,
+                "cat": "exercise",
+                "catName": "Vận động & Thể dục",
+                "badge": "Hít thở sâu",
+                "jp": "しんこきゅう",
+                "kana": "しんこきゅう",
+                "kanji": "深呼吸",
+                "romaji": "shinkokyuu",
+                "vi": "Hít thở sâu",
+                "exJp": "深呼吸を 3回 します。",
+                "exVi": "Hít thở sâu 3 lần.",
+                "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_675135\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#3b82f6\"/>\n      <stop offset=\"100%\" stop-color=\"#1d4ed8\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_675135)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🧘</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">HÍT THỞ SÂU</text>\n</svg>"
+        },
+        {
+                "id": 34,
+                "cat": "health",
+                "catName": "Sức khỏe & Khám bệnh",
+                "badge": "Sức khỏe lành mạnh",
+                "jp": "けんこう",
+                "kana": "けんこう",
+                "kanji": "健康",
+                "romaji": "kenkou",
+                "vi": "Sức khỏe lành mạnh",
+                "exJp": "健康の ために 野菜を食べます。",
+                "exVi": "Ăn rau vì sức khỏe tốt.",
+                "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_839422\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#3b82f6\"/>\n      <stop offset=\"100%\" stop-color=\"#1d4ed8\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_839422)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🥗</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">SỨC KHỎE</text>\n</svg>"
+        },
+        {
+                "id": 35,
+                "cat": "exercise",
+                "catName": "Vận động & Thể dục",
+                "badge": "Bài tập thể dục",
+                "jp": "たいそう",
+                "kana": "たいそう",
+                "kanji": "体操",
+                "romaji": "taisou",
+                "vi": "Bài tập thể dục",
+                "exJp": "毎朝 ラジオ体操を します。",
+                "exVi": "Mỗi sáng đều tập bài thể dục theo đài phát thanh.",
+                "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_800977\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#3b82f6\"/>\n      <stop offset=\"100%\" stop-color=\"#1d4ed8\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_800977)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🤸</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">TẬP THỂ DỤC</text>\n</svg>"
+        },
+        {
+                "id": 36,
+                "cat": "advice",
+                "catName": "Lời khuyên & Chăm sóc",
+                "badge": "Lời khuyên y tế/sức khỏe",
+                "jp": "アドバイス",
+                "kana": "アドバイス",
+                "kanji": "アドバイス",
+                "romaji": "adobaisu",
+                "vi": "Lời khuyên y tế/sức khỏe",
+                "exJp": "医者の アドバイスを 聞きます。",
+                "exVi": "Lắng nghe lời khuyên của bác sĩ.",
+                "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_372851\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#3b82f6\"/>\n      <stop offset=\"100%\" stop-color=\"#1d4ed8\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_372851)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">💡</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">LỜI KHUYÊN</text>\n</svg>"
+        },
+        {
+                "id": 37,
+                "cat": "health",
+                "catName": "Sức khỏe & Khám bệnh",
+                "badge": "Căng thẳng",
+                "jp": "ストレス",
+                "kana": "ストレス",
+                "kanji": "ストレス",
+                "romaji": "sutoresu",
+                "vi": "Căng thẳng, stress",
+                "exJp": "ストレスを たためないでください。",
+                "exVi": "Đừng để bị tích tụ căng thẳng quá nhé.",
+                "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_57650\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#3b82f6\"/>\n      <stop offset=\"100%\" stop-color=\"#1d4ed8\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_57650)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">⚡</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">STRESS</text>\n</svg>"
+        },
+        {
+                "id": 38,
+                "cat": "advice",
+                "catName": "Lời khuyên & Chăm sóc",
+                "badge": "Dạo gần đây",
+                "jp": "さいきん",
+                "kana": "さいきん",
+                "kanji": "最近",
+                "romaji": "saikin",
+                "vi": "Dạo gần đây",
+                "exJp": "最近 忙しいです。",
+                "exVi": "Dạo gần đây tôi khá bận rộn.",
+                "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_341169\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#3b82f6\"/>\n      <stop offset=\"100%\" stop-color=\"#1d4ed8\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_341169)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">📅</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">DẠO GẦN ĐÂY</text>\n</svg>"
+        },
+        {
+                "id": 39,
+                "cat": "advice",
+                "catName": "Lời khuyên & Chăm sóc",
+                "badge": "Đột ngột",
+                "jp": "きゅうに",
+                "kana": "きゅうに",
+                "kanji": "急に",
+                "romaji": "kyuuni",
+                "vi": "Đột ngột, bất thình lình",
+                "exJp": "急に 熱が 出ました。",
+                "exVi": "Tôi đột ngột bị phát sốt.",
+                "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_682394\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#3b82f6\"/>\n      <stop offset=\"100%\" stop-color=\"#1d4ed8\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_682394)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">⚡</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">ĐỘT NGỘT</text>\n</svg>"
+        },
+        {
+                "id": 40,
+                "cat": "exercise",
+                "catName": "Vận động & Thể dục",
+                "badge": "Làm như thế này",
+                "jp": "こうやって",
+                "kana": "こうやって",
+                "kanji": "こうやって",
+                "romaji": "kou yatte",
+                "vi": "Làm như thế này",
+                "exJp": "こうやって 肩を おします。",
+                "exVi": "Bấm vào vai như thế này nè.",
+                "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_249453\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#3b82f6\"/>\n      <stop offset=\"100%\" stop-color=\"#1d4ed8\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_249453)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">👉</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">LÀM THẾ NÀY</text>\n</svg>"
+        },
+        {
+                "id": 41,
+                "cat": "advice",
+                "catName": "Lời khuyên & Chăm sóc",
+                "badge": "Trước tiên",
+                "jp": "まず",
+                "kana": "まず",
+                "kanji": "先ず",
+                "romaji": "mazu",
+                "vi": "Trước tiên, đầu tiên",
+                "exJp": "まず 手を 洗いましょう。",
+                "exVi": "Trước tiên hãy rửa sạch tay nhé.",
+                "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_721930\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#3b82f6\"/>\n      <stop offset=\"100%\" stop-color=\"#1d4ed8\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_721930)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">1️⃣</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">TRƯỚC TIÊN</text>\n</svg>"
+        },
+        {
+                "id": 42,
+                "cat": "advice",
+                "catName": "Lời khuyên & Chăm sóc",
+                "badge": "Tiếp theo sau đó",
+                "jp": "つぎ（に）",
+                "kana": "つぎ（に）",
+                "kanji": "次（に）",
+                "romaji": "tsugi (ni)",
+                "vi": "Tiếp theo sau đó",
+                "exJp": "次に 深呼吸を します。",
+                "exVi": "Tiếp theo là hít thở sâu.",
+                "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_422345\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#3b82f6\"/>\n      <stop offset=\"100%\" stop-color=\"#1d4ed8\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_422345)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">2️⃣</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">TIẾP THEO</text>\n</svg>"
+        },
+        {
+                "id": 43,
+                "cat": "advice",
+                "catName": "Lời khuyên & Chăm sóc",
+                "badge": "Cuối cùng",
+                "jp": "さいご（に）",
+                "kana": "さいご（に）",
+                "kanji": "最後（に）",
+                "romaji": "saigo (ni)",
+                "vi": "Cuối cùng",
+                "exJp": "最後に 水を 飲みます。",
+                "exVi": "Cuối cùng là uống một ngụm nước.",
+                "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_155805\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#3b82f6\"/>\n      <stop offset=\"100%\" stop-color=\"#1d4ed8\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_155805)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🏁</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">CUỐI CÙNG</text>\n</svg>"
+        },
+        {
+                "id": 44,
+                "cat": "health",
+                "catName": "Sức khỏe & Khám bệnh",
+                "badge": "Sức khỏe là số một",
+                "jp": "けんこうだいいち",
+                "kana": "けんこうだいいち",
+                "kanji": "健康第一",
+                "romaji": "kenkou daiichi",
+                "vi": "Sức khỏe là số một",
+                "exJp": "何よりも 健康第一ですね。",
+                "exVi": "Trên tất cả, sức khỏe là số một nhỉ.",
+                "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_529061\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#3b82f6\"/>\n      <stop offset=\"100%\" stop-color=\"#1d4ed8\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_529061)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🥇</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">SỨC KHỎE SỐ 1</text>\n</svg>"
+        },
+        {
+                "id": 45,
+                "cat": "exercise",
+                "catName": "Vận động & Thể dục",
+                "badge": "Ấn / bấm vào huyệt N",
+                "jp": "Nを おします",
+                "kana": "Nを おします",
+                "kanji": "Nを押します",
+                "romaji": "N wo oshimasu",
+                "vi": "Ấn / bấm vào huyệt N",
+                "exJp": "親指で ツボを 押します。",
+                "exVi": "Dùng ngón tay cái ấn vào huyệt đạo.",
+                "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_30189\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#3b82f6\"/>\n      <stop offset=\"100%\" stop-color=\"#1d4ed8\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_30189)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">👆</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">ẤN BẤM</text>\n</svg>"
+        },
+        {
+                "id": 46,
+                "cat": "exercise",
+                "catName": "Vận động & Thể dục",
+                "badge": "Huyệt đạo cơ thể",
+                "jp": "ツボ",
+                "kana": "ツボ",
+                "kanji": "ツボ",
+                "romaji": "tsubo",
+                "vi": "Huyệt đạo cơ thể",
+                "exJp": "肩の ツボを 押すと 楽になります。",
+                "exVi": "Ấn vào huyệt ở vai sẽ thấy nhẹ nhõm hẳn.",
+                "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_15164\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#3b82f6\"/>\n      <stop offset=\"100%\" stop-color=\"#1d4ed8\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_15164)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🎯</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">HUYỆT ĐẠO</text>\n</svg>"
+        },
+        {
+                "id": 47,
+                "cat": "exercise",
+                "catName": "Vận động & Thể dục",
+                "badge": "Mát-xa thư giãn (Massage)",
+                "jp": "マッサージ",
+                "kana": "マッサージ",
+                "kanji": "マッサージ",
+                "romaji": "massaaji",
+                "vi": "Mát-xa thư giãn (Massage)",
+                "exJp": "首の マッサージを します。",
+                "exVi": "Thực hiện mát-xa phần cổ.",
+                "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_962246\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#3b82f6\"/>\n      <stop offset=\"100%\" stop-color=\"#1d4ed8\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_962246)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">💆</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">MÁT XA</text>\n</svg>"
+        },
+        {
+                "id": 48,
+                "cat": "health",
+                "catName": "Sức khỏe & Khám bệnh",
+                "badge": "Thư giãn tinh thần (Relax)",
+                "jp": "リラックス",
+                "kana": "リラックス",
+                "kanji": "リラックス",
+                "romaji": "rirakkusu",
+                "vi": "Thư giãn tinh thần (Relax)",
+                "exJp": "音楽を聞いて リラックスします。",
+                "exVi": "Nghe nhạc để thư giãn tinh thần.",
+                "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_751884\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#3b82f6\"/>\n      <stop offset=\"100%\" stop-color=\"#1d4ed8\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_751884)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🎶</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">THƯ GIÃN</text>\n</svg>"
+        },
+        {
+                "id": 49,
+                "cat": "advice",
+                "catName": "Lời khuyên & Chăm sóc",
+                "badge": "Cầu thang máy (Elevator)",
+                "jp": "エレベーター",
+                "kana": "エレベーター",
+                "kanji": "エレベーター",
+                "romaji": "erebeetaa",
+                "vi": "Cầu thang máy (Elevator)",
+                "exJp": "階段を使わず エレベーターに 乗ります。",
+                "exVi": "Đi thang máy thay vì leo thang bộ.",
+                "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_954026\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#3b82f6\"/>\n      <stop offset=\"100%\" stop-color=\"#1d4ed8\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_954026)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🛗</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">THANG MÁY</text>\n</svg>"
+        },
+        {
+                "id": 50,
+                "cat": "health",
+                "catName": "Sức khỏe & Khám bệnh",
+                "badge": "Quả việt quất tốt cho mắt",
+                "jp": "ブルーベリー",
+                "kana": "ブルーベリー",
+                "kanji": "ブルーベリー",
+                "romaji": "buruuberii",
+                "vi": "Quả việt quất tốt cho mắt",
+                "exJp": "目にいい ブルーベリーを食べます。",
+                "exVi": "Ăn quả việt quất rất tốt cho mắt.",
+                "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_553816\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#3b82f6\"/>\n      <stop offset=\"100%\" stop-color=\"#1d4ed8\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_553816)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🫐</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">VIỆT QUẤT</text>\n</svg>"
+        },
+        {
+                "id": 51,
+                "cat": "health",
+                "catName": "Sức khỏe & Khám bệnh",
+                "badge": "Buồn ngủ",
+                "jp": "ねむい",
+                "kana": "ねむい",
+                "kanji": "眠い",
+                "romaji": "nemui",
+                "vi": "Buồn ngủ",
+                "exJp": "夜遅いので とても 眠いです。",
+                "exVi": "Vì khuya rồi nên tôi rất buồn ngủ.",
+                "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_563566\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#3b82f6\"/>\n      <stop offset=\"100%\" stop-color=\"#1d4ed8\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_563566)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">😴</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">BUỒN NGỦ</text>\n</svg>"
+        },
+        {
+                "id": 52,
+                "cat": "health",
+                "catName": "Sức khỏe & Khám bệnh",
+                "badge": "Bị phát sốt cao",
+                "jp": "ねつが あります",
+                "kana": "ねつが あります",
+                "kanji": "熱があります",
+                "romaji": "netsu ga arimasu",
+                "vi": "Bị phát sốt cao",
+                "exJp": "38度の 熱があります。",
+                "exVi": "Tôi đang bị sốt 38 độ.",
+                "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_725995\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#3b82f6\"/>\n      <stop offset=\"100%\" stop-color=\"#1d4ed8\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_725995)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🌡️</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">BỊ SỐT</text>\n</svg>"
+        },
+        {
+                "id": 53,
+                "cat": "health",
+                "catName": "Sức khỏe & Khám bệnh",
+                "badge": "Bị cảm cúm",
+                "jp": "かぜ（を ひきます）",
+                "kana": "かぜ（を ひきます）",
+                "kanji": "風邪（をひきます）",
+                "romaji": "kaze (wo hikimasu)",
+                "vi": "Bị cảm cúm",
+                "exJp": "風邪をひいて のどが痛いです。",
+                "exVi": "Bị cảm lạnh nên cổ họng tôi bị đau.",
+                "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_467523\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#3b82f6\"/>\n      <stop offset=\"100%\" stop-color=\"#1d4ed8\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_467523)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🤧</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">BỊ CẢM CÚM</text>\n</svg>"
+        },
+        {
+                "id": 54,
+                "cat": "advice",
+                "catName": "Lời khuyên & Chăm sóc",
+                "badge": "Làm việc quá sức",
+                "jp": "むりを します",
+                "kana": "むりを します",
+                "kanji": "無理をします",
+                "romaji": "muri wo shimasu",
+                "vi": "Làm việc quá sức",
+                "exJp": "あまり 無理をしないでください。",
+                "exVi": "Đừng làm việc quá sức nhé.",
+                "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_657219\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#3b82f6\"/>\n      <stop offset=\"100%\" stop-color=\"#1d4ed8\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_657219)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">⚠️</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">QUÁ SỨC</text>\n</svg>"
+        },
+        {
+                "id": 55,
+                "cat": "advice",
+                "catName": "Lời khuyên & Chăm sóc",
+                "badge": "Bạn bị sao vậy? (hỏi thăm)",
+                "jp": "どうしたんですか。",
+                "kana": "どうしたんですか。",
+                "kanji": "どうしたんですか",
+                "romaji": "doushitan desu ka",
+                "vi": "Bạn bị sao vậy? (hỏi thăm)",
+                "exJp": "顔色が悪いですね。どうしたんですか。",
+                "exVi": "Sắc mặt bạn kém quá. Bạn bị sao vậy?",
+                "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_521305\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#3b82f6\"/>\n      <stop offset=\"100%\" stop-color=\"#1d4ed8\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_521305)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">❓</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">BẠN SAO THẾ</text>\n</svg>"
+        },
+        {
+                "id": 56,
+                "cat": "health",
+                "catName": "Sức khỏe & Khám bệnh",
+                "badge": "Thuốc uống",
+                "jp": "くすり",
+                "kana": "くすり",
+                "kanji": "薬",
+                "romaji": "kusuri",
+                "vi": "Thuốc uống",
+                "exJp": "食後に 薬を 飲みます。",
+                "exVi": "Uống thuốc sau bữa ăn.",
+                "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_559338\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#3b82f6\"/>\n      <stop offset=\"100%\" stop-color=\"#1d4ed8\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_559338)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">💊</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">THUỐC</text>\n</svg>"
+        },
+        {
+                "id": 57,
+                "cat": "advice",
+                "catName": "Lời khuyên & Chăm sóc",
+                "badge": "Càng... càng tốt",
+                "jp": "できるだけ",
+                "kana": "できるだけ",
+                "kanji": "できるだけ",
+                "romaji": "dekiru dake",
+                "vi": "Càng... càng tốt, trong khả năng",
+                "exJp": "できるだけ 早く 寝てください。",
+                "exVi": "Hãy đi ngủ càng sớm càng tốt nhé.",
+                "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_206529\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#3b82f6\"/>\n      <stop offset=\"100%\" stop-color=\"#1d4ed8\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_206529)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">⏳</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">TRONG KHẢ NĂNG</text>\n</svg>"
+        }
+],
+
+    "verb_lab": {
+        "title": "Phòng Thí Nghiệm Động Từ Thể Nai & Lời Khuyên Sức Khỏe",
+        "desc": "Thực hành chuyển đổi động từ sang thể Nai (Phủ định) để dặn dò không làm quá sức (V-ないでください) và đưa ra lời khuyên hữu ích (V-るといいですよ):",
+        "labels": ["Thể MASU", "Thể NAI", "V-ないでください (Khuyên đừng)", "V-るといいですよ (Khuyên nên)", "Bệnh trạng ～んです"],
+        "verbs": [
+            {
+                "kanji": "動かします",
+                "masu": "うごかします",
+                "vi": "Cử động, xoay",
+                "col2": "動かさない",
+                "col3": "無理に動かさないでください",
+                "col4": "肩を回すといいですよ",
+                "col5": "首が痛くて動かないんです",
+                "ex": "首が痛いときは、無理に動かさないでください。"
+            },
+            {
+                "kanji": "飲みます",
+                "masu": "のみます",
+                "vi": "Uống (thuốc/nước)",
+                "col2": "飲まない",
+                "col3": "冷たい水を飲まないでください",
+                "col4": "薬を飲むといいですよ",
+                "col5": "おなかが痛くて薬を飲んだんです",
+                "ex": "寝る前にこの薬を飲むといいですよ。"
+            },
+            {
+                "kanji": "無理をします",
+                "masu": "むりをします",
+                "vi": "Làm việc quá sức",
+                "col2": "無理をしない",
+                "col3": "あまり無理をしないでください",
+                "col4": "無理をしないといいですよ",
+                "col5": "昨日働きすぎて無理をしたんです",
+                "ex": "熱がありますから、あまり無理をしないでくださいね。"
+            },
+            {
+                "kanji": "寝ます",
+                "masu": "ねます",
+                "vi": "Đi ngủ",
+                "col2": "寝ない",
+                "col3": "夜遅くまで起きていないでください",
+                "col4": "早く寝るといいですよ",
+                "col5": "昨夜あまり眠れなかったんです",
+                "ex": "風邪をひいたときは、早く寝るといいですよ。"
+            },
+            {
+                "kanji": "働きます",
+                "masu": "はたらきます",
+                "vi": "Làm việc",
+                "col2": "働かない",
+                "col3": "働きすぎないでください",
+                "col4": "今日は休むといいですよ",
+                "col5": "ずっと残業して疲れているんです",
+                "ex": "体がだるいときは、働きすぎないでください。"
+            }
+        ]
+    },
+
+    "dialogue": {
+        "title": "Hỏi Thăm Sức Khỏe & Đưa Ra Lời Khuyên",
+        "desc": "Thực hành tình huống đồng nghiệp thấy bạn mệt mỏi ở công ty, bạn trình bày triệu chứng bệnh và lắng nghe lời khuyên chăm sóc sức khỏe:",
+        "initial": {
+            "avatar": "👩‍💼",
+            "name": "Yamada (Đồng nghiệp)",
+            "jp": "どうしたんですか。顔色がよくないですよ。",
+            "vi": "Bạn bị làm sao thế? Trông sắc mặt bạn không được tốt chút nào cả."
+        },
+        "steps": [
+            {
+                "options": [
+                    {
+                        "text": "実は、朝から頭が痛くて、少し熱もあるんです。",
+                        "vi": "Thực ra từ sáng đến giờ tôi bị đau đầu, và hình như hơi sốt nữa.",
+                        "replyAvatar": "👩‍💼",
+                        "replyNpc": "Yamada",
+                        "replyText": "それは大変ですね！無理をしないで、早く病院へ行ったほうがいいですよ。",
+                        "replyVi": "Thế thì vất vả quá! Bạn đừng cố làm quá sức, nên đi bệnh viện khám sớm đi."
+                    },
+                    {
+                        "text": "パソコンを見すぎて、首と肩がすごく痛いんです。",
+                        "vi": "Nhìn máy tính nhiều quá nên cổ và vai tôi đau nhức kinh khủng.",
+                        "replyAvatar": "👩‍💼",
+                        "replyNpc": "Yamada",
+                        "replyText": "こうやって、ゆっくり肩を回して深呼吸するといいですよ。",
+                        "replyVi": "Cứ làm thế này, xoay vai từ từ rồi hít thở sâu thì sẽ đỡ đau đấy."
+                    }
+                ]
+            },
+            {
+                "npcName": "Yamada",
+                "avatar": "👩‍💼",
+                "npcText": "今日は残業しないで、あたたかいお風呂に入って早く寝てくださいね。",
+                "npcVi": "Hôm nay đừng làm thêm giờ nhé, về nhà ngâm bồn nước ấm rồi đi ngủ sớm đi nha.",
+                "options": [
+                    {
+                        "text": "ありがとうございます。そうします。ご迷惑をおかけしてすみません。",
+                        "vi": "Cảm ơn bạn. Tôi sẽ làm như vậy. Xin lỗi vì đã làm phiền mọi người.",
+                        "replyAvatar": "👩‍💼",
+                        "replyNpc": "Yamada",
+                        "replyText": "気にしないで！健康が一番ですから。どうぞお大事に！",
+                        "replyVi": "Đừng bận tâm! Sức khỏe là trên hết mà. Chúc bạn mau khỏe lại nhé!"
+                    },
+                    {
+                        "text": "親切にアドバイスをくれて、本当にありがとうございます。",
+                        "vi": "Bạn cho tôi lời khuyên chu đáo quá, thật lòng cảm ơn bạn rất nhiều.",
+                        "replyAvatar": "👩‍💼",
+                        "replyNpc": "Yamada",
+                        "replyText": "いいえ、どういたしまして。お大事にね！",
+                        "replyVi": "Không có chi đâu. Chúc bạn mau khỏe lại nhé!"
+                    }
+                ]
+            }
+        ]
+    },
+
+    "kanjis": [
+        {"char": "体", "hv": "THỂ", "strokes": 7, "kun": "からだ", "on": "TAI", "ex": "体 (からだ - cơ thể), 体操 (たいそう - tập thể dục)", "mnemonic": "Con người (亻) có cội rễ (本) chính là THỂ xác khỏe mạnh."},
+        {"char": "頭", "hv": "ĐẦU", "strokes": 16, "kun": "あたま", "on": "TOO", "ex": "頭 (あたま - cái đầu), 頭痛 (ずつう - đau đầu)", "mnemonic": "Cái đĩa đậu (豆) đặt trên trang giấy (頁) đầu mối là ĐẦU não."},
+        {"char": "目", "hv": "MỤC", "strokes": 5, "kun": "め", "on": "MOKU", "ex": "目 (め - con mắt), 目的 (もくてき - mục đích)", "mnemonic": "Hình vẽ tròng mắt có mí và con ngươi nhìn vạn vật (MỤC)."},
+        {"char": "口", "hv": "KHẨU", "strokes": 3, "kun": "くち", "on": "KOU", "ex": "口 (くち - cái miệng), 入口 (いりぐち - cửa vào)", "mnemonic": "Hình vẽ cái miệng vuông vắn phát ra lời nói (KHẨU)."},
+        {"char": "耳", "hv": "NHĨ", "strokes": 6, "kun": "みみ", "on": "JI", "ex": "耳 (みみ - cái tai), 耳鼻科 (じびか - khoa tai mũi)", "mnemonic": "Hình vành tai hứng lấy âm thanh từ bốn phương (NHĨ)."},
+        {"char": "手", "hv": "THỦ", "strokes": 4, "kun": "て", "on": "SHU", "ex": "手 (て - bàn tay), 手紙 (てがみ - bức thư)", "mnemonic": "Hình bàn tay năm ngón xòe ra nắm giữ công việc (THỦ)."},
+        {"char": "足", "hv": "TÚC", "strokes": 7, "kun": "あし、た-りる", "on": "SOKU", "ex": "足 (あし - bàn chân), 足りる (たりる - đầy đủ)", "mnemonic": "Cẳng chân bước đi vững vàng mang lại no đủ sung TÚC."},
+        {"char": "上", "hv": "THƯỢNG", "strokes": 3, "kun": "うえ、あ-がる", "on": "JOO", "ex": "上 (うえ - bên trên), 上手 (じょうず - giỏi giang)", "mnemonic": "Nét sổ đứng phía TRÊN một đường ngang chuẩn chỉ vị trí THƯỢNG."},
+        {"char": "下", "hv": "HẠ", "strokes": 3, "kun": "した、さ-がる", "on": "KA, GE", "ex": "下 (した - bên dưới), 下手 (へた - vụng về)", "mnemonic": "Nét sổ chúc xuống phía DƯỚI đường ngang chỉ vị trí HẠ."}
+    ],
+
+    "quizzes": [
+        {"id": 1, "category": "Ngữ pháp: ～んです", "q": "「どうしたんですか。」――「ちょっと 頭が [____]。」", "options": ["痛いんです", "痛いです", "痛くなんです", "痛かったんですか"], "correct": 0, "explain": "Tính từ đuôi い kết hợp với ～んです để giải thích tình trạng: 痛い ➔ 「痛いんです」 (Tôi bị đau đầu)."},
+        {"id": 2, "category": "Ngữ pháp: V-るといいですよ", "q": "寝る 前に、この 薬を [____] と いいですよ。", "options": ["飲む", "飲んだ", "飲んで", "飲み"], "correct": 0, "explain": "Mẫu câu khuyên bảo nhẹ nhàng: V-る (thể từ điển) + といいですよ ➔ 「飲むといいですよ」."},
+        {"id": 3, "category": "Ngữ pháp: V-ないでください", "q": "熱が ありますから、あまり 無理を [____] ください。", "options": ["しないで", "しなくて", "するな", "しまないで"], "correct": 0, "explain": "Mẫu câu dặn dò đừng làm gì: V-ない + でください: します ➔ 「しないでください」 (Đừng làm quá sức nhé)."},
+        {"id": 4, "category": "Từ vựng: Cơ thể", "q": "物や 人を 見る ための 身体の 部分は [____] です。", "options": ["目 (め)", "耳 (みみ)", "口 (くち)", "鼻 (はな)"], "correct": 0, "explain": "Bộ phận để nhìn là con mắt: 「目」 (め)."},
+        {"id": 5, "category": "Từ vựng: Cơ thể", "q": "音や 音楽を 聞く ための 身体の 部分は [____] です。", "options": ["耳 (みみ)", "目 (め)", "手 (て)", "足 (あし)"], "correct": 0, "explain": "Bộ phận để nghe là cái tai: 「耳」 (みみ)."},
+        {"id": 6, "category": "Từ vựng: Triệu chứng", "q": "体温が 38度以上 ある 状態を [____] と 言います。", "options": ["熱がある", "かぜをひく", "つかれる", "元気"], "correct": 0, "explain": "Thân nhiệt cao từ 38 độ trở lên gọi là bị sốt: 「熱がある」 (ねつがある)."},
+        {"id": 7, "category": "Từ vựng: Khó chịu", "q": "車に 酔って 吐き気が するときは 「[____]」 と 言います。", "options": ["気持ちが 悪い", "気持ちが いい", "頭が いい", "足が 速い"], "correct": 0, "explain": "Buồn nôn, khó chịu nôn nao trong người là 「気持ちが悪い」 (きもちがわるい)."},
+        {"id": 8, "category": "Giao tiếp: Chúc bình phục", "q": "Khi nghe người khác bị ốm hoặc mệt, câu chúc mau khỏi bệnh quen thuộc là:", "options": ["お大事に (おだいじに)", "ごちそうさまでした", "お邪魔します", "失礼します"], "correct": 0, "explain": "Câu chúc mau khỏi bệnh: 「お大事に」 (Chúc bạn mau khỏe lại nhé!)."},
+        {"id": 9, "category": "Từ vựng: Khám bệnh", "q": "かぜを ひいたので [____] へ 行って 薬を もらいます。", "options": ["病院 (びょういん)", "美容院 (びよういん)", "郵便局", "空港"], "correct": 0, "explain": "Bị cảm cúm thì đi bệnh viện khám lấy thuốc: 「病院」 (びょういん)."},
+        {"id": 10, "category": "Từ vựng: Cơ thể", "q": "手を 上に あげるときに 動く 部分は [____] です。", "options": ["肩 (かた)", "腰 (こし)", "足 (あし)", "お腹 (おなか)"], "correct": 0, "explain": "Bờ vai là 「肩」 (かた)."},
+        {"id": 11, "category": "Chữ Hán Bài 15: 体 (Thể)", "q": "Chữ Hán 「体」 trong 「からだ」 có bao nhiêu nét viết?", "options": ["7 nét", "5 nét", "6 nét", "8 nét"], "correct": 0, "explain": "Chữ 体 (THỂ) có 7 nét, gồm bộ Nhân đứng 亻 (2 nét) và chữ Bổn 本 (5 nét)."},
+        {"id": 12, "category": "Chữ Hán Bài 15: 頭 (Đầu)", "q": "Chữ Hán của từ 「あたま」 (Cái đầu) là:", "options": ["頭", "顔", "首", "体"], "correct": 0, "explain": "「あたま」 có chữ Hán là 「頭」 (ĐẦU - 16 nét)."},
+        {"id": 13, "category": "Chữ Hán Bài 15: 目 & 口", "q": "Hai chữ Hán 「目」 và 「口」 lần lượt có số nét là:", "options": ["5 nét và 3 nét", "4 nét và 3 nét", "5 nét và 4 nét", "6 nét và 3 nét"], "correct": 0, "explain": "Chữ 目 (MỤC) có 5 nét; chữ 口 (KHẨU) có 3 nét."},
+        {"id": 14, "category": "Chữ Hán Bài 15: 手 & 足", "q": "Cặp từ 「て」 (Bàn tay) và 「あし」 (Bàn chân) được viết là:", "options": ["手 và 足", "毛 và 是", "耳 và 目", "上 và 下"], "correct": 0, "explain": "Bàn tay là 「手」 (THỦ - 4 nét), bàn chân là 「足」 (TÚC - 7 nét)."},
+        {"id": 15, "category": "Chữ Hán Bài 15: 上 & 下", "q": "Hai chữ Hán đối lập vị trí 「うえ」 và 「した」 là:", "options": ["上 và 下", "左 và 右", "前 và 後", "大 và 小"], "correct": 0, "explain": "Bên trên là 「上」 (THƯỢNG - 3 nét); bên dưới là 「下」 (HẠ - 3 nét)."}
+    ]
+}

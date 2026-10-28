@@ -1,0 +1,8521 @@
+[
+  {
+    "lesson": "A1-3",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 1,
+    "jp": "じこしょうかい",
+    "vi": "Giới thiệu bản thân"
+  },
+  {
+    "lesson": "A1-3",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 2,
+    "jp": "なまえ",
+    "vi": "Tên"
+  },
+  {
+    "lesson": "A1-3",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 3,
+    "jp": "めいし",
+    "vi": "Danh thiếp"
+  },
+  {
+    "lesson": "A1-3",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 4,
+    "jp": "ひと",
+    "vi": "Người"
+  },
+  {
+    "lesson": "A1-3",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 5,
+    "jp": "わたし",
+    "vi": "Tôi"
+  },
+  {
+    "lesson": "A1-3",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 6,
+    "jp": "わたしたち",
+    "vi": "Chúng tôi, chúng ta"
+  },
+  {
+    "lesson": "A1-3",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 7,
+    "jp": "あなた",
+    "vi": "Bạn (Ngôi thứ 2)"
+  },
+  {
+    "lesson": "A1-3",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 8,
+    "jp": "かれ",
+    "vi": "Anh ấy"
+  },
+  {
+    "lesson": "A1-3",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 9,
+    "jp": "かのじょ",
+    "vi": "Cô ấy"
+  },
+  {
+    "lesson": "A1-3",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 10,
+    "jp": "ともだち",
+    "vi": "Bạn bè"
+  },
+  {
+    "lesson": "A1-3",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 11,
+    "jp": "こども",
+    "vi": "Trẻ con, con cái"
+  },
+  {
+    "lesson": "A1-3",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 12,
+    "jp": "あかちゃん",
+    "vi": "Em bé"
+  },
+  {
+    "lesson": "A1-3",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 13,
+    "jp": "おとこ",
+    "vi": "Đàn ông, nam giới"
+  },
+  {
+    "lesson": "A1-3",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 14,
+    "jp": "おんな",
+    "vi": "Phụ nữ, nữ giới"
+  },
+  {
+    "lesson": "A1-3",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 15,
+    "jp": "おとこのこ",
+    "vi": "Bé trai"
+  },
+  {
+    "lesson": "A1-3",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 16,
+    "jp": "おんなのこ",
+    "vi": "Bé gái"
+  },
+  {
+    "lesson": "A1-3",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 17,
+    "jp": "おとこのひと",
+    "vi": "Người đàn ông"
+  },
+  {
+    "lesson": "A1-3",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 18,
+    "jp": "おんなのひと",
+    "vi": "Người phụ nữ"
+  },
+  {
+    "lesson": "A1-3",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 19,
+    "jp": "しごと",
+    "vi": "Công việc"
+  },
+  {
+    "lesson": "A1-3",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 20,
+    "jp": "いしゃ",
+    "vi": "Bác sĩ"
+  },
+  {
+    "lesson": "A1-3",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 21,
+    "jp": "エンジニア",
+    "vi": "Kỹ sư"
+  },
+  {
+    "lesson": "A1-3",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 22,
+    "jp": "かいしゃいん",
+    "vi": "Nhân viên công ty"
+  },
+  {
+    "lesson": "A1-3",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 23,
+    "jp": "ぎんこういん",
+    "vi": "Nhân viên ngân hàng"
+  },
+  {
+    "lesson": "A1-3",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 24,
+    "jp": "がくせい",
+    "vi": "Học sinh"
+  },
+  {
+    "lesson": "A1-3",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 25,
+    "jp": "きょうし",
+    "vi": "Giáo viên"
+  },
+  {
+    "lesson": "A1-3",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 26,
+    "jp": "こうむいん",
+    "vi": "Nhân viên công chức"
+  },
+  {
+    "lesson": "A1-3",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 27,
+    "jp": "しゅふ",
+    "vi": "Nội trợ"
+  },
+  {
+    "lesson": "A1-3",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 28,
+    "jp": "かいしゃ",
+    "vi": "Công ty"
+  },
+  {
+    "lesson": "A1-3",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 29,
+    "jp": "がっこう",
+    "vi": "Trường học"
+  },
+  {
+    "lesson": "A1-3",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 30,
+    "jp": "びょういん",
+    "vi": "Bệnh viện"
+  },
+  {
+    "lesson": "A1-3",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 31,
+    "jp": "ぎんこう",
+    "vi": "Ngân hàng"
+  },
+  {
+    "lesson": "A1-3",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 32,
+    "jp": "くに",
+    "vi": "Đất nước"
+  },
+  {
+    "lesson": "A1-3",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 33,
+    "jp": "アジア",
+    "vi": "Châu Á"
+  },
+  {
+    "lesson": "A1-3",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 34,
+    "jp": "アメリカ",
+    "vi": "Mỹ"
+  },
+  {
+    "lesson": "A1-3",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 35,
+    "jp": "ヨーロッパ",
+    "vi": "Châu Âu"
+  },
+  {
+    "lesson": "A1-3",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 36,
+    "jp": "イギリス",
+    "vi": "Anh"
+  },
+  {
+    "lesson": "A1-3",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 37,
+    "jp": "イタリア",
+    "vi": "Ý"
+  },
+  {
+    "lesson": "A1-3",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 38,
+    "jp": "インド",
+    "vi": "Ấn Độ"
+  },
+  {
+    "lesson": "A1-3",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 39,
+    "jp": "インドネシア Indonesia",
+    "vi": ""
+  },
+  {
+    "lesson": "A1-3",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 40,
+    "jp": "エジプト",
+    "vi": "Ai Cập"
+  },
+  {
+    "lesson": "A1-3",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 41,
+    "jp": "オーストラリア",
+    "vi": "Úc"
+  },
+  {
+    "lesson": "A1-3",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 42,
+    "jp": "カナダ Canada",
+    "vi": ""
+  },
+  {
+    "lesson": "A1-3",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 43,
+    "jp": "かんこく",
+    "vi": "Hàn Quốc"
+  },
+  {
+    "lesson": "A1-3",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 44,
+    "jp": "スペイン",
+    "vi": "Tây Ban Nha"
+  },
+  {
+    "lesson": "A1-3",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 45,
+    "jp": "タイ",
+    "vi": "Thái"
+  },
+  {
+    "lesson": "A1-3",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 46,
+    "jp": "ちゅうごく",
+    "vi": "Trung Quốc"
+  },
+  {
+    "lesson": "A1-3",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 47,
+    "jp": "ドイツ",
+    "vi": "Đức"
+  },
+  {
+    "lesson": "A1-3",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 48,
+    "jp": "にほん",
+    "vi": "Nhật Bản"
+  },
+  {
+    "lesson": "A1-3",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 49,
+    "jp": "フランス",
+    "vi": "Pháp"
+  },
+  {
+    "lesson": "A1-3",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 50,
+    "jp": "ベトナム",
+    "vi": "Việt Nam"
+  },
+  {
+    "lesson": "A1-3",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 51,
+    "jp": "マレーシア Malaysia",
+    "vi": ""
+  },
+  {
+    "lesson": "A1-3",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 52,
+    "jp": "メキシコ Mexico",
+    "vi": ""
+  },
+  {
+    "lesson": "A1-3",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 53,
+    "jp": "ロシア Nga",
+    "vi": ""
+  },
+  {
+    "lesson": "A1-3",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 54,
+    "jp": "がいこく",
+    "vi": "Nước ngoài"
+  },
+  {
+    "lesson": "A1-3",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 55,
+    "jp": "がいこくじん",
+    "vi": "Người nước ngoài"
+  },
+  {
+    "lesson": "A1-3",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 56,
+    "jp": "にほんじん",
+    "vi": "Người Nhật"
+  },
+  {
+    "lesson": "A1-3",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 57,
+    "jp": "ことば",
+    "vi": "Ngôn từ, câu nói, ngôn ngữ"
+  },
+  {
+    "lesson": "A1-3",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 58,
+    "jp": "にほんご",
+    "vi": "Tiếng Nhật"
+  },
+  {
+    "lesson": "A1-3",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 59,
+    "jp": "えいご",
+    "vi": "Tiếng Anh"
+  },
+  {
+    "lesson": "A1-3",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 60,
+    "jp": "かんこくご",
+    "vi": "Tiếng Hàn"
+  },
+  {
+    "lesson": "A1-3",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 61,
+    "jp": "ちゅうごくご",
+    "vi": "Tiếng Trung"
+  },
+  {
+    "lesson": "A1-3",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 62,
+    "jp": "ドイツご",
+    "vi": "Tiếng Đức"
+  },
+  {
+    "lesson": "A1-3",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 63,
+    "jp": "スペインご",
+    "vi": "Tiếng Tây Ban Nha"
+  },
+  {
+    "lesson": "A1-3",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 64,
+    "jp": "フランスご",
+    "vi": "Tiếng Pháp"
+  },
+  {
+    "lesson": "A1-3",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 65,
+    "jp": "アラビアご",
+    "vi": "Tiếng Ả Rập"
+  },
+  {
+    "lesson": "A1-3",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 66,
+    "jp": "がいこくご",
+    "vi": "Ngoại ngữ"
+  },
+  {
+    "lesson": "A1-3",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 67,
+    "jp": "できます",
+    "vi": "Có thể"
+  },
+  {
+    "lesson": "A1-4",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 1,
+    "jp": "かぞく",
+    "vi": "Gia đình"
+  },
+  {
+    "lesson": "A1-4",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 2,
+    "jp": "ちち",
+    "vi": "Bố mình"
+  },
+  {
+    "lesson": "A1-4",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 3,
+    "jp": "おとうさん",
+    "vi": "Bố (người khác, dùng để gọi “bố ơi”)"
+  },
+  {
+    "lesson": "A1-4",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 4,
+    "jp": "はは",
+    "vi": "Mẹ mình"
+  },
+  {
+    "lesson": "A1-4",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 5,
+    "jp": "おかあさん",
+    "vi": "Mẹ (người khác, dùng để gọi “mẹ ơi”"
+  },
+  {
+    "lesson": "A1-4",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 6,
+    "jp": "あに",
+    "vi": "Anh trai mình"
+  },
+  {
+    "lesson": "A1-4",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 7,
+    "jp": "おにいさん",
+    "vi": "Anh trai (người khác, dùng để gọi “anh ơi”)"
+  },
+  {
+    "lesson": "A1-4",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 8,
+    "jp": "あね",
+    "vi": "Chị gái mình"
+  },
+  {
+    "lesson": "A1-4",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 9,
+    "jp": "おねえさん",
+    "vi": "Chị gái (người khác, dùng để gọi “chị ơi”)"
+  },
+  {
+    "lesson": "A1-4",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 10,
+    "jp": "おとうと Em trai",
+    "vi": ""
+  },
+  {
+    "lesson": "A1-4",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 11,
+    "jp": "おとうとさん",
+    "vi": "Em trai người khác"
+  },
+  {
+    "lesson": "A1-4",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 12,
+    "jp": "いもうと",
+    "vi": "Em gái"
+  },
+  {
+    "lesson": "A1-4",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 13,
+    "jp": "いもうとさん",
+    "vi": "Em gái người khác"
+  },
+  {
+    "lesson": "A1-4",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 14,
+    "jp": "おっと",
+    "vi": "Chồng mình"
+  },
+  {
+    "lesson": "A1-4",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 15,
+    "jp": "ごしゅじん",
+    "vi": "Chồng người khác"
+  },
+  {
+    "lesson": "A1-4",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 16,
+    "jp": "つま",
+    "vi": "Vợ mình"
+  },
+  {
+    "lesson": "A1-4",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 17,
+    "jp": "おくさん",
+    "vi": "Vợ người khác"
+  },
+  {
+    "lesson": "A1-4",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 18,
+    "jp": "こども",
+    "vi": "Trẻ con, con mình"
+  },
+  {
+    "lesson": "A1-4",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 19,
+    "jp": "おこさん",
+    "vi": "Con người khác"
+  },
+  {
+    "lesson": "A1-4",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 20,
+    "jp": "むすこ（さん）",
+    "vi": "Con trai (người khác)"
+  },
+  {
+    "lesson": "A1-4",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 21,
+    "jp": "むすめ（さん）",
+    "vi": "Con gái (người khác)"
+  },
+  {
+    "lesson": "A1-4",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 22,
+    "jp": "",
+    "vi": "〈Số đếm〉＋ にん … người"
+  },
+  {
+    "lesson": "A1-4",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 23,
+    "jp": "ひとり",
+    "vi": "1 người"
+  },
+  {
+    "lesson": "A1-4",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 24,
+    "jp": "ふたり",
+    "vi": "2 người"
+  },
+  {
+    "lesson": "A1-4",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 25,
+    "jp": "さんにん",
+    "vi": "3 người"
+  },
+  {
+    "lesson": "A1-4",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 26,
+    "jp": "よにん",
+    "vi": "4 người"
+  },
+  {
+    "lesson": "A1-4",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 27,
+    "jp": "おとこの ひと",
+    "vi": "Người đàn ông"
+  },
+  {
+    "lesson": "A1-4",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 28,
+    "jp": "おんなの ひと",
+    "vi": "Người phụ nữ"
+  },
+  {
+    "lesson": "A1-4",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 29,
+    "jp": "おとこの こ",
+    "vi": "Bé trai"
+  },
+  {
+    "lesson": "A1-4",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 30,
+    "jp": "おんなの こ",
+    "vi": "Bé gái"
+  },
+  {
+    "lesson": "A1-4",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 31,
+    "jp": "この ひと",
+    "vi": "Người này"
+  },
+  {
+    "lesson": "A1-4",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 32,
+    "jp": "だれ？ Ai?",
+    "vi": ""
+  },
+  {
+    "lesson": "A1-4",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 33,
+    "jp": "このひと は だれ ですか。",
+    "vi": "Người này là ai?"
+  },
+  {
+    "lesson": "A1-4",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 34,
+    "jp": "おいくつですか。",
+    "vi": "Bao nhiêu tuổi?"
+  },
+  {
+    "lesson": "A1-4",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 35,
+    "jp": "どこ",
+    "vi": "Ở đâu?"
+  },
+  {
+    "lesson": "A1-4",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 36,
+    "jp": "すんで います",
+    "vi": "Đang sống"
+  },
+  {
+    "lesson": "A1-4",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 37,
+    "jp": "どこ に すんで いますか。",
+    "vi": "Bạn đang sống ở đâu?"
+  },
+  {
+    "lesson": "A1-4",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 38,
+    "jp": "かっこいい",
+    "vi": "Ngầu"
+  },
+  {
+    "lesson": "A1-4",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 39,
+    "jp": "かわいい",
+    "vi": "Dễ thương"
+  },
+  {
+    "lesson": "A1-4",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 40,
+    "jp": "きれい",
+    "vi": "Xinh đẹp"
+  },
+  {
+    "lesson": "A1-4",
+    "lesson_title": "かぞくは よにんです。 (Gia đình tôi có 4 người)",
+    "num": 41,
+    "jp": "わかい",
+    "vi": "Trẻ"
+  },
+  {
+    "lesson": "A1-5",
+    "lesson_title": "なにがすきですか。 (Bạn thích món gì?)",
+    "num": 1,
+    "jp": "たべもの",
+    "vi": "Đồ ăn"
+  },
+  {
+    "lesson": "A1-5",
+    "lesson_title": "なにがすきですか。 (Bạn thích món gì?)",
+    "num": 2,
+    "jp": "のみもの",
+    "vi": "Đồ uống"
+  },
+  {
+    "lesson": "A1-5",
+    "lesson_title": "なにがすきですか。 (Bạn thích món gì?)",
+    "num": 3,
+    "jp": "N を たべます",
+    "vi": "Ăn..."
+  },
+  {
+    "lesson": "A1-5",
+    "lesson_title": "なにがすきですか。 (Bạn thích món gì?)",
+    "num": 4,
+    "jp": "N を のみます",
+    "vi": "Uống…"
+  },
+  {
+    "lesson": "A1-5",
+    "lesson_title": "なにがすきですか。 (Bạn thích món gì?)",
+    "num": 5,
+    "jp": "～すきです",
+    "vi": "Thích"
+  },
+  {
+    "lesson": "A1-5",
+    "lesson_title": "なにがすきですか。 (Bạn thích món gì?)",
+    "num": 6,
+    "jp": "～すきじゃないです",
+    "vi": "Không thích"
+  },
+  {
+    "lesson": "A1-5",
+    "lesson_title": "なにがすきですか。 (Bạn thích món gì?)",
+    "num": 7,
+    "jp": "にく",
+    "vi": "Thịt"
+  },
+  {
+    "lesson": "A1-5",
+    "lesson_title": "なにがすきですか。 (Bạn thích món gì?)",
+    "num": 8,
+    "jp": "さかな",
+    "vi": "Cá"
+  },
+  {
+    "lesson": "A1-5",
+    "lesson_title": "なにがすきですか。 (Bạn thích món gì?)",
+    "num": 9,
+    "jp": "やさい Rau",
+    "vi": ""
+  },
+  {
+    "lesson": "A1-5",
+    "lesson_title": "なにがすきですか。 (Bạn thích món gì?)",
+    "num": 10,
+    "jp": "くだもの",
+    "vi": "Hoa quả"
+  },
+  {
+    "lesson": "A1-5",
+    "lesson_title": "なにがすきですか。 (Bạn thích món gì?)",
+    "num": 11,
+    "jp": "たまご",
+    "vi": "Trứng"
+  },
+  {
+    "lesson": "A1-5",
+    "lesson_title": "なにがすきですか。 (Bạn thích món gì?)",
+    "num": 12,
+    "jp": "パン",
+    "vi": "Bánh mì"
+  },
+  {
+    "lesson": "A1-5",
+    "lesson_title": "なにがすきですか。 (Bạn thích món gì?)",
+    "num": 13,
+    "jp": "みそしる",
+    "vi": "Súp, canh miso"
+  },
+  {
+    "lesson": "A1-5",
+    "lesson_title": "なにがすきですか。 (Bạn thích món gì?)",
+    "num": 14,
+    "jp": "ごはん",
+    "vi": "Cơm"
+  },
+  {
+    "lesson": "A1-5",
+    "lesson_title": "なにがすきですか。 (Bạn thích món gì?)",
+    "num": 15,
+    "jp": "あさごはん",
+    "vi": "Bữa sáng"
+  },
+  {
+    "lesson": "A1-5",
+    "lesson_title": "なにがすきですか。 (Bạn thích món gì?)",
+    "num": 16,
+    "jp": "コーヒー",
+    "vi": "Cà phê"
+  },
+  {
+    "lesson": "A1-5",
+    "lesson_title": "なにがすきですか。 (Bạn thích món gì?)",
+    "num": 17,
+    "jp": "ミルク／ぎゅうにゅう",
+    "vi": "Sữa"
+  },
+  {
+    "lesson": "A1-5",
+    "lesson_title": "なにがすきですか。 (Bạn thích món gì?)",
+    "num": 18,
+    "jp": "みず",
+    "vi": "Nước"
+  },
+  {
+    "lesson": "A1-5",
+    "lesson_title": "なにがすきですか。 (Bạn thích món gì?)",
+    "num": 19,
+    "jp": "おちゃ",
+    "vi": "Trà xanh"
+  },
+  {
+    "lesson": "A1-5",
+    "lesson_title": "なにがすきですか。 (Bạn thích món gì?)",
+    "num": 20,
+    "jp": "こうちゃ",
+    "vi": "Hồng trà"
+  },
+  {
+    "lesson": "A1-5",
+    "lesson_title": "なにがすきですか。 (Bạn thích món gì?)",
+    "num": 21,
+    "jp": "ジュース",
+    "vi": "Nước ép"
+  },
+  {
+    "lesson": "A1-5",
+    "lesson_title": "なにがすきですか。 (Bạn thích món gì?)",
+    "num": 22,
+    "jp": "おねがいします",
+    "vi": "Nhờ bạn giúp đỡ"
+  },
+  {
+    "lesson": "A1-5",
+    "lesson_title": "なにがすきですか。 (Bạn thích món gì?)",
+    "num": 23,
+    "jp": "けっこうです",
+    "vi": "Tôi ổn"
+  },
+  {
+    "lesson": "A1-5",
+    "lesson_title": "なにがすきですか。 (Bạn thích món gì?)",
+    "num": 24,
+    "jp": "いつも",
+    "vi": "Lúc nào cũng"
+  },
+  {
+    "lesson": "A1-5",
+    "lesson_title": "なにがすきですか。 (Bạn thích món gì?)",
+    "num": 25,
+    "jp": "よく",
+    "vi": "Thường..., hay..."
+  },
+  {
+    "lesson": "A1-5",
+    "lesson_title": "なにがすきですか。 (Bạn thích món gì?)",
+    "num": 26,
+    "jp": "あまり",
+    "vi": "Không... lắm..."
+  },
+  {
+    "lesson": "A1-6",
+    "lesson_title": "どこで たべますか。 (Ăn ở đâu?)",
+    "num": 1,
+    "jp": "りょうり",
+    "vi": "Món ăn"
+  },
+  {
+    "lesson": "A1-6",
+    "lesson_title": "どこで たべますか。 (Ăn ở đâu?)",
+    "num": 2,
+    "jp": "ファストフード",
+    "vi": "Đồ ăn nhanh"
+  },
+  {
+    "lesson": "A1-6",
+    "lesson_title": "どこで たべますか。 (Ăn ở đâu?)",
+    "num": 3,
+    "jp": "カレー",
+    "vi": "Cơm cà ri"
+  },
+  {
+    "lesson": "A1-6",
+    "lesson_title": "どこで たべますか。 (Ăn ở đâu?)",
+    "num": 4,
+    "jp": "すし Sushi",
+    "vi": ""
+  },
+  {
+    "lesson": "A1-6",
+    "lesson_title": "どこで たべますか。 (Ăn ở đâu?)",
+    "num": 5,
+    "jp": "うどん",
+    "vi": "Mỳ Udon"
+  },
+  {
+    "lesson": "A1-6",
+    "lesson_title": "どこで たべますか。 (Ăn ở đâu?)",
+    "num": 6,
+    "jp": "そば",
+    "vi": "Mỳ Soba"
+  },
+  {
+    "lesson": "A1-6",
+    "lesson_title": "どこで たべますか。 (Ăn ở đâu?)",
+    "num": 7,
+    "jp": "ラーメン",
+    "vi": "Mỳ Ramen"
+  },
+  {
+    "lesson": "A1-6",
+    "lesson_title": "どこで たべますか。 (Ăn ở đâu?)",
+    "num": 8,
+    "jp": "ハンバーガー Hamburger",
+    "vi": ""
+  },
+  {
+    "lesson": "A1-6",
+    "lesson_title": "どこで たべますか。 (Ăn ở đâu?)",
+    "num": 9,
+    "jp": "チーズバーガー",
+    "vi": "Hamburger phô mai"
+  },
+  {
+    "lesson": "A1-6",
+    "lesson_title": "どこで たべますか。 (Ăn ở đâu?)",
+    "num": 10,
+    "jp": "ホットドッグ",
+    "vi": "Hotdog (Bánh mì xúc xích)"
+  },
+  {
+    "lesson": "A1-6",
+    "lesson_title": "どこで たべますか。 (Ăn ở đâu?)",
+    "num": 11,
+    "jp": "フライドポテト",
+    "vi": "Khoai tây chiên"
+  },
+  {
+    "lesson": "A1-6",
+    "lesson_title": "どこで たべますか。 (Ăn ở đâu?)",
+    "num": 12,
+    "jp": "ピザ Pizza",
+    "vi": ""
+  },
+  {
+    "lesson": "A1-6",
+    "lesson_title": "どこで たべますか。 (Ăn ở đâu?)",
+    "num": 13,
+    "jp": "サンドイッチ",
+    "vi": "Bánh kẹp sandwich"
+  },
+  {
+    "lesson": "A1-6",
+    "lesson_title": "どこで たべますか。 (Ăn ở đâu?)",
+    "num": 14,
+    "jp": "コーラ Cocacola",
+    "vi": ""
+  },
+  {
+    "lesson": "A1-6",
+    "lesson_title": "どこで たべますか。 (Ăn ở đâu?)",
+    "num": 15,
+    "jp": "オレンジジュース",
+    "vi": "Nước ép cam"
+  },
+  {
+    "lesson": "A1-6",
+    "lesson_title": "どこで たべますか。 (Ăn ở đâu?)",
+    "num": 16,
+    "jp": "たかい",
+    "vi": "Đắt"
+  },
+  {
+    "lesson": "A1-6",
+    "lesson_title": "どこで たべますか。 (Ăn ở đâu?)",
+    "num": 17,
+    "jp": "やすい",
+    "vi": "Rẻ"
+  },
+  {
+    "lesson": "A1-6",
+    "lesson_title": "どこで たべますか。 (Ăn ở đâu?)",
+    "num": 18,
+    "jp": "はやい",
+    "vi": "Nhanh, sớm"
+  },
+  {
+    "lesson": "A1-6",
+    "lesson_title": "どこで たべますか。 (Ăn ở đâu?)",
+    "num": 19,
+    "jp": "おそい",
+    "vi": "Chậm, muộn"
+  },
+  {
+    "lesson": "A1-6",
+    "lesson_title": "どこで たべますか。 (Ăn ở đâu?)",
+    "num": 20,
+    "jp": "おいしい Ngon",
+    "vi": ""
+  },
+  {
+    "lesson": "A1-6",
+    "lesson_title": "どこで たべますか。 (Ăn ở đâu?)",
+    "num": 21,
+    "jp": "まずい",
+    "vi": "Dở, không ngon"
+  },
+  {
+    "lesson": "A1-6",
+    "lesson_title": "どこで たべますか。 (Ăn ở đâu?)",
+    "num": 22,
+    "jp": "きょう",
+    "vi": "Hôm nay"
+  },
+  {
+    "lesson": "A1-6",
+    "lesson_title": "どこで たべますか。 (Ăn ở đâu?)",
+    "num": 23,
+    "jp": "いちばん",
+    "vi": "Nhất"
+  },
+  {
+    "lesson": "A1-6",
+    "lesson_title": "どこで たべますか。 (Ăn ở đâu?)",
+    "num": 24,
+    "jp": "すき（な）",
+    "vi": "Thích"
+  },
+  {
+    "lesson": "A1-6",
+    "lesson_title": "どこで たべますか。 (Ăn ở đâu?)",
+    "num": 25,
+    "jp": "きらい（な）",
+    "vi": "Ghét"
+  },
+  {
+    "lesson": "A1-6",
+    "lesson_title": "どこで たべますか。 (Ăn ở đâu?)",
+    "num": 26,
+    "jp": "すきな りょうり",
+    "vi": "Món ăn yêu thích"
+  },
+  {
+    "lesson": "A1-6",
+    "lesson_title": "どこで たべますか。 (Ăn ở đâu?)",
+    "num": 27,
+    "jp": "ひるごはん",
+    "vi": "Bữa trưa, cơm trưa"
+  },
+  {
+    "lesson": "A1-6",
+    "lesson_title": "どこで たべますか。 (Ăn ở đâu?)",
+    "num": 28,
+    "jp": "みせ",
+    "vi": "Cửa hàng"
+  },
+  {
+    "lesson": "A1-6",
+    "lesson_title": "どこで たべますか。 (Ăn ở đâu?)",
+    "num": 29,
+    "jp": "あの みせ",
+    "vi": "Cửa hàng kia"
+  },
+  {
+    "lesson": "A1-6",
+    "lesson_title": "どこで たべますか。 (Ăn ở đâu?)",
+    "num": 30,
+    "jp": "～や",
+    "vi": "Cửa hàng, tiệm"
+  },
+  {
+    "lesson": "A1-6",
+    "lesson_title": "どこで たべますか。 (Ăn ở đâu?)",
+    "num": 31,
+    "jp": "ラーメンや",
+    "vi": "Tiệm mỳ Ramen"
+  },
+  {
+    "lesson": "A1-6",
+    "lesson_title": "どこで たべますか。 (Ăn ở đâu?)",
+    "num": 32,
+    "jp": "コーヒーショップ",
+    "vi": "Tiệm cà phê"
+  },
+  {
+    "lesson": "A1-6",
+    "lesson_title": "どこで たべますか。 (Ăn ở đâu?)",
+    "num": 33,
+    "jp": "～V ましょう。",
+    "vi": "Cùng làm V"
+  },
+  {
+    "lesson": "A1-6",
+    "lesson_title": "どこで たべますか。 (Ăn ở đâu?)",
+    "num": 34,
+    "jp": "どこ？",
+    "vi": "Ở đâu?"
+  },
+  {
+    "lesson": "A1-6",
+    "lesson_title": "どこで たべますか。 (Ăn ở đâu?)",
+    "num": 35,
+    "jp": "きょうは どこで たべますか。",
+    "vi": "Hôm nay sẽ ăn ở đâu?"
+  },
+  {
+    "lesson": "A1-6",
+    "lesson_title": "どこで たべますか。 (Ăn ở đâu?)",
+    "num": 36,
+    "jp": "ひとつ",
+    "vi": "Một cái"
+  },
+  {
+    "lesson": "A1-6",
+    "lesson_title": "どこで たべますか。 (Ăn ở đâu?)",
+    "num": 37,
+    "jp": "ふたつ",
+    "vi": "Hai cái"
+  },
+  {
+    "lesson": "A1-6",
+    "lesson_title": "どこで たべますか。 (Ăn ở đâu?)",
+    "num": 38,
+    "jp": "みっつ",
+    "vi": "Ba cái"
+  },
+  {
+    "lesson": "A1-6",
+    "lesson_title": "どこで たべますか。 (Ăn ở đâu?)",
+    "num": 39,
+    "jp": "いらっしゃいませ。",
+    "vi": "Xin kính chào quý khách."
+  },
+  {
+    "lesson": "A1-6",
+    "lesson_title": "どこで たべますか。 (Ăn ở đâu?)",
+    "num": 40,
+    "jp": "N（を）ください。",
+    "vi": "Hãy cho tôi N"
+  },
+  {
+    "lesson": "A1-7",
+    "lesson_title": "へやが みっつ あります。 (Có 3 căn phòng)",
+    "num": 1,
+    "jp": "いえ",
+    "vi": "Nhà"
+  },
+  {
+    "lesson": "A1-7",
+    "lesson_title": "へやが みっつ あります。 (Có 3 căn phòng)",
+    "num": 2,
+    "jp": "アパート",
+    "vi": "Chung cư mini, căn hộ nhỏ"
+  },
+  {
+    "lesson": "A1-7",
+    "lesson_title": "へやが みっつ あります。 (Có 3 căn phòng)",
+    "num": 3,
+    "jp": "マンション",
+    "vi": "Chung cư cao cấp"
+  },
+  {
+    "lesson": "A1-7",
+    "lesson_title": "へやが みっつ あります。 (Có 3 căn phòng)",
+    "num": 4,
+    "jp": "いっこだて",
+    "vi": "Nhà mặt đất, nhà liền thổ"
+  },
+  {
+    "lesson": "A1-7",
+    "lesson_title": "へやが みっつ あります。 (Có 3 căn phòng)",
+    "num": 5,
+    "jp": "へや",
+    "vi": "Phòng"
+  },
+  {
+    "lesson": "A1-7",
+    "lesson_title": "へやが みっつ あります。 (Có 3 căn phòng)",
+    "num": 6,
+    "jp": "ひろい",
+    "vi": "Rộng"
+  },
+  {
+    "lesson": "A1-7",
+    "lesson_title": "へやが みっつ あります。 (Có 3 căn phòng)",
+    "num": 7,
+    "jp": "せまい",
+    "vi": "Hẹp, chật"
+  },
+  {
+    "lesson": "A1-7",
+    "lesson_title": "へやが みっつ あります。 (Có 3 căn phòng)",
+    "num": 8,
+    "jp": "おおきい",
+    "vi": "To, lớn"
+  },
+  {
+    "lesson": "A1-7",
+    "lesson_title": "へやが みっつ あります。 (Có 3 căn phòng)",
+    "num": 9,
+    "jp": "ちいさい",
+    "vi": "Nhỏ, bé"
+  },
+  {
+    "lesson": "A1-7",
+    "lesson_title": "へやが みっつ あります。 (Có 3 căn phòng)",
+    "num": 10,
+    "jp": "あたらしい",
+    "vi": "Mới"
+  },
+  {
+    "lesson": "A1-7",
+    "lesson_title": "へやが みっつ あります。 (Có 3 căn phòng)",
+    "num": 11,
+    "jp": "ふるい",
+    "vi": "Cũ"
+  },
+  {
+    "lesson": "A1-7",
+    "lesson_title": "へやが みっつ あります。 (Có 3 căn phòng)",
+    "num": 12,
+    "jp": "あかるい",
+    "vi": "Sáng sủa"
+  },
+  {
+    "lesson": "A1-7",
+    "lesson_title": "へやが みっつ あります。 (Có 3 căn phòng)",
+    "num": 13,
+    "jp": "くらい",
+    "vi": "Tối tăm"
+  },
+  {
+    "lesson": "A1-7",
+    "lesson_title": "へやが みっつ あります。 (Có 3 căn phòng)",
+    "num": 14,
+    "jp": "こうえん",
+    "vi": "Công viên"
+  },
+  {
+    "lesson": "A1-7",
+    "lesson_title": "へやが みっつ あります。 (Có 3 căn phòng)",
+    "num": 15,
+    "jp": "レストラン",
+    "vi": "Nhà hàng"
+  },
+  {
+    "lesson": "A1-7",
+    "lesson_title": "へやが みっつ あります。 (Có 3 căn phòng)",
+    "num": 16,
+    "jp": "デパート",
+    "vi": "Trung tâm thương mai"
+  },
+  {
+    "lesson": "A1-7",
+    "lesson_title": "へやが みっつ あります。 (Có 3 căn phòng)",
+    "num": 17,
+    "jp": "ちかく",
+    "vi": "Gần (Danh từ)"
+  },
+  {
+    "lesson": "A1-7",
+    "lesson_title": "へやが みっつ あります。 (Có 3 căn phòng)",
+    "num": 18,
+    "jp": "いえの ちかく",
+    "vi": "Gần nhà"
+  },
+  {
+    "lesson": "A1-7",
+    "lesson_title": "へやが みっつ あります。 (Có 3 căn phòng)",
+    "num": 19,
+    "jp": "テレビ Tivi",
+    "vi": ""
+  },
+  {
+    "lesson": "A1-7",
+    "lesson_title": "へやが みっつ あります。 (Có 3 căn phòng)",
+    "num": 20,
+    "jp": "ソファ",
+    "vi": "Ghế sofa"
+  },
+  {
+    "lesson": "A1-7",
+    "lesson_title": "へやが みっつ あります。 (Có 3 căn phòng)",
+    "num": 21,
+    "jp": "エアコン",
+    "vi": "Điều hòa"
+  },
+  {
+    "lesson": "A1-7",
+    "lesson_title": "へやが みっつ あります。 (Có 3 căn phòng)",
+    "num": 22,
+    "jp": "テーブル／つくえ",
+    "vi": "Bàn"
+  },
+  {
+    "lesson": "A1-7",
+    "lesson_title": "へやが みっつ あります。 (Có 3 căn phòng)",
+    "num": 23,
+    "jp": "いす",
+    "vi": "Ghế"
+  },
+  {
+    "lesson": "A1-7",
+    "lesson_title": "へやが みっつ あります。 (Có 3 căn phòng)",
+    "num": 24,
+    "jp": "ベッド",
+    "vi": "Giường"
+  },
+  {
+    "lesson": "A1-7",
+    "lesson_title": "へやが みっつ あります。 (Có 3 căn phòng)",
+    "num": 25,
+    "jp": "ひとつ",
+    "vi": "Một cái"
+  },
+  {
+    "lesson": "A1-7",
+    "lesson_title": "へやが みっつ あります。 (Có 3 căn phòng)",
+    "num": 26,
+    "jp": "ふたつ",
+    "vi": "Hai cái"
+  },
+  {
+    "lesson": "A1-7",
+    "lesson_title": "へやが みっつ あります。 (Có 3 căn phòng)",
+    "num": 27,
+    "jp": "みっつ",
+    "vi": "Ba cái"
+  },
+  {
+    "lesson": "A1-7",
+    "lesson_title": "へやが みっつ あります。 (Có 3 căn phòng)",
+    "num": 28,
+    "jp": "よっつ",
+    "vi": "Bốn cái"
+  },
+  {
+    "lesson": "A1-7",
+    "lesson_title": "へやが みっつ あります。 (Có 3 căn phòng)",
+    "num": 29,
+    "jp": "いつつ",
+    "vi": "Năm cái"
+  },
+  {
+    "lesson": "A1-7",
+    "lesson_title": "へやが みっつ あります。 (Có 3 căn phòng)",
+    "num": 30,
+    "jp": "むっつ",
+    "vi": "Sáu cái"
+  },
+  {
+    "lesson": "A1-7",
+    "lesson_title": "へやが みっつ あります。 (Có 3 căn phòng)",
+    "num": 31,
+    "jp": "いくつ？",
+    "vi": "Mấy cái?"
+  },
+  {
+    "lesson": "A1-7",
+    "lesson_title": "へやが みっつ あります。 (Có 3 căn phòng)",
+    "num": 32,
+    "jp": "P に すんでいます",
+    "vi": "Đang sống tại địa điểm P"
+  },
+  {
+    "lesson": "A1-7",
+    "lesson_title": "へやが みっつ あります。 (Có 3 căn phòng)",
+    "num": 33,
+    "jp": "N と すんでいます",
+    "vi": "Đang sống cùng N"
+  },
+  {
+    "lesson": "A1-7",
+    "lesson_title": "へやが みっつ あります。 (Có 3 căn phòng)",
+    "num": 34,
+    "jp": "ひとりで すんでいます",
+    "vi": "Đang sống một mình"
+  },
+  {
+    "lesson": "A1-7",
+    "lesson_title": "へやが みっつ あります。 (Có 3 căn phòng)",
+    "num": 35,
+    "jp": "N が あります",
+    "vi": "Có N (Đồ vật)"
+  },
+  {
+    "lesson": "A1-7",
+    "lesson_title": "へやが みっつ あります。 (Có 3 căn phòng)",
+    "num": 36,
+    "jp": "N が います",
+    "vi": "Có N (Con người, động vật)"
+  },
+  {
+    "lesson": "A1-7",
+    "lesson_title": "へやが みっつ あります。 (Có 3 căn phòng)",
+    "num": 37,
+    "jp": "ともだち",
+    "vi": "Bạn bè"
+  },
+  {
+    "lesson": "A1-7",
+    "lesson_title": "へやが みっつ あります。 (Có 3 căn phòng)",
+    "num": 38,
+    "jp": "でも、～",
+    "vi": "Nhưng"
+  },
+  {
+    "lesson": "A1-7",
+    "lesson_title": "へやが みっつ あります。 (Có 3 căn phòng)",
+    "num": 39,
+    "jp": "あそびに きて ください。",
+    "vi": "Hãy đến chơi"
+  },
+  {
+    "lesson": "A1-8",
+    "lesson_title": "いい へやですね。 (Căn phòng đẹp nhỉ)",
+    "num": 1,
+    "jp": "ほん",
+    "vi": "Sách"
+  },
+  {
+    "lesson": "A1-8",
+    "lesson_title": "いい へやですね。 (Căn phòng đẹp nhỉ)",
+    "num": 2,
+    "jp": "カップ",
+    "vi": "Cốc"
+  },
+  {
+    "lesson": "A1-8",
+    "lesson_title": "いい へやですね。 (Căn phòng đẹp nhỉ)",
+    "num": 3,
+    "jp": "にんぎょう",
+    "vi": "Búp bê"
+  },
+  {
+    "lesson": "A1-8",
+    "lesson_title": "いい へやですね。 (Căn phòng đẹp nhỉ)",
+    "num": 4,
+    "jp": "とけい",
+    "vi": "Đồng hồ"
+  },
+  {
+    "lesson": "A1-8",
+    "lesson_title": "いい へやですね。 (Căn phòng đẹp nhỉ)",
+    "num": 5,
+    "jp": "はこ",
+    "vi": "Hộp"
+  },
+  {
+    "lesson": "A1-8",
+    "lesson_title": "いい へやですね。 (Căn phòng đẹp nhỉ)",
+    "num": 6,
+    "jp": "しゃしん",
+    "vi": "Bức ảnh"
+  },
+  {
+    "lesson": "A1-8",
+    "lesson_title": "いい へやですね。 (Căn phòng đẹp nhỉ)",
+    "num": 7,
+    "jp": "たな／ほんだな",
+    "vi": "Giá, giá sách"
+  },
+  {
+    "lesson": "A1-8",
+    "lesson_title": "いい へやですね。 (Căn phòng đẹp nhỉ)",
+    "num": 8,
+    "jp": "テーブル",
+    "vi": "Bàn"
+  },
+  {
+    "lesson": "A1-8",
+    "lesson_title": "いい へやですね。 (Căn phòng đẹp nhỉ)",
+    "num": 9,
+    "jp": "だいどころ",
+    "vi": "Phòng bếp"
+  },
+  {
+    "lesson": "A1-8",
+    "lesson_title": "いい へやですね。 (Căn phòng đẹp nhỉ)",
+    "num": 10,
+    "jp": "げんかん",
+    "vi": "Tiền sảnh, lối vào nhà"
+  },
+  {
+    "lesson": "A1-8",
+    "lesson_title": "いい へやですね。 (Căn phòng đẹp nhỉ)",
+    "num": 11,
+    "jp": "にわ",
+    "vi": "Vườn"
+  },
+  {
+    "lesson": "A1-8",
+    "lesson_title": "いい へやですね。 (Căn phòng đẹp nhỉ)",
+    "num": 12,
+    "jp": "トイレ",
+    "vi": "Phòng vệ sinh"
+  },
+  {
+    "lesson": "A1-8",
+    "lesson_title": "いい へやですね。 (Căn phòng đẹp nhỉ)",
+    "num": 13,
+    "jp": "おふろ",
+    "vi": "Phòng tắm"
+  },
+  {
+    "lesson": "A1-8",
+    "lesson_title": "いい へやですね。 (Căn phòng đẹp nhỉ)",
+    "num": 14,
+    "jp": "うえ",
+    "vi": "Trên"
+  },
+  {
+    "lesson": "A1-8",
+    "lesson_title": "いい へやですね。 (Căn phòng đẹp nhỉ)",
+    "num": 15,
+    "jp": "した",
+    "vi": "Dưới"
+  },
+  {
+    "lesson": "A1-8",
+    "lesson_title": "いい へやですね。 (Căn phòng đẹp nhỉ)",
+    "num": 16,
+    "jp": "なか",
+    "vi": "Bên trong"
+  },
+  {
+    "lesson": "A1-8",
+    "lesson_title": "いい へやですね。 (Căn phòng đẹp nhỉ)",
+    "num": 17,
+    "jp": "よこ",
+    "vi": "Bên cạnh"
+  },
+  {
+    "lesson": "A1-8",
+    "lesson_title": "いい へやですね。 (Căn phòng đẹp nhỉ)",
+    "num": 18,
+    "jp": "はこ の なか",
+    "vi": "Bên trong chiếc hộp"
+  },
+  {
+    "lesson": "A1-8",
+    "lesson_title": "いい へやですね。 (Căn phòng đẹp nhỉ)",
+    "num": 19,
+    "jp": "おねがいします",
+    "vi": "Nhờ bạn giúp đỡ"
+  },
+  {
+    "lesson": "A1-8",
+    "lesson_title": "いい へやですね。 (Căn phòng đẹp nhỉ)",
+    "num": 20,
+    "jp": "わかりました",
+    "vi": "Tôi đã hiểu rồi"
+  },
+  {
+    "lesson": "A1-8",
+    "lesson_title": "いい へやですね。 (Căn phòng đẹp nhỉ)",
+    "num": 21,
+    "jp": "ごめんください。",
+    "vi": "Xin lỗi, có ai ở nhà không? (Dùng khi đến thăm nhà ai đó và gọi lúc đứng ngoài cửa)"
+  },
+  {
+    "lesson": "A1-8",
+    "lesson_title": "いい へやですね。 (Căn phòng đẹp nhỉ)",
+    "num": 22,
+    "jp": "いらっしゃい。",
+    "vi": "Mời vào! Chào mừng bạn! (Chủ nhà nói để mời khách vào)"
+  },
+  {
+    "lesson": "A1-8",
+    "lesson_title": "いい へやですね。 (Căn phòng đẹp nhỉ)",
+    "num": 23,
+    "jp": "どうぞ あがって ください。",
+    "vi": "Mời bạn vào nhà. (Chủ nhà lịch sự mời khách bước vào)"
+  },
+  {
+    "lesson": "A1-8",
+    "lesson_title": "いい へやですね。 (Căn phòng đẹp nhỉ)",
+    "num": 24,
+    "jp": "おじゃまします。",
+    "vi": "Xin làm phiền, Xin phép vào nhà. (Khách nói khi bước vào nhà người khác, thể hiện sự lịch sự)"
+  },
+  {
+    "lesson": "A1-8",
+    "lesson_title": "いい へやですね。 (Căn phòng đẹp nhỉ)",
+    "num": 25,
+    "jp": "どうぞ",
+    "vi": "Xin mời"
+  },
+  {
+    "lesson": "A1-8",
+    "lesson_title": "いい へやですね。 (Căn phòng đẹp nhỉ)",
+    "num": 26,
+    "jp": "いただきます",
+    "vi": "Tôi xin phép dùng (ăn, uống)"
+  },
+  {
+    "lesson": "A1-8",
+    "lesson_title": "いい へやですね。 (Căn phòng đẹp nhỉ)",
+    "num": 27,
+    "jp": "いい",
+    "vi": "Tốt"
+  },
+  {
+    "lesson": "A1-8",
+    "lesson_title": "いい へやですね。 (Căn phòng đẹp nhỉ)",
+    "num": 28,
+    "jp": "きれい",
+    "vi": "Đẹp"
+  },
+  {
+    "lesson": "A1-8",
+    "lesson_title": "いい へやですね。 (Căn phòng đẹp nhỉ)",
+    "num": 29,
+    "jp": "ともだち",
+    "vi": "Bạn bè"
+  },
+  {
+    "lesson": "A1-8",
+    "lesson_title": "いい へやですね。 (Căn phòng đẹp nhỉ)",
+    "num": 30,
+    "jp": "じゅうしょ",
+    "vi": "Địa chỉ"
+  },
+  {
+    "lesson": "A1-8",
+    "lesson_title": "いい へやですね。 (Căn phòng đẹp nhỉ)",
+    "num": 31,
+    "jp": "P に N を おきます",
+    "vi": "Đặt, để N ở P VD: テーブルの うえに かばんを おき ます"
+  },
+  {
+    "lesson": "A1-9",
+    "lesson_title": "なんじに おきますか。 (Thức dậy lúc mấy giờ?)",
+    "num": 1,
+    "jp": "あさ",
+    "vi": "Sáng"
+  },
+  {
+    "lesson": "A1-9",
+    "lesson_title": "なんじに おきますか。 (Thức dậy lúc mấy giờ?)",
+    "num": 2,
+    "jp": "ひる",
+    "vi": "Trưa"
+  },
+  {
+    "lesson": "A1-9",
+    "lesson_title": "なんじに おきますか。 (Thức dậy lúc mấy giờ?)",
+    "num": 3,
+    "jp": "よる／ばん",
+    "vi": "Tối"
+  },
+  {
+    "lesson": "A1-9",
+    "lesson_title": "なんじに おきますか。 (Thức dậy lúc mấy giờ?)",
+    "num": 4,
+    "jp": "ごぜん",
+    "vi": "AM (Buổi sáng)"
+  },
+  {
+    "lesson": "A1-9",
+    "lesson_title": "なんじに おきますか。 (Thức dậy lúc mấy giờ?)",
+    "num": 5,
+    "jp": "ごご",
+    "vi": "PM (Buổi chiều tối)"
+  },
+  {
+    "lesson": "A1-9",
+    "lesson_title": "なんじに おきますか。 (Thức dậy lúc mấy giờ?)",
+    "num": 6,
+    "jp": "あさごはん",
+    "vi": "Bữa sáng"
+  },
+  {
+    "lesson": "A1-9",
+    "lesson_title": "なんじに おきますか。 (Thức dậy lúc mấy giờ?)",
+    "num": 7,
+    "jp": "ひるごはん",
+    "vi": "Bữa trưa"
+  },
+  {
+    "lesson": "A1-9",
+    "lesson_title": "なんじに おきますか。 (Thức dậy lúc mấy giờ?)",
+    "num": 8,
+    "jp": "ばんごはん",
+    "vi": "Bữa tối"
+  },
+  {
+    "lesson": "A1-9",
+    "lesson_title": "なんじに おきますか。 (Thức dậy lúc mấy giờ?)",
+    "num": 9,
+    "jp": "いちにち",
+    "vi": "Một ngày"
+  },
+  {
+    "lesson": "A1-9",
+    "lesson_title": "なんじに おきますか。 (Thức dậy lúc mấy giờ?)",
+    "num": 10,
+    "jp": "まいにち",
+    "vi": "Mỗi ngày, hằng ngày"
+  },
+  {
+    "lesson": "A1-9",
+    "lesson_title": "なんじに おきますか。 (Thức dậy lúc mấy giờ?)",
+    "num": 11,
+    "jp": "まいあさ",
+    "vi": "Mỗi sáng"
+  },
+  {
+    "lesson": "A1-9",
+    "lesson_title": "なんじに おきますか。 (Thức dậy lúc mấy giờ?)",
+    "num": 12,
+    "jp": "まいばん",
+    "vi": "Mỗi tối"
+  },
+  {
+    "lesson": "A1-9",
+    "lesson_title": "なんじに おきますか。 (Thức dậy lúc mấy giờ?)",
+    "num": 13,
+    "jp": "いま",
+    "vi": "Bây giờ"
+  },
+  {
+    "lesson": "A1-9",
+    "lesson_title": "なんじに おきますか。 (Thức dậy lúc mấy giờ?)",
+    "num": 14,
+    "jp": "うち",
+    "vi": "Nhà (Home)"
+  },
+  {
+    "lesson": "A1-9",
+    "lesson_title": "なんじに おきますか。 (Thức dậy lúc mấy giờ?)",
+    "num": 15,
+    "jp": "しんぶん",
+    "vi": "Báo"
+  },
+  {
+    "lesson": "A1-9",
+    "lesson_title": "なんじに おきますか。 (Thức dậy lúc mấy giờ?)",
+    "num": 16,
+    "jp": "かいしゃ",
+    "vi": "Công ty"
+  },
+  {
+    "lesson": "A1-9",
+    "lesson_title": "なんじに おきますか。 (Thức dậy lúc mấy giờ?)",
+    "num": 17,
+    "jp": "がっこう",
+    "vi": "Trường học"
+  },
+  {
+    "lesson": "A1-9",
+    "lesson_title": "なんじに おきますか。 (Thức dậy lúc mấy giờ?)",
+    "num": 18,
+    "jp": "おんがく",
+    "vi": "Âm nhạc"
+  },
+  {
+    "lesson": "A1-9",
+    "lesson_title": "なんじに おきますか。 (Thức dậy lúc mấy giờ?)",
+    "num": 19,
+    "jp": "かじ",
+    "vi": "Việc nhà"
+  },
+  {
+    "lesson": "A1-9",
+    "lesson_title": "なんじに おきますか。 (Thức dậy lúc mấy giờ?)",
+    "num": 20,
+    "jp": "にっき",
+    "vi": "Nhật ký"
+  },
+  {
+    "lesson": "A1-9",
+    "lesson_title": "なんじに おきますか。 (Thức dậy lúc mấy giờ?)",
+    "num": 21,
+    "jp": "ブログ Blog",
+    "vi": ""
+  },
+  {
+    "lesson": "A1-9",
+    "lesson_title": "なんじに おきますか。 (Thức dậy lúc mấy giờ?)",
+    "num": 22,
+    "jp": "うんどう",
+    "vi": "Vận động, tập thể dục"
+  },
+  {
+    "lesson": "A1-9",
+    "lesson_title": "なんじに おきますか。 (Thức dậy lúc mấy giờ?)",
+    "num": 23,
+    "jp": "さんぽ",
+    "vi": "Đi dạo"
+  },
+  {
+    "lesson": "A1-9",
+    "lesson_title": "なんじに おきますか。 (Thức dậy lúc mấy giờ?)",
+    "num": 24,
+    "jp": "～じ",
+    "vi": "... giờ"
+  },
+  {
+    "lesson": "A1-9",
+    "lesson_title": "なんじに おきますか。 (Thức dậy lúc mấy giờ?)",
+    "num": 25,
+    "jp": "なんじ？",
+    "vi": "Mấy giờ"
+  },
+  {
+    "lesson": "A1-9",
+    "lesson_title": "なんじに おきますか。 (Thức dậy lúc mấy giờ?)",
+    "num": 26,
+    "jp": "～ふん／ぷん",
+    "vi": "... phút"
+  },
+  {
+    "lesson": "A1-9",
+    "lesson_title": "なんじに おきますか。 (Thức dậy lúc mấy giờ?)",
+    "num": 27,
+    "jp": "～じかん",
+    "vi": "... tiếng"
+  },
+  {
+    "lesson": "A1-9",
+    "lesson_title": "なんじに おきますか。 (Thức dậy lúc mấy giờ?)",
+    "num": 28,
+    "jp": "～ごろ",
+    "vi": "Khoảng..."
+  },
+  {
+    "lesson": "A1-9",
+    "lesson_title": "なんじに おきますか。 (Thức dậy lúc mấy giờ?)",
+    "num": 29,
+    "jp": "おきます",
+    "vi": "Thức dậy"
+  },
+  {
+    "lesson": "A1-9",
+    "lesson_title": "なんじに おきますか。 (Thức dậy lúc mấy giờ?)",
+    "num": 30,
+    "jp": "あさごはん を たべます",
+    "vi": "Ăn sáng"
+  },
+  {
+    "lesson": "A1-9",
+    "lesson_title": "なんじに おきますか。 (Thức dậy lúc mấy giờ?)",
+    "num": 31,
+    "jp": "しんぶん を よみます",
+    "vi": "Đọc báo"
+  },
+  {
+    "lesson": "A1-9",
+    "lesson_title": "なんじに おきますか。 (Thức dậy lúc mấy giờ?)",
+    "num": 32,
+    "jp": "おんがく を ききます",
+    "vi": "Nghe nhạc"
+  },
+  {
+    "lesson": "A1-9",
+    "lesson_title": "なんじに おきますか。 (Thức dậy lúc mấy giờ?)",
+    "num": 33,
+    "jp": "にっき を かきます",
+    "vi": "Viết nhật ký"
+  },
+  {
+    "lesson": "A1-9",
+    "lesson_title": "なんじに おきますか。 (Thức dậy lúc mấy giờ?)",
+    "num": 34,
+    "jp": "テレビ を みます Xem tivi",
+    "vi": ""
+  },
+  {
+    "lesson": "A1-9",
+    "lesson_title": "なんじに おきますか。 (Thức dậy lúc mấy giờ?)",
+    "num": 35,
+    "jp": "しごと（を）します",
+    "vi": "Làm việc"
+  },
+  {
+    "lesson": "A1-9",
+    "lesson_title": "なんじに おきますか。 (Thức dậy lúc mấy giờ?)",
+    "num": 36,
+    "jp": "がっこう に いきます",
+    "vi": "Đi đến trường (go)"
+  },
+  {
+    "lesson": "A1-9",
+    "lesson_title": "なんじに おきますか。 (Thức dậy lúc mấy giờ?)",
+    "num": 37,
+    "jp": "うち に かえります",
+    "vi": "Về nhà"
+  },
+  {
+    "lesson": "A1-9",
+    "lesson_title": "なんじに おきますか。 (Thức dậy lúc mấy giờ?)",
+    "num": 38,
+    "jp": "かいしゃ に きます",
+    "vi": "Đến công ty (come)"
+  },
+  {
+    "lesson": "A1-9",
+    "lesson_title": "なんじに おきますか。 (Thức dậy lúc mấy giờ?)",
+    "num": 39,
+    "jp": "おふろ に はいります",
+    "vi": "Vào bồn tắm, ngâm bồn"
+  },
+  {
+    "lesson": "A1-9",
+    "lesson_title": "なんじに おきますか。 (Thức dậy lúc mấy giờ?)",
+    "num": 40,
+    "jp": "シャワー を あびます",
+    "vi": "Tắm (vòi hoa sen)"
+  },
+  {
+    "lesson": "A1-9",
+    "lesson_title": "なんじに おきますか。 (Thức dậy lúc mấy giờ?)",
+    "num": 41,
+    "jp": "ねます",
+    "vi": "Ngủ"
+  },
+  {
+    "lesson": "A1-9",
+    "lesson_title": "なんじに おきますか。 (Thức dậy lúc mấy giờ?)",
+    "num": 42,
+    "jp": "かじ を します",
+    "vi": "Làm việc nhà"
+  },
+  {
+    "lesson": "A1-9",
+    "lesson_title": "なんじに おきますか。 (Thức dậy lúc mấy giờ?)",
+    "num": 43,
+    "jp": "うんどう（を）します",
+    "vi": "Tập thể dục"
+  },
+  {
+    "lesson": "A1-9",
+    "lesson_title": "なんじに おきますか。 (Thức dậy lúc mấy giờ?)",
+    "num": 44,
+    "jp": "さんぽ（を）します",
+    "vi": "Đi dạo"
+  },
+  {
+    "lesson": "A1-9",
+    "lesson_title": "なんじに おきますか。 (Thức dậy lúc mấy giờ?)",
+    "num": 45,
+    "jp": "いそがしい",
+    "vi": "Bận rộn"
+  },
+  {
+    "lesson": "A1-10",
+    "lesson_title": "いつが いいですか。 (Khi nào thì tiện?)",
+    "num": 1,
+    "jp": "きのう",
+    "vi": "Hôm qua"
+  },
+  {
+    "lesson": "A1-10",
+    "lesson_title": "いつが いいですか。 (Khi nào thì tiện?)",
+    "num": 2,
+    "jp": "きょう",
+    "vi": "Hôm nay"
+  },
+  {
+    "lesson": "A1-10",
+    "lesson_title": "いつが いいですか。 (Khi nào thì tiện?)",
+    "num": 3,
+    "jp": "あした",
+    "vi": "Ngày mai"
+  },
+  {
+    "lesson": "A1-10",
+    "lesson_title": "いつが いいですか。 (Khi nào thì tiện?)",
+    "num": 4,
+    "jp": "せんしゅう",
+    "vi": "Tuần trước"
+  },
+  {
+    "lesson": "A1-10",
+    "lesson_title": "いつが いいですか。 (Khi nào thì tiện?)",
+    "num": 5,
+    "jp": "こんしゅう",
+    "vi": "Tuần này"
+  },
+  {
+    "lesson": "A1-10",
+    "lesson_title": "いつが いいですか。 (Khi nào thì tiện?)",
+    "num": 6,
+    "jp": "らいしゅう",
+    "vi": "Tuần sau"
+  },
+  {
+    "lesson": "A1-10",
+    "lesson_title": "いつが いいですか。 (Khi nào thì tiện?)",
+    "num": 7,
+    "jp": "げつようび",
+    "vi": "Thứ hai"
+  },
+  {
+    "lesson": "A1-10",
+    "lesson_title": "いつが いいですか。 (Khi nào thì tiện?)",
+    "num": 8,
+    "jp": "かようび",
+    "vi": "Thứ ba"
+  },
+  {
+    "lesson": "A1-10",
+    "lesson_title": "いつが いいですか。 (Khi nào thì tiện?)",
+    "num": 9,
+    "jp": "すいようび",
+    "vi": "Thứ tư"
+  },
+  {
+    "lesson": "A1-10",
+    "lesson_title": "いつが いいですか。 (Khi nào thì tiện?)",
+    "num": 10,
+    "jp": "もくようび",
+    "vi": "Thứ năm"
+  },
+  {
+    "lesson": "A1-10",
+    "lesson_title": "いつが いいですか。 (Khi nào thì tiện?)",
+    "num": 11,
+    "jp": "きんようび",
+    "vi": "Thứ sáu"
+  },
+  {
+    "lesson": "A1-10",
+    "lesson_title": "いつが いいですか。 (Khi nào thì tiện?)",
+    "num": 12,
+    "jp": "どようび",
+    "vi": "Thứ bảy"
+  },
+  {
+    "lesson": "A1-10",
+    "lesson_title": "いつが いいですか。 (Khi nào thì tiện?)",
+    "num": 13,
+    "jp": "にちようび",
+    "vi": "Chủ nhật"
+  },
+  {
+    "lesson": "A1-10",
+    "lesson_title": "いつが いいですか。 (Khi nào thì tiện?)",
+    "num": 14,
+    "jp": "しゅうまつ",
+    "vi": "Cuối tuần"
+  },
+  {
+    "lesson": "A1-10",
+    "lesson_title": "いつが いいですか。 (Khi nào thì tiện?)",
+    "num": 15,
+    "jp": "たんじょうび",
+    "vi": "Sinh nhật"
+  },
+  {
+    "lesson": "A1-10",
+    "lesson_title": "いつが いいですか。 (Khi nào thì tiện?)",
+    "num": 16,
+    "jp": "～にち",
+    "vi": "Ngày..."
+  },
+  {
+    "lesson": "A1-10",
+    "lesson_title": "いつが いいですか。 (Khi nào thì tiện?)",
+    "num": 17,
+    "jp": "～がつ",
+    "vi": "Tháng..."
+  },
+  {
+    "lesson": "A1-10",
+    "lesson_title": "いつが いいですか。 (Khi nào thì tiện?)",
+    "num": 18,
+    "jp": "パーティー",
+    "vi": "Bữa tiệc, party"
+  },
+  {
+    "lesson": "A1-10",
+    "lesson_title": "いつが いいですか。 (Khi nào thì tiện?)",
+    "num": 19,
+    "jp": "バースデーパーティー",
+    "vi": "Birthday party, tiệc sinh nhật"
+  },
+  {
+    "lesson": "A1-10",
+    "lesson_title": "いつが いいですか。 (Khi nào thì tiện?)",
+    "num": 20,
+    "jp": "コンサート",
+    "vi": "Concert, buổi hòa nhạc"
+  },
+  {
+    "lesson": "A1-10",
+    "lesson_title": "いつが いいですか。 (Khi nào thì tiện?)",
+    "num": 21,
+    "jp": "かいもの（を）します",
+    "vi": "Mua sắm"
+  },
+  {
+    "lesson": "A1-10",
+    "lesson_title": "いつが いいですか。 (Khi nào thì tiện?)",
+    "num": 22,
+    "jp": "べんきょう（を）します",
+    "vi": "Học tập"
+  },
+  {
+    "lesson": "A1-10",
+    "lesson_title": "いつが いいですか。 (Khi nào thì tiện?)",
+    "num": 23,
+    "jp": "テニス（をします）",
+    "vi": "Tennis (Chơi...)"
+  },
+  {
+    "lesson": "A1-10",
+    "lesson_title": "いつが いいですか。 (Khi nào thì tiện?)",
+    "num": 24,
+    "jp": "しょくじ（を）します",
+    "vi": "Dùng bữa"
+  },
+  {
+    "lesson": "A1-10",
+    "lesson_title": "いつが いいですか。 (Khi nào thì tiện?)",
+    "num": 25,
+    "jp": "P に きます",
+    "vi": "Đến địa điểm P"
+  },
+  {
+    "lesson": "A1-10",
+    "lesson_title": "いつが いいですか。 (Khi nào thì tiện?)",
+    "num": 26,
+    "jp": "だいじょうぶ（な）",
+    "vi": "Ổn, được"
+  },
+  {
+    "lesson": "A1-10",
+    "lesson_title": "いつが いいですか。 (Khi nào thì tiện?)",
+    "num": 27,
+    "jp": "だめ（な）",
+    "vi": "Không được"
+  },
+  {
+    "lesson": "A1-10",
+    "lesson_title": "いつが いいですか。 (Khi nào thì tiện?)",
+    "num": 28,
+    "jp": "びょういん",
+    "vi": "Bệnh viện"
+  },
+  {
+    "lesson": "A1-10",
+    "lesson_title": "いつが いいですか。 (Khi nào thì tiện?)",
+    "num": 29,
+    "jp": "はくぶつかん",
+    "vi": "Bảo tàng"
+  },
+  {
+    "lesson": "A1-10",
+    "lesson_title": "いつが いいですか。 (Khi nào thì tiện?)",
+    "num": 30,
+    "jp": "びじゅつかん",
+    "vi": "Bảo tàng mỹ thuật"
+  },
+  {
+    "lesson": "A1-10",
+    "lesson_title": "いつが いいですか。 (Khi nào thì tiện?)",
+    "num": 31,
+    "jp": "がっこう",
+    "vi": "Trường học"
+  },
+  {
+    "lesson": "A1-10",
+    "lesson_title": "いつが いいですか。 (Khi nào thì tiện?)",
+    "num": 32,
+    "jp": "すいぞくかん",
+    "vi": "Thủy cung"
+  },
+  {
+    "lesson": "A1-10",
+    "lesson_title": "いつが いいですか。 (Khi nào thì tiện?)",
+    "num": 33,
+    "jp": "いつ？",
+    "vi": "Khi nào?"
+  },
+  {
+    "lesson": "A1-10",
+    "lesson_title": "いつが いいですか。 (Khi nào thì tiện?)",
+    "num": 34,
+    "jp": "いつが いいですか。",
+    "vi": "Khi nào thì được?"
+  },
+  {
+    "lesson": "A1-10",
+    "lesson_title": "いつが いいですか。 (Khi nào thì tiện?)",
+    "num": 35,
+    "jp": "いつでも いいです。",
+    "vi": "Khi nào cũng được"
+  },
+  {
+    "lesson": "A1-10",
+    "lesson_title": "いつが いいですか。 (Khi nào thì tiện?)",
+    "num": 36,
+    "jp": "ざんぎょう（を）します",
+    "vi": "Làm tăng ca, OT"
+  },
+  {
+    "lesson": "A1-10",
+    "lesson_title": "いつが いいですか。 (Khi nào thì tiện?)",
+    "num": 37,
+    "jp": "～じかん",
+    "vi": "… tiếng"
+  },
+  {
+    "lesson": "A1-10",
+    "lesson_title": "いつが いいですか。 (Khi nào thì tiện?)",
+    "num": 38,
+    "jp": "～ぐらい",
+    "vi": "Khoảng… (số lượng, thời lượng)"
+  },
+  {
+    "lesson": "A1-10",
+    "lesson_title": "いつが いいですか。 (Khi nào thì tiện?)",
+    "num": 39,
+    "jp": "ときどき",
+    "vi": "Thỉnh thoảng"
+  },
+  {
+    "lesson": "A1-10",
+    "lesson_title": "いつが いいですか。 (Khi nào thì tiện?)",
+    "num": 40,
+    "jp": "インターネット Internet",
+    "vi": ""
+  },
+  {
+    "lesson": "A1-10",
+    "lesson_title": "いつが いいですか。 (Khi nào thì tiện?)",
+    "num": 41,
+    "jp": "いっしゅうかん",
+    "vi": "Một tuần"
+  },
+  {
+    "lesson": "A1-10",
+    "lesson_title": "いつが いいですか。 (Khi nào thì tiện?)",
+    "num": 42,
+    "jp": "スケジュール",
+    "vi": "Lịch trình"
+  },
+  {
+    "lesson": "A1-11",
+    "lesson_title": "しゅみは なんですか。 (Sở thích là gì?)",
+    "num": 1,
+    "jp": "しゅみ",
+    "vi": "Sở thích"
+  },
+  {
+    "lesson": "A1-11",
+    "lesson_title": "しゅみは なんですか。 (Sở thích là gì?)",
+    "num": 2,
+    "jp": "スポーツ",
+    "vi": "Thể thao"
+  },
+  {
+    "lesson": "A1-11",
+    "lesson_title": "しゅみは なんですか。 (Sở thích là gì?)",
+    "num": 3,
+    "jp": "えいが Phim",
+    "vi": ""
+  },
+  {
+    "lesson": "A1-11",
+    "lesson_title": "しゅみは なんですか。 (Sở thích là gì?)",
+    "num": 4,
+    "jp": "おんがく",
+    "vi": "Âm nhạc"
+  },
+  {
+    "lesson": "A1-11",
+    "lesson_title": "しゅみは なんですか。 (Sở thích là gì?)",
+    "num": 5,
+    "jp": "どくしょ",
+    "vi": "Việc đọc sách"
+  },
+  {
+    "lesson": "A1-11",
+    "lesson_title": "しゅみは なんですか。 (Sở thích là gì?)",
+    "num": 6,
+    "jp": "ダンス",
+    "vi": "Nhảy"
+  },
+  {
+    "lesson": "A1-11",
+    "lesson_title": "しゅみは なんですか。 (Sở thích là gì?)",
+    "num": 7,
+    "jp": "え Tranh",
+    "vi": ""
+  },
+  {
+    "lesson": "A1-11",
+    "lesson_title": "しゅみは なんですか。 (Sở thích là gì?)",
+    "num": 8,
+    "jp": "いけばな",
+    "vi": "Cắm hoa kiểu Nhật"
+  },
+  {
+    "lesson": "A1-11",
+    "lesson_title": "しゅみは なんですか。 (Sở thích là gì?)",
+    "num": 9,
+    "jp": "おりがみ",
+    "vi": "Origami, Gập giấy kiểu Nhật"
+  },
+  {
+    "lesson": "A1-11",
+    "lesson_title": "しゅみは なんですか。 (Sở thích là gì?)",
+    "num": 10,
+    "jp": "ぶんがく",
+    "vi": "Văn học"
+  },
+  {
+    "lesson": "A1-11",
+    "lesson_title": "しゅみは なんですか。 (Sở thích là gì?)",
+    "num": 11,
+    "jp": "しょうせつ",
+    "vi": "Tiểu thuyết"
+  },
+  {
+    "lesson": "A1-11",
+    "lesson_title": "しゅみは なんですか。 (Sở thích là gì?)",
+    "num": 12,
+    "jp": "まんが／マンガ",
+    "vi": "Truyện tranh"
+  },
+  {
+    "lesson": "A1-11",
+    "lesson_title": "しゅみは なんですか。 (Sở thích là gì?)",
+    "num": 13,
+    "jp": "ファンタジー",
+    "vi": "Fantasy (Thể loại kỳ ảo)"
+  },
+  {
+    "lesson": "A1-11",
+    "lesson_title": "しゅみは なんですか。 (Sở thích là gì?)",
+    "num": 14,
+    "jp": "ミステリー",
+    "vi": "Mystery (Thể loại bí ẩn)"
+  },
+  {
+    "lesson": "A1-11",
+    "lesson_title": "しゅみは なんですか。 (Sở thích là gì?)",
+    "num": 15,
+    "jp": "さどう",
+    "vi": "Trà đạo"
+  },
+  {
+    "lesson": "A1-11",
+    "lesson_title": "しゅみは なんですか。 (Sở thích là gì?)",
+    "num": 16,
+    "jp": "がいこくご",
+    "vi": "Ngoại ngữ"
+  },
+  {
+    "lesson": "A1-11",
+    "lesson_title": "しゅみは なんですか。 (Sở thích là gì?)",
+    "num": 17,
+    "jp": "れんあい",
+    "vi": "Tình cảm, lãng mạn (Thể loại tình cảm)"
+  },
+  {
+    "lesson": "A1-11",
+    "lesson_title": "しゅみは なんですか。 (Sở thích là gì?)",
+    "num": 18,
+    "jp": "ホラー",
+    "vi": "Kinh dị (Thể loại kinh dị)"
+  },
+  {
+    "lesson": "A1-11",
+    "lesson_title": "しゅみは なんですか。 (Sở thích là gì?)",
+    "num": 19,
+    "jp": "コメディ",
+    "vi": "Hài (Thể loại hài)"
+  },
+  {
+    "lesson": "A1-11",
+    "lesson_title": "しゅみは なんですか。 (Sở thích là gì?)",
+    "num": 20,
+    "jp": "アクション",
+    "vi": "Hành động (Thể loại hành động)"
+  },
+  {
+    "lesson": "A1-11",
+    "lesson_title": "しゅみは なんですか。 (Sở thích là gì?)",
+    "num": 21,
+    "jp": "アニメ",
+    "vi": "Anime, phim hoạt hình Nhật Bản"
+  },
+  {
+    "lesson": "A1-11",
+    "lesson_title": "しゅみは なんですか。 (Sở thích là gì?)",
+    "num": 22,
+    "jp": "ドラマ",
+    "vi": "Drama, phim dài, phim bộ"
+  },
+  {
+    "lesson": "A1-11",
+    "lesson_title": "しゅみは なんですか。 (Sở thích là gì?)",
+    "num": 23,
+    "jp": "クラシック",
+    "vi": "Nhạc cổ điển"
+  },
+  {
+    "lesson": "A1-11",
+    "lesson_title": "しゅみは なんですか。 (Sở thích là gì?)",
+    "num": 24,
+    "jp": "ジャズ",
+    "vi": "Nhạc Jazz"
+  },
+  {
+    "lesson": "A1-11",
+    "lesson_title": "しゅみは なんですか。 (Sở thích là gì?)",
+    "num": 25,
+    "jp": "ロック",
+    "vi": "Nhạc Rock"
+  },
+  {
+    "lesson": "A1-11",
+    "lesson_title": "しゅみは なんですか。 (Sở thích là gì?)",
+    "num": 26,
+    "jp": "ポップス",
+    "vi": "Nhạc Pop"
+  },
+  {
+    "lesson": "A1-11",
+    "lesson_title": "しゅみは なんですか。 (Sở thích là gì?)",
+    "num": 27,
+    "jp": "うた",
+    "vi": "Bài hát"
+  },
+  {
+    "lesson": "A1-11",
+    "lesson_title": "しゅみは なんですか。 (Sở thích là gì?)",
+    "num": 28,
+    "jp": "ギター",
+    "vi": "Đàn ghita"
+  },
+  {
+    "lesson": "A1-11",
+    "lesson_title": "しゅみは なんですか。 (Sở thích là gì?)",
+    "num": 29,
+    "jp": "ピアノ",
+    "vi": "Đàn piano"
+  },
+  {
+    "lesson": "A1-11",
+    "lesson_title": "しゅみは なんですか。 (Sở thích là gì?)",
+    "num": 30,
+    "jp": "サッカー",
+    "vi": "Bóng đá"
+  },
+  {
+    "lesson": "A1-11",
+    "lesson_title": "しゅみは なんですか。 (Sở thích là gì?)",
+    "num": 31,
+    "jp": "やきゅう",
+    "vi": "Bóng chày"
+  },
+  {
+    "lesson": "A1-11",
+    "lesson_title": "しゅみは なんですか。 (Sở thích là gì?)",
+    "num": 32,
+    "jp": "テニス Tennis",
+    "vi": ""
+  },
+  {
+    "lesson": "A1-11",
+    "lesson_title": "しゅみは なんですか。 (Sở thích là gì?)",
+    "num": 33,
+    "jp": "じゅうどう",
+    "vi": "Võ Judo"
+  },
+  {
+    "lesson": "A1-11",
+    "lesson_title": "しゅみは なんですか。 (Sở thích là gì?)",
+    "num": 34,
+    "jp": "ほんを よみます",
+    "vi": "Đọc sách"
+  },
+  {
+    "lesson": "A1-11",
+    "lesson_title": "しゅみは なんですか。 (Sở thích là gì?)",
+    "num": 35,
+    "jp": "えいがを みます Xem phim",
+    "vi": ""
+  },
+  {
+    "lesson": "A1-11",
+    "lesson_title": "しゅみは なんですか。 (Sở thích là gì?)",
+    "num": 36,
+    "jp": "おんがくを ききます",
+    "vi": "Nghe nhạc"
+  },
+  {
+    "lesson": "A1-11",
+    "lesson_title": "しゅみは なんですか。 (Sở thích là gì?)",
+    "num": 37,
+    "jp": "スポーツ（を） します",
+    "vi": "Chơi thể thao"
+  },
+  {
+    "lesson": "A1-11",
+    "lesson_title": "しゅみは なんですか。 (Sở thích là gì?)",
+    "num": 38,
+    "jp": "えを かきます",
+    "vi": "Vẽ tranh"
+  },
+  {
+    "lesson": "A1-11",
+    "lesson_title": "しゅみは なんですか。 (Sở thích là gì?)",
+    "num": 39,
+    "jp": "しゃしんを とります",
+    "vi": "Chụp ảnh"
+  },
+  {
+    "lesson": "A1-11",
+    "lesson_title": "しゅみは なんですか。 (Sở thích là gì?)",
+    "num": 40,
+    "jp": "ゆっくりします",
+    "vi": "Thư giãn, nghỉ ngơi thong thả"
+  },
+  {
+    "lesson": "A1-11",
+    "lesson_title": "しゅみは なんですか。 (Sở thích là gì?)",
+    "num": 41,
+    "jp": "こうえんを さんぽします",
+    "vi": "Đi dạo ở công viên"
+  },
+  {
+    "lesson": "A1-11",
+    "lesson_title": "しゅみは なんですか。 (Sở thích là gì?)",
+    "num": 42,
+    "jp": "やすみます",
+    "vi": "Nghỉ, nghỉ ngơi"
+  },
+  {
+    "lesson": "A1-11",
+    "lesson_title": "しゅみは なんですか。 (Sở thích là gì?)",
+    "num": 43,
+    "jp": "はなします",
+    "vi": "Trò chuyện"
+  },
+  {
+    "lesson": "A1-11",
+    "lesson_title": "しゅみは なんですか。 (Sở thích là gì?)",
+    "num": 44,
+    "jp": "いいます",
+    "vi": "Nói"
+  },
+  {
+    "lesson": "A1-11",
+    "lesson_title": "しゅみは なんですか。 (Sở thích là gì?)",
+    "num": 45,
+    "jp": "そと",
+    "vi": "Ngoài, bên ngoài"
+  },
+  {
+    "lesson": "A1-11",
+    "lesson_title": "しゅみは なんですか。 (Sở thích là gì?)",
+    "num": 46,
+    "jp": "ひ",
+    "vi": "Ngày"
+  },
+  {
+    "lesson": "A1-11",
+    "lesson_title": "しゅみは なんですか。 (Sở thích là gì?)",
+    "num": 47,
+    "jp": "やすみの ひ",
+    "vi": "Ngày nghỉ"
+  },
+  {
+    "lesson": "A1-11",
+    "lesson_title": "しゅみは なんですか。 (Sở thích là gì?)",
+    "num": 48,
+    "jp": "えき",
+    "vi": "Nhà ga"
+  },
+  {
+    "lesson": "A1-11",
+    "lesson_title": "しゅみは なんですか。 (Sở thích là gì?)",
+    "num": 49,
+    "jp": "ざっし",
+    "vi": "Tạp chí"
+  },
+  {
+    "lesson": "A1-11",
+    "lesson_title": "しゅみは なんですか。 (Sở thích là gì?)",
+    "num": 50,
+    "jp": "（お）てら",
+    "vi": "Chùa"
+  },
+  {
+    "lesson": "A1-11",
+    "lesson_title": "しゅみは なんですか。 (Sở thích là gì?)",
+    "num": 51,
+    "jp": "メール Mail",
+    "vi": ""
+  },
+  {
+    "lesson": "A1-11",
+    "lesson_title": "しゅみは なんですか。 (Sở thích là gì?)",
+    "num": 52,
+    "jp": "ゲーム（を します）",
+    "vi": "Game, trò chơi"
+  },
+  {
+    "lesson": "A1-11",
+    "lesson_title": "しゅみは なんですか。 (Sở thích là gì?)",
+    "num": 53,
+    "jp": "ときどき",
+    "vi": "Thỉnh thoảng"
+  },
+  {
+    "lesson": "A1-11",
+    "lesson_title": "しゅみは なんですか。 (Sở thích là gì?)",
+    "num": 54,
+    "jp": "ぜんぜん（－）",
+    "vi": "Hoàn toàn… không…"
+  },
+  {
+    "lesson": "A1-11",
+    "lesson_title": "しゅみは なんですか。 (Sở thích là gì?)",
+    "num": 55,
+    "jp": "だいすき（な）",
+    "vi": "Rất thích"
+  },
+  {
+    "lesson": "A1-11",
+    "lesson_title": "しゅみは なんですか。 (Sở thích là gì?)",
+    "num": 56,
+    "jp": "どんな ＋ N ？",
+    "vi": "N như thế nào?"
+  },
+  {
+    "lesson": "A1-11",
+    "lesson_title": "しゅみは なんですか。 (Sở thích là gì?)",
+    "num": 57,
+    "jp": "じこしょうかい",
+    "vi": "Giới thiệu bản thân"
+  },
+  {
+    "lesson": "A1-11",
+    "lesson_title": "しゅみは なんですか。 (Sở thích là gì?)",
+    "num": 58,
+    "jp": "みせます Cho xem",
+    "vi": ""
+  },
+  {
+    "lesson": "A1-11",
+    "lesson_title": "しゅみは なんですか。 (Sở thích là gì?)",
+    "num": 59,
+    "jp": "みせて ください",
+    "vi": "Hãy cho tôi xem"
+  },
+  {
+    "lesson": "A1-12",
+    "lesson_title": "いっしょに いきませんか。 (Cùng đi không?)",
+    "num": 1,
+    "jp": "イベント",
+    "vi": "Sự kiện"
+  },
+  {
+    "lesson": "A1-12",
+    "lesson_title": "いっしょに いきませんか。 (Cùng đi không?)",
+    "num": 2,
+    "jp": "（お）まつり",
+    "vi": "Lễ hội"
+  },
+  {
+    "lesson": "A1-12",
+    "lesson_title": "いっしょに いきませんか。 (Cùng đi không?)",
+    "num": 3,
+    "jp": "ショー",
+    "vi": "Show, buổi trình diễn"
+  },
+  {
+    "lesson": "A1-12",
+    "lesson_title": "いっしょに いきませんか。 (Cùng đi không?)",
+    "num": 4,
+    "jp": "しあい",
+    "vi": "Trận đấu"
+  },
+  {
+    "lesson": "A1-12",
+    "lesson_title": "いっしょに いきませんか。 (Cùng đi không?)",
+    "num": 5,
+    "jp": "はなびたいかい",
+    "vi": "Đại hội pháo hoa"
+  },
+  {
+    "lesson": "A1-12",
+    "lesson_title": "いっしょに いきませんか。 (Cùng đi không?)",
+    "num": 6,
+    "jp": "コンサート",
+    "vi": "Concert, buổi hòa nhạc"
+  },
+  {
+    "lesson": "A1-12",
+    "lesson_title": "いっしょに いきませんか。 (Cùng đi không?)",
+    "num": 7,
+    "jp": "たいこ",
+    "vi": "Trống"
+  },
+  {
+    "lesson": "A1-12",
+    "lesson_title": "いっしょに いきませんか。 (Cùng đi không?)",
+    "num": 8,
+    "jp": "かぶき",
+    "vi": "Kịch Kabuki"
+  },
+  {
+    "lesson": "A1-12",
+    "lesson_title": "いっしょに いきませんか。 (Cùng đi không?)",
+    "num": 9,
+    "jp": "すもう Sumo",
+    "vi": ""
+  },
+  {
+    "lesson": "A1-12",
+    "lesson_title": "いっしょに いきませんか。 (Cùng đi không?)",
+    "num": 10,
+    "jp": "（お）はなみ",
+    "vi": "Việc ngắm hoa anh đào"
+  },
+  {
+    "lesson": "A1-12",
+    "lesson_title": "いっしょに いきませんか。 (Cùng đi không?)",
+    "num": 11,
+    "jp": "チケット",
+    "vi": "Vé (Ticket)"
+  },
+  {
+    "lesson": "A1-12",
+    "lesson_title": "いっしょに いきませんか。 (Cùng đi không?)",
+    "num": 12,
+    "jp": "ポスター",
+    "vi": "Áp phích (Poster)"
+  },
+  {
+    "lesson": "A1-12",
+    "lesson_title": "いっしょに いきませんか。 (Cùng đi không?)",
+    "num": 13,
+    "jp": "カレンダー",
+    "vi": "Lịch (Calender)"
+  },
+  {
+    "lesson": "A1-12",
+    "lesson_title": "いっしょに いきませんか。 (Cùng đi không?)",
+    "num": 14,
+    "jp": "きのう",
+    "vi": "Hôm qua"
+  },
+  {
+    "lesson": "A1-12",
+    "lesson_title": "いっしょに いきませんか。 (Cùng đi không?)",
+    "num": 15,
+    "jp": "きょう",
+    "vi": "Hôm nay"
+  },
+  {
+    "lesson": "A1-12",
+    "lesson_title": "いっしょに いきませんか。 (Cùng đi không?)",
+    "num": 16,
+    "jp": "あした",
+    "vi": "Ngày mai"
+  },
+  {
+    "lesson": "A1-12",
+    "lesson_title": "いっしょに いきませんか。 (Cùng đi không?)",
+    "num": 17,
+    "jp": "せんしゅう",
+    "vi": "Tuần trước"
+  },
+  {
+    "lesson": "A1-12",
+    "lesson_title": "いっしょに いきませんか。 (Cùng đi không?)",
+    "num": 18,
+    "jp": "こんしゅう",
+    "vi": "Tuần này"
+  },
+  {
+    "lesson": "A1-12",
+    "lesson_title": "いっしょに いきませんか。 (Cùng đi không?)",
+    "num": 19,
+    "jp": "らいしゅう",
+    "vi": "Tuần sau"
+  },
+  {
+    "lesson": "A1-12",
+    "lesson_title": "いっしょに いきませんか。 (Cùng đi không?)",
+    "num": 20,
+    "jp": "せんげつ",
+    "vi": "Tháng trước"
+  },
+  {
+    "lesson": "A1-12",
+    "lesson_title": "いっしょに いきませんか。 (Cùng đi không?)",
+    "num": 21,
+    "jp": "こんげつ",
+    "vi": "Tháng này"
+  },
+  {
+    "lesson": "A1-12",
+    "lesson_title": "いっしょに いきませんか。 (Cùng đi không?)",
+    "num": 22,
+    "jp": "らいげつ",
+    "vi": "Tháng sau"
+  },
+  {
+    "lesson": "A1-12",
+    "lesson_title": "いっしょに いきませんか。 (Cùng đi không?)",
+    "num": 23,
+    "jp": "きょねん",
+    "vi": "Năm ngoái"
+  },
+  {
+    "lesson": "A1-12",
+    "lesson_title": "いっしょに いきませんか。 (Cùng đi không?)",
+    "num": 24,
+    "jp": "ことし",
+    "vi": "Năm nay"
+  },
+  {
+    "lesson": "A1-12",
+    "lesson_title": "いっしょに いきませんか。 (Cùng đi không?)",
+    "num": 25,
+    "jp": "らいねん",
+    "vi": "Năm sau"
+  },
+  {
+    "lesson": "A1-12",
+    "lesson_title": "いっしょに いきませんか。 (Cùng đi không?)",
+    "num": 26,
+    "jp": "～ねん",
+    "vi": "Năm..."
+  },
+  {
+    "lesson": "A1-12",
+    "lesson_title": "いっしょに いきませんか。 (Cùng đi không?)",
+    "num": 27,
+    "jp": "～がつ",
+    "vi": "Tháng..."
+  },
+  {
+    "lesson": "A1-12",
+    "lesson_title": "いっしょに いきませんか。 (Cùng đi không?)",
+    "num": 28,
+    "jp": "～にち／～か",
+    "vi": "Ngày..."
+  },
+  {
+    "lesson": "A1-12",
+    "lesson_title": "いっしょに いきませんか。 (Cùng đi không?)",
+    "num": 29,
+    "jp": "なんがつ？",
+    "vi": "Tháng mấy?"
+  },
+  {
+    "lesson": "A1-12",
+    "lesson_title": "いっしょに いきませんか。 (Cùng đi không?)",
+    "num": 30,
+    "jp": "なんにち？",
+    "vi": "Ngày bao nhiêu?"
+  },
+  {
+    "lesson": "A1-12",
+    "lesson_title": "いっしょに いきませんか。 (Cùng đi không?)",
+    "num": 31,
+    "jp": "たぶん",
+    "vi": "Có lẽ"
+  },
+  {
+    "lesson": "A1-12",
+    "lesson_title": "いっしょに いきませんか。 (Cùng đi không?)",
+    "num": 32,
+    "jp": "もちろん",
+    "vi": "Đương nhiên"
+  },
+  {
+    "lesson": "A1-12",
+    "lesson_title": "いっしょに いきませんか。 (Cùng đi không?)",
+    "num": 33,
+    "jp": "たのしみです",
+    "vi": "Mong chờ, háo hức"
+  },
+  {
+    "lesson": "A1-12",
+    "lesson_title": "いっしょに いきませんか。 (Cùng đi không?)",
+    "num": 34,
+    "jp": "みに いきます",
+    "vi": "Đi xem"
+  },
+  {
+    "lesson": "A1-12",
+    "lesson_title": "いっしょに いきませんか。 (Cùng đi không?)",
+    "num": 35,
+    "jp": "いっしょに",
+    "vi": "Cùng nhau"
+  },
+  {
+    "lesson": "A1-12",
+    "lesson_title": "いっしょに いきませんか。 (Cùng đi không?)",
+    "num": 36,
+    "jp": "ざんねん（な）",
+    "vi": "Tiếc, đáng tiếc"
+  },
+  {
+    "lesson": "A1-12",
+    "lesson_title": "いっしょに いきませんか。 (Cùng đi không?)",
+    "num": 37,
+    "jp": "むりょう",
+    "vi": "Miễn phí"
+  },
+  {
+    "lesson": "A1-12",
+    "lesson_title": "いっしょに いきませんか。 (Cùng đi không?)",
+    "num": 38,
+    "jp": "また こんど",
+    "vi": "Hẹn lần sau"
+  },
+  {
+    "lesson": "A1-12",
+    "lesson_title": "いっしょに いきませんか。 (Cùng đi không?)",
+    "num": 39,
+    "jp": "いきましょう",
+    "vi": "Cùng đi nào"
+  },
+  {
+    "lesson": "A1-12",
+    "lesson_title": "いっしょに いきませんか。 (Cùng đi không?)",
+    "num": 40,
+    "jp": "たんじょうび",
+    "vi": "Sinh nhật"
+  },
+  {
+    "lesson": "A1-12",
+    "lesson_title": "いっしょに いきませんか。 (Cùng đi không?)",
+    "num": 41,
+    "jp": "しゅくじつ",
+    "vi": "Ngày lễ"
+  },
+  {
+    "lesson": "A1-12",
+    "lesson_title": "いっしょに いきませんか。 (Cùng đi không?)",
+    "num": 42,
+    "jp": "コンテスト",
+    "vi": "Cuộc thi (Contest)"
+  },
+  {
+    "lesson": "A1-12",
+    "lesson_title": "いっしょに いきませんか。 (Cùng đi không?)",
+    "num": 43,
+    "jp": "こくさいホール",
+    "vi": "Hội trường Quốc Tế"
+  },
+  {
+    "lesson": "A1-12",
+    "lesson_title": "いっしょに いきませんか。 (Cùng đi không?)",
+    "num": 44,
+    "jp": "げんき（な）",
+    "vi": "Khỏe mạnh"
+  },
+  {
+    "lesson": "A1-12",
+    "lesson_title": "いっしょに いきませんか。 (Cùng đi không?)",
+    "num": 45,
+    "jp": "おげんきですか。",
+    "vi": "Bạn có khỏe không?"
+  },
+  {
+    "lesson": "A1-13",
+    "lesson_title": "どうやって いきますか。 (Đi bằng cách nào?)",
+    "num": 1,
+    "jp": "まち",
+    "vi": "Thành phố"
+  },
+  {
+    "lesson": "A1-13",
+    "lesson_title": "どうやって いきますか。 (Đi bằng cách nào?)",
+    "num": 2,
+    "jp": "のりもの",
+    "vi": "Phương tiện giao thông"
+  },
+  {
+    "lesson": "A1-13",
+    "lesson_title": "どうやって いきますか。 (Đi bằng cách nào?)",
+    "num": 3,
+    "jp": "バイク",
+    "vi": "Xe máy"
+  },
+  {
+    "lesson": "A1-13",
+    "lesson_title": "どうやって いきますか。 (Đi bằng cách nào?)",
+    "num": 4,
+    "jp": "じてんしゃ",
+    "vi": "Xe đạp"
+  },
+  {
+    "lesson": "A1-13",
+    "lesson_title": "どうやって いきますか。 (Đi bằng cách nào?)",
+    "num": 5,
+    "jp": "バス Xe bus",
+    "vi": ""
+  },
+  {
+    "lesson": "A1-13",
+    "lesson_title": "どうやって いきますか。 (Đi bằng cách nào?)",
+    "num": 6,
+    "jp": "くるま Xe oto",
+    "vi": ""
+  },
+  {
+    "lesson": "A1-13",
+    "lesson_title": "どうやって いきますか。 (Đi bằng cách nào?)",
+    "num": 7,
+    "jp": "タクシー Taxi",
+    "vi": ""
+  },
+  {
+    "lesson": "A1-13",
+    "lesson_title": "どうやって いきますか。 (Đi bằng cách nào?)",
+    "num": 8,
+    "jp": "でんしゃ",
+    "vi": "Tàu điện"
+  },
+  {
+    "lesson": "A1-13",
+    "lesson_title": "どうやって いきますか。 (Đi bằng cách nào?)",
+    "num": 9,
+    "jp": "ちかてつ",
+    "vi": "Tàu điện ngầm"
+  },
+  {
+    "lesson": "A1-13",
+    "lesson_title": "どうやって いきますか。 (Đi bằng cách nào?)",
+    "num": 10,
+    "jp": "あるいて いきます",
+    "vi": "Đi bộ"
+  },
+  {
+    "lesson": "A1-13",
+    "lesson_title": "どうやって いきますか。 (Đi bằng cách nào?)",
+    "num": 11,
+    "jp": "ひこうき",
+    "vi": "Máy bay"
+  },
+  {
+    "lesson": "A1-13",
+    "lesson_title": "どうやって いきますか。 (Đi bằng cách nào?)",
+    "num": 12,
+    "jp": "（バス）に のります",
+    "vi": "Lên (xe bus)"
+  },
+  {
+    "lesson": "A1-13",
+    "lesson_title": "どうやって いきますか。 (Đi bằng cách nào?)",
+    "num": 13,
+    "jp": "（バス）を おります",
+    "vi": "Xuống (xe bus)"
+  },
+  {
+    "lesson": "A1-13",
+    "lesson_title": "どうやって いきますか。 (Đi bằng cách nào?)",
+    "num": 14,
+    "jp": "えき",
+    "vi": "Nhà ga, ga tàu"
+  },
+  {
+    "lesson": "A1-13",
+    "lesson_title": "どうやって いきますか。 (Đi bằng cách nào?)",
+    "num": 15,
+    "jp": "くうこう",
+    "vi": "Sân bay"
+  },
+  {
+    "lesson": "A1-13",
+    "lesson_title": "どうやって いきますか。 (Đi bằng cách nào?)",
+    "num": 16,
+    "jp": "びょういん",
+    "vi": "Bệnh viện"
+  },
+  {
+    "lesson": "A1-13",
+    "lesson_title": "どうやって いきますか。 (Đi bằng cách nào?)",
+    "num": 17,
+    "jp": "ホテル",
+    "vi": "Khách sạn"
+  },
+  {
+    "lesson": "A1-13",
+    "lesson_title": "どうやって いきますか。 (Đi bằng cách nào?)",
+    "num": 18,
+    "jp": "ぎんこう",
+    "vi": "Ngân hàng"
+  },
+  {
+    "lesson": "A1-13",
+    "lesson_title": "どうやって いきますか。 (Đi bằng cách nào?)",
+    "num": 19,
+    "jp": "スーパー",
+    "vi": "Siêu thị"
+  },
+  {
+    "lesson": "A1-13",
+    "lesson_title": "どうやって いきますか。 (Đi bằng cách nào?)",
+    "num": 20,
+    "jp": "とうきょうタワー",
+    "vi": "Tháp Tokyo"
+  },
+  {
+    "lesson": "A1-13",
+    "lesson_title": "どうやって いきますか。 (Đi bằng cách nào?)",
+    "num": 21,
+    "jp": "はやい",
+    "vi": "Nhanh, sớm"
+  },
+  {
+    "lesson": "A1-13",
+    "lesson_title": "どうやって いきますか。 (Đi bằng cách nào?)",
+    "num": 22,
+    "jp": "おそい",
+    "vi": "Chậm, muộn"
+  },
+  {
+    "lesson": "A1-13",
+    "lesson_title": "どうやって いきますか。 (Đi bằng cách nào?)",
+    "num": 23,
+    "jp": "たかい",
+    "vi": "Đắt"
+  },
+  {
+    "lesson": "A1-13",
+    "lesson_title": "どうやって いきますか。 (Đi bằng cách nào?)",
+    "num": 24,
+    "jp": "やすい",
+    "vi": "Rẻ"
+  },
+  {
+    "lesson": "A1-13",
+    "lesson_title": "どうやって いきますか。 (Đi bằng cách nào?)",
+    "num": 25,
+    "jp": "べんり",
+    "vi": "Tiện lợi"
+  },
+  {
+    "lesson": "A1-13",
+    "lesson_title": "どうやって いきますか。 (Đi bằng cách nào?)",
+    "num": 26,
+    "jp": "ふべん",
+    "vi": "Bất tiện"
+  },
+  {
+    "lesson": "A1-13",
+    "lesson_title": "どうやって いきますか。 (Đi bằng cách nào?)",
+    "num": 27,
+    "jp": "とおい Xa",
+    "vi": ""
+  },
+  {
+    "lesson": "A1-13",
+    "lesson_title": "どうやって いきますか。 (Đi bằng cách nào?)",
+    "num": 28,
+    "jp": "ちかい",
+    "vi": "Gần"
+  },
+  {
+    "lesson": "A1-13",
+    "lesson_title": "どうやって いきますか。 (Đi bằng cách nào?)",
+    "num": 29,
+    "jp": "つかれます",
+    "vi": "Mệt mỏi"
+  },
+  {
+    "lesson": "A1-13",
+    "lesson_title": "どうやって いきますか。 (Đi bằng cách nào?)",
+    "num": 30,
+    "jp": "らく（な）",
+    "vi": "Nhàn nhã, thoải mái"
+  },
+  {
+    "lesson": "A1-13",
+    "lesson_title": "どうやって いきますか。 (Đi bằng cách nào?)",
+    "num": 31,
+    "jp": "たいへん（な）",
+    "vi": "Vất vả"
+  },
+  {
+    "lesson": "A1-13",
+    "lesson_title": "どうやって いきますか。 (Đi bằng cách nào?)",
+    "num": 32,
+    "jp": "バスのりば",
+    "vi": "Bến xe buýt"
+  },
+  {
+    "lesson": "A1-13",
+    "lesson_title": "どうやって いきますか。 (Đi bằng cách nào?)",
+    "num": 33,
+    "jp": "バスてい",
+    "vi": "Trạm dừng, chờ xe bus"
+  },
+  {
+    "lesson": "A1-13",
+    "lesson_title": "どうやって いきますか。 (Đi bằng cách nào?)",
+    "num": 34,
+    "jp": "サイン",
+    "vi": "Tín hiệu, dấu hiệu"
+  },
+  {
+    "lesson": "A1-13",
+    "lesson_title": "どうやって いきますか。 (Đi bằng cách nào?)",
+    "num": 35,
+    "jp": "カード",
+    "vi": "Thẻ"
+  },
+  {
+    "lesson": "A1-13",
+    "lesson_title": "どうやって いきますか。 (Đi bằng cách nào?)",
+    "num": 36,
+    "jp": "げんきん",
+    "vi": "Tiền mặt"
+  },
+  {
+    "lesson": "A1-13",
+    "lesson_title": "どうやって いきますか。 (Đi bằng cách nào?)",
+    "num": 37,
+    "jp": "おきゃくさん",
+    "vi": "Khách hàng"
+  },
+  {
+    "lesson": "A1-13",
+    "lesson_title": "どうやって いきますか。 (Đi bằng cách nào?)",
+    "num": 38,
+    "jp": "もう いちど",
+    "vi": "Một lần nữa"
+  },
+  {
+    "lesson": "A1-13",
+    "lesson_title": "どうやって いきますか。 (Đi bằng cách nào?)",
+    "num": 39,
+    "jp": "ともだち に あいます",
+    "vi": "Gặp bạn bè"
+  },
+  {
+    "lesson": "A1-13",
+    "lesson_title": "どうやって いきますか。 (Đi bằng cách nào?)",
+    "num": 40,
+    "jp": "どうやって？",
+    "vi": "Bằng cách nào?"
+  },
+  {
+    "lesson": "A1-14",
+    "lesson_title": "ゆうめいな おてらです。 (Chùa nổi tiếng)",
+    "num": 1,
+    "jp": "ばしょ",
+    "vi": "Địa điểm"
+  },
+  {
+    "lesson": "A1-14",
+    "lesson_title": "ゆうめいな おてらです。 (Chùa nổi tiếng)",
+    "num": 2,
+    "jp": "ところ",
+    "vi": "Nơi"
+  },
+  {
+    "lesson": "A1-14",
+    "lesson_title": "ゆうめいな おてらです。 (Chùa nổi tiếng)",
+    "num": 3,
+    "jp": "ぎんこう",
+    "vi": "Ngân hàng"
+  },
+  {
+    "lesson": "A1-14",
+    "lesson_title": "ゆうめいな おてらです。 (Chùa nổi tiếng)",
+    "num": 4,
+    "jp": "おてら",
+    "vi": "Chùa"
+  },
+  {
+    "lesson": "A1-14",
+    "lesson_title": "ゆうめいな おてらです。 (Chùa nổi tiếng)",
+    "num": 5,
+    "jp": "じんじゃ",
+    "vi": "Đền"
+  },
+  {
+    "lesson": "A1-14",
+    "lesson_title": "ゆうめいな おてらです。 (Chùa nổi tiếng)",
+    "num": 6,
+    "jp": "ビル",
+    "vi": "Tòa nhà"
+  },
+  {
+    "lesson": "A1-14",
+    "lesson_title": "ゆうめいな おてらです。 (Chùa nổi tiếng)",
+    "num": 7,
+    "jp": "とおり",
+    "vi": "Con đường, đường phố"
+  },
+  {
+    "lesson": "A1-14",
+    "lesson_title": "ゆうめいな おてらです。 (Chùa nổi tiếng)",
+    "num": 8,
+    "jp": "デパート",
+    "vi": "Trung tâm thương mại"
+  },
+  {
+    "lesson": "A1-14",
+    "lesson_title": "ゆうめいな おてらです。 (Chùa nổi tiếng)",
+    "num": 9,
+    "jp": "みせ",
+    "vi": "Cửa hàng"
+  },
+  {
+    "lesson": "A1-14",
+    "lesson_title": "ゆうめいな おてらです。 (Chùa nổi tiếng)",
+    "num": 10,
+    "jp": "きっさてん",
+    "vi": "Quán cà phê, quán giải khát"
+  },
+  {
+    "lesson": "A1-14",
+    "lesson_title": "ゆうめいな おてらです。 (Chùa nổi tiếng)",
+    "num": 11,
+    "jp": "コンビニ",
+    "vi": "Cửa hàng tiện lợi"
+  },
+  {
+    "lesson": "A1-14",
+    "lesson_title": "ゆうめいな おてらです。 (Chùa nổi tiếng)",
+    "num": 12,
+    "jp": "こうばん",
+    "vi": "Đồn cảnh sát"
+  },
+  {
+    "lesson": "A1-14",
+    "lesson_title": "ゆうめいな おてらです。 (Chùa nổi tiếng)",
+    "num": 13,
+    "jp": "ちず",
+    "vi": "Bản đồ"
+  },
+  {
+    "lesson": "A1-14",
+    "lesson_title": "ゆうめいな おてらです。 (Chùa nổi tiếng)",
+    "num": 14,
+    "jp": "ゆうめい（な）",
+    "vi": "Nổi tiếng"
+  },
+  {
+    "lesson": "A1-14",
+    "lesson_title": "ゆうめいな おてらです。 (Chùa nổi tiếng)",
+    "num": 15,
+    "jp": "にぎやか（な）",
+    "vi": "Náo nhiệt"
+  },
+  {
+    "lesson": "A1-14",
+    "lesson_title": "ゆうめいな おてらです。 (Chùa nổi tiếng)",
+    "num": 16,
+    "jp": "しずか（な）",
+    "vi": "Yên tĩnh"
+  },
+  {
+    "lesson": "A1-14",
+    "lesson_title": "ゆうめいな おてらです。 (Chùa nổi tiếng)",
+    "num": 17,
+    "jp": "たかい Cao",
+    "vi": ""
+  },
+  {
+    "lesson": "A1-14",
+    "lesson_title": "ゆうめいな おてらです。 (Chùa nổi tiếng)",
+    "num": 18,
+    "jp": "ひくい",
+    "vi": "Thấp"
+  },
+  {
+    "lesson": "A1-14",
+    "lesson_title": "ゆうめいな おてらです。 (Chùa nổi tiếng)",
+    "num": 19,
+    "jp": "みぎ",
+    "vi": "Bên phải"
+  },
+  {
+    "lesson": "A1-14",
+    "lesson_title": "ゆうめいな おてらです。 (Chùa nổi tiếng)",
+    "num": 20,
+    "jp": "ひだり",
+    "vi": "Bên trái"
+  },
+  {
+    "lesson": "A1-14",
+    "lesson_title": "ゆうめいな おてらです。 (Chùa nổi tiếng)",
+    "num": 21,
+    "jp": "みぎに いきます",
+    "vi": "Đi sang phải"
+  },
+  {
+    "lesson": "A1-14",
+    "lesson_title": "ゆうめいな おてらです。 (Chùa nổi tiếng)",
+    "num": 22,
+    "jp": "ひだりに いきます",
+    "vi": "Đi sang trái"
+  },
+  {
+    "lesson": "A1-14",
+    "lesson_title": "ゆうめいな おてらです。 (Chùa nổi tiếng)",
+    "num": 23,
+    "jp": "まっすぐ いきます",
+    "vi": "Đi thẳng"
+  },
+  {
+    "lesson": "A1-14",
+    "lesson_title": "ゆうめいな おてらです。 (Chùa nổi tiếng)",
+    "num": 24,
+    "jp": "まえ",
+    "vi": "Phía trước"
+  },
+  {
+    "lesson": "A1-14",
+    "lesson_title": "ゆうめいな おてらです。 (Chùa nổi tiếng)",
+    "num": 25,
+    "jp": "うしろ",
+    "vi": "Phía sau"
+  },
+  {
+    "lesson": "A1-14",
+    "lesson_title": "ゆうめいな おてらです。 (Chùa nổi tiếng)",
+    "num": 26,
+    "jp": "なか",
+    "vi": "Bên trong"
+  },
+  {
+    "lesson": "A1-14",
+    "lesson_title": "ゆうめいな おてらです。 (Chùa nổi tiếng)",
+    "num": 27,
+    "jp": "となり",
+    "vi": "Bên cạnh, liền kề"
+  },
+  {
+    "lesson": "A1-14",
+    "lesson_title": "ゆうめいな おてらです。 (Chùa nổi tiếng)",
+    "num": 28,
+    "jp": "もしもし Alo",
+    "vi": ""
+  },
+  {
+    "lesson": "A1-14",
+    "lesson_title": "ゆうめいな おてらです。 (Chùa nổi tiếng)",
+    "num": 29,
+    "jp": "へいじつ",
+    "vi": "Ngày thường"
+  },
+  {
+    "lesson": "A1-14",
+    "lesson_title": "ゆうめいな おてらです。 (Chùa nổi tiếng)",
+    "num": 30,
+    "jp": "きゅうじつ",
+    "vi": "Ngày nghỉ"
+  },
+  {
+    "lesson": "A1-14",
+    "lesson_title": "ゆうめいな おてらです。 (Chùa nổi tiếng)",
+    "num": 31,
+    "jp": "えいぎょうじかん",
+    "vi": "Thời gian kinh doanh, bán hàng"
+  },
+  {
+    "lesson": "A1-14",
+    "lesson_title": "ゆうめいな おてらです。 (Chùa nổi tiếng)",
+    "num": 32,
+    "jp": "ていきゅうび",
+    "vi": "Ngày nghỉ cố định"
+  },
+  {
+    "lesson": "A1-14",
+    "lesson_title": "ゆうめいな おてらです。 (Chùa nổi tiếng)",
+    "num": 33,
+    "jp": "ねんじゅうむきゅう",
+    "vi": "Cả năm không nghỉ"
+  },
+  {
+    "lesson": "A1-14",
+    "lesson_title": "ゆうめいな おてらです。 (Chùa nổi tiếng)",
+    "num": 34,
+    "jp": "たくさん",
+    "vi": "Nhiều (+ Động từ)"
+  },
+  {
+    "lesson": "A1-14",
+    "lesson_title": "ゆうめいな おてらです。 (Chùa nổi tiếng)",
+    "num": 35,
+    "jp": "わたしたち",
+    "vi": "Chúng ta, chúng tôi"
+  },
+  {
+    "lesson": "A1-15",
+    "lesson_title": "かわいい！ (Đáng yêu quá!)",
+    "num": 1,
+    "jp": "ふく",
+    "vi": "Quần áo"
+  },
+  {
+    "lesson": "A1-15",
+    "lesson_title": "かわいい！ (Đáng yêu quá!)",
+    "num": 2,
+    "jp": "シャツ",
+    "vi": "Áo sơ mi"
+  },
+  {
+    "lesson": "A1-15",
+    "lesson_title": "かわいい！ (Đáng yêu quá!)",
+    "num": 3,
+    "jp": "T シャツ",
+    "vi": "Áo phông"
+  },
+  {
+    "lesson": "A1-15",
+    "lesson_title": "かわいい！ (Đáng yêu quá!)",
+    "num": 4,
+    "jp": "かさ",
+    "vi": "Cái ô"
+  },
+  {
+    "lesson": "A1-15",
+    "lesson_title": "かわいい！ (Đáng yêu quá!)",
+    "num": 5,
+    "jp": "とけい",
+    "vi": "Đồng hồ"
+  },
+  {
+    "lesson": "A1-15",
+    "lesson_title": "かわいい！ (Đáng yêu quá!)",
+    "num": 6,
+    "jp": "えはがき",
+    "vi": "Bưu thiếp tranh"
+  },
+  {
+    "lesson": "A1-15",
+    "lesson_title": "かわいい！ (Đáng yêu quá!)",
+    "num": 7,
+    "jp": "ハンカチ",
+    "vi": "Khăn tay"
+  },
+  {
+    "lesson": "A1-15",
+    "lesson_title": "かわいい！ (Đáng yêu quá!)",
+    "num": 8,
+    "jp": "バッグ",
+    "vi": "Túi xách"
+  },
+  {
+    "lesson": "A1-15",
+    "lesson_title": "かわいい！ (Đáng yêu quá!)",
+    "num": 9,
+    "jp": "くつ",
+    "vi": "Đôi giày"
+  },
+  {
+    "lesson": "A1-15",
+    "lesson_title": "かわいい！ (Đáng yêu quá!)",
+    "num": 10,
+    "jp": "ぼうし",
+    "vi": "Mũ"
+  },
+  {
+    "lesson": "A1-15",
+    "lesson_title": "かわいい！ (Đáng yêu quá!)",
+    "num": 11,
+    "jp": "さいふ",
+    "vi": "Ví"
+  },
+  {
+    "lesson": "A1-15",
+    "lesson_title": "かわいい！ (Đáng yêu quá!)",
+    "num": 12,
+    "jp": "おさけ",
+    "vi": "Rượu, đồ uống có cồn"
+  },
+  {
+    "lesson": "A1-15",
+    "lesson_title": "かわいい！ (Đáng yêu quá!)",
+    "num": 13,
+    "jp": "じしょ",
+    "vi": "Từ điển"
+  },
+  {
+    "lesson": "A1-15",
+    "lesson_title": "かわいい！ (Đáng yêu quá!)",
+    "num": 14,
+    "jp": "でんしじしょ",
+    "vi": "Kim từ điển, từ điển điện tử"
+  },
+  {
+    "lesson": "A1-15",
+    "lesson_title": "かわいい！ (Đáng yêu quá!)",
+    "num": 15,
+    "jp": "はな Hoa",
+    "vi": ""
+  },
+  {
+    "lesson": "A1-15",
+    "lesson_title": "かわいい！ (Đáng yêu quá!)",
+    "num": 16,
+    "jp": "もの",
+    "vi": "Đồ vật"
+  },
+  {
+    "lesson": "A1-15",
+    "lesson_title": "かわいい！ (Đáng yêu quá!)",
+    "num": 17,
+    "jp": "アクセサリー",
+    "vi": "Đồ trang sức, phụ kiện"
+  },
+  {
+    "lesson": "A1-15",
+    "lesson_title": "かわいい！ (Đáng yêu quá!)",
+    "num": 18,
+    "jp": "クッキー",
+    "vi": "Bánh quy"
+  },
+  {
+    "lesson": "A1-15",
+    "lesson_title": "かわいい！ (Đáng yêu quá!)",
+    "num": 19,
+    "jp": "チョコレート",
+    "vi": "Sô cô la"
+  },
+  {
+    "lesson": "A1-15",
+    "lesson_title": "かわいい！ (Đáng yêu quá!)",
+    "num": 20,
+    "jp": "ティーカップ",
+    "vi": "Tách trà"
+  },
+  {
+    "lesson": "A1-15",
+    "lesson_title": "かわいい！ (Đáng yêu quá!)",
+    "num": 21,
+    "jp": "ノート",
+    "vi": "Vở, quyển"
+  },
+  {
+    "lesson": "A1-15",
+    "lesson_title": "かわいい！ (Đáng yêu quá!)",
+    "num": 22,
+    "jp": "ビデオカメラ",
+    "vi": "Máy quay, video camera"
+  },
+  {
+    "lesson": "A1-15",
+    "lesson_title": "かわいい！ (Đáng yêu quá!)",
+    "num": 23,
+    "jp": "マウス",
+    "vi": "Chuột máy tính"
+  },
+  {
+    "lesson": "A1-15",
+    "lesson_title": "かわいい！ (Đáng yêu quá!)",
+    "num": 24,
+    "jp": "はし",
+    "vi": "Đôi đũa"
+  },
+  {
+    "lesson": "A1-15",
+    "lesson_title": "かわいい！ (Đáng yêu quá!)",
+    "num": 25,
+    "jp": "はしおき",
+    "vi": "Đồ để đũa, gác đũa"
+  },
+  {
+    "lesson": "A1-15",
+    "lesson_title": "かわいい！ (Đáng yêu quá!)",
+    "num": 26,
+    "jp": "みみかき",
+    "vi": "Cây lấy ráy tai"
+  },
+  {
+    "lesson": "A1-15",
+    "lesson_title": "かわいい！ (Đáng yêu quá!)",
+    "num": 27,
+    "jp": "にんじゃ Ninja",
+    "vi": ""
+  },
+  {
+    "lesson": "A1-15",
+    "lesson_title": "かわいい！ (Đáng yêu quá!)",
+    "num": 28,
+    "jp": "しゅりけん",
+    "vi": "Phi tiêu"
+  },
+  {
+    "lesson": "A1-15",
+    "lesson_title": "かわいい！ (Đáng yêu quá!)",
+    "num": 29,
+    "jp": "リスト",
+    "vi": "List, danh sách"
+  },
+  {
+    "lesson": "A1-15",
+    "lesson_title": "かわいい！ (Đáng yêu quá!)",
+    "num": 30,
+    "jp": "プレゼント",
+    "vi": "Món quà"
+  },
+  {
+    "lesson": "A1-15",
+    "lesson_title": "かわいい！ (Đáng yêu quá!)",
+    "num": 31,
+    "jp": "おみやげ",
+    "vi": "Quà lưu niệm"
+  },
+  {
+    "lesson": "A1-15",
+    "lesson_title": "かわいい！ (Đáng yêu quá!)",
+    "num": 32,
+    "jp": "～こ",
+    "vi": "... cái (Đếm vật nhỏ)"
+  },
+  {
+    "lesson": "A1-15",
+    "lesson_title": "かわいい！ (Đáng yêu quá!)",
+    "num": 33,
+    "jp": "～まい",
+    "vi": "... tờ, tấm, cái (Đếm vật mỏng, phẳng)"
+  },
+  {
+    "lesson": "A1-15",
+    "lesson_title": "かわいい！ (Đáng yêu quá!)",
+    "num": 34,
+    "jp": "～ほん／ぽん／ぼん",
+    "vi": "... cái (Đếm vật dài)"
+  },
+  {
+    "lesson": "A1-15",
+    "lesson_title": "かわいい！ (Đáng yêu quá!)",
+    "num": 35,
+    "jp": "～さつ",
+    "vi": "... quyển, cuốn (Đếm sách, vở)"
+  },
+  {
+    "lesson": "A1-15",
+    "lesson_title": "かわいい！ (Đáng yêu quá!)",
+    "num": 36,
+    "jp": "かっこいい",
+    "vi": "Ngầu"
+  },
+  {
+    "lesson": "A1-15",
+    "lesson_title": "かわいい！ (Đáng yêu quá!)",
+    "num": 37,
+    "jp": "すごい",
+    "vi": "Siêu, đỉnh, giỏi, tuyệt vời"
+  },
+  {
+    "lesson": "A1-15",
+    "lesson_title": "かわいい！ (Đáng yêu quá!)",
+    "num": 38,
+    "jp": "おもしろい",
+    "vi": "Thú vị"
+  },
+  {
+    "lesson": "A1-15",
+    "lesson_title": "かわいい！ (Đáng yêu quá!)",
+    "num": 39,
+    "jp": "かわいい",
+    "vi": "Dễ thương, đáng yêu"
+  },
+  {
+    "lesson": "A1-15",
+    "lesson_title": "かわいい！ (Đáng yêu quá!)",
+    "num": 40,
+    "jp": "おしゃれ（な）",
+    "vi": "Thời trang, sành điệu, phong cách, hợp mốt"
+  },
+  {
+    "lesson": "A1-15",
+    "lesson_title": "かわいい！ (Đáng yêu quá!)",
+    "num": 41,
+    "jp": "すてき（な）",
+    "vi": "Tuyệt vời, đẹp"
+  },
+  {
+    "lesson": "A1-15",
+    "lesson_title": "かわいい！ (Đáng yêu quá!)",
+    "num": 42,
+    "jp": "にほんてき（な）",
+    "vi": "Kiểu Nhật, đậm chất Nhật Bản"
+  },
+  {
+    "lesson": "A1-15",
+    "lesson_title": "かわいい！ (Đáng yêu quá!)",
+    "num": 43,
+    "jp": "ほしい",
+    "vi": "Muốn có"
+  },
+  {
+    "lesson": "A1-15",
+    "lesson_title": "かわいい！ (Đáng yêu quá!)",
+    "num": 44,
+    "jp": "あげます",
+    "vi": "Tặng, cho"
+  },
+  {
+    "lesson": "A1-15",
+    "lesson_title": "かわいい！ (Đáng yêu quá!)",
+    "num": 45,
+    "jp": "もらいます",
+    "vi": "Nhận"
+  },
+  {
+    "lesson": "A1-15",
+    "lesson_title": "かわいい！ (Đáng yêu quá!)",
+    "num": 46,
+    "jp": "プレゼントします",
+    "vi": "Tặng quà"
+  },
+  {
+    "lesson": "A1-15",
+    "lesson_title": "かわいい！ (Đáng yêu quá!)",
+    "num": 47,
+    "jp": "かいます Mua",
+    "vi": ""
+  },
+  {
+    "lesson": "A1-15",
+    "lesson_title": "かわいい！ (Đáng yêu quá!)",
+    "num": 48,
+    "jp": "かえます",
+    "vi": "Có thể mua"
+  },
+  {
+    "lesson": "A1-15",
+    "lesson_title": "かわいい！ (Đáng yêu quá!)",
+    "num": 49,
+    "jp": "つかいます",
+    "vi": "Sử dụng"
+  },
+  {
+    "lesson": "A1-16",
+    "lesson_title": "これ、ください。 (Cho tôi cái này)",
+    "num": 1,
+    "jp": "ふく",
+    "vi": "Quần áo"
+  },
+  {
+    "lesson": "A1-16",
+    "lesson_title": "これ、ください。 (Cho tôi cái này)",
+    "num": 2,
+    "jp": "パンツ ／ ズボン",
+    "vi": "Quần"
+  },
+  {
+    "lesson": "A1-16",
+    "lesson_title": "これ、ください。 (Cho tôi cái này)",
+    "num": 3,
+    "jp": "ジーンズ",
+    "vi": "Quần bò, quần jeans"
+  },
+  {
+    "lesson": "A1-16",
+    "lesson_title": "これ、ください。 (Cho tôi cái này)",
+    "num": 4,
+    "jp": "スカート",
+    "vi": "Chân váy"
+  },
+  {
+    "lesson": "A1-16",
+    "lesson_title": "これ、ください。 (Cho tôi cái này)",
+    "num": 5,
+    "jp": "コート",
+    "vi": "Áo khoác dài (Coat)"
+  },
+  {
+    "lesson": "A1-16",
+    "lesson_title": "これ、ください。 (Cho tôi cái này)",
+    "num": 6,
+    "jp": "ジャケット",
+    "vi": "Áo khoác ngắn (Jacket)"
+  },
+  {
+    "lesson": "A1-16",
+    "lesson_title": "これ、ください。 (Cho tôi cái này)",
+    "num": 7,
+    "jp": "スーツ",
+    "vi": "Bộ vest, com-lê, âu phục"
+  },
+  {
+    "lesson": "A1-16",
+    "lesson_title": "これ、ください。 (Cho tôi cái này)",
+    "num": 8,
+    "jp": "ワンピース",
+    "vi": "Váy liền, váy dài"
+  },
+  {
+    "lesson": "A1-16",
+    "lesson_title": "これ、ください。 (Cho tôi cái này)",
+    "num": 9,
+    "jp": "くつした",
+    "vi": "Đôi tất"
+  },
+  {
+    "lesson": "A1-16",
+    "lesson_title": "これ、ください。 (Cho tôi cái này)",
+    "num": 10,
+    "jp": "ネクタイ",
+    "vi": "Cà vạt"
+  },
+  {
+    "lesson": "A1-16",
+    "lesson_title": "これ、ください。 (Cho tôi cái này)",
+    "num": 11,
+    "jp": "スカーフ",
+    "vi": "Khăn quàng"
+  },
+  {
+    "lesson": "A1-16",
+    "lesson_title": "これ、ください。 (Cho tôi cái này)",
+    "num": 12,
+    "jp": "めがね",
+    "vi": "Kính"
+  },
+  {
+    "lesson": "A1-16",
+    "lesson_title": "これ、ください。 (Cho tôi cái này)",
+    "num": 13,
+    "jp": "サイズ",
+    "vi": "Kích cỡ (size)"
+  },
+  {
+    "lesson": "A1-16",
+    "lesson_title": "これ、ください。 (Cho tôi cái này)",
+    "num": 14,
+    "jp": "エス Size S",
+    "vi": ""
+  },
+  {
+    "lesson": "A1-16",
+    "lesson_title": "これ、ください。 (Cho tôi cái này)",
+    "num": 15,
+    "jp": "エム Size M",
+    "vi": ""
+  },
+  {
+    "lesson": "A1-16",
+    "lesson_title": "これ、ください。 (Cho tôi cái này)",
+    "num": 16,
+    "jp": "エル Size L",
+    "vi": ""
+  },
+  {
+    "lesson": "A1-16",
+    "lesson_title": "これ、ください。 (Cho tôi cái này)",
+    "num": 17,
+    "jp": "いろ",
+    "vi": "Màu sắc"
+  },
+  {
+    "lesson": "A1-16",
+    "lesson_title": "これ、ください。 (Cho tôi cái này)",
+    "num": 18,
+    "jp": "あか",
+    "vi": "Màu đỏ"
+  },
+  {
+    "lesson": "A1-16",
+    "lesson_title": "これ、ください。 (Cho tôi cái này)",
+    "num": 19,
+    "jp": "くろ",
+    "vi": "Màu đen"
+  },
+  {
+    "lesson": "A1-16",
+    "lesson_title": "これ、ください。 (Cho tôi cái này)",
+    "num": 20,
+    "jp": "しろ",
+    "vi": "Màu trắng"
+  },
+  {
+    "lesson": "A1-16",
+    "lesson_title": "これ、ください。 (Cho tôi cái này)",
+    "num": 21,
+    "jp": "あお",
+    "vi": "Màu xanh dương"
+  },
+  {
+    "lesson": "A1-16",
+    "lesson_title": "これ、ください。 (Cho tôi cái này)",
+    "num": 22,
+    "jp": "みどり",
+    "vi": "Màu xanh lá cây"
+  },
+  {
+    "lesson": "A1-16",
+    "lesson_title": "これ、ください。 (Cho tôi cái này)",
+    "num": 23,
+    "jp": "きいろ",
+    "vi": "Màu vàng"
+  },
+  {
+    "lesson": "A1-16",
+    "lesson_title": "これ、ください。 (Cho tôi cái này)",
+    "num": 24,
+    "jp": "ピンク",
+    "vi": "Màu hồng"
+  },
+  {
+    "lesson": "A1-16",
+    "lesson_title": "これ、ください。 (Cho tôi cái này)",
+    "num": 25,
+    "jp": "オレンジ",
+    "vi": "Màu cam"
+  },
+  {
+    "lesson": "A1-16",
+    "lesson_title": "これ、ください。 (Cho tôi cái này)",
+    "num": 26,
+    "jp": "ちゃいろ",
+    "vi": "Màu nâu"
+  },
+  {
+    "lesson": "A1-16",
+    "lesson_title": "これ、ください。 (Cho tôi cái này)",
+    "num": 27,
+    "jp": "グレー",
+    "vi": "Màu xám"
+  },
+  {
+    "lesson": "A1-16",
+    "lesson_title": "これ、ください。 (Cho tôi cái này)",
+    "num": 28,
+    "jp": "シャツを きます",
+    "vi": "Mặc áo sơ mi"
+  },
+  {
+    "lesson": "A1-16",
+    "lesson_title": "これ、ください。 (Cho tôi cái này)",
+    "num": 29,
+    "jp": "ジーンズを はきます",
+    "vi": "Mặc quần jeans"
+  },
+  {
+    "lesson": "A1-16",
+    "lesson_title": "これ、ください。 (Cho tôi cái này)",
+    "num": 30,
+    "jp": "めがねを かけます",
+    "vi": "Đeo kính"
+  },
+  {
+    "lesson": "A1-16",
+    "lesson_title": "これ、ください。 (Cho tôi cái này)",
+    "num": 31,
+    "jp": "～ひゃく",
+    "vi": "... trăm"
+  },
+  {
+    "lesson": "A1-16",
+    "lesson_title": "これ、ください。 (Cho tôi cái này)",
+    "num": 32,
+    "jp": "～せん",
+    "vi": "... nghìn"
+  },
+  {
+    "lesson": "A1-16",
+    "lesson_title": "これ、ください。 (Cho tôi cái này)",
+    "num": 33,
+    "jp": "～まん",
+    "vi": "... mười nghìn (vạn)"
+  },
+  {
+    "lesson": "A1-16",
+    "lesson_title": "これ、ください。 (Cho tôi cái này)",
+    "num": 34,
+    "jp": "～えん",
+    "vi": "... Yên"
+  },
+  {
+    "lesson": "A1-16",
+    "lesson_title": "これ、ください。 (Cho tôi cái này)",
+    "num": 35,
+    "jp": "ほか（の ＋ N）",
+    "vi": "N khác（VD:ほかのいろ: màu khác）"
+  },
+  {
+    "lesson": "A1-16",
+    "lesson_title": "これ、ください。 (Cho tôi cái này)",
+    "num": 36,
+    "jp": "まあまあ",
+    "vi": "Tàm tạm, bình thường"
+  },
+  {
+    "lesson": "A1-16",
+    "lesson_title": "これ、ください。 (Cho tôi cái này)",
+    "num": 37,
+    "jp": "いらっしゃいませ。",
+    "vi": "Kính chào quý khách"
+  },
+  {
+    "lesson": "A1-16",
+    "lesson_title": "これ、ください。 (Cho tôi cái này)",
+    "num": 38,
+    "jp": "きて みても いいですか。",
+    "vi": "Tôi mặc thử cũng được chứ?"
+  },
+  {
+    "lesson": "A1-16",
+    "lesson_title": "これ、ください。 (Cho tôi cái này)",
+    "num": 39,
+    "jp": "にあいます",
+    "vi": "Hợp"
+  },
+  {
+    "lesson": "A1-16",
+    "lesson_title": "これ、ください。 (Cho tôi cái này)",
+    "num": 40,
+    "jp": "どれ？",
+    "vi": "Cái nào?"
+  },
+  {
+    "lesson": "A1-16",
+    "lesson_title": "これ、ください。 (Cho tôi cái này)",
+    "num": 41,
+    "jp": "N を ください。",
+    "vi": "Lấy cho tôi N"
+  },
+  {
+    "lesson": "A1-16",
+    "lesson_title": "これ、ください。 (Cho tôi cái này)",
+    "num": 42,
+    "jp": "じゃあ、いいです。",
+    "vi": "Vậy thì, không cần đâu (Từ chối)"
+  },
+  {
+    "lesson": "A1-16",
+    "lesson_title": "これ、ください。 (Cho tôi cái này)",
+    "num": 43,
+    "jp": "おきゃくさん",
+    "vi": "Khách hàng"
+  },
+  {
+    "lesson": "A1-16",
+    "lesson_title": "これ、ください。 (Cho tôi cái này)",
+    "num": 44,
+    "jp": "てんいん",
+    "vi": "Nhân viên cửa hàng"
+  },
+  {
+    "lesson": "A1-16",
+    "lesson_title": "これ、ください。 (Cho tôi cái này)",
+    "num": 45,
+    "jp": "ねだん",
+    "vi": "Giá cả"
+  },
+  {
+    "lesson": "A1-16",
+    "lesson_title": "これ、ください。 (Cho tôi cái này)",
+    "num": 46,
+    "jp": "しょうひん",
+    "vi": "Sản phẩm"
+  },
+  {
+    "lesson": "A1-17",
+    "lesson_title": "たのしかったです。 (Đã rất vui)",
+    "num": 1,
+    "jp": "ともだちに あいます",
+    "vi": "Gặp gỡ bạn bè"
+  },
+  {
+    "lesson": "A1-17",
+    "lesson_title": "たのしかったです。 (Đã rất vui)",
+    "num": 2,
+    "jp": "あそびます",
+    "vi": "Chơi"
+  },
+  {
+    "lesson": "A1-17",
+    "lesson_title": "たのしかったです。 (Đã rất vui)",
+    "num": 3,
+    "jp": "うたいます",
+    "vi": "Hát"
+  },
+  {
+    "lesson": "A1-17",
+    "lesson_title": "たのしかったです。 (Đã rất vui)",
+    "num": 4,
+    "jp": "カラオケを します",
+    "vi": "Hát Karaoke"
+  },
+  {
+    "lesson": "A1-17",
+    "lesson_title": "たのしかったです。 (Đã rất vui)",
+    "num": 5,
+    "jp": "アルバイト（を）します",
+    "vi": "Làm thêm"
+  },
+  {
+    "lesson": "A1-17",
+    "lesson_title": "たのしかったです。 (Đã rất vui)",
+    "num": 6,
+    "jp": "そうじ（を）します",
+    "vi": "Dọn dẹp"
+  },
+  {
+    "lesson": "A1-17",
+    "lesson_title": "たのしかったです。 (Đã rất vui)",
+    "num": 7,
+    "jp": "せんたく（を）します",
+    "vi": "Giặt giũ"
+  },
+  {
+    "lesson": "A1-17",
+    "lesson_title": "たのしかったです。 (Đã rất vui)",
+    "num": 8,
+    "jp": "つかれます",
+    "vi": "Mệt, mệt mỏi"
+  },
+  {
+    "lesson": "A1-17",
+    "lesson_title": "たのしかったです。 (Đã rất vui)",
+    "num": 9,
+    "jp": "かちます",
+    "vi": "Thắng"
+  },
+  {
+    "lesson": "A1-17",
+    "lesson_title": "たのしかったです。 (Đã rất vui)",
+    "num": 10,
+    "jp": "たのしい",
+    "vi": "Vui vẻ"
+  },
+  {
+    "lesson": "A1-17",
+    "lesson_title": "たのしかったです。 (Đã rất vui)",
+    "num": 11,
+    "jp": "うれしい",
+    "vi": "Vui mừng, hạnh phúc"
+  },
+  {
+    "lesson": "A1-17",
+    "lesson_title": "たのしかったです。 (Đã rất vui)",
+    "num": 12,
+    "jp": "おおい",
+    "vi": "Nhiều, đông （ひとがおおい：Đông người）"
+  },
+  {
+    "lesson": "A1-17",
+    "lesson_title": "たのしかったです。 (Đã rất vui)",
+    "num": 13,
+    "jp": "すばらしい",
+    "vi": "Tuyệt vời"
+  },
+  {
+    "lesson": "A1-17",
+    "lesson_title": "たのしかったです。 (Đã rất vui)",
+    "num": 14,
+    "jp": "いそがしい",
+    "vi": "Bận rộn"
+  },
+  {
+    "lesson": "A1-17",
+    "lesson_title": "たのしかったです。 (Đã rất vui)",
+    "num": 15,
+    "jp": "おもしろい",
+    "vi": "Thú vị"
+  },
+  {
+    "lesson": "A1-17",
+    "lesson_title": "たのしかったです。 (Đã rất vui)",
+    "num": 16,
+    "jp": "たいへん（な）",
+    "vi": "Vất vả"
+  },
+  {
+    "lesson": "A1-17",
+    "lesson_title": "たのしかったです。 (Đã rất vui)",
+    "num": 17,
+    "jp": "まあまあ",
+    "vi": "Tàm tạm, bình thường"
+  },
+  {
+    "lesson": "A1-17",
+    "lesson_title": "たのしかったです。 (Đã rất vui)",
+    "num": 18,
+    "jp": "どこにも いきません",
+    "vi": "Không đi đâu cả"
+  },
+  {
+    "lesson": "A1-17",
+    "lesson_title": "たのしかったです。 (Đã rất vui)",
+    "num": 19,
+    "jp": "なにも しません",
+    "vi": "Không làm gì cả"
+  },
+  {
+    "lesson": "A1-17",
+    "lesson_title": "たのしかったです。 (Đã rất vui)",
+    "num": 20,
+    "jp": "また",
+    "vi": "Lại, lại nữa, ngoài ra…"
+  },
+  {
+    "lesson": "A1-17",
+    "lesson_title": "たのしかったです。 (Đã rất vui)",
+    "num": 21,
+    "jp": "いちばん",
+    "vi": "Nhất, số một"
+  },
+  {
+    "lesson": "A1-17",
+    "lesson_title": "たのしかったです。 (Đã rất vui)",
+    "num": 22,
+    "jp": "とても",
+    "vi": "Rất… (+ADJ)"
+  },
+  {
+    "lesson": "A1-17",
+    "lesson_title": "たのしかったです。 (Đã rất vui)",
+    "num": 23,
+    "jp": "まご",
+    "vi": "Cháu"
+  },
+  {
+    "lesson": "A1-17",
+    "lesson_title": "たのしかったです。 (Đã rất vui)",
+    "num": 24,
+    "jp": "ショッピングセンター",
+    "vi": "Trung tâm thương mại"
+  },
+  {
+    "lesson": "A1-17",
+    "lesson_title": "たのしかったです。 (Đã rất vui)",
+    "num": 25,
+    "jp": "バーベキュー",
+    "vi": "Nướng BBQ, thịt nướng ngoài trời"
+  },
+  {
+    "lesson": "A1-18",
+    "lesson_title": "つぎは きょうとに いきたいです。 (Lần tới muốn đi Kyoto)",
+    "num": 1,
+    "jp": "でかけます",
+    "vi": "Ra ngoài (Ra khỏi nhà để đi đâu đó)"
+  },
+  {
+    "lesson": "A1-18",
+    "lesson_title": "つぎは きょうとに いきたいです。 (Lần tới muốn đi Kyoto)",
+    "num": 2,
+    "jp": "りょこう（します）",
+    "vi": "Du lịch"
+  },
+  {
+    "lesson": "A1-18",
+    "lesson_title": "つぎは きょうとに いきたいです。 (Lần tới muốn đi Kyoto)",
+    "num": 3,
+    "jp": "かいます Mua",
+    "vi": ""
+  },
+  {
+    "lesson": "A1-18",
+    "lesson_title": "つぎは きょうとに いきたいです。 (Lần tới muốn đi Kyoto)",
+    "num": 4,
+    "jp": "ホテルに とまります",
+    "vi": "Trọ lại, ở lại khách sạn"
+  },
+  {
+    "lesson": "A1-18",
+    "lesson_title": "つぎは きょうとに いきたいです。 (Lần tới muốn đi Kyoto)",
+    "num": 5,
+    "jp": "やすみます",
+    "vi": "Nghỉ ngơi, nghỉ"
+  },
+  {
+    "lesson": "A1-18",
+    "lesson_title": "つぎは きょうとに いきたいです。 (Lần tới muốn đi Kyoto)",
+    "num": 6,
+    "jp": "つりを します",
+    "vi": "Câu cá"
+  },
+  {
+    "lesson": "A1-18",
+    "lesson_title": "つぎは きょうとに いきたいです。 (Lần tới muốn đi Kyoto)",
+    "num": 7,
+    "jp": "やまのぼりを します",
+    "vi": "Leo núi"
+  },
+  {
+    "lesson": "A1-18",
+    "lesson_title": "つぎは きょうとに いきたいです。 (Lần tới muốn đi Kyoto)",
+    "num": 8,
+    "jp": "やまに のぼります",
+    "vi": "Leo núi"
+  },
+  {
+    "lesson": "A1-18",
+    "lesson_title": "つぎは きょうとに いきたいです。 (Lần tới muốn đi Kyoto)",
+    "num": 9,
+    "jp": "きょうと Kyoto",
+    "vi": ""
+  },
+  {
+    "lesson": "A1-18",
+    "lesson_title": "つぎは きょうとに いきたいです。 (Lần tới muốn đi Kyoto)",
+    "num": 10,
+    "jp": "てんぷら",
+    "vi": "Món Tempura (món chiên tẩm bột kiểu Nhật)"
+  },
+  {
+    "lesson": "A1-18",
+    "lesson_title": "つぎは きょうとに いきたいです。 (Lần tới muốn đi Kyoto)",
+    "num": 11,
+    "jp": "ふね",
+    "vi": "Thuyền, tàu"
+  },
+  {
+    "lesson": "A1-18",
+    "lesson_title": "つぎは きょうとに いきたいです。 (Lần tới muốn đi Kyoto)",
+    "num": 12,
+    "jp": "しんかんせん",
+    "vi": "Tàu siêu tốc"
+  },
+  {
+    "lesson": "A1-18",
+    "lesson_title": "つぎは きょうとに いきたいです。 (Lần tới muốn đi Kyoto)",
+    "num": 13,
+    "jp": "かぶき",
+    "vi": "Kịch Kabuki"
+  },
+  {
+    "lesson": "A1-18",
+    "lesson_title": "つぎは きょうとに いきたいです。 (Lần tới muốn đi Kyoto)",
+    "num": 14,
+    "jp": "きもの Kimono",
+    "vi": ""
+  },
+  {
+    "lesson": "A1-18",
+    "lesson_title": "つぎは きょうとに いきたいです。 (Lần tới muốn đi Kyoto)",
+    "num": 15,
+    "jp": "なつやすみ",
+    "vi": "Nghỉ hè"
+  },
+  {
+    "lesson": "A1-18",
+    "lesson_title": "つぎは きょうとに いきたいです。 (Lần tới muốn đi Kyoto)",
+    "num": 16,
+    "jp": "アイスクリーム Kem",
+    "vi": ""
+  },
+  {
+    "lesson": "A1-18",
+    "lesson_title": "つぎは きょうとに いきたいです。 (Lần tới muốn đi Kyoto)",
+    "num": 17,
+    "jp": "ながい",
+    "vi": "Dài"
+  },
+  {
+    "lesson": "A1-18",
+    "lesson_title": "つぎは きょうとに いきたいです。 (Lần tới muốn đi Kyoto)",
+    "num": 18,
+    "jp": "みじかい",
+    "vi": "Ngắn"
+  },
+  {
+    "lesson": "A1-18",
+    "lesson_title": "つぎは きょうとに いきたいです。 (Lần tới muốn đi Kyoto)",
+    "num": 19,
+    "jp": "おもしろい",
+    "vi": "Thú vị"
+  },
+  {
+    "lesson": "A1-18",
+    "lesson_title": "つぎは きょうとに いきたいです。 (Lần tới muốn đi Kyoto)",
+    "num": 20,
+    "jp": "つまらない",
+    "vi": "Nhàm chán"
+  },
+  {
+    "lesson": "A1-18",
+    "lesson_title": "つぎは きょうとに いきたいです。 (Lần tới muốn đi Kyoto)",
+    "num": 21,
+    "jp": "むずかしい",
+    "vi": "Khó"
+  },
+  {
+    "lesson": "A1-18",
+    "lesson_title": "つぎは きょうとに いきたいです。 (Lần tới muốn đi Kyoto)",
+    "num": 22,
+    "jp": "やさしい",
+    "vi": "Dễ, đơn giản"
+  },
+  {
+    "lesson": "A1-18",
+    "lesson_title": "つぎは きょうとに いきたいです。 (Lần tới muốn đi Kyoto)",
+    "num": 23,
+    "jp": "かんたん（な）",
+    "vi": "Đơn giản"
+  },
+  {
+    "lesson": "A1-18",
+    "lesson_title": "つぎは きょうとに いきたいです。 (Lần tới muốn đi Kyoto)",
+    "num": 24,
+    "jp": "まず、～",
+    "vi": "Đầu tiên, trước hết..."
+  },
+  {
+    "lesson": "A1-18",
+    "lesson_title": "つぎは きょうとに いきたいです。 (Lần tới muốn đi Kyoto)",
+    "num": 25,
+    "jp": "つぎ、～",
+    "vi": "Tiếp theo…"
+  },
+  {
+    "lesson": "A1-18",
+    "lesson_title": "つぎは きょうとに いきたいです。 (Lần tới muốn đi Kyoto)",
+    "num": 26,
+    "jp": "それから、～",
+    "vi": "Sau đó…, Và…"
+  },
+  {
+    "lesson": "A1-18",
+    "lesson_title": "つぎは きょうとに いきたいです。 (Lần tới muốn đi Kyoto)",
+    "num": 27,
+    "jp": "でも、～",
+    "vi": "Nhưng..."
+  },
+  {
+    "lesson": "A1-18",
+    "lesson_title": "つぎは きょうとに いきたいです。 (Lần tới muốn đi Kyoto)",
+    "num": 28,
+    "jp": "にもつ",
+    "vi": "Hành lý, kiện hàng"
+  },
+  {
+    "lesson": "A1-18",
+    "lesson_title": "つぎは きょうとに いきたいです。 (Lần tới muốn đi Kyoto)",
+    "num": 29,
+    "jp": "パスポート",
+    "vi": "Hộ chiếu"
+  },
+  {
+    "lesson": "A1-18",
+    "lesson_title": "つぎは きょうとに いきたいです。 (Lần tới muốn đi Kyoto)",
+    "num": 30,
+    "jp": "スーツケース Vali",
+    "vi": ""
+  },
+  {
+    "lesson": "A1-18",
+    "lesson_title": "つぎは きょうとに いきたいです。 (Lần tới muốn đi Kyoto)",
+    "num": 31,
+    "jp": "ビザ Visa",
+    "vi": ""
+  },
+  {
+    "lesson": "A2-1",
+    "lesson_title": "東京に すんでいます。 (Tôi đang sống ở Tokyo)",
+    "num": 1,
+    "jp": "りょうしん",
+    "vi": "Bố mẹ"
+  },
+  {
+    "lesson": "A2-1",
+    "lesson_title": "東京に すんでいます。 (Tôi đang sống ở Tokyo)",
+    "num": 2,
+    "jp": "きょうだい",
+    "vi": "Anh chị em"
+  },
+  {
+    "lesson": "A2-1",
+    "lesson_title": "東京に すんでいます。 (Tôi đang sống ở Tokyo)",
+    "num": 3,
+    "jp": "しまい",
+    "vi": "Chị em gái"
+  },
+  {
+    "lesson": "A2-1",
+    "lesson_title": "東京に すんでいます。 (Tôi đang sống ở Tokyo)",
+    "num": 4,
+    "jp": "しんせき",
+    "vi": "Họ hàng"
+  },
+  {
+    "lesson": "A2-1",
+    "lesson_title": "東京に すんでいます。 (Tôi đang sống ở Tokyo)",
+    "num": 5,
+    "jp": "そふ／おじいさん",
+    "vi": "Ông"
+  },
+  {
+    "lesson": "A2-1",
+    "lesson_title": "東京に すんでいます。 (Tôi đang sống ở Tokyo)",
+    "num": 6,
+    "jp": "そぼ／おばあさん",
+    "vi": "Bà"
+  },
+  {
+    "lesson": "A2-1",
+    "lesson_title": "東京に すんでいます。 (Tôi đang sống ở Tokyo)",
+    "num": 7,
+    "jp": "おじ／おじさん",
+    "vi": "Chú, bác trai"
+  },
+  {
+    "lesson": "A2-1",
+    "lesson_title": "東京に すんでいます。 (Tôi đang sống ở Tokyo)",
+    "num": 8,
+    "jp": "おば／おばあさん",
+    "vi": "Cô, bác gái"
+  },
+  {
+    "lesson": "A2-1",
+    "lesson_title": "東京に すんでいます。 (Tôi đang sống ở Tokyo)",
+    "num": 9,
+    "jp": "おっと／ごしゅじん",
+    "vi": "Chồng mình / Chồng người khác"
+  },
+  {
+    "lesson": "A2-1",
+    "lesson_title": "東京に すんでいます。 (Tôi đang sống ở Tokyo)",
+    "num": 10,
+    "jp": "つま／おくさん",
+    "vi": "Vợ mình / Vợ người khác"
+  },
+  {
+    "lesson": "A2-1",
+    "lesson_title": "東京に すんでいます。 (Tôi đang sống ở Tokyo)",
+    "num": 11,
+    "jp": "むすこ／むすこさん",
+    "vi": "Con trai mình / Con trai người khác"
+  },
+  {
+    "lesson": "A2-1",
+    "lesson_title": "東京に すんでいます。 (Tôi đang sống ở Tokyo)",
+    "num": 12,
+    "jp": "むすめ／むすめさん",
+    "vi": "Con gái mình / Con gái người khác"
+  },
+  {
+    "lesson": "A2-1",
+    "lesson_title": "東京に すんでいます。 (Tôi đang sống ở Tokyo)",
+    "num": 13,
+    "jp": "わたしたち",
+    "vi": "Chúng tôi"
+  },
+  {
+    "lesson": "A2-1",
+    "lesson_title": "東京に すんでいます。 (Tôi đang sống ở Tokyo)",
+    "num": 14,
+    "jp": "イタリア",
+    "vi": "Nước Ý"
+  },
+  {
+    "lesson": "A2-1",
+    "lesson_title": "東京に すんでいます。 (Tôi đang sống ở Tokyo)",
+    "num": 15,
+    "jp": "ブラジル",
+    "vi": "Nước Brazil"
+  },
+  {
+    "lesson": "A2-1",
+    "lesson_title": "東京に すんでいます。 (Tôi đang sống ở Tokyo)",
+    "num": 16,
+    "jp": "オーストラリア",
+    "vi": "Nước Úc"
+  },
+  {
+    "lesson": "A2-1",
+    "lesson_title": "東京に すんでいます。 (Tôi đang sống ở Tokyo)",
+    "num": 17,
+    "jp": "オペラ Opera",
+    "vi": ""
+  },
+  {
+    "lesson": "A2-1",
+    "lesson_title": "東京に すんでいます。 (Tôi đang sống ở Tokyo)",
+    "num": 18,
+    "jp": "すみます ➡ すんでいます",
+    "vi": "Sinh sống"
+  },
+  {
+    "lesson": "A2-1",
+    "lesson_title": "東京に すんでいます。 (Tôi đang sống ở Tokyo)",
+    "num": 19,
+    "jp": "はたらきます",
+    "vi": "Làm việc"
+  },
+  {
+    "lesson": "A2-1",
+    "lesson_title": "東京に すんでいます。 (Tôi đang sống ở Tokyo)",
+    "num": 20,
+    "jp": "おしえます",
+    "vi": "Dạy, chỉ cho biết"
+  },
+  {
+    "lesson": "A2-1",
+    "lesson_title": "東京に すんでいます。 (Tôi đang sống ở Tokyo)",
+    "num": 21,
+    "jp": "かいご",
+    "vi": "Điều dưỡng"
+  },
+  {
+    "lesson": "A2-1",
+    "lesson_title": "東京に すんでいます。 (Tôi đang sống ở Tokyo)",
+    "num": 22,
+    "jp": "ところ",
+    "vi": "Nơi"
+  },
+  {
+    "lesson": "A2-1",
+    "lesson_title": "東京に すんでいます。 (Tôi đang sống ở Tokyo)",
+    "num": 23,
+    "jp": "けっこん（します）",
+    "vi": "Kết hôn"
+  },
+  {
+    "lesson": "A2-2",
+    "lesson_title": "しゅみは クラシックを 聞くことです。 (Sở thích nghe nhạc cổ điển)",
+    "num": 1,
+    "jp": "（りょうりを）つくります",
+    "vi": "Làm, tạo ra (Nấu ăn)"
+  },
+  {
+    "lesson": "A2-2",
+    "lesson_title": "しゅみは クラシックを 聞くことです。 (Sở thích nghe nhạc cổ điển)",
+    "num": 2,
+    "jp": "（きってを）あつめます",
+    "vi": "Sưu tập (Tem)"
+  },
+  {
+    "lesson": "A2-2",
+    "lesson_title": "しゅみは クラシックを 聞くことです。 (Sở thích nghe nhạc cổ điển)",
+    "num": 3,
+    "jp": "ともだちに なります",
+    "vi": "Trở thành bạn bè"
+  },
+  {
+    "lesson": "A2-2",
+    "lesson_title": "しゅみは クラシックを 聞くことです。 (Sở thích nghe nhạc cổ điển)",
+    "num": 4,
+    "jp": "うたいます",
+    "vi": "Hát"
+  },
+  {
+    "lesson": "A2-2",
+    "lesson_title": "しゅみは クラシックを 聞くことです。 (Sở thích nghe nhạc cổ điển)",
+    "num": 5,
+    "jp": "およぎます",
+    "vi": "Bơi"
+  },
+  {
+    "lesson": "A2-2",
+    "lesson_title": "しゅみは クラシックを 聞くことです。 (Sở thích nghe nhạc cổ điển)",
+    "num": 6,
+    "jp": "すいえい",
+    "vi": "Việc bơi lội"
+  },
+  {
+    "lesson": "A2-2",
+    "lesson_title": "しゅみは クラシックを 聞くことです。 (Sở thích nghe nhạc cổ điển)",
+    "num": 7,
+    "jp": "ドライブ",
+    "vi": "Lái xe đi chơi"
+  },
+  {
+    "lesson": "A2-2",
+    "lesson_title": "しゅみは クラシックを 聞くことです。 (Sở thích nghe nhạc cổ điển)",
+    "num": 8,
+    "jp": "ひま（な）",
+    "vi": "Rảnh rỗi"
+  },
+  {
+    "lesson": "A2-2",
+    "lesson_title": "しゅみは クラシックを 聞くことです。 (Sở thích nghe nhạc cổ điển)",
+    "num": 9,
+    "jp": "わかい",
+    "vi": "Trẻ"
+  },
+  {
+    "lesson": "A2-2",
+    "lesson_title": "しゅみは クラシックを 聞くことです。 (Sở thích nghe nhạc cổ điển)",
+    "num": 10,
+    "jp": "きって Tem",
+    "vi": ""
+  },
+  {
+    "lesson": "A2-2",
+    "lesson_title": "しゅみは クラシックを 聞くことです。 (Sở thích nghe nhạc cổ điển)",
+    "num": 11,
+    "jp": "コイン",
+    "vi": "Đồng xu"
+  },
+  {
+    "lesson": "A2-2",
+    "lesson_title": "しゅみは クラシックを 聞くことです。 (Sở thích nghe nhạc cổ điển)",
+    "num": 12,
+    "jp": "おかし",
+    "vi": "Bánh kẹo"
+  },
+  {
+    "lesson": "A2-2",
+    "lesson_title": "しゅみは クラシックを 聞くことです。 (Sở thích nghe nhạc cổ điển)",
+    "num": 13,
+    "jp": "たこあげ",
+    "vi": "Thả diều"
+  },
+  {
+    "lesson": "A2-2",
+    "lesson_title": "しゅみは クラシックを 聞くことです。 (Sở thích nghe nhạc cổ điển)",
+    "num": 14,
+    "jp": "コメント",
+    "vi": "Nhận xét, bình luận"
+  },
+  {
+    "lesson": "A2-2",
+    "lesson_title": "しゅみは クラシックを 聞くことです。 (Sở thích nghe nhạc cổ điển)",
+    "num": 15,
+    "jp": "チキン",
+    "vi": "Thịt gà"
+  },
+  {
+    "lesson": "A2-2",
+    "lesson_title": "しゅみは クラシックを 聞くことです。 (Sở thích nghe nhạc cổ điển)",
+    "num": 16,
+    "jp": "しょうかい（します）",
+    "vi": "Giới thiệu"
+  },
+  {
+    "lesson": "A2-2",
+    "lesson_title": "しゅみは クラシックを 聞くことです。 (Sở thích nghe nhạc cổ điển)",
+    "num": 17,
+    "jp": "じこしょうかい",
+    "vi": "Giới thiệu bản thân"
+  },
+  {
+    "lesson": "A2-2",
+    "lesson_title": "しゅみは クラシックを 聞くことです。 (Sở thích nghe nhạc cổ điển)",
+    "num": 18,
+    "jp": "とくい（な）",
+    "vi": "Giỏi, thành thạo"
+  },
+  {
+    "lesson": "A2-2",
+    "lesson_title": "しゅみは クラシックを 聞くことです。 (Sở thích nghe nhạc cổ điển)",
+    "num": 19,
+    "jp": "しあい",
+    "vi": "Trận đấu"
+  },
+  {
+    "lesson": "A2-2",
+    "lesson_title": "しゅみは クラシックを 聞くことです。 (Sở thích nghe nhạc cổ điển)",
+    "num": 20,
+    "jp": "えんげき",
+    "vi": "Kịch"
+  },
+  {
+    "lesson": "A2-2",
+    "lesson_title": "しゅみは クラシックを 聞くことです。 (Sở thích nghe nhạc cổ điển)",
+    "num": 21,
+    "jp": "あみもの",
+    "vi": "Đan móc len"
+  },
+  {
+    "lesson": "A2-2",
+    "lesson_title": "しゅみは クラシックを 聞くことです。 (Sở thích nghe nhạc cổ điển)",
+    "num": 22,
+    "jp": "ガーデニング",
+    "vi": "Làm vườn"
+  },
+  {
+    "lesson": "A2-2",
+    "lesson_title": "しゅみは クラシックを 聞くことです。 (Sở thích nghe nhạc cổ điển)",
+    "num": 23,
+    "jp": "サイクリング",
+    "vi": "Đạp xe dạo"
+  },
+  {
+    "lesson": "A2-2",
+    "lesson_title": "しゅみは クラシックを 聞くことです。 (Sở thích nghe nhạc cổ điển)",
+    "num": 24,
+    "jp": "フルーツ",
+    "vi": "Trái cây, hoa quả"
+  },
+  {
+    "lesson": "A2-2",
+    "lesson_title": "しゅみは クラシックを 聞くことです。 (Sở thích nghe nhạc cổ điển)",
+    "num": 25,
+    "jp": "フルーツケーキ",
+    "vi": "Bánh trái cây"
+  },
+  {
+    "lesson": "A2-2",
+    "lesson_title": "しゅみは クラシックを 聞くことです。 (Sở thích nghe nhạc cổ điển)",
+    "num": 26,
+    "jp": "チェス",
+    "vi": "Cờ vua"
+  },
+  {
+    "lesson": "A2-2",
+    "lesson_title": "しゅみは クラシックを 聞くことです。 (Sở thích nghe nhạc cổ điển)",
+    "num": 27,
+    "jp": "ざんぎょう",
+    "vi": "Tăng ca, OT"
+  },
+  {
+    "lesson": "A2-2",
+    "lesson_title": "しゅみは クラシックを 聞くことです。 (Sở thích nghe nhạc cổ điển)",
+    "num": 28,
+    "jp": "ぎゅうどん",
+    "vi": "Cơm thịt bò kiểu Nhật"
+  },
+  {
+    "lesson": "A2-2",
+    "lesson_title": "しゅみは クラシックを 聞くことです。 (Sở thích nghe nhạc cổ điển)",
+    "num": 29,
+    "jp": "いろいろ（な）",
+    "vi": "Nhiều, đa dạng"
+  },
+  {
+    "lesson": "A2-3",
+    "lesson_title": "日本はいま、はるです。 (Nhật Bản đang là mùa xuân)",
+    "num": 1,
+    "jp": "きせつ",
+    "vi": "Mùa"
+  },
+  {
+    "lesson": "A2-3",
+    "lesson_title": "日本はいま、はるです。 (Nhật Bản đang là mùa xuân)",
+    "num": 2,
+    "jp": "てんき",
+    "vi": "Thời tiết"
+  },
+  {
+    "lesson": "A2-3",
+    "lesson_title": "日本はいま、はるです。 (Nhật Bản đang là mùa xuân)",
+    "num": 3,
+    "jp": "はる",
+    "vi": "Mùa xuân"
+  },
+  {
+    "lesson": "A2-3",
+    "lesson_title": "日本はいま、はるです。 (Nhật Bản đang là mùa xuân)",
+    "num": 4,
+    "jp": "なつ",
+    "vi": "Mùa hè"
+  },
+  {
+    "lesson": "A2-3",
+    "lesson_title": "日本はいま、はるです。 (Nhật Bản đang là mùa xuân)",
+    "num": 5,
+    "jp": "あき",
+    "vi": "Mùa thu"
+  },
+  {
+    "lesson": "A2-3",
+    "lesson_title": "日本はいま、はるです。 (Nhật Bản đang là mùa xuân)",
+    "num": 6,
+    "jp": "ふゆ",
+    "vi": "Mùa đông"
+  },
+  {
+    "lesson": "A2-3",
+    "lesson_title": "日本はいま、はるです。 (Nhật Bản đang là mùa xuân)",
+    "num": 7,
+    "jp": "あつい",
+    "vi": "Nóng"
+  },
+  {
+    "lesson": "A2-3",
+    "lesson_title": "日本はいま、はるです。 (Nhật Bản đang là mùa xuân)",
+    "num": 8,
+    "jp": "むしあつい",
+    "vi": "Nóng nồm, ẩm, oi bức"
+  },
+  {
+    "lesson": "A2-3",
+    "lesson_title": "日本はいま、はるです。 (Nhật Bản đang là mùa xuân)",
+    "num": 9,
+    "jp": "さむい",
+    "vi": "Lạnh"
+  },
+  {
+    "lesson": "A2-3",
+    "lesson_title": "日本はいま、はるです。 (Nhật Bản đang là mùa xuân)",
+    "num": 10,
+    "jp": "すずしい",
+    "vi": "Mát mẻ"
+  },
+  {
+    "lesson": "A2-3",
+    "lesson_title": "日本はいま、はるです。 (Nhật Bản đang là mùa xuân)",
+    "num": 11,
+    "jp": "あたたかい",
+    "vi": "Ấm áp"
+  },
+  {
+    "lesson": "A2-3",
+    "lesson_title": "日本はいま、はるです。 (Nhật Bản đang là mùa xuân)",
+    "num": 12,
+    "jp": "あめ",
+    "vi": "Mưa"
+  },
+  {
+    "lesson": "A2-3",
+    "lesson_title": "日本はいま、はるです。 (Nhật Bản đang là mùa xuân)",
+    "num": 13,
+    "jp": "あめが ふります",
+    "vi": "Mưa rơi"
+  },
+  {
+    "lesson": "A2-3",
+    "lesson_title": "日本はいま、はるです。 (Nhật Bản đang là mùa xuân)",
+    "num": 14,
+    "jp": "うき",
+    "vi": "Mùa mưa (nhiệt đới)"
+  },
+  {
+    "lesson": "A2-3",
+    "lesson_title": "日本はいま、はるです。 (Nhật Bản đang là mùa xuân)",
+    "num": 15,
+    "jp": "かんき",
+    "vi": "Mùa khô"
+  },
+  {
+    "lesson": "A2-3",
+    "lesson_title": "日本はいま、はるです。 (Nhật Bản đang là mùa xuân)",
+    "num": 16,
+    "jp": "つゆ",
+    "vi": "Mùa mưa đầu hè (Nhật Bản)"
+  },
+  {
+    "lesson": "A2-3",
+    "lesson_title": "日本はいま、はるです。 (Nhật Bản đang là mùa xuân)",
+    "num": 17,
+    "jp": "ゆき",
+    "vi": "Tuyết"
+  },
+  {
+    "lesson": "A2-3",
+    "lesson_title": "日本はいま、はるです。 (Nhật Bản đang là mùa xuân)",
+    "num": 18,
+    "jp": "ゆきが ふります",
+    "vi": "Tuyết rơi"
+  },
+  {
+    "lesson": "A2-3",
+    "lesson_title": "日本はいま、はるです。 (Nhật Bản đang là mùa xuân)",
+    "num": 19,
+    "jp": "～ど",
+    "vi": "… độ"
+  },
+  {
+    "lesson": "A2-3",
+    "lesson_title": "日本はいま、はるです。 (Nhật Bản đang là mùa xuân)",
+    "num": 20,
+    "jp": "きおん",
+    "vi": "Nhiệt độ không khí"
+  },
+  {
+    "lesson": "A2-3",
+    "lesson_title": "日本はいま、はるです。 (Nhật Bản đang là mùa xuân)",
+    "num": 21,
+    "jp": "（お）しょうがつ",
+    "vi": "Tết Dương Lịch"
+  },
+  {
+    "lesson": "A2-3",
+    "lesson_title": "日本はいま、はるです。 (Nhật Bản đang là mùa xuân)",
+    "num": 22,
+    "jp": "はなが さきます",
+    "vi": "Hoa nở"
+  },
+  {
+    "lesson": "A2-3",
+    "lesson_title": "日本はいま、はるです。 (Nhật Bản đang là mùa xuân)",
+    "num": 23,
+    "jp": "（お）はなみ",
+    "vi": "Ngắm hoa anh đào"
+  },
+  {
+    "lesson": "A2-3",
+    "lesson_title": "日本はいま、はるです。 (Nhật Bản đang là mùa xuân)",
+    "num": 24,
+    "jp": "にゅうがくしき",
+    "vi": "Lễ nhập học"
+  },
+  {
+    "lesson": "A2-3",
+    "lesson_title": "日本はいま、はるです。 (Nhật Bản đang là mùa xuân)",
+    "num": 25,
+    "jp": "ひまわり",
+    "vi": "Hoa hướng dương"
+  },
+  {
+    "lesson": "A2-3",
+    "lesson_title": "日本はいま、はるです。 (Nhật Bản đang là mùa xuân)",
+    "num": 26,
+    "jp": "あじさい",
+    "vi": "Hoa cẩm tú cầu"
+  },
+  {
+    "lesson": "A2-3",
+    "lesson_title": "日本はいま、はるです。 (Nhật Bản đang là mùa xuân)",
+    "num": 27,
+    "jp": "たんぼ",
+    "vi": "Đồng lúa"
+  },
+  {
+    "lesson": "A2-3",
+    "lesson_title": "日本はいま、はるです。 (Nhật Bản đang là mùa xuân)",
+    "num": 28,
+    "jp": "すいか",
+    "vi": "Dưa hấu"
+  },
+  {
+    "lesson": "A2-3",
+    "lesson_title": "日本はいま、はるです。 (Nhật Bản đang là mùa xuân)",
+    "num": 29,
+    "jp": "ゆかた",
+    "vi": "Bộ Yukata (Kimono mùa hè)"
+  },
+  {
+    "lesson": "A2-3",
+    "lesson_title": "日本はいま、はるです。 (Nhật Bản đang là mùa xuân)",
+    "num": 30,
+    "jp": "もみじ",
+    "vi": "Lá phong"
+  },
+  {
+    "lesson": "A2-3",
+    "lesson_title": "日本はいま、はるです。 (Nhật Bản đang là mùa xuân)",
+    "num": 31,
+    "jp": "つきみ",
+    "vi": "Trung thu, ngắm trăng"
+  },
+  {
+    "lesson": "A2-3",
+    "lesson_title": "日本はいま、はるです。 (Nhật Bản đang là mùa xuân)",
+    "num": 32,
+    "jp": "ぶどう Nho",
+    "vi": ""
+  },
+  {
+    "lesson": "A2-3",
+    "lesson_title": "日本はいま、はるです。 (Nhật Bản đang là mùa xuân)",
+    "num": 33,
+    "jp": "スキー",
+    "vi": "Trượt tuyết"
+  },
+  {
+    "lesson": "A2-3",
+    "lesson_title": "日本はいま、はるです。 (Nhật Bản đang là mùa xuân)",
+    "num": 34,
+    "jp": "こたつ",
+    "vi": "Bàn sưởi"
+  },
+  {
+    "lesson": "A2-3",
+    "lesson_title": "日本はいま、はるです。 (Nhật Bản đang là mùa xuân)",
+    "num": 35,
+    "jp": "みかん",
+    "vi": "Quả quýt"
+  },
+  {
+    "lesson": "A2-3",
+    "lesson_title": "日本はいま、はるです。 (Nhật Bản đang là mùa xuân)",
+    "num": 36,
+    "jp": "なべりょうり",
+    "vi": "Lẩu"
+  },
+  {
+    "lesson": "A2-3",
+    "lesson_title": "日本はいま、はるです。 (Nhật Bản đang là mùa xuân)",
+    "num": 37,
+    "jp": "セーター",
+    "vi": "Áo len"
+  },
+  {
+    "lesson": "A2-3",
+    "lesson_title": "日本はいま、はるです。 (Nhật Bản đang là mùa xuân)",
+    "num": 38,
+    "jp": "うみ",
+    "vi": "Biển"
+  },
+  {
+    "lesson": "A2-3",
+    "lesson_title": "日本はいま、はるです。 (Nhật Bản đang là mùa xuân)",
+    "num": 39,
+    "jp": "やま",
+    "vi": "Núi"
+  },
+  {
+    "lesson": "A2-3",
+    "lesson_title": "日本はいま、はるです。 (Nhật Bản đang là mùa xuân)",
+    "num": 40,
+    "jp": "かわ",
+    "vi": "Sông"
+  },
+  {
+    "lesson": "A2-3",
+    "lesson_title": "日本はいま、はるです。 (Nhật Bản đang là mùa xuân)",
+    "num": 41,
+    "jp": "だんだん",
+    "vi": "Dần dần"
+  },
+  {
+    "lesson": "A2-3",
+    "lesson_title": "日本はいま、はるです。 (Nhật Bản đang là mùa xuân)",
+    "num": 42,
+    "jp": "にがて（な）",
+    "vi": "Tệ, kém, sợ, không hợp..."
+  },
+  {
+    "lesson": "A2-3",
+    "lesson_title": "日本はいま、はるです。 (Nhật Bản đang là mùa xuân)",
+    "num": 43,
+    "jp": "なります",
+    "vi": "Trở nên, trở thành"
+  },
+  {
+    "lesson": "A2-3",
+    "lesson_title": "日本はいま、はるです。 (Nhật Bản đang là mùa xuân)",
+    "num": 44,
+    "jp": "だいたい",
+    "vi": "Đại khái"
+  },
+  {
+    "lesson": "A2-4",
+    "lesson_title": "いい てんきですね。 (Thời tiết đẹp nhỉ)",
+    "num": 1,
+    "jp": "はれ／はれます",
+    "vi": "Trời đẹp, quang đãng"
+  },
+  {
+    "lesson": "A2-4",
+    "lesson_title": "いい てんきですね。 (Thời tiết đẹp nhỉ)",
+    "num": 2,
+    "jp": "くもり／くもります",
+    "vi": "Âm u, nhiều mây"
+  },
+  {
+    "lesson": "A2-4",
+    "lesson_title": "いい てんきですね。 (Thời tiết đẹp nhỉ)",
+    "num": 3,
+    "jp": "あめが やみます",
+    "vi": "Mưa tạnh"
+  },
+  {
+    "lesson": "A2-4",
+    "lesson_title": "いい てんきですね。 (Thời tiết đẹp nhỉ)",
+    "num": 4,
+    "jp": "ゆきが つもります",
+    "vi": "Tuyết chất dày, chất đống"
+  },
+  {
+    "lesson": "A2-4",
+    "lesson_title": "いい てんきですね。 (Thời tiết đẹp nhỉ)",
+    "num": 5,
+    "jp": "かぜ",
+    "vi": "Gió"
+  },
+  {
+    "lesson": "A2-4",
+    "lesson_title": "いい てんきですね。 (Thời tiết đẹp nhỉ)",
+    "num": 6,
+    "jp": "かぜが ふきます",
+    "vi": "Gió thổi"
+  },
+  {
+    "lesson": "A2-4",
+    "lesson_title": "いい てんきですね。 (Thời tiết đẹp nhỉ)",
+    "num": 7,
+    "jp": "たいふう",
+    "vi": "Bão"
+  },
+  {
+    "lesson": "A2-4",
+    "lesson_title": "いい てんきですね。 (Thời tiết đẹp nhỉ)",
+    "num": 8,
+    "jp": "ゆきだるま",
+    "vi": "Người tuyết"
+  },
+  {
+    "lesson": "A2-4",
+    "lesson_title": "いい てんきですね。 (Thời tiết đẹp nhỉ)",
+    "num": 9,
+    "jp": "そら",
+    "vi": "Bầu trời"
+  },
+  {
+    "lesson": "A2-4",
+    "lesson_title": "いい てんきですね。 (Thời tiết đẹp nhỉ)",
+    "num": 10,
+    "jp": "くも",
+    "vi": "Mây"
+  },
+  {
+    "lesson": "A2-4",
+    "lesson_title": "いい てんきですね。 (Thời tiết đẹp nhỉ)",
+    "num": 11,
+    "jp": "つき",
+    "vi": "Trăng"
+  },
+  {
+    "lesson": "A2-4",
+    "lesson_title": "いい てんきですね。 (Thời tiết đẹp nhỉ)",
+    "num": 12,
+    "jp": "ほし Sao",
+    "vi": ""
+  },
+  {
+    "lesson": "A2-4",
+    "lesson_title": "いい てんきですね。 (Thời tiết đẹp nhỉ)",
+    "num": 13,
+    "jp": "ほしが でます",
+    "vi": "Sao xuất hiện, có sao trên trời"
+  },
+  {
+    "lesson": "A2-4",
+    "lesson_title": "いい てんきですね。 (Thời tiết đẹp nhỉ)",
+    "num": 14,
+    "jp": "ごぜんちゅう",
+    "vi": "Ban ngày"
+  },
+  {
+    "lesson": "A2-4",
+    "lesson_title": "いい てんきですね。 (Thời tiết đẹp nhỉ)",
+    "num": 15,
+    "jp": "いちにちじゅう",
+    "vi": "Cả ngày"
+  },
+  {
+    "lesson": "A2-4",
+    "lesson_title": "いい てんきですね。 (Thời tiết đẹp nhỉ)",
+    "num": 16,
+    "jp": "いちねんじゅう",
+    "vi": "Cả năm"
+  },
+  {
+    "lesson": "A2-4",
+    "lesson_title": "いい てんきですね。 (Thời tiết đẹp nhỉ)",
+    "num": 17,
+    "jp": "せかい",
+    "vi": "Thế giới"
+  },
+  {
+    "lesson": "A2-4",
+    "lesson_title": "いい てんきですね。 (Thời tiết đẹp nhỉ)",
+    "num": 18,
+    "jp": "てんきよほう",
+    "vi": "Dự báo thời tiết"
+  },
+  {
+    "lesson": "A2-4",
+    "lesson_title": "いい てんきですね。 (Thời tiết đẹp nhỉ)",
+    "num": 19,
+    "jp": "げんき（な）",
+    "vi": "Khỏe mạnh"
+  },
+  {
+    "lesson": "A2-4",
+    "lesson_title": "いい てんきですね。 (Thời tiết đẹp nhỉ)",
+    "num": 20,
+    "jp": "きもちが いい",
+    "vi": "Sảng khoái, dễ chịu"
+  },
+  {
+    "lesson": "A2-4",
+    "lesson_title": "いい てんきですね。 (Thời tiết đẹp nhỉ)",
+    "num": 21,
+    "jp": "つよい",
+    "vi": "Mạnh"
+  },
+  {
+    "lesson": "A2-4",
+    "lesson_title": "いい てんきですね。 (Thời tiết đẹp nhỉ)",
+    "num": 22,
+    "jp": "よわい",
+    "vi": "Yếu"
+  },
+  {
+    "lesson": "A2-4",
+    "lesson_title": "いい てんきですね。 (Thời tiết đẹp nhỉ)",
+    "num": 23,
+    "jp": "でかけます",
+    "vi": "Ra ngoài"
+  },
+  {
+    "lesson": "A2-4",
+    "lesson_title": "いい てんきですね。 (Thời tiết đẹp nhỉ)",
+    "num": 24,
+    "jp": "おかげさまで",
+    "vi": "Ơn trời"
+  },
+  {
+    "lesson": "A2-4",
+    "lesson_title": "いい てんきですね。 (Thời tiết đẹp nhỉ)",
+    "num": 25,
+    "jp": "（お）ひさしぶりです",
+    "vi": "Đã lâu không gặp"
+  },
+  {
+    "lesson": "A2-5",
+    "lesson_title": "この こうえんは ひろくて、きれいです。 (Công viên này rộng và đẹp)",
+    "num": 1,
+    "jp": "ばしょ",
+    "vi": "Địa điểm"
+  },
+  {
+    "lesson": "A2-5",
+    "lesson_title": "この こうえんは ひろくて、きれいです。 (Công viên này rộng và đẹp)",
+    "num": 2,
+    "jp": "ところ",
+    "vi": "Nơi"
+  },
+  {
+    "lesson": "A2-5",
+    "lesson_title": "この こうえんは ひろくて、きれいです。 (Công viên này rộng và đẹp)",
+    "num": 3,
+    "jp": "このあたり",
+    "vi": "Khu vực này"
+  },
+  {
+    "lesson": "A2-5",
+    "lesson_title": "この こうえんは ひろくて、きれいです。 (Công viên này rộng và đẹp)",
+    "num": 4,
+    "jp": "どうぶつえん",
+    "vi": "Sở thú"
+  },
+  {
+    "lesson": "A2-5",
+    "lesson_title": "この こうえんは ひろくて、きれいです。 (Công viên này rộng và đẹp)",
+    "num": 5,
+    "jp": "ゆうえんち",
+    "vi": "Công viên giải trí"
+  },
+  {
+    "lesson": "A2-5",
+    "lesson_title": "この こうえんは ひろくて、きれいです。 (Công viên này rộng và đẹp)",
+    "num": 6,
+    "jp": "でんきてん",
+    "vi": "Cửa hàng đồ điện"
+  },
+  {
+    "lesson": "A2-5",
+    "lesson_title": "この こうえんは ひろくて、きれいです。 (Công viên này rộng và đẹp)",
+    "num": 7,
+    "jp": "こうきょ",
+    "vi": "Hoàng cung"
+  },
+  {
+    "lesson": "A2-5",
+    "lesson_title": "この こうえんは ひろくて、きれいです。 (Công viên này rộng và đẹp)",
+    "num": 8,
+    "jp": "いざかや",
+    "vi": "Quán nhậu"
+  },
+  {
+    "lesson": "A2-5",
+    "lesson_title": "この こうえんは ひろくて、きれいです。 (Công viên này rộng và đẹp)",
+    "num": 9,
+    "jp": "うおいちば",
+    "vi": "Chợ cá"
+  },
+  {
+    "lesson": "A2-5",
+    "lesson_title": "この こうえんは ひろくて、きれいです。 (Công viên này rộng và đẹp)",
+    "num": 10,
+    "jp": "ゲームセンター Game center",
+    "vi": ""
+  },
+  {
+    "lesson": "A2-5",
+    "lesson_title": "この こうえんは ひろくて、きれいです。 (Công viên này rộng và đẹp)",
+    "num": 11,
+    "jp": "ちず",
+    "vi": "Bản đồ"
+  },
+  {
+    "lesson": "A2-5",
+    "lesson_title": "この こうえんは ひろくて、きれいです。 (Công viên này rộng và đẹp)",
+    "num": 12,
+    "jp": "ひろい",
+    "vi": "Rộng"
+  },
+  {
+    "lesson": "A2-5",
+    "lesson_title": "この こうえんは ひろくて、きれいです。 (Công viên này rộng và đẹp)",
+    "num": 13,
+    "jp": "せまい",
+    "vi": "Hẹp, chật"
+  },
+  {
+    "lesson": "A2-5",
+    "lesson_title": "この こうえんは ひろくて、きれいです。 (Công viên này rộng và đẹp)",
+    "num": 14,
+    "jp": "ちかい",
+    "vi": "Gần"
+  },
+  {
+    "lesson": "A2-5",
+    "lesson_title": "この こうえんは ひろくて、きれいです。 (Công viên này rộng và đẹp)",
+    "num": 15,
+    "jp": "とおい Xa",
+    "vi": ""
+  },
+  {
+    "lesson": "A2-5",
+    "lesson_title": "この こうえんは ひろくて、きれいです。 (Công viên này rộng và đẹp)",
+    "num": 16,
+    "jp": "べんり",
+    "vi": "Tiện lợi"
+  },
+  {
+    "lesson": "A2-5",
+    "lesson_title": "この こうえんは ひろくて、きれいです。 (Công viên này rộng và đẹp)",
+    "num": 17,
+    "jp": "ふべん",
+    "vi": "Bất tiện"
+  },
+  {
+    "lesson": "A2-5",
+    "lesson_title": "この こうえんは ひろくて、きれいです。 (Công viên này rộng và đẹp)",
+    "num": 18,
+    "jp": "はやい",
+    "vi": "Nhanh, sớm"
+  },
+  {
+    "lesson": "A2-5",
+    "lesson_title": "この こうえんは ひろくて、きれいです。 (Công viên này rộng và đẹp)",
+    "num": 19,
+    "jp": "おそい",
+    "vi": "Chậm, muộn"
+  },
+  {
+    "lesson": "A2-5",
+    "lesson_title": "この こうえんは ひろくて、きれいです。 (Công viên này rộng và đẹp)",
+    "num": 20,
+    "jp": "あかるい",
+    "vi": "Sáng sủa"
+  },
+  {
+    "lesson": "A2-5",
+    "lesson_title": "この こうえんは ひろくて、きれいです。 (Công viên này rộng và đẹp)",
+    "num": 21,
+    "jp": "くらい",
+    "vi": "Tối tăm"
+  },
+  {
+    "lesson": "A2-5",
+    "lesson_title": "この こうえんは ひろくて、きれいです。 (Công viên này rộng và đẹp)",
+    "num": 22,
+    "jp": "おおい",
+    "vi": "Nhiều"
+  },
+  {
+    "lesson": "A2-5",
+    "lesson_title": "この こうえんは ひろくて、きれいです。 (Công viên này rộng và đẹp)",
+    "num": 23,
+    "jp": "すくない",
+    "vi": "Ít"
+  },
+  {
+    "lesson": "A2-5",
+    "lesson_title": "この こうえんは ひろくて、きれいです。 (Công viên này rộng và đẹp)",
+    "num": 24,
+    "jp": "あぶない",
+    "vi": "Nguy hiểm"
+  },
+  {
+    "lesson": "A2-5",
+    "lesson_title": "この こうえんは ひろくて、きれいです。 (Công viên này rộng và đẹp)",
+    "num": 25,
+    "jp": "おとな",
+    "vi": "Người lớn, người trưởng thành"
+  },
+  {
+    "lesson": "A2-5",
+    "lesson_title": "この こうえんは ひろくて、きれいです。 (Công viên này rộng và đẹp)",
+    "num": 26,
+    "jp": "わかいひと",
+    "vi": "Người trẻ"
+  },
+  {
+    "lesson": "A2-5",
+    "lesson_title": "この こうえんは ひろくて、きれいです。 (Công viên này rộng và đẹp)",
+    "num": 27,
+    "jp": "にんき（があります）",
+    "vi": "Được yêu thích, ưa chuộng"
+  },
+  {
+    "lesson": "A2-5",
+    "lesson_title": "この こうえんは ひろくて、きれいです。 (Công viên này rộng và đẹp)",
+    "num": 28,
+    "jp": "おすすめ",
+    "vi": "Đề xuất, gợi ý"
+  },
+  {
+    "lesson": "A2-5",
+    "lesson_title": "この こうえんは ひろくて、きれいです。 (Công viên này rộng và đẹp)",
+    "num": 29,
+    "jp": "ジョギング",
+    "vi": "Chạy bộ"
+  },
+  {
+    "lesson": "A2-5",
+    "lesson_title": "この こうえんは ひろくて、きれいです。 (Công viên này rộng và đẹp)",
+    "num": 30,
+    "jp": "ぜひ",
+    "vi": "Nhất định"
+  },
+  {
+    "lesson": "A2-5",
+    "lesson_title": "この こうえんは ひろくて、きれいです。 (Công viên này rộng và đẹp)",
+    "num": 31,
+    "jp": "ぜひ～てください",
+    "vi": "Nhất định hãy..."
+  },
+  {
+    "lesson": "A2-6",
+    "lesson_title": "まっすぐ 行ってください。 (Hãy đi thẳng)",
+    "num": 1,
+    "jp": "たてもの",
+    "vi": "Tòa nhà, công trình kiến trúc"
+  },
+  {
+    "lesson": "A2-6",
+    "lesson_title": "まっすぐ 行ってください。 (Hãy đi thẳng)",
+    "num": 2,
+    "jp": "ビル",
+    "vi": "Tòa nhà"
+  },
+  {
+    "lesson": "A2-6",
+    "lesson_title": "まっすぐ 行ってください。 (Hãy đi thẳng)",
+    "num": 3,
+    "jp": "ゆうびんきょく",
+    "vi": "Bưu điện"
+  },
+  {
+    "lesson": "A2-6",
+    "lesson_title": "まっすぐ 行ってください。 (Hãy đi thẳng)",
+    "num": 4,
+    "jp": "たいしかん",
+    "vi": "Đại sứ quán"
+  },
+  {
+    "lesson": "A2-6",
+    "lesson_title": "まっすぐ 行ってください。 (Hãy đi thẳng)",
+    "num": 5,
+    "jp": "びじゅつかん",
+    "vi": "Bảo tàng mỹ thuật"
+  },
+  {
+    "lesson": "A2-6",
+    "lesson_title": "まっすぐ 行ってください。 (Hãy đi thẳng)",
+    "num": 6,
+    "jp": "はくぶつかん",
+    "vi": "Bảo tàng"
+  },
+  {
+    "lesson": "A2-6",
+    "lesson_title": "まっすぐ 行ってください。 (Hãy đi thẳng)",
+    "num": 7,
+    "jp": "みち",
+    "vi": "Con đường"
+  },
+  {
+    "lesson": "A2-6",
+    "lesson_title": "まっすぐ 行ってください。 (Hãy đi thẳng)",
+    "num": 8,
+    "jp": "とおり",
+    "vi": "Con đường, phố"
+  },
+  {
+    "lesson": "A2-6",
+    "lesson_title": "まっすぐ 行ってください。 (Hãy đi thẳng)",
+    "num": 9,
+    "jp": "はし",
+    "vi": "Cây cầu"
+  },
+  {
+    "lesson": "A2-6",
+    "lesson_title": "まっすぐ 行ってください。 (Hãy đi thẳng)",
+    "num": 10,
+    "jp": "こうさてん",
+    "vi": "Ngã tư"
+  },
+  {
+    "lesson": "A2-6",
+    "lesson_title": "まっすぐ 行ってください。 (Hãy đi thẳng)",
+    "num": 11,
+    "jp": "かど",
+    "vi": "Góc"
+  },
+  {
+    "lesson": "A2-6",
+    "lesson_title": "まっすぐ 行ってください。 (Hãy đi thẳng)",
+    "num": 12,
+    "jp": "しんごう",
+    "vi": "Đèn giao thông"
+  },
+  {
+    "lesson": "A2-6",
+    "lesson_title": "まっすぐ 行ってください。 (Hãy đi thẳng)",
+    "num": 13,
+    "jp": "ひとつめの N",
+    "vi": "N thứ nhất"
+  },
+  {
+    "lesson": "A2-6",
+    "lesson_title": "まっすぐ 行ってください。 (Hãy đi thẳng)",
+    "num": 14,
+    "jp": "ふたつめの N",
+    "vi": "N thứ hai"
+  },
+  {
+    "lesson": "A2-6",
+    "lesson_title": "まっすぐ 行ってください。 (Hãy đi thẳng)",
+    "num": 15,
+    "jp": "みぎ",
+    "vi": "Bên phải"
+  },
+  {
+    "lesson": "A2-6",
+    "lesson_title": "まっすぐ 行ってください。 (Hãy đi thẳng)",
+    "num": 16,
+    "jp": "みだり",
+    "vi": "Bên trái"
+  },
+  {
+    "lesson": "A2-6",
+    "lesson_title": "まっすぐ 行ってください。 (Hãy đi thẳng)",
+    "num": 17,
+    "jp": "まっすぐ",
+    "vi": "Thẳng"
+  },
+  {
+    "lesson": "A2-6",
+    "lesson_title": "まっすぐ 行ってください。 (Hãy đi thẳng)",
+    "num": 18,
+    "jp": "（はしを）わたります",
+    "vi": "Đi qua, băng qua (cầu)"
+  },
+  {
+    "lesson": "A2-6",
+    "lesson_title": "まっすぐ 行ってください。 (Hãy đi thẳng)",
+    "num": 19,
+    "jp": "まがります",
+    "vi": "Rẽ"
+  },
+  {
+    "lesson": "A2-6",
+    "lesson_title": "まっすぐ 行ってください。 (Hãy đi thẳng)",
+    "num": 20,
+    "jp": "こうさてんを ひだり／みぎに まがります",
+    "vi": "Rẽ phải/trái tại ngã tư"
+  },
+  {
+    "lesson": "A2-6",
+    "lesson_title": "まっすぐ 行ってください。 (Hãy đi thẳng)",
+    "num": 21,
+    "jp": "N が みえます",
+    "vi": "Có thể nhìn thấy..."
+  },
+  {
+    "lesson": "A2-6",
+    "lesson_title": "まっすぐ 行ってください。 (Hãy đi thẳng)",
+    "num": 22,
+    "jp": "N が きこえます",
+    "vi": "Có thể nghe thấy..."
+  },
+  {
+    "lesson": "A2-6",
+    "lesson_title": "まっすぐ 行ってください。 (Hãy đi thẳng)",
+    "num": 23,
+    "jp": "たかい Cao",
+    "vi": ""
+  },
+  {
+    "lesson": "A2-6",
+    "lesson_title": "まっすぐ 行ってください。 (Hãy đi thẳng)",
+    "num": 24,
+    "jp": "ひくい",
+    "vi": "Thấp"
+  },
+  {
+    "lesson": "A2-6",
+    "lesson_title": "まっすぐ 行ってください。 (Hãy đi thẳng)",
+    "num": 25,
+    "jp": "まるい",
+    "vi": "Tròn"
+  },
+  {
+    "lesson": "A2-6",
+    "lesson_title": "まっすぐ 行ってください。 (Hãy đi thẳng)",
+    "num": 26,
+    "jp": "しろい",
+    "vi": "Trắng"
+  },
+  {
+    "lesson": "A2-6",
+    "lesson_title": "まっすぐ 行ってください。 (Hãy đi thẳng)",
+    "num": 27,
+    "jp": "くろい",
+    "vi": "Đen"
+  },
+  {
+    "lesson": "A2-6",
+    "lesson_title": "まっすぐ 行ってください。 (Hãy đi thẳng)",
+    "num": 28,
+    "jp": "あかい",
+    "vi": "Đỏ"
+  },
+  {
+    "lesson": "A2-6",
+    "lesson_title": "まっすぐ 行ってください。 (Hãy đi thẳng)",
+    "num": 29,
+    "jp": "あおい",
+    "vi": "Xanh dương"
+  },
+  {
+    "lesson": "A2-6",
+    "lesson_title": "まっすぐ 行ってください。 (Hãy đi thẳng)",
+    "num": 30,
+    "jp": "ほそながい",
+    "vi": "Thon dài, dài và hẹp"
+  },
+  {
+    "lesson": "A2-7",
+    "lesson_title": "10時でも いいですか。 (10 giờ có được không?)",
+    "num": 1,
+    "jp": "（時間に）おくれます",
+    "vi": "Muộn (giờ)"
+  },
+  {
+    "lesson": "A2-7",
+    "lesson_title": "10時でも いいですか。 (10 giờ có được không?)",
+    "num": 2,
+    "jp": "（バスを）まちます",
+    "vi": "Đợi, chờ (xe bus)"
+  },
+  {
+    "lesson": "A2-7",
+    "lesson_title": "10時でも いいですか。 (10 giờ có được không?)",
+    "num": 3,
+    "jp": "（時間を）まちがえます",
+    "vi": "Nhầm, nhầm lẫn (giờ)"
+  },
+  {
+    "lesson": "A2-7",
+    "lesson_title": "10時でも いいですか。 (10 giờ có được không?)",
+    "num": 4,
+    "jp": "（でんしゃが）とまります",
+    "vi": "(Tàu điện) dừng lại, dừng chạy"
+  },
+  {
+    "lesson": "A2-7",
+    "lesson_title": "10時でも いいですか。 (10 giờ có được không?)",
+    "num": 5,
+    "jp": "みちに まよいます",
+    "vi": "Lạc đường"
+  },
+  {
+    "lesson": "A2-7",
+    "lesson_title": "10時でも いいですか。 (10 giờ có được không?)",
+    "num": 6,
+    "jp": "（かぞくと）でかけます",
+    "vi": "Ra ngoài (với gia đình)"
+  },
+  {
+    "lesson": "A2-7",
+    "lesson_title": "10時でも いいですか。 (10 giờ có được không?)",
+    "num": 7,
+    "jp": "（くるまに）きを つけます",
+    "vi": "Chú ý, cẩn thận (ô tô)"
+  },
+  {
+    "lesson": "A2-7",
+    "lesson_title": "10時でも いいですか。 (10 giờ có được không?)",
+    "num": 8,
+    "jp": "（ともだちに）れんらくします",
+    "vi": "Liên lạc (với bạn bè)"
+  },
+  {
+    "lesson": "A2-7",
+    "lesson_title": "10時でも いいですか。 (10 giờ có được không?)",
+    "num": 9,
+    "jp": "（くうこうに）つきます",
+    "vi": "Đến nơi (sân bay)"
+  },
+  {
+    "lesson": "A2-7",
+    "lesson_title": "10時でも いいですか。 (10 giờ có được không?)",
+    "num": 10,
+    "jp": "まちあわせ",
+    "vi": "Cuộc hẹn"
+  },
+  {
+    "lesson": "A2-7",
+    "lesson_title": "10時でも いいですか。 (10 giờ có được không?)",
+    "num": 11,
+    "jp": "まちあわせ（をします）",
+    "vi": "Hẹn gặp"
+  },
+  {
+    "lesson": "A2-7",
+    "lesson_title": "10時でも いいですか。 (10 giờ có được không?)",
+    "num": 12,
+    "jp": "じゅうたい",
+    "vi": "Tắc đường"
+  },
+  {
+    "lesson": "A2-7",
+    "lesson_title": "10時でも いいですか。 (10 giờ có được không?)",
+    "num": 13,
+    "jp": "じこ",
+    "vi": "Tai nạn, sự cố"
+  },
+  {
+    "lesson": "A2-7",
+    "lesson_title": "10時でも いいですか。 (10 giờ có được không?)",
+    "num": 14,
+    "jp": "ロビー",
+    "vi": "Sảnh chờ (Lobby)"
+  },
+  {
+    "lesson": "A2-7",
+    "lesson_title": "10時でも いいですか。 (10 giờ có được không?)",
+    "num": 15,
+    "jp": "いりぐち",
+    "vi": "Lối vào, cửa vào"
+  },
+  {
+    "lesson": "A2-7",
+    "lesson_title": "10時でも いいですか。 (10 giờ có được không?)",
+    "num": 16,
+    "jp": "ほんや",
+    "vi": "Tiệm sách"
+  },
+  {
+    "lesson": "A2-7",
+    "lesson_title": "10時でも いいですか。 (10 giờ có được không?)",
+    "num": 17,
+    "jp": "ちこく（します）",
+    "vi": "Muộn (chỉ dùng cho người)"
+  },
+  {
+    "lesson": "A2-7",
+    "lesson_title": "10時でも いいですか。 (10 giờ có được không?)",
+    "num": 18,
+    "jp": "はやく ＋ V",
+    "vi": "Làm V nhanh, sớm"
+  },
+  {
+    "lesson": "A2-7",
+    "lesson_title": "10時でも いいですか。 (10 giờ có được không?)",
+    "num": 19,
+    "jp": "たのしみ",
+    "vi": "Mong chờ, mong đợi"
+  },
+  {
+    "lesson": "A2-7",
+    "lesson_title": "10時でも いいですか。 (10 giờ có được không?)",
+    "num": 20,
+    "jp": "りゆう",
+    "vi": "Lý do"
+  },
+  {
+    "lesson": "A2-8",
+    "lesson_title": "もう やけいを 見に 行きましたか。 (Đã đi ngắm cảnh đêm chưa?)",
+    "num": 1,
+    "jp": "すいぞくかん",
+    "vi": "Thủy cung"
+  },
+  {
+    "lesson": "A2-8",
+    "lesson_title": "もう やけいを 見に 行きましたか。 (Đã đi ngắm cảnh đêm chưa?)",
+    "num": 2,
+    "jp": "やたい",
+    "vi": "Quầy bán hàng lưu động"
+  },
+  {
+    "lesson": "A2-8",
+    "lesson_title": "もう やけいを 見に 行きましたか。 (Đã đi ngắm cảnh đêm chưa?)",
+    "num": 3,
+    "jp": "タワー",
+    "vi": "Tháp"
+  },
+  {
+    "lesson": "A2-8",
+    "lesson_title": "もう やけいを 見に 行きましたか。 (Đã đi ngắm cảnh đêm chưa?)",
+    "num": 4,
+    "jp": "すいじょうバス",
+    "vi": "Thuyền bus"
+  },
+  {
+    "lesson": "A2-8",
+    "lesson_title": "もう やけいを 見に 行きましたか。 (Đã đi ngắm cảnh đêm chưa?)",
+    "num": 5,
+    "jp": "れきし",
+    "vi": "Lịch sử"
+  },
+  {
+    "lesson": "A2-8",
+    "lesson_title": "もう やけいを 見に 行きましたか。 (Đã đi ngắm cảnh đêm chưa?)",
+    "num": 6,
+    "jp": "どうぶつ",
+    "vi": "Động vật"
+  },
+  {
+    "lesson": "A2-8",
+    "lesson_title": "もう やけいを 見に 行きましたか。 (Đã đi ngắm cảnh đêm chưa?)",
+    "num": 7,
+    "jp": "やけい",
+    "vi": "Cảnh đêm"
+  },
+  {
+    "lesson": "A2-8",
+    "lesson_title": "もう やけいを 見に 行きましたか。 (Đã đi ngắm cảnh đêm chưa?)",
+    "num": 8,
+    "jp": "かんこう Tham quan",
+    "vi": ""
+  },
+  {
+    "lesson": "A2-8",
+    "lesson_title": "もう やけいを 見に 行きましたか。 (Đã đi ngắm cảnh đêm chưa?)",
+    "num": 9,
+    "jp": "かんこうち",
+    "vi": "Địa điểm tham quan"
+  },
+  {
+    "lesson": "A2-8",
+    "lesson_title": "もう やけいを 見に 行きましたか。 (Đã đi ngắm cảnh đêm chưa?)",
+    "num": 10,
+    "jp": "せかい",
+    "vi": "Thế giới"
+  },
+  {
+    "lesson": "A2-8",
+    "lesson_title": "もう やけいを 見に 行きましたか。 (Đã đi ngắm cảnh đêm chưa?)",
+    "num": 11,
+    "jp": "せかいいち",
+    "vi": "Số một thế giới"
+  },
+  {
+    "lesson": "A2-8",
+    "lesson_title": "もう やけいを 見に 行きましたか。 (Đã đi ngắm cảnh đêm chưa?)",
+    "num": 12,
+    "jp": "りょうがえ",
+    "vi": "Đổi ngoại tệ"
+  },
+  {
+    "lesson": "A2-8",
+    "lesson_title": "もう やけいを 見に 行きましたか。 (Đã đi ngắm cảnh đêm chưa?)",
+    "num": 13,
+    "jp": "おすすめ",
+    "vi": "Đề xuất, gợi ý"
+  },
+  {
+    "lesson": "A2-8",
+    "lesson_title": "もう やけいを 見に 行きましたか。 (Đã đi ngắm cảnh đêm chưa?)",
+    "num": 14,
+    "jp": "ライトアップ",
+    "vi": "Lên đèn, chiếu sáng, thắp sáng"
+  },
+  {
+    "lesson": "A2-8",
+    "lesson_title": "もう やけいを 見に 行きましたか。 (Đã đi ngắm cảnh đêm chưa?)",
+    "num": 15,
+    "jp": "めずらしい",
+    "vi": "Hiếm"
+  },
+  {
+    "lesson": "A2-8",
+    "lesson_title": "もう やけいを 見に 行きましたか。 (Đã đi ngắm cảnh đêm chưa?)",
+    "num": 16,
+    "jp": "ちず",
+    "vi": "Bản đồ"
+  },
+  {
+    "lesson": "A2-8",
+    "lesson_title": "もう やけいを 見に 行きましたか。 (Đã đi ngắm cảnh đêm chưa?)",
+    "num": 17,
+    "jp": "てんぷら",
+    "vi": "Món Tempura, đồ chiên"
+  },
+  {
+    "lesson": "A2-8",
+    "lesson_title": "もう やけいを 見に 行きましたか。 (Đã đi ngắm cảnh đêm chưa?)",
+    "num": 18,
+    "jp": "ふね",
+    "vi": "Thuyền, tàu"
+  },
+  {
+    "lesson": "A2-8",
+    "lesson_title": "もう やけいを 見に 行きましたか。 (Đã đi ngắm cảnh đêm chưa?)",
+    "num": 19,
+    "jp": "まだ",
+    "vi": "Vẫn chưa…"
+  },
+  {
+    "lesson": "A2-8",
+    "lesson_title": "もう やけいを 見に 行きましたか。 (Đã đi ngắm cảnh đêm chưa?)",
+    "num": 20,
+    "jp": "もう～V ました",
+    "vi": "Đã làm V"
+  },
+  {
+    "lesson": "A2-8",
+    "lesson_title": "もう やけいを 見に 行きましたか。 (Đã đi ngắm cảnh đêm chưa?)",
+    "num": 21,
+    "jp": "よてい",
+    "vi": "Dự định"
+  },
+  {
+    "lesson": "A2-8",
+    "lesson_title": "もう やけいを 見に 行きましたか。 (Đã đi ngắm cảnh đêm chưa?)",
+    "num": 22,
+    "jp": "イルカ",
+    "vi": "Cá heo"
+  },
+  {
+    "lesson": "A2-8",
+    "lesson_title": "もう やけいを 見に 行きましたか。 (Đã đi ngắm cảnh đêm chưa?)",
+    "num": 23,
+    "jp": "カラオケ Karaoke",
+    "vi": ""
+  },
+  {
+    "lesson": "A2-8",
+    "lesson_title": "もう やけいを 見に 行きましたか。 (Đã đi ngắm cảnh đêm chưa?)",
+    "num": 24,
+    "jp": "ショー",
+    "vi": "Show, buổi biểu diễn"
+  },
+  {
+    "lesson": "A2-8",
+    "lesson_title": "もう やけいを 見に 行きましたか。 (Đã đi ngắm cảnh đêm chưa?)",
+    "num": 25,
+    "jp": "スカイツリー",
+    "vi": "Tháp Skytree"
+  },
+  {
+    "lesson": "A2-8",
+    "lesson_title": "もう やけいを 見に 行きましたか。 (Đã đi ngắm cảnh đêm chưa?)",
+    "num": 26,
+    "jp": "こんばん",
+    "vi": "Tối nay"
+  },
+  {
+    "lesson": "A2-8",
+    "lesson_title": "もう やけいを 見に 行きましたか。 (Đã đi ngắm cảnh đêm chưa?)",
+    "num": 27,
+    "jp": "おみやげ",
+    "vi": "Quà lưu niệm"
+  },
+  {
+    "lesson": "A2-8",
+    "lesson_title": "もう やけいを 見に 行きましたか。 (Đã đi ngắm cảnh đêm chưa?)",
+    "num": 28,
+    "jp": "（しょくじの）まえ",
+    "vi": "Trước (bữa ăn)"
+  },
+  {
+    "lesson": "A2-8",
+    "lesson_title": "もう やけいを 見に 行きましたか。 (Đã đi ngắm cảnh đêm chưa?)",
+    "num": 29,
+    "jp": "（しょくじの）あと",
+    "vi": "Sau (bữa ăn)"
+  },
+  {
+    "lesson": "A2-8",
+    "lesson_title": "もう やけいを 見に 行きましたか。 (Đã đi ngắm cảnh đêm chưa?)",
+    "num": 30,
+    "jp": "あとで",
+    "vi": "Xíu nữa, chút nữa, sau đó..."
+  },
+  {
+    "lesson": "A2-9",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 1,
+    "jp": "しょうがっこう",
+    "vi": "Trường tiểu học"
+  },
+  {
+    "lesson": "A2-9",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 2,
+    "jp": "ちゅうがっこう",
+    "vi": "Trường cấp hai"
+  },
+  {
+    "lesson": "A2-9",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 3,
+    "jp": "こうこう",
+    "vi": "Trường cấp ba"
+  },
+  {
+    "lesson": "A2-9",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 4,
+    "jp": "だいがく",
+    "vi": "Đại học"
+  },
+  {
+    "lesson": "A2-9",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 5,
+    "jp": "だいがくいん",
+    "vi": "Cao học"
+  },
+  {
+    "lesson": "A2-9",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 6,
+    "jp": "じゅぎょう",
+    "vi": "Giờ học, tiết học"
+  },
+  {
+    "lesson": "A2-9",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 7,
+    "jp": "クラス",
+    "vi": "Lớp học"
+  },
+  {
+    "lesson": "A2-9",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 8,
+    "jp": "N を おしえます",
+    "vi": "Dạy, chỉ cho biết N"
+  },
+  {
+    "lesson": "A2-9",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 9,
+    "jp": "はなします",
+    "vi": "Nói chuyện, trò chuyện"
+  },
+  {
+    "lesson": "A2-9",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 10,
+    "jp": "かきます",
+    "vi": "Viết"
+  },
+  {
+    "lesson": "A2-9",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 11,
+    "jp": "ききます",
+    "vi": "Nghe, hỏi"
+  },
+  {
+    "lesson": "A2-9",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 12,
+    "jp": "よみます",
+    "vi": "Đọc"
+  },
+  {
+    "lesson": "A2-9",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 13,
+    "jp": "はつおん",
+    "vi": "Phát âm"
+  },
+  {
+    "lesson": "A2-9",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 14,
+    "jp": "もじ",
+    "vi": "Ký tự, chữ cái"
+  },
+  {
+    "lesson": "A2-9",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 15,
+    "jp": "ぶん",
+    "vi": "Câu văn"
+  },
+  {
+    "lesson": "A2-9",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 16,
+    "jp": "ぶんぽう",
+    "vi": "Ngữ pháp"
+  },
+  {
+    "lesson": "A2-9",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 17,
+    "jp": "たんご",
+    "vi": ""
+  },
+  {
+    "lesson": "A2-9",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 18,
+    "jp": "いみ",
+    "vi": ""
+  },
+  {
+    "lesson": "A2-9",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 19,
+    "jp": "がいこくご",
+    "vi": "Ngoại ngữ"
+  },
+  {
+    "lesson": "A2-9",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 20,
+    "jp": "いままでに",
+    "vi": "Cho đến bây giờ, từ trước đến nay"
+  },
+  {
+    "lesson": "A2-9",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 21,
+    "jp": "（はつおんを）れんしゅうします",
+    "vi": "Luyện tập (phát âm)"
+  },
+  {
+    "lesson": "A2-9",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 22,
+    "jp": "（たんごを）おぼえます",
+    "vi": "Ghi nhớ (từ vựng)"
+  },
+  {
+    "lesson": "A2-9",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 23,
+    "jp": "（たんごを）わすれます",
+    "vi": "Quên (từ vựng)"
+  },
+  {
+    "lesson": "A2-9",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 24,
+    "jp": "（じしょを）かします",
+    "vi": "Cho mượn, cho vay"
+  },
+  {
+    "lesson": "A2-9",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 25,
+    "jp": "（じしょを）かります",
+    "vi": "Mượn, vay"
+  },
+  {
+    "lesson": "A2-9",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 26,
+    "jp": "（じしょを）つかいます",
+    "vi": "Sử dụng"
+  },
+  {
+    "lesson": "A2-9",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 27,
+    "jp": "（ベトナム語と）にて います",
+    "vi": "Giống với (tiếng Việt)"
+  },
+  {
+    "lesson": "A2-9",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 28,
+    "jp": "（日本語と）ちがいます",
+    "vi": "Khác với (tiếng Nhật)"
+  },
+  {
+    "lesson": "A2-9",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 29,
+    "jp": "おなじ",
+    "vi": "Giống (hệt)"
+  },
+  {
+    "lesson": "A2-9",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 30,
+    "jp": "しつもん",
+    "vi": "Câu hỏi"
+  },
+  {
+    "lesson": "A2-9",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 31,
+    "jp": "こたえ",
+    "vi": "Câu trả lời"
+  },
+  {
+    "lesson": "A2-9",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 32,
+    "jp": "しゅくだい",
+    "vi": "Bài tập về nhà"
+  },
+  {
+    "lesson": "A2-9",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 33,
+    "jp": "じしょ",
+    "vi": "Từ điển"
+  },
+  {
+    "lesson": "A2-9",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 34,
+    "jp": "でんしじしょ",
+    "vi": "Kim từ điển"
+  },
+  {
+    "lesson": "A2-9",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 35,
+    "jp": "リスト",
+    "vi": "Danh sách, list"
+  },
+  {
+    "lesson": "A2-9",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 36,
+    "jp": "でんわばんごう",
+    "vi": "Số điện thoại"
+  },
+  {
+    "lesson": "A2-9",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 37,
+    "jp": "チェック（します）",
+    "vi": "Check, kiểm tra"
+  },
+  {
+    "lesson": "A2-9",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 38,
+    "jp": "かんたん（な）",
+    "vi": "Đơn giản"
+  },
+  {
+    "lesson": "A2-9",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 39,
+    "jp": "むずかしい",
+    "vi": "Khó"
+  },
+  {
+    "lesson": "A2-9",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 40,
+    "jp": "せつめいします",
+    "vi": "Giải thích"
+  },
+  {
+    "lesson": "A2-9",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 41,
+    "jp": "てつだいます",
+    "vi": "Giúp đỡ"
+  },
+  {
+    "lesson": "A2-9",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 42,
+    "jp": "みせます Cho xem",
+    "vi": ""
+  },
+  {
+    "lesson": "A2-9",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 43,
+    "jp": "スピーチ",
+    "vi": "Phát biểu"
+  },
+  {
+    "lesson": "A2-9",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 44,
+    "jp": "ちゃわん",
+    "vi": "Bát"
+  },
+  {
+    "lesson": "A2-10",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 1,
+    "jp": "（日本に）きょうみが あります",
+    "vi": "Có hứng thú (với Nhật Bản)"
+  },
+  {
+    "lesson": "A2-10",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 2,
+    "jp": "（しゅくだいを）てつだいます",
+    "vi": "Giúp đỡ (bài tập về nhà)"
+  },
+  {
+    "lesson": "A2-10",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 3,
+    "jp": "（日本に）りゅうがくします",
+    "vi": "Du học (ở Nhật Bản)"
+  },
+  {
+    "lesson": "A2-10",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 4,
+    "jp": "（日本に）しゅっちょうします",
+    "vi": "Công tác (ở Nhật Bản)"
+  },
+  {
+    "lesson": "A2-10",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 5,
+    "jp": "つうやくします",
+    "vi": "Phiên dịch, dịch nói"
+  },
+  {
+    "lesson": "A2-10",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 6,
+    "jp": "ほんやくします",
+    "vi": "Biên dịch, dịch viết"
+  },
+  {
+    "lesson": "A2-10",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 7,
+    "jp": "日本語を おしえます",
+    "vi": "Dạy tiếng Nhật"
+  },
+  {
+    "lesson": "A2-10",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 8,
+    "jp": "日本語を ならいます",
+    "vi": "Học (có người dạy, năng khiếu)"
+  },
+  {
+    "lesson": "A2-10",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 9,
+    "jp": "でんわします",
+    "vi": "Gọi điện thoại"
+  },
+  {
+    "lesson": "A2-10",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 10,
+    "jp": "ぶんか",
+    "vi": "Văn hóa"
+  },
+  {
+    "lesson": "A2-10",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 11,
+    "jp": "しょうらい",
+    "vi": "Tương lai"
+  },
+  {
+    "lesson": "A2-10",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 12,
+    "jp": "（ウェブ）サイト Website",
+    "vi": ""
+  },
+  {
+    "lesson": "A2-10",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 13,
+    "jp": "ことば",
+    "vi": "Ngôn từ, từ ngữ…"
+  },
+  {
+    "lesson": "A2-10",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 14,
+    "jp": "せいかつ",
+    "vi": "Cuộc sống, sinh hoạt"
+  },
+  {
+    "lesson": "A2-10",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 15,
+    "jp": "うた",
+    "vi": "Bài hát"
+  },
+  {
+    "lesson": "A2-10",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 16,
+    "jp": "おどり／ダンス",
+    "vi": "Nhảy múa"
+  },
+  {
+    "lesson": "A2-10",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 17,
+    "jp": "きっぷ",
+    "vi": "Vé"
+  },
+  {
+    "lesson": "A2-10",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 18,
+    "jp": "かんこうきゃく",
+    "vi": "Khách du lịch"
+  },
+  {
+    "lesson": "A2-10",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 19,
+    "jp": "どうしたんですか",
+    "vi": "Bạn làm sao vậy?"
+  },
+  {
+    "lesson": "A2-10",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 20,
+    "jp": "まいつき、まいげつ",
+    "vi": "Mỗi tháng"
+  },
+  {
+    "lesson": "A2-10",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 21,
+    "jp": "まいとし、まいねん",
+    "vi": "Mỗi năm"
+  },
+  {
+    "lesson": "A2-10",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 22,
+    "jp": "～かい",
+    "vi": "… lần"
+  },
+  {
+    "lesson": "A2-10",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 23,
+    "jp": "いちにち",
+    "vi": "Một ngày"
+  },
+  {
+    "lesson": "A2-10",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 24,
+    "jp": "いっしゅかん／しゅう",
+    "vi": "Một tuần"
+  },
+  {
+    "lesson": "A2-10",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 25,
+    "jp": "いっかげつ／つき",
+    "vi": "Một tháng"
+  },
+  {
+    "lesson": "A2-10",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 26,
+    "jp": "いちねん／ねん",
+    "vi": "Một năm"
+  },
+  {
+    "lesson": "A2-10",
+    "lesson_title": "日本語は はつおんが かんたんです。 (Tiếng Nhật phát âm dễ)",
+    "num": 27,
+    "jp": "ガイド",
+    "vi": "Hướng dẫn viên"
+  },
+  {
+    "lesson": "A2-11",
+    "lesson_title": "何を 持っていきますか。 (Mang theo cái gì?)",
+    "num": 1,
+    "jp": "くだもの",
+    "vi": "Hoa quả"
+  },
+  {
+    "lesson": "A2-11",
+    "lesson_title": "何を 持っていきますか。 (Mang theo cái gì?)",
+    "num": 2,
+    "jp": "おさけ",
+    "vi": "Đồ uống có cồn"
+  },
+  {
+    "lesson": "A2-11",
+    "lesson_title": "何を 持っていきますか。 (Mang theo cái gì?)",
+    "num": 3,
+    "jp": "おにぎり",
+    "vi": "Cơm nắm"
+  },
+  {
+    "lesson": "A2-11",
+    "lesson_title": "何を 持っていきますか。 (Mang theo cái gì?)",
+    "num": 4,
+    "jp": "サラダ Salad",
+    "vi": ""
+  },
+  {
+    "lesson": "A2-11",
+    "lesson_title": "何を 持っていきますか。 (Mang theo cái gì?)",
+    "num": 5,
+    "jp": "サンドイッチ",
+    "vi": "Bánh mì sandwich"
+  },
+  {
+    "lesson": "A2-11",
+    "lesson_title": "何を 持っていきますか。 (Mang theo cái gì?)",
+    "num": 6,
+    "jp": "たまごやき",
+    "vi": "Trứng rán kiểu nhật"
+  },
+  {
+    "lesson": "A2-11",
+    "lesson_title": "何を 持っていきますか。 (Mang theo cái gì?)",
+    "num": 7,
+    "jp": "からあげ",
+    "vi": "Gà rán"
+  },
+  {
+    "lesson": "A2-11",
+    "lesson_title": "何を 持っていきますか。 (Mang theo cái gì?)",
+    "num": 8,
+    "jp": "いちご",
+    "vi": "Quả dâu tây"
+  },
+  {
+    "lesson": "A2-11",
+    "lesson_title": "何を 持っていきますか。 (Mang theo cái gì?)",
+    "num": 9,
+    "jp": "ポテトチップス",
+    "vi": "Snack khoai tây"
+  },
+  {
+    "lesson": "A2-11",
+    "lesson_title": "何を 持っていきますか。 (Mang theo cái gì?)",
+    "num": 10,
+    "jp": "にほんしゅ",
+    "vi": "Rượu Nhật"
+  },
+  {
+    "lesson": "A2-11",
+    "lesson_title": "何を 持っていきますか。 (Mang theo cái gì?)",
+    "num": 11,
+    "jp": "シート",
+    "vi": "Tấm lót, tấm phủ"
+  },
+  {
+    "lesson": "A2-11",
+    "lesson_title": "何を 持っていきますか。 (Mang theo cái gì?)",
+    "num": 12,
+    "jp": "ごみぶくろ",
+    "vi": "Túi đựng rác"
+  },
+  {
+    "lesson": "A2-11",
+    "lesson_title": "何を 持っていきますか。 (Mang theo cái gì?)",
+    "num": 13,
+    "jp": "コップ",
+    "vi": "Cốc"
+  },
+  {
+    "lesson": "A2-11",
+    "lesson_title": "何を 持っていきますか。 (Mang theo cái gì?)",
+    "num": 14,
+    "jp": "さら",
+    "vi": "Đĩa"
+  },
+  {
+    "lesson": "A2-11",
+    "lesson_title": "何を 持っていきますか。 (Mang theo cái gì?)",
+    "num": 15,
+    "jp": "フォーク",
+    "vi": "Dĩa"
+  },
+  {
+    "lesson": "A2-11",
+    "lesson_title": "何を 持っていきますか。 (Mang theo cái gì?)",
+    "num": 16,
+    "jp": "スプーン",
+    "vi": "Thìa"
+  },
+  {
+    "lesson": "A2-11",
+    "lesson_title": "何を 持っていきますか。 (Mang theo cái gì?)",
+    "num": 17,
+    "jp": "ナイフ Dao",
+    "vi": ""
+  },
+  {
+    "lesson": "A2-11",
+    "lesson_title": "何を 持っていきますか。 (Mang theo cái gì?)",
+    "num": 18,
+    "jp": "れんらくします",
+    "vi": "Liên lạc"
+  },
+  {
+    "lesson": "A2-11",
+    "lesson_title": "何を 持っていきますか。 (Mang theo cái gì?)",
+    "num": 19,
+    "jp": "もっていきます",
+    "vi": "Mang đi"
+  },
+  {
+    "lesson": "A2-11",
+    "lesson_title": "何を 持っていきますか。 (Mang theo cái gì?)",
+    "num": 20,
+    "jp": "なんでも",
+    "vi": "Cái nào cũng"
+  },
+  {
+    "lesson": "A2-11",
+    "lesson_title": "何を 持っていきますか。 (Mang theo cái gì?)",
+    "num": 21,
+    "jp": "どっちでも",
+    "vi": "Cái nào cũng (cách dùng lịch sự)"
+  },
+  {
+    "lesson": "A2-11",
+    "lesson_title": "何を 持っていきますか。 (Mang theo cái gì?)",
+    "num": 22,
+    "jp": "自分で",
+    "vi": "Tự mình"
+  },
+  {
+    "lesson": "A2-11",
+    "lesson_title": "何を 持っていきますか。 (Mang theo cái gì?)",
+    "num": 23,
+    "jp": "へんじ",
+    "vi": "Trả lời, hồi âm"
+  },
+  {
+    "lesson": "A2-11",
+    "lesson_title": "何を 持っていきますか。 (Mang theo cái gì?)",
+    "num": 24,
+    "jp": "バーベキュー",
+    "vi": "Tiệc nướng BBQ"
+  },
+  {
+    "lesson": "A2-11",
+    "lesson_title": "何を 持っていきますか。 (Mang theo cái gì?)",
+    "num": 25,
+    "jp": "スープ",
+    "vi": "Súp"
+  },
+  {
+    "lesson": "A2-11",
+    "lesson_title": "何を 持っていきますか。 (Mang theo cái gì?)",
+    "num": 26,
+    "jp": "そうだん（します）",
+    "vi": "Thảo luận"
+  },
+  {
+    "lesson": "A2-11",
+    "lesson_title": "何を 持っていきますか。 (Mang theo cái gì?)",
+    "num": 27,
+    "jp": "N について",
+    "vi": "Về (chủ đề) N"
+  },
+  {
+    "lesson": "A2-12",
+    "lesson_title": "おいしそうですね。 (Trông ngon nhỉ)",
+    "num": 1,
+    "jp": "つけもの",
+    "vi": "Đồ muối chua"
+  },
+  {
+    "lesson": "A2-12",
+    "lesson_title": "おいしそうですね。 (Trông ngon nhỉ)",
+    "num": 2,
+    "jp": "ピクルス",
+    "vi": "Các loại dưa chua"
+  },
+  {
+    "lesson": "A2-12",
+    "lesson_title": "おいしそうですね。 (Trông ngon nhỉ)",
+    "num": 3,
+    "jp": "レタス",
+    "vi": "Xà lách"
+  },
+  {
+    "lesson": "A2-12",
+    "lesson_title": "おいしそうですね。 (Trông ngon nhỉ)",
+    "num": 4,
+    "jp": "レモン Chanh",
+    "vi": ""
+  },
+  {
+    "lesson": "A2-12",
+    "lesson_title": "おいしそうですね。 (Trông ngon nhỉ)",
+    "num": 5,
+    "jp": "きゅうり",
+    "vi": "Dưa chuột"
+  },
+  {
+    "lesson": "A2-12",
+    "lesson_title": "おいしそうですね。 (Trông ngon nhỉ)",
+    "num": 6,
+    "jp": "えび",
+    "vi": "Tôm"
+  },
+  {
+    "lesson": "A2-12",
+    "lesson_title": "おいしそうですね。 (Trông ngon nhỉ)",
+    "num": 7,
+    "jp": "ツナ",
+    "vi": "Cá ngừ"
+  },
+  {
+    "lesson": "A2-12",
+    "lesson_title": "おいしそうですね。 (Trông ngon nhỉ)",
+    "num": 8,
+    "jp": "しゃけ／さけ",
+    "vi": "Cá hồi"
+  },
+  {
+    "lesson": "A2-12",
+    "lesson_title": "おいしそうですね。 (Trông ngon nhỉ)",
+    "num": 9,
+    "jp": "こんぶ",
+    "vi": "Tảo bẹ"
+  },
+  {
+    "lesson": "A2-12",
+    "lesson_title": "おいしそうですね。 (Trông ngon nhỉ)",
+    "num": 10,
+    "jp": "うめぼし",
+    "vi": "Mơ muối"
+  },
+  {
+    "lesson": "A2-12",
+    "lesson_title": "おいしそうですね。 (Trông ngon nhỉ)",
+    "num": 11,
+    "jp": "チーズ",
+    "vi": "Phô mai"
+  },
+  {
+    "lesson": "A2-12",
+    "lesson_title": "おいしそうですね。 (Trông ngon nhỉ)",
+    "num": 12,
+    "jp": "ハム",
+    "vi": "Thịt heo xông khói"
+  },
+  {
+    "lesson": "A2-12",
+    "lesson_title": "おいしそうですね。 (Trông ngon nhỉ)",
+    "num": 13,
+    "jp": "マヨネーズ Mayone",
+    "vi": ""
+  },
+  {
+    "lesson": "A2-12",
+    "lesson_title": "おいしそうですね。 (Trông ngon nhỉ)",
+    "num": 14,
+    "jp": "チリ",
+    "vi": "Ớt"
+  },
+  {
+    "lesson": "A2-12",
+    "lesson_title": "おいしそうですね。 (Trông ngon nhỉ)",
+    "num": 15,
+    "jp": "センベイ",
+    "vi": "Bánh gạo"
+  },
+  {
+    "lesson": "A2-12",
+    "lesson_title": "おいしそうですね。 (Trông ngon nhỉ)",
+    "num": 16,
+    "jp": "あたたかい",
+    "vi": "Ấm áp"
+  },
+  {
+    "lesson": "A2-12",
+    "lesson_title": "おいしそうですね。 (Trông ngon nhỉ)",
+    "num": 17,
+    "jp": "つめたい",
+    "vi": "Lạnh, lạnh buốt"
+  },
+  {
+    "lesson": "A2-12",
+    "lesson_title": "おいしそうですね。 (Trông ngon nhỉ)",
+    "num": 18,
+    "jp": "おいしい Ngon",
+    "vi": ""
+  },
+  {
+    "lesson": "A2-12",
+    "lesson_title": "おいしそうですね。 (Trông ngon nhỉ)",
+    "num": 19,
+    "jp": "まずい",
+    "vi": "Dở, tệ, không ngon"
+  },
+  {
+    "lesson": "A2-12",
+    "lesson_title": "おいしそうですね。 (Trông ngon nhỉ)",
+    "num": 20,
+    "jp": "あまい",
+    "vi": "Ngọt"
+  },
+  {
+    "lesson": "A2-12",
+    "lesson_title": "おいしそうですね。 (Trông ngon nhỉ)",
+    "num": 21,
+    "jp": "からい Cay",
+    "vi": ""
+  },
+  {
+    "lesson": "A2-12",
+    "lesson_title": "おいしそうですね。 (Trông ngon nhỉ)",
+    "num": 22,
+    "jp": "すっぱい Chua",
+    "vi": ""
+  },
+  {
+    "lesson": "A2-12",
+    "lesson_title": "おいしそうですね。 (Trông ngon nhỉ)",
+    "num": 23,
+    "jp": "しょっぱい",
+    "vi": "Mặn"
+  },
+  {
+    "lesson": "A2-12",
+    "lesson_title": "おいしそうですね。 (Trông ngon nhỉ)",
+    "num": 24,
+    "jp": "にがい",
+    "vi": "Đắng"
+  },
+  {
+    "lesson": "A2-12",
+    "lesson_title": "おいしそうですね。 (Trông ngon nhỉ)",
+    "num": 25,
+    "jp": "きもちが いい",
+    "vi": "Thoải mái, dễ chịu"
+  },
+  {
+    "lesson": "A2-12",
+    "lesson_title": "おいしそうですね。 (Trông ngon nhỉ)",
+    "num": 26,
+    "jp": "しんせん（な）",
+    "vi": "Tươi, tươi mới"
+  },
+  {
+    "lesson": "A2-12",
+    "lesson_title": "おいしそうですね。 (Trông ngon nhỉ)",
+    "num": 27,
+    "jp": "にんきが あります",
+    "vi": "Được yêu thích, ưa chuộng"
+  },
+  {
+    "lesson": "A2-12",
+    "lesson_title": "おいしそうですね。 (Trông ngon nhỉ)",
+    "num": 28,
+    "jp": "ちがいます",
+    "vi": "Khác"
+  },
+  {
+    "lesson": "A2-12",
+    "lesson_title": "おいしそうですね。 (Trông ngon nhỉ)",
+    "num": 29,
+    "jp": "にています",
+    "vi": "Giống"
+  },
+  {
+    "lesson": "A2-12",
+    "lesson_title": "おいしそうですね。 (Trông ngon nhỉ)",
+    "num": 30,
+    "jp": "おなかが いっぱいです",
+    "vi": "No bụng"
+  },
+  {
+    "lesson": "A2-12",
+    "lesson_title": "おいしそうですね。 (Trông ngon nhỉ)",
+    "num": 31,
+    "jp": "おなかが すきました",
+    "vi": "Đói"
+  },
+  {
+    "lesson": "A2-13",
+    "lesson_title": "たなかさんに 会ったことが ありますか。 (Đã từng gặp anh Tanaka chưa?)",
+    "num": 1,
+    "jp": "～時の フライト",
+    "vi": "Chuyến bay lúc … giờ"
+  },
+  {
+    "lesson": "A2-13",
+    "lesson_title": "たなかさんに 会ったことが ありますか。 (Đã từng gặp anh Tanaka chưa?)",
+    "num": 2,
+    "jp": "～時の びん",
+    "vi": "Chuyến bay lúc … giờ"
+  },
+  {
+    "lesson": "A2-13",
+    "lesson_title": "たなかさんに 会ったことが ありますか。 (Đã từng gặp anh Tanaka chưa?)",
+    "num": 3,
+    "jp": "くうこう",
+    "vi": "Sân bay"
+  },
+  {
+    "lesson": "A2-13",
+    "lesson_title": "たなかさんに 会ったことが ありますか。 (Đã từng gặp anh Tanaka chưa?)",
+    "num": 4,
+    "jp": "しゅっぱつ（します）",
+    "vi": "Xuất phát"
+  },
+  {
+    "lesson": "A2-13",
+    "lesson_title": "たなかさんに 会ったことが ありますか。 (Đã từng gặp anh Tanaka chưa?)",
+    "num": 5,
+    "jp": "とうちゃく（します）",
+    "vi": "Hạ cánh, đến nơi"
+  },
+  {
+    "lesson": "A2-13",
+    "lesson_title": "たなかさんに 会ったことが ありますか。 (Đã từng gặp anh Tanaka chưa?)",
+    "num": 6,
+    "jp": "しゅっちょう（します）",
+    "vi": "Công tác"
+  },
+  {
+    "lesson": "A2-13",
+    "lesson_title": "たなかさんに 会ったことが ありますか。 (Đã từng gặp anh Tanaka chưa?)",
+    "num": 7,
+    "jp": "ししゃ",
+    "vi": "Chi nhánh"
+  },
+  {
+    "lesson": "A2-13",
+    "lesson_title": "たなかさんに 会ったことが ありますか。 (Đã từng gặp anh Tanaka chưa?)",
+    "num": 8,
+    "jp": "ほんしゃ",
+    "vi": "Trụ sở chính"
+  },
+  {
+    "lesson": "A2-13",
+    "lesson_title": "たなかさんに 会ったことが ありますか。 (Đã từng gặp anh Tanaka chưa?)",
+    "num": 9,
+    "jp": "おくります",
+    "vi": "Gửi"
+  },
+  {
+    "lesson": "A2-13",
+    "lesson_title": "たなかさんに 会ったことが ありますか。 (Đã từng gặp anh Tanaka chưa?)",
+    "num": 10,
+    "jp": "もらいます",
+    "vi": "Nhận"
+  },
+  {
+    "lesson": "A2-13",
+    "lesson_title": "たなかさんに 会ったことが ありますか。 (Đã từng gặp anh Tanaka chưa?)",
+    "num": 11,
+    "jp": "おくりに いきます",
+    "vi": "Đi tiễn"
+  },
+  {
+    "lesson": "A2-13",
+    "lesson_title": "たなかさんに 会ったことが ありますか。 (Đã từng gặp anh Tanaka chưa?)",
+    "num": 12,
+    "jp": "むかえに いきます",
+    "vi": "Đi đón"
+  },
+  {
+    "lesson": "A2-13",
+    "lesson_title": "たなかさんに 会ったことが ありますか。 (Đã từng gặp anh Tanaka chưa?)",
+    "num": 13,
+    "jp": "でむかえ",
+    "vi": "Đón"
+  },
+  {
+    "lesson": "A2-13",
+    "lesson_title": "たなかさんに 会ったことが ありますか。 (Đã từng gặp anh Tanaka chưa?)",
+    "num": 14,
+    "jp": "みおくり",
+    "vi": "Tiễn"
+  },
+  {
+    "lesson": "A2-13",
+    "lesson_title": "たなかさんに 会ったことが ありますか。 (Đã từng gặp anh Tanaka chưa?)",
+    "num": 15,
+    "jp": "すきます",
+    "vi": "Vắng vẻ"
+  },
+  {
+    "lesson": "A2-13",
+    "lesson_title": "たなかさんに 会ったことが ありますか。 (Đã từng gặp anh Tanaka chưa?)",
+    "num": 16,
+    "jp": "こみます",
+    "vi": "Đông đúc"
+  },
+  {
+    "lesson": "A2-13",
+    "lesson_title": "たなかさんに 会ったことが ありますか。 (Đã từng gặp anh Tanaka chưa?)",
+    "num": 17,
+    "jp": "かいてき（な）",
+    "vi": "Thoải mái, dễ chịu"
+  },
+  {
+    "lesson": "A2-13",
+    "lesson_title": "たなかさんに 会ったことが ありますか。 (Đã từng gặp anh Tanaka chưa?)",
+    "num": 18,
+    "jp": "じさ",
+    "vi": "Chênh lệch múi giờ"
+  },
+  {
+    "lesson": "A2-13",
+    "lesson_title": "たなかさんに 会ったことが ありますか。 (Đã từng gặp anh Tanaka chưa?)",
+    "num": 19,
+    "jp": "おゆが でます",
+    "vi": "Có nước ấm"
+  },
+  {
+    "lesson": "A2-13",
+    "lesson_title": "たなかさんに 会ったことが ありますか。 (Đã từng gặp anh Tanaka chưa?)",
+    "num": 20,
+    "jp": "ぬるい",
+    "vi": "Ấm ấm (nước sôi...), nguội..."
+  },
+  {
+    "lesson": "A2-13",
+    "lesson_title": "たなかさんに 会ったことが ありますか。 (Đã từng gặp anh Tanaka chưa?)",
+    "num": 21,
+    "jp": "スケジュール",
+    "vi": "Lịch trình"
+  },
+  {
+    "lesson": "A2-13",
+    "lesson_title": "たなかさんに 会ったことが ありますか。 (Đã từng gặp anh Tanaka chưa?)",
+    "num": 22,
+    "jp": "ばんごう",
+    "vi": "Số"
+  },
+  {
+    "lesson": "A2-13",
+    "lesson_title": "たなかさんに 会ったことが ありますか。 (Đã từng gặp anh Tanaka chưa?)",
+    "num": 23,
+    "jp": "ずっと",
+    "vi": "Suốt, mãi / Hơn hẳn"
+  },
+  {
+    "lesson": "A2-13",
+    "lesson_title": "たなかさんに 会ったことが ありますか。 (Đã từng gặp anh Tanaka chưa?)",
+    "num": 24,
+    "jp": "チェック（します）",
+    "vi": "Kiểm tra, check"
+  },
+  {
+    "lesson": "A2-13",
+    "lesson_title": "たなかさんに 会ったことが ありますか。 (Đã từng gặp anh Tanaka chưa?)",
+    "num": 25,
+    "jp": "たんとう（します）",
+    "vi": "Phụ trách"
+  },
+  {
+    "lesson": "A2-13",
+    "lesson_title": "たなかさんに 会ったことが ありますか。 (Đã từng gặp anh Tanaka chưa?)",
+    "num": 26,
+    "jp": "～へ ようこそ。",
+    "vi": "Chào mừng đến với…"
+  },
+  {
+    "lesson": "A2-13",
+    "lesson_title": "たなかさんに 会ったことが ありますか。 (Đã từng gặp anh Tanaka chưa?)",
+    "num": 27,
+    "jp": "おつかれさまです。",
+    "vi": "Bạn đã vất vả rồi"
+  },
+  {
+    "lesson": "A2-13",
+    "lesson_title": "たなかさんに 会ったことが ありますか。 (Đã từng gặp anh Tanaka chưa?)",
+    "num": 28,
+    "jp": "おまたせしました。",
+    "vi": "Xin lỗi đã để bạn phải đợi"
+  },
+  {
+    "lesson": "A2-13",
+    "lesson_title": "たなかさんに 会ったことが ありますか。 (Đã từng gặp anh Tanaka chưa?)",
+    "num": 29,
+    "jp": "～は いががですか。",
+    "vi": "＝～は どうですか。 Như thế nào (lịch sự)"
+  },
+  {
+    "lesson": "A2-13",
+    "lesson_title": "たなかさんに 会ったことが ありますか。 (Đã từng gặp anh Tanaka chưa?)",
+    "num": 30,
+    "jp": "じょうだん",
+    "vi": "Nói đùa"
+  },
+  {
+    "lesson": "A2-13",
+    "lesson_title": "たなかさんに 会ったことが ありますか。 (Đã từng gặp anh Tanaka chưa?)",
+    "num": 31,
+    "jp": "あいさつ",
+    "vi": "Chào hỏi"
+  },
+  {
+    "lesson": "A2-13",
+    "lesson_title": "たなかさんに 会ったことが ありますか。 (Đã từng gặp anh Tanaka chưa?)",
+    "num": 32,
+    "jp": "ねだん",
+    "vi": "Giá cả"
+  },
+  {
+    "lesson": "A2-13",
+    "lesson_title": "たなかさんに 会ったことが ありますか。 (Đã từng gặp anh Tanaka chưa?)",
+    "num": 33,
+    "jp": "かぎ",
+    "vi": "Chìa khóa"
+  },
+  {
+    "lesson": "A2-13",
+    "lesson_title": "たなかさんに 会ったことが ありますか。 (Đã từng gặp anh Tanaka chưa?)",
+    "num": 34,
+    "jp": "かいぎ",
+    "vi": "Cuộc họp"
+  },
+  {
+    "lesson": "A2-13",
+    "lesson_title": "たなかさんに 会ったことが ありますか。 (Đã từng gặp anh Tanaka chưa?)",
+    "num": 35,
+    "jp": "しりょう",
+    "vi": "Tài liệu"
+  },
+  {
+    "lesson": "A2-14",
+    "lesson_title": "これ、つかっても いいですか。 (Dùng cái này có được không?)",
+    "num": 1,
+    "jp": "オフィス",
+    "vi": "Văn phòng"
+  },
+  {
+    "lesson": "A2-14",
+    "lesson_title": "これ、つかっても いいですか。 (Dùng cái này có được không?)",
+    "num": 2,
+    "jp": "キャビネット",
+    "vi": "Tủ đựng (tài liệu, ...)"
+  },
+  {
+    "lesson": "A2-14",
+    "lesson_title": "これ、つかっても いいですか。 (Dùng cái này có được không?)",
+    "num": 3,
+    "jp": "コピーき",
+    "vi": "Máy photo"
+  },
+  {
+    "lesson": "A2-14",
+    "lesson_title": "これ、つかっても いいですか。 (Dùng cái này có được không?)",
+    "num": 4,
+    "jp": "ファックス",
+    "vi": "Máy fax"
+  },
+  {
+    "lesson": "A2-14",
+    "lesson_title": "これ、つかっても いいですか。 (Dùng cái này có được không?)",
+    "num": 5,
+    "jp": "こくさいでんわ",
+    "vi": "Điện thoại quốc tế"
+  },
+  {
+    "lesson": "A2-14",
+    "lesson_title": "これ、つかっても いいですか。 (Dùng cái này có được không?)",
+    "num": 6,
+    "jp": "しゃちょう",
+    "vi": "Giám đốc"
+  },
+  {
+    "lesson": "A2-14",
+    "lesson_title": "これ、つかっても いいですか。 (Dùng cái này có được không?)",
+    "num": 7,
+    "jp": "ひしょ",
+    "vi": "Thư ký"
+  },
+  {
+    "lesson": "A2-14",
+    "lesson_title": "これ、つかっても いいですか。 (Dùng cái này có được không?)",
+    "num": 8,
+    "jp": "うけつけ",
+    "vi": "Lễ tân"
+  },
+  {
+    "lesson": "A2-14",
+    "lesson_title": "これ、つかっても いいですか。 (Dùng cái này có được không?)",
+    "num": 9,
+    "jp": "じむスタッフ",
+    "vi": "Nhân viên văn phòng"
+  },
+  {
+    "lesson": "A2-14",
+    "lesson_title": "これ、つかっても いいですか。 (Dùng cái này có được không?)",
+    "num": 10,
+    "jp": "ドライバー",
+    "vi": "Lái xe"
+  },
+  {
+    "lesson": "A2-14",
+    "lesson_title": "これ、つかっても いいですか。 (Dùng cái này có được không?)",
+    "num": 11,
+    "jp": "ドア",
+    "vi": "Cửa ra vào"
+  },
+  {
+    "lesson": "A2-14",
+    "lesson_title": "これ、つかっても いいですか。 (Dùng cái này có được không?)",
+    "num": 12,
+    "jp": "まど",
+    "vi": "Cửa sổ"
+  },
+  {
+    "lesson": "A2-14",
+    "lesson_title": "これ、つかっても いいですか。 (Dùng cái này có được không?)",
+    "num": 13,
+    "jp": "（ドアを）あけます",
+    "vi": "Mở (cửa)"
+  },
+  {
+    "lesson": "A2-14",
+    "lesson_title": "これ、つかっても いいですか。 (Dùng cái này có được không?)",
+    "num": 14,
+    "jp": "（ドアを）しめます",
+    "vi": "Đóng (cửa)"
+  },
+  {
+    "lesson": "A2-14",
+    "lesson_title": "これ、つかっても いいですか。 (Dùng cái này có được không?)",
+    "num": 15,
+    "jp": "（でんきを）つけます",
+    "vi": "Bật (đèn)"
+  },
+  {
+    "lesson": "A2-14",
+    "lesson_title": "これ、つかっても いいですか。 (Dùng cái này có được không?)",
+    "num": 16,
+    "jp": "（でんきを）けします",
+    "vi": "Tắt (đèn)"
+  },
+  {
+    "lesson": "A2-14",
+    "lesson_title": "これ、つかっても いいですか。 (Dùng cái này có được không?)",
+    "num": 17,
+    "jp": "（パソコンが）こわれます",
+    "vi": "(Máy tính) Hỏng"
+  },
+  {
+    "lesson": "A2-14",
+    "lesson_title": "これ、つかっても いいですか。 (Dùng cái này có được không?)",
+    "num": 18,
+    "jp": "べんきょうちゅう",
+    "vi": "Đang học"
+  },
+  {
+    "lesson": "A2-14",
+    "lesson_title": "これ、つかっても いいですか。 (Dùng cái này có được không?)",
+    "num": 19,
+    "jp": "ぺらぺら",
+    "vi": "Lưu loát (nói, ...)"
+  },
+  {
+    "lesson": "A2-14",
+    "lesson_title": "これ、つかっても いいですか。 (Dùng cái này có được không?)",
+    "num": 20,
+    "jp": "はじめます",
+    "vi": "Bắt đầu"
+  },
+  {
+    "lesson": "A2-14",
+    "lesson_title": "これ、つかっても いいですか。 (Dùng cái này có được không?)",
+    "num": 21,
+    "jp": "ファイル File",
+    "vi": ""
+  },
+  {
+    "lesson": "A2-14",
+    "lesson_title": "これ、つかっても いいですか。 (Dùng cái này có được không?)",
+    "num": 22,
+    "jp": "メモ",
+    "vi": "Ghi chú"
+  },
+  {
+    "lesson": "A2-14",
+    "lesson_title": "これ、つかっても いいですか。 (Dùng cái này có được không?)",
+    "num": 23,
+    "jp": "オフィス／じむしょ",
+    "vi": "Văn phòng"
+  },
+  {
+    "lesson": "A2-14",
+    "lesson_title": "これ、つかっても いいですか。 (Dùng cái này có được không?)",
+    "num": 24,
+    "jp": "プリントアウト In",
+    "vi": ""
+  },
+  {
+    "lesson": "A2-14",
+    "lesson_title": "これ、つかっても いいですか。 (Dùng cái này có được không?)",
+    "num": 25,
+    "jp": "しょうかいします",
+    "vi": "Giới thiệu"
+  },
+  {
+    "lesson": "A2-15",
+    "lesson_title": "たいそうすると いいですよ。 (Tập thể dục thì tốt đấy)",
+    "num": 1,
+    "jp": "あたま",
+    "vi": "Đầu"
+  },
+  {
+    "lesson": "A2-15",
+    "lesson_title": "たいそうすると いいですよ。 (Tập thể dục thì tốt đấy)",
+    "num": 2,
+    "jp": "かお",
+    "vi": "Khuôn mặt"
+  },
+  {
+    "lesson": "A2-15",
+    "lesson_title": "たいそうすると いいですよ。 (Tập thể dục thì tốt đấy)",
+    "num": 3,
+    "jp": "め",
+    "vi": "Mắt"
+  },
+  {
+    "lesson": "A2-15",
+    "lesson_title": "たいそうすると いいですよ。 (Tập thể dục thì tốt đấy)",
+    "num": 4,
+    "jp": "はな",
+    "vi": "Mũi"
+  },
+  {
+    "lesson": "A2-15",
+    "lesson_title": "たいそうすると いいですよ。 (Tập thể dục thì tốt đấy)",
+    "num": 5,
+    "jp": "くち",
+    "vi": "Miệng"
+  },
+  {
+    "lesson": "A2-15",
+    "lesson_title": "たいそうすると いいですよ。 (Tập thể dục thì tốt đấy)",
+    "num": 6,
+    "jp": "は",
+    "vi": "Răng"
+  },
+  {
+    "lesson": "A2-15",
+    "lesson_title": "たいそうすると いいですよ。 (Tập thể dục thì tốt đấy)",
+    "num": 7,
+    "jp": "みみ",
+    "vi": "Tai"
+  },
+  {
+    "lesson": "A2-15",
+    "lesson_title": "たいそうすると いいですよ。 (Tập thể dục thì tốt đấy)",
+    "num": 8,
+    "jp": "かみ",
+    "vi": "Tóc"
+  },
+  {
+    "lesson": "A2-15",
+    "lesson_title": "たいそうすると いいですよ。 (Tập thể dục thì tốt đấy)",
+    "num": 9,
+    "jp": "からだ",
+    "vi": "Cơ thể"
+  },
+  {
+    "lesson": "A2-15",
+    "lesson_title": "たいそうすると いいですよ。 (Tập thể dục thì tốt đấy)",
+    "num": 10,
+    "jp": "くび",
+    "vi": "Cổ"
+  },
+  {
+    "lesson": "A2-15",
+    "lesson_title": "たいそうすると いいですよ。 (Tập thể dục thì tốt đấy)",
+    "num": 11,
+    "jp": "かた",
+    "vi": "Vai"
+  },
+  {
+    "lesson": "A2-15",
+    "lesson_title": "たいそうすると いいですよ。 (Tập thể dục thì tốt đấy)",
+    "num": 12,
+    "jp": "むね",
+    "vi": "Ngực"
+  },
+  {
+    "lesson": "A2-15",
+    "lesson_title": "たいそうすると いいですよ。 (Tập thể dục thì tốt đấy)",
+    "num": 13,
+    "jp": "おなか",
+    "vi": "Bụng"
+  },
+  {
+    "lesson": "A2-15",
+    "lesson_title": "たいそうすると いいですよ。 (Tập thể dục thì tốt đấy)",
+    "num": 14,
+    "jp": "せなか",
+    "vi": "Lưng"
+  },
+  {
+    "lesson": "A2-15",
+    "lesson_title": "たいそうすると いいですよ。 (Tập thể dục thì tốt đấy)",
+    "num": 15,
+    "jp": "こし",
+    "vi": "Eo, lưng dưới"
+  },
+  {
+    "lesson": "A2-15",
+    "lesson_title": "たいそうすると いいですよ。 (Tập thể dục thì tốt đấy)",
+    "num": 16,
+    "jp": "て",
+    "vi": "Bàn tay"
+  },
+  {
+    "lesson": "A2-15",
+    "lesson_title": "たいそうすると いいですよ。 (Tập thể dục thì tốt đấy)",
+    "num": 17,
+    "jp": "うで",
+    "vi": "Cánh tay"
+  },
+  {
+    "lesson": "A2-15",
+    "lesson_title": "たいそうすると いいですよ。 (Tập thể dục thì tốt đấy)",
+    "num": 18,
+    "jp": "ゆび",
+    "vi": "Ngón..."
+  },
+  {
+    "lesson": "A2-15",
+    "lesson_title": "たいそうすると いいですよ。 (Tập thể dục thì tốt đấy)",
+    "num": 19,
+    "jp": "あし",
+    "vi": "Chân"
+  },
+  {
+    "lesson": "A2-15",
+    "lesson_title": "たいそうすると いいですよ。 (Tập thể dục thì tốt đấy)",
+    "num": 20,
+    "jp": "ちょうし",
+    "vi": "Tình trạng"
+  },
+  {
+    "lesson": "A2-15",
+    "lesson_title": "たいそうすると いいですよ。 (Tập thể dục thì tốt đấy)",
+    "num": 21,
+    "jp": "たいちょう",
+    "vi": "Tình trạng cơ thể"
+  },
+  {
+    "lesson": "A2-15",
+    "lesson_title": "たいそうすると いいですよ。 (Tập thể dục thì tốt đấy)",
+    "num": 22,
+    "jp": "～が いたい",
+    "vi": "～đau"
+  },
+  {
+    "lesson": "A2-15",
+    "lesson_title": "たいそうすると いいですよ。 (Tập thể dục thì tốt đấy)",
+    "num": 23,
+    "jp": "きもちが いい",
+    "vi": "Tâm trạng tốt"
+  },
+  {
+    "lesson": "A2-15",
+    "lesson_title": "たいそうすると いいですよ。 (Tập thể dục thì tốt đấy)",
+    "num": 24,
+    "jp": "たいちょうが いい",
+    "vi": "Tình trạng sức khỏe tốt"
+  },
+  {
+    "lesson": "A2-15",
+    "lesson_title": "たいそうすると いいですよ。 (Tập thể dục thì tốt đấy)",
+    "num": 25,
+    "jp": "たいちょうが わるい",
+    "vi": "Tình trạng sức khỏe xấu"
+  },
+  {
+    "lesson": "A2-15",
+    "lesson_title": "たいそうすると いいですよ。 (Tập thể dục thì tốt đấy)",
+    "num": 26,
+    "jp": "ねられません",
+    "vi": "Không ngủ được"
+  },
+  {
+    "lesson": "A2-15",
+    "lesson_title": "たいそうすると いいですよ。 (Tập thể dục thì tốt đấy)",
+    "num": 27,
+    "jp": "つかれます",
+    "vi": "Mệt mỏi"
+  },
+  {
+    "lesson": "A2-15",
+    "lesson_title": "たいそうすると いいですよ。 (Tập thể dục thì tốt đấy)",
+    "num": 28,
+    "jp": "うでを あげます",
+    "vi": "Nâng cánh tay"
+  },
+  {
+    "lesson": "A2-15",
+    "lesson_title": "たいそうすると いいですよ。 (Tập thể dục thì tốt đấy)",
+    "num": 29,
+    "jp": "かたを まわします",
+    "vi": "Xoay vai"
+  },
+  {
+    "lesson": "A2-15",
+    "lesson_title": "たいそうすると いいですよ。 (Tập thể dục thì tốt đấy)",
+    "num": 30,
+    "jp": "くびを まげます",
+    "vi": "Bẻ cổ"
+  },
+  {
+    "lesson": "A2-15",
+    "lesson_title": "たいそうすると いいですよ。 (Tập thể dục thì tốt đấy)",
+    "num": 31,
+    "jp": "いきを すいます",
+    "vi": "Hít vào"
+  },
+  {
+    "lesson": "A2-15",
+    "lesson_title": "たいそうすると いいですよ。 (Tập thể dục thì tốt đấy)",
+    "num": 32,
+    "jp": "いきを はきます",
+    "vi": "Thở ra"
+  },
+  {
+    "lesson": "A2-15",
+    "lesson_title": "たいそうすると いいですよ。 (Tập thể dục thì tốt đấy)",
+    "num": 33,
+    "jp": "しんこきゅう",
+    "vi": "Hít thở sâu"
+  },
+  {
+    "lesson": "A2-15",
+    "lesson_title": "たいそうすると いいですよ。 (Tập thể dục thì tốt đấy)",
+    "num": 34,
+    "jp": "けんこう",
+    "vi": "Sức khỏe"
+  },
+  {
+    "lesson": "A2-15",
+    "lesson_title": "たいそうすると いいですよ。 (Tập thể dục thì tốt đấy)",
+    "num": 35,
+    "jp": "たいそう",
+    "vi": "Tập thể dục"
+  },
+  {
+    "lesson": "A2-15",
+    "lesson_title": "たいそうすると いいですよ。 (Tập thể dục thì tốt đấy)",
+    "num": 36,
+    "jp": "アドバイス",
+    "vi": "Lời khuyên"
+  },
+  {
+    "lesson": "A2-15",
+    "lesson_title": "たいそうすると いいですよ。 (Tập thể dục thì tốt đấy)",
+    "num": 37,
+    "jp": "ストレス",
+    "vi": "Stress, căng thẳng"
+  },
+  {
+    "lesson": "A2-15",
+    "lesson_title": "たいそうすると いいですよ。 (Tập thể dục thì tốt đấy)",
+    "num": 38,
+    "jp": "さいきん",
+    "vi": "Gần đây"
+  },
+  {
+    "lesson": "A2-15",
+    "lesson_title": "たいそうすると いいですよ。 (Tập thể dục thì tốt đấy)",
+    "num": 39,
+    "jp": "きゅうに",
+    "vi": "Đột ngột"
+  },
+  {
+    "lesson": "A2-15",
+    "lesson_title": "たいそうすると いいですよ。 (Tập thể dục thì tốt đấy)",
+    "num": 40,
+    "jp": "こうやって",
+    "vi": "Làm như thế này"
+  },
+  {
+    "lesson": "A2-15",
+    "lesson_title": "たいそうすると いいですよ。 (Tập thể dục thì tốt đấy)",
+    "num": 41,
+    "jp": "まず",
+    "vi": "Đầu tiên"
+  },
+  {
+    "lesson": "A2-15",
+    "lesson_title": "たいそうすると いいですよ。 (Tập thể dục thì tốt đấy)",
+    "num": 42,
+    "jp": "つぎ（に）",
+    "vi": "Tiếp theo"
+  },
+  {
+    "lesson": "A2-15",
+    "lesson_title": "たいそうすると いいですよ。 (Tập thể dục thì tốt đấy)",
+    "num": 43,
+    "jp": "さいご（に）",
+    "vi": "Cuối cùng"
+  },
+  {
+    "lesson": "A2-15",
+    "lesson_title": "たいそうすると いいですよ。 (Tập thể dục thì tốt đấy)",
+    "num": 44,
+    "jp": "けんこうだいいち",
+    "vi": "Sức khỏe là số 1"
+  },
+  {
+    "lesson": "A2-15",
+    "lesson_title": "たいそうすると いいですよ。 (Tập thể dục thì tốt đấy)",
+    "num": 45,
+    "jp": "Nを おします",
+    "vi": "Bấm N"
+  },
+  {
+    "lesson": "A2-15",
+    "lesson_title": "たいそうすると いいですよ。 (Tập thể dục thì tốt đấy)",
+    "num": 46,
+    "jp": "ツボ",
+    "vi": "Huyệt"
+  },
+  {
+    "lesson": "A2-15",
+    "lesson_title": "たいそうすると いいですよ。 (Tập thể dục thì tốt đấy)",
+    "num": 47,
+    "jp": "マッサージ",
+    "vi": "Mát xa"
+  },
+  {
+    "lesson": "A2-15",
+    "lesson_title": "たいそうすると いいですよ。 (Tập thể dục thì tốt đấy)",
+    "num": 48,
+    "jp": "リラックス",
+    "vi": "Thư giãn (Relax)"
+  },
+  {
+    "lesson": "A2-15",
+    "lesson_title": "たいそうすると いいですよ。 (Tập thể dục thì tốt đấy)",
+    "num": 49,
+    "jp": "エレベーター",
+    "vi": "Cầu thang máy"
+  },
+  {
+    "lesson": "A2-15",
+    "lesson_title": "たいそうすると いいですよ。 (Tập thể dục thì tốt đấy)",
+    "num": 50,
+    "jp": "ブルーベリー",
+    "vi": "Quả việt quất"
+  },
+  {
+    "lesson": "A2-15",
+    "lesson_title": "たいそうすると いいですよ。 (Tập thể dục thì tốt đấy)",
+    "num": 51,
+    "jp": "ねむい",
+    "vi": "Buồn ngủ"
+  },
+  {
+    "lesson": "A2-15",
+    "lesson_title": "たいそうすると いいですよ。 (Tập thể dục thì tốt đấy)",
+    "num": 52,
+    "jp": "ねつが あります",
+    "vi": "Sốt"
+  },
+  {
+    "lesson": "A2-15",
+    "lesson_title": "たいそうすると いいですよ。 (Tập thể dục thì tốt đấy)",
+    "num": 53,
+    "jp": "かぜ（を ひきます）",
+    "vi": "Bị cảm"
+  },
+  {
+    "lesson": "A2-15",
+    "lesson_title": "たいそうすると いいですよ。 (Tập thể dục thì tốt đấy)",
+    "num": 54,
+    "jp": "むりを します",
+    "vi": "Làm quá sức"
+  },
+  {
+    "lesson": "A2-15",
+    "lesson_title": "たいそうすると いいですよ。 (Tập thể dục thì tốt đấy)",
+    "num": 55,
+    "jp": "どうしたんですか。",
+    "vi": "Bạn bị sao vậy? (hỏi thăm)"
+  },
+  {
+    "lesson": "A2-15",
+    "lesson_title": "たいそうすると いいですよ。 (Tập thể dục thì tốt đấy)",
+    "num": 56,
+    "jp": "くすり",
+    "vi": "Thuốc"
+  },
+  {
+    "lesson": "A2-15",
+    "lesson_title": "たいそうすると いいですよ。 (Tập thể dục thì tốt đấy)",
+    "num": 57,
+    "jp": "できるだけ",
+    "vi": "Càng... càng tốt, trong phạm vi có thể"
+  },
+  {
+    "lesson": "A2-16",
+    "lesson_title": "はしったり およいだり しています。 (Nào là chạy, nào là bơi...)",
+    "num": 1,
+    "jp": "ジョギング（を）します",
+    "vi": "Chạy bộ"
+  },
+  {
+    "lesson": "A2-16",
+    "lesson_title": "はしったり およいだり しています。 (Nào là chạy, nào là bơi...)",
+    "num": 2,
+    "jp": "はしります",
+    "vi": "Chạy"
+  },
+  {
+    "lesson": "A2-16",
+    "lesson_title": "はしったり およいだり しています。 (Nào là chạy, nào là bơi...)",
+    "num": 3,
+    "jp": "ウォーキング（を）します",
+    "vi": "Đi bộ"
+  },
+  {
+    "lesson": "A2-16",
+    "lesson_title": "はしったり およいだり しています。 (Nào là chạy, nào là bơi...)",
+    "num": 4,
+    "jp": "あるきます",
+    "vi": "Đi bộ"
+  },
+  {
+    "lesson": "A2-16",
+    "lesson_title": "はしったり およいだり しています。 (Nào là chạy, nào là bơi...)",
+    "num": 5,
+    "jp": "キロメートル Kilomet (km)",
+    "vi": ""
+  },
+  {
+    "lesson": "A2-16",
+    "lesson_title": "はしったり およいだり しています。 (Nào là chạy, nào là bơi...)",
+    "num": 6,
+    "jp": "キログラム Kilogram (kg)",
+    "vi": ""
+  },
+  {
+    "lesson": "A2-16",
+    "lesson_title": "はしったり およいだり しています。 (Nào là chạy, nào là bơi...)",
+    "num": 7,
+    "jp": "およぎます",
+    "vi": "Bơi"
+  },
+  {
+    "lesson": "A2-16",
+    "lesson_title": "はしったり およいだり しています。 (Nào là chạy, nào là bơi...)",
+    "num": 8,
+    "jp": "すいえい（を）します",
+    "vi": "Bơi lội"
+  },
+  {
+    "lesson": "A2-16",
+    "lesson_title": "はしったり およいだり しています。 (Nào là chạy, nào là bơi...)",
+    "num": 9,
+    "jp": "プール",
+    "vi": "Bể bơi"
+  },
+  {
+    "lesson": "A2-16",
+    "lesson_title": "はしったり およいだり しています。 (Nào là chạy, nào là bơi...)",
+    "num": 10,
+    "jp": "たいそう（を）します",
+    "vi": "Tập thể dục"
+  },
+  {
+    "lesson": "A2-16",
+    "lesson_title": "はしったり およいだり しています。 (Nào là chạy, nào là bơi...)",
+    "num": 11,
+    "jp": "エアロビクス（を）します",
+    "vi": "Tập aerobic"
+  },
+  {
+    "lesson": "A2-16",
+    "lesson_title": "はしったり およいだり しています。 (Nào là chạy, nào là bơi...)",
+    "num": 12,
+    "jp": "トレーニング（を）します",
+    "vi": "Tập gym, tập luyện thể hình"
+  },
+  {
+    "lesson": "A2-16",
+    "lesson_title": "はしったり およいだり しています。 (Nào là chạy, nào là bơi...)",
+    "num": 13,
+    "jp": "ジム",
+    "vi": "Phòng gym"
+  },
+  {
+    "lesson": "A2-16",
+    "lesson_title": "はしったり およいだり しています。 (Nào là chạy, nào là bơi...)",
+    "num": 14,
+    "jp": "ヨガ（を）します",
+    "vi": "Tập yoga"
+  },
+  {
+    "lesson": "A2-16",
+    "lesson_title": "はしったり およいだり しています。 (Nào là chạy, nào là bơi...)",
+    "num": 15,
+    "jp": "たばこを すいます",
+    "vi": "Hút thuốc lá"
+  },
+  {
+    "lesson": "A2-16",
+    "lesson_title": "はしったり およいだり しています。 (Nào là chạy, nào là bơi...)",
+    "num": 16,
+    "jp": "けんこう",
+    "vi": "Sức khỏe"
+  },
+  {
+    "lesson": "A2-16",
+    "lesson_title": "はしったり およいだり しています。 (Nào là chạy, nào là bơi...)",
+    "num": 17,
+    "jp": "けんこうに いい",
+    "vi": "Tốt cho sức khỏe"
+  },
+  {
+    "lesson": "A2-16",
+    "lesson_title": "はしったり およいだり しています。 (Nào là chạy, nào là bơi...)",
+    "num": 18,
+    "jp": "からだに いい",
+    "vi": "Tốt cho cơ thể"
+  },
+  {
+    "lesson": "A2-16",
+    "lesson_title": "はしったり およいだり しています。 (Nào là chạy, nào là bơi...)",
+    "num": 19,
+    "jp": "けんこうに わるい",
+    "vi": "Có hại cho sức khỏe"
+  },
+  {
+    "lesson": "A2-16",
+    "lesson_title": "はしったり およいだり しています。 (Nào là chạy, nào là bơi...)",
+    "num": 20,
+    "jp": "からだに わるい",
+    "vi": "Có hại cho cơ thể"
+  },
+  {
+    "lesson": "A2-16",
+    "lesson_title": "はしったり およいだり しています。 (Nào là chạy, nào là bơi...)",
+    "num": 21,
+    "jp": "けんこうの ために",
+    "vi": "Vì sức khỏe"
+  },
+  {
+    "lesson": "A2-16",
+    "lesson_title": "はしったり およいだり しています。 (Nào là chạy, nào là bơi...)",
+    "num": 22,
+    "jp": "リラックス（を）します",
+    "vi": "Thư giãn"
+  },
+  {
+    "lesson": "A2-16",
+    "lesson_title": "はしったり およいだり しています。 (Nào là chạy, nào là bơi...)",
+    "num": 23,
+    "jp": "アンケート",
+    "vi": "Bản khảo sát"
+  },
+  {
+    "lesson": "A2-16",
+    "lesson_title": "はしったり およいだり しています。 (Nào là chạy, nào là bơi...)",
+    "num": 24,
+    "jp": "けっか",
+    "vi": "Kết quả"
+  },
+  {
+    "lesson": "A2-16",
+    "lesson_title": "はしったり およいだり しています。 (Nào là chạy, nào là bơi...)",
+    "num": 25,
+    "jp": "ストレッチ（を）します",
+    "vi": "Tập giãn cơ, khởi động"
+  },
+  {
+    "lesson": "A2-16",
+    "lesson_title": "はしったり およいだり しています。 (Nào là chạy, nào là bơi...)",
+    "num": 26,
+    "jp": "スポーツクラブ",
+    "vi": "Câu lạc bộ thể thao"
+  },
+  {
+    "lesson": "A2-16",
+    "lesson_title": "はしったり およいだり しています。 (Nào là chạy, nào là bơi...)",
+    "num": 27,
+    "jp": "トレーナー",
+    "vi": "Huấn luyện viên, PT"
+  },
+  {
+    "lesson": "A2-16",
+    "lesson_title": "はしったり およいだり しています。 (Nào là chạy, nào là bơi...)",
+    "num": 28,
+    "jp": "はじめて",
+    "vi": "Lần đầu tiên"
+  },
+  {
+    "lesson": "A2-16",
+    "lesson_title": "はしったり およいだり しています。 (Nào là chạy, nào là bơi...)",
+    "num": 29,
+    "jp": "マシン",
+    "vi": "Máy tập, thiết bị"
+  },
+  {
+    "lesson": "A2-16",
+    "lesson_title": "はしったり およいだり しています。 (Nào là chạy, nào là bơi...)",
+    "num": 30,
+    "jp": "ラウンジ",
+    "vi": "Phòng chờ"
+  },
+  {
+    "lesson": "A2-17",
+    "lesson_title": "誕生日に もらったんです。 (Nhận được vào ngày sinh nhật)",
+    "num": 1,
+    "jp": "おいわい",
+    "vi": "Chúc mừng"
+  },
+  {
+    "lesson": "A2-17",
+    "lesson_title": "誕生日に もらったんです。 (Nhận được vào ngày sinh nhật)",
+    "num": 2,
+    "jp": "にゅうがく",
+    "vi": "Nhập học"
+  },
+  {
+    "lesson": "A2-17",
+    "lesson_title": "誕生日に もらったんです。 (Nhận được vào ngày sinh nhật)",
+    "num": 3,
+    "jp": "そつぎょう",
+    "vi": "Tốt nghiệp"
+  },
+  {
+    "lesson": "A2-17",
+    "lesson_title": "誕生日に もらったんです。 (Nhận được vào ngày sinh nhật)",
+    "num": 4,
+    "jp": "しゅうしょく",
+    "vi": "Bắt đầu đi làm"
+  },
+  {
+    "lesson": "A2-17",
+    "lesson_title": "誕生日に もらったんです。 (Nhận được vào ngày sinh nhật)",
+    "num": 5,
+    "jp": "しゅっさん",
+    "vi": "Sinh con"
+  },
+  {
+    "lesson": "A2-17",
+    "lesson_title": "誕生日に もらったんです。 (Nhận được vào ngày sinh nhật)",
+    "num": 6,
+    "jp": "あかちゃん",
+    "vi": "Em bé"
+  },
+  {
+    "lesson": "A2-17",
+    "lesson_title": "誕生日に もらったんです。 (Nhận được vào ngày sinh nhật)",
+    "num": 7,
+    "jp": "うまれます",
+    "vi": "Được sinh ra"
+  },
+  {
+    "lesson": "A2-17",
+    "lesson_title": "誕生日に もらったんです。 (Nhận được vào ngày sinh nhật)",
+    "num": 8,
+    "jp": "けっこん",
+    "vi": "Kết hôn"
+  },
+  {
+    "lesson": "A2-17",
+    "lesson_title": "誕生日に もらったんです。 (Nhận được vào ngày sinh nhật)",
+    "num": 9,
+    "jp": "ははの ひ",
+    "vi": "Ngày của mẹ (Chủ nhật thứ 2 của tháng 5)"
+  },
+  {
+    "lesson": "A2-17",
+    "lesson_title": "誕生日に もらったんです。 (Nhận được vào ngày sinh nhật)",
+    "num": 10,
+    "jp": "ちちの ひ",
+    "vi": "Ngày của bố (Chủ nhật thứ 3 của tháng 6)"
+  },
+  {
+    "lesson": "A2-17",
+    "lesson_title": "誕生日に もらったんです。 (Nhận được vào ngày sinh nhật)",
+    "num": 11,
+    "jp": "クリスマス",
+    "vi": "Giáng sinh"
+  },
+  {
+    "lesson": "A2-17",
+    "lesson_title": "誕生日に もらったんです。 (Nhận được vào ngày sinh nhật)",
+    "num": 12,
+    "jp": "バレンタイン・デー",
+    "vi": "Ngày Valentine"
+  },
+  {
+    "lesson": "A2-17",
+    "lesson_title": "誕生日に もらったんです。 (Nhận được vào ngày sinh nhật)",
+    "num": 13,
+    "jp": "ネックレス",
+    "vi": "Vòng cổ"
+  },
+  {
+    "lesson": "A2-17",
+    "lesson_title": "誕生日に もらったんです。 (Nhận được vào ngày sinh nhật)",
+    "num": 14,
+    "jp": "セーター",
+    "vi": "Áo len"
+  },
+  {
+    "lesson": "A2-17",
+    "lesson_title": "誕生日に もらったんです。 (Nhận được vào ngày sinh nhật)",
+    "num": 15,
+    "jp": "おもちゃ",
+    "vi": "Đồ chơi"
+  },
+  {
+    "lesson": "A2-17",
+    "lesson_title": "誕生日に もらったんです。 (Nhận được vào ngày sinh nhật)",
+    "num": 16,
+    "jp": "あみもの",
+    "vi": "Đồ đan len"
+  },
+  {
+    "lesson": "A2-17",
+    "lesson_title": "誕生日に もらったんです。 (Nhận được vào ngày sinh nhật)",
+    "num": 17,
+    "jp": "にんぎょう",
+    "vi": "Búp bê"
+  },
+  {
+    "lesson": "A2-17",
+    "lesson_title": "誕生日に もらったんです。 (Nhận được vào ngày sinh nhật)",
+    "num": 18,
+    "jp": "（シャツを）きます",
+    "vi": "Mặc (áo)"
+  },
+  {
+    "lesson": "A2-17",
+    "lesson_title": "誕生日に もらったんです。 (Nhận được vào ngày sinh nhật)",
+    "num": 19,
+    "jp": "へやに かざります",
+    "vi": "Trang trí trong phòng"
+  },
+  {
+    "lesson": "A2-17",
+    "lesson_title": "誕生日に もらったんです。 (Nhận được vào ngày sinh nhật)",
+    "num": 20,
+    "jp": "しごとで つかいます",
+    "vi": "Sử dụng trong công việc"
+  },
+  {
+    "lesson": "A2-17",
+    "lesson_title": "誕生日に もらったんです。 (Nhận được vào ngày sinh nhật)",
+    "num": 21,
+    "jp": "にあいます",
+    "vi": "~ hợp"
+  },
+  {
+    "lesson": "A2-17",
+    "lesson_title": "誕生日に もらったんです。 (Nhận được vào ngày sinh nhật)",
+    "num": 22,
+    "jp": "あそびます",
+    "vi": "Chơi"
+  },
+  {
+    "lesson": "A2-17",
+    "lesson_title": "誕生日に もらったんです。 (Nhận được vào ngày sinh nhật)",
+    "num": 23,
+    "jp": "きに いります",
+    "vi": "Thích"
+  },
+  {
+    "lesson": "A2-17",
+    "lesson_title": "誕生日に もらったんです。 (Nhận được vào ngày sinh nhật)",
+    "num": 24,
+    "jp": "～とか～とか",
+    "vi": "Chẳng hạn như ~ như ~"
+  },
+  {
+    "lesson": "A2-17",
+    "lesson_title": "誕生日に もらったんです。 (Nhận được vào ngày sinh nhật)",
+    "num": 25,
+    "jp": "めいしいれ",
+    "vi": "Hộp đựng danh thiếp"
+  },
+  {
+    "lesson": "A2-17",
+    "lesson_title": "誕生日に もらったんです。 (Nhận được vào ngày sinh nhật)",
+    "num": 26,
+    "jp": "ペア",
+    "vi": "Cặp, đôi"
+  },
+  {
+    "lesson": "A2-17",
+    "lesson_title": "誕生日に もらったんです。 (Nhận được vào ngày sinh nhật)",
+    "num": 27,
+    "jp": "おなじ",
+    "vi": "Giống"
+  },
+  {
+    "lesson": "A2-17",
+    "lesson_title": "誕生日に もらったんです。 (Nhận được vào ngày sinh nhật)",
+    "num": 28,
+    "jp": "たとえば",
+    "vi": "Ví dụ"
+  },
+  {
+    "lesson": "A2-17",
+    "lesson_title": "誕生日に もらったんです。 (Nhận được vào ngày sinh nhật)",
+    "num": 29,
+    "jp": "しゅうかん",
+    "vi": "Thói quen"
+  },
+  {
+    "lesson": "A2-18",
+    "lesson_title": "パーティーが いいと おもいます。 (Tôi nghĩ tiệc tùng thì hay đấy)",
+    "num": 1,
+    "jp": "けっこん",
+    "vi": "Kết hôn"
+  },
+  {
+    "lesson": "A2-18",
+    "lesson_title": "パーティーが いいと おもいます。 (Tôi nghĩ tiệc tùng thì hay đấy)",
+    "num": 2,
+    "jp": "ひっこし",
+    "vi": "Chuyển nhà"
+  },
+  {
+    "lesson": "A2-18",
+    "lesson_title": "パーティーが いいと おもいます。 (Tôi nghĩ tiệc tùng thì hay đấy)",
+    "num": 3,
+    "jp": "しゅうしょく",
+    "vi": "Bắt đầu đi làm, có việc làm"
+  },
+  {
+    "lesson": "A2-18",
+    "lesson_title": "パーティーが いいと おもいます。 (Tôi nghĩ tiệc tùng thì hay đấy)",
+    "num": 4,
+    "jp": "しゅっさん Sinh con",
+    "vi": ""
+  },
+  {
+    "lesson": "A2-18",
+    "lesson_title": "パーティーが いいと おもいます。 (Tôi nghĩ tiệc tùng thì hay đấy)",
+    "num": 5,
+    "jp": "よろこびます",
+    "vi": "Vui mừng, hạnh phúc"
+  },
+  {
+    "lesson": "A2-18",
+    "lesson_title": "パーティーが いいと おもいます。 (Tôi nghĩ tiệc tùng thì hay đấy)",
+    "num": 6,
+    "jp": "しあわせ（な）",
+    "vi": "Hạnh phúc"
+  },
+  {
+    "lesson": "A2-18",
+    "lesson_title": "パーティーが いいと おもいます。 (Tôi nghĩ tiệc tùng thì hay đấy)",
+    "num": 7,
+    "jp": "ひつよう（な）",
+    "vi": "Cần thiết"
+  },
+  {
+    "lesson": "A2-18",
+    "lesson_title": "パーティーが いいと おもいます。 (Tôi nghĩ tiệc tùng thì hay đấy)",
+    "num": 8,
+    "jp": "N が ひつようです",
+    "vi": "Cần N"
+  },
+  {
+    "lesson": "A2-18",
+    "lesson_title": "パーティーが いいと おもいます。 (Tôi nghĩ tiệc tùng thì hay đấy)",
+    "num": 9,
+    "jp": "あかちゃんの ものが ひつようです",
+    "vi": "Đồ dùng của em bé là cần thiết"
+  },
+  {
+    "lesson": "A2-18",
+    "lesson_title": "パーティーが いいと おもいます。 (Tôi nghĩ tiệc tùng thì hay đấy)",
+    "num": 10,
+    "jp": "カードを かきます",
+    "vi": "Viết thiệp"
+  },
+  {
+    "lesson": "A2-18",
+    "lesson_title": "パーティーが いいと おもいます。 (Tôi nghĩ tiệc tùng thì hay đấy)",
+    "num": 11,
+    "jp": "おれい",
+    "vi": "Lời cảm ơn"
+  },
+  {
+    "lesson": "A2-18",
+    "lesson_title": "パーティーが いいと おもいます。 (Tôi nghĩ tiệc tùng thì hay đấy)",
+    "num": 12,
+    "jp": "おれいを いいます",
+    "vi": "Nói lời cảm ơn"
+  },
+  {
+    "lesson": "A2-18",
+    "lesson_title": "パーティーが いいと おもいます。 (Tôi nghĩ tiệc tùng thì hay đấy)",
+    "num": 13,
+    "jp": "しゃしんたて",
+    "vi": "Khung ảnh"
+  },
+  {
+    "lesson": "A2-18",
+    "lesson_title": "パーティーが いいと おもいます。 (Tôi nghĩ tiệc tùng thì hay đấy)",
+    "num": 14,
+    "jp": "かびん",
+    "vi": "Bình hoa"
+  },
+  {
+    "lesson": "A2-18",
+    "lesson_title": "パーティーが いいと おもいます。 (Tôi nghĩ tiệc tùng thì hay đấy)",
+    "num": 15,
+    "jp": "ゆびわ",
+    "vi": "Nhẫn"
+  },
+  {
+    "lesson": "A2-18",
+    "lesson_title": "パーティーが いいと おもいます。 (Tôi nghĩ tiệc tùng thì hay đấy)",
+    "num": 16,
+    "jp": "きっと",
+    "vi": "Chắc chắn là, nhất định là"
+  },
+  {
+    "lesson": "A2-18",
+    "lesson_title": "パーティーが いいと おもいます。 (Tôi nghĩ tiệc tùng thì hay đấy)",
+    "num": 17,
+    "jp": "スーツ",
+    "vi": "Bộ vest"
+  },
+  {
+    "lesson": "A2-18",
+    "lesson_title": "パーティーが いいと おもいます。 (Tôi nghĩ tiệc tùng thì hay đấy)",
+    "num": 18,
+    "jp": "たいせつ（な）",
+    "vi": "Quan trọng, đáng quý, trân trọng"
+  },
+  {
+    "lesson": "A2-18",
+    "lesson_title": "パーティーが いいと おもいます。 (Tôi nghĩ tiệc tùng thì hay đấy)",
+    "num": 19,
+    "jp": "たいせつに します",
+    "vi": "Trân trọng, giữ gìn cẩn thận"
+  }
+]

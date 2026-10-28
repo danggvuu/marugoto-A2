@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta name="referrer" content="no-referrer">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cẩm Nang & Luyện Tập Chia Động Từ Thể TE (～て) - Tiếng Nhật A2-1</title>
+    <style>
+        :root {
+            --primary: #e84393;
+            --primary-light: #fd79a8;
+            --primary-bg: #fff0f6;
+            --secondary: #0984e3;
+            --secondary-bg: #eaf2fd;
+            --success: #00b894;
+            --success-bg: #e6f9f5;
+            --danger: #d63031;
+            --danger-bg: #ffebee;
+            --warning: #fdcb6e;
+            --dark: #2d3436;
+            --light-gray: #f8f9fa;
+            --border-color: #dfe6e9;
+            --card-shadow: 0 10px 25px rgba(0,0,0,0.06);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f1f2f6;
+            color: var(--dark);
+            line-height: 1.6;
+            padding: 20px 10px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #fd79a8 0%, #e84393 100%);
+            color: white;
+            padding: 35px 25px;
+            border-radius: 18px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(232, 67, 147, 0.25);
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        /* Navigation Pills */
+        .nav-tabs {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 25px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-tab-btn {
+            background: white;
+            border: 2px solid transparent;
+            padding: 12px 26px;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            color: var(--dark);
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+        }
+
+        .nav-tab-btn:hover {
+            border-color: var(--primary-light);
+            color: var(--primary);
+        }
+
+        .nav-tab-btn.active {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 4px 15px rgba(232, 67, 147, 0.35);
+        }
+
+        /* Tab Content */
+        .tab-panel {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .tab-panel.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Card Styles */
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 25px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .card h2 {
+            font-size: 1.45rem;
+            color: var(--primary);
+            border-bottom: 2px solid var(--primary-bg);
+            padding-bottom: 12px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card h3 {
+            font-size: 1.18rem;
+            margin: 20px 0 10px 0;
+            color: #2c3e50;
+        }
+
+        /* Theory Styles */
+        .group-tag {
+            display: inline-block;
+            padding: 3px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: white;
+            margin-right: 6px;
+        }
+        .tag-g1 { background: #0984e3; }
+        .tag-g2 { background: #e84393; }
+        .tag-g3 { background: #6c5ce7; }
+
+        .rule-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        .rule-table th, .rule-table td {
+            border: 1px solid var(--border-color);
+            padding: 13px 16px;
+            text-align: left;
+        }
+
+        .rule-table th {
+            background-color: #f8f9fa;
+            color: #2d3436;
+            font-weight: 700;
+        }
+
+        .rule-table tr:nth-child(even) {
+            background-color: #fdfdfd;
+        }
+
+        .rhyme-box {
+            background: linear-gradient(135deg, #fff3f8 0%, #fff 100%);
+            border-left: 5px solid var(--primary);
+            padding: 18px 22px;
+            border-radius: 8px;
+            margin: 18px 0;
+        }
+
+        .rhyme-box h4 {
+            color: var(--primary);
+            margin-bottom: 8px;
+            font-size: 1.05rem;
+        }
+
+        .rhyme-box ul {
+            list-style: none;
+            padding-left: 5px;
+        }
+
+        .rhyme-box li {
+            margin: 5px 0;
+            font-size: 1rem;
+        }
+
+        .badge-special {
+            background-color: #ff7675;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .example-box {
+            background: #f8fafc;
+            border: 1px dashed #b2bec3;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 15px;
+        }
+
+        /* Interactive Exercise Table */
+        .controls-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 20px;
+            background: white;
+            padding: 18px 22px;
+            border-radius: 14px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .search-box input {
+            padding: 10px 16px;
+            border: 1.5px solid var(--border-color);
+            border-radius: 25px;
+            font-size: 0.95rem;
+            width: 250px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .search-box input:focus {
+            border-color: var(--primary);
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        .btn-primary:hover { background: #d63384; }
+
+        .btn-secondary {
+            background: #dfe6e9;
+            color: #2d3436;
+        }
+        .btn-secondary:hover { background: #b2bec3; }
+
+        .btn-outline {
+            background: transparent;
+            border: 1.5px solid var(--primary);
+            color: var(--primary);
+        }
+        .btn-outline:hover {
+            background: var(--primary-bg);
+        }
+
+        .score-banner {
+            background: linear-gradient(135deg, #00b894 0%, #00cec9 100%);
+            color: white;
+            padding: 16px 24px;
+            border-radius: 12px;
+            display: none;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 184, 148, 0.3);
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+            border-radius: 14px;
+            box-shadow: var(--card-shadow);
+            background: white;
+        }
+
+        .exercise-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 820px;
+        }
+
+        .exercise-table th, .exercise-table td {
+            padding: 12px 14px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .exercise-table th {
+            background: #f8f9fa;
+            font-weight: 700;
+            color: #2d3436;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .exercise-table tr:hover {
+            background-color: #fafbfc;
+        }
+
+        .verb-masu {
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: #2c3e50;
+        }
+
+        .group-select {
+            padding: 8px 10px;
+            border: 1.5px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 0.92rem;
+            outline: none;
+            background: white;
+            cursor: pointer;
+            width: 95px;
+        }
+
+        .text-input {
+            padding: 8px 12px;
+            border: 1.5px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 0.95rem;
+            outline: none;
+            width: 100%;
+            transition: all 0.2s;
+        }
+
+        .text-input:focus, .group-select:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(232, 67, 147, 0.15);
+        }
+
+        /* Validation Colors */
+        .is-correct {
+            border-color: var(--success) !important;
+            background-color: var(--success-bg) !important;
+            color: #00796b !important;
+        }
+
+        .is-incorrect {
+            border-color: var(--danger) !important;
+            background-color: var(--danger-bg) !important;
+            color: #c2185b !important;
+        }
+
+        .answer-hint {
+            display: none;
+            font-size: 0.82rem;
+            color: #2e7d32;
+            font-weight: 600;
+            margin-top: 5px;
+            line-height: 1.4;
+        }
+
+        .status-icon {
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        .tip-badge {
+            display: inline-block;
+            background: #eaf2fd;
+            color: #0984e3;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #636e72;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 1.7rem; }
+            .card { padding: 20px; }
+            .controls-bar { flex-direction: column; align-items: stretch; }
+            .search-box input { width: 100%; }
+            .btn-group { justify-content: center; }
+        }
+    </style>
+    <!-- Animate UI Core (Spring Physics & Micro-Interactions) -->
+    <link rel="stylesheet" href="../assets/css/animate-ui.css">
+    <script src="../assets/js/animate-ui.js" defer></script>
+    <script src="../assets/js/audio-engine.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <!-- Header -->
+    <header>
+        <h1>🌸 BẢNG LUYỆN TẬP CHIA THỂ TE (～て)</h1>
+        <p>Hệ thống toàn diện lý thuyết & 56 bài tập tương tác chia động từ chuẩn giáo trình Marugoto A2-1</p>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <div class="nav-tabs">
+        <button class="nav-tab-btn active" onclick="switchTab('tab-practice')">✍️ Bảng Luyện Tập (56 Từ)</button>
+        <button class="nav-tab-btn" onclick="switchTab('tab-theory')">📖 Lý Thuyết & Quy Tắc Chia Thể</button>
+        <button class="nav-tab-btn" onclick="switchTab('tab-usage')">💡 Ứng Dụng ～ています (Marugoto A2-1)</button>
+    </div>
+
+    <!-- TAB 1: PRACTICE TABLE -->
+    <div id="tab-practice" class="tab-panel active">
+        <div class="controls-bar">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="🔍 Tìm kiếm động từ..." oninput="filterVerbs()">
+            </div>
+            <div class="btn-group">
+                <button class="btn btn-primary" onclick="gradeAll()">✅ Nộp Bài / Chấm Điểm</button>
+                <button class="btn btn-outline" onclick="toggleAnswers()">👁️ Hiện / Ẩn Đáp Án</button>
+                <button class="btn btn-secondary" onclick="resetExercise()">🔄 Làm Lại</button>
+            </div>
+        </div>
+
+        <div style="margin-bottom: 15px;">
+            <span class="tip-badge">💡 Mẹo làm bài: Cột <strong>Phủ định</strong> bạn có thể điền phủ định thể Te (<strong>～ていません</strong>) HOẶC phủ định thường (<strong>～ません</strong>) hệ thống đều chấm đúng nhé!</span>
+        </div>
+
+        <div id="scoreBanner" class="score-banner"></div>
+
+        <div class="table-responsive">
+            <table class="exercise-table" id="verbsTable">
+                <thead>
+                    <tr>
+                        <th style="width: 45px;">STT</th>
+                        <th style="width: 190px;">Vます (Động từ)</th>
+                        <th style="width: 110px;">Nhóm</th>
+                        <th style="width: 220px;">Thể ～て</th>
+                        <th style="width: 240px;">Phủ Định (～ていません / ～ません)</th>
+                        <th style="width: 90px; text-align: center;">Kết Quả</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <!-- Dynamic rendering via JS -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- TAB 2: FULL THEORY -->
+    <div id="tab-theory" class="tab-panel">
+        <!-- 3 Nhóm Động Từ -->
+        <div class="card">
+            <h2>🏷️ Phân Loại 3 Nhóm Động Từ Trong Tiếng Nhật</h2>
+            
+            <h3>1. Động từ Nhóm ① <span class="group-tag tag-g1">Nhóm 1</span></h3>
+            <p>Là các động từ có <strong>từ 2 âm tiết trở lên</strong>, chữ cái đứng ngay trước <code>～ます</code> thuộc <strong>cột い</strong>:</p>
+            <p style="margin-top: 6px; font-weight: 600; color: #0984e3;">
+                (い, き, し, ち, り, び, ぎ, に, み) + ます
+            </p>
+            <div class="example-box">
+                <strong>Ví dụ:</strong> あ<strong>い</strong>ます (gặp), い<strong>き</strong>ます (đi), の<strong>み</strong>ます (uống), かえ<strong>り</strong>ます (về), あそ<strong>び</strong>ます (chơi), ま<strong>ち</strong>ます (chờ), およ<strong>ぎ</strong>ます (bơi)...
+            </div>
+
+            <h3>2. Động từ Nhóm ② <span class="group-tag tag-g2">Nhóm 2</span></h3>
+            <ul>
+                <li><strong>Trường hợp 1:</strong> Có đúng <strong>1 âm tiết</strong> đứng trước <code>～ます</code>:
+                    <br>👉 <strong>ね</strong>ます (ngủ), <strong>み</strong>ます (xem), <strong>い</strong>ます (ở/có), <strong>で</strong>ます (ra ngoài), <strong>き</strong>ます (mặc áo)...</li>
+                <li style="margin-top: 8px;"><strong>Trường hợp 2:</strong> Chữ đứng trước <code>～ます</code> thuộc <strong>cột え</strong> (え, け, せ, て, ね, べ...):
+                    <br>👉 た<strong>べ</strong>ます (ăn), あ<strong>げ</strong>ます (tặng), おし<strong>え</strong>ます (dạy), み<strong>せ</strong>ます (cho xem)...</li>
+                <li style="margin-top: 8px;"><strong>Trường hợp 3 (ĐẶC BIỆT BẮT BUỘC HỌC THUỘC):</strong> Có từ 2 âm tiết trở lên, đứng trước <code>～ます</code> là cột い nhưng vẫn là Nhóm 2:
+                    <br>👉 お<strong>き</strong>ます (thức dậy), お<strong>り</strong>ます (xuống xe), で<strong>き</strong>ます (có thể), あ<strong>び</strong>ます (tắm), か<strong>り</strong>ます (mượn)...</li>
+            </ul>
+
+            <h3>3. Động từ Nhóm ③ <span class="group-tag tag-g3">Nhóm 3</span></h3>
+            <p>Là động từ bất quy tắc, chỉ gồm 2 động từ cơ bản và danh động từ:</p>
+            <ul>
+                <li><strong>します</strong> (làm) ➔ べんきょうします, さんぽします, かいものします, そうじします...</li>
+                <li><strong>きます</strong> (đến) ➔ もってきます (mang đến), つれてきます (dẫn đến)...</li>
+            </ul>
+        </div>
+
+        <!-- Quy Tắc Chia Thể TE -->
+        <div class="card">
+            <h2>⚡ Quy Tắc Chia Động Từ Sang Thể TE (～て)</h2>
+
+            <table class="rule-table">
+                <thead>
+                    <tr>
+                        <th>Nhóm</th>
+                        <th>Đuôi trước ます</th>
+                        <th>Cách biến đổi sang Thể TE</th>
+                        <th>Ví dụ minh họa</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan="5" style="vertical-align: middle; text-align: center; font-weight: bold; background: #eaf2fd;">
+                            <span class="group-tag tag-g1">Nhóm 1</span>
+                        </td>
+                        <td><strong>い, ち, り</strong></td>
+                        <td>➔ <strong>って</strong> (tsu nhỏ + te)</td>
+                        <td>
+                            か<strong>い</strong>ます ➔ <strong>かって</strong><br>
+                            ま<strong>ち</strong>ます ➔ <strong>まって</strong><br>
+                            かえ<strong>り</strong>ます ➔ <strong>かえって</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>に, み, び</strong></td>
+                        <td>➔ <strong>んで</strong> (n + de)</td>
+                        <td>
+                            し<strong>に</strong>ます ➔ <strong>しんで</strong><br>
+                            よ<strong>み</strong>ます ➔ <strong>よんで</strong><br>
+                            あそ<strong>び</strong>ます ➔ <strong>あそんで</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>き</strong></td>
+                        <td>
+                            ➔ <strong>いて</strong><br>
+                            <span class="badge-special">NGOẠI LỆ</span> <strong>いきます ➔ いって</strong>
+                        </td>
+                        <td>
+                            か<strong>き</strong>ます ➔ <strong>かいて</strong><br>
+                            き<strong>き</strong>ます ➔ <strong>きいて</strong><br>
+                            ⭐ い<strong>き</strong>ます ➔ <strong>いって</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>ぎ</strong></td>
+                        <td>➔ <strong>いで</strong> (i + de)</td>
+                        <td>
+                            およ<strong>ぎ</strong>ます ➔ <strong>およいで</strong><br>
+                            いそ<strong>ぎ</strong>ます ➔ <strong>いそいで</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>し</strong></td>
+                        <td>➔ <strong>して</strong></td>
+                        <td>
+                            はな<strong>し</strong>ます ➔ <strong>はなして</strong><br>
+                            か<strong>し</strong>ます ➔ <strong>かして</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="vertical-align: middle; text-align: center; font-weight: bold; background: #fff0f6;">
+                            <span class="group-tag tag-g2">Nhóm 2</span>
+                        </td>
+                        <td>Cột <strong>え</strong> / Cột <strong>い</strong> đặc biệt</td>
+                        <td>➔ <strong>Bỏ ます thêm て</strong></td>
+                        <td>
+                            たべます ➔ <strong>たべて</strong><br>
+                            みます ➔ <strong>みて</strong><br>
+                            おきます ➔ <strong>おきて</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="vertical-align: middle; text-align: center; font-weight: bold; background: #f3f0ff;">
+                            <span class="group-tag tag-g3">Nhóm 3</span>
+                        </td>
+                        <td><strong>します / きます</strong></td>
+                        <td>
+                            <strong>します ➔ して</strong><br>
+                            <strong>きます ➔ きて</strong>
+                        </td>
+                        <td>
+                            べんきょうします ➔ <strong>べんきょうして</strong><br>
+                            もってきます ➔ <strong>もってきて</strong>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="rhyme-box">
+                <h4>🎶 BÀI VÈ NHỚ NHANH NHÓM 1 KINH ĐIỂN</h4>
+                <ul>
+                    <li>✨ <em>"Í - Chì - Rỉ"</em> ➔ Gặp nhau đổi thành <strong>って</strong></li>
+                    <li>✨ <em>"Mì - Bún - Nỉ"</em> (Mi - Bi - Ni) ➔ Đổi thành <strong>んで</strong></li>
+                    <li>✨ <em>"Kì"</em> thành <strong>いて</strong>, <em>"Gì"</em> thành <strong>いで</strong></li>
+                    <li>✨ <em>"Xì"</em> thành <strong>して</strong></li>
+                    <li>⚠️ <strong>Cấm quên:</strong> Riêng <em>いきます</em> phải thành <strong>いって</strong>!</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- TAB 3: USAGE ～ています -->
+    <div id="tab-usage" class="tab-panel">
+        <div class="card">
+            <h2>📌 Ngữ Pháp Trọng Tâm: Cấu Trúc ～ています (Đang V / Trạng thái)</h2>
+            <p>Trong giáo trình Marugoto A2-1, Thể て được dùng phổ biến nhất với mẫu câu <strong>～ています</strong> theo 2 sắc thái ý nghĩa:</p>
+
+            <h3>① Diễn tả hành động đang xảy ra tại thời điểm nói</h3>
+            <p>Thường đi kèm với từ chỉ thời gian <strong>「いま」 (bây giờ)</strong>.</p>
+            <div class="example-box">
+                <p><strong>Cấu trúc:</strong></p>
+                <p>✔️ Khẳng định: <code>S は Vて います。</code> (Đang làm V)</p>
+                <p>❌ Phủ định: <code>S は Vて いません。</code> (Đang không làm V)</p>
+                <p>❓ Nghi vấn: <code>S は 《Từ để hỏi》 Vて いますか。</code></p>
+                <br>
+                <p><strong>Ví dụ:</strong></p>
+                <p>• A: さくらさん、いま <strong>なにを して いますか</strong>。 (Sakura ơi, bây giờ bạn đang làm gì thế?)</p>
+                <p>• B: テレビを <strong>みて います</strong>。 (Tôi đang xem tivi.)</p>
+                <p>• ももさんは いま ごはんを <strong>たべて います</strong>。 (Momo bây giờ đang ăn cơm.)</p>
+            </div>
+
+            <h3 style="margin-top: 25px;">② Diễn tả trạng thái tiếp diễn của hành động (Kéo dài từ quá khứ đến hiện tại)</h3>
+            <p>Dùng cho những hành động mang tính chất duy trì, nghề nghiệp, nơi cư trú...</p>
+            <div class="example-box">
+                <p><strong>Ví dụ điển hình:</strong></p>
+                <p>• わたしは ハノイに <strong>すんで います</strong>。 (Tôi đang sinh sống ở Hà Nội.)</p>
+                <p>• おばは しゅふです。しごとは <strong>して いません</strong>。 (Bác tôi là nội trợ. Bác không đi làm việc.)</p>
+                <p>• かいしゃで <strong>はたらいて います</strong>。 (Tôi đang làm việc ở công ty.)</p>
+                <p>• けっこん <strong>して います</strong>。 (Tôi đã kết hôn.)</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Phát triển cho lớp học tiếng Nhật Marugoto A2-1 • Chúc các bạn luyện tập tốt!</p>
+    </footer>
+</div>
+
+<script>
+    // 56 Verbs data from the classroom assignment
+    const verbsData = [
+        { id: 1, masu: "さんぽします", group: "3", te: "さんぽして", note: "" },
+        { id: 2, masu: "かえります", group: "1", te: "かえって", note: "" },
+        { id: 3, masu: "まがります", group: "1", te: "まがって", note: "" },
+        { id: 4, masu: "まちます", group: "1", te: "まって", note: "" },
+        { id: 5, masu: "およぎます", group: "1", te: "およいで", note: "" },
+        { id: 6, masu: "かります", group: "2", te: "かりて", note: "Đặc biệt nhóm 2" },
+        { id: 7, masu: "ねます", group: "2", te: "ねて", note: "" },
+        { id: 8, masu: "あいます", group: "1", te: "あって", note: "" },
+        { id: 9, masu: "はなします", group: "1", te: "はなして", note: "" },
+        { id: 10, masu: "たべます", group: "2", te: "たべて", note: "" },
+        { id: 11, masu: "します", group: "3", te: "して", note: "" },
+        { id: 12, masu: "たべます", group: "2", te: "たべて", note: "" },
+        { id: 13, masu: "うんどうします", group: "3", te: "うんどうして", note: "" },
+        { id: 14, masu: "もってきます", group: "3", te: "もってきて", note: "" },
+        { id: 15, masu: "でます", group: "2", te: "でて", note: "" },
+        { id: 16, masu: "とります", group: "1", te: "とって", note: "" },
+        { id: 17, masu: "やすみます", group: "1", te: "やすんで", note: "" },
+        { id: 18, masu: "シャツを きます", group: "2", te: "シャツを きて", note: "き(mặc): Nhóm 2" },
+        { id: 19, masu: "かします", group: "1", te: "かして", note: "" },
+        { id: 20, masu: "ききます", group: "1", te: "きいて", note: "" },
+        { id: 21, masu: "ねます", group: "2", te: "ねて", note: "" },
+        { id: 22, masu: "けします", group: "1", te: "けして", note: "" },
+        { id: 23, masu: "いきます", group: "1", te: "いって", note: "Ngoại lệ" },
+        { id: 24, masu: "あそびます", group: "1", te: "あそんで", note: "" },
+        { id: 25, masu: "すてます", group: "2", te: "すてて", note: "" },
+        { id: 26, masu: "はいります", group: "1", te: "はいって", note: "" },
+        { id: 27, masu: "はしります", group: "1", te: "はしって", note: "" },
+        { id: 28, masu: "みせます", group: "2", te: "みせて", note: "" },
+        { id: 29, masu: "かいます", group: "1", te: "かって", note: "" },
+        { id: 30, masu: "のぼります", group: "1", te: "のぼって", note: "" },
+        { id: 31, masu: "わたります", group: "1", te: "わたって", note: "" },
+        { id: 32, masu: "７時に おきます", group: "2", te: "７時に おきて", note: "おきる: Nhóm 2 đặc biệt", altTe: "7じに おきて,7時に おきて,７時におきて,7時におきて" },
+        { id: 33, masu: "いります", group: "1", te: "いって", note: "iru (cần): Nhóm 1" },
+        { id: 34, masu: "とまります", group: "1", te: "とまって", note: "" },
+        { id: 35, masu: "みます", group: "2", te: "みて", note: "" },
+        { id: 36, masu: "すわります", group: "1", te: "すわって", note: "" },
+        { id: 37, masu: "あるきます", group: "1", te: "あるいて", note: "" },
+        { id: 38, masu: "いそぎます", group: "1", te: "いそいで", note: "" },
+        { id: 39, masu: "みます", group: "2", te: "みて", note: "" },
+        { id: 40, masu: "かばんを おきます", group: "1", te: "かばんを おいて", note: "おく (đặt): Nhóm 1", altTe: "かばんをおいて" },
+        { id: 41, masu: "たちます", group: "1", te: "たって", note: "" },
+        { id: 42, masu: "あんないします", group: "3", te: "あんないして", note: "" },
+        { id: 43, masu: "のみます", group: "1", te: "のんで", note: "" },
+        { id: 44, masu: "とめます", group: "2", te: "とめて", note: "" },
+        { id: 45, masu: "しにます", group: "1", te: "しんで", note: "" },
+        { id: 46, masu: "よみます", group: "1", te: "よんで", note: "" },
+        { id: 47, masu: "はたらきます", group: "1", te: "はたらいて", note: "" },
+        { id: 48, masu: "おしえます", group: "2", te: "おしえて", note: "" },
+        { id: 49, masu: "かえります", group: "1", te: "かえって", note: "" },
+        { id: 50, masu: "べんきょうします", group: "3", te: "べんきょうして", note: "" },
+        { id: 51, masu: "あつめます", group: "2", te: "あつめて", note: "" },
+        { id: 52, masu: "しります", group: "1", te: "しって", note: "" },
+        { id: 53, masu: "つれてきます", group: "3", te: "つれてきて", note: "" },
+        { id: 54, masu: "きります", group: "1", te: "きって", note: "kiru (cắt): Nhóm 1" },
+        { id: 55, masu: "つかれます", group: "2", te: "つかれて", note: "" },
+        { id: 56, masu: "学校に きます", group: "3", te: "学校に きて", note: "kuru: Nhóm 3", altTe: "がっこうに きて,学校にきて,がっこうにきて" }
+    ];
+
+    let showAnswersState = false;
+
+    // Switch Tabs
+    function switchTab(tabId) {
+        document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.remove('active'));
+        document.querySelectorAll('.nav-tab-btn').forEach(btn => btn.classList.remove('active'));
+        
+        const target = document.getElementById(tabId);
+        if (target) target.classList.add('active');
+        const activeBtn = Array.from(document.querySelectorAll('.nav-tab-btn')).find(b => b.getAttribute('onclick')?.includes(tabId));
+        if (activeBtn) activeBtn.classList.add('active');
+    }
+
+    // Helper: generate negative forms
+    function getNegativeTargets(item) {
+        // Form 1: ～ていません (e.g. たべていません)
+        const negTe = item.te + "いません";
+        const negTeSpace = item.te + " いません";
+
+        // Form 2: ～ません (e.g. たべません)
+        const negMasu = item.masu.replace(/ます$/, 'ません');
+
+        return { negTe, negTeSpace, negMasu };
+    }
+
+    // Render Table
+    function renderTable() {
+        const tbody = document.getElementById('tableBody');
+        tbody.innerHTML = '';
+
+        verbsData.forEach((item, index) => {
+            const tr = document.createElement('tr');
+            tr.id = `row-${item.id}`;
+            const negs = getNegativeTargets(item);
+
+            tr.innerHTML = `
+                <td><strong>${index + 1}</strong></td>
+                <td>
+                    <span class="verb-masu">${item.masu}</span>
+                    <button type="button" class="fc-speaker-btn" style="margin-left:6px; vertical-align:middle; width:28px; height:28px; font-size:13px;" onclick="speakJapanese('${item.masu}', this)" title="Nghe phát âm">🔊</button>
+                </td>
+                <td>
+                    <select class="group-select" id="group-${item.id}">
+                        <option value="">Chọn nhóm</option>
+                        <option value="1">Nhóm 1</option>
+                        <option value="2">Nhóm 2</option>
+                        <option value="3">Nhóm 3</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="text" class="text-input" id="te-${item.id}" placeholder="Ví dụ: ${item.te.slice(-2)}...">
+                    <div class="answer-hint" id="hint-te-${item.id}">👉 ～て: <strong>${item.te}</strong> <button type="button" class="fc-speaker-btn" style="margin-left:4px; vertical-align:middle; width:22px; height:22px; font-size:11px;" onclick="speakJapanese('${item.te}', this)" title="Nghe thể TE">🔊</button> (N${item.group}) ${item.note ? `[${item.note}]` : ''}</div>
+                </td>
+                <td>
+                    <input type="text" class="text-input" id="neg-${item.id}" placeholder="Điền ～ていません hoặc ～ません...">
+                    <div class="answer-hint" id="hint-neg-${item.id}">👉 Phủ định: <strong>${negs.negTe}</strong> <button type="button" class="fc-speaker-btn" style="margin-left:4px; vertical-align:middle; width:22px; height:22px; font-size:11px;" onclick="speakJapanese('${negs.negTe}', this)" title="Nghe phủ định">🔊</button> / <strong>${negs.negMasu}</strong></div>
+                </td>
+                <td style="text-align: center;">
+                    <span id="status-${item.id}" class="status-icon"></span>
+                </td>
+            `;
+            tbody.appendChild(tr);
+        });
+    }
+
+    // Standardize string comparison
+    function normalizeStr(str) {
+        if (!str) return '';
+        return str.trim().toLowerCase().replace(/\s+/g, ' ');
+    }
+
+    // Grade All Answers
+    function gradeAll() {
+        let correctCount = 0;
+        let totalCount = verbsData.length;
+
+        verbsData.forEach(item => {
+            const groupSelect = document.getElementById(`group-${item.id}`);
+            const teInput = document.getElementById(`te-${item.id}`);
+            const negInput = document.getElementById(`neg-${item.id}`);
+            const statusIcon = document.getElementById(`status-${item.id}`);
+
+            const userGroup = groupSelect.value;
+            const userTe = normalizeStr(teInput.value);
+            const userNeg = normalizeStr(negInput.value);
+
+            // Group validation
+            const isGroupCorrect = userGroup === item.group;
+
+            // Te validation (allow alternate spellings and no space)
+            const validTeAnswers = [normalizeStr(item.te)];
+            if (item.altTe) {
+                item.altTe.split(',').forEach(alt => validTeAnswers.push(normalizeStr(alt)));
+            }
+            const userTeNoSpace = userTe.replace(/\s+/g, '');
+            const isTeCorrect = validTeAnswers.some(ans => ans === userTe || ans.replace(/\s+/g, '') === userTeNoSpace);
+
+            // Negative validation (accept both ～ていません AND ～ません)
+            const negs = getNegativeTargets(item);
+            const validNegAnswers = [
+                normalizeStr(negs.negTe),
+                normalizeStr(negs.negTeSpace),
+                normalizeStr(negs.negMasu)
+            ];
+            const userNegNoSpace = userNeg.replace(/\s+/g, '');
+            const isNegCorrect = validNegAnswers.some(ans => ans === userNeg || ans.replace(/\s+/g, '') === userNegNoSpace);
+
+            // Group styling
+            if (isGroupCorrect) {
+                groupSelect.classList.remove('is-incorrect');
+                groupSelect.classList.add('is-correct');
+            } else {
+                groupSelect.classList.remove('is-correct');
+                groupSelect.classList.add('is-incorrect');
+            }
+
+            // Te styling
+            if (isTeCorrect) {
+                teInput.classList.remove('is-incorrect');
+                teInput.classList.add('is-correct');
+            } else {
+                teInput.classList.remove('is-correct');
+                teInput.classList.add('is-incorrect');
+            }
+
+            // Negative styling
+            if (isNegCorrect) {
+                negInput.classList.remove('is-incorrect');
+                negInput.classList.add('is-correct');
+            } else {
+                negInput.classList.remove('is-correct');
+                negInput.classList.add('is-incorrect');
+            }
+
+            // Overall row check
+            if (isGroupCorrect && isTeCorrect && isNegCorrect) {
+                correctCount++;
+                statusIcon.innerHTML = '✅';
+            } else {
+                statusIcon.innerHTML = '❌';
+            }
+        });
+
+        // Show Score Banner
+        const banner = document.getElementById('scoreBanner');
+        banner.style.display = 'block';
+        const percent = Math.round((correctCount / totalCount) * 100);
+        banner.innerHTML = `🎉 Bạn làm đúng hoàn toàn: ${correctCount}/${totalCount} câu (${percent}%)`;
+        
+        if (percent >= 80) {
+            banner.style.background = 'linear-gradient(135deg, #00b894 0%, #00cec9 100%)';
+        } else if (percent >= 50) {
+            banner.style.background = 'linear-gradient(135deg, #f39c12 0%, #e67e22 100%)';
+        } else {
+            banner.style.background = 'linear-gradient(135deg, #e74c3c 0%, #c0392b 100%)';
+        }
+
+        banner.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    // Toggle Answers
+    function toggleAnswers() {
+        showAnswersState = !showAnswersState;
+        verbsData.forEach(item => {
+            const hintTe = document.getElementById(`hint-te-${item.id}`);
+            const hintNeg = document.getElementById(`hint-neg-${item.id}`);
+            hintTe.style.display = showAnswersState ? 'block' : 'none';
+            hintNeg.style.display = showAnswersState ? 'block' : 'none';
+        });
+    }
+
+    // Reset Table
+    function resetExercise() {
+        if (confirm("Bạn có chắc chắn muốn xóa hết bài làm để làm lại từ đầu?")) {
+            verbsData.forEach(item => {
+                const groupSelect = document.getElementById(`group-${item.id}`);
+                const teInput = document.getElementById(`te-${item.id}`);
+                const negInput = document.getElementById(`neg-${item.id}`);
+                const statusIcon = document.getElementById(`status-${item.id}`);
+                const hintTe = document.getElementById(`hint-te-${item.id}`);
+                const hintNeg = document.getElementById(`hint-neg-${item.id}`);
+
+                groupSelect.value = '';
+                groupSelect.className = 'group-select';
+                teInput.value = '';
+                teInput.className = 'text-input';
+                negInput.value = '';
+                negInput.className = 'text-input';
+                statusIcon.innerHTML = '';
+                hintTe.style.display = 'none';
+                hintNeg.style.display = 'none';
+            });
+            showAnswersState = false;
+            document.getElementById('scoreBanner').style.display = 'none';
+        }
+    }
+
+    // Search filter
+    function filterVerbs() {
+        const query = normalizeStr(document.getElementById('searchInput').value);
+        verbsData.forEach(item => {
+            const row = document.getElementById(`row-${item.id}`);
+            const textToMatch = normalizeStr(item.masu + ' ' + item.te);
+            if (textToMatch.includes(query)) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
+        });
+    }
+
+    // Initialize
+    window.addEventListener('DOMContentLoaded', () => {
+        renderTable();
+    });
+</script>
+
+</body>
+</html>

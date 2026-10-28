@@ -1,0 +1,2267 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
+    <title>Cẩm Nang & Luyện Tập Toàn Diện Bài 16 - Marugoto A2-2 | 走ったり、泳いだりしています</title>
+    <meta name="description" content="Chinh phục toàn diện Marugoto A2 Bài 16: 走ったり、泳いだりしています. Đầy đủ ngữ pháp, 3D Flashcard từ vựng, máy biến thể và Mini Test 15 câu có giải thích chi tiết.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <!-- Animate UI Core (Spring Physics & Micro-Interactions) -->
+    <link rel="stylesheet" href="../assets/css/animate-ui.css">
+    <script src="../assets/js/animate-ui.js" defer></script>
+    <!-- Unified Tokyo Audio Engine -->
+    <script src="../assets/js/audio-engine.js"></script>
+    <style>
+        :root {
+            --primary: #059669;
+            --primary-dark: #047857;
+            --primary-light: #10b981;
+            --primary-soft: #ecfdf5;
+            --accent: #f59e0b;
+            --accent-orange: #ea580c;
+            --accent-soft: #fffbeb;
+            --text-dark: #0f172a;
+            --text-muted: #475569;
+            --bg-light: #f8fafc;
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+            --radius-sm: 8px;
+            --radius-md: 14px;
+            --radius-lg: 20px;
+            --shadow-subtle: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+            --shadow-card: 0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 20px 25px -5px rgba(5, 150, 105, 0.12), 0 8px 10px -6px rgba(5, 150, 105, 0.08);
+            --jp-font: 'Noto Sans JP', sans-serif;
+            --main-font: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--main-font);
+            background-color: #f1f5f9;
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding-bottom: 90px;
+            overflow-x: hidden;
+        }
+
+        .jp-text {
+            font-family: var(--jp-font);
+        }
+
+        /* Sticky Floating Dock */
+        .global-sticky-dock-wrapper {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.85);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+        }
+
+        .global-sticky-dock {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .dock-brand {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: var(--primary-dark);
+            font-weight: 800;
+            font-size: 1.05rem;
+            flex-shrink: 0;
+        }
+
+        .dock-pill-track {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            overflow-x: auto;
+            scrollbar-width: none;
+            padding: 2px 0;
+        }
+
+        .dock-pill-track::-webkit-scrollbar {
+            display: none;
+        }
+
+        .dock-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 6px 12px;
+            border-radius: 999px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-decoration: none;
+            color: #64748b;
+            background: #f1f5f9;
+            border: 1px solid #e2e8f0;
+            white-space: nowrap;
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .dock-pill:hover {
+            color: var(--primary-dark);
+            background: var(--primary-soft);
+            border-color: #a7f3d0;
+            transform: translateY(-1px);
+        }
+
+        .dock-pill.active {
+            color: #ffffff;
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+            border-color: #047857;
+            box-shadow: 0 2px 6px rgba(5, 150, 105, 0.35);
+        }
+
+        .dock-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-shrink: 0;
+        }
+
+        .dock-action-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            color: #334155;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .dock-action-btn:hover {
+            background: #f8fafc;
+            border-color: #94a3b8;
+            color: #0f172a;
+        }
+
+        .dock-dropdown-wrapper {
+            position: relative;
+        }
+
+        .dock-tools-menu {
+            display: none;
+            position: absolute;
+            top: calc(100% + 8px);
+            right: 0;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+            padding: 8px;
+            min-width: 240px;
+            max-height: 480px;
+            overflow-y: auto;
+            z-index: 1010;
+        }
+
+        .dock-tools-menu.show {
+            display: block;
+            animation: fadeInDown 0.2s ease;
+        }
+
+        .dock-tool-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #334155;
+            text-decoration: none;
+            transition: all 0.15s;
+        }
+
+        .dock-tool-item:hover, .dock-tool-item.active {
+            background: var(--primary-soft);
+            color: var(--primary-dark);
+        }
+
+        /* Mega Drawer Sheet */
+        .global-mega-sheet {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(8px);
+            z-index: 1050;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .global-mega-sheet.show {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .sheet-content {
+            background: #ffffff;
+            border-radius: 20px;
+            max-width: 980px;
+            width: 100%;
+            padding: 28px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            margin-top: 10px;
+        }
+
+        .sheet-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 14px;
+            margin-bottom: 20px;
+        }
+
+        .sheet-header-title {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: #0f172a;
+        }
+
+        .sheet-close-btn {
+            background: #f1f5f9;
+            border: none;
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #64748b;
+        }
+
+        .sheet-topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 16px;
+        }
+
+        .sheet-topic-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            padding: 16px;
+        }
+
+        .sheet-topic-badge {
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: var(--primary-dark);
+            margin-bottom: 8px;
+        }
+
+        .sheet-lesson-link {
+            display: block;
+            text-decoration: none;
+            padding: 8px 10px;
+            border-radius: 8px;
+            margin-bottom: 6px;
+            transition: all 0.15s;
+        }
+
+        .sheet-lesson-link:hover {
+            background: #ffffff;
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .sheet-lesson-name {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #1e293b;
+        }
+
+        .sheet-lesson-desc {
+            font-size: 0.76rem;
+            color: #64748b;
+        }
+
+        /* Section Nav */
+        .section-nav {
+            position: sticky;
+            top: 0;
+            z-index: 900;
+            background: #ffffff;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 8px 16px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+
+        .section-nav::-webkit-scrollbar {
+            display: none;
+        }
+
+        .sec-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: #475569;
+            background: #f1f5f9;
+            white-space: nowrap;
+            transition: all 0.2s;
+        }
+
+        .sec-link:hover, .sec-link.active {
+            background: var(--primary-soft);
+            color: var(--primary-dark);
+        }
+
+        /* Container & Hero */
+        .main-container {
+            max-width: 1100px;
+            margin: 24px auto;
+            padding: 0 20px;
+        }
+
+        .hero-banner {
+            background: linear-gradient(135deg, #064e3b 0%, #065f46 45%, #047857 100%);
+            border-radius: var(--radius-lg);
+            padding: 40px 32px;
+            color: #ffffff;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+            margin-bottom: 32px;
+        }
+
+        .hero-banner::after {
+            content: "🍱";
+            position: absolute;
+            right: 20px;
+            bottom: 10px;
+            font-size: 5rem;
+            opacity: 0.15;
+            pointer-events: none;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(16, 185, 129, 0.25);
+            border: 1px solid rgba(52, 211, 153, 0.4);
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: #6ee7b7;
+            margin-bottom: 14px;
+        }
+
+        .hero-title {
+            font-size: 2.1rem;
+            font-weight: 900;
+            line-height: 1.25;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+
+        .hero-jp-quote {
+            font-family: var(--jp-font);
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: #fef08a;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.02rem;
+            color: #e2e8f0;
+            max-width: 800px;
+            margin-bottom: 24px;
+        }
+
+        .hero-stats-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 12px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            padding: 12px 16px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: #a7f3d0;
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 0.78rem;
+            color: #e2e8f0;
+            font-weight: 600;
+        }
+
+        /* Content Sections */
+        .content-section {
+            background: #ffffff;
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            margin-bottom: 32px;
+            box-shadow: var(--shadow-subtle);
+            border: 1px solid var(--border-color);
+            scroll-margin-top: 130px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 24px;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #0f172a;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-tag {
+            font-size: 0.78rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 999px;
+            background: var(--primary-soft);
+            color: var(--primary-dark);
+            text-transform: uppercase;
+        }
+
+        /* Grammar Card */
+        .grammar-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: var(--radius-md);
+            padding: 22px;
+            margin-bottom: 24px;
+        }
+
+        .rule-box {
+            background: #ffffff;
+            border-left: 5px solid var(--primary);
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin: 14px 0;
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .rule-formula {
+            font-family: var(--jp-font);
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            margin-bottom: 6px;
+        }
+
+        .rule-meaning {
+            font-size: 0.95rem;
+            color: #334155;
+            font-weight: 600;
+        }
+
+        .example-list {
+            margin-top: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .example-item {
+            background: #ffffff;
+            border-radius: 10px;
+            padding: 12px 16px;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 12px;
+            transition: all 0.2s;
+        }
+
+        .example-item:hover {
+            border-color: #a7f3d0;
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .ex-text-wrap {
+            flex-grow: 1;
+        }
+
+        .ex-jp {
+            font-family: var(--jp-font);
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 3px;
+        }
+
+        .ex-vi {
+            font-size: 0.88rem;
+            color: #475569;
+        }
+
+        .btn-speak {
+            background: #ecfdf5;
+            border: 1px solid #a7f3d0;
+            color: var(--primary-dark);
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            flex-shrink: 0;
+            transition: all 0.2s;
+        }
+
+        .btn-speak:hover {
+            background: var(--primary);
+            color: #ffffff;
+            transform: scale(1.08);
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 0.92rem;
+            background: #ffffff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .comparison-table th {
+            background: #065f46;
+            color: #ffffff;
+            padding: 12px 16px;
+            text-align: left;
+            font-weight: 700;
+        }
+
+        .comparison-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background: #f8fafc;
+        }
+
+        /* Morph Lab */
+        .verb-picker-row {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
+            align-items: center;
+        }
+
+        .verb-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 9px 18px;
+            border-radius: 999px;
+            font-size: 0.92rem;
+            font-weight: 700;
+            border: 1.5px solid #cbd5e1;
+            background: #ffffff;
+            color: #334155;
+            cursor: pointer;
+            white-space: nowrap;
+            flex-shrink: 0;
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .verb-pill:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(5, 150, 105, 0.15);
+        }
+
+        .verb-pill.active {
+            background: var(--primary) !important;
+            color: #ffffff !important;
+            border-color: var(--primary-dark) !important;
+            box-shadow: 0 4px 12px rgba(5, 150, 105, 0.35) !important;
+            transform: translateY(-1px);
+        }
+
+        .verb-pill .pill-kanji {
+            font-family: var(--jp-font);
+            font-weight: 800;
+            font-size: 0.95rem;
+        }
+
+        .verb-pill .pill-meaning {
+            font-size: 0.8rem;
+            font-weight: 600;
+            opacity: 0.75;
+        }
+
+        .verb-pill.active .pill-meaning {
+            opacity: 0.92;
+            color: #ecfdf5;
+        }
+
+        .morph-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 14px;
+            margin-bottom: 18px;
+        }
+
+        .morph-box {
+            background: #ffffff;
+            border: 2px solid #e2e8f0;
+            border-radius: 14px;
+            padding: 18px 16px;
+            text-align: center;
+            transition: all 0.25s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 120px;
+        }
+
+        .morph-box:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-card);
+        }
+
+        .morph-box.featured {
+            border-color: var(--primary);
+            background: var(--primary-soft);
+        }
+
+        .morph-tag {
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: #64748b;
+            margin-bottom: 8px;
+        }
+
+        .morph-val {
+            font-family: var(--jp-font);
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin: 6px 0;
+            word-break: keep-all;
+            white-space: normal;
+        }
+            padding: 16px;
+            text-align: center;
+            transition: all 0.25s;
+        }
+
+        .morph-box.featured {
+            border-color: var(--primary);
+            background: #ecfdf5;
+        }
+
+        .morph-tag {
+            font-size: 0.72rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: #64748b;
+            margin-bottom: 6px;
+        }
+
+        .morph-box.featured .morph-tag {
+            color: var(--primary-dark);
+        }
+
+        .morph-val {
+            font-family: var(--jp-font);
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: #0f172a;
+        }
+
+        .morph-ex-box {
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            border-radius: 10px;
+            padding: 14px 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* Dialogue */
+        .dialogue-wrap {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: var(--radius-md);
+            padding: 24px;
+        }
+
+        .chat-container {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-bottom: 20px;
+        }
+
+        .chat-bubble {
+            display: flex;
+            gap: 12px;
+            max-width: 80%;
+        }
+
+        .chat-bubble.bot {
+            align-self: flex-start;
+        }
+
+        .chat-bubble.user {
+            align-self: flex-end;
+            flex-direction: row-reverse;
+        }
+
+        .chat-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .chat-msg {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            padding: 12px 16px;
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .chat-bubble.user .chat-msg {
+            background: #059669;
+            color: #ffffff;
+            border-color: #047857;
+        }
+
+        .chat-name {
+            font-size: 0.72rem;
+            font-weight: 800;
+            color: #64748b;
+            margin-bottom: 2px;
+        }
+
+        .chat-bubble.user .chat-name {
+            color: #a7f3d0;
+            text-align: right;
+        }
+
+        .chat-jp {
+            font-family: var(--jp-font);
+            font-size: 0.98rem;
+            font-weight: 700;
+        }
+
+        .chat-vi {
+            font-size: 0.8rem;
+            color: #64748b;
+            margin-top: 3px;
+        }
+
+        .chat-bubble.user .chat-vi {
+            color: #e2e8f0;
+        }
+
+        .chat-options-panel {
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            border-radius: 12px;
+            padding: 16px;
+        }
+
+        .chat-opt-title {
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: #334155;
+            margin-bottom: 10px;
+        }
+
+        .chat-btn-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 10px;
+        }
+
+        .btn-chat-choice {
+            background: #f8fafc;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 10px;
+            padding: 10px 14px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: #1e293b;
+            cursor: pointer;
+            text-align: left;
+            transition: all 0.2s;
+        }
+
+        .btn-chat-choice:hover {
+            border-color: var(--primary);
+            background: var(--primary-soft);
+            color: var(--primary-dark);
+        }
+
+        /* Flashcards 3D */
+        .vocab-filter-bar {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 22px;
+        }
+
+        .vocab-filter-btn {
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            color: #475569;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+
+        .vocab-filter-btn:hover, .vocab-filter-btn.active {
+            background: var(--primary);
+            color: #ffffff;
+            border-color: var(--primary-dark);
+        }
+
+        .vocab-stats-badge {
+            margin-left: auto;
+            font-size: 0.85rem;
+            color: #64748b;
+            font-weight: 700;
+        }
+
+        .flashcards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .flashcard {
+            background: transparent;
+            perspective: 1000px;
+            height: 310px;
+            cursor: pointer;
+        }
+
+        .fc-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+            box-shadow: var(--shadow-subtle);
+            border-radius: 16px;
+        }
+
+        .flashcard.flipped .fc-inner {
+            transform: rotateY(180deg);
+        }
+
+        .fc-front, .fc-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 16px;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border: 1px solid #e2e8f0;
+            background: #ffffff;
+        }
+
+        .fc-back {
+            transform: rotateY(180deg);
+            background: #f8fafc;
+            border-color: #a7f3d0;
+            text-align: left;
+        }
+
+        .fc-badge {
+            display: inline-block;
+            align-self: flex-start;
+            font-size: 0.7rem;
+            font-weight: 800;
+            padding: 3px 10px;
+            border-radius: 999px;
+            background: var(--primary-soft);
+            color: var(--primary-dark);
+        }
+
+        .fc-illustration {
+            width: 100%;
+            height: 105px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .fc-illustration svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .fc-jp {
+            font-family: var(--jp-font);
+            font-size: 1.35rem;
+            font-weight: 900;
+            color: #0f172a;
+        }
+
+        .fc-kana {
+            font-family: var(--jp-font);
+            font-size: 0.9rem;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .fc-romaji {
+            font-size: 0.78rem;
+            color: #94a3b8;
+        }
+
+        .fc-hint {
+            font-size: 0.72rem;
+            color: #94a3b8;
+            font-weight: 600;
+        }
+
+        .fc-back-meaning {
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            margin-bottom: 8px;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 6px;
+        }
+
+        .fc-back-ex-jp {
+            font-family: var(--jp-font);
+            font-size: 0.92rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 4px;
+        }
+
+        .fc-back-ex-vi {
+            font-size: 0.8rem;
+            color: #475569;
+        }
+
+        .fc-back-actions {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .btn-learned {
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 5px 10px;
+            border-radius: 6px;
+            border: 1px solid #cbd5e1;
+            background: #ffffff;
+            color: #475569;
+            cursor: pointer;
+        }
+
+        .btn-learned.active {
+            background: #10b981;
+            color: #ffffff;
+            border-color: #059669;
+        }
+
+        /* Kanji Cards */
+        .kanji-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 18px;
+        }
+
+        .kanji-detail-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: var(--radius-md);
+            padding: 20px;
+            display: flex;
+            gap: 16px;
+            box-shadow: var(--shadow-subtle);
+            transition: all 0.2s;
+        }
+
+        .kanji-detail-card:hover {
+            border-color: #a7f3d0;
+            box-shadow: var(--shadow-card);
+            transform: translateY(-2px);
+        }
+
+        .kanji-big-char {
+            width: 72px;
+            height: 72px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--jp-font);
+            font-size: 2.5rem;
+            font-weight: 900;
+            flex-shrink: 0;
+            box-shadow: 0 4px 10px rgba(5, 150, 105, 0.3);
+        }
+
+        .kanji-info {
+            flex-grow: 1;
+        }
+
+        .kanji-hv-title {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 2px;
+        }
+
+        .kanji-strokes-badge {
+            font-size: 0.72rem;
+            font-weight: 700;
+            background: #f1f5f9;
+            padding: 2px 8px;
+            border-radius: 4px;
+            color: #475569;
+        }
+
+        .kanji-readings {
+            font-size: 0.82rem;
+            color: #334155;
+            margin: 6px 0;
+            line-height: 1.4;
+        }
+
+        .kanji-mnemonic {
+            font-size: 0.78rem;
+            color: #047857;
+            background: #ecfdf5;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+
+        /* Quiz */
+        .quiz-progress-bar-wrap {
+            background: #e2e8f0;
+            height: 8px;
+            border-radius: 999px;
+            margin-bottom: 24px;
+            overflow: hidden;
+        }
+
+        .quiz-progress-fill {
+            background: linear-gradient(90deg, #10b981, #059669);
+            height: 100%;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .quiz-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: var(--radius-md);
+            padding: 22px;
+            margin-bottom: 18px;
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .quiz-q-num {
+            font-size: 0.78rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+
+        .quiz-question-text {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 14px;
+        }
+
+        .quiz-options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .quiz-opt-btn {
+            background: #f8fafc;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 10px;
+            padding: 12px 16px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #334155;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .quiz-opt-btn:hover:not(:disabled) {
+            border-color: var(--primary);
+            background: var(--primary-soft);
+            color: var(--primary-dark);
+        }
+
+        .quiz-opt-btn.correct {
+            background: #dcfce7 !important;
+            border-color: #22c55e !important;
+            color: #15803d !important;
+        }
+
+        .quiz-opt-btn.wrong {
+            background: #fee2e2 !important;
+            border-color: #ef4444 !important;
+            color: #b91c1c !important;
+        }
+
+        .quiz-feedback {
+            display: none;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 0.88rem;
+            line-height: 1.5;
+            margin-top: 10px;
+        }
+
+        .quiz-feedback.show {
+            display: block;
+            animation: fadeIn 0.3s;
+        }
+
+        .quiz-feedback.correct {
+            background: #f0fdf4;
+            border: 1px solid #86efac;
+            color: #166534;
+        }
+
+        .quiz-feedback.wrong {
+            background: #fef2f2;
+            border: 1px solid #fca5a5;
+            color: #991b1b;
+        }
+
+        .score-box {
+            display: none;
+            text-align: center;
+            background: linear-gradient(135deg, #064e3b 0%, #065f46 100%);
+            color: #ffffff;
+            border-radius: var(--radius-lg);
+            padding: 36px 20px;
+            margin-top: 24px;
+        }
+
+        .score-box.show {
+            display: block;
+            animation: zoomIn 0.35s ease;
+        }
+
+        .score-val {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: #a7f3d0;
+            margin: 10px 0;
+        }
+
+        .btn-retry {
+            background: #ffffff;
+            color: #064e3b;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 999px;
+            font-weight: 800;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 14px;
+            transition: all 0.2s;
+        }
+
+        .btn-retry:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 1.6rem;
+            }
+            .hero-jp-quote {
+                font-size: 1.1rem;
+            }
+            .content-section {
+                padding: 20px 16px;
+            }
+            .dock-pill-track {
+                width: 100%;
+                order: 3;
+            }
+            .global-sticky-dock {
+                flex-wrap: wrap;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes zoomIn {
+            from { opacity: 0; transform: scale(0.92); }
+            to { opacity: 1; transform: scale(1); }
+        }
+    
+        /* ==========================================
+           GLOBAL HUB NAVIGATION (CLEAN & NON-STICKY)
+           ========================================== */
+        .global-hub-nav {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 10px 0 24px 0;
+            flex-wrap: wrap;
+        }
+        .hub-nav-item {
+            text-decoration: none;
+            background: #ffffff;
+            color: #475569;
+            padding: 9px 18px;
+            border-radius: 9999px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            border: 1.5px solid #e2e8f0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            font-family: inherit;
+        }
+        .hub-nav-item:hover {
+            border-color: #4f46e5;
+            color: #4f46e5;
+            transform: translateY(-2px);
+        }
+        .hub-nav-item.active-hub {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            color: #ffffff !important;
+            border-color: transparent;
+            box-shadow: 0 4px 15px rgba(79, 70, 229, 0.35);
+        }
+        /* Hub Dropdown Menu */
+        .hub-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .hub-dropdown-menu {
+            display: none;
+            position: absolute;
+            top: calc(100% + 6px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ffffff;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 14px;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+            padding: 8px;
+            min-width: 260px;
+            z-index: 9999;
+        }
+        .hub-dropdown-menu.show {
+            display: block;
+        }
+        .hub-drop-link {
+            display: block;
+            padding: 8px 14px;
+            color: #334155;
+            font-size: 0.88rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.15s ease;
+        }
+        .hub-drop-link:hover {
+            background: #eef2ff;
+            color: #4f46e5;
+        }
+        .hub-drop-link.active {
+            background: #4f46e5;
+            color: #ffffff !important;
+        }
+        @media (max-width: 768px) {
+            .global-hub-nav {
+                display: flex;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                justify-content: flex-start;
+                gap: 8px;
+                margin-bottom: 15px;
+                padding: 2px 2px 8px 2px;
+                scrollbar-width: none;
+            }
+            .global-hub-nav::-webkit-scrollbar {
+                display: none;
+            }
+            .hub-nav-item {
+                flex-shrink: 0;
+                padding: 7px 14px;
+                font-size: 0.84rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Global Hub Navigation -->
+    <div class="global-hub-nav">
+        <a href="../index.html" class="hub-nav-item">🌸 Thể TE (～て)</a>
+        <a href="../the_ru.html" class="hub-nav-item">📘 Thể RU (Từ Điển)</a>
+        <a href="../kanji_a2.html" class="hub-nav-item">⛩️ Học Kanji & Nét Viết</a>
+        <a href="../Tu_Vung_Marugoto_A1_16_A2_1_10.html" class="hub-nav-item">📖 Kho Từ Vựng A1-A2</a>
+        <a href="../Tong_Hop_Ngu_Phap_Marugoto_A1_A2.html" class="hub-nav-item">📚 Ngữ Pháp A1-A2 (26 Bài)</a>
+        <a href="../demo_3d.html" class="hub-nav-item">⛩️ Không Gian 3D</a>
+        <a href="../tests/On_Tap_Mini_Test_A2_1_4.html" class="hub-nav-item">🎯 Ôn Tập Bài 1-4</a>
+        <a href="../tests/On_Tap_Mini_Test_A2_5_8.html" class="hub-nav-item">🎯 Ôn Tập Bài 5-8</a>
+        <a href="../tests/De_Thi_Thu_Marugoto_A2_5_8.html" class="hub-nav-item">📝 5 Mã Đề Thi Thử</a>
+        <div class="hub-dropdown">
+            <button type="button" class="hub-nav-item active-hub" onclick="toggleLessonsDropdown(event)">🚀 Web Bài Học 10-18 ▾</button>
+            <div class="hub-dropdown-menu" id="lessonsDropdownMenu">
+                <a href="Marugoto_A2_Lesson_10.html" class="hub-drop-link">🌟 Bài 10: 外国文化</a>
+                <a href="Marugoto_A2_Lesson_11.html" class="hub-drop-link">🍱 Bài 11: そとで食べる</a>
+                <a href="Marugoto_A2_Lesson_12.html" class="hub-drop-link">🍜 Bài 12: 特別な日の料理</a>
+                <a href="Marugoto_A2_Lesson_13.html" class="hub-drop-link">✈️ Bài 13: 出張</a>
+                <a href="Marugoto_A2_Lesson_14.html" class="hub-drop-link">💻 Bài 14: 職場のマナー</a>
+                <a href="Marugoto_A2_Lesson_15.html" class="hub-drop-link">🏥 Bài 15: 健康な生活</a>
+                <a href="Marugoto_A2_Lesson_16.html" class="hub-drop-link active">🏃 Bài 16: 体にいいこと</a>
+                <a href="Marugoto_A2_Lesson_17.html" class="hub-drop-link">🎁 Bài 17: お祝い</a>
+                <a href="Marugoto_A2_Lesson_18.html" class="hub-drop-link">👘 Bài 18: お祭りやイベント</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- GLOBAL FLOATING DOCK -->
+    
+        </div>
+    </div>
+
+    
+        </div>
+
+        <!-- GRAMMAR SECTIONS -->
+        <section class="content-section" id="sec-grammar1">
+            <div class="section-header">
+                <h2 class="section-title"><span>🏃</span> 1. Liệt kê hành động tiêu biểu: V1-たり、V2-たりします</h2>
+                <span class="section-tag">Liệt kê thói quen</span>
+            </div>
+
+            <p style="margin-bottom: 16px; color: #334155;">
+                Dùng để chọn ra vài hành động tiêu biểu đại diện trong số nhiều việc mình làm (không cần tuân theo thứ tự trước sau như thể Te).
+            </p>
+
+            <div class="grammar-card">
+                <div class="rule-box" style="border-left-color: #10b981;">
+                    <div class="rule-formula" style="color: #047857;">Động từ thể Quá khứ (V-た) + り、V-た + り します / しています</div>
+                    <div class="rule-meaning">
+                        Lúc thì làm V1, lúc thì làm V2... (ví dụ: ngày nghỉ tôi lúc thì chạy bộ, lúc thì bơi lội).
+                    </div>
+                </div>
+
+                                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Động từ 1</th>
+                            <th>Động từ 2</th>
+                            <th>Câu hoàn chỉnh V-たり V-たりします</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong style="color:var(--primary-dark); font-size:1.02rem;">走ります (Chạy)</strong></td>
+                            <td>泳ぎます (Bơi)</td>
+                            <td>週末は 走ったり、泳いだり しています。</td>
+                        </tr>                        <tr>
+                            <td><strong style="color:var(--primary-dark); font-size:1.02rem;">本を読みます (Đọc)</strong></td>
+                            <td>映画を見ます (Xem)</td>
+                            <td>休みの日は 本を読んだり、映画を見たり します。</td>
+                        </tr>                        <tr>
+                            <td><strong style="color:var(--primary-dark); font-size:1.02rem;">散歩します (Tản bộ)</strong></td>
+                            <td>買い物をします (Mua sắm)</td>
+                            <td>公園を 散歩したり、買い物をしたり します。</td>
+                        </tr>                        <tr>
+                            <td><strong style="color:var(--primary-dark); font-size:1.02rem;">ヨガをします (Yoga)</strong></td>
+                            <td>たいそうをします (Thể dục)</td>
+                            <td>ヨガをしたり、体操をしたり しています。</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="example-list">
+                    <div class="example-item">
+                        <div class="ex-text-wrap">
+                            <div class="ex-jp">週末は 公園を 走ったり、プールで 泳いだり しています。</div>
+                            <div class="ex-vi">Cuối tuần tôi lúc thì chạy bộ ở công viên, lúc thì đi bơi ở hồ bơi.</div>
+                        </div>
+                        <button type="button" class="btn-speak" onclick="speakText('週末は 公園を 走ったり、プールで 泳いだり しています。')">🔊</button>
+                    </div>
+                    <div class="example-item">
+                        <div class="ex-text-wrap">
+                            <div class="ex-jp">休みの日は 音楽を 聞いたり、掃除を したり します。</div>
+                            <div class="ex-vi">Vào ngày nghỉ tôi nghe nhạc rồi lúc thì dọn dẹp phòng ốc.</div>
+                        </div>
+                        <button type="button" class="btn-speak" onclick="speakText('休みの日は 音楽を 聞いたり、掃除を したり します。')">🔊</button>
+                    </div>
+                    <div class="example-item">
+                        <div class="ex-text-wrap">
+                            <div class="ex-jp">健康の ために、歩いたり 野菜を たくさん 食べたり しています。</div>
+                            <div class="ex-vi">Để giữ gìn sức khỏe, tôi đi bộ và ăn nhiều rau xanh.</div>
+                        </div>
+                        <button type="button" class="btn-speak" onclick="speakText('健康の ために、歩いたり 野菜を たくさん 食べたり しています。')">🔊</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section" id="sec-grammar2">
+            <div class="section-header">
+                <h2 class="section-title"><span>🎯</span> 2. Biểu đạt mục đích: N の ために (Để... / Vì...)</h2>
+                <span class="section-tag">Mục tiêu & Động lực</span>
+            </div>
+
+            <p style="margin-bottom: 16px; color: #334155;">
+                Dùng để nêu rõ mục đích của một chuỗi hành vi hoặc câu hỏi tìm hiểu lối sống của người khác.
+            </p>
+
+            <div class="grammar-card">
+                <div class="rule-box" style="border-left-color: #0284c7;">
+                    <div class="rule-formula" style="color: #0369a1;">[Danh từ] の ために [Hành động / Câu hỏi]</div>
+                    <div class="rule-meaning">
+                        Vì... / Để phục vụ cho... (ví dụ: Vì sức khỏe, Vì gia đình, Vì kỳ thi).
+                    </div>
+                </div>
+
+                
+
+                <div class="example-list">
+                    <div class="example-item">
+                        <div class="ex-text-wrap">
+                            <div class="ex-jp">健康の ために 何か していますか。</div>
+                            <div class="ex-vi">Để duy trì sức khỏe, bạn có làm hoạt động gì không?</div>
+                        </div>
+                        <button type="button" class="btn-speak" onclick="speakText('健康の ために 何か していますか。')">🔊</button>
+                    </div>
+                    <div class="example-item">
+                        <div class="ex-text-wrap">
+                            <div class="ex-jp">健康の ために、毎朝 ヨーグルトを 食べて います。</div>
+                            <div class="ex-vi">Vì sức khỏe, mỗi sáng tôi đều ăn sữa chua.</div>
+                        </div>
+                        <button type="button" class="btn-speak" onclick="speakText('健康の ために、毎朝 ヨーグルトを 食べて います。')">🔊</button>
+                    </div>
+                    <div class="example-item">
+                        <div class="ex-text-wrap">
+                            <div class="ex-jp">家族の ために 一生懸命 働いています。</div>
+                            <div class="ex-vi">Tôi làm việc chăm chỉ hết mình vì gia đình.</div>
+                        </div>
+                        <button type="button" class="btn-speak" onclick="speakText('家族の ために 一生懸命 働いています。')">🔊</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section" id="sec-grammar3">
+            <div class="section-header">
+                <h2 class="section-title"><span>💡</span> 3. Lời khuyên nên / không nên làm: V-たほうがいい / V-ないほうがいい</h2>
+                <span class="section-tag">Lời khuyên sức khỏe</span>
+            </div>
+
+            <p style="margin-bottom: 16px; color: #334155;">
+                Dùng khi người nói muốn đưa ra lời khuyên cụ thể, trực diện về lối sống tốt cho người nghe.
+            </p>
+
+            <div class="grammar-card">
+                <div class="rule-box" style="border-left-color: #ea580c;">
+                    <div class="rule-formula" style="color: #c2410c;">Động từ thể Quá khứ (V-た) + ほうがいいです (Nên làm)<br>Động từ thể Phủ định (V-ない) + ほうがいいです (Không nên làm)</div>
+                    <div class="rule-meaning">
+                        Nên... thì tốt hơn / Không nên... thì tốt hơn (so sánh giữa hai sự lựa chọn).
+                    </div>
+                </div>
+
+                
+
+                <div class="example-list">
+                    <div class="example-item">
+                        <div class="ex-text-wrap">
+                            <div class="ex-jp">毎日 野菜を たくさん 食べた ほうが いいですよ。</div>
+                            <div class="ex-vi">Mỗi ngày bạn nên ăn nhiều rau xanh thì tốt hơn đấy.</div>
+                        </div>
+                        <button type="button" class="btn-speak" onclick="speakText('毎日 野菜を たくさん 食べた ほうが いいですよ。')">🔊</button>
+                    </div>
+                    <div class="example-item">
+                        <div class="ex-text-wrap">
+                            <div class="ex-jp">夜遅くまで 起きていないで、早く 寝た ほうが いいです。</div>
+                            <div class="ex-vi">Đừng thức quá khuya, bạn nên đi ngủ sớm thì tốt hơn.</div>
+                        </div>
+                        <button type="button" class="btn-speak" onclick="speakText('夜遅くまで 起きていないで、早く 寝た ほうが いいです。')">🔊</button>
+                    </div>
+                    <div class="example-item">
+                        <div class="ex-text-wrap">
+                            <div class="ex-jp">お酒を 飲みすぎない ほうが いいですよ。</div>
+                            <div class="ex-vi">Bạn không nên uống rượu bia quá nhiều đâu nhé.</div>
+                        </div>
+                        <button type="button" class="btn-speak" onclick="speakText('お酒を 飲みすぎない ほうが いいですよ。')">🔊</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- INTERACTIVE LABORATORY -->
+        <section class="content-section" id="sec-verb-lab">
+            <div class="section-header">
+                <h2 class="section-title"><span>🔬</span> Phòng Thí Nghiệm Động Từ Thể Tari & Lời Khuyên (Morphing Lab)</h2>
+                <span class="section-tag">Interactive Laboratory</span>
+            </div>
+
+            <p style="margin-bottom: 16px; color: #334155;">
+                Thực hành biến đổi động từ sang thể Tari (Liệt kê thói quen sống) và mẫu câu khuyên bảo nên/không nên (V-たほうがいい / V-ないほうがいい):
+            </p>
+
+            <div class="verb-picker-row" id="verbPickerRow">
+                <!-- Verb pills populated via JS -->
+            </div>
+
+            <div class="morph-grid">
+                <div class="morph-box">
+                    <div class="morph-tag">Thể MASU</div>
+                    <div class="morph-val" id="morphMasu">---</div>
+                    <div style="font-size:0.8rem; color:#64748b; margin-top:4px;" id="morphVi">---</div>
+                </div>
+                <div class="morph-box">
+                    <div class="morph-tag">Thể TARI (Liệt kê)</div>
+                    <div class="morph-val" style="color:#0284c7;" id="morphTe">---</div>
+                    <div style="font-size:0.8rem; color:#64748b; margin-top:4px;">Gốc biến đổi</div>
+                </div>
+                <div class="morph-box featured">
+                    <div class="morph-tag">V1-たり V2-たり (Đang làm)</div>
+                    <div class="morph-val" style="color:#059669;" id="morphTeIki">---</div>
+                    <div style="font-size:0.8rem; color:#047857; margin-top:4px;">Cấu trúc trọng tâm 1</div>
+                </div>
+                <div class="morph-box">
+                    <div class="morph-tag">V-たほうがいい (Nên)</div>
+                    <div class="morph-val" style="color:#7c3aed;" id="morphTeKi">---</div>
+                    <div style="font-size:0.8rem; color:#64748b; margin-top:4px;">Cấu trúc trọng tâm 2</div>
+                </div>
+                <div class="morph-box">
+                    <div class="morph-tag">V-ないほうがいい (Không nên)</div>
+                    <div class="morph-val" style="color:#ea580c;" id="morphMashou">---</div>
+                    <div style="font-size:0.8rem; color:#64748b; margin-top:4px;">Mẫu câu giao tiếp</div>
+                </div>
+            </div>
+
+            <div class="morph-ex-box">
+                <div>
+                    <div style="font-size:0.75rem; font-weight:800; color:#047857; text-transform:uppercase;">Câu ví dụ thực tế trong Bài 16:</div>
+                    <div style="font-family:var(--jp-font); font-size:1.05rem; font-weight:800; color:#0f172a; margin-top:2px;" id="morphExText">
+                        ---
+                    </div>
+                </div>
+                <button type="button" class="btn-speak" id="btnMorphSpeak" onclick="speakCurrentMorph()">🔊</button>
+            </div>
+        </section>
+
+        <!-- INTERACTIVE DIALOGUE SIMULATOR -->
+        <section class="content-section" id="sec-dialogue">
+            <div class="section-header">
+                <h2 class="section-title"><span>💬</span> Chia Sẻ Bí Quyết Rèn Luyện Sức Khỏe</h2>
+                <span class="section-tag">Role-play Simulator</span>
+            </div>
+
+            <p style="margin-bottom: 16px; color: #334155;">
+                Thảo luận về các thói quen vận động thể thao cuối tuần và trao đổi những lời khuyên hữu ích để nâng cao thể lực:
+            </p>
+
+            <div class="dialogue-wrap">
+                <div class="chat-container" id="chatContainer">
+                    <div class="chat-bubble bot">
+                        <div class="chat-avatar">👨‍💼</div>
+                        <div class="chat-msg">
+                            <div class="chat-name">Kato (Đồng nghiệp)</div>
+                            <div class="chat-jp">いつも元気ですね！健康のために何かしているんですか。</div>
+                            <div class="chat-vi">Lúc nào trông bạn cũng tràn đầy năng lượng! Để giữ sức khỏe bạn có tập tành gì không?</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chat-options-panel">
+                    <div class="chat-opt-title">🎯 Chọn lời thoại phản hồi của bạn:</div>
+                    <div class="chat-btn-grid" id="chatOptionsGrid">
+                        <!-- Populated dynamically via JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FLASHCARDS 3D -->
+        <section class="content-section" id="sec-vocab">
+            <div class="section-header">
+                <h2 class="section-title"><span>🎴</span> TRỌN BỘ 30 TỪ VỰNG BÀI 16 (FLASHCARD 3D)</h2>
+                <span class="section-tag">Flashcards 3D</span>
+            </div>
+
+            <p style="margin-bottom: 16px; color: #334155;">
+                Bấm trực tiếp vào từng thẻ để lật xem nghĩa tiếng Việt và câu ví dụ. Bấm biểu tượng 🔊 để nghe phát âm chuẩn Tokyo:
+            </p>
+
+            <div class="vocab-filter-bar" id="vocabFilterBar">
+                <!-- Filters rendered via JS -->
+                <div class="vocab-stats-badge" id="vocabStats">Đã thuộc: 0 / 30 từ</div>
+            </div>
+
+            <div class="flashcards-grid" id="flashcardsGrid">
+                <!-- Cards rendered via JS -->
+            </div>
+        </section>
+
+        <!-- KANJI SECTION -->
+        <section class="content-section" id="sec-kanji">
+            <div class="section-header">
+                <h2 class="section-title"><span>⛩️</span> 10 CHỮ HÁN CỐT LÕI BÀI 16</h2>
+                <span class="section-tag">Kanji Mastery</span>
+            </div>
+
+            <p style="margin-bottom: 20px; color: #334155;">
+                Các chữ Hán này đã được cập nhật hoàn chỉnh trong ứng dụng <a href="../kanji_a2.html" style="color:var(--primary); font-weight:700; text-decoration:underline;">Học Kanji & Nét Viết</a>:
+            </p>
+
+            <div class="kanji-cards-grid">
+                <div class="kanji-detail-card">
+                    <div class="kanji-big-char">毎</div>
+                    <div class="kanji-info">
+                        <div class="kanji-hv-title">MỖI <span class="kanji-strokes-badge">6 nét</span></div>
+                        <div class="kanji-readings">
+                            <strong>Kun:</strong> ごと<br>
+                            <strong>On:</strong> MAI<br>
+                            <strong>Từ ví dụ:</strong> 毎日 (まいにち - mỗi ngày), 毎朝 (まいあさ - mỗi sáng)
+                        </div>
+                        <div class="kanji-mnemonic">💡 Mẹo nhớ: Hình người mẹ (母) đội nón tần tảo MỖI ngày nuôi con.</div>
+                    </div>
+                </div>
+                <div class="kanji-detail-card">
+                    <div class="kanji-big-char">末</div>
+                    <div class="kanji-info">
+                        <div class="kanji-hv-title">MẠT <span class="kanji-strokes-badge">5 nét</span></div>
+                        <div class="kanji-readings">
+                            <strong>Kun:</strong> すえ<br>
+                            <strong>On:</strong> MATSU<br>
+                            <strong>Từ ví dụ:</strong> 週末 (しゅうまつ - cuối tuần), 年末 (ねんまつ - cuối năm)
+                        </div>
+                        <div class="kanji-mnemonic">💡 Mẹo nhớ: Ngọn cây có cành trên dài hơn cành dưới chỉ phần ngọn, cuối MẠT.</div>
+                    </div>
+                </div>
+                <div class="kanji-detail-card">
+                    <div class="kanji-big-char">元</div>
+                    <div class="kanji-info">
+                        <div class="kanji-hv-title">NGUYÊN <span class="kanji-strokes-badge">4 nét</span></div>
+                        <div class="kanji-readings">
+                            <strong>Kun:</strong> もと<br>
+                            <strong>On:</strong> GEN, GAN<br>
+                            <strong>Từ ví dụ:</strong> 元気 (げんき - khỏe mạnh), 元日 (がんじつ - mùng 1 tết)
+                        </div>
+                        <div class="kanji-mnemonic">💡 Mẹo nhớ: Hai nét ngang trên người (儿) tượng trưng cho nguồn gốc NGUYÊN thủy.</div>
+                    </div>
+                </div>
+                <div class="kanji-detail-card">
+                    <div class="kanji-big-char">外</div>
+                    <div class="kanji-info">
+                        <div class="kanji-hv-title">NGOẠI <span class="kanji-strokes-badge">5 nét</span></div>
+                        <div class="kanji-readings">
+                            <strong>Kun:</strong> そと、はず-す<br>
+                            <strong>On:</strong> GAI<br>
+                            <strong>Từ ví dụ:</strong> 外 (そと - bên ngoài), 外国 (がいこく - nước ngoài)
+                        </div>
+                        <div class="kanji-mnemonic">💡 Mẹo nhớ: Buổi chiều (夕) bói quẻ bốc bằng dao (卜) để xem chuyện bên NGOẠI.</div>
+                    </div>
+                </div>
+                <div class="kanji-detail-card">
+                    <div class="kanji-big-char">起</div>
+                    <div class="kanji-info">
+                        <div class="kanji-hv-title">KHỞI <span class="kanji-strokes-badge">10 nét</span></div>
+                        <div class="kanji-readings">
+                            <strong>Kun:</strong> お-きる、お-こす<br>
+                            <strong>On:</strong> KI<br>
+                            <strong>Từ ví dụ:</strong> 起きます (おきます - thức dậy), 早起 (はやおき - dậy sớm)
+                        </div>
+                        <div class="kanji-mnemonic">💡 Mẹo nhớ: Chạy bộ (走) đưa bản thân mình (己) đứng dậy KHỞI hành ngày mới.</div>
+                    </div>
+                </div>
+                <div class="kanji-detail-card">
+                    <div class="kanji-big-char">歩</div>
+                    <div class="kanji-info">
+                        <div class="kanji-hv-title">BỘ <span class="kanji-strokes-badge">8 nét</span></div>
+                        <div class="kanji-readings">
+                            <strong>Kun:</strong> ある-く、あゆ-む<br>
+                            <strong>On:</strong> HO, PO<br>
+                            <strong>Từ ví dụ:</strong> 歩きます (あるきます - đi bộ), 散歩 (さんぽ - tản bộ)
+                        </div>
+                        <div class="kanji-mnemonic">💡 Mẹo nhớ: Hai bàn chân trước sau bước đi thong dong từng BỘ.</div>
+                    </div>
+                </div>
+                <div class="kanji-detail-card">
+                    <div class="kanji-big-char">走</div>
+                    <div class="kanji-info">
+                        <div class="kanji-hv-title">TẨU <span class="kanji-strokes-badge">7 nét</span></div>
+                        <div class="kanji-readings">
+                            <strong>Kun:</strong> はし-る<br>
+                            <strong>On:</strong> SOO<br>
+                            <strong>Từ ví dụ:</strong> 走ります (はしります - chạy), ご馳走 (ごちそう - bữa tiệc)
+                        </div>
+                        <div class="kanji-mnemonic">💡 Mẹo nhớ: Người uốn mình vung tay vọt qua đất đai (土) TẨU thoát thật nhanh.</div>
+                    </div>
+                </div>
+                <div class="kanji-detail-card">
+                    <div class="kanji-big-char">泳</div>
+                    <div class="kanji-info">
+                        <div class="kanji-hv-title">VỊNH <span class="kanji-strokes-badge">8 nét</span></div>
+                        <div class="kanji-readings">
+                            <strong>Kun:</strong> およ-ぐ<br>
+                            <strong>On:</strong> EI<br>
+                            <strong>Từ ví dụ:</strong> 泳ぎます (およぎます - bơi lội), 水泳 (すいえい - môn bơi lội)
+                        </div>
+                        <div class="kanji-mnemonic">💡 Mẹo nhớ: Dòng nước (氵) vĩnh cửu (永) là nơi thỏa sức bơi lội VỊNH mình.</div>
+                    </div>
+                </div>
+                <div class="kanji-detail-card">
+                    <div class="kanji-big-char">朝</div>
+                    <div class="kanji-info">
+                        <div class="kanji-hv-title">TRIỀU <span class="kanji-strokes-badge">12 nét</span></div>
+                        <div class="kanji-readings">
+                            <strong>Kun:</strong> あさ<br>
+                            <strong>On:</strong> CHOO<br>
+                            <strong>Từ ví dụ:</strong> 朝 (あさ - buổi sáng), 毎朝 (まいあさ - mỗi sáng)
+                        </div>
+                        <div class="kanji-mnemonic">💡 Mẹo nhớ: Mặt trời mọc giữa đồng cỏ mười phương cùng vầng trăng buổi sáng sớm (TRIỀU).</div>
+                    </div>
+                </div>
+                <div class="kanji-detail-card">
+                    <div class="kanji-big-char">気</div>
+                    <div class="kanji-info">
+                        <div class="kanji-hv-title">KHÍ <span class="kanji-strokes-badge">6 nét</span></div>
+                        <div class="kanji-readings">
+                            <strong>Kun:</strong> -<br>
+                            <strong>On:</strong> KI<br>
+                            <strong>Từ ví dụ:</strong> 元気 (げんき - khỏe mạnh), 天気 (てんき - thời tiết)
+                        </div>
+                        <div class="kanji-mnemonic">💡 Mẹo nhớ: Luồng hơi nước bốc lên từ nồi cơm tỏa ra nguyên KHÍ trời đất.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 24px;">
+                <a href="../kanji_a2.html" class="dock-action-btn" style="padding: 10px 24px; font-size: 0.95rem; background: var(--primary); color: #fff; border: none; display: inline-flex;">
+                    ⛩️ Mở Ứng Dụng Luyện Viết Từng Nét Chữ Hán Bài Này ➔
+                </a>
+            </div>
+        </section>
+
+        <!-- MINI TEST SECTION -->
+        <section class="content-section" id="sec-quiz">
+            <div class="section-header">
+                <h2 class="section-title"><span>📝</span> MINI TEST PHẢN XẠ BÀI 16 (15 CÂU)</h2>
+                <span class="section-tag">Interactive Exam</span>
+            </div>
+
+            <p style="margin-bottom: 16px; color: #334155;">
+                Bài test gồm 15 câu bao quát toàn bộ ngữ pháp, từ vựng và chữ Hán Bài 16. Bấm vào đáp án để xem giải thích chi tiết ngay lập tức!
+            </p>
+
+            <div class="quiz-progress-bar-wrap">
+                <div class="quiz-progress-fill" id="quizProgressBar"></div>
+            </div>
+
+            <div id="quizContainer">
+                <!-- Questions rendered via JS -->
+            </div>
+
+            <div class="score-box" id="scoreBox">
+                <h3>🎉 KẾT QUẢ BÀI TEST BÀI 16</h3>
+                <div class="score-val" id="scoreVal">15 / 15</div>
+                <p id="scoreMsg" style="font-size: 1.1rem; color: #a7f3d0; margin-bottom: 16px;">
+                    Xuất sắc! Bạn đã nắm vững toàn bộ kiến thức Bài 16!
+                </p>
+                <button type="button" class="btn-retry" onclick="resetQuiz()">🔄 Làm Lại Bài Test</button>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- SCRIPTS -->
+    <script>
+        const VOCAB_DATA = [{"id": 1, "cat": "exercise", "catName": "Môn thể thao & Tập luyện", "badge": "Chạy bộ thể dục (Jogging)", "jp": "ジョギング（を）します", "kana": "ジョギング（を）します", "kanji": "ジョギングをします", "romaji": "jogingu (wo) shimasu", "vi": "Chạy bộ thể dục (Jogging)", "exJp": "毎朝 公園で ジョギングをします。", "exVi": "Mỗi sáng đều chạy bộ ở công viên.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_102856\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#10b981\"/>\n      <stop offset=\"100%\" stop-color=\"#047857\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_102856)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🏃</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">CHẠY BỘ</text>\n</svg>"}, {"id": 2, "cat": "exercise", "catName": "Môn thể thao & Tập luyện", "badge": "Chạy nhanh", "jp": "はしります", "kana": "はしります", "kanji": "走ります", "romaji": "hashirimasu", "vi": "Chạy nhanh", "exJp": "駅まで 急いで 走りました。", "exVi": "Chạy vội vã ra ga.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_263711\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#10b981\"/>\n      <stop offset=\"100%\" stop-color=\"#047857\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_263711)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🏃‍♂️</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">CHẠY NHANH</text>\n</svg>"}, {"id": 3, "cat": "exercise", "catName": "Môn thể thao & Tập luyện", "badge": "Đi bộ rèn luyện sức khỏe", "jp": "ウォーキング（を）します", "kana": "ウォーキング（を）します", "kanji": "ウォーキングをします", "romaji": "uookingu (wo) shimasu", "vi": "Đi bộ rèn luyện sức khỏe", "exJp": "夜 ウォーキングを しています。", "exVi": "Buổi tối tôi thường đi bộ thể dục.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_405087\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#10b981\"/>\n      <stop offset=\"100%\" stop-color=\"#047857\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_405087)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🚶</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">ĐI BỘ</text>\n</svg>"}, {"id": 4, "cat": "exercise", "catName": "Môn thể thao & Tập luyện", "badge": "Đi bộ bình thường", "jp": "あるきます", "kana": "あるきます", "kanji": "歩きます", "romaji": "arukimasu", "vi": "Đi bộ bình thường", "exJp": "毎日 30分 歩きます。", "exVi": "Mỗi ngày đi bộ 30 phút.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_405087\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#10b981\"/>\n      <stop offset=\"100%\" stop-color=\"#047857\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_405087)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🚶‍♂️</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">ĐI BỘ</text>\n</svg>"}, {"id": 5, "cat": "measure", "catName": "Đo lường & Cơ sở vật chất", "badge": "Kilomet (km)", "jp": "キロメートル", "kana": "キロメートル", "kanji": "キロメートル", "romaji": "kiromeetoru", "vi": "Kilomet (km)", "exJp": "毎日 5キロメートル 走ります。", "exVi": "Mỗi ngày chạy 5 km.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_452816\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#10b981\"/>\n      <stop offset=\"100%\" stop-color=\"#047857\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_452816)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">📏</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">KILOMET</text>\n</svg>"}, {"id": 6, "cat": "measure", "catName": "Đo lường & Cơ sở vật chất", "badge": "Kilogram (kg)", "jp": "キログラム", "kana": "キログラム", "kanji": "キログラム", "romaji": "kiroguramu", "vi": "Kilogram (kg)", "exJp": "体重が 2キログラム へりました。", "exVi": "Cân nặng đã giảm được 2 kg.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_683650\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#10b981\"/>\n      <stop offset=\"100%\" stop-color=\"#047857\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_683650)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">⚖️</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">KILOGRAM</text>\n</svg>"}, {"id": 7, "cat": "exercise", "catName": "Môn thể thao & Tập luyện", "badge": "Bơi dưới nước", "jp": "およぎます", "kana": "およぎます", "kanji": "泳ぎます", "romaji": "oyogimasu", "vi": "Bơi dưới nước", "exJp": "夏は 海で 泳ぎます。", "exVi": "Mùa hè đi bơi ở biển.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_313518\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#10b981\"/>\n      <stop offset=\"100%\" stop-color=\"#047857\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_313518)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🏊</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">BƠI</text>\n</svg>"}, {"id": 8, "cat": "exercise", "catName": "Môn thể thao & Tập luyện", "badge": "Môn bơi lội", "jp": "すいえい（を）します", "kana": "すいえい（を）します", "kanji": "水泳をします", "romaji": "suiei (wo) shimasu", "vi": "Môn bơi lội", "exJp": "週末に 水泳を 習っています。", "exVi": "Cuối tuần tôi đi học bơi lội.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_145572\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#10b981\"/>\n      <stop offset=\"100%\" stop-color=\"#047857\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_145572)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🏊‍♂️</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">BƠI LỘI</text>\n</svg>"}, {"id": 9, "cat": "measure", "catName": "Đo lường & Cơ sở vật chất", "badge": "Bể bơi", "jp": "プール", "kana": "プール", "kanji": "プール", "romaji": "puuru", "vi": "Bể bơi, hồ bơi", "exJp": "近くの プールへ 行きます。", "exVi": "Đi đến bể bơi gần nhà.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_522024\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#10b981\"/>\n      <stop offset=\"100%\" stop-color=\"#047857\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_522024)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🏊</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">BỂ BƠI</text>\n</svg>"}, {"id": 10, "cat": "exercise", "catName": "Môn thể thao & Tập luyện", "badge": "Tập bài thể dục", "jp": "たいそう（を）します", "kana": "たいそう（を）します", "kanji": "体操をします", "romaji": "taisou (wo) shimasu", "vi": "Tập bài thể dục", "exJp": "運動の前に 体操をします。", "exVi": "Tập thể dục trước khi vận động.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_800977\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#10b981\"/>\n      <stop offset=\"100%\" stop-color=\"#047857\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_800977)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🤸</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">TẬP THỂ DỤC</text>\n</svg>"}, {"id": 11, "cat": "exercise", "catName": "Môn thể thao & Tập luyện", "badge": "Tập aerobic nhịp điệu", "jp": "エアロビクス（を）します", "kana": "エアロビクス（を）します", "kanji": "エアロビクスをします", "romaji": "earobikusu (wo) shimasu", "vi": "Tập aerobic nhịp điệu", "exJp": "ジムで エアロビクスを します。", "exVi": "Tập aerobic ở phòng gym.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_988192\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#10b981\"/>\n      <stop offset=\"100%\" stop-color=\"#047857\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_988192)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">💃</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">AEROBIC</text>\n</svg>"}, {"id": 12, "cat": "exercise", "catName": "Môn thể thao & Tập luyện", "badge": "Tập thể hình", "jp": "トレーニング（を）します", "kana": "トレーニング（を）します", "kanji": "トレーニングをします", "romaji": "toreeningu (wo) shimasu", "vi": "Tập thể hình, rèn luyện thể lực", "exJp": "筋力 トレーニングを します。", "exVi": "Tập luyện rèn cơ bắp.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_627270\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#10b981\"/>\n      <stop offset=\"100%\" stop-color=\"#047857\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_627270)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🏋️</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">TẬP GYM</text>\n</svg>"}, {"id": 13, "cat": "measure", "catName": "Đo lường & Cơ sở vật chất", "badge": "Phòng tập thể hình gym", "jp": "ジム", "kana": "ジム", "kanji": "ジム", "romaji": "jimu", "vi": "Phòng tập thể hình gym", "exJp": "週に3回 ジムに 通っています。", "exVi": "Đi tập gym 3 buổi một tuần.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_82838\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#10b981\"/>\n      <stop offset=\"100%\" stop-color=\"#047857\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_82838)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🏋️‍♂️</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">PHÒNG GYM</text>\n</svg>"}, {"id": 14, "cat": "exercise", "catName": "Môn thể thao & Tập luyện", "badge": "Tập yoga thiền định", "jp": "ヨガ（を）します", "kana": "ヨガ（を）します", "kanji": "ヨガをします", "romaji": "yoga (wo) shimasu", "vi": "Tập yoga thiền định", "exJp": "朝起きて ヨガを します。", "exVi": "Thức dậy buổi sáng rồi tập yoga.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_392463\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#10b981\"/>\n      <stop offset=\"100%\" stop-color=\"#047857\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_392463)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🧘</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">TẬP YOGA</text>\n</svg>"}, {"id": 15, "cat": "health", "catName": "Sức khỏe & Thói quen", "badge": "Hút thuốc lá", "jp": "たばこを すいます", "kana": "たばこを すいます", "kanji": "煙草を吸います", "romaji": "tabako wo suimasu", "vi": "Hút thuốc lá", "exJp": "たばこを 吸うのを やめました。", "exVi": "Tôi đã bỏ hẳn hút thuốc lá.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_207421\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#10b981\"/>\n      <stop offset=\"100%\" stop-color=\"#047857\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_207421)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🚭</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">HÚT THUỐC</text>\n</svg>"}, {"id": 16, "cat": "health", "catName": "Sức khỏe & Thói quen", "badge": "Sức khỏe tốt", "jp": "けんこう", "kana": "けんこう", "kanji": "健康", "romaji": "kenkou", "vi": "Sức khỏe tốt", "exJp": "健康が いちばん 大切です。", "exVi": "Sức khỏe là điều quý giá nhất.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_839422\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#10b981\"/>\n      <stop offset=\"100%\" stop-color=\"#047857\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_839422)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">💪</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">SỨC KHỎE</text>\n</svg>"}, {"id": 17, "cat": "health", "catName": "Sức khỏe & Thói quen", "badge": "Tốt cho sức khỏe", "jp": "けんこうに いい", "kana": "けんこうに いい", "kanji": "健康にいい", "romaji": "kenkou ni ii", "vi": "Tốt cho sức khỏe", "exJp": "野菜は 健康にいいです。", "exVi": "Rau xanh rất tốt cho sức khỏe.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_16817\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#10b981\"/>\n      <stop offset=\"100%\" stop-color=\"#047857\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_16817)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🥗</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">TỐT SỨC KHỎE</text>\n</svg>"}, {"id": 18, "cat": "health", "catName": "Sức khỏe & Thói quen", "badge": "Tốt cho cơ thể", "jp": "からだに いい", "kana": "からだに いい", "kanji": "体にいい", "romaji": "karada ni ii", "vi": "Tốt cho cơ thể", "exJp": "お茶は 体にいい 飲み物です。", "exVi": "Trà là thức uống tốt cho cơ thể.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_110909\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#10b981\"/>\n      <stop offset=\"100%\" stop-color=\"#047857\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_110909)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🍵</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">TỐT CƠ THỂ</text>\n</svg>"}, {"id": 19, "cat": "health", "catName": "Sức khỏe & Thói quen", "badge": "Có hại cho sức khỏe", "jp": "けんこうに わるい", "kana": "けんこうに わるい", "kanji": "健康に悪い", "romaji": "kenkou ni warui", "vi": "Có hại cho sức khỏe", "exJp": "お酒の 飲みすぎは 健康に悪いです。", "exVi": "Uống quá nhiều rượu có hại sức khỏe.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_117454\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#10b981\"/>\n      <stop offset=\"100%\" stop-color=\"#047857\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_117454)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">⚠️</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">HẠI SỨC KHỎE</text>\n</svg>"}, {"id": 20, "cat": "health", "catName": "Sức khỏe & Thói quen", "badge": "Có hại cho cơ thể", "jp": "からだに わるい", "kana": "からだに わるい", "kanji": "体に悪い", "romaji": "karada ni warui", "vi": "Có hại cho cơ thể", "exJp": "夜更かしは 体に悪いです。", "exVi": "Thức khuya rất có hại cho cơ thể.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_647711\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#10b981\"/>\n      <stop offset=\"100%\" stop-color=\"#047857\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_647711)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">❌</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">HẠI CƠ THỂ</text>\n</svg>"}, {"id": 21, "cat": "health", "catName": "Sức khỏe & Thói quen", "badge": "Vì sức khỏe bản thân", "jp": "けんこうの ために", "kana": "けんこうの ために", "kanji": "健康のために", "romaji": "kenkou no tameni", "vi": "Vì sức khỏe bản thân", "exJp": "健康のために 毎日走っています。", "exVi": "Tôi chạy mỗi ngày vì sức khỏe.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_600941\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#10b981\"/>\n      <stop offset=\"100%\" stop-color=\"#047857\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_600941)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🏃</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">VÌ SỨC KHỎE</text>\n</svg>"}, {"id": 22, "cat": "health", "catName": "Sức khỏe & Thói quen", "badge": "Thư giãn", "jp": "リラックス（を）します", "kana": "リラックス（を）します", "kanji": "リラックスをします", "romaji": "rirakkusu (wo) shimasu", "vi": "Thư giãn, xả stress", "exJp": "お風呂に入って リラックスします。", "exVi": "Ngâm bồn tắm để thư giãn.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_751884\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#10b981\"/>\n      <stop offset=\"100%\" stop-color=\"#047857\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_751884)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🛀</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">THƯ GIÃN</text>\n</svg>"}, {"id": 23, "cat": "measure", "catName": "Đo lường & Cơ sở vật chất", "badge": "Bản khảo sát câu hỏi", "jp": "アンケート", "kana": "アンケート", "kanji": "アンケート", "romaji": "ankeeto", "vi": "Bản khảo sát câu hỏi", "exJp": "健康についての アンケートに 答えます。", "exVi": "Trả lời bản khảo sát về sức khỏe.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_150546\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#10b981\"/>\n      <stop offset=\"100%\" stop-color=\"#047857\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_150546)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">📋</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">BẢN KHẢO SÁT</text>\n</svg>"}, {"id": 24, "cat": "measure", "catName": "Đo lường & Cơ sở vật chất", "badge": "Kết quả khảo sát/kiểm tra", "jp": "けっか", "kana": "けっか", "kanji": "結果", "romaji": "kekka", "vi": "Kết quả khảo sát/kiểm tra", "exJp": "健康診断の 結果が よかったです。", "exVi": "Kết quả khám sức khỏe định kỳ rất tốt.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_860552\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#10b981\"/>\n      <stop offset=\"100%\" stop-color=\"#047857\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_860552)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">📊</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">KẾT QUẢ</text>\n</svg>"}, {"id": 25, "cat": "exercise", "catName": "Môn thể thao & Tập luyện", "badge": "Tập giãn cơ", "jp": "ストレッチ（を）します", "kana": "ストレッチ（を）します", "kanji": "ストレッチをします", "romaji": "sutorecchi (wo) shimasu", "vi": "Tập giãn cơ, khởi động", "exJp": "お風呂の後に ストレッチをします。", "exVi": "Giãn cơ sau khi tắm xong.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_355376\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#10b981\"/>\n      <stop offset=\"100%\" stop-color=\"#047857\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_355376)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🤸‍♀️</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">GIÃN CƠ</text>\n</svg>"}, {"id": 26, "cat": "measure", "catName": "Đo lường & Cơ sở vật chất", "badge": "Câu lạc bộ thể thao", "jp": "スポーツクラブ", "kana": "スポーツクラブ", "kanji": "スポーツクラブ", "romaji": "supootsu kurabu", "vi": "Câu lạc bộ thể thao", "exJp": "スポーツクラブに 入会しました。", "exVi": "Tôi đã đăng ký câu lạc bộ thể thao.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_767451\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#10b981\"/>\n      <stop offset=\"100%\" stop-color=\"#047857\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_767451)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🏟️</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">CLB THỂ THAO</text>\n</svg>"}, {"id": 27, "cat": "measure", "catName": "Đo lường & Cơ sở vật chất", "badge": "Huấn luyện viên", "jp": "トレーナー", "kana": "トレーナー", "kanji": "トレーナー", "romaji": "toreenaa", "vi": "Huấn luyện viên, PT", "exJp": "トレーナーに 運動を 教わります。", "exVi": "Được huấn luyện viên hướng dẫn bài tập.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_140074\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#10b981\"/>\n      <stop offset=\"100%\" stop-color=\"#047857\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_140074)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">👨‍🏫</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">HLV THỂ HÌNH</text>\n</svg>"}, {"id": 28, "cat": "health", "catName": "Sức khỏe & Thói quen", "badge": "Lần đầu tiên", "jp": "はじめて", "kana": "はじめて", "kanji": "初めて", "romaji": "hajimete", "vi": "Lần đầu tiên", "exJp": "初めて マラソンに 参加しました。", "exVi": "Lần đầu tiên tôi tham gia chạy marathon.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_183185\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#10b981\"/>\n      <stop offset=\"100%\" stop-color=\"#047857\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_183185)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🌟</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">LẦN ĐẦU TIÊN</text>\n</svg>"}, {"id": 29, "cat": "measure", "catName": "Đo lường & Cơ sở vật chất", "badge": "Máy móc tập luyện gym", "jp": "マシン", "kana": "マシン", "kanji": "マシン", "romaji": "mashin", "vi": "Máy móc tập luyện gym", "exJp": "新しい トレーニングマシンです。", "exVi": "Đây là máy tập gym đời mới.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_124890\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#10b981\"/>\n      <stop offset=\"100%\" stop-color=\"#047857\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_124890)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">⚙️</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">MÁY TẬP</text>\n</svg>"}, {"id": 30, "cat": "measure", "catName": "Đo lường & Cơ sở vật chất", "badge": "Phòng chờ", "jp": "ラウンジ", "kana": "ラウンジ", "kanji": "ラウンジ", "romaji": "raunji", "vi": "Phòng chờ, sảnh nghỉ ngơi", "exJp": "運動の後に ラウンジで 休みます。", "exVi": "Nghỉ ngơi ở sảnh chờ sau khi tập.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_854531\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#10b981\"/>\n      <stop offset=\"100%\" stop-color=\"#047857\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_854531)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🛋️</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">PHÒNG CHỜ</text>\n</svg>"}];
+        const VERB_MORPH_DATA = [{"kanji": "走ります", "masu": "はしります", "vi": "Chạy bộ", "col2": "走ったり", "col3": "走ったり泳いだりしています", "col4": "走ったほうがいいです", "col5": "走りすぎないほうがいいです", "ex": "週末は公園を走ったり歩いたりしています。"}, {"kanji": "泳ぎます", "masu": "およぎます", "vi": "Bơi lội", "col2": "泳いだり", "col3": "泳いだり走ったりしています", "col4": "泳いだほうがいいです", "col5": "無理に泳がないほうがいいです", "ex": "夏は海やプールで泳いだりします。"}, {"kanji": "起きます", "masu": "おきます", "vi": "Thức dậy", "col2": "起きたり", "col3": "早く起きたり運動したりします", "col4": "早く起きたほうがいいです", "col5": "遅く起きないほうがいいです", "ex": "朝早く起きて散歩したほうがいいですよ。"}, {"kanji": "食べます", "masu": "たべます", "vi": "Ăn uống", "col2": "食べたり", "col3": "野菜を食べたり牛乳を飲んだり", "col4": "野菜を食べたほうがいいです", "col5": "食べすぎないほうがいいです", "ex": "毎朝くだものや野菜を食べたほうがいいです。"}, {"kanji": "飲みます", "masu": "のみます", "vi": "Uống", "col2": "飲んだり", "col3": "お茶を飲んだり音楽を聞いたり", "col4": "お水を飲んだほうがいいです", "col5": "お酒を飲みすぎないほうがいい", "ex": "お酒を飲みすぎないほうが体にいいですよ。"}];
+        const QUIZ_QUESTIONS = [{"id": 1, "category": "Ngữ pháp: V-たり V-たりします", "q": "休みの 日は 本を [____]、映画を 見たり します。", "options": ["読んだり", "読んで", "読んだ", "読みたり"], "correct": 0, "explain": "Động từ thể Quá khứ ngắn (Thể た) + り: 読みます ➔ 読んだ ➔ 「読んだり」 (Lúc đọc sách, lúc xem phim)."}, {"id": 2, "category": "Ngữ pháp: V-たり V-たりします", "q": "週末は プールで [____]、公園を 走ったり しています。", "options": ["泳いだり", "泳ぎたり", "泳いで", "泳いだ"], "correct": 0, "explain": "泳ぎます chia thể Quá khứ là 泳いだ ➔ Thêm り thành 「泳いだり」."}, {"id": 3, "category": "Ngữ pháp: N のために", "q": "健康 [____] ために、毎朝 ウォーキングを しています。", "options": ["の", "に", "を", "で"], "correct": 0, "explain": "Cấu trúc chỉ mục đích với danh từ: 「Danh từ + の ために」 (Vì sức khỏe)."}, {"id": 4, "category": "Ngữ pháp: V-たほうがいい", "q": "夜遅くまで 起きていないで、早く [____] ほうが いいですよ。", "options": ["寝た", "寝る", "寝て", "寝ない"], "correct": 0, "explain": "Khuyên nên làm gì: V-た + ほうがいい ➔ 「寝たほうがいい」 (Nên đi ngủ sớm)."}, {"id": 5, "category": "Ngữ pháp: V-ないほうがいい", "q": "お酒を 飲み [____] ほうが いいですよ。", "options": ["すぎない", "すぎた", "すぎる", "すぎて"], "correct": 0, "explain": "Khuyên không nên làm gì: V-ない + ほうがいい ➔ 飲みすぎない ほうがいい (Không nên uống quá nhiều)."}, {"id": 6, "category": "Từ vựng: Thể thao", "q": "プールで 手足を 動かして 進む 運動は [____] です。", "options": ["すいえい (水泳)", "ジョギング", "ヨガ", "たいそう"], "correct": 0, "explain": "Bơi lội trong hồ bơi là 「水泳」 (すいえい) / 泳ぎます."}, {"id": 7, "category": "Từ vựng: Rèn luyện", "q": "道を 一歩一歩 足で 進む 運動は [____] です。", "options": ["ウォーキング (歩く)", "ドライブ", "フライト", "スキー"], "correct": 0, "explain": "Đi bộ thể dục là 「ウォーキング」 (Walking) / 歩きます."}, {"id": 8, "category": "Từ vựng: Thói quen", "q": "「あさはやく おきます」 có nghĩa tiếng Việt là gì?", "options": ["Dậy sớm vào buổi sáng", "Đi ngủ sớm", "Ăn sáng sớm", "Đi làm sớm"], "correct": 0, "explain": "「朝早く起きます」 nghĩa là thức dậy sớm vào buổi sáng."}, {"id": 9, "category": "Từ vựng: Cảnh báo", "q": "自分の 体力以上に 無理をして 働く ことを [____] と 言います。", "options": ["働きすぎます", "休みます", "走ります", "歩きます"], "correct": 0, "explain": "Lao động quá độ quá sức gọi là 「働きすぎます」 (はたらきすぎます)."}, {"id": 10, "category": "Từ vựng: Sức khỏe", "q": "病気が なくて 体が 丈夫な 状態を 表す 言葉は [____] です。", "options": ["元気 (げんき)", "気持ちが悪い", "疲れている", "眠い"], "correct": 0, "explain": "Khỏe khoắn, dồi dào sinh lực là 「元気」 (げんき)."}, {"id": 11, "category": "Chữ Hán Bài 16: 毎 (Mỗi)", "q": "Chữ Hán 「毎」 trong 「毎日 / 毎朝」 có bao nhiêu nét?", "options": ["6 nét", "5 nét", "7 nét", "8 nét"], "correct": 0, "explain": "Chữ 毎 (MỖI) có 6 nét viết."}, {"id": 12, "category": "Chữ Hán Bài 16: 週末", "q": "Từ 「しゅうまつ」 (Cuối tuần) viết bằng cặp chữ Hán nào?", "options": ["週末", "週未", "週末", "週本"], "correct": 0, "explain": "「しゅうまつ」 là 「週末」 (CHU MẠT - chữ 末 có nét ngang trên dài hơn nét dưới)."}, {"id": 13, "category": "Chữ Hán Bài 16: 歩 & 走", "q": "Cặp động từ 「あるきます」 (Đi bộ) và 「はしります」 (Chạy) viết là:", "options": ["歩きます và 走ります", "足きます và 走きます", "止きます và 走ります", "行きます và 来ます"], "correct": 0, "explain": "Đi bộ là 「歩きます」 (BỘ - 8 nét); chạy là 「走ります」 (TẨU - 7 nét)."}, {"id": 14, "category": "Chữ Hán Bài 16: 泳 (Vịnh)", "q": "Động từ 「およぎます」 (Bơi lội) chứa bộ thủ nào?", "options": ["Bộ Thủy (氵)", "Bộ Hỏa (灬)", "Bộ Mộc (木)", "Bộ Kim (金)"], "correct": 0, "explain": "Bơi lội dưới nước nên chữ 泳 (VỊNH) có bộ Thủy (氵 - 3 nét chấm thủy)."}, {"id": 15, "category": "Chữ Hán Bài 16: 起 (Khởi)", "q": "Động từ 「おきます」 trong 「朝早く起きます」 có chữ Hán là:", "options": ["起きます", "走きます", "歩きます", "行きます"], "correct": 0, "explain": "Thức dậy là 「起きます」 (KHỞI - 10 nét, bộ Tẩu 走 + chữ Kỷ 己)."}];
+        const DIALOGUE_STEPS = [{"options": [{"text": "はい、休みの日はジョギングをしたり、ジムで泳いだりしています。", "vi": "Vâng, vào ngày nghỉ tôi lúc thì chạy bộ, lúc thì đi bơi ở phòng gym.", "replyAvatar": "👨‍💼", "replyNpc": "Kato", "replyText": "素晴らしいですね！どのくらいのペースで続けているんですか。", "replyVi": "Tuyệt vời quá! Bạn duy trì với tần suất như thế nào vậy?"}, {"text": "朝早く起きて、30分くらい近所をウォーキングしています。", "vi": "Tôi thức dậy sớm vào buổi sáng rồi đi bộ khoảng 30 phút quanh khu phố.", "replyAvatar": "👨‍💼", "replyNpc": "Kato", "replyText": "朝のウォーキングは気持ちがいいですね！見習いたいです。", "replyVi": "Đi bộ buổi sáng không khí trong lành dễ chịu lắm nhỉ! Tôi phải học tập bạn mới được."}]}, {"npcName": "Kato", "avatar": "👨‍💼", "npcText": "実は最近、仕事で疲れて運動不足なんです。どうすればいいでしょうか。", "npcVi": "Thực ra dạo này công việc bận rộn nên tôi ít vận động quá. Tôi nên làm thế nào bây giờ nhỉ?", "options": [{"text": "まずは無理をしないで、エスカレーターを使わずに階段を歩いたほうがいいですよ。", "vi": "Trước tiên đừng quá gượng ép, thay vì đi thang cuốn bạn nên đi cầu thang bộ thì tốt hơn đấy.", "replyAvatar": "👨‍💼", "replyNpc": "Kato", "replyText": "なるほど！駅の階段を使うことから始めてみます。アドバイスありがとう！", "replyVi": "Ra là vậy! Tôi sẽ bắt đầu từ việc leo cầu thang ở nhà ga. Cảm ơn lời khuyên của bạn nhé!"}, {"text": "夜はスマホを見ないで早く寝て、休日に散歩から始めたほうがいいですよ。", "vi": "Ban đêm không nên xem điện thoại mà hãy ngủ sớm, cuối tuần bắt đầu bằng việc đi dạo thì tốt hơn đấy.", "replyAvatar": "👨‍💼", "replyNpc": "Kato", "replyText": "いいアドバイスですね！今夜から実践してみます。", "replyVi": "Lời khuyên hay quá! Tối nay tôi sẽ thực hiện luôn."}]}];
+
+        // Tokyo Audio Speech Synthesis (Dual Engine via audio-engine.js)
+        function speakText(text) {
+            if (window.speakJapanese) {
+                window.speakJapanese(text);
+            }
+        }
+
+        // Verb Morphing Laboratory
+        let currentVerbIdx = 0;
+
+        function renderVerbPicker() {
+            const container = document.getElementById('verbPickerRow');
+            if (!container || !VERB_MORPH_DATA.length) return;
+            container.innerHTML = VERB_MORPH_DATA.map((v, i) => `
+                <button type="button" class="verb-pill ${i === 0 ? 'active' : ''}" onclick="selectVerb(${i}, this)">
+                    <span class="pill-kanji">${v.kanji}</span>
+                    <span class="pill-meaning">(${v.vi})</span>
+                </button>
+            `).join('');
+            updateMorphDisplay(0);
+        }
+
+        function selectVerb(idx, btn) {
+            document.querySelectorAll('.verb-pill').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            currentVerbIdx = idx;
+            updateMorphDisplay(idx);
+        }
+
+        function updateMorphDisplay(idx) {
+            const v = VERB_MORPH_DATA[idx];
+            if (!v) return;
+            const morphMasuEl = document.getElementById('morphMasu');
+            if (morphMasuEl) {
+                morphMasuEl.innerHTML = `
+                    <div style="font-size:1.35rem; font-weight:800; color:#0f172a; line-height:1.2;">${v.kanji}</div>
+                    <div style="font-size:0.86rem; font-weight:700; color:#059669; margin-top:4px; font-family:var(--jp-font);">${v.masu}</div>
+                `;
+            }
+            document.getElementById('morphVi').textContent = v.vi;
+            document.getElementById('morphTe').textContent = v.col2;
+            document.getElementById('morphTeIki').textContent = v.col3;
+            document.getElementById('morphTeKi').textContent = v.col4;
+            document.getElementById('morphMashou').textContent = v.col5;
+            document.getElementById('morphExText').textContent = v.ex;
+        }
+
+        function speakCurrentMorph() {
+            const v = VERB_MORPH_DATA[currentVerbIdx];
+            if (v) speakText(v.ex);
+        }
+
+        // Flashcards Logic
+        let activeVocabFilter = 'all';
+        let learnedCards = new Set();
+
+        function initVocabFilters() {
+            const bar = document.getElementById('vocabFilterBar');
+            const cats = Array.from(new Set(VOCAB_DATA.map(v => v.cat)));
+            const catNames = {};
+            VOCAB_DATA.forEach(v => catNames[v.cat] = v.catName);
+
+            let filterBtns = `<button class="vocab-filter-btn active" onclick="filterVocab('all', this)">🌟 Tất cả (${VOCAB_DATA.length})</button>`;
+            cats.forEach(c => {
+                filterBtns += `<button class="vocab-filter-btn" onclick="filterVocab('${c}', this)">${catNames[c] || c}</button>`;
+            });
+            filterBtns += `<div class="vocab-stats-badge" id="vocabStats">Đã thuộc: 0 / ${VOCAB_DATA.length} từ</div>`;
+            bar.innerHTML = filterBtns;
+        }
+
+        function renderFlashcards() {
+            const container = document.getElementById('flashcardsGrid');
+            const filtered = activeVocabFilter === 'all' 
+                ? VOCAB_DATA 
+                : VOCAB_DATA.filter(v => v.cat === activeVocabFilter);
+
+            container.innerHTML = filtered.map(v => `
+                <div class="flashcard" onclick="flipCard(this, event)">
+                    <div class="fc-inner">
+                        <div class="fc-front">
+                            <div style="display:flex; justify-content:space-between; align-items:center;">
+                                <span class="fc-badge">${v.badge || v.catName}</span>
+                                <button type="button" class="btn-speak" style="width:28px; height:28px; font-size:0.75rem;" onclick="event.stopPropagation(); speakText('${v.jp}')">🔊</button>
+                            </div>
+                            <div class="fc-illustration">
+                                ${v.svg || ''}
+                            </div>
+                            <div>
+                                <div class="fc-jp jp-text">${v.kanji || v.jp}</div>
+                                <div class="fc-kana jp-text">${v.kana}</div>
+                                <div class="fc-romaji">${v.romaji}</div>
+                            </div>
+                            <div class="fc-hint">💡 Bấm thẻ để lật xem nghĩa & ví dụ</div>
+                        </div>
+
+                        <div class="fc-back">
+                            <div>
+                                <div class="fc-back-meaning">${v.vi}</div>
+                                <div style="font-size:0.75rem; font-weight:800; color:#047857; text-transform:uppercase; margin-bottom:4px;">Ví dụ thực tế:</div>
+                                <div class="fc-back-ex-jp jp-text">${v.exJp}</div>
+                                <div class="fc-back-ex-vi">${v.exVi}</div>
+                            </div>
+                            <div class="fc-back-actions">
+                                <button type="button" class="btn-speak" style="width:32px; height:32px; font-size:0.8rem;" onclick="event.stopPropagation(); speakText('${v.exJp}')">🔊</button>
+                                <button type="button" class="btn-learned ${learnedCards.has(v.id) ? 'active' : ''}" onclick="event.stopPropagation(); toggleLearned(${v.id}, this)">
+                                    ${learnedCards.has(v.id) ? '✓ Đã thuộc' : '+ Đánh dấu thuộc'}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+            updateLearnedStats();
+        }
+
+        function flipCard(card, event) {
+            if (event.target.closest('button')) return;
+            card.classList.toggle('flipped');
+        }
+
+        function filterVocab(cat, btn) {
+            activeVocabFilter = cat;
+            document.querySelectorAll('.vocab-filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            renderFlashcards();
+        }
+
+        function toggleLearned(id, btn) {
+            if (learnedCards.has(id)) {
+                learnedCards.delete(id);
+                btn.classList.remove('active');
+                btn.textContent = '+ Đánh dấu thuộc';
+            } else {
+                learnedCards.add(id);
+                btn.classList.add('active');
+                btn.textContent = '✓ Đã thuộc';
+            }
+            updateLearnedStats();
+        }
+
+        function updateLearnedStats() {
+            const badge = document.getElementById('vocabStats');
+            if (badge) badge.textContent = `Đã thuộc: ${learnedCards.size} / ${VOCAB_DATA.length} từ`;
+        }
+
+        // Dialogue Simulator
+        let currentStepIdx = 0;
+
+        function initDialogue() {
+            currentStepIdx = 0;
+            renderDialogueOptions(0);
+        }
+
+        function renderDialogueOptions(stepIdx) {
+            const container = document.getElementById('chatOptionsGrid');
+            const step = DIALOGUE_STEPS[stepIdx];
+            if (!step) {
+                container.innerHTML = `
+                    <div style="grid-column: 1/-1; text-align:center; padding:12px; color:#059669; font-weight:700;">
+                        🎉 Hoàn thành xuất sắc đoạn hội thoại tình huống Bài 16!
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = step.options.map((opt, i) => `
+                <button type="button" class="btn-chat-choice" onclick="chooseDialogue(${stepIdx}, ${i})">
+                    <div style="font-family:var(--jp-font);">${opt.text}</div>
+                    <div style="font-size:0.75rem; color:#64748b; margin-top:2px;">${opt.vi}</div>
+                </button>
+            `).join('');
+        }
+
+        function chooseDialogue(stepIdx, optIdx) {
+            const step = DIALOGUE_STEPS[stepIdx];
+            const opt = step.options[optIdx];
+            const chat = document.getElementById('chatContainer');
+
+            const userBubble = document.createElement('div');
+            userBubble.className = 'chat-bubble user';
+            userBubble.innerHTML = `
+                <div class="chat-avatar">🧑</div>
+                <div class="chat-msg">
+                    <div class="chat-name">Bạn (Tôi)</div>
+                    <div class="chat-jp">${opt.text}</div>
+                    <div class="chat-vi">${opt.vi}</div>
+                </div>
+            `;
+            chat.appendChild(userBubble);
+            speakText(opt.text);
+
+            setTimeout(() => {
+                const npcBubble = document.createElement('div');
+                npcBubble.className = 'chat-bubble bot';
+                npcBubble.innerHTML = `
+                    <div class="chat-avatar">${opt.replyAvatar || '👩'}</div>
+                    <div class="chat-msg">
+                        <div class="chat-name">${opt.replyNpc}</div>
+                        <div class="chat-jp">${opt.replyText}</div>
+                        <div class="chat-vi">${opt.replyVi}</div>
+                    </div>
+                `;
+                chat.appendChild(npcBubble);
+                speakText(opt.replyText);
+
+                if (stepIdx + 1 < DIALOGUE_STEPS.length) {
+                    setTimeout(() => {
+                        const nextPrompt = DIALOGUE_STEPS[stepIdx + 1];
+                        const promptBubble = document.createElement('div');
+                        promptBubble.className = 'chat-bubble bot';
+                        promptBubble.innerHTML = `
+                            <div class="chat-avatar">${nextPrompt.avatar || '👨'}</div>
+                            <div class="chat-msg">
+                                <div class="chat-name">${nextPrompt.npcName}</div>
+                                <div class="chat-jp">${nextPrompt.npcText}</div>
+                                <div class="chat-vi">${nextPrompt.npcVi}</div>
+                            </div>
+                        `;
+                        chat.appendChild(promptBubble);
+                        speakText(nextPrompt.npcText);
+                        renderDialogueOptions(stepIdx + 1);
+                    }, 1000);
+                } else {
+                    renderDialogueOptions(stepIdx + 1);
+                }
+            }, 600);
+        }
+
+        // Quiz Logic
+        let quizAnswers = {};
+
+        function renderQuiz() {
+            const container = document.getElementById('quizContainer');
+            container.innerHTML = QUIZ_QUESTIONS.map(q => `
+                <div class="quiz-card" id="quizCard_${q.id}">
+                    <div class="quiz-q-num">Câu ${q.id} / 15 • ${q.category}</div>
+                    <div class="quiz-question-text jp-text">${q.q}</div>
+                    <div class="quiz-options-grid">
+                        ${q.options.map((opt, optIdx) => `
+                            <button type="button" class="quiz-opt-btn jp-text" onclick="answerQuiz(${q.id}, ${optIdx}, this)">
+                                ${opt}
+                            </button>
+                        `).join('')}
+                    </div>
+                    <div class="quiz-feedback" id="quizFeedback_${q.id}">
+                        ${q.explain}
+                    </div>
+                </div>
+            `).join('');
+            updateQuizProgress();
+        }
+
+        function answerQuiz(qId, selectedIdx, btn) {
+            if (quizAnswers[qId] !== undefined) return;
+            quizAnswers[qId] = selectedIdx;
+
+            const q = QUIZ_QUESTIONS.find(item => item.id === qId);
+            const card = document.getElementById(`quizCard_${qId}`);
+            const buttons = card.querySelectorAll('.quiz-opt-btn');
+            const feedback = document.getElementById(`quizFeedback_${qId}`);
+
+            buttons.forEach((b, idx) => {
+                b.disabled = true;
+                if (idx === q.correct) {
+                    b.classList.add('correct');
+                } else if (idx === selectedIdx) {
+                    b.classList.add('wrong');
+                }
+            });
+
+            feedback.classList.add('show');
+            if (selectedIdx === q.correct) {
+                feedback.classList.add('correct');
+                feedback.innerHTML = `✓ <strong>Chính xác!</strong> ${q.explain}`;
+            } else {
+                feedback.classList.add('wrong');
+                feedback.innerHTML = `✕ <strong>Chưa chính xác!</strong> ${q.explain}`;
+            }
+
+            updateQuizProgress();
+            checkQuizFinish();
+        }
+
+        function updateQuizProgress() {
+            const answeredCount = Object.keys(quizAnswers).length;
+            const pct = (answeredCount / QUIZ_QUESTIONS.length) * 100;
+            document.getElementById('quizProgressBar').style.width = `${pct}%`;
+        }
+
+        function checkQuizFinish() {
+            if (Object.keys(quizAnswers).length === QUIZ_QUESTIONS.length) {
+                let score = 0;
+                QUIZ_QUESTIONS.forEach(q => {
+                    if (quizAnswers[q.id] === q.correct) score++;
+                });
+
+                const scoreBox = document.getElementById('scoreBox');
+                const scoreVal = document.getElementById('scoreVal');
+                const scoreMsg = document.getElementById('scoreMsg');
+
+                scoreVal.textContent = `${score} / 15`;
+                if (score >= 13) {
+                    scoreMsg.textContent = "🌟 Tuyệt vời! Bạn đã thành thạo toàn bộ kiến thức Bài 16!";
+                } else if (score >= 9) {
+                    scoreMsg.textContent = "👍 Khá tốt! Hãy ôn lại các câu chưa chính xác nhé.";
+                } else {
+                    scoreMsg.textContent = "💪 Cố lên! Hãy xem lại phần giải thích và thử làm lại nhé.";
+                }
+                scoreBox.classList.add('show');
+                scoreBox.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        function resetQuiz() {
+            quizAnswers = {};
+            document.getElementById('scoreBox').classList.remove('show');
+            renderQuiz();
+            document.getElementById('sec-quiz').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Global Nav
+        function toggleGlobalMegaSheet(e) {
+            if (e) e.stopPropagation();
+            document.getElementById('globalMegaSheet').classList.toggle('show');
+        }
+
+        function closeGlobalMegaSheet() {
+            document.getElementById('globalMegaSheet').classList.remove('show');
+        }
+
+        function toggleGlobalToolsDropdown(e) {
+            if (e) e.stopPropagation();
+            document.getElementById('globalToolsMenu').classList.toggle('show');
+        }
+
+        document.addEventListener('click', (e) => {
+            const menu = document.getElementById('globalToolsMenu');
+            if (menu && !menu.contains(e.target)) {
+                menu.classList.remove('show');
+            }
+        });
+
+        // Init
+        window.addEventListener('DOMContentLoaded', () => {
+            renderVerbPicker();
+            initVocabFilters();
+            renderFlashcards();
+            initDialogue();
+            renderQuiz();
+        });
+    
+    function toggleLessonsDropdown(e) {
+        if (e) e.stopPropagation();
+        const m = document.getElementById('lessonsDropdownMenu');
+        if (m) m.classList.toggle('show');
+    }
+    window.addEventListener('click', () => {
+        const m = document.getElementById('lessonsDropdownMenu');
+        if (m) m.classList.remove('show');
+    });
+
+</script>
+</body>
+</html>

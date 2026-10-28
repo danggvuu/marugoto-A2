@@ -1,17 +1,18 @@
 .DS_Store
-*.pdf
-!MarugotoA2-1Wordbook_eng.pdf
-!MarugotoA2-2Wordbook_eng.pdf
-!K_contents_eng.pdf
-!R_contents_eng.pdf
-*.py
-Ke_Hoach_10_Ngay/
-kanjiupdate/
-Kiem_Tra_Marugoto_L6_7_8.html
-Luyen_Tap_The_Te_A2_1.html
 __pycache__/
+*.pyc
+
+# Local binaries and scratch
 ocr_bin
-*.json
-ocr.swift
-!N5_MARUGOTO_T__V_NG__A1_Lesson_3____A2_1_Lesson_18.pdf
-!master_vocab_official.json
+
+# Documents
+docs/pdf/*.pdf
+!docs/pdf/MarugotoA2-1Wordbook_eng.pdf
+!docs/pdf/MarugotoA2-2Wordbook_eng.pdf
+!docs/pdf/K_contents_eng.pdf
+!docs/pdf/R_contents_eng.pdf
+!docs/pdf/N5_MARUGOTO_T__V_NG__A1_Lesson_3____A2_1_Lesson_18.pdf
+
+# Data files
+!data/master_vocab_official.json
+!data/master_vocab_enriched.json

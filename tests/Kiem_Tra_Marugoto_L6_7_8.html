@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta name="referrer" content="no-referrer">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài Kiểm Tra Giữa Kỳ - Marugoto A1</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #e67e22;
+            margin-top: 30px;
+            border-bottom: 1px dashed #ccc;
+            padding-bottom: 5px;
+        }
+        .question-box {
+            margin-bottom: 25px;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            border-left: 5px solid #3498db;
+        }
+        .question-title {
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+        .options label {
+            display: block;
+            margin: 10px 0;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+        .options label:hover {
+            background-color: #eef;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 10px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        .submit-btn {
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            display: block;
+            width: 100%;
+            margin-top: 30px;
+            transition: background 0.3s;
+        }
+        .submit-btn:hover {
+            background-color: #219653;
+        }
+        .result-box {
+            margin-top: 25px;
+            font-size: 20px;
+            text-align: center;
+            display: none;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #e8f8f5;
+            color: #27ae60;
+            border: 2px solid #27ae60;
+            font-weight: bold;
+        }
+        .feedback {
+            font-size: 0.95em;
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #eef;
+            border-radius: 5px;
+            display: none;
+            color: #333;
+        }
+        .correct-opt {
+            background-color: #d5f5e3 !important;
+            color: #27ae60;
+            font-weight: bold;
+        }
+        .wrong-opt {
+            background-color: #fadbd8 !important;
+            color: #c0392b;
+            font-weight: bold;
+        }
+        .suggested-answer {
+            background-color: #fef9e7;
+            padding: 15px;
+            border-left: 4px solid #f1c40f;
+            margin-top: 15px;
+            display: none;
+            font-size: 0.95em;
+            border-radius: 4px;
+        }
+    </style>
+    <!-- Animate UI Core (Spring Physics & Micro-Interactions) -->
+    <link rel="stylesheet" href="../assets/css/animate-ui.css">
+    <script src="../assets/js/animate-ui.js" defer></script>
+    <script src="../assets/js/audio-engine.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <h1>📝 ĐỀ KIỂM TRA GIỮA KỲ<br><small>Marugoto A1 - Bài 6, 7, 8</small></h1>
+
+    <form id="quizForm">
+        <h2>I. PHẦN TRẮC NGHIỆM (5 điểm)</h2>
+        
+        <!-- Câu 1 -->
+        <div class="question-box" id="q1-box">
+            <div class="question-title">Câu 1: Tiệm mì Ramen đắt.</div>
+            <div class="options">
+                <label><input type="radio" name="q1" value="A"> A. やすい ラーメンや</label>
+                <label><input type="radio" name="q1" value="B"> B. たかい ラーメンや</label>
+                <label><input type="radio" name="q1" value="C"> C. おいしい ラーメンや</label>
+                <label><input type="radio" name="q1" value="D"> D. まずい ラーメンや</label>
+            </div>
+            <div class="feedback" id="fb1">Giải thích: "たかい" là Đắt. "やすい" là rẻ.</div>
+        </div>
+
+        <!-- Câu 2 -->
+        <div class="question-box" id="q2-box">
+            <div class="question-title">Câu 2: わたしの へやに いすが _____ あります。 (Trong phòng tôi có 4 cái ghế).</div>
+            <div class="options">
+                <label><input type="radio" name="q2" value="A"> A. よん</label>
+                <label><input type="radio" name="q2" value="B"> B. ふたつ</label>
+                <label><input type="radio" name="q2" value="C"> C. よっつ</label>
+                <label><input type="radio" name="q2" value="D"> D. むっつ</label>
+            </div>
+            <div class="feedback" id="fb2">Giải thích: 4 cái đồ vật đếm là "よっつ".</div>
+        </div>
+
+        <!-- Câu 3 -->
+        <div class="question-box" id="q3-box">
+            <div class="question-title">Câu 3: わたしは アパート _____ すんでいます。 (Tôi đang sống ở chung cư).</div>
+            <div class="options">
+                <label><input type="radio" name="q3" value="A"> A. で</label>
+                <label><input type="radio" name="q3" value="B"> B. に</label>
+                <label><input type="radio" name="q3" value="C"> C. を</label>
+                <label><input type="radio" name="q3" value="D"> D. が</label>
+            </div>
+            <div class="feedback" id="fb3">Giải thích: Động từ "すんでいます" (sinh sống) luôn đi với trợ từ "に" chỉ địa điểm.</div>
+        </div>
+
+        <!-- Câu 4 -->
+        <div class="question-box" id="q4-box">
+            <div class="question-title">Câu 4: きょうは マクドナルド _____ ハンバーガー _____ たべましょう。</div>
+            <div class="options">
+                <label><input type="radio" name="q4" value="A"> A. に / を</label>
+                <label><input type="radio" name="q4" value="B"> B. で / が</label>
+                <label><input type="radio" name="q4" value="C"> C. に / が</label>
+                <label><input type="radio" name="q4" value="D"> D. で / を</label>
+            </div>
+            <div class="feedback" id="fb4">Giải thích: Ăn Ở ĐÂU dùng "で", ăn CÁI GÌ dùng "を".</div>
+        </div>
+
+        <!-- Câu 5 -->
+        <div class="question-box" id="q5-box">
+            <div class="question-title">Câu 5: テーブルの うえに ほん _____ あります。 (Có quyển sách ở trên bàn).</div>
+            <div class="options">
+                <label><input type="radio" name="q5" value="A"> A. は</label>
+                <label><input type="radio" name="q5" value="B"> B. に</label>
+                <label><input type="radio" name="q5" value="C"> C. が</label>
+                <label><input type="radio" name="q5" value="D"> D. を</label>
+            </div>
+            <div class="feedback" id="fb5">Giải thích: Cấu trúc sự tồn tại "N が あります".</div>
+        </div>
+
+        <!-- Câu 6 -->
+        <div class="question-box" id="q6-box">
+            <div class="question-title">Câu 6: Khi rủ bạn bè: 「いっしょに カレーを たべませんか。」, nếu đồng ý bạn sẽ đáp lại là:</div>
+            <div class="options">
+                <label><input type="radio" name="q6" value="A"> A. けっこうです。</label>
+                <label><input type="radio" name="q6" value="B"> B. いいですね。たべましょう。</label>
+                <label><input type="radio" name="q6" value="C"> C. ごめんください。</label>
+                <label><input type="radio" name="q6" value="D"> D. おじゃまします。</label>
+            </div>
+            <div class="feedback" id="fb6">Giải thích: "いいですね" là cách đồng ý khi được rủ rê. "けっこうです" là từ chối.</div>
+        </div>
+
+        <!-- Câu 7 -->
+        <div class="question-box" id="q7-box">
+            <div class="question-title">Câu 7: Khi đến thăm nhà người khác, lúc đứng ở ngoài cửa bấm chuông, bạn sẽ nói:</div>
+            <div class="options">
+                <label><input type="radio" name="q7" value="A"> A. どうぞ あがってください。</label>
+                <label><input type="radio" name="q7" value="B"> B. ごちそうさまでした。</label>
+                <label><input type="radio" name="q7" value="C"> C. ごめんください。</label>
+                <label><input type="radio" name="q7" value="D"> D. おじゃまします。</label>
+            </div>
+            <div class="feedback" id="fb7">Giải thích: "ごめんください" dùng để gọi cửa (Xin lỗi có ai ở nhà không?).</div>
+        </div>
+
+        <!-- Câu 8 -->
+        <div class="question-box" id="q8-box">
+            <div class="question-title">Câu 8: Chủ nhà mời bạn vào nhà, khi bước chân qua cửa vào nhà họ, bạn phải nói:</div>
+            <div class="options">
+                <label><input type="radio" name="q8" value="A"> A. いただきます。</label>
+                <label><input type="radio" name="q8" value="B"> B. おじゃまします。</label>
+                <label><input type="radio" name="q8" value="C"> C. いらっしゃいませ。</label>
+                <label><input type="radio" name="q8" value="D"> D. わかりました。</label>
+            </div>
+            <div class="feedback" id="fb8">Giải thích: "おじゃまします" (Xin làm phiền) là lời chào bắt buộc khi bước vào nhà người Nhật.</div>
+        </div>
+
+        <!-- Câu 9 -->
+        <div class="question-box" id="q9-box">
+            <div class="question-title">Câu 9: にわ(sân vườn)に いぬ(con chó)が _____。</div>
+            <div class="options">
+                <label><input type="radio" name="q9" value="A"> A. あります</label>
+                <label><input type="radio" name="q9" value="B"> B. います</label>
+                <label><input type="radio" name="q9" value="C"> C. します</label>
+                <label><input type="radio" name="q9" value="D"> D. すんでいます</label>
+            </div>
+            <div class="feedback" id="fb9">Giải thích: Con chó là động vật có sinh mệnh nên phải dùng "います".</div>
+        </div>
+
+        <!-- Câu 10 -->
+        <div class="question-box" id="q10-box">
+            <div class="question-title">Câu 10: Từ nào sau đây KHÔNG PHẢI là đồ vật trong nhà?</div>
+            <div class="options">
+                <label><input type="radio" name="q10" value="A"> A. エアコン</label>
+                <label><input type="radio" name="q10" value="B"> B. ソファ</label>
+                <label><input type="radio" name="q10" value="C"> C. マンション</label>
+                <label><input type="radio" name="q10" value="D"> D. ベッド</label>
+            </div>
+            <div class="feedback" id="fb10">Giải thích: "マンション" (chung cư cao cấp) là loại nhà, không phải đồ vật đặt trong phòng.</div>
+        </div>
+
+        <h2>II. PHẦN TỰ LUẬN (5 điểm)</h2>
+        
+        <div class="question-box">
+            <div class="question-title">Câu 11: Dịch các câu sau sang tiếng Việt</div>
+            <p>a) わたしの いえは ふるい いっこだて です。</p>
+            <input type="text" placeholder="Nhập câu trả lời...">
+            <p>b) へやに ベッドが ひとつ と エアコンが あります。</p>
+            <input type="text" placeholder="Nhập câu trả lời...">
+            
+            <div class="suggested-answer sa-show">
+                <strong>Gợi ý đáp án:</strong><br>
+                a) Nhà của tôi là nhà mặt đất cũ.<br>
+                b) Trong phòng có một cái giường và điều hòa.
+            </div>
+        </div>
+
+        <div class="question-box">
+            <div class="question-title">Câu 12: Dịch các câu sau sang tiếng Nhật (Viết Romaji hoặc Kana đều được)</div>
+            <p>a) Tôi đang sống một mình.</p>
+            <input type="text" placeholder="Nhập câu trả lời...">
+            <p>b) Bên cạnh tivi có quyển sách.</p>
+            <input type="text" placeholder="Nhập câu trả lời...">
+            
+            <div class="suggested-answer sa-show">
+                <strong>Gợi ý đáp án:</strong><br>
+                a) ひとりで すんでいます。<br>
+                b) テレビの となりに ほんが あります。(Hoặc dùng よこ thay cho となり đều đúng)
+            </div>
+        </div>
+
+        <div class="question-box">
+            <div class="question-title">Câu 13: Trả lời câu hỏi bằng tiếng Nhật (Dựa vào thực tế của bạn)</div>
+            <p>a) あなたの いえは ひろいですか。(Nhà của bạn có rộng không?)</p>
+            <input type="text" placeholder="Nhập câu trả lời...">
+            <p>b) あなたの へやに なにが ありますか。(Trong phòng có cái gì? Kể tên ít nhất 2 đồ vật).</p>
+            <input type="text" placeholder="Nhập câu trả lời...">
+            
+            <div class="suggested-answer sa-show">
+                <strong>Gợi ý đáp án (Tham khảo):</strong><br>
+                a) はい、ひろいです。 (Vâng, rộng) / いいえ、せまいです。(Không, hẹp).<br>
+                b) ベッドと テーブルが あります。(Có giường và bàn) / エアコンと テレビが あります。(Có điều hòa và Tivi)
+            </div>
+        </div>
+
+        <button type="button" class="submit-btn" onclick="gradeTest()">NỘP BÀI VÀ XEM KẾT QUẢ</button>
+
+        <div class="result-box" id="finalResult"></div>
+
+    </form>
+</div>
+
+<script>
+    const answers = {
+        q1: 'B', q2: 'C', q3: 'B', q4: 'D', q5: 'C',
+        q6: 'B', q7: 'C', q8: 'B', q9: 'B', q10: 'C'
+    };
+
+    function gradeTest() {
+        let score = 0;
+        let total = 10;
+
+        for (let i = 1; i <= total; i++) {
+            let qName = 'q' + i;
+            let options = document.getElementsByName(qName);
+            let selectedValue = null;
+            let selectedLabel = null;
+            let correctLabel = null;
+
+            for (let opt of options) {
+                // Find label of the correct option
+                if (opt.value === answers[qName]) {
+                    correctLabel = opt.parentElement;
+                }
+                // Find selected option
+                if (opt.checked) {
+                    selectedValue = opt.value;
+                    selectedLabel = opt.parentElement;
+                }
+            }
+
+            // Reset classes
+            for (let opt of options) {
+                opt.parentElement.classList.remove('correct-opt', 'wrong-opt');
+            }
+
+            if (selectedValue === answers[qName]) {
+                score++;
+                if (selectedLabel) selectedLabel.classList.add('correct-opt');
+            } else {
+                if (selectedLabel) selectedLabel.classList.add('wrong-opt');
+                if (correctLabel) correctLabel.classList.add('correct-opt'); // Highlight correct answer
+            }
+
+            // Show feedback
+            document.getElementById('fb' + i).style.display = 'block';
+        }
+
+        // Show result box
+        let resultBox = document.getElementById('finalResult');
+        resultBox.style.display = 'block';
+        
+        let scorePercent = score / total * 5; // MCQ is 5 points
+        resultBox.innerHTML = `Bạn làm đúng ${score}/${total} câu trắc nghiệm!<br> Điểm phần trắc nghiệm: ${scorePercent}/5 điểm`;
+        
+        if (score >= 8) {
+            resultBox.style.color = '#27ae60';
+            resultBox.style.borderColor = '#27ae60';
+            resultBox.style.backgroundColor = '#e8f8f5';
+        } else if (score >= 5) {
+            resultBox.style.color = '#f39c12';
+            resultBox.style.borderColor = '#f39c12';
+            resultBox.style.backgroundColor = '#fef9e7';
+        } else {
+            resultBox.style.color = '#c0392b';
+            resultBox.style.borderColor = '#c0392b';
+            resultBox.style.backgroundColor = '#fadbd8';
+        }
+
+        // Show suggested answers for essay
+        let saElements = document.getElementsByClassName('sa-show');
+        for(let el of saElements) {
+            el.style.display = 'block';
+        }
+        
+        // Scroll to results
+        resultBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+</script>
+
+</body>
+</html>
