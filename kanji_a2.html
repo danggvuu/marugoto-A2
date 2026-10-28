@@ -4059,11 +4059,13 @@
         }
     }
 
+    let kanjiSearchDebounceTimer = null;
     function onSearchChange() {
         const query = document.getElementById('searchInput').value;
         const clearBtn = document.getElementById('searchClearBtn');
         if (clearBtn) clearBtn.style.display = query ? 'block' : 'none';
-        applyLessonFilter();
+        clearTimeout(kanjiSearchDebounceTimer);
+        kanjiSearchDebounceTimer = setTimeout(applyLessonFilter, 120);
     }
 
     function clearSearch() {
@@ -4107,7 +4109,7 @@
         generateQuiz();
     }
 
-    // Render Kanji Cards with Interactive Writing Canvas & Step-by-Step Breakdown
+    // Render Kanji Cards with Interactive Writing Canvas & Step-by-Step Breakdown (Optimized with DocumentFragment & Lazy SVG Player)
     function renderCards(data) {
         const container = document.getElementById('cardsContainer');
         container.innerHTML = '';
@@ -4117,9 +4119,12 @@
             return;
         }
 
+        const fragment = document.createDocumentFragment();
+
         data.forEach((item, index) => {
             const card = document.createElement('div');
             card.className = 'kanji-card';
+            card.dataset.index = index;
 
             const examplesHtml = item.examples.map(ex => 
                 `<div class="example-line">• <span class="example-jp" style="cursor:pointer;" onclick="speakJapanese('${ex.word}', this)" title="Bấm để nghe phát âm">${ex.word}（${ex.reading}）</span> <button type="button" class="fc-speaker-btn" style="width:24px; height:24px; font-size:12px; margin-left:4px; vertical-align:middle;" onclick="speakJapanese('${ex.word}', this)" title="Nghe từ vựng này">🔊</button> : ${ex.vi}</div>`
@@ -4221,11 +4226,32 @@
                     </div>
                 </div>
             `;
-            container.appendChild(card);
-
-            // Init Animated Kanji Player & Canvas
-            initKanjiPlayer(item, index);
+            fragment.appendChild(card);
         });
+
+        container.appendChild(fragment);
+
+        // Lazy-init KanjiVG Players via IntersectionObserver for buttery-smooth 120fps scrolling
+        if ('IntersectionObserver' in window) {
+            if (window._kanjiObserver) window._kanjiObserver.disconnect();
+            window._kanjiObserver = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const c = entry.target;
+                        const idx = parseInt(c.dataset.index, 10);
+                        if (!c.dataset.loaded && data[idx]) {
+                            c.dataset.loaded = 'true';
+                            initKanjiPlayer(data[idx], idx);
+                        }
+                        obs.unobserve(c);
+                    }
+                });
+            }, { rootMargin: '300px 0px' });
+
+            container.querySelectorAll('.kanji-card').forEach(c => window._kanjiObserver.observe(c));
+        } else {
+            data.forEach((item, index) => initKanjiPlayer(item, index));
+        }
     }
 
     // ==========================================

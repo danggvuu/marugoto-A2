@@ -1,40 +1,25 @@
 /**
- * Animate UI (Vanilla Core Distribution)
- * Authentic Spring Physics, Micro-Interactions, Spotlight & Natural Transitions
- * Designed for Marugoto A2 Learning Portal
- * Reference: https://github.com/imskyleen/animate-ui
+ * Animate UI (Ultra-High Performance 120fps CSS)
+ * Zero-Jank, Hardware-Accelerated Micro-Interactions & Spring Physics
+ * Optimized for Large Portals & Low-End Mobile Devices
  */
 
 :root {
-  /* Animate UI Easing Tokens (Direct from animate-ui motion tokens) */
-  --aui-ease-out: cubic-bezier(0.23, 1, 0.32, 1);
-  --aui-ease-soft: cubic-bezier(0.215, 0.61, 0.355, 1);
-  --aui-ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
-  --aui-ease-drawer: cubic-bezier(0.34, 1.2, 0.64, 1);
-  --aui-ease-enter: cubic-bezier(0.25, 0.1, 0.35, 1);
-  --aui-ease-leave: cubic-bezier(0, 0, 0.58, 1);
-  --aui-ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+  /* Snappy Micro-Interaction Easings */
+  --aui-ease-out: cubic-bezier(0.2, 0.9, 0.3, 1);
+  --aui-ease-spring: cubic-bezier(0.34, 1.4, 0.64, 1);
+  --aui-ease-flip: cubic-bezier(0.4, 0.2, 0.2, 1);
 
-  /* Animate UI Spring Simulation Curves */
-  --aui-spring-press: cubic-bezier(0.34, 1.56, 0.64, 1);
-  --aui-spring-pop: cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  --aui-spring-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  --aui-spring-slide: cubic-bezier(0.16, 1, 0.3, 1);
-  --aui-spring-dock: cubic-bezier(0.32, 1.25, 0.32, 1);
-
-  /* Animate UI Scales & Filters */
-  --aui-scale-press: 0.965;
+  /* Scales */
+  --aui-scale-press: 0.97;
   --aui-scale-hover: 1.02;
-  --aui-blur-panel: blur(16px);
-  --aui-blur-overlay: blur(8px);
 }
 
 /* ==========================================================================
-   0. Global Sticky Offsets & Scroll Margins (Zero Overlap Protection)
+   0. Scroll & Sticky Offsets
    ========================================================================== */
 
 html {
-  scroll-behavior: smooth;
   scroll-padding-top: 24px;
 }
 
@@ -42,179 +27,70 @@ html {
   scroll-margin-top: 24px;
 }
 
-/* Double Sticky Bar Protection (Pages with Dock + Subnav) */
-#sec-grammar-1,
-#sec-grammar-2,
-#sec-grammar-3,
-#sec-morph,
-#sec-vocab,
-#sec-quiz,
-.grammar-card[id],
-.test-section[id],
-.unit-card[id] {
-  scroll-margin-top: 24px !important;
-}
-
-/* Sticky table headers sit cleanly at top: 0 */
 table th,
 .table-sticky-th {
   top: 0;
 }
 
 /* ==========================================================================
-   1. Interactive Buttons, Tabs & Pills (Animate UI Spring Tap & Scale)
+   1. Tactile Interactive Elements (Buttons, Tabs, Chips, Pills)
    ========================================================================== */
 
 button,
 .btn,
-.dock-pill,
-.dock-action-btn,
-.dock-brand,
-.sheet-close-btn,
+.hub-nav-item,
 .fc-speaker-btn,
+.table-speaker-btn,
+.fc-audio-btn,
 .tab-btn,
+.nav-tab-btn,
+.mode-btn,
+.preset-pill,
+.lesson-chip,
 .quiz-opt,
-.quiz-action-btn,
-.nav-item,
-.chip,
-.tag-btn,
 a[class*="btn"] {
-  position: relative;
-  transition: transform 0.25s var(--aui-spring-pop),
-              box-shadow 0.25s var(--aui-ease-out),
-              background-color 0.2s var(--aui-ease-out),
-              border-color 0.2s var(--aui-ease-out),
-              color 0.2s var(--aui-ease-out) !important;
-  will-change: transform;
+  transition: transform 0.12s var(--aui-ease-out),
+              box-shadow 0.12s var(--aui-ease-out),
+              background-color 0.12s ease,
+              border-color 0.12s ease;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
 }
 
-/* Hover Elevation */
+/* Clean Hover Lift */
 button:hover:not(:disabled),
 .btn:hover:not(:disabled),
-.dock-pill:hover,
-.dock-action-btn:hover,
-.dock-brand:hover,
 .fc-speaker-btn:hover,
-.tab-btn:hover {
-  transform: translateY(-2px) scale(var(--aui-scale-hover)) !important;
+.table-speaker-btn:hover,
+.fc-audio-btn:hover,
+.hub-nav-item:hover,
+.tab-btn:hover,
+.nav-tab-btn:hover,
+.mode-btn:hover,
+.preset-pill:hover {
+  transform: translateY(-1.5px);
 }
 
-/* Tap / Active Press (Animate UI Spring Press Token: scale 0.965) */
+/* Instant Spring Press Feedback (Zero Lag) */
 button:active:not(:disabled),
 .btn:active:not(:disabled),
-.dock-pill:active,
-.dock-action-btn:active,
-.dock-brand:active,
-.sheet-close-btn:active,
 .fc-speaker-btn:active,
-.quiz-opt:active,
+.table-speaker-btn:active,
+.fc-audio-btn:active,
+.hub-nav-item:active,
 .tab-btn:active,
+.nav-tab-btn:active,
+.mode-btn:active,
+.preset-pill:active,
+.lesson-chip:active,
+.quiz-opt:active,
 a[class*="btn"]:active {
-  transform: scale(var(--aui-scale-press)) translateY(1px) !important;
-  transition: transform 0.08s var(--aui-spring-press) !important;
-}
-
-/* Ripple Wave Primitive (Animate UI Click Effect) */
-.aui-ripple-host {
-  position: relative;
-  overflow: hidden !important;
-}
-
-.aui-ripple-wave {
-  position: absolute;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 70%);
-  transform: scale(0);
-  animation: aui-ripple-anim 0.52s var(--aui-ease-out) forwards;
-  pointer-events: none;
-  z-index: 10;
-}
-
-@keyframes aui-ripple-anim {
-  to {
-    transform: scale(3.5);
-    opacity: 0;
-  }
+  transform: scale(var(--aui-scale-press)) translateY(1px);
+  transition: transform 0.05s ease;
 }
 
 /* ==========================================================================
-   2. Global Sticky Dock & Mega Sheet Drawer (Animate UI Drawer & Navigation)
-   ========================================================================== */
-
-.global-sticky-dock {
-  transition: background 0.3s var(--aui-ease-out),
-              border-color 0.3s var(--aui-ease-out),
-              box-shadow 0.35s var(--aui-ease-out) !important;
-  backdrop-filter: var(--aui-blur-panel) !important;
-  -webkit-backdrop-filter: var(--aui-blur-panel) !important;
-}
-
-/* Dock Pill Active Highlight */
-.dock-pill.active {
-  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.35) !important;
-  transform: scale(1.02);
-}
-
-/* Drawer / Sheet Animation (Animate UI ease.drawer: overshoot 1.2) */
-.global-mega-sheet {
-  animation: aui-sheet-enter 0.42s var(--aui-ease-drawer) forwards !important;
-  box-shadow: 0 24px 48px -12px rgba(15, 23, 42, 0.25) !important;
-}
-
-@keyframes aui-sheet-enter {
-  from {
-    opacity: 0;
-    transform: translateY(-16px) scale(0.99);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-.sheet-topic-card {
-  transition: transform 0.3s var(--aui-spring-slide),
-              box-shadow 0.3s var(--aui-ease-out),
-              border-color 0.25s var(--aui-ease-out) !important;
-}
-
-.sheet-topic-card:hover {
-  transform: translateY(-3px) scale(1.015) !important;
-  box-shadow: 0 10px 24px -4px rgba(15, 23, 42, 0.1) !important;
-}
-
-.sheet-lesson-link {
-  transition: transform 0.25s var(--aui-spring-pop),
-              background-color 0.2s var(--aui-ease-out),
-              border-color 0.2s var(--aui-ease-out) !important;
-}
-
-.sheet-lesson-link:hover {
-  transform: translateX(6px) !important;
-}
-
-.dock-tools-menu {
-  animation: aui-menu-enter 0.28s var(--aui-ease-drawer) forwards !important;
-  transform-origin: top right;
-  backdrop-filter: var(--aui-blur-panel) !important;
-  -webkit-backdrop-filter: var(--aui-blur-panel) !important;
-}
-
-@keyframes aui-menu-enter {
-  from {
-    opacity: 0;
-    transform: translateY(-8px) scale(0.96);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-/* ==========================================================================
-   3. Cards, Grammar Boxes & Vocabulary Cards (Animate UI Spotlight & Tilt)
+   2. Cards & Grammar Boxes (Subtle Elevation, Zero Layout Reflow)
    ========================================================================== */
 
 .card,
@@ -225,183 +101,89 @@ a[class*="btn"]:active {
 .lesson-card,
 .vocab-card,
 .table-card,
-.tab-content,
-.hero-banner {
-  position: relative;
-  transition: transform 0.35s var(--aui-spring-slide),
-              box-shadow 0.35s var(--aui-ease-out),
-              border-color 0.3s var(--aui-ease-out);
-  will-change: transform;
+.kanji-card {
+  transition: box-shadow 0.2s var(--aui-ease-out),
+              border-color 0.15s ease;
 }
 
-/* Spotlight Glow Effect (tracks cursor dynamically via CSS vars) */
-.card::before,
-.fc-card::before,
-.grammar-box::before,
-.summary-box::before,
-.test-card::before,
-.lesson-card::before,
-.sheet-topic-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: radial-gradient(
-    380px circle at var(--aui-mouse-x, -999px) var(--aui-mouse-y, -999px),
-    rgba(99, 102, 241, 0.12),
-    transparent 70%
-  );
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.35s var(--aui-ease-out);
-  z-index: 2;
-}
-
-.card:hover::before,
-.fc-card:hover::before,
-.grammar-box:hover::before,
-.summary-box:hover::before,
-.test-card:hover::before,
-.lesson-card:hover::before,
-.sheet-topic-card:hover::before {
-  opacity: 1;
-}
-
-/* Card Hover Elevation */
 .card:hover,
-.fc-card:hover,
-.grammar-box:hover,
 .test-card:hover,
-.lesson-card:hover {
-  box-shadow: 0 18px 36px -10px rgba(15, 23, 42, 0.12),
-              0 6px 16px -4px rgba(15, 23, 42, 0.06) !important;
-}
-
-/* Animate UI 3D Tilt */
-.aui-tilt-active {
-  transform: perspective(1000px)
-             rotateX(var(--aui-tilt-x, 0deg))
-             rotateY(var(--aui-tilt-y, 0deg))
-             scale3d(1.015, 1.015, 1.015) !important;
+.lesson-card:hover,
+.kanji-card:hover {
+  box-shadow: 0 8px 20px -4px rgba(15, 23, 42, 0.08);
 }
 
 /* ==========================================================================
-   4. Flashcard 3D Spring Flip & Audio Indicator
+   3. 3D Flashcard Spring Flip
    ========================================================================== */
 
+.flashcard-scene,
 .fc-card,
 .card-flip-wrap {
-  perspective: 1200px;
+  perspective: 1000px;
 }
 
+.flashcard-inner,
 .fc-inner,
 .card-flip-inner {
-  transition: transform 0.65s var(--aui-ease-drawer) !important;
+  transition: transform 0.4s var(--aui-ease-flip) !important;
   transform-style: preserve-3d;
 }
 
-/* Audio Playing Ripple Pulse */
-.aui-audio-playing {
-  animation: aui-audio-pulse 1.3s infinite var(--aui-ease-soft) !important;
+/* ==========================================================================
+   4. Audio Playing Pulse Animation
+   ========================================================================== */
+
+.aui-audio-playing,
+.audio-playing {
+  animation: aui-audio-pulse 1.2s infinite ease-out !important;
 }
 
 @keyframes aui-audio-pulse {
   0% {
-    box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.65);
-    transform: scale(1.06);
+    box-shadow: 0 0 0 0 rgba(79, 70, 229, 0.6);
+    transform: scale(1.05);
   }
   60% {
-    box-shadow: 0 0 0 14px rgba(99, 102, 241, 0);
+    box-shadow: 0 0 0 10px rgba(79, 70, 229, 0);
     transform: scale(1);
   }
   100% {
-    box-shadow: 0 0 0 0 rgba(99, 102, 241, 0);
+    box-shadow: 0 0 0 0 rgba(79, 70, 229, 0);
     transform: scale(1);
   }
 }
 
 /* ==========================================================================
-   5. Quiz & Test Micro-Interactions (Animate UI checkPop & shake)
+   5. Quiz & Exercise Micro-Interactions (Pop & Shake)
    ========================================================================== */
 
-.quiz-opt {
-  transition: transform 0.22s var(--aui-spring-pop),
-              border-color 0.2s var(--aui-ease-out),
-              background-color 0.2s var(--aui-ease-out) !important;
-}
-
 .quiz-opt:hover {
-  transform: translateX(4px) scale(1.01);
+  transform: translateX(3px);
 }
 
 .aui-check-pop {
-  animation: aui-pop-anim 0.45s var(--aui-spring-pop) forwards !important;
+  animation: aui-pop-anim 0.35s var(--aui-ease-spring) forwards !important;
 }
 
 @keyframes aui-pop-anim {
-  0% { transform: scale(0.96); }
-  50% { transform: scale(1.05); }
-  80% { transform: scale(0.99); }
+  0% { transform: scale(0.97); }
+  50% { transform: scale(1.04); }
   100% { transform: scale(1); }
 }
 
 .aui-shake {
-  animation: aui-shake-anim 0.42s var(--aui-ease-in-out) forwards !important;
+  animation: aui-shake-anim 0.35s ease-in-out forwards !important;
 }
 
 @keyframes aui-shake-anim {
   0%, 100% { transform: translateX(0); }
-  20%, 60% { transform: translateX(-7px); }
-  40%, 80% { transform: translateX(7px); }
-}
-
-/* Shine Hover Sweep (Animate UI Shine Primitive) */
-.aui-shine {
-  position: relative;
-  overflow: hidden;
-}
-
-.aui-shine::after {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -60%;
-  width: 220%;
-  height: 200%;
-  background: linear-gradient(
-    65deg,
-    transparent 35%,
-    rgba(255, 255, 255, 0.28) 50%,
-    transparent 65%
-  );
-  transform: rotate(25deg) translateY(-100%);
-  transition: transform 0.75s var(--aui-ease-out);
-  pointer-events: none;
-}
-
-.aui-shine:hover::after {
-  transform: rotate(25deg) translateY(100%);
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
 }
 
 /* ==========================================================================
-   6. Viewport Scroll Entrance (Smooth Staggered Reveal)
-   ========================================================================== */
-
-.aui-reveal-init {
-  opacity: 0;
-  transform: translateY(20px) scale(0.985);
-  transition: opacity 0.5s var(--aui-ease-out),
-              transform 0.5s var(--aui-ease-drawer);
-  will-change: opacity, transform;
-}
-
-.aui-reveal-shown {
-  opacity: 1 !important;
-  transform: translateY(0) scale(1) !important;
-}
-
-/* ==========================================================================
-   7. Accessibility (Reduced Motion Compliance)
+   6. Accessibility (Reduced Motion)
    ========================================================================== */
 
 @media (prefers-reduced-motion: reduce) {
@@ -413,11 +195,8 @@ a[class*="btn"]:active {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-  .aui-tilt-active {
-    transform: none !important;
-  }
-  .dock-pill:hover,
-  button:hover {
+  button:hover,
+  .btn:hover {
     transform: none !important;
   }
 }

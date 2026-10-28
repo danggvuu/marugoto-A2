@@ -1830,9 +1830,13 @@
         }
 
         // FILTER HANDLERS
+        let grammarSearchDebounceTimer = null;
         function handleSearch() {
-            currentSearch = document.getElementById('grammarSearchInput').value;
-            renderGrammarCards();
+            clearTimeout(grammarSearchDebounceTimer);
+            grammarSearchDebounceTimer = setTimeout(() => {
+                currentSearch = document.getElementById('grammarSearchInput').value;
+                renderGrammarCards();
+            }, 120);
         }
 
         function setLevelFilter(level, btn) {

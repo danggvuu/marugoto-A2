@@ -3759,11 +3759,13 @@
         }
     }
 
+    let vocabSearchDebounceTimer = null;
     function onSearchChange() {
         const query = document.getElementById('searchInput').value;
         const clearBtn = document.getElementById('searchClearBtn');
         if (clearBtn) clearBtn.style.display = query ? 'block' : 'none';
-        applyFilter();
+        clearTimeout(vocabSearchDebounceTimer);
+        vocabSearchDebounceTimer = setTimeout(applyFilter, 120);
     }
 
     function clearSearch() {
@@ -3816,35 +3818,36 @@
     // Render Table
     function renderTable() {
         const tbody = document.getElementById('vocabTableBody');
-        tbody.innerHTML = '';
+        if (!tbody) return;
 
         if (currentFiltered.length === 0) {
             tbody.innerHTML = `<tr><td colspan="4" style="text-align: center; color: var(--gray); padding: 30px;">Không tìm thấy từ vựng nào phù hợp!</td></tr>`;
             return;
         }
 
-        currentFiltered.forEach((item, idx) => {
-            const tr = document.createElement('tr');
+        const rows = currentFiltered.map((item, idx) => {
             const safeJp = item.jp.replace(/'/g, "\\'");
-            tr.innerHTML = `
-                <td class="col-stt"><strong>${idx + 1}</strong></td>
-                <td class="col-lesson"><span class="tag-lesson">${item.l}</span></td>
-                <td class="col-jp">
-                    <span class="jp-word">${item.jp}</span>
-                    <button type="button" class="btn-speak-inline" onclick="speakJapanese('${safeJp}')" title="Nghe phát âm chuẩn Tokyo">🔊</button>
-                </td>
-                <td class="col-vi"><span class="vi-word">${item.vi}</span></td>
+            return `
+                <tr>
+                    <td class="col-stt"><strong>${idx + 1}</strong></td>
+                    <td class="col-lesson"><span class="tag-lesson">${item.l}</span></td>
+                    <td class="col-jp">
+                        <span class="jp-word">${item.jp}</span>
+                        <button type="button" class="btn-speak-inline fc-speaker-btn" onclick="speakJapanese('${safeJp}', this)" title="Nghe phát âm chuẩn Tokyo">🔊</button>
+                    </td>
+                    <td class="col-vi"><span class="vi-word">${item.vi}</span></td>
+                </tr>
             `;
-            tbody.appendChild(tr);
-        });
+        }).join('');
+        tbody.innerHTML = rows;
     }
 
     // ==========================================
     // AUDIO HELPER (Dual Engine via audio-engine.js)
     // ==========================================
-    function speakJapanese(text) {
+    function speakJapanese(text, btnEl) {
         if (window.speakText) {
-            window.speakText(text);
+            window.speakText(text, btnEl);
         }
     }
 
