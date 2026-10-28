@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 import re
 import os
 import glob
@@ -57,7 +59,7 @@ HUB_NAV_CSS = '''
             border-radius: 14px;
             box-shadow: 0 12px 28px rgba(0,0,0,0.12);
             padding: 8px;
-            min-width: 260px;
+            min-width: 280px;
             z-index: 9999;
         }
         .hub-dropdown-menu.show {
@@ -96,32 +98,54 @@ HUB_NAV_CSS = '''
         }
 '''
 
-DROPDOWN_JS = '''
-    function toggleTestsDropdown(e) {
-        if (e) e.stopPropagation();
+DROPDOWN_JS = '''    function toggleTestsDropdown(e) {
+        if (e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
         const m = document.getElementById('testsDropdownMenu');
         if (m) m.classList.toggle('show');
         const lm = document.getElementById('lessonsDropdownMenu');
         if (lm) lm.classList.remove('show');
     }
     function toggleLessonsDropdown(e) {
-        if (e) e.stopPropagation();
+        if (e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
         const m = document.getElementById('lessonsDropdownMenu');
         if (m) m.classList.toggle('show');
         const tm = document.getElementById('testsDropdownMenu');
         if (tm) tm.classList.remove('show');
     }
-    window.addEventListener('click', () => {
+    window.addEventListener('click', function(e) {
+        if (e && e.target && e.target.closest && e.target.closest('.hub-dropdown')) return;
         const lm = document.getElementById('lessonsDropdownMenu');
         if (lm) lm.classList.remove('show');
         const tm = document.getElementById('testsDropdownMenu');
         if (tm) tm.classList.remove('show');
     });
-'''
+    window.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            const lm = document.getElementById('lessonsDropdownMenu');
+            if (lm) lm.classList.remove('show');
+            const tm = document.getElementById('testsDropdownMenu');
+            if (tm) tm.classList.remove('show');
+        }
+    });
+    window.toggleTestsDropdown = toggleTestsDropdown;
+    window.toggleLessonsDropdown = toggleLessonsDropdown;'''
 
-def clean_orphan_tags(content):
-    # Remove orphan floating dock and unclosed divs
+def clean_file_artifacts(content):
+    content = content.replace('\\n<script>', '')
+    content = content.replace('\n<script>', '')
     content = re.sub(r'<!-- GLOBAL FLOATING DOCK -->\s*(?:</div>\s*)+', '', content)
+    # Remove any existing toggle functions and empty scripts
+    content = re.sub(r'<script>\s*function toggleTestsDropdown.*?window\.toggleLessonsDropdown = toggleLessonsDropdown;\s*</script>', '', content, flags=re.DOTALL)
+    content = re.sub(r'function toggleLessonsDropdown\([^)]*\)\s*\{[^}]*\}', '', content)
+    content = re.sub(r'function toggleTestsDropdown\([^)]*\)\s*\{[^}]*\}', '', content)
+    content = re.sub(r'window\.addEventListener\([\'"]click[\'"].*?lessonsDropdownMenu.*?\);', '', content, flags=re.DOTALL)
+    content = re.sub(r'<script>\s*</script>', '', content)
     return content
 
 def sync_lessons():
@@ -131,7 +155,7 @@ def sync_lessons():
         with open(fn, 'r', encoding='utf-8') as f:
             c = f.read()
 
-        c = clean_orphan_tags(c)
+        c = clean_file_artifacts(c)
 
         lessons_drop = []
         for l_num, l_title in [
@@ -181,16 +205,10 @@ def sync_lessons():
         # Replace existing global-hub-nav in lesson
         c = re.sub(r'<div class="global-hub-nav">.*?</div>\s*</div>\s*</div>', nav_html, c, flags=re.DOTALL)
 
-        # Ensure Dropdown JS is present and up-to-date
-        # Remove old toggle functions if present
-        c = re.sub(r'function toggleLessonsDropdown\([^)]*\)\s*\{[^}]*\}', '', c)
-        c = re.sub(r'function toggleTestsDropdown\([^)]*\)\s*\{[^}]*\}', '', c)
-        c = re.sub(r'window\.addEventListener\(\'click\',\s*\(\)\s*=>\s*\{[^}]*lessonsDropdownMenu[^}]*\}\);', '', c)
-
-        # Inject unified DROPDOWN_JS before </body>
+        # Inject script before </body>
+        script_block = f'<script src="../assets/js/nav-dropdown.js"></script>\n<script>\n{DROPDOWN_JS}\n</script>'
         if '</body>' in c:
-            if 'toggleTestsDropdown' not in c:
-                c = c.replace('</body>', f'<script>{DROPDOWN_JS}</script>\n</body>', 1)
+            c = c.replace('</body>', f'{script_block}\n</body>', 1)
 
         with open(fn, 'w', encoding='utf-8') as f:
             f.write(c)
@@ -205,7 +223,7 @@ def sync_tests():
         with open(fn, 'r', encoding='utf-8') as f:
             c = f.read()
 
-        c = clean_orphan_tags(c)
+        c = clean_file_artifacts(c)
 
         tests_drop = []
         for t_file, t_title in [
@@ -251,26 +269,17 @@ def sync_tests():
         </div>
     </div>'''
 
-        if '.global-hub-nav' not in c:
-            # Inject CSS in head
-            if '</style>' in c:
-                c = c.replace('</style>', f'{HUB_NAV_CSS}\n</style>', 1)
-            elif '</head>' in c:
-                c = c.replace('</head>', f'<style>{HUB_NAV_CSS}</style>\n</head>', 1)
-            
-            # Inject nav after <body>
-            c = re.sub(r'(<body[^>]*>)', r'\1\n' + nav_html, c, 1)
-        else:
+        # Replace or inject nav
+        if '<div class="global-hub-nav">' in c:
             c = re.sub(r'<div class="global-hub-nav">.*?</div>\s*</div>\s*</div>', nav_html, c, flags=re.DOTALL)
+        else:
+            if '<body>' in c:
+                c = c.replace('<body>', f'<body>\n{nav_html}', 1)
 
-        # Dropdown JS
-        c = re.sub(r'function toggleLessonsDropdown\([^)]*\)\s*\{[^}]*\}', '', c)
-        c = re.sub(r'function toggleTestsDropdown\([^)]*\)\s*\{[^}]*\}', '', c)
-        c = re.sub(r'window\.addEventListener\(\'click\',\s*\(\)\s*=>\s*\{[^}]*lessonsDropdownMenu[^}]*\}\);', '', c)
-
+        # Inject script before </body>
+        script_block = f'<script src="../assets/js/nav-dropdown.js"></script>\n<script>\n{DROPDOWN_JS}\n</script>'
         if '</body>' in c:
-            if 'toggleTestsDropdown' not in c:
-                c = c.replace('</body>', f'<script>{DROPDOWN_JS}</script>\n</body>', 1)
+            c = c.replace('</body>', f'{script_block}\n</body>', 1)
 
         with open(fn, 'w', encoding='utf-8') as f:
             f.write(c)
@@ -289,7 +298,7 @@ def sync_roots():
         with open(fn, 'r', encoding='utf-8') as f:
             c = f.read()
 
-        c = clean_orphan_tags(c)
+        c = clean_file_artifacts(c)
 
         is_te = (current_r == 'index.html')
         is_ru = (current_r == 'the_ru.html')
@@ -332,15 +341,17 @@ def sync_roots():
         </div>
     </div>'''
 
-        c = re.sub(r'<div class="global-hub-nav">.*?</div>\s*</div>\s*</div>', nav_html, c, flags=re.DOTALL)
+        # Replace or inject nav
+        if '<div class="global-hub-nav">' in c:
+            c = re.sub(r'<div class="global-hub-nav">.*?</div>\s*</div>\s*</div>', nav_html, c, flags=re.DOTALL)
+        else:
+            if '<body>' in c:
+                c = c.replace('<body>', f'<body>\n{nav_html}', 1)
 
-        c = re.sub(r'function toggleLessonsDropdown\([^)]*\)\s*\{[^}]*\}', '', c)
-        c = re.sub(r'function toggleTestsDropdown\([^)]*\)\s*\{[^}]*\}', '', c)
-        c = re.sub(r'window\.addEventListener\(\'click\',\s*\(\)\s*=>\s*\{[^}]*lessonsDropdownMenu[^}]*\}\);', '', c)
-
+        # Inject script before </body>
+        script_block = f'<script src="assets/js/nav-dropdown.js"></script>\n<script>\n{DROPDOWN_JS}\n</script>'
         if '</body>' in c:
-            if 'toggleTestsDropdown' not in c:
-                c = c.replace('</body>', f'<script>{DROPDOWN_JS}</script>\n</body>', 1)
+            c = c.replace('</body>', f'{script_block}\n</body>', 1)
 
         with open(fn, 'w', encoding='utf-8') as f:
             f.write(c)
@@ -350,4 +361,4 @@ if __name__ == '__main__':
     sync_lessons()
     sync_tests()
     sync_roots()
-    print("Done synchronizing all 8-item navigation bars!")
+    print("All navigation bars and dropdown scripts successfully synchronized!")
