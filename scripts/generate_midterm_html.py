@@ -5,8 +5,8 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-# Import EXAMS_DATA from build_5_midterm_exams
-from build_5_midterm_exams import EXAMS_DATA_5 as EXAMS_DATA
+# Import EXAMS_DATA from build_expert_5_exams
+from build_expert_5_exams import EXAMS_DATA_EXPERT as EXAMS_DATA
 
 print(f"Loaded {len(EXAMS_DATA)} exams.")
 
@@ -1538,7 +1538,7 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
                 🎯 Đề Thi Giữa Kỳ Midterm Marugoto A2-1
             </h1>
             <p class="hero-desc">
-                Hệ thống thi thử giữa kỳ thiết kế chuẩn 100% theo form bảng lớp học của thầy cô: Đầy đủ 5 phần trọng điểm, tự động bấm giờ, lưu bài làm, chấm điểm chi tiết kèm Tokyo Audio TTS và giải thích cặn kẽ từng câu.
+                Hệ thống 5 bộ đề thi giữa kỳ Midterm A2-1 được biên soạn trực tiếp bởi giáo viên tiếng Nhật 10 năm kinh nghiệm: Chuẩn 100% format 5 phần bảng lớp học, phân tích bẫy ngữ pháp trợ từ, âm ngắt, âm dài, Hán tự tương đồng và tự luận Can-do ≥ 50 từ/ký tự kèm Tokyo Audio TTS và giải thích sư phạm cặn kẽ từng câu.
             </p>
             <div class="hero-features">
                 <span class="feature-pill">⏱️ Thời gian: 45 Phút</span>
