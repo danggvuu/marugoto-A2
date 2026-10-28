@@ -3,7 +3,7 @@ import json
 import os
 import glob
 
-# Palette mapping by theme
+# Rich gradient palettes by semantic theme
 PALETTES = {
     'food': ('#ef4444', '#b91c1c', '#7f1d1d'),
     'drink': ('#8b5cf6', '#6d28d9', '#4c1d95'),
@@ -20,23 +20,23 @@ PALETTES = {
 
 def get_color_palette(text):
     t = text.lower()
-    if any(k in t for k in ['rượu', 'uống', 'drink', 'bia', 'trà', 'cà phê', 'nước']):
+    if any(k in t for k in ['rượu', 'uống', 'drink', 'bia', 'trà', 'cà phê', 'nước', 'đồ uống']):
         return PALETTES['drink']
     if any(k in t for k in ['hoa quả', 'dâu', 'táo', 'trái cây', 'fruit']):
         return PALETTES['dessert']
     if any(k in t for k in ['rau', 'salad', 'vegetable', 'củ']):
         return PALETTES['vegetable']
-    if any(k in t for k in ['thịt', 'gà', 'bò', 'heo', 'nướng', 'bbq', 'rán']):
+    if any(k in t for k in ['thịt', 'gà', 'bò', 'heo', 'nướng', 'bbq', 'rán', 'meat']):
         return PALETTES['meat']
-    if any(k in t for k in ['món', 'ăn', 'cơm', 'bánh', 'mì', 'food', 'súp']):
+    if any(k in t for k in ['món', 'ăn', 'cơm', 'bánh', 'mì', 'food', 'súp', 'trứng']):
         return PALETTES['food']
-    if any(k in t for k in ['bay', 'tàu', 'xe', 'chuyến', 'travel', 'khách sạn', 'vé', 'sân bay']):
+    if any(k in t for k in ['bay', 'tàu', 'xe', 'chuyến', 'travel', 'khách sạn', 'vé', 'sân bay', 'hành lý', 'vali']):
         return PALETTES['travel']
-    if any(k in t for k in ['văn phòng', 'máy tính', 'điện thoại', 'tài liệu', 'công việc', 'họp', 'office']):
+    if any(k in t for k in ['văn phòng', 'máy tính', 'điện thoại', 'tài liệu', 'công việc', 'họp', 'office', 'báo cáo']):
         return PALETTES['office']
-    if any(k in t for k in ['khỏe', 'thuốc', 'chạy', 'thể dục', 'bệnh', 'nghỉ', 'health', 'tập']):
+    if any(k in t for k in ['khỏe', 'thuốc', 'chạy', 'thể dục', 'bệnh', 'nghỉ', 'health', 'tập', 'đầu', 'bụng', 'chân']):
         return PALETTES['health']
-    if any(k in t for k in ['lễ', 'hội', 'chúc', 'quà', 'đền', 'văn hóa', 'culture', 'tết']):
+    if any(k in t for k in ['lễ', 'hội', 'chúc', 'quà', 'đền', 'văn hóa', 'culture', 'tết', 'daruma', 'kimono', 'yukata']):
         return PALETTES['culture']
     return PALETTES['default']
 
@@ -55,7 +55,6 @@ def extract_emoji_and_title(item):
         if candidate_title:
             title = candidate_title
     else:
-        # Fallback keyword emoji
         text = f"{item.get('jp','')} {item.get('vi','')} {item.get('badge','')}".lower()
         if 'quả' in text or 'trái cây' in text: em = '🍎'
         elif 'rượu' in text or 'uống' in text: em = '🍶'
@@ -79,7 +78,6 @@ def extract_emoji_and_title(item):
         elif 'đèn' in text: em = '🏮'
         elif 'lễ' in text or 'hội' in text: em = '👘'
 
-    # Shorten title if too long
     if len(title) > 16:
         title = title[:15] + '…'
     return em, title.upper()
@@ -91,40 +89,41 @@ def generate_3d_isometric_svg(item, item_id):
         kanji = kanji[:5]
     
     col1, col2, col3 = get_color_palette(f"{item.get('cat','')} {item.get('vi','')} {title}")
-
     clean_id = f"iso_{item_id}_{abs(hash(title)) % 100000}"
 
-    return f'''<svg viewBox="0 0 240 135" xmlns="http://www.w3.org/2000/svg">
+    return f'''<svg viewBox="0 0 240 135" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="top_g_{clean_id}" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="bg_g_{clean_id}" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="{col1}"/>
       <stop offset="100%" stop-color="{col2}"/>
     </linearGradient>
-    <linearGradient id="side_g_{clean_id}" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="{col2}"/>
-      <stop offset="100%" stop-color="{col3}"/>
+    <linearGradient id="ped_top_{clean_id}" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.4)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0.12)"/>
     </linearGradient>
   </defs>
-  <ellipse cx="120" cy="122" rx="75" ry="10" fill="rgba(15, 23, 42, 0.28)"/>
-  <polygon points="50,88 120,114 120,124 50,98" fill="url(#side_g_{clean_id})"/>
-  <polygon points="120,114 190,88 190,98 120,124" fill="{col3}"/>
-  <polygon points="120,62 190,88 120,114 50,88" fill="url(#top_g_{clean_id})"/>
-  <polygon points="120,64 186,88 120,112 54,88" fill="none" stroke="rgba(255,255,255,0.45)" stroke-width="1.5"/>
-  <text x="120" y="93" text-anchor="middle" font-size="13" font-weight="900" fill="rgba(255,255,255,0.35)" font-family="sans-serif">{kanji}</text>
-  <ellipse cx="120" cy="82" rx="22" ry="6" fill="rgba(0,0,0,0.28)"/>
-  <g transform="translate(120, 48)">
-    <circle cx="0" cy="0" r="25" fill="rgba(255,255,255,0.22)"/>
+  <rect width="240" height="135" rx="14" fill="url(#bg_g_{clean_id})"/>
+  <circle cx="120" cy="72" r="50" fill="rgba(255,255,255,0.08)"/>
+  <ellipse cx="120" cy="116" rx="60" ry="8" fill="rgba(0, 0, 0, 0.3)"/>
+  <polygon points="55,88 120,110 120,118 55,96" fill="rgba(0,0,0,0.35)"/>
+  <polygon points="120,110 185,88 185,96 120,118" fill="rgba(0,0,0,0.5)"/>
+  <polygon points="120,66 185,88 120,110 55,88" fill="url(#ped_top_{clean_id})"/>
+  <polygon points="120,68 181,88 120,108 59,88" fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="1.2"/>
+  <text x="120" y="91" text-anchor="middle" font-size="13" font-weight="900" fill="rgba(255,255,255,0.55)" font-family="sans-serif">{kanji}</text>
+  <ellipse cx="120" cy="80" rx="20" ry="5" fill="rgba(0,0,0,0.35)"/>
+  <g transform="translate(120, 46)">
+    <circle cx="0" cy="0" r="24" fill="rgba(255,255,255,0.25)"/>
     <text x="0" y="11" text-anchor="middle" font-size="32">{em}</text>
   </g>
-  <rect x="65" y="5" width="110" height="18" rx="9" fill="rgba(15, 23, 42, 0.75)" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
-  <text x="120" y="18" text-anchor="middle" fill="#ffffff" font-size="9.5" font-weight="800" letter-spacing="1">{title}</text>
+  <rect x="60" y="8" width="120" height="18" rx="9" fill="rgba(0, 0, 0, 0.35)" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+  <text x="120" y="21" text-anchor="middle" fill="#ffffff" font-size="9" font-weight="800" letter-spacing="1">{title}</text>
 </svg>'''
 
 def update_lesson_3d(fn):
     with open(fn, 'r', encoding='utf-8') as f:
         c = f.read()
 
-    # 1. Inject Head 3D Assets if missing
+    # 1. Ensure Head 3D Assets are present
     assets_head = '''    <!-- 3D Model Studio & Interactive WebGL Engine -->
     <link rel="stylesheet" href="../assets/css/vocab-3d.css">
     <script src="../assets/js/vendor/three.min.js"></script>
@@ -133,7 +132,6 @@ def update_lesson_3d(fn):
 '''
     if 'vocab-3d.css' not in c:
         c = c.replace('</head>', f'{assets_head}</head>', 1)
-        print(f"[{fn}] Injected 3D Head assets")
 
     # 2. Upgrade VOCAB_DATA with 3D Isometric SVGs
     m = re.search(r'const VOCAB_DATA\s*=\s*(\[.*?\]);', c, flags=re.DOTALL)
@@ -148,14 +146,18 @@ def update_lesson_3d(fn):
             item['svg'] = generate_3d_isometric_svg(item, idx + 1)
         new_vocab_json = json.dumps(data, ensure_ascii=False)
         c = c[:m.start(1)] + new_vocab_json + c[m.end(1):]
-        print(f"[{fn}] Upgraded {len(data)} vocabulary items with 3D Isometric SVGs")
+        print(f"[{fn}] Upgraded {len(data)} items to 3D Isometric SVGs")
 
-    # 3. Update renderFlashcards to use fc-3d-stage
-    # For lessons 11-18
-    old_fc_pattern = re.compile(
-        r'<div class="fc-illustration">\s*\$\{v\.svg\}\s*</div>',
-        re.DOTALL
-    )
+    # 3. Ensure window.VOCAB_DATA = VOCAB_DATA;
+    if 'window.VOCAB_DATA = VOCAB_DATA;' not in c:
+        c = re.sub(
+            r'(const VOCAB_DATA\s*=\s*\[.*?\];)',
+            r'\1\n        window.VOCAB_DATA = VOCAB_DATA;',
+            c,
+            flags=re.DOTALL
+        )
+
+    # 4. Standardize renderFlashcards fc-3d-stage
     new_stage = '''<div class="fc-3d-stage" onclick="event.stopPropagation(); openVocab3D(VOCAB_DATA.indexOf(v))" title="Bấm để mở Mô Hình 3D 360° tương tác">
                                 <div class="fc-3d-model-wrapper">
                                     <div class="fc-3d-floating-obj">
@@ -168,31 +170,8 @@ def update_lesson_3d(fn):
                                     <span>Mô hình 3D (360°)</span>
                                 </div>
                             </div>'''
-    if old_fc_pattern.search(c):
-        c = old_fc_pattern.sub(new_stage, c)
-        print(f"[{fn}] Replaced fc-illustration with fc-3d-stage")
-
-    # For Lesson 10 which has ${v.svg || ''}
-    old_fc_10 = re.compile(
-        r'<div class="fc-illustration">\s*\$\{v\.svg\s*\|\|\s*\'\'\}\s*</div>',
-        re.DOTALL
-    )
-    if old_fc_10.search(c):
-        c = old_fc_10.sub(new_stage, c)
-        print(f"[{fn}] Replaced fc-illustration with fc-3d-stage (L10 format)")
-
-    # Ensure window.enhanceFlashcards3D is called after renderFlashcards
-    if 'enhanceFlashcards3D' not in c:
-        c = re.sub(
-            r'(container\.innerHTML\s*=\s*filtered\.map\([^)]*\)\.join\(\'\'\);)',
-            r'\1\n            if (window.enhanceFlashcards3D) window.enhanceFlashcards3D();',
-            c
-        )
-        c = re.sub(
-            r'(grid\.innerHTML\s*=\s*items\.map\([^)]*\)\.join\(\'\'\);)',
-            r'\1\n            if (window.enhanceFlashcards3D) window.enhanceFlashcards3D();',
-            c
-        )
+    # Replace old fc-illustration if present
+    c = re.sub(r'<div class="fc-illustration">.*?</div>', new_stage, c, flags=re.DOTALL)
 
     with open(fn, 'w', encoding='utf-8') as f:
         f.write(c)
@@ -201,7 +180,7 @@ def main():
     lessons = sorted(glob.glob('lessons/Marugoto_A2_Lesson_*.html'))
     for l in lessons:
         update_lesson_3d(l)
-    print("Done upgrading all lessons with the 3D Interactive Model System!")
+    print("All 9 lessons updated with rich 3D Isometric models & SVGs!")
 
 if __name__ == '__main__':
     main()

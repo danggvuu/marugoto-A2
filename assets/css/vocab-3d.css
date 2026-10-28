@@ -14,15 +14,15 @@
     perspective: 800px;
     cursor: pointer;
     overflow: hidden;
-    border-radius: 14px;
-    background: linear-gradient(135deg, rgba(241, 245, 249, 0.9) 0%, rgba(226, 232, 240, 0.8) 100%);
-    border: 1px solid rgba(226, 232, 240, 0.9);
-    transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s ease;
+    border-radius: 16px;
+    background: radial-gradient(circle at 50% 40%, rgba(248, 250, 252, 0.95) 0%, rgba(226, 232, 240, 0.85) 100%);
+    border: 1.5px solid rgba(226, 232, 240, 0.9);
+    transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
 .fc-3d-stage:hover {
-    box-shadow: 0 10px 24px -4px rgba(79, 70, 229, 0.18);
-    border-color: rgba(99, 102, 241, 0.4);
+    box-shadow: 0 12px 28px -4px rgba(79, 70, 229, 0.22);
+    border-color: rgba(99, 102, 241, 0.5);
 }
 
 .fc-3d-model-wrapper {
@@ -38,29 +38,41 @@
 }
 
 .fc-3d-floating-obj {
-    animation: vocab3dFloat 3.2s ease-in-out infinite;
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    animation: vocab3dFloat 3.2s ease-in-out infinite;
     transform-style: preserve-3d;
-    filter: drop-shadow(0 12px 14px rgba(0, 0, 0, 0.15));
+    pointer-events: none;
+}
+
+.fc-3d-floating-obj svg {
+    width: 100%;
+    height: 100%;
+    max-width: 220px;
+    max-height: 130px;
+    display: block;
+    margin: 0 auto;
+    filter: drop-shadow(0 10px 14px rgba(0, 0, 0, 0.16));
 }
 
 @keyframes vocab3dFloat {
     0%, 100% {
-        transform: translateY(0) rotateY(0deg) rotateZ(0deg);
+        transform: translateY(0) rotateY(0deg);
     }
     50% {
-        transform: translateY(-8px) rotateY(12deg) rotateZ(2deg);
+        transform: translateY(-6px) rotateY(8deg);
     }
 }
 
 .fc-3d-shadow-blob {
     position: absolute;
-    bottom: 12px;
-    width: 70px;
+    bottom: 8px;
+    width: 85px;
     height: 14px;
-    background: radial-gradient(ellipse at center, rgba(15, 23, 42, 0.22) 0%, rgba(15, 23, 42, 0) 70%);
+    background: radial-gradient(ellipse at center, rgba(15, 23, 42, 0.25) 0%, rgba(15, 23, 42, 0) 70%);
     border-radius: 50%;
     animation: vocab3dShadow 3.2s ease-in-out infinite;
     pointer-events: none;
@@ -69,11 +81,11 @@
 @keyframes vocab3dShadow {
     0%, 100% {
         transform: scale(1);
-        opacity: 0.6;
+        opacity: 0.7;
     }
     50% {
-        transform: scale(0.75);
-        opacity: 0.25;
+        transform: scale(0.8);
+        opacity: 0.3;
     }
 }
 
@@ -82,28 +94,29 @@
     position: absolute;
     bottom: 8px;
     right: 8px;
-    background: rgba(15, 23, 42, 0.85);
+    background: rgba(15, 23, 42, 0.88);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     color: #ffffff;
     font-size: 0.72rem;
     font-weight: 700;
-    padding: 4px 9px;
+    padding: 5px 11px;
     border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.25);
     display: inline-flex;
     align-items: center;
-    gap: 4px;
+    gap: 5px;
     cursor: pointer;
     transition: all 0.2s ease;
     z-index: 10;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
 }
 
 .btn-launch-3d-badge:hover {
-    background: #4f46e5;
-    border-color: #6366f1;
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+    border-color: #a5b4fc;
     transform: scale(1.06);
-    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.4);
+    box-shadow: 0 6px 16px rgba(79, 70, 229, 0.45);
 }
 
 /* ==========================================================================
@@ -210,7 +223,7 @@
     transform: rotate(90deg);
 }
 
-/* Studio Body Layout: 3D Viewport on Left/Top, Info on Right/Bottom */
+/* Studio Body Layout */
 .v3d-body {
     flex: 1;
     display: flex;
@@ -244,7 +257,7 @@
     transform: translateX(-50%);
     display: flex;
     gap: 8px;
-    background: rgba(15, 23, 42, 0.8);
+    background: rgba(15, 23, 42, 0.85);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.15);
