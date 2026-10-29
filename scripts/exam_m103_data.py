@@ -460,16 +460,16 @@ def build_m103():
                             {
                                 "id": 28,
                                 "type": "star",
-                                "prompt": v("私の いえの [  ] [  ] [ ★ ] [  ] たてものが あります。", "M103.Q28.p"),
-                                "promptVi": "Ở cạnh nhà tôi có tòa nhà màu xanh, thon dài. (Câu 9)",
+                                "prompt": v("私の [  ] [  ] [ ★ ] [  ] たてものが あります。", "M103.Q28.p"),
+                                "promptVi": "Ở cạnh nhà tôi có tòa nhà màu xanh, thon dài. (Câu 9 trong bộ 40 câu ôn tập)",
                                 "options": [
-                                    v("となりに", "M103.Q28.o0"),
-                                    v("青くて", "M103.Q28.o1"),
-                                    v("ほそながい", "M103.Q28.o2"),
-                                    v("きれいな", "M103.Q28.o3")
+                                    v("いえの", "M103.Q28.o0"),
+                                    v("となりに", "M103.Q28.o1"),
+                                    v("青くて", "M103.Q28.o2"),
+                                    v("ほそながい", "M103.Q28.o3")
                                 ],
                                 "correct": 2,
-                                "explain": "💡 <strong>Trật tự câu:</strong> 私の いえの [となりに] [青くて] [★ ほそながい] [──] たてものが あります。<br>Vị trí ngôi sao là <strong>ほそながい</strong>."
+                                "explain": "💡 <strong>Trật tự câu:</strong> 私の [いえの] (1) [となりに] (2) [★ 青くて] (3) [ほそながい] (4) たてものが あります。<br>Vị trí ngôi sao là <strong>青くて</strong>."
                             },
                             {
                                 "id": 29,

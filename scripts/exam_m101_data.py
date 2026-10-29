@@ -53,58 +53,58 @@ def build_m101():
                             {
                                 "id": 1,
                                 "type": "mc",
-                                "prompt": v("まい朝、めがねを (   )から、学校へ 行きます。", "M101.Q1.p"),
-                                "promptVi": "Mỗi sáng, tôi đeo kính rồi mới đến trường học.",
+                                "prompt": v("あねは ちゅうごくの ペキンに (   ) います。", "M101.Q1.p"),
+                                "promptVi": "Chị gái tôi đang sống ở Bắc Kinh, Trung Quốc. (Câu 16 trong bộ 40 câu ôn tập)",
                                 "options": [
-                                    v("かけて", "M101.Q1.o0"),
-                                    v("はいて", "M101.Q1.o1"),
-                                    v("きて", "M101.Q1.o2"),
-                                    v("かぶって", "M101.Q1.o3")
+                                    v("すんで", "M101.Q1.o0"),
+                                    v("あそんで", "M101.Q1.o1"),
+                                    v("やすんで", "M101.Q1.o2"),
+                                    v("まって", "M101.Q1.o3")
                                 ],
                                 "correct": 0,
-                                "explain": "💡 <strong>Động từ kết hợp trang phục trong tiếng Nhật:</strong><br>• めがねを<strong>かける</strong>: Đeo kính (Đúng).<br>• くつを<strong>はく</strong>: Đi giày/dép.<br>• シャツを<strong>きる</strong>: Mặc áo.<br>• ぼうしを<strong>かぶる</strong>: Đội mũ."
+                                "explain": "💡 <strong>Động từ chỉ nơi cư trú (Bài 1):</strong><br>• ～に <strong>すんで います</strong>: Đang sinh sống ở... (Đúng theo Câu 16 ôn tập: Chị gái tôi đang sống ở Bắc Kinh).<br>• あそんで: Chơi.<br>• やすんで: Nghỉ ngơi.<br>• まって: Chờ đợi."
                             },
                             {
                                 "id": 2,
                                 "type": "mc",
-                                "prompt": v("この りょうりは ちょっと あじが (   )ですから、おゆを いれて ください。", "M101.Q2.p"),
-                                "promptVi": "Món ăn này vị hơi đậm/mặn, nên xin hãy thêm chút nước sôi vào.",
+                                "prompt": v("一ねんの なかで、(   ) が いちばん 好きです。", "M101.Q2.p"),
+                                "promptVi": "Trong một năm, tôi thích mùa hè nhất vì tôi thích ăn kem. (Câu 24 trong bộ 40 câu ôn tập)",
                                 "options": [
-                                    v("こい", "M101.Q2.o0"),
-                                    v("うすい", "M101.Q2.o1"),
-                                    v("あまい", "M101.Q2.o2"),
-                                    v("からい", "M101.Q2.o3")
+                                    v("夏", "M101.Q2.o0"),
+                                    v("雨", "M101.Q2.o1"),
+                                    v("雪", "M101.Q2.o2"),
+                                    v("雲", "M101.Q2.o3")
                                 ],
                                 "correct": 0,
-                                "explain": "💡 <strong>Tính từ chỉ mùi vị món ăn:</strong><br>• <strong>こい (濃い)</strong>: Đậm, mặn, đặc (Đúng).<br>• うすい: Nhạt, loãng.<br>• あまい: Ngọt.<br>• からい: Cay."
+                                "explain": "💡 <strong>Từ vựng 4 mùa (Bài 3):</strong><br>• <strong>夏 (なつ)</strong>: Mùa hè (Đúng theo Câu 24 ôn tập: Trong 1 năm, bạn thích mùa nào nhất? - Tôi thích mùa hè nhất).<br>• 雨 (あめ): Mưa.<br>• 雪 (ゆき): Tuyết.<br>• 雲 (くも): Mây."
                             },
                             {
                                 "id": 3,
                                 "type": "mc",
-                                "prompt": v("えきの 前の 道で くるまが (   ) じこが ありました。", "M101.Q3.p"),
-                                "promptVi": "Ở con đường phía trước nhà ga đã xảy ra vụ tai nạn xe ô tô đâm vào nhau.",
+                                "prompt": v("スーパーは 駅の (   )に あります。", "M101.Q3.p"),
+                                "promptVi": "Siêu thị ở gần nhà ga. (Câu 4 trong bộ 40 câu ôn tập)",
                                 "options": [
-                                    v("ぶつかる", "M101.Q3.o0"),
-                                    v("おちる", "M101.Q3.o1"),
-                                    v("きえる", "M101.Q3.o2"),
-                                    v("こわれる", "M101.Q3.o3")
+                                    v("ちかく", "M101.Q3.o0"),
+                                    v("とおく", "M101.Q3.o1"),
+                                    v("なか", "M101.Q3.o2"),
+                                    v("うえ", "M101.Q3.o3")
                                 ],
                                 "correct": 0,
-                                "explain": "💡 <strong>Cụm từ giao thông:</strong><br>• くるまが <strong>ぶつかる</strong>: Xe ô tô đâm/va chạm vào nhau (Đúng).<br>• おちる: Rơi.<br>• きえる: Biến mất.<br>• こわれる: Bị hỏng hóc."
+                                "explain": "💡 <strong>Từ vựng chỉ vị trí (Bài 5):</strong><br>• 駅の <strong>ちかく (近く)</strong>: Gần nhà ga (Đúng theo Câu 4 ôn tập: Siêu thị ở gần nhà ga).<br>• とおく: Xa.<br>• なか: Bên trong.<br>• うえ: Phía trên."
                             },
                             {
                                 "id": 4,
                                 "type": "mc",
-                                "prompt": v("やすみの ひは ちかくの こうえんで スポーツを して あせを (   )。", "M101.Q4.p"),
-                                "promptVi": "Ngày nghỉ tôi chơi thể thao ở công viên gần nhà để toát mồ hôi.",
+                                "prompt": v("えいがを みる 前に、カフェへ 行って (   )を かいたいです。", "M101.Q4.p"),
+                                "promptVi": "Trước khi xem phim, tôi muốn đi quán cà phê mua đồ uống. (Câu 13 trong bộ 40 câu ôn tập)",
                                 "options": [
-                                    v("かきます", "M101.Q4.o0"),
-                                    v("ふきます", "M101.Q4.o1"),
-                                    v("だします", "M101.Q4.o2"),
-                                    v("ながします", "M101.Q4.o3")
+                                    v("のみもの", "M101.Q4.o0"),
+                                    v("きっぷ", "M101.Q4.o1"),
+                                    v("本", "M101.Q4.o2"),
+                                    v("シャツ", "M101.Q4.o3")
                                 ],
                                 "correct": 0,
-                                "explain": "💡 <strong>Cụm từ cố định sinh hoạt:</strong><br>• あせを <strong>かく</strong> (あせをかきます): Toát mồ hôi, đổ mồ hôi (Đúng).<br>• ふく: Lau mồ hôi."
+                                "explain": "💡 <strong>Từ vựng sinh hoạt (Bài 7-8):</strong><br>• <strong>のみもの (飲み物)</strong>: Đồ uống / nước uống (Đúng theo Câu 13 ôn tập: Trước khi xem phim, tôi muốn đi quán cà phê mua đồ uống).<br>• きっぷ: Vé xe/tàu.<br>• 本: Sách.<br>• シャツ: Áo sơ mi."
                             },
                             {
                                 "id": 5,
@@ -479,16 +479,16 @@ def build_m101():
                             {
                                 "id": 28,
                                 "type": "star",
-                                "prompt": v("ドラえもんの　＿＿＿　＿＿＿　★　＿＿＿　ポケットが ありますから。", "M101.Q28.p"),
+                                "prompt": v("ドラえもんの　＿＿＿　＿＿＿　★　＿＿＿　ありますから。", "M101.Q28.p"),
                                 "promptVi": "Mình thích Doraemon hơn. Vì Doremon có chiếc túi thần kỳ. (Câu 30 trong bộ 40 câu ôn tập)",
                                 "options": [
                                     v("ほうが", "M101.Q28.o0"),
                                     v("好きです。", "M101.Q28.o1"),
                                     v("ふしぎな", "M101.Q28.o2"),
-                                    v("べんりな", "M101.Q28.o3")
+                                    v("ポケットが", "M101.Q28.o3")
                                 ],
                                 "correct": 2,
-                                "explain": "💡 <strong>Thứ tự sắp xếp đúng:</strong><br>ほうが (1) ➔ 好きです。 (2) ➔ <strong>ふしぎな (3 - ★)</strong> ➔ べんりな...<br>➔ ドラえもんの ほうが 好きです。ふしぎな ポケットが ありますから."
+                                "explain": "💡 <strong>Thứ tự sắp xếp đúng:</strong><br>ほうが (1) ➔ 好きです。 (2) ➔ <strong>ふしぎな (3 - ★)</strong> ➔ ポケットが (4).<br>➔ Câu hoàn chỉnh: ドラえもんの ほうが 好きです。ふしぎな ポケットが ありますから。"
                             },
                             {
                                 "id": 29,
