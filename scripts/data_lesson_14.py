@@ -95,7 +95,7 @@ CFG_14 = {
                 "kana": "オフィス",
                 "kanji": "オフィス",
                 "romaji": "ofisu",
-                "vi": "Văn phòng làm việc (Office)",
+                "vi": "Văn phòng",
                 "exJp": "あかるくて ひろい オフィスです。",
                 "exVi": "Văn phòng làm việc sáng sủa và rộng rãi.",
                 "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_458197\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#0284c7\"/>\n      <stop offset=\"100%\" stop-color=\"#0369a1\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_458197)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🏢</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">VĂN PHÒNG</text>\n</svg>"
@@ -109,7 +109,7 @@ CFG_14 = {
                 "kana": "キャビネット",
                 "kanji": "キャビネット",
                 "romaji": "kyabinetto",
-                "vi": "Tủ đựng hồ sơ, tài liệu",
+                "vi": "Tủ đựng (tài liệu, ...)",
                 "exJp": "しりょうは キャビネットの なかに あります。",
                 "exVi": "Tài liệu nằm ở bên trong tủ đựng hồ sơ.",
                 "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_683203\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#475569\"/>\n      <stop offset=\"100%\" stop-color=\"#1e293b\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_683203)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🗄️</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">TỦ TÀI LIỆU</text>\n</svg>"
@@ -123,7 +123,7 @@ CFG_14 = {
                 "kana": "コピーき",
                 "kanji": "コピー機",
                 "romaji": "kopiiki",
-                "vi": "Máy photocopy",
+                "vi": "Máy photo",
                 "exJp": "コピーきの つかいかたを おしえてください。",
                 "exVi": "Xin hãy chỉ cho tôi cách sử dụng máy photo.",
                 "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_521805\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#64748b\"/>\n      <stop offset=\"100%\" stop-color=\"#334155\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_521805)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🖨️</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">MÁY PHOTO</text>\n</svg>"
@@ -137,7 +137,7 @@ CFG_14 = {
                 "kana": "ファックス",
                 "kanji": "ファックス",
                 "romaji": "fakkusu",
-                "vi": "Máy fax gửi văn bản",
+                "vi": "Máy fax",
                 "exJp": "ファックスで しょるいを おくります。",
                 "exVi": "Gửi giấy tờ qua đường máy fax.",
                 "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_218616\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#0ea5e9\"/>\n      <stop offset=\"100%\" stop-color=\"#0284c7\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_218616)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">📠</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">MÁY FAX</text>\n</svg>"
@@ -151,7 +151,7 @@ CFG_14 = {
                 "kana": "こくさいでんわ",
                 "kanji": "国際電話",
                 "romaji": "kokusaidenwa",
-                "vi": "Cuộc gọi quốc tế",
+                "vi": "Điện thoại quốc tế",
                 "exJp": "かいしゃから こくさいでんわを かけます。",
                 "exVi": "Gọi điện thoại quốc tế từ công ty.",
                 "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_511331\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#3b82f6\"/>\n      <stop offset=\"100%\" stop-color=\"#1d4ed8\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_511331)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🌐</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">GỌI QUỐC TẾ</text>\n</svg>"
@@ -165,7 +165,7 @@ CFG_14 = {
                 "kana": "しゃちょう",
                 "kanji": "社長",
                 "romaji": "shachou",
-                "vi": "Giám đốc công ty",
+                "vi": "Giám đốc",
                 "exJp": "しゃちょうに あいさつを します。",
                 "exVi": "Chào hỏi giám đốc công ty.",
                 "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_406482\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#1e293b\"/>\n      <stop offset=\"100%\" stop-color=\"#0f172a\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_406482)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">👔</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">GIÁM ĐỐC</text>\n</svg>"
@@ -179,7 +179,7 @@ CFG_14 = {
                 "kana": "ひしょ",
                 "kanji": "秘書",
                 "romaji": "hisho",
-                "vi": "Thư ký văn phòng",
+                "vi": "Thư ký",
                 "exJp": "ひしょに スケジュールを ききます。",
                 "exVi": "Hỏi thư ký về lịch làm việc.",
                 "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_983740\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#8b5cf6\"/>\n      <stop offset=\"100%\" stop-color=\"#6d28d9\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_983740)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">👩‍💼</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">THƯ KÝ</text>\n</svg>"
@@ -193,7 +193,7 @@ CFG_14 = {
                 "kana": "うけつけ",
                 "kanji": "受付",
                 "romaji": "uketsuke",
-                "vi": "Quầy lễ tân đón khách",
+                "vi": "Lễ tân",
                 "exJp": "１かいの うけつけで まっています。",
                 "exVi": "Tôi đang đợi ở quầy lễ tân tầng 1.",
                 "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_113847\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#ec4899\"/>\n      <stop offset=\"100%\" stop-color=\"#be185d\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_113847)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">💁‍♀️</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">LỄ TÂN</text>\n</svg>"
@@ -207,7 +207,7 @@ CFG_14 = {
                 "kana": "じむスタッフ",
                 "kanji": "事務スタッフ",
                 "romaji": "jimu sutaffu",
-                "vi": "Nhân viên hành chính văn phòng",
+                "vi": "Nhân viên văn phòng",
                 "exJp": "じむスタッフが てつだって くれました。",
                 "exVi": "Nhân viên văn phòng đã giúp đỡ tôi.",
                 "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_969709\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#10b981\"/>\n      <stop offset=\"100%\" stop-color=\"#047857\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_969709)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">👥</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">NHÂN VIÊN</text>\n</svg>"
@@ -221,7 +221,7 @@ CFG_14 = {
                 "kana": "ドライバー",
                 "kanji": "ドライバー",
                 "romaji": "doraibaa",
-                "vi": "Tài xế lái xe (Driver)",
+                "vi": "Lái xe",
                 "exJp": "ドライバーが くるまで まっています。",
                 "exVi": "Bác tài xế đang đợi sẵn ở ô tô.",
                 "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_120181\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#f59e0b\"/>\n      <stop offset=\"100%\" stop-color=\"#d97706\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_120181)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🚗</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">TÀI XẾ</text>\n</svg>"
@@ -235,7 +235,7 @@ CFG_14 = {
                 "kana": "ドア",
                 "kanji": "ドア",
                 "romaji": "doa",
-                "vi": "Cửa ra vào (Door)",
+                "vi": "Cửa ra vào",
                 "exJp": "ドアを ノックしてから はいります。",
                 "exVi": "Gõ cửa trước khi bước vào phòng.",
                 "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_143025\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#78350f\"/>\n      <stop offset=\"100%\" stop-color=\"#451a03\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_143025)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🚪</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">CỬA RA VÀO</text>\n</svg>"
@@ -263,7 +263,7 @@ CFG_14 = {
                 "kana": "（ドアを）あけます",
                 "kanji": "（ドアを）開けます",
                 "romaji": "akemasu",
-                "vi": "Mở (cửa/máy)",
+                "vi": "Mở (cửa)",
                 "exJp": "ドアを あけても いいですか。",
                 "exVi": "Tôi mở cửa có được không ạ?",
                 "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_519606\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#22c55e\"/>\n      <stop offset=\"100%\" stop-color=\"#15803d\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_519606)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🚪</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">MỞ CỬA</text>\n</svg>"
@@ -277,7 +277,7 @@ CFG_14 = {
                 "kana": "（ドアを）しめます",
                 "kanji": "（ドアを）閉めます",
                 "romaji": "shimemasu",
-                "vi": "Đóng (cửa/hộp)",
+                "vi": "Đóng (cửa)",
                 "exJp": "さむいので、ドアを しめます。",
                 "exVi": "Trời lạnh nên tôi đóng cửa lại.",
                 "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_529198\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#ef4444\"/>\n      <stop offset=\"100%\" stop-color=\"#b91c1c\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_529198)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🔒</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">ĐÓNG CỬA</text>\n</svg>"
@@ -291,7 +291,7 @@ CFG_14 = {
                 "kana": "（でんきを）つけます",
                 "kanji": "（電気を）点けます",
                 "romaji": "tsukemasu",
-                "vi": "Bật (đèn/thiết bị điện)",
+                "vi": "Bật (đèn)",
                 "exJp": "くらいので でんきを つけます。",
                 "exVi": "Phòng tối nên tôi bật đèn lên.",
                 "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_216847\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#eab308\"/>\n      <stop offset=\"100%\" stop-color=\"#ca8a04\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_216847)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">💡</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">BẬT ĐÈN</text>\n</svg>"
@@ -305,7 +305,7 @@ CFG_14 = {
                 "kana": "（でんきを）けします",
                 "kanji": "（電気を）消します",
                 "romaji": "keshimasu",
-                "vi": "Tắt (đèn/máy tính)",
+                "vi": "Tắt (đèn)",
                 "exJp": "かえるまえに でんきを けしてください。",
                 "exVi": "Trước khi về nhớ tắt điện nhé.",
                 "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_691253\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#475569\"/>\n      <stop offset=\"100%\" stop-color=\"#1e293b\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_691253)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🌑</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">TẮT ĐÈN</text>\n</svg>"
@@ -319,7 +319,7 @@ CFG_14 = {
                 "kana": "（パソコンが）こわれます",
                 "kanji": "（パソコンが）壊れます",
                 "romaji": "kowaremasu",
-                "vi": "(Máy tính) Bị hỏng, trục trặc",
+                "vi": "(Máy tính) Hỏng",
                 "exJp": "パソコンが こわれて、うごきません。",
                 "exVi": "Máy tính bị hỏng nên không hoạt động.",
                 "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_895837\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#dc2626\"/>\n      <stop offset=\"100%\" stop-color=\"#991b1b\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_895837)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">⚠️</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">BỊ HỎNG</text>\n</svg>"
@@ -333,7 +333,7 @@ CFG_14 = {
                 "kana": "べんきょうちゅう",
                 "kanji": "勉強中",
                 "romaji": "benkyouchuu",
-                "vi": "Đang trong giờ học tập",
+                "vi": "Đang học",
                 "exJp": "いま にほんごを べんきょうちゅうです。",
                 "exVi": "Tôi đang trong giờ học tiếng Nhật.",
                 "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_819992\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#6366f1\"/>\n      <stop offset=\"100%\" stop-color=\"#4338ca\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_819992)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">📖</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">ĐANG HỌC</text>\n</svg>"
@@ -347,7 +347,7 @@ CFG_14 = {
                 "kana": "ぺらぺら",
                 "kanji": "ぺらぺら",
                 "romaji": "perapera",
-                "vi": "Nói trôi chảy, lưu loát",
+                "vi": "Lưu loát (nói, ...)",
                 "exJp": "かれは えいごが ぺらぺらです。",
                 "exVi": "Anh ấy nói tiếng Anh cực kỳ lưu loát.",
                 "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_257758\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#0ea5e9\"/>\n      <stop offset=\"100%\" stop-color=\"#0369a1\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_257758)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🗣️</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">LƯU LOÁT</text>\n</svg>"
@@ -361,7 +361,7 @@ CFG_14 = {
                 "kana": "はじめます",
                 "kanji": "始めます",
                 "romaji": "hajimemasu",
-                "vi": "Bắt đầu công việc/cuộc họp",
+                "vi": "Bắt đầu",
                 "exJp": "では、かいぎを はじめましょう。",
                 "exVi": "Vậy thì chúng ta bắt đầu cuộc họp nhé.",
                 "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_23707\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#10b981\"/>\n      <stop offset=\"100%\" stop-color=\"#059669\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_23707)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">▶️</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">BẮT ĐẦU</text>\n</svg>"
@@ -375,7 +375,7 @@ CFG_14 = {
                 "kana": "ファイル",
                 "kanji": "ファイル",
                 "romaji": "fairu",
-                "vi": "File tệp tài liệu",
+                "vi": "File",
                 "exJp": "このファイルを みてください。",
                 "exVi": "Xin hãy xem tập file tài liệu này.",
                 "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_365272\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#f59e0b\"/>\n      <stop offset=\"100%\" stop-color=\"#d97706\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_365272)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">📁</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">FILE TÀI LIỆU</text>\n</svg>"
@@ -389,7 +389,7 @@ CFG_14 = {
                 "kana": "メモ",
                 "kanji": "メモ",
                 "romaji": "memo",
-                "vi": "Giấy ghi chú, bản ghi nhanh",
+                "vi": "Ghi chú",
                 "exJp": "だいじなことを メモに かきます。",
                 "exVi": "Viết những điều quan trọng vào giấy ghi chú.",
                 "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_696655\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#eab308\"/>\n      <stop offset=\"100%\" stop-color=\"#ca8a04\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_696655)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">📝</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">GHI CHÚ</text>\n</svg>"
@@ -403,7 +403,7 @@ CFG_14 = {
                 "kana": "オフィス／じむしょ",
                 "kanji": "事務所",
                 "romaji": "ofisu / jimusho",
-                "vi": "Văn phòng, nơi làm việc",
+                "vi": "Văn phòng",
                 "exJp": "じむしょに しりょうを とりに いきます。",
                 "exVi": "Tôi đi đến văn phòng để lấy tài liệu.",
                 "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_458197\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#3b82f6\"/>\n      <stop offset=\"100%\" stop-color=\"#1d4ed8\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_458197)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🏢</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">VĂN PHÒNG</text>\n</svg>"
@@ -417,7 +417,7 @@ CFG_14 = {
                 "kana": "プリントアウト",
                 "kanji": "プリントアウト",
                 "romaji": "purintoauto",
-                "vi": "In ra giấy (Printout)",
+                "vi": "In",
                 "exJp": "このメールを プリントアウトしてください。",
                 "exVi": "Xin hãy in bức email này ra giấy.",
                 "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_824286\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#06b6d4\"/>\n      <stop offset=\"100%\" stop-color=\"#0891b2\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_824286)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🖨️</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">IN RA GIẤY</text>\n</svg>"
@@ -431,7 +431,7 @@ CFG_14 = {
                 "kana": "しょうかいします",
                 "kanji": "紹介します",
                 "romaji": "shoukaishimasu",
-                "vi": "Giới thiệu người/nơi chốn",
+                "vi": "Giới thiệu",
                 "exJp": "あたらしい スタッフを しょうかいします。",
                 "exVi": "Tôi xin phép giới thiệu nhân viên mới.",
                 "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_712906\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#8b5cf6\"/>\n      <stop offset=\"100%\" stop-color=\"#6d28d9\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_712906)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🤝</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">GIỚI THIỆU</text>\n</svg>"

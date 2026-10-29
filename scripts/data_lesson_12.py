@@ -105,7 +105,7 @@ CFG_12 = {
                 "kana": "つけもの",
                 "kanji": "漬物",
                 "romaji": "tsukemono",
-                "vi": "Đồ muối chua kiểu Nhật",
+                "vi": "Đồ muối chua",
                 "exJp": "きゅうりの つけものが おいしいです。",
                 "exVi": "Món dưa chuột muối chua rất ngon.",
                 "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_785997\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#10b981\"/>\n      <stop offset=\"100%\" stop-color=\"#047857\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_785997)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🥒</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">ĐỒ MUỐI CHUA</text>\n</svg>"
@@ -119,7 +119,7 @@ CFG_12 = {
                 "kana": "ピクルス",
                 "kanji": "ピクルス",
                 "romaji": "pikurusu",
-                "vi": "Các loại dưa chua tây (Pickles)",
+                "vi": "Các loại dưa chua",
                 "exJp": "ハンバーガーに ピクルスを いれます。",
                 "exVi": "Cho dưa chuột bao tử muối vào hamburger.",
                 "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_792100\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#22c55e\"/>\n      <stop offset=\"100%\" stop-color=\"#15803d\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_792100)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🥒</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">DƯA CHUA</text>\n</svg>"
@@ -133,7 +133,7 @@ CFG_12 = {
                 "kana": "レタス",
                 "kanji": "レタス",
                 "romaji": "retasu",
-                "vi": "Rau xà lách tươi",
+                "vi": "Xà lách",
                 "exJp": "しんせんな レタスを つかった サラダです。",
                 "exVi": "Món salad sử dụng rau xà lách tươi giòn.",
                 "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_608640\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#16a34a\"/>\n      <stop offset=\"100%\" stop-color=\"#14532d\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_608640)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🥬</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">XÀ LÁCH</text>\n</svg>"
@@ -147,7 +147,7 @@ CFG_12 = {
                 "kana": "レモン",
                 "kanji": "レモン",
                 "romaji": "remon",
-                "vi": "Quả chanh vàng",
+                "vi": "Chanh",
                 "exJp": "からあげに レモンを かけます。",
                 "exVi": "Vắt chanh lên món gà rán.",
                 "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_62332\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#eab308\"/>\n      <stop offset=\"100%\" stop-color=\"#ca8a04\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_62332)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🍋</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">CHANH</text>\n</svg>"
@@ -161,7 +161,7 @@ CFG_12 = {
                 "kana": "きゅうり",
                 "kanji": "胡瓜",
                 "romaji": "kyuuri",
-                "vi": "Dưa chuột, dưa leo",
+                "vi": "Dưa chuột",
                 "exJp": "なつは つめたい きゅうりが おいしいです。",
                 "exVi": "Mùa hè ăn dưa leo ướp lạnh rất ngon.",
                 "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_720377\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#15803d\"/>\n      <stop offset=\"100%\" stop-color=\"#14532d\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_720377)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🥒</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">DƯA CHUỘT</text>\n</svg>"
@@ -175,7 +175,7 @@ CFG_12 = {
                 "kana": "えび",
                 "kanji": "海老",
                 "romaji": "ebi",
-                "vi": "Tôm tươi",
+                "vi": "Tôm",
                 "exJp": "えびの てんぷらを ちゅうもんしました。",
                 "exVi": "Tôi đã gọi món tempura tôm.",
                 "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_581831\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#f97316\"/>\n      <stop offset=\"100%\" stop-color=\"#c2410c\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_581831)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🦐</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">TÔM TƯƠI</text>\n</svg>"
@@ -189,7 +189,7 @@ CFG_12 = {
                 "kana": "ツナ",
                 "kanji": "ツナ",
                 "romaji": "tsuna",
-                "vi": "Cá ngừ đại dương (Tuna)",
+                "vi": "Cá ngừ",
                 "exJp": "ツナマヨの おにぎりが いちばん にんきです。",
                 "exVi": "Cơm nắm cá ngừ sốt mayo là được yêu thích nhất.",
                 "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_352454\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#0284c7\"/>\n      <stop offset=\"100%\" stop-color=\"#0369a1\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_352454)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🐟</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">CÁ NGỪ</text>\n</svg>"
@@ -203,7 +203,7 @@ CFG_12 = {
                 "kana": "しゃけ／さけ",
                 "kanji": "鮭",
                 "romaji": "shake / sake",
-                "vi": "Cá hồi nướng / làm sushi",
+                "vi": "Cá hồi",
                 "exJp": "あさごはんに やきざけを たべます。",
                 "exVi": "Ăn cá hồi nướng vào bữa sáng.",
                 "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_138941\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#fb923c\"/>\n      <stop offset=\"100%\" stop-color=\"#ea580c\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_138941)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🍣</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">CÁ HỒI</text>\n</svg>"
@@ -217,7 +217,7 @@ CFG_12 = {
                 "kana": "こんぶ",
                 "kanji": "昆布",
                 "romaji": "konbu",
-                "vi": "Tảo bẹ kombu nấu nước dùng dashi",
+                "vi": "Tảo bẹ",
                 "exJp": "こんぶで だしを とります。",
                 "exVi": "Nấu lấy nước dùng từ tảo bẹ kombu.",
                 "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_365456\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#15803d\"/>\n      <stop offset=\"100%\" stop-color=\"#064e3b\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_365456)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🌿</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">TẢO BẸ</text>\n</svg>"
@@ -231,7 +231,7 @@ CFG_12 = {
                 "kana": "うめぼし",
                 "kanji": "梅干し",
                 "romaji": "umeboshi",
-                "vi": "Quả mơ muối Nhật Bản",
+                "vi": "Mơ muối",
                 "exJp": "うめぼしは すっぱくて しょっぱいです。",
                 "exVi": "Mơ muối vừa chua vừa mặn.",
                 "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_79427\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#e11d48\"/>\n      <stop offset=\"100%\" stop-color=\"#9f1239\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_79427)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🔴</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">MƠ MUỐI</text>\n</svg>"
@@ -245,7 +245,7 @@ CFG_12 = {
                 "kana": "チーズ",
                 "kanji": "チーズ",
                 "romaji": "chiizu",
-                "vi": "Phô mai (Cheese)",
+                "vi": "Phô mai",
                 "exJp": "ピザに チーズが たっぷり のっています。",
                 "exVi": "Bánh pizza có ngập tràn phô mai thơm ngon.",
                 "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_28506\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#f59e0b\"/>\n      <stop offset=\"100%\" stop-color=\"#b45309\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_28506)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🧀</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">PHÔ MAI</text>\n</svg>"
@@ -259,7 +259,7 @@ CFG_12 = {
                 "kana": "ハム",
                 "kanji": "ハム",
                 "romaji": "hamu",
-                "vi": "Thịt heo xông khói / dăm bông",
+                "vi": "Thịt heo xông khói",
                 "exJp": "パンに ハムと チーズを はさみます。",
                 "exVi": "Kẹp thịt nguội và phô mai vào bánh mì.",
                 "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_449210\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#f43f5e\"/>\n      <stop offset=\"100%\" stop-color=\"#be123c\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_449210)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🥓</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">DĂM BÔNG</text>\n</svg>"
@@ -273,7 +273,7 @@ CFG_12 = {
                 "kana": "マヨネーズ",
                 "kanji": "マヨネーズ",
                 "romaji": "mayoneezu",
-                "vi": "Sốt sốt kem Mayonnaise",
+                "vi": "Mayone",
                 "exJp": "サラダに マヨネーズを かけます。",
                 "exVi": "Rưới sốt mayone lên salad.",
                 "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_793357\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#fef08a\"/>\n      <stop offset=\"100%\" stop-color=\"#ca8a04\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_793357)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🍶</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">MAYONNAISE</text>\n</svg>"
@@ -287,7 +287,7 @@ CFG_12 = {
                 "kana": "チリ",
                 "kanji": "チリ",
                 "romaji": "chiri",
-                "vi": "Ớt cay (Chili)",
+                "vi": "Ớt",
                 "exJp": "このソースは チリが はいっていて からいです。",
                 "exVi": "Nước sốt này có ớt nên khá cay.",
                 "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_899243\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#dc2626\"/>\n      <stop offset=\"100%\" stop-color=\"#991b1b\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_899243)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🌶️</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">ỚT CAY</text>\n</svg>"
@@ -301,7 +301,7 @@ CFG_12 = {
                 "kana": "センベイ",
                 "kanji": "煎餅",
                 "romaji": "senbei",
-                "vi": "Bánh gạo truyền thống Senbei",
+                "vi": "Bánh gạo",
                 "exJp": "おちゃと センベイを たべました。",
                 "exVi": "Tôi đã uống trà xanh và ăn bánh gạo senbei.",
                 "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_235727\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#d97706\"/>\n      <stop offset=\"100%\" stop-color=\"#78350f\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_235727)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🍘</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">BÁNH GẠO</text>\n</svg>"
@@ -315,7 +315,7 @@ CFG_12 = {
                 "kana": "あたたかい",
                 "kanji": "温かい",
                 "romaji": "atatakai",
-                "vi": "Ấm áp, ấm nóng (đồ ăn/thức uống)",
+                "vi": "Ấm áp",
                 "exJp": "あたたかい おちゃを どうぞ。",
                 "exVi": "Xin mời dùng chén trà ấm nóng.",
                 "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_812902\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#f97316\"/>\n      <stop offset=\"100%\" stop-color=\"#c2410c\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_812902)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">♨️</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">ẤM NÓNG</text>\n</svg>"
@@ -329,7 +329,7 @@ CFG_12 = {
                 "kana": "つめたい",
                 "kanji": "冷たい",
                 "romaji": "tsumetai",
-                "vi": "Lạnh, buốt (nhiệt độ đồ uống/vật)",
+                "vi": "Lạnh, lạnh buốt",
                 "exJp": "つめたい ビールを のみたいです。",
                 "exVi": "Tôi muốn uống một cốc bia thật lạnh.",
                 "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_848277\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#38bdf8\"/>\n      <stop offset=\"100%\" stop-color=\"#0369a1\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_848277)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🧊</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">LẠNH BUỐT</text>\n</svg>"
@@ -343,7 +343,7 @@ CFG_12 = {
                 "kana": "おいしい",
                 "kanji": "美味しい",
                 "romaji": "oishii",
-                "vi": "Ngon miệng",
+                "vi": "Ngon",
                 "exJp": "この てんぷらは とても おいしいです。",
                 "exVi": "Món tempura này thực sự rất ngon.",
                 "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_515274\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#10b981\"/>\n      <stop offset=\"100%\" stop-color=\"#047857\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_515274)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">😋</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">NGON MIỆNG</text>\n</svg>"
@@ -357,7 +357,7 @@ CFG_12 = {
                 "kana": "まずい",
                 "kanji": "不味い",
                 "romaji": "mazui",
-                "vi": "Dở, không ngon",
+                "vi": "Dở, tệ, không ngon",
                 "exJp": "まずい りょうりは たべたくないです。",
                 "exVi": "Tôi không muốn ăn đồ ăn dở tệ đâu.",
                 "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_364763\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#64748b\"/>\n      <stop offset=\"100%\" stop-color=\"#334155\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_364763)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">😖</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">DỞ KHÔNG NGON</text>\n</svg>"
@@ -371,7 +371,7 @@ CFG_12 = {
                 "kana": "あまい",
                 "kanji": "甘い",
                 "romaji": "amai",
-                "vi": "Vị ngọt",
+                "vi": "Ngọt",
                 "exJp": "この くだものは とても あまいです。",
                 "exVi": "Trái cây này có vị rất ngọt.",
                 "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_910582\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#f59e0b\"/>\n      <stop offset=\"100%\" stop-color=\"#d97706\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_910582)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🍯</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">VỊ NGỌT</text>\n</svg>"
@@ -385,7 +385,7 @@ CFG_12 = {
                 "kana": "からい",
                 "kanji": "辛い",
                 "romaji": "karai",
-                "vi": "Vị cay nóng",
+                "vi": "Cay",
                 "exJp": "タイりょうりは からいですが、すきです。",
                 "exVi": "Món Thái tuy cay nhưng tôi lại rất thích.",
                 "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_819903\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#ef4444\"/>\n      <stop offset=\"100%\" stop-color=\"#b91c1c\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_819903)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🌶️</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">VỊ CAY</text>\n</svg>"
@@ -399,7 +399,7 @@ CFG_12 = {
                 "kana": "すっぱい",
                 "kanji": "酸っぱい",
                 "romaji": "suppai",
-                "vi": "Vị chua",
+                "vi": "Chua",
                 "exJp": "レモンは すっぱいです。",
                 "exVi": "Chanh thì có vị chua gắt.",
                 "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_48195\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#84cc16\"/>\n      <stop offset=\"100%\" stop-color=\"#4d7c0f\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_48195)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🍋</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">VỊ CHUA</text>\n</svg>"
@@ -413,7 +413,7 @@ CFG_12 = {
                 "kana": "しょっぱい",
                 "kanji": "塩っぱい",
                 "romaji": "shoppai",
-                "vi": "Vị mặn",
+                "vi": "Mặn",
                 "exJp": "スープに しおが おおくて、しょっぱいです。",
                 "exVi": "Nước súp nhiều muối quá nên bị mặn.",
                 "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_687916\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#06b6d4\"/>\n      <stop offset=\"100%\" stop-color=\"#0e7490\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_687916)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🧂</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">VỊ MẶN</text>\n</svg>"
@@ -427,7 +427,7 @@ CFG_12 = {
                 "kana": "にがい",
                 "kanji": "苦い",
                 "romaji": "nigai",
-                "vi": "Vị đắng",
+                "vi": "Đắng",
                 "exJp": "この くすりは とても にがいです。",
                 "exVi": "Thuốc này đắng nghét.",
                 "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_376005\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#78350f\"/>\n      <stop offset=\"100%\" stop-color=\"#451a03\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_376005)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">☕</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">VỊ ĐẮNG</text>\n</svg>"
@@ -441,7 +441,7 @@ CFG_12 = {
                 "kana": "きもちが いい",
                 "kanji": "気持ちがいい",
                 "romaji": "kimochi ga ii",
-                "vi": "Thoải mái, dễ chịu, sảng khoái",
+                "vi": "Thoải mái, dễ chịu",
                 "exJp": "かぜが ふいて、きもちが いいですね。",
                 "exVi": "Gió thổi mát mẻ dễ chịu quá nhỉ.",
                 "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_60319\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#10b981\"/>\n      <stop offset=\"100%\" stop-color=\"#059669\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_60319)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🍃</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">THOẢI MÁI</text>\n</svg>"
@@ -455,7 +455,7 @@ CFG_12 = {
                 "kana": "しんせん（な）",
                 "kanji": "新鮮（な）",
                 "romaji": "shinsen(na)",
-                "vi": "Tươi, tươi mới (hải sản, rau)",
+                "vi": "Tươi, tươi mới",
                 "exJp": "しんせんな さかなで すしを つくります。",
                 "exVi": "Làm sushi từ cá tươi ngon.",
                 "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_905908\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#0284c7\"/>\n      <stop offset=\"100%\" stop-color=\"#0369a1\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_905908)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🐟</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">TƯƠI MỚI</text>\n</svg>"
@@ -469,7 +469,7 @@ CFG_12 = {
                 "kana": "にんきが あります",
                 "kanji": "人気があります",
                 "romaji": "ninki ga arimasu",
-                "vi": "Được mọi người ưa chuộng, nổi tiếng",
+                "vi": "Được yêu thích, ưa chuộng",
                 "exJp": "このみせの ラーメンは にんきが あります。",
                 "exVi": "Mì ramen của quán này rất được ưa chuộng.",
                 "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_95388\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#eab308\"/>\n      <stop offset=\"100%\" stop-color=\"#a16207\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_95388)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">⭐</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">ĐƯỢC ƯA CHUỘNG</text>\n</svg>"
@@ -483,7 +483,7 @@ CFG_12 = {
                 "kana": "ちがいます",
                 "kanji": "違います",
                 "romaji": "chigaimasu",
-                "vi": "Khác nhau / Không phải",
+                "vi": "Khác",
                 "exJp": "ベトナムと にほんの たべものは ちがいます。",
                 "exVi": "Ẩm thực Việt Nam và Nhật Bản khác nhau.",
                 "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_849695\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#6366f1\"/>\n      <stop offset=\"100%\" stop-color=\"#4338ca\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_849695)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">≠</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">KHÁC NHAU</text>\n</svg>"
@@ -497,7 +497,7 @@ CFG_12 = {
                 "kana": "にています",
                 "kanji": "似ています",
                 "romaji": "niteimasu",
-                "vi": "Giống nhau, tương tự",
+                "vi": "Giống",
                 "exJp": "このふたつは あじが よく にています。",
                 "exVi": "Hai món này hương vị rất giống nhau.",
                 "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_734368\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#8b5cf6\"/>\n      <stop offset=\"100%\" stop-color=\"#6d28d9\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_734368)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">≒</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">GIỐNG NHAU</text>\n</svg>"
@@ -511,7 +511,7 @@ CFG_12 = {
                 "kana": "おなかが いっぱいです",
                 "kanji": "お腹がいっぱいです",
                 "romaji": "onaka ga ippai desu",
-                "vi": "No bụng rồi",
+                "vi": "No bụng",
                 "exJp": "たくさん たべて、おなかが いっぱいです。",
                 "exVi": "Ăn nhiều quá, no căng bụng rồi.",
                 "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_462852\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#22c55e\"/>\n      <stop offset=\"100%\" stop-color=\"#15803d\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_462852)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🤰</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">NO BỤNG</text>\n</svg>"
@@ -525,7 +525,7 @@ CFG_12 = {
                 "kana": "おなかが すきました",
                 "kanji": "お腹が空きました",
                 "romaji": "onaka ga sukimashita",
-                "vi": "Đói bụng rồi",
+                "vi": "Đói",
                 "exJp": "おなかが すいたので、ごはんを たべましょう。",
                 "exVi": "Đói bụng rồi nên cùng đi ăn cơm thôi.",
                 "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_820680\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#f97316\"/>\n      <stop offset=\"100%\" stop-color=\"#ea580c\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_820680)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">🤤</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">ĐÓI BỤNG</text>\n</svg>"
