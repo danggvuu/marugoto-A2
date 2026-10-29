@@ -449,13 +449,13 @@ def build_m105():
                                 "prompt": v("いつも 日本語を [  ] [  ] [ ★ ] [  ] おぼえて ください。", "M105.Q27.p"),
                                 "promptVi": "Hãy thường xuyên nói tiếng Nhật. Và hãy nhớ nhiều từ vựng. (Câu 11)",
                                 "options": [
-                                    v("はなして", "M105.Q27.o0"),
-                                    v("ください。そして、", "M105.Q27.o1"),
-                                    v("ことばを", "M105.Q27.o2"),
-                                    v("たくさん", "M105.Q27.o3")
+                                    v("ことばを", "M105.Q27.o0"),
+                                    v("たくさん", "M105.Q27.o1"),
+                                    v("はなして", "M105.Q27.o2"),
+                                    v("ください。そして、", "M105.Q27.o3")
                                 ],
-                                "correct": 2,
-                                "explain": "💡 <strong>Trật tự câu:</strong> いつも 日本語を [はなして] [ください。そして、] [★ ことばを] [たくさん] おぼえて ください。<br>Vị trí ngôi sao là <strong>ことばを</strong>."
+                                "correct": 0,
+                                "explain": "💡 <strong>Thứ tự sắp xếp câu:</strong><br>[3] はなして ➔ [4] ください。そして、 ➔ <strong>★ [1] ことばを (Vị trí số 3)</strong> ➔ [2] たくさん<br>➔ Câu hoàn chỉnh: いつも 日本語を はなして ください。そして、ことばを たくさん おぼえて ください。<br>➔ Vị trí ngôi sao (★) là phương án <strong>[1] ことばを</strong>."
                             },
                             {
                                 "id": 28,
@@ -463,13 +463,13 @@ def build_m105():
                                 "prompt": v("かんじは [  ] [  ] [ ★ ] [  ] ちがいますから。", "M105.Q28.p"),
                                 "promptVi": "Chữ Hán thú vị vì khác với tiếng Anh. (Câu 15)",
                                 "options": [
-                                    v("おもしろいです。", "M105.Q28.o0"),
+                                    v("ぜんぜん", "M105.Q28.o0"),
                                     v("えいご", "M105.Q28.o1"),
-                                    v("と", "M105.Q28.o2"),
-                                    v("ぜんぜん", "M105.Q28.o3")
+                                    v("おもしろいです。", "M105.Q28.o2"),
+                                    v("と", "M105.Q28.o3")
                                 ],
-                                "correct": 2,
-                                "explain": "💡 <strong>Trật tự câu:</strong> かんじは [おもしろいです。] [えいご] [★ と] [ぜんぜん] ちがいますから。<br>Vị trí ngôi sao là <strong>と</strong>."
+                                "correct": 3,
+                                "explain": "💡 <strong>Thứ tự sắp xếp câu:</strong><br>[3] おもしろいです。 ➔ [2] えいご ➔ <strong>★ [4] と (Vị trí số 3)</strong> ➔ [1] ぜんぜん<br>➔ Câu hoàn chỉnh: かんじは おもしろいです。えいごと ぜんぜん ちがいますから。<br>➔ Vị trí ngôi sao (★) là phương án <strong>[4] と</strong>."
                             },
                             {
                                 "id": 29,
@@ -477,13 +477,13 @@ def build_m105():
                                 "prompt": v("日本語は [  ] [  ] [ ★ ] [  ] おもしろいです。", "M105.Q29.p"),
                                 "promptVi": "Tiếng Nhật thì việc viết chữ Hán rất thú vị. (Câu 38)",
                                 "options": [
-                                    v("かんじを", "M105.Q29.o0"),
-                                    v("かく", "M105.Q29.o1"),
-                                    v("ことが", "M105.Q29.o2"),
-                                    v("とても", "M105.Q29.o3")
+                                    v("かく", "M105.Q29.o0"),
+                                    v("とても", "M105.Q29.o1"),
+                                    v("かんじを", "M105.Q29.o2"),
+                                    v("ことが", "M105.Q29.o3")
                                 ],
-                                "correct": 2,
-                                "explain": "💡 <strong>Trật tự câu:</strong> 日本語は [かんじを] [かく] [★ ことが] [とても] おもしろいです。<br>Vị trí ngôi sao là <strong>ことが</strong>."
+                                "correct": 3,
+                                "explain": "💡 <strong>Thứ tự sắp xếp câu:</strong><br>[3] かんじを ➔ [1] かく ➔ <strong>★ [4] ことが (Vị trí số 3)</strong> ➔ [2] とても<br>➔ Câu hoàn chỉnh: 日本語は かんじを かく ことが とても おもしろいです。<br>➔ Vị trí ngôi sao (★) là phương án <strong>[4] ことが</strong>."
                             },
                             {
                                 "id": 30,
@@ -491,13 +491,13 @@ def build_m105():
                                 "prompt": v("道に [  ] [  ] [ ★ ] [  ] できませんでした。", "M105.Q30.p"),
                                 "promptVi": "Vì lạc đường nên tôi đã không thể làm bài kiểm tra tiếng Nhật. (Câu 34)",
                                 "options": [
-                                    v("まよったので、", "M105.Q30.o0"),
-                                    v("日本語の", "M105.Q30.o1"),
-                                    v("テストが", "M105.Q30.o2"),
-                                    v("ぜんぜん", "M105.Q30.o3")
+                                    v("日本語の", "M105.Q30.o0"),
+                                    v("テストが", "M105.Q30.o1"),
+                                    v("ぜんぜん", "M105.Q30.o2"),
+                                    v("まよったので、", "M105.Q30.o3")
                                 ],
-                                "correct": 2,
-                                "explain": "💡 <strong>Trật tự câu:</strong> 道に [まよったので、] [日本語の] [★ テストが] [ぜんぜん] できませんでした。<br>Vị trí ngôi sao là <strong>テストが</strong>."
+                                "correct": 1,
+                                "explain": "💡 <strong>Thứ tự sắp xếp câu:</strong><br>[4] まよったので、 ➔ [1] 日本語の ➔ <strong>★ [2] テストが (Vị trí số 3)</strong> ➔ [3] ぜんぜん<br>➔ Câu hoàn chỉnh: 道に まよったので、日本語の テストが ぜんぜん できませんでした。<br>➔ Vị trí ngôi sao (★) là phương án <strong>[2] テストが</strong>."
                             }
                         ]
                     },

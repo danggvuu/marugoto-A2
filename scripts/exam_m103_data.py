@@ -449,13 +449,13 @@ def build_m103():
                                 "prompt": v("あさひはくぶつかんは [  ] [  ] [ ★ ] [  ] あります。", "M103.Q27.p"),
                                 "promptVi": "Bảo tàng Asahi ở bên tay trái. (Câu 6)",
                                 "options": [
-                                    v("道", "M103.Q27.o0"),
-                                    v("の", "M103.Q27.o1"),
-                                    v("左がわ", "M103.Q27.o2"),
-                                    v("に", "M103.Q27.o3")
+                                    v("の", "M103.Q27.o0"),
+                                    v("左がわ", "M103.Q27.o1"),
+                                    v("に", "M103.Q27.o2"),
+                                    v("道", "M103.Q27.o3")
                                 ],
-                                "correct": 2,
-                                "explain": "💡 <strong>Trật tự câu:</strong> あさひはくぶつかんは [道] [の] [★ 左がわ] [に] あります。<br>Vị trí ngôi sao là <strong>左がわ</strong>."
+                                "correct": 1,
+                                "explain": "💡 <strong>Thứ tự sắp xếp câu:</strong><br>[4] 道 ➔ [1] の ➔ <strong>★ [2] 左がわ (Vị trí số 3)</strong> ➔ [3] に<br>➔ Câu hoàn chỉnh: あさひはくぶつかんは 道の 左がわに あります。<br>➔ Vị trí ngôi sao (★) là phương án <strong>[2] 左がわ</strong>."
                             },
                             {
                                 "id": 28,
@@ -463,13 +463,13 @@ def build_m103():
                                 "prompt": v("私の [  ] [  ] [ ★ ] [  ] たてものが あります。", "M103.Q28.p"),
                                 "promptVi": "Ở cạnh nhà tôi có tòa nhà màu xanh, thon dài. (Câu 9 trong bộ 40 câu ôn tập)",
                                 "options": [
-                                    v("いえの", "M103.Q28.o0"),
-                                    v("となりに", "M103.Q28.o1"),
-                                    v("青くて", "M103.Q28.o2"),
-                                    v("ほそながい", "M103.Q28.o3")
+                                    v("青くて", "M103.Q28.o0"),
+                                    v("ほそながい", "M103.Q28.o1"),
+                                    v("いえの", "M103.Q28.o2"),
+                                    v("となりに", "M103.Q28.o3")
                                 ],
-                                "correct": 2,
-                                "explain": "💡 <strong>Trật tự câu:</strong> 私の [いえの] (1) [となりに] (2) [★ 青くて] (3) [ほそながい] (4) たてものが あります。<br>Vị trí ngôi sao là <strong>青くて</strong>."
+                                "correct": 0,
+                                "explain": "💡 <strong>Thứ tự sắp xếp câu:</strong><br>[3] いえの ➔ [4] となりに ➔ <strong>★ [1] 青くて (Vị trí số 3)</strong> ➔ [2] ほそながい<br>➔ Câu hoàn chỉnh: 私の いえの となりに 青くて ほそながい たてものが あります。<br>➔ Vị trí ngôi sao (★) là phương án <strong>[1] 青くて</strong>."
                             },
                             {
                                 "id": 29,
@@ -477,13 +477,13 @@ def build_m103():
                                 "prompt": v("ハノイは [  ] [  ] [ ★ ] [  ] なります。", "M103.Q29.p"),
                                 "promptVi": "Hà Nội thì khoảng tháng 9 sẽ chuyển sang mùa thu. (Câu 33)",
                                 "options": [
-                                    v("九月ごろ", "M103.Q29.o0"),
+                                    v("に", "M103.Q29.o0"),
                                     v("きれいな", "M103.Q29.o1"),
-                                    v("秋", "M103.Q29.o2"),
-                                    v("に", "M103.Q29.o3")
+                                    v("九月ごろ", "M103.Q29.o2"),
+                                    v("秋", "M103.Q29.o3")
                                 ],
-                                "correct": 2,
-                                "explain": "💡 <strong>Trật tự câu:</strong> ハノイは [九月ごろ] [──] [★ 秋] [に] なります。<br>Trật tự: [九月ごろ] (1) [きれいな] (2) [★ 秋] (3) [に] (4) なります ➔ Vị trí số 3 là <strong>秋</strong>."
+                                "correct": 3,
+                                "explain": "💡 <strong>Thứ tự sắp xếp câu:</strong><br>[3] 九月ごろ ➔ [2] きれいな ➔ <strong>★ [4] 秋 (Vị trí số 3)</strong> ➔ [1] に<br>➔ Câu hoàn chỉnh: ハノイは 九月ごろ きれいな 秋に なります。<br>➔ Vị trí ngôi sao (★) là phương án <strong>[4] 秋</strong>."
                             },
                             {
                                 "id": 30,
@@ -491,13 +491,13 @@ def build_m103():
                                 "prompt": v("あそこに [  ] [  ] [ ★ ] [  ] みえますか。", "M103.Q30.p"),
                                 "promptVi": "Bạn có nhìn thấy cây cầu màu đỏ ở đằng kia không? (Câu 5)",
                                 "options": [
-                                    v("赤い", "M103.Q30.o0"),
-                                    v("はし", "M103.Q30.o1"),
+                                    v("よく", "M103.Q30.o0"),
+                                    v("赤い", "M103.Q30.o1"),
                                     v("が", "M103.Q30.o2"),
-                                    v("よく", "M103.Q30.o3")
+                                    v("はし", "M103.Q30.o3")
                                 ],
                                 "correct": 2,
-                                "explain": "💡 <strong>Trật tự câu:</strong> あそこに [赤い] [はし] [★ が] [よく] みえますか。<br>Vị trí số 3 là <strong>が</strong>."
+                                "explain": "💡 <strong>Thứ tự sắp xếp câu:</strong><br>[2] 赤い ➔ [4] はし ➔ <strong>★ [3] が (Vị trí số 3)</strong> ➔ [1] よく<br>➔ Câu hoàn chỉnh: あそこに 赤い はしが よく みえますか。<br>➔ Vị trí ngôi sao (★) là phương án <strong>[3] が</strong>."
                             }
                         ]
                     },

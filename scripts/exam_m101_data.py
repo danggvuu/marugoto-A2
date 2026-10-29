@@ -468,13 +468,13 @@ def build_m101():
                                 "prompt": v("日本語は　＿＿＿　＿＿＿　★　＿＿＿　のが にがてです。", "M101.Q27.p"),
                                 "promptVi": "Tiếng Nhật thì từ vựng nhiều. Và tôi kém việc đọc câu văn. (Câu 39 trong bộ 40 câu ôn tập)",
                                 "options": [
-                                    v("ことばが", "M101.Q27.o0"),
-                                    v("多いですから、", "M101.Q27.o1"),
-                                    v("ぶんしょうを", "M101.Q27.o2"),
-                                    v("読む", "M101.Q27.o3")
+                                    v("ぶんしょうを", "M101.Q27.o0"),
+                                    v("ことばが", "M101.Q27.o1"),
+                                    v("読む", "M101.Q27.o2"),
+                                    v("多いですから、", "M101.Q27.o3")
                                 ],
-                                "correct": 2,
-                                "explain": "💡 <strong>Thứ tự sắp xếp đúng:</strong><br>ことばが (1) ➔ 多いですから、 (2) ➔ <strong>ぶんしょうを (3 - ★)</strong> ➔ 読む (4).<br>➔ Câu hoàn chỉnh: 日本語は ことばが 多いですから、ぶんしょうを 読む のが にがてです."
+                                "correct": 0,
+                                "explain": "💡 <strong>Thứ tự sắp xếp câu:</strong><br>[2] ことばが ➔ [4] 多いですから、 ➔ <strong>★ [1] ぶんしょうを (Vị trí số 3)</strong> ➔ [3] 読む<br>➔ Câu hoàn chỉnh: 日本語は ことばが 多いですから、ぶんしょうを 読む のが にがてです。<br>➔ Vị trí ngôi sao (★) là phương án <strong>[1] ぶんしょうを</strong>."
                             },
                             {
                                 "id": 28,
@@ -482,13 +482,13 @@ def build_m101():
                                 "prompt": v("ドラえもんの　＿＿＿　＿＿＿　★　＿＿＿　ありますから。", "M101.Q28.p"),
                                 "promptVi": "Mình thích Doraemon hơn. Vì Doremon có chiếc túi thần kỳ. (Câu 30 trong bộ 40 câu ôn tập)",
                                 "options": [
-                                    v("ほうが", "M101.Q28.o0"),
-                                    v("好きです。", "M101.Q28.o1"),
-                                    v("ふしぎな", "M101.Q28.o2"),
-                                    v("ポケットが", "M101.Q28.o3")
+                                    v("好きです。", "M101.Q28.o0"),
+                                    v("ポケットが", "M101.Q28.o1"),
+                                    v("ほうが", "M101.Q28.o2"),
+                                    v("ふしぎな", "M101.Q28.o3")
                                 ],
-                                "correct": 2,
-                                "explain": "💡 <strong>Thứ tự sắp xếp đúng:</strong><br>ほうが (1) ➔ 好きです。 (2) ➔ <strong>ふしぎな (3 - ★)</strong> ➔ ポケットが (4).<br>➔ Câu hoàn chỉnh: ドラえもんの ほうが 好きです。ふしぎな ポケットが ありますから。"
+                                "correct": 3,
+                                "explain": "💡 <strong>Thứ tự sắp xếp câu:</strong><br>[3] ほうが ➔ [1] 好きです。 ➔ <strong>★ [4] ふしぎな (Vị trí số 3)</strong> ➔ [2] ポケットが<br>➔ Câu hoàn chỉnh: ドラえもんの ほうが 好きです。ふしぎな ポケットが ありますから。<br>➔ Vị trí ngôi sao (★) là phương án <strong>[4] ふしぎな</strong>."
                             },
                             {
                                 "id": 29,
@@ -496,13 +496,13 @@ def build_m101():
                                 "prompt": v("はくぶつかんは　＿＿＿　＿＿＿　★　＿＿＿　あります。", "M101.Q29.p"),
                                 "promptVi": "Bảo tàng thì đi thẳng đường này, ở bên tay trái. (Câu 6 trong bộ 40 câu ôn tập)",
                                 "options": [
-                                    v("この", "M101.Q29.o0"),
-                                    v("道を", "M101.Q29.o1"),
-                                    v("まっすぐ行くと、", "M101.Q29.o2"),
-                                    v("左がわに", "M101.Q29.o3")
+                                    v("左がわに", "M101.Q29.o0"),
+                                    v("まっすぐ行くと、", "M101.Q29.o1"),
+                                    v("この", "M101.Q29.o2"),
+                                    v("道を", "M101.Q29.o3")
                                 ],
-                                "correct": 2,
-                                "explain": "💡 <strong>Thứ tự sắp xếp đúng:</strong><br>この (1) ➔ 道を (2) ➔ <strong>まっすぐ行くと、 (3 - ★)</strong> ➔ 左がわに (4).<br>➔ はくぶつかんは この 道を まっすぐ行くと、左がわに あります."
+                                "correct": 1,
+                                "explain": "💡 <strong>Thứ tự sắp xếp câu:</strong><br>[3] この ➔ [4] 道を ➔ <strong>★ [2] まっすぐ行くと、 (Vị trí số 3)</strong> ➔ [1] 左がわに<br>➔ Câu hoàn chỉnh: はくぶつかんは この 道を まっすぐ行くと、左がわに あります。<br>➔ Vị trí ngôi sao (★) là phương án <strong>[2] まっすぐ行くと、</strong>."
                             },
                             {
                                 "id": 30,
@@ -510,13 +510,13 @@ def build_m101():
                                 "prompt": v("わたしは　＿＿＿　＿＿＿　★　＿＿＿　勉強して います。", "M101.Q30.p"),
                                 "promptVi": "Tôi đang học tiếng Nhật 1 tuần 3 lần ở trung tâm. (Câu 32 trong bộ 40 câu ôn tập)",
                                 "options": [
-                                    v("センターで", "M101.Q30.o0"),
+                                    v("日本語を", "M101.Q30.o0"),
                                     v("週に", "M101.Q30.o1"),
                                     v("三回", "M101.Q30.o2"),
-                                    v("日本語を", "M101.Q30.o3")
+                                    v("センターで", "M101.Q30.o3")
                                 ],
                                 "correct": 2,
-                                "explain": "💡 <strong>Thứ tự sắp xếp đúng:</strong><br>センターで (1) ➔ 週に (2) ➔ <strong>三回 (3 - ★)</strong> ➔ 日本語を (4).<br>➔ わたしは センターで 週に 三回 日本語を 勉強して います."
+                                "explain": "💡 <strong>Thứ tự sắp xếp câu:</strong><br>[4] センターで ➔ [2] 週に ➔ <strong>★ [3] 三回 (Vị trí số 3)</strong> ➔ [1] 日本語を<br>➔ Câu hoàn chỉnh: わたしは センターで 週に 三回 日本語を 勉強して います。<br>➔ Vị trí ngôi sao (★) là phương án <strong>[3] 三回</strong>."
                             }
                         ]
                     },

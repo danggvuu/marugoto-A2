@@ -449,13 +449,13 @@ def build_m102():
                                 "prompt": v("えいがを [  ] [  ] [ ★ ] [  ] みずを かいたいです。", "M102.Q27.p"),
                                 "promptVi": "Trước khi xem phim, tôi muốn đi quán cà phê mua nước. (Câu 13)",
                                 "options": [
-                                    v("みる", "M102.Q27.o0"),
-                                    v("前に、", "M102.Q27.o1"),
-                                    v("カフェへ", "M102.Q27.o2"),
-                                    v("行って", "M102.Q27.o3")
+                                    v("前に、", "M102.Q27.o0"),
+                                    v("行って", "M102.Q27.o1"),
+                                    v("みる", "M102.Q27.o2"),
+                                    v("カフェへ", "M102.Q27.o3")
                                 ],
-                                "correct": 2,
-                                "explain": "💡 <strong>Trật tự câu:</strong> えいがを [みる] [前に、] [★ カフェへ] [行って] みずを かいたいです。<br>Vị trí số 3 chính là <strong>カフェへ</strong>."
+                                "correct": 3,
+                                "explain": "💡 <strong>Thứ tự sắp xếp câu:</strong><br>[3] みる ➔ [1] 前に、 ➔ <strong>★ [4] カフェへ (Vị trí số 3)</strong> ➔ [2] 行って<br>➔ Câu hoàn chỉnh: えいがを みる 前に、カフェへ 行って みずを かいたいです。<br>➔ Vị trí ngôi sao (★) là phương án <strong>[4] カフェへ</strong>."
                             },
                             {
                                 "id": 28,
@@ -463,13 +463,13 @@ def build_m102():
                                 "prompt": v("ポケモンと [  ] [  ] [ ★ ] [  ] 好きですか。", "M102.Q28.p"),
                                 "promptVi": "Giữa Pokemon và Doraemon, bạn thích cái nào hơn? (Câu 30)",
                                 "options": [
-                                    v("ドラえもんと、", "M102.Q28.o0"),
-                                    v("どちら", "M102.Q28.o1"),
-                                    v("が", "M102.Q28.o2"),
-                                    v("いちばん", "M102.Q28.o3")
+                                    v("が", "M102.Q28.o0"),
+                                    v("ドラえもんと、", "M102.Q28.o1"),
+                                    v("いちばん", "M102.Q28.o2"),
+                                    v("どちら", "M102.Q28.o3")
                                 ],
-                                "correct": 2,
-                                "explain": "💡 <strong>Trật tự câu:</strong> ポケモンと [ドラえもんと、] [どちら] [★ が] [──] 好きですか。<br>Ở đây: ポケモンと [ドラえもんと、] (1) [どちら] (2) [★ が] (3) ➔ Vị trí ngôi sao là <strong>が</strong>."
+                                "correct": 0,
+                                "explain": "💡 <strong>Thứ tự sắp xếp câu:</strong><br>[2] ドラえもんと、 ➔ [4] どちら ➔ <strong>★ [1] が (Vị trí số 3)</strong> ➔ [3] いちばん<br>➔ Câu hoàn chỉnh: ポケモンと ドラえもんと、どちらが いちばん 好きですか。<br>➔ Vị trí ngôi sao (★) là phương án <strong>[1] が</strong>."
                             },
                             {
                                 "id": 29,
@@ -477,13 +477,13 @@ def build_m102():
                                 "prompt": v("とうきょうは [  ] [  ] [ ★ ] [  ] 多いです。", "M102.Q29.p"),
                                 "promptVi": "Tokyo thì đông người hơn Okinawa. (Câu 28)",
                                 "options": [
-                                    v("おきなわ", "M102.Q29.o0"),
-                                    v("より", "M102.Q29.o1"),
+                                    v("より", "M102.Q29.o0"),
+                                    v("とても", "M102.Q29.o1"),
                                     v("人が", "M102.Q29.o2"),
-                                    v("とても", "M102.Q29.o3")
+                                    v("おきなわ", "M102.Q29.o3")
                                 ],
                                 "correct": 2,
-                                "explain": "💡 <strong>Trật tự câu:</strong> とうきょうは [おきなわ] [より] [★ 人が] [とても] 多いです。<br>Vị trí số 3 là <strong>人が</strong>."
+                                "explain": "💡 <strong>Thứ tự sắp xếp câu:</strong><br>[4] おきなわ ➔ [1] より ➔ <strong>★ [3] 人が (Vị trí số 3)</strong> ➔ [2] とても<br>➔ Câu hoàn chỉnh: とうきょうは おきなわより 人が とても 多いです。<br>➔ Vị trí ngôi sao (★) là phương án <strong>[3] 人が</strong>."
                             },
                             {
                                 "id": 30,
@@ -491,13 +491,13 @@ def build_m102():
                                 "prompt": v("私の しゅみは [  ] [  ] [ ★ ] [  ] ことです。", "M102.Q30.p"),
                                 "promptVi": "Sở thích của tôi là đọc truyện tranh. (Câu 40)",
                                 "options": [
-                                    v("日本の", "M102.Q30.o0"),
-                                    v("まんがを", "M102.Q30.o1"),
-                                    v("たくさん", "M102.Q30.o2"),
-                                    v("読む", "M102.Q30.o3")
+                                    v("まんがを", "M102.Q30.o0"),
+                                    v("たくさん", "M102.Q30.o1"),
+                                    v("読む", "M102.Q30.o2"),
+                                    v("日本の", "M102.Q30.o3")
                                 ],
-                                "correct": 2,
-                                "explain": "💡 <strong>Trật tự câu:</strong> 私の しゅみは [日本の] [まんがを] [★ たくさん] [読む] ことです。<br>Vị trí số 3 là <strong>たくさん</strong>."
+                                "correct": 1,
+                                "explain": "💡 <strong>Thứ tự sắp xếp câu:</strong><br>[4] 日本の ➔ [1] まんがを ➔ <strong>★ [2] たくさん (Vị trí số 3)</strong> ➔ [3] 読む<br>➔ Câu hoàn chỉnh: 私の しゅみは 日本の まんがを たくさん 読む ことです。<br>➔ Vị trí ngôi sao (★) là phương án <strong>[2] たくさん</strong>."
                             }
                         ]
                     },

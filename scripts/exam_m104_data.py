@@ -449,13 +449,13 @@ def build_m104():
                                 "prompt": v("あしたの 朝 九時に [  ] [  ] [ ★ ] [  ] あいましょう。", "M104.Q27.p"),
                                 "promptVi": "9h sáng mai tại cổng tây ga Shinjuku nhé. (Câu 7)",
                                 "options": [
-                                    v("しんじゅく駅", "M104.Q27.o0"),
-                                    v("の", "M104.Q27.o1"),
+                                    v("で", "M104.Q27.o0"),
+                                    v("しんじゅく駅", "M104.Q27.o1"),
                                     v("にしぐち", "M104.Q27.o2"),
-                                    v("で", "M104.Q27.o3")
+                                    v("の", "M104.Q27.o3")
                                 ],
                                 "correct": 2,
-                                "explain": "💡 <strong>Trật tự câu:</strong> あしたの 朝 九時に [しんじゅく駅] [の] [★ にしぐち] [で] あいましょう。<br>Vị trí ngôi sao là <strong>にしぐち</strong>."
+                                "explain": "💡 <strong>Thứ tự sắp xếp câu:</strong><br>[2] しんじゅく駅 ➔ [4] の ➔ <strong>★ [3] にしぐち (Vị trí số 3)</strong> ➔ [1] で<br>➔ Câu hoàn chỉnh: あしたの 朝 九時に しんじゅく駅の にしぐちで あいましょう。<br>➔ Vị trí ngôi sao (★) là phương án <strong>[3] にしぐち</strong>."
                             },
                             {
                                 "id": 28,
@@ -463,13 +463,13 @@ def build_m104():
                                 "prompt": v("ベトナムりょうりの [  ] [  ] [ ★ ] [  ] くださいませんか。", "M104.Q28.p"),
                                 "promptVi": "Bạn có thể chỉ cho tôi cách làm món ăn Việt Nam không? (Câu 31)",
                                 "options": [
-                                    v("つくりかた", "M104.Q28.o0"),
-                                    v("を", "M104.Q28.o1"),
-                                    v("私に", "M104.Q28.o2"),
-                                    v("おしえて", "M104.Q28.o3")
+                                    v("私に", "M104.Q28.o0"),
+                                    v("つくりかた", "M104.Q28.o1"),
+                                    v("おしえて", "M104.Q28.o2"),
+                                    v("を", "M104.Q28.o3")
                                 ],
-                                "correct": 3,
-                                "explain": "💡 <strong>Trật tự câu:</strong> ベトナムりょうりの [つくりかた] [を] [私に] [★ おしえて] くださいませんか。<br>Vị trí ngôi sao là <strong>おしえて</strong>."
+                                "correct": 0,
+                                "explain": "💡 <strong>Thứ tự sắp xếp câu:</strong><br>[2] つくりかた ➔ [4] を ➔ <strong>★ [1] 私に (Vị trí số 3)</strong> ➔ [3] おしえて<br>➔ Câu hoàn chỉnh: ベトナムりょうりの つくりかたを 私に おしえて くださいませんか。<br>➔ Vị trí ngôi sao (★) là phương án <strong>[1] 私に</strong>."
                             },
                             {
                                 "id": 29,
@@ -477,13 +477,13 @@ def build_m104():
                                 "prompt": v("私は センターで [  ] [  ] [ ★ ] [  ] 勉強して います。", "M104.Q29.p"),
                                 "promptVi": "Tôi đang học tiếng Nhật một tuần ba lần ở trung tâm. (Câu 32)",
                                 "options": [
-                                    v("週に", "M104.Q29.o0"),
-                                    v("三回", "M104.Q29.o1"),
-                                    v("日本語", "M104.Q29.o2"),
-                                    v("を", "M104.Q29.o3")
+                                    v("三回", "M104.Q29.o0"),
+                                    v("を", "M104.Q29.o1"),
+                                    v("週に", "M104.Q29.o2"),
+                                    v("日本語", "M104.Q29.o3")
                                 ],
-                                "correct": 2,
-                                "explain": "💡 <strong>Trật tự câu:</strong> 私は センターで [週に] [三回] [★ 日本語] [を] 勉強して います。<br>Vị trí ngôi sao là <strong>日本語</strong>."
+                                "correct": 3,
+                                "explain": "💡 <strong>Thứ tự sắp xếp câu:</strong><br>[3] 週に ➔ [1] 三回 ➔ <strong>★ [4] 日本語 (Vị trí số 3)</strong> ➔ [2] を<br>➔ Câu hoàn chỉnh: 私は センターで 週に 三回 日本語を 勉強して います。<br>➔ Vị trí ngôi sao (★) là phương án <strong>[4] 日本語</strong>."
                             },
                             {
                                 "id": 30,
@@ -491,13 +491,13 @@ def build_m104():
                                 "prompt": v("あねは いま、[  ] [  ] [ ★ ] [  ] して います。", "M104.Q30.p"),
                                 "promptVi": "Chị tôi đang làm việc tại công ty trò chơi. (Câu 16)",
                                 "options": [
-                                    v("ゲームの", "M104.Q30.o0"),
-                                    v("かいしゃで", "M104.Q30.o1"),
-                                    v("仕事", "M104.Q30.o2"),
+                                    v("かいしゃで", "M104.Q30.o0"),
+                                    v("仕事", "M104.Q30.o1"),
+                                    v("ゲームの", "M104.Q30.o2"),
                                     v("を", "M104.Q30.o3")
                                 ],
-                                "correct": 2,
-                                "explain": "💡 <strong>Trật tự câu:</strong> あねは いま、[ゲームの] [かいしゃで] [★ 仕事] [を] して います。<br>Vị trí ngôi sao là <strong>仕事</strong>."
+                                "correct": 1,
+                                "explain": "💡 <strong>Thứ tự sắp xếp câu:</strong><br>[3] ゲームの ➔ [1] かいしゃで ➔ <strong>★ [2] 仕事 (Vị trí số 3)</strong> ➔ [4] を<br>➔ Câu hoàn chỉnh: あねは いま、ゲームの かいしゃで 仕事を して います。<br>➔ Vị trí ngôi sao (★) là phương án <strong>[2] 仕事</strong>."
                             }
                         ]
                     },
