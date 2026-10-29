@@ -526,6 +526,28 @@
             color: var(--dark);
         }
 
+        .btn-reset-exam {
+            background: #fff1f2;
+            color: #e11d48;
+            border: 1px solid #fecdd3;
+            border-radius: var(--radius-full);
+            padding: 10px 18px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-reset-exam:hover {
+            background: #fee2e2;
+            border-color: #fda4af;
+            color: #be123c;
+            transform: translateY(-1px);
+        }
+
         /* Question Navigation Palette */
         .q-palette-card {
             background: white;
@@ -1616,6 +1638,7 @@
                 <span>⏱️</span>
                 <span id="timerDisplay">45:00</span>
                 <button type="button" class="timer-btn" id="btnToggleTimer" title="Tạm dừng / Tiếp tục" onclick="toggleTimer()">⏸️</button>
+                <button type="button" class="timer-btn" id="btnResetTimer" title="Đặt lại đồng hồ về 45:00" onclick="resetTimer()">🔄</button>
             </div>
 
             <div class="progress-box">
@@ -1636,6 +1659,9 @@
                 </label>
                 <button type="button" class="btn-history" onclick="openHistoryModal()">
                     📜 Lịch sử (<span id="historyCountBadge">0</span>)
+                </button>
+                <button type="button" class="btn-reset-exam" onclick="resetCurrentExam()" title="Xóa bài làm và làm lại mã đề này từ đầu">
+                    🔄 Làm Lại Đề Này
                 </button>
                 <button type="button" class="btn-submit" onclick="submitExam(false)">
                     ✅ Nộp Bài Thi
@@ -1735,7 +1761,26 @@
     // ==========================================
     // EXAM CONTROLLER STATE
     // ==========================================
-    let currentExamCode = (typeof EXAMS_DATA !== 'undefined' && EXAMS_DATA.length > 0) ? EXAMS_DATA[0].code : "M101";
+    const ACTIVE_EXAM_STORAGE_KEY = "marugoto_midterm_active_code_v1";
+
+    function getInitialExamCode() {
+        // 1. Kiểm tra hash trên URL (ví dụ: #M102, #M103)
+        const hash = (window.location.hash || "").replace("#", "").trim().toUpperCase();
+        if (hash && typeof EXAMS_DATA !== 'undefined' && EXAMS_DATA.some(e => e.code === hash)) {
+            return hash;
+        }
+        // 2. Kiểm tra bộ nhớ localStorage phiên trước
+        try {
+            const saved = localStorage.getItem(ACTIVE_EXAM_STORAGE_KEY);
+            if (saved && typeof EXAMS_DATA !== 'undefined' && EXAMS_DATA.some(e => e.code === saved)) {
+                return saved;
+            }
+        } catch (e) {}
+        // 3. Mặc định là mã đề đầu tiên
+        return (typeof EXAMS_DATA !== 'undefined' && EXAMS_DATA.length > 0) ? EXAMS_DATA[0].code : "M101";
+    }
+
+    let currentExamCode = getInitialExamCode();
     let userAnswers = {}; // { [qId]: { value, starOrder, isCorrect, checked } }
     let timerSeconds = 45 * 60;
     let timerInterval = null;
@@ -1748,9 +1793,17 @@
 
     // 1. Initialize
     document.addEventListener("DOMContentLoaded", () => {
+        currentExamCode = getInitialExamCode();
         initExamTabs();
         loadExam(currentExamCode);
         updateHistoryBadge();
+    });
+
+    window.addEventListener("hashchange", () => {
+        const hash = (window.location.hash || "").replace("#", "").trim().toUpperCase();
+        if (hash && hash !== currentExamCode && typeof EXAMS_DATA !== 'undefined' && EXAMS_DATA.some(e => e.code === hash)) {
+            switchExam(hash);
+        }
     });
 
     // 2. Exam Tabs
@@ -1776,6 +1829,10 @@
             }
         }
         currentExamCode = code;
+        try {
+            localStorage.setItem(ACTIVE_EXAM_STORAGE_KEY, code);
+            history.replaceState(null, "", "#" + code);
+        } catch (e) {}
         initExamTabs();
         loadExam(code);
     }
@@ -1819,6 +1876,32 @@
         }
     }
 
+    function resetTimer() {
+        if (isExamSubmitted) return;
+        const exam = EXAMS_DATA.find(e => e.code === currentExamCode) || EXAMS_DATA[0];
+        const limit = exam.timeLimit || (45 * 60);
+        const mins = Math.floor(limit / 60);
+        if (confirm(`Bạn có muốn đặt lại đồng hồ đếm ngược về ${mins}:00 không?`)) {
+            timerSeconds = limit;
+            updateTimerDisplay();
+            startTimer();
+            saveDraft();
+            showToast(`⏱️ Đã đặt lại thời gian thi về ${mins}:00!`);
+        }
+    }
+
+    function resetCurrentExam() {
+        const exam = EXAMS_DATA.find(e => e.code === currentExamCode) || EXAMS_DATA[0];
+        if (confirm(`Bạn có chắc chắn muốn xóa bài làm và làm lại mã đề [${currentExamCode}] từ đầu không?`)) {
+            clearDraft(currentExamCode);
+            loadExam(currentExamCode);
+            showToast(`🔄 Đã làm mới đề thi [${currentExamCode}] và đặt lại thời gian 45:00!`);
+        }
+    }
+
+    window.resetTimer = resetTimer;
+    window.resetCurrentExam = resetCurrentExam;
+
     function updateTimerDisplay() {
         const d = document.getElementById("timerDisplay");
         const b = document.getElementById("timerBox");
@@ -1836,6 +1919,13 @@
     // 4. Load & Render Exam
     function loadExam(code) {
         const exam = EXAMS_DATA.find(e => e.code === code) || EXAMS_DATA[0];
+        currentExamCode = exam.code;
+        try {
+            localStorage.setItem(ACTIVE_EXAM_STORAGE_KEY, currentExamCode);
+            if (window.location.hash !== "#" + currentExamCode) {
+                history.replaceState(null, "", "#" + currentExamCode);
+            }
+        } catch (e) {}
         document.body.classList.remove("review-mode");
         isExamSubmitted = false;
 
@@ -1843,8 +1933,10 @@
         const draft = loadDraft(code);
         if (draft) {
             userAnswers = draft.userAnswers || {};
-            timerSeconds = (typeof draft.timerSeconds === "number") ? draft.timerSeconds : exam.timeLimit;
-            showToast("💾 Đã khôi phục bài làm nháp từ phiên trước!");
+            let sec = (typeof draft.timerSeconds === "number") ? draft.timerSeconds : exam.timeLimit;
+            if (sec <= 0) sec = exam.timeLimit;
+            timerSeconds = sec;
+            showToast(`💾 Đã khôi phục bài làm nháp đề [${code}]!`);
         } else {
             userAnswers = {};
             timerSeconds = exam.timeLimit;
