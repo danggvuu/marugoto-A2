@@ -52,6 +52,8 @@ def sync_lessons():
         nav_html = f'''    <div class="global-hub-nav">
         <a href="../index.html" class="hub-nav-item">🌸 Thể TE (～て)</a>
         <a href="../the_ru.html" class="hub-nav-item">📘 Thể RU (Từ Điển)</a>
+        <a href="../the_ta.html" class="hub-nav-item">📕 Thể TA (Quá Khứ)</a>
+        <a href="../the_ta.html" class="hub-nav-item">📕 Thể TA (Quá Khứ)</a>
         <a href="../kanji_a2.html" class="hub-nav-item">⛩️ Học Kanji & Nét Viết</a>
         <a href="../Tu_Vung_Marugoto_A1_16_A2_1_10.html" class="hub-nav-item">📖 Kho Từ Vựng A1-A2</a>
         <a href="../Tong_Hop_Ngu_Phap_Marugoto_A1_A2.html" class="hub-nav-item">📚 Ngữ Pháp A1-A2 (26 Bài)</a>
@@ -117,6 +119,8 @@ def sync_tests():
         nav_html = f'''    <div class="global-hub-nav">
         <a href="../index.html" class="hub-nav-item">🌸 Thể TE (～て)</a>
         <a href="../the_ru.html" class="hub-nav-item">📘 Thể RU (Từ Điển)</a>
+        <a href="../the_ta.html" class="hub-nav-item">📕 Thể TA (Quá Khứ)</a>
+        <a href="../the_ta.html" class="hub-nav-item">📕 Thể TA (Quá Khứ)</a>
         <a href="../kanji_a2.html" class="hub-nav-item">⛩️ Học Kanji & Nét Viết</a>
         <a href="../Tu_Vung_Marugoto_A1_16_A2_1_10.html" class="hub-nav-item">📖 Kho Từ Vựng A1-A2</a>
         <a href="../Tong_Hop_Ngu_Phap_Marugoto_A1_A2.html" class="hub-nav-item">📚 Ngữ Pháp A1-A2 (26 Bài)</a>
@@ -159,6 +163,7 @@ def sync_roots():
     root_files = [
         'index.html',
         'the_ru.html',
+        'the_ta.html',
         'kanji_a2.html',
         'Tu_Vung_Marugoto_A1_16_A2_1_10.html',
         'Tong_Hop_Ngu_Phap_Marugoto_A1_A2.html'
@@ -172,6 +177,7 @@ def sync_roots():
 
         is_te = (current_r == 'index.html')
         is_ru = (current_r == 'the_ru.html')
+        is_ta = (current_r == 'the_ta.html')
         is_kanji = (current_r == 'kanji_a2.html')
         is_vocab = (current_r == 'Tu_Vung_Marugoto_A1_16_A2_1_10.html')
         is_grammar = (current_r == 'Tong_Hop_Ngu_Phap_Marugoto_A1_A2.html')
@@ -179,6 +185,7 @@ def sync_roots():
         nav_html = f'''    <div class="global-hub-nav">
         <a href="index.html" class="hub-nav-item{" active-hub" if is_te else ""}">🌸 Thể TE (～て)</a>
         <a href="the_ru.html" class="hub-nav-item{" active-hub" if is_ru else ""}">📘 Thể RU (Từ Điển)</a>
+        <a href="the_ta.html" class="hub-nav-item{" active-hub" if is_ta else ""}">📕 Thể TA (Quá Khứ)</a>
         <a href="kanji_a2.html" class="hub-nav-item{" active-hub" if is_kanji else ""}">⛩️ Học Kanji & Nét Viết</a>
         <a href="Tu_Vung_Marugoto_A1_16_A2_1_10.html" class="hub-nav-item{" active-hub" if is_vocab else ""}">📖 Kho Từ Vựng A1-A2</a>
         <a href="Tong_Hop_Ngu_Phap_Marugoto_A1_A2.html" class="hub-nav-item{" active-hub" if is_grammar else ""}">📚 Ngữ Pháp A1-A2 (26 Bài)</a>

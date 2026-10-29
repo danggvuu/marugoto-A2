@@ -1,0 +1,1593 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="referrer" content="no-referrer">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cẩm Nang & Luyện Tập Chia Thể TA (Quá Khứ ～た) - Marugoto A2</title>
+    <style>
+        :root {
+            --primary: #e11d48;
+            --primary-light: #fb7185;
+            --primary-bg: #fff1f2;
+            --secondary: #0284c7;
+            --secondary-bg: #f0f9ff;
+            --accent: #f59e0b;
+            --success: #10b981;
+            --success-bg: #ecfdf5;
+            --danger: #ef4444;
+            --danger-bg: #fef2f2;
+            --warning: #f59e0b;
+            --dark: #1e293b;
+            --gray: #64748b;
+            --border: #e2e8f0;
+            --shadow: 0 10px 25px rgba(0,0,0,0.06);
+            --radius: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        html, body {
+            max-width: 100vw;
+            overflow-x: hidden;
+        }
+
+        body {
+            background-color: #f8fafc;
+            color: var(--dark);
+            line-height: 1.6;
+            padding: 20px 10px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #e11d48 0%, #be123c 50%, #881337 100%);
+            color: white;
+            padding: 34px 20px;
+            border-radius: var(--radius);
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(225, 29, 72, 0.28);
+            margin-bottom: 25px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::after {
+            content: "た";
+            position: absolute;
+            right: 15px;
+            bottom: -20px;
+            font-size: 140px;
+            font-weight: 900;
+            color: rgba(255, 255, 255, 0.08);
+            pointer-events: none;
+            font-family: "Hiragino Mincho ProN", serif;
+        }
+
+        header h1 {
+            font-size: 2.15rem;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+            font-weight: 800;
+        }
+
+        header p {
+            font-size: 1.05rem;
+            opacity: 0.95;
+            max-width: 780px;
+            margin: 0 auto;
+        }
+
+        /* GLOBAL HUB NAV */
+        .global-hub-nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            background: white;
+            padding: 14px 20px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 25px;
+            border: 1px solid var(--border);
+        }
+
+        .hub-nav-item {
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #475569;
+            padding: 8px 16px;
+            border-radius: 20px;
+            background: #f1f5f9;
+            border: 1px solid transparent;
+            transition: all 0.2s;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .hub-nav-item:hover {
+            background: var(--primary-bg);
+            color: var(--primary);
+            border-color: var(--primary-light);
+        }
+
+        .hub-nav-item.active-hub {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 4px 12px rgba(225, 29, 72, 0.3);
+        }
+
+        /* Dropdowns */
+        .hub-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .hub-dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-top: 8px;
+            background: white;
+            min-width: 260px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            border: 1px solid var(--border);
+            padding: 8px 0;
+            z-index: 999;
+        }
+
+        .hub-dropdown-menu.show {
+            display: block;
+        }
+
+        .hub-drop-link {
+            display: block;
+            padding: 10px 18px;
+            text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: #334155;
+            transition: all 0.15s;
+        }
+
+        .hub-drop-link:hover {
+            background: var(--primary-bg);
+            color: var(--primary);
+        }
+
+        /* Nav Tabs */
+        .nav-tabs {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 25px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-tab-btn {
+            background: white;
+            border: 2px solid transparent;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-size: 0.96rem;
+            font-weight: 700;
+            cursor: pointer;
+            color: var(--dark);
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .nav-tab-btn:hover {
+            border-color: var(--primary-light);
+            color: var(--primary);
+        }
+
+        .nav-tab-btn.active {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 4px 15px rgba(225, 29, 72, 0.35);
+        }
+
+        /* Panel */
+        .tab-panel {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .tab-panel.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Card */
+        .card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 28px;
+            margin-bottom: 25px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+
+        .card h2 {
+            font-size: 1.45rem;
+            color: var(--primary);
+            border-bottom: 2px solid var(--primary-bg);
+            padding-bottom: 12px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 800;
+        }
+
+        .card h3 {
+            font-size: 1.18rem;
+            margin: 22px 0 12px 0;
+            color: #0f172a;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Rule Tables */
+        .rule-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        .rule-table th, .rule-table td {
+            border: 1px solid var(--border);
+            padding: 14px 18px;
+            text-align: left;
+            font-size: 0.95rem;
+        }
+
+        .rule-table th {
+            background-color: #f8fafc;
+            color: #1e293b;
+            font-weight: 700;
+        }
+
+        .group-tag {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: white;
+        }
+        .tag-g1 { background: #0284c7; }
+        .tag-g2 { background: #e11d48; }
+        .tag-g3 { background: #8b5cf6; }
+        .tag-trap { background: #d97706; }
+
+        .golden-rule-box {
+            background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+            border: 2px solid #f59e0b;
+            border-radius: 14px;
+            padding: 20px;
+            margin-bottom: 25px;
+            color: #92400e;
+        }
+
+        .golden-rule-box h3 {
+            color: #b45309;
+            margin-top: 0;
+            font-size: 1.25rem;
+        }
+
+        .shift-badge {
+            display: inline-block;
+            background: #ffe4e6;
+            color: #be123c;
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-weight: 800;
+            font-family: monospace;
+            font-size: 0.95rem;
+        }
+
+        /* Controls */
+        .controls-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 20px;
+            background: white;
+            padding: 18px 22px;
+            border-radius: 14px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+
+        .search-box input {
+            padding: 10px 18px;
+            border: 1.5px solid var(--border);
+            border-radius: 25px;
+            font-size: 0.95rem;
+            width: 260px;
+            outline: none;
+            transition: all 0.2s;
+        }
+
+        .search-box input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(225, 29, 72, 0.15);
+        }
+
+        .filter-pills {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .filter-pill {
+            padding: 6px 14px;
+            border-radius: 20px;
+            border: 1.5px solid var(--border);
+            background: white;
+            font-size: 0.85rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: #475569;
+        }
+
+        .filter-pill:hover, .filter-pill.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            border: none;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.92rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        .btn-primary:hover { background: #be123c; }
+
+        .btn-secondary {
+            background: #e2e8f0;
+            color: #1e293b;
+        }
+        .btn-secondary:hover { background: #cbd5e1; }
+
+        .btn-outline {
+            background: transparent;
+            border: 1.5px solid var(--primary);
+            color: var(--primary);
+        }
+        .btn-outline:hover {
+            background: var(--primary-bg);
+        }
+
+        .score-banner {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 16px 24px;
+            border-radius: 12px;
+            display: none;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+        }
+
+        /* Practice Table */
+        .table-responsive {
+            overflow-x: auto;
+            border-radius: 14px;
+            box-shadow: var(--shadow);
+            background: white;
+            border: 1px solid var(--border);
+        }
+
+        .exercise-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 800px;
+        }
+
+        .exercise-table th, .exercise-table td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .exercise-table th {
+            background: #f8fafc;
+            font-weight: 700;
+            color: #1e293b;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .exercise-table tr:hover {
+            background-color: #f1f5f9;
+        }
+
+        .verb-masu {
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: #0f172a;
+        }
+
+        .verb-vi {
+            font-size: 0.82rem;
+            color: #64748b;
+            display: block;
+            margin-top: 2px;
+        }
+
+        .group-select {
+            padding: 8px 10px;
+            border: 1.5px solid var(--border);
+            border-radius: 8px;
+            font-size: 0.92rem;
+            outline: none;
+            background: white;
+            cursor: pointer;
+            width: 95px;
+        }
+
+        .text-input {
+            padding: 8px 12px;
+            border: 1.5px solid var(--border);
+            border-radius: 8px;
+            font-size: 0.95rem;
+            outline: none;
+            width: 100%;
+            max-width: 250px;
+            transition: all 0.2s;
+        }
+
+        .text-input:focus, .group-select:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(225, 29, 72, 0.15);
+        }
+
+        .is-correct {
+            border-color: var(--success) !important;
+            background-color: var(--success-bg) !important;
+        }
+
+        .is-incorrect {
+            border-color: var(--danger) !important;
+            background-color: var(--danger-bg) !important;
+        }
+
+        .answer-hint {
+            display: none;
+            font-size: 0.88rem;
+            color: var(--primary);
+            margin-top: 5px;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .answer-hint.show {
+            display: block;
+        }
+
+        .fc-speaker-btn {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+            transition: all 0.2s;
+        }
+
+        .fc-speaker-btn:hover {
+            background: var(--primary-bg);
+            border-color: var(--primary-light);
+            transform: scale(1.1);
+        }
+
+        /* Grammar Cards */
+        .grammar-block {
+            background: #ffffff;
+            border-left: 5px solid var(--primary);
+            border-radius: 0 12px 12px 0;
+            padding: 20px 24px;
+            margin: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            border-top: 1px solid var(--border);
+            border-right: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .grammar-title {
+            font-size: 1.25rem;
+            color: #0f172a;
+            font-weight: 800;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .grammar-formula {
+            background: var(--primary-bg);
+            color: var(--primary);
+            font-size: 1.05rem;
+            font-weight: 800;
+            padding: 10px 18px;
+            border-radius: 8px;
+            display: inline-block;
+            margin-bottom: 12px;
+            border: 1px solid #fecdd3;
+        }
+
+        .example-list {
+            list-style: none;
+            margin-top: 10px;
+        }
+
+        .example-item {
+            padding: 8px 0;
+            border-bottom: 1px dashed var(--border);
+        }
+        .example-item:last-child { border-bottom: none; }
+
+        .ex-jp {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #1e293b;
+        }
+
+        .ex-vi {
+            font-size: 0.92rem;
+            color: #64748b;
+            margin-top: 2px;
+        }
+
+        /* Lab Transformer */
+        .lab-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+        @media (max-width: 768px) {
+            .lab-container { grid-template-columns: 1fr; }
+        }
+
+        .lab-input-box {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid var(--border);
+        }
+
+        .lab-result-card {
+            background: white;
+            border-radius: 12px;
+            border: 2px solid var(--primary-light);
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(225, 29, 72, 0.08);
+        }
+
+        .form-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .form-row:last-child { border-bottom: none; }
+
+        .form-label {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #64748b;
+        }
+
+        .form-val {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: #0f172a;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 35px;
+            padding: 20px;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- GLOBAL HUB NAV -->
+        <div class="global-hub-nav">
+        <a href="index.html" class="hub-nav-item">🌸 Thể TE (～て)</a>
+        <a href="the_ru.html" class="hub-nav-item">📘 Thể RU (Từ Điển)</a>
+        <a href="the_ta.html" class="hub-nav-item active-hub">📕 Thể TA (Quá Khứ)</a>
+        <a href="kanji_a2.html" class="hub-nav-item">⛩️ Học Kanji & Nét Viết</a>
+        <a href="Tu_Vung_Marugoto_A1_16_A2_1_10.html" class="hub-nav-item">📖 Kho Từ Vựng A1-A2</a>
+        <a href="Tong_Hop_Ngu_Phap_Marugoto_A1_A2.html" class="hub-nav-item">📚 Ngữ Pháp A1-A2 (26 Bài)</a>
+        <a href="demo_3d.html" class="hub-nav-item">⛩️ Không Gian 3D</a>
+        <div class="hub-dropdown">
+            <button type="button" class="hub-nav-item" onclick="toggleTestsDropdown(event)">🎯 Ôn Tập & Đề Thi ▾</button>
+            <div class="hub-dropdown-menu" id="testsDropdownMenu">
+                <a href="tests/De_Thi_Midterm_A2_1.html" class="hub-drop-link">🎯 Bộ 5 Đề Thi Giữa Kỳ Midterm (M101 - M105)</a>
+                <a href="tests/On_Tap_Dich_Cau_Lesson_1_10.html" class="hub-drop-link">✍️ Luyện Dịch Câu Bài 1 - 10 (40 Câu)</a>
+                <a href="tests/On_Tap_Mini_Test_A2_1_4.html" class="hub-drop-link">🎯 Ôn Tập Bài 1-4 (Mini Test)</a>
+                <a href="tests/On_Tap_Mini_Test_A2_5_8.html" class="hub-drop-link">🎯 Ôn Tập Bài 5-8 (Mini Test)</a>
+                <a href="tests/De_Thi_Thu_Marugoto_A2_5_8.html" class="hub-drop-link">📝 5 Mã Đề Thi Thử (101-105)</a>
+                <a href="tests/Kiem_Tra_Marugoto_L6_7_8.html" class="hub-drop-link">📑 Đề Kiểm Tra L6, 7, 8</a>
+                <a href="tests/Luyen_Tap_The_Te_A2_1.html" class="hub-drop-link">🌸 Luyện Tập Thể Te</a>
+            </div>
+        </div>
+        <div class="hub-dropdown">
+            <button type="button" class="hub-nav-item" onclick="toggleLessonsDropdown(event)">🚀 Web Bài Học 10-18 ▾</button>
+            <div class="hub-dropdown-menu" id="lessonsDropdownMenu">
+                <a href="lessons/Marugoto_A2_Lesson_10.html" class="hub-drop-link">🌟 Bài 10: 外国文化</a>
+                <a href="lessons/Marugoto_A2_Lesson_11.html" class="hub-drop-link">🍱 Bài 11: そとで食べる</a>
+                <a href="lessons/Marugoto_A2_Lesson_12.html" class="hub-drop-link">🍜 Bài 12: 特別な日の料理</a>
+                <a href="lessons/Marugoto_A2_Lesson_13.html" class="hub-drop-link">✈️ Bài 13: 出張</a>
+                <a href="lessons/Marugoto_A2_Lesson_14.html" class="hub-drop-link">💻 Bài 14: 職場のマナー</a>
+                <a href="lessons/Marugoto_A2_Lesson_15.html" class="hub-drop-link">🏥 Bài 15: 健康な生活</a>
+                <a href="lessons/Marugoto_A2_Lesson_16.html" class="hub-drop-link">🏃 Bài 16: 体にいいこと</a>
+                <a href="lessons/Marugoto_A2_Lesson_17.html" class="hub-drop-link">🎁 Bài 17: お祝い</a>
+                <a href="lessons/Marugoto_A2_Lesson_18.html" class="hub-drop-link">👘 Bài 18: お祭りやイベント</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <h1>📕 BẢNG CHIA THỂ TA (THỂ QUÁ KHỨ - た形)</h1>
+        <p>Cẩm nang sư phạm toàn diện: Quy tắc chia 3 nhóm, bí kíp "Học 1 được 2" với thể TE & Trọng tâm mẫu câu kinh nghiệm: <strong>～Vた ことが あります</strong> (Marugoto A2-1 Bài 13)</p>
+    </header>
+
+    <!-- Nav Tabs -->
+    <div class="nav-tabs">
+        <button class="nav-tab-btn active" onclick="switchTab('tab-practice')">✍️ Luyện Tập Chia Thể TA (70 Từ)</button>
+        <button class="nav-tab-btn" onclick="switchTab('tab-theory')">📖 Quy Tắc Chia & Bí Kíp So Sánh</button>
+        <button class="nav-tab-btn" onclick="switchTab('tab-grammar')">💡 5 Mẫu Câu Ngữ Pháp Thể TA A2</button>
+        <button class="nav-tab-btn" onclick="switchTab('tab-lab')">🧪 Phòng Thí Nghiệm Đổi Thể</button>
+    </div>
+
+    <!-- TAB 1: PRACTICE TABLE -->
+    <div id="tab-practice" class="tab-panel active">
+        <div class="controls-bar">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="🔍 Tìm kiếm động từ, nghĩa..." oninput="filterVerbs()">
+            </div>
+            <div class="filter-pills">
+                <button type="button" class="filter-pill active" onclick="setFilter('all', this)">Tất cả (70)</button>
+                <button type="button" class="filter-pill" onclick="setFilter('1', this)">Nhóm 1</button>
+                <button type="button" class="filter-pill" onclick="setFilter('2', this)">Nhóm 2</button>
+                <button type="button" class="filter-pill" onclick="setFilter('3', this)">Nhóm 3</button>
+                <button type="button" class="filter-pill" onclick="setFilter('trap', this)">⚠️ Động từ bẫy</button>
+            </div>
+            <div class="btn-group">
+                <button class="btn btn-primary" onclick="gradeAll()">✅ Nộp Bài / Chấm Điểm</button>
+                <button class="btn btn-outline" onclick="toggleAnswers()">👁️ Hiện / Ẩn Đáp Án</button>
+                <button class="btn btn-secondary" onclick="resetExercise()">🔄 Làm Lại</button>
+            </div>
+        </div>
+
+        <div id="scoreBanner" class="score-banner"></div>
+
+        <div class="table-responsive">
+            <table class="exercise-table" id="verbsTable">
+                <thead>
+                    <tr>
+                        <th style="width: 50px;">STT</th>
+                        <th style="width: 250px;">Vます (Động từ)</th>
+                        <th style="width: 120px;">Nhóm</th>
+                        <th>Thể TA (Thể Quá Khứ)</th>
+                        <th style="width: 100px; text-align: center;">Kết Quả</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <!-- Populated via JS -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- TAB 2: THEORY -->
+    <div id="tab-theory" class="tab-panel">
+        <div class="card">
+            <h2>⚡ Bí Kíp Vàng Học Thể TA: "HỌC 1 ĐƯỢC 2" VỚI THỂ TE</h2>
+            <div class="golden-rule-box">
+                <h3>💡 Thần Chú Bất Bại</h3>
+                <p style="font-size: 1.08rem; line-height: 1.8;">
+                    Quy tắc chia sang <strong>Thể TA (た形)</strong> hoàn toàn giống 100% với <strong>Thể TE (て形)</strong>!<br>
+                    • Chỗ nào thể TE kết thúc bằng <strong>「て」</strong> ➔ sang thể TA thay bằng <strong>「た」</strong><br>
+                    • Chỗ nào thể TE kết thúc bằng <strong>「で」</strong> ➔ sang thể TA thay bằng <strong>「だ」</strong>
+                </p>
+                <div style="margin-top: 10px; display: flex; gap: 15px; flex-wrap: wrap;">
+                    <span class="shift-badge">～て ➔ ～た</span>
+                    <span class="shift-badge">～で ➔ ～だ</span>
+                    <span class="shift-badge">いって ➔ いった (行く)</span>
+                    <span class="shift-badge">のんで ➔ のんだ (飲む)</span>
+                </div>
+            </div>
+
+            <h2>📖 Bảng Quy Tắc Chia 3 Nhóm Động Từ Chi Tiết</h2>
+
+            <table class="rule-table">
+                <thead>
+                    <tr>
+                        <th style="width: 130px;">Nhóm Động Từ</th>
+                        <th style="width: 280px;">Đuôi trước ます</th>
+                        <th style="width: 200px;">Quy Tắc Đổi Sang Thể TA</th>
+                        <th>Ví Dụ Minh Họa</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Nhóm 1 -->
+                    <tr>
+                        <td rowspan="5" style="vertical-align: middle; text-align: center; font-weight: bold; background: #f0f9ff;">
+                            <span class="group-tag tag-g1">Nhóm ①</span><br>
+                            <small style="color:#0284c7; font-weight:normal;">Động từ ngũ đoạn</small>
+                        </td>
+                        <td>
+                            <strong>い / ち / り</strong><br>
+                            <small>(âm kết thúc i, chi, ri)</small>
+                        </td>
+                        <td>
+                            Bỏ ます ➔ <strong>～った</strong><br>
+                            <small class="shift-badge">Âm ngắt (nhỏ つ)</small>
+                        </td>
+                        <td>
+                            • あ<strong>い</strong>ます (Gặp) ➔ あ<strong>った</strong><br>
+                            • ま<strong>ち</strong>ます (Chờ) ➔ ま<strong>った</strong><br>
+                            • と<strong>り</strong>ます (Chụp/Lấy) ➔ と<strong>った</strong><br>
+                            • か<strong>い</strong>ます (Mua) ➔ か<strong>った</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>み / び / に</strong><br>
+                            <small>(âm kết thúc mi, bi, ni)</small>
+                        </td>
+                        <td>
+                            Bỏ ます ➔ <strong>～んだ</strong><br>
+                            <small class="shift-badge">Âm mũi + biến âm ĐỤC</small>
+                        </td>
+                        <td>
+                            • の<strong>み</strong>ます (Uống) ➔ の<strong>んだ</strong><br>
+                            • あそ<strong>び</strong>ます (Chơi) ➔ あそ<strong>んだ</strong><br>
+                            • し<strong>に</strong>ます (Chết) ➔ し<strong>んだ</strong><br>
+                            • よ<strong>み</strong>ます (Đọc) ➔ よ<strong>んだ</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>き</strong> (âm ki)<br>
+                            <strong>ぎ</strong> (âm gi)
+                        </td>
+                        <td>
+                            き ➔ <strong>～いた</strong><br>
+                            ぎ ➔ <strong>～いだ</strong>
+                        </td>
+                        <td>
+                            • か<strong>き</strong>ます (Viết) ➔ か<strong>いた</strong><br>
+                            • き<strong>き</strong>ます (Nghe) ➔ き<strong>いた</strong><br>
+                            • およ<strong>ぎ</strong>ます (Bơi) ➔ およ<strong>いだ</strong><br>
+                            • いそ<strong>ぎ</strong>ます (Vội) ➔ いそ<strong>いだ</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>し</strong> (âm shi)
+                        </td>
+                        <td>
+                            Bỏ ます ➔ <strong>～した</strong>
+                        </td>
+                        <td>
+                            • はな<strong>し</strong>ます (Nói) ➔ はな<strong>した</strong><br>
+                            • か<strong>し</strong>ます (Cho mượn) ➔ か<strong>した</strong><br>
+                            • け<strong>し</strong>ます (Tắt/Xóa) ➔ け<strong>した</strong>
+                        </td>
+                    </tr>
+                    <tr style="background: #fff1f2;">
+                        <td>
+                            <strong style="color: #e11d48;">🚨 NGOẠI LỆ DUY NHẤT</strong><br>
+                            <strong>いきます (行く - Đi)</strong>
+                        </td>
+                        <td style="color: #e11d48; font-weight: bold;">
+                            ➔ いった<br>
+                            <small>(KHÔNG PHẢI いいた)</small>
+                        </td>
+                        <td>
+                            • とうきょうへ <strong>いきました</strong><br>
+                            ➔ とうきょうへ <strong>いった</strong>
+                        </td>
+                    </tr>
+
+                    <!-- Nhóm 2 -->
+                    <tr>
+                        <td style="vertical-align: middle; text-align: center; font-weight: bold; background: #fff1f2;">
+                            <span class="group-tag tag-g2">Nhóm ②</span><br>
+                            <small style="color:#e11d48; font-weight:normal;">Động từ nhất đoạn</small>
+                        </td>
+                        <td>
+                            Âm trước ます thuộc <strong>cột え</strong><br>
+                            hoặc <strong>cột い (đặc biệt)</strong>
+                        </td>
+                        <td>
+                            Bỏ ます ➔ thêm <strong>た</strong>
+                        </td>
+                        <td>
+                            • たべます ➔ <strong>たべた</strong><br>
+                            • ねます ➔ <strong>ねた</strong><br>
+                            • みます (1 âm tiết) ➔ <strong>みた</strong><br>
+                            • おきます (Thức dậy) ➔ <strong>おきた</strong><br>
+                            • かります (Vay) ➔ <strong>かりた</strong><br>
+                            • おります (Xuống xe) ➔ <strong>おりた</strong>
+                        </td>
+                    </tr>
+
+                    <!-- Nhóm 3 -->
+                    <tr>
+                        <td style="vertical-align: middle; text-align: center; font-weight: bold; background: #faf5ff;">
+                            <span class="group-tag tag-g3">Nhóm ③</span><br>
+                            <small style="color:#8b5cf6; font-weight:normal;">Bất quy tắc</small>
+                        </td>
+                        <td>
+                            <strong>します</strong> (Làm)<br>
+                            <strong>きます</strong> (Đến)<br>
+                            <small>Danh từ + します</small>
+                        </td>
+                        <td>
+                            します ➔ <strong>した</strong><br>
+                            きます ➔ <strong>きた</strong>
+                        </td>
+                        <td>
+                            • します ➔ <strong>した</strong><br>
+                            • きます (来ます) ➔ <strong>きた (来た)</strong><br>
+                            • べんきょうします ➔ <strong>べんきょうした</strong><br>
+                            • しゅっぱつします ➔ <strong>しゅっぱつした</strong><br>
+                            • もってきます ➔ <strong>もってきた</strong>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>⚠️ Danh Sách 10 Động Từ Bẫy Dễ Nhầm Lẫn Nhất</h2>
+            <p style="margin-bottom: 12px; color: var(--gray);">Các động từ sau nhìn đuôi trước ます có âm cột <strong>い/え</strong> giống hệt Nhóm 2, nhưng thực chất là <strong>NHÓM 1</strong> và phải chia âm ngắt <strong>～った</strong>:</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px;">
+                <div style="background: #fffbeb; border: 1px solid #fde68a; padding: 12px 16px; border-radius: 8px;">
+                    <strong>1. かえります (帰る - Về)</strong><br>
+                    ➔ <span style="color:#e11d48; font-weight:bold;">かえった</span> (Không phải かえた)
+                </div>
+                <div style="background: #fffbeb; border: 1px solid #fde68a; padding: 12px 16px; border-radius: 8px;">
+                    <strong>2. はいります (入る - Vào)</strong><br>
+                    ➔ <span style="color:#e11d48; font-weight:bold;">はいった</span> (Không phải はいた)
+                </div>
+                <div style="background: #fffbeb; border: 1px solid #fde68a; padding: 12px 16px; border-radius: 8px;">
+                    <strong>3. はしります (走る - Chạy)</strong><br>
+                    ➔ <span style="color:#e11d48; font-weight:bold;">はしった</span> (Không phải はした)
+                </div>
+                <div style="background: #fffbeb; border: 1px solid #fde68a; padding: 12px 16px; border-radius: 8px;">
+                    <strong>4. しります (知る - Biết)</strong><br>
+                    ➔ <span style="color:#e11d48; font-weight:bold;">しった</span> (Không phải した)
+                </div>
+                <div style="background: #fffbeb; border: 1px solid #fde68a; padding: 12px 16px; border-radius: 8px;">
+                    <strong>5. きります (切る - Cắt)</strong><br>
+                    ➔ <span style="color:#e11d48; font-weight:bold;">きった</span> (Không phải きた)
+                </div>
+                <div style="background: #fffbeb; border: 1px solid #fde68a; padding: 12px 16px; border-radius: 8px;">
+                    <strong>6. いります (要る - Cần)</strong><br>
+                    ➔ <span style="color:#e11d48; font-weight:bold;">いった</span> (Không phải いた)
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TAB 3: GRAMMAR -->
+    <div id="tab-grammar" class="tab-panel">
+        <div class="card">
+            <h2>💡 5 CẤU TRÚC NGỮ PHÁP DÙNG VỚI THỂ TA (MARUGOTO A2)</h2>
+
+            <!-- Mẫu 1 -->
+            <div class="grammar-block">
+                <div class="grammar-title">
+                    <span>🌟 Mẫu 1: Nói Về Kinh Nghiệm Đã Từng Làm Gì (Trọng tâm Bài 13)</span>
+                </div>
+                <div class="grammar-formula">V-た ことが あります / ありません</div>
+                <p><strong>Ý nghĩa:</strong> Đã từng làm V / Chưa từng làm V trong quá khứ tính đến thời điểm hiện tại.</p>
+                <ul class="example-list">
+                    <li class="example-item">
+                        <div class="ex-jp">• ふじさんに のぼった ことが あります。 <button type="button" class="fc-speaker-btn" onclick="speakJapanese('富士山に登ったことがあります', this)">🔊</button></div>
+                        <div class="ex-vi">Tôi đã từng leo núi Phú Sĩ rồi.</div>
+                    </li>
+                    <li class="example-item">
+                        <div class="ex-jp">• さしみを たべた ことが ありません。 <button type="button" class="fc-speaker-btn" onclick="speakJapanese('刺身を食べたことがありません', this)">🔊</button></div>
+                        <div class="ex-vi">Tôi chưa từng ăn món gỏi cá sống sashimi bao giờ.</div>
+                    </li>
+                    <li class="example-item">
+                        <div class="ex-jp">• A: 日本へ いった ことが ありますか。<br>&nbsp;&nbsp;B: はい、あります。２ねんまえに いきました。</div>
+                        <div class="ex-vi">A: Bạn đã từng đến Nhật Bản bao giờ chưa? - B: Vâng, tôi từng đi rồi. Tôi đã đi 2 năm trước.</div>
+                    </li>
+                </ul>
+                <div style="margin-top:12px; background:#f0fdf4; border:1px solid #bbf7d0; padding:10px 14px; border-radius:8px; font-size:0.9rem; color:#166534;">
+                    <strong>📌 Lưu ý vàng phân biệt với thì Quá khứ đơn:</strong><br>
+                    - <code>きのう さしみを たべました</code> (Hôm qua tôi đã ăn sashimi - sự việc cụ thể xảy ra trong quá khứ).<br>
+                    - <code>さしみを たべた ことが あります</code> (Tôi đã từng trải nghiệm ăn sashimi trong đời).
+                </div>
+            </div>
+
+            <!-- Mẫu 2 -->
+            <div class="grammar-block">
+                <div class="grammar-title">
+                    <span>🌟 Mẫu 2: Liệt Kê Hành Động Tiêu Biểu</span>
+                </div>
+                <div class="grammar-formula">V1-たり、V2-たり します / しました</div>
+                <p><strong>Ý nghĩa:</strong> Làm những việc như là V1, làm việc như là V2... (chỉ nêu vài việc đại diện, không quan trọng thứ tự trước sau).</p>
+                <ul class="example-list">
+                    <li class="example-item">
+                        <div class="ex-jp">• 休みの日は ほんを よんだり、おんがくを きいたり します。 <button type="button" class="fc-speaker-btn" onclick="speakJapanese('休みの日は本を読んだり、音楽を聞いたりします', this)">🔊</button></div>
+                        <div class="ex-vi">Vào ngày nghỉ tôi thường đọc sách, nghe nhạc...</div>
+                    </li>
+                    <li class="example-item">
+                        <div class="ex-jp">• きのうは かいものを したり、ともだちに あったり しました。</div>
+                        <div class="ex-vi">Hôm qua tôi đã đi mua sắm, gặp gỡ bạn bè...</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Mẫu 3 -->
+            <div class="grammar-block">
+                <div class="grammar-title">
+                    <span>🌟 Mẫu 3: Sau Khi Làm V Xong Thì...</span>
+                </div>
+                <div class="grammar-formula">V-た あとで、～</div>
+                <p><strong>Ý nghĩa:</strong> Sau khi hoàn tất hành động V1 thì mới thực hiện hành động V2.</p>
+                <ul class="example-list">
+                    <li class="example-item">
+                        <div class="ex-jp">• しごとが おわった あとで、のみに いきます。 <button type="button" class="fc-speaker-btn" onclick="speakJapanese('仕事が終わったあとで、飲みに行きます', this)">🔊</button></div>
+                        <div class="ex-vi">Sau khi công việc kết thúc, tôi sẽ đi uống nước.</div>
+                    </li>
+                    <li class="example-item">
+                        <div class="ex-jp">• ごはんを たべた あとで、くすりを のんでください。</div>
+                        <div class="ex-vi">Sau khi ăn cơm xong, hãy uống thuốc nhé.</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Mẫu 4 -->
+            <div class="grammar-block">
+                <div class="grammar-title">
+                    <span>🌟 Mẫu 4: Đưa Ra Lời Khuyên Nên Làm Gì</span>
+                </div>
+                <div class="grammar-formula">V-た ほうが いいです</div>
+                <p><strong>Ý nghĩa:</strong> Bạn nên làm V thì tốt hơn đấy (khuyên nhủ chân thành đối phương).</p>
+                <ul class="example-list">
+                    <li class="example-item">
+                        <div class="ex-jp">• ねつが ありますから、びょういんへ いった ほうが いいですよ。 <button type="button" class="fc-speaker-btn" onclick="speakJapanese('熱がありますから、病院へ行ったほうがいいですよ', this)">🔊</button></div>
+                        <div class="ex-vi">Vì bạn bị sốt, nên đi khám bệnh viện thì tốt hơn đấy.</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Mẫu 5 -->
+            <div class="grammar-block">
+                <div class="grammar-title">
+                    <span>🌟 Mẫu 5: Khi Đã Làm Gì...</span>
+                </div>
+                <div class="grammar-formula">V-た とき、～</div>
+                <p><strong>Ý nghĩa:</strong> Tại thời điểm hành động V đã diễn ra xong.</p>
+                <ul class="example-list">
+                    <li class="example-item">
+                        <div class="ex-jp">• にほんへ いった とき、きものを かいました。</div>
+                        <div class="ex-vi">Khi đã sang đến Nhật, tôi đã mua một bộ kimono.</div>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- TAB 4: LAB TRANSFORMER -->
+    <div id="tab-lab" class="tab-panel">
+        <div class="card">
+            <h2>🧪 PHÒNG THÍ NGHIỆM ĐỔI THỂ ĐỘNG TỪ TỰ ĐỘNG</h2>
+            <p style="color: var(--gray); margin-bottom: 20px;">Gõ bất kỳ động từ tiếng Nhật nào (thể Masu, thể Từ điển, hay Kanji), hệ thống sẽ phân tích nhóm và chia tự động 5 thể song song:</p>
+
+            <div class="lab-container">
+                <div class="lab-input-box">
+                    <label style="font-weight: 700; color:#1e293b; display:block; margin-bottom: 8px;">Nhập động từ kiểm tra:</label>
+                    <input type="text" id="labInput" placeholder="VD: のみます, たべる, 行く, きます..." style="width:100%; padding:12px 16px; border:2px solid var(--border); border-radius:10px; font-size:1.1rem; outline:none;" oninput="runLabTransform()">
+                    
+                    <div style="margin-top: 15px;">
+                        <span style="font-size:0.85rem; font-weight:700; color:#64748b;">Gợi ý từ mẫu:</span>
+                        <div style="display:flex; gap:6px; flex-wrap:wrap; margin-top:8px;">
+                            <button type="button" class="filter-pill" onclick="setLabWord('いきます')">いきます (Đi)</button>
+                            <button type="button" class="filter-pill" onclick="setLabWord('のみます')">のみます (Uống)</button>
+                            <button type="button" class="filter-pill" onclick="setLabWord('たべます')">たべます (Ăn)</button>
+                            <button type="button" class="filter-pill" onclick="setLabWord('かえります')">かえります (Về)</button>
+                            <button type="button" class="filter-pill" onclick="setLabWord('おきます')">おきます (Thức dậy)</button>
+                            <button type="button" class="filter-pill" onclick="setLabWord('べんきょうします')">べんきょうします (Học)</button>
+                            <button type="button" class="filter-pill" onclick="setLabWord('きます')">きます (Đến)</button>
+                        </div>
+                    </div>
+
+                    <div id="labExplain" style="margin-top:20px; background:#fff; padding:15px; border-radius:8px; border:1px solid var(--border); font-size:0.92rem; color:#475569;">
+                        👉 <em>Nhập động từ bên trên để xem phân tích quy tắc chia thể chi tiết.</em>
+                    </div>
+                </div>
+
+                <div class="lab-result-card">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px; padding-bottom:10px; border-bottom:2px solid var(--primary-bg);">
+                        <span style="font-size:1.1rem; font-weight:800; color:var(--primary);">Kết Quả Phân Tích</span>
+                        <span id="labGroupTag" class="group-tag tag-g1">Nhóm 1</span>
+                    </div>
+
+                    <div class="form-row">
+                        <span class="form-label">① Thể Masu (Lịch sự):</span>
+                        <span class="form-val" id="labMasu">のみます <button type="button" class="fc-speaker-btn" onclick="speakLab('labMasu')">🔊</button></span>
+                    </div>
+                    <div class="form-row">
+                        <span class="form-label">② Thể Từ Điển (RU):</span>
+                        <span class="form-val" id="labRu">のむ <button type="button" class="fc-speaker-btn" onclick="speakLab('labRu')">🔊</button></span>
+                    </div>
+                    <div class="form-row">
+                        <span class="form-label">③ Thể TE (Liên kết):</span>
+                        <span class="form-val" id="labTe">のんで <button type="button" class="fc-speaker-btn" onclick="speakLab('labTe')">🔊</button></span>
+                    </div>
+                    <div class="form-row" style="background:#fff1f2; margin: 4px -10px; padding: 10px 10px; border-radius:8px;">
+                        <span class="form-label" style="color:#be123c; font-weight:800;">④ Thể TA (Quá khứ):</span>
+                        <span class="form-val" style="color:#e11d48;" id="labTa">のんだ <button type="button" class="fc-speaker-btn" onclick="speakLab('labTa')">🔊</button></span>
+                    </div>
+                    <div class="form-row">
+                        <span class="form-label">⑤ Thể NAI (Phủ định):</span>
+                        <span class="form-val" id="labNai">のまない <button type="button" class="fc-speaker-btn" onclick="speakLab('labNai')">🔊</button></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Hệ Thống Luyện Tập & Học Liệu Tiếng Nhật Marugoto A2-1 • Chúc bạn chinh phục thể Ta thành thạo!</p>
+    </footer>
+
+</div>
+
+<script>
+    // 70 Verbs Dataset with Groups, Thể TA, Meanings and pedagogical tips
+    const verbsData = [
+        // Nhóm 1: i, chi, ri -> tta
+        { id: 1, masu: "あいます", kanji: "会います", vi: "Gặp gỡ", group: "1", ta: "あった", note: "i ➔ った" },
+        { id: 2, masu: "かいます", kanji: "買います", vi: "Mua sắm", group: "1", ta: "かった", note: "i ➔ った" },
+        { id: 3, masu: "すいます", kanji: "吸います", vi: "Hút (thuốc)", group: "1", ta: "すった", note: "i ➔ った" },
+        { id: 4, masu: "ならいます", kanji: "習います", vi: "Học (có người dạy)", group: "1", ta: "ならった", note: "i ➔ った" },
+        { id: 5, masu: "うたいます", kanji: "歌います", vi: "Hát", group: "1", ta: "うたった", note: "i ➔ った" },
+        { id: 6, masu: "つかいます", kanji: "使います", vi: "Sử dụng, dùng", group: "1", ta: "つかった", note: "i ➔ った" },
+        { id: 7, masu: "まちます", kanji: "待ちます", vi: "Chờ đợi", group: "1", ta: "まった", note: "chi ➔ った" },
+        { id: 8, masu: "たちます", kanji: "立ちます", vi: "Đứng lên", group: "1", ta: "たった", note: "chi ➔ った" },
+        { id: 9, masu: "もちます", kanji: "持ちます", vi: "Cầm, mang theo", group: "1", ta: "もった", note: "chi ➔ った" },
+        { id: 10, masu: "とります", kanji: "取ります/撮ります", vi: "Lấy / Chụp ảnh", group: "1", ta: "とった", note: "ri ➔ った" },
+        { id: 11, masu: "のぼります", kanji: "登ります", vi: "Leo núi", group: "1", ta: "のぼった", note: "ri ➔ った" },
+        { id: 12, masu: "つくります", kanji: "作ります", vi: "Làm, chế biến", group: "1", ta: "つくった", note: "ri ➔ った" },
+        { id: 13, masu: "すわります", kanji: "座ります", vi: "Ngồi xuống", group: "1", ta: "すわった", note: "ri ➔ った" },
+        { id: 14, masu: "まがります", kanji: "曲がります", vi: "Rẽ, quẹo", group: "1", ta: "まがった", note: "ri ➔ った" },
+        { id: 15, masu: "とまります", kanji: "泊まります", vi: "Trọ lại khách sạn", group: "1", ta: "とまった", note: "ri ➔ った" },
+        { id: 16, masu: "わたります", kanji: "渡ります", vi: "Băng qua cầu/đường", group: "1", ta: "わたった", note: "ri ➔ った" },
+
+        // Nhóm 1 Bẫy Đuôi IRU/ERU
+        { id: 17, masu: "かえります", kanji: "帰ります", vi: "Đi về", group: "1", ta: "かえった", note: "⚠️ Bẫy nhóm 1: ri ➔ った", isTrap: true },
+        { id: 18, masu: "はいります", kanji: "入ります", vi: "Đi vào", group: "1", ta: "はいった", note: "⚠️ Bẫy nhóm 1: ri ➔ った", isTrap: true },
+        { id: 19, masu: "はしります", kanji: "走ります", vi: "Chạy", group: "1", ta: "はしった", note: "⚠️ Bẫy nhóm 1: ri ➔ った", isTrap: true },
+        { id: 20, masu: "しります", kanji: "知ります", vi: "Biết", group: "1", ta: "しった", note: "⚠️ Bẫy nhóm 1: ri ➔ った", isTrap: true },
+        { id: 21, masu: "きります", kanji: "切ります", vi: "Cắt", group: "1", ta: "きった", note: "⚠️ Bẫy nhóm 1: ri ➔ った", isTrap: true },
+        { id: 22, masu: "いります", kanji: "要ります", vi: "Cần thiết", group: "1", ta: "いった", note: "⚠️ Bẫy nhóm 1: ri ➔ った", isTrap: true },
+
+        // Nhóm 1: mi, bi, ni -> nda
+        { id: 23, masu: "のみます", kanji: "飲みます", vi: "Uống", group: "1", ta: "のんだ", note: "mi ➔ んだ" },
+        { id: 24, masu: "よみます", kanji: "読みます", vi: "Đọc sách", group: "1", ta: "よんだ", note: "mi ➔ んだ" },
+        { id: 25, masu: "やすみます", kanji: "休みます", vi: "Nghỉ ngơi", group: "1", ta: "やすんだ", note: "mi ➔ んだ" },
+        { id: 26, masu: "すみます", kanji: "住みます", vi: "Sinh sống", group: "1", ta: "すんだ", note: "mi ➔ んだ" },
+        { id: 27, masu: "あそびます", kanji: "遊びます", vi: "Vui chơi", group: "1", ta: "あそんだ", note: "bi ➔ んだ" },
+        { id: 28, masu: "えらびます", kanji: "選びます", vi: "Chọn lựa", group: "1", ta: "えらんだ", note: "bi ➔ んだ" },
+        { id: 29, masu: "しにます", kanji: "死にます", vi: "Chết", group: "1", ta: "しんだ", note: "ni ➔ んだ" },
+
+        // Nhóm 1: ki -> ita, gi -> ida
+        { id: 30, masu: "かきます", kanji: "書きます", vi: "Viết, vẽ", group: "1", ta: "かいた", note: "ki ➔ いた" },
+        { id: 31, masu: "ききます", kanji: "聞きます", vi: "Nghe, hỏi", group: "1", ta: "きいた", note: "ki ➔ いた" },
+        { id: 32, masu: "あるきます", kanji: "歩きます", vi: "Đi bộ", group: "1", ta: "あるいた", note: "ki ➔ いた" },
+        { id: 33, masu: "はたらきます", kanji: "働きます", vi: "Làm việc", group: "1", ta: "はたらいた", note: "ki ➔ いた" },
+        { id: 34, masu: "およぎます", kanji: "泳ぎます", vi: "Bơi lội", group: "1", ta: "およいだ", note: "gi ➔ いだ" },
+        { id: 35, masu: "いそぎます", kanji: "急ぎます", vi: "Gấp gáp, vội", group: "1", ta: "いそいだ", note: "gi ➔ いだ" },
+        { id: 36, masu: "ぬぎます", kanji: "脱ぎます", vi: "Cởi đồ", group: "1", ta: "ぬいだ", note: "gi ➔ いだ" },
+
+        // Nhóm 1: shi -> shita
+        { id: 37, masu: "はなします", kanji: "話します", vi: "Nói chuyện", group: "1", ta: "はなした", note: "shi ➔ した" },
+        { id: 38, masu: "かします", kanji: "貸します", vi: "Cho mượn, cho vay", group: "1", ta: "かした", note: "shi ➔ した" },
+        { id: 39, masu: "けします", kanji: "消します", vi: "Tắt đèn, xóa", group: "1", ta: "けした", note: "shi ➔ した" },
+        { id: 40, masu: "なおします", kanji: "直します", vi: "Sửa chữa", group: "1", ta: "なおした", note: "shi ➔ した" },
+
+        // Nhóm 1 Ngoại lệ Đi
+        { id: 41, masu: "いきます", kanji: "行きます", vi: "Đi tới nơi nào", group: "1", ta: "いった", note: "🚨 Ngoại lệ: いった (không phải いいた)", isTrap: true },
+
+        // Nhóm 2: bo masu them ta
+        { id: 42, masu: "たべます", kanji: "食べます", vi: "Ăn", group: "2", ta: "たべた", note: "Bỏ ます + た" },
+        { id: 43, masu: "みます", kanji: "見ます", vi: "Xem, ngắm", group: "2", ta: "みた", note: "1 âm tiết: Bỏ ます + た", isTrap: true },
+        { id: 44, masu: "ねます", kanji: "寝ます", vi: "Đi ngủ", group: "2", ta: "ねた", note: "Bỏ ます + た" },
+        { id: 45, masu: "おきます", kanji: "起きます", vi: "Thức dậy", group: "2", ta: "おきた", note: "⚠️ Đặc biệt nhóm 2", isTrap: true },
+        { id: 46, masu: "かります", kanji: "借ります", vi: "Vay mượn", group: "2", ta: "かりた", note: "⚠️ Đặc biệt nhóm 2", isTrap: true },
+        { id: 47, masu: "おります", kanji: "降ります", vi: "Xuống tàu/xe", group: "2", ta: "おりた", note: "⚠️ Đặc biệt nhóm 2", isTrap: true },
+        { id: 48, masu: "あびます", kanji: "浴びます", vi: "Tắm vòi sen", group: "2", ta: "あびた", note: "⚠️ Đặc biệt nhóm 2", isTrap: true },
+        { id: 49, masu: "シャツを きます", kanji: "着ます", vi: "Mặc áo sơ mi", group: "2", ta: "シャツを きた", note: "⚠️ Đặc biệt nhóm 2", altTa: "シャツを着た,シャツをきた", isTrap: true },
+        { id: 50, masu: "できます", kanji: "出来ます", vi: "Có thể làm được", group: "2", ta: "できた", note: "⚠️ Đặc biệt nhóm 2", isTrap: true },
+        { id: 51, masu: "おしえます", kanji: "教えます", vi: "Dạy học, chỉ dẫn", group: "2", ta: "おしえた", note: "Bỏ ます + た" },
+        { id: 52, masu: "みせます", kanji: "見せます", vi: "Cho xem", group: "2", ta: "みせた", note: "Bỏ ます + た" },
+        { id: 53, masu: "あけます", kanji: "開けます", vi: "Mở (cửa)", group: "2", ta: "あけた", note: "Bỏ ます + た" },
+        { id: 54, masu: "しめます", kanji: "閉めます", vi: "Đóng (cửa)", group: "2", ta: "しめた", note: "Bỏ ます + た" },
+        { id: 55, masu: "とめます", kanji: "止めます", vi: "Dừng xe", group: "2", ta: "とめた", note: "Bỏ ます + た" },
+        { id: 56, masu: "すてます", kanji: "捨てます", vi: "Vứt rác", group: "2", ta: "すてた", note: "Bỏ ます + た" },
+        { id: 57, masu: "あつめます", kanji: "集めます", vi: "Sưu tầm, thu gom", group: "2", ta: "あつめた", note: "Bỏ ます + た" },
+        { id: 58, masu: "つかれます", kanji: "疲れます", vi: "Mệt mỏi", group: "2", ta: "つかれた", note: "Bỏ ます + た" },
+        { id: 59, masu: "わすれます", kanji: "忘れます", vi: "Quên mất", group: "2", ta: "わすれた", note: "Bỏ ます + た" },
+        { id: 60, masu: "おぼえます", kanji: "覚えます", vi: "Ghi nhớ", group: "2", ta: "おぼえた", note: "Bỏ ます + た" },
+
+        // Nhóm 3: shimasu -> shita, kimasu -> kita
+        { id: 61, masu: "します", kanji: "為ます", vi: "Làm hành động", group: "3", ta: "した", note: "suru ➔ した" },
+        { id: 62, masu: "きます", kanji: "来ます", vi: "Đến nơi", group: "3", ta: "きた", note: "kuru ➔ きた (来ます➔来た)", isTrap: true },
+        { id: 63, masu: "べんきょうします", kanji: "勉強します", vi: "Học tập", group: "3", ta: "べんきょうした", note: "N+します ➔ した" },
+        { id: 64, masu: "しゅっぱつします", kanji: "出発します", vi: "Khởi hành", group: "3", ta: "しゅっぱつした", note: "N+します ➔ した" },
+        { id: 65, masu: "とうちゃくします", kanji: "到着します", vi: "Đến nơi", group: "3", ta: "とうちゃくした", note: "N+します ➔ した" },
+        { id: 66, masu: "しゅっちょうします", kanji: "出張します", vi: "Đi công tác", group: "3", ta: "しゅっちょうした", note: "N+します ➔ した" },
+        { id: 67, masu: "さんぽします", kanji: "散歩します", vi: "Đi dạo", group: "3", ta: "さんぽした", note: "N+します ➔ した" },
+        { id: 68, masu: "うんどうします", kanji: "運動します", vi: "Tập thể dục", group: "3", ta: "うんどうした", note: "N+します ➔ した" },
+        { id: 69, masu: "もってきます", kanji: "持って来ます", vi: "Mang đến", group: "3", ta: "もってきた", note: "kuru ➔ きた" },
+        { id: 70, masu: "つれてきます", kanji: "連れて来ます", vi: "Dẫn đến", group: "3", ta: "つれてきた", note: "kuru ➔ きた" }
+    ];
+
+    let currentFilter = 'all';
+    let showAnswersState = false;
+
+    function switchTab(tabId) {
+        document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.remove('active'));
+        document.querySelectorAll('.nav-tab-btn').forEach(btn => btn.classList.remove('active'));
+        
+        const target = document.getElementById(tabId);
+        if (target) target.classList.add('active');
+        const activeBtn = Array.from(document.querySelectorAll('.nav-tab-btn')).find(b => b.getAttribute('onclick')?.includes(tabId));
+        if (activeBtn) activeBtn.classList.add('active');
+    }
+
+    function setFilter(filterType, btn) {
+        currentFilter = filterType;
+        document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        renderTable();
+    }
+
+    function filterVerbs() {
+        renderTable();
+    }
+
+    function renderTable() {
+        const tbody = document.getElementById('tableBody');
+        tbody.innerHTML = '';
+        const searchVal = (document.getElementById('searchInput')?.value || '').trim().toLowerCase();
+
+        const filtered = verbsData.filter(item => {
+            // Group Filter
+            if (currentFilter === '1' && item.group !== '1') return false;
+            if (currentFilter === '2' && item.group !== '2') return false;
+            if (currentFilter === '3' && item.group !== '3') return false;
+            if (currentFilter === 'trap' && !item.isTrap) return false;
+
+            // Search
+            if (searchVal) {
+                const text = `${item.masu} ${item.kanji} ${item.vi} ${item.ta} ${item.note}`.toLowerCase();
+                if (!text.includes(searchVal)) return false;
+            }
+            return true;
+        });
+
+        filtered.forEach((item, index) => {
+            const tr = document.createElement('tr');
+            tr.id = `row-${item.id}`;
+            tr.innerHTML = `
+                <td><strong>${index + 1}</strong></td>
+                <td>
+                    <span class="verb-masu">${item.masu}</span>
+                    <button type="button" class="fc-speaker-btn" style="margin-left:6px; vertical-align:middle; width:28px; height:28px; font-size:12px;" onclick="speakJapanese('${item.masu}', this)" title="Nghe phát âm">🔊</button>
+                    <span class="verb-vi">${item.kanji ? `${item.kanji} • ` : ''}${item.vi}</span>
+                </td>
+                <td>
+                    <select class="group-select" id="group-${item.id}">
+                        <option value="">Nhóm</option>
+                        <option value="1">Nhóm 1</option>
+                        <option value="2">Nhóm 2</option>
+                        <option value="3">Nhóm 3</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="text" class="text-input" id="ta-${item.id}" placeholder="Chia thể TA...">
+                    <div class="answer-hint" id="hint-${item.id}">👉 Đáp án: <strong>${item.ta}</strong> <button type="button" class="fc-speaker-btn" style="margin-left:4px; vertical-align:middle; width:24px; height:24px; font-size:11px;" onclick="speakJapanese('${item.ta}', this)" title="Nghe thể TA">🔊</button> (N${item.group}) ${item.note ? `[${item.note}]` : ''}</div>
+                </td>
+                <td style="text-align: center;">
+                    <span id="status-${item.id}" class="status-icon"></span>
+                </td>
+            `;
+            tbody.appendChild(tr);
+        });
+    }
+
+    function normalizeStr(str) {
+        if (!str) return '';
+        return str.trim().toLowerCase().replace(/\s+/g, ' ');
+    }
+
+    function gradeAll() {
+        let correctCount = 0;
+        let totalCount = verbsData.length;
+
+        verbsData.forEach(item => {
+            const groupSelect = document.getElementById(`group-${item.id}`);
+            const taInput = document.getElementById(`ta-${item.id}`);
+            const statusIcon = document.getElementById(`status-${item.id}`);
+            if (!groupSelect || !taInput) return;
+
+            const userGroup = groupSelect.value;
+            const userTa = normalizeStr(taInput.value);
+
+            const isGroupCorrect = userGroup === item.group;
+
+            const validTaAnswers = [normalizeStr(item.ta)];
+            if (item.altTa) {
+                item.altTa.split(',').forEach(alt => validTaAnswers.push(normalizeStr(alt)));
+            }
+
+            const userTaNoSpace = userTa.replace(/\s+/g, '');
+            const isTaCorrect = validTaAnswers.some(ans => ans === userTa || ans.replace(/\s+/g, '') === userTaNoSpace);
+
+            if (isGroupCorrect) {
+                groupSelect.classList.remove('is-incorrect');
+                groupSelect.classList.add('is-correct');
+            } else {
+                groupSelect.classList.remove('is-correct');
+                groupSelect.classList.add('is-incorrect');
+            }
+
+            if (isTaCorrect) {
+                taInput.classList.remove('is-incorrect');
+                taInput.classList.add('is-correct');
+            } else {
+                taInput.classList.remove('is-correct');
+                taInput.classList.add('is-incorrect');
+            }
+
+            if (isGroupCorrect && isTaCorrect) {
+                correctCount++;
+                if (statusIcon) statusIcon.innerHTML = '✅';
+            } else {
+                if (statusIcon) statusIcon.innerHTML = '❌';
+            }
+        });
+
+        const banner = document.getElementById('scoreBanner');
+        if (banner) {
+            banner.style.display = 'block';
+            const percentage = Math.round((correctCount / totalCount) * 100);
+            banner.innerHTML = `🎉 Kết Quả: Bạn làm đúng ${correctCount} / ${totalCount} từ (${percentage}%). ${percentage >= 80 ? 'Xuất sắc! Bạn đã làm chủ hoàn toàn thể TA!' : 'Cố gắng lên, hãy xem lại quy tắc và luyện thêm nhé!'}`;
+            banner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+    }
+
+    function toggleAnswers() {
+        showAnswersState = !showAnswersState;
+        verbsData.forEach(item => {
+            const hint = document.getElementById(`hint-${item.id}`);
+            if (hint) {
+                if (showAnswersState) {
+                    hint.classList.add('show');
+                } else {
+                    hint.classList.remove('show');
+                }
+            }
+        });
+    }
+
+    function resetExercise() {
+        verbsData.forEach(item => {
+            const groupSelect = document.getElementById(`group-${item.id}`);
+            const taInput = document.getElementById(`ta-${item.id}`);
+            const statusIcon = document.getElementById(`status-${item.id}`);
+            const hint = document.getElementById(`hint-${item.id}`);
+
+            if (groupSelect) {
+                groupSelect.value = '';
+                groupSelect.classList.remove('is-correct', 'is-incorrect');
+            }
+            if (taInput) {
+                taInput.value = '';
+                taInput.classList.remove('is-correct', 'is-incorrect');
+            }
+            if (statusIcon) statusIcon.innerHTML = '';
+            if (hint) hint.classList.remove('show');
+        });
+
+        showAnswersState = false;
+        const banner = document.getElementById('scoreBanner');
+        if (banner) banner.style.display = 'none';
+    }
+
+    // Audio TTS Function
+    function speakJapanese(text, btn) {
+        if (!('speechSynthesis' in window)) {
+            alert('Trình duyệt không hỗ trợ phát âm Audio.');
+            return;
+        }
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(text);
+        u.lang = 'ja-JP';
+        u.rate = 0.88;
+        if (btn) {
+            btn.style.transform = 'scale(1.25)';
+            u.onend = () => { btn.style.transform = ''; };
+            u.onerror = () => { btn.style.transform = ''; };
+        }
+        window.speechSynthesis.speak(u);
+    }
+
+    // Interactive Verb Lab Transformer Logic
+    const IRREGULAR_VERBS = {
+        'いく': { group: 1, masu: 'いきます', ru: 'いく', te: 'いって', ta: 'いった', nai: 'いかない', note: '🚨 Ngoại lệ nhóm 1: いく➔いった' },
+        '行きます': { group: 1, masu: 'いきます', ru: 'いく', te: 'いって', ta: 'いった', nai: 'いかない', note: '🚨 Ngoại lệ nhóm 1: 行く➔行った' },
+        'いきます': { group: 1, masu: 'いきます', ru: 'いく', te: 'いって', ta: 'いった', nai: 'いかない', note: '🚨 Ngoại lệ nhóm 1: いきます➔いった' },
+        'する': { group: 3, masu: 'します', ru: 'する', te: 'して', ta: 'した', nai: 'しない', note: 'Nhóm 3 bất quy tắc suru' },
+        'します': { group: 3, masu: 'します', ru: 'する', te: 'して', ta: 'した', nai: 'しない', note: 'Nhóm 3 bất quy tắc suru' },
+        'くる': { group: 3, masu: 'きます', ru: 'くる', te: 'きて', ta: 'きた', nai: 'こない', note: 'Nhóm 3 bất quy tắc kuru' },
+        'きます': { group: 3, masu: 'きます', ru: 'くる', te: 'きて', ta: 'きた', nai: 'こない', note: 'Nhóm 3 kuru (hoặc 着る nhóm 2)' },
+        '来ます': { group: 3, masu: 'きます', ru: 'くる', te: 'きて', ta: 'きた', nai: 'こない', note: 'Nhóm 3 来る' }
+    };
+
+    function runLabTransform() {
+        const val = document.getElementById('labInput').value.trim();
+        if (!val) return;
+
+        let result = transformJapaneseVerb(val);
+        if (result) {
+            document.getElementById('labGroupTag').textContent = `Nhóm ${result.group}`;
+            document.getElementById('labGroupTag').className = `group-tag tag-g${result.group}`;
+            document.getElementById('labMasu').innerHTML = `${result.masu} <button type="button" class="fc-speaker-btn" onclick="speakJapanese('${result.masu}', this)">🔊</button>`;
+            document.getElementById('labRu').innerHTML = `${result.ru} <button type="button" class="fc-speaker-btn" onclick="speakJapanese('${result.ru}', this)">🔊</button>`;
+            document.getElementById('labTe').innerHTML = `${result.te} <button type="button" class="fc-speaker-btn" onclick="speakJapanese('${result.te}', this)">🔊</button>`;
+            document.getElementById('labTa').innerHTML = `${result.ta} <button type="button" class="fc-speaker-btn" onclick="speakJapanese('${result.ta}', this)">🔊</button>`;
+            document.getElementById('labNai').innerHTML = `${result.nai} <button type="button" class="fc-speaker-btn" onclick="speakJapanese('${result.nai}', this)">🔊</button>`;
+            document.getElementById('labExplain').innerHTML = `💡 <strong>Quy tắc áp dụng:</strong> ${result.note}`;
+        }
+    }
+
+    function setLabWord(word) {
+        const inp = document.getElementById('labInput');
+        inp.value = word;
+        runLabTransform();
+    }
+
+    function speakLab(elemId) {
+        const el = document.getElementById(elemId);
+        if (el) {
+            const txt = el.textContent.replace('🔊', '').trim();
+            speakJapanese(txt);
+        }
+    }
+
+    function transformJapaneseVerb(v) {
+        if (IRREGULAR_VERBS[v]) return IRREGULAR_VERBS[v];
+
+        // Suru verbs
+        if (v.endsWith('します') || v.endsWith('する')) {
+            const prefix = v.replace(/します$|する$/, '');
+            return {
+                group: 3,
+                masu: prefix + 'します',
+                ru: prefix + 'する',
+                te: prefix + 'して',
+                ta: prefix + 'した',
+                nai: prefix + 'しない',
+                note: 'Danh động từ nhóm 3 (N + します)'
+            };
+        }
+
+        // Match common patterns
+        // Group 2 special checks
+        const g2Special = ['おきる', 'おきます', 'みる', 'みます', 'ねる', 'ねます', 'かりる', 'かります', 'おりる', 'おります', 'あびる', 'あびます', 'できる', 'できます', 'たべる', 'たべます', 'おしえる', 'おしえます', 'わすれる', 'わすれます'];
+        for (let s of g2Special) {
+            if (v === s || v.endsWith(s)) {
+                let stem = v.replace(/ます$/, '').replace(/る$/, '');
+                return {
+                    group: 2,
+                    masu: stem + 'ます',
+                    ru: stem + 'る',
+                    te: stem + 'て',
+                    ta: stem + 'た',
+                    nai: stem + 'ない',
+                    note: 'Động từ nhóm 2: Bỏ ます / る thêm た'
+                };
+            }
+        }
+
+        // Masu form input
+        if (v.endsWith('ます')) {
+            const base = v.slice(0, -2);
+            const last = base.slice(-1);
+            const root = base.slice(0, -1);
+
+            // Group 1
+            if (['い', 'ち', 'り'].includes(last)) {
+                const uMap = { 'い': 'う', 'ち': 'つ', 'り': 'る' };
+                const aMap = { 'い': 'わ', 'ち': 'た', 'り': 'ら' };
+                return {
+                    group: 1,
+                    masu: v,
+                    ru: root + uMap[last],
+                    te: root + 'って',
+                    ta: root + 'った',
+                    nai: root + aMap[last] + 'ない',
+                    note: `Âm ${last} trước ます đổi thành <strong>った</strong> (âm ngắt)`
+                };
+            }
+            if (['み', 'び', 'に'].includes(last)) {
+                const uMap = { 'み': 'む', 'び': 'ぶ', 'に': 'ぬ' };
+                const aMap = { 'み': 'ま', 'び': 'ば', 'に': 'な' };
+                return {
+                    group: 1,
+                    masu: v,
+                    ru: root + uMap[last],
+                    te: root + 'んで',
+                    ta: root + 'んだ',
+                    nai: root + aMap[last] + 'ない',
+                    note: `Âm ${last} trước ます đổi thành <strong>んだ</strong> (âm mũi + đục)`
+                };
+            }
+            if (last === 'き') {
+                return {
+                    group: 1,
+                    masu: v,
+                    ru: root + 'く',
+                    te: root + 'いて',
+                    ta: root + 'いた',
+                    nai: root + 'かない',
+                    note: 'Âm き trước ます đổi thành <strong>いた</strong>'
+                };
+            }
+            if (last === 'ぎ') {
+                return {
+                    group: 1,
+                    masu: v,
+                    ru: root + 'ぐ',
+                    te: root + 'いで',
+                    ta: root + 'いだ',
+                    nai: root + 'がない',
+                    note: 'Âm ぎ trước ます đổi thành <strong>いだ</strong>'
+                };
+            }
+            if (last === 'し') {
+                return {
+                    group: 1,
+                    masu: v,
+                    ru: root + 'す',
+                    te: root + 'して',
+                    ta: root + 'した',
+                    nai: root + 'さない',
+                    note: 'Âm し trước ます đổi thành <strong>した</strong>'
+                };
+            }
+            // default group 2
+            return {
+                group: 2,
+                masu: v,
+                ru: base + 'る',
+                te: base + 'て',
+                ta: base + 'た',
+                nai: base + 'ない',
+                note: 'Động từ nhóm 2: Bỏ ます thêm <strong>た</strong>'
+            };
+        }
+
+        // Ru dictionary input
+        if (v.endsWith('む') || v.endsWith('ぶ') || v.endsWith('ぬ')) {
+            const root = v.slice(0, -1);
+            return {
+                group: 1,
+                masu: root + (v.endsWith('む')?'み':v.endsWith('ぶ')?'び':'に') + 'ます',
+                ru: v,
+                te: root + 'んで',
+                ta: root + 'んだ',
+                nai: root + (v.endsWith('む')?'ま':v.endsWith('ぶ')?'ば':'な') + 'ない',
+                note: 'Động từ nhóm 1 đuôi む/ぶ/ぬ đổi thành <strong>んだ</strong>'
+            };
+        }
+        if (v.endsWith('く')) {
+            const root = v.slice(0, -1);
+            return {
+                group: 1,
+                masu: root + 'きます',
+                ru: v,
+                te: root + 'いて',
+                ta: root + 'いた',
+                nai: root + 'かない',
+                note: 'Động từ nhóm 1 đuôi く đổi thành <strong>いた</strong>'
+            };
+        }
+
+        return {
+            group: 1,
+            masu: v + 'ます',
+            ru: v,
+            te: v + 'て',
+            ta: v + 'た',
+            nai: v + 'ない',
+            note: 'Phân tích cơ bản'
+        };
+    }
+
+    // Init
+    window.addEventListener('DOMContentLoaded', () => {
+        renderTable();
+        runLabTransform();
+    });
+</script>
+<script src="assets/js/nav-dropdown.js"></script>
+</body>
+</html>
