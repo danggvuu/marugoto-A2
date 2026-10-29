@@ -25,7 +25,6 @@ def v(text, label=""):
         raise ValueError(f"UNLEARNED KANJI at [{label}]: {out} in '{text}'")
     return text
 
-
 DATA_M101 = {
     "code": "M101",
     "name": "Mã Đề M101 (Đề Tổng Hợp Toàn Diện A2-1)",
@@ -50,12 +49,12 @@ DATA_M101 = {
                             "prompt": "あねは ちゅうごくの ペキンに (   ) います。",
                             "promptVi": "Chị gái tôi đang sống ở Bắc Kinh, Trung Quốc. (Câu 16 trong bộ 40 câu ôn tập)",
                             "options": [
-                                "すんで",
                                 "あそんで",
                                 "やすんで",
+                                "すんで",
                                 "まって"
                             ],
-                            "correct": 0,
+                            "correct": 2,
                             "explain": "💡 <strong>Động từ chỉ nơi cư trú (Bài 1):</strong><br>• ～に <strong>すんで います</strong>: Đang sinh sống ở... (Đúng theo Câu 16 ôn tập: Chị gái tôi đang sống ở Bắc Kinh).<br>• あそんで: Chơi.<br>• やすんで: Nghỉ ngơi.<br>• まって: Chờ đợi."
                         },
                         {
@@ -64,12 +63,12 @@ DATA_M101 = {
                             "prompt": "一ねんの なかで、(   ) が いちばん 好きです。",
                             "promptVi": "Trong một năm, tôi thích mùa hè nhất vì tôi thích ăn kem. (Câu 24 trong bộ 40 câu ôn tập)",
                             "options": [
+                                "夏",
                                 "雨",
                                 "雪",
-                                "雲",
-                                "夏"
+                                "雲"
                             ],
-                            "correct": 3,
+                            "correct": 0,
                             "explain": "💡 <strong>Từ vựng 4 mùa (Bài 3):</strong><br>• <strong>夏 (なつ)</strong>: Mùa hè (Đúng theo Câu 24 ôn tập: Trong 1 năm, bạn thích mùa nào nhất? - Tôi thích mùa hè nhất).<br>• 雨 (あめ): Mưa.<br>• 雪 (ゆき): Tuyết.<br>• 雲 (くも): Mây."
                         },
                         {
@@ -80,10 +79,10 @@ DATA_M101 = {
                             "options": [
                                 "とおく",
                                 "なか",
-                                "ちかく",
-                                "うえ"
+                                "うえ",
+                                "ちかく"
                             ],
-                            "correct": 2,
+                            "correct": 3,
                             "explain": "💡 <strong>Từ vựng chỉ vị trí (Bài 5):</strong><br>• 駅の <strong>ちかく (近く)</strong>: Gần nhà ga (Đúng theo Câu 4 ôn tập: Siêu thị ở gần nhà ga).<br>• とおく: Xa.<br>• なか: Bên trong.<br>• うえ: Phía trên."
                         },
                         {
@@ -93,11 +92,11 @@ DATA_M101 = {
                             "promptVi": "Trước khi xem phim, tôi muốn đi quán cà phê mua đồ uống. (Câu 13 trong bộ 40 câu ôn tập)",
                             "options": [
                                 "きっぷ",
-                                "本",
                                 "のみもの",
+                                "本",
                                 "シャツ"
                             ],
-                            "correct": 2,
+                            "correct": 1,
                             "explain": "💡 <strong>Từ vựng sinh hoạt (Bài 7-8):</strong><br>• <strong>のみもの (飲み物)</strong>: Đồ uống / nước uống (Đúng theo Câu 13 ôn tập: Trước khi xem phim, tôi muốn đi quán cà phê mua đồ uống).<br>• きっぷ: Vé xe/tàu.<br>• 本: Sách.<br>• シャツ: Áo sơ mi."
                         },
                         {
@@ -106,12 +105,12 @@ DATA_M101 = {
                             "prompt": "うえのこうえんは とても (   ) ゆうめいです。なかに どうぶつえんが あります。",
                             "promptVi": "Công viên Ueno rất rộng và nổi tiếng. Bên trong có sở thú. (Câu 1 trong bộ 40 câu ôn tập)",
                             "options": [
+                                "広くて",
                                 "せまくて",
                                 "高くて",
-                                "安くて",
-                                "広くて"
+                                "安くて"
                             ],
-                            "correct": 3,
+                            "correct": 0,
                             "explain": "💡 <strong>Nối tính từ đuôi い:</strong><br>• <strong>広い ➔ 広くて</strong>: Rộng và... (Đúng theo câu 1 ôn tập: Công viên Ueno rất rộng và nổi tiếng).<br>• せまい: Hẹp. 高い: Cao/đắt. 安い: Rẻ."
                         }
                     ]
@@ -140,12 +139,12 @@ DATA_M101 = {
                             "prompt": "この へんには <u>かわいらしい</u> ふくやが たくさん あります。",
                             "promptVi": "Ở khu vực này có nhiều cửa hàng thời trang dễ thương. (Câu 3 trong bộ 40 câu ôn tập)",
                             "options": [
+                                "かわいい",
                                 "こわい",
                                 "ふるい",
-                                "きたない",
-                                "かわいい"
+                                "きたない"
                             ],
-                            "correct": 3,
+                            "correct": 0,
                             "explain": "💡 <strong>Từ đồng nghĩa (Bài 7):</strong> かわいらしい ＝ <strong>かわいい</strong> (dễ thương, xinh xắn)."
                         },
                         {
@@ -154,12 +153,12 @@ DATA_M101 = {
                             "prompt": "あさひはくぶつかんへ 行きたいんですが、<u>どうやって 行きますか</u>。",
                             "promptVi": "Tôi muốn đi đến viện bảo tàng Asahi, đi như thế nào? (Câu 6 trong bộ 40 câu ôn tập)",
                             "options": [
-                                "行きかたを おしえて ください",
                                 "何時に 行きますか",
                                 "だれと 行きますか",
-                                "いくら かかりますか"
+                                "いくら かかりますか",
+                                "行きかたを おしえて ください"
                             ],
-                            "correct": 0,
+                            "correct": 3,
                             "explain": "💡 <strong>Cách hỏi đường (Bài 5):</strong> どうやって 行きますか ＝ <strong>行きかたを おしえて ください</strong> (Hãy chỉ cho tôi cách đi). Chữ 行 (Hành) đã học ở Bài 5."
                         },
                         {
@@ -170,10 +169,10 @@ DATA_M101 = {
                             "options": [
                                 "はやく 行きました",
                                 "ちょうど つきました",
-                                "わすれませんでした",
-                                "ちがう 時間に 行きました"
+                                "ちがう 時間に 行きました",
+                                "わすれませんでした"
                             ],
-                            "correct": 3,
+                            "correct": 2,
                             "explain": "💡 <strong>Từ vựng sinh hoạt (Bài 7):</strong> まちがえる (nhầm lẫn) ＝ <strong>ちがう 時間に 行きました</strong> (đã đến vào thời gian khác)."
                         },
                         {
@@ -212,11 +211,11 @@ DATA_M101 = {
                             "promptVi": "Tôi đang học nhiều thứ tiếng nước ngoài ở trường học.",
                             "options": [
                                 "そとくにこ",
-                                "がいごくご",
                                 "がいこくご",
+                                "がいごくご",
                                 "がいこくこと"
                             ],
-                            "correct": 2,
+                            "correct": 1,
                             "explain": "💡 <strong>Chữ Hán [Bài 2]: 外 (NGOẠI) + 国 (QUỐC) + 語 (NGỮ)</strong>.<br>• Ghép lại đọc âm On-yomi là <strong>がいこくご</strong>."
                         },
                         {
@@ -226,11 +225,11 @@ DATA_M101 = {
                             "promptVi": "Hôm nay thời tiết đẹp, bầu trời xanh ngắt trải rộng.",
                             "options": [
                                 "せいくう",
-                                "あおぞら",
                                 "あおそら",
-                                "しろぞら"
+                                "しろぞら",
+                                "あおぞら"
                             ],
-                            "correct": 1,
+                            "correct": 3,
                             "explain": "💡 <strong>Chữ Hán [Bài 4 & 6]: 青 (THANH) + 空 (KHÔNG)</strong>.<br>• Biến âm Renkaku: 空 (そら) ➔ <strong>ぞら</strong> ➔ Đọc đúng là <strong>あおぞら</strong>."
                         },
                         {
@@ -239,12 +238,12 @@ DATA_M101 = {
                             "prompt": "あしたの まちあわせの 【場所】は どこですか。",
                             "promptVi": "Địa điểm hẹn gặp ngày mai là ở đâu thế?",
                             "options": [
-                                "ばしょ",
                                 "はしょ",
+                                "ばしょ",
                                 "じょうしょ",
                                 "ばところ"
                             ],
-                            "correct": 0,
+                            "correct": 1,
                             "explain": "💡 <strong>Chữ Hán [Bài 7]: 場 (TRƯỜNG) + 所 (SỞ)</strong>.<br>• Ghép lại đọc là <strong>ばしょ</strong> (có âm đục ば)."
                         },
                         {
@@ -254,11 +253,11 @@ DATA_M101 = {
                             "promptVi": "Tôi đã cùng bố và mẹ dùng bữa ở nhà hàng.",
                             "options": [
                                 "たべこと",
-                                "しょくじ",
                                 "しょくし",
+                                "しょくじ",
                                 "じきじ"
                             ],
-                            "correct": 1,
+                            "correct": 2,
                             "explain": "💡 <strong>Chữ Hán [Bài 8]: 食 (THỰC) + 事 (SỰ)</strong>.<br>• Ghép lại đọc âm On là <strong>しょくじ</strong> (có âm đục じ)."
                         },
                         {
@@ -287,12 +286,12 @@ DATA_M101 = {
                             "prompt": "わたしの へやは 【ひろい】ですから、とても いいです。",
                             "promptVi": "Phòng của tôi rộng rãi nên rất thoải mái.",
                             "options": [
-                                "広い",
                                 "店い",
                                 "高い",
-                                "安い"
+                                "安い",
+                                "広い"
                             ],
-                            "correct": 0,
+                            "correct": 3,
                             "explain": "💡 <strong>Chữ Hán [Bài 5]: 広 (QUẢNG)</strong> ➔ <strong>広い (ひろい)</strong>. Phân biệt: 店 (tiệm), 高 (cao), 安 (an: rẻ)."
                         },
                         {
@@ -303,10 +302,10 @@ DATA_M101 = {
                             "options": [
                                 "止って",
                                 "出って",
-                                "行って",
-                                "待って"
+                                "待って",
+                                "行って"
                             ],
-                            "correct": 3,
+                            "correct": 2,
                             "explain": "💡 <strong>Chữ Hán [Bài 7]: 待 (ĐÃI)</strong> ➔ <strong>待つ (まつ)</strong> có bộ Xích (彳). Phân biệt: 止 (chỉ: dừng), 持 (trì: cầm, bộ Thủ 扌)."
                         },
                         {
@@ -315,12 +314,12 @@ DATA_M101 = {
                             "prompt": "きょうは 【てんき】が いいですから、山が よく みえます。",
                             "promptVi": "Hôm nay thời tiết đẹp nên có thể nhìn thấy rõ núi.",
                             "options": [
-                                "天気",
                                 "雨気",
                                 "風気",
+                                "天気",
                                 "空気"
                             ],
-                            "correct": 0,
+                            "correct": 2,
                             "explain": "💡 <strong>Chữ Hán [Bài 4]: 天 (THIÊN) + 気 (KHÍ)</strong> ➔ <strong>天気 (てんき)</strong>."
                         },
                         {
@@ -331,10 +330,10 @@ DATA_M101 = {
                             "options": [
                                 "通",
                                 "右",
-                                "道",
-                                "左"
+                                "左",
+                                "道"
                             ],
-                            "correct": 2,
+                            "correct": 3,
                             "explain": "💡 <strong>Chữ Hán [Bài 6]: 道 (ĐẠO)</strong> ➔ <strong>道 (みち)</strong>: Con đường."
                         },
                         {
@@ -372,12 +371,12 @@ DATA_M101 = {
                             "prompt": "この 道を まっすぐ 行って、ひとつめの かど (   ) 右に まがって ください。",
                             "promptVi": "Đi thẳng con đường này, rồi hãy rẽ phải ở góc đường thứ nhất. (Câu 6 trong bộ 40 câu ôn tập)",
                             "options": [
-                                "を",
                                 "に",
                                 "で",
-                                "へ"
+                                "へ",
+                                "を"
                             ],
-                            "correct": 0,
+                            "correct": 3,
                             "explain": "💡 <strong>Trợ từ chỉ hành động rẽ:</strong> Đi qua hoặc quẹo ở một địa điểm cụ thể (かど, こうさてん) dùng trợ từ <strong>を</strong> (かどを まがる)."
                         },
                         {
@@ -400,12 +399,12 @@ DATA_M101 = {
                             "prompt": "えいがを みる (   )、カフェで コーヒーを のみたいです。",
                             "promptVi": "Trước khi xem phim, tôi muốn đi quán cà phê uống nước. (Câu 13 trong bộ 40 câu ôn tập)",
                             "options": [
+                                "前に",
                                 "後で",
                                 "から",
-                                "ので",
-                                "前に"
+                                "ので"
                             ],
-                            "correct": 3,
+                            "correct": 0,
                             "explain": "💡 <strong>Cấu trúc: Động từ thể từ điển (Vる) ＋ 前に:</strong> Trước khi làm việc gì (みる前に)."
                         },
                         {
@@ -414,12 +413,12 @@ DATA_M101 = {
                             "prompt": "すみません、その じしょを (   )も いいですか。",
                             "promptVi": "Xin lỗi, có thể cho tôi mượn quyển từ điển đó được không? (Câu 14 trong bộ 40 câu ôn tập)",
                             "options": [
-                                "かり",
                                 "かりて",
+                                "かり",
                                 "かりる",
-                                "かりた"
+                                "かりません"
                             ],
-                            "correct": 1,
+                            "correct": 0,
                             "explain": "💡 <strong>Cấu trúc xin phép: Động từ thể て ＋ もいいですか:</strong> かりる (Nhóm 2) ➔ <strong>かりても いいですか</strong>."
                         },
                         {
@@ -439,16 +438,16 @@ DATA_M101 = {
                         {
                             "id": 26,
                             "type": "mc",
-                            "prompt": "道に まよった (   )、日本語の テストが できませんでした。",
-                            "promptVi": "Vì lạc đường, nên tôi đã không thể làm được bài kiểm tra tiếng Nhật. (Câu 34 trong bộ 40 câu ôn tập)",
+                            "prompt": "たいふう (   )、でんしゃが 止まりました。",
+                            "promptVi": "Vì bão nên tàu điện đã dừng chạy. (Câu 35 trong bộ 40 câu ôn tập)",
                             "options": [
-                                "ので",
-                                "のに",
-                                "ても",
-                                "たら"
+                                "で",
+                                "に",
+                                "を",
+                                "へ"
                             ],
                             "correct": 0,
-                            "explain": "💡 <strong>Cấu trúc nguyên nhân khách quan: ～ので:</strong> Vì lạc đường (まよったので) nên không làm được bài thi."
+                            "explain": "💡 <strong>Trợ từ で chỉ nguyên nhân do biến cố, thời tiết (Bài 4):</strong> たいふう<strong>で</strong> (Do bão) ➔ Đúng theo Câu 35 trong bộ 40 câu ôn tập."
                         }
                     ]
                 },
@@ -597,16 +596,16 @@ DATA_M101 = {
                 {
                     "id": 34,
                     "type": "mc",
-                    "prompt": "ふたりは あった 後で、何を しますか。",
-                    "promptVi": "Sau khi gặp nhau, hai người sẽ làm gì?",
+                    "prompt": "ふたりは あした どこで 食事を しますか。",
+                    "promptVi": "Hai người ngày mai ăn cơm ở đâu?",
                     "options": [
-                        "えきで でんわを します。",
-                        "はくぶつかんへ 行きます。",
-                        "日本りょうりの 店で 食事を します。",
-                        "バスに 乗って かえります。"
+                        "日本りょうりの 店",
+                        "カフェ",
+                        "えきの なか",
+                        "学校"
                     ],
-                    "correct": 2,
-                    "explain": "💡 <strong>Thông tin trong bài:</strong> 「日本りょうりの 店で 食事を しましょう」 ➔ Cùng nhau đi ăn ở quán đồ Nhật."
+                    "correct": 0,
+                    "explain": "💡 <strong>Thông tin trong bài đọc:</strong> '右がわに ある 日本りょうりの 店で いっしょに ごはんを 食べましょう' ➔ Quán ăn Nhật Bản."
                 }
             ]
         },

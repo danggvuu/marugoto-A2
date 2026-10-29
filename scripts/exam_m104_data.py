@@ -25,7 +25,6 @@ def v(text, label=""):
         raise ValueError(f"UNLEARNED KANJI at [{label}]: {out} in '{text}'")
     return text
 
-
 DATA_M104 = {
     "code": "M104",
     "name": "Mã Đề M104 (Giao Tiếp, Mua Sắm & Tần Suất Đời Sống)",
@@ -51,11 +50,11 @@ DATA_M104 = {
                             "promptVi": "Akihabara có nhiều cửa hàng điện tử nên rất tiện lợi. (Câu 2 trong bộ 40 câu ôn tập)",
                             "options": [
                                 "ゆうめい",
-                                "べんり",
                                 "しずか",
+                                "べんり",
                                 "さむい"
                             ],
-                            "correct": 1,
+                            "correct": 2,
                             "explain": "💡 <strong>Từ vựng tính từ (Bài 5):</strong> Có nhiều cửa hàng nên rất thuận tiện, tiện lợi ➔ <strong>べんり</strong> (tiện lợi)."
                         },
                         {
@@ -66,10 +65,10 @@ DATA_M104 = {
                             "options": [
                                 "トイレ",
                                 "シャワー",
-                                "エレベーター",
-                                "ロビー"
+                                "ロビー",
+                                "エレベーター"
                             ],
-                            "correct": 3,
+                            "correct": 2,
                             "explain": "💡 <strong>Từ vựng nơi chốn khách sạn (Bài 7):</strong> Sảnh đợi khách sạn là <strong>ロビー</strong> (lobby)."
                         },
                         {
@@ -94,10 +93,10 @@ DATA_M104 = {
                             "options": [
                                 "じしょ",
                                 "まんが",
-                                "とけい",
-                                "てがみ"
+                                "てがみ",
+                                "とけい"
                             ],
-                            "correct": 2,
+                            "correct": 3,
                             "explain": "💡 <strong>Từ vựng đồ dùng cá nhân (Bài 7):</strong> Chiếc đồng hồ là <strong>とけい</strong>."
                         },
                         {
@@ -155,11 +154,11 @@ DATA_M104 = {
                             "promptVi": "Tôi đang học tiếng Nhật một tuần ba lần ở trung tâm. (Câu 32 trong bộ 40 câu ôn tập)",
                             "options": [
                                 "一か月に 三回",
-                                "一週間に 三日",
                                 "まい日",
-                                "一ねんに 三回"
+                                "一ねんに 三回",
+                                "一週間に 三日"
                             ],
-                            "correct": 1,
+                            "correct": 3,
                             "explain": "💡 <strong>Tần suất thời gian (Bài 9):</strong> 週に 三回 ＝ <strong>一週間に 三日</strong> (ba ngày trong một tuần). Chữ 週, 三, 回 đều đã học."
                         },
                         {
@@ -183,11 +182,11 @@ DATA_M104 = {
                             "promptVi": "Chị gái tôi đang sống ở Bắc Kinh, Trung Quốc. (Câu 16 trong bộ 40 câu ôn tập)",
                             "options": [
                                 "旅行して います",
-                                "あそんで います",
                                 "いえが あります",
+                                "あそんで います",
                                 "行って いません"
                             ],
-                            "correct": 2,
+                            "correct": 1,
                             "explain": "💡 <strong>Động từ cư trú (Bài 1):</strong> すんで います (đang sinh sống) ＝ <strong>いえが あります</strong> (có nhà/định cư ở đó)."
                         }
                     ]
@@ -212,11 +211,11 @@ DATA_M104 = {
                             "promptVi": "Mẹ tôi rất tốt bụng.",
                             "options": [
                                 "ちち",
-                                "あね",
                                 "はは",
+                                "あね",
                                 "いもうと"
                             ],
-                            "correct": 2,
+                            "correct": 1,
                             "explain": "💡 <strong>Chữ 母 (MẪU - Bài 1):</strong> Đọc là <strong>はは</strong> (mẹ mình). Chữ 父 (PHỤ - Bài 1) đọc là ちち (bố mình)."
                         },
                         {
@@ -226,11 +225,11 @@ DATA_M104 = {
                             "promptVi": "Bố tôi mỗi sáng đều đi dạo.",
                             "options": [
                                 "はは",
-                                "ちち",
                                 "あに",
-                                "おとうと"
+                                "おとうと",
+                                "ちち"
                             ],
-                            "correct": 1,
+                            "correct": 3,
                             "explain": "💡 <strong>Chữ 父 (PHỤ - Bài 1):</strong> Đọc là <strong>ちち</strong> (bố mình)."
                         },
                         {
@@ -241,10 +240,10 @@ DATA_M104 = {
                             "options": [
                                 "おんな",
                                 "ひと",
-                                "こども",
-                                "おとこ"
+                                "おとこ",
+                                "こども"
                             ],
-                            "correct": 3,
+                            "correct": 2,
                             "explain": "💡 <strong>Chữ 男 (NAM - Bài 1):</strong> Đọc là <strong>おとこ</strong>. 男の人: おとこのひと (người đàn ông)."
                         },
                         {
@@ -253,12 +252,12 @@ DATA_M104 = {
                             "prompt": "あそこで 【女】の 子が あそんで います。",
                             "promptVi": "Đằng kia có bé gái đang chơi đùa.",
                             "options": [
-                                "おんな",
                                 "おとこ",
+                                "おんな",
                                 "はは",
                                 "ちち"
                             ],
-                            "correct": 0,
+                            "correct": 1,
                             "explain": "💡 <strong>Chữ 女 (NỮ - Bài 1):</strong> Đọc là <strong>おんな</strong>. 女の子: おんなのこ (bé gái)."
                         },
                         {
@@ -269,10 +268,10 @@ DATA_M104 = {
                             "options": [
                                 "かい",
                                 "つき",
-                                "ねん",
-                                "しゅう"
+                                "しゅう",
+                                "ねん"
                             ],
-                            "correct": 3,
+                            "correct": 2,
                             "explain": "💡 <strong>Chữ 週 (CHU - Bài 10):</strong> Đọc là <strong>しゅう</strong> (tuần). 週に三回: しゅうにさんかい."
                         }
                     ]
@@ -288,11 +287,11 @@ DATA_M104 = {
                             "promptVi": "Mỗi tháng tôi đến nhà hàng 5 lần.",
                             "options": [
                                 "週",
+                                "回",
                                 "時",
-                                "間",
-                                "回"
+                                "間"
                             ],
-                            "correct": 3,
+                            "correct": 1,
                             "explain": "💡 <strong>Chữ 回 (HỒI - Bài 10):</strong> Đọc là <strong>かい</strong> (số lần: 一回, 二回, 三回, 五回)."
                         },
                         {
@@ -301,12 +300,12 @@ DATA_M104 = {
                             "prompt": "日本の 【ぶんか】を まなびたいです。",
                             "promptVi": "Tôi muốn học hỏi văn hóa Nhật Bản.",
                             "options": [
-                                "文化",
                                 "音楽",
+                                "文化",
                                 "旅行",
                                 "友達"
                             ],
-                            "correct": 0,
+                            "correct": 1,
                             "explain": "💡 <strong>Chữ 文化 (VĂN HÓA - Bài 10):</strong> Đọc là <strong>ぶんか</strong>. Cả 2 chữ 文 và 化 đều học ở Bài 10."
                         },
                         {
@@ -316,11 +315,11 @@ DATA_M104 = {
                             "promptVi": "Tôi nghe nhạc ở trong phòng.",
                             "options": [
                                 "文化",
-                                "音楽",
                                 "外国",
-                                "日本語"
+                                "日本語",
+                                "音楽"
                             ],
-                            "correct": 1,
+                            "correct": 3,
                             "explain": "💡 <strong>Chữ 音楽 (ÂM NHẠC - Bài 10):</strong> Đọc là <strong>おんがく</strong>. Chữ 音 (Âm) và 楽 (Nhạc/Lạc) học ở Bài 10."
                         },
                         {
@@ -329,12 +328,12 @@ DATA_M104 = {
                             "prompt": "夏やすみに 【りょこう】を します。",
                             "promptVi": "Nghỉ hè tôi đi du lịch.",
                             "options": [
+                                "旅行",
                                 "留学",
                                 "食事",
-                                "旅行",
                                 "仕事"
                             ],
-                            "correct": 2,
+                            "correct": 0,
                             "explain": "💡 <strong>Chữ 旅行 (LỮ HÀNH - Bài 10):</strong> Đọc là <strong>りょこう</strong> (chuyến du lịch)."
                         },
                         {
@@ -344,11 +343,11 @@ DATA_M104 = {
                             "promptVi": "Ngày mai trường học được nghỉ.",
                             "options": [
                                 "先生",
-                                "学校",
                                 "友達",
+                                "学校",
                                 "留学生"
                             ],
-                            "correct": 1,
+                            "correct": 2,
                             "explain": "💡 <strong>Chữ 学校 (HỌC HIỆU - Bài 9):</strong> Đọc là <strong>がっこう</strong> (trường học)."
                         }
                     ]
@@ -372,12 +371,12 @@ DATA_M104 = {
                             "prompt": "ベトナムりょうりの つくりかたを おしえて (   )。",
                             "promptVi": "Bạn có thể chỉ cho tôi cách làm món ăn Việt Nam được không? (Câu 31 trong bộ 40 câu ôn tập)",
                             "options": [
+                                "くださいませんか",
                                 "くださいました",
                                 "くれますか",
-                                "あげますか",
-                                "くださいませんか"
+                                "あげますか"
                             ],
-                            "correct": 3,
+                            "correct": 0,
                             "explain": "💡 <strong>Cấu trúc nhờ vả lịch sự: V-て くださいませんか:</strong> Nhờ người khác chỉ bảo cho mình một cách tôn trọng, lịch sự."
                         },
                         {
@@ -386,12 +385,12 @@ DATA_M104 = {
                             "prompt": "私は センターで 週 (   ) 三回 日本語を 勉強して います。",
                             "promptVi": "Tôi đang học tiếng Nhật một tuần ba lần ở trung tâm. (Câu 32 trong bộ 40 câu ôn tập)",
                             "options": [
-                                "に",
                                 "で",
                                 "を",
+                                "に",
                                 "へ"
                             ],
-                            "correct": 0,
+                            "correct": 2,
                             "explain": "💡 <strong>Cấu trúc chỉ tần suất: [Đơn vị thời gian] に [Số lần] 回:</strong> 週に三回 (3 lần một tuần), 月に五回 (5 lần một tháng)."
                         },
                         {
@@ -400,12 +399,12 @@ DATA_M104 = {
                             "prompt": "きれいな とけいですね。(   ) に もらいましたか。",
                             "promptVi": "Đồng hồ đẹp quá, bạn nhận được từ ai vậy? (Câu 20 trong bộ 40 câu ôn tập)",
                             "options": [
+                                "だれ",
                                 "どこ",
                                 "いつ",
-                                "だれ",
                                 "なに"
                             ],
-                            "correct": 2,
+                            "correct": 0,
                             "explain": "💡 <strong>Cấu trúc nhận từ ai: [Người] に もらう:</strong> Từ để hỏi người nhận là <strong>だれに</strong> もらいましたか."
                         },
                         {
@@ -415,11 +414,11 @@ DATA_M104 = {
                             "promptVi": "Ngày mai mấy giờ chúng ta gặp nhau thế? (Câu 7 trong bộ 40 câu ôn tập)",
                             "options": [
                                 "あいまし",
-                                "あいます",
                                 "あう",
-                                "あって"
+                                "あって",
+                                "あいます"
                             ],
-                            "correct": 1,
+                            "correct": 3,
                             "explain": "💡 <strong>Hỏi giờ gặp nhau: 何時に あいますか:</strong> Thể lịch sự ます đi với trợ từ nghi vấn か."
                         },
                         {
@@ -428,12 +427,12 @@ DATA_M104 = {
                             "prompt": "あべさん、おそくなって すみません。時間を (   )…",
                             "promptVi": "Anh Abe ơi, mình xin lỗi vì đến muộn nhé. Mình bị nhầm thời gian hẹn... (Câu 10)",
                             "options": [
-                                "まちがえました",
                                 "まちがえます",
                                 "わすれました",
-                                "なくしました"
+                                "なくしました",
+                                "まちがえました"
                             ],
-                            "correct": 0,
+                            "correct": 3,
                             "explain": "💡 <strong>Từ vựng nhầm lẫn: じかんを まちがえました:</strong> Tôi đã nhầm giờ hẹn."
                         },
                         {
@@ -442,12 +441,12 @@ DATA_M104 = {
                             "prompt": "いつか、日本へ (   ) したいです。",
                             "promptVi": "Một ngày nào đó, tôi muốn đi du học ở Nhật Bản. (Câu 32 trong bộ 40 câu ôn tập)",
                             "options": [
+                                "りゅうがく",
                                 "りょこう",
                                 "かいもの",
-                                "りゅうがく",
                                 "さんぽ"
                             ],
-                            "correct": 2,
+                            "correct": 0,
                             "explain": "💡 <strong>Cấu trúc nguyện vọng du học: 日本へ りゅうがくしたいです (Muốn đi du học Nhật Bản).</strong>"
                         }
                     ]
@@ -580,10 +579,10 @@ DATA_M104 = {
                     "options": [
                         "九時",
                         "七時",
-                        "十二時",
-                        "十時"
+                        "十時",
+                        "十二時"
                     ],
-                    "correct": 3,
+                    "correct": 2,
                     "explain": "💡 <strong>Thông tin trong bài đọc:</strong> 「十時に ホテルの ロビーで あいましょう」 ➔ Hẹn gặp lúc 10 giờ."
                 },
                 {
@@ -593,11 +592,11 @@ DATA_M104 = {
                     "promptVi": "Hai người họ sẽ làm gì ở Akihabara?",
                     "options": [
                         "ホテルに とまります。",
-                        "学校で 勉強します。",
                         "でんしじしょを みて、日本りょうりを たべます。",
+                        "学校で 勉強します。",
                         "でんしゃの きっぷを かいます。"
                     ],
-                    "correct": 2,
+                    "correct": 1,
                     "explain": "💡 <strong>Thông tin trong bài đọc:</strong> Xem kim từ điển và sau đó đi ăn món ăn Nhật."
                 }
             ]

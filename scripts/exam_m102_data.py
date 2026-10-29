@@ -25,7 +25,6 @@ def v(text, label=""):
         raise ValueError(f"UNLEARNED KANJI at [{label}]: {out} in '{text}'")
     return text
 
-
 DATA_M102 = {
     "code": "M102",
     "name": "Mã Đề M102 (Chuyên Sâu Động Từ & So Sánh)",
@@ -50,12 +49,12 @@ DATA_M102 = {
                             "prompt": "わたしは つめたい (   ) を のみたいです。",
                             "promptVi": "Tôi muốn uống cà phê lạnh. (Câu 22 trong bộ 40 câu ôn tập)",
                             "options": [
-                                "シャツ",
                                 "コーヒー",
+                                "シャツ",
                                 "ぼうし",
                                 "くつ"
                             ],
-                            "correct": 1,
+                            "correct": 0,
                             "explain": "💡 <strong>Từ vựng đồ uống:</strong> Đi với động từ 飲む (のみたい - muốn uống) và tính từ つめたい (lạnh) chỉ có thể là <strong>コーヒー</strong> (cà phê). Các từ còn lại là đồ trang phục: シャツ (áo sơ mi), ぼうし (mũ), くつ (giày)."
                         },
                         {
@@ -65,11 +64,11 @@ DATA_M102 = {
                             "promptVi": "Tớ muốn có chiếc áo sơ mi trắng. (Câu 21 trong bộ 40 câu ôn tập)",
                             "options": [
                                 "おちゃ",
-                                "シャツ",
                                 "みず",
-                                "あめ"
+                                "あめ",
+                                "シャツ"
                             ],
-                            "correct": 1,
+                            "correct": 3,
                             "explain": "💡 <strong>Từ vựng trang phục & màu sắc:</strong> 白い (trắng) bổ nghĩa cho danh từ chỉ quần áo: <strong>シャツ</strong> (áo sơ mi). Chữ Hán 白 (Bạch) đã học ở Bài 6."
                         },
                         {
@@ -78,12 +77,12 @@ DATA_M102 = {
                             "prompt": "わたしの しゅみは まんがを (   ) ことです。",
                             "promptVi": "Sở thích của tôi là đọc truyện tranh. (Câu 40 trong bộ 40 câu ôn tập)",
                             "options": [
+                                "読む",
                                 "食べる",
                                 "のむ",
-                                "行く",
-                                "読む"
+                                "行く"
                             ],
-                            "correct": 3,
+                            "correct": 0,
                             "explain": "💡 <strong>Cấu trúc sở thích: N / V-る ＋ ことです:</strong> まんが (truyện tranh) đi với động từ <strong>読む</strong> (đọc - chữ Hán 読 học ở Bài 2). まんがを 読む こと: Việc đọc truyện tranh."
                         },
                         {
@@ -93,11 +92,11 @@ DATA_M102 = {
                             "promptVi": "Tiếng Pháp thì phát âm không đơn giản. (Câu 36 trong bộ 40 câu ôn tập)",
                             "options": [
                                 "ことば",
-                                "はつおん",
                                 "ぶんぽう",
-                                "かんじ"
+                                "かんじ",
+                                "はつおん"
                             ],
-                            "correct": 1,
+                            "correct": 3,
                             "explain": "💡 <strong>Từ vựng học ngoại ngữ (Bài 2):</strong> <strong>はつおん</strong> (phát âm). Câu 36 ôn tập: 'Tiếng Pháp thì phát âm không đơn giản' ➔ フランス語は はつおんが かんたんでは ありません。"
                         },
                         {
@@ -106,12 +105,12 @@ DATA_M102 = {
                             "prompt": "あした、いっしょに とうきょうタワーを (   )。夜の けしきが きれいですよ。",
                             "promptVi": "Mai bạn ngắm tháp Tokyo với tôi không? Cảnh đêm đẹp lắm đó. (Câu 27 trong bộ 40 câu ôn tập)",
                             "options": [
-                                "みませんか",
                                 "みました",
                                 "みて",
-                                "みないで"
+                                "みないで",
+                                "みませんか"
                             ],
-                            "correct": 0,
+                            "correct": 3,
                             "explain": "💡 <strong>Cấu trúc rủ rê lịch sự: ～ませんか:</strong> 'Cùng ngắm tháp Tokyo với tôi không?' ➔ <strong>みませんか</strong>. Chữ 夜 (Dạ - đêm) đã học ở Bài 8."
                         }
                     ]
@@ -126,12 +125,12 @@ DATA_M102 = {
                             "prompt": "とうきょうは おきなわより 人が <u>多い</u>です。",
                             "promptVi": "Tokyo thì đông người hơn Okinawa. (Câu 28 trong bộ 40 câu ôn tập)",
                             "options": [
+                                "たくさん います",
                                 "すくないです",
                                 "ぜんぜん いません",
-                                "ちいさいです",
-                                "たくさん います"
+                                "ちいさいです"
                             ],
-                            "correct": 3,
+                            "correct": 0,
                             "explain": "💡 <strong>Quan hệ so sánh (Bài 4):</strong> 人が 多い (nhiều người, đông đúc) ＝ <strong>たくさん います</strong> (có nhiều người). Chữ 多 (Đa) và 人 (Nhân) đều đã học."
                         },
                         {
@@ -140,12 +139,12 @@ DATA_M102 = {
                             "prompt": "えいがを みる 前に、カフェへ 行って のみものを <u>かいたいです</u>。",
                             "promptVi": "Trước khi xem phim, tôi muốn đi quán cà phê mua đồ uống. (Câu 13 trong bộ 40 câu ôn tập)",
                             "options": [
+                                "かう つもりです",
                                 "のむ つもりです",
                                 "みる つもりです",
-                                "いく つもりです",
-                                "かう つもりです"
+                                "いく つもりです"
                             ],
-                            "correct": 3,
+                            "correct": 0,
                             "explain": "💡 <strong>Cách diễn đạt ý định (Bài 7-8):</strong> ～たい (muốn làm) ＝ <strong>～つもり</strong> (dự định, có ý định làm). かいたいです ＝ かう つもりです (muốn mua đồ uống)."
                         },
                         {
@@ -211,12 +210,12 @@ DATA_M102 = {
                             "prompt": "まい朝、七時に えきを 【出】ます。",
                             "promptVi": "Mỗi sáng, tôi ra khỏi ga lúc 7 giờ.",
                             "options": [
+                                "で",
                                 "ま",
                                 "と",
-                                "で",
                                 "い"
                             ],
-                            "correct": 2,
+                            "correct": 0,
                             "explain": "💡 <strong>Chữ 出 (XUẤT - Bài 7):</strong> Âm Kun là <strong>で (る)</strong>. 出ます đọc là <strong>でます</strong> (đi ra, rời khỏi)."
                         },
                         {
@@ -225,12 +224,12 @@ DATA_M102 = {
                             "prompt": "駅で 友だちを 【待】ちます。",
                             "promptVi": "Tôi đợi bạn ở nhà ga.",
                             "options": [
-                                "ま",
                                 "も",
+                                "ま",
                                 "と",
                                 "た"
                             ],
-                            "correct": 0,
+                            "correct": 1,
                             "explain": "💡 <strong>Chữ 待 (ĐÃI - Bài 7):</strong> Âm Kun là <strong>ま (つ)</strong>. 待ちます đọc là <strong>まちます</strong> (chờ, đợi)."
                         },
                         {
@@ -240,11 +239,11 @@ DATA_M102 = {
                             "promptVi": "Xe buýt đã dừng lại.",
                             "options": [
                                 "とま",
-                                "の",
                                 "と",
+                                "の",
                                 "で"
                             ],
-                            "correct": 2,
+                            "correct": 1,
                             "explain": "💡 <strong>Chữ 止 (CHỈ - Bài 7):</strong> Âm Kun là <strong>と (まる)</strong>. 止まりました đọc là <strong>とまりました</strong> (đã dừng)."
                         },
                         {
@@ -255,10 +254,10 @@ DATA_M102 = {
                             "options": [
                                 "まち",
                                 "かわ",
-                                "みち",
-                                "やま"
+                                "やま",
+                                "みち"
                             ],
-                            "correct": 2,
+                            "correct": 3,
                             "explain": "💡 <strong>Chữ 道 (ĐẠO - Bài 6):</strong> Âm Kun là <strong>みち</strong> (con đường). Tránh nhầm với 町 (まち - thị trấn), 川 (かわ - con sông), 山 (やま - ngọn núi)."
                         },
                         {
@@ -267,12 +266,12 @@ DATA_M102 = {
                             "prompt": "スーパーは 【駅】の ちかくに あります。",
                             "promptVi": "Siêu thị ở gần nhà ga. (Câu 4 trong bộ 40 câu ôn tập)",
                             "options": [
-                                "えき",
                                 "みち",
                                 "まち",
+                                "えき",
                                 "みせ"
                             ],
-                            "correct": 0,
+                            "correct": 2,
                             "explain": "💡 <strong>Chữ 駅 (DỊCH - Bài 7):</strong> Đọc là <strong>えき</strong> (nhà ga)."
                         }
                     ]
@@ -288,11 +287,11 @@ DATA_M102 = {
                             "promptVi": "9h sáng mai chúng ta gặp nhau nhé. (Câu 7 trong bộ 40 câu ôn tập)",
                             "options": [
                                 "昼",
+                                "朝",
                                 "夜",
-                                "今",
-                                "朝"
+                                "今"
                             ],
-                            "correct": 3,
+                            "correct": 1,
                             "explain": "💡 <strong>Chữ 朝 (TRIÊU - Bài 8):</strong> Đọc là <strong>あさ</strong> (buổi sáng). Các chữ phân biệt: 昼 (ひる - trưa), 夜 (よる - đêm), 今 (いま - bây giờ)."
                         },
                         {
@@ -312,16 +311,16 @@ DATA_M102 = {
                         {
                             "id": 18,
                             "type": "mc",
-                            "prompt": "ごはんを たべた 【あと】で、おちゃを のみます。",
-                            "promptVi": "Sau khi ăn cơm xong, tôi uống trà.",
+                            "prompt": "じゅぎょうの 【あと】で、としょかんへ 行きます。",
+                            "promptVi": "Sau giờ học, tôi đi đến thư viện.",
                             "options": [
-                                "後",
                                 "前",
                                 "待",
+                                "後",
                                 "止"
                             ],
-                            "correct": 0,
-                            "explain": "💡 <strong>Chữ 後 (HẬU - Bài 8):</strong> Đọc là <strong>あと</strong> trong mẫu câu V-た後で (sau khi làm gì)."
+                            "correct": 2,
+                            "explain": "💡 <strong>Chữ Hán: 後 (Hậu):</strong> Trong từ 【あと】 (sau). 【じゅぎょうの 後で】: Sau giờ học. Chữ 行 đã học ở Bài 5."
                         },
                         {
                             "id": 19,
@@ -372,12 +371,12 @@ DATA_M102 = {
                             "prompt": "すみません、その じしょを かり (   ) も いいですか。",
                             "promptVi": "Xin lỗi, có thể cho tôi mượn quyển từ điển đó được không? (Câu 14 trong bộ 40 câu ôn tập)",
                             "options": [
-                                "ても",
                                 "たら",
                                 "ては",
+                                "ても",
                                 "のに"
                             ],
-                            "correct": 0,
+                            "correct": 2,
                             "explain": "💡 <strong>Cấu trúc xin phép lịch sự: V-てもいいですか:</strong> かりる (Nhóm 2) ➔ かりて ＋ もいいですか (Tôi mượn có được không?)."
                         },
                         {
@@ -387,26 +386,26 @@ DATA_M102 = {
                             "promptVi": "Được chứ, bạn hãy dùng đi. (Câu 14 trong bộ 40 câu ôn tập)",
                             "options": [
                                 "つかい",
+                                "つかって",
                                 "つかう",
-                                "つかった",
-                                "つかって"
+                                "つかいます"
                             ],
-                            "correct": 3,
+                            "correct": 1,
                             "explain": "💡 <strong>Cấu trúc yêu cầu / khuyến khích nhẹ nhàng: V-てください:</strong> つかう ➔ thể て là <strong>つかって</strong>."
                         },
                         {
                             "id": 23,
                             "type": "mc",
-                            "prompt": "ベトナムへ 行った ことが (   )。",
-                            "promptVi": "Anh đã từng đến Việt Nam chưa? - Chưa, tôi chưa từng. (Câu 26 trong bộ 40 câu ôn tập)",
+                            "prompt": "えいがを (   ) 前に、カフェへ 行って おちゃを のみたいです。",
+                            "promptVi": "Trước khi xem phim, tôi muốn đi quán cà phê uống trà. (Câu 13 trong bộ 40 câu ôn tập)",
                             "options": [
-                                "ありますか",
-                                "いますか",
-                                "しますか",
-                                "いきますか"
+                                "みます",
+                                "みて",
+                                "みない",
+                                "みる"
                             ],
-                            "correct": 0,
-                            "explain": "💡 <strong>Cấu trúc kinh nghiệm: V-た ことが あります (đã từng làm gì):</strong> Hỏi kinh nghiệm ➔ 行った ことが <strong>ありますか</strong>."
+                            "correct": 3,
+                            "explain": "💡 <strong>Cấu trúc trình tự thời gian (Bài 8): Động từ thể từ điển (V-る) ＋ 前に:</strong> Trước khi xem phim ➔ <strong>みる 前に</strong>. Đúng theo Câu 13 trong bộ 40 câu ôn tập."
                         },
                         {
                             "id": 24,
@@ -429,11 +428,11 @@ DATA_M102 = {
                             "promptVi": "Ở Nhật Bản, ở đâu là lạnh nhất? (Câu 29 trong bộ 40 câu ôn tập)",
                             "options": [
                                 "もっと",
-                                "いちばん",
                                 "あまり",
-                                "ぜんぜん"
+                                "ぜんぜん",
+                                "いちばん"
                             ],
-                            "correct": 1,
+                            "correct": 3,
                             "explain": "💡 <strong>Cấu trúc so sánh nhất trong phạm vi: [Phạm vi] で [Từ để hỏi] が いちばん ～:</strong> Ở Nhật thì ở đâu lạnh nhất ➔ dùng <strong>いちばん</strong>."
                         },
                         {
@@ -443,11 +442,11 @@ DATA_M102 = {
                             "promptVi": "Vì bão, nên tàu điện và xe buýt dừng chạy. (Câu 35 trong bộ 40 câu ôn tập)",
                             "options": [
                                 "に",
-                                "で",
                                 "を",
+                                "で",
                                 "へ"
                             ],
-                            "correct": 1,
+                            "correct": 2,
                             "explain": "💡 <strong>Trợ từ で chỉ nguyên nhân do thiên tai, biến cố: N(thiên tai) + で:</strong> たいふうで (Do bão) nên tàu xe dừng lại."
                         }
                     ]
@@ -583,11 +582,11 @@ DATA_M102 = {
                     "promptVi": "Người này thấy điều gì ở tiếng Nhật thú vị?",
                     "options": [
                         "ぶんしょうを 読む こと",
-                        "ことばを おぼえる こと",
                         "かんじを かく こと",
+                        "ことばを おぼえる こと",
                         "テストを うける こと"
                     ],
-                    "correct": 2,
+                    "correct": 1,
                     "explain": "💡 <strong>Thông tin trong bài đọc:</strong> 「日本語は かんじを かく ことが とても おもしろいです」 ➔ Việc viết chữ Hán rất thú vị."
                 },
                 {
@@ -596,12 +595,12 @@ DATA_M102 = {
                     "prompt": "この 人は えいがを みる 前に 何を しますか。",
                     "promptVi": "Người này làm gì trước khi xem phim?",
                     "options": [
+                        "カフェで つめたい コーヒーを のみます。",
                         "まんがを 読みます。",
                         "日本へ 旅行に 行きます。",
-                        "学校で 勉強します。",
-                        "カフェで つめたい コーヒーを のみます。"
+                        "学校で 勉強します。"
                     ],
-                    "correct": 3,
+                    "correct": 0,
                     "explain": "💡 <strong>Thông tin trong bài đọc:</strong> 「えいがを みる 前に、カフェへ 行って つめたい コーヒーを のむ のも 好きです」 ➔ Đi quán cà phê uống cà phê lạnh."
                 }
             ]

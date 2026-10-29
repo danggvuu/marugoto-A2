@@ -25,7 +25,6 @@ def v(text, label=""):
         raise ValueError(f"UNLEARNED KANJI at [{label}]: {out} in '{text}'")
     return text
 
-
 DATA_M105 = {
     "code": "M105",
     "name": "Mã Đề M105 (Phương Pháp Học Ngoại Ngữ & Ước Mơ)",
@@ -51,11 +50,11 @@ DATA_M105 = {
                             "promptVi": "Tiếng Nhật thì việc viết chữ Hán rất thú vị. (Câu 38 trong bộ 40 câu ôn tập)",
                             "options": [
                                 "みず",
+                                "かんじ",
                                 "えき",
-                                "まち",
-                                "かんじ"
+                                "まち"
                             ],
-                            "correct": 3,
+                            "correct": 1,
                             "explain": "💡 <strong>Từ vựng kỹ năng học tiếng Nhật (Bài 2):</strong> Viết chữ Hán ➔ <strong>かんじ</strong>を かく こと."
                         },
                         {
@@ -65,11 +64,11 @@ DATA_M105 = {
                             "promptVi": "Cho đến bây giờ bạn đã học ngoại ngữ nào rồi? (Câu 12 trong bộ 40 câu ôn tập)",
                             "options": [
                                 "天気",
-                                "外国語",
                                 "場所",
-                                "時間"
+                                "時間",
+                                "外国語"
                             ],
-                            "correct": 1,
+                            "correct": 3,
                             "explain": "💡 <strong>Chữ Hán ghép (Bài 2):</strong> Ngoại ngữ là <strong>外国語</strong> (がいこくご). Cả 外, 国, 語 đều học ở Bài 2."
                         },
                         {
@@ -103,16 +102,16 @@ DATA_M105 = {
                         {
                             "id": 5,
                             "type": "mc",
-                            "prompt": "道に (   ) ので、日本語の テストが できませんでした。",
-                            "promptVi": "Vì lạc đường nên tôi đã không thể làm bài kiểm tra tiếng Nhật. (Câu 34 trong bộ 40 câu ôn tập)",
+                            "prompt": "学校の としょかんで 日本語の じしょを (   )ました。",
+                            "promptVi": "Tôi đã mượn cuốn từ điển tiếng Nhật ở thư viện trường. (Câu 14 trong bộ 40 câu ôn tập)",
                             "options": [
-                                "のぼった",
-                                "まよった",
-                                "おわった",
-                                "はじまった"
+                                "かり",
+                                "まち",
+                                "よみ",
+                                "かき"
                             ],
-                            "correct": 1,
-                            "explain": "💡 <strong>Cụm từ cố định (Bài 6):</strong> 道に まよう (Lạc đường) ➔ Quá khứ: <strong>まよった</strong>."
+                            "correct": 0,
+                            "explain": "💡 <strong>Động từ mượn sách/từ điển (Bài 8):</strong> かりる (かりました ➔ đã mượn). Chữ 学校, 本 đều đã học."
                         }
                     ]
                 },
@@ -126,12 +125,12 @@ DATA_M105 = {
                             "prompt": "日本語が <u>じょうずに なりたい</u>んですが、どうやって 勉強したら いいですか。",
                             "promptVi": "Tôi muốn giỏi tiếng Nhật thì phải học thế nào? (Câu 11 trong bộ 40 câu ôn tập)",
                             "options": [
-                                "やめたい",
                                 "うまく なりたい",
+                                "やめたい",
                                 "きらいになりたい",
                                 "へたになりたい"
                             ],
-                            "correct": 1,
+                            "correct": 0,
                             "explain": "💡 <strong>Từ đồng nghĩa (Bài 2):</strong> じょうずに なりたい (muốn giỏi tiếng Nhật) ＝ <strong>うまく なりたい</strong> (muốn thành thạo, khéo léo). Chữ 勉強 đã học ở Bài 9."
                         },
                         {
@@ -142,10 +141,10 @@ DATA_M105 = {
                             "options": [
                                 "つまらない",
                                 "たいへんな",
-                                "こわい",
-                                "たのしい"
+                                "たのしい",
+                                "こわい"
                             ],
-                            "correct": 3,
+                            "correct": 2,
                             "explain": "💡 <strong>Tính từ khen ngợi (Bài 2):</strong> おもしろい (thú vị) ＝ <strong>たのしい</strong> (vui vẻ, hào hứng)."
                         },
                         {
@@ -154,12 +153,12 @@ DATA_M105 = {
                             "prompt": "フランス語は はつおんが <u>かんたんでは ありません</u>。",
                             "promptVi": "Tiếng Pháp thì phát âm không đơn giản chút nào. (Câu 36 trong bộ 40 câu ôn tập)",
                             "options": [
-                                "むずかしいです",
                                 "たのしいです",
                                 "はやいです",
-                                "みじかいです"
+                                "みじかいです",
+                                "むずかしいです"
                             ],
-                            "correct": 0,
+                            "correct": 3,
                             "explain": "💡 <strong>Phủ định tính từ (Bài 2):</strong> かんたんでは ありません (không đơn giản) ＝ <strong>むずかしいです</strong> (khó)."
                         },
                         {
@@ -170,10 +169,10 @@ DATA_M105 = {
                             "options": [
                                 "とても じょうずだ",
                                 "だいすきだ",
-                                "かんたんだ",
-                                "あまり とくいではない"
+                                "あまり とくいではない",
+                                "かんたんだ"
                             ],
-                            "correct": 3,
+                            "correct": 2,
                             "explain": "💡 <strong>Tính từ chỉ năng lực (Bài 2):</strong> にがてです (kém, không tự tin) ＝ <strong>あまり とくいではない</strong> (không thành thạo lắm). Chữ 読 đã học ở Bài 2."
                         },
                         {
@@ -211,12 +210,12 @@ DATA_M105 = {
                             "prompt": "まい日、学校で 【勉強】します。",
                             "promptVi": "Mỗi ngày tôi đều học ở trường.",
                             "options": [
-                                "べんきょう",
                                 "ぶんきょう",
                                 "べんきょうう",
-                                "めんきょう"
+                                "めんきょう",
+                                "べんきょう"
                             ],
-                            "correct": 0,
+                            "correct": 3,
                             "explain": "💡 <strong>Chữ 勉強 (MIỄN CƯỜNG - Bài 9):</strong> Đọc là <strong>べんきょう</strong> (học tập)."
                         },
                         {
@@ -226,11 +225,11 @@ DATA_M105 = {
                             "promptVi": "Người đó là giáo viên của tôi.",
                             "options": [
                                 "がくせい",
-                                "ともだち",
                                 "せんせい",
+                                "ともだち",
                                 "りゅうがくせい"
                             ],
-                            "correct": 2,
+                            "correct": 1,
                             "explain": "💡 <strong>Chữ 先生 (TIÊN SINH - Bài 9):</strong> Đọc là <strong>せんせい</strong> (thầy cô giáo)."
                         },
                         {
@@ -253,12 +252,12 @@ DATA_M105 = {
                             "prompt": "わたしは まんがが 【好】きです。",
                             "promptVi": "Tôi thích truyện tranh.",
                             "options": [
-                                "す",
                                 "たの",
                                 "おもしろ",
+                                "す",
                                 "やす"
                             ],
-                            "correct": 0,
+                            "correct": 2,
                             "explain": "💡 <strong>Chữ 好 (HẢO - Bài 2):</strong> Đọc là <strong>す (き)</strong> (thích)."
                         },
                         {
@@ -268,11 +267,11 @@ DATA_M105 = {
                             "promptVi": "Cái này là cái gì thế?",
                             "options": [
                                 "どこ",
-                                "だれ",
                                 "なん",
+                                "だれ",
                                 "いつ"
                             ],
-                            "correct": 2,
+                            "correct": 1,
                             "explain": "💡 <strong>Chữ 何 (HÀ - Bài 2):</strong> Đọc là <strong>なん / なに</strong> (cái gì)."
                         }
                     ]
@@ -289,10 +288,10 @@ DATA_M105 = {
                             "options": [
                                 "日本語",
                                 "文化語",
-                                "旅行語",
-                                "外国語"
+                                "外国語",
+                                "旅行語"
                             ],
-                            "correct": 3,
+                            "correct": 2,
                             "explain": "💡 <strong>Chữ 外国語 (NGOẠI QUỐC NGỮ - Bài 2):</strong> Đọc là <strong>がいこくご</strong>."
                         },
                         {
@@ -315,12 +314,12 @@ DATA_M105 = {
                             "prompt": "この 【ほん】は とても おもしろいです。",
                             "promptVi": "Quyển sách này rất thú vị.",
                             "options": [
-                                "国",
                                 "本",
+                                "国",
                                 "語",
                                 "何"
                             ],
-                            "correct": 1,
+                            "correct": 0,
                             "explain": "💡 <strong>Chữ 本 (BỔN/BẢN - Bài 2):</strong> Đọc là <strong>ほん</strong> (quyển sách)."
                         },
                         {
@@ -330,11 +329,11 @@ DATA_M105 = {
                             "promptVi": "Bây giờ tôi đang học tiếng Nhật.",
                             "options": [
                                 "朝",
-                                "昼",
                                 "今",
+                                "昼",
                                 "夜"
                             ],
-                            "correct": 2,
+                            "correct": 1,
                             "explain": "💡 <strong>Chữ 今 (KIM - Bài 3):</strong> Đọc là <strong>いま</strong> (bây giờ)."
                         },
                         {
@@ -343,12 +342,12 @@ DATA_M105 = {
                             "prompt": "あした、どこへ 【い】きますか。",
                             "promptVi": "Ngày mai bạn đi đâu thế?",
                             "options": [
-                                "行",
                                 "出",
+                                "行",
                                 "待",
                                 "止"
                             ],
-                            "correct": 0,
+                            "correct": 1,
                             "explain": "💡 <strong>Chữ 行 (HÀNH - Bài 10):</strong> Đọc là <strong>い (きます)</strong> (đi)."
                         }
                     ]
@@ -372,12 +371,12 @@ DATA_M105 = {
                             "prompt": "いつも 日本語を (   ) ください。そして、ことばを たくさん おぼえて ください。",
                             "promptVi": "Hãy thường xuyên nói tiếng Nhật. Và hãy nhớ nhiều từ vựng nhé. (Câu 11 trong bộ 40 câu ôn tập)",
                             "options": [
-                                "はなす",
-                                "はなした",
                                 "はなして",
+                                "はなす",
+                                "はなします",
                                 "はなし"
                             ],
-                            "correct": 2,
+                            "correct": 0,
                             "explain": "💡 <strong>Cấu trúc lời khuyên/yêu cầu lịch sự: V-てください:</strong> はなす (Nhóm 1) ➔ Thể て là <strong>はなして</strong>."
                         },
                         {
@@ -414,27 +413,27 @@ DATA_M105 = {
                             "prompt": "私の しゅみは まんがを (   ) ことです。",
                             "promptVi": "Sở thích của tôi là đọc truyện tranh. (Câu 40 trong bộ 40 câu ôn tập)",
                             "options": [
-                                "読んだ",
                                 "読む",
+                                "読みます",
                                 "読んで",
                                 "読み"
                             ],
-                            "correct": 1,
+                            "correct": 0,
                             "explain": "💡 <strong>Cấu trúc sở thích: Nの しゅみは [Động từ thể từ điển (V-る)] ことです:</strong> まんがを <strong>読む</strong> ことです."
                         },
                         {
                             "id": 25,
                             "type": "mc",
-                            "prompt": "道に まよった (   )、テストが できませんでした。",
-                            "promptVi": "Vì lạc đường nên tôi đã không thể làm được bài kiểm tra. (Câu 34 trong bộ 40 câu ôn tập)",
+                            "prompt": "ちゅうごく語は むずかしいですが、おもしろいです。えいごと ちがいます (   )。",
+                            "promptVi": "Tiếng Trung khó nhưng thú vị. Vì khác với tiếng Anh. (Câu 15 trong bộ 40 câu ôn tập)",
                             "options": [
-                                "のに",
-                                "たら",
                                 "ので",
-                                "ても"
+                                "のに",
+                                "から",
+                                "けど"
                             ],
                             "correct": 2,
-                            "explain": "💡 <strong>Liên từ chỉ lý do nguyên nhân khách quan: V-thể thông thường + ので:</strong> まよったので (vì bị lạc đường)."
+                            "explain": "💡 <strong>Liên từ chỉ lý do nguyên nhân (Bài 2/10): ～から:</strong> ちがいます<strong>から</strong> (Vì khác với tiếng Anh). Đúng theo Câu 15 trong bộ 40 câu ôn tập."
                         },
                         {
                             "id": 26,
@@ -442,12 +441,12 @@ DATA_M105 = {
                             "prompt": "らいねん、日本へ 行って (   ) です。",
                             "promptVi": "Năm sau tôi rất muốn đi thử đến Nhật Bản. (Câu 26 trong bộ 40 câu ôn tập)",
                             "options": [
-                                "みたい",
                                 "ほしい",
                                 "たくない",
-                                "にくい"
+                                "にくい",
+                                "みたい"
                             ],
-                            "correct": 0,
+                            "correct": 3,
                             "explain": "💡 <strong>Cấu trúc làm thử việc gì: V-て みたい (muốn thử làm gì):</strong> 行ってみたいです (muốn đi thử)."
                         }
                     ]
@@ -501,16 +500,38 @@ DATA_M105 = {
                         {
                             "id": 30,
                             "type": "star",
-                            "prompt": "道に [  ] [  ] [ ★ ] [  ] できませんでした。",
-                            "promptVi": "Vì lạc đường nên tôi đã không thể làm bài kiểm tra tiếng Nhật. (Câu 34)",
+                            "prompt": "日本語は　＿＿＿　＿＿＿　★　＿＿＿　にがてです。",
+                            "promptVi": "Tiếng Nhật thì việc đọc câu văn tôi hơi kém một chút. (Câu 39 trong bộ 40 câu ôn tập)",
                             "options": [
-                                "日本語の",
-                                "テストが",
-                                "ぜんぜん",
-                                "まよったので、"
+                                "少し",
+                                "ぶんしょうを",
+                                "のが",
+                                "読む"
                             ],
-                            "correct": 1,
-                            "explain": "💡 <strong>Thứ tự sắp xếp câu:</strong><br>[4] まよったので、 ➔ [1] 日本語の ➔ <strong>★ [2] テストが (Vị trí số 3)</strong> ➔ [3] ぜんぜん<br>➔ Câu hoàn chỉnh: 道に まよったので、日本語の テストが ぜんぜん できませんでした。<br>➔ Vị trí ngôi sao (★) là phương án <strong>[2] テストが</strong>."
+                            "correct": 2,
+                            "explain": "💡 <strong>Thứ tự sắp xếp đúng:</strong><br>ぶんしょうを (1) ➔ 読む (2) ➔ <strong>のが (3 - ★)</strong> ➔ 少し (4).<br>➔ Câu hoàn chỉnh: 日本語は ぶんしょうを 読む のが 少し にがてです。",
+                            "sentencePre": "日本語は",
+                            "sentencePost": "にがてです。",
+                            "starPos": 3,
+                            "parts": [
+                                {
+                                    "id": 1,
+                                    "text": "ぶんしょうを"
+                                },
+                                {
+                                    "id": 2,
+                                    "text": "読む"
+                                },
+                                {
+                                    "id": 3,
+                                    "text": "のが"
+                                },
+                                {
+                                    "id": 4,
+                                    "text": "少し"
+                                }
+                            ],
+                            "fullSentence": "日本語は ぶんしょうを 読む のが 少し にがてです。"
                         }
                     ]
                 },
@@ -578,12 +599,12 @@ DATA_M105 = {
                     "prompt": "この 人は なぜ まい朝 三十ぷん 読む れんしゅうを して いますか。",
                     "promptVi": "Tại sao mỗi sáng người này lại luyện đọc 30 phút?",
                     "options": [
-                        "ぶんしょうを 読む のが 少し にがてですから。",
                         "かんじを かく のが きらいですから。",
+                        "ぶんしょうを 読む のが 少し にがてですから。",
                         "フランス語を はなしたいですから。",
                         "テストが ぜんぜん ありませんから。"
                     ],
-                    "correct": 0,
+                    "correct": 1,
                     "explain": "💡 <strong>Thông tin trong bài đọc:</strong> 「ぶんしょうを 読む のが 少し にがてですから、まい朝 三十ぷん 読む れんしゅうを して います」 ➔ Vì việc đọc văn bản hơi kém một chút."
                 },
                 {
@@ -592,12 +613,12 @@ DATA_M105 = {
                     "prompt": "この 人の しょうらいの ゆめは 何ですか。",
                     "promptVi": "Ước mơ trong tương lai của người này là gì?",
                     "options": [
-                        "フランスで 先生に なる こと。",
                         "日本へ 留学生として 行く こと。",
+                        "フランスで 先生に なる こと。",
                         "えいごの 本を かく こと。",
                         "学校を やめる こと。"
                     ],
-                    "correct": 1,
+                    "correct": 0,
                     "explain": "💡 <strong>Thông tin trong bài đọc:</strong> 「しょうらい、日本へ 留学生として 行って、たくさんの 友達を つくりたいです」 ➔ Đi du học Nhật Bản."
                 }
             ]

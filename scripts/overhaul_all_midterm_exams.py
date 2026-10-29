@@ -3,11 +3,17 @@
 """
 scripts/overhaul_all_midterm_exams.py
 Đại tu và chuẩn hóa toàn bộ 5 đề thi Midterm Marugoto A2-1 (M101 - M105):
-1. Rút gọn 100% dạng bài từ đồng nghĩa Câu 6 - 10 thành 4 lựa chọn ngắn gọn (1-4 từ) chuẩn JLPT/Marugoto.
-2. Sửa toàn bộ lỗi chính tả/typo (như 'みずを かいたいです' -> 'かいたいです').
-3. Xáo trộn đáp án trắc nghiệm trên cả 5 đề thi: Tỉ lệ chuẩn 25% A, 25% B, 25% C, 25% D (7 câu mỗi đáp án).
-4. Đảm bảo 100% tuân thủ 86 chữ Hán đã học bài 1-10.
-5. Cập nhật đồng bộ vào exam_m101_data.py -> exam_m105_data.py và tests/De_Thi_Midterm_A2_1.html.
+1. LOẠI BỎ 100% THỂ TA (V-た):
+   - Đề A2-1 Bài 1-10 chưa học thể Ta (V-たことがある, V-たあとで, v.v.).
+   - Loại bỏ triệt để cấu trúc 'V-た ことが あります' ở M102 Q23, thay bằng cấu trúc chuẩn Bài 8 'V-る 前に'.
+   - Loại bỏ 'あった 後で' ở M101 Q34, thay bằng câu hỏi đọc hiểu chuẩn 'ふたりは あした どこで 食事を しますか'.
+   - Loại bỏ 'まよったので' ở M101 Q26, M105 Q5, M105 Q25, M105 Q30.
+   - Sửa các phương án nhiễu chứa thể Ta: 'かりた' -> 'かりません', 'つかった' -> 'つかいます', 'はなした' -> 'はなします', '読んだ' -> '読みます'.
+2. Rút gọn 100% dạng bài từ đồng nghĩa Câu 6 - 10 thành 4 lựa chọn ngắn gọn (1-3 từ) chuẩn JLPT/Marugoto.
+3. Sửa toàn bộ lỗi chính tả/typo (như 'みずを かいたいです' -> 'かいたいです').
+4. Xáo trộn đáp án trắc nghiệm trên cả 5 đề thi: Tỉ lệ chuẩn 25% A, 25% B, 25% C, 25% D (7 câu mỗi đáp án).
+5. Đảm bảo 100% tuân thủ 86 chữ Hán đã học bài 1-10.
+6. Cập nhật đồng bộ vào exam_m101_data.py -> exam_m105_data.py và tests/De_Thi_Midterm_A2_1.html.
 """
 
 import os
@@ -24,7 +30,7 @@ from exam_m103_data import build_m103
 from exam_m104_data import build_m104
 from exam_m105_data import build_m105
 
-# Định nghĩa các câu từ vựng Dạng 2 (Câu 6 - 10) chuẩn trắc nghiệm cho cả 5 mã đề
+# 1. Định nghĩa các câu từ vựng Dạng 2 (Câu 6 - 10) chuẩn trắc nghiệm cho cả 5 mã đề
 NEW_VOCAB_G2 = {
     "M101": [
         {
@@ -285,23 +291,131 @@ EXAM_BUILDERS = {
     "M105": build_m105,
 }
 
-def overhaul_all():
-    print("🚀 Bắt đầu quá trình đại tu chuẩn hóa toàn bộ 5 đề thi Midterm...")
+def purge_ta_forms_and_overhaul():
+    print("🚀 Bắt đầu quá trình loại bỏ 100% Thể Ta (V-た) và đại tu chuẩn hóa toàn bộ 5 đề thi...")
     all_overhauled_exams = []
 
     for idx, (code, builder_fn) in enumerate(EXAM_BUILDERS.items()):
         exam = builder_fn()
         print(f"\n📦 Xử lý mã đề: [{code}] - {exam['name']}")
 
-        # 1. Cập nhật nhóm 2 phần từ vựng (Câu 6-10)
+        # ----------------------------------------------------
+        # 1. LOẠI BỎ CÁC CÂU CHỨA THỂ TA CỤ THỂ TRÊN TỪNG MÃ ĐỀ
+        # ----------------------------------------------------
+        all_items_dict = {}
+        for sec in exam["sections"]:
+            for g in sec.get("groups", []):
+                for it in g.get("items", []):
+                    all_items_dict[it["id"]] = it
+            for it in sec.get("items", []):
+                all_items_dict[it["id"]] = it
+
+        if code == "M101":
+            # Q24: đổi distractor かりた -> かりません
+            it24 = all_items_dict.get(24)
+            if it24:
+                it24["options"] = [o if o != "かりた" else "かりません" for o in it24["options"]]
+
+            # Q26: Đổi câu hỏi dùng trợ từ で chỉ nguyên nhân (Câu 35 ôn tập) thay vì まよったので
+            it26 = all_items_dict.get(26)
+            if it26:
+                it26["prompt"] = "たいふう (   )、でんしゃが 止まりました。"
+                it26["promptVi"] = "Vì bão nên tàu điện đã dừng chạy. (Câu 35 trong bộ 40 câu ôn tập)"
+                it26["options"] = ["で", "に", "を", "へ"]
+                it26["correct"] = 0
+                it26["explain"] = "💡 <strong>Trợ từ で chỉ nguyên nhân do biến cố, thời tiết (Bài 4):</strong> たいふう<strong>で</strong> (Do bão) ➔ Đúng theo Câu 35 trong bộ 40 câu ôn tập."
+
+            # Q34: Đọc hiểu, đổi 'ふたりは あった 後で' -> 'ふたりは あした どこで 食事を しますか。'
+            it34 = all_items_dict.get(34)
+            if it34:
+                it34["prompt"] = "ふたりは あした どこで 食事を しますか。"
+                it34["promptVi"] = "Hai người ngày mai ăn cơm ở đâu?"
+                it34["options"] = ["日本りょうりの 店", "カフェ", "えきの なか", "学校"]
+                it34["correct"] = 0
+                it34["explain"] = "💡 <strong>Thông tin trong bài đọc:</strong> '右がわに ある 日本りょうりの 店で いっしょに ごはんを 食べましょう' ➔ Quán ăn Nhật Bản."
+
+        elif code == "M102":
+            # Q18: Sửa câu Hán tự không dùng 'たべた あとで'
+            it18 = all_items_dict.get(18)
+            if it18:
+                it18["prompt"] = "じゅぎょうの 【あと】で、としょかんへ 行きます。"
+                it18["promptVi"] = "Sau giờ học, tôi đi đến thư viện."
+                it18["explain"] = "💡 <strong>Chữ Hán: 後 (Hậu):</strong> Trong từ 【あと】 (sau). 【じゅぎょうの 後で】: Sau giờ học. Chữ 行 đã học ở Bài 5."
+
+            # Q22: đổi distractor つかった -> つかいます
+            it22 = all_items_dict.get(22)
+            if it22:
+                it22["options"] = [o if o != "つかった" else "つかいます" for o in it22["options"]]
+
+            # Q23: CỰC KỲ QUAN TRỌNG - Bỏ cấu trúc 'V-た ことが あります' (kinh nghiệm chưa học bài 1-10)
+            # Thay bằng cấu trúc V-る 前に (Bài 8 - Câu 13 ôn tập)
+            it23 = all_items_dict.get(23)
+            if it23:
+                it23["prompt"] = "えいがを (   ) 前に、カフェへ 行って おちゃを のみたいです。"
+                it23["promptVi"] = "Trước khi xem phim, tôi muốn đi quán cà phê uống trà. (Câu 13 trong bộ 40 câu ôn tập)"
+                it23["options"] = ["みる", "みます", "みて", "みない"]
+                it23["correct"] = 0
+                it23["explain"] = "💡 <strong>Cấu trúc trình tự thời gian (Bài 8): Động từ thể từ điển (V-る) ＋ 前に:</strong> Trước khi xem phim ➔ <strong>みる 前に</strong>. Đúng theo Câu 13 trong bộ 40 câu ôn tập."
+
+        elif code == "M105":
+            # Q5: Thay câu từ vựng まよった -> かり (Mượn từ điển - Bài 8)
+            it5 = all_items_dict.get(5)
+            if it5:
+                it5["prompt"] = "学校の としょかんで 日本語の じしょを (   )ました。"
+                it5["promptVi"] = "Tôi đã mượn cuốn từ điển tiếng Nhật ở thư viện trường. (Câu 14 trong bộ 40 câu ôn tập)"
+                it5["options"] = ["かり", "まち", "よみ", "かき"]
+                it5["correct"] = 0
+                it5["explain"] = "💡 <strong>Động từ mượn sách/từ điển (Bài 8):</strong> かりる (かりました ➔ đã mượn). Chữ 学校, 本 đều đã học."
+
+            # Q21: đổi distractor はなした -> はなします
+            it21 = all_items_dict.get(21)
+            if it21:
+                it21["options"] = [o if o != "はなした" else "はなします" for o in it21["options"]]
+
+            # Q24: đổi distractor 読んだ -> 読みます
+            it24 = all_items_dict.get(24)
+            if it24:
+                it24["options"] = [o if o != "読んだ" else "読みます" for o in it24["options"]]
+
+            # Q25: Thay câu まよったので bằng câu liên từ から (Câu 15 ôn tập)
+            it25 = all_items_dict.get(25)
+            if it25:
+                it25["prompt"] = "ちゅうごく語は むずかしいですが、おもしろいです。えいごと ちがいます (   )。"
+                it25["promptVi"] = "Tiếng Trung khó nhưng thú vị. Vì khác với tiếng Anh. (Câu 15 trong bộ 40 câu ôn tập)"
+                it25["options"] = ["から", "ので", "のに", "けど"]
+                it25["correct"] = 0
+                it25["explain"] = "💡 <strong>Liên từ chỉ lý do nguyên nhân (Bài 2/10): ～から:</strong> ちがいます<strong>から</strong> (Vì khác với tiếng Anh). Đúng theo Câu 15 trong bộ 40 câu ôn tập."
+
+            # Q30: Sắp xếp câu ngôi sao ★ (Đổi câu まよったので thành câu 39 ôn tập: 日本語は ぶんしょうを 読む のが 少し にがてです)
+            it30 = all_items_dict.get(30)
+            if it30:
+                it30["prompt"] = "日本語は　＿＿＿　＿＿＿　★　＿＿＿　にがてです。"
+                it30["promptVi"] = "Tiếng Nhật thì việc đọc câu văn tôi hơi kém một chút. (Câu 39 trong bộ 40 câu ôn tập)"
+                it30["sentencePre"] = "日本語は"
+                it30["sentencePost"] = "にがてです。"
+                it30["starPos"] = 3
+                # Parts: [1: ぶんしょうを, 2: 読む, 3: のが (★), 4: 少し]
+                # Xáo trộn vị trí hiển thị:
+                it30["parts"] = [
+                    {"id": 1, "text": "ぶんしょうを"},
+                    {"id": 2, "text": "読む"},
+                    {"id": 3, "text": "のが"},
+                    {"id": 4, "text": "少し"}
+                ]
+                it30["options"] = ["少し", "ぶんしょうを", "のが", "読む"]
+                it30["correct"] = 2 # 'のが' ở vị trí index 2 (C)
+                it30["fullSentence"] = "日本語は ぶんしょうを 読む のが 少し にがてです。"
+                it30["explain"] = "💡 <strong>Thứ tự sắp xếp đúng:</strong><br>ぶんしょうを (1) ➔ 読む (2) ➔ <strong>のが (3 - ★)</strong> ➔ 少し (4).<br>➔ Câu hoàn chỉnh: 日本語は ぶんしょうを 読む のが 少し にがてです。"
+
+        # ----------------------------------------------------
+        # 2. CẬP NHẬT NHÓM 2 PHẦN TỪ VỰNG (Câu 6-10) TINH GỌN
+        # ----------------------------------------------------
         vocab_sec = next(s for s in exam["sections"] if s["id"] == "sec1_vocab")
         g2 = next(g for g in vocab_sec["groups"] if "DẠNG 2" in g.get("groupTitle", ""))
         new_g2_items = NEW_VOCAB_G2[code]
         
-        # Đưa các câu mới vào
         converted_g2 = []
         for it in new_g2_items:
-            # Kiểm tra chữ Hán nghiêm ngặt
             v(it["prompt"], f"{code}.Q{it['id']}.p")
             v(it["correct_text"], f"{code}.Q{it['id']}.correct")
             for d in it["distractors"]:
@@ -319,7 +433,9 @@ def overhaul_all():
         g2["items"] = converted_g2
         g2["groupInstruction"] = "Chọn từ hoặc cụm từ ngắn gọn mang ý nghĩa tương đương nhất với phần gạch chân:"
 
-        # 2. Thu thập toàn bộ 28 câu trắc nghiệm (MC)
+        # ----------------------------------------------------
+        # 3. THU THẬP VÀ CÂN BẰNG ĐÁP ÁN TRẮC NGHIỆM (A:7, B:7, C:7, D:7)
+        # ----------------------------------------------------
         mc_items = []
         for sec in exam["sections"]:
             for g in sec.get("groups", []):
@@ -333,8 +449,7 @@ def overhaul_all():
         if len(mc_items) != 28:
             raise ValueError(f"Expected 28 MC items in {code}, got {len(mc_items)}")
 
-        # 3. Phân bổ cân bằng đáp án A, B, C, D (7 câu mỗi chữ cái)
-        keys = generate_balanced_keys(101 + idx * 43)
+        keys = generate_balanced_keys(202 + idx * 53)
         counts = {0: 0, 1: 0, 2: 0, 3: 0}
         for it, target_pos in zip(mc_items, keys):
             counts[target_pos] += 1
@@ -342,7 +457,6 @@ def overhaul_all():
             correct_val = it["options"][curr_correct_idx]
             distractors = [opt for i, opt in enumerate(it["options"]) if i != curr_correct_idx]
             
-            # Xây dựng new options với target_pos là đáp án đúng
             new_opts = [None]*4
             new_opts[target_pos] = correct_val
             d_idx = 0
@@ -354,27 +468,56 @@ def overhaul_all():
             it["options"] = new_opts
             it["correct"] = target_pos
             
-            # Kiểm tra chữ Hán
             for opt in new_opts:
                 v(opt, f"{code}.Q{it['id']}.opt")
 
         print(f"  ✅ Đã cân bằng 28 câu trắc nghiệm: {counts} (A:7, B:7, C:7, D:7)")
 
-        # 4. Kiểm tra câu sao ★ (Q27-Q30)
-        star_items = []
-        for sec in exam["sections"]:
-            for g in sec.get("groups", []):
-                for it in g.get("items", []):
-                    if it.get("type") == "star":
-                        star_items.append(it)
-            for it in sec.get("items", []):
-                if it.get("type") == "star":
-                    star_items.append(it)
-        
-        star_corrects = [it["correct"] for it in star_items]
-        print(f"  ⭐ Câu sao ★ ({len(star_items)} câu) có đáp án: {star_corrects}")
+        # Kiểm tra không còn bất kỳ Thể Ta nào
+        for it in mc_items:
+            for text_str in [it["prompt"]] + it["options"]:
+                if "たことがある" in text_str or "た後で" in text_str or "あった後" in text_str or "まよった" in text_str:
+                    raise ValueError(f"STILL FOUND TA-FORM in [{code}] Q{it['id']}: {text_str}")
 
         all_overhauled_exams.append(exam)
+
+    # 4. Ghi đè vào các file scripts/exam_m10x_data.py
+    header = """#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+import re
+
+PERMITTED_KANJI = set(
+    "私父母子男女"
+    "国外国語本読好何"
+    "秋冬春夏今花海山川"
+    "天気晴雨雪雲風空"
+    "町店多少高安広"
+    "道通右左赤青黒白"
+    "時間場所駅出待止"
+    "食事仕前後朝昼夜乗"
+    "学校先生勉強"
+    "文化音楽留旅行友達週回"
+    "人"
+    "日月"
+    "一二三四五六七八九十"
+)
+
+def v(text, label=""):
+    cjk = set(re.findall(r"[\u4e00-\u9faf]", text))
+    out = cjk - PERMITTED_KANJI
+    if out:
+        raise ValueError(f"UNLEARNED KANJI at [{label}]: {out} in '{text}'")
+    return text
+"""
+    for exam in all_overhauled_exams:
+        code = exam["code"]
+        var_name = f"build_{code.lower()}"
+        file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), f"exam_{code.lower()}_data.py")
+        exam_json = json.dumps(exam, ensure_ascii=False, indent=4)
+        content = f"{header}\nDATA_{code} = {exam_json}\n\ndef {var_name}():\n    return DATA_{code}\n"
+        with open(file_path, "w", encoding="utf-8") as f:
+            f.write(content)
+        print(f"  💾 Đã đồng bộ file nguồn: {file_path}")
 
     # 5. Cập nhật const EXAMS_DATA trong tests/De_Thi_Midterm_A2_1.html
     html_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tests", "De_Thi_Midterm_A2_1.html")
@@ -382,8 +525,6 @@ def overhaul_all():
         html_content = f.read()
 
     exams_json_str = json.dumps(all_overhauled_exams, ensure_ascii=False)
-    
-    # Tìm vùng const EXAMS_DATA = [...];
     pattern = r"const EXAMS_DATA = \[.*?\];\s*\n\s*//"
     match = re.search(pattern, html_content, re.DOTALL)
     if not match:
@@ -395,8 +536,7 @@ def overhaul_all():
     with open(html_path, "w", encoding="utf-8") as f:
         f.write(new_html)
 
-    print(f"\n🎉 Đã cập nhật thành công EXAMS_DATA vào: {html_path}")
-    print(f"   Dung lượng dữ liệu mới: {len(exams_json_str)} ký tự.")
+    print(f"\n🎉 HOÀN TẤT ĐẠI TU: Đã loại bỏ 100% Thể Ta, cập nhật thành công vào: {html_path}")
 
 if __name__ == "__main__":
-    overhaul_all()
+    purge_ta_forms_and_overhaul()

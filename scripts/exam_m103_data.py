@@ -25,7 +25,6 @@ def v(text, label=""):
         raise ValueError(f"UNLEARNED KANJI at [{label}]: {out} in '{text}'")
     return text
 
-
 DATA_M103 = {
     "code": "M103",
     "name": "Mã Đề M103 (Chỉ Đường, Không Gian & Thời Tiết 4 Mùa)",
@@ -51,11 +50,11 @@ DATA_M103 = {
                             "promptVi": "Bạn có nhìn thấy cây cầu màu đỏ ở đằng kia không? (Câu 5 trong bộ 40 câu ôn tập)",
                             "options": [
                                 "青い",
-                                "赤い",
                                 "白い",
-                                "黒い"
+                                "黒い",
+                                "赤い"
                             ],
-                            "correct": 1,
+                            "correct": 3,
                             "explain": "💡 <strong>Từ vựng màu sắc (Bài 6):</strong> Cây cầu màu đỏ ➔ <strong>赤い</strong> (あかい). Các màu khác: 青い (xanh), 白い (trắng), 黒い (đen)."
                         },
                         {
@@ -64,12 +63,12 @@ DATA_M103 = {
                             "prompt": "この 道を (   ) 行って ください。はくぶつかんは 左がわに あります。",
                             "promptVi": "Hãy đi thẳng con đường này. Bảo tàng ở bên tay trái. (Câu 6 trong bộ 40 câu ôn tập)",
                             "options": [
+                                "まっすぐ",
                                 "ゆっくり",
                                 "たくさん",
-                                "まっすぐ",
                                 "あまり"
                             ],
-                            "correct": 2,
+                            "correct": 0,
                             "explain": "💡 <strong>Phó từ chỉ phương hướng (Bài 6):</strong> <strong>まっすぐ</strong> (thẳng, đi thẳng: まっすぐ行く)."
                         },
                         {
@@ -79,11 +78,11 @@ DATA_M103 = {
                             "promptVi": "Bạn có nhìn thấy tòa nhà hình tròn, thú vị ở đằng kia không? (Câu 8 trong bộ 40 câu ôn tập)",
                             "options": [
                                 "ふるい",
-                                "おもしろい",
                                 "たかい",
-                                "すくない"
+                                "すくない",
+                                "おもしろい"
                             ],
-                            "correct": 1,
+                            "correct": 3,
                             "explain": "💡 <strong>Từ vựng tính từ (Bài 6):</strong> まるくて (tròn và) ＋ <strong>おもしろい</strong> (thú vị, lạ mắt)."
                         },
                         {
@@ -106,12 +105,12 @@ DATA_M103 = {
                             "prompt": "うえのこうえんは とても 広くて (   ) です。なかに どうぶつえんが あります。",
                             "promptVi": "Công viên Ueno rất rộng và nổi tiếng. Bên trong có sở thú. (Câu 1 trong bộ 40 câu ôn tập)",
                             "options": [
-                                "べんり",
                                 "ゆうめい",
+                                "べんり",
                                 "しずか",
                                 "すき"
                             ],
-                            "correct": 1,
+                            "correct": 0,
                             "explain": "💡 <strong>Từ vựng miêu tả thành phố (Bài 5):</strong> 広くて <strong>ゆうめい</strong> (rộng rãi và nổi tiếng)."
                         }
                     ]
@@ -126,12 +125,12 @@ DATA_M103 = {
                             "prompt": "ハノイの 秋は <u>きれいで</u>、しずかです。",
                             "promptVi": "Mùa thu Hà Nội rất đẹp và yên bình. (Câu 33 trong bộ 40 câu ôn tập)",
                             "options": [
-                                "すてきで",
                                 "きたなくて",
                                 "あつくて",
+                                "すてきで",
                                 "うるさくて"
                             ],
-                            "correct": 0,
+                            "correct": 2,
                             "explain": "💡 <strong>Tính từ khen ngợi (Bài 3):</strong> きれい (đẹp, thanh lịch) ＝ <strong>すてき</strong> (tuyệt vời, tươi đẹp). Chữ 秋 (Thu) đã học ở Bài 3."
                         },
                         {
@@ -142,10 +141,10 @@ DATA_M103 = {
                             "options": [
                                 "まるくて おおきい",
                                 "ひろくて ひくい",
-                                "みじかくて おもい",
-                                "ながくて ほそい"
+                                "ながくて ほそい",
+                                "みじかくて おもい"
                             ],
-                            "correct": 3,
+                            "correct": 2,
                             "explain": "💡 <strong>Tính từ ghép hình dáng (Bài 5):</strong> ほそながい ＝ <strong>ながくて ほそい</strong> (thon và dài)."
                         },
                         {
@@ -154,12 +153,12 @@ DATA_M103 = {
                             "prompt": "たいふうで、でんしゃと バスが <u>止まりました</u>。",
                             "promptVi": "Vì bão nên tàu điện và xe buýt đã dừng chạy. (Câu 35 trong bộ 40 câu ôn tập)",
                             "options": [
-                                "うごきませんでした",
                                 "はしりました",
+                                "うごきませんでした",
                                 "つきました",
                                 "でました"
                             ],
-                            "correct": 0,
+                            "correct": 1,
                             "explain": "💡 <strong>Động từ chỉ trạng thái giao thông (Bài 4):</strong> 止まりました (đã dừng lại) ＝ <strong>うごきませんでした</strong> (đã không di chuyển/hoạt động). Chữ 止 đã học ở Bài 7."
                         },
                         {
@@ -168,12 +167,12 @@ DATA_M103 = {
                             "prompt": "お母さんは とても かわいくて、<u>しんせつな</u> 人です。",
                             "promptVi": "Mẹ tôi là người rất dễ thương và tốt bụng. (Câu 20 trong bộ 40 câu ôn tập)",
                             "options": [
+                                "やさしい",
                                 "こわい",
                                 "きびしい",
-                                "つめたい",
-                                "やさしい"
+                                "つめたい"
                             ],
-                            "correct": 3,
+                            "correct": 0,
                             "explain": "💡 <strong>Tính từ tính cách (Bài 1):</strong> しんせつな (tốt bụng, ân cần) ＝ <strong>やさしい</strong> (hiền hậu, tốt bụng). Chữ 母 và 人 đều đã học."
                         },
                         {
@@ -183,11 +182,11 @@ DATA_M103 = {
                             "promptVi": "Khoảng tháng 12 trời trở lạnh nên tôi không hay ra ngoài lắm. (Câu 33 trong bộ 40 câu ôn tập)",
                             "options": [
                                 "まい日 外へ 出る",
-                                "うちに いる ことが 多い",
                                 "旅行に よく 行く",
+                                "うちに いる ことが 多い",
                                 "外で あそぶ"
                             ],
-                            "correct": 1,
+                            "correct": 2,
                             "explain": "💡 <strong>Cách nói tương đương sinh hoạt (Bài 3-4):</strong> あまり 外へ 出ません (ít khi ra ngoài) ＝ <strong>うちに いる ことが 多い</strong> (thường ở trong nhà). Chữ 外, 出, 多 đều đã học."
                         }
                     ]
@@ -240,11 +239,11 @@ DATA_M103 = {
                             "promptVi": "Hôm qua tuyết trắng đã rơi.",
                             "options": [
                                 "あめ",
-                                "ゆき",
                                 "くも",
-                                "かぜ"
+                                "かぜ",
+                                "ゆき"
                             ],
-                            "correct": 1,
+                            "correct": 3,
                             "explain": "💡 <strong>Chữ 雪 (TUYẾT - Bài 4):</strong> Đọc là <strong>ゆき</strong> (tuyết). Phân biệt: 雨 (あめ - mưa), 雲 (くも - mây), 風 (かぜ - gió)."
                         },
                         {
@@ -267,12 +266,12 @@ DATA_M103 = {
                             "prompt": "はくぶつかんは 【左】がわに あります。",
                             "promptVi": "Bảo tàng nằm ở phía bên trái.",
                             "options": [
+                                "ひだり",
                                 "みぎ",
                                 "きた",
-                                "ひだり",
                                 "みなみ"
                             ],
-                            "correct": 2,
+                            "correct": 0,
                             "explain": "💡 <strong>Chữ 左 (TẢ - Bài 6):</strong> Đọc là <strong>ひだり</strong> (bên trái)."
                         }
                     ]
@@ -287,12 +286,12 @@ DATA_M103 = {
                             "prompt": "春には きれいな 【はな】が さきます。",
                             "promptVi": "Vào mùa xuân có hoa đẹp nở rộ.",
                             "options": [
-                                "花",
                                 "海",
+                                "花",
                                 "山",
                                 "川"
                             ],
-                            "correct": 0,
+                            "correct": 1,
                             "explain": "💡 <strong>Chữ 花 (HOA - Bài 3):</strong> Đọc là <strong>はな</strong> (bông hoa). Phân biệt: 海 (うみ - biển), 山 (やま - núi), 川 (かわ - sông)."
                         },
                         {
@@ -302,11 +301,11 @@ DATA_M103 = {
                             "promptVi": "Hôm nay trời đang mưa.",
                             "options": [
                                 "雪",
-                                "雨",
                                 "雲",
+                                "雨",
                                 "風"
                             ],
-                            "correct": 1,
+                            "correct": 2,
                             "explain": "💡 <strong>Chữ 雨 (VŨ - Bài 4):</strong> Đọc là <strong>あめ</strong> (cơn mưa)."
                         },
                         {
@@ -330,11 +329,11 @@ DATA_M103 = {
                             "promptVi": "Bầu trời xanh trải rộng bao la.",
                             "options": [
                                 "晴",
+                                "空",
                                 "雲",
-                                "海",
-                                "空"
+                                "海"
                             ],
-                            "correct": 3,
+                            "correct": 1,
                             "explain": "💡 <strong>Chữ 空 (KHÔNG - Bài 4):</strong> Đọc là <strong>そら</strong> (bầu trời)."
                         },
                         {
@@ -372,12 +371,12 @@ DATA_M103 = {
                             "prompt": "一ばんめの かどを 右 (   ) まがって ください。",
                             "promptVi": "Hãy rẽ phải ở góc đường thứ nhất. (Câu 6 trong bộ 40 câu ôn tập)",
                             "options": [
-                                "に",
                                 "を",
                                 "で",
-                                "へ"
+                                "へ",
+                                "に"
                             ],
-                            "correct": 0,
+                            "correct": 3,
                             "explain": "💡 <strong>Cấu trúc rẽ hướng: [Hướng] に まがる:</strong> Rẽ sang bên phải ➔ <strong>右に まがる</strong>. Lưu ý góc đường dùng trợ từ を (かどを)."
                         },
                         {
@@ -387,11 +386,11 @@ DATA_M103 = {
                             "promptVi": "Mùa thu của Hà Nội thì đẹp và yên bình. (Câu 33 trong bộ 40 câu ôn tập)",
                             "options": [
                                 "くて",
-                                "くては",
                                 "で",
+                                "くては",
                                 "な"
                             ],
-                            "correct": 2,
+                            "correct": 1,
                             "explain": "💡 <strong>Cấu trúc nối Tính từ đuôi な: Tính từ (bỏ な) + で:</strong> きれい (Tính từ đuôi な) ➔ <strong>きれいで</strong>, しずかです."
                         },
                         {
@@ -428,12 +427,12 @@ DATA_M103 = {
                             "prompt": "あさひはくぶつかんへ 行きたいんですが、(   ) 行きますか。",
                             "promptVi": "Tôi muốn đi đến viện bảo tàng Asahi, đi như thế nào? (Câu 6 trong bộ 40 câu ôn tập)",
                             "options": [
-                                "どうやって",
                                 "いくらで",
+                                "どうやって",
                                 "だれと",
                                 "なぜ"
                             ],
-                            "correct": 0,
+                            "correct": 1,
                             "explain": "💡 <strong>Từ để hỏi cách thức/đường đi: どうやって:</strong> 'Đi như thế nào / bằng cách nào?' ➔ <strong>どうやって 行きますか</strong>."
                         },
                         {
@@ -443,11 +442,11 @@ DATA_M103 = {
                             "promptVi": "Ở khu vực này có nhiều cửa hàng thời trang dễ thương. (Câu 3 trong bộ 40 câu ôn tập)",
                             "options": [
                                 "すこし",
-                                "あまり",
                                 "たくさん",
+                                "あまり",
                                 "ぜんぜん"
                             ],
-                            "correct": 2,
+                            "correct": 1,
                             "explain": "💡 <strong>Phó từ chỉ số lượng nhiều: たくさん:</strong> Có rất nhiều tiệm quần áo dễ thương."
                         }
                     ]
@@ -578,12 +577,12 @@ DATA_M103 = {
                     "prompt": "この 人は なぜ 十二月に あまり 外へ 出ませんか。",
                     "promptVi": "Tại sao vào tháng 12 người này lại không hay ra ngoài?",
                     "options": [
+                        "とても さむく なりますから。",
                         "雨が たくさん ふりますから。",
                         "学校の テストが ありますから。",
-                        "まちが にぎやかですから。",
-                        "とても さむく なりますから。"
+                        "まちが にぎやかですから。"
                     ],
-                    "correct": 3,
+                    "correct": 0,
                     "explain": "💡 <strong>Thông tin trong bài đọc:</strong> 「とても さむく なりますから、あまり 外へ 出ません」 ➔ Vì trời trở nên rất lạnh."
                 },
                 {
