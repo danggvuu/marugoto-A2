@@ -1422,6 +1422,21 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
             .replace(/[A-Za-z]/g, ch => ch.toLowerCase());
     }
 
+    // Helper: Match text against target with に/へ particle tolerance and minor variation tolerance
+    function isTextFuzzyMatch(userNorm, targetNorm) {
+        if (!userNorm || !targetNorm) return false;
+        if (userNorm === targetNorm || userNorm.includes(targetNorm) || targetNorm.includes(userNorm)) return true;
+        // Trợ từ chuyển động: に <-> へ tương đương hoàn toàn
+        const userAlt = userNorm.replace(/へ/g, 'に');
+        const targetAlt = targetNorm.replace(/へ/g, 'に');
+        if (userAlt === targetAlt || userAlt.includes(targetAlt) || targetAlt.includes(userAlt)) return true;
+        // ですが <-> んですが tương đương
+        const userDesu = userAlt.replace(/んですが/g, 'ですが');
+        const targetDesu = targetAlt.replace(/んですが/g, 'ですが');
+        if (userDesu === targetDesu || userDesu.includes(targetDesu) || targetDesu.includes(userDesu)) return true;
+        return false;
+    }
+
     function evaluateAnswer(q, userState) {
         const normAcceptable = (q.acceptable || []).map(normalizeJp);
 
@@ -1435,39 +1450,63 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
                 return 0;
             }
 
-            // Keyword count for A and B
-            const kwA = q.keywordsA || [];
-            const kwB = q.keywordsB || [];
-            let matchA = 0;
-            kwA.forEach(k => {
-                const nk = normalizeJp(k);
-                if (normA.includes(nk)) matchA++;
-            });
-            let matchB = 0;
-            kwB.forEach(k => {
-                const nk = normalizeJp(k);
-                if (normB.includes(nk)) matchB++;
-            });
+            // Direct acceptable check for dialogue
+            const accListA = (q.acceptableA || []).map(normalizeJp);
+            const accListB = (q.acceptableB || []).map(normalizeJp);
+            const matchAccA = accListA.some(acc => isTextFuzzyMatch(normA, acc));
+            const matchAccB = accListB.some(acc => isTextFuzzyMatch(normB, acc));
 
-            const ratioA = kwA.length > 0 ? (matchA / kwA.length) : 1;
-            const ratioB = kwB.length > 0 ? (matchB / kwB.length) : 1;
+            if (matchAccA && matchAccB) {
+                return 100;
+            }
+
+            // Keyword count for A with Kanji & Hiragana support + に/へ particle tolerance
+            const kwA = q.keywordsA || [];
+            const kwHiraA = q.keywordsHiraA || [];
+            let matchA = matchAccA ? kwA.length : 0;
+            if (!matchAccA) {
+                for (let i = 0; i < kwA.length; i++) {
+                    const k1 = normalizeJp(kwA[i]);
+                    const k2 = kwHiraA[i] ? normalizeJp(kwHiraA[i]) : "";
+                    if (isTextFuzzyMatch(normA, k1) || (k2 && isTextFuzzyMatch(normA, k2))) {
+                        matchA++;
+                    }
+                }
+            }
+
+            // Keyword count for B with Kanji & Hiragana support + に/へ particle tolerance
+            const kwB = q.keywordsB || [];
+            const kwHiraB = q.keywordsHiraB || [];
+            let matchB = matchAccB ? kwB.length : 0;
+            if (!matchAccB) {
+                for (let i = 0; i < kwB.length; i++) {
+                    const k1 = normalizeJp(kwB[i]);
+                    const k2 = kwHiraB[i] ? normalizeJp(kwHiraB[i]) : "";
+                    if (isTextFuzzyMatch(normB, k1) || (k2 && isTextFuzzyMatch(normB, k2))) {
+                        matchB++;
+                    }
+                }
+            }
+
+            const ratioA = kwA.length > 0 ? (matchA / kwA.length) : (normA.length > 3 ? 1 : 0);
+            const ratioB = kwB.length > 0 ? (matchB / kwB.length) : (normB.length > 3 ? 1 : 0);
             const totalRatio = (ratioA + ratioB) / 2;
 
-            if (totalRatio >= 0.85) return 100;
-            if (totalRatio >= 0.65) return 85;
-            if (totalRatio >= 0.40) return 50;
+            if (totalRatio >= 0.70 || (matchAccA && ratioB >= 0.6) || (matchAccB && ratioA >= 0.6)) return 100;
+            if (totalRatio >= 0.50) return 85;
+            if (totalRatio >= 0.35) return 50;
             return 25;
         } else {
             const raw = userState.text || "";
             const norm = normalizeJp(raw);
             if (!raw.trim()) return 0;
 
-            // Direct acceptable match
-            if (normAcceptable.some(acc => acc === norm || norm.includes(acc))) {
+            // Direct acceptable match with particle equivalence
+            if (normAcceptable.some(acc => isTextFuzzyMatch(norm, acc))) {
                 return 100;
             }
 
-            // Keyword matching
+            // Keyword matching with Kanji and Hiragana support
             const kws = q.keywords || [];
             const kwsHira = q.keywordsHira || [];
             let matches = 0;
@@ -1475,15 +1514,15 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
             for (let i = 0; i < kws.length; i++) {
                 const k1 = normalizeJp(kws[i]);
                 const k2 = kwsHira[i] ? normalizeJp(kwsHira[i]) : "";
-                if (norm.includes(k1) || (k2 && norm.includes(k2))) {
+                if (isTextFuzzyMatch(norm, k1) || (k2 && isTextFuzzyMatch(norm, k2))) {
                     matches++;
                 }
             }
 
             const ratio = kws.length > 0 ? (matches / kws.length) : 1;
-            if (ratio >= 0.85) return 100;
-            if (ratio >= 0.65) return 85;
-            if (ratio >= 0.40) return 50;
+            if (ratio >= 0.75) return 100;
+            if (ratio >= 0.55) return 85;
+            if (ratio >= 0.35) return 50;
             return 20;
         }
     }
