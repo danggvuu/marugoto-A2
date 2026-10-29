@@ -641,7 +641,265 @@
         },
 
         // F. Universal Signature Japanese Holographic Pedestal (Smart Fallback)
-        universalPrism: (word) => {
+                // B. Travel, Corporate & Airport Advanced 3D Models
+        airplaneTakeoff: () => {
+            const group = new THREE.Group();
+            const runwayGeo = new THREE.BoxGeometry(1.8, 0.1, 4.2);
+            const runwayMat = new THREE.MeshStandardMaterial({ color: 0x1e293b, roughness: 0.8 });
+            const runway = new THREE.Mesh(runwayGeo, runwayMat);
+            runway.position.y = -0.9;
+            group.add(runway);
+            const stripeGeo = new THREE.BoxGeometry(0.15, 0.11, 0.9);
+            const stripeMat = new THREE.MeshBasicMaterial({ color: 0xfacc15 });
+            const s1 = new THREE.Mesh(stripeGeo, stripeMat); s1.position.set(0, -0.89, -1.0);
+            const s2 = new THREE.Mesh(stripeGeo, stripeMat); s2.position.set(0, -0.89, 1.0);
+            group.add(s1); group.add(s2);
+            const plane = new THREE.Group();
+            const fuselageGeo = new THREE.CylinderGeometry(0.32, 0.38, 2.6, 16);
+            const planeMat = new THREE.MeshStandardMaterial({ color: 0xffffff, metalness: 0.3, roughness: 0.2 });
+            const fuselage = new THREE.Mesh(fuselageGeo, planeMat);
+            fuselage.rotation.x = Math.PI / 2;
+            plane.add(fuselage);
+            const noseGeo = new THREE.ConeGeometry(0.32, 0.7, 16);
+            const nose = new THREE.Mesh(noseGeo, planeMat);
+            nose.rotation.x = -Math.PI / 2; nose.position.z = 1.6;
+            plane.add(nose);
+            const wingGeo = new THREE.BoxGeometry(3.2, 0.05, 0.7);
+            const wingMat = new THREE.MeshStandardMaterial({ color: 0x0284c7, metalness: 0.5 });
+            const wings = new THREE.Mesh(wingGeo, wingMat);
+            wings.position.set(0, 0, 0.1);
+            plane.add(wings);
+            const tailGeo = new THREE.BoxGeometry(0.08, 0.7, 0.5);
+            const tail = new THREE.Mesh(tailGeo, wingMat);
+            tail.position.set(0, 0.45, -1.1); tail.rotation.x = -0.3;
+            plane.add(tail);
+            plane.rotation.x = -0.42;
+            plane.position.set(0, 0.35, -0.3);
+            group.add(plane);
+            return group;
+        },
+
+        airplaneLanding: () => {
+            const group = new THREE.Group();
+            const runwayGeo = new THREE.BoxGeometry(1.8, 0.1, 4.2);
+            const runwayMat = new THREE.MeshStandardMaterial({ color: 0x1e293b, roughness: 0.8 });
+            const runway = new THREE.Mesh(runwayGeo, runwayMat);
+            runway.position.y = -0.9;
+            group.add(runway);
+            for (let i = -0.7; i <= 0.7; i += 0.35) {
+                const lightGeo = new THREE.CylinderGeometry(0.05, 0.05, 0.14, 8);
+                const lightMat = new THREE.MeshBasicMaterial({ color: 0x22c55e });
+                const mLight = new THREE.Mesh(lightGeo, lightMat);
+                mLight.position.set(i, -0.82, 1.8);
+                group.add(mLight);
+            }
+            const plane = new THREE.Group();
+            const fuselageGeo = new THREE.CylinderGeometry(0.32, 0.38, 2.6, 16);
+            const planeMat = new THREE.MeshStandardMaterial({ color: 0xffffff, metalness: 0.3, roughness: 0.2 });
+            const fuselage = new THREE.Mesh(fuselageGeo, planeMat);
+            fuselage.rotation.x = Math.PI / 2;
+            plane.add(fuselage);
+            const noseGeo = new THREE.ConeGeometry(0.32, 0.7, 16);
+            const nose = new THREE.Mesh(noseGeo, planeMat);
+            nose.rotation.x = -Math.PI / 2; nose.position.z = 1.6;
+            plane.add(nose);
+            const wingGeo = new THREE.BoxGeometry(3.2, 0.05, 0.7);
+            const wingMat = new THREE.MeshStandardMaterial({ color: 0x10b981, metalness: 0.5 });
+            const wings = new THREE.Mesh(wingGeo, wingMat);
+            wings.position.set(0, 0, 0.1);
+            plane.add(wings);
+            plane.rotation.x = 0.22;
+            plane.position.set(0, -0.38, 0.2);
+            group.add(plane);
+            return group;
+        },
+
+        briefcase: () => {
+            const group = new THREE.Group();
+            const bodyGeo = new THREE.BoxGeometry(2.2, 1.5, 0.65);
+            const bodyMat = new THREE.MeshStandardMaterial({ color: 0x451a03, roughness: 0.35, metalness: 0.15 });
+            const body = new THREE.Mesh(bodyGeo, bodyMat);
+            group.add(body);
+            const goldMat = new THREE.MeshStandardMaterial({ color: 0xf59e0b, metalness: 0.85, roughness: 0.2 });
+            [-0.55, 0.55].forEach(x => {
+                const latchGeo = new THREE.BoxGeometry(0.16, 0.22, 0.68);
+                const latch = new THREE.Mesh(latchGeo, goldMat);
+                latch.position.set(x, 0.35, 0);
+                group.add(latch);
+            });
+            const handleGeo = new THREE.TorusGeometry(0.35, 0.06, 8, 16, Math.PI);
+            const handle = new THREE.Mesh(handleGeo, bodyMat);
+            handle.position.set(0, 0.75, 0);
+            group.add(handle);
+            return group;
+        },
+
+        officeBuilding: () => {
+            const group = new THREE.Group();
+            const towerGeo = new THREE.BoxGeometry(1.6, 2.6, 1.2);
+            const towerMat = new THREE.MeshStandardMaterial({ color: 0x1e3a8a, metalness: 0.7, roughness: 0.25 });
+            const tower = new THREE.Mesh(towerGeo, towerMat);
+            tower.position.y = 0.2;
+            group.add(tower);
+            const winMat = new THREE.MeshBasicMaterial({ color: 0x93c5fd });
+            for (let y = -0.7; y <= 1.1; y += 0.45) {
+                for (let x = -0.55; x <= 0.55; x += 0.55) {
+                    const winGeo = new THREE.PlaneGeometry(0.32, 0.24);
+                    const win = new THREE.Mesh(winGeo, winMat);
+                    win.position.set(x, y + 0.2, 0.61);
+                    group.add(win);
+                }
+            }
+            const canopyGeo = new THREE.BoxGeometry(0.9, 0.08, 0.4);
+            const canopyMat = new THREE.MeshStandardMaterial({ color: 0x38bdf8 });
+            const canopy = new THREE.Mesh(canopyGeo, canopyMat);
+            canopy.position.set(0, -0.7, 0.8);
+            group.add(canopy);
+            return group;
+        },
+
+        headquartersTower: () => {
+            const group = new THREE.Group();
+            const mainGeo = new THREE.BoxGeometry(1.4, 3.2, 1.4);
+            const mainMat = new THREE.MeshStandardMaterial({ color: 0x0f172a, metalness: 0.8, roughness: 0.15 });
+            const mainTower = new THREE.Mesh(mainGeo, mainMat);
+            mainTower.position.y = 0.3;
+            group.add(mainTower);
+            const glassGeo = new THREE.BoxGeometry(1.42, 2.8, 0.8);
+            const glassMat = new THREE.MeshStandardMaterial({ color: 0x6366f1, metalness: 0.9, roughness: 0.1, transparent: true, opacity: 0.75 });
+            const glass = new THREE.Mesh(glassGeo, glassMat);
+            glass.position.y = 0.3;
+            group.add(glass);
+            const spireGeo = new THREE.CylinderGeometry(0.04, 0.12, 1.1, 8);
+            const spireMat = new THREE.MeshStandardMaterial({ color: 0xf59e0b, metalness: 0.9 });
+            const spire = new THREE.Mesh(spireGeo, spireMat);
+            spire.position.y = 2.4;
+            group.add(spire);
+            return group;
+        },
+
+        clockGlobe: () => {
+            const group = new THREE.Group();
+            const earthGeo = new THREE.SphereGeometry(1.1, 32, 32);
+            const earthMat = new THREE.MeshStandardMaterial({ color: 0x0284c7, metalness: 0.3, roughness: 0.6 });
+            const earth = new THREE.Mesh(earthGeo, earthMat);
+            group.add(earth);
+            const ringGeo = new THREE.TorusGeometry(1.4, 0.05, 16, 64);
+            const ringMat = new THREE.MeshBasicMaterial({ color: 0xfacc15 });
+            const ring = new THREE.Mesh(ringGeo, ringMat);
+            ring.rotation.x = Math.PI / 4;
+            group.add(ring);
+            const clockGeo = new THREE.CylinderGeometry(0.5, 0.5, 0.1, 32);
+            const clockMat = new THREE.MeshStandardMaterial({ color: 0xffffff });
+            const clock = new THREE.Mesh(clockGeo, clockMat);
+            clock.rotation.x = Math.PI / 2;
+            clock.position.set(0, 0, 1.25);
+            group.add(clock);
+            return group;
+        },
+
+        hotWaterShower: () => {
+            const group = new THREE.Group();
+            const pipeCurve = new THREE.CubicBezierCurve3(
+                new THREE.Vector3(-0.6, -1.0, 0),
+                new THREE.Vector3(-0.6, 1.2, 0),
+                new THREE.Vector3(0.3, 1.3, 0),
+                new THREE.Vector3(0.5, 0.8, 0)
+            );
+            const pipeGeo = new THREE.TubeGeometry(pipeCurve, 32, 0.07, 12, false);
+            const chromeMat = new THREE.MeshStandardMaterial({ color: 0xe2e8f0, metalness: 0.95, roughness: 0.1 });
+            const pipe = new THREE.Mesh(pipeGeo, chromeMat);
+            group.add(pipe);
+            const headGeo = new THREE.ConeGeometry(0.35, 0.3, 16);
+            const head = new THREE.Mesh(headGeo, chromeMat);
+            head.position.set(0.5, 0.65, 0); head.rotation.z = Math.PI;
+            group.add(head);
+            const waterMat = new THREE.MeshBasicMaterial({ color: 0x38bdf8, transparent: true, opacity: 0.65 });
+            for (let i = -0.2; i <= 0.2; i += 0.1) {
+                const dropGeo = new THREE.CylinderGeometry(0.015, 0.015, 0.7, 6);
+                const drop = new THREE.Mesh(dropGeo, waterMat);
+                drop.position.set(0.5 + i, 0.1, (i * 0.5));
+                group.add(drop);
+            }
+            return group;
+        },
+
+        calendarSchedule: () => {
+            const group = new THREE.Group();
+            const standGeo = new THREE.BoxGeometry(2.0, 1.6, 0.2);
+            const standMat = new THREE.MeshStandardMaterial({ color: 0xdc2626 });
+            const stand = new THREE.Mesh(standGeo, standMat);
+            group.add(stand);
+            const pageGeo = new THREE.BoxGeometry(1.8, 1.3, 0.08);
+            const pageMat = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.9 });
+            const page = new THREE.Mesh(pageGeo, pageMat);
+            page.position.set(0, -0.1, 0.12);
+            group.add(page);
+            return group;
+        },
+
+        key3D: () => {
+            const group = new THREE.Group();
+            const goldMat = new THREE.MeshStandardMaterial({ color: 0xf59e0b, metalness: 0.85, roughness: 0.2 });
+            const headGeo = new THREE.TorusGeometry(0.45, 0.12, 12, 32);
+            const head = new THREE.Mesh(headGeo, goldMat);
+            head.position.y = 0.8;
+            group.add(head);
+            const shaftGeo = new THREE.CylinderGeometry(0.1, 0.1, 1.4, 16);
+            const shaft = new THREE.Mesh(shaftGeo, goldMat);
+            shaft.position.y = 0.1;
+            group.add(shaft);
+            const teethGeo = new THREE.BoxGeometry(0.35, 0.45, 0.15);
+            const teeth = new THREE.Mesh(teethGeo, goldMat);
+            teeth.position.set(0.18, -0.35, 0);
+            group.add(teeth);
+            return group;
+        },
+
+        conferenceRoom: () => {
+            const group = new THREE.Group();
+            const tableGeo = new THREE.CylinderGeometry(1.6, 1.6, 0.15, 32);
+            const tableMat = new THREE.MeshStandardMaterial({ color: 0x451a03, roughness: 0.3 });
+            const table = new THREE.Mesh(tableGeo, tableMat);
+            table.position.y = -0.3;
+            group.add(table);
+            const legGeo = new THREE.CylinderGeometry(0.25, 0.4, 0.8, 16);
+            const leg = new THREE.Mesh(legGeo, tableMat);
+            leg.position.y = -0.7;
+            group.add(leg);
+            return group;
+        },
+
+        handshakeMeeting: () => {
+            const group = new THREE.Group();
+            const baseGeo = new THREE.CylinderGeometry(1.6, 1.7, 0.25, 32);
+            const baseMat = new THREE.MeshStandardMaterial({ color: 0x0284c7, metalness: 0.3 });
+            const base = new THREE.Mesh(baseGeo, baseMat);
+            base.position.y = -0.9;
+            group.add(base);
+            const signGeo = new THREE.BoxGeometry(2.0, 1.2, 0.1);
+            const signMat = new THREE.MeshStandardMaterial({ color: 0xffffff });
+            const sign = new THREE.Mesh(signGeo, signMat);
+            sign.position.y = 0.2;
+            group.add(sign);
+            return group;
+        },
+
+        comfortLounge: () => {
+            const group = new THREE.Group();
+            const fabricMat = new THREE.MeshStandardMaterial({ color: 0x4f46e5, roughness: 0.8 });
+            const seatGeo = new THREE.BoxGeometry(1.6, 0.35, 1.4);
+            const seat = new THREE.Mesh(seatGeo, fabricMat);
+            seat.position.y = -0.3;
+            group.add(seat);
+            const backGeo = new THREE.BoxGeometry(1.6, 1.0, 0.35);
+            const back = new THREE.Mesh(backGeo, fabricMat);
+            back.position.set(0, 0.3, -0.55);
+            group.add(back);
+            return group;
+        },
+
+universalPrism: (word) => {
             const group = new THREE.Group();
 
             // 1. Lacquered Hexagonal Base Pedestal
@@ -733,7 +991,24 @@
         if (text.includes('せんす') || text.includes('うちわ') || text.includes('quạt')) return ModelGenerators.japaneseFan();
         if (text.includes('だるま') || text.includes('daruma')) return ModelGenerators.darumaDoll();
 
-        // Universal Signature 3D Holo-Pedestal for all other words
+                // 6. Corporate, Travel & Business (Lesson 13-18 Specialized)
+        if (text.includes('しゅっぱつ') || text.includes('出発') || text.includes('xuất phát') || text.includes('khởi hành') || text.includes('cất cánh')) return ModelGenerators.airplaneTakeoff();
+        if (text.includes('とうちゃく') || text.includes('到着') || text.includes('đến nơi') || text.includes('hạ cánh')) return ModelGenerators.airplaneLanding();
+        if (text.includes('しゅっちょう') || text.includes('出張') || text.includes('công tác')) return ModelGenerators.briefcase();
+        if (text.includes('ししゃ') || text.includes('支社') || text.includes('chi nhánh')) return ModelGenerators.officeBuilding();
+        if (text.includes('ほんしゃ') || text.includes('本社') || text.includes('trụ sở')) return ModelGenerators.headquartersTower();
+        if (text.includes('じさ') || text.includes('時差') || text.includes('múi giờ')) return ModelGenerators.clockGlobe();
+        if (text.includes('おゆ') || text.includes('お湯') || text.includes('nước nóng') || text.includes('vòi')) return ModelGenerators.hotWaterShower();
+        if (text.includes('スケジュール') || text.includes('lịch trình')) return ModelGenerators.calendarSchedule();
+        if (text.includes('かぎ') || text.includes('鍵') || text.includes('chìa khóa')) return ModelGenerators.key3D();
+        if (text.includes('かいぎ') || text.includes('会議') || text.includes('cuộc họp') || text.includes('họp')) return ModelGenerators.conferenceRoom();
+        if (text.includes('でむかえ') || text.includes('出迎え') || text.includes('あいさつ') || text.includes('挨拶') || text.includes('ようこそ')) return ModelGenerators.handshakeMeeting();
+        if (text.includes('かいてき') || text.includes('快適') || text.includes('tiện nghi') || text.includes('thoải mái')) return ModelGenerators.comfortLounge();
+        if (text.includes('おつかれ') || text.includes('お疲れ') || text.includes('いかが')) return ModelGenerators.sakeBottle();
+        if (text.includes('チェック') || text.includes('kiểm tra')) return ModelGenerators.documentStack();
+
+
+// Universal Signature 3D Holo-Pedestal for all other words
         return ModelGenerators.universalPrism(v);
     }
 
