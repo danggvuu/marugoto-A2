@@ -794,6 +794,33 @@
             border-color: var(--primary);
         }
 
+        .btn-hint-vi {
+            background: white;
+            border: 1px solid var(--gray-300);
+            color: var(--gray-600);
+            border-radius: 8px;
+            padding: 4px 10px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-hint-vi:hover {
+            background: #fef3c7;
+            border-color: #f59e0b;
+            color: #b45309;
+        }
+
+        .btn-hint-vi.active {
+            background: #fef3c7;
+            border-color: #f59e0b;
+            color: #b45309;
+        }
+
         .q-prompt-jp {
             font-size: 1.15rem;
             font-weight: 700;
@@ -807,6 +834,23 @@
             color: #475569;
             margin-bottom: 14px;
             line-height: 1.5;
+            display: none; /* Mặc định che tiếng Việt khi làm bài để sát với đề thi thực tế */
+            background: #f8fafc;
+            border-left: 3px solid #6366f1;
+            padding: 6px 12px;
+            border-radius: 0 6px 6px 0;
+        }
+
+        body.show-all-vi .q-prompt-vi,
+        body.review-mode .q-prompt-vi,
+        .q-prompt-vi.revealed {
+            display: block !important;
+            animation: fadeInVi 0.2s ease-out;
+        }
+
+        @keyframes fadeInVi {
+            from { opacity: 0; transform: translateY(-4px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .hl-kw {
@@ -1582,6 +1626,10 @@
             </div>
 
             <div class="control-actions">
+                <label class="toggle-switch-label" title="Ẩn/Hiện bản dịch tiếng Việt dưới câu hỏi để luyện thi sát thực tế">
+                    <input type="checkbox" id="toggleViGlobal" onchange="toggleGlobalVi(this.checked)">
+                    <span>👁️ Hiện tiếng Việt</span>
+                </label>
                 <label class="toggle-switch-label" title="Xem giải thích và đáp án ngay khi chọn (phù hợp ôn luyện)">
                     <input type="checkbox" id="immediateCheckToggle" onchange="toggleImmediateMode()">
                     <span>⚡ Chế độ kiểm tra ngay</span>
@@ -1890,16 +1938,23 @@
             <div class="q-item-card" id="q_card_${item.id}">
                 <div class="q-meta-row">
                     <span class="q-number-badge">CÂU ${item.id}</span>
-                    <button type="button" class="btn-speak" onclick="speakQuestionAudio(${item.id})">
-                        🔊 Phát âm
-                    </button>
+                    <div style="display:flex; align-items:center; gap:6px;">
+                        ${item.promptVi ? `
+                            <button type="button" class="btn-hint-vi" id="btn_hint_${item.id}" onclick="toggleSingleVi(${item.id})">
+                                👁️ Dịch
+                            </button>
+                        ` : ''}
+                        <button type="button" class="btn-speak" onclick="speakQuestionAudio(${item.id})">
+                            🔊 Phát âm
+                        </button>
+                    </div>
                 </div>
         `;
 
         if (item.type === "mc") {
             qHtml += `
                 <div class="q-prompt-jp jp-text">${item.prompt}</div>
-                <div class="q-prompt-vi">${item.promptVi || ''}</div>
+                <div class="q-prompt-vi" id="q_prompt_vi_${item.id}">${item.promptVi || ''}</div>
                 <div class="options-grid">
                     ${item.options.map((opt, oIdx) => `
                         <label class="option-label" id="opt_lbl_${item.id}_${oIdx}" onclick="handleSelectOption(${item.id}, ${oIdx})">
@@ -1921,7 +1976,7 @@
             const starIdx = starPos - 1;
 
             qHtml += `
-                <div class="q-prompt-vi">${item.promptVi || ''}</div>
+                <div class="q-prompt-vi" id="q_prompt_vi_${item.id}">${item.promptVi || ''}</div>
                 <div class="star-container">
                     <div class="star-sentence-box jp-text">
                         <span>${sPre}</span>
@@ -1987,7 +2042,7 @@
         } else if (item.type === "essay") {
             qHtml += `
                 <div class="q-prompt-jp jp-text" style="font-size:1.1rem; color:#4338ca;">${item.prompt}</div>
-                <div class="q-prompt-vi">${item.promptVi || ''}</div>
+                <div class="q-prompt-vi" id="q_prompt_vi_${item.id}">${item.promptVi || ''}</div>
                 <div class="hint-pills-row">
                     ${(item.hints || []).map(h => `<span class="hint-pill">${h}</span>`).join("")}
                 </div>
@@ -2482,6 +2537,43 @@
         updatePaletteBubble(itemId);
         updateProgress();
         saveDraft();
+    }
+
+    let isGlobalViShown = false;
+    function toggleGlobalVi(show) {
+        if (show === undefined) show = !isGlobalViShown;
+        isGlobalViShown = show;
+        const toggleInput = document.getElementById("toggleViGlobal");
+        if (toggleInput) toggleInput.checked = show;
+
+        if (show) {
+            document.body.classList.add("show-all-vi");
+            showToast("👁️ Đã hiện bản dịch tiếng Việt tất cả câu hỏi");
+        } else {
+            document.body.classList.remove("show-all-vi");
+            showToast("🙈 Đã ẩn bản dịch tiếng Việt (Chuẩn thi thật)");
+        }
+
+        document.querySelectorAll(".btn-hint-vi").forEach(btn => {
+            if (show) {
+                btn.classList.add("active");
+                btn.innerHTML = "🙈 Ẩn dịch";
+            } else {
+                btn.classList.remove("active");
+                btn.innerHTML = "👁️ Dịch";
+            }
+        });
+    }
+
+    function toggleSingleVi(itemId) {
+        const viEl = document.getElementById(`q_prompt_vi_${itemId}`);
+        const btn = document.getElementById(`btn_hint_${itemId}`);
+        if (!viEl) return;
+        const isShown = viEl.classList.toggle("revealed");
+        if (btn) {
+            btn.classList.toggle("active", isShown);
+            btn.innerHTML = isShown ? "🙈 Ẩn dịch" : "👁️ Dịch";
+        }
     }
 
     function toggleImmediateMode() {
