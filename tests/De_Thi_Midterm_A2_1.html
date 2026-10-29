@@ -802,42 +802,11 @@
             margin-bottom: 6px;
         }
 
-        .btn-toggle-hint-trans {
-            background: white;
-            border: 1px solid var(--gray-300);
-            color: var(--gray-600);
-            border-radius: 8px;
-            padding: 4px 10px;
-            font-size: 0.82rem;
-            font-weight: 700;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            transition: all 0.2s ease;
-        }
-
-        .btn-toggle-hint-trans:hover {
-            background: var(--gray-100);
-            color: var(--dark);
-        }
-
         .q-prompt-vi {
-            display: none;
             font-size: 0.88rem;
-            color: var(--gray-600);
-            margin-bottom: 12px;
-            padding: 6px 12px;
-            background: #f8fafc;
-            border-left: 3px solid var(--primary);
-            border-radius: 4px;
-        }
-
-        body.review-mode .q-prompt-vi,
-        body.immediate-mode .q-prompt-vi,
-        .q-item-card.show-trans .q-prompt-vi,
-        .exam-section-card#sec5_essay .q-prompt-vi {
-            display: block;
+            color: #475569;
+            margin-bottom: 14px;
+            line-height: 1.5;
         }
 
         .hl-kw {
@@ -1921,16 +1890,9 @@
             <div class="q-item-card" id="q_card_${item.id}">
                 <div class="q-meta-row">
                     <span class="q-number-badge">CÂU ${item.id}</span>
-                    <div style="display:flex; gap:8px;">
-                        ${item.promptVi ? `
-                            <button type="button" class="btn-toggle-hint-trans" onclick="toggleHintTrans(${item.id})" title="Xem bản dịch câu hỏi">
-                                📜 Dịch
-                            </button>
-                        ` : ''}
-                        <button type="button" class="btn-speak" onclick="speakQuestionAudio(${item.id})">
-                            🔊 Phát âm
-                        </button>
-                    </div>
+                    <button type="button" class="btn-speak" onclick="speakQuestionAudio(${item.id})">
+                        🔊 Phát âm
+                    </button>
                 </div>
         `;
 
@@ -2540,13 +2502,6 @@
             if (!isExamSubmitted) {
                 document.querySelectorAll(".explain-box").forEach(b => b.classList.remove("show"));
             }
-        }
-    }
-
-    function toggleHintTrans(itemId) {
-        const card = document.getElementById(`q_card_${itemId}`);
-        if (card) {
-            card.classList.toggle("show-trans");
         }
     }
 
