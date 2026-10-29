@@ -1,15 +1,16 @@
 # -*- coding: utf-8 -*-
 """
-master_grammar_data.py
-Comprehensive database of all grammar points across 26 lessons of Marugoto:
-- Marugoto Starter A1: Lessons 11 to 18
-- Marugoto Elementary 1 A2-1: Lessons 1 to 10
-- Marugoto Elementary 2 A2-2: Lessons 11 to 18
+scripts/master_grammar_data.py
+Bộ Dữ Liệu 29 Chuyên Đề Ngữ Pháp Toàn Diện Marugoto A1 - A2.1 - A2.2 (26 Bài Học)
+100% CHUẨN HOÁ HÁN TỰ & CUNG CẤP FURIGANA (<ruby>) CHO TẤT CẢ VÍ DỤ:
+- Không sử dụng các chữ Hán chưa học (như 発音, 簡単, 漢字, 書く, 難しい, 教えて, 授業, 荷物, 料理, 作る, 写真, 映画...).
+- Các chữ Hán chưa học được chuyển về Hiragana chuẩn giáo trình Marugoto.
+- Tất cả chữ Hán đều có thẻ <ruby>...<rt>cách đọc</rt></ruby> để học sinh luôn biết cách đọc chính xác.
 """
 
 ALL_GRAMMAR_ITEMS = [
     # =========================================================================
-    # MARUGOTO A1: BÀI 11 ĐẾN BÀI 18 (SƠ CẤP)
+    # MARUGOTO A1: BÀI 11 ĐẾN BÀI 18 (NHẬP MÔN & SƠ CẤP 1)
     # =========================================================================
     {
         "id": 1,
@@ -20,13 +21,25 @@ ALL_GRAMMAR_ITEMS = [
         "title": "Bày tỏ sở thích: ～が 好きです / 好きじゃないです",
         "tag": "Sở thích",
         "cat": "hobby",
-        "formula": "N が 好きです (Thích N)<br>N が 大好きです (Rất thích N)<br>N は 好きじゃないです (Không thích N)",
+        "formula": "N が <ruby>好<rt>す</rt></ruby>きです (Thích N)<br>N が 大<ruby>好<rt>す</rt></ruby>きです (Rất thích N)<br>N は <ruby>好<rt>す</rt></ruby>きじゃないです (Không thích N)",
         "meaning": "Dùng để nói về sở thích cá nhân hoặc hỏi đối phương thích cái gì / thể loại nào (どんな N が 好きですか).",
-        "notes": "Trợ từ đi kèm trước 好き (Tính từ đuôi な) là 「が」. Khi nhấn mạnh hoặc phủ định có thể thay bằng 「は」. Để hỏi loại yêu thích: 「どんな N が 好きですか」.",
+        "notes": "Trợ từ đi kèm trước 好き (Tính từ đuôi な) là 「が」. Khi nhấn mạnh hoặc phủ định có thể thay bằng 「は」.",
         "examples": [
-            {"jp": "わたしは 読書が 好きです。", "vi": "Tôi thích đọc sách."},
-            {"jp": "どんな 映画が 好きですか。―― アクション映画が 好きです。", "vi": "Bạn thích thể loại phim nào? ―― Tôi thích phim hành động."},
-            {"jp": "ホラー映画は 好きじゃないです。", "vi": "Phim kinh dị thì tôi không thích lắm."}
+            {
+                "jp": "わたしは まんがが 好きです。",
+                "ruby": "わたしは まんがが <ruby>好<rt>す</rt></ruby>きです。",
+                "vi": "Tôi thích truyện tranh."
+            },
+            {
+                "jp": "どんな えいがが 好きですか。―― アクションえいがが 好きです。",
+                "ruby": "どんな えいがが <ruby>好<rt>す</rt></ruby>きですか。―― アクションえいがが <ruby>好<rt>す</rt></ruby>きです。",
+                "vi": "Bạn thích thể loại phim nào? ―― Tôi thích phim hành động."
+            },
+            {
+                "jp": "ホラーえいがは 好きじゃないです。",
+                "ruby": "ホラーえいがは <ruby>好<rt>す</rt></ruby>きじゃないです。",
+                "vi": "Phim kinh dị thì tôi không thích lắm."
+            }
         ],
         "quiz": {
             "q": "どんな スポーツ [____] 好きですか。",
@@ -46,11 +59,23 @@ ALL_GRAMMAR_ITEMS = [
         "cat": "ability",
         "formula": "N (Môn thể thao / Nhạc cụ / Ngôn ngữ) が できます<br>N は できません (Không thể)",
         "meaning": "Dùng để nói mình có thể chơi được môn thể thao nào, sử dụng được ngoại ngữ nào hoặc chơi được loại nhạc cụ nào.",
-        "notes": "Chỉ dùng với danh từ chỉ kỹ năng, ngôn ngữ hoặc môn thể thao (テニス, ピアノ, 日本語, 料理...).",
+        "notes": "Chỉ dùng với danh từ chỉ kỹ năng, ngôn ngữ hoặc môn thể thao (テニス, ピアノ, 日本語, りょうり...).",
         "examples": [
-            {"jp": "わたしは テニスが できます。", "vi": "Tôi có thể chơi quần vợt (tennis)."},
-            {"jp": "韓国語が 少し できます。", "vi": "Tôi có thể nói được một chút tiếng Hàn."},
-            {"jp": "ピアノは できませんが、ギターが できます。", "vi": "Piano thì tôi không chơi được nhưng guitar thì tôi biết chơi."}
+            {
+                "jp": "わたしは テニスが できます。",
+                "ruby": "わたしは テニスが できます。",
+                "vi": "Tôi có thể chơi quần vợt (tennis)."
+            },
+            {
+                "jp": "かんこく語が 少し できます。",
+                "ruby": "かんこく<ruby>語<rt>ご</rt></ruby>が <ruby>少<rt>すこ</rt></ruby>し できます。",
+                "vi": "Tôi có thể nói được một chút tiếng Hàn."
+            },
+            {
+                "jp": "ピアノは できませんが、ギターが できます。",
+                "ruby": "ピアノは できませんが、ギターが できます。",
+                "vi": "Piano thì tôi không chơi được nhưng guitar thì tôi biết chơi."
+            }
         ],
         "quiz": {
             "q": "アリさんは ギター [____] できますか。",
@@ -72,19 +97,29 @@ ALL_GRAMMAR_ITEMS = [
         "meaning": "Chỉ nơi chốn diễn ra hành động và mức độ thường xuyên thực hiện hành động đó.",
         "notes": "Phó từ 「あまり」 và 「ぜんぜん」 bắt buộc phải đi với đuôi phủ định 「～ません」.",
         "examples": [
-            {"jp": "うちで 本を 読みます。", "vi": "Tôi đọc sách tại nhà."},
-            {"jp": "休みの日に よく 公園で 写真を 撮ります。", "vi": "Vào ngày nghỉ tôi thường chụp ảnh ở công viên."},
-            {"jp": "お酒は あまり 飲みません。", "vi": "Rượu bia thì tôi không hay uống lắm."}
+            {
+                "jp": "うちで 本を 読みます。",
+                "ruby": "うちで <ruby>本<rt>ほん</rt></ruby>を <ruby>読<rt>よ</rt></ruby>みます。",
+                "vi": "Tôi đọc sách tại nhà."
+            },
+            {
+                "jp": "やすみの 日に よく こうえんで しゃしんを とります。",
+                "ruby": "やすみの <ruby>日<rt>ひ</rt></ruby>に よく こうえんで しゃしんを とります。",
+                "vi": "Vào ngày nghỉ tôi thường chụp ảnh ở công viên."
+            },
+            {
+                "jp": "おさけは あまり のみません。",
+                "ruby": "おさけは あまり のみません。",
+                "vi": "Rượu bia thì tôi không hay uống lắm."
+            }
         ],
         "quiz": {
-            "q": "わたしは ぜんぜん 映画を [____]。",
+            "q": "わたしは ぜんぜん えいがを [____]。",
             "options": ["見ません", "見ます", "見ました", "見ています"],
             "correct": 0,
             "explain": "Phó từ 「ぜんぜん」 (hoàn toàn không) luôn đi với thể phủ định: 「見ません」."
         }
     },
-
-    # A1 LESSON 12
     {
         "id": 4,
         "level": "A1",
@@ -96,17 +131,29 @@ ALL_GRAMMAR_ITEMS = [
         "cat": "event",
         "formula": "[Thời gian] に [Sự kiện] が あります (Có sự kiện vào lúc...)<br>[Địa điểm] で [Sự kiện] が あります (Có sự kiện diễn ra tại...)",
         "meaning": "Dùng để thông báo lịch trình tổ chức lễ hội, buổi hòa nhạc, hội thảo, triển lãm.",
-        "notes": "Phân biệt trợ từ: Thời gian dùng 「に」; Nơi chốn diễn ra sự kiện dùng 「で」 (không dùng に). Các từ chỉ thời gian tương đối như 今日, あした, らいしゅう không thêm に.",
+        "notes": "Phân biệt trợ từ: Thời gian dùng 「に」; Nơi chốn diễn ra sự kiện dùng 「で」 (không dùng に).",
         "examples": [
-            {"jp": "土曜日に コンサートが あります。", "vi": "Vào thứ bảy sẽ có một buổi hòa nhạc."},
-            {"jp": "国際ホールで 映画が あります。", "vi": "Tại Hội trường Quốc tế sẽ có buổi chiếu phim."},
-            {"jp": "明日 公園で お祭りが あります。", "vi": "Ngày mai ở công viên sẽ có lễ hội."}
+            {
+                "jp": "どようびに コンサートが あります。",
+                "ruby": "どようびに コンサートが あります。",
+                "vi": "Vào thứ bảy sẽ có một buổi hòa nhạc."
+            },
+            {
+                "jp": "ホールで えいがが あります。",
+                "ruby": "ホールで えいがが あります。",
+                "vi": "Tại hội trường sẽ có buổi chiếu phim."
+            },
+            {
+                "jp": "あした こうえんで おまつりが あります。",
+                "ruby": "あした こうえんで おまつりが あります。",
+                "vi": "Ngày mai ở công viên sẽ có lễ hội."
+            }
         ],
         "quiz": {
-            "q": "市民ホール [____] コンサートが あります。",
+            "q": "あした 学校 [____] パーティーが あります。",
             "options": ["で", "に", "を", "へ"],
             "correct": 0,
-            "explain": "Nơi chốn tổ chức sự kiện/hoạt động dùng trợ từ 「で」."
+            "explain": "Nơi diễn ra sự kiện, hoạt động dùng trợ từ 「で」."
         }
     },
     {
@@ -118,149 +165,211 @@ ALL_GRAMMAR_ITEMS = [
         "title": "Đi để làm gì & Rủ rê: V(bỏ ます) に 行きます / V-ませんか / V-ましょう",
         "tag": "Mục đích & Rủ rê",
         "cat": "invitation",
-        "formula": "[Địa điểm] へ [Sự kiện / V(bỏ ます)] に 行きます (Đi để làm gì)<br>いっしょに V-ませんか (Bạn có muốn cùng làm... với tôi không?)<br>V-ましょう (Chúng ta cùng làm... nhé!)",
-        "meaning": "Chỉ mục đích đi tới đâu, đồng thời rủ rê người khác tham gia cùng mình một cách lịch sự.",
-        "notes": "「～ませんか」 là lời mời mở, thể hiện sự tôn trọng đối phương. Người nghe nếu đồng ý thường đáp: 「いいですね。～ましょう」.",
+        "formula": "[Địa điểm] へ [V(bỏ ます)] に 行きます (Đi để làm gì)<br>いっしょに V-ませんか (Bạn có muốn cùng làm... với tôi không?)<br>V-ましょう (Chúng ta cùng làm... nhé!)",
+        "meaning": "Diễn đạt mục đích đi đến đâu để làm gì và rủ rê, mời mọc đối phương một cách lịch sự.",
+        "notes": "V-ませんか mang tính chất thăm dò ý kiến đối phương; V-ましょう mang tính chủ động đề xuất.",
         "examples": [
-            {"jp": "わたしは 盆栽展を 見に 行きます。", "vi": "Tôi đi xem triển lãm cây cảnh Bonsai."},
-            {"jp": "あした 一緒に 映画を 見に 行きませんか。―― いいですね。行きましょう！", "vi": "Ngày mai bạn cùng tôi đi xem phim nhé? ―― Ý hay đấy, đi thôi!"},
-            {"jp": "ちょっと 休みましょう。", "vi": "Chúng ta cùng nghỉ ngơi một chút nhé."}
+            {
+                "jp": "わたしは えいがを 見に 行きます。",
+                "ruby": "わたしは えいがを <ruby>見<rt>み</rt></ruby>に <ruby>行<rt>い</rt></ruby>きます。",
+                "vi": "Tôi đi xem phim."
+            },
+            {
+                "jp": "あした いっしょに えいがを 見に 行きませんか。―― いいですね。行きましょう！",
+                "ruby": "あした いっしょに えいがを <ruby>見<rt>み</rt></ruby>に <ruby>行<rt>い</rt></ruby>きませんか。―― いいですね。<ruby>行<rt>い</rt></ruby>きましょう！",
+                "vi": "Ngày mai bạn cùng tôi đi xem phim nhé? ―― Ý hay đấy, đi thôi!"
+            },
+            {
+                "jp": "ちょっと やすみましょう。",
+                "ruby": "ちょっと やすみましょう。",
+                "vi": "Chúng ta cùng nghỉ ngơi một chút nhé."
+            }
         ],
         "quiz": {
-            "q": "美術館へ 絵を [____] に 行きます。",
-            "options": ["見", "見て", "見ます", "見る"],
+            "q": "カフェへ コーヒーを [____] に 行きませんか。",
+            "options": ["飲み", "飲む", "飲んで", "飲ま"],
             "correct": 0,
-            "explain": "Động từ chỉ mục đích trước 「に行きます」 phải bỏ ます: 見ます ➔ 「見に行きます」."
+            "explain": "Mục đích chuyển động: Động từ bỏ ます + に行きます ➔ 「飲みに行きます」."
         }
     },
-
-    # A1 LESSON 13
     {
         "id": 6,
         "level": "A1",
         "levelName": "Marugoto A1",
         "lesson": 13,
-        "lessonTitle": "Bài 13: Đi Lại & Phương Tiện (A1)",
+        "lessonTitle": "Bài 13: Giao Thông & Di Chuyển",
         "title": "Chặng đường di chuyển: [Từ] から [Đến] まで [Phương tiện] で 行きます",
-        "tag": "Đi lại & Di chuyển",
-        "cat": "transport",
+        "tag": "Giao thông",
+        "cat": "transit",
         "formula": "[Nơi xuất phát] から [Nơi đến] まで [Phương tiện] で 行きます / 来ます<br>[Phương tiện] に 乗ります (Lên xe) / を 降ります (Xuống xe)",
-        "meaning": "Diễn tả hành trình từ điểm khởi hành tới đích đến và phương tiện giao thông sử dụng.",
-        "notes": "Đi bộ thì dùng 「歩いて (あるいて)」 và không thêm trợ từ で. Lên tàu xe dùng 「に 乗る」, xuống tàu xe dùng 「を 降りる」.",
+        "meaning": "Nói về lộ trình từ điểm xuất phát đến điểm đích, phương tiện giao thông và thao tác lên xuống xe.",
+        "notes": "Lên xe dùng trợ từ 「に」; Xuống xe dùng trợ từ 「を」.",
         "examples": [
-            {"jp": "うちから 駅まで バスで 行きます。", "vi": "Từ nhà đến nhà ga tôi đi bằng xe buýt."},
-            {"jp": "東京から 京都まで 新幹線で 行きます。", "vi": "Từ Tokyo đến Kyoto tôi đi bằng tàu Shinkansen."},
-            {"jp": "駅で 電車に 乗ります。次の駅で 電車を 降ります。", "vi": "Lên tàu điện ở nhà ga. Xuống tàu ở ga tiếp theo."}
+            {
+                "jp": "うちから 駅まで バスで 行きます。",
+                "ruby": "うちから <ruby>駅<rt>えき</rt></ruby>まで バスで <ruby>行<rt>い</rt></ruby>きます。",
+                "vi": "Từ nhà đến nhà ga tôi đi bằng xe buýt."
+            },
+            {
+                "jp": "とうきょうから きょうとまで しんかんせんで 行きます。",
+                "ruby": "とうきょうから きょうとまで しんかんせんで <ruby>行<rt>い</rt></ruby>きます。",
+                "vi": "Từ Tokyo đến Kyoto tôi đi bằng tàu Shinkansen."
+            },
+            {
+                "jp": "駅で でんしゃに 乗ります。つぎの 駅で でんしゃを おります。",
+                "ruby": "<ruby>駅<rt>えき</rt></ruby>で でんしゃに <ruby>乗<rt>の</rt></ruby>ります。つぎの <ruby>駅<rt>えき</rt></ruby>で でんしゃを おります。",
+                "vi": "Lên tàu điện ở nhà ga. Xuống tàu ở ga tiếp theo."
+            }
         ],
         "quiz": {
-            "q": "新宿駅で 電車 [____] 降ります。",
-            "options": ["を", "に", "で", "から"],
+            "q": "毎朝 バス [____] 学校へ 行きます。",
+            "options": ["で", "に", "を", "から"],
             "correct": 0,
-            "explain": "Rời khỏi/xuống phương tiện giao thông dùng trợ từ 「を」: 「電車を降ります」."
+            "explain": "Phương tiện giao thông dùng trợ từ 「で」."
         }
     },
-
-    # A1 LESSON 14
     {
         "id": 7,
         "level": "A1",
         "levelName": "Marugoto A1",
         "lesson": 14,
-        "lessonTitle": "Bài 14: Thị Trấn & Vị Trí Địa Lý (A1)",
+        "lessonTitle": "Bài 14: Vị Trí & Không Gian",
         "title": "Vị trí & Sự tồn tại: [Địa điểm] に N が あります/います / [Vị trí] に あります",
-        "tag": "Vị trí & Nơi chốn",
+        "tag": "Vị trí",
         "cat": "location",
-        "formula": "[Địa điểm] に N が あります (Đồ vật/công trình)<br>[Địa điểm] に N が います (Người/động vật)<br>N1 は N2 の [前/後ろ/中/隣/近く] に あります",
-        "meaning": "Xác định nơi chốn tồn tại của người hoặc vật, vị trí tương đối giữa các công trình.",
-        "notes": "Đồ vật không tự chuyển động (nhà, cây cối, xe) dùng 「あります」. Người và động vật sống dùng 「います」.",
+        "formula": "[Địa điểm] に N が あります (Đồ vật/công trình)<br>[Địa điểm] に N が います (Người/động vật)<br>N1 は N2 の [前/後ろ/中/近く] に あります",
+        "meaning": "Xác định sự hiện diện của người, vật hoặc mô tả vị trí tương đối giữa các địa điểm trong thành phố.",
+        "notes": "ありました/いました dùng cho quá khứ; Phân biệt あります (vật vô tri) và います (sinh vật sống).",
         "examples": [
-            {"jp": "公園に きれいな 花が あります。", "vi": "Trong công viên có những bông hoa đẹp."},
-            {"jp": "ロビーに 案内人が います。", "vi": "Ở sảnh chờ có người hướng dẫn."},
-            {"jp": "銀行は デパートの 隣に あります。", "vi": "Ngân hàng nằm ở ngay bên cạnh trung tâm thương mại."}
+            {
+                "jp": "こうえんに きれいな 花が あります。",
+                "ruby": "こうえんに きれいな <ruby>花<rt>はな</rt></ruby>が あります。",
+                "vi": "Trong công viên có những bông hoa đẹp."
+            },
+            {
+                "jp": "ロビーに あんないの 人が います。",
+                "ruby": "ロビーに あんないの <ruby>人<rt>ひと</rt></ruby>が います。",
+                "vi": "Ở sảnh chờ có người hướng dẫn."
+            },
+            {
+                "jp": "ぎんこうは デパートの となりに あります。",
+                "ruby": "ぎんこうは デパートの となりに あります。",
+                "vi": "Ngân hàng nằm ở ngay bên cạnh trung tâm thương mại."
+            }
         ],
         "quiz": {
-            "q": "あそこに 犬が [____]。",
-            "options": ["います", "あります", "します", "行きます"],
+            "q": "駅の 前に スーパー [____] あります。",
+            "options": ["が", "は", "に", "で"],
             "correct": 0,
-            "explain": "Động vật sống (chó 犬) dùng động từ tồn tại là 「います」."
+            "explain": "Chỉ sự tồn tại của đồ vật/địa điểm: 「N が あります」."
         }
     },
-
-    # A1 LESSON 15
     {
         "id": 8,
         "level": "A1",
         "levelName": "Marugoto A1",
         "lesson": 15,
-        "lessonTitle": "Bài 15: Mong Muốn & Tặng Quà (A1)",
+        "lessonTitle": "Bài 15: Quà Tặng & Cho Nhận",
         "title": "Muốn có đồ vật & Cho - Nhận: ～が ほしいです / あげます / もらいました",
-        "tag": "Mong muốn & Tặng quà",
-        "cat": "gift",
+        "tag": "Cho nhận & Ước muốn",
+        "cat": "giving",
         "formula": "N が ほしいです (Tôi muốn có N)<br>N1(người nhận) に N2(vật) を あげます (Tặng cho ai cái gì)<br>N1(người tặng) に N2(vật) を もらいました (Nhận từ ai cái gì)",
-        "meaning": "Bày tỏ mong muốn sở hữu đồ vật và cách nói về hành động tặng quà, nhận quà giữa người với người.",
-        "notes": "ほしい chỉ dùng cho ngôi thứ nhất (tôi muốn). Đi trước ほしい luôn dùng trợ từ 「が」.",
+        "meaning": "Bày tỏ ước muốn sở hữu một món đồ và diễn đạt hành động tặng hoặc nhận quà từ bạn bè, người thân.",
+        "notes": "ほしいです chỉ dùng cho mong muốn của ngôi thứ nhất (tôi); Người nhận/người tặng đi với trợ từ 「に」.",
         "examples": [
-            {"jp": "わたしは 新しい スマホが ほしいです。", "vi": "Tôi muốn có một chiếc điện thoại thông minh mới."},
-            {"jp": "カーラさんに 花を あげます。", "vi": "Tôi tặng hoa cho Carla."},
-            {"jp": "誕生日に 友達に 時計を もらいました。", "vi": "Vào ngày sinh nhật tôi đã nhận được chiếc đồng hồ từ bạn tôi."}
+            {
+                "jp": "わたしは あたらしい スマホが ほしいです。",
+                "ruby": "わたしは あたらしい スマホが ほしいです。",
+                "vi": "Tôi muốn có một chiếc điện thoại thông minh mới."
+            },
+            {
+                "jp": "カーラさんに 花を あげます。",
+                "ruby": "カーラさんに <ruby>花<rt>はな</rt></ruby>を あげます。",
+                "vi": "Tôi tặng hoa cho Carla."
+            },
+            {
+                "jp": "たんじょうびに 友達に とけいを もらいました。",
+                "ruby": "たんじょうびに <ruby>友達<rt>ともだち</rt></ruby>に とけいを もらいました。",
+                "vi": "Vào ngày sinh nhật tôi đã nhận được chiếc đồng hồ từ bạn tôi."
+            }
         ],
         "quiz": {
-            "q": "誕生日に 父 [____] カメラを もらいました。",
-            "options": ["に", "を", "で", "へ"],
+            "q": "父の 日に 父 [____] ネクタイを あげました。",
+            "options": ["に", "で", "を", "から"],
             "correct": 0,
-            "explain": "Nhận quà từ ai: [Người tặng] + に もらいました."
+            "explain": "Người nhận hành động tặng quà đi với trợ từ 「に」."
         }
     },
-
-    # A1 LESSON 16
     {
         "id": 9,
         "level": "A1",
         "levelName": "Marugoto A1",
         "lesson": 16,
-        "lessonTitle": "Bài 16: Mua Sắm & Giá Cả (A1)",
+        "lessonTitle": "Bài 16: Mua Sắm & Giá Cả",
         "title": "Mua sắm & Quá khứ: V-ました / ～は いくらですか / これを ください",
-        "tag": "Mua sắm & Giá cả",
+        "tag": "Mua sắm",
         "cat": "shopping",
-        "formula": "V-ました (Đã làm...) / V-ませんでした (Đã không làm...)<br>N は いくらですか ―― [Số tiền] 円です<br>N を ください (Xin hãy lấy cho tôi N) / N に します (Tôi chọn N)",
-        "meaning": "Hỏi giá cả, đưa ra yêu cầu mua sắm tại quầy hàng và diễn tả hành vi mua bán trong quá khứ.",
-        "notes": "Khi chọn món trong menu hoặc chọn sản phẩm mua: 「これに します」 (Tôi chốt lấy cái này).",
+        "formula": "[Đồ vật] を かいました (Đã mua đồ gì)<br>[Món hàng] は いくらですか (Hỏi giá cả)<br>これ / それ を ください (Làm ơn bán cho tôi cái này)",
+        "meaning": "Giao tiếp mua sắm tại cửa hàng, hỏi giá tiền và kể lại các món đồ đã mua trong quá khứ.",
+        "notes": "Để chọn món đồ quyết định mua: 「これ / それ を ください」.",
         "examples": [
-            {"jp": "去年 日本で かわいい 服を 買いました。", "vi": "Năm ngoái tôi đã mua quần áo đáng yêu tại Nhật."},
-            {"jp": "すみません、この 傘は いくらですか。―― 1,500円です。", "vi": "Xin lỗi, chiếc ô này giá bao nhiêu? ―― Dạ 1.500 Yên ạ."},
-            {"jp": "この シャツを ください。", "vi": "Xin hãy lấy cho tôi chiếc áo sơ mi này."}
+            {
+                "jp": "きょねん 日本で かわいい ふくを かいました。",
+                "ruby": "きょねん <ruby>日本<rt>にほん</rt></ruby>で かわいい ふくを かいました。",
+                "vi": "Năm ngoái tôi đã mua quần áo đáng yêu tại Nhật Bản."
+            },
+            {
+                "jp": "すみません、この かさは いくらですか。―― せんごひゃくえんです。",
+                "ruby": "すみません、この かさは いくらですか。―― せんごひゃくえんです。",
+                "vi": "Xin lỗi, chiếc ô này giá bao nhiêu? ―― Dạ 1.500 Yên ạ."
+            },
+            {
+                "jp": "この シャツを ください。",
+                "ruby": "この シャツを ください。",
+                "vi": "Xin hãy lấy cho tôi chiếc áo sơ mi này."
+            }
         ],
         "quiz": {
-            "q": "きのう デパートで 靴を [____]。",
-            "options": ["買いました", "買います", "買う", "買って"],
+            "q": "この りんごは ひとつ [____] ですか。―― 150円です。",
+            "options": ["いくら", "いくつ", "どこ", "どう"],
             "correct": 0,
-            "explain": "Hành động đã hoàn thành trong quá khứ (きのう - hôm qua) chia về 「V-ました」."
+            "explain": "Từ để hỏi giá tiền là 「いくら」."
         }
     },
-
-    # A1 LESSON 17 & 18
     {
         "id": 10,
         "level": "A1",
         "levelName": "Marugoto A1",
         "lesson": 17,
-        "lessonTitle": "Bài 17: Tính Từ Quá Khứ & Thể Te (A1)",
+        "lessonTitle": "Bài 17: Cảm Nhận Quá Khứ & Chuỗi Hành Động",
         "title": "Tính từ quá khứ & Nối hành động: A-かったです / Na-でした / V1-て V2-ます",
-        "tag": "Quá khứ & Thể Te",
-        "cat": "te_form",
-        "formula": "Tính từ đuôi い: Bỏ い + かったです (Đã...) / くなかったです (Đã không...)<br>Tính từ đuôi な / Danh từ: + でした / じゃありませんでした<br>V1-て、V2-ます (Làm V1 rồi làm V2 theo chuỗi thời gian)",
-        "meaning": "Kể lại cảm nhận, trạng thái của sự việc đã qua và liên kết chuỗi hành động diễn ra theo trình tự thời gian.",
-        "notes": "いい ➔ Quá khứ là 「よかったです」 (Bất quy tắc). Chuỗi hành động thể Te luôn tuân theo thứ tự trước sau.",
+        "tag": "Cảm nhận & Chuỗi hành động",
+        "cat": "action-chain",
+        "formula": "Tính từ đuôi い: [Bỏ い] + かったです (Đã từng rất...)<br>Tính từ đuôi な: [Bỏ な] + でした (Đã từng...)<br>V1-て、V2-て、V3-ます (Làm việc 1, rồi việc 2, rồi việc 3)",
+        "meaning": "Chia sẻ cảm xúc về chuyến đi hay sự việc đã qua và kết nối các hành động diễn ra theo trình tự thời gian.",
+        "notes": "Thể て của động từ dùng để nối các vế câu hành động liên tiếp.",
         "examples": [
-            {"jp": "昨日の 旅行は とても 楽しかったです。", "vi": "Chuyến du lịch hôm qua đã rất là vui."},
-            {"jp": "京都は 静かでした。", "vi": "Kyoto đã rất yên tĩnh."},
-            {"jp": "朝 起きて、顔を 洗って、朝ごはんを 食べます。", "vi": "Buổi sáng thức dậy, rửa mặt rồi ăn bữa sáng."}
+            {
+                "jp": "きのうの 旅行は とても たのしかったです。",
+                "ruby": "きのうの <ruby>旅行<rt>りょこう</rt></ruby>は とても たのしかったです。",
+                "vi": "Chuyến du lịch hôm qua đã rất là vui."
+            },
+            {
+                "jp": "きょうとは しずかでした。",
+                "ruby": "きょうとは しずかでした。",
+                "vi": "Kyoto đã rất yên tĩnh."
+            },
+            {
+                "jp": "あさ おきて、かおを あらって、朝ごはんを 食べます。",
+                "ruby": "あさ おきて、かおを あらって、<ruby>朝<rt>あさ</rt></ruby>ごはんを <ruby>食<rt>た</rt></ruby>べます。",
+                "vi": "Buổi sáng thức dậy, rửa mặt rồi ăn bữa sáng."
+            }
         ],
         "quiz": {
-            "q": "きのうの 天気は とても [____] です (いい)。",
-            "options": ["よかった", "いいかった", "いくなかった", "よいでした"],
+            "q": "きのうの 天気は とても [____]。",
+            "options": ["よかったです", "いいでした", "よくでした", "いいかったです"],
             "correct": 0,
-            "explain": "Tính từ 「いい」 chia quá khứ bất quy tắc là 「よかったです」."
+            "explain": "Tính từ いい (tốt) khi chia quá khứ biến thành 「よかったです」."
         }
     },
     {
@@ -268,51 +377,75 @@ ALL_GRAMMAR_ITEMS = [
         "level": "A1",
         "levelName": "Marugoto A1",
         "lesson": 18,
-        "lessonTitle": "Bài 18: Trải Nghiệm Hoàn Thành (A1)",
+        "lessonTitle": "Bài 18: Trải Nghiệm & Dự Định",
         "title": "Đã làm / Chưa làm: もう V-ました / まだ V-ていません",
-        "tag": "Hoàn tất hành động",
+        "tag": "Hoàn thành & Chưa xong",
         "cat": "experience",
-        "formula": "もう V-ました (Đã làm... rồi)<br>まだ V-ていません (Vẫn chưa làm...)<br>いいえ、まだです (Chưa, tôi vẫn chưa)",
-        "meaning": "Dùng để hỏi hoặc trả lời một hành động dự định đã được thực hiện hay vẫn chưa.",
-        "notes": "Khi trả lời phủ định cho câu hỏi 「もう～ましたか」, không dùng V-ませんでした mà phải dùng 「いいえ、まだです」 hoặc 「まだ V-ていません」.",
+        "formula": "もう V-ましたか (Đã làm... xong chưa?) ―― はい、もう V-ました<br>いいえ、まだ V-ていません (Chưa, tôi vẫn chưa làm)",
+        "meaning": "Hỏi và trả lời về tiến độ hoàn thành một công việc hoặc trải nghiệm một địa điểm tham quan.",
+        "notes": "Phủ định của 「もう V-ましたか」 là 「まだ V-ていません」 (chứ không dùng まだ V-ませんでした).",
         "examples": [
-            {"jp": "もう 東京タワーを 見ましたか。―― はい、もう 見ました。", "vi": "Bạn đã ngắm tháp Tokyo chưa? ―― Vâng, tôi đã ngắm rồi."},
-            {"jp": "富士山は まだ 見ていません。", "vi": "Núi Phú Sĩ thì tôi vẫn chưa ngắm được."},
-            {"jp": "もう 昼ごはんを 食べましたか。―― いいえ、まだです。", "vi": "Bạn đã ăn trưa chưa? ―― Dạ chưa, tôi vẫn chưa ăn."}
+            {
+                "jp": "もう とうきょうタワーを 見ましたか。―― はい、もう 見ました。",
+                "ruby": "もう とうきょうタワーを <ruby>見<rt>み</rt></ruby>ましたか。―― はい、もう <ruby>見<rt>み</rt></ruby>ました。",
+                "vi": "Bạn đã ngắm tháp Tokyo chưa? ―― Vâng, tôi đã ngắm rồi."
+            },
+            {
+                "jp": "ふじさんは まだ 見ていません。",
+                "ruby": "ふじさんは まだ <ruby>見<rt>み</rt></ruby>ていません。",
+                "vi": "Núi Phú Sĩ thì tôi vẫn chưa ngắm."
+            },
+            {
+                "jp": "これから とうきょうタワーへ 行きます。",
+                "ruby": "これから とうきょうタワーへ <ruby>行<rt>い</rt></ruby>きます。",
+                "vi": "Từ bây giờ tôi sẽ đi đến tháp Tokyo."
+            }
         ],
         "quiz": {
-            "q": "「もう 宿題を しましたか。」――「いいえ、[____]。」",
-            "options": ["まだです", "しませんでした", "もうです", "しません"],
+            "q": "おひるごはんを もう 食べましたか。―― いいえ、[____]。",
+            "options": ["まだ 食べていません", "まだ 食べませんでした", "もう 食べません", "ぜんぜん 食べました"],
             "correct": 0,
-            "explain": "Đáp lại câu hỏi 「もう～ましたか」 ở dạng phủ định chuẩn ngữ pháp là 「いいえ、まだです」."
+            "explain": "Trả lời chưa thực hiện hành động: 「いいえ、まだ 食べていません」."
         }
     },
 
     # =========================================================================
-    # MARUGOTO A2-1: BÀI 1 ĐẾN BÀI 10 (TRUNG CẤP 1)
+    # MARUGOTO A2-1: BÀI 1 ĐẾN BÀI 10 (SƠ CẤP 2 - PHẦN 1)
     # =========================================================================
     {
         "id": 12,
         "level": "A2-1",
         "levelName": "Marugoto A2-1",
         "lesson": 1,
-        "lessonTitle": "Bài 1: Nơi Ở & Gia Đình",
-        "title": "Trạng thái tiếp diễn & Nghề nghiệp: V-ています / に住んでいます / で働いています",
-        "tag": "Tiếp diễn & Nơi chốn",
-        "cat": "habit",
-        "formula": "V-て + います (Duy trì thói quen / Trạng thái kết quả kéo dài)<br>[Nơi ở] に 住んでいます (Đang sống tại...)<br>[Nơi làm việc] で 働いています (Đang làm việc tại...)",
-        "meaning": "Diễn tả nơi chốn cư trú hiện tại, công việc nghề nghiệp đang làm hoặc thói quen duy trì hàng ngày.",
-        "notes": "Sống ở đâu dùng trợ từ 「に」 (kết quả nơi chốn); Làm việc ở đâu dùng trợ từ 「で」 (nơi diễn ra hành động).",
+        "lessonTitle": "Bài 1: Gia Đình & Nghề Nghiệp",
+        "title": "Trạng thái tiếp diễn & Nghề nghiệp: V-ています / にすんでいます / ではたらいています",
+        "tag": "Trạng thái & Nghề nghiệp",
+        "cat": "family",
+        "formula": "[Nơi ở] に すんで います (Đang sinh sống ở...)<br>[Nơi làm việc] で はたらいて います (Đang làm việc tại...)<br>[Hành động thường xuyên] を して います (Đang dạy / đang học)",
+        "meaning": "Diễn đạt trạng thái hiện tại kéo dài: nơi sinh sống định cư, nơi công tác làm việc và thói quen sinh hoạt nghề nghiệp.",
+        "notes": "Sống ở đâu dùng trợ từ 「に」 (すんでいます); Làm việc tại đâu dùng trợ từ 「で」 (はたらいています).",
         "examples": [
-            {"jp": "わたしは 東京に 住んでいます。", "vi": "Tôi hiện đang sống ở Tokyo."},
-            {"jp": "父は 電車の会社で 働いています。", "vi": "Bố tôi đang làm việc tại một công ty đường sắt."},
-            {"jp": "毎週水曜日に 友達に 英語を 教えています。", "vi": "Tôi dạy tiếng Anh cho bạn vào mỗi thứ Tư."}
+            {
+                "jp": "わたしは とうきょうに すんで います。",
+                "ruby": "わたしは とうきょうに すんで います。",
+                "vi": "Tôi hiện đang sống ở Tokyo."
+            },
+            {
+                "jp": "父は でんしゃの かいしゃで はたらいて います。",
+                "ruby": "<ruby>父<rt>ちち</rt></ruby>は でんしゃの かいしゃで はたらいて います。",
+                "vi": "Bố tôi đang làm việc tại một công ty xe điện."
+            },
+            {
+                "jp": "まい週 すいようびに 友達に えいごを おしえて います。",
+                "ruby": "まい<ruby>週<rt>しゅう</rt></ruby> すいようびに <ruby>友達<rt>ともだち</rt></ruby>に えいごを おしえて います。",
+                "vi": "Tôi dạy tiếng Anh cho bạn vào mỗi thứ Tư."
+            }
         ],
         "quiz": {
-            "q": "わたしは ホテル [____] 働いています。",
-            "options": ["で", "に", "を", "へ"],
+            "q": "あねは ベトナム [____] すんで います。",
+            "options": ["に", "で", "を", "へ"],
             "correct": 0,
-            "explain": "Nơi làm việc diễn ra hành động lao động đi với trợ từ 「で」: 「ホテルで働いています」."
+            "explain": "Động từ cư trú 「すんでいます」 đi kèm với trợ từ chỉ nơi chốn tồn tại là 「に」."
         }
     },
     {
@@ -320,23 +453,35 @@ ALL_GRAMMAR_ITEMS = [
         "level": "A2-1",
         "levelName": "Marugoto A2-1",
         "lesson": 2,
-        "lessonTitle": "Bài 2: Sở Thích & Thời Điểm",
+        "lessonTitle": "Bài 2: Ngôn Ngữ & Thời Điểm",
         "title": "Danh từ hóa sở thích & Mệnh đề thời điểm: V-る こと / ～のとき / V-るとき",
         "tag": "Sở thích & Thời điểm",
-        "cat": "hobby",
-        "formula": "私の趣味は [V thể Từ điển (RU)] ことです (Sở thích là việc...)<br>N の とき / A-い とき / Na-な とき / V-る とき (Khi...)",
-        "meaning": "Biến động từ thành danh từ để nói về sở thích, và xác định mốc thời gian khi còn nhỏ, khi rảnh rỗi hoặc khi làm gì.",
-        "notes": "Danh từ đi với とき phải có 「の」 (子供のとき, 暇なとき, 若いとき).",
+        "cat": "time-clause",
+        "formula": "私の しゅみは [V thể Từ điển] ことです (Sở thích của tôi là việc...)<br>N の とき、～ (Khi còn là học sinh / lúc nhỏ...)<br>[V thể Từ điển] とき、～ (Khi làm việc gì thì...)",
+        "meaning": "Biến động từ thành cụm danh từ để giới thiệu sở thích cá nhân và tạo mệnh đề trạng ngữ chỉ thời điểm diễn ra sự việc.",
+        "notes": "Danh từ đi với とき cần có 「の」: 「子どものとき」. Động từ thì chia trực tiếp về thể từ điển: 「ねるとき」.",
         "examples": [
-            {"jp": "私の 趣味は クラシック音楽を 聴くことです。", "vi": "Sở thích của tôi là nghe nhạc cổ điển."},
-            {"jp": "子供のとき、よく アニメを 見ました。", "vi": "Khi còn nhỏ, tôi rất hay xem phim hoạt hình."},
-            {"jp": "暇なとき、料理を 作ります。", "vi": "Những khi rảnh rỗi, tôi thường tự nấu ăn."}
+            {
+                "jp": "私の しゅみは 音楽を きく ことです。",
+                "ruby": "<ruby>私<rt>わたし</rt></ruby>の しゅみは <ruby>音楽<rt>おんがく</rt></ruby>を きく ことです。",
+                "vi": "Sở thích của tôi là nghe âm nhạc."
+            },
+            {
+                "jp": "子どもの とき、よく アニメを 見ました。",
+                "ruby": "<ruby>子<rt>こ</rt></ruby>どもの とき、よく アニメを <ruby>見<rt>み</rt></ruby>ました。",
+                "vi": "Khi còn nhỏ, tôi rất hay xem phim hoạt hình."
+            },
+            {
+                "jp": "ひまな とき、りょうりを つくります。",
+                "ruby": "ひまな とき、りょうりを つくります。",
+                "vi": "Những khi rảnh rỗi, tôi thường tự nấu ăn."
+            }
         ],
         "quiz": {
-            "q": "学生 [____] とき、よく 旅行しました。",
-            "options": ["の", "な", "に", "で"],
+            "q": "わたしの しゅみは まんがを [____] ことです。",
+            "options": ["読む", "読んだ", "読んで", "読み"],
             "correct": 0,
-            "explain": "Danh từ khi bổ nghĩa cho 「とき」 phải có trợ từ 「の」: 「学生のとき」."
+            "explain": "Cấu trúc danh từ hóa: Động từ thể Từ điển (V-る) + こと ➔ 「読むこと」."
         }
     },
     {
@@ -344,23 +489,35 @@ ALL_GRAMMAR_ITEMS = [
         "level": "A2-1",
         "levelName": "Marugoto A2-1",
         "lesson": 3,
-        "lessonTitle": "Bài 3: Mùa & Thay Đổi Trạng Thái",
+        "lessonTitle": "Bài 3: Thời Tiết & Sự Biến Đổi Tự Nhiên",
         "title": "Thay đổi trạng thái & Lý do: ～くなる / ～になる / V-るのが好き / ～から",
-        "tag": "Trạng thái & Lý do",
-        "cat": "change",
-        "formula": "Tính từ đuôi い: Bỏ い + くなります (Trở nên...)<br>Tính từ đuôi な / Danh từ: + になります (Trở thành...)<br>V-る / A-い のが 好きです (Thích điều gì - danh từ hóa bằng の)<br>S1 から、S2 (Vì S1 nên S2)",
-        "meaning": "Miêu tả sự biến đổi tự nhiên của thời tiết, khí hậu và đưa ra lý do giải thích nguyên nhân.",
-        "notes": "Phân biệt くなる (tính từ đuôi い: あたたかくなる) và になる (danh từ/đuôi な: 春になる).",
+        "tag": "Thời tiết & Biến đổi",
+        "cat": "weather",
+        "formula": "Tính từ đuôi い: [Bỏ い] + く なります (Trở nên lạnh/mát...)<br>Tính từ đuôi な / Danh từ: + に なります (Trở nên yên tĩnh / sang mùa thu...)<br>V(thể Từ điển) のが 好きです (Thích việc...)<br>[Mệnh đề] から (Vì...)",
+        "meaning": "Miêu tả sự biến đổi dần dần của thời tiết qua các mùa trong năm và nêu lý do giải thích cho sở thích của mình.",
+        "notes": "Khác biệt đuôi biến đổi: 「さむく なります」 (Tính từ い) vs 「しずかに なります / 秋に なります」 (Tính từ な / Danh từ).",
         "examples": [
-            {"jp": "3月ごろ、だんだん 暖かく なります。", "vi": "Khoảng tháng 3, thời tiết dần dần trở nên ấm áp."},
-            {"jp": "秋が 好きです。涼しいのが 好きですから。", "vi": "Tôi thích mùa thu. Vì tôi thích sự mát mẻ."},
-            {"jp": "スキーが できますから、冬が 一番 好きです。", "vi": "Vì có thể trượt tuyết nên tôi thích mùa đông nhất."}
+            {
+                "jp": "三月ごろ、だんだん あたたかく なります。",
+                "ruby": "<ruby>三月<rt>さんがつ</rt></ruby>ごろ、だんだん あたたかく なります。",
+                "vi": "Khoảng tháng 3, thời tiết dần dần trở nên ấm áp."
+            },
+            {
+                "jp": "秋が 好きです。すずしいのが 好きですから。",
+                "ruby": "<ruby>秋<rt>あき</rt></ruby>が <ruby>好<rt>す</rt></ruby>きです。すずしいのが <ruby>好<rt>す</rt></ruby>きですから。",
+                "vi": "Tôi thích mùa thu. Vì tôi thích sự mát mẻ."
+            },
+            {
+                "jp": "スキーが できますから、冬が いちばん 好きです。",
+                "ruby": "スキーが できますから、<ruby>冬<rt>ふゆ</rt></ruby>が いちばん <ruby>好<rt>す</rt></ruby>きです。",
+                "vi": "Vì có thể trượt tuyết nên tôi thích mùa đông nhất."
+            }
         ],
         "quiz": {
-            "q": "春になると、花が [____] なります (きれい)。",
-            "options": ["きれいに", "きれいく", "きれいだ", "きれいで"],
+            "q": "12月になると、だんだん [____] なります。",
+            "options": ["さむく", "さむい", "さむくて", "さむに"],
             "correct": 0,
-            "explain": "Tính từ đuôi な biến đổi với なる thành 「Na + になります」: 「きれいになります」."
+            "explain": "Tính từ đuôi い đi với なります: bỏ い thêm く ➔ 「さむく なります」."
         }
     },
     {
@@ -368,23 +525,35 @@ ALL_GRAMMAR_ITEMS = [
         "level": "A2-1",
         "levelName": "Marugoto A2-1",
         "lesson": 4,
-        "lessonTitle": "Bài 4: Dự Báo Thời Tiết",
+        "lessonTitle": "Bài 4: Dự Báo Thời Tiết & Khuyên Nhủ",
         "title": "Phán đoán khả năng: ～でしょう (Chắc là) / ～かもしれません (Có lẽ)",
-        "tag": "Phán đoán",
-        "cat": "weather",
-        "formula": "Thể thông thường (Bỏ だ với N/Na) + でしょう (Xác suất cao ~80%)<br>Thể thông thường (Bỏ だ với N/Na) + かもしれません (Xác suất ~50%)",
-        "meaning": "Đưa ra phán đoán, dự báo về thời tiết hoặc sự việc tương lai dựa trên thông tin quan sát được.",
-        "notes": "Trong bản tin thời tiết thường dùng 「でしょう」. Danh từ và tính từ đuôi な bỏ だ rồi ghép trực tiếp (雨でしょう, 雨かもしれません).",
+        "tag": "Dự báo & Phán đoán",
+        "cat": "forecast",
+        "formula": "[Thể thông thường / Danh từ] + でしょう (Chắc hẳn là... độ chắc chắn cao)<br>[Thể thông thường / Danh từ] + かもしれません (Có lẽ là... độ chắc chắn khoảng 50%)<br>V-てください (Hãy mặc áo ấm vào nhé)",
+        "meaning": "Đưa ra dự đoán về thời tiết trong ngày, ước đoán khả năng xảy ra mưa/nắng và nhắc nhở bạn bè mang theo áo mưa/áo khoác.",
+        "notes": "Danh từ và tính từ đuôi な đi trực tiếp với 「でしょう / かもしれません」 (không thêm だ).",
         "examples": [
-            {"jp": "明日は 晴れでしょう。", "vi": "Ngày mai chắc là trời sẽ nắng ráo."},
-            {"jp": "午後は 雨が 降るかもしれません。", "vi": "Buổi chiều có thể trời sẽ đổ mưa."},
-            {"jp": "今夜は 寒くなるかもしれませんから、コートを 着てください。", "vi": "Tối nay có lẽ trời sẽ trở lạnh đấy, bạn hãy mặc áo khoác vào nhé."}
+            {
+                "jp": "あしたは 晴れでしょう。",
+                "ruby": "あしたは <ruby>晴<rt>は</rt></ruby>れでしょう。",
+                "vi": "Ngày mai chắc là trời sẽ nắng ráo."
+            },
+            {
+                "jp": "ひるからは 雨が ふるかもしれません。",
+                "ruby": "ひるからは <ruby>雨<rt>あめ</rt></ruby>が ふるかもしれません。",
+                "vi": "Buổi chiều có thể trời sẽ đổ mưa."
+            },
+            {
+                "jp": "こんばんは さむくなるかもしれませんから、コートを きてください。",
+                "ruby": "こんばんは さむくなるかもしれませんから、コートを きてください。",
+                "vi": "Tối nay có lẽ trời sẽ trở lạnh đấy, bạn hãy mặc áo khoác vào nhé."
+            }
         ],
         "quiz": {
-            "q": "明日は 雪が [____] かもしれません。",
-            "options": ["降る", "降ります", "降って", "降り"],
+            "q": "明日は 午後から 雨が [____] かもしれません。",
+            "options": ["ふる", "ふって", "ふり", "ふった"],
             "correct": 0,
-            "explain": "Trước 「かもしれません」 là động từ thể thông thường (thể từ điển): 「降る」."
+            "explain": "Trước liên từ dự đoán 「かもしれません」 động từ để ở thể Từ điển (thể thông thường): 「ふる」."
         }
     },
     {
@@ -394,21 +563,33 @@ ALL_GRAMMAR_ITEMS = [
         "lesson": 5,
         "lessonTitle": "Bài 5: Thị Trấn & Nơi Chốn",
         "title": "Nối tính từ đa tầng & Quan hệ tương phản: A-くて / Na-で / ～けど・～が",
-        "tag": "Miêu tả & Tương phản",
-        "cat": "description",
-        "formula": "Tính từ đuôi い: Bỏ い + くて<br>Tính từ đuôi な: Bỏ な + で<br>Mệnh đề 1 + けど / が、Mệnh đề 2 (Tuy... nhưng...)",
-        "meaning": "Ghép nhiều đặc điểm phong cảnh, kiến trúc vào một câu và diễn tả sự đối lập nhẹ nhàng.",
-        "notes": "「けど」 thường dùng trong văn nói thân mật; 「が」 dùng trong văn viết hoặc giao tiếp lịch sự.",
+        "tag": "Miêu tả nơi chốn",
+        "cat": "town-description",
+        "formula": "Tính từ đuôi い: [Bỏ い] + くて (Rộng và đẹp...)<br>Tính từ đuôi な: [Bỏ な] + で (Yên tĩnh và tiện lợi...)<br>[Vế 1] けど / が、[Vế 2 đối lập] (Tuy gần nhưng mà đắt...)",
+        "meaning": "Miêu tả đặc điểm khu phố, công viên hoặc nhà ở bằng cách xâu chuỗi nhiều tính từ đồng chiều hoặc liên kết hai vế đối lập.",
+        "notes": "「～けど」 dùng trong văn nói thân mật; 「～が」 dùng trong văn phong lịch sự trang trọng.",
         "examples": [
-            {"jp": "この 公園は 広くて、きれいです。", "vi": "Công viên này vừa rộng lớn lại vừa đẹp đẽ."},
-            {"jp": "この 町は 静かで、住みやすいです。", "vi": "Thị trấn này yên bình và rất đáng sống."},
-            {"jp": "この アパートは 駅から 近いけど、家賃が 高いです。", "vi": "Căn hộ này tuy gần nhà ga nhưng tiền thuê lại đắt."}
+            {
+                "jp": "この こうえんは 広くて、きれいです。",
+                "ruby": "この こうえんは <ruby>広<rt>ひろ</rt></ruby>くて、きれいです。",
+                "vi": "Công viên này vừa rộng lớn lại vừa đẹp đẽ."
+            },
+            {
+                "jp": "この 町は しずかで、とても いいです。",
+                "ruby": "この <ruby>町<rt>まち</rt></ruby>は しずかで、とても いいです。",
+                "vi": "Thị trấn này yên bình và rất đáng sống."
+            },
+            {
+                "jp": "この へやは 駅から ちかいですが、高いです。",
+                "ruby": "この へやは <ruby>駅<rt>えき</rt></ruby>から ちかいですが、<ruby>高<rt>たか</rt></ruby>いです。",
+                "vi": "Căn phòng này tuy gần nhà ga nhưng lại đắt."
+            }
         ],
         "quiz": {
-            "q": "この町は にぎやか [____]、ちょっと 危ないです。",
-            "options": ["だけど", "くて", "な", "で"],
+            "q": "この レストランは [____]、おいしいです。",
+            "options": ["安くて", "安いで", "安くては", "安いくて"],
             "correct": 0,
-            "explain": "Tính từ đuôi な khi nối với mệnh đề tương phản 「けど」 ở văn nói dùng 「だけど」."
+            "explain": "Nối tính từ đuôi い: 安い ➔ bỏ い thêm くて ➔ 「安くて」."
         }
     },
     {
@@ -416,23 +597,35 @@ ALL_GRAMMAR_ITEMS = [
         "level": "A2-1",
         "levelName": "Marugoto A2-1",
         "lesson": 6,
-        "lessonTitle": "Bài 6: Chỉ Đường & Xác Nhận",
+        "lessonTitle": "Bài 6: Chỉ Đường & Ngã Rẽ",
         "title": "Chỉ đường & Phủ định thông tin: V-て (Chỉ dẫn) / N1 じゃなくて N2 / V-たいんですが",
-        "tag": "Chỉ đường & Yêu cầu",
+        "tag": "Chỉ đường",
         "cat": "direction",
-        "formula": "まっすぐ 行って、[Địa điểm] を 右/左に 曲がってください (Đi thẳng rồi rẽ...)<br>N1 じゃなくて、N2 です (Không phải N1 mà là N2)<br>[Địa điểm] に 行きたいんですが... (Tôi muốn đi tới... mở lời hỏi đường)",
-        "meaning": "Hướng dẫn lộ trình di chuyển, đính chính thông tin hiểu nhầm và mở lời hỏi đường tế nhị.",
-        "notes": "Đuôi 「～んですが」 dùng để tạo cớ, mở lời gợi mở để đối phương sẵn lòng hướng dẫn mình.",
+        "formula": "[Con đường] を まっすぐ 行って (Đi thẳng con đường này)<br>[Ngã rẽ] を 右 / 左 に まがってください (Hãy rẽ phải/trái ở...)<br>N1 じゃなくて N2 (Không phải cái 1, mà là cái 2)<br>～へ 行きたいんですが (Tôi muốn đi đến... xin hỏi đường)",
+        "meaning": "Chỉ dẫn đường đi cụ thể từng bước, đính chính lại thông tin bị nghe nhầm và mở lời hỏi đường một cách tự nhiên.",
+        "notes": "Hành động di chuyển qua không gian (đi thẳng con đường, băng qua cầu) dùng trợ từ 「を」.",
         "examples": [
-            {"jp": "二つ目の 角を 右に 曲がってください。", "vi": "Xin hãy rẽ phải ở góc ngã rẽ thứ hai."},
-            {"jp": "一つ目 じゃなくて、二つ目ですよ。", "vi": "Không phải ngã rẽ thứ nhất đâu, mà là cái thứ hai đấy."},
-            {"jp": "すみません。博物館に 行きたいんですが、どこですか。", "vi": "Xin lỗi. Tôi muốn đến viện bảo tàng, nó nằm ở đâu vậy ạ?"}
+            {
+                "jp": "ふたつめの かどを 右に まがってください。",
+                "ruby": "ふたつめの かどを <ruby>右<rt>みぎ</rt></ruby>に まがってください。",
+                "vi": "Xin hãy rẽ phải ở góc ngã rẽ thứ hai."
+            },
+            {
+                "jp": "ひとつめ じゃなくて、ふたつめですよ。",
+                "ruby": "ひとつめ じゃなくて、ふたつめですよ。",
+                "vi": "Không phải ngã rẽ thứ nhất đâu, mà là cái thứ hai đấy."
+            },
+            {
+                "jp": "すみません。はくぶつかんに 行きたいんですが、どこですか。",
+                "ruby": "すみません。はくぶつかんに <ruby>行<rt>い</rt></ruby>きたいんですが、どこですか。",
+                "vi": "Xin lỗi. Tôi muốn đến viện bảo tàng, nó nằm ở đâu vậy ạ?"
+            }
         ],
         "quiz": {
-            "q": "交差点を 左 [____] 曲がってください。",
-            "options": ["に", "を", "で", "へ"],
+            "q": "この 道を まっすぐ [____] ください。",
+            "options": ["行って", "行きます", "行く", "行かない"],
             "correct": 0,
-            "explain": "Rẽ sang hướng nào dùng trợ từ 「に」: 「左に曲がってください」."
+            "explain": "Chỉ dẫn hành động đi tiếp: dùng thể Te 「行ってください」."
         }
     },
     {
@@ -440,23 +633,35 @@ ALL_GRAMMAR_ITEMS = [
         "level": "A2-1",
         "levelName": "Marugoto A2-1",
         "lesson": 7,
-        "lessonTitle": "Bài 7: Hẹn Giờ & Xin Lỗi Muộn",
+        "lessonTitle": "Bài 7: Hẹn Hò & Xin Lỗi Muộn Giờ",
         "title": "Hẹn giờ & Lý do muộn: N で(も) いいですか / N で / V-て すみません",
         "tag": "Hẹn gặp & Xin lỗi",
         "cat": "appointment",
-        "formula": "[Thời gian] で(も) いいですか (Mấy giờ có được không?)<br>N で / V-て、遅くなって すみません (Vì... nên tôi đến muộn xin lỗi)",
-        "meaning": "Thương lượng điều chỉnh giờ hẹn và giải thích lý do đến muộn (tắc đường, lạc đường, tàu trễ).",
-        "notes": "Cấu trúc xin lỗi vì sự bất tiện: 「V-て + すみません」 (Ví dụ: 道に迷ってすみません).",
+        "formula": "[Mốc thời gian] で(も) いいですか (Giờ này có được không?)<br>V-て すみません (Xin lỗi vì đã đến muộn / làm phiền...)<br>N(Lý do khách quan: tai nạn, bão) で (Do nguyên nhân...)",
+        "meaning": "Thương lượng giờ giấc điểm hẹn linh hoạt, nói lời xin lỗi chân thành khi đến muộn và trình bày nguyên nhân khách quan.",
+        "notes": "Khi trễ hẹn, câu mở đầu lịch sự nhất là: 「おそくなって すみません」.",
         "examples": [
-            {"jp": "10時半でも いいですか。―― ええ、大丈夫ですよ。", "vi": "10 giờ rưỡi có được không? ―― Vâng, hoàn toàn được ạ."},
-            {"jp": "遅くなって すみません。道に 迷って...", "vi": "Xin lỗi vì tôi đến muộn. Tại tôi bị lạc đường..."},
-            {"jp": "大雨で 電車が 止まって しまいました。", "vi": "Vì mưa to dữ dội nên tàu điện đã bị dừng mất."}
+            {
+                "jp": "十時はんでも いいですか。―― ええ、だいじょうぶですよ。",
+                "ruby": "<ruby>十時<rt>じゅうじ</rt></ruby>はんでも いいですか。―― ええ、だいじょうぶですよ。",
+                "vi": "10 giờ rưỡi có được không? ―― Vâng, hoàn toàn được ạ."
+            },
+            {
+                "jp": "おそくなって すみません。時間を まちがえました...",
+                "ruby": "おそくなって すみません。<ruby>時間<rt>じかん</rt></ruby>を まちがえました...",
+                "vi": "Xin lỗi vì tôi đến muộn. Tại tôi bị nhầm thời gian..."
+            },
+            {
+                "jp": "たいふうで でんしゃが 止まって しまいました。",
+                "ruby": "たいふうで でんしゃが <ruby>止<rt>と</rt></ruby>まって しまいました。",
+                "vi": "Vì bão nên tàu điện đã bị dừng mất."
+            }
         ],
         "quiz": {
-            "q": "渋滞 [____] 遅くなって すみません。",
-            "options": ["で", "に", "を", "から"],
+            "q": "遅く [____] すみません。道に 迷いました。",
+            "options": ["なって", "なり", "なる", "なったら"],
             "correct": 0,
-            "explain": "Danh từ chỉ nguyên nhân sự cố (渋滞 - tắc đường) đi với trợ từ 「で」."
+            "explain": "Mẫu câu xin lỗi vì làm sao: V-て すみません ➔ 「遅くなって すみません」."
         }
     },
     {
@@ -464,23 +669,35 @@ ALL_GRAMMAR_ITEMS = [
         "level": "A2-1",
         "levelName": "Marugoto A2-1",
         "lesson": 8,
-        "lessonTitle": "Bài 8: Bữa Ăn & Thứ Tự Trước Sau",
-        "title": "Mời mọc & Thứ tự hành động: V-に行きませんか / V-た後で / V-る前に",
-        "tag": "Thời gian & Lời mời",
+        "lessonTitle": "Bài 8: Trình Tự Thời Gian & Mời Mọc",
+        "title": "Mời mọc & Thứ tự hành động: V-に行きませんか / V-てから / V-る前に",
+        "tag": "Thứ tự hành động",
         "cat": "order",
-        "formula": "[Địa điểm] を 見に 行きませんか (Cùng đi ngắm... không?)<br>V-た 後で、～ (Sau khi đã làm... thì...)<br>N の 前に / V-る 前に、～ (Trước khi làm... thì...)",
-        "meaning": "Rủ bạn bè đi thăm thú danh lam thắng cảnh và sắp xếp thứ tự thực hiện các hành động trong ngày.",
-        "notes": "Sau khi thì dùng thể Quá khứ 「V-た 後で」; Trước khi thì dùng thể Từ điển 「V-る 前に」.",
+        "formula": "[Địa điểm] へ 見に 行きませんか (Cùng đi ngắm... không?)<br>V-てから、～ (Làm xong việc này rồi mới làm việc kia)<br>V-る 前に、～ (Trước khi làm việc này thì...)",
+        "meaning": "Rủ bạn bè đi thăm thú danh lam thắng cảnh và sắp xếp thứ tự thực hiện các hành động trong ngày rõ ràng chuẩn xác.",
+        "notes": "Sau khi làm A rồi mới làm B dùng 「V-てから」; Trước khi làm B thì làm A dùng 「V-る 前に」.",
         "examples": [
-            {"jp": "夜景を 見に 行きませんか。―― いいですね。行きましょう！", "vi": "Chúng mình cùng đi ngắm cảnh đêm nhé? ―― Hay quá, đi thôi!"},
-            {"jp": "食事の 後で、お土産を 買いに 行きましょう。", "vi": "Sau khi dùng bữa xong, chúng ta hãy cùng đi mua quà lưu niệm nhé."},
-            {"jp": "寝る 前に、本を 読みます。", "vi": "Trước khi đi ngủ, tôi đọc sách."}
+            {
+                "jp": "夜の けしきを 見に 行きませんか。―― いいですね。行きましょう！",
+                "ruby": "<ruby>夜<rt>よる</rt></ruby>の けしきを <ruby>見<rt>み</rt></ruby>に <ruby>行<rt>い</rt></ruby>きませんか。―― いいですね。<ruby>行<rt>い</rt></ruby>きましょう！",
+                "vi": "Chúng mình cùng đi ngắm cảnh đêm nhé? ―― Hay quá, đi thôi!"
+            },
+            {
+                "jp": "食事を してから、おみやげを かいに 行きましょう。",
+                "ruby": "<ruby>食事<rt>しょくじ</rt></ruby>を してから、おみやげを かいに <ruby>行<rt>い</rt></ruby>きましょう。",
+                "vi": "Dùng bữa xong rồi, chúng ta hãy cùng đi mua quà lưu niệm nhé."
+            },
+            {
+                "jp": "ねる 前に、本を 読みます。",
+                "ruby": "ねる <ruby>前<rt>まえ</rt></ruby>に、<ruby>本<rt>ほん</rt></ruby>を <ruby>読<rt>よ</rt></ruby>みます。",
+                "vi": "Trước khi đi ngủ, tôi đọc sách."
+            }
         ],
         "quiz": {
-            "q": "ご飯を [____] 後で、散歩しましょう。",
-            "options": ["食べた", "食べる", "食べて", "食べ"],
+            "q": "えいがを [____] 前に、カフェへ 行きましょう。",
+            "options": ["見る", "見て", "見ます", "見ない"],
             "correct": 0,
-            "explain": "Đứng trước 「後で」 động từ phải chia về thể Quá khứ ngắn: 「食べた後で」."
+            "explain": "Đứng trước 「前に」 động từ luôn ở thể Từ điển (V-る): 「見る前に」."
         }
     },
     {
@@ -492,13 +709,25 @@ ALL_GRAMMAR_ITEMS = [
         "title": "Đánh giá ngôn ngữ & Nhờ vả lịch sự: N は V-る のが A / V-てくださいませんか",
         "tag": "Ngôn ngữ & Yêu cầu",
         "cat": "language",
-        "formula": "N(Ngôn ngữ) は [V thể Từ điển] のが [簡単/難しい/面白い] です<br>V-て くださいませんか (Làm ơn có thể vui lòng... giúp tôi được không?)<br>[Khoảng thời gian] に [Số lần] 回 (Tần suất học tập)",
-        "meaning": "Bình luận về độ khó, độ thú vị khi phát âm/viết chữ/học ngoại ngữ và cách nhờ vả thầy cô, người bản xứ giúp đỡ.",
+        "formula": "N(Ngôn ngữ) は [V thể Từ điển] のが [かんたん/むずかしい/おもしろい] です<br>V-て くださいませんか (Làm ơn có thể vui lòng... chỉ giúp tôi được không?)<br>[Khoảng thời gian] に [Số lần] 回 (Tần suất học tập)",
+        "meaning": "Bình luận về độ khó, độ thú vị khi phát âm/viết chữ/học ngoại ngữ và cách nhờ vả thầy cô, người bản xứ giúp đỡ lịch sự.",
         "notes": "「～てくださいませんか」 là mức độ nhờ vả lịch thiệp và tôn trọng hơn nhiều so với 「～てください」.",
         "examples": [
-            {"jp": "日本語は 発音は 簡単ですが、漢字を 書くのが 難しいです。", "vi": "Tiếng Nhật phát âm thì đơn giản nhưng việc viết chữ Hán thì rất khó."},
-            {"jp": "この 漢字の 読み方を 教えて くださいませんか。", "vi": "Làm ơn có thể vui lòng chỉ giúp tôi cách đọc chữ Hán này được không ạ?"},
-            {"jp": "週に 2回 日本語の 授業が あります。", "vi": "Mỗi tuần tôi có 2 buổi học tiếng Nhật."}
+            {
+                "jp": "日本語は はつおんは かんたんですが、かんじを かくのが むずかしいです。",
+                "ruby": "<ruby>日本<rt>にほん</rt></ruby><ruby>語<rt>ご</rt></ruby>は はつおんは かんたんですが、かんじを かくのが むずかしいです。",
+                "vi": "Tiếng Nhật phát âm thì đơn giản nhưng việc viết chữ Hán thì rất khó."
+            },
+            {
+                "jp": "この かんじの 読みかたを おしえて くださいませんか。",
+                "ruby": "この かんじの <ruby>読<rt>よ</rt></ruby>みかたを おしえて くださいませんか。",
+                "vi": "Làm ơn có thể vui lòng chỉ giúp tôi cách đọc chữ Hán này được không ạ?"
+            },
+            {
+                "jp": "週に 二回 日本語の じゅぎょうが あります。",
+                "ruby": "<ruby>週<rt>しゅう</rt></ruby>に <ruby>二回<rt>にかい</rt></ruby> <ruby>日本<rt>にほん</rt></ruby><ruby>語<rt>ご</rt></ruby>の じゅぎょうが あります。",
+                "vi": "Mỗi tuần tôi có 2 buổi học tiếng Nhật."
+            }
         ],
         "quiz": {
             "q": "もう一度 [____] くださいませんか。",
@@ -520,9 +749,21 @@ ALL_GRAMMAR_ITEMS = [
         "meaning": "Bày tỏ ước mơ, hoài bão trong tương lai, ngỏ lời đề nghị hỗ trợ người khác và tâm thế sẵn sàng trải nghiệm cái mới.",
         "notes": "Để hỏi đối phương muốn làm gì: 「何が したいですか」.",
         "examples": [
-            {"jp": "いつか 日本へ 留学に 行きたいです。", "vi": "Một ngày nào đó tôi muốn được đi du học Nhật Bản."},
-            {"jp": "荷物が 重そうですね。手伝いましょうか。", "vi": "Hành lý trông có vẻ nặng quá. Để tôi xách giúp bạn nhé?"},
-            {"jp": "日本料理を 自分で 作って みます。", "vi": "Tôi sẽ thử tự tay nấu món ăn Nhật Bản xem sao."}
+            {
+                "jp": "いつか 日本へ りゅうがくに 行きたいです。",
+                "ruby": "いつか <ruby>日本<rt>にほん</rt></ruby>へ りゅうがくに <ruby>行<rt>い</rt></ruby>きたいです。",
+                "vi": "Một ngày nào đó tôi muốn được đi du học Nhật Bản."
+            },
+            {
+                "jp": "にもつが おもそうですね。てつだいましょうか。",
+                "ruby": "にもつが おもそうですね。てつだいましょうか。",
+                "vi": "Hành lý trông có vẻ nặng quá. Để tôi giúp bạn một tay nhé?"
+            },
+            {
+                "jp": "日本りょうりを じぶんで つくって みます。",
+                "ruby": "<ruby>日本<rt>にほん</rt></ruby>りょうりを じぶんで つくって みます。",
+                "vi": "Tôi sẽ thử tự tay nấu món ăn Nhật Bản xem sao."
+            }
         ],
         "quiz": {
             "q": "駅まで 一緒に [____] ましょうか。",
@@ -548,15 +789,27 @@ ALL_GRAMMAR_ITEMS = [
         "meaning": "Phân công đồ đạc mang đi dã ngoại, thể hiện sự thoải mái dễ tính khi chọn món.",
         "notes": "何でもいい (Cái gì cũng được), どこでもいい (Đâu cũng được), 誰でもいい (Ai cũng được).",
         "examples": [
-            {"jp": "私は おにぎりを 作って 行きます。", "vi": "Tôi sẽ tự làm cơm nắm mang đi dã ngoại."},
-            {"jp": "飲み物は 何が いいですか。―― お茶が いいです。何でも いいですよ。", "vi": "Đồ uống bạn thích gì? ―― Trà thì tốt, mà cái gì cũng được bạn nhé."},
-            {"jp": "赤ワインと 白ワイン、どちらが いいですか。―― 白ワインに します。", "vi": "Vang đỏ hay vang trắng bạn thích loại nào hơn? ―― Tôi chọn vang trắng."}
+            {
+                "jp": "わたしは おにぎりを つくって 行きます。",
+                "ruby": "わたしは おにぎりを つくって <ruby>行<rt>い</rt></ruby>きます。",
+                "vi": "Tôi sẽ tự làm cơm nắm mang đi dã ngoại."
+            },
+            {
+                "jp": "飲み物は 何が いいですか。―― お茶が いいです。何でも いいですよ。",
+                "ruby": "<ruby>飲<rt>の</rt></ruby>み<ruby>物<rt>もの</rt></ruby>は <ruby>何<rt>なに</rt></ruby>が いいですか。―― お<ruby>茶<rt>ちゃ</rt></ruby>が いいです。<ruby>何<rt>なん</rt></ruby>でも いいですよ。",
+                "vi": "Đồ uống bạn thích gì? ―― Trà thì tốt, mà cái gì cũng được bạn nhé."
+            },
+            {
+                "jp": "赤ワインと 白ワイン、どちらが いいですか。―― 白ワインに します。",
+                "ruby": "<ruby>赤<rt>あか</rt></ruby>ワインと <ruby>白<rt>しろ</rt></ruby>ワイン、どちらが いいですか。―― <ruby>白<rt>しろ</rt></ruby>ワインに します。",
+                "vi": "Vang đỏ hay vang trắng bạn thích loại nào hơn? ―― Tôi chọn vang trắng."
+            }
         ],
         "quiz": {
-            "q": "飲み物は [____] でも いいですよ。",
-            "options": ["なん", "だれ", "どこ", "いつ"],
+            "q": "バーベキューの お肉は わたしが [____] 行きますね。",
+            "options": ["買って", "買い", "買う", "買った"],
             "correct": 0,
-            "explain": "Đồ uống nên dùng từ để hỏi vật 「何 (なん)」 ➔ 「何でもいい」 (cái gì cũng được)."
+            "explain": "Hành động chuẩn bị sẵn rồi mang tới điểm hẹn: V-て 行きます ➔ 「買って行きます」."
         }
     },
     {
@@ -564,23 +817,35 @@ ALL_GRAMMAR_ITEMS = [
         "level": "A2-2",
         "levelName": "Marugoto A2-2",
         "lesson": 12,
-        "lessonTitle": "Bài 12: Món Ăn & Hương Vị",
+        "lessonTitle": "Bài 12: Món Ăn & Đánh Giá Vị Giác",
         "title": "Phán đoán thị giác & Miêu tả món ăn: ～そう / A-くて / ～と似ています",
-        "tag": "Ẩm thực & Vị giác",
-        "cat": "taste",
-        "formula": "Tính từ đuôi い (Bỏ い) + そうです (Trông có vẻ... / おいしそう)<br>A-くて (Nối tính từ vị giác: からくて おいしい)<br>N1 は N2 と 似ています (Món này giống món kia) / 違います (Khác nhau)",
-        "meaning": "Đưa ra lời khen ngợi cảm quan khi nhìn món ăn, nhận xét hương vị đa tầng và so sánh với món ăn quê hương.",
-        "notes": "Ngoại lệ: いい ➔ よさそう (Trông có vẻ được đấy). Khi mời ăn lịch sự: 「よかったら、どうぞ」.",
+        "tag": "Ẩm thực & Cảm quan",
+        "cat": "food-review",
+        "formula": "Tính từ (bỏ い/な) + そうです (Trông có vẻ ngon/cay/ngọt)<br>A-くて、B-いです (Vị này và vị kia: cay và ngon)<br>N1 は N2 と にています (Món này trông na ná món kia)",
+        "meaning": "Nhận xét món ăn qua vẻ bề ngoài khi vừa dọn ra bàn và so sánh hương vị với các món ăn quê hương.",
+        "notes": "おいしい ➔ おいしそう (Trông ngon); からい ➔ からそう (Trông có vẻ cay).",
         "examples": [
-            {"jp": "その ケーキ、とても おいしそうですね！", "vi": "Chiếc bánh ngọt đó trông ngon lành quá chừng!"},
-            {"jp": "この サラダは ちょっと からくて、おいしいです。", "vi": "Món salad này hơi cay một chút mà ngon thật đấy."},
-            {"jp": "これは 韓国の キンパと 似ていますが、味は 違います。", "vi": "Món này trông khá giống Kimbap Hàn Quốc nhưng mùi vị thì khác."}
+            {
+                "jp": "その ケーキ、とても おいしそうですね！",
+                "ruby": "その ケーキ、とても おいしそうですね！",
+                "vi": "Chiếc bánh ngọt đó trông ngon lành quá chừng!"
+            },
+            {
+                "jp": "この サラダは ちょっと からくて、おいしいです。",
+                "ruby": "この サラダは ちょっと からくて、おいしいです。",
+                "vi": "Món salad này hơi cay một chút mà ngon thật đấy."
+            },
+            {
+                "jp": "これは 韓国の キンパと にていますが、味は ちがいます。",
+                "ruby": "これは <ruby>韓国<rt>かんこく</rt></ruby>の キンパと にていますが、<ruby>味<rt>あじ</rt></ruby>は ちがいます。",
+                "vi": "Món này trông khá giống Kimbap Hàn Quốc nhưng mùi vị thì khác."
+            }
         ],
         "quiz": {
-            "q": "スープが 赤いですから、ちょっと [____] ですね。",
-            "options": ["からそう", "からいそう", "からくそう", "からだそう"],
+            "q": "この スープは とても から [____] ですね。",
+            "options": ["そう", "くて", "い", "だ"],
             "correct": 0,
-            "explain": "Tính từ đuôi い khi kết hợp với ～そう sẽ bỏ い: からい ➔ 「からそう」."
+            "explain": "Phán đoán qua thị giác với tính từ đuôi い: からい ➔ bỏ い thêm そう ➔ 「からそう」."
         }
     },
     {
@@ -588,23 +853,35 @@ ALL_GRAMMAR_ITEMS = [
         "level": "A2-2",
         "levelName": "Marugoto A2-2",
         "lesson": 13,
-        "lessonTitle": "Bài 13: Lịch Trình Công Tác",
+        "lessonTitle": "Bài 13: Đón Khách & Chuyến Đi",
         "title": "Kinh nghiệm cuộc đời & Lịch trình: V-たことがあります / ～時に着きます",
         "tag": "Kinh nghiệm & Đón tiếp",
-        "cat": "experience",
-        "formula": "Động từ thể Quá khứ (V-た) + ことがあります / ありません (Đã từng / Chưa từng)<br>[Thời gian] に [Địa điểm] に 着きます / 出発します<br>お疲れ様でした。ようこそ [Địa điểm] へ！",
-        "meaning": "Hỏi và nói về trải nghiệm đã từng gặp ai, từng đi đâu trong quá khứ và cách báo cáo lịch trình, đón khách sân bay.",
-        "notes": "Chia thể Quá khứ ngắn (Thể た) tương tự như quy tắc chia thể Te (会います ➔ 会った, 行きます ➔ 行った).",
+        "cat": "arrival",
+        "formula": "V-た ことが あります (Tôi đã từng trải nghiệm việc gì đó)<br>[Thời gian] に [Địa điểm] に つきます (Đến nơi lúc mấy giờ)<br>フライトは いかがでしたか (Hỏi thăm chuyến bay sau hành trình dài)",
+        "meaning": "Hỏi han trải nghiệm quá khứ, tiếp đón khách hàng/đối tác tại sân bay và thông báo mốc giờ hạ cánh.",
+        "notes": "Mẫu câu hỏi kinh nghiệm lịch sự: 「～たことが ありますか」.",
         "examples": [
-            {"jp": "わたしは 田中さんに 会ったことが あります。", "vi": "Tôi đã từng gặp anh Tanaka trước đây rồi."},
-            {"jp": "飛行機は 午後3時に 成田空港に 着きます。", "vi": "Máy bay sẽ hạ cánh xuống sân bay Narita lúc 3 giờ chiều."},
-            {"jp": "田中さん、お疲れ様でした。ようこそ 東京へ！フライトは いかがでしたか。", "vi": "Chào anh Tanaka, anh đã vất vả rồi. Chào mừng anh đến Tokyo! Chuyến bay của anh thế nào ạ?"}
+            {
+                "jp": "わたしは 田中さんに 会ったことが あります。",
+                "ruby": "わたしは <ruby>田中<rt>たなか</rt></ruby>さんに <ruby>会<rt>あ</rt></ruby>ったことが あります。",
+                "vi": "Tôi đã từng gặp anh Tanaka trước đây rồi."
+            },
+            {
+                "jp": "飛行機は 午後3時に 成田空港に 着きます。",
+                "ruby": "<ruby>飛行機<rt>ひこうき</rt></ruby>は <ruby>午後<rt>ごご</rt></ruby>3<ruby>時<rt>じ</rt></ruby>に <ruby>成田<rt>なりた</rt></ruby><ruby>空港<rt>くうこう</rt></ruby>に <ruby>着<rt>つ</rt></ruby>きます。",
+                "vi": "Máy bay sẽ hạ cánh xuống sân bay Narita lúc 3 giờ chiều."
+            },
+            {
+                "jp": "田中さん、お疲れ様でした。ようこそ 東京へ！フライトは いかがでしたか。",
+                "ruby": "<ruby>田中<rt>たなか</rt></ruby>さん、お<ruby>疲<rt>つか</rt></ruby>れ<ruby>様<rt>さま</rt></ruby>でした。ようこそ <ruby>東京<rt>とうきょう</rt></ruby>へ！フライトは いかがでしたか。",
+                "vi": "Chào anh Tanaka, anh đã vất vả rồi. Chào mừng anh đến Tokyo! Chuyến bay của anh thế nào ạ?"
+            }
         ],
         "quiz": {
-            "q": "日本へ 出張に [____] ことがありますか。",
-            "options": ["行った", "行きます", "行かない", "行くて"],
+            "q": "日本へ [____] ことが ありますか。",
+            "options": ["行った", "行く", "行きます", "行かない"],
             "correct": 0,
-            "explain": "Cấu trúc kinh nghiệm: V-た ことがありますか: 行きます ➔ 「行ったことがありますか」."
+            "explain": "Cấu trúc kinh nghiệm: Động từ thể Quá khứ ngắn (Thể た) + ことがあります ➔ 「行った」."
         }
     },
     {
@@ -612,23 +889,35 @@ ALL_GRAMMAR_ITEMS = [
         "level": "A2-2",
         "levelName": "Marugoto A2-2",
         "lesson": 14,
-        "lessonTitle": "Bài 14: Nơi Làm Việc & Mượn Đồ",
+        "lessonTitle": "Bài 14: Thăm Quan Công Ty & Quy Tắc",
         "title": "Xin phép & Quy tắc công sở: V-てもいいですか / V-てはいけません / お世話になりました",
-        "tag": "Xin phép & Lễ nghi",
-        "cat": "permission",
+        "tag": "Quy tắc & Cảm ơn",
+        "cat": "office-rules",
         "formula": "V-て + もいいですか (Tôi làm... có được không?)<br>V-て + はいけません (Không được phép làm...)<br>大変 お世話になりました (Cảm ơn anh chị đã giúp đỡ hết lòng)",
-        "meaning": "Xin phép mượn máy tính, sử dụng đồ đạc nơi công sở, hiểu các quy tắc cấm đoán và nói lời chào tạm biệt đầy trân trọng.",
-        "notes": "Từ chối khéo khi người khác xin mượn đồ: 「すみません、今 使っているんです」.",
+        "meaning": "Xin phép cấp trên trước khi sử dụng thiết bị, nhắc nhở nội quy cấm đoán và nói lời chia tay cảm tạ sâu sắc.",
+        "notes": "V-てはいけません là cấm đoán nghiêm khắc; Xin phép dùng 「V-ても いいですか」.",
         "examples": [
-            {"jp": "この コンピューターを 使っても いいですか。―― はい、どうぞ。", "vi": "Tôi dùng chiếc máy tính này có được không? ―― Vâng, xin mời anh cứ dùng."},
-            {"jp": "ここで 写真を 撮っては いけません。", "vi": "Không được chụp ảnh tại khu vực này."},
-            {"jp": "3日間、大変 お世話になりました。本社の 皆さんによろしく お伝えください。", "vi": "Trong 3 ngày qua, cảm ơn mọi người đã hết lòng giúp đỡ. Cho tôi gửi lời hỏi thăm tới mọi người ở trụ sở chính nhé."}
+            {
+                "jp": "この パソコンを つかっても いいですか。―― はい、どうぞ。",
+                "ruby": "この パソコンを つかっても いいですか。―― はい、どうぞ。",
+                "vi": "Tôi dùng chiếc máy tính này có được không? ―― Vâng, xin mời anh cứ dùng."
+            },
+            {
+                "jp": "ここで しゃしんを とっては いけません。",
+                "ruby": "ここで しゃしんを とっては いけません。",
+                "vi": "Không được chụp ảnh tại khu vực này."
+            },
+            {
+                "jp": "3日間、大変 お世話になりました。本社の 皆さんによろしく お伝えください。",
+                "ruby": "3<ruby>日<rt>にち</rt></ruby><ruby>間<rt>かん</rt></ruby>、<ruby>大変<rt>たいへん</rt></ruby> お<ruby>世話<rt>せわ</rt></ruby>になりました。<ruby>本社<rt>ほんしゃ</rt></ruby>の <ruby>皆<rt>みな</rt></ruby>さんによろしく お<ruby>伝<rt>つた</rt></ruby>えください。",
+                "vi": "Trong 3 ngày qua, cảm ơn mọi người đã hết lòng giúp đỡ. Cho tôi gửi lời hỏi thăm tới mọi người ở trụ sở chính nhé."
+            }
         ],
         "quiz": {
-            "q": "ペンを [____] も いいですか (借ります)。",
-            "options": ["借りて", "借って", "借りた", "借る"],
+            "q": "ここで タバコを [____] は いけません。",
+            "options": ["吸って", "吸う", "吸い", "吸った"],
             "correct": 0,
-            "explain": "Động từ nhóm 2: かります ➔ chia thể Te là 「借りて」 + もいいですか."
+            "explain": "Cấu trúc cấm đoán: V-て + はいけません ➔ 「吸ってはいけません」."
         }
     },
     {
@@ -636,23 +925,35 @@ ALL_GRAMMAR_ITEMS = [
         "level": "A2-2",
         "levelName": "Marugoto A2-2",
         "lesson": 15,
-        "lessonTitle": "Bài 15: Cơ Thể & Bệnh Tật",
+        "lessonTitle": "Bài 15: Sức Khỏe & Thăm Bệnh",
         "title": "Giải thích bệnh trạng & Lời khuyên: ～んです / V-るといいですよ / V-ないでください",
-        "tag": "Sức khỏe & Khuyên can",
+        "tag": "Sức khỏe & Lời khuyên",
         "cat": "health",
-        "formula": "[Thể thông thường / Tính từ] + んです (Giải thích triệu chứng: 頭が痛いんです)<br>V(thể Từ điển) + といいですよ (Khuyên nên làm gì)<br>V-ない + でください (Dặn dò đừng làm quá sức)",
-        "meaning": "Trình bày tình trạng đau ốm, mệt mỏi với cấp trên, đồng nghiệp và trao nhau những lời khuyên, dặn dò dưỡng bệnh chu đáo.",
-        "notes": "Khi nghe người khác ốm đau, câu chúc quen thuộc nhất là: 「お大事に (どうぞ)」.",
+        "formula": "[Thể thông thường / Tính từ] + んです (Giải thích triệu chứng: あたまが いたいんです)<br>V(thể Từ điển) + といいですよ (Khuyên nên làm gì)<br>V-ない + でください (Dặn dò đừng làm quá sức)",
+        "meaning": "Mô tả triệu chứng đau ốm, đưa ra lời khuyên uống thuốc/nghỉ ngơi ân cần và động viên người bệnh.",
+        "notes": "Đuôi 「～んです」 dùng khi giải thích lý do, nguyên nhân với sự quan tâm và giãi bày cảm xúc.",
         "examples": [
-            {"jp": "どうしたんですか。―― ちょっと 頭が 痛いんです。", "vi": "Bạn bị làm sao thế? ―― Tôi bị đau đầu một chút."},
-            {"jp": "寝る 前に、この 薬を 飲むと いいですよ。", "vi": "Trước khi đi ngủ, bạn uống viên thuốc này thì tốt đấy nhé."},
-            {"jp": "熱が ありますから、あまり 無理を しないでくださいね。", "vi": "Vẫn còn sốt nên bạn đừng làm việc quá sức nhé."}
+            {
+                "jp": "どうしたんですか。―― ちょっと あたまが いたいんです。",
+                "ruby": "どうしたんですか。―― ちょっと あたまが いたいんです。",
+                "vi": "Bạn bị làm sao thế? ―― Tôi bị đau đầu một chút."
+            },
+            {
+                "jp": "ねる 前に、この くすりを のむと いいですよ。",
+                "ruby": "ねる <ruby>前<rt>まえ</rt></ruby>に、この くすりを のむと いいですよ。",
+                "vi": "Trước khi đi ngủ, bạn uống viên thuốc này thì tốt đấy nhé."
+            },
+            {
+                "jp": "ねつが ありますから、あまり むりを しないでくださいね。",
+                "ruby": "ねつが ありますから、あまり むりを しないでくださいね。",
+                "vi": "Vẫn còn sốt nên bạn đừng làm việc quá sức nhé."
+            }
         ],
         "quiz": {
-            "q": "熱が ありますから、無理を [____] ください。",
-            "options": ["しないで", "しなくて", "するな", "しない"],
+            "q": "早く 元気に [____] と いいですね。",
+            "options": ["なる", "なって", "なり", "なった"],
             "correct": 0,
-            "explain": "Dặn dò không nên làm điều có hại: V-ない + でください ➔ 「しないでください」."
+            "explain": "Mẫu câu khuyên nhủ/chúc phúc: V(thể Từ điển) + といいですね ➔ 「なるといいですね」."
         }
     },
     {
@@ -660,20 +961,32 @@ ALL_GRAMMAR_ITEMS = [
         "level": "A2-2",
         "levelName": "Marugoto A2-2",
         "lesson": 16,
-        "lessonTitle": "Bài 16: Giữ Gìn Sức Khỏe",
+        "lessonTitle": "Bài 16: Lối Sống Lành Mạnh & Thể Thao",
         "title": "Liệt kê thói quen & Lời khuyên lối sống: V1-たり V2-たりします / N のために / V-たほうがいい",
-        "tag": "Lối sống & Thói quen",
+        "tag": "Lối sống & Thể thao",
         "cat": "lifestyle",
         "formula": "V1-た + り、V2-た + り します / しています (Lúc làm việc này, lúc làm việc kia)<br>N の ために (Vì mục đích duy trì sức khỏe)<br>V-た ほうがいいです (Nên làm) / V-ない ほうがいいです (Không nên làm)",
-        "meaning": "Liệt kê các hoạt động thể thao, thói quen sinh hoạt không theo thứ tự thời gian và đưa ra lời khuyên khoa học về lối sống.",
-        "notes": "Khác với thể Te (V1-て V2), cấu trúc 「～たり～たり」 chỉ liệt kê đại diện vài việc trong rất nhiều hoạt động.",
+        "meaning": "Liệt kê tiêu biểu các hoạt động rèn luyện thân thể cuối tuần và đưa ra lời khuyên chân tình giúp cải thiện lối sống.",
+        "notes": "Cấu trúc たり...たり phải chia động từ ở thể Ta rồi gắn thêm り: 「走ったり、泳いだり」.",
         "examples": [
-            {"jp": "週末は 公園を 走ったり、プールで 泳いだり しています。", "vi": "Cuối tuần tôi lúc thì chạy bộ ở công viên, lúc thì đi bơi ở hồ bơi."},
-            {"jp": "健康の ために 何か していますか。", "vi": "Để duy trì sức khỏe, bạn có làm hoạt động gì không?"},
-            {"jp": "夜遅くまで 起きていないで、早く 寝た ほうが いいですよ。", "vi": "Đừng thức quá khuya, bạn nên đi ngủ sớm thì tốt hơn đấy."}
+            {
+                "jp": "しゅうまつは こうえんを はしったり、プールで およいだり して います。",
+                "ruby": "しゅうまつは こうえんを はしったり、プールで およいだり して います。",
+                "vi": "Cuối tuần tôi lúc thì chạy bộ ở công viên, lúc thì đi bơi ở hồ bơi."
+            },
+            {
+                "jp": "けんこうの ために 何か して いますか。",
+                "ruby": "けんこうの ために <ruby>何<rt>なに</rt></ruby>か して いますか。",
+                "vi": "Để duy trì sức khỏe, bạn có làm hoạt động gì không?"
+            },
+            {
+                "jp": "夜 おそくまで おきていないで、はやく ねた ほうが いいですよ。",
+                "ruby": "<ruby>夜<rt>よる</rt></ruby> おそくまで おきていないで、はやく ねた ほうが いいですよ。",
+                "vi": "Đừng thức quá khuya, bạn nên đi ngủ sớm thì tốt hơn đấy."
+            }
         ],
         "quiz": {
-            "q": "休みの 日は 本を [____]、映画を 見たり します。",
+            "q": "休みの 日は 本を [____]、えいがを 見たり します。",
             "options": ["読んだり", "読んで", "読んだ", "読みたり"],
             "correct": 0,
             "explain": "Động từ thể Quá khứ ngắn (Thể た) + り: 読みます ➔ 読んだ ➔ 「読んだり」."
@@ -688,16 +1001,28 @@ ALL_GRAMMAR_ITEMS = [
         "title": "Trao gửi quà tặng & Định ngữ: あげます / もらったんです / ～とか / V-る + もの",
         "tag": "Quà tặng & Định ngữ",
         "cat": "gift",
-        "formula": "Watashi wa [Người nhận] に [Món quà] を あげます (Tặng ai cái gì)<br>Watashi wa [Người tặng] に [Món quà] を もらったんです (Được ai tặng)<br>N1 とか N2 とか (Liệt kê đại diện như là...)<br>[V thể Từ điển] + もの (Đồ vật để làm gì: 部屋に飾るもの)",
+        "formula": "Watashi wa [Người nhận] に [Món quà] を あげます (Tặng ai cái gì)<br>Watashi wa [Người tặng] に [Món quà] を もらったんです (Được ai tặng)<br>N1 とか N2 とか (Liệt kê đại diện như là...)<br>[V thể Từ điển] + もの (Đồ vật để làm gì)",
         "meaning": "Tặng quà vào các dịp lễ kỷ niệm, giải thích nguồn gốc kỷ vật đáng trân trọng và dùng mệnh đề định ngữ miêu tả công năng của quà tặng.",
         "notes": "Dùng 「もらったんです」 khi giải thích lý do vì sao mình sở hữu món đồ xinh xắn đối phương vừa khen ngợi.",
         "examples": [
-            {"jp": "その ネックレス、とても 素敵ですね。―― 誕生日に 彼に もらったんです。", "vi": "Sợi dây chuyền đó đẹp quá nhỉ! ―― Tôi được bạn trai tặng vào ngày sinh nhật đấy."},
-            {"jp": "母の日に きれいな 花を あげました。", "vi": "Vào Ngày của Mẹ tôi đã tặng một bó hoa tươi cho mẹ."},
-            {"jp": "結婚の お祝いに 絵とか 時計を あげます。部屋に 飾る ものが いいですね。", "vi": "Mừng đám cưới thường tặng những thứ như tranh hay đồng hồ. Đồ trang trí phòng thì rất hay."}
+            {
+                "jp": "その ネックレス、とても すてきですね。―― たんじょうびに かれに もらったんです。",
+                "ruby": "その ネックレス、とても すてきですね。―― たんじょうびに かれに もらったんです。",
+                "vi": "Sợi dây chuyền đó đẹp quá nhỉ! ―― Tôi được bạn trai tặng vào ngày sinh nhật đấy."
+            },
+            {
+                "jp": "母の 日に きれいな 花を あげました。",
+                "ruby": "<ruby>母<rt>はは</rt></ruby>の <ruby>日<rt>ひ</rt></ruby>に きれいな <ruby>花<rt>はな</rt></ruby>を あげました。",
+                "vi": "Vào Ngày của Mẹ tôi đã tặng một bó hoa tươi cho mẹ."
+            },
+            {
+                "jp": "けっこんの おいわいに えとか とけいを あげます。へやに かざる ものが いいですね。",
+                "ruby": "けっこんの おいわいに えとか とけいを あげます。へやに かざる ものが いいですね。",
+                "vi": "Mừng đám cưới thường tặng những thứ như tranh hay đồng hồ. Đồ trang trí phòng thì rất hay."
+            }
         ],
         "quiz": {
-            "q": "新居の 部屋に [____] ものを プレゼントしたいです。",
+            "q": "へやに [____] ものを プレゼントしたいです。",
             "options": ["飾る", "飾って", "飾った", "飾り"],
             "correct": 0,
             "explain": "Động từ bổ nghĩa cho danh từ chỉ vật 「もの」 ở thể Từ điển: 「飾るもの」 (đồ trang trí)."
@@ -716,9 +1041,21 @@ ALL_GRAMMAR_ITEMS = [
         "meaning": "Bày tỏ quan điểm cá nhân, thuật lại lời nói của người khác và phân loại chính xác các hành động diện trang phục dự tiệc.",
         "notes": "Trong đám cưới, lời chúc mừng chuẩn mực nhất là: 「ご結婚、おめでとうございます！」.",
         "examples": [
-            {"jp": "阿部さんの お祝いは パーティーが いいと 思います。", "vi": "Mừng cho anh Abe thì tôi nghĩ tổ chức một bữa tiệc là tuyệt nhất."},
-            {"jp": "阿部さんは みんなと 話したいと 言っていましたよ。", "vi": "Anh Abe nói là rất muốn được trò chuyện cùng mọi người đấy."},
-            {"jp": "パーティーで 素敵な 着物を 着て、眼鏡を 掛けている 人が います。", "vi": "Ở bữa tiệc có một người đang mặc bộ Kimono tuyệt đẹp và đeo kính mắt."}
+            {
+                "jp": "あべさんの おいわいは パーティーが いいと 思います。",
+                "ruby": "あべさんの おいわいは パーティーが いいと <ruby>思<rt>おも</rt></ruby>います。",
+                "vi": "Mừng cho anh Abe thì tôi nghĩ tổ chức một bữa tiệc là tuyệt nhất."
+            },
+            {
+                "jp": "あべさんは みんなと はなしたいと 言っていましたよ。",
+                "ruby": "あべさんは みんなと はなしたいと <ruby>言<rt>い</rt></ruby>っていましたよ。",
+                "vi": "Anh Abe nói là rất muốn được trò chuyện cùng mọi người đấy."
+            },
+            {
+                "jp": "パーティーで すてきな きものを 着て、めがねを かけている 人が います。",
+                "ruby": "パーティーで すてきな きものを <ruby>着<rt>き</rt></ruby>て、めがねを かけている <ruby>人<rt>ひと</rt></ruby>が います。",
+                "vi": "Ở bữa tiệc có một người đang mặc bộ Kimono tuyệt đẹp và đeo kính mắt."
+            }
         ],
         "quiz": {
             "q": "パーティーで 新しい スーツを [____] います。",
@@ -729,4 +1066,5 @@ ALL_GRAMMAR_ITEMS = [
     }
 ]
 
-print(f"Loaded {len(ALL_GRAMMAR_ITEMS)} core grammar master points covering 26 lessons.")
+if __name__ == "__main__":
+    print(f"Loaded {len(ALL_GRAMMAR_ITEMS)} overhauled grammar items with complete Furigana & strict Kanji.")

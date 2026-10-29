@@ -24,7 +24,8 @@ VERB_LAB_DATA = [
         "nai": "食べない",
         "tara": "食べたら",
         "tari": "食べたり",
-        "ex": "日本の 料理を 食べたことが あります。",
+        "ex": "日本の りょうりを 食べたことが あります。",
+        "exRuby": "<ruby>日本<rt>にほん</rt></ruby>の りょうりを <ruby>食<rt>た</rt></ruby>べたことが あります。",
         "exVi": "Tôi đã từng ăn món ăn Nhật Bản."
     },
     {
@@ -40,7 +41,8 @@ VERB_LAB_DATA = [
         "nai": "飲まない",
         "tara": "飲んだら",
         "tari": "飲んだり",
-        "ex": "薬を 飲んだほうが いいですよ。",
+        "ex": "くすりを 飲んだほうが いいですよ。",
+        "exRuby": "くすりを <ruby>飲<rt>の</rt></ruby>んだほうが いいですよ。",
         "exVi": "Bạn nên uống thuốc đi nhé."
     },
     {
@@ -56,7 +58,8 @@ VERB_LAB_DATA = [
         "nai": "行かない",
         "tara": "行ったら",
         "tari": "行ったり",
-        "ex": "週末は 買い物に 行ったり、映画を 見たりします。",
+        "ex": "しゅうまつは かいものに 行ったり、えいがを 見たりします。",
+        "exRuby": "しゅうまつは かいものに <ruby>行<rt>い</rt></ruby>ったり、えいがを <ruby>見<rt>み</rt></ruby>たりします。",
         "exVi": "Cuối tuần tôi lúc thì đi mua sắm, lúc thì xem phim."
     },
     {
@@ -72,7 +75,8 @@ VERB_LAB_DATA = [
         "nai": "来ない (こない)",
         "tara": "来たら (きたら)",
         "tari": "来たり (きたり)",
-        "ex": "友達が うちに 遊びに 来ました。",
+        "ex": "ともだちが うちに あそびに 来ました。",
+        "exRuby": "ともだちが うちに あそびに <ruby>来<rt>き</rt></ruby>ました。",
         "exVi": "Bạn tôi đã đến nhà tôi chơi."
     },
     {
@@ -88,7 +92,8 @@ VERB_LAB_DATA = [
         "nai": "しない",
         "tara": "したら",
         "tari": "したり",
-        "ex": "ここで 写真を 撮っても いいですか。",
+        "ex": "ここで しゃしんを とっても いいですか。",
+        "exRuby": "ここで しゃしんを とっても いいですか。",
         "exVi": "Tôi chụp ảnh ở đây có được không?"
     },
     {
@@ -104,7 +109,8 @@ VERB_LAB_DATA = [
         "nai": "買わない",
         "tara": "買ったら",
         "tari": "買ったり",
-        "ex": "お弁当を 買って 行きましょう。",
+        "ex": "おべんとうを 買って 行きましょう。",
+        "exRuby": "おべんとうを <ruby>買<rt>か</rt></ruby>って <ruby>行<rt>い</rt></ruby>きましょう。",
         "exVi": "Chúng ta hãy mua cơm hộp mang đi nhé."
     },
     {
@@ -120,7 +126,8 @@ VERB_LAB_DATA = [
         "nai": "待たない",
         "tara": "待ったら",
         "tari": "待ったり",
-        "ex": "ちょっと 待ってください。",
+        "ex": "ちょっと まってください。",
+        "exRuby": "ちょっと まってください。",
         "exVi": "Xin vui lòng đợi một chút."
     },
     {
@@ -136,7 +143,8 @@ VERB_LAB_DATA = [
         "nai": "読まない",
         "tara": "読んだら",
         "tari": "読んだり",
-        "ex": "寝る前に、本を 読みます。",
+        "ex": "ねる まえに、本を 読みます。",
+        "exRuby": "ねる まえに、<ruby>本<rt>ほん</rt></ruby>を <ruby>読<rt>よ</rt></ruby>みます。",
         "exVi": "Trước khi ngủ, tôi đọc sách."
     },
     {
@@ -153,6 +161,7 @@ VERB_LAB_DATA = [
         "tara": "話したら",
         "tari": "話したり",
         "ex": "日本語で 話してください。",
+        "exRuby": "<ruby>日本<rt>にほん</rt></ruby><ruby>語<rt>ご</rt></ruby>で <ruby>話<rt>はな</rt></ruby>してください。",
         "exVi": "Xin hãy nói bằng tiếng Nhật."
     },
     {
@@ -168,7 +177,8 @@ VERB_LAB_DATA = [
         "nai": "見ない",
         "tara": "見たら",
         "tari": "見たり",
-        "ex": "テレビを 見ながら、ご飯を 食べます。",
+        "ex": "テレビを 見ながら、ごはんを 食べます。",
+        "exRuby": "テレビを <ruby>見<rt>み</rt></ruby>ながら、ごはんを <ruby>食<rt>た</rt></ruby>べます。",
         "exVi": "Vừa xem tivi vừa ăn cơm."
     },
     {
@@ -184,7 +194,8 @@ VERB_LAB_DATA = [
         "nai": "帰らない",
         "tara": "帰ったら",
         "tari": "帰ったり",
-        "ex": "家に 帰ってから、シャワーを 浴びます。",
+        "ex": "いえに 帰ってから、シャワーを あびます。",
+        "exRuby": "いえに <ruby>帰<rt>かえ</rt></ruby>ってから、シャワーを あびます。",
         "exVi": "Sau khi về nhà thì tôi tắm vòi sen."
     },
     {
@@ -200,7 +211,8 @@ VERB_LAB_DATA = [
         "nai": "会わない",
         "tara": "会ったら",
         "tari": "会ったり",
-        "ex": "日曜日、友達に 会う 予定です。",
+        "ex": "日曜日、ともだちに 会う よていです。",
+        "exRuby": "<ruby>日<rt>にち</rt></ruby><ruby>曜<rt>よう</rt></ruby><ruby>日<rt>び</rt></ruby>、ともだちに <ruby>会<rt>あ</rt></ruby>う よていです。",
         "exVi": "Chủ nhật, tôi dự định gặp bạn."
     },
     {
@@ -216,7 +228,8 @@ VERB_LAB_DATA = [
         "nai": "作らない",
         "tara": "作ったら",
         "tari": "作ったり",
-        "ex": "母が ケーキを 作ってくれました。",
+        "ex": "母が ケーキを つくってくれました。",
+        "exRuby": "<ruby>母<rt>はは</rt></ruby>が ケーキを つくってくれました。",
         "exVi": "Mẹ đã làm bánh ngọt cho tôi."
     },
     {
@@ -232,7 +245,8 @@ VERB_LAB_DATA = [
         "nai": "寝ない",
         "tara": "寝たら",
         "tari": "寝たり",
-        "ex": "早く 寝たほうが いいですよ。",
+        "ex": "早く ねたほうが いいですよ。",
+        "exRuby": "<ruby>早<rt>はや</rt></ruby>く ねたほうが いいですよ。",
         "exVi": "Bạn nên đi ngủ sớm đi nhé."
     },
     {
@@ -249,6 +263,7 @@ VERB_LAB_DATA = [
         "tara": "起きたら",
         "tari": "起きたり",
         "ex": "毎朝 6時に 起きています。",
+        "exRuby": "<ruby>毎<rt>まい</rt></ruby><ruby>朝<rt>あさ</rt></ruby> 6<ruby>時<rt>じ</rt></ruby>に <ruby>起<rt>お</rt></ruby>きています。",
         "exVi": "Mỗi sáng tôi đều thức dậy lúc 6 giờ."
     }
 ]
@@ -718,6 +733,50 @@ def generate_html():
             border-color: var(--text-dark);
         }}
 
+        .furigana-toggle-btn {{
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            border: 1.5px solid #6366f1;
+            background: #eef2ff;
+            color: #4338ca;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }}
+
+        .furigana-toggle-btn:hover {{
+            background: #e0e7ff;
+            transform: translateY(-1px);
+        }}
+
+        .furigana-toggle-btn.off {{
+            border-color: #cbd5e1;
+            background: #f8fafc;
+            color: #64748b;
+        }}
+
+        /* Ruby / Furigana Styling */
+        ruby {{
+            ruby-position: over;
+        }}
+
+        rt {{
+            font-size: 0.62em;
+            font-weight: 700;
+            color: #4f46e5;
+            line-height: 1;
+            user-select: none;
+            letter-spacing: 0.02em;
+        }}
+
+        body.hide-furigana rt {{
+            display: none;
+        }}
+
         .category-scroll-row {{
             display: flex;
             align-items: center;
@@ -963,10 +1022,10 @@ def generate_html():
 
         .example-jp {{
             font-family: var(--jp-font);
-            font-size: 0.95rem;
+            font-size: 1.02rem;
             font-weight: 700;
             color: #0f172a;
-            line-height: 1.5;
+            line-height: 1.85;
         }}
 
         .example-vi {{
@@ -1628,13 +1687,20 @@ def generate_html():
                     </div>
                 </div>
 
-                <!-- Level filters -->
-                <div class="level-tabs-row">
-                    <span style="font-size:0.85rem; font-weight:800; color:#64748b; margin-right:4px;">Cấp độ:</span>
-                    <button type="button" class="level-pill active" onclick="setLevelFilter('all', this)">Tất cả (29)</button>
-                    <button type="button" class="level-pill" onclick="setLevelFilter('A1', this)">Marugoto A1 (11)</button>
-                    <button type="button" class="level-pill" onclick="setLevelFilter('A2-1', this)">Marugoto A2-1 (10)</button>
-                    <button type="button" class="level-pill" onclick="setLevelFilter('A2-2', this)">Marugoto A2-2 (8)</button>
+                <!-- Level filters & Furigana Toggle -->
+                <div class="level-tabs-row" style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px;">
+                    <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+                        <span style="font-size:0.85rem; font-weight:800; color:#64748b; margin-right:4px;">Cấp độ:</span>
+                        <button type="button" class="level-pill active" onclick="setLevelFilter('all', this)">Tất cả (29)</button>
+                        <button type="button" class="level-pill" onclick="setLevelFilter('A1', this)">Marugoto A1 (11)</button>
+                        <button type="button" class="level-pill" onclick="setLevelFilter('A2-1', this)">Marugoto A2-1 (10)</button>
+                        <button type="button" class="level-pill" onclick="setLevelFilter('A2-2', this)">Marugoto A2-2 (8)</button>
+                    </div>
+                    <div style="display:flex; align-items:center; gap:8px;">
+                        <button type="button" class="furigana-toggle-btn" id="btnFuriganaToggle" onclick="toggleFurigana()" title="Bật / Tắt hiển thị Furigana (cách đọc Hán tự)">
+                            <span>🔤</span> <span id="furiganaBtnLabel">Furigana: BẬT</span>
+                        </button>
+                    </div>
                 </div>
 
                 <!-- Category tags -->
@@ -1774,7 +1840,7 @@ def generate_html():
                 <div class="morph-ex-box">
                     <div>
                         <div style="font-size:0.75rem; font-weight:800; color:var(--primary); text-transform:uppercase; margin-bottom:4px;">Ví dụ mẫu thực tế:</div>
-                        <div class="morph-ex-jp jp-text" id="mExJp">日本の 料理を 食べたことが あります。</div>
+                        <div class="morph-ex-jp jp-text" id="mExJp"><ruby>日本<rt>にほん</rt></ruby>の りょうりを <ruby>食<rt>た</rt></ruby>べたことが あります。</div>
                         <div class="morph-ex-vi" id="mExVi">Tôi đã từng ăn món ăn Nhật Bản.</div>
                     </div>
                     <button type="button" class="btn-speak" onclick="speakFromElement('mExJp')">🔊</button>
@@ -1940,7 +2006,10 @@ def generate_html():
         function speakFromElement(elId) {{
             const el = document.getElementById(elId);
             if (el) {{
-                speakText(el.textContent);
+                // Clone and remove <rt> so TTS does not read furigana twice
+                const clone = el.cloneNode(true);
+                clone.querySelectorAll('rt').forEach(rt => rt.remove());
+                speakText(clone.textContent.trim());
             }}
         }}
 
@@ -1995,7 +2064,7 @@ def generate_html():
                 const examplesHtml = item.examples.map(ex => `
                     <div class="example-item">
                         <div class="example-jp-row">
-                            <span class="example-jp jp-text">${{ex.jp}}</span>
+                            <span class="example-jp jp-text">${{ex.ruby || ex.jp}}</span>
                             <button type="button" class="btn-speak" title="Nghe phát âm" onclick="speakText('${{ex.jp.replace(/'/g, "\\\\'") }}')">🔊</button>
                         </div>
                         <div class="example-vi">${{ex.vi}}</div>
@@ -2134,6 +2203,29 @@ def generate_html():
             renderGrammarCards();
         }}
 
+        // FURIGANA TOGGLE LOGIC
+        let furiganaEnabled = localStorage.getItem('marugoto_furigana_enabled') !== 'false'; // Mặc định BẬT
+
+        function applyFuriganaState() {{
+            const btn = document.getElementById('btnFuriganaToggle');
+            const label = document.getElementById('furiganaBtnLabel');
+            if (furiganaEnabled) {{
+                document.body.classList.remove('hide-furigana');
+                if (btn) btn.classList.remove('off');
+                if (label) label.textContent = 'Furigana: BẬT';
+            }} else {{
+                document.body.classList.add('hide-furigana');
+                if (btn) btn.classList.add('off');
+                if (label) label.textContent = 'Furigana: TẮT';
+            }}
+        }}
+
+        function toggleFurigana() {{
+            furiganaEnabled = !furiganaEnabled;
+            localStorage.setItem('marugoto_furigana_enabled', furiganaEnabled);
+            applyFuriganaState();
+        }}
+
         // TAB SWITCHING
         function switchMainTab(tab) {{
             const explorer = document.getElementById('tabExplorerView');
@@ -2188,7 +2280,7 @@ def generate_html():
             document.getElementById('mTara').textContent = v.tara;
             document.getElementById('mTari').textContent = v.tari;
 
-            document.getElementById('mExJp').textContent = v.ex;
+            document.getElementById('mExJp').innerHTML = v.exRuby || v.ex;
             document.getElementById('mExVi').textContent = v.exVi;
         }}
 
@@ -2324,6 +2416,7 @@ def generate_html():
         // INIT ON DOM LOADED
         document.addEventListener('DOMContentLoaded', () => {{
             loadProgress();
+            applyFuriganaState();
             renderGrammarCards();
             initVerbLab();
         }});
