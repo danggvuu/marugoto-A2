@@ -1434,6 +1434,11 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
         const userDesu = userAlt.replace(/んですが/g, 'ですが');
         const targetDesu = targetAlt.replace(/んですが/g, 'ですが');
         if (userDesu === targetDesu || userDesu.includes(targetDesu) || targetDesu.includes(userDesu)) return true;
+        // Dung sai gõ phím: linh hoạt âm ghép (ゅ, ょ, ゃ) và trường âm ー
+        const stripSmall = s => s.replace(/[ゅょゃュー]/g, '');
+        const uSmall = stripSmall(userDesu);
+        const tSmall = stripSmall(targetDesu);
+        if (uSmall === tSmall || uSmall.includes(tSmall) || tSmall.includes(uSmall)) return true;
         return false;
     }
 
