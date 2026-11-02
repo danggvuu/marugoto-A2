@@ -569,215 +569,303 @@
             display: none;
         }
 
-        .lesson-picker-container {
-            background: #fbfbfd;
-            border: 1.5px solid #edf2f7;
+        /* Modern Compact Lesson Picker Component */
+        .lesson-picker-compact {
+            background: #f8fafc;
+            border: 1.5px solid #e2e8f0;
             border-radius: 14px;
-            padding: 16px 18px;
+            padding: 12px 16px;
             display: flex;
             flex-direction: column;
-            gap: 13px;
+            gap: 10px;
         }
 
-        .picker-header {
+        .picker-main-row {
             display: flex;
+            align-items: center;
             justify-content: space-between;
-            align-items: center;
+            gap: 12px;
             flex-wrap: wrap;
-            gap: 10px;
         }
 
-        .picker-title {
+        .quick-dropdown-group {
             display: flex;
             align-items: center;
-            gap: 10px;
-            flex-wrap: wrap;
+            gap: 8px;
+            background: white;
+            border: 1.5px solid #cbd5e1;
+            padding: 6px 12px;
+            border-radius: 10px;
+            flex: 1;
+            min-width: 260px;
+            max-width: 440px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+            transition: all 0.2s;
         }
-
-        .selection-badge {
-            background: #ede9fe;
-            color: var(--primary);
-            font-size: 0.85rem;
+        .quick-dropdown-group:focus-within {
+            border-color: #6366f1;
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+        }
+        .dropdown-icon {
+            font-size: 1.15rem;
+        }
+        .quick-lesson-select {
+            border: none;
+            outline: none;
+            background: transparent;
+            font-size: 0.92rem;
             font-weight: 700;
-            padding: 4px 12px;
-            border-radius: 20px;
-            border: 1px solid #ddd6fe;
+            color: #1e293b;
+            width: 100%;
+            cursor: pointer;
         }
 
-        .quick-presets {
+        .level-pills-bar {
             display: flex;
             gap: 6px;
+            align-items: center;
             flex-wrap: wrap;
         }
 
-        .preset-pill {
+        .level-pill {
             background: white;
-            border: 1.5px solid #e2e8f0;
-            color: #4a5568;
-            padding: 5px 11px;
-            border-radius: 16px;
-            font-size: 0.82rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.15s ease;
-        }
-
-        .preset-pill:hover {
-            border-color: var(--primary-light);
-            color: var(--primary);
-            transform: translateY(-1px);
-        }
-
-        .preset-pill.active {
-            background: var(--primary);
-            border-color: var(--primary);
-            color: white;
-            box-shadow: 0 2px 6px rgba(108, 92, 231, 0.3);
-        }
-
-        .preset-clear {
-            color: #e53e3e;
-            border-color: #feb2b2;
-        }
-        .preset-clear:hover {
-            background: #fff5f5;
-            border-color: #e53e3e;
-            color: #c53030;
-        }
-
-        /* Range Selector Row */
-        .range-selector-row {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            flex-wrap: wrap;
-            padding: 9px 14px;
-            background: white;
-            border: 1px dashed #cbd5e0;
-            border-radius: 10px;
-            font-size: 0.88rem;
-            color: #4a5568;
-        }
-
-        .range-label {
-            font-weight: 700;
-            color: #2d3748;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .range-dropdown {
-            padding: 6px 10px;
-            border: 1.5px solid #cbd5e0;
-            border-radius: 8px;
-            font-size: 0.88rem;
-            background: white;
-            font-weight: 600;
-            color: #2d3748;
-            outline: none;
-            cursor: pointer;
-        }
-        .range-dropdown:focus {
-            border-color: var(--primary);
-        }
-
-        .btn-range-apply {
-            background: #6c5ce7;
-            color: white;
-            border: none;
+            border: 1.5px solid #cbd5e1;
+            color: #475569;
             padding: 6px 14px;
-            border-radius: 8px;
+            border-radius: 20px;
             font-size: 0.85rem;
             font-weight: 700;
             cursor: pointer;
-            transition: all 0.15s;
+            transition: all 0.15s ease;
+            user-select: none;
         }
-        .btn-range-apply:hover {
-            background: #5b4bc4;
+        .level-pill:hover {
+            border-color: #6366f1;
+            color: #6366f1;
+            background: #f5f3ff;
             transform: translateY(-1px);
         }
-
-        .range-tip {
-            font-size: 0.78rem;
-            color: #718096;
-            margin-left: auto;
+        .level-pill.active {
+            background: #6366f1;
+            border-color: #6366f1;
+            color: white;
+            box-shadow: 0 2px 6px rgba(99, 102, 241, 0.3);
         }
 
-        /* Chips Grid */
-        .chips-wrapper {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .chips-group {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .chips-group-title {
+        .btn-adv-expand {
+            background: white;
+            border: 1.5px solid #cbd5e1;
+            color: #475569;
+            padding: 6px 12px;
+            border-radius: 10px;
             font-size: 0.82rem;
             font-weight: 700;
-            color: #718096;
-            min-width: 95px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            white-space: nowrap;
+        }
+        .btn-adv-expand:hover, .btn-adv-expand.active {
+            background: #f1f5f9;
+            color: #1e293b;
+            border-color: #94a3b8;
         }
 
-        .chips-grid {
+        /* Active Chips Bar */
+        .active-chips-bar {
             display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-            flex: 1;
+            gap: 6px;
+            align-items: center;
+            overflow-x: auto;
+            padding: 2px 2px 6px 2px;
+            scrollbar-width: thin;
+        }
+        .active-chips-bar::-webkit-scrollbar {
+            height: 5px;
+        }
+        .active-chips-bar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
         }
 
         .lesson-chip {
             background: white;
-            border: 1.5px solid #e2e8f0;
-            padding: 7px 13px;
-            border-radius: 10px;
-            font-size: 0.88rem;
+            border: 1.5px solid #cbd5e1;
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 0.84rem;
             font-weight: 600;
-            color: #4a5568;
+            color: #334155;
             cursor: pointer;
             display: inline-flex;
             align-items: center;
             gap: 6px;
             transition: all 0.15s ease;
+            white-space: nowrap;
             user-select: none;
         }
-
         .lesson-chip:hover {
-            border-color: var(--primary-light);
+            border-color: #6366f1;
             background: #fdfcff;
             transform: translateY(-1px);
         }
-
         .lesson-chip.active {
-            background: #6c5ce7;
-            border-color: #6c5ce7;
+            background: #6366f1;
+            border-color: #6366f1;
             color: white;
-            box-shadow: 0 3px 8px rgba(108, 92, 231, 0.25);
+            box-shadow: 0 2px 5px rgba(99, 102, 241, 0.25);
         }
-
-        .chip-check {
-            font-size: 0.78rem;
-            font-weight: bold;
-        }
-
         .chip-count {
-            font-size: 0.75rem;
-            opacity: 0.85;
+            font-size: 0.74rem;
+            opacity: 0.88;
             background: rgba(0,0,0,0.06);
             padding: 1px 6px;
-            border-radius: 10px;
+            border-radius: 8px;
         }
         .lesson-chip.active .chip-count {
-            background: rgba(255,255,255,0.22);
+            background: rgba(255,255,255,0.25);
             color: white;
+        }
+
+        /* Advanced Drawer */
+        .advanced-drawer {
+            margin-top: 6px;
+            padding-top: 12px;
+            border-top: 1px dashed #cbd5e1;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .drawer-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .drawer-mode-toggle {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .multi-select-checkbox-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: #1e293b;
+            cursor: pointer;
+        }
+        .multi-select-checkbox-label input {
+            cursor: pointer;
+            accent-color: #6366f1;
+            width: 16px;
+            height: 16px;
+        }
+        .selection-badge {
+            background: #ede9fe;
+            color: var(--primary);
+            font-size: 0.82rem;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 20px;
+            border: 1px solid #ddd6fe;
+        }
+        .drawer-actions {
+            display: flex;
+            gap: 8px;
+        }
+        .drawer-btn {
+            background: white;
+            border: 1.5px solid #cbd5e1;
+            color: #475569;
+            padding: 4px 10px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+        .drawer-btn:hover {
+            border-color: #6366f1;
+            color: #6366f1;
+        }
+        .drawer-btn-clear {
+            color: #ef4444;
+            border-color: #fca5a5;
+        }
+        .drawer-btn-clear:hover {
+            background: #fef2f2;
+            border-color: #ef4444;
+            color: #dc2626;
+        }
+        .range-selector-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            padding: 8px 12px;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 0.86rem;
+            color: #475569;
+        }
+        .range-label {
+            font-weight: 700;
+            color: #1e293b;
+        }
+        .range-dropdown {
+            padding: 5px 8px;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 0.84rem;
+            background: white;
+            font-weight: 600;
+            color: #1e293b;
+            outline: none;
+            cursor: pointer;
+        }
+        .range-dropdown:focus {
+            border-color: #6366f1;
+        }
+        .btn-range-apply {
+            background: #6366f1;
+            color: white;
+            border: none;
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+        .btn-range-apply:hover {
+            background: #4f46e5;
+        }
+        .chips-drawer-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .chips-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .chips-group-title {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: #64748b;
+            min-width: 90px;
+        }
+        .chips-grid {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            flex: 1;
         }
 
         /* Views */
@@ -2413,6 +2501,7 @@
 
     /* Floating Mini Motion Widget */
     .mini-motion-widget {
+        display: none; /* Mặc định ẩn để không che khuất bảng từ vựng */
         position: fixed;
         bottom: 24px;
         right: 24px;
@@ -2568,10 +2657,10 @@
     </div>
     
 
-    <!-- Header Banner -->
-    <header style="background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%); color: white; padding: 28px 20px; border-radius: 16px; text-align: center; margin: 20px 0 25px 0; box-shadow: 0 10px 25px rgba(79, 70, 229, 0.25);">
-        <h1 style="font-size: 1.85rem; font-weight: 800; margin-bottom: 8px; letter-spacing: -0.5px;">📖 KHO TỪ VỰNG MARUGOTO TOÀN DIỆN</h1>
-        <p style="font-size: 1.05rem; opacity: 0.95; margin: 0 auto; max-width: 800px;">Trọn bộ 1,200+ từ vựng chính thức từ A1 (Bài 3 - 18) đến A2-1 (Bài 1 - 18) theo đúng giáo trình của giảng viên</p>
+    <!-- Header Banner (Clean & Space-Saving) -->
+    <header style="background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%); color: white; padding: 15px 18px; border-radius: 14px; text-align: center; margin: 12px 0 16px 0; box-shadow: 0 6px 18px rgba(79, 70, 229, 0.2);">
+        <h1 style="font-size: 1.55rem; font-weight: 800; margin-bottom: 4px; letter-spacing: -0.5px;">📖 KHO TỪ VỰNG MARUGOTO TOÀN DIỆN</h1>
+        <p style="font-size: 0.92rem; opacity: 0.95; margin: 0 auto; max-width: 800px;">1,200+ từ vựng Marugoto chuẩn giảng viên (A1-3 ➔ A2-18) • Bảng từ, Flashcard 3D & Export Quizlet</p>
     </header>
 
     <!-- Mode Switcher Tabs -->
@@ -2583,13 +2672,14 @@
 
     <!-- Filter & Control Bar -->
     <div class="controls-card">
+        <!-- Search & Quizlet Buttons Row -->
         <div class="search-bar-row">
             <div class="search-input-wrap">
                 <input type="text" id="searchInput" placeholder="🔍 Tìm kiếm từ vựng (Nhật, Việt, Romaji)..." oninput="onSearchChange()">
                 <button id="searchClearBtn" class="search-clear-btn" onclick="clearSearch()" title="Xóa tìm kiếm">✕</button>
             </div>
             <div class="quizlet-btns-wrapper">
-                <button class="btn btn-quizlet" id="btnQuizlet" onclick="copyQuizletFormat('kana')" title="Copy cột Nhật dạng Kana (Hiragana/Katakana) sạch 100%, không khoảng trắng, không ~, gõ siêu mượt trên Quizlet">
+                <button class="btn btn-quizlet" id="btnQuizlet" onclick="copyQuizletFormat('kana')" title="Copy cột Nhật dạng Kana sạch 100%, không khoảng trắng, không ~, gõ siêu mượt trên Quizlet">
                     ⌨️ Copy Gõ Kana (<span id="quizletCount">380</span> từ)
                 </button>
                 <button class="btn btn-quizlet btn-quizlet-kanji" id="btnQuizletKanji" onclick="copyQuizletFormat('kanji')" title="Copy cột Nhật dạng Kanji sạch, không khoảng trắng, chuẩn luyện gõ chữ Hán trên Quizlet">
@@ -2598,47 +2688,80 @@
             </div>
         </div>
 
-        <!-- Multi-Lesson Picker -->
-        <div class="lesson-picker-container">
-            <div class="picker-header">
-                <div class="picker-title">
-                    <span>📚 <strong>Chọn bài học ôn tập:</strong></span>
-                    <span class="selection-badge" id="selectionSummary">Đang chọn: Toàn bộ A1-A2 (600+ từ vựng)</span>
+        <!-- Modern Compact Lesson Picker -->
+        <div class="lesson-picker-compact">
+            <!-- Main Controls Row -->
+            <div class="picker-main-row">
+                <!-- 1-Click Fast Dropdown -->
+                <div class="quick-dropdown-group">
+                    <span class="dropdown-icon">📚</span>
+                    <select id="quickLessonDropdown" class="quick-lesson-select" onchange="onQuickLessonChange(this.value)">
+                        <option value="ALL">🌟 Tất cả 34 bài (1.200+ từ)</option>
+                        <optgroup label="MARUGOTO A1 (BÀI 3 - 18)" id="optGroupA1"></optgroup>
+                        <optgroup label="MARUGOTO A2-1 (BÀI 1 - 10)" id="optGroupA2_1"></optgroup>
+                        <optgroup label="MARUGOTO A2-1 (BÀI 11 - 18 MỚI ✨)" id="optGroupA2_2"></optgroup>
+                    </select>
                 </div>
-                <div class="quick-presets">
-                    <button class="preset-pill active" id="preset-all" onclick="selectPreset('ALL')">🌟 Tất cả (34 bài / 1,200+ từ)</button>
-                    <button class="preset-pill" id="preset-a1" onclick="selectPreset('A1')">A1 (Bài 3 - 18)</button>
-                    <button class="preset-pill" id="preset-a2-1-10" onclick="selectPreset('A2_1_10')">A2-1 (Bài 1 - 10)</button>
-                    <button class="preset-pill" id="preset-a2-11-18" onclick="selectPreset('A2_11_18')">A2-1 (Bài 11 - 18) ✨</button>
-                    <button class="preset-pill" id="preset-a2-all" onclick="selectPreset('A2_ALL')">Trọn bộ A2 (Bài 1 - 18)</button>
-                    <button class="preset-pill preset-clear" onclick="selectPreset('NONE')">🗑️ Bỏ chọn hết</button>
+
+                <!-- Scope Filter Pills -->
+                <div class="level-pills-bar">
+                    <button class="level-pill active" id="pill-all" onclick="selectLevelScope('ALL')">🌟 Tất cả</button>
+                    <button class="level-pill" id="pill-a1" onclick="selectLevelScope('A1')">📗 A1 (Bài 3-18)</button>
+                    <button class="level-pill" id="pill-a2-1" onclick="selectLevelScope('A2_1')">📘 A2-1 (1-10)</button>
+                    <button class="level-pill" id="pill-a2-2" onclick="selectLevelScope('A2_2')">💻 A2-1 (11-18) ✨</button>
                 </div>
+
+                <!-- Advanced Drawer Toggle -->
+                <button type="button" class="btn-adv-expand" id="btnAdvExpand" onclick="toggleAdvancedDrawer()" title="Chọn nhiều bài hoặc chọn dải bài">
+                    ⚙️ Chọn nhiều bài ▾
+                </button>
             </div>
 
-            <!-- Range Selector Bar ("chọn liên tục từ bài X đến bài Y") -->
-            <div class="range-selector-row">
-                <span class="range-label">⚡ Chọn liên tục dải bài:</span>
-                <span>Từ</span>
-                <select id="rangeStart" class="range-dropdown" onchange="onRangeDropdownChange()"></select>
-                <span>Đến</span>
-                <select id="rangeEnd" class="range-dropdown" onchange="onRangeDropdownChange()"></select>
-                <button class="btn-range-apply" onclick="applyRangeSelection()">🎯 Chọn dải bài này</button>
-                <span class="range-tip">💡 Mẹo: Nhấp các nút bài ở dưới để chọn nhiều bài, hoặc giữ Shift khi nhấp để chọn dải bài liên tục!</span>
+            <!-- Active Level Lesson Chips Row (Click 1 phát xem ngay bài đó) -->
+            <div class="active-chips-bar" id="activeChipsBar">
+                <!-- Dynamically populated chips -->
             </div>
 
-            <!-- Interactive Chips Grid -->
-            <div class="chips-wrapper">
-                <div class="chips-group">
-                    <span class="chips-group-title">Marugoto A1 (Bài 3 - 18):</span>
-                    <div class="chips-grid" id="chipsContainerA1"></div>
+            <!-- Expandable Advanced Multi-Select Drawer -->
+            <div class="advanced-drawer" id="advancedDrawer" style="display: none;">
+                <div class="drawer-header">
+                    <div class="drawer-mode-toggle">
+                        <label class="multi-select-checkbox-label">
+                            <input type="checkbox" id="multiSelectModeToggle" onchange="toggleMultiSelectMode(this.checked)">
+                            <span>☑️ Bật chế độ chọn nhiều bài cùng lúc</span>
+                        </label>
+                        <span class="selection-badge" id="selectionSummary">Đang chọn: Toàn bộ A1-A2</span>
+                    </div>
+                    <div class="drawer-actions">
+                        <button type="button" class="drawer-btn" onclick="selectPreset('ALL')">Chọn tất cả 34 bài</button>
+                        <button type="button" class="drawer-btn drawer-btn-clear" onclick="selectPreset('NONE')">🗑️ Bỏ chọn hết</button>
+                    </div>
                 </div>
-                <div class="chips-group">
-                    <span class="chips-group-title">Marugoto A2-1 (Bài 1 - 10):</span>
-                    <div class="chips-grid" id="chipsContainerA2"></div>
+
+                <!-- Range Selector Bar -->
+                <div class="range-selector-row">
+                    <span class="range-label">⚡ Chọn dải bài liên tục:</span>
+                    <span>Từ</span>
+                    <select id="rangeStart" class="range-dropdown"></select>
+                    <span>Đến</span>
+                    <select id="rangeEnd" class="range-dropdown"></select>
+                    <button type="button" class="btn-range-apply" onclick="applyRangeSelection()">🎯 Chọn dải bài này</button>
                 </div>
-                <div class="chips-group">
-                    <span class="chips-group-title">Marugoto A2-1 (Bài 11 - 18 Mới ✨):</span>
-                    <div class="chips-grid" id="chipsContainerA2_2"></div>
+
+                <!-- All 34 Chips Grid in Drawer -->
+                <div class="chips-drawer-grid">
+                    <div class="chips-group">
+                        <span class="chips-group-title">A1 (3 - 18):</span>
+                        <div class="chips-grid" id="drawerChipsA1"></div>
+                    </div>
+                    <div class="chips-group">
+                        <span class="chips-group-title">A2-1 (1 - 10):</span>
+                        <div class="chips-grid" id="drawerChipsA2_1"></div>
+                    </div>
+                    <div class="chips-group">
+                        <span class="chips-group-title">A2-1 (11 - 18):</span>
+                        <div class="chips-grid" id="drawerChipsA2_2"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -18888,7 +19011,9 @@
 };
 
     let selectedLessons = new Set(LESSON_ORDER); // Mặc định chọn tất cả
-    let lastClickedLessonIdx = -1;
+    let currentLevelScope = 'ALL';
+    let isMultiSelectMode = false;
+    let isAdvancedDrawerOpen = false;
 
     // Đếm số từ vựng từng bài
     const lessonCounts = {};
@@ -18896,115 +19021,76 @@
         lessonCounts[item.l] = (lessonCounts[item.l] || 0) + 1;
     });
 
-    // Khởi tạo các Chip & Dropdown dải bài & Custom Multi-Select Dropdown
+    // Khởi tạo các Dropdown, Level Tabs & Chips
     function initLessonChips() {
-        const containerA1 = document.getElementById('chipsContainerA1');
-        const containerA2 = document.getElementById('chipsContainerA2');
+        const optA1 = document.getElementById('optGroupA1');
+        const optA2_1 = document.getElementById('optGroupA2_1');
+        const optA2_2 = document.getElementById('optGroupA2_2');
         const rangeStart = document.getElementById('rangeStart');
         const rangeEnd = document.getElementById('rangeEnd');
-        const msList = document.getElementById('msOptionsList');
 
-        if (containerA1) containerA1.innerHTML = '';
-        if (containerA2) containerA2.innerHTML = '';
+        const drawerA1 = document.getElementById('drawerChipsA1');
+        const drawerA2_1 = document.getElementById('drawerChipsA2_1');
+        const drawerA2_2 = document.getElementById('drawerChipsA2_2');
+
+        if (optA1) optA1.innerHTML = '';
+        if (optA2_1) optA2_1.innerHTML = '';
+        if (optA2_2) optA2_2.innerHTML = '';
         if (rangeStart) rangeStart.innerHTML = '';
         if (rangeEnd) rangeEnd.innerHTML = '';
-        if (msList) msList.innerHTML = '';
-
-        const containerA2_2 = document.getElementById('chipsContainerA2_2');
-        if (containerA2_2) containerA2_2.innerHTML = '';
-
-        // 1. Tạo nhóm A1 trong Dropdown
-        if (msList) {
-            const grpA1 = document.createElement('div');
-            grpA1.className = 'ms-group-header';
-            grpA1.innerHTML = `
-                <span>Marugoto A1 (Bài 3 - 18)</span>
-                <button type="button" class="ms-group-btn" onclick="toggleGroup('A1')">Chọn nhóm A1 (3-18)</button>
-            `;
-            msList.appendChild(grpA1);
-        }
+        if (drawerA1) drawerA1.innerHTML = '';
+        if (drawerA2_1) drawerA2_1.innerHTML = '';
+        if (drawerA2_2) drawerA2_2.innerHTML = '';
 
         LESSON_ORDER.forEach((lid, idx) => {
-            let targetCont = containerA1;
+            const count = lessonCounts[lid] || 0;
+            const fullTitle = LESSON_TITLES[lid] || lid;
+            const shortTitle = fullTitle.split('(')[0].trim();
+
+            // 1. Điền vào 1-Click Dropdown
+            const opt = document.createElement('option');
+            opt.value = lid;
+            opt.textContent = `${lid}: ${shortTitle} (${count} từ)`;
+
             if (lid.startsWith('A1')) {
-                targetCont = containerA1;
+                if (optA1) optA1.appendChild(opt);
             } else {
                 const num = parseInt(lid.split('-')[1], 10);
                 if (num <= 10) {
-                    targetCont = containerA2;
+                    if (optA2_1) optA2_1.appendChild(opt);
                 } else {
-                    targetCont = containerA2_2;
+                    if (optA2_2) optA2_2.appendChild(opt);
                 }
             }
-            const count = lessonCounts[lid] || 0;
-            const title = LESSON_TITLES[lid] || lid;
 
-            // Chèn Header nhóm A2 khi bắt đầu bài A2-1
-            if (msList && lid === 'A2-1') {
-                const grpA2 = document.createElement('div');
-                grpA2.className = 'ms-group-header';
-                grpA2.innerHTML = `
-                    <span>Marugoto A2-1 (Bài 1 - 10)</span>
-                    <button type="button" class="ms-group-btn" onclick="toggleGroup('A2_1')">Chọn nhóm A2-1 (1-10)</button>
-                `;
-                msList.appendChild(grpA2);
-            }
-
-            // Chèn Header nhóm A2 (11-18) khi bắt đầu bài A2-11
-            if (msList && lid === 'A2-11') {
-                const grpA2_2 = document.createElement('div');
-                grpA2_2.className = 'ms-group-header';
-                grpA2_2.innerHTML = `
-                    <span>Marugoto A2-1 (Bài 11 - 18 Mới ✨)</span>
-                    <button type="button" class="ms-group-btn" onclick="toggleGroup('A2_2')">Chọn nhóm A2-1 (11-18)</button>
-                `;
-                msList.appendChild(grpA2_2);
-            }
-
-            // A. Tạo Option Item trong Custom Multi-Select Dropdown
-            if (msList) {
-                const itemEl = document.createElement('label');
-                itemEl.className = `ms-option-item ${selectedLessons.has(lid) ? 'selected' : ''}`;
-                itemEl.id = `ms-item-${lid}`;
-                itemEl.onclick = (e) => {
-                    if (e.target && e.target.type === 'checkbox') return;
-                    toggleLesson(lid, idx, e);
-                };
-                itemEl.innerHTML = `
-                    <input type="checkbox" class="ms-checkbox" id="ms-cb-${lid}" ${selectedLessons.has(lid) ? 'checked' : ''} onchange="toggleLesson('${lid}', ${idx}, event)">
-                    <span class="ms-item-tag">${lid}</span>
-                    <span class="ms-item-title">${title}</span>
-                    <span class="ms-item-count">${count} từ</span>
-                `;
-                msList.appendChild(itemEl);
-            }
-
-            // B. Tạo Chip Button bên dưới
-            if (targetCont) {
-                const chip = document.createElement('button');
-                chip.className = `lesson-chip ${selectedLessons.has(lid) ? 'active' : ''}`;
-                chip.id = `chip-${lid}`;
-                chip.title = `${title} (${count} từ)`;
-                chip.innerHTML = `
-                    <span class="chip-check">${selectedLessons.has(lid) ? '✓' : '+'}</span>
-                    <span>${lid}</span>
-                    <span class="chip-count">${count}</span>
-                `;
-                chip.onclick = (e) => toggleLesson(lid, idx, e);
-                targetCont.appendChild(chip);
-            }
-
-            // C. Tạo Dropdown dải bài
+            // 2. Điền vào Range Dropdowns
             if (rangeStart && rangeEnd) {
-                const opt1 = document.createElement('option');
-                opt1.value = lid;
-                opt1.textContent = `${lid} - ${title.split('(')[0]}`;
-                rangeStart.appendChild(opt1);
+                const rOpt1 = document.createElement('option');
+                rOpt1.value = lid;
+                rOpt1.textContent = `${lid} - ${shortTitle}`;
+                rangeStart.appendChild(rOpt1);
 
-                const opt2 = document.createElement('option');
-                opt2.value = lid;
-                opt2.textContent = `${lid} - ${title.split('(')[0]}`;
-                rangeEnd.appendChild(opt2);
+                const rOpt2 = document.createElement('option');
+                rOpt2.value = lid;
+                rOpt2.textContent = `${lid} - ${shortTitle}`;
+                rangeEnd.appendChild(rOpt2);
+            }
+
+            // 3. Điền vào Drawer Chips Grid
+            let targetDrawer = drawerA1;
+            if (!lid.startsWith('A1')) {
+                const num = parseInt(lid.split('-')[1], 10);
+                targetDrawer = num <= 10 ? drawerA2_1 : drawerA2_2;
+            }
+            if (targetDrawer) {
+                const chip = document.createElement('button');
+                chip.type = 'button';
+                chip.className = `lesson-chip ${selectedLessons.has(lid) ? 'active' : ''}`;
+                chip.id = `drawer-chip-${lid}`;
+                chip.title = `${fullTitle} (${count} từ)`;
+                chip.innerHTML = `<span>${lid}</span><span class="chip-count">${count}</span>`;
+                chip.onclick = (e) => onChipClick(lid, e);
+                targetDrawer.appendChild(chip);
             }
         });
 
@@ -19012,62 +19098,59 @@
             rangeStart.value = "A1-3";
             rangeEnd.value = "A2-18";
         }
+
+        renderActiveChipsBar();
+        updateLessonUIState();
     }
 
-    // Toggle Dropdown Mở/Đóng
-    function toggleMsDropdown(e) {
-        if (e) e.stopPropagation();
-        const container = document.getElementById('msContainer');
-        if (container) container.classList.toggle('open');
-    }
+    // Hiển thị thanh bài học tương ứng với nhóm đang chọn (Gọn gàng 1 dòng ngang)
+    function renderActiveChipsBar() {
+        const bar = document.getElementById('activeChipsBar');
+        if (!bar) return;
+        bar.innerHTML = '';
 
-    function closeMsDropdown() {
-        const container = document.getElementById('msContainer');
-        if (container) container.classList.remove('open');
-    }
-
-    document.addEventListener('click', (e) => {
-        const container = document.getElementById('msContainer');
-        if (container && !container.contains(e.target)) {
-            closeMsDropdown();
+        let targetLessons = LESSON_ORDER;
+        if (currentLevelScope === 'A1') {
+            targetLessons = LESSON_ORDER.filter(l => l.startsWith('A1'));
+        } else if (currentLevelScope === 'A2_1') {
+            targetLessons = ["A2-1", "A2-2", "A2-3", "A2-4", "A2-5", "A2-6", "A2-7", "A2-8", "A2-9", "A2-10"];
+        } else if (currentLevelScope === 'A2_2') {
+            targetLessons = ["A2-11", "A2-12", "A2-13", "A2-14", "A2-15", "A2-16", "A2-17", "A2-18"];
         }
-    });
 
-    // Chọn nhanh cả nhóm A1 hoặc A2
-    function toggleGroup(groupName) {
-        let targets = [];
-        if (groupName === 'A1') {
-            targets = LESSON_ORDER.filter(l => l.startsWith('A1'));
-        } else if (groupName === 'A2_1') {
-            targets = ["A2-1", "A2-2", "A2-3", "A2-4", "A2-5", "A2-6", "A2-7", "A2-8", "A2-9", "A2-10"];
-        } else if (groupName === 'A2_2') {
-            targets = ["A2-11", "A2-12", "A2-13", "A2-14", "A2-15", "A2-16", "A2-17", "A2-18"];
-        } else if (groupName === 'A2') {
-            targets = LESSON_ORDER.filter(l => l.startsWith('A2'));
-        }
-        const allSelected = targets.every(l => selectedLessons.has(l));
-        if (allSelected) {
-            targets.forEach(l => selectedLessons.delete(l));
-        } else {
-            targets.forEach(l => selectedLessons.add(l));
-        }
-        updatePresetPillsState();
-        updateChipsUI();
-        applyFilter();
+        targetLessons.forEach(lid => {
+            const count = lessonCounts[lid] || 0;
+            const fullTitle = LESSON_TITLES[lid] || lid;
+            const chip = document.createElement('button');
+            chip.type = 'button';
+            chip.className = `lesson-chip ${selectedLessons.has(lid) ? 'active' : ''}`;
+            chip.id = `active-chip-${lid}`;
+            chip.title = `${fullTitle} (${count} từ) - Bấm để xem bài này`;
+            chip.innerHTML = `<span>${lid}</span><span class="chip-count">${count}</span>`;
+            chip.onclick = (e) => onChipClick(lid, e);
+            bar.appendChild(chip);
+        });
     }
 
-    // Toggle một bài học (Hỗ trợ Shift + Click chọn liên tục dải bài)
-    function toggleLesson(lid, idx, event) {
-        if (event && event.shiftKey && lastClickedLessonIdx !== -1) {
-            // Shift + Click: Chọn liên tục từ lastClickedLessonIdx đến idx
-            const start = Math.min(lastClickedLessonIdx, idx);
-            const end = Math.max(lastClickedLessonIdx, idx);
-            for (let i = start; i <= end; i++) {
-                selectedLessons.add(LESSON_ORDER[i]);
+    // Xử lý khi click vào 1 Chip bài học:
+    // - Mặc định (Single-select): Chuyển thẳng sang xem bài đó (1-click ăn ngay!)
+    // - Khi bật multi-select (hoặc giữ Shift): Bật / tắt thêm bài đó vào danh sách
+    function onChipClick(lid, e) {
+        if (!isMultiSelectMode && !(e && (e.shiftKey || e.ctrlKey || e.metaKey))) {
+            // Xem duy nhất bài này
+            selectedLessons.clear();
+            selectedLessons.add(lid);
+
+            // Tự động định vị nhóm cấp độ tương ứng
+            if (lid.startsWith('A1')) currentLevelScope = 'A1';
+            else {
+                const num = parseInt(lid.split('-')[1], 10);
+                currentLevelScope = num <= 10 ? 'A2_1' : 'A2_2';
             }
-            showToast(`Đã chọn liên tục từ bài ${LESSON_ORDER[start]} đến ${LESSON_ORDER[end]}!`);
+            renderActiveChipsBar();
+            showToast(`📖 Đang xem: ${lid} (${lessonCounts[lid] || 0} từ vựng)`);
         } else {
-            // Click thường: Bật / Tắt bài học đó
+            // Chế độ chọn nhiều bài
             if (selectedLessons.has(lid)) {
                 selectedLessons.delete(lid);
             } else {
@@ -19075,13 +19158,88 @@
             }
         }
 
-        lastClickedLessonIdx = idx;
-        updatePresetPillsState();
-        updateChipsUI();
+        updateLessonUIState();
         applyFilter();
     }
 
-    // Áp dụng chọn dải bài liên tục từ Range Dropdown
+    // Xử lý khi chọn từ Dropdown chọn nhanh
+    function onQuickLessonChange(value) {
+        if (value === 'ALL') {
+            selectLevelScope('ALL');
+            return;
+        }
+
+        selectedLessons.clear();
+        selectedLessons.add(value);
+
+        if (value.startsWith('A1')) currentLevelScope = 'A1';
+        else {
+            const num = parseInt(value.split('-')[1], 10);
+            currentLevelScope = num <= 10 ? 'A2_1' : 'A2_2';
+        }
+
+        renderActiveChipsBar();
+        updateLessonUIState();
+        applyFilter();
+        showToast(`📖 Đang xem bài: ${value} (${lessonCounts[value] || 0} từ)`);
+    }
+
+    // Chọn nhanh theo nhóm Cấp độ
+    function selectLevelScope(scope) {
+        currentLevelScope = scope;
+
+        if (scope === 'ALL') {
+            selectedLessons = new Set(LESSON_ORDER);
+            showToast(`🌟 Đang chọn: Toàn bộ 34 bài (1.200+ từ)`);
+        } else if (scope === 'A1') {
+            selectedLessons = new Set(LESSON_ORDER.filter(l => l.startsWith('A1')));
+            showToast(`📗 Đang chọn: Toàn bộ nhóm A1 (Bài 3 - 18)`);
+        } else if (scope === 'A2_1') {
+            selectedLessons = new Set(["A2-1", "A2-2", "A2-3", "A2-4", "A2-5", "A2-6", "A2-7", "A2-8", "A2-9", "A2-10"]);
+            showToast(`📘 Đang chọn: Nhóm A2-1 (Bài 1 - 10)`);
+        } else if (scope === 'A2_2') {
+            selectedLessons = new Set(["A2-11", "A2-12", "A2-13", "A2-14", "A2-15", "A2-16", "A2-17", "A2-18"]);
+            showToast(`💻 Đang chọn: Nhóm A2-1 (Bài 11 - 18 Mới ✨)`);
+        }
+
+        renderActiveChipsBar();
+        updateLessonUIState();
+        applyFilter();
+    }
+
+    // Bật/tắt Drawer Nâng cao & Chọn nhiều bài
+    function toggleAdvancedDrawer() {
+        isAdvancedDrawerOpen = !isAdvancedDrawerOpen;
+        const drawer = document.getElementById('advancedDrawer');
+        const btn = document.getElementById('btnAdvExpand');
+        if (drawer) drawer.style.display = isAdvancedDrawerOpen ? 'flex' : 'none';
+        if (btn) {
+            btn.classList.toggle('active', isAdvancedDrawerOpen);
+            btn.innerHTML = isAdvancedDrawerOpen ? '⚙️ Thu gọn ▴' : '⚙️ Chọn nhiều bài ▾';
+        }
+    }
+
+    // Bật/tắt chế độ multi-select
+    function toggleMultiSelectMode(enabled) {
+        isMultiSelectMode = enabled;
+        showToast(enabled ? '✅ Đã BẬT chế độ chọn nhiều bài!' : '⚡ Đã TẮT (Click bài nào xem ngay bài đó)!');
+    }
+
+    // Preset All / None từ Drawer
+    function selectPreset(type) {
+        if (type === 'ALL') {
+            selectedLessons = new Set(LESSON_ORDER);
+            currentLevelScope = 'ALL';
+            renderActiveChipsBar();
+        } else if (type === 'NONE') {
+            selectedLessons.clear();
+        }
+
+        updateLessonUIState();
+        applyFilter();
+    }
+
+    // Áp dụng chọn dải bài liên tục
     function applyRangeSelection() {
         const startId = document.getElementById('rangeStart').value;
         const endId = document.getElementById('rangeEnd').value;
@@ -19097,96 +19255,67 @@
             selectedLessons.add(LESSON_ORDER[i]);
         }
 
-        updatePresetPillsState();
-        updateChipsUI();
+        updateLessonUIState();
         applyFilter();
-        showToast(`Đã chọn dải bài: ${LESSON_ORDER[start]} ➔ ${LESSON_ORDER[end]} (${end - start + 1} bài)!`);
+        showToast(`🎯 Đã chọn dải bài: ${LESSON_ORDER[start]} ➔ ${LESSON_ORDER[end]} (${end - start + 1} bài)!`);
     }
 
-    function onRangeDropdownChange() {
-        // Tự động kiểm tra dải
-    }
-
-    // Chọn nhanh theo các Preset
-    function selectPreset(type) {
-        selectedLessons.clear();
-
-        if (type === 'ALL') {
-            LESSON_ORDER.forEach(l => selectedLessons.add(l));
-        } else if (type === 'A1') {
-            LESSON_ORDER.filter(l => l.startsWith('A1')).forEach(l => selectedLessons.add(l));
-        } else if (type === 'A2_1_10') {
-            ["A2-1", "A2-2", "A2-3", "A2-4", "A2-5", "A2-6", "A2-7", "A2-8", "A2-9", "A2-10"].forEach(l => selectedLessons.add(l));
-        } else if (type === 'A2_11_18') {
-            ["A2-11", "A2-12", "A2-13", "A2-14", "A2-15", "A2-16", "A2-17", "A2-18"].forEach(l => selectedLessons.add(l));
-        } else if (type === 'A2_ALL') {
-            LESSON_ORDER.filter(l => l.startsWith('A2')).forEach(l => selectedLessons.add(l));
-        } else if (type === 'NONE') {
-            // Bỏ chọn hết
+    // Cập nhật giao diện đồng bộ tất cả controls
+    function updateLessonUIState() {
+        // 1. Cập nhật Level Pills
+        document.querySelectorAll('.level-pill').forEach(btn => btn.classList.remove('active'));
+        if (selectedLessons.size === LESSON_ORDER.length) {
+            document.getElementById('pill-all')?.classList.add('active');
+        } else if (currentLevelScope === 'A1' && Array.from(selectedLessons).every(l => l.startsWith('A1')) && selectedLessons.size === 16) {
+            document.getElementById('pill-a1')?.classList.add('active');
+        } else if (currentLevelScope === 'A2_1' && selectedLessons.size === 10) {
+            document.getElementById('pill-a2-1')?.classList.add('active');
+        } else if (currentLevelScope === 'A2_2' && selectedLessons.size === 8) {
+            document.getElementById('pill-a2-2')?.classList.add('active');
         }
 
-        lastClickedLessonIdx = -1;
-        updatePresetPillsState(type);
-        updateChipsUI();
-        applyFilter();
-    }
-
-    function updatePresetPillsState(activeType) {
-        document.querySelectorAll('.preset-pill').forEach(btn => btn.classList.remove('active'));
-        if (activeType && activeType !== 'NONE') {
-            const btn = document.getElementById(`preset-${activeType.toLowerCase().replace(/_/g, '-')}`);
-            if (btn) btn.classList.add('active');
-        } else if (selectedLessons.size === LESSON_ORDER.length) {
-            const btn = document.getElementById('preset-all');
-            if (btn) btn.classList.add('active');
-        }
-    }
-
-    function updateChipsUI() {
+        // 2. Cập nhật Active Chips & Drawer Chips
         LESSON_ORDER.forEach(lid => {
             const isSel = selectedLessons.has(lid);
+            const activeChip = document.getElementById(`active-chip-${lid}`);
+            if (activeChip) activeChip.classList.toggle('active', isSel);
 
-            // 1. Cập nhật Chip Button
-            const chip = document.getElementById(`chip-${lid}`);
-            if (chip) {
-                chip.classList.toggle('active', isSel);
-                const check = chip.querySelector('.chip-check');
-                if (check) check.textContent = isSel ? '✓' : '+';
-            }
-
-            // 2. Cập nhật Checkbox trong Dropdown
-            const itemEl = document.getElementById(`ms-item-${lid}`);
-            if (itemEl) itemEl.classList.toggle('selected', isSel);
-            const cb = document.getElementById(`ms-cb-${lid}`);
-            if (cb) cb.checked = isSel;
+            const drawerChip = document.getElementById(`drawer-chip-${lid}`);
+            if (drawerChip) drawerChip.classList.toggle('active', isSel);
         });
 
-        // 3. Cập nhật Label & Badge trên nút Dropdown
-        const triggerText = document.getElementById('msTriggerText');
-        const triggerBadge = document.getElementById('msTriggerBadge');
-        const footerCount = document.getElementById('msFooterCount');
-
-        if (triggerText) {
-            if (selectedLessons.size === LESSON_ORDER.length) {
-                triggerText.textContent = "🌟 Tất Cả Các Bài (A1-3 ➔ A2-18)";
-                if (triggerBadge) triggerBadge.textContent = `${LESSON_ORDER.length}/${LESSON_ORDER.length}`;
-            } else if (selectedLessons.size === 0) {
-                triggerText.textContent = "⚠️ Chưa chọn bài nào (vui lòng chọn)";
-                if (triggerBadge) triggerBadge.textContent = `0/${LESSON_ORDER.length}`;
-            } else if (selectedLessons.size === 1) {
-                const only = Array.from(selectedLessons)[0];
-                const t = (LESSON_TITLES[only] || '').split('(')[0];
-                triggerText.textContent = `${only}: ${t}`;
-                if (triggerBadge) triggerBadge.textContent = `1/${LESSON_ORDER.length}`;
+        // 3. Cập nhật Dropdown chọn nhanh
+        const dropdown = document.getElementById('quickLessonDropdown');
+        if (dropdown) {
+            if (selectedLessons.size === 1) {
+                dropdown.value = Array.from(selectedLessons)[0];
+            } else if (selectedLessons.size === LESSON_ORDER.length) {
+                dropdown.value = 'ALL';
             } else {
-                const sortedSel = LESSON_ORDER.filter(l => selectedLessons.has(l));
-                triggerText.textContent = `📚 Đang chọn ${selectedLessons.size} bài (${sortedSel.join(', ')})`;
-                if (triggerBadge) triggerBadge.textContent = `${selectedLessons.size}/${LESSON_ORDER.length}`;
+                dropdown.value = 'ALL';
             }
         }
 
-        if (footerCount) {
-            footerCount.textContent = `Đang chọn: ${selectedLessons.size} bài (${currentFiltered ? currentFiltered.length : 0} từ)`;
+        // 4. Cập nhật Summary Badge
+        const summary = document.getElementById('selectionSummary');
+        if (summary) {
+            if (selectedLessons.size === LESSON_ORDER.length) {
+                summary.textContent = `Toàn bộ 34 bài (${rawVocab.length} từ)`;
+            } else if (selectedLessons.size === 0) {
+                summary.textContent = `Chưa chọn bài nào`;
+            } else if (selectedLessons.size === 1) {
+                const only = Array.from(selectedLessons)[0];
+                summary.textContent = `Đang xem: ${only} (${lessonCounts[only] || 0} từ)`;
+            } else {
+                summary.textContent = `Đang chọn: ${selectedLessons.size} bài (${currentFiltered ? currentFiltered.length : 0} từ)`;
+            }
+        }
+    }
+
+    function closeMiniMotion() {
+        const widget = document.getElementById('miniMotionWidget');
+        if (widget) {
+            widget.style.display = 'none';
         }
     }
 
@@ -20607,6 +20736,7 @@
         <div class="mini-motion-btns">
             <button type="button" class="btn-mini-opt" onclick="expandMiniMotion()" title="Mở mô hình chi tiết">↗️</button>
             <button type="button" class="btn-mini-opt" onclick="toggleMiniMotionMinimize()" title="Thu nhỏ / Mở rộng" id="btnMiniToggle">–</button>
+            <button type="button" class="btn-mini-opt btn-mini-close" onclick="closeMiniMotion()" title="Đóng hẳn widget">✕</button>
         </div>
     </div>
     <div class="mini-motion-body" id="miniMotionBody">
