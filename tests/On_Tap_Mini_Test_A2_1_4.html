@@ -1654,23 +1654,62 @@
         renderVocab(filtered);
     }
 
+    function cleanJpTermForQuizlet(str) {
+        if (!str) return "";
+        let s = str;
+        if (s === "まいつき、まいげつ") return "まいつき";
+        if (s === "まいとし、まいねん") return "まいとし";
+        s = s.replace(/[~～…\.]/g, "");
+        s = s.replace(/めの[nN]/g, "め");
+        s = s.replace(/^[nN]が/g, "");
+        s = s.replace(/^[nNpPvV][をにへとがで]/g, "");
+        s = s.replace(/^[pPnN]に/g, "");
+        s = s.replace(/[vV]ましょう/g, "ましょう");
+        s = s.replace(/[vV]ました/g, "");
+        s = s.replace(/[vV]$/g, "");
+        s = s.replace(/てください$/g, "");
+        s = s.replace(/\([^)]*を\)/g, "").replace(/（[^）]*を）/g, "");
+        s = s.replace(/\(お\)/g, "お").replace(/（お）/g, "お");
+        s = s.replace(/\(します\)/g, "します").replace(/（します）/g, "します");
+        s = s.replace(/\(さん\)/g, "").replace(/（さん）/g, "");
+        s = s.replace(/\(な\)/g, "").replace(/（な）/g, "");
+        s = s.replace(/[\(\)（）]/g, "");
+        if (s.includes("/") || s.includes("／")) {
+            s = s.split(/[\/／]/)[0];
+        }
+        s = s.replace(/[NPVnvp]/g, "");
+        s = s.replace(/[。、,，\?？!！]/g, "");
+        s = s.replace(/[\s　]+/g, "");
+        return s.trim();
+    }
+
+    function formatQuizletVocabLine(item) {
+        const term = cleanJpTermForQuizlet(item.jp);
+        let def = item.vi;
+        if (item.jp.includes('/')) {
+            const alt = item.jp.split('/')[1].trim();
+            def = `${item.vi} (hoặc ${alt})`;
+        }
+        return `${term}\t${def}`;
+    }
+
     function copyVocabQuizletFormat() {
         if (!currentFilteredVocab || currentFilteredVocab.length === 0) {
             showToast("Không có từ vựng nào để sao chép!");
             return;
         }
-        const text = currentFilteredVocab.map(item => `${item.jp} : ${item.vi}`).join('\n');
+        const text = currentFilteredVocab.map(formatQuizletVocabLine).join('\n');
         navigator.clipboard.writeText(text).then(() => {
-            showToast(`Đã copy ${currentFilteredVocab.length} từ vựng chuẩn Quizlet!`);
+            showToast(`✅ Đã copy ${currentFilteredVocab.length} từ vựng chuẩn Quizlet (Gõ mượt, không khoảng trắng, không ~)!`);
         }).catch(() => {
             fallbackCopyText(text, currentFilteredVocab.length);
         });
     }
 
     function copyFull121QuizletFormat() {
-        const text = rawVocab.map(item => `${item.jp} : ${item.vi}`).join('\n');
+        const text = rawVocab.map(formatQuizletVocabLine).join('\n');
         navigator.clipboard.writeText(text).then(() => {
-            showToast(`Đã copy toàn bộ 121 từ vựng (Bài 1 - 4) chuẩn Quizlet!`);
+            showToast(`✅ Đã copy toàn bộ 121 từ vựng (Bài 1 - 4) chuẩn Quizlet (Gõ mượt, không khoảng trắng, không ~)!`);
         }).catch(() => {
             fallbackCopyText(text, 121);
         });
@@ -1679,11 +1718,13 @@
     function fallbackCopyText(text, count) {
         const ta = document.createElement('textarea');
         ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
         document.body.appendChild(ta);
         ta.select();
         document.execCommand('copy');
         document.body.removeChild(ta);
-        showToast(`Đã copy ${count} từ vựng chuẩn Quizlet!`);
+        showToast(`✅ Đã copy ${count} từ vựng chuẩn Quizlet (Gõ mượt, không khoảng trắng, không ~)!`);
     }
 
     function showToast(msg) {

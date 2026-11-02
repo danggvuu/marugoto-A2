@@ -171,6 +171,39 @@
             background: #2ed573;
         }
 
+        .btn-quizlet-kanji {
+            background: #2563eb !important;
+        }
+        .btn-quizlet-kanji:hover {
+            background: #1d4ed8 !important;
+        }
+
+        .search-bar-row {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .quizlet-btns-wrapper {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 768px) {
+            .quizlet-btns-wrapper {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+            }
+            .quizlet-btns-wrapper .btn {
+                width: 100%;
+            }
+        }
+
         
         /* Multi-Lesson Selection Component */
         .controls-card {
@@ -2555,9 +2588,14 @@
                 <input type="text" id="searchInput" placeholder="🔍 Tìm kiếm từ vựng (Nhật, Việt, Romaji)..." oninput="onSearchChange()">
                 <button id="searchClearBtn" class="search-clear-btn" onclick="clearSearch()" title="Xóa tìm kiếm">✕</button>
             </div>
-            <button class="btn btn-quizlet" id="btnQuizlet" onclick="copyQuizletFormat()">
-                📋 Copy Format Quizlet (<span id="quizletCount">380</span> từ)
-            </button>
+            <div class="quizlet-btns-wrapper">
+                <button class="btn btn-quizlet" id="btnQuizlet" onclick="copyQuizletFormat('kana')" title="Copy cột Nhật dạng Kana (Hiragana/Katakana) sạch 100%, không khoảng trắng, không ~, gõ siêu mượt trên Quizlet">
+                    ⌨️ Copy Gõ Kana (<span id="quizletCount">380</span> từ)
+                </button>
+                <button class="btn btn-quizlet btn-quizlet-kanji" id="btnQuizletKanji" onclick="copyQuizletFormat('kanji')" title="Copy cột Nhật dạng Kanji sạch, không khoảng trắng, chuẩn luyện gõ chữ Hán trên Quizlet">
+                    🈁 Copy Gõ Kanji
+                </button>
+            </div>
         </div>
 
         <!-- Multi-Lesson Picker -->
@@ -19801,30 +19839,83 @@
         }
     });
 
-    // Copy format for Quizlet
-    function copyQuizletFormat() {
+    // Clean Japanese term for Quizlet typing (removes spaces, tildes, brackets, placeholders)
+    function cleanJpTermForQuizlet(str) {
+        if (!str) return "";
+        let s = str;
+        if (s === "まいつき、まいげつ") return "まいつき";
+        if (s === "まいとし、まいねん") return "まいとし";
+        s = s.replace(/[~～…\.]/g, "");
+        s = s.replace(/めの[nN]/g, "め");
+        s = s.replace(/^[nN]が/g, "");
+        s = s.replace(/^[nNpPvV][をにへとがで]/g, "");
+        s = s.replace(/^[pPnN]に/g, "");
+        s = s.replace(/[vV]ましょう/g, "ましょう");
+        s = s.replace(/[vV]ました/g, "");
+        s = s.replace(/[vV]$/g, "");
+        s = s.replace(/てください$/g, "");
+        s = s.replace(/\([^)]*を\)/g, "").replace(/（[^）]*を）/g, "");
+        s = s.replace(/\(お\)/g, "お").replace(/（お）/g, "お");
+        s = s.replace(/\(します\)/g, "します").replace(/（します）/g, "します");
+        s = s.replace(/\(さん\)/g, "").replace(/（さん）/g, "");
+        s = s.replace(/\(な\)/g, "").replace(/（な）/g, "");
+        s = s.replace(/[\(\)（）]/g, "");
+        if (s.includes("/") || s.includes("／")) {
+            s = s.split(/[\/／]/)[0];
+        }
+        s = s.replace(/[NPVnvp]/g, "");
+        s = s.replace(/[。、,，\?？!！]/g, "");
+        s = s.replace(/[\s　]+/g, "");
+        return s.trim();
+    }
+
+    // Copy format for Quizlet (Support both clean Kana and clean Kanji)
+    function copyQuizletFormat(mode = 'kana') {
         if (currentFiltered.length === 0) {
             showToast("Không có từ nào để copy!");
             return;
         }
 
         const text = currentFiltered.map(item => {
-            const jpText = item.kanji !== item.kana ? `${item.kanji} [${item.kana}]` : item.kanji;
-            const hvText = item.hv ? ` ${item.hv}` : '';
-            return `${jpText}${hvText}\t${item.vi}`;
+            const cleanKana = cleanJpTermForQuizlet(item.kana);
+            const cleanKanji = cleanJpTermForQuizlet(item.kanji);
+            const hv = item.hv ? ` ${item.hv}` : '';
+
+            if (mode === 'kanji') {
+                const term = cleanKanji || cleanKana;
+                const readingNote = cleanKana && cleanKana !== term ? ` [${cleanKana}]` : '';
+                return `${term}\t${item.vi}${readingNote}${hv}`;
+            } else {
+                const term = cleanKana || cleanKanji;
+                const kanjiNote = cleanKanji && cleanKanji !== term ? ` 【${cleanKanji}】` : '';
+                return `${term}\t${item.vi}${kanjiNote}${hv}`;
+            }
         }).join('\n');
 
-        navigator.clipboard.writeText(text).then(() => {
-            showToast(`✅ Đã copy ${currentFiltered.length} từ vựng sang format Quizlet!`);
-        }).catch(err => {
-            const ta = document.createElement('textarea');
-            ta.value = text;
-            document.body.appendChild(ta);
-            ta.select();
-            document.execCommand('copy');
-            document.body.removeChild(ta);
-            showToast(`✅ Đã copy ${currentFiltered.length} từ vựng sang format Quizlet!`);
-        });
+        const modeLabel = mode === 'kanji' ? 'Kanji chuẩn' : 'Kana gõ siêu mượt';
+        const successMsg = `✅ Đã copy ${currentFiltered.length} từ format Quizlet (${modeLabel}, không dấu cách, không ~)!`;
+
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text).then(() => {
+                showToast(successMsg);
+            }).catch(() => {
+                fallbackCopyQuizletText(text, successMsg);
+            });
+        } else {
+            fallbackCopyQuizletText(text, successMsg);
+        }
+    }
+
+    function fallbackCopyQuizletText(text, msg) {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        showToast(msg);
     }
 
     function showToast(msg) {
