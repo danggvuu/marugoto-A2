@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
+    <title>Cẩm Nang & Luyện Tập Toàn Diện Bài 2 - Marugoto A2-1 | わたしの しゅみは えいがを 見ることです</title>
+    <meta name="description" content="Chinh phục toàn diện Marugoto A2-1 Bài 2: わたしの しゅみは えいがを 見ることです. Đầy đủ ngữ pháp, 3D Flashcard từ vựng, máy biến thể và Mini Test 15 câu có giải thích chi tiết.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <!-- Animate UI Core -->
+    <link rel="stylesheet" href="../assets/css/animate-ui.css">
+    <script src="../assets/js/animate-ui.js" defer></script>
+    <script src="../assets/js/audio-engine.js"></script>
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-dark: #3730a3;
+            --primary-light: #6366f1;
+            --primary-soft: #eef2ff;
+            --accent: #f59e0b;
+            --text-dark: #0f172a;
+            --text-muted: #475569;
+            --bg-light: #f8fafc;
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+            --radius-md: 14px;
+            --shadow-card: 0 10px 15px -3px rgba(0, 0, 0, 0.07);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f1f5f9;
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding-bottom: 90px;
+        }
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+        /* Global Nav */
+        .global-hub-nav {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 10px 0 24px 0;
+            flex-wrap: wrap;
+        }
+        .hub-nav-item {
+            text-decoration: none;
+            background: #ffffff;
+            color: #475569;
+            padding: 9px 18px;
+            border-radius: 9999px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            border: 1.5px solid #e2e8f0;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.2s ease;
+        }
+        .hub-nav-item:hover {
+            border-color: #4f46e5;
+            color: #4f46e5;
+            transform: translateY(-2px);
+        }
+        .hub-nav-item.active-hub {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            color: #ffffff !important;
+            border-color: transparent;
+        }
+        .hub-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .hub-dropdown-menu {
+            display: none;
+            position: absolute;
+            top: calc(100% + 6px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ffffff;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 14px;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+            padding: 8px;
+            min-width: 290px;
+            max-height: 480px;
+            overflow-y: auto;
+            z-index: 9999;
+        }
+        .hub-dropdown-menu.show { display: block; }
+        .hub-drop-link {
+            display: block;
+            padding: 8px 14px;
+            color: #334155;
+            font-size: 0.88rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.15s ease;
+        }
+        .hub-drop-link:hover { background: #eef2ff; color: #4f46e5; }
+        .hub-drop-link.active { background: #4f46e5; color: #ffffff !important; }
+        /* Section Nav */
+        .section-nav {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+        .sec-link {
+            padding: 6px 14px;
+            border-radius: 9999px;
+            background: #ffffff;
+            color: #64748b;
+            font-size: 0.84rem;
+            font-weight: 600;
+            text-decoration: none;
+            border: 1px solid #e2e8f0;
+            transition: all 0.2s ease;
+        }
+        .sec-link:hover { background: #eef2ff; color: #4f46e5; border-color: #c7d2fe; }
+        /* Hero Banner */
+        .hero-banner {
+            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4338ca 100%);
+            border-radius: 20px;
+            padding: 36px 30px;
+            color: #ffffff;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 25px rgba(49, 46, 129, 0.2);
+            position: relative;
+        }
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 5px 14px;
+            border-radius: 999px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+        .hero-title {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+        .hero-jp-quote {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #a5b4fc;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .hero-subtitle {
+            font-size: 0.95rem;
+            max-width: 800px;
+            opacity: 0.9;
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+        .hero-stats-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 12px;
+        }
+        .stat-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            padding: 12px 16px;
+            text-align: center;
+        }
+        .stat-number { font-size: 1.5rem; font-weight: 800; color: #38bdf8; }
+        .stat-label { font-size: 0.78rem; opacity: 0.85; margin-top: 2px; }
+        /* Content Sections */
+        .content-section {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 26px 28px;
+            margin-bottom: 26px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            border: 1px solid #e2e8f0;
+        }
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+            border-bottom: 1.5px solid #f1f5f9;
+            padding-bottom: 12px;
+        }
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: #0f172a;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .section-tag {
+            font-size: 0.78rem;
+            font-weight: 700;
+            background: #e0e7ff;
+            color: #4338ca;
+            padding: 4px 10px;
+            border-radius: 999px;
+        }
+        .rule-box {
+            background: #f8fafc;
+            border-left: 4px solid #4f46e5;
+            padding: 16px 18px;
+            border-radius: 0 10px 10px 0;
+            margin-bottom: 18px;
+        }
+        .rule-formula {
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: #3730a3;
+            margin-bottom: 6px;
+        }
+        .rule-meaning {
+            font-size: 0.92rem;
+            color: #334155;
+            line-height: 1.5;
+        }
+        .example-list { display: flex; flex-direction: column; gap: 10px; margin-top: 14px; }
+        .example-item {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 12px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .ex-jp { font-size: 1rem; font-weight: 700; color: #1e293b; margin-bottom: 2px; }
+        .ex-vi { font-size: 0.88rem; color: #64748b; }
+        .btn-speak {
+            background: #eef2ff;
+            border: 1px solid #c7d2fe;
+            border-radius: 8px;
+            padding: 6px 12px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+        }
+        .btn-speak:hover { background: #4f46e5; color: #fff; }
+        /* Comparison Table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 0.92rem;
+        }
+        .comparison-table th, .comparison-table td {
+            padding: 10px 14px;
+            border: 1px solid #e2e8f0;
+            text-align: left;
+        }
+        .comparison-table th {
+            background: #f1f5f9;
+            font-weight: 700;
+            color: #334155;
+        }
+        /* Verb Lab */
+        .morph-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 12px;
+            margin-top: 16px;
+        }
+        .morph-box {
+            background: #f8fafc;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 14px;
+            text-align: center;
+        }
+        .morph-box.featured {
+            background: #f0fdf4;
+            border-color: #86efac;
+        }
+        .morph-tag { font-size: 0.76rem; font-weight: 700; color: #64748b; margin-bottom: 6px; }
+        .morph-val { font-size: 1.15rem; font-weight: 800; color: #0f172a; }
+        .verb-selector-row {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 14px;
+        }
+        .btn-verb-chip {
+            background: #ffffff;
+            border: 1.5px solid #cbd5e1;
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .btn-verb-chip.active {
+            background: #4f46e5;
+            color: #ffffff;
+            border-color: #4f46e5;
+        }
+        /* Kanji Cards */
+        .kanji-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 16px;
+            margin-top: 16px;
+        }
+        .kanji-detail-card {
+            background: #ffffff;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 16px;
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+        }
+        .kanji-big-char {
+            font-size: 2.8rem;
+            font-weight: 900;
+            color: #4f46e5;
+            line-height: 1;
+            background: #eef2ff;
+            padding: 10px 14px;
+            border-radius: 10px;
+        }
+        .kanji-hv-title { font-size: 1.1rem; font-weight: 800; color: #0f172a; margin-bottom: 4px; }
+        .kanji-strokes-badge {
+            font-size: 0.72rem;
+            background: #f1f5f9;
+            color: #475569;
+            padding: 2px 8px;
+            border-radius: 999px;
+            margin-left: 6px;
+        }
+        .kanji-readings { font-size: 0.82rem; color: #475569; line-height: 1.5; margin-bottom: 6px; }
+        .kanji-mnemonic { font-size: 0.8rem; color: #047857; background: #ecfdf5; padding: 4px 8px; border-radius: 6px; }
+        /* Flashcards Grid */
+        .flashcard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 16px;
+            margin-top: 16px;
+        }
+        .fc-item {
+            background: #ffffff;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.04);
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+        .fc-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+            border-color: #6366f1;
+        }
+        .fc-svg-wrap { width: 100%; height: 110px; background: #f8fafc; }
+        .fc-content { padding: 12px 14px; }
+        .fc-jp { font-size: 1.05rem; font-weight: 800; color: #0f172a; margin-bottom: 2px; }
+        .fc-kana { font-size: 0.84rem; color: #6366f1; margin-bottom: 4px; }
+        .fc-vi { font-size: 0.9rem; font-weight: 700; color: #334155; }
+        /* Mini Test */
+        .quiz-card {
+            background: #f8fafc;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 18px 20px;
+            margin-bottom: 16px;
+        }
+        .quiz-q { font-size: 1rem; font-weight: 700; color: #0f172a; margin-bottom: 12px; }
+        .quiz-opts { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        .quiz-opt {
+            background: #ffffff;
+            border: 1.5px solid #cbd5e1;
+            padding: 10px 14px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-align: left;
+            transition: all 0.15s ease;
+        }
+        .quiz-opt:hover { background: #eef2ff; border-color: #6366f1; }
+        .quiz-opt.correct { background: #dcfce7 !important; border-color: #22c55e !important; color: #15803d; }
+        .quiz-opt.wrong { background: #fee2e2 !important; border-color: #ef4444 !important; color: #b91c1c; }
+        .quiz-explain {
+            display: none;
+            margin-top: 10px;
+            padding: 10px 14px;
+            background: #ffffff;
+            border-left: 3px solid #3b82f6;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.85rem;
+            color: #1e293b;
+        }
+    </style>
+</head>
+<body>
+
+<div class="main-container">
+    <!-- Global Hub Nav -->
+        <div class="global-hub-nav">
+        <a href="../index.html" class="hub-nav-item">🌸 Thể TE (～て)</a>
+        <a href="../the_ru.html" class="hub-nav-item">📘 Thể RU (Từ Điển)</a>
+        <a href="../the_ta.html" class="hub-nav-item">📕 Thể TA (Quá Khứ)</a>
+        <a href="../kanji_a2.html" class="hub-nav-item">⛩️ Học Kanji & Nét Viết</a>
+        <a href="../Tu_Vung_Marugoto_A1_16_A2_1_10.html" class="hub-nav-item">📖 Kho Từ Vựng A1-A2</a>
+        <a href="../demo_3d.html" class="hub-nav-item">⛩️ Không Gian 3D</a>
+        <div class="hub-dropdown">
+            <button type="button" class="hub-nav-item" onclick="toggleTestsDropdown(event)">🎯 Ôn Tập & Đề Thi ▾</button>
+            <div class="hub-dropdown-menu" id="testsDropdownMenu">
+                <a href="../tests/De_Thi_Midterm_A2_1.html" class="hub-drop-link">🎯 Bộ 5 Đề Thi Giữa Kỳ Midterm (M101 - M105)</a>
+                <a href="../tests/On_Tap_Dich_Cau_Lesson_1_10.html" class="hub-drop-link">✍️ Luyện Dịch Câu Bài 1 - 10 (40 Câu)</a>
+                <a href="../tests/On_Tap_Mini_Test_A2_1_4.html" class="hub-drop-link">🎯 Ôn Tập Bài 1-4 (Mini Test)</a>
+                <a href="../tests/On_Tap_Mini_Test_A2_5_8.html" class="hub-drop-link">🎯 Ôn Tập Bài 5-8 (Mini Test)</a>
+                <a href="../tests/De_Thi_Thu_Marugoto_A2_5_8.html" class="hub-drop-link">📝 5 Mã Đề Thi Thử (101-105)</a>
+                <a href="../tests/Kiem_Tra_Marugoto_L6_7_8.html" class="hub-drop-link">📑 Đề Kiểm Tra L6, 7, 8</a>
+                <a href="../tests/Luyen_Tap_The_Te_A2_1.html" class="hub-drop-link">🌸 Luyện Tập Thể Te</a>
+            </div>
+        </div>
+        <div class="hub-dropdown">
+            <button type="button" class="hub-nav-item active-hub" onclick="toggleLessonsDropdown(event)">🚀 Web Bài Học ▾</button>
+            <div class="hub-dropdown-menu" id="lessonsDropdownMenu">
+                <a href="Marugoto_A2_Lesson_1.html" class="hub-drop-link">🌸 Bài 1: Nơi ở & Gia đình</a>
+                <a href="Marugoto_A2_Lesson_2.html" class="hub-drop-link active">🎨 Bài 2: Sở thích & Ngôn ngữ</a>
+                <a href="Marugoto_A2_Lesson_3.html" class="hub-drop-link">🍁 Bài 3: Mùa & Khí hậu</a>
+                <a href="Marugoto_A2_Lesson_4.html" class="hub-drop-link">⛅ Bài 4: Thời tiết & Dự báo</a>
+                <a href="Marugoto_A2_Lesson_5.html" class="hub-drop-link">🏙️ Bài 5: Phố xá & Nơi chốn</a>
+                <a href="Marugoto_A2_Lesson_6.html" class="hub-drop-link">🗺️ Bài 6: Chỉ đường & Ngã rẽ</a>
+                <a href="Marugoto_A2_Lesson_7.html" class="hub-drop-link">⏰ Bài 7: Hẹn gặp & Giờ giấc</a>
+                <a href="Marugoto_A2_Lesson_8.html" class="hub-drop-link">⛩️ Bài 8: Sự kiện & Mời mọc</a>
+                <a href="Marugoto_A2_Lesson_9.html" class="hub-drop-link">🗣️ Bài 9: Học tập & Phát âm</a>
+                <a href="Marugoto_A2_Lesson_10.html" class="hub-drop-link">🌟 Bài 10: Ngoại ngữ & Văn hóa</a>
+                <a href="Marugoto_A2_Lesson_11.html" class="hub-drop-link">🍱 Bài 11: Dã ngoại & Ăn uống</a>
+                <a href="Marugoto_A2_Lesson_12.html" class="hub-drop-link">🍜 Bài 12: Món ăn ngày đặc biệt</a>
+                <a href="Marugoto_A2_Lesson_13.html" class="hub-drop-link">✈️ Bài 13: Đi công tác & Gặp gỡ</a>
+                <a href="Marugoto_A2_Lesson_14.html" class="hub-drop-link">💻 Bài 14: Quy tắc nơi làm việc</a>
+                <a href="Marugoto_A2_Lesson_15.html" class="hub-drop-link">🏥 Bài 15: Sức khỏe & Thể dục</a>
+                <a href="Marugoto_A2_Lesson_16.html" class="hub-drop-link">🏃 Bài 16: Tập luyện & Vận động</a>
+                <a href="Marugoto_A2_Lesson_17.html" class="hub-drop-link">🎁 Bài 17: Quà tặng & Kỷ niệm</a>
+                <a href="Marugoto_A2_Lesson_18.html" class="hub-drop-link">👘 Bài 18: Tiệc tùng & Sự kiện</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sticky Section Sub-Nav -->
+    <div class="section-nav">
+        <a href="#sec-grammar1" class="sec-link">① Ngữ Pháp 1</a>
+        <a href="#sec-grammar2" class="sec-link">② Ngữ Pháp 2</a>
+        <a href="#sec-grammar3" class="sec-link">③ Ngữ Pháp 3</a>
+        <a href="#sec-verb-lab" class="sec-link">🔬 Biến Thể Động Từ</a>
+        <a href="#sec-vocab" class="sec-link">🎴 29 Từ Vựng 3D</a>
+        <a href="#sec-kanji" class="sec-link">⛩️ 7 Chữ Hán</a>
+        <a href="#sec-quiz" class="sec-link">📝 Mini Test 15 Câu</a>
+    </div>
+
+    <!-- Hero Banner -->
+    <div class="hero-banner">
+        <div class="hero-badge">TOPIC 1: わたしの家族 • BÀI 2</div>
+        <h1 class="hero-title">CHINH PHỤC TOÀN DIỆN BÀI 2</h1>
+        <div class="hero-jp-quote">
+            <span>「わたしの しゅみは えいがを 見ることです」</span>
+            <button type="button" class="btn-speak" style="background:rgba(255,255,255,0.2); border-color:#818cf8; color:#fff;" onclick="speakText('わたしの しゅみは えいがを 見ることです')">🔊</button>
+        </div>
+        <p class="hero-subtitle">
+            Danh từ hóa động từ để nói về sở thích (V-る こと), diễn tả thời điểm trong quá khứ hoặc tương lai (N のとき / V-るとき), và nói về khả năng ngôn ngữ.
+        </p>
+        <div class="hero-stats-row">
+            <div class="stat-card">
+                <div class="stat-number">29</div>
+                <div class="stat-label">Từ vựng Flashcard</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">3</div>
+                <div class="stat-label">Chuyên đề ngữ pháp</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">5</div>
+                <div class="stat-label">Động từ mẫu Lab</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">7</div>
+                <div class="stat-label">Chữ Hán Kanji</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">15</div>
+                <div class="stat-label">Câu Mini Test</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Grammar Sections -->
+        <section class="content-section" id="sec-grammar1">
+            <div class="section-header">
+                <h2 class="section-title"><span>🎨</span> 1. Danh từ hóa nói sở thích: 趣味は V-る ことです</h2>
+                <span class="section-tag">Sở thích cá nhân</span>
+            </div>
+
+            <p style="margin-bottom: 16px; color: #334155;">
+                Để biến một hành động thành một sở thích, ta đưa động từ về thể từ điển (V-る) rồi thêm 「こと」.
+            </p>
+
+            <div class="grammar-card">
+                <div class="rule-box" style="border-left-color: #7c3aed;">
+                    <div class="rule-formula" style="color: #5b21b6;">しゅみは [Động từ thể V-る] ことです<br>V-る ことが 好きです (Thích làm...)</div>
+                    <div class="rule-meaning">
+                        Sở thích của tôi là... / Việc làm... rất thú vị.
+                    </div>
+                </div>
+
+                                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Hành động</th>
+                            <th>Dạng sở thích hoàn chỉnh</th>
+                            <th>Ý nghĩa tiếng Việt</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong style="color:var(--primary-dark); font-size:1.02rem;">見ます (Xem)</strong></td>
+                            <td>映画を 見ることです</td>
+                            <td>Xem phim điện ảnh</td>
+                        </tr>                        <tr>
+                            <td><strong style="color:var(--primary-dark); font-size:1.02rem;">聞きます (Nghe)</strong></td>
+                            <td>音楽を 聞くことです</td>
+                            <td>Nghe âm nhạc</td>
+                        </tr>                        <tr>
+                            <td><strong style="color:var(--primary-dark); font-size:1.02rem;">作ります (Nấu/làm)</strong></td>
+                            <td>料理を 作ることです</td>
+                            <td>Nấu ăn / làm món</td>
+                        </tr>                        <tr>
+                            <td><strong style="color:var(--primary-dark); font-size:1.02rem;">読みます (Đọc)</strong></td>
+                            <td>本を 読むことです</td>
+                            <td>Đọc sách</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="example-list">
+                    <div class="example-item">
+                        <div class="ex-text-wrap">
+                            <div class="ex-jp">わたしの しゅみは えいがを 見ることです。</div>
+                            <div class="ex-vi">Sở thích của tôi là xem phim.</div>
+                        </div>
+                        <button type="button" class="btn-speak" onclick="speakText('わたしの しゅみは えいがを 見ることです。')">🔊</button>
+                    </div>
+                    <div class="example-item">
+                        <div class="ex-text-wrap">
+                            <div class="ex-jp">休みの日は、本を 読むことが 好きです。</div>
+                            <div class="ex-vi">Ngày nghỉ tôi thích đọc sách.</div>
+                        </div>
+                        <button type="button" class="btn-speak" onclick="speakText('休みの日は、本を 読むことが 好きです。')">🔊</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section" id="sec-grammar2">
+            <div class="section-header">
+                <h2 class="section-title"><span>⏰</span> 2. Mệnh đề thời điểm: ～のとき / V-るとき / V-たとき</h2>
+                <span class="section-tag">Thời điểm hành động</span>
+            </div>
+
+            <p style="margin-bottom: 16px; color: #334155;">
+                Dùng để xác định khoảng thời gian hay bối cảnh khi một hành động diễn ra.
+            </p>
+
+            <div class="grammar-card">
+                <div class="rule-box" style="border-left-color: #059669;">
+                    <div class="rule-formula" style="color: #047857;">[Danh từ] のとき (Khi còn là...)<br>[V-る / V-た] とき (Khi làm V / Khi đã làm V)</div>
+                    <div class="rule-meaning">
+                        Khi... / Lúc...
+                    </div>
+                </div>
+
+                
+
+                <div class="example-list">
+                    <div class="example-item">
+                        <div class="ex-text-wrap">
+                            <div class="ex-jp">高校生のとき、よく 友達と サッカーを しました。</div>
+                            <div class="ex-vi">Khi còn là học sinh cấp 3, tôi hay đá bóng cùng bạn bè.</div>
+                        </div>
+                        <button type="button" class="btn-speak" onclick="speakText('高校生のとき、よく 友達と サッカーを しました。')">🔊</button>
+                    </div>
+                    <div class="example-item">
+                        <div class="ex-text-wrap">
+                            <div class="ex-jp">ひまなとき、カフェで コーヒーを 飲みます。</div>
+                            <div class="ex-vi">Khi rảnh rỗi, tôi uống cà phê ở quán.</div>
+                        </div>
+                        <button type="button" class="btn-speak" onclick="speakText('ひまなとき、カフェで コーヒーを 飲みます。')">🔊</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section" id="sec-grammar3">
+            <div class="section-header">
+                <h2 class="section-title"><span>🗣️</span> 3. Khả năng ngôn ngữ: ～が できます / 上手 / 下手</h2>
+                <span class="section-tag">Khả năng ngoại ngữ</span>
+            </div>
+
+            <p style="margin-bottom: 16px; color: #334155;">
+                Dùng để diễn tả mình có thể nói được ngôn ngữ nào hoặc tự đánh giá trình độ của bản thân.
+            </p>
+
+            <div class="grammar-card">
+                <div class="rule-box" style="border-left-color: #ea580c;">
+                    <div class="rule-formula" style="color: #c2410c;">[Ngoại ngữ] が 少し できます (Có thể nói được chút ít...)<br>N は [V-る] のが 下手です (Tôi kém việc...)</div>
+                    <div class="rule-meaning">
+                        Có thể... / Giỏi... / Kém khoản...
+                    </div>
+                </div>
+
+                
+
+                <div class="example-list">
+                    <div class="example-item">
+                        <div class="ex-text-wrap">
+                            <div class="ex-jp">ベトナム語と えいごが できます。</div>
+                            <div class="ex-vi">Tôi có thể nói tiếng Việt và tiếng Anh.</div>
+                        </div>
+                        <button type="button" class="btn-speak" onclick="speakText('ベトナム語と えいごが できます。')">🔊</button>
+                    </div>
+                    <div class="example-item">
+                        <div class="ex-text-wrap">
+                            <div class="ex-jp">日本語は 漢字を 書くのが 難しいです。</div>
+                            <div class="ex-vi">Tiếng Nhật thì việc viết chữ Hán rất khó.</div>
+                        </div>
+                        <button type="button" class="btn-speak" onclick="speakText('日本語は 漢字を 書くのが 難しいです。')">🔊</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <!-- Verb Lab -->
+    <section class="content-section" id="sec-verb-lab">
+        <div class="section-header">
+            <h2 class="section-title"><span>🔬</span> Phòng Thí Nghiệm Động Từ Bài 2</h2>
+            <span class="section-tag">Interactive Morphing Lab</span>
+        </div>
+        <p style="margin-bottom: 12px; color: #475569;">Bấm chọn một động từ bất kỳ để theo dõi cơ chế biến đổi sang các dạng ngữ pháp cốt lõi của Bài 2:</p>
+        <div class="verb-selector-row" id="verbSelectorRow"></div>
+            <div class="morph-grid">
+                <div class="morph-box">
+                    <div class="morph-tag">Thể Masu</div>
+                    <div class="morph-val" id="morphMasu">---</div>
+                    <div style="font-size:0.8rem; color:#64748b; margin-top:4px;" id="morphVi">---</div>
+                </div>
+                <div class="morph-box">
+                    <div class="morph-tag">Thể Từ Điển V-る</div>
+                    <div class="morph-val" style="color:#0284c7;" id="morphTe">---</div>
+                    <div style="font-size:0.8rem; color:#64748b; margin-top:4px;">Gốc biến đổi</div>
+                </div>
+                <div class="morph-box featured">
+                    <div class="morph-tag">Danh từ hóa V-ること</div>
+                    <div class="morph-val" style="color:#059669;" id="morphTeIki">---</div>
+                    <div style="font-size:0.8rem; color:#047857; margin-top:4px;">Cấu trúc trọng tâm 1</div>
+                </div>
+                <div class="morph-box">
+                    <div class="morph-tag">Thể Ta V-た</div>
+                    <div class="morph-val" style="color:#7c3aed;" id="morphTeKi">---</div>
+                    <div style="font-size:0.8rem; color:#64748b; margin-top:4px;">Cấu trúc trọng tâm 2</div>
+                </div>
+                <div class="morph-box">
+                    <div class="morph-tag">Mệnh đề V-たとき</div>
+                    <div class="morph-val" style="color:#ea580c;" id="morphMashou">---</div>
+                    <div style="font-size:0.8rem; color:#64748b; margin-top:4px;">Mẫu câu giao tiếp</div>
+                </div>
+            </div>
+    </section>
+
+    <!-- Vocabulary Flashcards -->
+    <section class="content-section" id="sec-vocab">
+        <div class="section-header">
+            <h2 class="section-title"><span>🎴</span> Trọn Bộ Từ Vựng Bài 2 (29 Từ)</h2>
+            <span class="section-tag">3D Flashcards & Tokyo Audio</span>
+        </div>
+        <p style="margin-bottom: 12px; color: #475569;">Bấm vào thẻ để nghe phát âm chuẩn giọng bản xứ Tokyo:</p>
+        <div class="flashcard-grid" id="flashcardGrid"></div>
+    </section>
+
+    <!-- Kanji Section -->
+    <section class="content-section" id="sec-kanji">
+        <div class="section-header">
+            <h2 class="section-title"><span>⛩️</span> Trọn Bộ Chữ Hán Bài 2 (7 Chữ)</h2>
+            <span class="section-tag">Kanji N5-N4</span>
+        </div>
+        <div class="kanji-grid">
+                <div class="kanji-detail-card">
+                    <div class="kanji-big-char">国</div>
+                    <div class="kanji-info">
+                        <div class="kanji-hv-title">Quốc <span class="kanji-strokes-badge">8 nét</span></div>
+                        <div class="kanji-readings">
+                            <strong>Kun:</strong> くに<br>
+                            <strong>On:</strong> こく<br>
+                            <strong>Từ ví dụ:</strong> 国 (くに), 外国 (がいこく)
+                        </div>
+                        <div class="kanji-mnemonic">💡 Mẹo nhớ: Biên giới bao quanh (囗) bảo vệ viên ngọc quý (玉) của Đất nước.</div>
+                    </div>
+                </div>
+                <div class="kanji-detail-card">
+                    <div class="kanji-big-char">外</div>
+                    <div class="kanji-info">
+                        <div class="kanji-hv-title">Ngoại <span class="kanji-strokes-badge">5 nét</span></div>
+                        <div class="kanji-readings">
+                            <strong>Kun:</strong> そと<br>
+                            <strong>On:</strong> がい<br>
+                            <strong>Từ ví dụ:</strong> 外 (そと), 外国 (がいこく)
+                        </div>
+                        <div class="kanji-mnemonic">💡 Mẹo nhớ: Buổi tối (夕) đi ra bên ngoài xem bói (卜).</div>
+                    </div>
+                </div>
+                <div class="kanji-detail-card">
+                    <div class="kanji-big-char">語</div>
+                    <div class="kanji-info">
+                        <div class="kanji-hv-title">Ngữ <span class="kanji-strokes-badge">14 nét</span></div>
+                        <div class="kanji-readings">
+                            <strong>Kun:</strong> かた-る<br>
+                            <strong>On:</strong> ご<br>
+                            <strong>Từ ví dụ:</strong> 日本語 (にほんご), 英語 (えいご), 中国語 (ちゅうごくご)
+                        </div>
+                        <div class="kanji-mnemonic">💡 Mẹo nhớ: Lời nói (言) giao tiếp qua năm cái miệng (五口) thành Ngôn ngữ.</div>
+                    </div>
+                </div>
+                <div class="kanji-detail-card">
+                    <div class="kanji-big-char">本</div>
+                    <div class="kanji-info">
+                        <div class="kanji-hv-title">Bản <span class="kanji-strokes-badge">5 nét</span></div>
+                        <div class="kanji-readings">
+                            <strong>Kun:</strong> もと<br>
+                            <strong>On:</strong> ほん<br>
+                            <strong>Từ ví dụ:</strong> 本 (ほん), 日本 (にほん)
+                        </div>
+                        <div class="kanji-mnemonic">💡 Mẹo nhớ: Gỗ từ gốc cây (木) đem làm giấy đóng thành Sách (本).</div>
+                    </div>
+                </div>
+                <div class="kanji-detail-card">
+                    <div class="kanji-big-char">読</div>
+                    <div class="kanji-info">
+                        <div class="kanji-hv-title">Độc <span class="kanji-strokes-badge">14 nét</span></div>
+                        <div class="kanji-readings">
+                            <strong>Kun:</strong> よ-む<br>
+                            <strong>On:</strong> どく<br>
+                            <strong>Từ ví dụ:</strong> 読みます (よみます), 読書 (どくしょ)
+                        </div>
+                        <div class="kanji-mnemonic">💡 Mẹo nhớ: Cất tiếng (言) đọc to chữ nghĩa.</div>
+                    </div>
+                </div>
+                <div class="kanji-detail-card">
+                    <div class="kanji-big-char">好</div>
+                    <div class="kanji-info">
+                        <div class="kanji-hv-title">Hảo <span class="kanji-strokes-badge">6 nét</span></div>
+                        <div class="kanji-readings">
+                            <strong>Kun:</strong> す-き<br>
+                            <strong>On:</strong> こう<br>
+                            <strong>Từ ví dụ:</strong> 好き (すき)
+                        </div>
+                        <div class="kanji-mnemonic">💡 Mẹo nhớ: Mẹ (女) ôm con (子) là điều tốt đẹp đáng yêu thích.</div>
+                    </div>
+                </div>
+                <div class="kanji-detail-card">
+                    <div class="kanji-big-char">何</div>
+                    <div class="kanji-info">
+                        <div class="kanji-hv-title">Hà <span class="kanji-strokes-badge">7 nét</span></div>
+                        <div class="kanji-readings">
+                            <strong>Kun:</strong> なに、 なん<br>
+                            <strong>On:</strong> か<br>
+                            <strong>Từ ví dụ:</strong> 何 (なに), 何人 (なんにん)
+                        </div>
+                        <div class="kanji-mnemonic">💡 Mẹo nhớ: Người (亻) đang mang vác cái gì trên vai?</div>
+                    </div>
+                </div>
+        </div>
+    </section>
+
+    <!-- Mini Test -->
+    <section class="content-section" id="sec-quiz">
+        <div class="section-header">
+            <h2 class="section-title"><span>📝</span> Mini Test Phản Xạ Bài 2 (15 Câu)</h2>
+            <span class="section-tag">Instant Feedback</span>
+        </div>
+        <p style="margin-bottom: 16px; color: #475569;">Chọn đáp án đúng nhất để kiểm tra khả năng tiếp thu bài học:</p>
+        <div id="quizContainer"></div>
+    </section>
+</div>
+
+<script>
+    const VOCAB_DATA = [{"id": 1, "cat": "vocab", "catName": "Từ Vựng", "badge": "Bài 2", "jp": "（料理を）作ります", "kana": "（りょうりを）つくります", "kanji": "（料理を）作ります", "romaji": "(ryouri o) tsukurimasu", "vi": "Làm, tạo ra (Nấu ăn)", "exJp": "（料理を）作りますを 勉強します。", "exVi": "Học Làm, tạo ra (Nấu ăn).", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_Làmtạora\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#3730a3\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_Làmtạora)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">📖</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">Làm, tạo ra </text>\n</svg>"}, {"id": 2, "cat": "vocab", "catName": "Từ Vựng", "badge": "Bài 2", "jp": "（切手を）集めます", "kana": "（きってを）あつめます", "kanji": "（切手を）集めます", "romaji": "(kitte o) atsumemasu", "vi": "Sưu tập (Tem)", "exJp": "（切手を）集めますを 勉強します。", "exVi": "Học Sưu tập (Tem).", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_SưutậpTem\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#3730a3\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_SưutậpTem)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">📖</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">Sưu tập (Tem</text>\n</svg>"}, {"id": 3, "cat": "vocab", "catName": "Từ Vựng", "badge": "Bài 2", "jp": "友達になります", "kana": "ともだちに なります", "kanji": "友達になります", "romaji": "tomodachi ni narimasu", "vi": "Trở thành bạn bè", "exJp": "友達になりますを 勉強します。", "exVi": "Học Trở thành bạn bè.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_Trởthànhbạ\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#3730a3\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_Trởthànhbạ)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">📖</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">Trở thành bạ</text>\n</svg>"}, {"id": 4, "cat": "vocab", "catName": "Từ Vựng", "badge": "Bài 2", "jp": "歌います", "kana": "うたいます", "kanji": "歌います", "romaji": "utaimasu", "vi": "Hát", "exJp": "歌いますを 勉強します。", "exVi": "Học Hát.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_Hát\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#3730a3\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_Hát)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">📖</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">Hát</text>\n</svg>"}, {"id": 5, "cat": "vocab", "catName": "Từ Vựng", "badge": "Bài 2", "jp": "泳ぎます", "kana": "およぎます", "kanji": "泳ぎます", "romaji": "oyogimasu", "vi": "Bơi", "exJp": "泳ぎますを 勉強します。", "exVi": "Học Bơi.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_Bơi\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#3730a3\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_Bơi)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">📖</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">Bơi</text>\n</svg>"}, {"id": 6, "cat": "vocab", "catName": "Từ Vựng", "badge": "Bài 2", "jp": "水泳", "kana": "すいえい", "kanji": "水泳", "romaji": "suiei", "vi": "Việc bơi lội", "exJp": "水泳を 勉強します。", "exVi": "Học Việc bơi lội.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_Việcbơilội\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#3730a3\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_Việcbơilội)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">📖</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">Việc bơi lội</text>\n</svg>"}, {"id": 7, "cat": "vocab", "catName": "Từ Vựng", "badge": "Bài 2", "jp": "ドライブ", "kana": "ドライブ", "kanji": "ドライブ", "romaji": "doraibu", "vi": "Lái xe đi chơi", "exJp": "ドライブを 勉強します。", "exVi": "Học Lái xe đi chơi.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_Láixeđich\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#3730a3\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_Láixeđich)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">📖</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">Lái xe đi ch</text>\n</svg>"}, {"id": 8, "cat": "vocab", "catName": "Từ Vựng", "badge": "Bài 2", "jp": "暇（な）", "kana": "ひま（な）", "kanji": "暇（な）", "romaji": "hima(na)", "vi": "Rảnh rỗi", "exJp": "暇（な）を 勉強します。", "exVi": "Học Rảnh rỗi.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_Rảnhrỗi\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#3730a3\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_Rảnhrỗi)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">📖</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">Rảnh rỗi</text>\n</svg>"}, {"id": 9, "cat": "vocab", "catName": "Từ Vựng", "badge": "Bài 2", "jp": "若い", "kana": "わかい", "kanji": "若い", "romaji": "wakai", "vi": "Trẻ", "exJp": "若いを 勉強します。", "exVi": "Học Trẻ.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_Trẻ\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#3730a3\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_Trẻ)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">📖</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">Trẻ</text>\n</svg>"}, {"id": 10, "cat": "vocab", "catName": "Từ Vựng", "badge": "Bài 2", "jp": "切手", "kana": "きって", "kanji": "切手", "romaji": "kitte", "vi": "Tem", "exJp": "切手を 勉強します。", "exVi": "Học Tem.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_Tem\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#3730a3\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_Tem)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">📖</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">Tem</text>\n</svg>"}, {"id": 11, "cat": "vocab", "catName": "Từ Vựng", "badge": "Bài 2", "jp": "コイン", "kana": "コイン", "kanji": "コイン", "romaji": "koin", "vi": "Đồng xu", "exJp": "コインを 勉強します。", "exVi": "Học Đồng xu.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_Đồngxu\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#3730a3\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_Đồngxu)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">📖</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">Đồng xu</text>\n</svg>"}, {"id": 12, "cat": "vocab", "catName": "Từ Vựng", "badge": "Bài 2", "jp": "お菓子", "kana": "おかし", "kanji": "お菓子", "romaji": "okashi", "vi": "Bánh kẹo", "exJp": "お菓子を 勉強します。", "exVi": "Học Bánh kẹo.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_Bánhkẹo\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#3730a3\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_Bánhkẹo)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">📖</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">Bánh kẹo</text>\n</svg>"}, {"id": 13, "cat": "vocab", "catName": "Từ Vựng", "badge": "Bài 2", "jp": "凧揚げ", "kana": "たこあげ", "kanji": "凧揚げ", "romaji": "takoage", "vi": "Thả diều", "exJp": "凧揚げを 勉強します。", "exVi": "Học Thả diều.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_Thảdiều\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#3730a3\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_Thảdiều)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">📖</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">Thả diều</text>\n</svg>"}, {"id": 14, "cat": "vocab", "catName": "Từ Vựng", "badge": "Bài 2", "jp": "コメント", "kana": "コメント", "kanji": "コメント", "romaji": "komento", "vi": "Nhận xét, bình luận", "exJp": "コメントを 勉強します。", "exVi": "Học Nhận xét, bình luận.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_Nhậnxétbì\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#3730a3\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_Nhậnxétbì)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">📖</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">Nhận xét, bì</text>\n</svg>"}, {"id": 15, "cat": "vocab", "catName": "Từ Vựng", "badge": "Bài 2", "jp": "チキン", "kana": "チキン", "kanji": "チキン", "romaji": "chikin", "vi": "Thịt gà", "exJp": "チキンを 勉強します。", "exVi": "Học Thịt gà.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_Thịtgà\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#3730a3\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_Thịtgà)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">📖</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">Thịt gà</text>\n</svg>"}, {"id": 16, "cat": "vocab", "catName": "Từ Vựng", "badge": "Bài 2", "jp": "紹介（します）", "kana": "しょうかい（します）", "kanji": "紹介（します）", "romaji": "shoukai(shimasu)", "vi": "Giới thiệu", "exJp": "紹介（します）を 勉強します。", "exVi": "Học Giới thiệu.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_Giớithiệu\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#3730a3\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_Giớithiệu)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">📖</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">Giới thiệu</text>\n</svg>"}, {"id": 17, "cat": "vocab", "catName": "Từ Vựng", "badge": "Bài 2", "jp": "自己紹介", "kana": "じこしょうかい", "kanji": "自己紹介", "romaji": "jikoshoukai", "vi": "Giới thiệu bản thân", "exJp": "自己紹介を 勉強します。", "exVi": "Học Giới thiệu bản thân.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_Giớithiệub\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#3730a3\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_Giớithiệub)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">📖</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">Giới thiệu b</text>\n</svg>"}, {"id": 18, "cat": "vocab", "catName": "Từ Vựng", "badge": "Bài 2", "jp": "得意（な）", "kana": "とくい（な）", "kanji": "得意（な）", "romaji": "tokui(na)", "vi": "Giỏi, thành thạo", "exJp": "得意（な）を 勉強します。", "exVi": "Học Giỏi, thành thạo.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_Giỏithành\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#3730a3\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_Giỏithành)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">📖</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">Giỏi, thành </text>\n</svg>"}, {"id": 19, "cat": "vocab", "catName": "Từ Vựng", "badge": "Bài 2", "jp": "試合", "kana": "しあい", "kanji": "試合", "romaji": "shiai", "vi": "Trận đấu", "exJp": "試合を 勉強します。", "exVi": "Học Trận đấu.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_Trậnđấu\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#3730a3\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_Trậnđấu)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">📖</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">Trận đấu</text>\n</svg>"}, {"id": 20, "cat": "vocab", "catName": "Từ Vựng", "badge": "Bài 2", "jp": "演劇", "kana": "えんげき", "kanji": "演劇", "romaji": "engeki", "vi": "Kịch", "exJp": "演劇を 勉強します。", "exVi": "Học Kịch.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_Kịch\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#3730a3\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_Kịch)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">📖</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">Kịch</text>\n</svg>"}, {"id": 21, "cat": "vocab", "catName": "Từ Vựng", "badge": "Bài 2", "jp": "編み物", "kana": "あみもの", "kanji": "編み物", "romaji": "amimono", "vi": "Đan móc len", "exJp": "編み物を 勉強します。", "exVi": "Học Đan móc len.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_Đanmóclen\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#3730a3\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_Đanmóclen)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">📖</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">Đan móc len</text>\n</svg>"}, {"id": 22, "cat": "vocab", "catName": "Từ Vựng", "badge": "Bài 2", "jp": "ガーデニング", "kana": "ガーデニング", "kanji": "ガーデニング", "romaji": "gaadeningu", "vi": "Làm vườn", "exJp": "ガーデニングを 勉強します。", "exVi": "Học Làm vườn.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_Làmvườn\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#3730a3\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_Làmvườn)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">📖</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">Làm vườn</text>\n</svg>"}, {"id": 23, "cat": "vocab", "catName": "Từ Vựng", "badge": "Bài 2", "jp": "サイクリング", "kana": "サイクリング", "kanji": "サイクリング", "romaji": "saikuringu", "vi": "Đạp xe dạo", "exJp": "サイクリングを 勉強します。", "exVi": "Học Đạp xe dạo.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_Đạpxedạo\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#3730a3\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_Đạpxedạo)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">📖</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">Đạp xe dạo</text>\n</svg>"}, {"id": 24, "cat": "vocab", "catName": "Từ Vựng", "badge": "Bài 2", "jp": "フルーツ", "kana": "フルーツ", "kanji": "フルーツ", "romaji": "furuutsu", "vi": "Trái cây, hoa quả", "exJp": "フルーツを 勉強します。", "exVi": "Học Trái cây, hoa quả.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_Tráicâyho\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#3730a3\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_Tráicâyho)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">📖</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">Trái cây, ho</text>\n</svg>"}, {"id": 25, "cat": "vocab", "catName": "Từ Vựng", "badge": "Bài 2", "jp": "フルーツケーキ", "kana": "フルーツケーキ", "kanji": "フルーツケーキ", "romaji": "furuutsukeeki", "vi": "Bánh trái cây", "exJp": "フルーツケーキを 勉強します。", "exVi": "Học Bánh trái cây.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_Bánhtráicâ\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#3730a3\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_Bánhtráicâ)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">📖</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">Bánh trái câ</text>\n</svg>"}, {"id": 26, "cat": "vocab", "catName": "Từ Vựng", "badge": "Bài 2", "jp": "チェス", "kana": "チェス", "kanji": "チェス", "romaji": "chesu", "vi": "Cờ vua", "exJp": "チェスを 勉強します。", "exVi": "Học Cờ vua.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_Cờvua\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#3730a3\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_Cờvua)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">📖</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">Cờ vua</text>\n</svg>"}, {"id": 27, "cat": "vocab", "catName": "Từ Vựng", "badge": "Bài 2", "jp": "残業", "kana": "ざんぎょう", "kanji": "残業", "romaji": "zangyou", "vi": "Tăng ca, OT", "exJp": "残業を 勉強します。", "exVi": "Học Tăng ca, OT.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_TăngcaOT\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#3730a3\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_TăngcaOT)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">📖</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">Tăng ca, OT</text>\n</svg>"}, {"id": 28, "cat": "vocab", "catName": "Từ Vựng", "badge": "Bài 2", "jp": "牛丼", "kana": "ぎゅうどん", "kanji": "牛丼", "romaji": "gyuudon", "vi": "Cơm thịt bò kiểu Nhật", "exJp": "牛丼を 勉強します。", "exVi": "Học Cơm thịt bò kiểu Nhật.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_Cơmthịtbò\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#3730a3\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_Cơmthịtbò)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">📖</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">Cơm thịt bò </text>\n</svg>"}, {"id": 29, "cat": "vocab", "catName": "Từ Vựng", "badge": "Bài 2", "jp": "色々（な）", "kana": "いろいろ（な）", "kanji": "色々（な）", "romaji": "iroiro(na)", "vi": "Nhiều, đa dạng", "exJp": "色々（な）を 勉強します。", "exVi": "Học Nhiều, đa dạng.", "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_Nhiềuđadạ\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#3730a3\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_Nhiềuđadạ)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"34\">📖</text>\n  <text x=\"120\" y=\"105\" text-anchor=\"middle\" fill=\"#ffffff\" font-size=\"12\" font-weight=\"800\" font-family=\"system-ui, -apple-system, sans-serif\">Nhiều, đa dạ</text>\n</svg>"}];
+    const VERB_DATA = [{"masu": "見ます", "vi": "Xem / Nhìn", "te": "見る", "form1": "見ること", "form2": "見た", "form3": "見たとき"}, {"masu": "聞きます", "vi": "Nghe", "te": "聞く", "form1": "聞くこと", "form2": "聞いた", "form3": "聞いたとき"}, {"masu": "読みます", "vi": "Đọc", "te": "読む", "form1": "読むこと", "form2": "読んだ", "form3": "読んだとき"}, {"masu": "作ります", "vi": "Làm / Nấu", "te": "作る", "form1": "作ること", "form2": "作った", "form3": "作ったとき"}, {"masu": "話します", "vi": "Nói chuyện", "te": "話す", "form1": "話すこと", "form2": "話した", "form3": "話したとき"}];
+    const QUIZ_DATA = [{"id": 1, "category": "Ngữ pháp", "q": "しゅみは えいがを [____] ことです。", "options": ["見る", "見ます", "見て", "見た"], "correct": 0, "explain": "Danh từ hóa sở thích dùng thể từ điển: 「見ること」."}, {"id": 2, "category": "Ngữ pháp", "q": "高校生 [____] とき、日本へ 行きました。", "options": ["の", "な", "に", "で"], "correct": 0, "explain": "Danh từ đi với とき phải thêm trợ từ 「の」: 「高校生のとき」."}, {"id": 3, "category": "Ngữ pháp", "q": "わたしは 日本語 [____] すこし できます。", "options": ["が", "を", "に", "で"], "correct": 0, "explain": "Nói khả năng dùng trợ từ 「が」: 「日本語が できます」."}, {"id": 4, "category": "Từ vựng", "q": "「クラシック」 có nghĩa là gì?", "options": ["Nhạc cổ điển", "Nhạc pop", "Nhạc rock", "Hát karaoke"], "correct": 0, "explain": "クラシック là nhạc cổ điển (classical music)."}, {"id": 5, "category": "Ngữ pháp", "q": "本を [____] ことが 好きです。", "options": ["読む", "読み", "読んで", "読んだ"], "correct": 0, "explain": "Thể từ điển 「読む」 + ことが 好きです."}, {"id": 6, "category": "Từ vựng", "q": "ひま [____] とき、散歩を します。", "options": ["な", "の", "に", "で"], "correct": 0, "explain": "Tính từ đuôi な đi với とき: 「ひまなとき」."}, {"id": 7, "category": "Hội thoại", "q": "どんな えいがが 好きですか。―― アクションえいがが [____]。", "options": ["好きです", "上手です", "できます", "あります"], "correct": 0, "explain": "Hỏi 好きですか trả lời 好きです."}, {"id": 8, "category": "Chữ Hán", "q": "Chữ Hán 「読」 có âm Hán Việt là gì?", "options": ["ĐỘC", "THƯ", "NGÔN", "VĂN"], "correct": 0, "explain": "読 là ĐỘC (đọc sách)."}, {"id": 9, "category": "Chữ Hán", "q": "Chữ Hán 「書」 đọc là gì trong 「本を書く」?", "options": ["かく", "よむ", "きく", "はなす"], "correct": 0, "explain": "書く đọc là かく (viết)."}, {"id": 10, "category": "Chữ Hán", "q": "Chữ Hán 「話」 có bộ gì bên trái?", "options": ["Bộ Ngôn (言)", "Bộ Mộc (木)", "Bộ Kim (金)", "Bộ Thủy (氵)"], "correct": 0, "explain": "Chữ 話 (thoại) có bộ Ngôn (言) bên trái."}, {"id": 11, "category": "Ngữ pháp", "q": "漢字を おぼえる [____] が 大変です。", "options": ["の", "こと", "もの", "とき"], "correct": 0, "explain": "Danh từ hóa hành động: 「覚えるのが 大変です」."}, {"id": 12, "category": "Từ vựng", "q": " Từ nào có nghĩa là 'ngoại ngữ'?", "options": ["外国語", "日本語", "英語", "母国語"], "correct": 0, "explain": "Ngoại ngữ là 外国語 (がいこくご)."}, {"id": 13, "category": "Ngữ pháp", "q": "子どもの [____]、よく 川で 泳ぎました。", "options": ["とき", "まえ", "あと", "ころ"], "correct": 0, "explain": "子どものとき (Khi còn nhỏ)."}, {"id": 14, "category": "Từ vựng", "q": "Từ trái nghĩa với 「上手 (giỏi)」 là:", "options": ["下手", "親切", "元気", "便利"], "correct": 0, "explain": "Kém/dở là 下手 (へた)."}, {"id": 15, "category": "Hội thoại", "q": "「ギターが できますか」 ―― 「いいえ、[____]」", "options": ["できません", "しません", "いません", "ありません"], "correct": 0, "explain": "Hỏi できますか phủ định trả lời できません."}];
+
+    function speakText(txt) {
+        if ('speechSynthesis' in window) {
+            const ut = new SpeechSynthesisUtterance(txt);
+            ut.lang = 'ja-JP';
+            ut.rate = 0.9;
+            window.speechSynthesis.speak(ut);
+        }
+    }
+
+    // Render Verb Lab
+    function initVerbLab() {
+        const row = document.getElementById('verbSelectorRow');
+        if (!row || !VERB_DATA.length) return;
+        row.innerHTML = '';
+        VERB_DATA.forEach((v, idx) => {
+            const btn = document.createElement('button');
+            btn.className = `btn-verb-chip ${idx === 0 ? 'active' : ''}`;
+            btn.textContent = `${v.masu} (${v.vi})`;
+            btn.onclick = () => selectVerb(idx);
+            row.appendChild(btn);
+        });
+        selectVerb(0);
+    }
+
+    function selectVerb(idx) {
+        const chips = document.querySelectorAll('.btn-verb-chip');
+        chips.forEach((c, i) => c.classList.toggle('active', i === idx));
+        const v = VERB_DATA[idx];
+        if (!v) return;
+        document.getElementById('morphMasu').textContent = v.masu;
+        document.getElementById('morphVi').textContent = v.vi;
+        document.getElementById('morphTe').textContent = v.te;
+        document.getElementById('morphTeIki').textContent = v.form1;
+        document.getElementById('morphTeKi').textContent = v.form2;
+        document.getElementById('morphMashou').textContent = v.form3;
+    }
+
+    // Render Flashcards
+    function initFlashcards() {
+        const grid = document.getElementById('flashcardGrid');
+        if (!grid) return;
+        grid.innerHTML = '';
+        VOCAB_DATA.forEach(v => {
+            const card = document.createElement('div');
+            card.className = 'fc-item';
+            card.onclick = () => speakText(v.kana || v.jp);
+            card.innerHTML = `
+                <div class="fc-svg-wrap">${v.svg}</div>
+                <div class="fc-content">
+                    <div class="fc-jp">${v.jp}</div>
+                    <div class="fc-kana">${v.kana}</div>
+                    <div class="fc-vi">${v.vi}</div>
+                </div>
+            `;
+            grid.appendChild(card);
+        });
+    }
+
+    // Render Quiz
+    function initQuiz() {
+        const c = document.getElementById('quizContainer');
+        if (!c) return;
+        c.innerHTML = '';
+        QUIZ_DATA.forEach((q, qIdx) => {
+            const qBox = document.createElement('div');
+            qBox.className = 'quiz-card';
+            const optsHtml = q.options.map((opt, oIdx) => `
+                <button type="button" class="quiz-opt" onclick="checkQuizAnswer(this, ${qIdx}, ${oIdx})">${opt}</button>
+            `).join('');
+            qBox.innerHTML = `
+                <div class="quiz-q"><b>Câu ${qIdx + 1}:</b> ${q.q}</div>
+                <div class="quiz-opts">${optsHtml}</div>
+                <div class="quiz-explain" id="explain-${qIdx}">💡 ${q.explain}</div>
+            `;
+            c.appendChild(qBox);
+        });
+    }
+
+    function checkQuizAnswer(btn, qIdx, oIdx) {
+        const q = QUIZ_DATA[qIdx];
+        const parent = btn.parentElement;
+        const allBtns = parent.querySelectorAll('.quiz-opt');
+        allBtns.forEach(b => b.disabled = true);
+        if (oIdx === q.correct) {
+            btn.classList.add('correct');
+        } else {
+            btn.classList.add('wrong');
+            allBtns[q.correct].classList.add('correct');
+        }
+        const exp = document.getElementById(`explain-${qIdx}`);
+        if (exp) exp.style.display = 'block';
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+        initVerbLab();
+        initFlashcards();
+        initQuiz();
+    });
+</script>
+<script src="../assets/js/nav-dropdown.js"></script>
+</body>
+</html>

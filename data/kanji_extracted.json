@@ -1,0 +1,4352 @@
+[
+  {
+    "char": "秋",
+    "hv": "Thu",
+    "lesson": "L3",
+    "lessonName": "Bài 3",
+    "strokes": 9,
+    "meaning": "Mùa thu",
+    "kun": "あき、 とき",
+    "on": "しゅう",
+    "examples": [
+      {
+        "word": "秋",
+        "reading": "あき",
+        "vi": "Mùa thu"
+      },
+      {
+        "word": "秋分",
+        "reading": "しゅうぶん",
+        "vi": "Thu phân"
+      }
+    ],
+    "formula": "禾 (Lúa) ＋ 火 (Lửa)",
+    "strokeGuide": "Trái trước phải sau: Viết bộ Hòa (禾 - 5 nét) bên trái trước, bộ Hỏa (火 - 4 nét) bên phải sau.",
+    "mnemonic": "Bông lúa vàng ươm (禾) chín rộ bên ngọn lửa (火) sưởi ấm mùa thu hoạch."
+  },
+  {
+    "char": "冬",
+    "hv": "Đông",
+    "lesson": "L3",
+    "lessonName": "Bài 3",
+    "strokes": 5,
+    "meaning": "Mùa đông",
+    "kun": "ふゆ",
+    "on": "とう",
+    "examples": [
+      {
+        "word": "冬",
+        "reading": "ふゆ",
+        "vi": "Mùa đông"
+      },
+      {
+        "word": "春夏秋冬",
+        "reading": "しゅんかしゅうとう",
+        "vi": "Xuân hạ thu đông"
+      }
+    ],
+    "formula": "夂 (Đi chậm) ＋ 冫(Băng tuyết)",
+    "strokeGuide": "Trên trước dưới sau: Viết bộ Truy (夂 - 3 nét) ở trên trước, hai nét chấm băng (冫) ở dưới cùng.",
+    "mnemonic": "Mùa đông đường đóng băng trơn trượt (冫) nên phải bước đi chậm chạp kẻo ngã."
+  },
+  {
+    "char": "春",
+    "hv": "Xuân",
+    "lesson": "L3",
+    "lessonName": "Bài 3",
+    "strokes": 9,
+    "meaning": "Mùa xuân",
+    "kun": "はる",
+    "on": "しゅん",
+    "examples": [
+      {
+        "word": "春",
+        "reading": "はる",
+        "vi": "Mùa xuân"
+      },
+      {
+        "word": "青春",
+        "reading": "せいしゅん",
+        "vi": "Thanh xuân"
+      }
+    ],
+    "formula": "三 (Ba) ＋ 人 (Người) ＋ 日 (Mặt trời)",
+    "strokeGuide": "Trên trước dưới sau: Viết 3 nét ngang ➔ nét phẩy & mác bao lấy bộ Nhật (日 - 4 nét) ở dưới.",
+    "mnemonic": "Ba người (三人) cùng dạo chơi dưới ánh mặt trời (日) ấm áp của mùa xuân."
+  },
+  {
+    "char": "夏",
+    "hv": "Hạ",
+    "lesson": "L3",
+    "lessonName": "Bài 3",
+    "strokes": 10,
+    "meaning": "Mùa hè",
+    "kun": "なつ",
+    "on": "か、 げ",
+    "examples": [
+      {
+        "word": "夏",
+        "reading": "なつ",
+        "vi": "Mùa hè"
+      },
+      {
+        "word": "夏休み",
+        "reading": "なつやすみ",
+        "vi": "Nghỉ hè"
+      }
+    ],
+    "formula": "頁 (Đầu) ＋ 夂 (Chân đi)",
+    "strokeGuide": "Trên trước dưới sau: Nét ngang đầu tiên ➔ chữ Tự (目) ở giữa ➔ bộ Truy (夂) ở dưới cùng.",
+    "mnemonic": "Mùa hè nóng bức, người ta đội mũ che đầu và rảo bước (夂) đi biển."
+  },
+  {
+    "char": "今",
+    "hv": "Kim",
+    "lesson": "L3",
+    "lessonName": "Bài 3",
+    "strokes": 4,
+    "meaning": "Bây giờ, hiện tại",
+    "kun": "いま",
+    "on": "こん、 きん",
+    "examples": [
+      {
+        "word": "今",
+        "reading": "いま",
+        "vi": "Bây giờ"
+      },
+      {
+        "word": "今日",
+        "reading": "きょう",
+        "vi": "Hôm nay"
+      },
+      {
+        "word": "今月",
+        "reading": "こんげつ",
+        "vi": "Tháng này"
+      }
+    ],
+    "formula": "𠆢 (Mái) ＋ 一 ＋ 乛",
+    "strokeGuide": "Phẩy trước mác sau tạo mái 𠆢 ➔ nét ngang ngắn ➔ nét ngang gập ở dưới cùng.",
+    "mnemonic": "Chiếc đồng hồ cát đang đọng lại thời khắc quý giá ngay bây giờ."
+  },
+  {
+    "char": "花",
+    "hv": "Hoa",
+    "lesson": "L3",
+    "lessonName": "Bài 3",
+    "strokes": 7,
+    "meaning": "Bông hoa",
+    "kun": "はな",
+    "on": "か",
+    "examples": [
+      {
+        "word": "花",
+        "reading": "はな",
+        "vi": "Hoa"
+      },
+      {
+        "word": "お花見",
+        "reading": "おはなみ",
+        "vi": "Ngắm hoa anh đào"
+      }
+    ],
+    "formula": "艹 (Cỏ) ＋ 化 (Biến hóa)",
+    "strokeGuide": "Trên trước dưới sau: Viết bộ Thảo (艹 - 3 nét) ở trên trước, chữ Hóa (化 - 4 nét) ở dưới sau.",
+    "mnemonic": "Cây cỏ (艹) biến hóa (化) kỳ diệu nở thành những bông hoa rực rỡ."
+  },
+  {
+    "char": "海",
+    "hv": "Hải",
+    "lesson": "L3",
+    "lessonName": "Bài 3",
+    "strokes": 9,
+    "meaning": "Biển",
+    "kun": "うみ",
+    "on": "かい",
+    "examples": [
+      {
+        "word": "海",
+        "reading": "うみ",
+        "vi": "Biển"
+      }
+    ],
+    "formula": "氵(Nước) ＋ 毎 (Mỗi)",
+    "strokeGuide": "Trái trước phải sau: 3 chấm thủy (氵) bên trái trước, chữ Mỗi (毎 - 6 nét) bên phải sau.",
+    "mnemonic": "Nước (氵) từ mỗi (毎) con sông ngày đêm đổ ra biển cả."
+  },
+  {
+    "char": "山",
+    "hv": "Sơn",
+    "lesson": "L3",
+    "lessonName": "Bài 3",
+    "strokes": 3,
+    "meaning": "Núi",
+    "kun": "やま",
+    "on": "さん",
+    "examples": [
+      {
+        "word": "山",
+        "reading": "やま",
+        "vi": "Núi"
+      }
+    ],
+    "formula": "Chữ tượng hình 3 đỉnh núi",
+    "strokeGuide": "Giữa trước hai bên sau: Viết nét sổ thẳng cao ở giữa trước ➔ nét sổ gập trái-dưới ➔ nét sổ phải.",
+    "mnemonic": "Vẽ lại hình ảnh 3 ngọn núi cao chót vót đứng cạnh nhau."
+  },
+  {
+    "char": "川",
+    "hv": "Xuyên",
+    "lesson": "L3",
+    "lessonName": "Bài 3",
+    "strokes": 3,
+    "meaning": "Sông",
+    "kun": "かわ",
+    "on": "せん",
+    "examples": [
+      {
+        "word": "川",
+        "reading": "かわ",
+        "vi": "Con sông"
+      }
+    ],
+    "formula": "Chữ tượng hình 3 dòng chảy",
+    "strokeGuide": "Trái sang phải: Nét phẩy cong bên trái ➔ nét sổ ngắn ở giữa ➔ nét sổ dài bên phải.",
+    "mnemonic": "Hình vẽ 3 dòng nước chảy xiết song song uốn lượn thành sông."
+  },
+  {
+    "char": "私",
+    "hv": "Tư",
+    "lesson": "L1",
+    "lessonName": "Bài 1",
+    "strokes": 7,
+    "meaning": "Tôi, riêng tư",
+    "kun": "わたし",
+    "on": "し",
+    "examples": [
+      {
+        "word": "私",
+        "reading": "わたし",
+        "vi": "Tôi"
+      }
+    ],
+    "formula": "禾 (Lúa) ＋ 厶 (Riêng tư)",
+    "strokeGuide": "Trái trước phải sau: Bộ Hòa (禾 - 5 nét) bên trái trước, bộ Khư (厶 - 2 nét) bên phải sau.",
+    "mnemonic": "Bông lúa (禾) là tài sản riêng (厶) của chính Tôi."
+  },
+  {
+    "char": "父",
+    "hv": "Phụ",
+    "lesson": "L1",
+    "lessonName": "Bài 1",
+    "strokes": 4,
+    "meaning": "Bố, cha",
+    "kun": "ちち、 とう",
+    "on": "ふ",
+    "examples": [
+      {
+        "word": "父",
+        "reading": "ちち",
+        "vi": "Bố mình"
+      },
+      {
+        "word": "お父さん",
+        "reading": "おとうさん",
+        "vi": "Bố người khác"
+      }
+    ],
+    "formula": "八 ＋ 乂",
+    "strokeGuide": "Trên trước dưới sau, Phẩy trước mác sau: Hai nét chấm hai bên trên ➔ nét phẩy ➔ nét mác giao nhau.",
+    "mnemonic": "Hình ảnh người cha uy nghiêm trụ cột của gia đình."
+  },
+  {
+    "char": "母",
+    "hv": "Mẫu",
+    "lesson": "L1",
+    "lessonName": "Bài 1",
+    "strokes": 5,
+    "meaning": "Mẹ",
+    "kun": "はは、 かあ",
+    "on": "ぼ",
+    "examples": [
+      {
+        "word": "母",
+        "reading": "はは",
+        "vi": "Mẹ mình"
+      },
+      {
+        "word": "お母さん",
+        "reading": "おかあさん",
+        "vi": "Mẹ người khác"
+      }
+    ],
+    "formula": "Chữ tượng hình",
+    "mnemonic": "Người mẹ ôm con và cho con bú (hai dấu chấm là bầu sữa mẹ).",
+    "strokeGuide": "Khung ngoài trước ➔ chấm trên ➔ nét ngang cắt giữa ➔ chấm dưới."
+  },
+  {
+    "char": "子",
+    "hv": "Tử",
+    "lesson": "L1",
+    "lessonName": "Bài 1",
+    "strokes": 3,
+    "meaning": "Con cái, trẻ em",
+    "kun": "こ",
+    "on": "し、 す",
+    "examples": [
+      {
+        "word": "子ども",
+        "reading": "こども",
+        "vi": "Trẻ con, con cái"
+      }
+    ],
+    "formula": "了 ＋ 一",
+    "strokeGuide": "Nét ngang gập trên (1) ➔ nét cong móc dọc (2) ➔ nét ngang dài cắt qua cuối cùng (3).",
+    "mnemonic": "Em bé quấn tã đang giang rộng hai cánh tay."
+  },
+  {
+    "char": "男",
+    "hv": "Nam",
+    "lesson": "L1",
+    "lessonName": "Bài 1",
+    "strokes": 7,
+    "meaning": "Đàn ông, nam giới",
+    "kun": "おとこ",
+    "on": "だん、 なん",
+    "examples": [
+      {
+        "word": "男",
+        "reading": "おとこ",
+        "vi": "Đàn ông"
+      },
+      {
+        "word": "男の人",
+        "reading": "おとこのひと",
+        "vi": "Người đàn ông"
+      }
+    ],
+    "formula": "田 (Ruộng) ＋ 力 (Sức lực)",
+    "strokeGuide": "Trên trước dưới sau: Viết bộ Điền (田 - 5 nét) ở trên trước, bộ Lực (力 - 2 nét) ở dưới sau.",
+    "mnemonic": "Người bỏ sức lực (力) làm việc ngoài đồng ruộng (田) là người Đàn ông."
+  },
+  {
+    "char": "女",
+    "hv": "Nữ",
+    "lesson": "L1",
+    "lessonName": "Bài 1",
+    "strokes": 3,
+    "meaning": "Phụ nữ, nữ giới",
+    "kun": "おんな",
+    "on": "じょ",
+    "examples": [
+      {
+        "word": "女",
+        "reading": "おんな",
+        "vi": "Phụ nữ"
+      },
+      {
+        "word": "女の人",
+        "reading": "おんなのひと",
+        "vi": "Người phụ nữ"
+      }
+    ],
+    "formula": "Chữ tượng hình",
+    "strokeGuide": "Nét phẩy gập (く) trước ➔ nét phẩy cong (丿) ➔ nét ngang dài (一) trên cùng khóa lại.",
+    "mnemonic": "Hình dáng người phụ nữ ngồi bắt chéo chân duyên dáng."
+  },
+  {
+    "char": "人",
+    "hv": "Nhân",
+    "lesson": "L1",
+    "lessonName": "Bài 1",
+    "strokes": 2,
+    "meaning": "Con người",
+    "kun": "ひと",
+    "on": "じん、 にん",
+    "examples": [
+      {
+        "word": "人",
+        "reading": "ひと",
+        "vi": "Người"
+      },
+      {
+        "word": "何人",
+        "reading": "なんにん",
+        "vi": "Mấy người"
+      },
+      {
+        "word": "日本人",
+        "reading": "にほんじん",
+        "vi": "Người Nhật"
+      }
+    ],
+    "formula": "丿 ＋ 乀",
+    "strokeGuide": "Phẩy trước mác sau: Nét phẩy dài bên trái (1) ➔ nét mác tựa vào bên phải (2).",
+    "mnemonic": "Hai con người nương tựa vào nhau mà sống."
+  },
+  {
+    "char": "国",
+    "hv": "Quốc",
+    "lesson": "L2",
+    "lessonName": "Bài 2",
+    "strokes": 8,
+    "meaning": "Đất nước",
+    "kun": "くに",
+    "on": "こく",
+    "examples": [
+      {
+        "word": "国",
+        "reading": "くに",
+        "vi": "Đất nước"
+      },
+      {
+        "word": "外国",
+        "reading": "がいこく",
+        "vi": "Nước ngoài"
+      }
+    ],
+    "formula": "囗 (Biên giới) ＋ 玉 (Ngọc)",
+    "strokeGuide": "Vào nhà trước đóng cửa sau: Viết 2 nét khung ngoài ➔ viết chữ Ngọc (玉 - 5 nét) ở trong ➔ nét ngang đáy đóng lại cuối cùng.",
+    "mnemonic": "Biên giới bao quanh (囗) bảo vệ viên ngọc quý (玉) của Đất nước."
+  },
+  {
+    "char": "外",
+    "hv": "Ngoại",
+    "lesson": "L2",
+    "lessonName": "Bài 2",
+    "strokes": 5,
+    "meaning": "Bên ngoài",
+    "kun": "そと",
+    "on": "がい",
+    "examples": [
+      {
+        "word": "外",
+        "reading": "そと",
+        "vi": "Bên ngoài"
+      },
+      {
+        "word": "外国",
+        "reading": "がいこく",
+        "vi": "Nước ngoài"
+      }
+    ],
+    "formula": "夕 (Tối) ＋ 卜 (Bói)",
+    "strokeGuide": "Trái trước phải sau: Bộ Tịch (夕 - 3 nét) bên trái trước, bộ Bốc (卜 - 2 nét) bên phải sau.",
+    "mnemonic": "Buổi tối (夕) đi ra bên ngoài xem bói (卜)."
+  },
+  {
+    "char": "語",
+    "hv": "Ngữ",
+    "lesson": "L2",
+    "lessonName": "Bài 2",
+    "strokes": 14,
+    "meaning": "Ngôn ngữ, tiếng",
+    "kun": "かた-る",
+    "on": "ご",
+    "examples": [
+      {
+        "word": "日本語",
+        "reading": "にほんご",
+        "vi": "Tiếng Nhật"
+      },
+      {
+        "word": "英語",
+        "reading": "えいご",
+        "vi": "Tiếng Anh"
+      },
+      {
+        "word": "中国語",
+        "reading": "ちゅうごくご",
+        "vi": "Tiếng Trung"
+      }
+    ],
+    "formula": "言 (Lời nói) ＋ 五 (Năm) ＋ 口 (Miệng)",
+    "strokeGuide": "Trái trước phải sau: Bộ Ngôn (言 - 7 nét) bên trái ➔ chữ Ngũ (五 - 4 nét) trên ➔ bộ Khẩu (口 - 3 nét) dưới.",
+    "mnemonic": "Lời nói (言) giao tiếp qua năm cái miệng (五口) thành Ngôn ngữ."
+  },
+  {
+    "char": "本",
+    "hv": "Bản",
+    "lesson": "L2",
+    "lessonName": "Bài 2",
+    "strokes": 5,
+    "meaning": "Sách, gốc rễ",
+    "kun": "もと",
+    "on": "ほん",
+    "examples": [
+      {
+        "word": "本",
+        "reading": "ほん",
+        "vi": "Quyển sách"
+      },
+      {
+        "word": "日本",
+        "reading": "にほん",
+        "vi": "Nhật Bản"
+      }
+    ],
+    "formula": "木 (Cây) ＋ 一 (Gốc)",
+    "strokeGuide": "Viết chữ Mộc (木 - 4 nét: ngang, sổ, phẩy, mác) trước ➔ gạch ngang nhỏ ở gốc cuối cùng.",
+    "mnemonic": "Gỗ từ gốc cây (木) đem làm giấy đóng thành Sách (本)."
+  },
+  {
+    "char": "読",
+    "hv": "Độc",
+    "lesson": "L2",
+    "lessonName": "Bài 2",
+    "strokes": 14,
+    "meaning": "Đọc sách",
+    "kun": "よ-む",
+    "on": "どく",
+    "examples": [
+      {
+        "word": "読みます",
+        "reading": "よみます",
+        "vi": "Đọc"
+      },
+      {
+        "word": "読書",
+        "reading": "どくしょ",
+        "vi": "Việc đọc sách"
+      }
+    ],
+    "formula": "言 (Lời nói) ＋ 売 (Bán)",
+    "strokeGuide": "Trái trước phải sau: Bộ Ngôn (言 - 7 nét) bên trái ➔ chữ Mại (売 - 7 nét) bên phải.",
+    "mnemonic": "Cất tiếng (言) đọc to chữ nghĩa."
+  },
+  {
+    "char": "好",
+    "hv": "Hảo",
+    "lesson": "L2",
+    "lessonName": "Bài 2",
+    "strokes": 6,
+    "meaning": "Thích, yêu thích",
+    "kun": "す-き",
+    "on": "こう",
+    "examples": [
+      {
+        "word": "好き",
+        "reading": "すき",
+        "vi": "Thích"
+      }
+    ],
+    "formula": "女 (Phụ nữ) ＋ 子 (Con)",
+    "strokeGuide": "Trái trước phải sau: Bộ Nữ (女 - 3 nét) bên trái trước, bộ Tử (子 - 3 nét) bên phải sau.",
+    "mnemonic": "Mẹ (女) ôm con (子) là điều tốt đẹp đáng yêu thích."
+  },
+  {
+    "char": "何",
+    "hv": "Hà",
+    "lesson": "L2",
+    "lessonName": "Bài 2",
+    "strokes": 7,
+    "meaning": "Cái gì",
+    "kun": "なに、 なん",
+    "on": "か",
+    "examples": [
+      {
+        "word": "何",
+        "reading": "なに",
+        "vi": "Cái gì"
+      },
+      {
+        "word": "何人",
+        "reading": "なんにん",
+        "vi": "Mấy người"
+      }
+    ],
+    "formula": "亻(Người) ＋ 可",
+    "strokeGuide": "Trái trước phải sau: Bộ Nhân đứng (亻 - 2 nét) trước ➔ chữ Khả (可 - 5 nét) bên phải.",
+    "mnemonic": "Người (亻) đang mang vác cái gì trên vai?"
+  },
+  {
+    "char": "天",
+    "hv": "Thiên",
+    "lesson": "L4",
+    "lessonName": "Bài 4",
+    "strokes": 4,
+    "meaning": "Trời, bầu trời",
+    "kun": "あめ",
+    "on": "てん",
+    "examples": [
+      {
+        "word": "天気",
+        "reading": "てんき",
+        "vi": "Thời tiết"
+      }
+    ],
+    "formula": "一 ＋ 大 (Đại)",
+    "strokeGuide": "Nét ngang trên cùng ➔ nét ngang thứ hai ngắn hơn ➔ nét phẩy ➔ nét mác.",
+    "mnemonic": "Phía trên con người to lớn (大) là Bầu trời."
+  },
+  {
+    "char": "気",
+    "hv": "Khí",
+    "lesson": "L4",
+    "lessonName": "Bài 4",
+    "strokes": 6,
+    "meaning": "Khí, tinh thần",
+    "kun": "き",
+    "on": "き",
+    "examples": [
+      {
+        "word": "天気",
+        "reading": "てんき",
+        "vi": "Thời tiết"
+      },
+      {
+        "word": "元気",
+        "reading": "げんき",
+        "vi": "Khỏe mạnh"
+      }
+    ],
+    "formula": "气 ＋ 〆",
+    "strokeGuide": "Ngoài trước trong sau: Viết 4 nét bộ Khí (气) ở trên và bao ngoài trước ➔ chữ 〆 (phẩy, chấm) ở trong sau.",
+    "mnemonic": "Hơi nước và năng lượng lan tỏa trong không trung."
+  },
+  {
+    "char": "晴",
+    "hv": "Tình",
+    "lesson": "L4",
+    "lessonName": "Bài 4",
+    "strokes": 12,
+    "meaning": "Trời nắng, quang đãng",
+    "kun": "は-れ",
+    "on": "せい",
+    "examples": [
+      {
+        "word": "晴れ",
+        "reading": "はれ",
+        "vi": "Trời nắng đẹp"
+      }
+    ],
+    "formula": "日 (Mặt trời) ＋ 青 (Xanh)",
+    "strokeGuide": "Trái trước phải sau: Bộ Nhật (日 - 4 nét) bên trái ➔ chữ Thanh (青 - 8 nét) bên phải.",
+    "mnemonic": "Mặt trời (日) tỏa nắng trên nền trời xanh (青)."
+  },
+  {
+    "char": "雨",
+    "hv": "Vũ",
+    "lesson": "L4",
+    "lessonName": "Bài 4",
+    "strokes": 8,
+    "meaning": "Cơn mưa",
+    "kun": "あめ",
+    "on": "う",
+    "examples": [
+      {
+        "word": "雨",
+        "reading": "あめ",
+        "vi": "Mưa"
+      }
+    ],
+    "formula": "Chữ tượng hình hạt mưa",
+    "strokeGuide": "Nét ngang trên ➔ khung bao ➔ nét sổ giữa ➔ 4 dấu chấm hạt mưa hai bên.",
+    "mnemonic": "Bốn hạt mưa rơi qua khung cửa sổ."
+  },
+  {
+    "char": "雪",
+    "hv": "Tuyết",
+    "lesson": "L4",
+    "lessonName": "Bài 4",
+    "strokes": 11,
+    "meaning": "Tuyết",
+    "kun": "ゆき",
+    "on": "せつ",
+    "examples": [
+      {
+        "word": "雪",
+        "reading": "ゆき",
+        "vi": "Tuyết"
+      }
+    ],
+    "formula": "雨 (Mưa) ＋ 彐 (Chổi)",
+    "strokeGuide": "Trên trước dưới sau: Bộ Vũ (雨 - 8 nét) ở trên ➔ bộ Kệ (彐 - 3 nét) ở dưới.",
+    "mnemonic": "Mưa (雨) đông cứng thành tuyết phải dùng chổi (彐) quét."
+  },
+  {
+    "char": "雲",
+    "hv": "Vân",
+    "lesson": "L4",
+    "lessonName": "Bài 4",
+    "strokes": 12,
+    "meaning": "Đám mây",
+    "kun": "くも",
+    "on": "うん",
+    "examples": [
+      {
+        "word": "雲",
+        "reading": "くも",
+        "vi": "Mây"
+      }
+    ],
+    "formula": "雨 (Mưa) ＋ 云 (Cuộn)",
+    "strokeGuide": "Trên trước dưới sau: Bộ Vũ (雨 - 8 nét) ở trên ➔ chữ Vân (云 - 4 nét) ở dưới.",
+    "mnemonic": "Hơi mưa (雨) cuộn tròn (云) thành đám mây."
+  },
+  {
+    "char": "風",
+    "hv": "Phong",
+    "lesson": "L4",
+    "lessonName": "Bài 4",
+    "strokes": 9,
+    "meaning": "Cơn gió",
+    "kun": "かぜ",
+    "on": "ふう",
+    "examples": [
+      {
+        "word": "風",
+        "reading": "かぜ",
+        "vi": "Gió"
+      }
+    ],
+    "formula": "几 (Khung) ＋ 虫 (Côn trùng)",
+    "strokeGuide": "Ngoài trước trong sau: Viết khung bộ Kỷ (几 - 2 nét) bao ngoài trước ➔ nét phẩy + bộ Trùng (虫) bên trong.",
+    "mnemonic": "Gió thổi lồng lộng cuốn côn trùng bay đi."
+  },
+  {
+    "char": "空",
+    "hv": "Không",
+    "lesson": "L4",
+    "lessonName": "Bài 4",
+    "strokes": 8,
+    "meaning": "Bầu trời",
+    "kun": "そら",
+    "on": "くう",
+    "examples": [
+      {
+        "word": "空",
+        "reading": "そら",
+        "vi": "Bầu trời"
+      },
+      {
+        "word": "空港",
+        "reading": "くうこう",
+        "vi": "Sân bay"
+      }
+    ],
+    "formula": "穴 (Hang) ＋ 工 (Thợ)",
+    "strokeGuide": "Trên trước dưới sau: Bộ Huyệt (穴 - 5 nét) ở trên ➔ bộ Công (工 - 3 nét) ở dưới.",
+    "mnemonic": "Ngước nhìn lên khoảng không bầu trời rộng lớn."
+  },
+  {
+    "char": "町",
+    "hv": "Đinh",
+    "lesson": "L5",
+    "lessonName": "Bài 5",
+    "strokes": 7,
+    "meaning": "Thị trấn, khu phố",
+    "kun": "まち",
+    "on": "ちょう",
+    "examples": [
+      {
+        "word": "町",
+        "reading": "まち",
+        "vi": "Thị trấn, thành phố"
+      }
+    ],
+    "formula": "田 (Ruộng) ＋ 丁 (Đường)",
+    "strokeGuide": "Trái trước phải sau: Bộ Điền (田 - 5 nét) bên trái ➔ chữ Đinh (丁 - 2 nét) bên phải.",
+    "mnemonic": "Ruộng đồng (田) giao với con đường (丁) tạo nên thị trấn."
+  },
+  {
+    "char": "店",
+    "hv": "Điếm",
+    "lesson": "L5",
+    "lessonName": "Bài 5",
+    "strokes": 8,
+    "meaning": "Cửa hàng",
+    "kun": "みせ",
+    "on": "てん",
+    "examples": [
+      {
+        "word": "店",
+        "reading": "みせ",
+        "vi": "Cửa hàng"
+      }
+    ],
+    "formula": "广 (Mái hiên) ＋ 占 (Chiếm)",
+    "strokeGuide": "Ngoài trước trong sau: Bộ Quảng (广 - 3 nét) bao ngoài ➔ chữ Chiêm (占 - 5 nét) ở trong.",
+    "mnemonic": "Chiếm một mặt bằng dưới mái nhà để mở Cửa hàng."
+  },
+  {
+    "char": "多",
+    "hv": "Đa",
+    "lesson": "L5",
+    "lessonName": "Bài 5",
+    "strokes": 6,
+    "meaning": "Nhiều, đông",
+    "kun": "おお-い",
+    "on": "た",
+    "examples": [
+      {
+        "word": "多い",
+        "reading": "おおい",
+        "vi": "Nhiều, đông"
+      }
+    ],
+    "formula": "夕 ＋ 夕",
+    "strokeGuide": "Trên trước dưới sau: Viết bộ Tịch (夕 - 3 nét) ở trên trước ➔ bộ Tịch thứ hai ở dưới.",
+    "mnemonic": "Hai bộ Tịch chồng lên nhau biểu thị sự nhiều."
+  },
+  {
+    "char": "少",
+    "hv": "Thiểu",
+    "lesson": "L5",
+    "lessonName": "Bài 5",
+    "strokes": 4,
+    "meaning": "Ít, một chút",
+    "kun": "すく-ない、 すこ-し",
+    "on": "しょう",
+    "examples": [
+      {
+        "word": "少ない",
+        "reading": "すくない",
+        "vi": "Ít"
+      },
+      {
+        "word": "少し",
+        "reading": "すこし",
+        "vi": "Một chút"
+      }
+    ],
+    "formula": "小 (Nhỏ) ＋ 丿",
+    "strokeGuide": "Giữa trước hai bên sau: Nét sổ móc giữa ➔ chấm trái ➔ chấm phải ➔ nét phẩy dài cắt chéo dưới.",
+    "mnemonic": "Đã nhỏ (小) lại vơi đi nên chỉ còn rất ít."
+  },
+  {
+    "char": "高",
+    "hv": "Cao",
+    "lesson": "L5",
+    "lessonName": "Bài 5",
+    "strokes": 10,
+    "meaning": "Cao, đắt",
+    "kun": "たか-い",
+    "on": "こう",
+    "examples": [
+      {
+        "word": "高い",
+        "reading": "たかい",
+        "vi": "Cao, đắt"
+      },
+      {
+        "word": "高校",
+        "reading": "こうこう",
+        "vi": "Trường cấp 3"
+      }
+    ],
+    "formula": "亠 ＋ 口 ＋ 冂 ＋ 口",
+    "strokeGuide": "Trên xuống dưới: Chấm ngang trên cùng ➔ bộ Khẩu nhỏ ➔ khung vòm dưới ➔ bộ Khẩu trong cùng.",
+    "mnemonic": "Hình tòa tháp cao nhiều tầng."
+  },
+  {
+    "char": "安",
+    "hv": "An",
+    "lesson": "L5",
+    "lessonName": "Bài 5",
+    "strokes": 6,
+    "meaning": "Rẻ, an tâm",
+    "kun": "やす-い",
+    "on": "あん",
+    "examples": [
+      {
+        "word": "安い",
+        "reading": "やすい",
+        "vi": "Rẻ"
+      }
+    ],
+    "formula": "宀 (Mái nhà) ＋ 女 (Phụ nữ)",
+    "strokeGuide": "Trên trước dưới sau: Bộ Miên (宀 - 3 nét) ở trên ➔ bộ Nữ (女 - 3 nét) ở dưới.",
+    "mnemonic": "Người phụ nữ (女) dưới mái nhà (宀) luôn bình an."
+  },
+  {
+    "char": "広",
+    "hv": "Quảng",
+    "lesson": "L5",
+    "lessonName": "Bài 5",
+    "strokes": 5,
+    "meaning": "Rộng rãi",
+    "kun": "ひろ-い",
+    "on": "こう",
+    "examples": [
+      {
+        "word": "広い",
+        "reading": "ひろい",
+        "vi": "Rộng"
+      }
+    ],
+    "formula": "广 (Mái hiên) ＋ 厶",
+    "strokeGuide": "Ngoài trước trong sau: Bộ Quảng (广 - 3 nét) trước ➔ bộ Khư (厶 - 2 nét) bên trong.",
+    "mnemonic": "Ngôi nhà có mái hiên rộng thênh thang."
+  },
+  {
+    "char": "道",
+    "hv": "Đạo",
+    "lesson": "L6",
+    "lessonName": "Bài 6",
+    "strokes": 12,
+    "meaning": "Con đường, đạo lý",
+    "kun": "みち",
+    "on": "どう、とう",
+    "examples": [
+      {
+        "word": "道",
+        "reading": "みち",
+        "vi": "Con đường"
+      },
+      {
+        "word": "茶道",
+        "reading": "さどう",
+        "vi": "Trà đạo"
+      },
+      {
+        "word": "道路",
+        "reading": "どうろ",
+        "vi": "Đường cái, quốc lộ"
+      }
+    ],
+    "formula": "首 (Đầu) ＋ 辶 (Quai xước / Bước đi)",
+    "strokeGuide": "Viết chữ Thủ (首 - 9 nét) trước ➔ bộ Quai xước (辶 - 3 nét) ôm bên ngoài sau.",
+    "mnemonic": "Người dẫn đầu (首) cất bước (辶) khai mở ra con Đường (道)."
+  },
+  {
+    "char": "通",
+    "hv": "Thông",
+    "lesson": "L6",
+    "lessonName": "Bài 6",
+    "strokes": 10,
+    "meaning": "Thông suốt, đi qua, đi lại",
+    "kun": "とお-る、とお-り、かよ-う",
+    "on": "つう、つ",
+    "examples": [
+      {
+        "word": "通ります",
+        "reading": "とおります",
+        "vi": "Đi qua"
+      },
+      {
+        "word": "通り",
+        "reading": "とおり",
+        "vi": "Con phố, con đường"
+      },
+      {
+        "word": "交通",
+        "reading": "こうつう",
+        "vi": "Giao thông"
+      }
+    ],
+    "formula": "甬 (Dũng) ＋ 辶 (Quai xước / Bước đi)",
+    "strokeGuide": "Viết chữ Dũng (甬 - 7 nét) trước ➔ bộ Quai xước (辶 - 3 nét) ôm bên ngoài sau.",
+    "mnemonic": "Bước đi (辶) thông suốt qua con đường lớn."
+  },
+  {
+    "char": "右",
+    "hv": "Hữu",
+    "lesson": "L6",
+    "lessonName": "Bài 6",
+    "strokes": 5,
+    "meaning": "Bên phải",
+    "kun": "みぎ",
+    "on": "う、ゆう",
+    "examples": [
+      {
+        "word": "右",
+        "reading": "みぎ",
+        "vi": "Bên phải"
+      },
+      {
+        "word": "右手",
+        "reading": "みぎて",
+        "vi": "Tay phải"
+      },
+      {
+        "word": "右側",
+        "reading": "みぎがわ",
+        "vi": "Phía bên phải"
+      }
+    ],
+    "formula": "𠂇 (Tay) ＋ 口 (Miệng)",
+    "strokeGuide": "Nét phẩy trước ➔ nét ngang dài ➔ bộ Khẩu (口 - 3 nét) ở dưới.",
+    "mnemonic": "Tay phải (𠂇) cầm đũa gắp thức ăn đưa vào Miệng (口)."
+  },
+  {
+    "char": "左",
+    "hv": "Tả",
+    "lesson": "L6",
+    "lessonName": "Bài 6",
+    "strokes": 5,
+    "meaning": "Bên trái",
+    "kun": "ひだり",
+    "on": "さ、しゃ",
+    "examples": [
+      {
+        "word": "左",
+        "reading": "ひだり",
+        "vi": "Bên trái"
+      },
+      {
+        "word": "左手",
+        "reading": "ひだりて",
+        "vi": "Tay trái"
+      },
+      {
+        "word": "左側",
+        "reading": "ひだりがわ",
+        "vi": "Phía bên trái"
+      }
+    ],
+    "formula": "𠂇 (Tay) ＋ 工 (Thước thợ)",
+    "strokeGuide": "Nét ngang trước ➔ nét phẩy ➔ bộ Công (工 - 3 nét) ở dưới.",
+    "mnemonic": "Tay trái (𠂇) cầm cây thước thợ (工)."
+  },
+  {
+    "char": "赤",
+    "hv": "Xích",
+    "lesson": "L6",
+    "lessonName": "Bài 6",
+    "strokes": 7,
+    "meaning": "Màu đỏ, sắc đỏ",
+    "kun": "あか、あか-い",
+    "on": "せき、しゃく",
+    "examples": [
+      {
+        "word": "赤い",
+        "reading": "あかい",
+        "vi": "(Tính từ) Màu đỏ"
+      },
+      {
+        "word": "赤",
+        "reading": "あか",
+        "vi": "(Danh từ) Màu đỏ"
+      },
+      {
+        "word": "赤色",
+        "reading": "あかいろ",
+        "vi": "Màu đỏ"
+      }
+    ],
+    "formula": "土 (Đất) ＋ 火 (Lửa)",
+    "strokeGuide": "Bộ Thổ (土) ở trên ➔ 4 nét dưới tỏa ra như ngọn lửa.",
+    "mnemonic": "Đất nung (土) trên ngọn lửa hồng (火) đỏ rực."
+  },
+  {
+    "char": "青",
+    "hv": "Thanh",
+    "lesson": "L6",
+    "lessonName": "Bài 6",
+    "strokes": 8,
+    "meaning": "Màu xanh dương, xanh thẫm",
+    "kun": "あお、あお-い",
+    "on": "せい、しょう",
+    "examples": [
+      {
+        "word": "青い",
+        "reading": "あおい",
+        "vi": "(Tính từ) Màu xanh"
+      },
+      {
+        "word": "青",
+        "reading": "あお",
+        "vi": "(Danh từ) Màu xanh"
+      },
+      {
+        "word": "青色",
+        "reading": "あおいろ",
+        "vi": "Màu xanh"
+      }
+    ],
+    "formula": "生 (Sinh sôi) ＋ 月 (Trăng / Đan)",
+    "strokeGuide": "Viết phần trên (3 nét ngang + 1 nét sổ) ➔ bộ Nguyệt (月 - 4 nét) ở dưới.",
+    "mnemonic": "Cây cối sinh sôi tươi tốt dưới ánh trăng xanh biếc."
+  },
+  {
+    "char": "黒",
+    "hv": "Hắc",
+    "lesson": "L6",
+    "lessonName": "Bài 6",
+    "strokes": 11,
+    "meaning": "Màu đen, hắc ám",
+    "kun": "くろ、くろ-い",
+    "on": "こく",
+    "examples": [
+      {
+        "word": "黒い",
+        "reading": "くろい",
+        "vi": "(Tính từ) Màu đen"
+      },
+      {
+        "word": "黒",
+        "reading": "くろ",
+        "vi": "(Danh từ) Màu đen"
+      },
+      {
+        "word": "黒色",
+        "reading": "くろいろ",
+        "vi": "Màu đen"
+      }
+    ],
+    "formula": "里 (Làng) ＋ 灬 (Hỏa / Bốn chấm lửa)",
+    "strokeGuide": "Viết phần trên giống bộ Lý (里) ➔ 4 chấm lửa (灬) ở dưới đáy.",
+    "mnemonic": "Khói lửa (灬) đốt làng xóm bốc lên đen ngòm."
+  },
+  {
+    "char": "白",
+    "hv": "Bạch",
+    "lesson": "L6",
+    "lessonName": "Bài 6",
+    "strokes": 5,
+    "meaning": "Màu trắng, trong sạch",
+    "kun": "しろ、しろ-い、しら",
+    "on": "はく、びゃく",
+    "examples": [
+      {
+        "word": "白い",
+        "reading": "しろい",
+        "vi": "(Tính từ) Màu trắng"
+      },
+      {
+        "word": "白",
+        "reading": "しろ",
+        "vi": "(Danh từ) Màu trắng"
+      },
+      {
+        "word": "白色",
+        "reading": "しろいろ",
+        "vi": "Màu trắng"
+      }
+    ],
+    "formula": "丿 (Chấm phẩy) ＋ 日 (Mặt trời)",
+    "strokeGuide": "Nét phẩy trên đỉnh ➔ nét sổ trái ➔ nét gập phải ➔ 2 nét ngang trong và đáy.",
+    "mnemonic": "Một tia nắng (丿) ló rạng từ mặt trời (日) tỏa ánh sáng trắng."
+  },
+  {
+    "char": "時",
+    "hv": "Thời",
+    "lesson": "L7",
+    "lessonName": "Bài 7",
+    "strokes": 10,
+    "meaning": "Thời gian, mùa, giờ giấc",
+    "kun": "とき、どき",
+    "on": "じ",
+    "examples": [
+      {
+        "word": "あの時",
+        "reading": "あのとき",
+        "vi": "Lúc đấy, bấy giờ"
+      },
+      {
+        "word": "一時",
+        "reading": "いちじ",
+        "vi": "1 giờ, thời khắc / tạm thời"
+      },
+      {
+        "word": "時間",
+        "reading": "じかん",
+        "vi": "Thời gian"
+      }
+    ],
+    "formula": "日 (Mặt trời) ＋ 寺 (Chùa)",
+    "strokeGuide": "Bộ Nhật (日 - 4 nét) bên trái ➔ chữ Tự (寺 - 6 nét) bên phải.",
+    "mnemonic": "Nhìn bóng mặt trời (日) soi trên sân chùa (寺) để biết Thời gian."
+  },
+  {
+    "char": "間",
+    "hv": "Gian",
+    "lesson": "L7",
+    "lessonName": "Bài 7",
+    "strokes": 12,
+    "meaning": "Khoảng (không gian, thời gian), ở giữa",
+    "kun": "あいだ、ま",
+    "on": "かん、けん",
+    "examples": [
+      {
+        "word": "間",
+        "reading": "あいだ",
+        "vi": "Ở giữa (vị trí)"
+      },
+      {
+        "word": "この間",
+        "reading": "このあいだ",
+        "vi": "Gần đây, dạo này"
+      },
+      {
+        "word": "時間",
+        "reading": "じかん",
+        "vi": "Thời gian"
+      },
+      {
+        "word": "一時間",
+        "reading": "いちじかん",
+        "vi": "1 tiếng đồng hồ"
+      }
+    ],
+    "formula": "門 (Cửa) ＋ 日 (Mặt trời)",
+    "strokeGuide": "Bộ Môn (門 - 8 nét) bao ngoài ➔ bộ Nhật (日 - 4 nét) ở giữa.",
+    "mnemonic": "Ánh nắng mặt trời (日) lọt qua khe Cửa (門) tạo thành Khoảng thời gian/không gian."
+  },
+  {
+    "char": "場",
+    "hv": "Trường, Tràng",
+    "lesson": "L7",
+    "lessonName": "Bài 7",
+    "strokes": 12,
+    "meaning": "Địa điểm, nơi chốn, quảng trường",
+    "kun": "ば",
+    "on": "じょう、ちょう",
+    "examples": [
+      {
+        "word": "広場",
+        "reading": "ひろば",
+        "vi": "Quảng trường"
+      },
+      {
+        "word": "会場",
+        "reading": "かいじょう",
+        "vi": "Hội trường"
+      },
+      {
+        "word": "場所",
+        "reading": "ばしょ",
+        "vi": "Địa điểm"
+      }
+    ],
+    "formula": "土 (Đất) ＋ 昜 (Ánh sáng)",
+    "strokeGuide": "Bộ Thổ (土 - 3 nét) bên trái ➔ chữ Dương (昜 - 9 nét) bên phải.",
+    "mnemonic": "Mảnh đất (土) chan hòa ánh nắng (昜) làm Quảng trường tụ họp."
+  },
+  {
+    "char": "所",
+    "hv": "Sở",
+    "lesson": "L7",
+    "lessonName": "Bài 7",
+    "strokes": 8,
+    "meaning": "Nơi chốn, địa điểm",
+    "kun": "ところ、どころ、とこ",
+    "on": "しょ",
+    "examples": [
+      {
+        "word": "所",
+        "reading": "ところ",
+        "vi": "Nơi, chỗ"
+      },
+      {
+        "word": "場所",
+        "reading": "ばしょ",
+        "vi": "Địa điểm"
+      },
+      {
+        "word": "台所",
+        "reading": "だいどころ",
+        "vi": "Phòng bếp"
+      }
+    ],
+    "formula": "戸 (Cánh cửa) ＋ 斤 (Cái rìu)",
+    "strokeGuide": "Bộ Hộ (戸 - 4 nét) bên trái ➔ bộ Cân (斤 - 4 nét cái rìu) bên phải.",
+    "mnemonic": "Cầm rìu (斤) đẽo cánh cửa (戸) dựng lên Nơi ở (所)."
+  },
+  {
+    "char": "駅",
+    "hv": "Dịch",
+    "lesson": "L7",
+    "lessonName": "Bài 7",
+    "strokes": 14,
+    "meaning": "Nhà ga tàu điện",
+    "kun": "えき",
+    "on": "えき",
+    "examples": [
+      {
+        "word": "駅",
+        "reading": "えき",
+        "vi": "Nhà ga"
+      },
+      {
+        "word": "東京駅",
+        "reading": "とうきょうえき",
+        "vi": "Ga Tokyo"
+      },
+      {
+        "word": "駅員",
+        "reading": "えきいん",
+        "vi": "Nhân viên nhà ga"
+      }
+    ],
+    "formula": "馬 (Con ngựa) ＋ 尺 (Thước đo)",
+    "strokeGuide": "Bộ Mã (馬 - 10 nét) bên trái ➔ chữ Xích (尺 - 4 nét) bên phải.",
+    "mnemonic": "Trạm đổi Ngựa (馬) thời xưa chính là Nhà ga (駅) ngày nay."
+  },
+  {
+    "char": "出",
+    "hv": "Xuất",
+    "lesson": "L7",
+    "lessonName": "Bài 7",
+    "strokes": 5,
+    "meaning": "Ra ngoài, rời khỏi, xuất hiện",
+    "kun": "で-る、だ-す、で-かける",
+    "on": "しゅつ、すい",
+    "examples": [
+      {
+        "word": "出かけます",
+        "reading": "でかけます",
+        "vi": "Ra ngoài (~に出かけます)"
+      },
+      {
+        "word": "出ます",
+        "reading": "でます",
+        "vi": "Rời khỏi (~を出ます)"
+      },
+      {
+        "word": "出口",
+        "reading": "でぐち",
+        "vi": "Cửa ra"
+      },
+      {
+        "word": "出張",
+        "reading": "しゅっちょう",
+        "vi": "Đi công tác"
+      }
+    ],
+    "formula": "山 ＋ 山 (Mầm cây nhú lên khỏi mặt đất)",
+    "strokeGuide": "Sổ giữa ➔ gập trái ➔ sổ phải ➔ sổ dài giữa ➔ gập trái ➔ sổ phải.",
+    "mnemonic": "Mầm cây nhú ra khỏi lòng đất vươn lên thành ngọn núi."
+  },
+  {
+    "char": "待",
+    "hv": "Đãi",
+    "lesson": "L7",
+    "lessonName": "Bài 7",
+    "strokes": 9,
+    "meaning": "Chờ đợi, đối đãi",
+    "kun": "ま-つ",
+    "on": "たい",
+    "examples": [
+      {
+        "word": "待ちます",
+        "reading": "まちます",
+        "vi": "Đợi, chờ"
+      },
+      {
+        "word": "待ち合わせ",
+        "reading": "まちあわせ",
+        "vi": "Cuộc hẹn"
+      }
+    ],
+    "formula": "彳 (Bước chân) ＋ 寺 (Chùa)",
+    "strokeGuide": "Bộ Xích (彳 - 3 nét) bên trái ➔ chữ Tự (寺 - 6 nét) bên phải.",
+    "mnemonic": "Dừng bước chân (彳) trước cổng Chùa (寺) để Đợi chờ."
+  },
+  {
+    "char": "止",
+    "hv": "Chỉ",
+    "lesson": "L7",
+    "lessonName": "Bài 7",
+    "strokes": 4,
+    "meaning": "Dừng lại, đình chỉ",
+    "kun": "と-まる、と-める",
+    "on": "し",
+    "examples": [
+      {
+        "word": "止まります",
+        "reading": "とまります",
+        "vi": "(Tàu, xe) Dừng lại (tự động từ)"
+      },
+      {
+        "word": "止めます",
+        "reading": "とめます",
+        "vi": "Dừng xe, đỗ lại (tha động từ)"
+      },
+      {
+        "word": "中止",
+        "reading": "ちゅうし",
+        "vi": "Hủy bỏ, hoãn"
+      }
+    ],
+    "formula": "Chữ tượng hình dấu chân dừng lại",
+    "strokeGuide": "Sổ giữa ➔ nét ngang ngắn bên phải ➔ sổ ngắn bên trái ➔ nét ngang đáy dài khóa lại.",
+    "mnemonic": "Bàn chân chạm đất đứng lại không đi nữa."
+  },
+  {
+    "char": "食",
+    "hv": "Thực",
+    "lesson": "L8",
+    "lessonName": "Bài 8",
+    "strokes": 9,
+    "meaning": "Ăn, bữa ăn, thực phẩm",
+    "kun": "た-べる",
+    "on": "しょく、じき",
+    "examples": [
+      {
+        "word": "食べます",
+        "reading": "たべます",
+        "vi": "Ăn"
+      },
+      {
+        "word": "食事",
+        "reading": "しょくじ",
+        "vi": "(Việc) Ăn uống, bữa ăn"
+      },
+      {
+        "word": "朝食",
+        "reading": "ちょうしょく",
+        "vi": "Bữa sáng (trang trọng)"
+      },
+      {
+        "word": "昼食",
+        "reading": "ちゅうしょく",
+        "vi": "Bữa trưa (trang trọng)"
+      }
+    ],
+    "formula": "亼 (Mái nhà) ＋ 艮 (Cái bát thức ăn)",
+    "strokeGuide": "Nét phẩy và nét mác tạo mái ➔ nét ngang ➔ nét sổ gập ➔ các nét bên dưới.",
+    "mnemonic": "Mọi người quây quần dưới mái nhà cùng nhau Ăn cơm."
+  },
+  {
+    "char": "事",
+    "hv": "Sự",
+    "lesson": "L8",
+    "lessonName": "Bài 8",
+    "strokes": 8,
+    "meaning": "Sự việc, công việc",
+    "kun": "こと",
+    "on": "じ、ず",
+    "examples": [
+      {
+        "word": "事",
+        "reading": "こと",
+        "vi": "Sự việc, điều"
+      },
+      {
+        "word": "食事",
+        "reading": "しょくじ",
+        "vi": "(Việc) Ăn uống, bữa ăn"
+      },
+      {
+        "word": "事故",
+        "reading": "じこ",
+        "vi": "Tai nạn, sự cố"
+      },
+      {
+        "word": "仕事",
+        "reading": "しごと",
+        "vi": "Công việc"
+      }
+    ],
+    "formula": "Chữ tượng hình người cầm bút ghi chép sự việc",
+    "strokeGuide": "Nét ngang trên ➔ nét khẩu nhỏ ➔ nét ngang dài ➔ bộ quyết ở dưới.",
+    "mnemonic": "Bàn tay cầm bút ghi chép lại mọi Sự việc."
+  },
+  {
+    "char": "仕",
+    "hv": "Sĩ",
+    "lesson": "L8",
+    "lessonName": "Bài 8",
+    "strokes": 5,
+    "meaning": "Làm việc, phục vụ",
+    "kun": "つか-える",
+    "on": "し、じ",
+    "examples": [
+      {
+        "word": "仕事",
+        "reading": "しごと",
+        "vi": "Công việc"
+      },
+      {
+        "word": "仕えます",
+        "reading": "つかえます",
+        "vi": "Phục vụ, phụng sự"
+      }
+    ],
+    "formula": "亻 (Người) ＋ 士 (Kẻ sĩ)",
+    "strokeGuide": "Bộ Nhân đứng (亻 - 2 nét) bên trái ➔ chữ Sĩ (士 - 3 nét) bên phải.",
+    "mnemonic": "Người (亻) kẻ sĩ (士) tận tâm phục vụ Công việc (仕事)."
+  },
+  {
+    "char": "前",
+    "hv": "Tiền",
+    "lesson": "L8",
+    "lessonName": "Bài 8",
+    "strokes": 9,
+    "meaning": "Phía trước, trước khi",
+    "kun": "まえ",
+    "on": "ぜん",
+    "examples": [
+      {
+        "word": "前",
+        "reading": "まえ",
+        "vi": "Phía trước, trước khi"
+      },
+      {
+        "word": "午前",
+        "reading": "ごぜん",
+        "vi": "Buổi sáng (AM)"
+      }
+    ],
+    "formula": "丷 ＋ 一 ＋ 月 ＋ 刂 (Đao)",
+    "strokeGuide": "Phần trên (3 nét) ➔ bộ Nguyệt (月) bên dưới trái ➔ bộ Đao (刂) bên dưới phải.",
+    "mnemonic": "Cầm dao (刂) tiến về phía Trước cắt cỏ mở đường."
+  },
+  {
+    "char": "後",
+    "hv": "Hậu",
+    "lesson": "L8",
+    "lessonName": "Bài 8",
+    "strokes": 9,
+    "meaning": "Phía sau, sau đó",
+    "kun": "のち、うし-ろ、あと",
+    "on": "ご、こう",
+    "examples": [
+      {
+        "word": "その後",
+        "reading": "そのあと",
+        "vi": "Sau đó"
+      },
+      {
+        "word": "後で",
+        "reading": "あとで",
+        "vi": "Lát nữa, sau khi"
+      },
+      {
+        "word": "午後",
+        "reading": "ごご",
+        "vi": "Buổi chiều, tối (PM)"
+      },
+      {
+        "word": "後ろ",
+        "reading": "うしろ",
+        "vi": "Phía sau"
+      }
+    ],
+    "formula": "彳 (Bước chân) ＋ 幺 (Sợi tơ) ＋ 夂 (Đi chậm)",
+    "strokeGuide": "Bộ Xích (彳) bên trái ➔ bộ Yêu (幺) trên phải ➔ bộ Truy (夂) dưới phải.",
+    "mnemonic": "Chân bước (彳) vướng sợi tơ (幺) nên tụt lại phía Sau (後)."
+  },
+  {
+    "char": "朝",
+    "hv": "Triêu",
+    "lesson": "L8",
+    "lessonName": "Bài 8",
+    "strokes": 12,
+    "meaning": "Sớm, buổi sáng, triều đại",
+    "kun": "あさ",
+    "on": "ちょう",
+    "examples": [
+      {
+        "word": "朝",
+        "reading": "あさ",
+        "vi": "Buổi sáng"
+      },
+      {
+        "word": "朝ごはん",
+        "reading": "あさごはん",
+        "vi": "Cơm sáng, bữa sáng"
+      },
+      {
+        "word": "朝食",
+        "reading": "ちょうしょく",
+        "vi": "Bữa sáng (trang trọng)"
+      }
+    ],
+    "formula": "十 ＋ 日 ＋ 十 ＋ 月",
+    "strokeGuide": "Chữ Triêu (bên trái: thập, nhật, thập) ➔ bộ Nguyệt (月) bên phải.",
+    "mnemonic": "Mặt trời (日) mọc giữa ngọn cỏ và mặt trăng (月) dần lặn là Buổi sáng."
+  },
+  {
+    "char": "昼",
+    "hv": "Trú",
+    "lesson": "L8",
+    "lessonName": "Bài 8",
+    "strokes": 9,
+    "meaning": "Ban ngày, buổi trưa",
+    "kun": "ひる",
+    "on": "ちゅう",
+    "examples": [
+      {
+        "word": "昼",
+        "reading": "ひる",
+        "vi": "Buổi trưa"
+      },
+      {
+        "word": "昼ごはん",
+        "reading": "ひるごはん",
+        "vi": "Cơm trưa, bữa trưa"
+      },
+      {
+        "word": "昼食",
+        "reading": "ちゅうしょく",
+        "vi": "Bữa trưa (trang trọng)"
+      }
+    ],
+    "formula": "尺 ＋ 日 ＋ 一",
+    "strokeGuide": "Chữ Xích (尺) ở trên bao lấy ➔ bộ Nhật (日) ở giữa ➔ nét ngang đáy.",
+    "mnemonic": "Cây thước (尺) đo bóng mặt trời (日) đứng bóng giữa trưa."
+  },
+  {
+    "char": "夜",
+    "hv": "Dạ",
+    "lesson": "L8",
+    "lessonName": "Bài 8",
+    "strokes": 8,
+    "meaning": "Ban đêm, buổi tối",
+    "kun": "よ、よる",
+    "on": "や",
+    "examples": [
+      {
+        "word": "夜",
+        "reading": "よる",
+        "vi": "Buổi tối, ban đêm"
+      },
+      {
+        "word": "夜景",
+        "reading": "やけい",
+        "vi": "Cảnh đêm"
+      },
+      {
+        "word": "夜勤",
+        "reading": "やきん",
+        "vi": "Làm ca đêm"
+      }
+    ],
+    "formula": "亠 ＋ 亻 ＋ 夕 (Tối)",
+    "strokeGuide": "Bộ Đầu (亠) trên ➔ bộ Nhân đứng (亻) giữa trái ➔ bộ Tịch (夕) dưới.",
+    "mnemonic": "Người (亻) trở về nhà dưới mái hiên (亠) khi trời Tối (夕)."
+  },
+  {
+    "char": "乗",
+    "hv": "Thừa",
+    "lesson": "L8",
+    "lessonName": "Bài 8",
+    "strokes": 9,
+    "meaning": "Lên xe, cưỡi ngựa",
+    "kun": "の-る、の-せる",
+    "on": "じょう、しょう",
+    "examples": [
+      {
+        "word": "乗ります",
+        "reading": "のります",
+        "vi": "Lên xe, đi tàu"
+      },
+      {
+        "word": "乗り物",
+        "reading": "のりもの",
+        "vi": "Phương tiện đi lại"
+      }
+    ],
+    "formula": "禾 (Cây lúa) ＋ 北 (Bắc)",
+    "strokeGuide": "Nét phẩy trên ➔ nét ngang dài ➔ nét sổ giữa ➔ 4 nét phẩy mác hai bên.",
+    "mnemonic": "Trèo lên cỗ xe chất đầy lúa (禾) để chở đi."
+  },
+  {
+    "char": "学",
+    "hv": "Học",
+    "lesson": "L9",
+    "lessonName": "Bài 9",
+    "strokes": 8,
+    "meaning": "Học tập, học thức",
+    "kun": "まな-ぶ",
+    "on": "がく",
+    "examples": [
+      {
+        "word": "学びます",
+        "reading": "まなびます",
+        "vi": "Học tập"
+      },
+      {
+        "word": "学生",
+        "reading": "がくせい",
+        "vi": "Học sinh, sinh viên"
+      },
+      {
+        "word": "大学",
+        "reading": "だいがく",
+        "vi": "Trường đại học"
+      }
+    ],
+    "formula": "冖 (Mái nhà) ＋ 子 (Đứa trẻ)",
+    "strokeGuide": "3 chấm trên ➔ bộ Mịch (冖) ➔ bộ Tử (子) ở dưới cùng.",
+    "mnemonic": "Đứa trẻ (子) ngồi dưới mái nhà (冖) chăm chỉ Học tập."
+  },
+  {
+    "char": "校",
+    "hv": "Hiệu",
+    "lesson": "L9",
+    "lessonName": "Bài 9",
+    "strokes": 10,
+    "meaning": "Trường học",
+    "kun": "",
+    "on": "こう、きょう",
+    "examples": [
+      {
+        "word": "学校",
+        "reading": "がっこう",
+        "vi": "Trường học"
+      },
+      {
+        "word": "小学校",
+        "reading": "しょうがっこう",
+        "vi": "Trường tiểu học"
+      },
+      {
+        "word": "中学校",
+        "reading": "ちゅうがっこう",
+        "vi": "Trường cấp 2"
+      },
+      {
+        "word": "高校",
+        "reading": "こうこう",
+        "vi": "Trường cấp 3"
+      }
+    ],
+    "formula": "木 (Cây gỗ) ＋ 交 (Giao nhau)",
+    "strokeGuide": "Bộ Mộc (木 - 4 nét) bên trái ➔ chữ Giao (交 - 6 nét) bên phải.",
+    "mnemonic": "Ngôi nhà bằng gỗ (木) nơi mọi người giao lưu (交) học hỏi là Trường học."
+  },
+  {
+    "char": "先",
+    "hv": "Tiên",
+    "lesson": "L9",
+    "lessonName": "Bài 9",
+    "strokes": 6,
+    "meaning": "Trước, đi trước",
+    "kun": "さき、ま",
+    "on": "せん",
+    "examples": [
+      {
+        "word": "先",
+        "reading": "さき",
+        "vi": "Trước đó, tương lai"
+      },
+      {
+        "word": "先生",
+        "reading": "せんせい",
+        "vi": "Thầy cô, giáo viên"
+      },
+      {
+        "word": "先週",
+        "reading": "せんしゅう",
+        "vi": "Tuần trước"
+      },
+      {
+        "word": "先輩",
+        "reading": "せんぱい",
+        "vi": "Tiền bối, đàn anh/chị"
+      }
+    ],
+    "formula": "土 ＋ 儿 (Đôi chân đi trước)",
+    "strokeGuide": "Nét phẩy trên ➔ nét ngang ngắn ➔ nét sổ đứng ➔ nét ngang dài ➔ nét phẩy ➔ nét cong móc.",
+    "mnemonic": "Người cất bước chân (儿) đi Trước trên mặt đất."
+  },
+  {
+    "char": "生",
+    "hv": "Sinh",
+    "lesson": "L9",
+    "lessonName": "Bài 9",
+    "strokes": 5,
+    "meaning": "Sống, sinh sôi, sinh ra, học sinh",
+    "kun": "い-きる、う-まれる、なま",
+    "on": "せい、しょう",
+    "examples": [
+      {
+        "word": "生まれます",
+        "reading": "うまれます",
+        "vi": "Được sinh ra"
+      },
+      {
+        "word": "生",
+        "reading": "なま",
+        "vi": "Tươi sống"
+      },
+      {
+        "word": "生卵",
+        "reading": "なまたまご",
+        "vi": "Trứng sống"
+      },
+      {
+        "word": "学生",
+        "reading": "がくせい",
+        "vi": "Học sinh"
+      },
+      {
+        "word": "一年生",
+        "reading": "いちねんせい",
+        "vi": "Học sinh năm nhất"
+      }
+    ],
+    "formula": "Chữ tượng hình mầm cây đâm chồi",
+    "strokeGuide": "Nét phẩy trái ➔ nét ngang ngắn ➔ nét sổ giữa ➔ nét ngang giữa ➔ nét ngang đáy dài.",
+    "mnemonic": "Mầm cây non đâm chồi vươn lên sinh sôi nảy nở."
+  },
+  {
+    "char": "勉",
+    "hv": "Miễn",
+    "lesson": "L9",
+    "lessonName": "Bài 9",
+    "strokes": 10,
+    "meaning": "Cố gắng, nỗ lực",
+    "kun": "つと-める",
+    "on": "べん",
+    "examples": [
+      {
+        "word": "勉強",
+        "reading": "べんきょう",
+        "vi": "(Danh từ) Việc học hành"
+      }
+    ],
+    "formula": "免 (Tránh) ＋ 力 (Sức lực)",
+    "strokeGuide": "Chữ Miễn (免 - 7 nét) bên trái ➔ bộ Lực (力 - 2 nét) bên phải.",
+    "mnemonic": "Dốc hết sức lực (力) để Cố gắng không bị tụt lại."
+  },
+  {
+    "char": "強",
+    "hv": "Cường, Cưỡng",
+    "lesson": "L9",
+    "lessonName": "Bài 9",
+    "strokes": 11,
+    "meaning": "Mạnh mẽ, kiên cường",
+    "kun": "つよ-い",
+    "on": "きょう、ごう",
+    "examples": [
+      {
+        "word": "強い",
+        "reading": "つよい",
+        "vi": "(Tính từ) Khỏe, mạnh mẽ"
+      },
+      {
+        "word": "勉強します",
+        "reading": "べんきょうします",
+        "vi": "Học tập"
+      }
+    ],
+    "formula": "弓 (Cung tên) ＋ 厶 ＋ 虫 (Côn trùng)",
+    "strokeGuide": "Bộ Cung (弓 - 3 nét) bên trái ➔ chữ Khư (厶) và bộ Trùng (虫) bên phải.",
+    "mnemonic": "Cây cung (弓) cứng cáp bắn gục cả loài bọ (虫) mạnh mẽ."
+  },
+  {
+    "char": "文",
+    "hv": "Văn",
+    "lesson": "L10",
+    "lessonName": "Bài 10",
+    "strokes": 4,
+    "meaning": "Văn học, câu văn, văn hóa",
+    "kun": "ふみ、あや",
+    "on": "ぶん、もん",
+    "examples": [
+      {
+        "word": "文",
+        "reading": "ぶん",
+        "vi": "Câu văn, đoạn văn"
+      },
+      {
+        "word": "文学",
+        "reading": "ぶんがく",
+        "vi": "Văn học"
+      },
+      {
+        "word": "作文",
+        "reading": "さくぶん",
+        "vi": "Bài tập làm văn"
+      },
+      {
+        "word": "文化",
+        "reading": "ぶんか",
+        "vi": "Văn hóa"
+      }
+    ],
+    "formula": "亠 ＋ 乂",
+    "strokeGuide": "Chấm trên cùng ➔ nét ngang ➔ nét phẩy ➔ nét mác.",
+    "mnemonic": "Những nét chữ đan chéo tạo nên áng Văn hóa đặc sắc."
+  },
+  {
+    "char": "化",
+    "hv": "Hóa",
+    "lesson": "L10",
+    "lessonName": "Bài 10",
+    "strokes": 4,
+    "meaning": "Biến hóa, thay đổi",
+    "kun": "ば-ける",
+    "on": "か、け",
+    "examples": [
+      {
+        "word": "文化",
+        "reading": "ぶんか",
+        "vi": "Văn hóa"
+      },
+      {
+        "word": "化学",
+        "reading": "かがく",
+        "vi": "Hóa học"
+      }
+    ],
+    "formula": "亻 (Nhân đứng) ＋ 匕 (Chủy)",
+    "strokeGuide": "Trái trước phải sau: Bộ Nhân đứng (亻 - 2 nét) bên trái ➔ bộ Chủy (匕 - 2 nét) bên phải.",
+    "mnemonic": "Con người (亻) biến đổi, xã hội văn minh hóa (文化)."
+  },
+  {
+    "char": "音",
+    "hv": "Âm",
+    "lesson": "L10",
+    "lessonName": "Bài 10",
+    "strokes": 9,
+    "meaning": "Âm thanh, tiếng động",
+    "kun": "おと、ね",
+    "on": "おん、いん",
+    "examples": [
+      {
+        "word": "音",
+        "reading": "おと",
+        "vi": "Âm thanh, tiếng động"
+      },
+      {
+        "word": "発音",
+        "reading": "はつおん",
+        "vi": "Phát âm"
+      },
+      {
+        "word": "音楽",
+        "reading": "おんがく",
+        "vi": "Âm nhạc"
+      }
+    ],
+    "formula": "立 (Đứng) ＋ 日 (Mặt trời)",
+    "strokeGuide": "Trên trước dưới sau: Bộ Lập (立 - 5 nét) ở trên ➔ bộ Nhật (日 - 4 nét) ở dưới.",
+    "mnemonic": "Người đứng (立) dưới ánh mặt trời (日) cất lên Âm thanh."
+  },
+  {
+    "char": "楽",
+    "hv": "Lạc / Nhạc",
+    "lesson": "L10",
+    "lessonName": "Bài 10",
+    "strokes": 13,
+    "meaning": "Vui vẻ, âm nhạc, thoải mái",
+    "kun": "たの-しい、たの-しみ",
+    "on": "がく、らく",
+    "examples": [
+      {
+        "word": "楽しい",
+        "reading": "たのしい",
+        "vi": "Vui vẻ"
+      },
+      {
+        "word": "楽しみ",
+        "reading": "たのしみ",
+        "vi": "Niềm vui, sự mong đợi"
+      },
+      {
+        "word": "音楽",
+        "reading": "おんがく",
+        "vi": "Âm nhạc"
+      },
+      {
+        "word": "楽",
+        "reading": "らく",
+        "vi": "Nhàn hạ, thoải mái, dễ chịu"
+      }
+    ],
+    "formula": "白 ＋ 冫 ＋ 木",
+    "strokeGuide": "Chữ Bạch (白) ở giữa ➔ 4 chấm hai bên (冫) ➔ bộ Mộc (木) ở dưới cùng.",
+    "mnemonic": "Cây đàn gỗ (木) phím trắng (白) tấu khúc ca Âm nhạc vui tươi."
+  },
+  {
+    "char": "留",
+    "hv": "Lưu",
+    "lesson": "L10",
+    "lessonName": "Bài 10",
+    "strokes": 10,
+    "meaning": "Lưu lại, giữ lại, du học",
+    "kun": "と-まる、と-める",
+    "on": "りゅう、る",
+    "examples": [
+      {
+        "word": "留学",
+        "reading": "りゅうがく",
+        "vi": "Du học"
+      },
+      {
+        "word": "留学生",
+        "reading": "りゅうがくせい",
+        "vi": "Du học sinh"
+      }
+    ],
+    "formula": "卯 (Mão) ＋ 田 (Điền)",
+    "strokeGuide": "Phần trên (5 nét) ➔ bộ Điền (田 - 5 nét: sổ trái, gập ngang xuống, sổ giữa, ngang giữa, ngang đáy).",
+    "mnemonic": "Lưu lại mảnh ruộng (田) quê hương để trau dồi kiến thức đi du học."
+  },
+  {
+    "char": "旅",
+    "hv": "Lữ",
+    "lesson": "L10",
+    "lessonName": "Bài 10",
+    "strokes": 10,
+    "meaning": "Du lịch, chuyến đi",
+    "kun": "たび",
+    "on": "りょ",
+    "examples": [
+      {
+        "word": "旅",
+        "reading": "たび",
+        "vi": "Chuyến đi, cuộc hành trình"
+      },
+      {
+        "word": "旅行",
+        "reading": "りょこう",
+        "vi": "Du lịch"
+      },
+      {
+        "word": "一人旅",
+        "reading": "ひとりたび",
+        "vi": "Đi du lịch một mình"
+      }
+    ],
+    "formula": "方 (Phương) ＋ 𠂉 ＋ 氏",
+    "strokeGuide": "Bộ Phương (方 - 4 nét) bên trái ➔ nét phẩy ngang trên phải ➔ phần dưới phải (4 nét).",
+    "mnemonic": "Xách ba lô đi về muôn phương Du lịch."
+  },
+  {
+    "char": "行",
+    "hv": "Hành",
+    "lesson": "L10",
+    "lessonName": "Bài 10",
+    "strokes": 6,
+    "meaning": "Đi, tiến hành, hàng lối",
+    "kun": "い-く、ゆ-く、おこな-う",
+    "on": "こう、ぎょう、あん",
+    "examples": [
+      {
+        "word": "行きます",
+        "reading": "いきます",
+        "vi": "Đi"
+      },
+      {
+        "word": "旅行",
+        "reading": "りょこう",
+        "vi": "Du lịch"
+      },
+      {
+        "word": "銀行",
+        "reading": "ぎんこう",
+        "vi": "Ngân hàng"
+      },
+      {
+        "word": "行事",
+        "reading": "ぎょうじ",
+        "vi": "Sự kiện, lễ hội"
+      }
+    ],
+    "formula": "彳 (Xích) ＋ 亍 (Xúc)",
+    "strokeGuide": "Bộ Xích (彳 - 3 nét) bên trái ➔ bộ Xúc (亍 - 3 nét: 2 ngang, 1 móc) bên phải.",
+    "mnemonic": "Hai bước chân sải bước trên ngã tư đường là Hành (行)."
+  },
+  {
+    "char": "友",
+    "hv": "Hữu",
+    "lesson": "L10",
+    "lessonName": "Bài 10",
+    "strokes": 4,
+    "meaning": "Bạn bè, tình bạn",
+    "kun": "とも",
+    "on": "ゆう",
+    "examples": [
+      {
+        "word": "友達",
+        "reading": "ともだち",
+        "vi": "Bạn bè"
+      },
+      {
+        "word": "友人",
+        "reading": "ゆうじん",
+        "vi": "Bạn thân, người bạn"
+      },
+      {
+        "word": "親友",
+        "reading": "しんゆう",
+        "vi": "Bạn chí cốt, bạn thân"
+      }
+    ],
+    "formula": "𠂇 ＋ 又 (Hựu)",
+    "strokeGuide": "Nét ngang (1) ➔ nét phẩy dài (2) ➔ bộ Hựu (又 - 2 nét) bên trong.",
+    "mnemonic": "Hai bàn tay bắt chặt lấy nhau là Bạn bè (友)."
+  },
+  {
+    "char": "達",
+    "hv": "Đạt",
+    "lesson": "L10",
+    "lessonName": "Bài 10",
+    "strokes": 12,
+    "meaning": "Đạt tới, thông đạt, số nhiều (các bạn)",
+    "kun": "たち",
+    "on": "たつ、だ",
+    "examples": [
+      {
+        "word": "友達",
+        "reading": "ともだち",
+        "vi": "Bạn bè"
+      },
+      {
+        "word": "私達",
+        "reading": "わたしたち",
+        "vi": "Chúng tôi, chúng ta"
+      },
+      {
+        "word": "上達",
+        "reading": "じょうたつ",
+        "vi": "Tiến bộ, thành thạo"
+      }
+    ],
+    "formula": "幸 ＋ 辶 (Xước)",
+    "strokeGuide": "Viết phần bên phải (chữ Hạnh 幸 - 9 nét: Thổ + Dương) trước ➔ bộ Xước (辶 - 3 nét) bao dưới sau cùng.",
+    "mnemonic": "Dắt bạn bè đồng hành (辶) để cùng nhau đạt (達) tới hạnh phúc (幸)."
+  },
+  {
+    "char": "週",
+    "hv": "Chu",
+    "lesson": "L10",
+    "lessonName": "Bài 10",
+    "strokes": 11,
+    "meaning": "Tuần lễ, vòng quanh",
+    "kun": "-",
+    "on": "しゅう",
+    "examples": [
+      {
+        "word": "先週",
+        "reading": "せんしゅう",
+        "vi": "Tuần trước"
+      },
+      {
+        "word": "今週",
+        "reading": "こんしゅう",
+        "vi": "Tuần này"
+      },
+      {
+        "word": "来週",
+        "reading": "らいしゅう",
+        "vi": "Tuần sau"
+      },
+      {
+        "word": "一週間",
+        "reading": "いっしゅうかん",
+        "vi": "Một tuần lễ"
+      },
+      {
+        "word": "週末",
+        "reading": "しゅうまつ",
+        "vi": "Cuối tuần"
+      }
+    ],
+    "formula": "周 (Chu) ＋ 辶 (Xước)",
+    "strokeGuide": "Viết chữ Chu (周 - 8 nét) bên trong trước ➔ bộ Xước (辶 - 3 nét) bao dưới sau cùng.",
+    "mnemonic": "Bước đi (辶) trọn vẹn một chu kỳ (周) 7 ngày là đúng 1 Tuần (週)."
+  },
+  {
+    "char": "回",
+    "hv": "Hồi",
+    "lesson": "L10",
+    "lessonName": "Bài 10",
+    "strokes": 6,
+    "meaning": "Quay quanh, quay lại, số lần",
+    "kun": "まわ-す、まわ-る、めぐ-る",
+    "on": "かい、え",
+    "examples": [
+      {
+        "word": "一回",
+        "reading": "いっかい",
+        "vi": "Một lần"
+      },
+      {
+        "word": "何回",
+        "reading": "なんかい",
+        "vi": "Mấy lần?"
+      },
+      {
+        "word": "今回",
+        "reading": "こんかい",
+        "vi": "Lần này"
+      },
+      {
+        "word": "回します",
+        "reading": "まわします",
+        "vi": "Vặn, xoay quanh"
+      }
+    ],
+    "formula": "囗 (Vi) ＋ 口 (Khẩu)",
+    "strokeGuide": "Sổ trái ngoài ➔ gập ngang xuống ngoài ➔ viết chữ Khẩu (口 - 3 nét) bên trong ➔ đóng đáy ngoài.",
+    "mnemonic": "Khung vuông to bao lấy khung vuông nhỏ quay vòng luân hồi (回)."
+  },
+  {
+    "char": "酒",
+    "hv": "Tửu",
+    "lesson": "L11",
+    "lessonName": "Bài 11",
+    "strokes": 10,
+    "meaning": "Rượu, đồ uống có cồn",
+    "kun": "さけ、さか",
+    "on": "しゅ",
+    "examples": [
+      {
+        "word": "お酒",
+        "reading": "おさけ",
+        "vi": "Rượu, đồ uống có cồn"
+      },
+      {
+        "word": "日本酒",
+        "reading": "にほんしゅ",
+        "vi": "Rượu sake truyền thống Nhật Bản"
+      },
+      {
+        "word": "梅酒",
+        "reading": "うめしゅ",
+        "vi": "Rượu mơ"
+      },
+      {
+        "word": "居酒屋",
+        "reading": "いざかや",
+        "vi": "Quán rượu, quán nhậu kiểu Nhật"
+      }
+    ],
+    "formula": "氵 (Thủy) ＋ 酉 (Dậu)",
+    "strokeGuide": "Bộ Thủy (氵 - 3 nét) bên trái ➔ bộ Dậu (酉 - 7 nét: ngang trên, sổ trái, gập ngang, sổ giữa, ngang trong, đóng đáy) bên phải.",
+    "mnemonic": "Nước (氵) ủ kín trong bình dậu (酉) lên men thành Rượu (酒)."
+  },
+  {
+    "char": "作",
+    "hv": "Tác",
+    "lesson": "L11",
+    "lessonName": "Bài 11",
+    "strokes": 7,
+    "meaning": "Làm, chế tạo, tạo ra, nấu nướng",
+    "kun": "つく-る",
+    "on": "さく、さ",
+    "examples": [
+      {
+        "word": "作ります",
+        "reading": "つくります",
+        "vi": "Làm, tạo ra, nấu (món)"
+      },
+      {
+        "word": "作文",
+        "reading": "さくぶん",
+        "vi": "Bài tập làm văn"
+      },
+      {
+        "word": "手作り",
+        "reading": "てづくり",
+        "vi": "Làm bằng tay, đồ nhà làm"
+      },
+      {
+        "word": "作品",
+        "reading": "さくひん",
+        "vi": "Tác phẩm"
+      }
+    ],
+    "formula": "亻 (Nhân đứng) ＋ 乍 (Sạ)",
+    "strokeGuide": "Bộ Nhân đứng (亻 - 2 nét) bên trái ➔ chữ Sạ (乍 - 5 nét: nét phẩy, nét ngang, nét sổ, nét ngang ngắn, nét phẩy chéo) bên phải.",
+    "mnemonic": "Con người (亻) khéo léo dùng tay chế tác ra đồ vật ngon lành (作)."
+  },
+  {
+    "char": "物",
+    "hv": "Vật",
+    "lesson": "L11",
+    "lessonName": "Bài 11",
+    "strokes": 8,
+    "meaning": "Vật chất, đồ vật, sự vật",
+    "kun": "もの",
+    "on": "ぶつ、もつ",
+    "examples": [
+      {
+        "word": "食べ物",
+        "reading": "たべもの",
+        "vi": "Đồ ăn, thức ăn"
+      },
+      {
+        "word": "飲み物",
+        "reading": "のみもの",
+        "vi": "Đồ uống"
+      },
+      {
+        "word": "乗り物",
+        "reading": "のりもの",
+        "vi": "Phương tiện giao thông"
+      },
+      {
+        "word": "荷物",
+        "reading": "にもつ",
+        "vi": "Hành lý, đồ đạc"
+      },
+      {
+        "word": "博物館",
+        "reading": "はくぶつかん",
+        "vi": "Viện bảo tàng"
+      }
+    ],
+    "formula": "牜 (Ngưu) ＋ 勿 (Vật)",
+    "strokeGuide": "Bộ Ngưu (牜 - 4 nét: phẩy, ngang ngắn, sổ dài, hất lên) bên trái ➔ chữ Vật (勿 - 4 nét: phẩy, gập móc, 2 phẩy trong) bên phải.",
+    "mnemonic": "Con trâu bò (牜) là động vật đại diện cho vạn vật (物) sinh sôi."
+  },
+  {
+    "char": "茶",
+    "hv": "Trà",
+    "lesson": "L11",
+    "lessonName": "Bài 11",
+    "strokes": 9,
+    "meaning": "Cây chè, lá trà, nước trà",
+    "kun": "-",
+    "on": "ちゃ、さ",
+    "examples": [
+      {
+        "word": "お茶",
+        "reading": "おちゃ",
+        "vi": "Trà, nước chè"
+      },
+      {
+        "word": "喫茶店",
+        "reading": "きっさてん",
+        "vi": "Quán cà phê, tiệm giải khát"
+      },
+      {
+        "word": "緑茶",
+        "reading": "りょくちゃ",
+        "vi": "Trà xanh"
+      },
+      {
+        "word": "紅茶",
+        "reading": "こうちゃ",
+        "vi": "Hồng trà, trà đen"
+      }
+    ],
+    "formula": "艹 (Thảo) ＋ 人 ＋ 木 (Mộc)",
+    "strokeGuide": "Bộ Thảo (艹 - 3 nét) ở trên ➔ bộ Nhân (人 - 2 nét: phẩy, mác) ở giữa ➔ bộ Mộc (木 - 4 nét: ngang, sổ móc, 2 phẩy mác) ở dưới cùng.",
+    "mnemonic": "Lá thảo mộc (艹) trên cây gỗ (木) hái về cho người (人) thưởng thức Trà (茶)."
+  },
+  {
+    "char": "持",
+    "hv": "Trì",
+    "lesson": "L11",
+    "lessonName": "Bài 11",
+    "strokes": 9,
+    "meaning": "Cầm, giữ, duy trì, sở hữu",
+    "kun": "も-つ",
+    "on": "じ",
+    "examples": [
+      {
+        "word": "持ちます",
+        "reading": "もちます",
+        "vi": "Cầm, mang / Có, sở hữu"
+      },
+      {
+        "word": "持ってきます",
+        "reading": "もってきます",
+        "vi": "Mang theo, đem đến"
+      },
+      {
+        "word": "持っています",
+        "reading": "もっています",
+        "vi": "Đang có, đang sở hữu"
+      },
+      {
+        "word": "気持ち",
+        "reading": "きもち",
+        "vi": "Tâm trạng, cảm giác"
+      }
+    ],
+    "formula": "扌 (Thủ) ＋ 寺 (Tự - Chùa)",
+    "strokeGuide": "Bộ Thủ (扌 - 3 nét) bên trái ➔ chữ Tự (寺 - 6 nét: chữ Thổ 土 3 nét + chữ Thốn 寸 3 nét) bên phải.",
+    "mnemonic": "Đôi tay (扌) nâng niu lễ vật lên chùa (寺) để gìn giữ, duy trì (持) phúc lành."
+  },
+  {
+    "char": "願",
+    "hv": "Nguyện",
+    "lesson": "L11",
+    "lessonName": "Bài 11",
+    "strokes": 19,
+    "meaning": "Cầu chúc, mong ước, nhờ cậy",
+    "kun": "ねが-う",
+    "on": "がん",
+    "examples": [
+      {
+        "word": "お願いします",
+        "reading": "おねがいします",
+        "vi": "Làm ơn, xin vui lòng (gọi món / nhờ vả)"
+      },
+      {
+        "word": "お願い",
+        "reading": "おねがい",
+        "vi": "Lời yêu cầu, điều nhờ cậy"
+      },
+      {
+        "word": "願い事",
+        "reading": "ねがいごと",
+        "vi": "Điều ước, nguyện vọng"
+      },
+      {
+        "word": "願書",
+        "reading": "がんしょ",
+        "vi": "Đơn xin, đơn nguyện vọng"
+      }
+    ],
+    "formula": "原 (Nguyên) ＋ 頁 (Hiệt - đầu)",
+    "strokeGuide": "Chữ Nguyên (原 - 10 nét: Hán 厂 + Bạch 白 + Tiểu 小) bên trái ➔ bộ Hiệt (頁 - 9 nét: ngang, phẩy, mục 目, 2 chấm) bên phải.",
+    "mnemonic": "Cúi đầu (頁) nhớ về nguồn cội nguyên sơ (原) thành tâm cầu Nguyện (願)."
+  },
+  {
+    "char": "料",
+    "hv": "Liệu",
+    "lesson": "L12",
+    "lessonName": "Bài 12",
+    "strokes": 10,
+    "meaning": "Nguyên liệu, tiền cước, tiền phí",
+    "kun": "-",
+    "on": "りょう",
+    "examples": [
+      {
+        "word": "料理",
+        "reading": "りょうり",
+        "vi": "Món ăn, sự nấu nướng"
+      },
+      {
+        "word": "料金",
+        "reading": "りょうきん",
+        "vi": "Tiền cước, chi phí, lệ phí"
+      },
+      {
+        "word": "給料",
+        "reading": "きゅうりょう",
+        "vi": "Tiền lương"
+      },
+      {
+        "word": "無料",
+        "reading": "むりょう",
+        "vi": "Miễn phí"
+      }
+    ],
+    "formula": "米 (Mễ - gạo) ＋ 斗 (Đấu - cái đong lường)",
+    "strokeGuide": "Bộ Mễ (米 - 6 nét) bên trái ➔ bộ Đấu (斗 - 4 nét: chấm, ngang, ngang, sổ dài) bên phải.",
+    "mnemonic": "Lúa gạo (米) đem vào cái đấu (斗) để đong đo nguyên Liệu (料)."
+  },
+  {
+    "char": "理",
+    "hv": "Lý",
+    "lesson": "L12",
+    "lessonName": "Bài 12",
+    "strokes": 11,
+    "meaning": "Đạo lý, lý do, xử lý, nấu nướng",
+    "kun": "-",
+    "on": "り",
+    "examples": [
+      {
+        "word": "料理",
+        "reading": "りょうり",
+        "vi": "Món ăn, nấu nướng"
+      },
+      {
+        "word": "理由",
+        "reading": "りゆう",
+        "vi": "Lý do, nguyên nhân"
+      },
+      {
+        "word": "無理",
+        "reading": "むり",
+        "vi": "Quá sức, vô lý"
+      },
+      {
+        "word": "地理",
+        "reading": "ちり",
+        "vi": "Địa lý"
+      }
+    ],
+    "formula": "王 (Vương - ngọc) ＋ 里 (Lý - làng xóm)",
+    "strokeGuide": "Bộ Vương (王 - 4 nét) bên trái ➔ chữ Lý (里 - 7 nét: bộ Điền 田 + bộ Thổ 土) bên phải.",
+    "mnemonic": "Vị vua (王) đem viên ngọc quý về giảng giải đạo Lý (理) cho dân làng (里)."
+  },
+  {
+    "char": "味",
+    "hv": "Vị",
+    "lesson": "L12",
+    "lessonName": "Bài 12",
+    "strokes": 8,
+    "meaning": "Mùi vị, hương vị, ý nghĩa",
+    "kun": "あじ",
+    "on": "み",
+    "examples": [
+      {
+        "word": "味",
+        "reading": "あじ",
+        "vi": "Mùi vị, hương vị"
+      },
+      {
+        "word": "意味",
+        "reading": "いみ",
+        "vi": "Ý nghĩa"
+      },
+      {
+        "word": "興味",
+        "reading": "きょうみ",
+        "vi": "Hứng thú, quan tâm"
+      },
+      {
+        "word": "味噌汁",
+        "reading": "みそしる",
+        "vi": "Canh súp tương Miso"
+      }
+    ],
+    "formula": "口 (Khẩu) ＋ 未 (Vị - chưa trổ)",
+    "strokeGuide": "Bộ Khẩu (口 - 3 nét) bên trái ➔ chữ Vị (未 - 5 nét: ngang ngắn, ngang dài, sổ, phẩy, mác) bên phải.",
+    "mnemonic": "Cái miệng (口) nếm thử quả non chưa chín (未) để biết Vị (味)."
+  },
+  {
+    "char": "色",
+    "hv": "Sắc",
+    "lesson": "L12",
+    "lessonName": "Bài 12",
+    "strokes": 6,
+    "meaning": "Màu sắc, sắc mặt, vẻ ngoài",
+    "kun": "いろ",
+    "on": "しょく、しき",
+    "examples": [
+      {
+        "word": "色",
+        "reading": "いろ",
+        "vi": "Màu sắc"
+      },
+      {
+        "word": "茶色",
+        "reading": "ちゃいろ",
+        "vi": "Màu nâu (màu nước trà)"
+      },
+      {
+        "word": "景色",
+        "reading": "けしき",
+        "vi": "Phong cảnh, cảnh sắc"
+      },
+      {
+        "word": "色々",
+        "reading": "いろいろ",
+        "vi": "Đa dạng, nhiều loại"
+      }
+    ],
+    "formula": "⺈ ＋ 巳 (Ba)",
+    "strokeGuide": "Bộ Đao cách điệu (⺈ - 2 nét trên) ➔ nét ngang gập và nét sổ cong móc (巳 - 4 nét dưới).",
+    "mnemonic": "Con người bộc lộ cảm xúc và sắc mặt rực rỡ muôn màu Sắc (色)."
+  },
+  {
+    "char": "野",
+    "hv": "Dã",
+    "lesson": "L12",
+    "lessonName": "Bài 12",
+    "strokes": 11,
+    "meaning": "Đồng nội, hoang dã, lĩnh vực",
+    "kun": "の",
+    "on": "や",
+    "examples": [
+      {
+        "word": "野菜",
+        "reading": "やさい",
+        "vi": "Rau xanh, rau củ"
+      },
+      {
+        "word": "野球",
+        "reading": "やきゅう",
+        "vi": "Môn bóng chày"
+      },
+      {
+        "word": "分野",
+        "reading": "ぶんや",
+        "vi": "Lĩnh vực chuyên môn"
+      },
+      {
+        "word": "長野",
+        "reading": "ながの",
+        "vi": "Tỉnh Nagano (Nhật Bản)"
+      }
+    ],
+    "formula": "里 (Lý) ＋ 予 (Dự)",
+    "strokeGuide": "Chữ Lý (里 - 7 nét) bên trái ➔ chữ Dự (予 - 4 nét: phẩy ngang, sổ móc, 2 chấm) bên phải.",
+    "mnemonic": "Nơi thôn dã (里) đem lại những dự báo (予) diệu kỳ về mùa màng Dã (野)."
+  },
+  {
+    "char": "菜",
+    "hv": "Thái",
+    "lesson": "L12",
+    "lessonName": "Bài 12",
+    "strokes": 11,
+    "meaning": "Rau xanh, món ăn thức ăn",
+    "kun": "-",
+    "on": "さい",
+    "examples": [
+      {
+        "word": "野菜",
+        "reading": "やさい",
+        "vi": "Rau củ, rau xanh"
+      },
+      {
+        "word": "白菜",
+        "reading": "はくさい",
+        "vi": "Cải thảo"
+      },
+      {
+        "word": "菜食",
+        "reading": "さいしょく",
+        "vi": "Ăn chay, chế độ ăn rau củ"
+      },
+      {
+        "word": "惣菜",
+        "reading": "そうざい",
+        "vi": "Đồ ăn kèm, món chế biến sẵn"
+      }
+    ],
+    "formula": "艹 (Thảo) ＋ 采 (Thải - hái lượm)",
+    "strokeGuide": "Bộ Thảo (艹 - 3 nét) bên trên ➔ chữ Thải (采 - 8 nét: trảo 爫 + mộc 木) bên dưới.",
+    "mnemonic": "Hái ngọn cỏ cây (艹) dùng bàn tay hái (采) về làm món rau Thái (菜)."
+  },
+  {
+    "char": "少",
+    "hv": "Thiểu",
+    "lesson": "L12",
+    "lessonName": "Bài 12",
+    "strokes": 4,
+    "meaning": "Ít ỏi, một chút, thiếu niên",
+    "kun": "すく-ない、すこ-し",
+    "on": "しょう",
+    "examples": [
+      {
+        "word": "少し",
+        "reading": "すこし",
+        "vi": "Một chút, một ít"
+      },
+      {
+        "word": "少ない",
+        "reading": "すくない",
+        "vi": "Ít ỏi, hiếm hoi"
+      },
+      {
+        "word": "少年",
+        "reading": "しょうねん",
+        "vi": "Thiếu niên"
+      },
+      {
+        "word": "少女",
+        "reading": "しょうじょ",
+        "vi": "Thiếu nữ"
+      }
+    ],
+    "formula": "小 (Tiểu) ＋ 丿 (Phiệt)",
+    "strokeGuide": "Sổ móc giữa ➔ chấm trái ➔ phẩy phải ➔ nét phẩy dài chéo xuống dưới trái.",
+    "mnemonic": "Đã nhỏ bé (小) lại thêm một nét phẩy tức là càng ít Thiểu (少) hơn nữa."
+  },
+  {
+    "char": "会",
+    "hv": "Hội",
+    "lesson": "L13",
+    "lessonName": "Bài 13",
+    "strokes": 6,
+    "meaning": "Gặp gỡ, tụ họp, hội thảo",
+    "kun": "あ-う",
+    "on": "かい",
+    "examples": [
+      {
+        "word": "会います",
+        "reading": "あいます",
+        "vi": "Gặp gỡ"
+      },
+      {
+        "word": "会社",
+        "reading": "かいしゃ",
+        "vi": "Công ty"
+      },
+      {
+        "word": "会議",
+        "reading": "かいぎ",
+        "vi": "Cuộc họp"
+      },
+      {
+        "word": "会話",
+        "reading": "かいわ",
+        "vi": "Hội thoại"
+      }
+    ],
+    "formula": "人 (Nhân) ＋ 一 ＋ ム",
+    "strokeGuide": "Nét phẩy và nét mác (bộ Nhân) trên cùng ➔ nét ngang giữa ➔ chữ Khư (厶 - 2 nét) bên dưới.",
+    "mnemonic": "Mọi người (人) cùng tề tựu dưới một mái nhà sum Hội (会)."
+  },
+  {
+    "char": "社",
+    "hv": "Xã",
+    "lesson": "L13",
+    "lessonName": "Bài 13",
+    "strokes": 7,
+    "meaning": "Công ty, đền miếu, xã hội",
+    "kun": "-",
+    "on": "しゃ",
+    "examples": [
+      {
+        "word": "会社",
+        "reading": "かいしゃ",
+        "vi": "Công ty"
+      },
+      {
+        "word": "本社",
+        "reading": "ほんしゃ",
+        "vi": "Trụ sở chính"
+      },
+      {
+        "word": "支社",
+        "reading": "ししゃ",
+        "vi": "Chi nhánh công ty"
+      },
+      {
+        "word": "社会",
+        "reading": "しゃかい",
+        "vi": "Xã hội"
+      }
+    ],
+    "formula": "礻 (Kỳ - thần linh) ＋ 土 (Thổ - đất đai)",
+    "strokeGuide": "Bộ Kỳ (礻 - 4 nét) bên trái ➔ chữ Thổ (土 - 3 nét: ngang, sổ, ngang đáy) bên phải.",
+    "mnemonic": "Thần linh (礻) bảo vệ đất đai thôn làng thành Xã (社) tắc."
+  },
+  {
+    "char": "支",
+    "hv": "Chi",
+    "lesson": "L13",
+    "lessonName": "Bài 13",
+    "strokes": 4,
+    "meaning": "Cành nhánh, chi nhánh, chống đỡ, chi viện",
+    "kun": "-",
+    "on": "し",
+    "examples": [
+      {
+        "word": "支社",
+        "reading": "ししゃ",
+        "vi": "Chi nhánh công ty"
+      },
+      {
+        "word": "支店",
+        "reading": "してん",
+        "vi": "Cửa hàng chi nhánh"
+      },
+      {
+        "word": "支配",
+        "reading": "しはい",
+        "vi": "Chi phối, thống trị"
+      },
+      {
+        "word": "支援",
+        "reading": "しえん",
+        "vi": "Chi viện, viện trợ"
+      }
+    ],
+    "formula": "十 ＋ 又",
+    "strokeGuide": "Chữ Thập (十 - 2 nét trên) ➔ chữ Hựu (又 - 2 nét dưới: ngang gập, mác dài).",
+    "mnemonic": "Bàn tay nắm lấy cành cây chống đỡ phân Chi (支)."
+  },
+  {
+    "char": "張",
+    "hv": "Trương",
+    "lesson": "L13",
+    "lessonName": "Bài 13",
+    "strokes": 11,
+    "meaning": "Kéo căng, giương cung, phồng to",
+    "kun": "は-る",
+    "on": "ちょう",
+    "examples": [
+      {
+        "word": "出張",
+        "reading": "しゅっちょう",
+        "vi": "Chuyến công tác"
+      },
+      {
+        "word": "主張",
+        "reading": "しゅちょう",
+        "vi": "Chủ trương"
+      },
+      {
+        "word": "緊張",
+        "reading": "きんちょう",
+        "vi": "Căng thẳng, hồi hộp"
+      },
+      {
+        "word": "引っ張る",
+        "reading": "ひっぱる",
+        "vi": "Lôi kéo, kéo giật"
+      }
+    ],
+    "formula": "弓 (Cung) ＋ 長 (Trường - dài)",
+    "strokeGuide": "Bộ Cung (弓 - 3 nét) bên trái ➔ chữ Trường (長 - 8 nét) bên phải.",
+    "mnemonic": "Cây cung (弓) kéo căng dài (長) gọi là Trương (張)."
+  },
+  {
+    "char": "空",
+    "hv": "Không",
+    "lesson": "L13",
+    "lessonName": "Bài 13",
+    "strokes": 8,
+    "meaning": "Bầu trời, khoảng không, trống rỗng",
+    "kun": "そら、あ-く",
+    "on": "くう",
+    "examples": [
+      {
+        "word": "空港",
+        "reading": "くうこう",
+        "vi": "Sân bay, phi trường"
+      },
+      {
+        "word": "空",
+        "reading": "そら",
+        "vi": "Bầu trời"
+      },
+      {
+        "word": "空気",
+        "reading": "くうき",
+        "vi": "Không khí"
+      },
+      {
+        "word": "空手",
+        "reading": "からて",
+        "vi": "Môn võ Karate (Không thủ)"
+      }
+    ],
+    "formula": "穴 (Huyệt) ＋ 工 (Công)",
+    "strokeGuide": "Bộ Huyệt (穴 - 5 nét trên) ➔ chữ Công (工 - 3 nét dưới: ngang, sổ, ngang đáy).",
+    "mnemonic": "Dưới mái hang sâu (穴) người thợ (工) ngước nhìn khoảng Không (空) vô tận."
+  },
+  {
+    "char": "港",
+    "hv": "Cảng",
+    "lesson": "L13",
+    "lessonName": "Bài 13",
+    "strokes": 12,
+    "meaning": "Bến cảng, sân bay, hải cảng",
+    "kun": "みなと",
+    "on": "こう",
+    "examples": [
+      {
+        "word": "空港",
+        "reading": "くうこう",
+        "vi": "Sân bay, phi cảng"
+      },
+      {
+        "word": "港",
+        "reading": "みなと",
+        "vi": "Bến cảng, hải cảng"
+      },
+      {
+        "word": "港町",
+        "reading": "みなとまち",
+        "vi": "Phố cảng ven biển"
+      },
+      {
+        "word": "寄港",
+        "reading": "きこう",
+        "vi": "Ghé cảng, cập cảng"
+      }
+    ],
+    "formula": "氵 (Thủy) ＋ 巷 (Hạng - ngõ hẻm)",
+    "strokeGuide": "Bộ Thủy (氵 - 3 nét) bên trái ➔ chữ Hạng (巷 - 9 nét: Cộng 共 + Tỵ 巳) bên phải.",
+    "mnemonic": "Nơi dòng nước (氵) tụ hội muôn ngả thuyền bè là bến Cảng (港)."
+  },
+  {
+    "char": "発",
+    "hv": "Phát",
+    "lesson": "L13",
+    "lessonName": "Bài 13",
+    "strokes": 9,
+    "meaning": "Khởi hành, phát ra, phát triển",
+    "kun": "-",
+    "on": "はつ、ほつ",
+    "examples": [
+      {
+        "word": "出発",
+        "reading": "しゅっぱつ",
+        "vi": "Khởi hành, xuất phát"
+      },
+      {
+        "word": "発見",
+        "reading": "はっけん",
+        "vi": "Phát hiện, tìm thấy"
+      },
+      {
+        "word": "発音",
+        "reading": "はつおん",
+        "vi": "Phát âm"
+      },
+      {
+        "word": "発表",
+        "reading": "はっぴょう",
+        "vi": "Phát biểu, công bố"
+      }
+    ],
+    "formula": "癶 (Bát - hai chân) ＋ 弓 ＋ 殳",
+    "strokeGuide": "Bộ Bát (癶 - 5 nét trên) ➔ hai nét uốn và nét phẩy mác phía dưới.",
+    "mnemonic": "Hai chân bước ra bắn tên vút đi Phát (発) động hành trình."
+  },
+  {
+    "char": "着",
+    "hv": "Trước",
+    "lesson": "L13",
+    "lessonName": "Bài 13",
+    "strokes": 12,
+    "meaning": "Đến nơi, cập bến, mặc trang phục",
+    "kun": "つ-く、き-る",
+    "on": "ちゃく",
+    "examples": [
+      {
+        "word": "到着",
+        "reading": "とうちゃく",
+        "vi": "Đến nơi, cập bến"
+      },
+      {
+        "word": "着きます",
+        "reading": "つきます",
+        "vi": "Đến, tới nơi"
+      },
+      {
+        "word": "着ます",
+        "reading": "きます",
+        "vi": "Mặc (áo, kimono)"
+      },
+      {
+        "word": "上着",
+        "reading": "うわぎ",
+        "vi": "Áo khoác ngoài"
+      }
+    ],
+    "formula": "羊 (Dương - cừu) ＋ 目 (Mục - mắt)",
+    "strokeGuide": "Bộ Dương biến thể (羊 - 7 nét trên với nét phẩy dài) ➔ chữ Mục (目 - 5 nét dưới).",
+    "mnemonic": "Đàn cừu (羊) mở to mắt (目) mừng rỡ khi tàu cập bến Trước (着)."
+  },
+  {
+    "char": "午",
+    "hv": "Ngọ",
+    "lesson": "L13",
+    "lessonName": "Bài 13",
+    "strokes": 4,
+    "meaning": "Giờ ngọ (12 giờ trưa), phương nam",
+    "kun": "-",
+    "on": "ご",
+    "examples": [
+      {
+        "word": "午前",
+        "reading": "ごぜん",
+        "vi": "Buổi sáng (trước 12h trưa)"
+      },
+      {
+        "word": "午後",
+        "reading": "ごご",
+        "vi": "Buổi chiều (sau 12h trưa)"
+      },
+      {
+        "word": "正午",
+        "reading": "しょうご",
+        "vi": "Chính ngọ (đúng 12h trưa)"
+      }
+    ],
+    "formula": "丿 ＋ 一 ＋ 十",
+    "strokeGuide": "Nét phẩy trên ➔ nét ngang ngắn ➔ nét ngang dài ➔ nét sổ thẳng giữa.",
+    "mnemonic": "Chiếc chày thẳng đứng lúc bóng nắng tròn 12 giờ trưa chính Ngọ (午)."
+  },
+  {
+    "char": "自",
+    "hv": "Tự",
+    "lesson": "L14",
+    "lessonName": "Bài 14",
+    "strokes": 6,
+    "meaning": "Tự mình, tự thân, tự do",
+    "kun": "みずか-ら",
+    "on": "じ、し",
+    "examples": [
+      {
+        "word": "自分",
+        "reading": "じぶん",
+        "vi": "Bản thân mình"
+      },
+      {
+        "word": "自動車",
+        "reading": "じどうしゃ",
+        "vi": "Xe ô tô"
+      },
+      {
+        "word": "自由",
+        "reading": "じゆう",
+        "vi": "Tự do"
+      },
+      {
+        "word": "自転車",
+        "reading": "じてんしゃ",
+        "vi": "Xe đạp"
+      }
+    ],
+    "formula": "丿 ＋ 目 (Mục)",
+    "strokeGuide": "Nét phẩy ngắn trên đỉnh ➔ chữ Mục (目 - 5 nét bên dưới).",
+    "mnemonic": "Chỉ tay vào mũi chính giữa khuôn mặt tức là nói về Tự (自) mình."
+  },
+  {
+    "char": "分",
+    "hv": "Phân",
+    "lesson": "L14",
+    "lessonName": "Bài 14",
+    "strokes": 4,
+    "meaning": "Phân chia, thấu hiểu, phút",
+    "kun": "わ-かる、わ-ける",
+    "on": "ぶん、ふん、ぷん",
+    "examples": [
+      {
+        "word": "自分",
+        "reading": "じぶん",
+        "vi": "Bản thân mình"
+      },
+      {
+        "word": "分かります",
+        "reading": "わかります",
+        "vi": "Hiểu, nắm rõ"
+      },
+      {
+        "word": "5分",
+        "reading": "ごふん",
+        "vi": "5 phút"
+      },
+      {
+        "word": "半分",
+        "reading": "はんぶん",
+        "vi": "Một nửa"
+      }
+    ],
+    "formula": "八 (Bát) ＋ 刀 (Đao)",
+    "strokeGuide": "Nét phẩy trái và mác phải (bộ Bát - 2 nét trên) ➔ chữ Đao (刀 - 2 nét dưới).",
+    "mnemonic": "Dùng con dao (刀) rạch đôi chia thành từng Phân (分) phần rõ ràng."
+  },
+  {
+    "char": "電",
+    "hv": "Điện",
+    "lesson": "L14",
+    "lessonName": "Bài 14",
+    "strokes": 13,
+    "meaning": "Điện lực, ánh sáng, tia chớp",
+    "kun": "-",
+    "on": "でん",
+    "examples": [
+      {
+        "word": "電話",
+        "reading": "でんわ",
+        "vi": "Điện thoại"
+      },
+      {
+        "word": "電気",
+        "reading": "でんき",
+        "vi": "Đèn điện, ánh sáng"
+      },
+      {
+        "word": "電車",
+        "reading": "でんしゃ",
+        "vi": "Tàu điện"
+      },
+      {
+        "word": "電力",
+        "reading": "でんりょく",
+        "vi": "Điện lực"
+      }
+    ],
+    "formula": "雨 (Vũ) ＋ 申 (Thân)",
+    "strokeGuide": "Bộ Vũ (雨 - 8 nét trên) ➔ chữ Thân (申 - 5 nét dưới: khung vuông và nét sổ thẳng).",
+    "mnemonic": "Trong cơn mưa (雨) sấm chớp giáng xuống phát ra dòng Điện (電)."
+  },
+  {
+    "char": "話",
+    "hv": "Thoại",
+    "lesson": "L14",
+    "lessonName": "Bài 14",
+    "strokes": 13,
+    "meaning": "Nói chuyện, câu chuyện, đối thoại",
+    "kun": "はな-す、はなし",
+    "on": "わ",
+    "examples": [
+      {
+        "word": "電話",
+        "reading": "でんわ",
+        "vi": "Điện thoại"
+      },
+      {
+        "word": "話します",
+        "reading": "はなします",
+        "vi": "Nói chuyện"
+      },
+      {
+        "word": "会話",
+        "reading": "かいわ",
+        "vi": "Hội thoại"
+      },
+      {
+        "word": "世話",
+        "reading": "せわ",
+        "vi": "Chăm sóc, giúp đỡ"
+      }
+    ],
+    "formula": "言 (Ngôn) ＋ 舌 (Thiệt - cái lưỡi)",
+    "strokeGuide": "Bộ Ngôn (言 - 7 nét trái) ➔ chữ Thiệt (舌 - 6 nét phải).",
+    "mnemonic": "Cái lưỡi (舌) cất thành lời nói (言) để chuyện trò đối Thoại (話)."
+  },
+  {
+    "char": "車",
+    "hv": "Xa",
+    "lesson": "L14",
+    "lessonName": "Bài 14",
+    "strokes": 7,
+    "meaning": "Xe cộ, bánh xe",
+    "kun": "くるま",
+    "on": "しゃ",
+    "examples": [
+      {
+        "word": "車",
+        "reading": "くるま",
+        "vi": "Xe ô tô"
+      },
+      {
+        "word": "電車",
+        "reading": "でんしゃ",
+        "vi": "Tàu điện"
+      },
+      {
+        "word": "自転車",
+        "reading": "じてんしゃ",
+        "vi": "Xe đạp"
+      },
+      {
+        "word": "駐車場",
+        "reading": "ちゅうしゃじょう",
+        "vi": "Bãi đỗ xe"
+      }
+    ],
+    "formula": "一 ＋ 囗 ＋ 十",
+    "strokeGuide": "Nét ngang trên ➔ nét sổ trái ➔ gập ngang ➔ 2 nét ngang trong ➔ ngang dài đáy ➔ sổ thẳng xuyên qua.",
+    "mnemonic": "Hình cỗ Xa (車) xe có trục và bánh lăn tròn đều."
+  },
+  {
+    "char": "送",
+    "hv": "Tống",
+    "lesson": "L14",
+    "lessonName": "Bài 14",
+    "strokes": 9,
+    "meaning": "Gửi đi, tiễn đưa, chuyển phát",
+    "kun": "おく-る",
+    "on": "そう",
+    "examples": [
+      {
+        "word": "送ります",
+        "reading": "おくります",
+        "vi": "Gửi (email, bưu phẩm) / Tiễn khách"
+      },
+      {
+        "word": "郵送",
+        "reading": "ゆうそう",
+        "vi": "Gửi qua đường bưu điện"
+      },
+      {
+        "word": "見送る",
+        "reading": "みおくる",
+        "vi": "Tiễn biệt, đưa tiễn"
+      },
+      {
+        "word": "転送",
+        "reading": "てんそう",
+        "vi": "Chuyển tiếp thư từ"
+      }
+    ],
+    "formula": "关 (Quan) ＋ 辶 (Quai xước)",
+    "strokeGuide": "Chữ Quan (关 - 6 nét trong: 2 chấm, 2 ngang, phẩy, mác) ➔ bộ Quai xước (辶 - 3 nét ngoài).",
+    "mnemonic": "Dõi theo bước chân (辶) tiễn Tống (送) người đi xa."
+  },
+  {
+    "char": "使",
+    "hv": "Sử",
+    "lesson": "L14",
+    "lessonName": "Bài 14",
+    "strokes": 8,
+    "meaning": "Sử dụng, sai khiến, đại sứ",
+    "kun": "つか-う",
+    "on": "し",
+    "examples": [
+      {
+        "word": "使います",
+        "reading": "つかいます",
+        "vi": "Sử dụng, dùng"
+      },
+      {
+        "word": "使い方",
+        "reading": "つかいかた",
+        "vi": "Cách sử dụng"
+      },
+      {
+        "word": "大使館",
+        "reading": "たいしかん",
+        "vi": "Đại sứ quán"
+      },
+      {
+        "word": "使用",
+        "reading": "しよう",
+        "vi": "Sử dụng"
+      }
+    ],
+    "formula": "亻 (Nhân đứng) ＋ 吏 (Lại - quan lại)",
+    "strokeGuide": "Bộ Nhân đứng (亻 - 2 nét trái) ➔ chữ Lại (吏 - 6 nét phải: ngang, khẩu 口, phẩy, mác).",
+    "mnemonic": "Con người (亻) được quan sai phái ra ngoài Sử (使) dụng tài trí."
+  },
+  {
+    "char": "借",
+    "hv": "Tá",
+    "lesson": "L14",
+    "lessonName": "Bài 14",
+    "strokes": 10,
+    "meaning": "Vay mượn đồ đạc, nợ nần",
+    "kun": "か-りる",
+    "on": "しゃく",
+    "examples": [
+      {
+        "word": "借ります",
+        "reading": "かります",
+        "vi": "Vay mượn"
+      },
+      {
+        "word": "借用書",
+        "reading": "しゃくようしょ",
+        "vi": "Giấy vay nợ"
+      },
+      {
+        "word": "借金",
+        "reading": "しゃっきん",
+        "vi": "Khoản nợ, tiền vay"
+      }
+    ],
+    "formula": "亻 (Nhân đứng) ＋ 昔 (Tích - ngày xưa)",
+    "strokeGuide": "Bộ Nhân đứng (亻 - 2 nét trái) ➔ chữ Tích (昔 - 8 nét phải: Thảo cách điệu + Nhật 日).",
+    "mnemonic": "Người (亻) từ ngày xưa (昔) vẫn thường tìm đến vay mượn Tá (借) của nhau."
+  },
+  {
+    "char": "体",
+    "hv": "Thể",
+    "lesson": "L15",
+    "lessonName": "Bài 15",
+    "strokes": 7,
+    "meaning": "Thân thể, cơ thể, thể dục",
+    "kun": "からだ",
+    "on": "たい、てい",
+    "examples": [
+      {
+        "word": "体",
+        "reading": "からだ",
+        "vi": "Thân thể, cơ thể"
+      },
+      {
+        "word": "体操",
+        "reading": "たいそう",
+        "vi": "Tập thể dục"
+      },
+      {
+        "word": "体調",
+        "reading": "たいちょう",
+        "vi": "Tình trạng sức khỏe"
+      },
+      {
+        "word": "体重",
+        "reading": "たいじゅう",
+        "vi": "Cân nặng, thể trọng"
+      }
+    ],
+    "formula": "亻 (Nhân đứng) ＋ 本 (Bổn - cội gốc)",
+    "strokeGuide": "Bộ Nhân đứng (亻 - 2 nét trái) ➔ chữ Bổn (本 - 5 nét phải: Mộc 木 + nét ngang đáy).",
+    "mnemonic": "Cội gốc (本) quý giá nhất của con người (亻) chính là Thân Thể (体)."
+  },
+  {
+    "char": "頭",
+    "hv": "Đầu",
+    "lesson": "L15",
+    "lessonName": "Bài 15",
+    "strokes": 16,
+    "meaning": "Cái đầu, đầu óc, đứng đầu",
+    "kun": "あたま",
+    "on": "とう、ず",
+    "examples": [
+      {
+        "word": "頭",
+        "reading": "あたま",
+        "vi": "Cái đầu"
+      },
+      {
+        "word": "頭痛",
+        "reading": "ずつう",
+        "vi": "Đau đầu"
+      },
+      {
+        "word": "頭角",
+        "reading": "とうかく",
+        "vi": "Xuất đầu lộ diện, nổi bật"
+      },
+      {
+        "word": "先頭",
+        "reading": "せんとう",
+        "vi": "Dẫn đầu, đi đầu"
+      }
+    ],
+    "formula": "豆 (Đậu) ＋ 頁 (Hiệt - đầu)",
+    "strokeGuide": "Chữ Đậu (豆 - 7 nét trái) ➔ bộ Hiệt (頁 - 9 nét phải).",
+    "mnemonic": "Hạt đậu (豆) nhỏ đặt trên đỉnh đầu (頁) biểu trưng cho Đầu (頭) não."
+  },
+  {
+    "char": "目",
+    "hv": "Mục",
+    "lesson": "L15",
+    "lessonName": "Bài 15",
+    "strokes": 5,
+    "meaning": "Con mắt, mục lục, mục tiêu",
+    "kun": "め",
+    "on": "もく",
+    "examples": [
+      {
+        "word": "目",
+        "reading": "め",
+        "vi": "Con mắt"
+      },
+      {
+        "word": "目薬",
+        "reading": "めぐすり",
+        "vi": "Thuốc nhỏ mắt"
+      },
+      {
+        "word": "目的",
+        "reading": "もくてき",
+        "vi": "Mục đích"
+      },
+      {
+        "word": "注目",
+        "reading": "ちゅうもく",
+        "vi": "Chú ý, để mắt tới"
+      }
+    ],
+    "formula": "Khung hình chữ nhật ＋ 2 nét ngang trong",
+    "strokeGuide": "Sổ trái ➔ gập ngang sổ xuống ➔ 2 nét ngang trong ➔ đóng đáy ngang.",
+    "mnemonic": "Hình vẽ tròng mắt có con ngươi tinh anh sáng Mục (目)."
+  },
+  {
+    "char": "口",
+    "hv": "Khẩu",
+    "lesson": "L15",
+    "lessonName": "Bài 15",
+    "strokes": 3,
+    "meaning": "Cái miệng, cửa ra vào, nhân khẩu",
+    "kun": "くち",
+    "on": "こう、く",
+    "examples": [
+      {
+        "word": "口",
+        "reading": "くち",
+        "vi": "Cái miệng"
+      },
+      {
+        "word": "入口",
+        "reading": "いりぐち",
+        "vi": "Lối vào, cửa vào"
+      },
+      {
+        "word": "出口",
+        "reading": "でぐち",
+        "vi": "Lối ra, cửa ra"
+      },
+      {
+        "word": "人口",
+        "reading": "じんこう",
+        "vi": "Dân số, nhân khẩu"
+      }
+    ],
+    "formula": "Hình vuông ba nét",
+    "strokeGuide": "Sổ trái ➔ gập ngang sổ xuống ➔ đóng đáy ngang.",
+    "mnemonic": "Hình vẽ cái miệng vuông vức mở ra nói lời hay Khẩu (口)."
+  },
+  {
+    "char": "耳",
+    "hv": "Nhĩ",
+    "lesson": "L15",
+    "lessonName": "Bài 15",
+    "strokes": 6,
+    "meaning": "Cái tai, lắng nghe",
+    "kun": "みみ",
+    "on": "じ",
+    "examples": [
+      {
+        "word": "耳",
+        "reading": "みみ",
+        "vi": "Cái tai"
+      },
+      {
+        "word": "初耳",
+        "reading": "はつみみ",
+        "vi": "Lần đầu nghe thấy"
+      },
+      {
+        "word": "耳鼻科",
+        "reading": "じびか",
+        "vi": "Khoa tai mũi họng"
+      }
+    ],
+    "formula": "Một nét ngang ＋ 2 sổ ＋ 2 ngang trong ➔ ngang dài chéo",
+    "strokeGuide": "Ngang trên ➔ 2 sổ dọc ➔ 2 ngang giữa ➔ nét ngang dài chéo đáy.",
+    "mnemonic": "Hình vẽ vành tai hứng trọn âm thanh bốn phương Nhĩ (耳)."
+  },
+  {
+    "char": "手",
+    "hv": "Thủ",
+    "lesson": "L15",
+    "lessonName": "Bài 15",
+    "strokes": 4,
+    "meaning": "Bàn tay, thủ thuật, người làm",
+    "kun": "て",
+    "on": "しゅ",
+    "examples": [
+      {
+        "word": "手",
+        "reading": "て",
+        "vi": "Bàn tay"
+      },
+      {
+        "word": "手紙",
+        "reading": "てがみ",
+        "vi": "Bức thư"
+      },
+      {
+        "word": "上手",
+        "reading": "じょうず",
+        "vi": "Giỏi giang"
+      },
+      {
+        "word": "下手",
+        "reading": "へた",
+        "vi": "Vụng về, kém cỏi"
+      }
+    ],
+    "formula": "Nét phẩy ＋ 2 nét ngang ＋ sổ cong móc",
+    "strokeGuide": "Phẩy ngắn trên ➔ ngang ngắn ➔ ngang dài ➔ sổ cong móc giữa.",
+    "mnemonic": "Hình bàn tay xòe ra năm ngón làm nên cơ nghiệp Thủ (手)."
+  },
+  {
+    "char": "足",
+    "hv": "Túc",
+    "lesson": "L15",
+    "lessonName": "Bài 15",
+    "strokes": 7,
+    "meaning": "Bàn chân, cẳng chân, đầy đủ",
+    "kun": "あし、た-りる",
+    "on": "そく",
+    "examples": [
+      {
+        "word": "足",
+        "reading": "あし",
+        "vi": "Bàn chân, cẳng chân"
+      },
+      {
+        "word": "足ります",
+        "reading": "たります",
+        "vi": "Đầy đủ"
+      },
+      {
+        "word": "遠足",
+        "reading": "えんそく",
+        "vi": "Dã ngoại, chuyến đi bộ đường dài"
+      },
+      {
+        "word": "不足",
+        "reading": "ふそく",
+        "vi": "Không đủ, thiếu thốn"
+      }
+    ],
+    "formula": "口 (Khẩu) ＋ 止 (Chỉ)",
+    "strokeGuide": "Chữ Khẩu (口 - 3 nét trên) ➔ sổ giữa, ngang, sổ trái, mác dài đáy (4 nét dưới).",
+    "mnemonic": "Đôi chân vững vàng bước đi mang lại ấm no sung Túc (足)."
+  },
+  {
+    "char": "上",
+    "hv": "Thượng",
+    "lesson": "L15",
+    "lessonName": "Bài 15",
+    "strokes": 3,
+    "meaning": "Bên trên, tiến lên, thượng đẳng",
+    "kun": "うえ、あ-がる",
+    "on": "じょう",
+    "examples": [
+      {
+        "word": "上",
+        "reading": "うえ",
+        "vi": "Phía trên, bên trên"
+      },
+      {
+        "word": "上手",
+        "reading": "じょうず",
+        "vi": "Giỏi giang"
+      },
+      {
+        "word": "屋上",
+        "reading": "おくじょう",
+        "vi": "Sân thượng"
+      },
+      {
+        "word": "上着",
+        "reading": "うわぎ",
+        "vi": "Áo khoác ngoài"
+      }
+    ],
+    "formula": "Sổ ngắn ＋ ngang ngắn ＋ ngang dài đáy",
+    "strokeGuide": "Nét sổ đứng ➔ nét ngang ngắn bên phải ➔ nét ngang dài bên dưới.",
+    "mnemonic": "Nét sổ vươn cao phía TRÊN đường ngang chỉ vị trí Thượng (上)."
+  },
+  {
+    "char": "下",
+    "hv": "Hạ",
+    "lesson": "L15",
+    "lessonName": "Bài 15",
+    "strokes": 3,
+    "meaning": "Bên dưới, hạ thấp, hạ đẳng",
+    "kun": "した、さ-がる",
+    "on": "か、げ",
+    "examples": [
+      {
+        "word": "下",
+        "reading": "した",
+        "vi": "Phía dưới, bên dưới"
+      },
+      {
+        "word": "下手",
+        "reading": "へた",
+        "vi": "Vụng về, kém cỏi"
+      },
+      {
+        "word": "地下",
+        "reading": "ちか",
+        "vi": "Dưới lòng đất"
+      },
+      {
+        "word": "靴下",
+        "reading": "くつした",
+        "vi": "Đôi tất chân"
+      }
+    ],
+    "formula": "Ngang dài đỉnh ➔ sổ ngắn ➔ chấm phải",
+    "strokeGuide": "Nét ngang dài trên cùng ➔ nét sổ ngắn xuống ➔ nét chấm/phẩy bên phải.",
+    "mnemonic": "Nét sổ chúc xuống phía DƯỚI đường ngang chỉ vị trí Hạ (下)."
+  },
+  {
+    "char": "毎",
+    "hv": "Mỗi",
+    "lesson": "L16",
+    "lessonName": "Bài 16",
+    "strokes": 6,
+    "meaning": "Mỗi một, từng, hàng ngày",
+    "kun": "ごと",
+    "on": "まい",
+    "examples": [
+      {
+        "word": "毎日",
+        "reading": "まいにち",
+        "vi": "Mỗi ngày, hàng ngày"
+      },
+      {
+        "word": "毎朝",
+        "reading": "まいあさ",
+        "vi": "Mỗi sáng"
+      },
+      {
+        "word": "毎週",
+        "reading": "まいしゅう",
+        "vi": "Mỗi tuần"
+      },
+      {
+        "word": "毎年",
+        "reading": "まいとし",
+        "vi": "Mỗi năm"
+      }
+    ],
+    "formula": "𠂉 (Nhân cách điệu) ＋ 母 (Mẫu - người mẹ)",
+    "strokeGuide": "Phẩy và ngang (2 nét trên) ➔ nét sổ gập, ngang trong, 2 chấm, ngang đáy (4 nét dưới).",
+    "mnemonic": "Hình người mẹ (母) tần tảo chăm sóc gia đình Mỗi (毎) ngày."
+  },
+  {
+    "char": "末",
+    "hv": "Mạt",
+    "lesson": "L16",
+    "lessonName": "Bài 16",
+    "strokes": 5,
+    "meaning": "Ngọn cây, cuối cùng, kết thúc",
+    "kun": "すえ",
+    "on": "まつ",
+    "examples": [
+      {
+        "word": "週末",
+        "reading": "しゅうまつ",
+        "vi": "Cuối tuần"
+      },
+      {
+        "word": "年末",
+        "reading": "ねんまつ",
+        "vi": "Cuối năm"
+      },
+      {
+        "word": "月末",
+        "reading": "げつまつ",
+        "vi": "Cuối tháng"
+      },
+      {
+        "word": "期末",
+        "reading": "きまつ",
+        "vi": "Cuối kỳ"
+      }
+    ],
+    "formula": "一 (Ngang dài) ＋ 木 (Mộc với ngang ngắn)",
+    "strokeGuide": "Ngang dài trên ➔ ngang ngắn dưới ➔ sổ thẳng giữa ➔ phẩy trái ➔ mác phải.",
+    "mnemonic": "Cành cây trên dài hơn cành dưới chỉ phần ngọn, cuối Mạt (末)."
+  },
+  {
+    "char": "元",
+    "hv": "Nguyên",
+    "lesson": "L16",
+    "lessonName": "Bài 16",
+    "strokes": 4,
+    "meaning": "Nguồn gốc, căn nguyên, nguyên khí",
+    "kun": "もと",
+    "on": "げん、がん",
+    "examples": [
+      {
+        "word": "元気",
+        "reading": "げんき",
+        "vi": "Khỏe mạnh, tràn đầy sinh lực"
+      },
+      {
+        "word": "元日",
+        "reading": "がんじつ",
+        "vi": "Ngày mồng một Tết"
+      },
+      {
+        "word": "元々",
+        "reading": "もともと",
+        "vi": "Vốn dĩ, ban đầu"
+      }
+    ],
+    "formula": "二 (Nhị) ＋ 儿 (Nhân)",
+    "strokeGuide": "Ngang ngắn trên ➔ ngang dài dưới ➔ phẩy trái ➔ cong móc phải.",
+    "mnemonic": "Trời đất (二) sinh ra con người (儿) là cội nguồn Nguyên (元) thủy."
+  },
+  {
+    "char": "外",
+    "hv": "Ngoại",
+    "lesson": "L16",
+    "lessonName": "Bài 16",
+    "strokes": 5,
+    "meaning": "Bên ngoài, ngoại quốc",
+    "kun": "そと、はず-す",
+    "on": "がい、げ",
+    "examples": [
+      {
+        "word": "外",
+        "reading": "そと",
+        "vi": "Bên ngoài"
+      },
+      {
+        "word": "外国",
+        "reading": "がいこく",
+        "vi": "Nước ngoài"
+      },
+      {
+        "word": "外出",
+        "reading": "がいしゅつ",
+        "vi": "Đi ra ngoài"
+      },
+      {
+        "word": "海外",
+        "reading": "かいがい",
+        "vi": "Hải ngoại"
+      }
+    ],
+    "formula": "夕 (Tịch - buổi chiều) ＋ 卜 (Bốc - bói toán)",
+    "strokeGuide": "Bộ Tịch (夕 - 3 nét trái) ➔ bộ Bốc (卜 - 2 nét phải: sổ dọc và chấm phải).",
+    "mnemonic": "Buổi chiều tà (夕) gieo quẻ bói (卜) đoán chuyện bên Ngoại (外)."
+  },
+  {
+    "char": "起",
+    "hv": "Khởi",
+    "lesson": "L16",
+    "lessonName": "Bài 16",
+    "strokes": 10,
+    "meaning": "Thức dậy, đứng lên, khởi đầu",
+    "kun": "お-きる、お-こす",
+    "on": "き",
+    "examples": [
+      {
+        "word": "起きます",
+        "reading": "おきます",
+        "vi": "Thức dậy"
+      },
+      {
+        "word": "早起き",
+        "reading": "はやおき",
+        "vi": "Dậy sớm"
+      },
+      {
+        "word": "起立",
+        "reading": "きりつ",
+        "vi": "Đứng dậy (hiệu lệnh)"
+      }
+    ],
+    "formula": "走 (Tẩu - chạy) ＋ 己 (Kỷ - bản thân)",
+    "strokeGuide": "Bộ Tẩu (走 - 7 nét trái) ➔ chữ Kỷ (己 - 3 nét phải: ngang gập, ngang, cong móc).",
+    "mnemonic": "Chạy bộ (走) đưa bản thân mình (己) đứng dậy Khởi (起) sắc ngày mới."
+  },
+  {
+    "char": "歩",
+    "hv": "Bộ",
+    "lesson": "L16",
+    "lessonName": "Bài 16",
+    "strokes": 8,
+    "meaning": "Đi bộ, từng bước, tản bộ",
+    "kun": "ある-く、あゆ-む",
+    "on": "ほ、ぽ",
+    "examples": [
+      {
+        "word": "歩きます",
+        "reading": "あるきます",
+        "vi": "Đi bộ"
+      },
+      {
+        "word": "散歩",
+        "reading": "さんぽ",
+        "vi": "Tản bộ, đi dạo"
+      },
+      {
+        "word": "歩道",
+        "reading": "ほどう",
+        "vi": "Lối đi bộ, vỉa hè"
+      }
+    ],
+    "formula": "止 (Chỉ) ＋ 少 (Thiếu biến thể)",
+    "strokeGuide": "Bộ Chỉ (止 - 4 nét trên) ➔ nét phẩy, sổ gập, chấm (4 nét dưới).",
+    "mnemonic": "Dừng lại (止) rồi bước tiếp từng bước chân đi Bộ (歩)."
+  },
+  {
+    "char": "走",
+    "hv": "Tẩu",
+    "lesson": "L16",
+    "lessonName": "Bài 16",
+    "strokes": 7,
+    "meaning": "Chạy, tẩu thoát, di chuyển nhanh",
+    "kun": "はし-る",
+    "on": "そう",
+    "examples": [
+      {
+        "word": "走ります",
+        "reading": "はしります",
+        "vi": "Chạy bộ"
+      },
+      {
+        "word": "ご馳走",
+        "reading": "ごちそう",
+        "vi": "Bữa tiệc chiêu đãi"
+      },
+      {
+        "word": "走行",
+        "reading": "そうこう",
+        "vi": "Chạy xe, lưu thông"
+      }
+    ],
+    "formula": "土 (Thổ) ＋ 疋 (Sơ biến thể)",
+    "strokeGuide": "Chữ Thổ (土 - 3 nét trên) ➔ nét sổ giữa, ngang ngắn, phẩy dài, mác dài (4 nét dưới).",
+    "mnemonic": "Người vung chân lao qua lớp đất cát (土) Tẩu (走) chạy thật mau."
+  },
+  {
+    "char": "泳",
+    "hv": "Vịnh",
+    "lesson": "L16",
+    "lessonName": "Bài 16",
+    "strokes": 8,
+    "meaning": "Bơi lội dưới nước",
+    "kun": "およ-ぐ",
+    "on": "えい",
+    "examples": [
+      {
+        "word": "泳ぎます",
+        "reading": "およぎます",
+        "vi": "Bơi lội"
+      },
+      {
+        "word": "水泳",
+        "reading": "すいえい",
+        "vi": "Môn bơi lội"
+      },
+      {
+        "word": "平泳ぎ",
+        "reading": "ひらおよぎ",
+        "vi": "Bơi ếch"
+      }
+    ],
+    "formula": "氵 (Thủy) ＋ 永 (Vĩnh - vĩnh cửu)",
+    "strokeGuide": "Bộ Thủy (氵 - 3 nét trái) ➔ chữ Vĩnh (永 - 5 nét phải: chấm, ngang gập móc, phẩy, mác).",
+    "mnemonic": "Làn nước (氵) trong xanh vĩnh hằng (永) là nơi thỏa sức bơi lội Vịnh (泳)."
+  },
+  {
+    "char": "朝",
+    "hv": "Triều",
+    "lesson": "L16",
+    "lessonName": "Bài 16",
+    "strokes": 12,
+    "meaning": "Buổi sáng, ban mai, triều đình",
+    "kun": "あさ",
+    "on": "ちょう",
+    "examples": [
+      {
+        "word": "朝",
+        "reading": "あさ",
+        "vi": "Buổi sáng"
+      },
+      {
+        "word": "毎朝",
+        "reading": "まいあさ",
+        "vi": "Mỗi sáng"
+      },
+      {
+        "word": "朝食",
+        "reading": "ちょうしょく",
+        "vi": "Bữa ăn sáng"
+      },
+      {
+        "word": "今朝",
+        "reading": "けさ",
+        "vi": "Sáng nay"
+      }
+    ],
+    "formula": "十 ＋ 日 ＋ 十 ＋ 月 (Nguyệt)",
+    "strokeGuide": "Ngang, sổ (Thập) ➔ Nhật 日 ➔ Thập 十 (8 nét trái) ➔ chữ Nguyệt (月 - 4 nét phải).",
+    "mnemonic": "Mặt trời (日) mọc trên ngọn cỏ cùng vầng trăng (月) còn lấp lánh ban Triều (朝)."
+  },
+  {
+    "char": "気",
+    "hv": "Khí",
+    "lesson": "L16",
+    "lessonName": "Bài 16",
+    "strokes": 6,
+    "meaning": "Không khí, khí sắc, tinh thần",
+    "kun": "-",
+    "on": "き、け",
+    "examples": [
+      {
+        "word": "元気",
+        "reading": "げんき",
+        "vi": "Khỏe mạnh"
+      },
+      {
+        "word": "天気",
+        "reading": "てんき",
+        "vi": "Thời tiết"
+      },
+      {
+        "word": "気持ち",
+        "reading": "きもち",
+        "vi": "Cảm giác, tâm trạng"
+      },
+      {
+        "word": "気に入る",
+        "reading": "きにいる",
+        "vi": "Ưa thích, vừa ý"
+      }
+    ],
+    "formula": "气 (Khí) ＋ 乂",
+    "strokeGuide": "Phẩy ngắn trên ➔ ngang ➔ ngang dài gập cong móc ➔ 2 nét chéo (乂) bên trong.",
+    "mnemonic": "Luồng hơi nước bốc lên từ nồi cơm tỏa ra nguyên Khí (気) đất trời."
+  },
+  {
+    "char": "祝",
+    "hv": "Chúc",
+    "lesson": "L17",
+    "lessonName": "Bài 17",
+    "strokes": 9,
+    "meaning": "Chúc mừng, cầu phúc, lễ mừng",
+    "kun": "いわ-う",
+    "on": "しゅく",
+    "examples": [
+      {
+        "word": "お祝い",
+        "reading": "おいわい",
+        "vi": "Quà mừng, sự chúc mừng"
+      },
+      {
+        "word": "祝日",
+        "reading": "しゅくじつ",
+        "vi": "Ngày lễ tết"
+      },
+      {
+        "word": "祝福",
+        "reading": "しゅくふく",
+        "vi": "Chúc phúc, ban phước"
+      }
+    ],
+    "formula": "礻 (Kỳ - thần) ＋ 兄 (Huynh - anh trai)",
+    "strokeGuide": "Bộ Kỳ (礻 - 4 nét trái) ➔ chữ Huynh (兄 - 5 nét phải: Khẩu 口 + Nhi 儿).",
+    "mnemonic": "Người anh trai (兄) thay mặt gia đình dâng lễ lên Thần linh (礻) cầu Chúc (祝)."
+  },
+  {
+    "char": "誕",
+    "hv": "Đản",
+    "lesson": "L17",
+    "lessonName": "Bài 17",
+    "strokes": 15,
+    "meaning": "Sinh ra, giáng sinh, đản sinh",
+    "kun": "-",
+    "on": "たん",
+    "examples": [
+      {
+        "word": "誕生日",
+        "reading": "たんじょうび",
+        "vi": "Ngày sinh nhật"
+      },
+      {
+        "word": "生誕",
+        "reading": "せいたん",
+        "vi": "Sinh đẻ, giáng sinh"
+      },
+      {
+        "word": "誕生",
+        "reading": "たんじょう",
+        "vi": "Sự ra đời, chào đời"
+      }
+    ],
+    "formula": "言 (Ngôn) ＋ 延 (Duyên - kéo dài)",
+    "strokeGuide": "Bộ Ngôn (言 - 7 nét trái) ➔ chữ Duyên (延 - 8 nét phải).",
+    "mnemonic": "Dùng muôn lời ca tụng (言) kéo dài (延) mãi ngày chào đời Đản (誕) sinh."
+  },
+  {
+    "char": "結",
+    "hv": "Kết",
+    "lesson": "L17",
+    "lessonName": "Bài 17",
+    "strokes": 12,
+    "meaning": "Buộc lại, gắn kết, kết quả, kết hôn",
+    "kun": "むす-ぶ",
+    "on": "けつ、けっ",
+    "examples": [
+      {
+        "word": "結婚",
+        "reading": "けっこん",
+        "vi": "Kết hôn, cưới xin"
+      },
+      {
+        "word": "結びます",
+        "reading": "むすびます",
+        "vi": "Thắt nút, buộc lại"
+      },
+      {
+        "word": "結果",
+        "reading": "けっか",
+        "vi": "Kết quả"
+      },
+      {
+        "word": "結論",
+        "reading": "けつろん",
+        "vi": "Kết luận"
+      }
+    ],
+    "formula": "糸 (Mịch - sợi chỉ) ＋ 吉 (Cát - tốt lành)",
+    "strokeGuide": "Bộ Mịch (糸 - 6 nét trái) ➔ chữ Cát (吉 - 6 nét phải: Thổ 土 + Khẩu 口).",
+    "mnemonic": "Sợi tơ hồng (糸) mang lại điều cát tường (吉) Kết (結) duyên đôi lứa."
+  },
+  {
+    "char": "婚",
+    "hv": "Hôn",
+    "lesson": "L17",
+    "lessonName": "Bài 17",
+    "strokes": 11,
+    "meaning": "Hôn nhân, đám cưới",
+    "kun": "-",
+    "on": "こん",
+    "examples": [
+      {
+        "word": "結婚",
+        "reading": "けっこん",
+        "vi": "Kết hôn"
+      },
+      {
+        "word": "婚約",
+        "reading": "こんやく",
+        "vi": "Đính hôn, hứa hôn"
+      },
+      {
+        "word": "新婚",
+        "reading": "しんこん",
+        "vi": "Tân hôn, mới cưới"
+      },
+      {
+        "word": "離婚",
+        "reading": "りこん",
+        "vi": "Ly hôn"
+      }
+    ],
+    "formula": "女 (Nữ) ＋ 昏 (Hôn - chiều tà)",
+    "strokeGuide": "Bộ Nữ (女 - 3 nét trái) ➔ chữ Hôn (昏 - 8 nét phải: Thị 氏 + Nhật 日).",
+    "mnemonic": "Người con gái (女) bước lên kiệu hoa trong buổi hoàng Hôn (婚) lễ."
+  },
+  {
+    "char": "絵",
+    "hv": "Hội",
+    "lesson": "L17",
+    "lessonName": "Bài 17",
+    "strokes": 12,
+    "meaning": "Bức tranh vẽ, hội họa",
+    "kun": "-",
+    "on": "え、かい",
+    "examples": [
+      {
+        "word": "絵",
+        "reading": "え",
+        "vi": "Bức tranh vẽ"
+      },
+      {
+        "word": "絵本",
+        "reading": "えほん",
+        "vi": "Sách tranh thiếu nhi"
+      },
+      {
+        "word": "絵画",
+        "reading": "かいが",
+        "vi": "Tranh hội họa nghệ thuật"
+      },
+      {
+        "word": "油絵",
+        "reading": "あぶらえ",
+        "vi": "Tranh sơn dầu"
+      }
+    ],
+    "formula": "糸 (Mịch) ＋ 会 (Hội)",
+    "strokeGuide": "Bộ Mịch (糸 - 6 nét trái) ➔ chữ Hội (会 - 6 nét phải).",
+    "mnemonic": "Sợi chỉ màu (糸) hội tụ (会) trên khung vải dệt nên bức Hội (絵) họa."
+  },
+  {
+    "char": "写",
+    "hv": "Tả",
+    "lesson": "L17",
+    "lessonName": "Bài 17",
+    "strokes": 5,
+    "meaning": "Chụp ảnh, sao chép, miêu tả",
+    "kun": "うつ-す",
+    "on": "しゃ",
+    "examples": [
+      {
+        "word": "写真",
+        "reading": "しゃしん",
+        "vi": "Bức ảnh chụp"
+      },
+      {
+        "word": "写します",
+        "reading": "うつします",
+        "vi": "Chụp (ảnh), chép lại"
+      },
+      {
+        "word": "描写",
+        "reading": "びょうしゃ",
+        "vi": "Miêu tả, khắc họa"
+      }
+    ],
+    "formula": "冖 (Mịch - mái che) ＋ 与 (Dữ)",
+    "strokeGuide": "Bộ Mịch (冖 - 2 nét trên) ➔ nét sổ gập, ngang, cong móc (3 nét dưới).",
+    "mnemonic": "Đặt máy dưới mái che (冖) chụp lại bức hình miêu Tả (写) chân dung."
+  },
+  {
+    "char": "真",
+    "hv": "Chân",
+    "lesson": "L17",
+    "lessonName": "Bài 17",
+    "strokes": 10,
+    "meaning": "Chân thực, đúng đắn, sự thật",
+    "kun": "ま",
+    "on": "しん",
+    "examples": [
+      {
+        "word": "写真",
+        "reading": "しゃしん",
+        "vi": "Bức ảnh"
+      },
+      {
+        "word": "真実",
+        "reading": "しんじつ",
+        "vi": "Chân thực, sự thật"
+      },
+      {
+        "word": "真ん中",
+        "reading": "まんなか",
+        "vi": "Chính giữa"
+      },
+      {
+        "word": "真面目",
+        "reading": "まじめ",
+        "vi": "Chăm chỉ, nghiêm túc"
+      }
+    ],
+    "formula": "十 ＋ 目 ＋ 八",
+    "strokeGuide": "Thập 十 trên cùng ➔ Mục 目 giữa ➔ nét ngang dài ➔ 2 nét chấm chéo chân đáy.",
+    "mnemonic": "Mười (十) con mắt (目) cùng nhìn thấu Chân (真) tướng sự thật."
+  },
+  {
+    "char": "計",
+    "hv": "Kế",
+    "lesson": "L17",
+    "lessonName": "Bài 17",
+    "strokes": 9,
+    "meaning": "Kế hoạch, đo đạc, tính toán, đồng hồ",
+    "kun": "はか-る",
+    "on": "けい",
+    "examples": [
+      {
+        "word": "時計",
+        "reading": "とけい",
+        "vi": "Đồng hồ"
+      },
+      {
+        "word": "計画",
+        "reading": "けいかく",
+        "vi": "Kế hoạch"
+      },
+      {
+        "word": "合計",
+        "reading": "ごうけい",
+        "vi": "Tổng cộng"
+      },
+      {
+        "word": "体温計",
+        "reading": "たいおんけい",
+        "vi": "Nhiệt kế đo thân nhiệt"
+      }
+    ],
+    "formula": "言 (Ngôn) ＋ 十 (Thập)",
+    "strokeGuide": "Bộ Ngôn (言 - 7 nét trái) ➔ chữ Thập (十 - 2 nét phải: ngang, sổ).",
+    "mnemonic": "Dùng lời nói (言) đếm đủ mười (十) điều lập nên mưu Kế (計) đo đạc."
+  },
+  {
+    "char": "先",
+    "hv": "Tiên",
+    "lesson": "L18",
+    "lessonName": "Bài 18",
+    "strokes": 6,
+    "meaning": "Trước, đi đầu, quá khứ, giáo viên",
+    "kun": "さき",
+    "on": "せん",
+    "examples": [
+      {
+        "word": "先週",
+        "reading": "せんしゅう",
+        "vi": "Tuần trước"
+      },
+      {
+        "word": "先生",
+        "reading": "せんせい",
+        "vi": "Giáo viên, thầy cô"
+      },
+      {
+        "word": "先月",
+        "reading": "せんげつ",
+        "vi": "Tháng trước"
+      },
+      {
+        "word": "先輩",
+        "reading": "せんぱい",
+        "vi": "Tiền bối, đàn anh"
+      }
+    ],
+    "formula": "牛 biến thể ＋ 儿 (Nhân)",
+    "strokeGuide": "Phẩy, ngang, sổ, ngang dài (4 nét trên) ➔ phẩy trái, cong móc phải (2 nét chân).",
+    "mnemonic": "Đôi chân bước vội về phía trước dẫn đầu Tiên (先) phong."
+  },
+  {
+    "char": "今",
+    "hv": "Kim",
+    "lesson": "L18",
+    "lessonName": "Bài 18",
+    "strokes": 4,
+    "meaning": "Hiện tại, bây giờ, nay",
+    "kun": "いま",
+    "on": "こん、きん",
+    "examples": [
+      {
+        "word": "今月",
+        "reading": "こんげつ",
+        "vi": "Tháng này"
+      },
+      {
+        "word": "今年",
+        "reading": "ことし",
+        "vi": "Năm nay"
+      },
+      {
+        "word": "今日",
+        "reading": "きょう",
+        "vi": "Hôm nay"
+      },
+      {
+        "word": "今週",
+        "reading": "こんしゅう",
+        "vi": "Tuần này"
+      }
+    ],
+    "formula": "人 (Nhân) ＋ 一 ＋ フ",
+    "strokeGuide": "Phẩy và mác (bộ Nhân) ➔ nét chấm/ngang ➔ nét gập cong bên dưới.",
+    "mnemonic": "Cái nón úp ngay khoảnh khắc hiện tại lúc này là Kim (今)."
+  },
+  {
+    "char": "来",
+    "hv": "Lai",
+    "lesson": "L18",
+    "lessonName": "Bài 18",
+    "strokes": 7,
+    "meaning": "Đến, tương lai, năm sau",
+    "kun": "く-る、き-ます",
+    "on": "らい",
+    "examples": [
+      {
+        "word": "来年",
+        "reading": "らいねん",
+        "vi": "Năm sau"
+      },
+      {
+        "word": "来月",
+        "reading": "らいげつ",
+        "vi": "Tháng sau"
+      },
+      {
+        "word": "来週",
+        "reading": "らいしゅう",
+        "vi": "Tuần sau"
+      },
+      {
+        "word": "来ます",
+        "reading": "きます",
+        "vi": "Đến, tới nơi"
+      }
+    ],
+    "formula": "木 (Mộc) ＋ 2 nét chấm hai bên",
+    "strokeGuide": "Ngang trên ➔ 2 chấm trái phải ➔ ngang giữa ➔ sổ thẳng giữa ➔ phẩy trái ➔ mác phải.",
+    "mnemonic": "Cây lúa trĩu bông mang mùa màng tương Lai (来) đến gần."
+  },
+  {
+    "char": "年",
+    "hv": "Niên",
+    "lesson": "L18",
+    "lessonName": "Bài 18",
+    "strokes": 6,
+    "meaning": "Năm tháng, tuổi tác, niên hạn",
+    "kun": "とし",
+    "on": "ねん",
+    "examples": [
+      {
+        "word": "今年",
+        "reading": "ことし",
+        "vi": "Năm nay"
+      },
+      {
+        "word": "来年",
+        "reading": "らいねん",
+        "vi": "Năm sau"
+      },
+      {
+        "word": "去年",
+        "reading": "きょねん",
+        "vi": "Năm ngoái"
+      },
+      {
+        "word": "年齢",
+        "reading": "ねんれい",
+        "vi": "Tuổi tác, niên kỷ"
+      }
+    ],
+    "formula": "Phẩy ➔ ngang ➔ sổ ngắn ➔ ngang ➔ ngang dài ➔ sổ dài",
+    "strokeGuide": "Phẩy trên ➔ ngang ➔ sổ ngắn ➔ ngang giữa ➔ ngang dài ➔ sổ thẳng đứng xuyên qua.",
+    "mnemonic": "Bó lúa vàng gặt hái sau một Niên (年) năm ròng rã cần lao."
+  },
+  {
+    "char": "去",
+    "hv": "Khứ",
+    "lesson": "L18",
+    "lessonName": "Bài 18",
+    "strokes": 5,
+    "meaning": "Đã qua, rời đi, quá khứ",
+    "kun": "さ-る",
+    "on": "きょ、こ",
+    "examples": [
+      {
+        "word": "去年",
+        "reading": "きょねん",
+        "vi": "Năm ngoái"
+      },
+      {
+        "word": "過去",
+        "reading": "かこ",
+        "vi": "Quá khứ"
+      },
+      {
+        "word": "去る",
+        "reading": "さる",
+        "vi": "Rời đi, lùi vào dĩ vãng"
+      }
+    ],
+    "formula": "土 (Thổ) ＋ 厶 (Khư)",
+    "strokeGuide": "Chữ Thổ (土 - 3 nét trên) ➔ bộ Khư (厶 - 2 nét dưới: gập chéo và chấm).",
+    "mnemonic": "Vùi lấp xuống lòng đất (土) những gì đã qua trong quá Khứ (去)."
+  },
+  {
+    "char": "家",
+    "hv": "Gia",
+    "lesson": "L18",
+    "lessonName": "Bài 18",
+    "strokes": 10,
+    "meaning": "Ngôi nhà, gia đình, chuyên gia",
+    "kun": "いえ、や",
+    "on": "か、け",
+    "examples": [
+      {
+        "word": "家",
+        "reading": "いえ",
+        "vi": "Ngôi nhà"
+      },
+      {
+        "word": "家族",
+        "reading": "かぞく",
+        "vi": "Gia đình"
+      },
+      {
+        "word": "家内",
+        "reading": "かない",
+        "vi": "Vợ tôi (nói khiêm tốn)"
+      },
+      {
+        "word": "画家",
+        "reading": "がか",
+        "vi": "Họa sĩ"
+      }
+    ],
+    "formula": "宀 (Miên - mái nhà) ＋ 豕 (Thỉ - con lợn)",
+    "strokeGuide": "Bộ Miên (宀 - 3 nét nóc nhà) ➔ chữ Thỉ (豕 - 7 nét dưới: ngang, phẩy, cong móc, 4 phẩy nhỏ).",
+    "mnemonic": "Dưới mái nhà (宀) chăn nuôi đàn lợn (豕) ấm cúng tổ ấm Gia (家) đình."
+  },
+  {
+    "char": "思",
+    "hv": "Tư",
+    "lesson": "L18",
+    "lessonName": "Bài 18",
+    "strokes": 9,
+    "meaning": "Suy nghĩ, ý nghĩ, hoài niệm",
+    "kun": "おも-う",
+    "on": "し",
+    "examples": [
+      {
+        "word": "思います",
+        "reading": "おもいます",
+        "vi": "Suy nghĩ, cho là"
+      },
+      {
+        "word": "思い出",
+        "reading": "おもいで",
+        "vi": "Kỷ niệm, hồi ức đẹp"
+      },
+      {
+        "word": "思考",
+        "reading": "しこう",
+        "vi": "Tư duy, suy nghĩ"
+      }
+    ],
+    "formula": "田 (Điền - ruộng) ＋ 心 (Tâm - trái tim)",
+    "strokeGuide": "Chữ Điền (田 - 5 nét trên) ➔ bộ Tâm (心 - 4 nét dưới: chấm trái, nằm móc, 2 chấm trong).",
+    "mnemonic": "Hình bóng đồng ruộng (田) quê hương luôn in đậm trong trái tim (心) người mang nỗi niềm Tư (思) hương."
+  }
+]

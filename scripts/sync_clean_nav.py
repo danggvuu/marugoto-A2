@@ -2,16 +2,47 @@
 # -*- coding: utf-8 -*-
 """
 scripts/sync_clean_nav.py
-Đồng bộ thanh navigation trên toàn bộ 22 file HTML:
-- Xóa bỏ nút Ngữ Pháp: '📚 Ngữ Pháp A1-A2 (26 Bài)'
-- Đổi nút '🚀 Web Bài Học 10-18 ▾' thành '🚀 Web Bài Học ▾' trên tất cả các trang
-- Dọn dẹp trùng lặp 'Thể TA' nếu có
-- Giữ nguyên active-hub và dropdown scripts hoàn hảo
+Đồng bộ thanh navigation trên toàn bộ 31 file HTML:
+- Xóa bỏ nút Ngữ Pháp: '📚 Ngữ Pháp A1-A2 (26 Bài)' (đã thay bằng menu Web Bài Học)
+- Menu '🚀 Web Bài Học ▾' chứa ĐẦY ĐỦ TRỌN BỘ 18 BÀI (Bài 1 -> Bài 18)
+- Đảm bảo CSS .hub-dropdown-menu có max-height: 480px và overflow-y: auto
+- Đảm bảo hàm toggleLessonsDropdown & toggleTestsDropdown hoạt động hoàn hảo
 """
 
 import os
 import re
 import glob
+
+ALL_18_LESSONS = [
+    (1, 'Marugoto_A2_Lesson_1.html', '🌸 Bài 1: Nơi ở & Gia đình'),
+    (2, 'Marugoto_A2_Lesson_2.html', '🎨 Bài 2: Sở thích & Ngôn ngữ'),
+    (3, 'Marugoto_A2_Lesson_3.html', '🍁 Bài 3: Mùa & Khí hậu'),
+    (4, 'Marugoto_A2_Lesson_4.html', '⛅ Bài 4: Thời tiết & Dự báo'),
+    (5, 'Marugoto_A2_Lesson_5.html', '🏙️ Bài 5: Phố xá & Nơi chốn'),
+    (6, 'Marugoto_A2_Lesson_6.html', '🗺️ Bài 6: Chỉ đường & Ngã rẽ'),
+    (7, 'Marugoto_A2_Lesson_7.html', '⏰ Bài 7: Hẹn gặp & Giờ giấc'),
+    (8, 'Marugoto_A2_Lesson_8.html', '⛩️ Bài 8: Sự kiện & Mời mọc'),
+    (9, 'Marugoto_A2_Lesson_9.html', '🗣️ Bài 9: Học tập & Phát âm'),
+    (10, 'Marugoto_A2_Lesson_10.html', '🌟 Bài 10: Ngoại ngữ & Văn hóa'),
+    (11, 'Marugoto_A2_Lesson_11.html', '🍱 Bài 11: Dã ngoại & Ăn uống'),
+    (12, 'Marugoto_A2_Lesson_12.html', '🍜 Bài 12: Món ăn ngày đặc biệt'),
+    (13, 'Marugoto_A2_Lesson_13.html', '✈️ Bài 13: Đi công tác & Gặp gỡ'),
+    (14, 'Marugoto_A2_Lesson_14.html', '💻 Bài 14: Quy tắc nơi làm việc'),
+    (15, 'Marugoto_A2_Lesson_15.html', '🏥 Bài 15: Sức khỏe & Thể dục'),
+    (16, 'Marugoto_A2_Lesson_16.html', '🏃 Bài 16: Tập luyện & Vận động'),
+    (17, 'Marugoto_A2_Lesson_17.html', '🎁 Bài 17: Quà tặng & Kỷ niệm'),
+    (18, 'Marugoto_A2_Lesson_18.html', '👘 Bài 18: Tiệc tùng & Sự kiện'),
+]
+
+TEST_LINKS = [
+    ('De_Thi_Midterm_A2_1.html', '🎯 Bộ 5 Đề Thi Giữa Kỳ Midterm (M101 - M105)'),
+    ('On_Tap_Dich_Cau_Lesson_1_10.html', '✍️ Luyện Dịch Câu Bài 1 - 10 (40 Câu)'),
+    ('On_Tap_Mini_Test_A2_1_4.html', '🎯 Ôn Tập Bài 1-4 (Mini Test)'),
+    ('On_Tap_Mini_Test_A2_5_8.html', '🎯 Ôn Tập Bài 5-8 (Mini Test)'),
+    ('De_Thi_Thu_Marugoto_A2_5_8.html', '📝 5 Mã Đề Thi Thử (101-105)'),
+    ('Kiem_Tra_Marugoto_L6_7_8.html', '📑 Đề Kiểm Tra L6, 7, 8'),
+    ('Luyen_Tap_The_Te_A2_1.html', '🌸 Luyện Tập Thể Te')
+]
 
 def find_global_nav_range(content):
     m = re.search(r'<div class="global-hub-nav"[^>]*>', content)
@@ -40,6 +71,9 @@ def build_root_nav(current_file):
     is_kanji = (current_file == 'kanji_a2.html')
     is_vocab = (current_file == 'Tu_Vung_Marugoto_A1_16_A2_1_10.html')
 
+    tests_html = '\n                '.join([f'<a href="tests/{f}" class="hub-drop-link">{t}</a>' for f, t in TEST_LINKS])
+    lessons_html = '\n                '.join([f'<a href="lessons/{f}" class="hub-drop-link">{t}</a>' for _, f, t in ALL_18_LESSONS])
+
     return f'''    <div class="global-hub-nav">
         <a href="index.html" class="hub-nav-item{" active-hub" if is_te else ""}">🌸 Thể TE (～て)</a>
         <a href="the_ru.html" class="hub-nav-item{" active-hub" if is_ru else ""}">📘 Thể RU (Từ Điển)</a>
@@ -50,49 +84,25 @@ def build_root_nav(current_file):
         <div class="hub-dropdown">
             <button type="button" class="hub-nav-item" onclick="toggleTestsDropdown(event)">🎯 Ôn Tập & Đề Thi ▾</button>
             <div class="hub-dropdown-menu" id="testsDropdownMenu">
-                <a href="tests/De_Thi_Midterm_A2_1.html" class="hub-drop-link">🎯 Bộ 5 Đề Thi Giữa Kỳ Midterm (M101 - M105)</a>
-                <a href="tests/On_Tap_Dich_Cau_Lesson_1_10.html" class="hub-drop-link">✍️ Luyện Dịch Câu Bài 1 - 10 (40 Câu)</a>
-                <a href="tests/On_Tap_Mini_Test_A2_1_4.html" class="hub-drop-link">🎯 Ôn Tập Bài 1-4 (Mini Test)</a>
-                <a href="tests/On_Tap_Mini_Test_A2_5_8.html" class="hub-drop-link">🎯 Ôn Tập Bài 5-8 (Mini Test)</a>
-                <a href="tests/De_Thi_Thu_Marugoto_A2_5_8.html" class="hub-drop-link">📝 5 Mã Đề Thi Thử (101-105)</a>
-                <a href="tests/Kiem_Tra_Marugoto_L6_7_8.html" class="hub-drop-link">📑 Đề Kiểm Tra L6, 7, 8</a>
-                <a href="tests/Luyen_Tap_The_Te_A2_1.html" class="hub-drop-link">🌸 Luyện Tập Thể Te</a>
+                {tests_html}
             </div>
         </div>
         <div class="hub-dropdown">
             <button type="button" class="hub-nav-item" onclick="toggleLessonsDropdown(event)">🚀 Web Bài Học ▾</button>
             <div class="hub-dropdown-menu" id="lessonsDropdownMenu">
-                <a href="lessons/Marugoto_A2_Lesson_10.html" class="hub-drop-link">🌟 Bài 10: 外国文化</a>
-                <a href="lessons/Marugoto_A2_Lesson_11.html" class="hub-drop-link">🍱 Bài 11: そとで食べる</a>
-                <a href="lessons/Marugoto_A2_Lesson_12.html" class="hub-drop-link">🍜 Bài 12: 特別な日の料理</a>
-                <a href="lessons/Marugoto_A2_Lesson_13.html" class="hub-drop-link">✈️ Bài 13: 出張</a>
-                <a href="lessons/Marugoto_A2_Lesson_14.html" class="hub-drop-link">💻 Bài 14: 職場のマナー</a>
-                <a href="lessons/Marugoto_A2_Lesson_15.html" class="hub-drop-link">🏥 Bài 15: 健康な生活</a>
-                <a href="lessons/Marugoto_A2_Lesson_16.html" class="hub-drop-link">🏃 Bài 16: 体にいいこと</a>
-                <a href="lessons/Marugoto_A2_Lesson_17.html" class="hub-drop-link">🎁 Bài 17: お祝い</a>
-                <a href="lessons/Marugoto_A2_Lesson_18.html" class="hub-drop-link">👘 Bài 18: お祭りやイベント</a>
+                {lessons_html}
             </div>
         </div>
     </div>'''
 
 def build_lessons_nav(current_lesson_file):
     lesson_links = []
-    for l_num, l_title in [
-        (10, '🌟 Bài 10: 外国文化'),
-        (11, '🍱 Bài 11: そとで食べる'),
-        (12, '🍜 Bài 12: 特別な日の料理'),
-        (13, '✈️ Bài 13: 出張'),
-        (14, '💻 Bài 14: 職場のマナー'),
-        (15, '🏥 Bài 15: 健康な生活'),
-        (16, '🏃 Bài 16: 体にいいこと'),
-        (17, '🎁 Bài 17: お祝い'),
-        (18, '👘 Bài 18: お祭りやイベント')
-    ]:
-        l_file = f'Marugoto_A2_Lesson_{l_num}.html'
+    for num, l_file, l_title in ALL_18_LESSONS:
         is_active = (l_file == current_lesson_file)
         lesson_links.append(f'<a href="{l_file}" class="hub-drop-link{" active" if is_active else ""}">{l_title}</a>')
 
     lessons_drop_html = '\n                '.join(lesson_links)
+    tests_html = '\n                '.join([f'<a href="../tests/{f}" class="hub-drop-link">{t}</a>' for f, t in TEST_LINKS])
 
     return f'''    <div class="global-hub-nav">
         <a href="../index.html" class="hub-nav-item">🌸 Thể TE (～て)</a>
@@ -104,13 +114,7 @@ def build_lessons_nav(current_lesson_file):
         <div class="hub-dropdown">
             <button type="button" class="hub-nav-item" onclick="toggleTestsDropdown(event)">🎯 Ôn Tập & Đề Thi ▾</button>
             <div class="hub-dropdown-menu" id="testsDropdownMenu">
-                <a href="../tests/De_Thi_Midterm_A2_1.html" class="hub-drop-link">🎯 Bộ 5 Đề Thi Giữa Kỳ Midterm (M101 - M105)</a>
-                <a href="../tests/On_Tap_Dich_Cau_Lesson_1_10.html" class="hub-drop-link">✍️ Luyện Dịch Câu Bài 1 - 10 (40 Câu)</a>
-                <a href="../tests/On_Tap_Mini_Test_A2_1_4.html" class="hub-drop-link">🎯 Ôn Tập Bài 1-4 (Mini Test)</a>
-                <a href="../tests/On_Tap_Mini_Test_A2_5_8.html" class="hub-drop-link">🎯 Ôn Tập Bài 5-8 (Mini Test)</a>
-                <a href="../tests/De_Thi_Thu_Marugoto_A2_5_8.html" class="hub-drop-link">📝 5 Mã Đề Thi Thử (101-105)</a>
-                <a href="../tests/Kiem_Tra_Marugoto_L6_7_8.html" class="hub-drop-link">📑 Đề Kiểm Tra L6, 7, 8</a>
-                <a href="../tests/Luyen_Tap_The_Te_A2_1.html" class="hub-drop-link">🌸 Luyện Tập Thể Te</a>
+                {tests_html}
             </div>
         </div>
         <div class="hub-dropdown">
@@ -123,19 +127,12 @@ def build_lessons_nav(current_lesson_file):
 
 def build_tests_nav(current_test_file):
     test_links = []
-    for t_file, t_title in [
-        ('De_Thi_Midterm_A2_1.html', '🎯 Bộ 5 Đề Thi Giữa Kỳ Midterm (M101 - M105)'),
-        ('On_Tap_Dich_Cau_Lesson_1_10.html', '✍️ Luyện Dịch Câu Bài 1 - 10 (40 Câu)'),
-        ('On_Tap_Mini_Test_A2_1_4.html', '🎯 Ôn Tập Bài 1-4 (Mini Test)'),
-        ('On_Tap_Mini_Test_A2_5_8.html', '🎯 Ôn Tập Bài 5-8 (Mini Test)'),
-        ('De_Thi_Thu_Marugoto_A2_5_8.html', '📝 5 Mã Đề Thi Thử (101-105)'),
-        ('Kiem_Tra_Marugoto_L6_7_8.html', '📑 Đề Kiểm Tra L6, 7, 8'),
-        ('Luyen_Tap_The_Te_A2_1.html', '🌸 Luyện Tập Thể Te')
-    ]:
+    for t_file, t_title in TEST_LINKS:
         is_active = (t_file == current_test_file)
         test_links.append(f'<a href="{t_file}" class="hub-drop-link{" active" if is_active else ""}">{t_title}</a>')
 
     tests_drop_html = '\n                '.join(test_links)
+    lessons_html = '\n                '.join([f'<a href="../lessons/{f}" class="hub-drop-link">{t}</a>' for _, f, t in ALL_18_LESSONS])
 
     return f'''    <div class="global-hub-nav">
         <a href="../index.html" class="hub-nav-item">🌸 Thể TE (～て)</a>
@@ -153,18 +150,23 @@ def build_tests_nav(current_test_file):
         <div class="hub-dropdown">
             <button type="button" class="hub-nav-item" onclick="toggleLessonsDropdown(event)">🚀 Web Bài Học ▾</button>
             <div class="hub-dropdown-menu" id="lessonsDropdownMenu">
-                <a href="../lessons/Marugoto_A2_Lesson_10.html" class="hub-drop-link">🌟 Bài 10: 外国文化</a>
-                <a href="../lessons/Marugoto_A2_Lesson_11.html" class="hub-drop-link">🍱 Bài 11: そとで食べる</a>
-                <a href="../lessons/Marugoto_A2_Lesson_12.html" class="hub-drop-link">🍜 Bài 12: 特別な日の料理</a>
-                <a href="../lessons/Marugoto_A2_Lesson_13.html" class="hub-drop-link">✈️ Bài 13: 出張</a>
-                <a href="../lessons/Marugoto_A2_Lesson_14.html" class="hub-drop-link">💻 Bài 14: 職場のマナー</a>
-                <a href="../lessons/Marugoto_A2_Lesson_15.html" class="hub-drop-link">🏥 Bài 15: 健康な生活</a>
-                <a href="../lessons/Marugoto_A2_Lesson_16.html" class="hub-drop-link">🏃 Bài 16: 体にいいこと</a>
-                <a href="../lessons/Marugoto_A2_Lesson_17.html" class="hub-drop-link">🎁 Bài 17: お祝い</a>
-                <a href="../lessons/Marugoto_A2_Lesson_18.html" class="hub-drop-link">👘 Bài 18: お祭りやイベント</a>
+                {lessons_html}
             </div>
         </div>
     </div>'''
+
+def ensure_dropdown_css(content):
+    # Ensure .hub-dropdown-menu has max-height: 480px; overflow-y: auto;
+    pattern = r'(\.hub-dropdown-menu\s*\{[^}]*?)(min-width:\s*2[0-9]{2}px;)'
+    if re.search(pattern, content):
+        if 'overflow-y:' not in content[re.search(pattern, content).start():re.search(pattern, content).end() + 100]:
+            content = re.sub(
+                r'(\.hub-dropdown-menu\s*\{[^}]*?min-width:\s*2[0-9]{2}px;)',
+                r'\1\n            max-height: 480px;\n            overflow-y: auto;\n            scrollbar-width: thin;',
+                content,
+                count=1
+            )
+    return content
 
 def process_file(file_path):
     with open(file_path, 'r', encoding='utf-8') as f:
@@ -184,6 +186,7 @@ def process_file(file_path):
         new_nav = build_root_nav(base_name)
 
     updated_content = content[:start] + new_nav + content[end:]
+    updated_content = ensure_dropdown_css(updated_content)
 
     with open(file_path, 'w', encoding='utf-8') as f:
         f.write(updated_content)

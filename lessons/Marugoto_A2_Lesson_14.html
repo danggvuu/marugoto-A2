@@ -55,6 +55,31 @@
 
         
         /* Ruby & Furigana Styling */
+        .hero-banner rt {
+            color: #a7f3d0 !important;
+        }
+
+        .hero-jp-quote rt {
+            color: #fef08a !important;
+            opacity: 0.95;
+        }
+
+        .quiz-opt-btn rt {
+            color: #4f46e5;
+        }
+
+        .quiz-opt-btn.correct rt {
+            color: #15803d !important;
+        }
+
+        .quiz-opt-btn.wrong rt {
+            color: #b91c1c !important;
+        }
+
+        .comparison-table td {
+            line-height: 1.75;
+        }
+
         ruby {
             ruby-position: over;
             ruby-align: center;
@@ -452,7 +477,7 @@
         }
 
         .hero-banner::after {
-            content: "🍱";
+            content: "💻";
             position: absolute;
             right: 20px;
             bottom: 10px;
@@ -1447,6 +1472,9 @@
             box-shadow: 0 12px 28px rgba(0,0,0,0.12);
             padding: 8px;
             min-width: 260px;
+            max-height: 480px;
+            overflow-y: auto;
+            scrollbar-width: thin;
             z-index: 9999;
         }
         .hub-dropdown-menu.show {
@@ -1501,7 +1529,7 @@
 </head>
 <body>
     <!-- Global Hub Navigation -->
-                                        <div class="global-hub-nav">
+                                            <div class="global-hub-nav">
         <a href="../index.html" class="hub-nav-item">🌸 Thể TE (～て)</a>
         <a href="../the_ru.html" class="hub-nav-item">📘 Thể RU (Từ Điển)</a>
         <a href="../the_ta.html" class="hub-nav-item">📕 Thể TA (Quá Khứ)</a>
@@ -1523,15 +1551,24 @@
         <div class="hub-dropdown">
             <button type="button" class="hub-nav-item active-hub" onclick="toggleLessonsDropdown(event)">🚀 Web Bài Học ▾</button>
             <div class="hub-dropdown-menu" id="lessonsDropdownMenu">
-                <a href="Marugoto_A2_Lesson_10.html" class="hub-drop-link">🌟 Bài 10: 外国文化</a>
-                <a href="Marugoto_A2_Lesson_11.html" class="hub-drop-link">🍱 Bài 11: そとで食べる</a>
-                <a href="Marugoto_A2_Lesson_12.html" class="hub-drop-link">🍜 Bài 12: 特別な日の料理</a>
-                <a href="Marugoto_A2_Lesson_13.html" class="hub-drop-link">✈️ Bài 13: 出張</a>
-                <a href="Marugoto_A2_Lesson_14.html" class="hub-drop-link active">💻 Bài 14: 職場のマナー</a>
-                <a href="Marugoto_A2_Lesson_15.html" class="hub-drop-link">🏥 Bài 15: 健康な生活</a>
-                <a href="Marugoto_A2_Lesson_16.html" class="hub-drop-link">🏃 Bài 16: 体にいいこと</a>
-                <a href="Marugoto_A2_Lesson_17.html" class="hub-drop-link">🎁 Bài 17: お祝い</a>
-                <a href="Marugoto_A2_Lesson_18.html" class="hub-drop-link">👘 Bài 18: お祭りやイベント</a>
+                <a href="Marugoto_A2_Lesson_1.html" class="hub-drop-link">🌸 Bài 1: Nơi ở & Gia đình</a>
+                <a href="Marugoto_A2_Lesson_2.html" class="hub-drop-link">🎨 Bài 2: Sở thích & Ngôn ngữ</a>
+                <a href="Marugoto_A2_Lesson_3.html" class="hub-drop-link">🍁 Bài 3: Mùa & Khí hậu</a>
+                <a href="Marugoto_A2_Lesson_4.html" class="hub-drop-link">⛅ Bài 4: Thời tiết & Dự báo</a>
+                <a href="Marugoto_A2_Lesson_5.html" class="hub-drop-link">🏙️ Bài 5: Phố xá & Nơi chốn</a>
+                <a href="Marugoto_A2_Lesson_6.html" class="hub-drop-link">🗺️ Bài 6: Chỉ đường & Ngã rẽ</a>
+                <a href="Marugoto_A2_Lesson_7.html" class="hub-drop-link">⏰ Bài 7: Hẹn gặp & Giờ giấc</a>
+                <a href="Marugoto_A2_Lesson_8.html" class="hub-drop-link">⛩️ Bài 8: Sự kiện & Mời mọc</a>
+                <a href="Marugoto_A2_Lesson_9.html" class="hub-drop-link">🗣️ Bài 9: Học tập & Phát âm</a>
+                <a href="Marugoto_A2_Lesson_10.html" class="hub-drop-link">🌟 Bài 10: Ngoại ngữ & Văn hóa</a>
+                <a href="Marugoto_A2_Lesson_11.html" class="hub-drop-link">🍱 Bài 11: Dã ngoại & Ăn uống</a>
+                <a href="Marugoto_A2_Lesson_12.html" class="hub-drop-link">🍜 Bài 12: Món ăn ngày đặc biệt</a>
+                <a href="Marugoto_A2_Lesson_13.html" class="hub-drop-link">✈️ Bài 13: Đi công tác & Gặp gỡ</a>
+                <a href="Marugoto_A2_Lesson_14.html" class="hub-drop-link active">💻 Bài 14: Quy tắc nơi làm việc</a>
+                <a href="Marugoto_A2_Lesson_15.html" class="hub-drop-link">🏥 Bài 15: Sức khỏe & Thể dục</a>
+                <a href="Marugoto_A2_Lesson_16.html" class="hub-drop-link">🏃 Bài 16: Tập luyện & Vận động</a>
+                <a href="Marugoto_A2_Lesson_17.html" class="hub-drop-link">🎁 Bài 17: Quà tặng & Kỷ niệm</a>
+                <a href="Marugoto_A2_Lesson_18.html" class="hub-drop-link">👘 Bài 18: Tiệc tùng & Sự kiện</a>
             </div>
         </div>
     </div>
@@ -1543,7 +1580,7 @@
         <a href="#sec-grammar3" class="sec-link">③ Lời chào tạm biệt</a>
         <a href="#sec-verb-lab" class="sec-link">🔬 Thể Te & Xin Phép</a>
         <a href="#sec-dialogue" class="sec-link">💬 Giao Tiếp Văn Phòng</a>
-        <a href="#sec-vocab" class="sec-link">🎴 26 Từ Vựng 3D</a>
+        <a href="#sec-vocab" class="sec-link">🎴 25 Từ Vựng 3D</a>
         <a href="#sec-kanji" class="sec-link">⛩️ 8 Chữ Hán Bài 14</a>
                 <a href="#sec-quiz" class="sec-link">📝 Mini Test 15 Câu</a>
         <button type="button" class="furigana-toggle-btn" id="btnFuriganaToggle" onclick="toggleFurigana()" title="Bật / Tắt hiển thị Furigana (cách đọc Hiragana)">
@@ -1567,7 +1604,7 @@
             </p>
             <div class="hero-stats-row">
                 <div class="stat-card">
-                    <div class="stat-number">26</div>
+                    <div class="stat-number">25</div>
                     <div class="stat-label">Từ vựng Flashcard</div>
                 </div>
                 <div class="stat-card">
@@ -1881,7 +1918,7 @@
                         <div class="kanji-readings">
                             <strong>Kun:</strong> みずか-ら<br>
                             <strong>On:</strong> JI, SHI<br>
-                            <strong>Từ ví dụ:</strong> 自分 (<ruby>自<rt>じ</rt></ruby><ruby>分<rt>ぶん</rt></ruby> - bản thân), 自動車 (<ruby>自<rt>じ</rt></ruby><ruby>動<rt>どう</rt></ruby><ruby>車<rt>しゃ</rt></ruby> - ô tô)
+                            <strong>Từ ví dụ:</strong> <ruby>自分<rt>じぶん</rt></ruby> (bản thân), <ruby>自動車<rt>じどうしゃ</rt></ruby> (ô tô)
                         </div>
                         <div class="kanji-mnemonic">💡 Mẹo nhớ: Hình vẽ cái mũi ở chính giữa gương mặt đại diện cho bản TỰ mình.</div>
                     </div>
@@ -1893,7 +1930,7 @@
                         <div class="kanji-readings">
                             <strong>Kun:</strong> わ-かる、わ-ける<br>
                             <strong>On:</strong> BUN, FUN<br>
-                            <strong>Từ ví dụ:</strong> 自分 (<ruby>自<rt>じ</rt></ruby><ruby>分<rt>ぶん</rt></ruby> - bản thân), 5分 (5<ruby>分<rt>ふん</rt></ruby> - 5 phút)
+                            <strong>Từ ví dụ:</strong> <ruby>自分<rt>じぶん</rt></ruby> (bản thân), 5<ruby>分<rt>ふん</rt></ruby> (5 phút)
                         </div>
                         <div class="kanji-mnemonic">💡 Mẹo nhớ: Dùng con dao (刀) chia tách (八) mọi vật thành nhiều PHÂN phần.</div>
                     </div>
@@ -1905,7 +1942,7 @@
                         <div class="kanji-readings">
                             <strong>Kun:</strong> -<br>
                             <strong>On:</strong> DEN<br>
-                            <strong>Từ ví dụ:</strong> 電話 (<ruby>電<rt>でん</rt></ruby><ruby>話<rt>わ</rt></ruby> - điện thoại), 電気 (<ruby>電<rt>でん</rt></ruby><ruby>気<rt>き</rt></ruby> - đèn điện)
+                            <strong>Từ ví dụ:</strong> <ruby>電話<rt>でんわ</rt></ruby> (điện thoại), <ruby>電気<rt>でんき</rt></ruby> (đèn điện)
                         </div>
                         <div class="kanji-mnemonic">💡 Mẹo nhớ: Những tia chớp lóe sáng dưới cơn mưa (雨) phát ra luồng ĐIỆN.</div>
                     </div>
@@ -1917,7 +1954,7 @@
                         <div class="kanji-readings">
                             <strong>Kun:</strong> はな-す、はなし<br>
                             <strong>On:</strong> WA<br>
-                            <strong>Từ ví dụ:</strong> 電話 (<ruby>電<rt>でん</rt></ruby><ruby>話<rt>わ</rt></ruby> - điện thoại), 会話 (<ruby>会<rt>かい</rt></ruby><ruby>話<rt>わ</rt></ruby> - hội thoại)
+                            <strong>Từ ví dụ:</strong> <ruby>電話<rt>でんわ</rt></ruby> (điện thoại), <ruby>会話<rt>かいわ</rt></ruby> (hội thoại)
                         </div>
                         <div class="kanji-mnemonic">💡 Mẹo nhớ: Dùng lời nói (言) và cái lưỡi (舌) để trò chuyện đối THOẠI.</div>
                     </div>
@@ -1929,7 +1966,7 @@
                         <div class="kanji-readings">
                             <strong>Kun:</strong> くるま<br>
                             <strong>On:</strong> SHA<br>
-                            <strong>Từ ví dụ:</strong> 車 (<ruby>車<rt>くるま</rt></ruby> - xe hơi), 電車 (<ruby>電<rt>でん</rt></ruby><ruby>車<rt>しゃ</rt></ruby> - tàu điện)
+                            <strong>Từ ví dụ:</strong> <ruby>車<rt>くるま</rt></ruby> (xe hơi), <ruby>電車<rt>でんしゃ</rt></ruby> (tàu điện)
                         </div>
                         <div class="kanji-mnemonic">💡 Mẹo nhớ: Hình ảnh cỗ XA xe có bánh và trục quay từ thời cổ đại.</div>
                     </div>
@@ -1941,7 +1978,7 @@
                         <div class="kanji-readings">
                             <strong>Kun:</strong> おく-る<br>
                             <strong>On:</strong> SOO<br>
-                            <strong>Từ ví dụ:</strong> 送ります (<ruby>送<rt>おく</rt></ruby>ります - gửi đi / tiễn đưa), 郵送 (<ruby>郵<rt>ゆう</rt></ruby><ruby>送<rt>そう</rt></ruby> - gửi bưu điện)
+                            <strong>Từ ví dụ:</strong> <ruby>送<rt>おく</rt></ruby>ります (gửi đi / tiễn đưa), <ruby>郵送<rt>ゆうそう</rt></ruby> (gửi bưu điện)
                         </div>
                         <div class="kanji-mnemonic">💡 Mẹo nhớ: Bước chân đi (辶) tiễn đưa quà cáp TỐNG tiễn phương xa.</div>
                     </div>
@@ -1953,7 +1990,7 @@
                         <div class="kanji-readings">
                             <strong>Kun:</strong> つか-う<br>
                             <strong>On:</strong> SHI<br>
-                            <strong>Từ ví dụ:</strong> 使います (<ruby>使<rt>つか</rt></ruby>います - sử dụng), 大使館 (<ruby>大<rt>たい</rt></ruby><ruby>使<rt>し</rt></ruby><ruby>館<rt>かん</rt></ruby> - đại sứ quán)
+                            <strong>Từ ví dụ:</strong> <ruby>使<rt>つか</rt></ruby>います (sử dụng), <ruby>大使館<rt>たいしかん</rt></ruby> (đại sứ quán)
                         </div>
                         <div class="kanji-mnemonic">💡 Mẹo nhớ: Con người (亻) được quan sai phái SỬ dụng tài năng.</div>
                     </div>
@@ -1965,7 +2002,7 @@
                         <div class="kanji-readings">
                             <strong>Kun:</strong> か-りる<br>
                             <strong>On:</strong> SHAKU<br>
-                            <strong>Từ ví dụ:</strong> 借ります (<ruby>借<rt>か</rt></ruby>ります - vay mượn), 借金 (<ruby>借<rt>しゃっ</rt></ruby><ruby>金<rt>きん</rt></ruby> - khoản nợ)
+                            <strong>Từ ví dụ:</strong> <ruby>借<rt>か</rt></ruby>ります (vay mượn), <ruby>借金<rt>しゃっきん</rt></ruby> (khoản nợ)
                         </div>
                         <div class="kanji-mnemonic">💡 Mẹo nhớ: Con người (亻) qua ngày xưa (昔) vẫn phải đi vay mượn TÁ của nhau.</div>
                     </div>
@@ -2252,6 +2289,7 @@
                 </div>
             `;
             chat.appendChild(userBubble);
+            chat.scrollTop = chat.scrollHeight;
             speakText(opt.text);
 
             setTimeout(() => {
@@ -2266,6 +2304,7 @@
                     </div>
                 `;
                 chat.appendChild(npcBubble);
+                chat.scrollTop = chat.scrollHeight;
                 speakText(opt.replyText);
 
                 if (stepIdx + 1 < DIALOGUE_STEPS.length) {
@@ -2282,6 +2321,7 @@
                             </div>
                         `;
                         chat.appendChild(promptBubble);
+                        chat.scrollTop = chat.scrollHeight;
                         speakText(nextPrompt.npcText);
                         renderDialogueOptions(stepIdx + 1);
                     }, 1000);

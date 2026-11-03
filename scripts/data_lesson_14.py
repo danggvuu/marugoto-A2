@@ -554,14 +554,14 @@ CFG_14 = {
     },
 
     "kanjis": [
-        {"char": "自", "hv": "TỰ", "strokes": 6, "kun": "みずか-ら", "on": "JI, SHI", "ex": "自分 (じぶん - bản thân), 自動車 (じどうしゃ - ô tô)", "mnemonic": "Hình vẽ cái mũi ở chính giữa gương mặt đại diện cho bản TỰ mình."},
-        {"char": "分", "hv": "PHÂN", "strokes": 4, "kun": "わ-かる、わ-ける", "on": "BUN, FUN", "ex": "自分 (じぶん - bản thân), 5分 (ごふん - 5 phút)", "mnemonic": "Dùng con dao (刀) chia tách (八) mọi vật thành nhiều PHÂN phần."},
-        {"char": "電", "hv": "ĐIỆN", "strokes": 13, "kun": "-", "on": "DEN", "ex": "電話 (でんわ - điện thoại), 電気 (でんき - đèn điện)", "mnemonic": "Những tia chớp lóe sáng dưới cơn mưa (雨) phát ra luồng ĐIỆN."},
-        {"char": "話", "hv": "THOẠI", "strokes": 13, "kun": "はな-す、はなし", "on": "WA", "ex": "電話 (でんわ - điện thoại), 会話 (かいわ - hội thoại)", "mnemonic": "Dùng lời nói (言) và cái lưỡi (舌) để trò chuyện đối THOẠI."},
-        {"char": "車", "hv": "XA", "strokes": 7, "kun": "くるま", "on": "SHA", "ex": "車 (くるま - xe hơi), 電車 (でんしゃ - tàu điện)", "mnemonic": "Hình ảnh cỗ XA xe có bánh và trục quay từ thời cổ đại."},
-        {"char": "送", "hv": "TỐNG", "strokes": 9, "kun": "おく-る", "on": "SOO", "ex": "送ります (おくります - gửi đi / tiễn đưa), 郵送 (ゆうそう - gửi bưu điện)", "mnemonic": "Bước chân đi (辶) tiễn đưa quà cáp TỐNG tiễn phương xa."},
-        {"char": "使", "hv": "SỬ", "strokes": 8, "kun": "つか-う", "on": "SHI", "ex": "使います (つかいます - sử dụng), 大使館 (たいしかん - đại sứ quán)", "mnemonic": "Con người (亻) được quan sai phái SỬ dụng tài năng."},
-        {"char": "借", "hv": "TÁ", "strokes": 10, "kun": "か-りる", "on": "SHAKU", "ex": "借ります (かります - vay mượn), 借金 (しゃっきん - khoản nợ)", "mnemonic": "Con người (亻) qua ngày xưa (昔) vẫn phải đi vay mượn TÁ của nhau."}
+        {"char": "自", "hv": "TỰ", "strokes": 6, "kun": "みずか-ら", "on": "JI, SHI", "ex": "<ruby>自分<rt>じぶん</rt></ruby> (bản thân), <ruby>自動車<rt>じどうしゃ</rt></ruby> (ô tô)", "mnemonic": "Hình vẽ cái mũi ở chính giữa gương mặt đại diện cho bản TỰ mình."},
+        {"char": "分", "hv": "PHÂN", "strokes": 4, "kun": "わ-かる、わ-ける", "on": "BUN, FUN", "ex": "<ruby>自分<rt>じぶん</rt></ruby> (bản thân), 5<ruby>分<rt>ふん</rt></ruby> (5 phút)", "mnemonic": "Dùng con dao (刀) chia tách (八) mọi vật thành nhiều PHÂN phần."},
+        {"char": "電", "hv": "ĐIỆN", "strokes": 13, "kun": "-", "on": "DEN", "ex": "<ruby>電話<rt>でんわ</rt></ruby> (điện thoại), <ruby>電気<rt>でんき</rt></ruby> (đèn điện)", "mnemonic": "Những tia chớp lóe sáng dưới cơn mưa (雨) phát ra luồng ĐIỆN."},
+        {"char": "話", "hv": "THOẠI", "strokes": 13, "kun": "はな-す、はなし", "on": "WA", "ex": "<ruby>電話<rt>でんわ</rt></ruby> (điện thoại), <ruby>会話<rt>かいわ</rt></ruby> (hội thoại)", "mnemonic": "Dùng lời nói (言) và cái lưỡi (舌) để trò chuyện đối THOẠI."},
+        {"char": "車", "hv": "XA", "strokes": 7, "kun": "くるま", "on": "SHA", "ex": "<ruby>車<rt>くるま</rt></ruby> (xe hơi), <ruby>電車<rt>でんしゃ</rt></ruby> (tàu điện)", "mnemonic": "Hình ảnh cỗ XA xe có bánh và trục quay từ thời cổ đại."},
+        {"char": "送", "hv": "TỐNG", "strokes": 9, "kun": "おく-る", "on": "SOO", "ex": "<ruby>送<rt>おく</rt></ruby>ります (gửi đi / tiễn đưa), <ruby>郵送<rt>ゆうそう</rt></ruby> (gửi bưu điện)", "mnemonic": "Bước chân đi (辶) tiễn đưa quà cáp TỐNG tiễn phương xa."},
+        {"char": "使", "hv": "SỬ", "strokes": 8, "kun": "つか-う", "on": "SHI", "ex": "<ruby>使<rt>つか</rt></ruby>います (sử dụng), <ruby>大使館<rt>たいしかん</rt></ruby> (đại sứ quán)", "mnemonic": "Con người (亻) được quan sai phái SỬ dụng tài năng."},
+        {"char": "借", "hv": "TÁ", "strokes": 10, "kun": "か-りる", "on": "SHAKU", "ex": "<ruby>借<rt>か</rt></ruby>ります (vay mượn), <ruby>借金<rt>しゃっきん</rt></ruby> (khoản nợ)", "mnemonic": "Con người (亻) qua ngày xưa (昔) vẫn phải đi vay mượn TÁ của nhau."}
     ],
 
     "quizzes": [
