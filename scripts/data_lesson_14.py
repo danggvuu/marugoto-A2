@@ -23,7 +23,7 @@ def make_svg(title, emoji, c1="#7c3aed", c2="#5b21b6"):
 CFG_14 = {
     "num": 14,
     "title_vi": "Nơi Làm Việc & Xin Phép",
-    "title_jp": "これ、使ってもいいですか",
+    "title_jp": "これ、<ruby>使<rt>つか</rt></ruby>ってもいいですか",
     "topic_name": "Chuyến Đi Công Tác (出張)",
     "topic_badge": "TOPIC 7: 出張 • BÀI 14",
     "desc": "Làm chủ mẫu câu xin phép lịch thiệp trong văn phòng (V-てもいいですか), cách phản hồi đồng ý hoặc từ chối tế nhị, làm quen với trang thiết bị văn phòng, giới thiệu đồng nghiệp và nói lời chào tạm biệt đầy trân trọng khi kết thúc chuyến công tác.",
@@ -36,20 +36,20 @@ CFG_14 = {
             "color": "#7c3aed",
             "color_dark": "#5b21b6",
             "intro": "Dùng khi bạn muốn xin phép cấp trên, đồng nghiệp hoặc đối tác để sử dụng đồ vật, mở/đóng cửa hay thực hiện một hành động nào đó trong văn phòng.",
-            "formula": "Động từ thể Te (V-て) + もいいですか<br>Trả lời đồng ý: 「はい、どうぞ (使ってください)」<br>Từ chối khéo: 「すみません、今 使っています / 壊れています」",
+            "formula": "Động từ thể Te (V-て) + もいいですか<br>Trả lời đồng ý: 「はい、どうぞ (<ruby>使<rt>つか</rt></ruby>ってください)」<br>Từ chối khéo: 「すみません、<ruby>今<rt>いま</rt></ruby> <ruby>使<rt>つか</rt></ruby>っています / <ruby>壊<rt>こわ</rt></ruby>れています」",
             "meaning": "Tôi làm ... có được không? / Xin phép cho tôi được... Luôn thể hiện sự tôn trọng không gian làm việc chung.",
             "table": {
                 "headers": ["Hành động", "Dạng xin phép V-てもいいですか", "Nghĩa tiếng Việt"],
                 "rows": [
-                    ["使います (Dùng)", "使っても いいですか", "Tôi dùng cái này có được không?"],
-                    ["借ります (Mượn)", "借りても いいですか", "Tôi mượn máy tính/bút có được không?"],
-                    ["開けます (Mở cửa)", "開けても いいですか", "Tôi mở cửa sổ ra có được không?"],
-                    ["座ります (Ngồi)", "座っても いいですか", "Tôi ngồi ở đây có được không?"]
+                    ["<ruby>使<rt>つか</rt></ruby>います (Dùng)", "<ruby>使<rt>つか</rt></ruby>っても いいですか", "Tôi dùng cái này có được không?"],
+                    ["<ruby>借<rt>か</rt></ruby>ります (Mượn)", "<ruby>借<rt>か</rt></ruby>りても いいですか", "Tôi mượn máy tính/bút có được không?"],
+                    ["<ruby>開<rt>あ</rt></ruby>けます (Mở cửa)", "<ruby>開<rt>あ</rt></ruby>けても いいですか", "Tôi mở cửa sổ ra có được không?"],
+                    ["<ruby>座<rt>すわ</rt></ruby>ります (Ngồi)", "<ruby>座<rt>すわ</rt></ruby>っても いいですか", "Tôi ngồi ở đây có được không?"]
                 ]
             },
             "examples": [
-                {"jp": "この コンピューター、使っても いいですか。―― はい、どうぞ。", "vi": "Tôi dùng chiếc máy tính này có được không? ―― Vâng, xin mời anh cứ dùng tự nhiên."},
-                {"jp": "ボールペンを 借りても いいですか。―― すみません、今 使っているんです。", "vi": "Tôi mượn chiếc bút bi có được không? ―― Xin lỗi anh, tôi hiện đang dùng mất rồi."},
+                {"jp": "この コンピューター、<ruby>使<rt>つか</rt></ruby>っても いいですか。―― はい、どうぞ。", "vi": "Tôi dùng chiếc máy tính này có được không? ―― Vâng, xin mời anh cứ dùng tự nhiên."},
+                {"jp": "ボールペンを <ruby>借<rt>か</rt></ruby>りても いいですか。―― すみません、<ruby>今<rt>いま</rt></ruby> <ruby>使<rt>つか</rt></ruby>っているんです。", "vi": "Tôi mượn chiếc bút bi có được không? ―― Xin lỗi anh, tôi hiện đang dùng mất rồi."},
                 {"jp": "エアコンを つけても いいですか。―― ええ、いいですよ。", "vi": "Tôi bật điều hòa lên có được không? ―― Vâng, được chứ ạ."}
             ]
         },
@@ -63,24 +63,24 @@ CFG_14 = {
             "formula": "Động từ thể Te (V-て) + はいけません",
             "meaning": "Không được làm... / Cấm làm... (Thường dùng trong quy chế văn phòng hoặc người hướng dẫn căn dặn).",
             "examples": [
-                {"jp": "ここで 写真を 撮っては いけません。", "vi": "Không được chụp ảnh tại khu vực này."},
-                {"jp": "この パソコンの パスワードを 教えては いけません。", "vi": "Không được tiết lộ mật khẩu của máy tính này cho người ngoài."},
-                {"jp": "大事な 書類を 外へ 持って 行っては いけません。", "vi": "Không được mang tài liệu quan trọng ra bên ngoài văn phòng."}
+                {"jp": "ここで <ruby>写真<rt>しゃしん</rt></ruby>を <ruby>撮<rt>と</rt></ruby>っては いけません。", "vi": "Không được chụp ảnh tại khu vực này."},
+                {"jp": "この パソコンの パスワードを <ruby>教<rt>おし</rt></ruby>えては いけません。", "vi": "Không được tiết lộ mật khẩu của máy tính này cho người ngoài."},
+                {"jp": "<ruby>大事<rt>だいじ</rt></ruby>な <ruby>書類<rt>しょるい</rt></ruby>を <ruby>外<rt>そと</rt></ruby>へ <ruby>持<rt>も</rt></ruby>って <ruby>行<rt>い</rt></ruby>っては いけません。", "vi": "Không được mang tài liệu quan trọng ra bên ngoài văn phòng."}
             ]
         },
         {
-            "title": "Chào tạm biệt & Gửi lời hỏi thăm: お世話になりました",
+            "title": "Chào tạm biệt & Gửi lời hỏi thăm: お<ruby>世話<rt>せわ</rt></ruby>になりました",
             "icon": "🙏",
             "tag": "Lễ nghi công sở",
             "color": "#059669",
             "color_dark": "#047857",
             "intro": "Lời chào kết thúc chuyến công tác, bày tỏ lòng biết ơn sâu sắc đối với sự hỗ trợ của chi nhánh và nhờ chuyển lời thăm hỏi đến trụ sở chính.",
-            "formula": "大変 お世話になりました。<br>[Ai đó] に よろしく お伝えください。<br>どうぞ お気をつけて お帰りください。",
+            "formula": "<ruby>大変<rt>たいへん</rt></ruby> お<ruby>世話<rt>せわ</rt></ruby>になりました。<br>[Ai đó] に よろしく お<ruby>伝<rt>つた</rt></ruby>えください。<br>どうぞ お<ruby>気<rt>き</rt></ruby>をつけて お<ruby>帰<rt>かえ</rt></ruby>りください。",
             "meaning": "Cảm ơn anh/chị đã hết lòng giúp đỡ tôi trong suốt thời gian qua. Cho tôi gửi lời hỏi thăm tới mọi người ở trụ sở chính nhé.",
             "examples": [
-                {"jp": "3日間、大変 お世話になりました。", "vi": "Trong 3 ngày qua, cảm ơn mọi người đã hết lòng giúp đỡ tôi."},
-                {"jp": "本社の 皆さんに よろしく お伝えください。", "vi": "Xin vui lòng cho tôi gửi lời chào hỏi thăm tới tất cả mọi người ở trụ sở chính nhé."},
-                {"jp": "また 会議で お会いしましょう。", "vi": "Hẹn sớm gặp lại anh trong cuộc họp lần tới nhé."}
+                {"jp": "3<ruby>日間<rt>にちかん</rt></ruby>、<ruby>大変<rt>たいへん</rt></ruby> お<ruby>世話<rt>せわ</rt></ruby>になりました。", "vi": "Trong 3 ngày qua, cảm ơn mọi người đã hết lòng giúp đỡ tôi."},
+                {"jp": "<ruby>本社<rt>ほんしゃ</rt></ruby>の <ruby>皆<rt>みな</rt></ruby>さんに よろしく お<ruby>伝<rt>つた</rt></ruby>えください。", "vi": "Xin vui lòng cho tôi gửi lời chào hỏi thăm tới tất cả mọi người ở trụ sở chính nhé."},
+                {"jp": "また <ruby>会議<rt>かいぎ</rt></ruby>で お<ruby>会<rt>あ</rt></ruby>いしましょう。", "vi": "Hẹn sớm gặp lại anh trong cuộc họp lần tới nhé."}
             ]
         }
     ],

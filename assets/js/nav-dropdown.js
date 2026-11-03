@@ -2,7 +2,7 @@
  * GLOBAL HUB NAVIGATION DROPDOWN CONTROLLER
  * Toggles for:
  * - testsDropdownMenu (🎯 Ôn Tập & Đề Thi ▾)
- * - lessonsDropdownMenu (🚀 Web Bài Học 10-18 ▾)
+ * - lessonsDropdownMenu (🚀 Web Bài Học ▾)
  */
 (function() {
     'use strict';
