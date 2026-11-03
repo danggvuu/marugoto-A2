@@ -2,9 +2,9 @@
 # -*- coding: utf-8 -*-
 """
 scripts/sync_clean_nav.py
-Đồng bộ thanh navigation trên toàn bộ 31 file HTML:
-- Xóa bỏ nút Ngữ Pháp: '📚 Ngữ Pháp A1-A2 (26 Bài)' (đã thay bằng menu Web Bài Học)
+Đồng bộ thanh navigation trên toàn bộ 32 file HTML:
 - Menu '🚀 Web Bài Học ▾' chứa ĐẦY ĐỦ TRỌN BỘ 18 BÀI (Bài 1 -> Bài 18)
+- Nút '💡 Kiến Thức Bổ Sung' dẫn tới kien_thuc_bo_sung.html
 - Đảm bảo CSS .hub-dropdown-menu có max-height: 480px và overflow-y: auto
 - Đảm bảo hàm toggleLessonsDropdown & toggleTestsDropdown hoạt động hoàn hảo
 """
@@ -70,6 +70,7 @@ def build_root_nav(current_file):
     is_ta = (current_file == 'the_ta.html')
     is_kanji = (current_file == 'kanji_a2.html')
     is_vocab = (current_file == 'Tu_Vung_Marugoto_A1_16_A2_1_10.html')
+    is_ktbs = (current_file == 'kien_thuc_bo_sung.html')
 
     tests_html = '\n                '.join([f'<a href="tests/{f}" class="hub-drop-link">{t}</a>' for f, t in TEST_LINKS])
     lessons_html = '\n                '.join([f'<a href="lessons/{f}" class="hub-drop-link">{t}</a>' for _, f, t in ALL_18_LESSONS])
@@ -80,6 +81,7 @@ def build_root_nav(current_file):
         <a href="the_ta.html" class="hub-nav-item{" active-hub" if is_ta else ""}">📕 Thể TA (Quá Khứ)</a>
         <a href="kanji_a2.html" class="hub-nav-item{" active-hub" if is_kanji else ""}">⛩️ Học Kanji & Nét Viết</a>
         <a href="Tu_Vung_Marugoto_A1_16_A2_1_10.html" class="hub-nav-item{" active-hub" if is_vocab else ""}">📖 Kho Từ Vựng A1-A2</a>
+        <a href="kien_thuc_bo_sung.html" class="hub-nav-item{" active-hub" if is_ktbs else ""}">💡 Kiến Thức Bổ Sung</a>
         <a href="demo_3d.html" class="hub-nav-item">⛩️ Không Gian 3D</a>
         <div class="hub-dropdown">
             <button type="button" class="hub-nav-item" onclick="toggleTestsDropdown(event)">🎯 Ôn Tập & Đề Thi ▾</button>
@@ -110,6 +112,7 @@ def build_lessons_nav(current_lesson_file):
         <a href="../the_ta.html" class="hub-nav-item">📕 Thể TA (Quá Khứ)</a>
         <a href="../kanji_a2.html" class="hub-nav-item">⛩️ Học Kanji & Nét Viết</a>
         <a href="../Tu_Vung_Marugoto_A1_16_A2_1_10.html" class="hub-nav-item">📖 Kho Từ Vựng A1-A2</a>
+        <a href="../kien_thuc_bo_sung.html" class="hub-nav-item">💡 Kiến Thức Bổ Sung</a>
         <a href="../demo_3d.html" class="hub-nav-item">⛩️ Không Gian 3D</a>
         <div class="hub-dropdown">
             <button type="button" class="hub-nav-item" onclick="toggleTestsDropdown(event)">🎯 Ôn Tập & Đề Thi ▾</button>
@@ -140,6 +143,7 @@ def build_tests_nav(current_test_file):
         <a href="../the_ta.html" class="hub-nav-item">📕 Thể TA (Quá Khứ)</a>
         <a href="../kanji_a2.html" class="hub-nav-item">⛩️ Học Kanji & Nét Viết</a>
         <a href="../Tu_Vung_Marugoto_A1_16_A2_1_10.html" class="hub-nav-item">📖 Kho Từ Vựng A1-A2</a>
+        <a href="../kien_thuc_bo_sung.html" class="hub-nav-item">💡 Kiến Thức Bổ Sung</a>
         <a href="../demo_3d.html" class="hub-nav-item">⛩️ Không Gian 3D</a>
         <div class="hub-dropdown">
             <button type="button" class="hub-nav-item active-hub" onclick="toggleTestsDropdown(event)">🎯 Ôn Tập & Đề Thi ▾</button>
@@ -156,7 +160,6 @@ def build_tests_nav(current_test_file):
     </div>'''
 
 def ensure_dropdown_css(content):
-    # Ensure .hub-dropdown-menu has max-height: 480px; overflow-y: auto;
     pattern = r'(\.hub-dropdown-menu\s*\{[^}]*?)(min-width:\s*2[0-9]{2}px;)'
     if re.search(pattern, content):
         if 'overflow-y:' not in content[re.search(pattern, content).start():re.search(pattern, content).end() + 100]:
@@ -201,7 +204,8 @@ def main():
         'the_ta.html',
         'kanji_a2.html',
         'Tu_Vung_Marugoto_A1_16_A2_1_10.html',
-        'Tong_Hop_Ngu_Phap_Marugoto_A1_A2.html'
+        'Tong_Hop_Ngu_Phap_Marugoto_A1_A2.html',
+        'kien_thuc_bo_sung.html'
     ]
     lesson_files = sorted(glob.glob('lessons/Marugoto_A2_Lesson_*.html'))
     test_files = sorted([f for f in glob.glob('tests/*.html') if 'mockup' not in f])

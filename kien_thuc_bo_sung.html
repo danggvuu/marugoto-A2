@@ -1,0 +1,1483 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cẩm Nang Toàn Bộ Kiến Thức Bổ Sung (Mục 1 ➔ 7+) | Marugoto A1-A2</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&family=Fira+Code:wght@500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-light: #eef2ff;
+            --primary-dark: #3730a3;
+            --secondary: #06b6d4;
+            --accent: #f59e0b;
+            --success: #10b981;
+            --danger: #ef4444;
+            --bg-page: #f8fafc;
+            --bg-card: #ffffff;
+            --text-main: #0f172a;
+            --text-sub: #475569;
+            --text-muted: #94a3b8;
+            --border-ui: #e2e8f0;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+            --shadow-md: 0 4px 14px rgba(0,0,0,0.08);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-page);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-bottom: 80px;
+        }
+
+        .jp-text {
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+
+        ruby rt {
+            font-size: 0.68em;
+            color: #6366f1;
+            font-weight: 700;
+        }
+
+        body.hide-furigana rt {
+            display: none !important;
+        }
+
+        /* ==========================================
+           GLOBAL HUB NAVIGATION (NON-STICKY)
+           ========================================== */
+        .global-hub-nav {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 12px auto 20px auto;
+            flex-wrap: wrap;
+            padding: 0 16px;
+            max-width: 1400px;
+        }
+        .hub-nav-item {
+            text-decoration: none;
+            background: #ffffff;
+            color: #475569;
+            padding: 9px 18px;
+            border-radius: 9999px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            border: 1.5px solid var(--border-ui);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            font-family: inherit;
+        }
+        .hub-nav-item:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+        .hub-nav-item.active-hub {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            color: #ffffff !important;
+            border-color: transparent;
+            box-shadow: 0 4px 15px rgba(79, 70, 229, 0.35);
+        }
+        .hub-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .hub-dropdown-menu {
+            display: none;
+            position: absolute;
+            top: calc(100% + 6px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ffffff;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 14px;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+            padding: 8px;
+            min-width: 280px;
+            max-height: 480px;
+            overflow-y: auto;
+            scrollbar-width: thin;
+            z-index: 9999;
+        }
+        .hub-dropdown-menu.show {
+            display: block;
+        }
+        .hub-drop-link {
+            display: block;
+            padding: 8px 14px;
+            color: #334155;
+            font-size: 0.86rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.15s ease;
+        }
+        .hub-drop-link:hover {
+            background: #eef2ff;
+            color: #4f46e5;
+        }
+        .hub-drop-link.active {
+            background: #4f46e5;
+            color: #ffffff !important;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Header */
+        .hero-banner {
+            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 40%, #4338ca 100%);
+            color: #ffffff;
+            border-radius: 24px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 14px 34px rgba(49, 46, 129, 0.25);
+            margin-bottom: 24px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.18);
+            backdrop-filter: blur(8px);
+            padding: 6px 16px;
+            border-radius: 999px;
+            font-size: 0.82rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .hero-title {
+            font-size: 2.2rem;
+            font-weight: 900;
+            letter-spacing: -0.5px;
+            margin-bottom: 10px;
+            line-height: 1.25;
+        }
+        .hero-desc {
+            font-size: 1.05rem;
+            color: #cbd5e1;
+            max-width: 820px;
+            margin: 0 auto 20px auto;
+            font-weight: 500;
+        }
+
+        /* Controls Row */
+        .controls-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .search-box {
+            position: relative;
+            min-width: 300px;
+            max-width: 460px;
+            flex: 1;
+        }
+        .search-input {
+            width: 100%;
+            padding: 12px 18px 12px 42px;
+            border-radius: 9999px;
+            border: 1.5px solid rgba(255, 255, 255, 0.35);
+            background: rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+            font-size: 0.95rem;
+            outline: none;
+            backdrop-filter: blur(10px);
+            transition: all 0.2s ease;
+        }
+        .search-input::placeholder {
+            color: #cbd5e1;
+        }
+        .search-input:focus {
+            background: #ffffff;
+            color: #0f172a;
+            border-color: #ffffff;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+        .search-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.1rem;
+            opacity: 0.8;
+            pointer-events: none;
+        }
+        .btn-toggle-furigana {
+            background: rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            border: 1.5px solid rgba(255, 255, 255, 0.4);
+            padding: 10px 20px;
+            border-radius: 9999px;
+            font-weight: 700;
+            font-size: 0.88rem;
+            cursor: pointer;
+            backdrop-filter: blur(8px);
+            transition: all 0.2s ease;
+        }
+        .btn-toggle-furigana:hover {
+            background: #ffffff;
+            color: var(--primary);
+        }
+
+        /* Sticky Section Sub-Nav */
+        .section-nav-sticky {
+            position: sticky;
+            top: 10px;
+            z-index: 900;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            border: 1.5px solid var(--border-ui);
+            border-radius: 16px;
+            padding: 8px 12px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow-md);
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+        .section-nav-sticky::-webkit-scrollbar {
+            display: none;
+        }
+        .sec-chip {
+            white-space: nowrap;
+            padding: 8px 14px;
+            border-radius: 10px;
+            font-size: 0.84rem;
+            font-weight: 700;
+            color: var(--text-sub);
+            text-decoration: none;
+            background: #f1f5f9;
+            transition: all 0.15s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .sec-chip:hover {
+            background: var(--primary-light);
+            color: var(--primary);
+        }
+        .sec-chip.active {
+            background: var(--primary);
+            color: #ffffff;
+        }
+
+        /* Topic Card Block */
+        .topic-card {
+            background: var(--bg-card);
+            border: 1.5px solid var(--border-ui);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.25s ease;
+        }
+        .topic-card:hover {
+            box-shadow: var(--shadow-md);
+            border-color: #cbd5e1;
+        }
+        .topic-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 16px;
+            margin-bottom: 20px;
+        }
+        .topic-num-badge {
+            background: linear-gradient(135deg, var(--primary) 0%, #7c3aed 100%);
+            color: #ffffff;
+            font-size: 0.88rem;
+            font-weight: 900;
+            padding: 8px 16px;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px rgba(79, 70, 229, 0.3);
+            white-space: nowrap;
+        }
+        .topic-title {
+            font-size: 1.45rem;
+            font-weight: 800;
+            color: var(--text-main);
+        }
+        .topic-subtitle {
+            font-size: 0.92rem;
+            color: var(--text-sub);
+            font-weight: 500;
+            margin-top: 2px;
+        }
+
+        /* Grammar Formula Box */
+        .formula-box {
+            background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
+            border-left: 5px solid var(--primary);
+            border-radius: 12px;
+            padding: 18px 22px;
+            margin-bottom: 20px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.96rem;
+            color: #1e1b4b;
+            line-height: 1.7;
+        }
+
+        /* Comparison Table */
+        .compare-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            border: 1.5px solid var(--border-ui);
+            border-radius: 14px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        .compare-table th {
+            background: #f8fafc;
+            color: var(--text-main);
+            font-weight: 800;
+            font-size: 0.9rem;
+            padding: 12px 16px;
+            border-bottom: 1.5px solid var(--border-ui);
+            text-align: left;
+        }
+        .compare-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border-ui);
+            font-size: 0.92rem;
+            color: var(--text-sub);
+        }
+        .compare-table tr:last-child td {
+            border-bottom: none;
+        }
+        .compare-table tr:hover td {
+            background: #faf5ff;
+        }
+
+        /* Example List */
+        .example-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        .example-item {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 14px 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 14px;
+            transition: all 0.15s ease;
+        }
+        .example-item:hover {
+            border-color: var(--primary);
+            background: #fcfdff;
+        }
+        .example-content {
+            flex: 1;
+        }
+        .example-jp {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 3px;
+        }
+        .example-vi {
+            font-size: 0.88rem;
+            color: #475569;
+        }
+        .btn-tts {
+            background: #f1f5f9;
+            border: none;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.1rem;
+            color: #4338ca;
+            transition: all 0.15s ease;
+            flex-shrink: 0;
+        }
+        .btn-tts:hover {
+            background: var(--primary);
+            color: #ffffff;
+            transform: scale(1.08);
+        }
+
+        /* Traps & Tips Box */
+        .tip-box {
+            background: #fffbeb;
+            border: 1.5px solid #fde68a;
+            border-left: 5px solid #f59e0b;
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin-bottom: 20px;
+        }
+        .tip-title {
+            font-weight: 800;
+            color: #b45309;
+            font-size: 0.95rem;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .tip-content {
+            font-size: 0.9rem;
+            color: #78350f;
+            line-height: 1.6;
+        }
+
+        /* Interactive Quiz Inside Topic */
+        .mini-quiz-box {
+            background: #f8fafc;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 14px;
+            padding: 20px;
+            margin-top: 15px;
+        }
+        .mini-quiz-title {
+            font-size: 0.95rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .quiz-option-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        .btn-quiz-opt {
+            background: #ffffff;
+            border: 1.5px solid #cbd5e1;
+            padding: 10px 14px;
+            border-radius: 10px;
+            text-align: left;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-main);
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+        .btn-quiz-opt:hover {
+            border-color: var(--primary);
+            background: #eef2ff;
+        }
+        .btn-quiz-opt.correct {
+            background: #dcfce7 !important;
+            border-color: #22c55e !important;
+            color: #15803d !important;
+        }
+        .btn-quiz-opt.wrong {
+            background: #fee2e2 !important;
+            border-color: #ef4444 !important;
+            color: #b91c1c !important;
+        }
+        .quiz-feedback {
+            font-size: 0.88rem;
+            font-weight: 700;
+            margin-top: 8px;
+            display: none;
+            padding: 8px 12px;
+            border-radius: 8px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title { font-size: 1.65rem; }
+            .hero-banner { padding: 30px 18px; }
+            .topic-card { padding: 20px 16px; }
+            .topic-header { flex-direction: column; align-items: flex-start; gap: 8px; }
+            .controls-row { flex-direction: column; width: 100%; }
+            .search-box { width: 100%; min-width: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Global Hub Navigation -->
+        <div class="global-hub-nav">
+        <a href="index.html" class="hub-nav-item">🌸 Thể TE (～て)</a>
+        <a href="the_ru.html" class="hub-nav-item">📘 Thể RU (Từ Điển)</a>
+        <a href="the_ta.html" class="hub-nav-item">📕 Thể TA (Quá Khứ)</a>
+        <a href="kanji_a2.html" class="hub-nav-item">⛩️ Học Kanji & Nét Viết</a>
+        <a href="Tu_Vung_Marugoto_A1_16_A2_1_10.html" class="hub-nav-item">📖 Kho Từ Vựng A1-A2</a>
+        <a href="kien_thuc_bo_sung.html" class="hub-nav-item active-hub">💡 Kiến Thức Bổ Sung</a>
+        <a href="demo_3d.html" class="hub-nav-item">⛩️ Không Gian 3D</a>
+        <div class="hub-dropdown">
+            <button type="button" class="hub-nav-item" onclick="toggleTestsDropdown(event)">🎯 Ôn Tập & Đề Thi ▾</button>
+            <div class="hub-dropdown-menu" id="testsDropdownMenu">
+                <a href="tests/De_Thi_Midterm_A2_1.html" class="hub-drop-link">🎯 Bộ 5 Đề Thi Giữa Kỳ Midterm (M101 - M105)</a>
+                <a href="tests/On_Tap_Dich_Cau_Lesson_1_10.html" class="hub-drop-link">✍️ Luyện Dịch Câu Bài 1 - 10 (40 Câu)</a>
+                <a href="tests/On_Tap_Mini_Test_A2_1_4.html" class="hub-drop-link">🎯 Ôn Tập Bài 1-4 (Mini Test)</a>
+                <a href="tests/On_Tap_Mini_Test_A2_5_8.html" class="hub-drop-link">🎯 Ôn Tập Bài 5-8 (Mini Test)</a>
+                <a href="tests/De_Thi_Thu_Marugoto_A2_5_8.html" class="hub-drop-link">📝 5 Mã Đề Thi Thử (101-105)</a>
+                <a href="tests/Kiem_Tra_Marugoto_L6_7_8.html" class="hub-drop-link">📑 Đề Kiểm Tra L6, 7, 8</a>
+                <a href="tests/Luyen_Tap_The_Te_A2_1.html" class="hub-drop-link">🌸 Luyện Tập Thể Te</a>
+            </div>
+        </div>
+        <div class="hub-dropdown">
+            <button type="button" class="hub-nav-item" onclick="toggleLessonsDropdown(event)">🚀 Web Bài Học ▾</button>
+            <div class="hub-dropdown-menu" id="lessonsDropdownMenu">
+                <a href="lessons/Marugoto_A2_Lesson_1.html" class="hub-drop-link">🌸 Bài 1: Nơi ở & Gia đình</a>
+                <a href="lessons/Marugoto_A2_Lesson_2.html" class="hub-drop-link">🎨 Bài 2: Sở thích & Ngôn ngữ</a>
+                <a href="lessons/Marugoto_A2_Lesson_3.html" class="hub-drop-link">🍁 Bài 3: Mùa & Khí hậu</a>
+                <a href="lessons/Marugoto_A2_Lesson_4.html" class="hub-drop-link">⛅ Bài 4: Thời tiết & Dự báo</a>
+                <a href="lessons/Marugoto_A2_Lesson_5.html" class="hub-drop-link">🏙️ Bài 5: Phố xá & Nơi chốn</a>
+                <a href="lessons/Marugoto_A2_Lesson_6.html" class="hub-drop-link">🗺️ Bài 6: Chỉ đường & Ngã rẽ</a>
+                <a href="lessons/Marugoto_A2_Lesson_7.html" class="hub-drop-link">⏰ Bài 7: Hẹn gặp & Giờ giấc</a>
+                <a href="lessons/Marugoto_A2_Lesson_8.html" class="hub-drop-link">⛩️ Bài 8: Sự kiện & Mời mọc</a>
+                <a href="lessons/Marugoto_A2_Lesson_9.html" class="hub-drop-link">🗣️ Bài 9: Học tập & Phát âm</a>
+                <a href="lessons/Marugoto_A2_Lesson_10.html" class="hub-drop-link">🌟 Bài 10: Ngoại ngữ & Văn hóa</a>
+                <a href="lessons/Marugoto_A2_Lesson_11.html" class="hub-drop-link">🍱 Bài 11: Dã ngoại & Ăn uống</a>
+                <a href="lessons/Marugoto_A2_Lesson_12.html" class="hub-drop-link">🍜 Bài 12: Món ăn ngày đặc biệt</a>
+                <a href="lessons/Marugoto_A2_Lesson_13.html" class="hub-drop-link">✈️ Bài 13: Đi công tác & Gặp gỡ</a>
+                <a href="lessons/Marugoto_A2_Lesson_14.html" class="hub-drop-link">💻 Bài 14: Quy tắc nơi làm việc</a>
+                <a href="lessons/Marugoto_A2_Lesson_15.html" class="hub-drop-link">🏥 Bài 15: Sức khỏe & Thể dục</a>
+                <a href="lessons/Marugoto_A2_Lesson_16.html" class="hub-drop-link">🏃 Bài 16: Tập luyện & Vận động</a>
+                <a href="lessons/Marugoto_A2_Lesson_17.html" class="hub-drop-link">🎁 Bài 17: Quà tặng & Kỷ niệm</a>
+                <a href="lessons/Marugoto_A2_Lesson_18.html" class="hub-drop-link">👘 Bài 18: Tiệc tùng & Sự kiện</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Hero Banner -->
+        <header class="hero-banner">
+            <span class="hero-badge">MARUGOTO A1 • A2-1 • A2-2</span>
+            <h1 class="hero-title">TỔNG HỢP TOÀN BỘ KIẾN THỨC BỔ SUNG</h1>
+            <p class="hero-desc">Hệ thống hóa toàn bộ các chuyên đề bổ trợ then chốt (Mục 1 ➔ Mục 7 và mở rộng) • Phân biệt trợ từ, lượng từ, phó từ, liên từ, quy tắc biến âm, 5 thể động từ & các mẫu câu thực chiến.</p>
+            
+            <div class="controls-row">
+                <div class="search-box">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="searchInput" class="search-input" placeholder="Tìm kiến thức bổ sung (VD: tro tu, dem nguoi, pho tu, suogiru...)">
+                </div>
+                <button type="button" class="btn-toggle-furigana" onclick="toggleFurigana()">🔤 Bật / Tắt Cách Đọc (Furigana)</button>
+            </div>
+        </header>
+
+        <!-- Sticky Section Navigation -->
+        <nav class="section-nav-sticky">
+            <a href="#topic-1" class="sec-chip active">📌 Mục 1: Trợ từ dễ nhầm</a>
+            <a href="#topic-2" class="sec-chip">🔢 Mục 2: Lượng từ & Số đếm</a>
+            <a href="#topic-3" class="sec-chip">⚡ Mục 3: Phó từ tần suất & Mức độ</a>
+            <a href="#topic-4" class="sec-chip">🔗 Mục 4: Liên từ nối câu</a>
+            <a href="#topic-5" class="sec-chip">🗣️ Mục 5: Quy tắc biến âm & Âm ngắt</a>
+            <a href="#topic-6" class="sec-chip">🔄 Mục 6: 5 Thể Động Từ Cốt Lõi</a>
+            <a href="#topic-7" class="sec-chip">🎯 Mục 7: Mẫu câu mở rộng thực chiến</a>
+            <a href="#topic-8" class="sec-chip">💡 Mục 8: Bày tỏ ý kiến & Trích dẫn</a>
+            <a href="#topic-9" class="sec-chip">⛩️ Mục 9: Văn hóa & Quy tắc ứng xử</a>
+        </nav>
+
+        <!-- ========================================================
+             MỤC 1: TRỢ TỪ TRỌNG ĐIỂM & CÁC CẶP DỄ NHẦM LẪN
+             ======================================================== -->
+        <section class="topic-card" id="topic-1" data-keywords="tro tu trotu ni de wa ga o nham lẫn phan biet">
+            <div class="topic-header">
+                <span class="topic-num-badge">MỤC 1</span>
+                <div>
+                    <h2 class="topic-title">Trợ Từ Trọng Điểm & Các Cặp Dễ Nhầm Lẫn</h2>
+                    <p class="topic-subtitle">Phân biệt triệt để 「に vs で」, 「は vs が」 và các động từ đi với trợ từ đặc biệt</p>
+                </div>
+            </div>
+
+            <div class="formula-box">
+                • [Nơi chốn] <strong>に</strong> あります／います／すんでいます (Nơi tồn tại, sinh sống)<br>
+                • [Nơi chốn] <strong>で</strong> V ます (Nơi diễn ra hành động: ăn, uống, học, làm việc)<br>
+                • [Thời gian chính xác] <strong>に</strong> V ます (7時に 起きます / Thứ trong tuần, ngày tháng)<br>
+                • [Phương tiện / Công cụ] <strong>で</strong> V ます (バスで行きます / はしで食べます)
+            </div>
+
+            <table class="compare-table">
+                <thead>
+                    <tr>
+                        <th style="width: 25%;">Trợ từ</th>
+                        <th style="width: 40%;">Ý nghĩa & Bản chất</th>
+                        <th style="width: 35%;">Ví dụ minh họa</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>に (Điểm đến / Tồn tại)</strong></td>
+                        <td>Chỉ điểm đích đến, nơi tồn tại cố định, thời điểm có con số cụ thể, hoặc đối tượng tác động trực tiếp.</td>
+                        <td>
+                            • <ruby>東京<rt>とうきょう</rt></ruby><strong>に</strong> <ruby>住<rt>す</rt></ruby>んでいます。<br>
+                            • 7<ruby>時<rt>じ</rt></ruby><strong>に</strong> <ruby>起<rt>お</rt></ruby>きます。<br>
+                            • <ruby>友<rt>とも</rt></ruby>だち<strong>に</strong> <ruby>会<rt>あ</rt></ruby>います。
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>で (Phạm vi / Phương tiện)</strong></td>
+                        <td>Chỉ nơi chốn diễn ra hành động, phương tiện đi lại, công cụ làm việc hoặc phạm vi so sánh.</td>
+                        <td>
+                            • レストラン<strong>で</strong> ごはんを <ruby>食<rt>た</rt></ruby>べます。<br>
+                            • でんしゃ<strong>で</strong> <ruby>行<rt>い</rt></ruby>きます。<br>
+                            • 日本りょうりの <ruby>中<rt>なか</rt></ruby><strong>で</strong> すしが いちばん <ruby>好<rt>す</rt></ruby>きです。
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>は (Chủ đề câu)</strong></td>
+                        <td>Nêu bật chủ đề muốn nói đến ("Còn về... thì"). Trọng tâm thông tin nằm ở vế vị ngữ phía sau.</td>
+                        <td>
+                            • わたし<strong>は</strong> ベトナム人です。<br>
+                            • きのう<strong>は</strong> 雨でした。
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>が (Chủ ngữ / Đối tượng)</strong></td>
+                        <td>Chỉ tác nhân thực hiện hành động, đối tượng của tính từ, sở thích, năng khiếu, mong muốn.</td>
+                        <td>
+                            • すし<strong>が</strong> <ruby>好<rt>す</rt></ruby>きです。<br>
+                            • 日本語<strong>が</strong> できます。<br>
+                            • だれ<strong>が</strong> <ruby>来<rt>き</rt></ruby>ましたか。
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="tip-box">
+                <div class="tip-title">⚠️ BẪY THI THƯỜNG GẶP (Trợ từ đi kèm động từ đặc biệt):</div>
+                <div class="tip-content">
+                    1. Gặp ai đó: <strong>[Người] に 会います</strong> (Tuyệt đối KHÔNG dùng を).<br>
+                    2. Lên xe/tàu: <strong>[Phương tiện] に 乗ります</strong> (Xuống xe mới dùng を: <strong>電車を 降ります</strong>).<br>
+                    3. Đến nơi: <strong>[Địa điểm] に 着きます</strong>.<br>
+                    4. Thời gian tương đối (hôm nay, ngày mai, tuần sau, mỗi ngày...): <strong>KHÔNG</strong> thêm に!
+                </div>
+            </div>
+
+            <ul class="example-list">
+                <li class="example-item">
+                    <div class="example-content">
+                        <div class="example-jp jp-text"><ruby>日曜日<rt>にちようび</rt></ruby>に さくらえき<strong>で</strong> 電車<strong>に</strong> 乗ります。</div>
+                        <div class="example-vi">Chủ Nhật tôi lên tàu điện ở ga Sakura. (で: nơi diễn ra hành động, に: lên phương tiện)</div>
+                    </div>
+                    <button class="btn-tts" onclick="speakJP('日曜日にさくらえきで電車に乗ります')">🔊</button>
+                </li>
+                <li class="example-item">
+                    <div class="example-content">
+                        <div class="example-jp jp-text">田中さん<strong>に</strong> <ruby>会<rt>あ</rt></ruby>ったことが ありますか。</div>
+                        <div class="example-vi">Bạn đã từng gặp anh Tanaka bao giờ chưa? (Gặp ai đi với に)</div>
+                    </div>
+                    <button class="btn-tts" onclick="speakJP('田中さんに会ったことがありますか')">🔊</button>
+                </li>
+            </ul>
+
+            <div class="mini-quiz-box">
+                <div class="mini-quiz-title">📝 Kiểm Tra Nhanh Mục 1: Chọn trợ từ thích hợp</div>
+                <p style="font-size:0.95rem; font-weight:700; margin-bottom:8px;">1. あした、図書館 [_____] 勉強します。</p>
+                <div class="quiz-option-grid" id="q1-opts">
+                    <button class="btn-quiz-opt" onclick="checkMiniQuiz(this, false, 'Sai rồi! Thư viện là nơi diễn ra hành động học tập nên phải dùng 「で」!')">A. に</button>
+                    <button class="btn-quiz-opt" onclick="checkMiniQuiz(this, true, 'Chính xác! Diễn ra hành động học tập tại địa điểm dùng 「で」.')">B. で</button>
+                    <button class="btn-quiz-opt" onclick="checkMiniQuiz(this, false, 'Sai rồi! を chỉ bổ ngữ trực tiếp, không chỉ nơi chốn!')">C. を</button>
+                    <button class="btn-quiz-opt" onclick="checkMiniQuiz(this, false, 'Sai rồi! へ chỉ hướng đi, không dùng cho hành động tại chỗ!')">D. へ</button>
+                </div>
+                <div class="quiz-feedback" id="q1-feedback"></div>
+            </div>
+        </section>
+
+        <!-- ========================================================
+             MỤC 2: LƯỢNG TỪ & HỆ THỐNG TỪ CHỈ SỐ ĐẾM
+             ======================================================== -->
+        <section class="topic-card" id="topic-2" data-keywords="luong tu so dem mai hon dai hiki kai dem nguoi dem vat">
+            <div class="topic-header">
+                <span class="topic-num-badge">MỤC 2</span>
+                <div>
+                    <h2 class="topic-title">Lượng Từ & Hệ Thống Đếm Số Lượng (助数詞)</h2>
+                    <p class="topic-subtitle">Đếm người, đồ vật thông thường, vật mỏng, vật dài, máy móc, con vật và tần suất</p>
+                </div>
+            </div>
+
+            <div class="formula-box">
+                • Vị trí lượng từ trong câu: Đứng <strong>ngay trước động từ</strong> hoặc sau trợ từ:<br>
+                → りんごを <strong>3つ</strong> 買いました。 (Tôi đã mua 3 quả táo)<br>
+                → クラスに 学生が <strong>15人</strong> います。 (Trong lớp có 15 học sinh)
+            </div>
+
+            <table class="compare-table">
+                <thead>
+                    <tr>
+                        <th>Loại từ đếm</th>
+                        <th>Từ để hỏi</th>
+                        <th>Đếm đặc biệt (Cần chú ý)</th>
+                        <th>Quy tắc đếm thông thường</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Đồ vật chung (〜つ)</strong></td>
+                        <td>いくつ</td>
+                        <td>1: ひとつ, 2: ふたつ, 3: みっつ, 4: よっつ, 5: いつつ, 6: むっつ, 7: ななつ, 8: やっつ, 9: ここのつ, 10: とお</td>
+                        <td>Từ 11 trở lên đếm số thường + ko cần つ (11: じゅういち).</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Người (〜人)</strong></td>
+                        <td>何人 (なんにん)</td>
+                        <td><strong>1 người: ひとり (一人)</strong><br><strong>2 người: ふたり (二人)</strong><br><strong>4 người: よにん (四人 - Không đọc よんにん/しにん)</strong></td>
+                        <td>3 người: さんにん, 5 người: ごにん, 6 người: ろくにん...</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Vật mỏng (〜枚 まい)</strong></td>
+                        <td>何枚 (なんまい)</td>
+                        <td>Áo sơ mi, giấy, vé tàu, đĩa nhạc, ảnh, khăn mỏng.</td>
+                        <td>いちまい, にまい, さんまい, よんまい, ごまい...</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Vật thon dài (〜本 ほん)</strong></td>
+                        <td>何本 (なんぼん)</td>
+                        <td><strong>1: いっぽん, 3: さんぼん, 6: ろっぽん, 8: はっぽん, 10: じゅっぽん</strong></td>
+                        <td>Chai nước, bút, ô, chuối, cây cối, con đường.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Máy móc / Xe (〜台 だい)</strong></td>
+                        <td>何台 (なんだい)</td>
+                        <td>Ô tô, xe đạp, máy tính, tivi, điện thoại.</td>
+                        <td>いちだい, にだい, さんだい, よんだい, ごだい...</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Động vật nhỏ (〜匹 ひき)</strong></td>
+                        <td>何匹 (なんびき)</td>
+                        <td><strong>1: いっぴき, 3: さんびき, 6: ろっぴき, 8: はっぴき, 10: じゅっぴき</strong></td>
+                        <td>Chó, mèo, cá, sâu bọ, côn trùng nhỏ.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Số lần / Tần suất (〜回 かい)</strong></td>
+                        <td>何回 (なんかい)</td>
+                        <td><strong>1: いっかい, 6: ろっかい, 8: はっかい, 10: じゅっかい</strong></td>
+                        <td>Số lần làm việc gì đó (1 tuần 2 lần: 1週間に 2回).</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <ul class="example-list">
+                <li class="example-item">
+                    <div class="example-content">
+                        <div class="example-jp jp-text">きのう、きれいな シャツを <strong>2<ruby>枚<rt>まい</rt></ruby></strong> 買いました。</div>
+                        <div class="example-vi">Hôm qua tôi đã mua 2 chiếc áo sơ mi đẹp. (Áo sơ mi là vật mỏng dùng 枚)</div>
+                    </div>
+                    <button class="btn-tts" onclick="speakJP('きのう、きれいなシャツをにまいかいました')">🔊</button>
+                </li>
+                <li class="example-item">
+                    <div class="example-content">
+                        <div class="example-jp jp-text">水泳を <strong>1<ruby>週間に<rt>しゅうかんに</rt></ruby> 3<ruby>回<rt>かい</rt></ruby></strong> しています。</div>
+                        <div class="example-vi">Tôi đi bơi 3 lần một tuần. (Diễn tả tần suất thói quen)</div>
+                    </div>
+                    <button class="btn-tts" onclick="speakJP('すいえいをつきにさんかいしています')">🔊</button>
+                </li>
+            </ul>
+
+            <div class="mini-quiz-box">
+                <div class="mini-quiz-title">📝 Kiểm Tra Nhanh Mục 2: Điền từ đếm chính xác</div>
+                <p style="font-size:0.95rem; font-weight:700; margin-bottom:8px;">2. レストランで ビールを 2 [_____] 注文しました。</p>
+                <div class="quiz-option-grid">
+                    <button class="btn-quiz-opt" onclick="checkMiniQuiz(this, true, 'Chính xác! Chai bia/cốc bia là vật dài dùng 「本 - にほん」!')">A. 本 (にほん)</button>
+                    <button class="btn-quiz-opt" onclick="checkMiniQuiz(this, false, 'Sai rồi! 枚 dùng cho vật phẳng/mỏng như áo, vé!')">B. 枚 (にまい)</button>
+                    <button class="btn-quiz-opt" onclick="checkMiniQuiz(this, false, 'Sai rồi! 台 dùng cho máy móc, xe cộ!')">C. 台 (にだい)</button>
+                    <button class="btn-quiz-opt" onclick="checkMiniQuiz(this, false, 'Sai rồi! 匹 dùng cho động vật nhỏ!')">D. 匹 (にひき)</button>
+                </div>
+                <div class="quiz-feedback"></div>
+            </div>
+        </section>
+
+        <!-- ========================================================
+             MỤC 3: HỆ THỐNG PHÓ TỪ CHỈ TẦN SUẤT & MỨC ĐỘ
+             ======================================================== -->
+        <section class="topic-card" id="topic-3" data-keywords="pho tu tan suat muc do itsumo yoku tokidoki amari zenzen">
+            <div class="topic-header">
+                <span class="topic-num-badge">MỤC 3</span>
+                <div>
+                    <h2 class="topic-title">Hệ Thống Phó Từ Chỉ Tần Suất & Mức Độ (副詞)</h2>
+                    <p class="topic-subtitle">Phân cấp mức độ từ 100% đến 0% và các phó từ chuyên đi kèm câu phủ định</p>
+                </div>
+            </div>
+
+            <div class="formula-box">
+                • <strong>いつも</strong> (100% - Luôn luôn) ➔ <strong>よく</strong> (80% - Thường xuyên) ➔ <strong>ときどき</strong> (50% - Thỉnh thoảng)<br>
+                • <strong>あまり ＋ Phủ định</strong> (20% - Không... lắm: あまり 食べません)<br>
+                • <strong>ぜんぜん ＋ Phủ định</strong> (0% - Hoàn toàn không...: ぜんぜん 分かりません)
+            </div>
+
+            <table class="compare-table">
+                <thead>
+                    <tr>
+                        <th>Nhóm phó từ</th>
+                        <th>Các phó từ tiêu biểu</th>
+                        <th>Sắc thái & Quy tắc ngữ pháp</th>
+                        <th>Ví dụ áp dụng</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Phó từ tần suất (Độ thường xuyên)</strong></td>
+                        <td>
+                            • いつも (Luôn luôn)<br>
+                            • よく (Thường xuyên)<br>
+                            • ときどき (Thỉnh thoảng)<br>
+                            • たまに (Hiếm khi)<br>
+                            • あまり (Không... lắm)<br>
+                            • ぜんぜん (Hoàn toàn không)
+                        </td>
+                        <td>Đứng trước động từ để bổ nghĩa cho tần suất lặp lại của hành vi. Nhớ kỹ <code>あまり</code> và <code>ぜんぜん</code> bắt buộc đuôi câu phải là phủ định (〜ない / 〜ません).</td>
+                        <td>
+                            • 休みの日、<strong>よく</strong> 映画を 見ます。<br>
+                            • からい 料理は <strong>あまり</strong> 食べません。
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Phó từ mức độ (Cường độ tính chất)</strong></td>
+                        <td>
+                            • とても / たいへん (Rất)<br>
+                            • ずいぶん / かなり (Khá là)<br>
+                            • ちょっと / すこし (Một chút, hơi)<br>
+                            • ちょうど (Vừa vặn, đúng lúc)<br>
+                            • だいたい (Đại khái, khoảng)
+                        </td>
+                        <td>Bổ nghĩa cho tính từ hoặc phó từ khác để tăng giảm mức độ biểu đạt cảm xúc, nhận định.</td>
+                        <td>
+                            • この 部屋は <strong>とても</strong> 静かです。<br>
+                            • 時間は <strong>ちょうど</strong> いいです。
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <ul class="example-list">
+                <li class="example-item">
+                    <div class="example-content">
+                        <div class="example-jp jp-text">英語は <strong>ぜんぜん</strong> <ruby>話<rt>はな</rt></ruby>せません。</div>
+                        <div class="example-vi">Tôi hoàn toàn không thể nói được tiếng Anh. (ぜんぜん đi với phủ định)</div>
+                    </div>
+                    <button class="btn-tts" onclick="speakJP('えいごはぜんぜんはなせません')">🔊</button>
+                </li>
+                <li class="example-item">
+                    <div class="example-content">
+                        <div class="example-jp jp-text">ハノイの 秋は <strong>だんだん</strong> すずしく なります。</div>
+                        <div class="example-vi">Mùa thu Hà Nội dần dần trở nên mát mẻ. (だんだん: biến chuyển từ từ)</div>
+                    </div>
+                    <button class="btn-tts" onclick="speakJP('ハノイのあきはだんだんすずしくなります')">🔊</button>
+                </li>
+            </ul>
+
+            <div class="mini-quiz-box">
+                <div class="mini-quiz-title">📝 Kiểm Tra Nhanh Mục 3: Điền phó từ phù hợp</div>
+                <p style="font-size:0.95rem; font-weight:700; margin-bottom:8px;">3. お酒は [_____] 飲みません。体が 弱いですから。</p>
+                <div class="quiz-option-grid">
+                    <button class="btn-quiz-opt" onclick="checkMiniQuiz(this, false, 'Sai rồi! よく là thường xuyên (khẳng định), không đi với 飲みません!')">A. よく</button>
+                    <button class="btn-quiz-opt" onclick="checkMiniQuiz(this, true, 'Chính xác! あまり đi kèm phủ định 飲みません (không uống rượu lắm).')">B. あまり</button>
+                    <button class="btn-quiz-opt" onclick="checkMiniQuiz(this, false, 'Sai rồi! とても mang nghĩa 'rất', không hợp với câu phủ định!')">C. とても</button>
+                    <button class="btn-quiz-opt" onclick="checkMiniQuiz(this, false, 'Sai rồi! いつも là luôn luôn (khẳng định)!')">D. いつも</button>
+                </div>
+                <div class="quiz-feedback"></div>
+            </div>
+        </section>
+
+        <!-- ========================================================
+             MỤC 4: LIÊN TỪ NỐI & CẤU TRÚC LIÊN KẾT CÂU
+             ======================================================== -->
+        <section class="topic-card" id="topic-4" data-keywords="lien tu noi cau soshite sorekara demo dakara desukara tokorode">
+            <div class="topic-header">
+                <span class="topic-num-badge">MỤC 4</span>
+                <div>
+                    <h2 class="topic-title">Liên Từ Nối & Cấu Trúc Liên Kết Câu (接続詞)</h2>
+                    <p class="topic-subtitle">Nắm vững mạch logic: Nối tiếp, tương phản đối lập, nguyên nhân - hệ quả và chuyển ý</p>
+                </div>
+            </div>
+
+            <table class="compare-table">
+                <thead>
+                    <tr>
+                        <th style="width: 25%;">Liên từ</th>
+                        <th style="width: 35%;">Ý nghĩa & Vị trí dùng</th>
+                        <th style="width: 40%;">Ví dụ chuẩn Marugoto</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>そして (Và, rồi thì)</strong></td>
+                        <td>Nối hai câu hoặc hai mệnh đề có tính chất tương đồng, bổ sung thêm thông tin cùng chiều.</td>
+                        <td>彼女は とても やさしいです。<strong>そして</strong>、あかるいです。<br>(Cô ấy rất hiền. Và còn vui vẻ nữa.)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>それから (Sau đó)</strong></td>
+                        <td>Nhấn mạnh chuỗi hành động nối tiếp theo thứ tự thời gian trước - sau.</td>
+                        <td>あさごはんを 食べました。<strong>それから</strong>、学校へ 行きました。<br>(Tôi ăn sáng. Sau đó đến trường.)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>でも (Nhưng)</strong></td>
+                        <td>Đứng đầu câu thứ hai, diễn tả sự tương phản, ngược lại với điều vừa nói ở câu thứ nhất.</td>
+                        <td>日本料理は おいしいです。<strong>でも</strong>、たかいです。<br>(Món Nhật ngon. Nhưng mà đắt.)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ですから / だから (Vì thế nên)</strong></td>
+                        <td>Diễn tả nguyên nhân - kết quả. Câu 1 nêu nguyên nhân, câu 2 là kết quả tất yếu.</td>
+                        <td>あしたは テストが あります。<strong>ですから</strong>、今夜 勉強します。<br>(Mai có bài thi. Vì vậy tối nay tôi học.)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ところで (Nhân tiện, à mà)</strong></td>
+                        <td>Dùng để chuyển hẳn sang một chủ đề trò chuyện mới trong giao tiếp.</td>
+                        <td>もう 12時ですね。<strong>ところで</strong>、お昼ごはんは 食べましたか。<br>(Đã 12h rồi nhỉ. À nhân tiện, bạn ăn trưa chưa?)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <ul class="example-list">
+                <li class="example-item">
+                    <div class="example-content">
+                        <div class="example-jp jp-text">この アパートは 駅から 近くて、便利です。<strong>ですから</strong>、ここに 決めました。</div>
+                        <div class="example-vi">Căn hộ này gần ga và tiện lợi. Vì vậy, tôi đã quyết định chọn ở đây.</div>
+                    </div>
+                    <button class="btn-tts" onclick="speakJP('このアパートはえきからちかくてべんりです。ですから、ここにきめました')">🔊</button>
+                </li>
+            </ul>
+
+            <div class="mini-quiz-box">
+                <div class="mini-quiz-title">📝 Kiểm Tra Nhanh Mục 4: Chọn liên từ liên kết câu</div>
+                <p style="font-size:0.95rem; font-weight:700; margin-bottom:8px;">4. この スーツは とても すてきです。[_____]、ちょっと 高すぎます。</p>
+                <div class="quiz-option-grid">
+                    <button class="btn-quiz-opt" onclick="checkMiniQuiz(this, false, 'Sai rồi! そして dùng cho câu cùng chiều, ở đây là đẹp >< đắt (tương phản)!')">A. そして</button>
+                    <button class="btn-quiz-opt" onclick="checkMiniQuiz(this, true, 'Chính xác! 'Đẹp nhưng đắt quá' là quan hệ tương phản, chọn でも!')">B. でも</button>
+                    <button class="btn-quiz-opt" onclick="checkMiniQuiz(this, false, 'Sai rồi! だから chỉ kết quả, không chỉ tương phản!')">C. だから</button>
+                    <button class="btn-quiz-opt" onclick="checkMiniQuiz(this, false, 'Sai rồi! それから chỉ thứ tự thời gian sau đó!')">D. それから</button>
+                </div>
+                <div class="quiz-feedback"></div>
+            </div>
+        </section>
+
+        <!-- ========================================================
+             MỤC 5: QUY TẮC BIẾN ÂM & ÂM NGẮT
+             ======================================================== -->
+        <section class="topic-card" id="topic-5" data-keywords="bien am am ngat truong am rendaku sokuon chouon">
+            <div class="topic-header">
+                <span class="topic-num-badge">MỤC 5</span>
+                <div>
+                    <h2 class="topic-title">Quy Tắc Biến Âm, Âm Ngắt & Trường Âm (音変化)</h2>
+                    <p class="topic-subtitle">Nguyên lý biến âm Rendaku (連濁), trường âm kéo dài và dừng ngắt nhịp chuẩn bản xứ</p>
+                </div>
+            </div>
+
+            <div class="formula-box">
+                1. <strong>Biến âm Renkou (連濁 - Rendaku):</strong> Ghép 2 từ đơn lại thì chữ cái đầu từ thứ hai thường thêm tenten (濁点):<br>
+                • ほん (Bản) ➔ 1本 (いっぽん), 2本 (にほん), <strong>3本 (さんぼん)</strong><br>
+                • ひと (Người) ＋ ひと ➔ <strong>人々 (ひとびと)</strong><br>
+                • はな (Hoa) ＋ ひ (Lửa) ➔ <strong>花火 (はなび)</strong><br>
+                • まき (Cuộn) ＋ すし (Sushi) ➔ <strong>巻きずし (まきずし)</strong>
+            </div>
+
+            <table class="compare-table">
+                <thead>
+                    <tr>
+                        <th>Hiện tượng ngữ âm</th>
+                        <th>Bản chất & Cách phát âm</th>
+                        <th>Cặp từ dễ nhầm lẫn tai hại</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Trường âm (長音 - Kéo dài 1 phách)</strong></td>
+                        <td>Nguyên âm kéo dài thêm 1 nhịp. Nếu đọc thiếu trường âm sẽ đổi hẳn sang từ khác mang nghĩa sai lệch.</td>
+                        <td>
+                            • <strong>おばさん</strong> (Cô, dì) vs <strong>おばあさん</strong> (Bà cụ)<br>
+                            • <strong>ゆき</strong> (Tuyết) vs <strong>ゆうき</strong> (Dũng khí)<br>
+                            • <strong>ビル</strong> (Tòa nhà) vs <strong>ビール</strong> (Bia)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Âm ngắt (促音 - Chữ っ nhỏ)</strong></td>
+                        <td>Khựng lại 1 nhịp ở vòm họng trước các phụ âm k, s, t, p. Không bật thành tiếng 'tsu'.</td>
+                        <td>
+                            • <strong>きって</strong> (Con tem) vs <strong>きて</strong> (Hãy đến)<br>
+                            • <strong>ざっし</strong> (Tạp chí) vs <strong>ざし</strong><br>
+                            • <strong>いっかい</strong> (1 lần / Tầng 1) vs <strong>いかい</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Âm ghép (拗音 - ゃ, ゅ, ょ nhỏ)</strong></td>
+                        <td>Đọc liền trong 1 phách, kết hợp âm hàng i với y.</td>
+                        <td>
+                            • <strong>病院 (びょういん - Bệnh viện)</strong> vs <strong>美容院 (びよういん - Tiệm làm tóc)</strong>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <ul class="example-list">
+                <li class="example-item">
+                    <div class="example-content">
+                        <div class="example-jp jp-text">熱が ありますから、<strong>病院 (びょういん)</strong>へ 行きます。</div>
+                        <div class="example-vi">Vì bị sốt nên tôi đi bệnh viện. (びょういん đọc liền 2 phách, khác びよういん 4 phách)</div>
+                    </div>
+                    <button class="btn-tts" onclick="speakJP('ねつがありますから、びょういんへいきます')">🔊</button>
+                </li>
+            </ul>
+        </section>
+
+        <!-- ========================================================
+             MỤC 6: TOÀN DIỆN 5 THỂ ĐỘNG TỪ CỐT LÕI
+             ======================================================== -->
+        <section class="topic-card" id="topic-6" data-keywords="5 the dong tu the te the ta the ru the nai the masu chia dong tu nhom 1 2 3">
+            <div class="topic-header">
+                <span class="topic-num-badge">MỤC 6</span>
+                <div>
+                    <h2 class="topic-title">Toàn Diện 5 Thể Động Từ Cốt Lõi & Bảng Chuyển Đổi</h2>
+                    <p class="topic-subtitle">Nắm chắc quy tắc chuyển đổi giữa Thể Masu, Thể Te (て), Thể Ta (た), Thể Từ Điển (る) và Thể Nai (ない)</p>
+                </div>
+            </div>
+
+            <div class="formula-box">
+                • <strong>Quy tắc Thần chú chia Thể TE & TA (Nhóm 1):</strong><br>
+                → [い・ち・り] ➔ <strong>って／った</strong> (買います ➔ 買って／買った)<br>
+                → [み・び・に] ➔ <strong>んで／んだ</strong> (飲みます ➔ 飲んで／飲んだ)<br>
+                → [き] ➔ <strong>いて／いた</strong> (書きます ➔ 書いて／書いた) *Đặc biệt: 行きます ➔ <strong>行って／行った</strong><br>
+                → [ぎ] ➔ <strong>いで／いだ</strong> (泳ぎます ➔ 泳いで／泳いだ)<br>
+                → [し] ➔ <strong>して／した</strong> (話します ➔ 話して／話した)
+            </div>
+
+            <table class="compare-table">
+                <thead>
+                    <tr>
+                        <th>Nhóm</th>
+                        <th>Thể Lịch Sự (ます)</th>
+                        <th>Thể Te (～て)</th>
+                        <th>Thể Quá Khứ (～た)</th>
+                        <th>Thể Từ Điển (～る)</th>
+                        <th>Thể Phủ Định (～ない)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Nhóm 1 (Đuôi -i)</strong></td>
+                        <td>
+                            • 会います (Gặp)<br>
+                            • 待ちます (Đợi)<br>
+                            • 帰ります (Về)<br>
+                            • 読みます (Đọc)<br>
+                            • 書きます (Viết)<br>
+                            • 行きます (Đi)
+                        </td>
+                        <td>
+                            会って<br>待って<br>帰って<br>読んで<br>書いて<br><strong>行って</strong>
+                        </td>
+                        <td>
+                            会った<br>待った<br>帰った<br>読んだ<br>書いた<br><strong>行った</strong>
+                        </td>
+                        <td>
+                            会う<br>待つ<br>帰る<br>読む<br>書く<br>行く
+                        </td>
+                        <td>
+                            会わない<br>待たない<br>帰らない<br>読まない<br>書かない<br>行かない
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Nhóm 2 (Đuôi -e / -i đặc biệt)</strong></td>
+                        <td>
+                            • 食べます (Ăn)<br>
+                            • 見ます (Xem)<br>
+                            • 起きます (Dậy)
+                        </td>
+                        <td>
+                            食べて<br>見て<br>起きて
+                        </td>
+                        <td>
+                            食べた<br>見た<br>起きた
+                        </td>
+                        <td>
+                            食べる<br>見る<br>起きる
+                        </td>
+                        <td>
+                            食べない<br>見ない<br>起きない
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Nhóm 3 (Bất quy tắc)</strong></td>
+                        <td>
+                            • します (Làm)<br>
+                            • 来ます (Đến)
+                        </td>
+                        <td>
+                            して<br><strong>来て (きて)</strong>
+                        </td>
+                        <td>
+                            した<br><strong>来た (きた)</strong>
+                        </td>
+                        <td>
+                            する<br><strong>来る (くる)</strong>
+                        </td>
+                        <td>
+                            しない<br><strong>来ない (こない)</strong>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="tip-box">
+                <div class="tip-title">💡 MẸO PHÂN BIỆT NHANH ĐỘNG TỪ NHÓM 2 ĐẶC BIỆT:</div>
+                <div class="tip-content">
+                    Một số động từ nhìn đuôi trước <code>ます</code> là cột <code>i</code> nhưng lại thuộc <strong>Nhóm 2</strong> (khi chia chỉ bỏ ます thêm て/た/る):<br>
+                    • <strong>見ます (み・ます)</strong>: Xem, nhìn ➔ 見て、見た、見る<br>
+                    • <strong>起きます (おき・ます)</strong>: Thức dậy ➔ 起きて、起きた、起きる<br>
+                    • <strong>います</strong>: Có (người/động vật), ở ➔ いて、いた、いる<br>
+                    • <strong>降ります (おり・ます)</strong>: Xuống xe ➔ 降りて、降りた、降りる<br>
+                    • <strong>浴びます (あび・ます)</strong>: Tắm vòi sen ➔ 浴びて、浴びた、浴びる
+                </div>
+            </div>
+
+            <div class="mini-quiz-box">
+                <div class="mini-quiz-title">📝 Kiểm Tra Nhanh Mục 6: Chuyển đổi thể động từ</div>
+                <p style="font-size:0.95rem; font-weight:700; margin-bottom:8px;">5. Động từ 「泳ぎます (Bơi)」 chuyển sang thể Ta (quá khứ) là gì?</p>
+                <div class="quiz-option-grid">
+                    <button class="btn-quiz-opt" onclick="checkMiniQuiz(this, false, 'Sai rồi! Đuôi gi biến âm thành いだ!')">A. 泳いだ (およいた - không có tenten)</button>
+                    <button class="btn-quiz-opt" onclick="checkMiniQuiz(this, true, 'Chính xác! Đuôi 「ぎ」 chuyển thành 「いだ」 ➔ 「泳いだ (およいだ)」!')">B. 泳いだ (およいだ)</button>
+                    <button class="btn-quiz-opt" onclick="checkMiniQuiz(this, false, 'Sai rồi! 泳った là sai quy tắc!')">C. 泳った (およった)</button>
+                    <button class="btn-quiz-opt" onclick="checkMiniQuiz(this, false, 'Sai rồi! 泳んだ là đuôi mi/bi/ni!')">D. 泳んだ (およんだ)</button>
+                </div>
+                <div class="quiz-feedback"></div>
+            </div>
+        </section>
+
+        <!-- ========================================================
+             MỤC 7: MẪU CÂU MỞ RỘNG THỰC CHIẾN
+             ======================================================== -->
+        <section class="topic-card" id="topic-7" data-keywords="mau cau mo rong thuc chien sugiru ta koto ga aru temo ii hou ga ii tari tari">
+            <div class="topic-header">
+                <span class="topic-num-badge">MỤC 7</span>
+                <div>
+                    <h2 class="topic-title">Mẫu Câu Mở Rộng Thực Chiến (Can-do Plus)</h2>
+                    <p class="topic-subtitle">Toàn diện các cấu trúc: Quá đà (すぎる), Kinh nghiệm (たことがある), Xin phép (てもいい), Lời khuyên (ほうがいい) & Liệt kê (たり〜たり)</p>
+                </div>
+            </div>
+
+            <div class="formula-box">
+                1. <strong>Mức độ quá đà (～すぎます / すぎて / すぎた):</strong><br>
+                • Động từ: <code>V (bỏ ます) ＋ すぎます</code> (食べすぎました - Ăn quá nhiều)<br>
+                • Tính từ đuôi い: <code>Adj-い (bỏ い) ＋ すぎます</code> (高すぎます - Đắt quá)<br>
+                • Tính từ đuôi な: <code>Adj-な (bỏ な) ＋ すぎます</code> (静かすぎます - Quá yên tĩnh)<br><br>
+                2. <strong>Kinh nghiệm, trải nghiệm (～たことが あります):</strong><br>
+                • <code>V-た ＋ ことが あります</code> (Đã từng làm V)<br>
+                • <code>V-た ＋ ことが ありません</code> (Chưa từng làm V bao giờ)<br><br>
+                3. <strong>Xin phép & Cấm đoán:</strong><br>
+                • <code>V-ても いいですか</code> (Làm V có được không?)<br>
+                • <code>V-ては いけません</code> (Không được phép làm V - Quy tắc, cấm đoán)<br><br>
+                4. <strong>Lời khuyên nhẹ nhàng:</strong><br>
+                • <code>V-た ほうが いいです</code> (Nên làm V thì tốt hơn)<br>
+                • <code>V-る と いいですよ</code> (Làm V thì hay đấy nhé)<br><br>
+                5. <strong>Liệt kê hành động tiêu biểu:</strong><br>
+                • <code>V1-たり、V2-たり します／しています</code> (Lúc thì V1, lúc thì V2...)
+            </div>
+
+            <table class="compare-table">
+                <thead>
+                    <tr>
+                        <th>Cấu trúc</th>
+                        <th>Ý nghĩa ngữ dụng</th>
+                        <th>Ví dụ áp dụng thực tế</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>V/A + すぎます</strong></td>
+                        <td>Vượt quá giới hạn bình thường, mang hàm ý tiêu cực hoặc lo ngại (quá no, quá cay, quá đắt...).</td>
+                        <td>
+                            • 料理を <strong>つくりすぎました</strong>。(Nấu quá nhiều món)<br>
+                            • この 部屋は <strong>静かすぎて</strong>、ちょっと こわいです。(Phòng quá yên tĩnh nên hơi sợ)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>V-たことが あります</strong></td>
+                        <td>Nêu lên một trải nghiệm trong quá khứ ("đã từng..."). Câu hỏi đi với か.</td>
+                        <td>
+                            • 夜の 海で ひとりで <strong>泳いだことが あります</strong>。(Đã từng bơi ở biển một mình ban đêm)<br>
+                            • 一度も お弁当を 持って<strong>行ったことが ありません</strong>。(Chưa từng mang cơm hộp đi bao giờ)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>V-ても いいですか</strong></td>
+                        <td>Hỏi xin phép đối phương để thực hiện hành động. Cách trả lời lịch sự: 「どうぞ」「いいですよ」.</td>
+                        <td>
+                            • ここで 写真を <strong>撮っても いいですか</strong>。(Tôi chụp ảnh ở đây được không?)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>V-たほうが いいです</strong></td>
+                        <td>Khuyên nhủ đối phương nên làm gì để có lợi cho sức khỏe, công việc.</td>
+                        <td>
+                            • かぜですから、早く <strong>寝たほうが いいです</strong>。(Bị cảm thì nên ngủ sớm đi.)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>V1-たり、V2-たり</strong></td>
+                        <td>Liệt kê 2-3 hành động tiêu biểu đại diện trong số nhiều việc mình làm (không theo thứ tự thời gian bắt buộc).</td>
+                        <td>
+                            • 休みの 日は 掃除し<strong>たり</strong>、洗濯し<strong>たり</strong> しています。(Ngày nghỉ lúc thì dọn dẹp, lúc thì giặt giũ.)
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <ul class="example-list">
+                <li class="example-item">
+                    <div class="example-content">
+                        <div class="example-jp jp-text">料理を <strong>つくりすぎたので</strong>、一人で 全部 食べられませんでした。</div>
+                        <div class="example-vi">Vì đã nấu quá nhiều món ăn, nên tôi không thể ăn hết một mình được. (Kiến thức bài 13)</div>
+                    </div>
+                    <button class="btn-tts" onclick="speakJP('りょうりをつくりすぎたので、ひとりでぜんぶたべられませんでした')">🔊</button>
+                </li>
+                <li class="example-item">
+                    <div class="example-content">
+                        <div class="example-jp jp-text">富士山に <strong>登ったことが ありますか</strong>。―― はい、一度 あります。</div>
+                        <div class="example-vi">Bạn đã từng leo núi Phú Sĩ chưa? ―― Vâng, tôi từng leo một lần rồi.</div>
+                    </div>
+                    <button class="btn-tts" onclick="speakJP('ふじさんにのぼったことがありますか。はい、いちどあります')">🔊</button>
+                </li>
+            </ul>
+
+            <div class="mini-quiz-box">
+                <div class="mini-quiz-title">📝 Kiểm Tra Nhanh Mục 7: Vận dụng cấu trúc quá đà</div>
+                <p style="font-size:0.95rem; font-weight:700; margin-bottom:8px;">6. Tính từ 「静か（な）」 khi kết hợp với cấu trúc すぎます (quá) sẽ biến đổi thành:</p>
+                <div class="quiz-option-grid">
+                    <button class="btn-quiz-opt" onclick="checkMiniQuiz(this, true, 'Chính xác! Tính từ đuôi な bỏ な đi kèm すぎます ➔ 「静かすぎます」!')">A. 静かすぎます (しずかすぎます)</button>
+                    <button class="btn-quiz-opt" onclick="checkMiniQuiz(this, false, 'Sai rồi! Không giữ chữ な!')">B. 静かなすぎます</button>
+                    <button class="btn-quiz-opt" onclick="checkMiniQuiz(this, false, 'Sai rồi! 静か không phải tính từ đuôi い!')">C. 静かすぎる (Tính từ đuôi な không có đuôi ru!)</button>
+                    <button class="btn-quiz-opt" onclick="checkMiniQuiz(this, false, 'Sai rồi! Không thêm に!')">D. 静かにすぎます</button>
+                </div>
+                <div class="quiz-feedback"></div>
+            </div>
+        </section>
+
+        <!-- ========================================================
+             MỤC 8: BÀY TỎ Ý KIẾN & TRÍCH DẪN (MỞ RỘNG)
+             ======================================================== -->
+        <section class="topic-card" id="topic-8" data-keywords="y kien trich dan to omoimasu to itteimashita bai 18">
+            <div class="topic-header">
+                <span class="topic-num-badge">MỤC 8</span>
+                <div>
+                    <h2 class="topic-title">Bày Tỏ Ý Kiến & Trích Dẫn Lời Nói (意見・引用)</h2>
+                    <p class="topic-subtitle">Cấu trúc 「～と 思います」 (Tôi nghĩ là) và 「～と 言っていました」 (Ai đó đã nói rằng)</p>
+                </div>
+            </div>
+
+            <div class="formula-box">
+                • <code>[Thể thông thường (Futsukei)] ＋ と 思います</code> (Tôi nghĩ rằng...)<br>
+                • <code>[Thể thông thường (Futsukei)] ＋ と 言っていました</code> (Người đó nói rằng...)<br>
+                *Lưu ý với Danh từ và Tính từ đuôi な ở hiện tại khẳng định: thêm <strong>だ</strong> trước と: <code>きれい<strong>だ</strong>と 思います</code>.
+            </div>
+
+            <ul class="example-list">
+                <li class="example-item">
+                    <div class="example-content">
+                        <div class="example-jp jp-text">あべさんの お祝いは パーティーが <strong>いいと 思います</strong>。</div>
+                        <div class="example-vi">Tôi nghĩ chúc mừng anh Abe thì tổ chức tiệc là tốt nhất.</div>
+                    </div>
+                    <button class="btn-tts" onclick="speakJP('あべさんのおいわいはパーティーがいいとおもいます')">🔊</button>
+                </li>
+                <li class="example-item">
+                    <div class="example-content">
+                        <div class="example-jp jp-text">田中さんは 明日 休み<strong>だと 言っていました</strong>。</div>
+                        <div class="example-vi">Anh Tanaka đã nói rằng ngày mai anh ấy nghỉ. (Danh từ 休み đi với だと)</div>
+                    </div>
+                    <button class="btn-tts" onclick="speakJP('たなかさんはあしたやすみだといっていました')">🔊</button>
+                </li>
+            </ul>
+        </section>
+
+        <!-- ========================================================
+             MỤC 9: VĂN HÓA & QUY TẮC ỨNG XỬ ĐỜI SỐNG (MỞ RỘNG)
+             ======================================================== -->
+        <section class="topic-card" id="topic-9" data-keywords="van hoa quy tac ung xu tham nha tang qua train tau dien phep lich su">
+            <div class="topic-header">
+                <span class="topic-num-badge">MỤC 9</span>
+                <div>
+                    <h2 class="topic-title">Văn Hóa & Nghi Thức Ứng Xử Đời Sống Nhật Bản</h2>
+                    <p class="topic-subtitle">Các nét văn hóa đặc trưng bám sát bộ giáo trình Marugoto A1 - A2</p>
+                </div>
+            </div>
+
+            <table class="compare-table">
+                <thead>
+                    <tr>
+                        <th style="width: 25%;">Tình huống văn hóa</th>
+                        <th style="width: 40%;">Quy tắc chuẩn mực</th>
+                        <th style="width: 35%;">Câu nói cửa miệng chuẩn</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1. Đến thăm nhà người Nhật</strong></td>
+                        <td>Cởi giày ở bậc thềm (玄関 Genkan), quay mũi giày ra phía ngoài cửa. Chuẩn bị món quà nhỏ (手土産 Temiyage) trao tặng chủ nhà.</td>
+                        <td>
+                            • Khi bước vào: 「お邪魔します (おじゃまします)」<br>
+                            • Khi tặng quà: 「これ、つまらないものですが、どうぞ」
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>2. Đi tàu điện & Xe bus</strong></td>
+                        <td>Để điện thoại ở chế độ im lặng (マナーモード), không nói chuyện điện thoại trên tàu. Nhường ghế ưu tiên (優先席 Yuusenseki) cho người già, phụ nữ mang thai.</td>
+                        <td>
+                            • 「すみません、どうぞ」 (Mời bạn ngồi).
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>3. Văn hóa chào hỏi (おじぎ)</strong></td>
+                        <td>Cúi chào theo 3 góc độ: 15° (chào xã giao nhẹ nhàng), 30° (chào đối tác, khách hàng), 45° (xin lỗi chân thành hoặc cảm ơn sâu sắc).</td>
+                        <td>
+                            • おはようございます<br>
+                            • どうぞ よろしくお願いします
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>4. Trước và sau bữa ăn</strong></td>
+                        <td>Chắp hai tay trước ngực và nói lời cảm tạ người đã nấu và thiên nhiên đã ban tặng thức ăn.</td>
+                        <td>
+                            • Trước khi ăn: 「いただきます」<br>
+                            • Sau khi ăn: 「ごちそうさまでした」
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+    </div>
+
+    <!-- Dropdown Toggle & Audio Scripts -->
+    <script>
+        function toggleTestsDropdown(e) {
+            if (e) { e.preventDefault(); e.stopPropagation(); }
+            const m = document.getElementById('testsDropdownMenu');
+            if (m) m.classList.toggle('show');
+            const lm = document.getElementById('lessonsDropdownMenu');
+            if (lm) lm.classList.remove('show');
+        }
+
+        function toggleLessonsDropdown(e) {
+            if (e) { e.preventDefault(); e.stopPropagation(); }
+            const m = document.getElementById('lessonsDropdownMenu');
+            if (m) m.classList.toggle('show');
+            const tm = document.getElementById('testsDropdownMenu');
+            if (tm) tm.classList.remove('show');
+        }
+
+        window.addEventListener('click', function(e) {
+            if (e && e.target && e.target.closest && e.target.closest('.hub-dropdown')) return;
+            const lm = document.getElementById('lessonsDropdownMenu');
+            if (lm) lm.classList.remove('show');
+            const tm = document.getElementById('testsDropdownMenu');
+            if (tm) tm.classList.remove('show');
+        });
+
+        // Speech synthesis
+        function speakJP(text) {
+            if (!('speechSynthesis' in window)) {
+                alert('Trình duyệt của bạn không hỗ trợ phát âm Audio.');
+                return;
+            }
+            window.speechSynthesis.cancel();
+            const u = new SpeechSynthesisUtterance(text);
+            u.lang = 'ja-JP';
+            u.rate = 0.9;
+            window.speechSynthesis.speak(u);
+        }
+
+        // Toggle furigana
+        function toggleFurigana() {
+            document.body.classList.toggle('hide-furigana');
+        }
+
+        // Mini Quiz Verification
+        function checkMiniQuiz(btn, isCorrect, explanation) {
+            const container = btn.closest('.mini-quiz-box');
+            const feedback = container.querySelector('.quiz-feedback');
+            const allBtns = container.querySelectorAll('.btn-quiz-opt');
+
+            allBtns.forEach(b => {
+                b.classList.remove('correct', 'wrong');
+            });
+
+            if (isCorrect) {
+                btn.classList.add('correct');
+                feedback.style.display = 'block';
+                feedback.style.background = '#dcfce7';
+                feedback.style.color = '#15803d';
+                feedback.innerHTML = '🎉 ' + explanation;
+            } else {
+                btn.classList.add('wrong');
+                feedback.style.display = 'block';
+                feedback.style.background = '#fee2e2';
+                feedback.style.color = '#b91c1c';
+                feedback.innerHTML = '❌ ' + explanation;
+            }
+        }
+
+        // Live Search Filter
+        const searchInput = document.getElementById('searchInput');
+        if (searchInput) {
+            searchInput.addEventListener('input', function(e) {
+                const q = e.target.value.toLowerCase().trim();
+                const cards = document.querySelectorAll('.topic-card');
+                cards.forEach(card => {
+                    const text = (card.innerText + ' ' + (card.getAttribute('data-keywords') || '')).toLowerCase();
+                    if (!q || text.includes(q)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        }
+
+        // Highlight active chip on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('.topic-card');
+            const chips = document.querySelectorAll('.sec-chip');
+            let current = '';
+
+            sections.forEach(sec => {
+                const top = sec.offsetTop - 140;
+                if (window.pageYOffset >= top) {
+                    current = sec.getAttribute('id');
+                }
+            });
+
+            chips.forEach(chip => {
+                chip.classList.remove('active');
+                if (chip.getAttribute('href') === '#' + current) {
+                    chip.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
