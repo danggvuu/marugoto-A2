@@ -6,7 +6,13 @@ Tạo trang web chuyên đề Ôn Tập Mini Test Bài 11 - 14 (Marugoto A2-1 & 
 - Tab 1: 📖 Lý Thuyết Toàn Diện 4 Bài (Bài 11 ➔ 14)
 - Tab 2: 🎴 118 Từ Vựng Chuẩn Kèm Nút Copy Quizlet Sạch & Ẩn Nghĩa
 - Tab 3: ⛩️ 30 Chữ Hán Kanji (Chiết tự, Mẹo nhớ & Từ ghép)
-- Tab 4: 🎯 Đề Thi Thử Mini Test 30 Câu Trắc Nghiệm Có Bấm Giờ & Chấm Điểm Tức Thì
+- Tab 4: 🎯 ĐỀ THI THỬ ĐA DẠNG NĂNG LỰC (6 Dạng Bài • 32 Câu Chuẩn Sư Phạm 100 Điểm):
+    + PHẦN I: Trắc Nghiệm Tổng Hợp Ngữ Pháp & Trợ Từ (10 Câu - 25 Điểm)
+    + PHẦN II: Sắp Xếp Từ Thành Câu Hoàn Chỉnh ★ (5 Câu - 15 Điểm)
+    + PHẦN III: Chia Dạng Đúng Của Từ Trong Ngoặc (5 Câu - 15 Điểm)
+    + PHẦN IV: Nối Cột Tình Huống & Phản Xạ Công Sở (4 Câu - 10 Điểm)
+    + PHẦN V: Đọc Hiểu Đoạn Văn Thực Tế (4 Câu / 2 Bài Đọc - 20 Điểm)
+    + PHẦN VI: Luyện Dịch Câu Thực Chiến 2 Chiều (4 Câu - 15 Điểm)
 - Tab 5: ⚡ Cẩm Nang Bỏ Túi (Cheat Sheet Tránh Bẫy Sư Phạm)
 """
 
@@ -27,21 +33,19 @@ with open(os.path.join(WORKSPACE, 'data/kanji_extracted.json'), 'r', encoding='u
 
 kanji_11_14 = [k for k in all_kanji if k.get('lesson') in ['L11', 'L12', 'L13', 'L14'] or k.get('lessonName') in ['Bài 11', 'Bài 12', 'Bài 13', 'Bài 14']]
 
-# 3. 30 Questions with well-balanced correct options (A, B, C, D)
-QUIZ_DATA = [
+# 3. Data for Part I: Multiple Choice (10 Questions - 25 pts)
+PART1_MC = [
     {
         "id": 1,
-        "category": "Ngữ pháp & Rủ rê",
-        "lesson": "A2-11",
+        "category": "Bài 11 • Rủ rê",
         "q": "いい てんきですね。いっしょに こうえんへ [____]。",
         "options": ["行きます", "行きましょう", "行かない", "行った"],
         "correct": 1,
-        "explain": "Đưa ra lời rủ rê, đề xuất cùng làm gì ta dùng thể ý chí 「V-ましょう」 (Chúng ta cùng đi nhé)."
+        "explain": "Rủ rê, đề xuất cùng làm gì ta dùng thể ý chí 「V-ましょう」 (Chúng ta cùng đi nhé)."
     },
     {
         "id": 2,
-        "category": "Trợ từ mang theo",
-        "lesson": "A2-11",
+        "category": "Bài 11 • Trợ từ mang theo",
         "q": "バーベキューの とき、肉や やさい [____] 持って行きます。",
         "options": ["を", "に", "で", "へ"],
         "correct": 0,
@@ -49,262 +53,385 @@ QUIZ_DATA = [
     },
     {
         "id": 3,
-        "category": "Đề nghị giúp đỡ",
-        "lesson": "A2-11",
+        "category": "Bài 11 • Đề nghị giúp đỡ",
         "q": "荷物が 重そうですね。[____]か。",
         "options": ["持ちました", "持ってください", "持ちましょう", "持っています"],
         "correct": 2,
-        "explain": "Khi ngỏ ý muốn làm giúp đối phương việc gì đó, ta dùng cấu trúc 「V-ましょうか」 (Để tôi xách giúp bạn nhé?)."
+        "explain": "Khi chủ động ngỏ ý làm giúp đối phương việc gì đó, dùng 「V-ましょうか」 (Để tôi xách giúp bạn nhé?)."
     },
     {
         "id": 4,
-        "category": "Chọn lựa / Quyết định",
-        "lesson": "A2-11",
+        "category": "Bài 11 • Chọn món / Quyết định",
         "q": "A: 「何に しますか。」ー B: 「わたしは ラーメン [____] します。」",
         "options": ["を", "で", "が", "に"],
         "correct": 3,
-        "explain": "Cấu trúc chọn món ăn, đồ uống hoặc đưa ra quyết định: 「N に します」 (Tôi chọn món N)."
+        "explain": "Cấu trúc chọn món ăn, đồ uống hoặc đưa ra quyết định: 「N に します」."
     },
     {
         "id": 5,
-        "category": "Phán đoán diện mạo",
-        "lesson": "A2-12",
+        "category": "Bài 12 • Phán đoán diện mạo",
         "q": "この ケーキは とても [____] そうですね。",
         "options": ["おいし", "おいしい", "おいしくて", "おいしかった"],
         "correct": 0,
-        "explain": "Cấu trúc phán đoán bề ngoài với Tính từ đuôi い: Bỏ đuôi 「い」 + 「そうですね」 (おいしい ➔ おいしそう)."
+        "explain": "Tính từ đuôi い phán đoán vẻ ngoài: Bỏ đuôi 「い」 + 「そう」 (おいしい ➔ おいしそう)."
     },
     {
         "id": 6,
-        "category": "Biến đổi tính từ",
-        "lesson": "A2-12",
+        "category": "Bài 12 • Biến đổi tính từ",
         "q": "レモンを 入れたので、スープが ちょっと [____] なりました。",
         "options": ["すっぱい", "すっぱく", "すっぱくて", "すっぱいに"],
         "correct": 1,
-        "explain": "Tính từ đuôi い kết hợp với động từ biến đổi 「なります」: Bỏ 「い」 thay bằng 「く」 ➔ 「すっぱくなります」 (trở nên chua)."
+        "explain": "Tính từ đuôi い đi với なります: Bỏ 「い」 thay bằng 「く」 ➔ 「すっぱくなります」 (trở nên chua)."
     },
     {
         "id": 7,
-        "category": "Phạm vi so sánh nhất",
-        "lesson": "A2-12",
-        "q": "日本の 料理の [____]で、天ぷらが いちばん 好きです。",
-        "options": ["上 (うえ)", "外 (そと)", "中 (なか)", "前 (まえ)"],
-        "correct": 2,
-        "explain": "So sánh trong một nhóm/phạm vi: 「[Nhóm] の 中で、[A] が いちばん Adj です」 (Trong số các món ăn Nhật thì tôi thích nhất Tempura)."
-    },
-    {
-        "id": 8,
-        "category": "Phán đoán tính từ đuôi na",
-        "lesson": "A2-12",
-        "q": "あの レストランは いつも [____] そうですね。",
-        "options": ["にぎやかな", "にぎやかに", "にぎやかだ", "にぎやか"],
-        "correct": 3,
-        "explain": "Tính từ đuôi な kết hợp với 「そう」: Bỏ chữ 「な」 đi trực tiếp với 「そう」 ➔ 「にぎやかそう」 (trông có vẻ nhộn nhịp)."
-    },
-    {
-        "id": 9,
-        "category": "Thể kinh nghiệm",
-        "lesson": "A2-13",
+        "category": "Bài 13 • Thể kinh nghiệm",
         "q": "今までに 飛行機に [____] ことが ありますか。",
         "options": ["乗った", "乗る", "乗って", "乗ります"],
         "correct": 0,
-        "explain": "Cấu trúc nói về trải nghiệm / kinh nghiệm trong quá khứ bắt buộc dùng động từ thể Ta: 「V-た ことが あります」."
+        "explain": "Cấu trúc nói về kinh nghiệm trong quá khứ bắt buộc dùng thể Ta: 「V-た ことが あります」."
     },
     {
-        "id": 10,
-        "category": "Đáp lại thể kinh nghiệm",
-        "lesson": "A2-13",
-        "q": "すしを 食べたことが ありますか。ー いいえ、[____]。",
-        "options": ["まだ あります", "一度も ありません", "もう 食べました", "一度 あります"],
-        "correct": 1,
-        "explain": "Khi trả lời phủ định chưa từng làm bao giờ: 「いいえ、一度も ありません」 (Chưa từng làm một lần nào cả)."
-    },
-    {
-        "id": 11,
-        "category": "Mức độ quá đà",
-        "lesson": "A2-13",
-        "q": "きのうの パーティーで ビールを [____] すぎました。",
-        "options": ["飲んで", "飲んだ", "飲み", "飲む"],
-        "correct": 2,
-        "explain": "Cấu trúc làm việc gì đó quá đà với động từ: Động từ bỏ 「ます」 + 「すぎます」 (飲みます ➔ 飲みすぎました)."
-    },
-    {
-        "id": 12,
-        "category": "Quá mức (Tính từ đuôi i)",
-        "lesson": "A2-13",
+        "id": 8,
+        "category": "Bài 13 • Mức độ quá đà",
         "q": "この スーツは [____]、買うことが できません。",
         "options": ["高いすぎて", "高くて", "高だすぎて", "高すぎて"],
         "correct": 3,
-        "explain": "Tính từ đuôi い bỏ đuôi 「い」 ghép với すぎて (dạng nối câu): 「高すぎて」 (đắt quá nên không thể mua)."
+        "explain": "Tính từ đuôi い bỏ đuôi 「い」 ghép với すぎて (dạng nối câu nguyên nhân): 「高すぎて」."
     },
     {
-        "id": 13,
-        "category": "Quá mức (Tính từ đuôi na)",
-        "lesson": "A2-13",
-        "q": "この 部屋は [____] すぎて、ちょっと こわいです。",
-        "options": ["静か", "静かな", "静かに", "静かだ"],
-        "correct": 0,
-        "explain": "Tính từ đuôi な kết hợp với すぎます: Bỏ hẳn chữ 「な」 ➔ 「静かすぎて」 (Quá yên tĩnh nên hơi đáng sợ)."
-    },
-    {
-        "id": 14,
-        "category": "Trợ từ công tác & Gặp gỡ",
-        "lesson": "A2-13",
-        "q": "来週、東京へ 出張します。そして、田中さん [____] 会います。",
-        "options": ["を", "に", "で", "と"],
-        "correct": 1,
-        "explain": "Gặp gỡ ai đó bắt buộc đi với trợ từ 「に」: 「田中さんに 会います」."
-    },
-    {
-        "id": 15,
-        "category": "Xin phép hành động",
-        "lesson": "A2-14",
+        "id": 9,
+        "category": "Bài 14 • Xin phép lịch sự",
         "q": "すみません、この パソコンを [____] いいですか。",
         "options": ["使って", "使うと", "使っても", "使ったら"],
         "correct": 2,
-        "explain": "Cấu trúc xin phép lịch sự: 「V-ても いいですか」 (Tôi dùng cái này có được không?)."
+        "explain": "Cấu trúc xin phép: 「V-ても いいですか」 (Tôi dùng cái này có được không?)."
     },
     {
-        "id": 16,
-        "category": "Cấm đoán & Quy tắc",
-        "lesson": "A2-14",
+        "id": 10,
+        "category": "Bài 14 • Cấm đoán quy định",
         "q": "ここで たばこを 吸っても いいですか。ー すみません、ここでは [____]。",
         "options": ["吸ってもいいです", "吸ってください", "吸いました", "吸ってはいけません"],
         "correct": 3,
-        "explain": "Khi từ chối và nêu rõ quy tắc cấm đoán: 「V-ては いけません」 (Không được phép hút thuốc)."
+        "explain": "Quy tắc cấm đoán: 「V-ては いけません」 (Không được phép hút thuốc)."
+    }
+]
+
+# 4. Data for Part II: Sentence Ordering (5 Questions - 15 pts)
+PART2_ARRANGE = [
+    {
+        "id": 11,
+        "category": "Bài 12 • So sánh phạm vi",
+        "prompt": "Sắp xếp các từ sau thành câu hoàn chỉnh và tìm từ ở vị trí ngôi sao [ ★ ]:",
+        "pre": "日本の 料理の",
+        "post": "好きです。",
+        "chips": ["中で", "天ぷらが", "いちばん", "の"],
+        "correctOrder": [3, 0, 1, 2], # [4, 1, 2, 3] in 1-based index: の (4) -> 中で (1) -> ★ 天ぷらが (2) -> いちばん (3)
+        "starIndex": 2, # 3rd position in 4 blanks (0-based: 2) -> "天ぷらが" (index 1)
+        "starChip": "天ぷらが",
+        "fullSentence": "日本の 料理の の 中で、天ぷらが いちばん 好きです。",
+        "simplifiedSentence": "日本の 料理の 中で、天ぷらが いちばん 好きです。",
+        "explain": "Cấu trúc phạm vi: 「[Nhóm] の 中で、[A] が いちばん Adj です」. Thứ tự: [の] [中で] [★ 天ぷらが] [いちばん]."
+    },
+    {
+        "id": 12,
+        "category": "Bài 13 • Quá đà với động từ",
+        "prompt": "Sắp xếp các từ sau thành câu hoàn chỉnh và tìm từ ở vị trí ngôi sao [ ★ ]:",
+        "pre": "きのうの パーティーで",
+        "post": "すぎました。",
+        "chips": ["お酒を", "ビールや", "たくさん", "飲み"],
+        "correctOrder": [1, 0, 2, 3], # ビールや (2) -> お酒を (1) -> ★ たくさん (3) -> 飲み (4)
+        "starIndex": 2,
+        "starChip": "たくさん",
+        "fullSentence": "きのうの パーティーで ビールや お酒を たくさん 飲みすぎました。",
+        "explain": "Liệt kê 「A や B」 làm tân ngữ cho động từ 「飲みすぎました」. Thứ tự: [ビールや] [お酒を] [★ たくさん] [飲み] すぎました."
+    },
+    {
+        "id": 13,
+        "category": "Bài 13 • Phủ định thể kinh nghiệm",
+        "prompt": "Sắp xếp các từ sau thành câu hoàn chỉnh và tìm từ ở vị trí ngôi sao [ ★ ]:",
+        "pre": "すしを",
+        "post": "ありません。",
+        "chips": ["一度も", "食べた", "ことが", "まだ"],
+        "correctOrder": [1, 2, 0, 3], # 食べた (2) -> ことが (3) -> ★ 一度も (1) -> まだ (đối chiếu: 食べた ことが 一度も ありません)
+        "starIndex": 2,
+        "starChip": "一度も",
+        "fullSentence": "すしを 食べた ことが 一度も ありません。",
+        "explain": "Cấu trúc nhấn mạnh chưa từng làm bao giờ: 「V-た ことが 一度も ありません」. Vị trí ngôi sao là [一度も]."
+    },
+    {
+        "id": 14,
+        "category": "Bài 14 • Danh từ hóa cách dùng",
+        "prompt": "Sắp xếp các từ sau thành câu hoàn chỉnh và tìm từ ở vị trí ngôi sao [ ★ ]:",
+        "pre": "すみません、この",
+        "post": "教えてください。",
+        "chips": ["使い方を", "コピー機の", "ちょっと", "わたしに"],
+        "correctOrder": [1, 0, 2, 3], # コピー機の (2) -> 使い方を (1) -> ★ ちょっと (3) -> わたしに (hoặc ちょっと わたしに)
+        "starIndex": 1,
+        "starChip": "使い方を",
+        "fullSentence": "すみません、この コピー機の 使い方を ちょっと 教えてください。",
+        "explain": "Cụm danh từ cách làm: 「[Máy móc] の 使い方を 教えてください」. Vị trí ngôi sao là [使い方を]."
+    },
+    {
+        "id": 15,
+        "category": "Bài 14 • Mượn đồ đồng nghiệp",
+        "prompt": "Sắp xếp các từ sau thành câu hoàn chỉnh và tìm từ ở vị trí ngôi sao [ ★ ]:",
+        "pre": "ペンを",
+        "post": "借りました。",
+        "chips": ["忘れたので", "同僚に", "黒い", "ペンを"],
+        "correctOrder": [0, 1, 2, 3], # 忘れたので (1) -> 同僚に (2) -> ★ 黒い (3) -> ペンを (4)
+        "starIndex": 2,
+        "starChip": "黒い",
+        "fullSentence": "ペンを 忘れたので、同僚に 黒い ペンを 借りました。",
+        "explain": "Nguyên nhân 「〜ので」 + đối tượng mượn 「同僚に」 + tân ngữ 「黒い ペンを」. Vị trí ngôi sao là [黒い]."
+    }
+]
+
+# 5. Data for Part III: Fill in Correct Conjugated Form (5 Questions - 15 pts)
+PART3_CONJUGATE = [
+    {
+        "id": 16,
+        "category": "Bài 13 • Động từ + すぎる",
+        "sentence": "きのう ビールを (飲む) [_______] すぎて、きょう 頭が いたいです。",
+        "baseWord": "飲む (のむ)",
+        "accepted": ["飲み", "のみ", "nomi"],
+        "displayAnswer": "飲み (のみ)",
+        "explain": "Động từ kết hợp với 「すぎる」: Bỏ đuôi ます ➔ 飲みます ➔ <strong>飲み</strong>."
     },
     {
         "id": 17,
-        "category": "Quy tắc nơi làm việc",
-        "lesson": "A2-14",
-        "q": "会議室の 中で 大声で 話し[____] いけません。",
-        "options": ["ては", "ても", "たら", "れば"],
-        "correct": 0,
-        "explain": "Cấu trúc cấm đoán: 「V-ては いけません」."
+        "category": "Bài 13 • Tính từ đuôi na + すぎる",
+        "sentence": "この 部屋は (静か) [_______] すぎて、ちょっと こわいです。",
+        "baseWord": "静か (しずか)",
+        "accepted": ["静か", "しずか", "shizuka"],
+        "displayAnswer": "静か (しずか)",
+        "explain": "Tính từ đuôi な kết hợp với 「すぎる」: Bỏ hẳn chữ な, tuyệt đối KHÔNG thêm だ ➔ <strong>静か</strong>すぎます."
     },
     {
         "id": 18,
-        "category": "Cách sử dụng máy móc",
-        "lesson": "A2-14",
-        "q": "すみません、この コピー機の [____]を 教えてください。",
-        "options": ["使います", "使い方 (つかいかた)", "使うこと", "使って"],
-        "correct": 1,
-        "explain": "Cách làm việc gì đó: Động từ bỏ ます + 「方 (かた)」 ➔ 「使い方」 (cách sử dụng, cách dùng)."
+        "category": "Bài 12 • Phán đoán diện mạo そう",
+        "sentence": "この ケーキは とても (おいしい) [_______] そうですね。いっしょに 食べましょう。",
+        "baseWord": "おいしい",
+        "accepted": ["おいし", "oishi"],
+        "displayAnswer": "おいし",
+        "explain": "Tính từ đuôi い phán đoán vẻ ngoài: Bỏ đuôi 「い」 + そう ➔ <strong>おいし</strong>そう."
     },
     {
         "id": 19,
-        "category": "Từ vựng dã ngoại",
-        "lesson": "A2-11",
-        "q": "ピクニックで 食べる おにぎりや おかずを 箱に 入れた ものは 何ですか。",
-        "options": ["サンドイッチ", "サラダ", "お弁当 (おべんとう)", "デザート"],
-        "correct": 2,
-        "explain": "Cơm hộp đựng đồ ăn mang đi dã ngoại hoặc đi làm gọi là 「お弁当 (おべんとう)」."
+        "category": "Bài 13 • Thể kinh nghiệm たことがある",
+        "sentence": "今までに 日本へ (行く) [_______] ことが ありますか。",
+        "baseWord": "行く (いく)",
+        "accepted": ["行った", "いった", "itta"],
+        "displayAnswer": "行った (いった)",
+        "explain": "Thể kinh nghiệm bắt buộc dùng động từ thể Ta: 行く ➔ <strong>行った</strong> ことが あります."
     },
     {
         "id": 20,
-        "category": "Từ vựng vị giác",
-        "lesson": "A2-12",
-        "q": "砂糖 (さとう)を たくさん 入れた 料理は [____] です。",
-        "options": ["辛い (からい)", "苦い (にがい)", "酸っぱい (すっぱい)", "甘い (あまい)"],
-        "correct": 3,
-        "explain": "Đồ ăn cho nhiều đường thì có vị ngọt: 「甘い (あまい)」."
-    },
+        "category": "Bài 14 • Danh từ hóa cách làm V-かた",
+        "sentence": "この 漢字の (読む) [_______] 方を 教えてください。",
+        "baseWord": "読む (よむ)",
+        "accepted": ["読み", "よみ", "yomi"],
+        "displayAnswer": "読み (よみ)",
+        "explain": "Cách làm: Động từ bỏ ます + 方 (かた) ➔ 読みます ➔ <strong>読み</strong>方 (cách đọc)."
+    }
+]
+
+# 6. Data for Part IV: Situation Matching (4 Questions - 10 pts)
+PART4_MATCH = [
     {
         "id": 21,
-        "category": "Từ vựng công tác",
-        "lesson": "A2-13",
-        "q": "飛行機が 空港に つく ことを [____] と 言います。",
-        "options": ["到着 (とうちゃく)", "出発 (しゅっぱつ)", "出張 (しゅっちょう)", "準備 (じゅんび)"],
+        "category": "Bài 11 • Đề nghị giúp đỡ",
+        "situation": "A: 「荷物が 重そうですね。持ちましょうか。」",
+        "context": "(Thấy đối phương vác đồ nặng, ngỏ ý muốn xách giúp)",
+        "options": [
+            "「ありがとうございます。お願いします。」",
+            "「ええ、どうぞ。」",
+            "「すみません、ここでは 吸ってはいけません。」",
+            "「いいえ、一度も ありません。」"
+        ],
         "correct": 0,
-        "explain": "Máy bay hoặc tàu xe đến nơi an toàn gọi là 「到着 (とうちゃく)」."
+        "explain": "Khi người khác đề nghị giúp đỡ, đáp lại lịch sự bằng lời cảm ơn và nhờ cậy: 「ありがとうございます。お願いします。」"
     },
     {
         "id": 22,
-        "category": "Từ vựng công sở",
-        "lesson": "A2-14",
-        "q": "書類を コピーしたり 印刷したりする 機械は [____] です。",
-        "options": ["パソコン", "コピー機 (コピーき)", "キャビネット", "ファックス"],
+        "category": "Bài 14 • Xin phép cấp trên",
+        "situation": "A: 「課長、この 資料を 見ても いいですか。」",
+        "context": "(Cấp dưới hỏi xin phép xem tập tài liệu công ty)",
+        "options": [
+            "「ありがとうございます。お願いします。」",
+            "「ええ、どうぞ。」",
+            "「すみません、ここでは 吸ってはいけません。」",
+            "「いいえ、一度も ありません。」"
+        ],
         "correct": 1,
-        "explain": "Máy photocopy trong văn phòng gọi là 「コピー機 (コピーき)」."
+        "explain": "Khi cấp trên đồng ý cho phép cấp dưới xem tài liệu, dùng lời mời lịch sự: 「ええ、どうぞ。」 (Vâng, xin mời cứ xem)."
     },
     {
         "id": 23,
-        "category": "Mượn đồ & Phép tắc",
-        "lesson": "A2-14",
-        "q": "ペンを 忘れましたから、同僚に ペンを [____]。",
-        "options": ["貸しました (かしました)", "買いました", "借りました (かりました)", "捨てました"],
+        "category": "Bài 14 • Cấm đoán quy định",
+        "situation": "A: 「すみません、ここで たばこを 吸っても いいですか。」",
+        "context": "(Khách hỏi xin hút thuốc lá ở nơi có biển cấm)",
+        "options": [
+            "「ありがとうございます。お願いします。」",
+            "「ええ、どうぞ。」",
+            "「すみません、ここでは 吸ってはいけません。」",
+            "「いいえ、一度も ありません。」"
+        ],
         "correct": 2,
-        "explain": "Mình đi mượn của người khác dùng động từ 「借ります (かります)」. Cho mượn mới là 「貸します (かします)」."
+        "explain": "Từ chối và nêu rõ quy định cấm hút thuốc: 「すみません、ここでは 吸っては いけません。」"
     },
     {
         "id": 24,
-        "category": "Kanji Bài 11",
-        "lesson": "A2-11",
-        "q": "Chữ Hán 「持」 trong 「持っていきます」 có âm Hán Việt là gì?",
-        "options": ["Đặc", "Đợi", "Thời", "Trì"],
+        "category": "Bài 13 • Hỏi về kinh nghiệm",
+        "situation": "A: 「今までに 一人で 外国へ 行った ことが ありますか。」",
+        "context": "(Hỏi xem bạn đã từng đi nước ngoài một mình bao giờ chưa)",
+        "options": [
+            "「ありがとうございます。お願いします。」",
+            "「ええ、どうぞ。」",
+            "「すみません、ここでは 吸ってはいけません。」",
+            "「いいえ、一度も ありません。」"
+        ],
         "correct": 3,
-        "explain": "Chữ 持 có âm Hán Việt là 「Trì」 (cầm, giữ, duy trì). Chiết tự: Tay 扌 nắm giữ ngôi chùa 寺."
+        "explain": "Phủ định thể kinh nghiệm chưa từng làm dù chỉ một lần: 「いいえ、一度も ありません。」"
+    }
+]
+
+# 7. Data for Part V: Reading Comprehension (4 Questions / 2 Passages - 20 pts)
+PART5_READING = [
+    {
+        "passageId": 1,
+        "title": "BÀI ĐỌC 1: ピクニックの 計画 (Kế Hoạch Dã Ngoại Cuối Tuần - Bài 11 & 12)",
+        "text": "今週の 日曜日に、クラスの みんなと こうえんへ ピクニックに 行きます。天気予報に よると、日曜日は いい 天気に なりそうです。<br>たなかさんは お弁当と おにぎりを 作って 持って行きます。スミスさんは くだものと お菓子を 買います。わたしは 飲み物を 準備します。みんなで おいしい 料理を 食べて、写真を たくさん 撮りましょう。",
+        "questions": [
+            {
+                "id": 25,
+                "q": "日曜日の 天気は どうですか。",
+                "options": [
+                    "雨が 降ります",
+                    "いい 天気に なりそうです",
+                    "とても 寒くなります",
+                    "風が 強いです"
+                ],
+                "correct": 1,
+                "explain": "Trong bài viết: 「天気予報に よると、日曜日は いい 天気に なりそうです」."
+            },
+            {
+                "id": 26,
+                "q": "たなかさんは 何を 準備して 持って行きますか。",
+                "options": [
+                    "くだものと お菓子",
+                    "飲み物と ジュース",
+                    "お弁当と おにぎり",
+                    "カメラと パソコン"
+                ],
+                "correct": 2,
+                "explain": "Trong bài viết: 「たなかさんは お弁当と おにぎりを 作って 持って行きます」."
+            }
+        ]
     },
     {
-        "id": 25,
-        "category": "Kanji Bài 12",
-        "lesson": "A2-12",
-        "q": "Từ 「料理 (りょうり)」 được ghép từ 2 chữ Hán nào?",
-        "options": ["Liệu (料) + Lý (理)", "Khoa (科) + Lý (理)", "Liệu (料) + Dã (野)", "Vị (味) + Lý (理)"],
-        "correct": 0,
-        "explain": "「料理」 ghép từ chữ 料 (Liệu - nguyên liệu) và 理 (Lý - xử lý, lý lẽ)."
-    },
-    {
-        "id": 26,
-        "category": "Kanji Bài 12",
-        "lesson": "A2-12",
-        "q": "Chữ Hán 「野」 trong 「野菜 (やさい - rau xanh)」 có âm Hán Việt là gì?",
-        "options": ["Thái", "Dã", "Lý", "Lâm"],
-        "correct": 1,
-        "explain": "Chữ 野 có âm Hán Việt là 「Dã」 (đồng dã, hoang dã, dã ngoại)."
-    },
-    {
-        "id": 27,
-        "category": "Kanji Bài 13",
-        "lesson": "A2-13",
-        "q": "Từ 「出発」 (Khởi hành) có cách đọc Hiragana là gì?",
-        "options": ["しゅつはつ", "とうちゃく", "しゅっぱつ", "はっしゃ"],
-        "correct": 2,
-        "explain": "「出発」 ghép từ 出 (Xuất - しゅつ) và 発 (Phát - はつ) biến âm ngắt thành 「しゅっぱつ」."
-    },
-    {
-        "id": 28,
-        "category": "Kanji Bài 14",
-        "lesson": "A2-14",
-        "q": "Chữ Hán 「使」 trong 「使います (つかいます - dùng, sử dụng)」 có âm Hán Việt là gì?",
-        "options": ["Tiện", "Lại", "Trừ", "Sử / Sứ"],
-        "correct": 3,
-        "explain": "Chữ 使 có âm Hán Việt là 「Sử / Sứ」 (sử dụng, sứ giả). Chiết tự: Người 亻 gánh vác việc quan 吏."
-    },
+        "passageId": 2,
+        "title": "BÀI ĐỌC 2: 初めての 東京出張 (Chuyến Đi Công Tác Tokyo Đầu Tiên - Bài 13 & 14)",
+        "text": "わたしは 先週、仕事で 初めて 東京へ 出張しました。今までに 一度も 飛行機に 乗った ことが ありませんでしたから、少し きんちょうしました。<br>東京で 取引先の 山田さんに 会って、いっしょに 会議を しました。夜、山田さんと レストランへ 行って、日本料理を 食べました。天ぷらが とても おいしかったので、食べすぎて しまいました。<br>次の日は 会社で コピー機の 使い方や パソコンの ルールを 教えてもらいました。とても いい 経験に なりました。",
+        "questions": [
+            {
+                "id": 27,
+                "q": "マイさんは どうして 飛行機に 乗る とき、きんちょうしましたか。",
+                "options": [
+                    "飛行機が きらいだから",
+                    "今までに 一度も 飛行機に 乗った ことが なかったから",
+                    "荷物が 重すぎたから",
+                    "時間が なかったから"
+                ],
+                "correct": 1,
+                "explain": "Trong bài viết: 「今までに 一度も 飛行機に 乗った ことが ありませんでしたから、少し きんちょうしました」."
+            },
+            {
+                "id": 28,
+                "q": "マイさんは レストランで どうして 料理を 食べすぎて しまいましたか。",
+                "options": [
+                    "お腹が とても すいていたから",
+                    "天ぷらが とても おいしかったから",
+                    "料理が 安かったから",
+                    "山田さんに たくさん もらったから"
+                ],
+                "correct": 1,
+                "explain": "Trong bài viết: 「天ぷらが とても おいしかったので、食べすぎて しまいました」."
+            }
+        ]
+    }
+]
+
+# 8. Data for Part VI: Sentence Translation (4 Questions - 15 pts)
+PART6_TRANSLATION = [
     {
         "id": 29,
-        "category": "Đọc hiểu hội thoại",
-        "lesson": "A2-14",
-        "q": "A: 「課長、この 資料を 見ても いいですか。」ー B: 「ええ、[____]。」",
-        "options": ["どうぞ", "だめです", "すみません", "失礼します"],
-        "correct": 0,
-        "explain": "Khi cấp dưới hỏi xin phép xem tài liệu, cấp trên đồng ý một cách lịch sự sẽ đáp: 「ええ、どうぞ」 (Vâng, xin mời cứ xem)."
+        "category": "Bài 13 • Thể kinh nghiệm quá khứ",
+        "vi": "Tôi đã từng bơi một mình ở biển vào ban đêm.",
+        "hint": "夜 (よる), 一人で (ひとりで), 海 (うみ), 泳ぎます (およぎます ➔ およいだ)",
+        "modelSentence": "わたしは 夜、一人で 海で 泳いだ ことが あります。",
+        "modelKana": "わたしは よる、ひとりで うみで およいだ ことがあります。",
+        "keywords": ["夜", "一人で", "海", "泳いだ", "こと", "あります"],
+        "breakdown": [
+            {"part": "夜 (よる)", "role": "Thời gian (ban đêm)"},
+            {"part": "一人で (ひとりで)", "role": "Phương thức (một mình)"},
+            {"part": "海で (うみで)", "role": "Địa điểm hành động (ở biển - trợ từ で)"},
+            {"part": "泳いだ ことが あります", "role": "Thể kinh nghiệm V-た ことが あります"}
+        ]
     },
     {
         "id": 30,
-        "category": "Văn hóa & Đời sống",
-        "lesson": "A2-13",
-        "q": "Khi đi công tác hoặc đi du lịch về, người Nhật thường mua quà gì tặng đồng nghiệp trong công ty?",
-        "options": ["手土産 (てみやげ)", "お土産 (おみやげ)", "お祝い (おいわい)", "プレゼント"],
-        "correct": 1,
-        "explain": "Món quà đặc sản địa phương mua về sau chuyến công tác hay du lịch để chia cho mọi người trong cơ quan được gọi là 「お土産 (おみやげ)」."
+        "category": "Bài 13 • Mức độ quá đà với tính từ",
+        "vi": "Bộ vest này đẹp nhưng mà đắt quá đi.",
+        "hint": "スーツ, きれい (tính từ đuôi な), 高い (たかい ➔ たかすぎます)",
+        "modelSentence": "この スーツは きれいだけど、高すぎます。",
+        "modelKana": "この すーつは きれいだけど、たかすぎます。",
+        "keywords": ["スーツ", "きれい", "だけど", "高すぎ"],
+        "breakdown": [
+            {"part": "この スーツは", "role": "Chủ ngữ (bộ vest này)"},
+            {"part": "きれいだけど", "role": "Tính từ đuôi な nối tương phản (hoặc きれいですが)"},
+            {"part": "高すぎます", "role": "Tính từ đuôi い bỏ い + すぎます (đắt quá)"}
+        ]
+    },
+    {
+        "id": 31,
+        "category": "Bài 13 • Quá đà chỉ nguyên nhân",
+        "vi": "Vì căn phòng này quá yên tĩnh, nên hơi đáng sợ.",
+        "hint": "部屋 (へや), 静か (しずか - tính từ đuôi な), こわい (đáng sợ)",
+        "modelSentence": "この 部屋は 静かすぎて、ちょっと こわいです。",
+        "modelKana": "この へやは しずかすぎて、ちょっと こわいです。",
+        "keywords": ["部屋", "静かすぎ", "ちょっと", "こわい"],
+        "breakdown": [
+            {"part": "この 部屋は", "role": "Chủ ngữ (căn phòng này)"},
+            {"part": "静かすぎて", "role": "Tính từ đuôi な bỏ な + すぎて chỉ nguyên nhân (quá yên tĩnh nên...)"},
+            {"part": "ちょっと こわいです", "role": "Hơi đáng sợ"}
+        ]
+    },
+    {
+        "id": 32,
+        "category": "Bài 13 & Bài 11 • Nấu quá nhiều đồ ăn",
+        "vi": "Vì nấu quá nhiều món ăn, nên tôi đã không thể ăn hết một mình.",
+        "hint": "料理 (りょうり), 作りすぎました (つくりすぎました), 一人で, 全部 (ぜんぶ)",
+        "modelSentence": "料理を 作りすぎたので、一人で 全部 食べられませんでした。",
+        "modelKana": "りょうりを つくりすぎたので、ひとりで ぜんぶ たべられませんでした。",
+        "keywords": ["料理", "作りすぎ", "一人で", "食べられません"],
+        "breakdown": [
+            {"part": "料理を 作りすぎたので", "role": "Động từ bỏ ます + すぎたので (vì đã nấu quá nhiều món)"},
+            {"part": "一人で", "role": "Một mình"},
+            {"part": "全部 食べられませんでした", "role": "Không thể ăn hết (hoặc 食べきれませんでした)"}
+        ]
     }
 ]
 
 # Build JSON Data Strings
 vocab_json_str = json.dumps(vocab_11_14, ensure_ascii=False)
 kanji_json_str = json.dumps(kanji_11_14, ensure_ascii=False)
-quiz_json_str = json.dumps(QUIZ_DATA, ensure_ascii=False)
+p1_json_str = json.dumps(PART1_MC, ensure_ascii=False)
+p2_json_str = json.dumps(PART2_ARRANGE, ensure_ascii=False)
+p3_json_str = json.dumps(PART3_CONJUGATE, ensure_ascii=False)
+p4_json_str = json.dumps(PART4_MATCH, ensure_ascii=False)
+p5_json_str = json.dumps(PART5_READING, ensure_ascii=False)
+p6_json_str = json.dumps(PART6_TRANSLATION, ensure_ascii=False)
 
 html_content = f"""<!DOCTYPE html>
 <html lang="vi">
@@ -312,8 +439,8 @@ html_content = f"""<!DOCTYPE html>
     <meta charset="UTF-8">
     <meta name="referrer" content="no-referrer">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🎯 Cẩm Nang Toàn Diện & Mini Test Bài 11 - 14 (Marugoto A2-1 & A2-2)</title>
-    <meta name="description" content="Hệ thống toàn diện Lý thuyết chuyên sâu Bài 11 - 14, 118 Từ vựng chuẩn Marugoto kèm Quizlet, 30 Chữ Hán Kanji, 30 Câu trắc nghiệm thi thử có giải thích & Cẩm nang bỏ túi.">
+    <title>🎯 Cẩm Nang Toàn Diện & Đề Thi Thử Đa Dạng Bài 11 - 14 (Marugoto A2-1 & A2-2)</title>
+    <meta name="description" content="Chuyên đề ôn tập và đề thi thử đa dạng 6 phần: Trắc nghiệm, Sắp xếp câu, Chia thể, Nối cột hội thoại, Đọc hiểu đoạn văn và Luyện dịch câu 100 điểm.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -331,6 +458,8 @@ html_content = f"""<!DOCTYPE html>
             --success-light: #d1fae5;
             --warning: #f59e0b;
             --warning-light: #fef3c7;
+            --purple: #8b5cf6;
+            --purple-light: #ede9fe;
             --dark: #0f172a;
             --gray-900: #0f172a;
             --gray-800: #1e293b;
@@ -471,7 +600,7 @@ html_content = f"""<!DOCTYPE html>
             overflow: hidden;
         }}
         .hero-header::before {{
-            content: "合格";
+            content: "満点";
             position: absolute;
             right: -20px;
             bottom: -30px;
@@ -505,13 +634,13 @@ html_content = f"""<!DOCTYPE html>
         .hero-desc {{
             font-size: 1.05rem;
             color: #c7d2fe;
-            max-width: 820px;
+            max-width: 860px;
             margin: 0 auto 20px auto;
         }}
         .hero-stats {{
             display: flex;
             justify-content: center;
-            gap: 16px;
+            gap: 14px;
             flex-wrap: wrap;
         }}
         .stat-pill {{
@@ -657,7 +786,6 @@ html_content = f"""<!DOCTYPE html>
             margin-bottom: 24px;
             overflow: hidden;
             box-shadow: var(--shadow-sm);
-            transition: transform 0.2s;
         }}
         .grammar-header {{
             background: linear-gradient(135deg, #f8fafc 0%, #edf2f7 100%);
@@ -732,11 +860,6 @@ html_content = f"""<!DOCTYPE html>
             margin-top: 16px;
             color: #9f1239;
             font-size: 0.95rem;
-        }}
-        .trap-box strong {{
-            display: block;
-            margin-bottom: 4px;
-            font-size: 1rem;
         }}
 
         /* Toolbar Filter & Search */
@@ -1067,59 +1190,73 @@ html_content = f"""<!DOCTYPE html>
             color: var(--gray-600);
         }}
 
-        /* Quiz Styles */
+        /* ================================================= */
+        /* EXAM PORTAL & DIVERSE QUIZ SECTIONS STYLES        */
+        /* ================================================= */
         .quiz-stats-card {{
             background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%);
             border-radius: var(--radius-lg);
-            padding: 20px 24px;
+            padding: 22px 26px;
             margin-bottom: 24px;
             display: flex;
             align-items: center;
             justify-content: space-between;
             flex-wrap: wrap;
-            gap: 16px;
+            gap: 18px;
             border: 1px solid #c7d2fe;
+            box-shadow: var(--shadow-sm);
         }}
         .quiz-score-box {{
             display: flex;
             align-items: center;
-            gap: 14px;
+            gap: 16px;
         }}
         .score-circle {{
-            width: 58px;
-            height: 58px;
+            width: 68px;
+            height: 68px;
             border-radius: var(--radius-full);
             background: var(--primary);
             color: var(--white);
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            font-size: 1.3rem;
+            box-shadow: 0 4px 14px rgba(79, 70, 229, 0.35);
+        }}
+        .score-num {{
+            font-size: 1.6rem;
             font-weight: 800;
-            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.35);
+            line-height: 1;
+        }}
+        .score-max {{
+            font-size: 0.65rem;
+            opacity: 0.85;
+            font-weight: 700;
         }}
         .score-info h4 {{
-            font-size: 1.15rem;
+            font-size: 1.25rem;
             font-weight: 800;
             color: var(--gray-900);
         }}
         .score-info p {{
-            font-size: 0.88rem;
+            font-size: 0.9rem;
             color: var(--gray-600);
+            margin-top: 2px;
         }}
         .quiz-action-btns {{
             display: flex;
             gap: 10px;
             align-items: center;
+            flex-wrap: wrap;
         }}
         .timer-badge {{
             background: #ffffff;
             color: var(--primary-dark);
             border: 1.5px solid var(--primary);
-            padding: 8px 16px;
+            padding: 9px 18px;
             border-radius: var(--radius-md);
             font-weight: 800;
-            font-size: 0.95rem;
+            font-size: 1rem;
             display: inline-flex;
             align-items: center;
             gap: 6px;
@@ -1128,9 +1265,9 @@ html_content = f"""<!DOCTYPE html>
             background: var(--white);
             color: var(--primary);
             border: 1.5px solid var(--primary);
-            padding: 9px 18px;
+            padding: 10px 20px;
             border-radius: var(--radius-md);
-            font-size: 0.9rem;
+            font-size: 0.92rem;
             font-weight: 700;
             cursor: pointer;
             transition: all 0.2s;
@@ -1144,6 +1281,38 @@ html_content = f"""<!DOCTYPE html>
             color: var(--white);
         }}
 
+        /* Part Section Headings */
+        .exam-part-header {{
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            color: white;
+            padding: 16px 20px;
+            border-radius: var(--radius-md);
+            margin: 32px 0 16px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+            box-shadow: var(--shadow-sm);
+        }}
+        .part-badge-tag {{
+            background: rgba(255, 255, 255, 0.2);
+            color: #f8fafc;
+            font-size: 0.78rem;
+            font-weight: 800;
+            padding: 4px 12px;
+            border-radius: var(--radius-full);
+            text-transform: uppercase;
+        }}
+        .exam-part-title {{
+            font-size: 1.15rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }}
+
+        /* Question Cards Common */
         .question-card {{
             background: var(--white);
             border-radius: var(--radius-md);
@@ -1173,6 +1342,14 @@ html_content = f"""<!DOCTYPE html>
             font-weight: 700;
             color: var(--gray-500);
             background: var(--gray-100);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }}
+        .q-points {{
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--success);
+            background: #ecfdf5;
             padding: 2px 8px;
             border-radius: 4px;
         }}
@@ -1251,6 +1428,221 @@ html_content = f"""<!DOCTYPE html>
             color: #0369a1;
             display: none;
             animation: fadeIn 0.2s ease;
+        }}
+
+        /* Part II: Word Ordering Chips Styles */
+        .arrange-display-box {{
+            background: #f8fafc;
+            border: 2px dashed #cbd5e1;
+            border-radius: var(--radius-md);
+            padding: 16px 20px;
+            margin-bottom: 16px;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }}
+        .arrange-slot {{
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 80px;
+            height: 38px;
+            background: #ffffff;
+            border: 2px solid var(--primary-light);
+            border-radius: 6px;
+            padding: 0 10px;
+            color: var(--primary);
+            font-weight: 800;
+        }}
+        .arrange-slot.star {{
+            border-color: #f59e0b;
+            background: #fffbeb;
+            color: #b45309;
+            box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.2);
+        }}
+        .chips-container {{
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 14px;
+        }}
+        .word-chip {{
+            background: #ffffff;
+            border: 1.5px solid var(--gray-300);
+            padding: 8px 16px;
+            border-radius: var(--radius-full);
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--gray-800);
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }}
+        .word-chip:hover {{
+            border-color: var(--primary);
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            transform: translateY(-2px);
+        }}
+        .word-chip.used {{
+            opacity: 0.4;
+            pointer-events: none;
+            background: var(--gray-100);
+            border-color: transparent;
+        }}
+        .arrange-ctrl-row {{
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }}
+        .btn-check-arrange {{
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 8px 18px;
+            border-radius: var(--radius-sm);
+            font-weight: 700;
+            font-size: 0.88rem;
+            cursor: pointer;
+        }}
+        .btn-reset-arrange {{
+            background: var(--gray-100);
+            color: var(--gray-700);
+            border: 1px solid var(--gray-300);
+            padding: 8px 14px;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            font-size: 0.88rem;
+            cursor: pointer;
+        }}
+
+        /* Part III: Conjugation Fill-in Styles */
+        .conjugate-row {{
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 12px;
+        }}
+        .conj-input {{
+            padding: 10px 16px;
+            border: 2px solid var(--gray-300);
+            border-radius: var(--radius-sm);
+            font-size: 1rem;
+            font-weight: 700;
+            width: 240px;
+            outline: none;
+            transition: all 0.2s;
+        }}
+        .conj-input:focus {{
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+        }}
+        .conj-input.correct {{
+            border-color: var(--success);
+            background: #f0fdf4;
+            color: #166534;
+        }}
+        .conj-input.wrong {{
+            border-color: var(--accent);
+            background: #fff1f2;
+            color: #9f1239;
+        }}
+
+        /* Part IV: Matching Styles */
+        .matching-grid {{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-top: 10px;
+        }}
+        @media (max-width: 640px) {{
+            .matching-grid {{
+                grid-template-columns: 1fr;
+            }}
+        }}
+        .match-card-a {{
+            background: #f8fafc;
+            border: 1.5px solid var(--gray-200);
+            border-radius: var(--radius-sm);
+            padding: 12px 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }}
+        .match-select {{
+            padding: 8px 12px;
+            border: 1.5px solid var(--gray-300);
+            border-radius: var(--radius-sm);
+            font-size: 0.9rem;
+            font-weight: 600;
+            background: white;
+            outline: none;
+        }}
+
+        /* Part V: Reading Passages Styles */
+        .passage-card {{
+            background: #fcfbf7;
+            border: 1.5px solid #e7e5e4;
+            border-radius: var(--radius-md);
+            padding: 20px 24px;
+            margin-bottom: 20px;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.03);
+        }}
+        .passage-title {{
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: #44403c;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px dashed #d6d3d1;
+        }}
+        .passage-text {{
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #1c1917;
+        }}
+
+        /* Part VI: Translation Self-Check Styles */
+        .trans-input-box {{
+            width: 100%;
+            min-height: 70px;
+            padding: 10px 14px;
+            border: 1.5px solid var(--gray-300);
+            border-radius: var(--radius-sm);
+            font-size: 1rem;
+            font-weight: 600;
+            margin-top: 10px;
+            outline: none;
+            resize: vertical;
+        }}
+        .trans-input-box:focus {{
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+        }}
+        .trans-model-box {{
+            margin-top: 14px;
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            border-radius: var(--radius-sm);
+            padding: 14px 18px;
+            display: none;
+        }}
+        .trans-breakdown-list {{
+            margin-top: 10px;
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            font-size: 0.88rem;
         }}
 
         /* Cheat Sheet */
@@ -1346,14 +1738,14 @@ html_content = f"""<!DOCTYPE html>
 
     <!-- Hero Header -->
     <header class="hero-header">
-        <div class="hero-badge">⚡ Chuyên Đề Trọng Tâm • Marugoto A2-1 & A2-2</div>
-        <h1 class="hero-title">🎯 Cẩm Nang & Mini Test Bài 11 - 14</h1>
-        <p class="hero-desc">Tổng hợp kiến thức toàn diện 4 bài: Dã ngoại & Đề xuất (L11), Ẩm thực & Phán đoán (L12), Công tác & Kinh nghiệm (L13), Quy tắc công sở & Xin phép (L14). Hệ thống hóa từ vựng, chữ Hán chiết tự và đề thi thử 30 câu trắc nghiệm chuẩn sư phạm.</p>
+        <div class="hero-badge">⚡ Chuyên Đề Trọng Tâm Toàn Diện • Marugoto A2-1 & A2-2</div>
+        <h1 class="hero-title">🎯 Cẩm Nang & Đề Thi Thử Đa Dạng Bài 11 - 14</h1>
+        <p class="hero-desc">Hệ thống khảo sát toàn diện năng lực qua 6 dạng bài thực chiến: Trắc nghiệm lựa chọn, Sắp xếp câu ★, Chia thể & Điền khuyết, Nối cột phản xạ, Đọc hiểu đoạn văn và Luyện dịch câu 2 chiều chuẩn 100 điểm.</p>
         <div class="hero-stats">
             <div class="stat-pill">📚 4 Bài Học Trọng Tâm (11 ➔ 14)</div>
-            <div class="stat-pill">🎴 118 Từ Vựng Chuẩn Kèm Quizlet</div>
-            <div class="stat-pill">⛩️ 30 Chữ Hán Kanji Đầy Đủ Chiết Tự</div>
-            <div class="stat-pill">🎯 30 Câu Trắc Nghiệm Chấm Điểm Tự Động</div>
+            <div class="stat-pill">🎴 118 Từ Vựng Kèm Quizlet</div>
+            <div class="stat-pill">⛩️ 30 Chữ Hán Chiết Tự</div>
+            <div class="stat-pill">🎯 6 Dạng Bài • 32 Câu (Thang Điểm 100)</div>
         </div>
         <div style="margin-top: 18px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
             <button type="button" class="btn-quizlet" onclick="copyFullQuizletFormat()" style="padding: 10px 22px; font-size: 0.92rem;">
@@ -1368,7 +1760,7 @@ html_content = f"""<!DOCTYPE html>
             <button class="tab-btn active" onclick="switchMainTab('tab-theory')">📖 Lý Thuyết (Bài 11 - 14)</button>
             <button class="tab-btn" onclick="switchMainTab('tab-vocab')">🎴 118 Từ Vựng</button>
             <button class="tab-btn" onclick="switchMainTab('tab-kanji')">⛩️ 30 Chữ Hán</button>
-            <button class="tab-btn" onclick="switchMainTab('tab-quiz')">🎯 Đề Thi Thử (30 Câu)</button>
+            <button class="tab-btn" onclick="switchMainTab('tab-quiz')">🎯 Đề Thi Thử Đa Dạng (6 Dạng • 100đ)</button>
             <button class="tab-btn" onclick="switchMainTab('tab-cheatsheet')">⚡ Cẩm Nang Bỏ Túi</button>
         </nav>
     </div>
@@ -1397,16 +1789,16 @@ html_content = f"""<!DOCTYPE html>
             </div>
             <div class="grammar-body">
                 <div class="formula-box">
-                    1. Rủ rê / Đề xuất: Động từ thể ý chí: <code>V(bỏ ます) ＋ ましょう</code><br>
+                    1. Rủ rê / Đề xuất: <code>V(bỏ ます) ＋ ましょう</code><br>
                     2. Đề nghị giúp đỡ đối phương: <code>V(bỏ ます) ＋ ましょうか</code><br>
-                    3. Mang theo đồ đạc: <code>[Danh từ] を 持って行きます / 持って来ます</code><br>
+                    3. Mang theo đồ đạc / Dẫn ai đi: <code>[Danh từ] を 持って行きます / 連れて行きます</code><br>
                     4. Đưa ra lựa chọn, quyết định: <code>[Danh từ] に します</code>
                 </div>
                 <p class="grammar-explain">
                     <strong>Phân tích chi tiết:</strong><br>
-                    • <code>〜ましょう</code>: Khác với câu hỏi lịch sự thăm dò <code>〜ませんか</code>, cấu trúc <code>〜ましょう</code> biểu đạt sự chủ động, quả quyết khi cùng đưa ra lời kêu gọi hành động chung.<br>
+                    • <code>〜ましょう</code>: Lời rủ rê chủ động, quả quyết khi cùng đưa ra đề xuất hành động chung.<br>
                     • <code>〜ましょうか</code>: Dùng khi ta thấy đối phương đang gặp khó khăn (vác nặng, trời nóng, cần chụp ảnh) và mình chủ động ngỏ lời làm hộ.<br>
-                    • <code>〜に します</code>: Mẫu câu kinh điển dùng trong nhà hàng khi nhân viên hỏi <em>「ご注文は？」</em> hoặc khi ta chốt hạ một phương án.
+                    • <code>〜に します</code>: Mẫu câu kinh điển dùng trong nhà hàng khi nhân viên hỏi <em>「ご注文は？」</em> hoặc khi ta chốt hạ một lựa chọn.
                 </p>
                 <ul class="example-list">
                     <li class="example-item">
@@ -1501,7 +1893,7 @@ html_content = f"""<!DOCTYPE html>
                 </div>
                 <p class="grammar-explain">
                     <strong>Phân tích chi tiết:</strong><br>
-                    • <code>V-た ことがある</code>: Dùng động từ thể TA để kể về một trải nghiệm đặc biệt đã từng kinh qua trong đời, không dùng cho các thói quen hàng ngày như đánh răng, ăn sáng.<br>
+                    • <code>V-た ことがある</code>: Dùng động từ thể TA để kể về một trải nghiệm đặc biệt đã từng kinh qua trong đời, không dùng cho các thói quen hàng ngày.<br>
                     • <code>〜すぎる</code>: Mang sắc thái tiêu cực (vượt quá ngưỡng cho phép, gây hậu quả xấu). Ăn nhiều quá đau bụng, vest đắt quá không mua nổi, phòng yên tĩnh quá phát sợ.<br>
                     • Đi công tác tới đâu dùng trợ từ <code>へ / に</code>, gặp gỡ ai đó bắt buộc dùng trợ từ <code>に</code>.
                 </p>
@@ -1557,7 +1949,7 @@ html_content = f"""<!DOCTYPE html>
                     <strong>Phân tích chi tiết:</strong><br>
                     • <code>V-てもいいですか</code>: Cấu trúc hỏi xin ý kiến cấp trên hay đồng nghiệp trước khi dùng đồ cơ quan. Khi được đồng ý, người Nhật thường dùng phó từ <code>どうぞ</code> (xin mời).<br>
                     • <code>V-てはいけません</code>: Quy tắc bắt buộc, cấm hút thuốc, cấm chụp ảnh, cấm làm ồn nơi công cộng.<br>
-                    • <code>V-かた</code>: Động từ bỏ ます kết hợp với chữ Hán 方 (Hán Việt: Phương) để biến thành danh từ chỉ cách thức thao tác. Trợ từ tân ngữ <code>を</code> biến thành <code>の</code>: <em>コピー機<span style="color:red">の</span> 使い方</em>.
+                    • <code>V-かた</code>: Động từ bỏ ます kết hợp với chữ Hán 方 (Phương) để biến thành danh từ chỉ cách thức thao tác. Trợ từ tân ngữ <code>を</code> biến thành <code>の</code>: <em>コピー機<span style="color:red">の</span> 使い方</em>.
                 </p>
                 <ul class="example-list">
                     <li class="example-item">
@@ -1645,30 +2037,142 @@ html_content = f"""<!DOCTYPE html>
     </div>
 
     <!-- ========================================== -->
-    <!-- TAB 4: ĐỀ THI THỬ MINI TEST (30 CÂU)       -->
+    <!-- TAB 4: ĐỀ THI THỬ ĐA DẠNG NĂNG LỰC (100Đ)  -->
     <!-- ========================================== -->
     <div id="tab-quiz" class="tab-panel">
 
         <div class="quiz-stats-card">
             <div class="quiz-score-box">
-                <div class="score-circle" id="scoreDisplay">0</div>
+                <div class="score-circle">
+                    <span class="score-num" id="totalScoreDisplay">0</span>
+                    <span class="score-max">/100 ĐIỂM</span>
+                </div>
                 <div class="score-info">
-                    <h4 id="quizStatusTitle">Đề Mini Test Trọng Tâm Bài 11 - 14 (30 Câu Chuẩn Sư Phạm)</h4>
-                    <p id="quizProgressText">Đã làm: 0/30 câu • Điểm số: 0%</p>
+                    <h4 id="quizStatusTitle">Đề Khảo Sát Năng Lực Toàn Diện Bài 11 - 14</h4>
+                    <p id="quizProgressText">Hoàn thành: 0/32 câu • Tổng điểm hiện tại: 0 / 100đ</p>
                 </div>
             </div>
             <div class="quiz-action-btns">
                 <div class="timer-badge">
-                    ⏱️ <span id="timerText">35:00</span>
+                    ⏱️ <span id="timerText">45:00</span>
                 </div>
                 <button class="quiz-btn" onclick="toggleTimer()">⏸️ Tạm Dừng</button>
-                <button class="quiz-btn primary" onclick="resetQuiz()">🔄 Làm Lại Đề Thi</button>
+                <button class="quiz-btn primary" onclick="resetAllExam()">🔄 Làm Lại Đề Thi</button>
             </div>
         </div>
 
-        <div id="questionsContainer">
-            <!-- Render questions via JS -->
+        <!-- Quick Jump Bar Between 6 Parts -->
+        <div class="theory-quicknav" style="margin-bottom: 25px;">
+            <a href="#sec-part1" class="quicknav-pill" style="background: #eef2ff; color: #4338ca; border-color: #c7d2fe;">I. Trắc Nghiệm (10 Câu • 25đ)</a>
+            <a href="#sec-part2" class="quicknav-pill" style="background: #fef3c7; color: #b45309; border-color: #fde68a;">II. Sắp Xếp Câu ★ (5 Câu • 15đ)</a>
+            <a href="#sec-part3" class="quicknav-pill" style="background: #d1fae5; color: #047857; border-color: #a7f3d0;">III. Chia Dạng Đúng (5 Câu • 15đ)</a>
+            <a href="#sec-part4" class="quicknav-pill" style="background: #ede9fe; color: #6d28d9; border-color: #ddd6fe;">IV. Nối Thẻ Hội Thoại (4 Câu • 10đ)</a>
+            <a href="#sec-part5" class="quicknav-pill" style="background: #e0f2fe; color: #0369a1; border-color: #bae6fd;">V. Đọc Hiểu Đoạn Văn (4 Câu • 20đ)</a>
+            <a href="#sec-part6" class="quicknav-pill" style="background: #fee2e2; color: #b91c1c; border-color: #fecaca;">VI. Luyện Dịch Câu (4 Câu • 15đ)</a>
         </div>
+
+        <!-- ============================================== -->
+        <!-- PHẦN I: TRẮC NGHIỆM TỔNG HỢP (10 CÂU - 25Đ)   -->
+        <!-- ============================================== -->
+        <div id="sec-part1">
+            <div class="exam-part-header">
+                <div class="exam-part-title">
+                    <span>📌 PHẦN I: TRẮC NGHIỆM TỔNG HỢP NGỮ PHÁP & TRỢ TỪ</span>
+                </div>
+                <span class="part-badge-tag">10 Câu • 25 Điểm (2.5đ/câu)</span>
+            </div>
+            <div id="part1Container">
+                <!-- Render Part 1 via JS -->
+            </div>
+        </div>
+
+        <!-- ============================================== -->
+        <!-- PHẦN II: SẮP XẾP TỪ THÀNH CÂU ★ (5 CÂU - 15Đ)  -->
+        <!-- ============================================== -->
+        <div id="sec-part2">
+            <div class="exam-part-header" style="background: linear-gradient(135deg, #78350f 0%, #b45309 100%);">
+                <div class="exam-part-title">
+                    <span>⭐ PHẦN II: SẮP XẾP TỪ THÀNH CÂU HOÀN CHỈNH (並べ替え)</span>
+                </div>
+                <span class="part-badge-tag">5 Câu • 15 Điểm (3đ/câu)</span>
+            </div>
+            <p style="margin-bottom: 16px; color: var(--gray-600); font-size: 0.95rem;">
+                👉 <strong>Hướng dẫn:</strong> Bấm vào các từ khóa (Chips) theo thứ tự đúng để ghép vào câu, sau đó bấm <strong>[Xác Nhận Thứ Tự]</strong> để kiểm tra từ ở vị trí ngôi sao <strong>[ ★ ]</strong>.
+            </p>
+            <div id="part2Container">
+                <!-- Render Part 2 via JS -->
+            </div>
+        </div>
+
+        <!-- ============================================== -->
+        <!-- PHẦN III: CHIA DẠNG ĐÚNG CỦA TỪ (5 CÂU - 15Đ) -->
+        <!-- ============================================== -->
+        <div id="sec-part3">
+            <div class="exam-part-header" style="background: linear-gradient(135deg, #064e3b 0%, #047857 100%);">
+                <div class="exam-part-title">
+                    <span>✍️ PHẦN III: CHIA DẠNG ĐÚNG CỦA TỪ TRONG NGOẶC (活用形・穴埋め)</span>
+                </div>
+                <span class="part-badge-tag">5 Câu • 15 Điểm (3đ/câu)</span>
+            </div>
+            <p style="margin-bottom: 16px; color: var(--gray-600); font-size: 0.95rem;">
+                👉 <strong>Hướng dẫn:</strong> Điền dạng biến đổi thích hợp của từ trong ngoặc vào ô trống (chấp nhận cả Kanji lẫn Hiragana/Romaji), sau đó nhấn <strong>[Kiểm Tra]</strong> hoặc phím <strong>Enter</strong>.
+            </p>
+            <div id="part3Container">
+                <!-- Render Part 3 via JS -->
+            </div>
+        </div>
+
+        <!-- ============================================== -->
+        <!-- PHẦN IV: NỐI CỘT TÌNH HUỐNG (4 CÂU - 10Đ)     -->
+        <!-- ============================================== -->
+        <div id="sec-part4">
+            <div class="exam-part-header" style="background: linear-gradient(135deg, #4c1d95 0%, #6d28d9 100%);">
+                <div class="exam-part-title">
+                    <span>🔄 PHẦN IV: NỐI CỘT TÌNH HUỐNG & PHẢN XẠ CÔNG SỞ (マッチング)</span>
+                </div>
+                <span class="part-badge-tag">4 Câu • 10 Điểm (2.5đ/câu)</span>
+            </div>
+            <p style="margin-bottom: 16px; color: var(--gray-600); font-size: 0.95rem;">
+                👉 <strong>Hướng dẫn:</strong> Chọn câu hồi đáp chuẩn mực của người Nhật phù hợp nhất với từng tình huống giao tiếp.
+            </p>
+            <div id="part4Container">
+                <!-- Render Part 4 via JS -->
+            </div>
+        </div>
+
+        <!-- ============================================== -->
+        <!-- PHẦN V: ĐỌC HIỂU ĐOẠN VĂN (4 CÂU - 20Đ)       -->
+        <!-- ============================================== -->
+        <div id="sec-part5">
+            <div class="exam-part-header" style="background: linear-gradient(135deg, #0c4a6e 0%, #0284c7 100%);">
+                <div class="exam-part-title">
+                    <span>📖 PHẦN V: ĐỌC HIỂU ĐOẠN VĂN THỰC TẾ (読解)</span>
+                </div>
+                <span class="part-badge-tag">4 Câu / 2 Bài Đọc • 20 Điểm (5đ/câu)</span>
+            </div>
+            <div id="part5Container">
+                <!-- Render Part 5 via JS -->
+            </div>
+        </div>
+
+        <!-- ============================================== -->
+        <!-- PHẦN VI: LUYỆN DỊCH CÂU 2 CHIỀU (4 CÂU - 15Đ) -->
+        <!-- ============================================== -->
+        <div id="sec-part6">
+            <div class="exam-part-header" style="background: linear-gradient(135deg, #881337 0%, #be123c 100%);">
+                <div class="exam-part-title">
+                    <span>🌐 PHẦN VI: LUYỆN DỊCH CÂU THỰC CHIẾN (翻訳・ライティング)</span>
+                </div>
+                <span class="part-badge-tag">4 Câu • 15 Điểm (3.75đ/câu)</span>
+            </div>
+            <p style="margin-bottom: 16px; color: var(--gray-600); font-size: 0.95rem;">
+                👉 <strong>Hướng dẫn:</strong> Nhập câu dịch tiếng Nhật vào ô văn bản, sau đó bấm <strong>[Đối Chiếu Đáp Án Chuẩn]</strong> để xem phân tích cấu trúc và tự đánh giá điểm.
+            </p>
+            <div id="part6Container">
+                <!-- Render Part 6 via JS -->
+            </div>
+        </div>
+
     </div>
 
     <!-- ========================================== -->
@@ -1769,20 +2273,33 @@ html_content = f"""<!DOCTYPE html>
     // Data Injected from Python
     const rawVocab = {vocab_json_str};
     const rawKanji = {kanji_json_str};
-    const quizData = {quiz_json_str};
+    const part1Data = {p1_json_str};
+    const part2Data = {p2_json_str};
+    const part3Data = {p3_json_str};
+    const part4Data = {p4_json_str};
+    const part5Data = {p5_json_str};
+    const part6Data = {p6_json_str};
 
     let currentVocabFilter = 'ALL';
     let currentKanjiFilter = 'ALL';
     let isMeaningHidden = false;
     let currentFilteredVocab = [...rawVocab];
-    let userAnswers = {{}};
 
-    // Timer Variables
-    let totalSeconds = 35 * 60;
+    // State Tracking for Score
+    let p1Answers = {{}};
+    let p2Selected = {{}}; // qId -> array of chosen chip indices
+    let p2Graded = {{}};
+    let p3Graded = {{}};
+    let p4Selected = {{}};
+    let p4Graded = {{}};
+    let p5Answers = {{}};
+    let p6SelfScores = {{}};
+
+    // Timer Variables (45:00)
+    let totalSeconds = 45 * 60;
     let timerInterval = null;
     let isTimerRunning = true;
 
-    // Start Timer
     function startTimer() {{
         if (timerInterval) clearInterval(timerInterval);
         timerInterval = setInterval(() => {{
@@ -1791,7 +2308,7 @@ html_content = f"""<!DOCTYPE html>
                 updateTimerDisplay();
             }} else if (totalSeconds <= 0) {{
                 clearInterval(timerInterval);
-                alert("⏱️ Hết thời gian làm bài! Hãy kiểm tra lại kết quả của bạn nhé.");
+                alert("⏱️ Hết thời gian 45 phút làm bài! Hãy xem lại kết quả tổng điểm của bạn.");
             }}
         }}, 1000);
     }}
@@ -1815,7 +2332,6 @@ html_content = f"""<!DOCTYPE html>
         }}
     }}
 
-    // Switch Tab
     function switchMainTab(tabId) {{
         document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
         document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
@@ -1830,7 +2346,6 @@ html_content = f"""<!DOCTYPE html>
         window.scrollTo({{ top: 180, behavior: 'smooth' }});
     }}
 
-    // Speak text
     function speakText(text) {{
         if (window.speakJapanese) {{
             window.speakJapanese(text);
@@ -1841,7 +2356,554 @@ html_content = f"""<!DOCTYPE html>
         }}
     }}
 
-    // Render Vocab
+    // ==========================================
+    // RENDER PART 1: TRẮC NGHIỆM (10 CÂU - 25Đ)
+    // ==========================================
+    function renderPart1() {{
+        const container = document.getElementById('part1Container');
+        container.innerHTML = part1Data.map((item, idx) => `
+            <div class="question-card" id="qCard_p1_${{item.id}}">
+                <div class="q-header">
+                    <div>
+                        <span class="q-num">Câu ${{item.id}}</span>
+                        <span class="q-category">${{item.category}}</span>
+                    </div>
+                    <span class="q-points">2.5 Điểm</span>
+                </div>
+                <div class="q-text jp-text">${{item.q}}</div>
+                <div class="options-list">
+                    ${{item.options.map((opt, oIdx) => `
+                        <button class="opt-btn" id="optBtn_p1_${{item.id}}_${{oIdx}}" onclick="selectPart1Answer(${{item.id}}, ${{oIdx}})">
+                            <span class="opt-key">${{['A', 'B', 'C', 'D'][oIdx]}}</span>
+                            <span class="jp-text">${{opt}}</span>
+                        </button>
+                    `).join('')}}
+                </div>
+                <div class="q-explain" id="explain_p1_${{item.id}}">
+                    💡 <strong>Giải thích chi tiết:</strong> ${{item.explain}}
+                </div>
+            </div>
+        `).join('');
+    }}
+
+    function selectPart1Answer(qId, selectedIdx) {{
+        if (p1Answers[qId] !== undefined) return;
+        p1Answers[qId] = selectedIdx;
+        const qItem = part1Data.find(q => q.id === qId);
+        const correctIdx = qItem.correct;
+
+        qItem.options.forEach((_, idx) => {{
+            const btn = document.getElementById(`optBtn_p1_${{qId}}_${{idx}}`);
+            btn.disabled = true;
+            if (idx === correctIdx) {{
+                btn.classList.add('correct');
+            }} else if (idx === selectedIdx) {{
+                btn.classList.add('wrong');
+            }}
+        }});
+
+        const explainEl = document.getElementById(`explain_p1_${{qId}}`);
+        if (explainEl) explainEl.style.display = 'block';
+
+        updateTotalScore();
+    }}
+
+    // ==========================================
+    // RENDER PART 2: SẮP XẾP TỪ ★ (5 CÂU - 15Đ)
+    // ==========================================
+    function renderPart2() {{
+        const container = document.getElementById('part2Container');
+        container.innerHTML = part2Data.map((item, idx) => {{
+            p2Selected[item.id] = p2Selected[item.id] || [];
+            return `
+                <div class="question-card" id="qCard_p2_${{item.id}}">
+                    <div class="q-header">
+                        <div>
+                            <span class="q-num">Câu ${{item.id}}</span>
+                            <span class="q-category">${{item.category}}</span>
+                        </div>
+                        <span class="q-points">3.0 Điểm</span>
+                    </div>
+                    <div style="font-size: 0.95rem; color: var(--gray-600); margin-bottom: 8px;">${{item.prompt}}</div>
+                    
+                    <div class="arrange-display-box jp-text">
+                        <span>${{item.pre}}</span>
+                        <span class="arrange-slot" id="p2_slot_${{item.id}}_0">${{p2Selected[item.id][0] !== undefined ? item.chips[p2Selected[item.id][0]] : '[ 1 ]'}}</span>
+                        <span class="arrange-slot" id="p2_slot_${{item.id}}_1">${{p2Selected[item.id][1] !== undefined ? item.chips[p2Selected[item.id][1]] : '[ 2 ]'}}</span>
+                        <span class="arrange-slot star" id="p2_slot_${{item.id}}_2">${{p2Selected[item.id][2] !== undefined ? item.chips[p2Selected[item.id][2]] : '★ [ 3 ]'}}</span>
+                        <span class="arrange-slot" id="p2_slot_${{item.id}}_3">${{p2Selected[item.id][3] !== undefined ? item.chips[p2Selected[item.id][3]] : '[ 4 ]'}}</span>
+                        <span>${{item.post}}</span>
+                    </div>
+
+                    <div class="chips-container" id="p2_chips_${{item.id}}">
+                        ${{item.chips.map((chip, cIdx) => `
+                            <button type="button" class="word-chip jp-text" id="p2_chip_btn_${{item.id}}_${{cIdx}}" onclick="clickArrangeChip(${{item.id}}, ${{cIdx}})">
+                                <strong>${{cIdx + 1}}.</strong> ${{chip}}
+                            </button>
+                        `).join('')}}
+                    </div>
+
+                    <div class="arrange-ctrl-row">
+                        <button type="button" class="btn-check-arrange" id="p2_check_btn_${{item.id}}" onclick="checkArrangeAnswer(${{item.id}})">
+                            ✔️ Xác Nhận Thứ Tự & Kiểm Tra
+                        </button>
+                        <button type="button" class="btn-reset-arrange" onclick="resetSingleArrange(${{item.id}})">
+                            🔄 Xếp Lại
+                        </button>
+                    </div>
+
+                    <div class="q-explain" id="explain_p2_${{item.id}}">
+                        💡 <strong>Câu hoàn chỉnh:</strong> <span class="jp-text" style="font-weight:700;">${{item.fullSentence}}</span><br>
+                        ⭐ <strong>Từ ở vị trí ngôi sao [ ★ ]:</strong> <span style="font-weight:700; color: #b45309;">${{item.starChip}}</span><br>
+                        ${{item.explain}}
+                    </div>
+                </div>
+            `;
+        }}).join('');
+    }}
+
+    function clickArrangeChip(qId, chipIdx) {{
+        if (p2Graded[qId]) return;
+        let chosen = p2Selected[qId] || [];
+        if (chosen.includes(chipIdx)) return;
+        if (chosen.length >= 4) return;
+
+        chosen.push(chipIdx);
+        p2Selected[qId] = chosen;
+
+        // Mark chip as used
+        const chipBtn = document.getElementById(`p2_chip_btn_${{qId}}_${{chipIdx}}`);
+        if (chipBtn) chipBtn.classList.add('used');
+
+        // Update slots
+        const qItem = part2Data.find(q => q.id === qId);
+        chosen.forEach((cIdx, pos) => {{
+            const slot = document.getElementById(`p2_slot_${{qId}}_${{pos}}`);
+            if (slot) slot.innerText = qItem.chips[cIdx];
+        }});
+    }}
+
+    function resetSingleArrange(qId) {{
+        if (p2Graded[qId]) return;
+        p2Selected[qId] = [];
+        for (let i = 0; i < 4; i++) {{
+            const slot = document.getElementById(`p2_slot_${{qId}}_${{i}}`);
+            if (slot) {{
+                slot.innerText = (i === 2) ? '★ [ 3 ]' : `[ ${{i + 1}} ]`;
+            }}
+            const chipBtn = document.getElementById(`p2_chip_btn_${{qId}}_${{i}}`);
+            if (chipBtn) chipBtn.classList.remove('used');
+        }}
+    }}
+
+    function checkArrangeAnswer(qId) {{
+        if (p2Graded[qId]) return;
+        const chosen = p2Selected[qId] || [];
+        if (chosen.length < 4) {{
+            alert("Vui lòng bấm chọn đủ cả 4 từ trước khi kiểm tra nhé!");
+            return;
+        }}
+
+        const qItem = part2Data.find(q => q.id === qId);
+        // Correct if starIndex matched OR entire order matched
+        const isStarCorrect = (chosen[qItem.starIndex] === qItem.correctOrder[qItem.starIndex]);
+        const isEntireCorrect = (JSON.stringify(chosen) === JSON.stringify(qItem.correctOrder));
+
+        const isCorrect = isStarCorrect || isEntireCorrect;
+        p2Graded[qId] = isCorrect ? 3.0 : 0.0;
+
+        const checkBtn = document.getElementById(`p2_check_btn_${{qId}}`);
+        if (checkBtn) {{
+            checkBtn.disabled = true;
+            if (isCorrect) {{
+                checkBtn.style.background = '#10b981';
+                checkBtn.innerText = "✅ Chính Xác (+3.0đ)";
+            }} else {{
+                checkBtn.style.background = '#f43f5e';
+                checkBtn.innerText = "❌ Chưa Đúng (0đ)";
+            }}
+        }}
+
+        const explainEl = document.getElementById(`explain_p2_${{qId}}`);
+        if (explainEl) explainEl.style.display = 'block';
+
+        updateTotalScore();
+    }}
+
+    // ==========================================
+    // RENDER PART 3: CHIA DẠNG ĐÚNG (5 CÂU - 15Đ)
+    // ==========================================
+    function renderPart3() {{
+        const container = document.getElementById('part3Container');
+        container.innerHTML = part3Data.map((item, idx) => `
+            <div class="question-card" id="qCard_p3_${{item.id}}">
+                <div class="q-header">
+                    <div>
+                        <span class="q-num">Câu ${{item.id}}</span>
+                        <span class="q-category">${{item.category}}</span>
+                    </div>
+                    <span class="q-points">3.0 Điểm</span>
+                </div>
+                <div class="q-text jp-text">${{item.sentence}}</div>
+                <div class="conjugate-row">
+                    <input type="text" class="conj-input jp-text" id="p3_input_${{item.id}}" placeholder="Nhập dạng chia đúng..." onkeydown="if(event.key==='Enter') checkConjugateAnswer(${{item.id}})">
+                    <button type="button" class="btn-check-arrange" id="p3_btn_${{item.id}}" onclick="checkConjugateAnswer(${{item.id}})">
+                        Kiểm Tra
+                    </button>
+                    <span style="font-size: 0.88rem; color: var(--gray-500);">Từ gốc: <strong>${{item.baseWord}}</strong></span>
+                </div>
+                <div class="q-explain" id="explain_p3_${{item.id}}">
+                    🎯 <strong>Đáp án chuẩn:</strong> <span class="jp-text" style="font-weight:800; color: #166534;">${{item.displayAnswer}}</span><br>
+                    💡 <strong>Quy tắc ngữ pháp:</strong> ${{item.explain}}
+                </div>
+            </div>
+        `).join('');
+    }}
+
+    function checkConjugateAnswer(qId) {{
+        if (p3Graded[qId] !== undefined) return;
+        const inputEl = document.getElementById(`p3_input_${{qId}}`);
+        const userVal = inputEl.value.trim().toLowerCase();
+        if (!userVal) {{
+            alert("Hãy nhập câu trả lời trước khi kiểm tra nhé!");
+            return;
+        }}
+
+        const qItem = part3Data.find(q => q.id === qId);
+        const isMatched = qItem.accepted.some(acc => userVal === acc.toLowerCase());
+
+        inputEl.disabled = true;
+        const btn = document.getElementById(`p3_btn_${{qId}}`);
+        btn.disabled = true;
+
+        if (isMatched) {{
+            inputEl.classList.add('correct');
+            btn.style.background = '#10b981';
+            btn.innerText = "✅ Đúng (+3.0đ)";
+            p3Graded[qId] = 3.0;
+        }} else {{
+            inputEl.classList.add('wrong');
+            btn.style.background = '#f43f5e';
+            btn.innerText = "❌ Sai (0đ)";
+            p3Graded[qId] = 0.0;
+        }}
+
+        const explainEl = document.getElementById(`explain_p3_${{qId}}`);
+        if (explainEl) explainEl.style.display = 'block';
+
+        updateTotalScore();
+    }}
+
+    // ==========================================
+    // RENDER PART 4: NỐI CỘT TÌNH HUỐNG (4 CÂU - 10Đ)
+    // ==========================================
+    function renderPart4() {{
+        const container = document.getElementById('part4Container');
+        container.innerHTML = `
+            <div class="question-card">
+                <div class="matching-grid">
+                    ${{part4Data.map((item, idx) => `
+                        <div class="match-card-a" id="matchCard_${{item.id}}">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <span class="q-num">Tình Huống ${{idx + 1}} (Câu ${{item.id}})</span>
+                                <span class="q-points">2.5đ</span>
+                            </div>
+                            <div class="jp-text" style="font-weight:700; color: var(--gray-900); font-size: 1rem; margin-top: 4px;">
+                                ${{item.situation}}
+                            </div>
+                            <div style="font-size: 0.85rem; color: var(--gray-600); margin-bottom: 6px;">
+                                ${{item.context}}
+                            </div>
+                            <select class="match-select jp-text" id="matchSelect_${{item.id}}" onchange="onSelectMatchAnswer(${{item.id}})">
+                                <option value="">-- Chọn câu đối đáp phù hợp --</option>
+                                ${{item.options.map((opt, oIdx) => `
+                                    <option value="${{oIdx}}">${{opt}}</option>
+                                `).join('')}}
+                            </select>
+                            <div class="q-explain" id="explain_p4_${{item.id}}">
+                                💡 <strong>Giải thích:</strong> ${{item.explain}}
+                            </div>
+                        </div>
+                    `).join('')}}
+                </div>
+                <div style="margin-top: 18px; text-align: right;">
+                    <button type="button" class="quiz-btn primary" id="btnCheckMatchAll" onclick="checkAllMatching()">
+                        ✔️ Chấm Điểm Toàn Bộ Phần Nối Thẻ
+                    </button>
+                </div>
+            </div>
+        `;
+    }}
+
+    function onSelectMatchAnswer(qId) {{
+        const sel = document.getElementById(`matchSelect_${{qId}}`);
+        p4Selected[qId] = sel.value;
+    }}
+
+    function checkAllMatching() {{
+        part4Data.forEach(item => {{
+            const sel = document.getElementById(`matchSelect_${{item.id}}`);
+            const chosen = p4Selected[item.id];
+            sel.disabled = true;
+
+            const card = document.getElementById(`matchCard_${{item.id}}`);
+            if (chosen !== undefined && parseInt(chosen) === item.correct) {{
+                card.style.borderColor = '#10b981';
+                card.style.background = '#f0fdf4';
+                p4Graded[item.id] = 2.5;
+            }} else {{
+                card.style.borderColor = '#f43f5e';
+                card.style.background = '#fff1f2';
+                p4Graded[item.id] = 0.0;
+            }}
+
+            const explainEl = document.getElementById(`explain_p4_${{item.id}}`);
+            if (explainEl) explainEl.style.display = 'block';
+        }});
+
+        const btn = document.getElementById('btnCheckMatchAll');
+        btn.disabled = true;
+        btn.innerText = "Đã Hoàn Thành Chấm Điểm";
+        updateTotalScore();
+    }}
+
+    // ==========================================
+    // RENDER PART 5: ĐỌC HIỂU ĐOẠN VĂN (4 CÂU - 20Đ)
+    // ==========================================
+    function renderPart5() {{
+        const container = document.getElementById('part5Container');
+        container.innerHTML = part5Data.map(pass => `
+            <div class="passage-card">
+                <div class="passage-title">${{pass.title}}</div>
+                <div class="passage-text jp-text">${{pass.text}}</div>
+            </div>
+            ${{pass.questions.map(q => `
+                <div class="question-card" id="qCard_p5_${{q.id}}">
+                    <div class="q-header">
+                        <div>
+                            <span class="q-num">Câu ${{q.id}}</span>
+                            <span class="q-category">Đọc hiểu chi tiết</span>
+                        </div>
+                        <span class="q-points">5.0 Điểm</span>
+                    </div>
+                    <div class="q-text jp-text">${{q.q}}</div>
+                    <div class="options-list">
+                        ${{q.options.map((opt, oIdx) => `
+                            <button class="opt-btn" id="optBtn_p5_${{q.id}}_${{oIdx}}" onclick="selectPart5Answer(${{q.id}}, ${{oIdx}})">
+                                <span class="opt-key">${{['A', 'B', 'C', 'D'][oIdx]}}</span>
+                                <span class="jp-text">${{opt}}</span>
+                            </button>
+                        `).join('')}}
+                    </div>
+                    <div class="q-explain" id="explain_p5_${{q.id}}">
+                        💡 <strong>Giải thích trích dẫn:</strong> ${{q.explain}}
+                    </div>
+                </div>
+            `).join('')}}
+        `).join('');
+    }}
+
+    function selectPart5Answer(qId, selectedIdx) {{
+        if (p5Answers[qId] !== undefined) return;
+        p5Answers[qId] = selectedIdx;
+
+        let foundQ = null;
+        for (const p of part5Data) {{
+            const f = p.questions.find(q => q.id === qId);
+            if (f) {{ foundQ = f; break; }}
+        }}
+
+        const correctIdx = foundQ.correct;
+        foundQ.options.forEach((_, idx) => {{
+            const btn = document.getElementById(`optBtn_p5_${{qId}}_${{idx}}`);
+            btn.disabled = true;
+            if (idx === correctIdx) {{
+                btn.classList.add('correct');
+            }} else if (idx === selectedIdx) {{
+                btn.classList.add('wrong');
+            }}
+        }});
+
+        const explainEl = document.getElementById(`explain_p5_${{qId}}`);
+        if (explainEl) explainEl.style.display = 'block';
+
+        updateTotalScore();
+    }}
+
+    // ==========================================
+    // RENDER PART 6: LUYỆN DỊCH CÂU (4 CÂU - 15Đ)
+    // ==========================================
+    function renderPart6() {{
+        const container = document.getElementById('part6Container');
+        container.innerHTML = part6Data.map(item => `
+            <div class="question-card" id="qCard_p6_${{item.id}}">
+                <div class="q-header">
+                    <div>
+                        <span class="q-num">Câu ${{item.id}}</span>
+                        <span class="q-category">${{item.category}}</span>
+                    </div>
+                    <span class="q-points">3.75 Điểm</span>
+                </div>
+                <div style="font-size: 1.15rem; font-weight: 800; color: #1e1b4b; margin-bottom: 6px;">
+                    🇻🇳 ${{item.vi}}
+                </div>
+                <div style="font-size: 0.88rem; color: var(--gray-600); margin-bottom: 8px;">
+                    💡 <em>Gợi ý từ vựng:</em> ${{item.hint}}
+                </div>
+                <textarea class="trans-input-box jp-text" id="trans_input_${{item.id}}" placeholder="Nhập bản dịch tiếng Nhật của bạn vào đây..."></textarea>
+                
+                <div style="margin-top: 10px; display: flex; gap: 10px; flex-wrap: wrap; align-items: center;">
+                    <button type="button" class="btn-check-arrange" onclick="toggleTranslationModel(${{item.id}})">
+                        👁️ Đối Chiếu Đáp Án Chuẩn
+                    </button>
+                    <button type="button" class="tool-toggle-btn" id="btnSelfGrade_${{item.id}}" onclick="selfGradeTranslation(${{item.id}})">
+                        ⭐ Tự Đánh Giá Đạt (+3.75đ)
+                    </button>
+                </div>
+
+                <div class="trans-model-box" id="trans_model_${{item.id}}">
+                    <div style="font-size: 0.85rem; font-weight: 800; color: #15803d; text-transform: uppercase;">
+                        Câu Mẫu Chuẩn Marugoto:
+                    </div>
+                    <div class="jp-text" style="font-size: 1.25rem; font-weight: 800; color: #14532d; margin: 4px 0 2px 0;">
+                        ${{item.modelSentence}}
+                    </div>
+                    <div class="jp-text" style="font-size: 0.95rem; color: #166534; margin-bottom: 10px;">
+                        (${{item.modelKana}})
+                    </div>
+                    <div style="font-size: 0.88rem; font-weight: 700; color: #166534; margin-bottom: 4px;">
+                        Phân tích thành phần cấu trúc:
+                    </div>
+                    <ul class="trans-breakdown-list">
+                        ${{item.breakdown.map(b => `
+                            <li>• <strong class="jp-text">${{b.part}}:</strong> ${{b.role}}</li>
+                        `).join('')}}
+                    </ul>
+                </div>
+            </div>
+        `).join('');
+    }}
+
+    function toggleTranslationModel(qId) {{
+        const box = document.getElementById(`trans_model_${{qId}}`);
+        if (box) {{
+            box.style.display = (box.style.display === 'block') ? 'none' : 'block';
+        }}
+    }}
+
+    function selfGradeTranslation(qId) {{
+        if (p6SelfScores[qId]) {{
+            p6SelfScores[qId] = 0;
+            const btn = document.getElementById(`btnSelfGrade_${{qId}}`);
+            btn.classList.remove('active');
+            btn.innerText = "⭐ Tự Đánh Giá Đạt (+3.75đ)";
+        }} else {{
+            p6SelfScores[qId] = 3.75;
+            const btn = document.getElementById(`btnSelfGrade_${{qId}}`);
+            btn.classList.add('active');
+            btn.innerText = "✅ Đã Tính Điểm (+3.75đ)";
+        }}
+        updateTotalScore();
+    }}
+
+    // ==========================================
+    // TOTAL SCORE CALCULATION (100 PTS)
+    // ==========================================
+    function updateTotalScore() {{
+        let total = 0;
+        let answeredQuestions = 0;
+
+        // P1: 10 Qs * 2.5 = 25 pts
+        part1Data.forEach(q => {{
+            if (p1Answers[q.id] !== undefined) {{
+                answeredQuestions++;
+                if (p1Answers[q.id] === q.correct) total += 2.5;
+            }}
+        }});
+
+        // P2: 5 Qs * 3.0 = 15 pts
+        Object.keys(p2Graded).forEach(qId => {{
+            answeredQuestions++;
+            total += p2Graded[qId];
+        }});
+
+        // P3: 5 Qs * 3.0 = 15 pts
+        Object.keys(p3Graded).forEach(qId => {{
+            answeredQuestions++;
+            total += p3Graded[qId];
+        }});
+
+        // P4: 4 Qs * 2.5 = 10 pts
+        Object.keys(p4Graded).forEach(qId => {{
+            answeredQuestions++;
+            total += p4Graded[qId];
+        }});
+
+        // P5: 4 Qs * 5.0 = 20 pts
+        for (const p of part5Data) {{
+            for (const q of p.questions) {{
+                if (p5Answers[q.id] !== undefined) {{
+                    answeredQuestions++;
+                    if (p5Answers[q.id] === q.correct) total += 5.0;
+                }}
+            }}
+        }}
+
+        // P6: 4 Qs * 3.75 = 15 pts
+        Object.keys(p6SelfScores).forEach(qId => {{
+            if (p6SelfScores[qId] > 0) {{
+                answeredQuestions++;
+                total += p6SelfScores[qId];
+            }}
+        }});
+
+        const totalRounded = Math.round(total * 10) / 10;
+        document.getElementById('totalScoreDisplay').innerText = totalRounded;
+        document.getElementById('quizProgressText').innerText = 
+            `Đã làm: ${{answeredQuestions}}/32 câu • Tổng điểm hiện tại: ${{totalRounded}} / 100đ`;
+
+        if (answeredQuestions >= 32) {{
+            let rank = "🏆 XUẤT SẮC!";
+            if (totalRounded < 50) rank = "⚠️ CẦN ÔN TẬP THÊM!";
+            else if (totalRounded < 70) rank = "👍 KHÁ TỐT!";
+            else if (totalRounded < 85) rank = "🌟 GIỎI!";
+            
+            document.getElementById('quizStatusTitle').innerText = 
+                `HOÀN THÀNH BÀI THI: ${{totalRounded}} / 100 ĐIỂM - ${{rank}}`;
+        }}
+    }}
+
+    function resetAllExam() {{
+        p1Answers = {{}};
+        p2Selected = {{}};
+        p2Graded = {{}};
+        p3Graded = {{}};
+        p4Selected = {{}};
+        p4Graded = {{}};
+        p5Answers = {{}};
+        p6SelfScores = {{}};
+
+        totalSeconds = 45 * 60;
+        isTimerRunning = true;
+        updateTimerDisplay();
+
+        renderPart1();
+        renderPart2();
+        renderPart3();
+        renderPart4();
+        renderPart5();
+        renderPart6();
+
+        document.getElementById('totalScoreDisplay').innerText = '0';
+        document.getElementById('quizStatusTitle').innerText = 'Đề Khảo Sát Năng Lực Toàn Diện Bài 11 - 14';
+        document.getElementById('quizProgressText').innerText = 'Hoàn thành: 0/32 câu • Tổng điểm hiện tại: 0 / 100đ';
+
+        window.scrollTo({{ top: document.getElementById('tab-quiz').offsetTop - 60, behavior: 'smooth' }});
+    }}
+
+    // ==========================================
+    // VOCAB & KANJI SCRIPTS
+    // ==========================================
     function renderVocab(list) {{
         const container = document.getElementById('vocabContainer');
         if (!list || list.length === 0) {{
@@ -1998,7 +3060,6 @@ html_content = f"""<!DOCTYPE html>
         }});
     }}
 
-    // Render Kanji
     function renderKanji(list) {{
         const container = document.getElementById('kanjiContainer');
         if (!list || list.length === 0) {{
@@ -2079,96 +3140,16 @@ html_content = f"""<!DOCTYPE html>
         renderKanji(filtered);
     }}
 
-    // Render Quiz
-    function renderQuiz() {{
-        const container = document.getElementById('questionsContainer');
-        container.innerHTML = quizData.map((item, idx) => `
-            <div class="question-card" id="qCard_${{item.id}}">
-                <div class="q-header">
-                    <span class="q-num">Câu ${{idx + 1}} / ${{quizData.length}}</span>
-                    <span class="q-category">${{item.lesson}} • ${{item.category}}</span>
-                </div>
-                <div class="q-text jp-text">${{item.q}}</div>
-                <div class="options-list">
-                    ${{item.options.map((opt, oIdx) => `
-                        <button class="opt-btn" id="optBtn_${{item.id}}_${{oIdx}}" onclick="selectAnswer(${{item.id}}, ${{oIdx}})">
-                            <span class="opt-key">${{['A', 'B', 'C', 'D'][oIdx]}}</span>
-                            <span class="jp-text">${{opt}}</span>
-                        </button>
-                    `).join('')}}
-                </div>
-                <div class="q-explain" id="explain_${{item.id}}">
-                    💡 <strong>Giải thích chi tiết:</strong> ${{item.explain}}
-                </div>
-            </div>
-        `).join('');
-    }}
-
-    function selectAnswer(qId, selectedIdx) {{
-        if (userAnswers[qId] !== undefined) return;
-
-        userAnswers[qId] = selectedIdx;
-        const qItem = quizData.find(q => q.id === qId);
-        const correctIdx = qItem.correct;
-
-        qItem.options.forEach((_, idx) => {{
-            const btn = document.getElementById(`optBtn_${{qId}}_${{idx}}`);
-            btn.disabled = true;
-            if (idx === correctIdx) {{
-                btn.classList.add('correct');
-            }} else if (idx === selectedIdx) {{
-                btn.classList.add('wrong');
-            }}
-        }});
-
-        const explainEl = document.getElementById(`explain_${{qId}}`);
-        explainEl.style.display = 'block';
-
-        updateScore();
-    }}
-
-    function updateScore() {{
-        let correctCount = 0;
-        let answeredCount = Object.keys(userAnswers).length;
-
-        quizData.forEach(q => {{
-            if (userAnswers[q.id] === q.correct) {{
-                correctCount++;
-            }}
-        }});
-
-        const percent = Math.round((correctCount / quizData.length) * 100);
-        document.getElementById('scoreDisplay').innerText = correctCount;
-        document.getElementById('quizProgressText').innerText = 
-            `Đã làm: ${{answeredCount}}/${{quizData.length}} câu • Tỷ lệ đúng: ${{percent}}%`;
-
-        if (answeredCount === quizData.length) {{
-            let rank = "🏆 XUẤT SẮC!";
-            if (percent < 60) rank = "⚠️ CẦN ÔN TẬP THÊM!";
-            else if (percent < 80) rank = "👍 KHÁ TỐT!";
-            else if (percent < 90) rank = "🌟 RẤT GIỎI!";
-            
-            document.getElementById('quizStatusTitle').innerText = 
-                `HOÀN THÀNH: ${{correctCount}}/${{quizData.length}} ĐIỂM (${{percent}}%) - ${{rank}}`;
-        }}
-    }}
-
-    function resetQuiz() {{
-        userAnswers = {{}};
-        document.getElementById('scoreDisplay').innerText = '0';
-        document.getElementById('quizStatusTitle').innerText = 'Đề Mini Test Trọng Tâm Bài 11 - 14 (30 Câu Chuẩn Sư Phạm)';
-        document.getElementById('quizProgressText').innerText = `Đã làm: 0/${{quizData.length}} câu • Điểm số: 0%`;
-        totalSeconds = 35 * 60;
-        isTimerRunning = true;
-        updateTimerDisplay();
-        renderQuiz();
-        window.scrollTo({{ top: document.getElementById('tab-quiz').offsetTop - 60, behavior: 'smooth' }});
-    }}
-
+    // Initialize All Components on Load
     document.addEventListener('DOMContentLoaded', () => {{
         applyVocabFilter();
         renderKanji(rawKanji);
-        renderQuiz();
+        renderPart1();
+        renderPart2();
+        renderPart3();
+        renderPart4();
+        renderPart5();
+        renderPart6();
         startTimer();
     }});
 </script>
@@ -2181,4 +3162,4 @@ output_path = os.path.join(WORKSPACE, 'tests/On_Tap_Mini_Test_A2_11_14.html')
 with open(output_path, 'w', encoding='utf-8') as f:
     f.write(html_content)
 
-print(f"Successfully generated {output_path} ({len(html_content)} bytes).")
+print(f"Successfully generated diverse exam {output_path} ({len(html_content)} bytes).")
