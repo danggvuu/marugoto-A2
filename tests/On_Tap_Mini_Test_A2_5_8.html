@@ -1087,7 +1087,7 @@
 
 <div class="container">
     <!-- Global Hub Navigation -->
-                                                        <div class="global-hub-nav">
+                                                            <div class="global-hub-nav">
         <a href="../index.html" class="hub-nav-item">🌸 Thể TE (～て)</a>
         <a href="../the_ru.html" class="hub-nav-item">📘 Thể RU (Từ Điển)</a>
         <a href="../the_ta.html" class="hub-nav-item">📕 Thể TA (Quá Khứ)</a>
@@ -2283,9 +2283,9 @@
     }
 
     function formatQuizletVocabLine(item) {
-        const term = cleanJpTermForQuizlet(item.jp);
+        const term = cleanJpTermForQuizlet(item.kana || item.kanji || item.jp);
         let def = item.vi;
-        if (item.jp.includes('/')) {
+        if (item.jp && item.jp.includes('/')) {
             const alt = item.jp.split('/')[1].trim();
             def = `${item.vi} (hoặc ${alt})`;
         }

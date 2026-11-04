@@ -1748,8 +1748,14 @@ html_content = f"""<!DOCTYPE html>
             <div class="stat-pill">🎯 6 Dạng Bài • 32 Câu (Thang Điểm 100)</div>
         </div>
         <div style="margin-top: 18px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
-            <button type="button" class="btn-quizlet" onclick="copyFullQuizletFormat()" style="padding: 10px 22px; font-size: 0.92rem;">
-                📋 Copy Trọn Bộ 118 Từ Cho Quizlet (Bài 11 - 14)
+            <button type="button" class="btn-quizlet" onclick="copyFullQuizletFormat()" style="padding: 10px 20px; font-size: 0.92rem;">
+                📋 Copy Quizlet Kana (Tab): くだもの [Tab] Hoa quả
+            </button>
+            <button type="button" class="btn-quizlet" onclick="copyFullColonFormat()" style="background: linear-gradient(135deg, #059669, #10b981); padding: 10px 20px; font-size: 0.92rem;">
+                📋 Copy Dấu Hai Chấm (：): くだもの：Hoa quả
+            </button>
+            <button type="button" class="btn-quizlet" onclick="copyFullKanjiFormat()" style="background: linear-gradient(135deg, #4b5563, #6b7280); padding: 10px 18px; font-size: 0.88rem;">
+                🈁 Copy Gõ Kanji (Tab)
             </button>
         </div>
     </header>
@@ -1999,8 +2005,11 @@ html_content = f"""<!DOCTYPE html>
                 <button class="tool-toggle-btn" id="hideMeaningBtn" onclick="toggleHideMeaning()">
                     👁️ Ẩn nghĩa tiếng Việt (Tự dò)
                 </button>
-                <button type="button" class="btn-quizlet" id="btnQuizletCopy" onclick="copyVocabQuizletFormat()" title="Định dạng Tab sạch 100%, không dấu cách, không ~, cực dễ gõ từ trên Quizlet">
-                    📋 Copy Format Quizlet (<span id="quizletVocabCount">118</span> từ)
+                <button type="button" class="btn-quizlet" id="btnQuizletCopy" onclick="copyVocabQuizletFormat()" title="Định dạng Tab sạch 100%, gõ siêu mượt trên Quizlet: くだもの [Tab] Hoa quả">
+                    📋 Copy Gõ Kana (<span id="quizletVocabCount">118</span> từ)
+                </button>
+                <button type="button" class="btn-quizlet" onclick="copyVocabColonFormat()" style="background: linear-gradient(135deg, #059669, #10b981);" title="Định dạng dấu hai chấm: くだもの：Hoa quả">
+                    📋 Copy Dấu (：)
                 </button>
             </div>
         </div>
@@ -2988,38 +2997,65 @@ html_content = f"""<!DOCTYPE html>
         return s.trim();
     }}
 
-    function formatQuizletVocabLine(item) {{
-        const term = cleanJpTermForQuizlet(item.kanji || item.kana);
-        let def = item.vi;
-        if (item.kana && item.kanji && item.kanji !== item.kana) {{
-            def = `[${{item.kana}}] ${{item.vi}}`;
-        }}
-        return `${{term}}\\t${{def}}`;
+    function formatQuizletVocabLine(item, delimiter = '\t', useKanji = false) {{
+        // Ưu tiên dùng KANA (cách đọc Hiragana/Katakana) sạch 100% để gõ siêu mượt trên Quizlet (ví dụ: くだもの)
+        const term = useKanji 
+            ? cleanJpTermForQuizlet(item.kanji || item.kana)
+            : cleanJpTermForQuizlet(item.kana || item.kanji);
+        const def = (item.vi || '').trim();
+        return `${{term}}${{delimiter}}${{def}}`;
     }}
 
+    // 1. Copy chuẩn Quizlet Tab (mặc định): くだもの [Tab] Hoa quả
     function copyVocabQuizletFormat() {{
+        copyFilteredQuizlet('\t', false);
+    }}
+
+    // 2. Copy chuẩn Dấu Hai Chấm (：): くだもの：Hoa quả
+    function copyVocabColonFormat() {{
+        copyFilteredQuizlet('：', false);
+    }}
+
+    // 3. Copy trọn bộ 118 từ Tab: くだもの [Tab] Hoa quả
+    function copyFullQuizletFormat() {{
+        copyFullQuizlet('\t', false);
+    }}
+
+    // 4. Copy trọn bộ 118 từ Dấu Hai Chấm (：): くだもの：Hoa quả
+    function copyFullColonFormat() {{
+        copyFullQuizlet('：', false);
+    }}
+
+    // 5. Copy Kanji Tab
+    function copyFullKanjiFormat() {{
+        copyFullQuizlet('\t', true);
+    }}
+
+    function copyFilteredQuizlet(delimiter = '\t', useKanji = false) {{
         if (!currentFilteredVocab || currentFilteredVocab.length === 0) {{
             showToast("Không có từ vựng nào để sao chép!");
             return;
         }}
-        const text = currentFilteredVocab.map(formatQuizletVocabLine).join('\\n');
+        const text = currentFilteredVocab.map(item => formatQuizletVocabLine(item, delimiter, useKanji)).join('\\n');
+        const label = (delimiter === '：') ? 'Dấu hai chấm (くだもの：Hoa quả)' : (useKanji ? 'Kanji' : 'Kana gõ Quizlet (くだもの [Tab] Hoa quả)');
         navigator.clipboard.writeText(text).then(() => {{
-            showToast(`✅ Đã copy ${{currentFilteredVocab.length}} từ vựng chuẩn Quizlet (Gõ mượt, không khoảng trắng, không ~)!`);
+            showToast(`✅ Đã copy ${{currentFilteredVocab.length}} từ chuẩn ${{label}}!`);
         }}).catch(() => {{
-            fallbackCopyText(text, currentFilteredVocab.length);
+            fallbackCopyText(text, currentFilteredVocab.length, label);
         }});
     }}
 
-    function copyFullQuizletFormat() {{
-        const text = rawVocab.map(formatQuizletVocabLine).join('\\n');
+    function copyFullQuizlet(delimiter = '\t', useKanji = false) {{
+        const text = rawVocab.map(item => formatQuizletVocabLine(item, delimiter, useKanji)).join('\\n');
+        const label = (delimiter === '：') ? 'Dấu hai chấm (くだもの：Hoa quả)' : (useKanji ? 'Kanji' : 'Kana gõ Quizlet (くだもの [Tab] Hoa quả)');
         navigator.clipboard.writeText(text).then(() => {{
-            showToast(`✅ Đã copy trọn bộ ${{rawVocab.length}} từ vựng (Bài 11 - 14) chuẩn Quizlet!`);
+            showToast(`✅ Đã copy toàn bộ ${{rawVocab.length}} từ chuẩn ${{label}}!`);
         }}).catch(() => {{
-            fallbackCopyText(text, rawVocab.length);
+            fallbackCopyText(text, rawVocab.length, label);
         }});
     }}
 
-    function fallbackCopyText(text, count) {{
+    function fallbackCopyText(text, count, label) {{
         const ta = document.createElement('textarea');
         ta.value = text;
         ta.style.position = 'fixed';
@@ -3028,7 +3064,7 @@ html_content = f"""<!DOCTYPE html>
         ta.select();
         document.execCommand('copy');
         document.body.removeChild(ta);
-        showToast(`✅ Đã copy ${{count}} từ vựng chuẩn Quizlet!`);
+        showToast(`✅ Đã copy ${{count}} từ chuẩn ${{label}}!`);
     }}
 
     function showToast(msg) {{
