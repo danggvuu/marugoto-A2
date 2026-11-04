@@ -35,6 +35,7 @@ ALL_18_LESSONS = [
 ]
 
 TEST_LINKS = [
+    ('On_Tap_Cap_Toc_Kanji_11_18_NPBS14.html', '⚡ Cấp Tốc Đêm Nay: Kanji 11-18 & NPBS 14'),
     ('De_Thi_Midterm_A2_1.html', '🎯 Bộ 5 Đề Thi Giữa Kỳ Midterm (M101 - M105)'),
     ('On_Tap_Dich_Cau_Lesson_1_10.html', '✍️ Luyện Dịch Câu Bài 1 - 10 (40 Câu)'),
     ('On_Tap_Mini_Test_A2_1_4.html', '🎯 Ôn Tập Bài 1-4 (Mini Test)'),

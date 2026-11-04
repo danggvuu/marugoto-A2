@@ -1529,7 +1529,7 @@
 </head>
 <body>
     <!-- Global Hub Navigation -->
-                                                                <div class="global-hub-nav">
+                                                                        <div class="global-hub-nav">
         <a href="../index.html" class="hub-nav-item">🌸 Thể TE (～て)</a>
         <a href="../the_ru.html" class="hub-nav-item">📘 Thể RU (Từ Điển)</a>
         <a href="../the_ta.html" class="hub-nav-item">📕 Thể TA (Quá Khứ)</a>
@@ -1540,6 +1540,7 @@
         <div class="hub-dropdown">
             <button type="button" class="hub-nav-item" onclick="toggleTestsDropdown(event)">🎯 Ôn Tập & Đề Thi ▾</button>
             <div class="hub-dropdown-menu" id="testsDropdownMenu">
+                <a href="../tests/On_Tap_Cap_Toc_Kanji_11_18_NPBS14.html" class="hub-drop-link">⚡ Cấp Tốc Đêm Nay: Kanji 11-18 & NPBS 14</a>
                 <a href="../tests/De_Thi_Midterm_A2_1.html" class="hub-drop-link">🎯 Bộ 5 Đề Thi Giữa Kỳ Midterm (M101 - M105)</a>
                 <a href="../tests/On_Tap_Dich_Cau_Lesson_1_10.html" class="hub-drop-link">✍️ Luyện Dịch Câu Bài 1 - 10 (40 Câu)</a>
                 <a href="../tests/On_Tap_Mini_Test_A2_1_4.html" class="hub-drop-link">🎯 Ôn Tập Bài 1-4 (Mini Test)</a>
@@ -1642,13 +1643,18 @@
 
             <div class="grammar-card">
                 <div class="rule-box" style="border-left-color: #7c3aed;">
-                    <div class="rule-formula" style="color: #5b21b6;">Động từ thể Te (V-て) + もいいですか<br>Trả lời đồng ý: 「はい、どうぞ (<ruby>使<rt>つか</rt></ruby>ってください)」<br>Từ chối khéo: 「すみません、<ruby>今<rt>いま</rt></ruby> <ruby>使<rt>つか</rt></ruby>っています / <ruby>壊<rt>こわ</rt></ruby>れています」</div>
+                    <div class="rule-formula" style="color: #5b21b6;">
+                        <strong>（？）V ても いいですか。</strong><br>
+                        ☺ Trả lời đồng ý: <strong>「はい、いいですよ。」</strong> ／ <strong>「はい、どうぞ。」</strong><br>
+                        ☹ Từ chối khéo: <strong>「すみません…〈Lý do: 今 使っています / 壊れています〉」</strong><br>
+                        ☆ Dạng cho phép (trần thuật): <strong>V ても いいです。</strong> ➡ Được phép làm V; Làm V cũng được
+                    </div>
                     <div class="rule-meaning">
-                        Tôi làm ... có được không? / Xin phép cho tôi được... Luôn thể hiện sự tôn trọng không gian làm việc chung.
+                        🌸 <strong>Ý nghĩa:</strong> Dùng khi xin phép làm một việc nào đó một cách lịch sự, nhã nhặn. Mẫu câu <code>Vてもいいです</code> diễn tả sự cho phép hoặc quy định được phép làm gì.
                     </div>
                 </div>
 
-                                <table class="comparison-table">
+                <table class="comparison-table">
                     <thead>
                         <tr>
                             <th>Hành động</th>
@@ -1661,15 +1667,18 @@
                             <td><strong style="color:var(--primary-dark); font-size:1.02rem;"><ruby>使<rt>つか</rt></ruby>います (Dùng)</strong></td>
                             <td><ruby>使<rt>つか</rt></ruby>っても いいですか</td>
                             <td>Tôi dùng cái này có được không?</td>
-                        </tr>                        <tr>
+                        </tr>
+                        <tr>
                             <td><strong style="color:var(--primary-dark); font-size:1.02rem;"><ruby>借<rt>か</rt></ruby>ります (Mượn)</strong></td>
                             <td><ruby>借<rt>か</rt></ruby>りても いいですか</td>
                             <td>Tôi mượn máy tính/bút có được không?</td>
-                        </tr>                        <tr>
+                        </tr>
+                        <tr>
                             <td><strong style="color:var(--primary-dark); font-size:1.02rem;"><ruby>開<rt>あ</rt></ruby>けます (Mở cửa)</strong></td>
                             <td><ruby>開<rt>あ</rt></ruby>けても いいですか</td>
                             <td>Tôi mở cửa sổ ra có được không?</td>
-                        </tr>                        <tr>
+                        </tr>
+                        <tr>
                             <td><strong style="color:var(--primary-dark); font-size:1.02rem;"><ruby>座<rt>すわ</rt></ruby>ります (Ngồi)</strong></td>
                             <td><ruby>座<rt>すわ</rt></ruby>っても いいですか</td>
                             <td>Tôi ngồi ở đây có được không?</td>
@@ -1680,10 +1689,24 @@
                 <div class="example-list">
                     <div class="example-item">
                         <div class="ex-text-wrap">
-                            <div class="ex-jp">この コンピューター、<ruby>使<rt>つか</rt></ruby>っても いいですか。―― はい、どうぞ。</div>
-                            <div class="ex-vi">Tôi dùng chiếc máy tính này có được không? ―― Vâng, xin mời anh cứ dùng tự nhiên.</div>
+                            <div class="ex-jp">すみません。ペンを <ruby>借<rt>か</rt></ruby>りても いいですか。―― はい、どうぞ。</div>
+                            <div class="ex-vi">Xin lỗi. Tớ có thể mượn bút được không? ―― Vâng, xin mời bạn cứ lấy.</div>
                         </div>
-                        <button type="button" class="btn-speak" onclick="speakText('この コンピューター、使っても いいですか。―― はい、どうぞ。')">🔊</button>
+                        <button type="button" class="btn-speak" onclick="speakText('すみません。ペンを 借りても いいですか。―― はい、どうぞ。')">🔊</button>
+                    </div>
+                    <div class="example-item">
+                        <div class="ex-text-wrap">
+                            <div class="ex-jp"><ruby>先生<rt>せんせい</rt></ruby>、テストの とき、<ruby>辞書<rt>じしょ</rt></ruby>を <ruby>使<rt>つか</rt></ruby>っても いいですか。</div>
+                            <div class="ex-vi">Sensei ơi, trong khi kiểm tra, em có thể sử dụng từ điển được không ạ?</div>
+                        </div>
+                        <button type="button" class="btn-speak" onclick="speakText('先生、テストの とき、辞書を 使っても いいですか。')">🔊</button>
+                    </div>
+                    <div class="example-item">
+                        <div class="ex-text-wrap">
+                            <div class="ex-jp">この コンピューター、<ruby>使<rt>つか</rt></ruby>っても いいですか。―― はい、いいですよ。</div>
+                            <div class="ex-vi">Tôi dùng chiếc máy tính này có được không? ―― Vâng, được chứ ạ.</div>
+                        </div>
+                        <button type="button" class="btn-speak" onclick="speakText('この コンピューター、使っても いいですか。―― はい、いいですよ。')">🔊</button>
                     </div>
                     <div class="example-item">
                         <div class="ex-text-wrap">
@@ -1691,13 +1714,6 @@
                             <div class="ex-vi">Tôi mượn chiếc bút bi có được không? ―― Xin lỗi anh, tôi hiện đang dùng mất rồi.</div>
                         </div>
                         <button type="button" class="btn-speak" onclick="speakText('ボールペンを 借りても いいですか。―― すみません、今 使っているんです。')">🔊</button>
-                    </div>
-                    <div class="example-item">
-                        <div class="ex-text-wrap">
-                            <div class="ex-jp">エアコンを つけても いいですか。―― ええ、いいですよ。</div>
-                            <div class="ex-vi">Tôi bật điều hòa lên có được không? ―― Vâng, được chứ ạ.</div>
-                        </div>
-                        <button type="button" class="btn-speak" onclick="speakText('エアコンを つけても いいですか。―― ええ、いいですよ。')">🔊</button>
                     </div>
                 </div>
             </div>
@@ -1791,6 +1807,108 @@
                         </div>
                         <button type="button" class="btn-speak" onclick="speakText('また 会議で お会いしましょう。')">🔊</button>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================
+             SECTION 4: NGỮ PHÁP BỔ SUNG TRỌNG TÂM (NPBS BÀI 14)
+             ======================================================== -->
+        <section class="content-section" id="sec-npbs" style="border: 2px solid #8b5cf6; background: #faf5ff;">
+            <div class="section-header">
+                <h2 class="section-title" style="color: #6b21a8;"><span style="background: #ede9fe; color: #7c3aed;">⚡</span> 4. Ngữ Pháp Bổ Sung Trọng Tâm (NPBS Bài 14)</h2>
+                <span class="section-tag" style="background: #7c3aed; color: #ffffff;">Trọng điểm thi cử</span>
+            </div>
+
+            <p style="margin-bottom: 18px; color: #4c1d95; font-size: 1.02rem;">
+                Mục ngữ pháp bổ sung mở rộng quan trọng trong giao tiếp đời sống và công việc: diễn tả khoảng thời gian kể từ khi bắt đầu một sự việc và xin phép / cho phép.
+            </p>
+
+            <!-- Cấu trúc 1: Vて～年／～か月 に なります -->
+            <div class="grammar-card" style="margin-bottom: 24px; border: 1.5px solid #d8b4fe; background: #ffffff;">
+                <div class="rule-box" style="border-left-color: #8b5cf6;">
+                    <div class="rule-formula" style="color: #6b21a8; font-size: 1.15rem;">
+                        🌸 <strong>Cấu trúc 1: Đã làm V được … (thời gian)</strong><br>
+                        <span style="font-size: 1.25rem; font-weight: 800; color: #581c87;">V て　～ 年／～か月　に　なります。</span>
+                    </div>
+                    <div class="rule-meaning" style="font-size: 0.98rem; line-height: 1.7; color: #374151;">
+                        📌 <strong>Ý nghĩa:</strong> Diễn tả <em>khoảng thời gian đã trôi qua</em> tính từ thời điểm bắt đầu làm V.<br>
+                        💡 <strong>Lưu ý:</strong> Động từ luôn chia ở <strong>thể Te (V-て)</strong> và trợ từ đứng trước <code>なります</code> luôn là <strong>に</strong> (không dùng で hay を).
+                    </div>
+                </div>
+
+                <div class="example-list">
+                    <div class="example-item">
+                        <div class="ex-text-wrap">
+                            <div class="ex-jp">この <ruby>会社<rt>かいしゃ</rt></ruby>に <ruby>入<rt>はい</rt></ruby>って <strong>10<ruby>年<rt>ねん</rt></ruby> に なります</strong>。</div>
+                            <div class="ex-vi">➡ Đã 10 năm kể từ khi tôi vào công ty này. (Tôi vào công ty này được 10 năm rồi).</div>
+                        </div>
+                        <button type="button" class="btn-speak" onclick="speakText('この 会社に入って 10年に なります。')">🔊</button>
+                    </div>
+                    <div class="example-item">
+                        <div class="ex-text-wrap">
+                            <div class="ex-jp"><ruby>日本語<rt>にほんご</rt></ruby>の <ruby>勉強<rt>べんきょう</rt></ruby>を はじめて <strong>3か<ruby>月<rt>げつ</rt></ruby> に なります</strong>。</div>
+                            <div class="ex-vi">➡ Đã 3 tháng kể từ khi tớ bắt đầu học tiếng Nhật. / Tớ đã bắt đầu học tiếng Nhật được 3 tháng rồi.</div>
+                        </div>
+                        <button type="button" class="btn-speak" onclick="speakText('日本語の 勉強を はじめて 3か月に なります。')">🔊</button>
+                    </div>
+                    <div class="example-item">
+                        <div class="ex-text-wrap">
+                            <div class="ex-jp"><ruby>日本<rt>にほん</rt></ruby>に <ruby>来<rt>き</rt></ruby>て <strong>1<ruby>年<rt>ねん</rt></ruby> に なります</strong>。</div>
+                            <div class="ex-vi">➡ Đã 1 năm kể từ khi tôi đặt chân sang Nhật Bản.</div>
+                        </div>
+                        <button type="button" class="btn-speak" onclick="speakText('日本に来て 1年に なります。')">🔊</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cấu trúc 2: Vてもいいですか & Vてもいいです -->
+            <div class="grammar-card" style="margin-bottom: 24px; border: 1.5px solid #d8b4fe; background: #ffffff;">
+                <div class="rule-box" style="border-left-color: #0284c7;">
+                    <div class="rule-formula" style="color: #0369a1; font-size: 1.15rem;">
+                        🌸 <strong>Cấu trúc 2: Tôi làm V được không? & Cho phép làm V</strong><br>
+                        <span style="font-size: 1.22rem; font-weight: 800; color: #075985;">（？）V ても　いいですか。</span><br>
+                        ☺ Đồng ý: <strong>はい、いいですよ。</strong> ／ <strong>はい、どうぞ。</strong><br>
+                        ☹ Từ chối: <strong>すみません…〈Lý do〉</strong><br>
+                        ☆ Dạng trần thuật: <strong>V ても　いいです。</strong> ➡ Được phép làm V; Làm V cũng được
+                    </div>
+                    <div class="rule-meaning" style="font-size: 0.98rem; line-height: 1.7; color: #374151;">
+                        📌 <strong>Ý nghĩa:</strong> Xin phép làm một việc nào đó một cách lịch sự, nhã nhặn.
+                    </div>
+                </div>
+
+                <div class="example-list">
+                    <div class="example-item">
+                        <div class="ex-text-wrap">
+                            <div class="ex-jp">すみません。ペンを <ruby>借<rt>か</rt></ruby>りても いいですか。―― はい、どうぞ。</div>
+                            <div class="ex-vi">➡ Xin lỗi. Tớ có thể mượn bút được không? ―― Vâng, bạn cứ lấy dùng nhé.</div>
+                        </div>
+                        <button type="button" class="btn-speak" onclick="speakText('すみません。ペンを 借りても いいですか。―― はい、どうぞ。')">🔊</button>
+                    </div>
+                    <div class="example-item">
+                        <div class="ex-text-wrap">
+                            <div class="ex-jp"><ruby>先生<rt>せんせい</rt></ruby>、テストの とき、<ruby>辞書<rt>じしょ</rt></ruby>を <ruby>使<rt>つか</rt></ruby>っても いいですか。</div>
+                            <div class="ex-vi">➡ Sensei ơi, trong khi kiểm tra, em có thể sử dụng từ điển được không ạ?</div>
+                        </div>
+                        <button type="button" class="btn-speak" onclick="speakText('先生、テストの とき、辞書を 使っても いいですか。')">🔊</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- THỬ THÁCH BÀI NPBS -->
+            <div style="background: linear-gradient(135deg, #4f46e5, #7c3aed); border-radius: var(--radius-lg); padding: 24px; color: #ffffff; box-shadow: var(--shadow-md);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 8px;">
+                    <div>
+                        <h3 style="font-size: 1.25rem; font-weight: 800; display: flex; align-items: center; gap: 8px;">
+                            🎯 THỬ THÁCH BÀI NPBS (NGỮ PHÁP BỔ SUNG)
+                        </h3>
+                        <p style="font-size: 0.92rem; opacity: 0.92; margin-top: 4px;">Luyện phản xạ nhanh 5 câu hỏi trọng điểm về Vて～になります và Vてもいいですか</p>
+                    </div>
+                    <span style="background: rgba(255,255,255,0.2); padding: 6px 14px; border-radius: 999px; font-weight: 700; font-size: 0.85rem;">Mini Challenge</span>
+                </div>
+
+                <div class="npbs-quiz-container" id="npbsQuizBox">
+                    <!-- Populated via JS -->
                 </div>
             </div>
         </section>
@@ -2333,6 +2451,99 @@
             }, 600);
         }
 
+        // NPBS Quiz Logic
+        const NPBS_QUESTIONS = [
+            {
+                id: 1,
+                q: "この 会社に（　　）、10年に なります。",
+                options: ["入ります", "入って", "入る", "入った"],
+                correct: 1,
+                explain: "Cấu trúc diễn tả mốc thời gian trôi qua kể từ khi bắt đầu làm V: <strong>V-て + [Khoảng thời gian] + に なります</strong>. Động từ chia thể Te: <code>入って</code>."
+            },
+            {
+                id: 2,
+                q: "日本語の 勉強を はじめて 3か月（　　）なります。",
+                options: ["で", "を", "に", "が"],
+                correct: 2,
+                explain: "Trợ từ đi trước <code>なります</code> để chỉ mốc thời gian tích lũy là <strong>に</strong> (<code>3か月に なります</code>)."
+            },
+            {
+                id: 3,
+                q: "「すみません。ペンを かりても いいですか。」――「（　　）」",
+                options: ["はい、だめです。", "はい、どうぞ。", "いいえ、いいですよ。", "すみません、どうぞ。"],
+                correct: 1,
+                explain: "Đáp lại lời xin phép một cách đồng ý, tự nhiên và lịch sự: <strong>「はい、どうぞ。」</strong> hoặc <strong>「はい、いいですよ。」</strong>."
+            },
+            {
+                id: 4,
+                q: "「先生、テストの とき、辞書を（　　）も いいですか。」",
+                options: ["使う", "使って", "使います", "使った"],
+                correct: 1,
+                explain: "Mẫu câu xin phép: <strong>V-て + もいいですか</strong>. Động từ <code>使います</code> (Nhóm 1) chia thể Te là <code>使って</code>."
+            },
+            {
+                id: 5,
+                q: "日本に 来て 2年に なります。Câu này mang ý nghĩa gì?",
+                options: ["Tôi sẽ đến Nhật trong 2 năm nữa.", "Đã 2 năm kể từ khi tôi sang Nhật.", "Tôi ở Nhật được 2 ngày.", "Tôi muốn sang Nhật 2 năm."],
+                correct: 1,
+                explain: "<code>Vて ～年に なります</code> diễn tả khoảng thời gian kể từ thời điểm V bắt đầu xảy ra: <em>'Đã 2 năm kể từ khi tôi sang Nhật'</em>."
+            }
+        ];
+
+        let npbsAnswers = {};
+
+        function renderNpbsQuiz() {
+            const container = document.getElementById('npbsQuizBox');
+            if (!container) return;
+            container.innerHTML = NPBS_QUESTIONS.map(q => `
+                <div style="background: rgba(255,255,255,0.12); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.25); border-radius: 14px; padding: 18px; margin-bottom: 14px;" id="npbsCard_${q.id}">
+                    <div style="font-size: 0.85rem; font-weight: 700; opacity: 0.85; margin-bottom: 6px;">CÂU ${q.id} / ${NPBS_QUESTIONS.length} • THỬ THÁCH NPBS</div>
+                    <div style="font-size: 1.05rem; font-weight: 700; margin-bottom: 12px;" class="jp-text">${q.q}</div>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 8px;">
+                        ${q.options.map((opt, idx) => `
+                            <button type="button" onclick="answerNpbs(${q.id}, ${idx}, this)" style="background: rgba(255,255,255,0.9); color: #1e1b4b; border: none; padding: 10px 14px; border-radius: 8px; font-weight: 700; font-size: 0.95rem; cursor: pointer; text-align: left; transition: all 0.2s;" onmouseover="this.style.background='#ffffff'" onmouseout="this.style.background='rgba(255,255,255,0.9)'">
+                                ${['A', 'B', 'C', 'D'][idx]}. ${opt}
+                            </button>
+                        `).join('')}
+                    </div>
+                    <div id="npbsFb_${q.id}" style="display: none; margin-top: 10px; padding: 10px 14px; border-radius: 8px; font-size: 0.92rem; font-weight: 600;"></div>
+                </div>
+            `).join('');
+        }
+
+        function answerNpbs(qId, selectedIdx, btn) {
+            if (npbsAnswers[qId] !== undefined) return;
+            npbsAnswers[qId] = selectedIdx;
+            const q = NPBS_QUESTIONS.find(item => item.id === qId);
+            const card = document.getElementById(`npbsCard_${qId}`);
+            const buttons = card.querySelectorAll('button');
+            const fb = document.getElementById(`npbsFb_${qId}`);
+
+            buttons.forEach((b, idx) => {
+                b.disabled = true;
+                if (idx === q.correct) {
+                    b.style.background = '#10b981';
+                    b.style.color = '#ffffff';
+                } else if (idx === selectedIdx) {
+                    b.style.background = '#ef4444';
+                    b.style.color = '#ffffff';
+                } else {
+                    b.style.opacity = '0.5';
+                }
+            });
+
+            fb.style.display = 'block';
+            if (selectedIdx === q.correct) {
+                fb.style.background = 'rgba(16, 185, 129, 0.25)';
+                fb.style.border = '1px solid #34d399';
+                fb.innerHTML = `✓ <strong>Chính xác!</strong> ${q.explain}`;
+            } else {
+                fb.style.background = 'rgba(239, 68, 68, 0.25)';
+                fb.style.border = '1px solid #f87171';
+                fb.innerHTML = `✕ <strong>Chưa chính xác!</strong> ${q.explain}`;
+            }
+        }
+
         // Quiz Logic
         let quizAnswers = {};
 
@@ -2446,6 +2657,7 @@
             renderFlashcards();
             initDialogue();
             renderQuiz();
+            renderNpbsQuiz();
         });
     
     

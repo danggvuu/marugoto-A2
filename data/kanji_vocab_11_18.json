@@ -1,0 +1,849 @@
+[
+  {
+    "lesson": 11,
+    "kanji": "お酒",
+    "kana": "おさけ",
+    "vi": "Rượu, đồ có cồn",
+    "group": "Ẩm thực"
+  },
+  {
+    "lesson": 11,
+    "kanji": "日本酒",
+    "kana": "にほんしゅ",
+    "vi": "Rượu Nhật",
+    "group": "Ẩm thực"
+  },
+  {
+    "lesson": 11,
+    "kanji": "作ります",
+    "kana": "つくります",
+    "vi": "Làm, tạo ra",
+    "group": "Hành động"
+  },
+  {
+    "lesson": 11,
+    "kanji": "作文",
+    "kana": "さくぶん",
+    "vi": "Bài văn, làm văn",
+    "group": "Học tập"
+  },
+  {
+    "lesson": 11,
+    "kanji": "食べ物",
+    "kana": "たべもの",
+    "vi": "Đồ ăn",
+    "group": "Ẩm thực"
+  },
+  {
+    "lesson": 11,
+    "kanji": "飲み物",
+    "kana": "のみもの",
+    "vi": "Đồ uống",
+    "group": "Ẩm thực"
+  },
+  {
+    "lesson": 11,
+    "kanji": "乗り物",
+    "kana": "のりもの",
+    "vi": "Phương tiện giao thông",
+    "group": "Giao thông"
+  },
+  {
+    "lesson": 11,
+    "kanji": "荷物",
+    "kana": "にもつ",
+    "vi": "Hành lý, đồ đạc",
+    "group": "Đời sống"
+  },
+  {
+    "lesson": 11,
+    "kanji": "お茶",
+    "kana": "おちゃ",
+    "vi": "Trà",
+    "group": "Ẩm thực"
+  },
+  {
+    "lesson": 11,
+    "kanji": "喫茶店",
+    "kana": "きっさてん",
+    "vi": "Quán giải khát, quán cà phê",
+    "group": "Địa điểm"
+  },
+  {
+    "lesson": 11,
+    "kanji": "持ちます",
+    "kana": "もちます",
+    "vi": "Mang, cầm / Có, sở hữu",
+    "group": "Hành động"
+  },
+  {
+    "lesson": 11,
+    "kanji": "気持ち",
+    "kana": "きもち",
+    "vi": "Cảm xúc",
+    "group": "Tâm trạng"
+  },
+  {
+    "lesson": 11,
+    "kanji": "お願い",
+    "kana": "おねがい",
+    "vi": "Yêu cầu, điều nhờ vả",
+    "group": "Giao tiếp"
+  },
+  {
+    "lesson": 11,
+    "kanji": "お願いします",
+    "kana": "おねがいします",
+    "vi": "Làm ơn, vui lòng...",
+    "group": "Giao tiếp"
+  },
+  {
+    "lesson": 11,
+    "kanji": "願い事",
+    "kana": "ねがいごと",
+    "vi": "Mong ước, ước nguyện",
+    "group": "Tâm trạng"
+  },
+  {
+    "lesson": 12,
+    "kanji": "料理",
+    "kana": "りょうり",
+    "vi": "Món ăn",
+    "group": "Ẩm thực"
+  },
+  {
+    "lesson": 12,
+    "kanji": "料金",
+    "kana": "りょうきん",
+    "vi": "Phí, tiền phí",
+    "group": "Chi phí"
+  },
+  {
+    "lesson": 12,
+    "kanji": "無料",
+    "kana": "むりょう",
+    "vi": "Miễn phí",
+    "group": "Chi phí"
+  },
+  {
+    "lesson": 12,
+    "kanji": "資料",
+    "kana": "しりょう",
+    "vi": "Tài liệu",
+    "group": "Công việc"
+  },
+  {
+    "lesson": 12,
+    "kanji": "理由",
+    "kana": "りゆう",
+    "vi": "Lý do",
+    "group": "Tư duy"
+  },
+  {
+    "lesson": 12,
+    "kanji": "無理",
+    "kana": "むり",
+    "vi": "Vô lý, quá sức, miễn cưỡng",
+    "group": "Tính chất"
+  },
+  {
+    "lesson": 12,
+    "kanji": "味",
+    "kana": "あじ",
+    "vi": "Vị",
+    "group": "Ẩm thực"
+  },
+  {
+    "lesson": 12,
+    "kanji": "地味",
+    "kana": "じみ",
+    "vi": "Giản dị, đơn giản",
+    "group": "Tính chất"
+  },
+  {
+    "lesson": 12,
+    "kanji": "色",
+    "kana": "いろ",
+    "vi": "Màu sắc",
+    "group": "Màu sắc"
+  },
+  {
+    "lesson": 12,
+    "kanji": "色々",
+    "kana": "いろいろ",
+    "vi": "Đa dạng",
+    "group": "Tính chất"
+  },
+  {
+    "lesson": 12,
+    "kanji": "野菜",
+    "kana": "やさい",
+    "vi": "Rau",
+    "group": "Ẩm thực"
+  },
+  {
+    "lesson": 12,
+    "kanji": "中",
+    "kana": "なか",
+    "vi": "Bên trong",
+    "group": "Vị trí"
+  },
+  {
+    "lesson": 12,
+    "kanji": "仕事中",
+    "kana": "しごとちゅう",
+    "vi": "Đang làm việc",
+    "group": "Công việc"
+  },
+  {
+    "lesson": 12,
+    "kanji": "一年中",
+    "kana": "いちねんじゅう",
+    "vi": "Cả một năm",
+    "group": "Thời gian"
+  },
+  {
+    "lesson": 12,
+    "kanji": "中止",
+    "kana": "ちゅうし",
+    "vi": "Dừng, hủy",
+    "group": "Hành động"
+  },
+  {
+    "lesson": 12,
+    "kanji": "入ります",
+    "kana": "はいります",
+    "vi": "Đi vào",
+    "group": "Di chuyển"
+  },
+  {
+    "lesson": 12,
+    "kanji": "入れます",
+    "kana": "いれます",
+    "vi": "Cho vào, bỏ vào",
+    "group": "Hành động"
+  },
+  {
+    "lesson": 12,
+    "kanji": "入学",
+    "kana": "にゅうがく",
+    "vi": "Nhập học",
+    "group": "Học tập"
+  },
+  {
+    "lesson": 13,
+    "kanji": "会います",
+    "kana": "あいます",
+    "vi": "Gặp gỡ",
+    "group": "Giao tiếp"
+  },
+  {
+    "lesson": 13,
+    "kanji": "社会",
+    "kana": "しゃかい",
+    "vi": "Xã hội",
+    "group": "Xã hội"
+  },
+  {
+    "lesson": 13,
+    "kanji": "会社員",
+    "kana": "かいしゃいん",
+    "vi": "Nhân viên công ty",
+    "group": "Nghề nghiệp"
+  },
+  {
+    "lesson": 13,
+    "kanji": "本社",
+    "kana": "ほんしゃ",
+    "vi": "Trụ sở chính, công ty mẹ",
+    "group": "Công ty"
+  },
+  {
+    "lesson": 13,
+    "kanji": "入社",
+    "kana": "にゅうしゃ",
+    "vi": "Vào công ty",
+    "group": "Công ty"
+  },
+  {
+    "lesson": 13,
+    "kanji": "神社",
+    "kana": "じんじゃ",
+    "vi": "Đền thờ",
+    "group": "Địa điểm"
+  },
+  {
+    "lesson": 13,
+    "kanji": "支社",
+    "kana": "ししゃ",
+    "vi": "Chi nhánh",
+    "group": "Công ty"
+  },
+  {
+    "lesson": 13,
+    "kanji": "出ます",
+    "kana": "でます",
+    "vi": "Đi ra, xuất hiện",
+    "group": "Di chuyển"
+  },
+  {
+    "lesson": 13,
+    "kanji": "出します",
+    "kana": "だします",
+    "vi": "Gửi, đưa ra, nộp",
+    "group": "Hành động"
+  },
+  {
+    "lesson": 13,
+    "kanji": "出かけます",
+    "kana": "でかけます",
+    "vi": "Ra ngoài",
+    "group": "Di chuyển"
+  },
+  {
+    "lesson": 13,
+    "kanji": "出口",
+    "kana": "でぐち",
+    "vi": "Cửa ra",
+    "group": "Địa điểm"
+  },
+  {
+    "lesson": 13,
+    "kanji": "出張",
+    "kana": "しゅっちょう",
+    "vi": "Công tác",
+    "group": "Công việc"
+  },
+  {
+    "lesson": 13,
+    "kanji": "出発",
+    "kana": "しゅっぱつ",
+    "vi": "Xuất phát",
+    "group": "Di chuyển"
+  },
+  {
+    "lesson": 13,
+    "kanji": "発音",
+    "kana": "はつおん",
+    "vi": "Phát âm",
+    "group": "Ngôn ngữ"
+  },
+  {
+    "lesson": 13,
+    "kanji": "到着",
+    "kana": "とうちゃく",
+    "vi": "Đến nơi (hạ cánh)",
+    "group": "Di chuyển"
+  },
+  {
+    "lesson": 13,
+    "kanji": "着ます",
+    "kana": "きます",
+    "vi": "Mặc (áo…)",
+    "group": "Trang phục"
+  },
+  {
+    "lesson": 13,
+    "kanji": "着物",
+    "kana": "きもの",
+    "vi": "Bộ kimono",
+    "group": "Trang phục"
+  },
+  {
+    "lesson": 13,
+    "kanji": "着きます",
+    "kana": "つきます",
+    "vi": "Đến nơi",
+    "group": "Di chuyển"
+  },
+  {
+    "lesson": 13,
+    "kanji": "空",
+    "kana": "そら",
+    "vi": "Bầu trời",
+    "group": "Tự nhiên"
+  },
+  {
+    "lesson": 13,
+    "kanji": "空気",
+    "kana": "くうき",
+    "vi": "Không khí",
+    "group": "Tự nhiên"
+  },
+  {
+    "lesson": 13,
+    "kanji": "港",
+    "kana": "みなと",
+    "vi": "Cảng biển",
+    "group": "Địa điểm"
+  },
+  {
+    "lesson": 13,
+    "kanji": "空港",
+    "kana": "くうこう",
+    "vi": "Sân bay",
+    "group": "Địa điểm"
+  },
+  {
+    "lesson": 14,
+    "kanji": "自分",
+    "kana": "じぶん",
+    "vi": "Bản thân, tự mình",
+    "group": "Bản thân"
+  },
+  {
+    "lesson": 14,
+    "kanji": "自由",
+    "kana": "じゆう",
+    "vi": "Tự do",
+    "group": "Tính chất"
+  },
+  {
+    "lesson": 14,
+    "kanji": "自然",
+    "kana": "しぜん",
+    "vi": "Tự nhiên, thiên nhiên",
+    "group": "Tự nhiên"
+  },
+  {
+    "lesson": 14,
+    "kanji": "車",
+    "kana": "くるま",
+    "vi": "Xe / Xe ô tô",
+    "group": "Giao thông"
+  },
+  {
+    "lesson": 14,
+    "kanji": "自動車",
+    "kana": "じどうしゃ",
+    "vi": "Ô tô",
+    "group": "Giao thông"
+  },
+  {
+    "lesson": 14,
+    "kanji": "自転車",
+    "kana": "じてんしゃ",
+    "vi": "Xe đạp",
+    "group": "Giao thông"
+  },
+  {
+    "lesson": 14,
+    "kanji": "電話",
+    "kana": "でんわ",
+    "vi": "Điện thoại",
+    "group": "Thiết bị"
+  },
+  {
+    "lesson": 14,
+    "kanji": "電車",
+    "kana": "でんしゃ",
+    "vi": "Tàu điện",
+    "group": "Giao thông"
+  },
+  {
+    "lesson": 14,
+    "kanji": "電子レンジ",
+    "kana": "でんしレンジ",
+    "vi": "Lò vi sóng",
+    "group": "Thiết bị"
+  },
+  {
+    "lesson": 14,
+    "kanji": "電気",
+    "kana": "でんき",
+    "vi": "Đèn điện, điện lực",
+    "group": "Thiết bị"
+  },
+  {
+    "lesson": 14,
+    "kanji": "病気",
+    "kana": "びょうき",
+    "vi": "Bệnh",
+    "group": "Sức khỏe"
+  },
+  {
+    "lesson": 14,
+    "kanji": "人気",
+    "kana": "にんき",
+    "vi": "Được yêu thích, ưa chuộng",
+    "group": "Tính chất"
+  },
+  {
+    "lesson": 14,
+    "kanji": "使います",
+    "kana": "つかいます",
+    "vi": "Sử dụng",
+    "group": "Hành động"
+  },
+  {
+    "lesson": 14,
+    "kanji": "大使館",
+    "kana": "たいしかん",
+    "vi": "Đại sứ quán",
+    "group": "Địa điểm"
+  },
+  {
+    "lesson": 14,
+    "kanji": "借ります",
+    "kana": "かります",
+    "vi": "Mượn, vay",
+    "group": "Hành động"
+  },
+  {
+    "lesson": 14,
+    "kanji": "送ります",
+    "kana": "おくります",
+    "vi": "Gửi, tiễn",
+    "group": "Hành động"
+  },
+  {
+    "lesson": 15,
+    "kanji": "体",
+    "kana": "からだ",
+    "vi": "Cơ thể",
+    "group": "Cơ thể"
+  },
+  {
+    "lesson": 15,
+    "kanji": "全体",
+    "kana": "ぜんたい",
+    "vi": "Toàn bộ, tổng thể",
+    "group": "Tính chất"
+  },
+  {
+    "lesson": 15,
+    "kanji": "頭",
+    "kana": "あたま",
+    "vi": "Đầu",
+    "group": "Cơ thể"
+  },
+  {
+    "lesson": 15,
+    "kanji": "目",
+    "kana": "め",
+    "vi": "Mắt",
+    "group": "Cơ thể"
+  },
+  {
+    "lesson": 15,
+    "kanji": "目的",
+    "kana": "もくてき",
+    "vi": "Mục đích",
+    "group": "Tư duy"
+  },
+  {
+    "lesson": 15,
+    "kanji": "耳",
+    "kana": "みみ",
+    "vi": "Tai",
+    "group": "Cơ thể"
+  },
+  {
+    "lesson": 15,
+    "kanji": "手",
+    "kana": "て",
+    "vi": "Tay",
+    "group": "Cơ thể"
+  },
+  {
+    "lesson": 15,
+    "kanji": "上",
+    "kana": "うえ",
+    "vi": "Trên",
+    "group": "Vị trí"
+  },
+  {
+    "lesson": 15,
+    "kanji": "上手",
+    "kana": "じょうず",
+    "vi": "Giỏi",
+    "group": "Kỹ năng"
+  },
+  {
+    "lesson": 15,
+    "kanji": "下",
+    "kana": "した",
+    "vi": "Dưới",
+    "group": "Vị trí"
+  },
+  {
+    "lesson": 15,
+    "kanji": "下手",
+    "kana": "へた",
+    "vi": "Kém",
+    "group": "Kỹ năng"
+  },
+  {
+    "lesson": 15,
+    "kanji": "歌手",
+    "kana": "かしゅ",
+    "vi": "Ca sĩ",
+    "group": "Nghề nghiệp"
+  },
+  {
+    "lesson": 15,
+    "kanji": "運転手",
+    "kana": "うんてんしゅ",
+    "vi": "Lái xe",
+    "group": "Nghề nghiệp"
+  },
+  {
+    "lesson": 15,
+    "kanji": "足",
+    "kana": "あし",
+    "vi": "Chân",
+    "group": "Cơ thể"
+  },
+  {
+    "lesson": 15,
+    "kanji": "足ります",
+    "kana": "たります",
+    "vi": "Đủ…",
+    "group": "Trạng thái"
+  },
+  {
+    "lesson": 16,
+    "kanji": "毎日",
+    "kana": "まいにち",
+    "vi": "Mỗi ngày",
+    "group": "Thời gian"
+  },
+  {
+    "lesson": 16,
+    "kanji": "毎朝",
+    "kana": "まいあさ",
+    "vi": "Mỗi sáng",
+    "group": "Thời gian"
+  },
+  {
+    "lesson": 16,
+    "kanji": "毎週",
+    "kana": "まいしゅう",
+    "vi": "Mỗi tuần",
+    "group": "Thời gian"
+  },
+  {
+    "lesson": 16,
+    "kanji": "毎月",
+    "kana": "まいつき／まいげつ",
+    "vi": "Mỗi tháng",
+    "group": "Thời gian"
+  },
+  {
+    "lesson": 16,
+    "kanji": "週末",
+    "kana": "しゅうまつ",
+    "vi": "Cuối tuần",
+    "group": "Thời gian"
+  },
+  {
+    "lesson": 16,
+    "kanji": "元気",
+    "kana": "げんき",
+    "vi": "Khỏe mạnh",
+    "group": "Sức khỏe"
+  },
+  {
+    "lesson": 16,
+    "kanji": "起きます",
+    "kana": "おきます",
+    "vi": "Thức dậy",
+    "group": "Hành động"
+  },
+  {
+    "lesson": 16,
+    "kanji": "歩きます",
+    "kana": "あるきます",
+    "vi": "Đi bộ",
+    "group": "Vận động"
+  },
+  {
+    "lesson": 16,
+    "kanji": "走ります",
+    "kana": "はしります",
+    "vi": "Chạy",
+    "group": "Vận động"
+  },
+  {
+    "lesson": 16,
+    "kanji": "泳ぎます",
+    "kana": "およぎます",
+    "vi": "Bơi",
+    "group": "Vận động"
+  },
+  {
+    "lesson": 16,
+    "kanji": "水泳",
+    "kana": "すいえい",
+    "vi": "Bơi",
+    "group": "Vận động"
+  },
+  {
+    "lesson": 16,
+    "kanji": "外",
+    "kana": "そと",
+    "vi": "Bên ngoài",
+    "group": "Vị trí"
+  },
+  {
+    "lesson": 16,
+    "kanji": "外国",
+    "kana": "がいこく",
+    "vi": "Nước ngoài",
+    "group": "Địa điểm"
+  },
+  {
+    "lesson": 16,
+    "kanji": "外食",
+    "kana": "がいしょく",
+    "vi": "Ăn ngoài",
+    "group": "Ẩm thực"
+  },
+  {
+    "lesson": 17,
+    "kanji": "お祝い",
+    "kana": "おいわい",
+    "vi": "Sự chúc mừng",
+    "group": "Sự kiện"
+  },
+  {
+    "lesson": 17,
+    "kanji": "誕生日",
+    "kana": "たんじょうび",
+    "vi": "Sinh nhật",
+    "group": "Sự kiện"
+  },
+  {
+    "lesson": 17,
+    "kanji": "結婚",
+    "kana": "けっこん",
+    "vi": "Kết hôn",
+    "group": "Sự kiện"
+  },
+  {
+    "lesson": 17,
+    "kanji": "絵",
+    "kana": "え",
+    "vi": "Bức tranh",
+    "group": "Nghệ thuật"
+  },
+  {
+    "lesson": 17,
+    "kanji": "写真",
+    "kana": "しゃしん",
+    "vi": "Bức ảnh",
+    "group": "Nghệ thuật"
+  },
+  {
+    "lesson": 17,
+    "kanji": "真面目",
+    "kana": "まじめ",
+    "vi": "Nghiêm túc, chăm chỉ",
+    "group": "Tính cách"
+  },
+  {
+    "lesson": 17,
+    "kanji": "計ります",
+    "kana": "はかります",
+    "vi": "Cân đo",
+    "group": "Hành động"
+  },
+  {
+    "lesson": 17,
+    "kanji": "時計",
+    "kana": "とけい",
+    "vi": "Đồng hồ",
+    "group": "Đồ vật"
+  },
+  {
+    "lesson": 17,
+    "kanji": "会計",
+    "kana": "かいけい",
+    "vi": "Thanh toán, kế toán",
+    "group": "Chi phí"
+  },
+  {
+    "lesson": 17,
+    "kanji": "着ます",
+    "kana": "きます",
+    "vi": "Mặc",
+    "group": "Trang phục"
+  },
+  {
+    "lesson": 18,
+    "kanji": "先週",
+    "kana": "せんしゅう",
+    "vi": "Tuần trước",
+    "group": "Thời gian"
+  },
+  {
+    "lesson": 18,
+    "kanji": "今月",
+    "kana": "こんげつ",
+    "vi": "Tháng này",
+    "group": "Thời gian"
+  },
+  {
+    "lesson": 18,
+    "kanji": "今朝",
+    "kana": "けさ",
+    "vi": "Sáng nay",
+    "group": "Thời gian"
+  },
+  {
+    "lesson": 18,
+    "kanji": "来年",
+    "kana": "らいねん",
+    "vi": "Năm sau",
+    "group": "Thời gian"
+  },
+  {
+    "lesson": 18,
+    "kanji": "今年",
+    "kana": "ことし",
+    "vi": "Năm nay",
+    "group": "Thời gian"
+  },
+  {
+    "lesson": 18,
+    "kanji": "去年",
+    "kana": "きょねん",
+    "vi": "Năm ngoái",
+    "group": "Thời gian"
+  },
+  {
+    "lesson": 18,
+    "kanji": "家",
+    "kana": "いえ",
+    "vi": "Nhà",
+    "group": "Gia đình"
+  },
+  {
+    "lesson": 18,
+    "kanji": "家族",
+    "kana": "かぞく",
+    "vi": "Gia đình",
+    "group": "Gia đình"
+  },
+  {
+    "lesson": 18,
+    "kanji": "作家",
+    "kana": "さっか",
+    "vi": "Tác giả, nhà văn",
+    "group": "Nghề nghiệp"
+  },
+  {
+    "lesson": 18,
+    "kanji": "画家",
+    "kana": "がか",
+    "vi": "Họa sĩ",
+    "group": "Nghề nghiệp"
+  },
+  {
+    "lesson": 18,
+    "kanji": "思います",
+    "kana": "おもいます",
+    "vi": "Nghĩ",
+    "group": "Tư duy"
+  }
+]
