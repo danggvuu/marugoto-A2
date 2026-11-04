@@ -1,0 +1,1893 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="referrer" content="no-referrer">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎯 Cẩm Nang Toàn Diện & Mini Test Bài 11 - 14 (Marugoto A2-1 & A2-2)</title>
+    <meta name="description" content="Hệ thống toàn diện Lý thuyết chuyên sâu Bài 11 - 14, 118 Từ vựng chuẩn Marugoto kèm Quizlet, 30 Chữ Hán Kanji, 30 Câu trắc nghiệm thi thử có giải thích & Cẩm nang bỏ túi.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <script src="../assets/js/audio-engine.js"></script>
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-light: #e0e7ff;
+            --primary-dark: #3730a3;
+            --secondary: #0ea5e9;
+            --secondary-light: #e0f2fe;
+            --accent: #f43f5e;
+            --accent-light: #ffe4e6;
+            --success: #10b981;
+            --success-light: #d1fae5;
+            --warning: #f59e0b;
+            --warning-light: #fef3c7;
+            --dark: #0f172a;
+            --gray-900: #0f172a;
+            --gray-800: #1e293b;
+            --gray-700: #334155;
+            --gray-600: #475569;
+            --gray-500: #64748b;
+            --gray-400: #94a3b8;
+            --gray-300: #cbd5e1;
+            --gray-200: #e2e8f0;
+            --gray-100: #f1f5f9;
+            --gray-50: #f8fafc;
+            --white: #ffffff;
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 18px;
+            --radius-full: 9999px;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.07);
+            --shadow-lg: 0 12px 28px rgba(0,0,0,0.09);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        body {
+            background-color: #f8fafc;
+            color: var(--gray-800);
+            line-height: 1.6;
+            padding: 20px 12px 60px 12px;
+        }
+
+        .jp-text {
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Global Hub Nav */
+        .global-hub-nav {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            background: #ffffff;
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-md);
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-sm);
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+        .global-hub-nav::-webkit-scrollbar {
+            display: none;
+        }
+        .hub-nav-item {
+            text-decoration: none;
+            color: var(--gray-600);
+            font-size: 0.88rem;
+            font-weight: 700;
+            padding: 6px 14px;
+            border-radius: var(--radius-full);
+            white-space: nowrap;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .hub-nav-item:hover {
+            background: var(--gray-100);
+            color: var(--primary);
+        }
+        .hub-nav-item.active-hub {
+            background: var(--primary-light);
+            color: var(--primary);
+        }
+        .hub-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .hub-dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 1000;
+            background: #ffffff;
+            min-width: 280px;
+            max-height: 480px;
+            overflow-y: auto;
+            box-shadow: var(--shadow-lg);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--gray-200);
+            padding: 8px 0;
+            margin-top: 6px;
+        }
+        .hub-dropdown-menu.show {
+            display: block;
+        }
+        .hub-drop-link {
+            display: block;
+            padding: 9px 18px;
+            color: var(--gray-700);
+            text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: 600;
+            transition: all 0.15s;
+        }
+        .hub-drop-link:hover {
+            background: var(--gray-50);
+            color: var(--primary);
+        }
+        .hub-drop-link.active {
+            background: var(--primary-light);
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        /* Hero Header */
+        .hero-header {
+            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4338ca 100%);
+            color: var(--white);
+            padding: 36px 24px;
+            border-radius: var(--radius-lg);
+            text-align: center;
+            margin-bottom: 24px;
+            box-shadow: 0 10px 30px rgba(49, 46, 129, 0.25);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-header::before {
+            content: "合格";
+            position: absolute;
+            right: -20px;
+            bottom: -30px;
+            font-size: 8rem;
+            font-weight: 900;
+            color: rgba(255, 255, 255, 0.05);
+            font-family: 'Noto Sans JP', sans-serif;
+            pointer-events: none;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px);
+            padding: 6px 16px;
+            border-radius: var(--radius-full);
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .hero-title {
+            font-size: 2.1rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+        .hero-desc {
+            font-size: 1.05rem;
+            color: #c7d2fe;
+            max-width: 820px;
+            margin: 0 auto 20px auto;
+        }
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .stat-pill {
+            background: rgba(255, 255, 255, 0.12);
+            padding: 8px 18px;
+            border-radius: var(--radius-full);
+            font-size: 0.88rem;
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        /* Tab Navigation Bar */
+        .tab-nav-wrapper {
+            position: sticky;
+            top: 12px;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.94);
+            backdrop-filter: blur(12px);
+            padding: 8px;
+            border-radius: var(--radius-lg);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            margin-bottom: 25px;
+        }
+        .tab-nav {
+            display: flex;
+            gap: 6px;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+        .tab-nav::-webkit-scrollbar {
+            display: none;
+        }
+        .tab-btn {
+            flex: 1;
+            white-space: nowrap;
+            padding: 12px 18px;
+            border: none;
+            background: transparent;
+            color: var(--gray-600);
+            font-size: 0.95rem;
+            font-weight: 700;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .tab-btn:hover {
+            color: var(--primary);
+            background: var(--gray-100);
+        }
+        .tab-btn.active {
+            background: var(--primary);
+            color: var(--white);
+            box-shadow: 0 4px 14px rgba(79, 70, 229, 0.3);
+        }
+
+        /* Tab Content Panels */
+        .tab-panel {
+            display: none;
+            animation: fadeIn 0.25s ease;
+        }
+        .tab-panel.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Card Common */
+        .content-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--gray-200);
+            padding: 28px;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 25px;
+        }
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--gray-100);
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--gray-900);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .section-badge {
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: var(--radius-full);
+            background: var(--primary-light);
+            color: var(--primary);
+        }
+
+        /* Grammar Styles */
+        .theory-quicknav {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding: 4px 4px 18px 4px;
+            margin-bottom: 22px;
+            border-bottom: 1px dashed var(--gray-200);
+            -webkit-overflow-scrolling: touch;
+        }
+        .quicknav-pill {
+            padding: 6px 14px;
+            border-radius: var(--radius-full);
+            background: #f1f5f9;
+            color: var(--gray-700);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.85rem;
+            white-space: nowrap;
+            transition: all 0.2s ease;
+            border: 1px solid var(--gray-200);
+            display: inline-block;
+        }
+        .quicknav-pill:hover, .quicknav-pill:active {
+            background: var(--primary);
+            color: var(--white);
+            border-color: var(--primary);
+            transform: translateY(-1px);
+        }
+        .grammar-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--gray-200);
+            margin-bottom: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.2s;
+        }
+        .grammar-header {
+            background: linear-gradient(135deg, #f8fafc 0%, #edf2f7 100%);
+            padding: 18px 24px;
+            border-bottom: 1px solid var(--gray-200);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .grammar-tag {
+            background: var(--primary);
+            color: var(--white);
+            padding: 4px 10px;
+            border-radius: var(--radius-sm);
+            font-size: 0.78rem;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+        .grammar-title {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--gray-900);
+            margin: 0;
+        }
+        .grammar-body {
+            padding: 24px;
+        }
+        .formula-box {
+            background: #f0fdf4;
+            border-left: 5px solid var(--success);
+            padding: 14px 18px;
+            border-radius: var(--radius-sm);
+            margin-bottom: 18px;
+            font-weight: 700;
+            color: #166534;
+            font-size: 1.05rem;
+        }
+        .grammar-explain {
+            color: var(--gray-700);
+            margin-bottom: 16px;
+            line-height: 1.7;
+        }
+        .example-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .example-item {
+            background: var(--gray-50);
+            padding: 12px 16px;
+            border-radius: var(--radius-sm);
+            border-left: 3px solid var(--secondary);
+        }
+        .ex-jp {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 4px;
+        }
+        .ex-vi {
+            font-size: 0.92rem;
+            color: var(--gray-600);
+        }
+        .trap-box {
+            background: #fff1f2;
+            border-left: 5px solid var(--accent);
+            padding: 14px 18px;
+            border-radius: var(--radius-sm);
+            margin-top: 16px;
+            color: #9f1239;
+            font-size: 0.95rem;
+        }
+        .trap-box strong {
+            display: block;
+            margin-bottom: 4px;
+            font-size: 1rem;
+        }
+
+        /* Toolbar Filter & Search */
+        .toolbar-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--gray-200);
+            padding: 18px 22px;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        .filter-row {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .filter-btn {
+            background: var(--gray-100);
+            border: 1.5px solid transparent;
+            color: var(--gray-700);
+            padding: 7px 16px;
+            border-radius: var(--radius-full);
+            font-size: 0.85rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+        .filter-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+        .filter-btn.active {
+            background: var(--primary);
+            color: var(--white);
+            box-shadow: 0 2px 8px rgba(79, 70, 229, 0.3);
+        }
+        .action-row {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .search-input-box {
+            flex: 1;
+            min-width: 240px;
+            position: relative;
+        }
+        .search-input-box input {
+            width: 100%;
+            padding: 10px 16px 10px 38px;
+            border: 1.5px solid var(--gray-200);
+            border-radius: var(--radius-md);
+            font-size: 0.95rem;
+            transition: all 0.2s;
+            outline: none;
+        }
+        .search-input-box input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+        }
+        .search-icon {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gray-400);
+            font-size: 1rem;
+        }
+        .tool-toggle-btn {
+            background: var(--white);
+            border: 1.5px solid var(--gray-200);
+            padding: 9px 16px;
+            border-radius: var(--radius-md);
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: var(--gray-700);
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .tool-toggle-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+        .tool-toggle-btn.active {
+            background: #ede9fe;
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-quizlet {
+            background: linear-gradient(135deg, #4257b2, #3ccfcf);
+            color: var(--white);
+            border: none;
+            padding: 9px 18px;
+            border-radius: var(--radius-md);
+            font-size: 0.88rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 8px rgba(66, 87, 178, 0.25);
+        }
+        .btn-quizlet:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 14px rgba(66, 87, 178, 0.35);
+            opacity: 0.95;
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: #1e293b;
+            color: white;
+            padding: 12px 22px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.25);
+            font-size: 0.95rem;
+            font-weight: 600;
+            display: none;
+            z-index: 9999;
+        }
+
+        /* Vocab Grid */
+        .vocab-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 14px;
+        }
+        .vocab-card {
+            background: var(--white);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--gray-200);
+            padding: 16px;
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 10px;
+            transition: all 0.2s ease;
+        }
+        .vocab-card:hover {
+            border-color: var(--primary-light);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+        .vocab-top {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 8px;
+        }
+        .vocab-badge {
+            font-size: 0.72rem;
+            font-weight: 800;
+            padding: 3px 8px;
+            border-radius: 4px;
+            background: #eef2ff;
+            color: #4338ca;
+        }
+        .vocab-jp {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            line-height: 1.3;
+        }
+        .vocab-sub {
+            font-size: 0.85rem;
+            color: var(--gray-500);
+            margin-top: 2px;
+        }
+        .vocab-vi {
+            font-size: 0.95rem;
+            color: var(--gray-600);
+            padding-top: 6px;
+            border-top: 1px dashed var(--gray-200);
+            transition: all 0.2s;
+        }
+        .vocab-vi.hidden-meaning {
+            filter: blur(5px);
+            user-select: none;
+            cursor: pointer;
+        }
+        .vocab-vi.hidden-meaning:hover {
+            filter: blur(0);
+        }
+        .sound-btn {
+            background: #f1f5f9;
+            border: none;
+            width: 32px;
+            height: 32px;
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--gray-600);
+            font-size: 0.85rem;
+            transition: all 0.15s;
+            flex-shrink: 0;
+        }
+        .sound-btn:hover {
+            background: var(--primary-light);
+            color: var(--primary);
+            transform: scale(1.1);
+        }
+
+        /* Kanji Cards */
+        .kanji-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 18px;
+        }
+        .kanji-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--gray-200);
+            padding: 20px;
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            transition: all 0.2s;
+        }
+        .kanji-card:hover {
+            border-color: var(--secondary);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+        .kanji-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .kanji-char-box {
+            width: 72px;
+            height: 72px;
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            border: 2px solid #86efac;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #15803d;
+            flex-shrink: 0;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .kanji-meta {
+            flex: 1;
+        }
+        .kanji-hv {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: var(--gray-900);
+            line-height: 1.2;
+        }
+        .kanji-meaning {
+            font-size: 0.95rem;
+            color: var(--gray-600);
+            margin-top: 3px;
+        }
+        .kanji-sub-row {
+            display: flex;
+            gap: 6px;
+            margin-top: 6px;
+        }
+        .kanji-tag {
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 4px;
+            background: #f1f5f9;
+            color: var(--gray-600);
+        }
+        .kanji-detail-box {
+            background: var(--gray-50);
+            border-radius: var(--radius-sm);
+            padding: 10px 14px;
+            font-size: 0.88rem;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .kanji-reading-item strong {
+            color: var(--gray-700);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            margin-right: 4px;
+        }
+        .kanji-mnemonic {
+            background: #fffbeb;
+            border-left: 3px solid var(--warning);
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 0.86rem;
+            color: #92400e;
+        }
+        .kanji-words {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            border-top: 1px dashed var(--gray-200);
+            padding-top: 10px;
+        }
+        .kanji-word-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.88rem;
+        }
+        .kw-jp {
+            font-weight: 700;
+            color: var(--gray-900);
+        }
+        .kw-vi {
+            color: var(--gray-600);
+        }
+
+        /* Quiz Styles */
+        .quiz-stats-card {
+            background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%);
+            border-radius: var(--radius-lg);
+            padding: 20px 24px;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+            border: 1px solid #c7d2fe;
+        }
+        .quiz-score-box {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .score-circle {
+            width: 58px;
+            height: 58px;
+            border-radius: var(--radius-full);
+            background: var(--primary);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            font-weight: 800;
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.35);
+        }
+        .score-info h4 {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--gray-900);
+        }
+        .score-info p {
+            font-size: 0.88rem;
+            color: var(--gray-600);
+        }
+        .quiz-action-btns {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        .timer-badge {
+            background: #ffffff;
+            color: var(--primary-dark);
+            border: 1.5px solid var(--primary);
+            padding: 8px 16px;
+            border-radius: var(--radius-md);
+            font-weight: 800;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .quiz-btn {
+            background: var(--white);
+            color: var(--primary);
+            border: 1.5px solid var(--primary);
+            padding: 9px 18px;
+            border-radius: var(--radius-md);
+            font-size: 0.9rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .quiz-btn:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+        .quiz-btn.primary {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .question-card {
+            background: var(--white);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--gray-200);
+            padding: 22px;
+            margin-bottom: 18px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.2s;
+        }
+        .q-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+        .q-num {
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: var(--primary);
+            background: #eef2ff;
+            padding: 3px 10px;
+            border-radius: var(--radius-full);
+        }
+        .q-category {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--gray-500);
+            background: var(--gray-100);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+        .q-text {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 16px;
+            line-height: 1.4;
+        }
+        .options-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 10px;
+        }
+        .opt-btn {
+            background: var(--gray-50);
+            border: 1.5px solid var(--gray-200);
+            border-radius: var(--radius-sm);
+            padding: 12px 16px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--gray-800);
+            cursor: pointer;
+            text-align: left;
+            transition: all 0.15s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .opt-btn:hover:not(:disabled) {
+            border-color: var(--primary);
+            background: #fafcfe;
+        }
+        .opt-key {
+            width: 24px;
+            height: 24px;
+            border-radius: var(--radius-full);
+            background: var(--white);
+            border: 1px solid var(--gray-300);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--gray-600);
+            flex-shrink: 0;
+        }
+        .opt-btn.correct {
+            background: #ecfdf5 !important;
+            border-color: #10b981 !important;
+            color: #065f46 !important;
+        }
+        .opt-btn.correct .opt-key {
+            background: #10b981;
+            color: white;
+            border-color: #10b981;
+        }
+        .opt-btn.wrong {
+            background: #fff1f2 !important;
+            border-color: #f43f5e !important;
+            color: #9f1239 !important;
+        }
+        .opt-btn.wrong .opt-key {
+            background: #f43f5e;
+            color: white;
+            border-color: #f43f5e;
+        }
+        .q-explain {
+            margin-top: 14px;
+            padding: 12px 16px;
+            background: #f0f9ff;
+            border-left: 4px solid var(--secondary);
+            border-radius: var(--radius-sm);
+            font-size: 0.9rem;
+            color: #0369a1;
+            display: none;
+            animation: fadeIn 0.2s ease;
+        }
+
+        /* Cheat Sheet */
+        .cheatsheet-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 18px;
+        }
+        .cheat-card {
+            background: var(--white);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--gray-200);
+            padding: 20px;
+            box-shadow: var(--shadow-sm);
+        }
+        .cheat-badge {
+            display: inline-block;
+            background: #fee2e2;
+            color: #b91c1c;
+            padding: 3px 9px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+        .cheat-title {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--gray-900);
+            margin-bottom: 10px;
+        }
+        .cheat-content {
+            font-size: 0.92rem;
+            color: var(--gray-700);
+            line-height: 1.6;
+        }
+
+        /* Responsive Mobile */
+        @media (max-width: 768px) {
+            body {
+                padding: 12px 8px 40px 8px;
+            }
+            .hero-header {
+                padding: 24px 16px;
+                border-radius: var(--radius-md);
+            }
+            .hero-title {
+                font-size: 1.5rem;
+            }
+            .hero-desc {
+                font-size: 0.92rem;
+            }
+            .tab-nav {
+                display: flex;
+                gap: 4px;
+            }
+            .tab-btn {
+                padding: 10px 12px;
+                font-size: 0.85rem;
+            }
+            .content-card {
+                padding: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Global Hub Navigation -->
+        <div class="global-hub-nav">
+        <a href="../index.html" class="hub-nav-item">🌸 Thể TE (～て)</a>
+        <a href="../the_ru.html" class="hub-nav-item">📘 Thể RU (Từ Điển)</a>
+        <a href="../the_ta.html" class="hub-nav-item">📕 Thể TA (Quá Khứ)</a>
+        <a href="../kanji_a2.html" class="hub-nav-item">⛩️ Học Kanji & Nét Viết</a>
+        <a href="../Tu_Vung_Marugoto_A1_16_A2_1_10.html" class="hub-nav-item">📖 Kho Từ Vựng A1-A2</a>
+        <a href="../kien_thuc_bo_sung.html" class="hub-nav-item">💡 Kiến Thức Bổ Sung</a>
+        <a href="../demo_3d.html" class="hub-nav-item">⛩️ Không Gian 3D</a>
+        <div class="hub-dropdown">
+            <button type="button" class="hub-nav-item active-hub" onclick="toggleTestsDropdown(event)">🎯 Ôn Tập & Đề Thi ▾</button>
+            <div class="hub-dropdown-menu" id="testsDropdownMenu">
+                <a href="De_Thi_Midterm_A2_1.html" class="hub-drop-link">🎯 Bộ 5 Đề Thi Giữa Kỳ Midterm (M101 - M105)</a>
+                <a href="On_Tap_Dich_Cau_Lesson_1_10.html" class="hub-drop-link">✍️ Luyện Dịch Câu Bài 1 - 10 (40 Câu)</a>
+                <a href="On_Tap_Mini_Test_A2_1_4.html" class="hub-drop-link">🎯 Ôn Tập Bài 1-4 (Mini Test)</a>
+                <a href="On_Tap_Mini_Test_A2_5_8.html" class="hub-drop-link">🎯 Ôn Tập Bài 5-8 (Mini Test)</a>
+                <a href="On_Tap_Mini_Test_A2_11_14.html" class="hub-drop-link active">🎯 Ôn Tập Bài 11-14 (Mini Test)</a>
+                <a href="De_Thi_Thu_Marugoto_A2_5_8.html" class="hub-drop-link">📝 5 Mã Đề Thi Thử (101-105)</a>
+                <a href="Kiem_Tra_Marugoto_L6_7_8.html" class="hub-drop-link">📑 Đề Kiểm Tra L6, 7, 8</a>
+                <a href="Luyen_Tap_The_Te_A2_1.html" class="hub-drop-link">🌸 Luyện Tập Thể Te</a>
+            </div>
+        </div>
+        <div class="hub-dropdown">
+            <button type="button" class="hub-nav-item" onclick="toggleLessonsDropdown(event)">🚀 Web Bài Học ▾</button>
+            <div class="hub-dropdown-menu" id="lessonsDropdownMenu">
+                <a href="../lessons/Marugoto_A2_Lesson_1.html" class="hub-drop-link">🌸 Bài 1: Nơi ở & Gia đình</a>
+                <a href="../lessons/Marugoto_A2_Lesson_2.html" class="hub-drop-link">🎨 Bài 2: Sở thích & Ngôn ngữ</a>
+                <a href="../lessons/Marugoto_A2_Lesson_3.html" class="hub-drop-link">🍁 Bài 3: Mùa & Khí hậu</a>
+                <a href="../lessons/Marugoto_A2_Lesson_4.html" class="hub-drop-link">⛅ Bài 4: Thời tiết & Dự báo</a>
+                <a href="../lessons/Marugoto_A2_Lesson_5.html" class="hub-drop-link">🏙️ Bài 5: Phố xá & Nơi chốn</a>
+                <a href="../lessons/Marugoto_A2_Lesson_6.html" class="hub-drop-link">🗺️ Bài 6: Chỉ đường & Ngã rẽ</a>
+                <a href="../lessons/Marugoto_A2_Lesson_7.html" class="hub-drop-link">⏰ Bài 7: Hẹn gặp & Giờ giấc</a>
+                <a href="../lessons/Marugoto_A2_Lesson_8.html" class="hub-drop-link">⛩️ Bài 8: Sự kiện & Mời mọc</a>
+                <a href="../lessons/Marugoto_A2_Lesson_9.html" class="hub-drop-link">🗣️ Bài 9: Học tập & Phát âm</a>
+                <a href="../lessons/Marugoto_A2_Lesson_10.html" class="hub-drop-link">🌟 Bài 10: Ngoại ngữ & Văn hóa</a>
+                <a href="../lessons/Marugoto_A2_Lesson_11.html" class="hub-drop-link">🍱 Bài 11: Dã ngoại & Ăn uống</a>
+                <a href="../lessons/Marugoto_A2_Lesson_12.html" class="hub-drop-link">🍜 Bài 12: Món ăn ngày đặc biệt</a>
+                <a href="../lessons/Marugoto_A2_Lesson_13.html" class="hub-drop-link">✈️ Bài 13: Đi công tác & Gặp gỡ</a>
+                <a href="../lessons/Marugoto_A2_Lesson_14.html" class="hub-drop-link">💻 Bài 14: Quy tắc nơi làm việc</a>
+                <a href="../lessons/Marugoto_A2_Lesson_15.html" class="hub-drop-link">🏥 Bài 15: Sức khỏe & Thể dục</a>
+                <a href="../lessons/Marugoto_A2_Lesson_16.html" class="hub-drop-link">🏃 Bài 16: Tập luyện & Vận động</a>
+                <a href="../lessons/Marugoto_A2_Lesson_17.html" class="hub-drop-link">🎁 Bài 17: Quà tặng & Kỷ niệm</a>
+                <a href="../lessons/Marugoto_A2_Lesson_18.html" class="hub-drop-link">👘 Bài 18: Tiệc tùng & Sự kiện</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Header -->
+    <header class="hero-header">
+        <div class="hero-badge">⚡ Chuyên Đề Trọng Tâm • Marugoto A2-1 & A2-2</div>
+        <h1 class="hero-title">🎯 Cẩm Nang & Mini Test Bài 11 - 14</h1>
+        <p class="hero-desc">Tổng hợp kiến thức toàn diện 4 bài: Dã ngoại & Đề xuất (L11), Ẩm thực & Phán đoán (L12), Công tác & Kinh nghiệm (L13), Quy tắc công sở & Xin phép (L14). Hệ thống hóa từ vựng, chữ Hán chiết tự và đề thi thử 30 câu trắc nghiệm chuẩn sư phạm.</p>
+        <div class="hero-stats">
+            <div class="stat-pill">📚 4 Bài Học Trọng Tâm (11 ➔ 14)</div>
+            <div class="stat-pill">🎴 118 Từ Vựng Chuẩn Kèm Quizlet</div>
+            <div class="stat-pill">⛩️ 30 Chữ Hán Kanji Đầy Đủ Chiết Tự</div>
+            <div class="stat-pill">🎯 30 Câu Trắc Nghiệm Chấm Điểm Tự Động</div>
+        </div>
+        <div style="margin-top: 18px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+            <button type="button" class="btn-quizlet" onclick="copyFullQuizletFormat()" style="padding: 10px 22px; font-size: 0.92rem;">
+                📋 Copy Trọn Bộ 118 Từ Cho Quizlet (Bài 11 - 14)
+            </button>
+        </div>
+    </header>
+
+    <!-- Sticky Tab Navigation -->
+    <div class="tab-nav-wrapper">
+        <nav class="tab-nav">
+            <button class="tab-btn active" onclick="switchMainTab('tab-theory')">📖 Lý Thuyết (Bài 11 - 14)</button>
+            <button class="tab-btn" onclick="switchMainTab('tab-vocab')">🎴 118 Từ Vựng</button>
+            <button class="tab-btn" onclick="switchMainTab('tab-kanji')">⛩️ 30 Chữ Hán</button>
+            <button class="tab-btn" onclick="switchMainTab('tab-quiz')">🎯 Đề Thi Thử (30 Câu)</button>
+            <button class="tab-btn" onclick="switchMainTab('tab-cheatsheet')">⚡ Cẩm Nang Bỏ Túi</button>
+        </nav>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- TAB 1: LÝ THUYẾT NGỮ PHÁP (BÀI 11 - 14)    -->
+    <!-- ========================================== -->
+    <div id="tab-theory" class="tab-panel active">
+
+        <!-- Quick Jump Bar -->
+        <div class="theory-quicknav">
+            <a href="#grammar-l11" class="quicknav-pill" style="background: var(--primary); color: white; border-color: var(--primary);">🍱 Bài 11: ピクニック (～ましょう／に します)</a>
+            <a href="#grammar-l12" class="quicknav-pill" style="background: var(--primary); color: white; border-color: var(--primary);">🍜 Bài 12: 日本料理 (～そう／～くなる)</a>
+            <a href="#grammar-l13" class="quicknav-pill" style="background: var(--primary); color: white; border-color: var(--primary);">✈️ Bài 13: 出張 (～たことがある／～すぎる)</a>
+            <a href="#grammar-l14" class="quicknav-pill" style="background: var(--primary); color: white; border-color: var(--primary);">💻 Bài 14: 会社で (～てもいい／～かた)</a>
+        </div>
+
+        <!-- BÀI 11 -->
+        <div class="grammar-card" id="grammar-l11">
+            <div class="grammar-header">
+                <div>
+                    <span class="grammar-tag">BÀI 11 (A2-1)</span>
+                    <h2 class="grammar-title">ピクニック (Dã Ngoại • Rủ Rê, Đề Nghị Giúp & Quyết Định Chọn Món)</h2>
+                </div>
+                <span class="section-badge">Trọng điểm A2-1</span>
+            </div>
+            <div class="grammar-body">
+                <div class="formula-box">
+                    1. Rủ rê / Đề xuất: Động từ thể ý chí: <code>V(bỏ ます) ＋ ましょう</code><br>
+                    2. Đề nghị giúp đỡ đối phương: <code>V(bỏ ます) ＋ ましょうか</code><br>
+                    3. Mang theo đồ đạc: <code>[Danh từ] を 持って行きます / 持って来ます</code><br>
+                    4. Đưa ra lựa chọn, quyết định: <code>[Danh từ] に します</code>
+                </div>
+                <p class="grammar-explain">
+                    <strong>Phân tích chi tiết:</strong><br>
+                    • <code>〜ましょう</code>: Khác với câu hỏi lịch sự thăm dò <code>〜ませんか</code>, cấu trúc <code>〜ましょう</code> biểu đạt sự chủ động, quả quyết khi cùng đưa ra lời kêu gọi hành động chung.<br>
+                    • <code>〜ましょうか</code>: Dùng khi ta thấy đối phương đang gặp khó khăn (vác nặng, trời nóng, cần chụp ảnh) và mình chủ động ngỏ lời làm hộ.<br>
+                    • <code>〜に します</code>: Mẫu câu kinh điển dùng trong nhà hàng khi nhân viên hỏi <em>「ご注文は？」</em> hoặc khi ta chốt hạ một phương án.
+                </p>
+                <ul class="example-list">
+                    <li class="example-item">
+                        <div class="ex-jp jp-text">いい てんきですね。いっしょに こうえんへ <span style="color: var(--primary);">行きましょう</span>。</div>
+                        <div class="ex-vi">Thời tiết đẹp quá nhỉ. Chúng mình cùng đi ra công viên nhé!</div>
+                    </li>
+                    <li class="example-item">
+                        <div class="ex-jp jp-text">荷物が 重そうですね。<span style="color: var(--primary);">持ちましょうか</span>。</div>
+                        <div class="ex-vi">Hành lý trông có vẻ nặng quá. Để tôi xách giúp bạn nhé?</div>
+                    </li>
+                    <li class="example-item">
+                        <div class="ex-jp jp-text">バーベキューの とき、肉や やさい<span style="color: var(--primary);">を</span> 持って行きます。</div>
+                        <div class="ex-vi">Khi đi tiệc nướng dã ngoại BBQ, tôi sẽ mang theo thịt và rau xanh.</div>
+                    </li>
+                    <li class="example-item">
+                        <div class="ex-jp jp-text">A: 「何に しますか。」ー B: 「わたしは ラーメン<span style="color: var(--primary);">に します</span>。」</div>
+                        <div class="ex-vi">A: Bạn chọn món gì? - B: Tôi quyết định chọn món mì ramen.</div>
+                    </li>
+                </ul>
+                <div class="trap-box">
+                    <strong>⚠️ Bẫy thi cần chú ý:</strong>
+                    Tránh nhầm lẫn giữa <code>〜ましょう</code> (mình và bạn cùng làm) với <code>〜ましょうか</code> (để một mình tôi làm giúp bạn). Khi người khác đề nghị giúp bằng <code>〜ましょうか</code>, nếu đồng ý hãy đáp: <em>「ありがとうございます。お願いします」</em>, nếu từ chối khéo léo đáp: <em>「いいえ、大丈夫です」</em>.
+                </div>
+            </div>
+        </div>
+
+        <!-- BÀI 12 -->
+        <div class="grammar-card" id="grammar-l12">
+            <div class="grammar-header">
+                <div>
+                    <span class="grammar-tag">BÀI 12 (A2-1)</span>
+                    <h2 class="grammar-title">特別な日の料理 (Ẩm Thực • Phán Đoán Bề Ngoài, Biến Đổi Tính Từ & So Sánh)</h2>
+                </div>
+                <span class="section-badge">Trọng điểm A2-1</span>
+            </div>
+            <div class="grammar-body">
+                <div class="formula-box">
+                    1. Phán đoán diện mạo bề ngoài: <code>Adj-i (bỏ い) / Adj-na (bỏ な) ＋ そうです</code><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;⭐ Ngoại lệ đặc biệt: <code>いい ➔ よさそう</code>, <code>ない ➔ なさそう</code><br>
+                    2. Biến đổi trạng thái: <code>Adj-i (bỏ い) ＋ くなります</code> / <code>Adj-na (bỏ な) ＋ になります</code><br>
+                    3. So sánh trong phạm vi: <code>[Nhóm / Phạm vi] の 中で、[A] が いちばん Adj です</code>
+                </div>
+                <p class="grammar-explain">
+                    <strong>Phân tích chi tiết:</strong><br>
+                    • <code>〜そう</code>: Dùng trực giác, thị giác nhìn bề ngoài để ước lượng tính chất sự vật. Nhìn thấy món ăn bắt mắt thì thốt lên <em>「おいしそう！」</em> chứ chưa nếm thử. Nếu đã ăn rồi thì phải dùng trực tiếp tính từ <em>「おいしいです」</em>.<br>
+                    • <code>〜くなります / になります</code>: Diễn tả sự biến đổi bản chất hay mùi vị theo thời gian hoặc tác động bên ngoài (thêm chanh súp chua đi, lớn lên giỏi giang hơn).<br>
+                    • <code>〜の中で</code>: Luôn nhớ trợ từ <code>で</code> sau danh từ chỉ phạm vi (trong ẩm thực Nhật, trong gia đình, trong 4 mùa).
+                </p>
+                <ul class="example-list">
+                    <li class="example-item">
+                        <div class="ex-jp jp-text">この ケーキは とても <span style="color: var(--primary);">おいしそう</span>ですね。</div>
+                        <div class="ex-vi">Chiếc bánh ngọt này trông có vẻ ngon mắt quá nhỉ.</div>
+                    </li>
+                    <li class="example-item">
+                        <div class="ex-jp jp-text">この 辞書は とても <span style="color: var(--primary);">よさそう</span>です。(いい ➔ よさそう)</div>
+                        <div class="ex-vi">Quyển từ điển này trông có vẻ rất tốt và hữu ích đấy.</div>
+                    </li>
+                    <li class="example-item">
+                        <div class="ex-jp jp-text">レモンを 入れたので、スープが ちょっと <span style="color: var(--primary);">すっぱく なりました</span>。</div>
+                        <div class="ex-vi">Vì cho thêm chanh vào nên bát súp đã trở nên hơi chua một chút.</div>
+                    </li>
+                    <li class="example-item">
+                        <div class="ex-jp jp-text">日本の 料理<span style="color: var(--primary);">の 中で</span>、天ぷらが いちばん 好きです。</div>
+                        <div class="ex-vi">Trong số các món ăn của Nhật Bản, tôi thích nhất là món Tempura.</div>
+                    </li>
+                </ul>
+                <div class="trap-box">
+                    <strong>⚠️ Bẫy thi cần chú ý:</strong>
+                    1. Tuyệt đối KHÔNG giữ lại đuôi <code>い</code>: ❌ <code>おいしいそう</code> (Sai!), chỉ dùng <code>おいしそう</code> (Đúng!).<br>
+                    2. Từ <code>いい</code> biến thành <code>よさそう</code>, không bao giờ có <code>いいそう</code>!<br>
+                    3. Đuôi な bỏ hẳn chữ な: <code>にぎやかそう</code> chứ không phải <code>にぎやかなそう</code>.
+                </div>
+            </div>
+        </div>
+
+        <!-- BÀI 13 -->
+        <div class="grammar-card" id="grammar-l13">
+            <div class="grammar-header">
+                <div>
+                    <span class="grammar-tag">BÀI 13 (A2-2)</span>
+                    <h2 class="grammar-title">出張 (Chuyến Đi Công Tác • Thể Kinh Nghiệm & Mức Độ Quá Đà)</h2>
+                </div>
+                <span class="section-badge">Trọng điểm A2-2</span>
+            </div>
+            <div class="grammar-body">
+                <div class="formula-box">
+                    1. Thể kinh nghiệm: <code>V-た ことが あります</code> (Đã từng...)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;Phủ định tuyệt đối: <code>いいえ、一度も ありません</code> (Chưa từng một lần nào)<br>
+                    2. Mức độ quá đà: <code>V(bỏ ます) / Adj-i(bỏ い) / Adj-na(bỏ な) ＋ すぎます</code><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;Nối câu nguyên nhân: <code>〜すぎて、[kết quả tiêu cực]</code><br>
+                    3. Trợ từ gặp gỡ & công tác: <code>[Người] に 会います</code>, <code>[Địa điểm] へ 出張します</code>
+                </div>
+                <p class="grammar-explain">
+                    <strong>Phân tích chi tiết:</strong><br>
+                    • <code>V-た ことがある</code>: Dùng động từ thể TA để kể về một trải nghiệm đặc biệt đã từng kinh qua trong đời, không dùng cho các thói quen hàng ngày như đánh răng, ăn sáng.<br>
+                    • <code>〜すぎる</code>: Mang sắc thái tiêu cực (vượt quá ngưỡng cho phép, gây hậu quả xấu). Ăn nhiều quá đau bụng, vest đắt quá không mua nổi, phòng yên tĩnh quá phát sợ.<br>
+                    • Đi công tác tới đâu dùng trợ từ <code>へ / に</code>, gặp gỡ ai đó bắt buộc dùng trợ từ <code>に</code>.
+                </p>
+                <ul class="example-list">
+                    <li class="example-item">
+                        <div class="ex-jp jp-text">今までに 飛行機に <span style="color: var(--primary);">乗った ことが ありますか</span>。</div>
+                        <div class="ex-vi">Từ trước tới nay bạn đã từng đi máy bay bao giờ chưa?</div>
+                    </li>
+                    <li class="example-item">
+                        <div class="ex-jp jp-text">すしを 食べたことが ありますか。ー いいえ、<span style="color: var(--primary);">一度も ありません</span>。</div>
+                        <div class="ex-vi">Bạn đã từng ăn sushi bao giờ chưa? - Dạ chưa, một lần cũng chưa từng ăn ạ.</div>
+                    </li>
+                    <li class="example-item">
+                        <div class="ex-jp jp-text">きのうの パーティーで ビールを <span style="color: var(--primary);">飲みすぎました</span>。</div>
+                        <div class="ex-vi">Trong bữa tiệc tối hôm qua, tôi đã lỡ uống quá chén (uống quá nhiều bia).</div>
+                    </li>
+                    <li class="example-item">
+                        <div class="ex-jp jp-text">この スーツは <span style="color: var(--primary);">高すぎて</span>、買うことが できません。</div>
+                        <div class="ex-vi">Bộ vest này đắt quá đi, nên tôi không tài nào mua nổi.</div>
+                    </li>
+                    <li class="example-item">
+                        <div class="ex-jp jp-text">この 部屋は <span style="color: var(--primary);">静かすぎて</span>、ちょっと こわいです。</div>
+                        <div class="ex-vi">Căn phòng này yên tĩnh quá mức, thành ra hơi đáng sợ.</div>
+                    </li>
+                </ul>
+                <div class="trap-box">
+                    <strong>⚠️ Bẫy thi cần chú ý:</strong>
+                    1. <code>静かすぎる</code>: Tính từ đuôi な ghép với すぎる tuyệt đối BỎ CHỮ な, KHÔNG THÊM だ (Cấm viết: <code>静かだすぎる</code> ❌, <code>静かなすぎる</code> ❌).<br>
+                    2. Khi trả lời "chưa từng", chọn ngay <code>一度もありません</code>, không chọn <code>まだあります</code> ❌.
+                </div>
+            </div>
+        </div>
+
+        <!-- BÀI 14 -->
+        <div class="grammar-card" id="grammar-l14">
+            <div class="grammar-header">
+                <div>
+                    <span class="grammar-tag">BÀI 14 (A2-2)</span>
+                    <h2 class="grammar-title">職場 (Môi Trường Công Sở • Xin Phép, Cấm Đoán & Cách Sử Dụng)</h2>
+                </div>
+                <span class="section-badge">Trọng điểm A2-2</span>
+            </div>
+            <div class="grammar-body">
+                <div class="formula-box">
+                    1. Xin phép lịch sự: <code>V-て ＋ も いいですか</code> (Tôi làm... có được không?)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;Đồng ý cho phép: <code>ええ、どうぞ</code> / <code>いいですよ</code><br>
+                    2. Cấm đoán quy định: <code>V-て ＋ は いけません</code> (Không được phép làm...)<br>
+                    3. Cách làm (Danh từ hóa): <code>V(bỏ ます) ＋ 方 (かた)</code><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;⭐ Trợ từ chuyển đổi: <code>[N] を V ➔ [N] の V-かた</code><br>
+                    4. Phép tắc mượn đồ: <code>[Người] に [Đồ vật] を 借ります (mượn của ai)</code>
+                </div>
+                <p class="grammar-explain">
+                    <strong>Phân tích chi tiết:</strong><br>
+                    • <code>V-てもいいですか</code>: Cấu trúc hỏi xin ý kiến cấp trên hay đồng nghiệp trước khi dùng đồ cơ quan. Khi được đồng ý, người Nhật thường dùng phó từ <code>どうぞ</code> (xin mời).<br>
+                    • <code>V-てはいけません</code>: Quy tắc bắt buộc, cấm hút thuốc, cấm chụp ảnh, cấm làm ồn nơi công cộng.<br>
+                    • <code>V-かた</code>: Động từ bỏ ます kết hợp với chữ Hán 方 (Hán Việt: Phương) để biến thành danh từ chỉ cách thức thao tác. Trợ từ tân ngữ <code>を</code> biến thành <code>の</code>: <em>コピー機<span style="color:red">の</span> 使い方</em>.
+                </p>
+                <ul class="example-list">
+                    <li class="example-item">
+                        <div class="ex-jp jp-text">すみません、この パソコンを <span style="color: var(--primary);">使っても いいですか</span>。</div>
+                        <div class="ex-vi">Xin lỗi, tôi dùng chiếc máy vi tính này có được không ạ?</div>
+                    </li>
+                    <li class="example-item">
+                        <div class="ex-jp jp-text">ここで たばこを 吸っては <span style="color: var(--primary);">いけません</span>。</div>
+                        <div class="ex-vi">Không được phép hút thuốc lá ở khu vực này.</div>
+                    </li>
+                    <li class="example-item">
+                        <div class="ex-jp jp-text">すみません、この コピー機の <span style="color: var(--primary);">使い方</span>を 教えてください。</div>
+                        <div class="ex-vi">Xin lỗi, hãy chỉ giúp tôi cách sử dụng chiếc máy photocopy này với ạ.</div>
+                    </li>
+                    <li class="example-item">
+                        <div class="ex-jp jp-text">ペンを 忘れましたから、同僚に ペンを <span style="color: var(--primary);">借りました</span>。</div>
+                        <div class="ex-vi">Vì để quên bút nên tôi đã mượn bút từ người đồng nghiệp.</div>
+                    </li>
+                </ul>
+                <div class="trap-box">
+                    <strong>⚠️ Bẫy thi cần chú ý:</strong>
+                    Phân biệt rõ: <code>借ります (かります)</code> là mình mượn của người khác (nhận về); còn <code>貸します (かします)</code> là mình đem đồ của mình cho người khác mượn (đưa đi).
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ========================================== -->
+    <!-- TAB 2: KHO TỪ VỰNG (118 TỪ BÀI 11 - 14)    -->
+    <!-- ========================================== -->
+    <div id="tab-vocab" class="tab-panel">
+        <div class="toolbar-card">
+            <div class="filter-row">
+                <span style="font-size: 0.85rem; font-weight: 800; color: var(--gray-600); margin-right: 4px;">CHỌN BÀI:</span>
+                <button class="filter-btn active" onclick="filterVocab('ALL', this)">🌟 Tất Cả (118 từ Bài 11-14)</button>
+                <button class="filter-btn" onclick="filterVocab('A2-11', this)">Bài 11 (27 từ)</button>
+                <button class="filter-btn" onclick="filterVocab('A2-12', this)">Bài 12 (31 từ)</button>
+                <button class="filter-btn" onclick="filterVocab('A2-13', this)">Bài 13 (35 từ)</button>
+                <button class="filter-btn" onclick="filterVocab('A2-14', this)">Bài 14 (25 từ)</button>
+            </div>
+            <div class="action-row">
+                <div class="search-input-box">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="vocabSearchInput" placeholder="Tìm kiếm từ vựng (Nhật, Hiragana, Hán Việt, tiếng Việt)..." oninput="handleVocabSearch()">
+                </div>
+                <button class="tool-toggle-btn" id="hideMeaningBtn" onclick="toggleHideMeaning()">
+                    👁️ Ẩn nghĩa tiếng Việt (Tự dò)
+                </button>
+                <button type="button" class="btn-quizlet" id="btnQuizletCopy" onclick="copyVocabQuizletFormat()" title="Định dạng Tab sạch 100%, không dấu cách, không ~, cực dễ gõ từ trên Quizlet">
+                    📋 Copy Format Quizlet (<span id="quizletVocabCount">118</span> từ)
+                </button>
+            </div>
+        </div>
+
+        <div class="vocab-grid" id="vocabContainer">
+            <!-- Render via JS -->
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- TAB 3: 30 CHỮ HÁN KANJI TRỌN BỘ            -->
+    <!-- ========================================== -->
+    <div id="tab-kanji" class="tab-panel">
+        <div class="toolbar-card">
+            <div class="filter-row">
+                <span style="font-size: 0.85rem; font-weight: 800; color: var(--gray-600); margin-right: 4px;">CHỌN BÀI:</span>
+                <button class="filter-btn active" onclick="filterKanji('ALL', this)">⛩️ Tất Cả (30 Chữ Hán Bài 11-14)</button>
+                <button class="filter-btn" onclick="filterKanji('L11', this)">Bài 11 (6 chữ)</button>
+                <button class="filter-btn" onclick="filterKanji('L12', this)">Bài 12 (7 chữ)</button>
+                <button class="filter-btn" onclick="filterKanji('L13', this)">Bài 13 (9 chữ)</button>
+                <button class="filter-btn" onclick="filterKanji('L14', this)">Bài 14 (8 chữ)</button>
+            </div>
+            <div class="action-row">
+                <div class="search-input-box">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="kanjiSearchInput" placeholder="Tìm theo chữ Hán, Hán Việt, cách đọc On/Kun..." oninput="handleKanjiSearch()">
+                </div>
+            </div>
+        </div>
+
+        <div class="kanji-grid" id="kanjiContainer">
+            <!-- Render via JS -->
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- TAB 4: ĐỀ THI THỬ MINI TEST (30 CÂU)       -->
+    <!-- ========================================== -->
+    <div id="tab-quiz" class="tab-panel">
+
+        <div class="quiz-stats-card">
+            <div class="quiz-score-box">
+                <div class="score-circle" id="scoreDisplay">0</div>
+                <div class="score-info">
+                    <h4 id="quizStatusTitle">Đề Mini Test Trọng Tâm Bài 11 - 14 (30 Câu Chuẩn Sư Phạm)</h4>
+                    <p id="quizProgressText">Đã làm: 0/30 câu • Điểm số: 0%</p>
+                </div>
+            </div>
+            <div class="quiz-action-btns">
+                <div class="timer-badge">
+                    ⏱️ <span id="timerText">35:00</span>
+                </div>
+                <button class="quiz-btn" onclick="toggleTimer()">⏸️ Tạm Dừng</button>
+                <button class="quiz-btn primary" onclick="resetQuiz()">🔄 Làm Lại Đề Thi</button>
+            </div>
+        </div>
+
+        <div id="questionsContainer">
+            <!-- Render questions via JS -->
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- TAB 5: CẨM NANG BỎ TÚI (CHEAT SHEET)       -->
+    <!-- ========================================== -->
+    <div id="tab-cheatsheet" class="tab-panel">
+        <div class="cheatsheet-grid">
+            <div class="cheat-card">
+                <span class="cheat-badge">BẪY 1 • RỦ RÊ VS ĐỀ NGHỊ GIÚP (BÀI 11)</span>
+                <h3 class="cheat-title">ましょう vs ましょうか</h3>
+                <p class="cheat-content">
+                    • <strong>V-ましょう:</strong> Rủ rê cả 2 cùng làm (<em>いっしょに 行きましょう</em> - Chúng mình cùng đi nhé).<br>
+                    • <strong>V-ましょうか:</strong> Đề nghị một mình tôi làm giúp bạn (<em>荷物を 持ちましょうか</em> - Để tôi xách hành lý giúp bạn nhé?).<br>
+                    👉 Thêm chữ <code>か</code> biến thành lời đề nghị giúp đỡ ân cần, đừng nhầm lẫn!
+                </p>
+            </div>
+
+            <div class="cheat-card">
+                <span class="cheat-badge">BẪY 2 • PHÁN ĐOÁN BỀ NGOÀI (BÀI 12)</span>
+                <h3 class="cheat-title">〜そう (Bỏ い, Bỏ な & Ngoại lệ)</h3>
+                <p class="cheat-content">
+                    • <strong>Tính từ đuôi い:</strong> Bỏ hẳn [い] + そう (<em>おいしそう</em>).<br>
+                    • <strong>Tính từ đuôi な:</strong> Bỏ hẳn [な] + そう (<em>にぎやかそう</em>).<br>
+                    • <strong>Ngoại lệ sống còn:</strong> <code>いい</code> ➔ <strong><code>よさそう</code></strong> (CẤM dùng <code>いいそう</code> ❌).<br>
+                    • <code>ない</code> ➔ <strong><code>なさそう</code></strong>.
+                </p>
+            </div>
+
+            <div class="cheat-card">
+                <span class="cheat-badge">BẪY 3 • BIẾN ĐỔI TÍNH TỪ (BÀI 12)</span>
+                <h3 class="cheat-title">〜くなる vs 〜になる</h3>
+                <p class="cheat-content">
+                    • <strong>Tính từ đuôi い:</strong> Bỏ [い] + <strong>くなる</strong> (<em>甘くなります</em> - trở nên ngọt).<br>
+                    • <strong>Tính từ đuôi な:</strong> Bỏ [な] + <strong>になる</strong> (<em>上手になります</em> - trở nên giỏi).<br>
+                    • <strong>Danh từ:</strong> N + <strong>になる</strong> (<em>先生になります</em> - trở thành giáo viên).
+                </p>
+            </div>
+
+            <div class="cheat-card">
+                <span class="cheat-badge">BẪY 4 • SO SÁNH PHẠM VI (BÀI 12)</span>
+                <h3 class="cheat-title">〜の中で (Trong số...)</h3>
+                <p class="cheat-content">
+                    • So sánh nhất trong một nhóm: <code>[Phạm vi] の 中で、[A] が いちばん [Tính từ] です</code>.<br>
+                    • Ví dụ: <em>日本の 料理の <mark>中で</mark>、天ぷらが いちばん 好きです</em>.<br>
+                    👉 Sau chữ 「中」 luôn là trợ từ <code>で</code>, không dùng <code>に</code> hay <code>を</code>.
+                </p>
+            </div>
+
+            <div class="cheat-card">
+                <span class="cheat-badge">BẪY 5 • THỂ KINH NGHIỆM (BÀI 13)</span>
+                <h3 class="cheat-title">V-たことがある & 一度もありません</h3>
+                <p class="cheat-content">
+                    • <strong>Kinh nghiệm:</strong> Bắt buộc dùng <strong>Thể TA</strong> (<em>乗った ことが あります</em>).<br>
+                    • <strong>Phủ định tuyệt đối:</strong> <em>いいえ、一度も ありません</em> (Một lần cũng chưa từng).<br>
+                    👉 Không trả lời: <code>まだ あります</code> ❌.
+                </p>
+            </div>
+
+            <div class="cheat-card">
+                <span class="cheat-badge">BẪY 6 • MỨC ĐỘ QUÁ ĐÀ (BÀI 13)</span>
+                <h3 class="cheat-title">〜すぎる (V-stem, Bỏ い, Bỏ な)</h3>
+                <p class="cheat-content">
+                    • <strong>Động từ:</strong> V(bỏ ます) + すぎる (<em>飲みすぎる</em>).<br>
+                    • <strong>Tính từ đuôi い:</strong> Bỏ [い] + すぎる (<em>高すぎる</em>).<br>
+                    • <strong>Tính từ đuôi な:</strong> Bỏ [な] + すぎる (<em>静かすぎる</em>). Cấm nói <code>静かだすぎる</code> ❌!<br>
+                    • <strong>Dạng nguyên nhân:</strong> <em>高すぎて 買えません</em> (Đắt quá không mua nổi).
+                </p>
+            </div>
+
+            <div class="cheat-card">
+                <span class="cheat-badge">BẪY 7 • XIN PHÉP VS CẤM ĐOÁN (BÀI 14)</span>
+                <h3 class="cheat-title">〜てもいい vs 〜てはいけない</h3>
+                <p class="cheat-content">
+                    • <strong>Xin phép:</strong> <code>V-ても いいですか</code> (<em>使ってもいいですか</em> ➔ Đáp: <em>ええ、どうぞ</em>).<br>
+                    • <strong>Cấm đoán:</strong> <code>V-ては いけません</code> (<em>吸っては いけません</em> - Cấm hút thuốc).<br>
+                    👉 Nhớ câu thần chú: <code>ても</code> = Làm cũng ĐƯỢC; <code>ては</code> = Làm thì KHÔNG ĐƯỢC.
+                </p>
+            </div>
+
+            <div class="cheat-card">
+                <span class="cheat-badge">BẪY 8 • MƯỢN ĐỒ & CÁCH LÀM (BÀI 14)</span>
+                <h3 class="cheat-title">借ります vs 貸します & V-かた</h3>
+                <p class="cheat-content">
+                    • <strong>借ります (かります):</strong> Mình MƯỢN từ ai (nhận về mình: <em>同僚に 借りました</em>).<br>
+                    • <strong>貸します (かします):</strong> Mình CHO MƯỢN (đưa sang cho người khác).<br>
+                    • <strong>V-かた:</strong> Động từ bỏ ます + 方 (<em>使い方, 読み方</em>). Nhớ trợ từ <code>を</code> biến thành <code>の</code> (<em>コピー機<mark>の</mark> 使い方</em>).
+                </p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Toast Notification -->
+<div id="toast" class="toast">Đã copy vào bộ nhớ tạm!</div>
+
+<script>
+    // Data Injected from Python
+    const rawVocab = [{"l": "A2-11", "num": 1, "kanji": "果物", "kana": "くだもの", "romaji": "kudamono", "hv": "[QUẢ VẬT]", "vi": "Hoa quả", "kanji_chars": ["果", "物"], "jp": "果物"}, {"l": "A2-11", "num": 2, "kanji": "お酒", "kana": "おさけ", "romaji": "osake", "hv": "[TỬU]", "vi": "Đồ uống có cồn", "kanji_chars": ["酒"], "jp": "お酒"}, {"l": "A2-11", "num": 3, "kanji": "お握り", "kana": "おにぎり", "romaji": "onigiri", "hv": "[ÁC]", "vi": "Cơm nắm", "kanji_chars": ["握"], "jp": "お握り"}, {"l": "A2-11", "num": 4, "kanji": "サラダ", "kana": "サラダ", "romaji": "sarada", "hv": "[Phiên âm]", "vi": "Salad", "kanji_chars": [], "jp": "サラダ"}, {"l": "A2-11", "num": 5, "kanji": "サンドイッチ", "kana": "サンドイッチ", "romaji": "sandoicchi", "hv": "[Phiên âm]", "vi": "Bánh mì sandwich", "kanji_chars": [], "jp": "サンドイッチ"}, {"l": "A2-11", "num": 6, "kanji": "卵焼き", "kana": "たまごやき", "romaji": "tamagoyaki", "hv": "[NOÃN THIÊU]", "vi": "Trứng rán kiểu nhật", "kanji_chars": ["卵", "焼"], "jp": "卵焼き"}, {"l": "A2-11", "num": 7, "kanji": "唐揚げ", "kana": "からあげ", "romaji": "karaage", "hv": "[ĐƯỜNG DƯƠNG]", "vi": "Gà rán", "kanji_chars": ["唐", "揚"], "jp": "唐揚げ"}, {"l": "A2-11", "num": 8, "kanji": "苺", "kana": "いちご", "romaji": "ichigo", "hv": "[MAI]", "vi": "Quả dâu tây", "kanji_chars": ["苺"], "jp": "苺"}, {"l": "A2-11", "num": 9, "kanji": "ポテトチップス", "kana": "ポテトチップス", "romaji": "potetochippusu", "hv": "[Phiên âm]", "vi": "Snack khoai tây", "kanji_chars": [], "jp": "ポテトチップス"}, {"l": "A2-11", "num": 10, "kanji": "日本酒", "kana": "にほんしゅ", "romaji": "nihonshu", "hv": "[NHẬT BỔN TỬU]", "vi": "Rượu Nhật", "kanji_chars": ["日", "本", "酒"], "jp": "日本酒"}, {"l": "A2-11", "num": 11, "kanji": "シート", "kana": "シート", "romaji": "shiito", "hv": "[Phiên âm]", "vi": "Tấm lót, tấm phủ", "kanji_chars": [], "jp": "シート"}, {"l": "A2-11", "num": 12, "kanji": "ごみ袋", "kana": "ごみぶくろ", "romaji": "gomibukuro", "hv": "[ĐẠI]", "vi": "Túi đựng rác", "kanji_chars": ["袋"], "jp": "ごみ袋"}, {"l": "A2-11", "num": 13, "kanji": "コップ", "kana": "コップ", "romaji": "koppu", "hv": "[Phiên âm]", "vi": "Cốc", "kanji_chars": [], "jp": "コップ"}, {"l": "A2-11", "num": 14, "kanji": "皿", "kana": "さら", "romaji": "sara", "hv": "[MÃNH]", "vi": "Đĩa", "kanji_chars": ["皿"], "jp": "皿"}, {"l": "A2-11", "num": 15, "kanji": "フォーク", "kana": "フォーク", "romaji": "fooku", "hv": "[Phiên âm]", "vi": "Dĩa", "kanji_chars": [], "jp": "フォーク"}, {"l": "A2-11", "num": 16, "kanji": "スプーン", "kana": "スプーン", "romaji": "supuun", "hv": "[Phiên âm]", "vi": "Thìa", "kanji_chars": [], "jp": "スプーン"}, {"l": "A2-11", "num": 17, "kanji": "ナイフ", "kana": "ナイフ", "romaji": "naifu", "hv": "[Phiên âm]", "vi": "Dao", "kanji_chars": [], "jp": "ナイフ"}, {"l": "A2-11", "num": 18, "kanji": "連絡します", "kana": "れんらくします", "romaji": "renrakushimasu", "hv": "[LIÊN LẠC]", "vi": "Liên lạc", "kanji_chars": ["連", "絡"], "jp": "連絡します"}, {"l": "A2-11", "num": 19, "kanji": "持って行きます", "kana": "もっていきます", "romaji": "motteikimasu", "hv": "[TRÌ HÀNH]", "vi": "Mang đi", "kanji_chars": ["持", "行"], "jp": "持って行きます"}, {"l": "A2-11", "num": 20, "kanji": "何でも", "kana": "なんでも", "romaji": "nandemo", "hv": "[HÀ]", "vi": "Cái nào cũng", "kanji_chars": ["何"], "jp": "何でも"}, {"l": "A2-11", "num": 21, "kanji": "どっちでも", "kana": "どっちでも", "romaji": "docchidemo", "hv": "", "vi": "Cái nào cũng (cách dùng lịch sự)", "kanji_chars": [], "jp": "どっちでも"}, {"l": "A2-11", "num": 22, "kanji": "自分で", "kana": "じぶんで", "romaji": "jibunde", "hv": "[TỰ PHÂN]", "vi": "Tự mình", "kanji_chars": ["自", "分"], "jp": "自分で"}, {"l": "A2-11", "num": 23, "kanji": "返事", "kana": "へんじ", "romaji": "henji", "hv": "[PHẢN SỰ]", "vi": "Trả lời, hồi âm", "kanji_chars": ["返", "事"], "jp": "返事"}, {"l": "A2-11", "num": 24, "kanji": "バーベキュー", "kana": "バーベキュー", "romaji": "baabekyuu", "hv": "[Phiên âm]", "vi": "Tiệc nướng BBQ", "kanji_chars": [], "jp": "バーベキュー"}, {"l": "A2-11", "num": 25, "kanji": "スープ", "kana": "スープ", "romaji": "suupu", "hv": "[Phiên âm]", "vi": "Súp", "kanji_chars": [], "jp": "スープ"}, {"l": "A2-11", "num": 26, "kanji": "相談（します）", "kana": "そうだん（します）", "romaji": "soudanshimasu", "hv": "[TƯƠNG ĐÀM]", "vi": "Thảo luận", "kanji_chars": ["相", "談"], "jp": "相談（します）"}, {"l": "A2-11", "num": 27, "kanji": "Nについて", "kana": "Nについて", "romaji": "n nitsuite", "hv": "", "vi": "Về (chủ đề) N", "kanji_chars": [], "jp": "Nについて"}, {"l": "A2-12", "num": 1, "kanji": "漬物", "kana": "つけもの", "romaji": "tsukemono", "hv": "[TÍ VẬT]", "vi": "Đồ muối chua", "kanji_chars": ["漬", "物"], "jp": "漬物"}, {"l": "A2-12", "num": 2, "kanji": "ピクルス", "kana": "ピクルス", "romaji": "pikurusu", "hv": "[Phiên âm]", "vi": "Các loại dưa chua", "kanji_chars": [], "jp": "ピクルス"}, {"l": "A2-12", "num": 3, "kanji": "レタス", "kana": "レタス", "romaji": "retasu", "hv": "[Phiên âm]", "vi": "Xà lách", "kanji_chars": [], "jp": "レタス"}, {"l": "A2-12", "num": 4, "kanji": "レモン", "kana": "レモン", "romaji": "remon", "hv": "[Phiên âm]", "vi": "Chanh", "kanji_chars": [], "jp": "レモン"}, {"l": "A2-12", "num": 5, "kanji": "胡瓜", "kana": "きゅうり", "romaji": "kyuuri", "hv": "[HỒ QUA]", "vi": "Dưa chuột", "kanji_chars": ["胡", "瓜"], "jp": "胡瓜"}, {"l": "A2-12", "num": 6, "kanji": "海老", "kana": "えび", "romaji": "ebi", "hv": "[HẢI LÃO]", "vi": "Tôm", "kanji_chars": ["海", "老"], "jp": "海老"}, {"l": "A2-12", "num": 7, "kanji": "ツナ", "kana": "ツナ", "romaji": "tsuna", "hv": "[Phiên âm]", "vi": "Cá ngừ", "kanji_chars": [], "jp": "ツナ"}, {"l": "A2-12", "num": 8, "kanji": "鮭", "kana": "しゃけ／さけ", "romaji": "shake / sake", "hv": "[KHUÊ]", "vi": "Cá hồi", "kanji_chars": ["鮭"], "jp": "鮭"}, {"l": "A2-12", "num": 9, "kanji": "昆布", "kana": "こんぶ", "romaji": "konbu", "hv": "[CÔN BỐ]", "vi": "Tảo bẹ", "kanji_chars": ["昆", "布"], "jp": "昆布"}, {"l": "A2-12", "num": 10, "kanji": "梅干し", "kana": "うめぼし", "romaji": "umeboshi", "hv": "[MAI CAN]", "vi": "Mơ muối", "kanji_chars": ["梅", "干"], "jp": "梅干し"}, {"l": "A2-12", "num": 11, "kanji": "チーズ", "kana": "チーズ", "romaji": "chiizu", "hv": "[Phiên âm]", "vi": "Phô mai", "kanji_chars": [], "jp": "チーズ"}, {"l": "A2-12", "num": 12, "kanji": "ハム", "kana": "ハム", "romaji": "hamu", "hv": "[Phiên âm]", "vi": "Thịt heo xông khói", "kanji_chars": [], "jp": "ハム"}, {"l": "A2-12", "num": 13, "kanji": "マヨネーズ", "kana": "マヨネーズ", "romaji": "mayoneezu", "hv": "[Phiên âm]", "vi": "Mayone", "kanji_chars": [], "jp": "マヨネーズ"}, {"l": "A2-12", "num": 14, "kanji": "チリ", "kana": "チリ", "romaji": "chiri", "hv": "[Phiên âm]", "vi": "Ớt", "kanji_chars": [], "jp": "チリ"}, {"l": "A2-12", "num": 15, "kanji": "煎餅", "kana": "センベイ", "romaji": "senbei", "hv": "[TIÊN BÍNH]", "vi": "Bánh gạo", "kanji_chars": ["煎", "餅"], "jp": "煎餅"}, {"l": "A2-12", "num": 16, "kanji": "温かい", "kana": "あたたかい", "romaji": "atatakai", "hv": "[ÔN]", "vi": "Ấm áp", "kanji_chars": ["温"], "jp": "温かい"}, {"l": "A2-12", "num": 17, "kanji": "冷たい", "kana": "つめたい", "romaji": "tsumetai", "hv": "[LÃNH]", "vi": "Lạnh, lạnh buốt", "kanji_chars": ["冷"], "jp": "冷たい"}, {"l": "A2-12", "num": 18, "kanji": "美味しい", "kana": "おいしい", "romaji": "oishii", "hv": "[MỸ VỊ]", "vi": "Ngon", "kanji_chars": ["美", "味"], "jp": "美味しい"}, {"l": "A2-12", "num": 19, "kanji": "不味い", "kana": "まずい", "romaji": "mazui", "hv": "[BẤT VỊ]", "vi": "Dở, tệ, không ngon", "kanji_chars": ["不", "味"], "jp": "不味い"}, {"l": "A2-12", "num": 20, "kanji": "甘い", "kana": "あまい", "romaji": "amai", "hv": "[CAM]", "vi": "Ngọt", "kanji_chars": ["甘"], "jp": "甘い"}, {"l": "A2-12", "num": 21, "kanji": "辛い", "kana": "からい", "romaji": "karai", "hv": "[TÂN]", "vi": "Cay", "kanji_chars": ["辛"], "jp": "辛い"}, {"l": "A2-12", "num": 22, "kanji": "酸っぱい", "kana": "すっぱい", "romaji": "suppai", "hv": "[TOAN]", "vi": "Chua", "kanji_chars": ["酸"], "jp": "酸っぱい"}, {"l": "A2-12", "num": 23, "kanji": "塩っぱい", "kana": "しょっぱい", "romaji": "shoppai", "hv": "[DIÊM]", "vi": "Mặn", "kanji_chars": ["塩"], "jp": "塩っぱい"}, {"l": "A2-12", "num": 24, "kanji": "苦い", "kana": "にがい", "romaji": "nigai", "hv": "[KHỔ]", "vi": "Đắng", "kanji_chars": ["苦"], "jp": "苦い"}, {"l": "A2-12", "num": 25, "kanji": "気持ちがいい", "kana": "きもちが いい", "romaji": "kimochi ga ii", "hv": "[KHÍ TRÌ]", "vi": "Thoải mái, dễ chịu", "kanji_chars": ["気", "持"], "jp": "気持ちがいい"}, {"l": "A2-12", "num": 26, "kanji": "新鮮（な）", "kana": "しんせん（な）", "romaji": "shinsen(na)", "hv": "[TÂN TIÊN]", "vi": "Tươi, tươi mới", "kanji_chars": ["新", "鮮"], "jp": "新鮮（な）"}, {"l": "A2-12", "num": 27, "kanji": "人気があります", "kana": "にんきが あります", "romaji": "ninki ga arimasu", "hv": "[NHÂN KHÍ]", "vi": "Được yêu thích, ưa chuộng", "kanji_chars": ["人", "気"], "jp": "人気があります"}, {"l": "A2-12", "num": 28, "kanji": "違います", "kana": "ちがいます", "romaji": "chigaimasu", "hv": "[VI]", "vi": "Khác", "kanji_chars": ["違"], "jp": "違います"}, {"l": "A2-12", "num": 29, "kanji": "似ています", "kana": "にています", "romaji": "niteimasu", "hv": "[TỰ]", "vi": "Giống", "kanji_chars": ["似"], "jp": "似ています"}, {"l": "A2-12", "num": 30, "kanji": "お腹がいっぱいです", "kana": "おなかが いっぱいです", "romaji": "onaka ga ippai desu", "hv": "[PHÚC]", "vi": "No bụng", "kanji_chars": ["腹"], "jp": "お腹がいっぱいです"}, {"l": "A2-12", "num": 31, "kanji": "お腹が空きました", "kana": "おなかが すきました", "romaji": "onaka ga sukimashita", "hv": "[PHÚC KHÔNG]", "vi": "Đói", "kanji_chars": ["腹", "空"], "jp": "お腹が空きました"}, {"l": "A2-13", "num": 1, "kanji": "～時のフライト", "kana": "～じの フライト", "romaji": "~ji no furaito", "hv": "[THỜI]", "vi": "Chuyến bay lúc … giờ", "kanji_chars": ["時"], "jp": "～時のフライト"}, {"l": "A2-13", "num": 2, "kanji": "～時の便", "kana": "～じの びん", "romaji": "~ji no bin", "hv": "[THỜI TIỆN]", "vi": "Chuyến bay lúc … giờ", "kanji_chars": ["時", "便"], "jp": "～時の便"}, {"l": "A2-13", "num": 3, "kanji": "空港", "kana": "くうこう", "romaji": "kuukou", "hv": "[KHÔNG CẢNG]", "vi": "Sân bay", "kanji_chars": ["空", "港"], "jp": "空港"}, {"l": "A2-13", "num": 4, "kanji": "出発（します）", "kana": "しゅっぱつ（します）", "romaji": "shuppatsu(shimasu)", "hv": "[XUẤT PHÁT]", "vi": "Xuất phát", "kanji_chars": ["出", "発"], "jp": "出発（します）"}, {"l": "A2-13", "num": 5, "kanji": "到着（します）", "kana": "とうちゃく（します）", "romaji": "touchaku(shimasu)", "hv": "[ĐÁO TRỨ]", "vi": "Hạ cánh, đến nơi", "kanji_chars": ["到", "着"], "jp": "到着（します）"}, {"l": "A2-13", "num": 6, "kanji": "出張（します）", "kana": "しゅっちょう（します）", "romaji": "shucchou(shimasu)", "hv": "[XUẤT TRƯƠNG]", "vi": "Công tác", "kanji_chars": ["出", "張"], "jp": "出張（します）"}, {"l": "A2-13", "num": 7, "kanji": "支社", "kana": "ししゃ", "romaji": "shisha", "hv": "[CHI XÃ]", "vi": "Chi nhánh", "kanji_chars": ["支", "社"], "jp": "支社"}, {"l": "A2-13", "num": 8, "kanji": "本社", "kana": "ほんしゃ", "romaji": "honsha", "hv": "[BỔN XÃ]", "vi": "Trụ sở chính", "kanji_chars": ["本", "社"], "jp": "本社"}, {"l": "A2-13", "num": 9, "kanji": "送ります", "kana": "おくります", "romaji": "okurimasu", "hv": "[TỐNG]", "vi": "Gửi", "kanji_chars": ["送"], "jp": "送ります"}, {"l": "A2-13", "num": 10, "kanji": "貰います", "kana": "もらいます", "romaji": "moraimasu", "hv": "[THẾ]", "vi": "Nhận", "kanji_chars": ["貰"], "jp": "貰います"}, {"l": "A2-13", "num": 11, "kanji": "送りに行きます", "kana": "おくりに いきます", "romaji": "okurini ikimasu", "hv": "[TỐNG HÀNH]", "vi": "Đi tiễn", "kanji_chars": ["送", "行"], "jp": "送りに行きます"}, {"l": "A2-13", "num": 12, "kanji": "迎えに行きます", "kana": "むかえに いきます", "romaji": "mukaeni ikimasu", "hv": "[NGHÊNH HÀNH]", "vi": "Đi đón", "kanji_chars": ["迎", "行"], "jp": "迎えに行きます"}, {"l": "A2-13", "num": 13, "kanji": "出迎え", "kana": "でむかえ", "romaji": "demukae", "hv": "[XUẤT NGHÊNH]", "vi": "Đón", "kanji_chars": ["出", "迎"], "jp": "出迎え"}, {"l": "A2-13", "num": 14, "kanji": "見送り", "kana": "みおくり", "romaji": "miokuri", "hv": "[KIẾN TỐNG]", "vi": "Tiễn", "kanji_chars": ["見", "送"], "jp": "見送り"}, {"l": "A2-13", "num": 15, "kanji": "空きます", "kana": "すきます", "romaji": "sukimasu", "hv": "[KHÔNG]", "vi": "Vắng vẻ", "kanji_chars": ["空"], "jp": "空きます"}, {"l": "A2-13", "num": 16, "kanji": "混みます", "kana": "こみます", "romaji": "komimasu", "hv": "[HỖN]", "vi": "Đông đúc", "kanji_chars": ["混"], "jp": "混みます"}, {"l": "A2-13", "num": 17, "kanji": "快適（な）", "kana": "かいてき（な）", "romaji": "kaiteki(na)", "hv": "[KHOÁI THÍCH]", "vi": "Thoải mái, dễ chịu", "kanji_chars": ["快", "適"], "jp": "快適（な）"}, {"l": "A2-13", "num": 18, "kanji": "時差", "kana": "じさ", "romaji": "jisa", "hv": "[THỜI SOA]", "vi": "Chênh lệch múi giờ", "kanji_chars": ["時", "差"], "jp": "時差"}, {"l": "A2-13", "num": 19, "kanji": "お湯が出ます", "kana": "おゆが でます", "romaji": "oyu ga demasu", "hv": "[THANG XUẤT]", "vi": "Có nước ấm", "kanji_chars": ["湯", "出"], "jp": "お湯が出ます"}, {"l": "A2-13", "num": 20, "kanji": "温い", "kana": "ぬるい", "romaji": "nurui", "hv": "[ÔN]", "vi": "Ấm ấm (nước sôi...), nguội...", "kanji_chars": ["温"], "jp": "温い"}, {"l": "A2-13", "num": 21, "kanji": "スケジュール", "kana": "スケジュール", "romaji": "sukejuuru", "hv": "[Phiên âm]", "vi": "Lịch trình", "kanji_chars": [], "jp": "スケジュール"}, {"l": "A2-13", "num": 22, "kanji": "番号", "kana": "ばんごう", "romaji": "bangou", "hv": "[PHIÊN HIỆU]", "vi": "Số", "kanji_chars": ["番", "号"], "jp": "番号"}, {"l": "A2-13", "num": 23, "kanji": "ずっと", "kana": "ずっと", "romaji": "zutto", "hv": "", "vi": "Suốt, mãi / Hơn hẳn", "kanji_chars": [], "jp": "ずっと"}, {"l": "A2-13", "num": 24, "kanji": "チェック（します）", "kana": "チェック（します）", "romaji": "chekku(shimasu)", "hv": "[Phiên âm]", "vi": "Kiểm tra, check", "kanji_chars": [], "jp": "チェック（します）"}, {"l": "A2-13", "num": 25, "kanji": "担当（します）", "kana": "たんとう（します）", "romaji": "tantou(shimasu)", "hv": "[ĐẢM ĐƯƠNG]", "vi": "Phụ trách", "kanji_chars": ["担", "当"], "jp": "担当（します）"}, {"l": "A2-13", "num": 26, "kanji": "～へようこそ", "kana": "～へ ようこそ。", "romaji": "~e youkoso", "hv": "", "vi": "Chào mừng đến với…", "kanji_chars": [], "jp": "～へようこそ"}, {"l": "A2-13", "num": 27, "kanji": "お疲れ様です", "kana": "おつかれさまです。", "romaji": "otsukaresama desu", "hv": "[BÌ DẠNG]", "vi": "Bạn đã vất vả rồi", "kanji_chars": ["疲", "様"], "jp": "お疲れ様です"}, {"l": "A2-13", "num": 28, "kanji": "お待たせしました", "kana": "おまたせしました。", "romaji": "omataseshimashita", "hv": "[ĐÃI]", "vi": "Xin lỗi đã để bạn phải đợi", "kanji_chars": ["待"], "jp": "お待たせしました"}, {"l": "A2-13", "num": 29, "kanji": "～はいかがですか", "kana": "～は いかがですか。", "romaji": "~wa ikaga desu ka", "hv": "", "vi": "＝～は どうですか。 Như thế nào (lịch sự)", "kanji_chars": [], "jp": "～はいかがですか"}, {"l": "A2-13", "num": 30, "kanji": "冗談", "kana": "じょうだん", "romaji": "joudan", "hv": "[NHŨNG ĐÀM]", "vi": "Nói đùa", "kanji_chars": ["冗", "談"], "jp": "冗談"}, {"l": "A2-13", "num": 31, "kanji": "挨拶", "kana": "あいさつ", "romaji": "aisatsu", "hv": "[AI TÁT]", "vi": "Chào hỏi", "kanji_chars": ["挨", "拶"], "jp": "挨拶"}, {"l": "A2-13", "num": 32, "kanji": "値段", "kana": "ねだん", "romaji": "nedan", "hv": "[TRỊ ĐOẠN]", "vi": "Giá cả", "kanji_chars": ["値", "段"], "jp": "値段"}, {"l": "A2-13", "num": 33, "kanji": "鍵", "kana": "かぎ", "romaji": "kagi", "hv": "[KIỆN]", "vi": "Chìa khóa", "kanji_chars": ["鍵"], "jp": "鍵"}, {"l": "A2-13", "num": 34, "kanji": "会議", "kana": "かいぎ", "romaji": "kaigi", "hv": "[HỘI NGHỊ]", "vi": "Cuộc họp", "kanji_chars": ["会", "議"], "jp": "会議"}, {"l": "A2-13", "num": 35, "kanji": "資料", "kana": "しりょう", "romaji": "shiryou", "hv": "[TƯ LIỆU]", "vi": "Tài liệu", "kanji_chars": ["資", "料"], "jp": "資料"}, {"l": "A2-14", "num": 1, "kanji": "オフィス", "kana": "オフィス", "romaji": "ofisu", "hv": "[Phiên âm]", "vi": "Văn phòng", "kanji_chars": [], "jp": "オフィス"}, {"l": "A2-14", "num": 2, "kanji": "キャビネット", "kana": "キャビネット", "romaji": "kyabinetto", "hv": "[Phiên âm]", "vi": "Tủ đựng (tài liệu, ...)", "kanji_chars": [], "jp": "キャビネット"}, {"l": "A2-14", "num": 3, "kanji": "コピー機", "kana": "コピーき", "romaji": "kopiiki", "hv": "[KI]", "vi": "Máy photo", "kanji_chars": ["機"], "jp": "コピー機"}, {"l": "A2-14", "num": 4, "kanji": "ファックス", "kana": "ファックス", "romaji": "fakkusu", "hv": "[Phiên âm]", "vi": "Máy fax", "kanji_chars": [], "jp": "ファックス"}, {"l": "A2-14", "num": 5, "kanji": "国際電話", "kana": "こくさいでんわ", "romaji": "kokusaidenwa", "hv": "[QUỐC TẾ ĐIỆN THOẠI]", "vi": "Điện thoại quốc tế", "kanji_chars": ["国", "際", "電", "話"], "jp": "国際電話"}, {"l": "A2-14", "num": 6, "kanji": "社長", "kana": "しゃちょう", "romaji": "shachou", "hv": "[XÃ TRƯỜNG]", "vi": "Giám đốc", "kanji_chars": ["社", "長"], "jp": "社長"}, {"l": "A2-14", "num": 7, "kanji": "秘書", "kana": "ひしょ", "romaji": "hisho", "hv": "[BÍ THƯ]", "vi": "Thư ký", "kanji_chars": ["秘", "書"], "jp": "秘書"}, {"l": "A2-14", "num": 8, "kanji": "受付", "kana": "うけつけ", "romaji": "uketsuke", "hv": "[THỤ PHÓ]", "vi": "Lễ tân", "kanji_chars": ["受", "付"], "jp": "受付"}, {"l": "A2-14", "num": 9, "kanji": "事務スタッフ", "kana": "じむスタッフ", "romaji": "jimu sutaffu", "hv": "[SỰ VỤ]", "vi": "Nhân viên văn phòng", "kanji_chars": ["事", "務"], "jp": "事務スタッフ"}, {"l": "A2-14", "num": 10, "kanji": "ドライバー", "kana": "ドライバー", "romaji": "doraibaa", "hv": "[Phiên âm]", "vi": "Lái xe", "kanji_chars": [], "jp": "ドライバー"}, {"l": "A2-14", "num": 11, "kanji": "ドア", "kana": "ドア", "romaji": "doa", "hv": "[Phiên âm]", "vi": "Cửa ra vào", "kanji_chars": [], "jp": "ドア"}, {"l": "A2-14", "num": 12, "kanji": "窓", "kana": "まど", "romaji": "mado", "hv": "[SONG]", "vi": "Cửa sổ", "kanji_chars": ["窓"], "jp": "窓"}, {"l": "A2-14", "num": 13, "kanji": "（ドアを）開けます", "kana": "（ドアを）あけます", "romaji": "akemasu", "hv": "[KHAI]", "vi": "Mở (cửa)", "kanji_chars": ["開"], "jp": "（ドアを）開けます"}, {"l": "A2-14", "num": 14, "kanji": "（ドアを）閉めます", "kana": "（ドアを）しめます", "romaji": "shimemasu", "hv": "[BẾ]", "vi": "Đóng (cửa)", "kanji_chars": ["閉"], "jp": "（ドアを）閉めます"}, {"l": "A2-14", "num": 15, "kanji": "（電気を）点けます", "kana": "（でんきを）つけます", "romaji": "tsukemasu", "hv": "[ĐIỆN KHÍ ĐIỂM]", "vi": "Bật (đèn)", "kanji_chars": ["電", "気", "点"], "jp": "（電気を）点けます"}, {"l": "A2-14", "num": 16, "kanji": "（電気を）消します", "kana": "（でんきを）けします", "romaji": "keshimasu", "hv": "[ĐIỆN KHÍ TIÊU]", "vi": "Tắt (đèn)", "kanji_chars": ["電", "気", "消"], "jp": "（電気を）消します"}, {"l": "A2-14", "num": 17, "kanji": "（パソコンが）壊れます", "kana": "（パソコンが）こわれます", "romaji": "kowaremasu", "hv": "[HOẠI]", "vi": "(Máy tính) Hỏng", "kanji_chars": ["壊"], "jp": "（パソコンが）壊れます"}, {"l": "A2-14", "num": 18, "kanji": "勉強中", "kana": "べんきょうちゅう", "romaji": "benkyouchuu", "hv": "[MIỄN CƯỜNG TRUNG]", "vi": "Đang học", "kanji_chars": ["勉", "強", "中"], "jp": "勉強中"}, {"l": "A2-14", "num": 19, "kanji": "ぺらぺら", "kana": "ぺらぺら", "romaji": "perapera", "hv": "", "vi": "Lưu loát (nói, ...)", "kanji_chars": [], "jp": "ぺらぺら"}, {"l": "A2-14", "num": 20, "kanji": "始めます", "kana": "はじめます", "romaji": "hajimemasu", "hv": "[THỦY]", "vi": "Bắt đầu", "kanji_chars": ["始"], "jp": "始めます"}, {"l": "A2-14", "num": 21, "kanji": "ファイル", "kana": "ファイル", "romaji": "fairu", "hv": "[Phiên âm]", "vi": "File", "kanji_chars": [], "jp": "ファイル"}, {"l": "A2-14", "num": 22, "kanji": "メモ", "kana": "メモ", "romaji": "memo", "hv": "[Phiên âm]", "vi": "Ghi chú", "kanji_chars": [], "jp": "メモ"}, {"l": "A2-14", "num": 23, "kanji": "事務所", "kana": "オフィス／じむしょ", "romaji": "ofisu / jimusho", "hv": "[SỰ VỤ SỞ]", "vi": "Văn phòng", "kanji_chars": ["事", "務", "所"], "jp": "事務所"}, {"l": "A2-14", "num": 24, "kanji": "プリントアウト", "kana": "プリントアウト", "romaji": "purintoauto", "hv": "[Phiên âm]", "vi": "In", "kanji_chars": [], "jp": "プリントアウト"}, {"l": "A2-14", "num": 25, "kanji": "紹介します", "kana": "しょうかいします", "romaji": "shoukaishimasu", "hv": "[THIỆU GIỚI]", "vi": "Giới thiệu", "kanji_chars": ["紹", "介"], "jp": "紹介します"}];
+    const rawKanji = [{"char": "酒", "hv": "Tửu", "lesson": "L11", "lessonName": "Bài 11", "strokes": 10, "meaning": "Rượu, đồ uống có cồn", "kun": "さけ、さか", "on": "しゅ", "examples": [{"word": "お酒", "reading": "おさけ", "vi": "Rượu, đồ uống có cồn"}, {"word": "日本酒", "reading": "にほんしゅ", "vi": "Rượu sake truyền thống Nhật Bản"}, {"word": "梅酒", "reading": "うめしゅ", "vi": "Rượu mơ"}, {"word": "居酒屋", "reading": "いざかや", "vi": "Quán rượu, quán nhậu kiểu Nhật"}], "formula": "氵 (Thủy) ＋ 酉 (Dậu)", "strokeGuide": "Bộ Thủy (氵 - 3 nét) bên trái ➔ bộ Dậu (酉 - 7 nét: ngang trên, sổ trái, gập ngang, sổ giữa, ngang trong, đóng đáy) bên phải.", "mnemonic": "Nước (氵) ủ kín trong bình dậu (酉) lên men thành Rượu (酒)."}, {"char": "作", "hv": "Tác", "lesson": "L11", "lessonName": "Bài 11", "strokes": 7, "meaning": "Làm, chế tạo, tạo ra, nấu nướng", "kun": "つく-る", "on": "さく、さ", "examples": [{"word": "作ります", "reading": "つくります", "vi": "Làm, tạo ra, nấu (món)"}, {"word": "作文", "reading": "さくぶん", "vi": "Bài tập làm văn"}, {"word": "手作り", "reading": "てづくり", "vi": "Làm bằng tay, đồ nhà làm"}, {"word": "作品", "reading": "さくひん", "vi": "Tác phẩm"}], "formula": "亻 (Nhân đứng) ＋ 乍 (Sạ)", "strokeGuide": "Bộ Nhân đứng (亻 - 2 nét) bên trái ➔ chữ Sạ (乍 - 5 nét: nét phẩy, nét ngang, nét sổ, nét ngang ngắn, nét phẩy chéo) bên phải.", "mnemonic": "Con người (亻) khéo léo dùng tay chế tác ra đồ vật ngon lành (作)."}, {"char": "物", "hv": "Vật", "lesson": "L11", "lessonName": "Bài 11", "strokes": 8, "meaning": "Vật chất, đồ vật, sự vật", "kun": "もの", "on": "ぶつ、もつ", "examples": [{"word": "食べ物", "reading": "たべもの", "vi": "Đồ ăn, thức ăn"}, {"word": "飲み物", "reading": "のみもの", "vi": "Đồ uống"}, {"word": "乗り物", "reading": "のりもの", "vi": "Phương tiện giao thông"}, {"word": "荷物", "reading": "にもつ", "vi": "Hành lý, đồ đạc"}, {"word": "博物館", "reading": "はくぶつかん", "vi": "Viện bảo tàng"}], "formula": "牜 (Ngưu) ＋ 勿 (Vật)", "strokeGuide": "Bộ Ngưu (牜 - 4 nét: phẩy, ngang ngắn, sổ dài, hất lên) bên trái ➔ chữ Vật (勿 - 4 nét: phẩy, gập móc, 2 phẩy trong) bên phải.", "mnemonic": "Con trâu bò (牜) là động vật đại diện cho vạn vật (物) sinh sôi."}, {"char": "茶", "hv": "Trà", "lesson": "L11", "lessonName": "Bài 11", "strokes": 9, "meaning": "Cây chè, lá trà, nước trà", "kun": "-", "on": "ちゃ、さ", "examples": [{"word": "お茶", "reading": "おちゃ", "vi": "Trà, nước chè"}, {"word": "喫茶店", "reading": "きっさてん", "vi": "Quán cà phê, tiệm giải khát"}, {"word": "緑茶", "reading": "りょくちゃ", "vi": "Trà xanh"}, {"word": "紅茶", "reading": "こうちゃ", "vi": "Hồng trà, trà đen"}], "formula": "艹 (Thảo) ＋ 人 ＋ 木 (Mộc)", "strokeGuide": "Bộ Thảo (艹 - 3 nét) ở trên ➔ bộ Nhân (人 - 2 nét: phẩy, mác) ở giữa ➔ bộ Mộc (木 - 4 nét: ngang, sổ móc, 2 phẩy mác) ở dưới cùng.", "mnemonic": "Lá thảo mộc (艹) trên cây gỗ (木) hái về cho người (人) thưởng thức Trà (茶)."}, {"char": "持", "hv": "Trì", "lesson": "L11", "lessonName": "Bài 11", "strokes": 9, "meaning": "Cầm, giữ, duy trì, sở hữu", "kun": "も-つ", "on": "じ", "examples": [{"word": "持ちます", "reading": "もちます", "vi": "Cầm, mang / Có, sở hữu"}, {"word": "持ってきます", "reading": "もってきます", "vi": "Mang theo, đem đến"}, {"word": "持っています", "reading": "もっています", "vi": "Đang có, đang sở hữu"}, {"word": "気持ち", "reading": "きもち", "vi": "Tâm trạng, cảm giác"}], "formula": "扌 (Thủ) ＋ 寺 (Tự - Chùa)", "strokeGuide": "Bộ Thủ (扌 - 3 nét) bên trái ➔ chữ Tự (寺 - 6 nét: chữ Thổ 土 3 nét + chữ Thốn 寸 3 nét) bên phải.", "mnemonic": "Đôi tay (扌) nâng niu lễ vật lên chùa (寺) để gìn giữ, duy trì (持) phúc lành."}, {"char": "願", "hv": "Nguyện", "lesson": "L11", "lessonName": "Bài 11", "strokes": 19, "meaning": "Cầu chúc, mong ước, nhờ cậy", "kun": "ねが-う", "on": "がん", "examples": [{"word": "お願いします", "reading": "おねがいします", "vi": "Làm ơn, xin vui lòng (gọi món / nhờ vả)"}, {"word": "お願い", "reading": "おねがい", "vi": "Lời yêu cầu, điều nhờ cậy"}, {"word": "願い事", "reading": "ねがいごと", "vi": "Điều ước, nguyện vọng"}, {"word": "願書", "reading": "がんしょ", "vi": "Đơn xin, đơn nguyện vọng"}], "formula": "原 (Nguyên) ＋ 頁 (Hiệt - đầu)", "strokeGuide": "Chữ Nguyên (原 - 10 nét: Hán 厂 + Bạch 白 + Tiểu 小) bên trái ➔ bộ Hiệt (頁 - 9 nét: ngang, phẩy, mục 目, 2 chấm) bên phải.", "mnemonic": "Cúi đầu (頁) nhớ về nguồn cội nguyên sơ (原) thành tâm cầu Nguyện (願)."}, {"char": "料", "hv": "Liệu", "lesson": "L12", "lessonName": "Bài 12", "strokes": 10, "meaning": "Nguyên liệu, tiền cước, tiền phí", "kun": "-", "on": "りょう", "examples": [{"word": "料理", "reading": "りょうり", "vi": "Món ăn, sự nấu nướng"}, {"word": "料金", "reading": "りょうきん", "vi": "Tiền cước, chi phí, lệ phí"}, {"word": "給料", "reading": "きゅうりょう", "vi": "Tiền lương"}, {"word": "無料", "reading": "むりょう", "vi": "Miễn phí"}], "formula": "米 (Mễ - gạo) ＋ 斗 (Đấu - cái đong lường)", "strokeGuide": "Bộ Mễ (米 - 6 nét) bên trái ➔ bộ Đấu (斗 - 4 nét: chấm, ngang, ngang, sổ dài) bên phải.", "mnemonic": "Lúa gạo (米) đem vào cái đấu (斗) để đong đo nguyên Liệu (料)."}, {"char": "理", "hv": "Lý", "lesson": "L12", "lessonName": "Bài 12", "strokes": 11, "meaning": "Đạo lý, lý do, xử lý, nấu nướng", "kun": "-", "on": "り", "examples": [{"word": "料理", "reading": "りょうり", "vi": "Món ăn, nấu nướng"}, {"word": "理由", "reading": "りゆう", "vi": "Lý do, nguyên nhân"}, {"word": "無理", "reading": "むり", "vi": "Quá sức, vô lý"}, {"word": "地理", "reading": "ちり", "vi": "Địa lý"}], "formula": "王 (Vương - ngọc) ＋ 里 (Lý - làng xóm)", "strokeGuide": "Bộ Vương (王 - 4 nét) bên trái ➔ chữ Lý (里 - 7 nét: bộ Điền 田 + bộ Thổ 土) bên phải.", "mnemonic": "Vị vua (王) đem viên ngọc quý về giảng giải đạo Lý (理) cho dân làng (里)."}, {"char": "味", "hv": "Vị", "lesson": "L12", "lessonName": "Bài 12", "strokes": 8, "meaning": "Mùi vị, hương vị, ý nghĩa", "kun": "あじ", "on": "み", "examples": [{"word": "味", "reading": "あじ", "vi": "Mùi vị, hương vị"}, {"word": "意味", "reading": "いみ", "vi": "Ý nghĩa"}, {"word": "興味", "reading": "きょうみ", "vi": "Hứng thú, quan tâm"}, {"word": "味噌汁", "reading": "みそしる", "vi": "Canh súp tương Miso"}], "formula": "口 (Khẩu) ＋ 未 (Vị - chưa trổ)", "strokeGuide": "Bộ Khẩu (口 - 3 nét) bên trái ➔ chữ Vị (未 - 5 nét: ngang ngắn, ngang dài, sổ, phẩy, mác) bên phải.", "mnemonic": "Cái miệng (口) nếm thử quả non chưa chín (未) để biết Vị (味)."}, {"char": "色", "hv": "Sắc", "lesson": "L12", "lessonName": "Bài 12", "strokes": 6, "meaning": "Màu sắc, sắc mặt, vẻ ngoài", "kun": "いろ", "on": "しょく、しき", "examples": [{"word": "色", "reading": "いろ", "vi": "Màu sắc"}, {"word": "茶色", "reading": "ちゃいろ", "vi": "Màu nâu (màu nước trà)"}, {"word": "景色", "reading": "けしき", "vi": "Phong cảnh, cảnh sắc"}, {"word": "色々", "reading": "いろいろ", "vi": "Đa dạng, nhiều loại"}], "formula": "⺈ ＋ 巳 (Ba)", "strokeGuide": "Bộ Đao cách điệu (⺈ - 2 nét trên) ➔ nét ngang gập và nét sổ cong móc (巳 - 4 nét dưới).", "mnemonic": "Con người bộc lộ cảm xúc và sắc mặt rực rỡ muôn màu Sắc (色)."}, {"char": "野", "hv": "Dã", "lesson": "L12", "lessonName": "Bài 12", "strokes": 11, "meaning": "Đồng nội, hoang dã, lĩnh vực", "kun": "の", "on": "や", "examples": [{"word": "野菜", "reading": "やさい", "vi": "Rau xanh, rau củ"}, {"word": "野球", "reading": "やきゅう", "vi": "Môn bóng chày"}, {"word": "分野", "reading": "ぶんや", "vi": "Lĩnh vực chuyên môn"}, {"word": "長野", "reading": "ながの", "vi": "Tỉnh Nagano (Nhật Bản)"}], "formula": "里 (Lý) ＋ 予 (Dự)", "strokeGuide": "Chữ Lý (里 - 7 nét) bên trái ➔ chữ Dự (予 - 4 nét: phẩy ngang, sổ móc, 2 chấm) bên phải.", "mnemonic": "Nơi thôn dã (里) đem lại những dự báo (予) diệu kỳ về mùa màng Dã (野)."}, {"char": "菜", "hv": "Thái", "lesson": "L12", "lessonName": "Bài 12", "strokes": 11, "meaning": "Rau xanh, món ăn thức ăn", "kun": "-", "on": "さい", "examples": [{"word": "野菜", "reading": "やさい", "vi": "Rau củ, rau xanh"}, {"word": "白菜", "reading": "はくさい", "vi": "Cải thảo"}, {"word": "菜食", "reading": "さいしょく", "vi": "Ăn chay, chế độ ăn rau củ"}, {"word": "惣菜", "reading": "そうざい", "vi": "Đồ ăn kèm, món chế biến sẵn"}], "formula": "艹 (Thảo) ＋ 采 (Thải - hái lượm)", "strokeGuide": "Bộ Thảo (艹 - 3 nét) bên trên ➔ chữ Thải (采 - 8 nét: trảo 爫 + mộc 木) bên dưới.", "mnemonic": "Hái ngọn cỏ cây (艹) dùng bàn tay hái (采) về làm món rau Thái (菜)."}, {"char": "少", "hv": "Thiểu", "lesson": "L12", "lessonName": "Bài 12", "strokes": 4, "meaning": "Ít ỏi, một chút, thiếu niên", "kun": "すく-ない、すこ-し", "on": "しょう", "examples": [{"word": "少し", "reading": "すこし", "vi": "Một chút, một ít"}, {"word": "少ない", "reading": "すくない", "vi": "Ít ỏi, hiếm hoi"}, {"word": "少年", "reading": "しょうねん", "vi": "Thiếu niên"}, {"word": "少女", "reading": "しょうじょ", "vi": "Thiếu nữ"}], "formula": "小 (Tiểu) ＋ 丿 (Phiệt)", "strokeGuide": "Sổ móc giữa ➔ chấm trái ➔ phẩy phải ➔ nét phẩy dài chéo xuống dưới trái.", "mnemonic": "Đã nhỏ bé (小) lại thêm một nét phẩy tức là càng ít Thiểu (少) hơn nữa."}, {"char": "会", "hv": "Hội", "lesson": "L13", "lessonName": "Bài 13", "strokes": 6, "meaning": "Gặp gỡ, tụ họp, hội thảo", "kun": "あ-う", "on": "かい", "examples": [{"word": "会います", "reading": "あいます", "vi": "Gặp gỡ"}, {"word": "会社", "reading": "かいしゃ", "vi": "Công ty"}, {"word": "会議", "reading": "かいぎ", "vi": "Cuộc họp"}, {"word": "会話", "reading": "かいわ", "vi": "Hội thoại"}], "formula": "人 (Nhân) ＋ 一 ＋ ム", "strokeGuide": "Nét phẩy và nét mác (bộ Nhân) trên cùng ➔ nét ngang giữa ➔ chữ Khư (厶 - 2 nét) bên dưới.", "mnemonic": "Mọi người (人) cùng tề tựu dưới một mái nhà sum Hội (会)."}, {"char": "社", "hv": "Xã", "lesson": "L13", "lessonName": "Bài 13", "strokes": 7, "meaning": "Công ty, đền miếu, xã hội", "kun": "-", "on": "しゃ", "examples": [{"word": "会社", "reading": "かいしゃ", "vi": "Công ty"}, {"word": "本社", "reading": "ほんしゃ", "vi": "Trụ sở chính"}, {"word": "支社", "reading": "ししゃ", "vi": "Chi nhánh công ty"}, {"word": "社会", "reading": "しゃかい", "vi": "Xã hội"}], "formula": "礻 (Kỳ - thần linh) ＋ 土 (Thổ - đất đai)", "strokeGuide": "Bộ Kỳ (礻 - 4 nét) bên trái ➔ chữ Thổ (土 - 3 nét: ngang, sổ, ngang đáy) bên phải.", "mnemonic": "Thần linh (礻) bảo vệ đất đai thôn làng thành Xã (社) tắc."}, {"char": "支", "hv": "Chi", "lesson": "L13", "lessonName": "Bài 13", "strokes": 4, "meaning": "Cành nhánh, chi nhánh, chống đỡ, chi viện", "kun": "-", "on": "し", "examples": [{"word": "支社", "reading": "ししゃ", "vi": "Chi nhánh công ty"}, {"word": "支店", "reading": "してん", "vi": "Cửa hàng chi nhánh"}, {"word": "支配", "reading": "しはい", "vi": "Chi phối, thống trị"}, {"word": "支援", "reading": "しえん", "vi": "Chi viện, viện trợ"}], "formula": "十 ＋ 又", "strokeGuide": "Chữ Thập (十 - 2 nét trên) ➔ chữ Hựu (又 - 2 nét dưới: ngang gập, mác dài).", "mnemonic": "Bàn tay nắm lấy cành cây chống đỡ phân Chi (支)."}, {"char": "張", "hv": "Trương", "lesson": "L13", "lessonName": "Bài 13", "strokes": 11, "meaning": "Kéo căng, giương cung, phồng to", "kun": "は-る", "on": "ちょう", "examples": [{"word": "出張", "reading": "しゅっちょう", "vi": "Chuyến công tác"}, {"word": "主張", "reading": "しゅちょう", "vi": "Chủ trương"}, {"word": "緊張", "reading": "きんちょう", "vi": "Căng thẳng, hồi hộp"}, {"word": "引っ張る", "reading": "ひっぱる", "vi": "Lôi kéo, kéo giật"}], "formula": "弓 (Cung) ＋ 長 (Trường - dài)", "strokeGuide": "Bộ Cung (弓 - 3 nét) bên trái ➔ chữ Trường (長 - 8 nét) bên phải.", "mnemonic": "Cây cung (弓) kéo căng dài (長) gọi là Trương (張)."}, {"char": "空", "hv": "Không", "lesson": "L13", "lessonName": "Bài 13", "strokes": 8, "meaning": "Bầu trời, khoảng không, trống rỗng", "kun": "そら、あ-く", "on": "くう", "examples": [{"word": "空港", "reading": "くうこう", "vi": "Sân bay, phi trường"}, {"word": "空", "reading": "そら", "vi": "Bầu trời"}, {"word": "空気", "reading": "くうき", "vi": "Không khí"}, {"word": "空手", "reading": "からて", "vi": "Môn võ Karate (Không thủ)"}], "formula": "穴 (Huyệt) ＋ 工 (Công)", "strokeGuide": "Bộ Huyệt (穴 - 5 nét trên) ➔ chữ Công (工 - 3 nét dưới: ngang, sổ, ngang đáy).", "mnemonic": "Dưới mái hang sâu (穴) người thợ (工) ngước nhìn khoảng Không (空) vô tận."}, {"char": "港", "hv": "Cảng", "lesson": "L13", "lessonName": "Bài 13", "strokes": 12, "meaning": "Bến cảng, sân bay, hải cảng", "kun": "みなと", "on": "こう", "examples": [{"word": "空港", "reading": "くうこう", "vi": "Sân bay, phi cảng"}, {"word": "港", "reading": "みなと", "vi": "Bến cảng, hải cảng"}, {"word": "港町", "reading": "みなとまち", "vi": "Phố cảng ven biển"}, {"word": "寄港", "reading": "きこう", "vi": "Ghé cảng, cập cảng"}], "formula": "氵 (Thủy) ＋ 巷 (Hạng - ngõ hẻm)", "strokeGuide": "Bộ Thủy (氵 - 3 nét) bên trái ➔ chữ Hạng (巷 - 9 nét: Cộng 共 + Tỵ 巳) bên phải.", "mnemonic": "Nơi dòng nước (氵) tụ hội muôn ngả thuyền bè là bến Cảng (港)."}, {"char": "発", "hv": "Phát", "lesson": "L13", "lessonName": "Bài 13", "strokes": 9, "meaning": "Khởi hành, phát ra, phát triển", "kun": "-", "on": "はつ、ほつ", "examples": [{"word": "出発", "reading": "しゅっぱつ", "vi": "Khởi hành, xuất phát"}, {"word": "発見", "reading": "はっけん", "vi": "Phát hiện, tìm thấy"}, {"word": "発音", "reading": "はつおん", "vi": "Phát âm"}, {"word": "発表", "reading": "はっぴょう", "vi": "Phát biểu, công bố"}], "formula": "癶 (Bát - hai chân) ＋ 弓 ＋ 殳", "strokeGuide": "Bộ Bát (癶 - 5 nét trên) ➔ hai nét uốn và nét phẩy mác phía dưới.", "mnemonic": "Hai chân bước ra bắn tên vút đi Phát (発) động hành trình."}, {"char": "着", "hv": "Trước", "lesson": "L13", "lessonName": "Bài 13", "strokes": 12, "meaning": "Đến nơi, cập bến, mặc trang phục", "kun": "つ-く、き-る", "on": "ちゃく", "examples": [{"word": "到着", "reading": "とうちゃく", "vi": "Đến nơi, cập bến"}, {"word": "着きます", "reading": "つきます", "vi": "Đến, tới nơi"}, {"word": "着ます", "reading": "きます", "vi": "Mặc (áo, kimono)"}, {"word": "上着", "reading": "うわぎ", "vi": "Áo khoác ngoài"}], "formula": "羊 (Dương - cừu) ＋ 目 (Mục - mắt)", "strokeGuide": "Bộ Dương biến thể (羊 - 7 nét trên với nét phẩy dài) ➔ chữ Mục (目 - 5 nét dưới).", "mnemonic": "Đàn cừu (羊) mở to mắt (目) mừng rỡ khi tàu cập bến Trước (着)."}, {"char": "午", "hv": "Ngọ", "lesson": "L13", "lessonName": "Bài 13", "strokes": 4, "meaning": "Giờ ngọ (12 giờ trưa), phương nam", "kun": "-", "on": "ご", "examples": [{"word": "午前", "reading": "ごぜん", "vi": "Buổi sáng (trước 12h trưa)"}, {"word": "午後", "reading": "ごご", "vi": "Buổi chiều (sau 12h trưa)"}, {"word": "正午", "reading": "しょうご", "vi": "Chính ngọ (đúng 12h trưa)"}], "formula": "丿 ＋ 一 ＋ 十", "strokeGuide": "Nét phẩy trên ➔ nét ngang ngắn ➔ nét ngang dài ➔ nét sổ thẳng giữa.", "mnemonic": "Chiếc chày thẳng đứng lúc bóng nắng tròn 12 giờ trưa chính Ngọ (午)."}, {"char": "自", "hv": "Tự", "lesson": "L14", "lessonName": "Bài 14", "strokes": 6, "meaning": "Tự mình, tự thân, tự do", "kun": "みずか-ら", "on": "じ、し", "examples": [{"word": "自分", "reading": "じぶん", "vi": "Bản thân mình"}, {"word": "自動車", "reading": "じどうしゃ", "vi": "Xe ô tô"}, {"word": "自由", "reading": "じゆう", "vi": "Tự do"}, {"word": "自転車", "reading": "じてんしゃ", "vi": "Xe đạp"}], "formula": "丿 ＋ 目 (Mục)", "strokeGuide": "Nét phẩy ngắn trên đỉnh ➔ chữ Mục (目 - 5 nét bên dưới).", "mnemonic": "Chỉ tay vào mũi chính giữa khuôn mặt tức là nói về Tự (自) mình."}, {"char": "分", "hv": "Phân", "lesson": "L14", "lessonName": "Bài 14", "strokes": 4, "meaning": "Phân chia, thấu hiểu, phút", "kun": "わ-かる、わ-ける", "on": "ぶん、ふん、ぷん", "examples": [{"word": "自分", "reading": "じぶん", "vi": "Bản thân mình"}, {"word": "分かります", "reading": "わかります", "vi": "Hiểu, nắm rõ"}, {"word": "5分", "reading": "ごふん", "vi": "5 phút"}, {"word": "半分", "reading": "はんぶん", "vi": "Một nửa"}], "formula": "八 (Bát) ＋ 刀 (Đao)", "strokeGuide": "Nét phẩy trái và mác phải (bộ Bát - 2 nét trên) ➔ chữ Đao (刀 - 2 nét dưới).", "mnemonic": "Dùng con dao (刀) rạch đôi chia thành từng Phân (分) phần rõ ràng."}, {"char": "電", "hv": "Điện", "lesson": "L14", "lessonName": "Bài 14", "strokes": 13, "meaning": "Điện lực, ánh sáng, tia chớp", "kun": "-", "on": "でん", "examples": [{"word": "電話", "reading": "でんわ", "vi": "Điện thoại"}, {"word": "電気", "reading": "でんき", "vi": "Đèn điện, ánh sáng"}, {"word": "電車", "reading": "でんしゃ", "vi": "Tàu điện"}, {"word": "電力", "reading": "でんりょく", "vi": "Điện lực"}], "formula": "雨 (Vũ) ＋ 申 (Thân)", "strokeGuide": "Bộ Vũ (雨 - 8 nét trên) ➔ chữ Thân (申 - 5 nét dưới: khung vuông và nét sổ thẳng).", "mnemonic": "Trong cơn mưa (雨) sấm chớp giáng xuống phát ra dòng Điện (電)."}, {"char": "話", "hv": "Thoại", "lesson": "L14", "lessonName": "Bài 14", "strokes": 13, "meaning": "Nói chuyện, câu chuyện, đối thoại", "kun": "はな-す、はなし", "on": "わ", "examples": [{"word": "電話", "reading": "でんわ", "vi": "Điện thoại"}, {"word": "話します", "reading": "はなします", "vi": "Nói chuyện"}, {"word": "会話", "reading": "かいわ", "vi": "Hội thoại"}, {"word": "世話", "reading": "せわ", "vi": "Chăm sóc, giúp đỡ"}], "formula": "言 (Ngôn) ＋ 舌 (Thiệt - cái lưỡi)", "strokeGuide": "Bộ Ngôn (言 - 7 nét trái) ➔ chữ Thiệt (舌 - 6 nét phải).", "mnemonic": "Cái lưỡi (舌) cất thành lời nói (言) để chuyện trò đối Thoại (話)."}, {"char": "車", "hv": "Xa", "lesson": "L14", "lessonName": "Bài 14", "strokes": 7, "meaning": "Xe cộ, bánh xe", "kun": "くるま", "on": "しゃ", "examples": [{"word": "車", "reading": "くるま", "vi": "Xe ô tô"}, {"word": "電車", "reading": "でんしゃ", "vi": "Tàu điện"}, {"word": "自転車", "reading": "じてんしゃ", "vi": "Xe đạp"}, {"word": "駐車場", "reading": "ちゅうしゃじょう", "vi": "Bãi đỗ xe"}], "formula": "一 ＋ 囗 ＋ 十", "strokeGuide": "Nét ngang trên ➔ nét sổ trái ➔ gập ngang ➔ 2 nét ngang trong ➔ ngang dài đáy ➔ sổ thẳng xuyên qua.", "mnemonic": "Hình cỗ Xa (車) xe có trục và bánh lăn tròn đều."}, {"char": "送", "hv": "Tống", "lesson": "L14", "lessonName": "Bài 14", "strokes": 9, "meaning": "Gửi đi, tiễn đưa, chuyển phát", "kun": "おく-る", "on": "そう", "examples": [{"word": "送ります", "reading": "おくります", "vi": "Gửi (email, bưu phẩm) / Tiễn khách"}, {"word": "郵送", "reading": "ゆうそう", "vi": "Gửi qua đường bưu điện"}, {"word": "見送る", "reading": "みおくる", "vi": "Tiễn biệt, đưa tiễn"}, {"word": "転送", "reading": "てんそう", "vi": "Chuyển tiếp thư từ"}], "formula": "关 (Quan) ＋ 辶 (Quai xước)", "strokeGuide": "Chữ Quan (关 - 6 nét trong: 2 chấm, 2 ngang, phẩy, mác) ➔ bộ Quai xước (辶 - 3 nét ngoài).", "mnemonic": "Dõi theo bước chân (辶) tiễn Tống (送) người đi xa."}, {"char": "使", "hv": "Sử", "lesson": "L14", "lessonName": "Bài 14", "strokes": 8, "meaning": "Sử dụng, sai khiến, đại sứ", "kun": "つか-う", "on": "し", "examples": [{"word": "使います", "reading": "つかいます", "vi": "Sử dụng, dùng"}, {"word": "使い方", "reading": "つかいかた", "vi": "Cách sử dụng"}, {"word": "大使館", "reading": "たいしかん", "vi": "Đại sứ quán"}, {"word": "使用", "reading": "しよう", "vi": "Sử dụng"}], "formula": "亻 (Nhân đứng) ＋ 吏 (Lại - quan lại)", "strokeGuide": "Bộ Nhân đứng (亻 - 2 nét trái) ➔ chữ Lại (吏 - 6 nét phải: ngang, khẩu 口, phẩy, mác).", "mnemonic": "Con người (亻) được quan sai phái ra ngoài Sử (使) dụng tài trí."}, {"char": "借", "hv": "Tá", "lesson": "L14", "lessonName": "Bài 14", "strokes": 10, "meaning": "Vay mượn đồ đạc, nợ nần", "kun": "か-りる", "on": "しゃく", "examples": [{"word": "借ります", "reading": "かります", "vi": "Vay mượn"}, {"word": "借用書", "reading": "しゃくようしょ", "vi": "Giấy vay nợ"}, {"word": "借金", "reading": "しゃっきん", "vi": "Khoản nợ, tiền vay"}], "formula": "亻 (Nhân đứng) ＋ 昔 (Tích - ngày xưa)", "strokeGuide": "Bộ Nhân đứng (亻 - 2 nét trái) ➔ chữ Tích (昔 - 8 nét phải: Thảo cách điệu + Nhật 日).", "mnemonic": "Người (亻) từ ngày xưa (昔) vẫn thường tìm đến vay mượn Tá (借) của nhau."}];
+    const quizData = [{"id": 1, "category": "Ngữ pháp & Rủ rê", "lesson": "A2-11", "q": "いい てんきですね。いっしょに こうえんへ [____]。", "options": ["行きます", "行きましょう", "行かない", "行った"], "correct": 1, "explain": "Đưa ra lời rủ rê, đề xuất cùng làm gì ta dùng thể ý chí 「V-ましょう」 (Chúng ta cùng đi nhé)."}, {"id": 2, "category": "Trợ từ mang theo", "lesson": "A2-11", "q": "バーベキューの とき、肉や やさい [____] 持って行きます。", "options": ["を", "に", "で", "へ"], "correct": 0, "explain": "Đồ vật mang theo là tân ngữ trực tiếp của động từ 「持っていきます」, dùng trợ từ 「を」."}, {"id": 3, "category": "Đề nghị giúp đỡ", "lesson": "A2-11", "q": "荷物が 重そうですね。[____]か。", "options": ["持ちました", "持ってください", "持ちましょう", "持っています"], "correct": 2, "explain": "Khi ngỏ ý muốn làm giúp đối phương việc gì đó, ta dùng cấu trúc 「V-ましょうか」 (Để tôi xách giúp bạn nhé?)."}, {"id": 4, "category": "Chọn lựa / Quyết định", "lesson": "A2-11", "q": "A: 「何に しますか。」ー B: 「わたしは ラーメン [____] します。」", "options": ["を", "で", "が", "に"], "correct": 3, "explain": "Cấu trúc chọn món ăn, đồ uống hoặc đưa ra quyết định: 「N に します」 (Tôi chọn món N)."}, {"id": 5, "category": "Phán đoán diện mạo", "lesson": "A2-12", "q": "この ケーキは とても [____] そうですね。", "options": ["おいし", "おいしい", "おいしくて", "おいしかった"], "correct": 0, "explain": "Cấu trúc phán đoán bề ngoài với Tính từ đuôi い: Bỏ đuôi 「い」 + 「そうですね」 (おいしい ➔ おいしそう)."}, {"id": 6, "category": "Biến đổi tính từ", "lesson": "A2-12", "q": "レモンを 入れたので、スープが ちょっと [____] なりました。", "options": ["すっぱい", "すっぱく", "すっぱくて", "すっぱいに"], "correct": 1, "explain": "Tính từ đuôi い kết hợp với động từ biến đổi 「なります」: Bỏ 「い」 thay bằng 「く」 ➔ 「すっぱくなります」 (trở nên chua)."}, {"id": 7, "category": "Phạm vi so sánh nhất", "lesson": "A2-12", "q": "日本の 料理の [____]で、天ぷらが いちばん 好きです。", "options": ["上 (うえ)", "外 (そと)", "中 (なか)", "前 (まえ)"], "correct": 2, "explain": "So sánh trong một nhóm/phạm vi: 「[Nhóm] の 中で、[A] が いちばん Adj です」 (Trong số các món ăn Nhật thì tôi thích nhất Tempura)."}, {"id": 8, "category": "Phán đoán tính từ đuôi na", "lesson": "A2-12", "q": "あの レストランは いつも [____] そうですね。", "options": ["にぎやかな", "にぎやかに", "にぎやかだ", "にぎやか"], "correct": 3, "explain": "Tính từ đuôi な kết hợp với 「そう」: Bỏ chữ 「な」 đi trực tiếp với 「そう」 ➔ 「にぎやかそう」 (trông có vẻ nhộn nhịp)."}, {"id": 9, "category": "Thể kinh nghiệm", "lesson": "A2-13", "q": "今までに 飛行機に [____] ことが ありますか。", "options": ["乗った", "乗る", "乗って", "乗ります"], "correct": 0, "explain": "Cấu trúc nói về trải nghiệm / kinh nghiệm trong quá khứ bắt buộc dùng động từ thể Ta: 「V-た ことが あります」."}, {"id": 10, "category": "Đáp lại thể kinh nghiệm", "lesson": "A2-13", "q": "すしを 食べたことが ありますか。ー いいえ、[____]。", "options": ["まだ あります", "一度も ありません", "もう 食べました", "一度 あります"], "correct": 1, "explain": "Khi trả lời phủ định chưa từng làm bao giờ: 「いいえ、一度も ありません」 (Chưa từng làm một lần nào cả)."}, {"id": 11, "category": "Mức độ quá đà", "lesson": "A2-13", "q": "きのうの パーティーで ビールを [____] すぎました。", "options": ["飲んで", "飲んだ", "飲み", "飲む"], "correct": 2, "explain": "Cấu trúc làm việc gì đó quá đà với động từ: Động từ bỏ 「ます」 + 「すぎます」 (飲みます ➔ 飲みすぎました)."}, {"id": 12, "category": "Quá mức (Tính từ đuôi i)", "lesson": "A2-13", "q": "この スーツは [____]、買うことが できません。", "options": ["高いすぎて", "高くて", "高だすぎて", "高すぎて"], "correct": 3, "explain": "Tính từ đuôi い bỏ đuôi 「い」 ghép với すぎて (dạng nối câu): 「高すぎて」 (đắt quá nên không thể mua)."}, {"id": 13, "category": "Quá mức (Tính từ đuôi na)", "lesson": "A2-13", "q": "この 部屋は [____] すぎて、ちょっと こわいです。", "options": ["静か", "静かな", "静かに", "静かだ"], "correct": 0, "explain": "Tính từ đuôi な kết hợp với すぎます: Bỏ hẳn chữ 「な」 ➔ 「静かすぎて」 (Quá yên tĩnh nên hơi đáng sợ)."}, {"id": 14, "category": "Trợ từ công tác & Gặp gỡ", "lesson": "A2-13", "q": "来週、東京へ 出張します。そして、田中さん [____] 会います。", "options": ["を", "に", "で", "と"], "correct": 1, "explain": "Gặp gỡ ai đó bắt buộc đi với trợ từ 「に」: 「田中さんに 会います」."}, {"id": 15, "category": "Xin phép hành động", "lesson": "A2-14", "q": "すみません、この パソコンを [____] いいですか。", "options": ["使って", "使うと", "使っても", "使ったら"], "correct": 2, "explain": "Cấu trúc xin phép lịch sự: 「V-ても いいですか」 (Tôi dùng cái này có được không?)."}, {"id": 16, "category": "Cấm đoán & Quy tắc", "lesson": "A2-14", "q": "ここで たばこを 吸っても いいですか。ー すみません、ここでは [____]。", "options": ["吸ってもいいです", "吸ってください", "吸いました", "吸ってはいけません"], "correct": 3, "explain": "Khi từ chối và nêu rõ quy tắc cấm đoán: 「V-ては いけません」 (Không được phép hút thuốc)."}, {"id": 17, "category": "Quy tắc nơi làm việc", "lesson": "A2-14", "q": "会議室の 中で 大声で 話し[____] いけません。", "options": ["ては", "ても", "たら", "れば"], "correct": 0, "explain": "Cấu trúc cấm đoán: 「V-ては いけません」."}, {"id": 18, "category": "Cách sử dụng máy móc", "lesson": "A2-14", "q": "すみません、この コピー機の [____]を 教えてください。", "options": ["使います", "使い方 (つかいかた)", "使うこと", "使って"], "correct": 1, "explain": "Cách làm việc gì đó: Động từ bỏ ます + 「方 (かた)」 ➔ 「使い方」 (cách sử dụng, cách dùng)."}, {"id": 19, "category": "Từ vựng dã ngoại", "lesson": "A2-11", "q": "ピクニックで 食べる おにぎりや おかずを 箱に 入れた ものは 何ですか。", "options": ["サンドイッチ", "サラダ", "お弁当 (おべんとう)", "デザート"], "correct": 2, "explain": "Cơm hộp đựng đồ ăn mang đi dã ngoại hoặc đi làm gọi là 「お弁当 (おべんとう)」."}, {"id": 20, "category": "Từ vựng vị giác", "lesson": "A2-12", "q": "砂糖 (さとう)を たくさん 入れた 料理は [____] です。", "options": ["辛い (からい)", "苦い (にがい)", "酸っぱい (すっぱい)", "甘い (あまい)"], "correct": 3, "explain": "Đồ ăn cho nhiều đường thì có vị ngọt: 「甘い (あまい)」."}, {"id": 21, "category": "Từ vựng công tác", "lesson": "A2-13", "q": "飛行機が 空港に つく ことを [____] と 言います。", "options": ["到着 (とうちゃく)", "出発 (しゅっぱつ)", "出張 (しゅっちょう)", "準備 (じゅんび)"], "correct": 0, "explain": "Máy bay hoặc tàu xe đến nơi an toàn gọi là 「到着 (とうちゃく)」."}, {"id": 22, "category": "Từ vựng công sở", "lesson": "A2-14", "q": "書類を コピーしたり 印刷したりする 機械は [____] です。", "options": ["パソコン", "コピー機 (コピーき)", "キャビネット", "ファックス"], "correct": 1, "explain": "Máy photocopy trong văn phòng gọi là 「コピー機 (コピーき)」."}, {"id": 23, "category": "Mượn đồ & Phép tắc", "lesson": "A2-14", "q": "ペンを 忘れましたから、同僚に ペンを [____]。", "options": ["貸しました (かしました)", "買いました", "借りました (かりました)", "捨てました"], "correct": 2, "explain": "Mình đi mượn của người khác dùng động từ 「借ります (かります)」. Cho mượn mới là 「貸します (かします)」."}, {"id": 24, "category": "Kanji Bài 11", "lesson": "A2-11", "q": "Chữ Hán 「持」 trong 「持っていきます」 có âm Hán Việt là gì?", "options": ["Đặc", "Đợi", "Thời", "Trì"], "correct": 3, "explain": "Chữ 持 có âm Hán Việt là 「Trì」 (cầm, giữ, duy trì). Chiết tự: Tay 扌 nắm giữ ngôi chùa 寺."}, {"id": 25, "category": "Kanji Bài 12", "lesson": "A2-12", "q": "Từ 「料理 (りょうり)」 được ghép từ 2 chữ Hán nào?", "options": ["Liệu (料) + Lý (理)", "Khoa (科) + Lý (理)", "Liệu (料) + Dã (野)", "Vị (味) + Lý (理)"], "correct": 0, "explain": "「料理」 ghép từ chữ 料 (Liệu - nguyên liệu) và 理 (Lý - xử lý, lý lẽ)."}, {"id": 26, "category": "Kanji Bài 12", "lesson": "A2-12", "q": "Chữ Hán 「野」 trong 「野菜 (やさい - rau xanh)」 có âm Hán Việt là gì?", "options": ["Thái", "Dã", "Lý", "Lâm"], "correct": 1, "explain": "Chữ 野 có âm Hán Việt là 「Dã」 (đồng dã, hoang dã, dã ngoại)."}, {"id": 27, "category": "Kanji Bài 13", "lesson": "A2-13", "q": "Từ 「出発」 (Khởi hành) có cách đọc Hiragana là gì?", "options": ["しゅつはつ", "とうちゃく", "しゅっぱつ", "はっしゃ"], "correct": 2, "explain": "「出発」 ghép từ 出 (Xuất - しゅつ) và 発 (Phát - はつ) biến âm ngắt thành 「しゅっぱつ」."}, {"id": 28, "category": "Kanji Bài 14", "lesson": "A2-14", "q": "Chữ Hán 「使」 trong 「使います (つかいます - dùng, sử dụng)」 có âm Hán Việt là gì?", "options": ["Tiện", "Lại", "Trừ", "Sử / Sứ"], "correct": 3, "explain": "Chữ 使 có âm Hán Việt là 「Sử / Sứ」 (sử dụng, sứ giả). Chiết tự: Người 亻 gánh vác việc quan 吏."}, {"id": 29, "category": "Đọc hiểu hội thoại", "lesson": "A2-14", "q": "A: 「課長、この 資料を 見ても いいですか。」ー B: 「ええ、[____]。」", "options": ["どうぞ", "だめです", "すみません", "失礼します"], "correct": 0, "explain": "Khi cấp dưới hỏi xin phép xem tài liệu, cấp trên đồng ý một cách lịch sự sẽ đáp: 「ええ、どうぞ」 (Vâng, xin mời cứ xem)."}, {"id": 30, "category": "Văn hóa & Đời sống", "lesson": "A2-13", "q": "Khi đi công tác hoặc đi du lịch về, người Nhật thường mua quà gì tặng đồng nghiệp trong công ty?", "options": ["手土産 (てみやげ)", "お土産 (おみやげ)", "お祝い (おいわい)", "プレゼント"], "correct": 1, "explain": "Món quà đặc sản địa phương mua về sau chuyến công tác hay du lịch để chia cho mọi người trong cơ quan được gọi là 「お土産 (おみやげ)」."}];
+
+    let currentVocabFilter = 'ALL';
+    let currentKanjiFilter = 'ALL';
+    let isMeaningHidden = false;
+    let currentFilteredVocab = [...rawVocab];
+    let userAnswers = {};
+
+    // Timer Variables
+    let totalSeconds = 35 * 60;
+    let timerInterval = null;
+    let isTimerRunning = true;
+
+    // Start Timer
+    function startTimer() {
+        if (timerInterval) clearInterval(timerInterval);
+        timerInterval = setInterval(() => {
+            if (isTimerRunning && totalSeconds > 0) {
+                totalSeconds--;
+                updateTimerDisplay();
+            } else if (totalSeconds <= 0) {
+                clearInterval(timerInterval);
+                alert("⏱️ Hết thời gian làm bài! Hãy kiểm tra lại kết quả của bạn nhé.");
+            }
+        }, 1000);
+    }
+
+    function updateTimerDisplay() {
+        const mins = Math.floor(totalSeconds / 60);
+        const secs = totalSeconds % 60;
+        const el = document.getElementById('timerText');
+        if (el) {
+            el.innerText = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        }
+    }
+
+    function toggleTimer() {
+        isTimerRunning = !isTimerRunning;
+        const btn = event.target;
+        if (isTimerRunning) {
+            btn.innerText = "⏸️ Tạm Dừng";
+        } else {
+            btn.innerText = "▶️ Tiếp Tục";
+        }
+    }
+
+    // Switch Tab
+    function switchMainTab(tabId) {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+
+        const targetBtn = Array.from(document.querySelectorAll('.tab-btn')).find(b => 
+            b.getAttribute('onclick') && b.getAttribute('onclick').includes(tabId)
+        );
+        if (targetBtn) targetBtn.classList.add('active');
+
+        const targetPanel = document.getElementById(tabId);
+        if (targetPanel) targetPanel.classList.add('active');
+        window.scrollTo({ top: 180, behavior: 'smooth' });
+    }
+
+    // Speak text
+    function speakText(text) {
+        if (window.speakJapanese) {
+            window.speakJapanese(text);
+        } else if ('speechSynthesis' in window) {
+            const u = new SpeechSynthesisUtterance(text);
+            u.lang = 'ja-JP';
+            window.speechSynthesis.speak(u);
+        }
+    }
+
+    // Render Vocab
+    function renderVocab(list) {
+        const container = document.getElementById('vocabContainer');
+        if (!list || list.length === 0) {
+            container.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--gray-500);">Không tìm thấy từ vựng nào phù hợp.</div>';
+            return;
+        }
+
+        container.innerHTML = list.map(item => `
+            <div class="vocab-card">
+                <div class="vocab-top">
+                    <div>
+                        <span class="vocab-badge">${item.l}</span>
+                        <div class="vocab-jp jp-text" style="margin-top: 4px;">${item.kanji || item.kana}</div>
+                        ${item.kanji && item.kanji !== item.kana ? `<div class="vocab-sub jp-text">${item.kana}</div>` : ''}
+                        <div class="vocab-sub">${item.romaji} ${item.hv ? `• <span style="font-weight:700;">${item.hv}</span>` : ''}</div>
+                    </div>
+                    <button class="sound-btn" onclick="speakText('${item.kanji || item.kana}')" title="Nghe phát âm">🔊</button>
+                </div>
+                <div class="vocab-vi ${isMeaningHidden ? 'hidden-meaning' : ''}" onclick="this.classList.toggle('hidden-meaning')">
+                    ${item.vi}
+                </div>
+            </div>
+        `).join('');
+    }
+
+    function filterVocab(lesson, btn) {
+        currentVocabFilter = lesson;
+        if (btn) {
+            btn.parentElement.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        }
+        applyVocabFilter();
+    }
+
+    function handleVocabSearch() {
+        applyVocabFilter();
+    }
+
+    function applyVocabFilter() {
+        const keyword = document.getElementById('vocabSearchInput').value.trim().toLowerCase();
+        let filtered = rawVocab;
+        if (currentVocabFilter !== 'ALL') {
+            filtered = filtered.filter(w => w.l === currentVocabFilter);
+        }
+        if (keyword) {
+            filtered = filtered.filter(w => 
+                (w.kanji && w.kanji.toLowerCase().includes(keyword)) ||
+                (w.kana && w.kana.toLowerCase().includes(keyword)) ||
+                (w.romaji && w.romaji.toLowerCase().includes(keyword)) ||
+                (w.hv && w.hv.toLowerCase().includes(keyword)) ||
+                (w.vi && w.vi.toLowerCase().includes(keyword))
+            );
+        }
+        currentFilteredVocab = filtered;
+        const countEl = document.getElementById('quizletVocabCount');
+        if (countEl) countEl.innerText = filtered.length;
+        renderVocab(filtered);
+    }
+
+    function cleanJpTermForQuizlet(str) {
+        if (!str) return "";
+        let s = str;
+        s = s.replace(/[~～…\.]/g, "");
+        s = s.replace(/^[nN]が/g, "");
+        s = s.replace(/^[nNpPvV][をにへとがで]/g, "");
+        s = s.replace(/[vV]ましょう/g, "ましょう");
+        s = s.replace(/[vV]ました/g, "");
+        s = s.replace(/[vV]$/g, "");
+        s = s.replace(/てください$/g, "");
+        s = s.replace(/\([^)]*を\)/g, "").replace(/（[^）]*を）/g, "");
+        s = s.replace(/\(お\)/g, "お").replace(/（お）/g, "お");
+        s = s.replace(/\(します\)/g, "します").replace(/（します）/g, "します");
+        s = s.replace(/\(さん\)/g, "").replace(/（さん）/g, "");
+        s = s.replace(/\(な\)/g, "").replace(/（な）/g, "");
+        s = s.replace(/[\(\)（）]/g, "");
+        if (s.includes("/") || s.includes("／")) {
+            s = s.split(/[\/／]/)[0];
+        }
+        s = s.replace(/[NPVnvp]/g, "");
+        s = s.replace(/[。、,，\?？！!]/g, "");
+        s = s.replace(/[\s　]+/g, "");
+        return s.trim();
+    }
+
+    function formatQuizletVocabLine(item) {
+        const term = cleanJpTermForQuizlet(item.kanji || item.kana);
+        let def = item.vi;
+        if (item.kana && item.kanji && item.kanji !== item.kana) {
+            def = `[${item.kana}] ${item.vi}`;
+        }
+        return `${term}\t${def}`;
+    }
+
+    function copyVocabQuizletFormat() {
+        if (!currentFilteredVocab || currentFilteredVocab.length === 0) {
+            showToast("Không có từ vựng nào để sao chép!");
+            return;
+        }
+        const text = currentFilteredVocab.map(formatQuizletVocabLine).join('\n');
+        navigator.clipboard.writeText(text).then(() => {
+            showToast(`✅ Đã copy ${currentFilteredVocab.length} từ vựng chuẩn Quizlet (Gõ mượt, không khoảng trắng, không ~)!`);
+        }).catch(() => {
+            fallbackCopyText(text, currentFilteredVocab.length);
+        });
+    }
+
+    function copyFullQuizletFormat() {
+        const text = rawVocab.map(formatQuizletVocabLine).join('\n');
+        navigator.clipboard.writeText(text).then(() => {
+            showToast(`✅ Đã copy trọn bộ ${rawVocab.length} từ vựng (Bài 11 - 14) chuẩn Quizlet!`);
+        }).catch(() => {
+            fallbackCopyText(text, rawVocab.length);
+        });
+    }
+
+    function fallbackCopyText(text, count) {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        showToast(`✅ Đã copy ${count} từ vựng chuẩn Quizlet!`);
+    }
+
+    function showToast(msg) {
+        let toast = document.getElementById('toast');
+        if (!toast) {
+            toast = document.createElement('div');
+            toast.id = 'toast';
+            toast.className = 'toast';
+            document.body.appendChild(toast);
+        }
+        toast.innerText = msg;
+        toast.style.display = 'block';
+        setTimeout(() => { toast.style.display = 'none'; }, 2800);
+    }
+
+    function toggleHideMeaning() {
+        isMeaningHidden = !isMeaningHidden;
+        const btn = document.getElementById('hideMeaningBtn');
+        if (isMeaningHidden) {
+            btn.classList.add('active');
+            btn.innerHTML = '👁️ Đang ẩn nghĩa (Chạm vào thẻ để xem)';
+        } else {
+            btn.classList.remove('active');
+            btn.innerHTML = '👁️ Ẩn nghĩa tiếng Việt (Tự dò)';
+        }
+        document.querySelectorAll('.vocab-vi').forEach(el => {
+            if (isMeaningHidden) el.classList.add('hidden-meaning');
+            else el.classList.remove('hidden-meaning');
+        });
+    }
+
+    // Render Kanji
+    function renderKanji(list) {
+        const container = document.getElementById('kanjiContainer');
+        if (!list || list.length === 0) {
+            container.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--gray-500);">Không tìm thấy chữ Hán phù hợp.</div>';
+            return;
+        }
+
+        container.innerHTML = list.map(item => `
+            <div class="kanji-card">
+                <div class="kanji-header">
+                    <div class="kanji-char-box jp-text">${item.char}</div>
+                    <div class="kanji-meta">
+                        <div class="kanji-hv">${item.hv}</div>
+                        <div class="kanji-meaning">${item.meaning}</div>
+                        <div class="kanji-sub-row">
+                            <span class="kanji-tag">${item.lessonName}</span>
+                            <span class="kanji-tag">${item.strokes} nét</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="kanji-detail-box">
+                    <div class="kanji-reading-item">
+                        <strong>KUN:</strong> <span class="jp-text">${item.kun || '—'}</span>
+                    </div>
+                    <div class="kanji-reading-item">
+                        <strong>ON:</strong> <span class="jp-text">${item.on || '—'}</span>
+                    </div>
+                    <div class="kanji-reading-item">
+                        <strong>Chiết tự:</strong> <span>${item.formula || '—'}</span>
+                    </div>
+                </div>
+
+                <div class="kanji-mnemonic">
+                    💡 <strong>Mẹo nhớ:</strong> ${item.mnemonic || '—'}
+                </div>
+
+                <ul class="kanji-words">
+                    ${(item.examples || []).map(ex => `
+                        <li class="kanji-word-item">
+                            <span class="kw-jp jp-text">${ex.word} (${ex.reading})</span>
+                            <span class="kw-vi">${ex.vi}</span>
+                        </li>
+                    `).join('')}
+                </ul>
+            </div>
+        `).join('');
+    }
+
+    function filterKanji(lesson, btn) {
+        currentKanjiFilter = lesson;
+        if (btn) {
+            btn.parentElement.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        }
+        applyKanjiFilter();
+    }
+
+    function handleKanjiSearch() {
+        applyKanjiFilter();
+    }
+
+    function applyKanjiFilter() {
+        const keyword = document.getElementById('kanjiSearchInput').value.trim().toLowerCase();
+        let filtered = rawKanji;
+        if (currentKanjiFilter !== 'ALL') {
+            filtered = filtered.filter(k => k.lesson === currentKanjiFilter);
+        }
+        if (keyword) {
+            filtered = filtered.filter(k => 
+                k.char.includes(keyword) ||
+                k.hv.toLowerCase().includes(keyword) ||
+                k.meaning.toLowerCase().includes(keyword) ||
+                (k.kun && k.kun.toLowerCase().includes(keyword)) ||
+                (k.on && k.on.toLowerCase().includes(keyword))
+            );
+        }
+        renderKanji(filtered);
+    }
+
+    // Render Quiz
+    function renderQuiz() {
+        const container = document.getElementById('questionsContainer');
+        container.innerHTML = quizData.map((item, idx) => `
+            <div class="question-card" id="qCard_${item.id}">
+                <div class="q-header">
+                    <span class="q-num">Câu ${idx + 1} / ${quizData.length}</span>
+                    <span class="q-category">${item.lesson} • ${item.category}</span>
+                </div>
+                <div class="q-text jp-text">${item.q}</div>
+                <div class="options-list">
+                    ${item.options.map((opt, oIdx) => `
+                        <button class="opt-btn" id="optBtn_${item.id}_${oIdx}" onclick="selectAnswer(${item.id}, ${oIdx})">
+                            <span class="opt-key">${['A', 'B', 'C', 'D'][oIdx]}</span>
+                            <span class="jp-text">${opt}</span>
+                        </button>
+                    `).join('')}
+                </div>
+                <div class="q-explain" id="explain_${item.id}">
+                    💡 <strong>Giải thích chi tiết:</strong> ${item.explain}
+                </div>
+            </div>
+        `).join('');
+    }
+
+    function selectAnswer(qId, selectedIdx) {
+        if (userAnswers[qId] !== undefined) return;
+
+        userAnswers[qId] = selectedIdx;
+        const qItem = quizData.find(q => q.id === qId);
+        const correctIdx = qItem.correct;
+
+        qItem.options.forEach((_, idx) => {
+            const btn = document.getElementById(`optBtn_${qId}_${idx}`);
+            btn.disabled = true;
+            if (idx === correctIdx) {
+                btn.classList.add('correct');
+            } else if (idx === selectedIdx) {
+                btn.classList.add('wrong');
+            }
+        });
+
+        const explainEl = document.getElementById(`explain_${qId}`);
+        explainEl.style.display = 'block';
+
+        updateScore();
+    }
+
+    function updateScore() {
+        let correctCount = 0;
+        let answeredCount = Object.keys(userAnswers).length;
+
+        quizData.forEach(q => {
+            if (userAnswers[q.id] === q.correct) {
+                correctCount++;
+            }
+        });
+
+        const percent = Math.round((correctCount / quizData.length) * 100);
+        document.getElementById('scoreDisplay').innerText = correctCount;
+        document.getElementById('quizProgressText').innerText = 
+            `Đã làm: ${answeredCount}/${quizData.length} câu • Tỷ lệ đúng: ${percent}%`;
+
+        if (answeredCount === quizData.length) {
+            let rank = "🏆 XUẤT SẮC!";
+            if (percent < 60) rank = "⚠️ CẦN ÔN TẬP THÊM!";
+            else if (percent < 80) rank = "👍 KHÁ TỐT!";
+            else if (percent < 90) rank = "🌟 RẤT GIỎI!";
+            
+            document.getElementById('quizStatusTitle').innerText = 
+                `HOÀN THÀNH: ${correctCount}/${quizData.length} ĐIỂM (${percent}%) - ${rank}`;
+        }
+    }
+
+    function resetQuiz() {
+        userAnswers = {};
+        document.getElementById('scoreDisplay').innerText = '0';
+        document.getElementById('quizStatusTitle').innerText = 'Đề Mini Test Trọng Tâm Bài 11 - 14 (30 Câu Chuẩn Sư Phạm)';
+        document.getElementById('quizProgressText').innerText = `Đã làm: 0/${quizData.length} câu • Điểm số: 0%`;
+        totalSeconds = 35 * 60;
+        isTimerRunning = true;
+        updateTimerDisplay();
+        renderQuiz();
+        window.scrollTo({ top: document.getElementById('tab-quiz').offsetTop - 60, behavior: 'smooth' });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        applyVocabFilter();
+        renderKanji(rawKanji);
+        renderQuiz();
+        startTimer();
+    });
+</script>
+<script src="../assets/js/nav-dropdown.js"></script>
+</body>
+</html>

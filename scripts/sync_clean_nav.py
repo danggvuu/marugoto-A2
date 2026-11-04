@@ -39,6 +39,7 @@ TEST_LINKS = [
     ('On_Tap_Dich_Cau_Lesson_1_10.html', '✍️ Luyện Dịch Câu Bài 1 - 10 (40 Câu)'),
     ('On_Tap_Mini_Test_A2_1_4.html', '🎯 Ôn Tập Bài 1-4 (Mini Test)'),
     ('On_Tap_Mini_Test_A2_5_8.html', '🎯 Ôn Tập Bài 5-8 (Mini Test)'),
+    ('On_Tap_Mini_Test_A2_11_14.html', '🎯 Ôn Tập Bài 11-14 (Mini Test)'),
     ('De_Thi_Thu_Marugoto_A2_5_8.html', '📝 5 Mã Đề Thi Thử (101-105)'),
     ('Kiem_Tra_Marugoto_L6_7_8.html', '📑 Đề Kiểm Tra L6, 7, 8'),
     ('Luyen_Tap_The_Te_A2_1.html', '🌸 Luyện Tập Thể Te')
