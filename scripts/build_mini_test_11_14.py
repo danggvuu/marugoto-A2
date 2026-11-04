@@ -33,6 +33,77 @@ with open(os.path.join(WORKSPACE, 'data/kanji_extracted.json'), 'r', encoding='u
 
 kanji_11_14 = [k for k in all_kanji if k.get('lesson') in ['L11', 'L12', 'L13', 'L14'] or k.get('lessonName') in ['Bài 11', 'Bài 12', 'Bài 13', 'Bài 14']]
 
+KANJI_READINGS = {
+    '酒': 'さけ',
+    '作': 'つくる',
+    '物': 'もの',
+    '茶': 'おちゃ',
+    '持': 'もつ',
+    '願': 'ねがう',
+    '料': 'りょう',
+    '理': 'り',
+    '味': 'あじ',
+    '色': 'いろ',
+    '野': 'の',
+    '菜': 'さい',
+    '少': 'すこし',
+    '会': 'あう',
+    '社': 'しゃ',
+    '支': 'し',
+    '張': 'ちょう',
+    '空': 'そら',
+    '港': 'みなと',
+    '発': 'はつ',
+    '着': 'つく',
+    '午': 'ご',
+    '自': 'じ',
+    '分': 'ぶん',
+    '電': 'でん',
+    '話': 'はなす',
+    '車': 'くるま',
+    '送': 'おくる',
+    '使': 'つかう',
+    '借': 'かりる'
+}
+
+KANJI_SHORT_MEANINGS = {
+    '酒': 'rượu, đồ uống có cồn',
+    '作': 'làm, chế tạo, nấu nướng',
+    '物': 'đồ vật, sự vật',
+    '茶': 'trà, nước chè',
+    '持': 'cầm, giữ, sở hữu',
+    '願': 'cầu chúc, nhờ cậy',
+    '料': 'nguyên liệu, tiền cước',
+    '理': 'lý do, xử lý',
+    '味': 'mùi vị, hương vị',
+    '色': 'màu sắc',
+    '野': 'cánh đồng, hoang dã',
+    '菜': 'rau xanh',
+    '少': 'ít ỏi, một chút',
+    '会': 'gặp gỡ, tụ họp',
+    '社': 'công ty, đền thờ',
+    '支': 'chi nhánh, chống đỡ',
+    '張': 'kéo căng, phồng to',
+    '空': 'bầu trời, trống rỗng',
+    '港': 'bến cảng, sân bay',
+    '発': 'khởi hành, xuất phát',
+    '着': 'đến nơi, mặc đồ',
+    '午': 'buổi trưa, giờ ngọ',
+    '自': 'tự mình, tự thân',
+    '分': 'phân chia, phút',
+    '電': 'điện lực, tia chớp',
+    '話': 'nói chuyện, câu chuyện',
+    '車': 'xe ô tô',
+    '送': 'gửi đi, tiễn đưa',
+    '使': 'dùng, sử dụng',
+    '借': 'vay mượn'
+}
+
+for k in kanji_11_14:
+    ch = k['char']
+    k['hiragana'] = KANJI_READINGS.get(ch, (k.get('kun') or '').split('、')[0].replace('-', '').strip() or (k.get('on') or '').split('、')[0].replace('-', '').strip())
+    k['shortMeaning'] = KANJI_SHORT_MEANINGS.get(ch, k.get('meaning', '').split(',')[0].strip())
+
 # 3. Data for Part I: Multiple Choice (10 Questions - 25 pts)
 PART1_MC = [
     {
@@ -1748,14 +1819,20 @@ html_content = f"""<!DOCTYPE html>
             <div class="stat-pill">🎯 6 Dạng Bài • 32 Câu (Thang Điểm 100)</div>
         </div>
         <div style="margin-top: 18px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
-            <button type="button" class="btn-quizlet" onclick="copyFullQuizletFormat()" style="padding: 10px 20px; font-size: 0.92rem;">
-                📋 Copy Quizlet Kana (Tab): くだもの [Tab] Hoa quả
+            <button type="button" class="btn-quizlet" onclick="copyFullQuizletFormat()" style="padding: 10px 18px; font-size: 0.9rem;" title="Dạng gõ siêu mượt trên Quizlet: くだもの [Tab] Hoa quả">
+                📋 Copy Gõ Kana (Tab): くだもの [Tab] Hoa quả
             </button>
-            <button type="button" class="btn-quizlet" onclick="copyFullColonFormat()" style="background: linear-gradient(135deg, #059669, #10b981); padding: 10px 20px; font-size: 0.92rem;">
-                📋 Copy Dấu Hai Chấm (：): くだもの：Hoa quả
+            <button type="button" class="btn-quizlet" onclick="copyFullColonFormat()" style="background: linear-gradient(135deg, #059669, #10b981); padding: 10px 18px; font-size: 0.9rem;" title="Dạng dấu hai chấm: くだもの：Hoa quả">
+                📋 Copy Dấu (：): くだもの：Hoa quả
             </button>
-            <button type="button" class="btn-quizlet" onclick="copyFullKanjiFormat()" style="background: linear-gradient(135deg, #4b5563, #6b7280); padding: 10px 18px; font-size: 0.88rem;">
-                🈁 Copy Gõ Kanji (Tab)
+            <button type="button" class="btn-quizlet" onclick="copyFullCombinedFormat()" style="background: linear-gradient(135deg, #7c3aed, #9333ea); padding: 10px 18px; font-size: 0.9rem;" title="Dạng chuẩn Quizlet Pro: 果物 [Tab] [くだもの] Hoa quả">
+                🎴 Copy Kèm Kanji: 果物 [Tab] [くだもの] Hoa quả
+            </button>
+            <button type="button" class="btn-quizlet" onclick="copyKanjiColonFormat()" style="background: linear-gradient(135deg, #d97706, #f59e0b); padding: 10px 18px; font-size: 0.9rem;" title="Copy 30 chữ Hán định dạng: 車、xe ô tô, XA: くるま">
+                ⛩️ Copy Kanji: 車、xe ô tô, XA: くるま
+            </button>
+            <button type="button" class="btn-quizlet" onclick="copyKanjiQuizletTabFormat()" style="background: linear-gradient(135deg, #0284c7, #06b6d4); padding: 10px 18px; font-size: 0.9rem;" title="Copy 30 chữ Hán Tab cho Quizlet: [車、xe ô tô, XA] [Tab] [くるま]">
+                ⛩️ Copy Kanji Quizlet (Tab)
             </button>
         </div>
     </header>
@@ -2011,6 +2088,9 @@ html_content = f"""<!DOCTYPE html>
                 <button type="button" class="btn-quizlet" onclick="copyVocabColonFormat()" style="background: linear-gradient(135deg, #059669, #10b981);" title="Định dạng dấu hai chấm: くだもの：Hoa quả">
                     📋 Copy Dấu (：)
                 </button>
+                <button type="button" class="btn-quizlet" onclick="copyVocabCombinedFormat()" style="background: linear-gradient(135deg, #7c3aed, #9333ea);" title="Dạng chuẩn Quizlet Pro: 果物 [Tab] [くだもの] Hoa quả">
+                    🎴 Copy Kèm Kanji (Tab)
+                </button>
             </div>
         </div>
 
@@ -2037,6 +2117,12 @@ html_content = f"""<!DOCTYPE html>
                     <span class="search-icon">🔍</span>
                     <input type="text" id="kanjiSearchInput" placeholder="Tìm theo chữ Hán, Hán Việt, cách đọc On/Kun..." oninput="handleKanjiSearch()">
                 </div>
+                <button type="button" class="btn-quizlet" onclick="copyKanjiColonFormat()" style="background: linear-gradient(135deg, #059669, #10b981);" title="Copy toàn bộ 30 chữ theo định dạng: 車、xe ô tô, XA: くるま">
+                    📋 Copy (車、xe ô tô, XA: くるま)
+                </button>
+                <button type="button" class="btn-quizlet" onclick="copyKanjiQuizletTabFormat()" title="Copy định dạng Tab cho Quizlet: [車、xe ô tô, XA] [Tab] [くるま]">
+                    📋 Copy Quizlet (Tab)
+                </button>
             </div>
         </div>
 
@@ -2997,47 +3083,72 @@ html_content = f"""<!DOCTYPE html>
         return s.trim();
     }}
 
-    function formatQuizletVocabLine(item, delimiter = '\t', useKanji = false) {{
-        // Ưu tiên dùng KANA (cách đọc Hiragana/Katakana) sạch 100% để gõ siêu mượt trên Quizlet (ví dụ: くだもの)
-        const term = useKanji 
-            ? cleanJpTermForQuizlet(item.kanji || item.kana)
-            : cleanJpTermForQuizlet(item.kana || item.kanji);
+    function formatQuizletVocabLine(item, delimiter = '\t', formatType = 'kana') {{
         const def = (item.vi || '').trim();
-        return `${{term}}${{delimiter}}${{def}}`;
+        if (formatType === 'combined') {{
+            const kanji = cleanJpTermForQuizlet(item.kanji || item.kana);
+            const kana = cleanJpTermForQuizlet(item.kana || '');
+            if (kana && kana !== kanji) {{
+                return `${{kanji}}${{delimiter}}[${{kana}}] ${{def}}`;
+            }} else {{
+                return `${{kanji}}${{delimiter}}${{def}}`;
+            }}
+        }} else if (formatType === 'kanji') {{
+            const term = cleanJpTermForQuizlet(item.kanji || item.kana);
+            return `${{term}}${{delimiter}}${{def}}`;
+        }} else {{
+            // Ưu tiên KANA sạch 100% để gõ siêu mượt: くだもの [Tab] Hoa quả
+            const term = cleanJpTermForQuizlet(item.kana || item.kanji);
+            return `${{term}}${{delimiter}}${{def}}`;
+        }}
     }}
 
     // 1. Copy chuẩn Quizlet Tab (mặc định): くだもの [Tab] Hoa quả
     function copyVocabQuizletFormat() {{
-        copyFilteredQuizlet('\t', false);
+        copyFilteredQuizlet('\t', 'kana');
     }}
 
     // 2. Copy chuẩn Dấu Hai Chấm (：): くだもの：Hoa quả
     function copyVocabColonFormat() {{
-        copyFilteredQuizlet('：', false);
+        copyFilteredQuizlet('：', 'kana');
     }}
 
-    // 3. Copy trọn bộ 118 từ Tab: くだもの [Tab] Hoa quả
+    // 3. Copy kèm Kanji & Kana (như Quizlet Pro): 果物 [Tab] [くだもの] Hoa quả
+    function copyVocabCombinedFormat() {{
+        copyFilteredQuizlet('\t', 'combined');
+    }}
+
+    // 4. Copy trọn bộ 118 từ Tab: くだもの [Tab] Hoa quả
     function copyFullQuizletFormat() {{
-        copyFullQuizlet('\t', false);
+        copyFullQuizlet('\t', 'kana');
     }}
 
-    // 4. Copy trọn bộ 118 từ Dấu Hai Chấm (：): くだもの：Hoa quả
+    // 5. Copy trọn bộ 118 từ Dấu Hai Chấm (：): くだもの：Hoa quả
     function copyFullColonFormat() {{
-        copyFullQuizlet('：', false);
+        copyFullQuizlet('：', 'kana');
     }}
 
-    // 5. Copy Kanji Tab
+    // 6. Copy trọn bộ kèm Kanji & Kana: 果物 [Tab] [くだもの] Hoa quả
+    function copyFullCombinedFormat() {{
+        copyFullQuizlet('\t', 'combined');
+    }}
+
+    // 7. Copy Kanji Tab
     function copyFullKanjiFormat() {{
-        copyFullQuizlet('\t', true);
+        copyFullQuizlet('\t', 'kanji');
     }}
 
-    function copyFilteredQuizlet(delimiter = '\t', useKanji = false) {{
+    function copyFilteredQuizlet(delimiter = '\t', formatType = 'kana') {{
         if (!currentFilteredVocab || currentFilteredVocab.length === 0) {{
             showToast("Không có từ vựng nào để sao chép!");
             return;
         }}
-        const text = currentFilteredVocab.map(item => formatQuizletVocabLine(item, delimiter, useKanji)).join('\\n');
-        const label = (delimiter === '：') ? 'Dấu hai chấm (くだもの：Hoa quả)' : (useKanji ? 'Kanji' : 'Kana gõ Quizlet (くだもの [Tab] Hoa quả)');
+        const text = currentFilteredVocab.map(item => formatQuizletVocabLine(item, delimiter, formatType)).join('\\n');
+        let label = 'Kana gõ Quizlet (くだもの [Tab] Hoa quả)';
+        if (delimiter === '：') label = 'Dấu hai chấm (くだもの：Hoa quả)';
+        else if (formatType === 'combined') label = 'Kèm Kanji & Kana (果物 [Tab] [くだもの] Hoa quả)';
+        else if (formatType === 'kanji') label = 'Kanji';
+
         navigator.clipboard.writeText(text).then(() => {{
             showToast(`✅ Đã copy ${{currentFilteredVocab.length}} từ chuẩn ${{label}}!`);
         }}).catch(() => {{
@@ -3045,9 +3156,13 @@ html_content = f"""<!DOCTYPE html>
         }});
     }}
 
-    function copyFullQuizlet(delimiter = '\t', useKanji = false) {{
-        const text = rawVocab.map(item => formatQuizletVocabLine(item, delimiter, useKanji)).join('\\n');
-        const label = (delimiter === '：') ? 'Dấu hai chấm (くだもの：Hoa quả)' : (useKanji ? 'Kanji' : 'Kana gõ Quizlet (くだもの [Tab] Hoa quả)');
+    function copyFullQuizlet(delimiter = '\t', formatType = 'kana') {{
+        const text = rawVocab.map(item => formatQuizletVocabLine(item, delimiter, formatType)).join('\\n');
+        let label = 'Kana gõ Quizlet (くだもの [Tab] Hoa quả)';
+        if (delimiter === '：') label = 'Dấu hai chấm (くだもの：Hoa quả)';
+        else if (formatType === 'combined') label = 'Kèm Kanji & Kana (果物 [Tab] [くだもの] Hoa quả)';
+        else if (formatType === 'kanji') label = 'Kanji';
+
         navigator.clipboard.writeText(text).then(() => {{
             showToast(`✅ Đã copy toàn bộ ${{rawVocab.length}} từ chuẩn ${{label}}!`);
         }}).catch(() => {{
@@ -3096,6 +3211,56 @@ html_content = f"""<!DOCTYPE html>
         }});
     }}
 
+    let currentFilteredKanji = [...rawKanji];
+
+    function formatKanjiLine(item, delimiter = ': ') {{
+        const ch = item.char;
+        const mean = item.shortMeaning || (item.meaning ? item.meaning.split(',')[0].trim() : '');
+        const hv = (item.hv || '').toUpperCase();
+        const rd = item.hiragana || '';
+        if (delimiter === '\\t') {{
+            return `${{ch}}、${{mean}}, ${{hv}}\\t${{rd}}`;
+        }}
+        return `${{ch}}、${{mean}}, ${{hv}}: ${{rd}}`;
+    }}
+
+    function copyKanjiColonFormat() {{
+        if (!currentFilteredKanji || currentFilteredKanji.length === 0) {{
+            showToast("Không có chữ Hán nào để sao chép!");
+            return;
+        }}
+        const text = currentFilteredKanji.map(k => formatKanjiLine(k, ': ')).join('\\n');
+        navigator.clipboard.writeText(text).then(() => {{
+            showToast(`✅ Đã copy ${{currentFilteredKanji.length}} chữ Hán (Dạng: 車、xe ô tô, XA: くるま)!`);
+        }}).catch(() => {{
+            fallbackCopyText(text, currentFilteredKanji.length, 'Dạng: 車、xe ô tô, XA: くるま');
+        }});
+    }}
+
+    function copyKanjiQuizletTabFormat() {{
+        if (!currentFilteredKanji || currentFilteredKanji.length === 0) {{
+            showToast("Không có chữ Hán nào để sao chép!");
+            return;
+        }}
+        const text = currentFilteredKanji.map(k => formatKanjiLine(k, '\\t')).join('\\n');
+        navigator.clipboard.writeText(text).then(() => {{
+            showToast(`✅ Đã copy ${{currentFilteredKanji.length}} chữ Hán chuẩn Quizlet (Tab)!`);
+        }}).catch(() => {{
+            fallbackCopyText(text, currentFilteredKanji.length, 'Quizlet Tab');
+        }});
+    }}
+
+    function copySingleKanji(char) {{
+        const item = rawKanji.find(k => k.char === char);
+        if (!item) return;
+        const line = formatKanjiLine(item, ': ');
+        navigator.clipboard.writeText(line).then(() => {{
+            showToast(`✅ Đã copy: ${{line}}`);
+        }}).catch(() => {{
+            fallbackCopyText(line, 1, line);
+        }});
+    }}
+
     function renderKanji(list) {{
         const container = document.getElementById('kanjiContainer');
         if (!list || list.length === 0) {{
@@ -3108,11 +3273,17 @@ html_content = f"""<!DOCTYPE html>
                 <div class="kanji-header">
                     <div class="kanji-char-box jp-text">${{item.char}}</div>
                     <div class="kanji-meta">
-                        <div class="kanji-hv">${{item.hv}}</div>
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 8px;">
+                            <div class="kanji-hv">${{item.hv}} <span style="font-size: 0.92rem; font-weight: 700; color: #166534;">(${{item.hiragana || ''}})</span></div>
+                            <button type="button" class="sound-btn" onclick="copySingleKanji('${{item.char}}')" title="Copy: ${{item.char}}、${{item.shortMeaning || item.meaning.split(',')[0]}}, ${{item.hv.toUpperCase()}}: ${{item.hiragana}}" style="width: auto; height: 26px; padding: 0 10px; border-radius: 6px; font-size: 0.76rem; font-weight: 700; background: #e0f2fe; color: #0369a1;">
+                                📋 Copy
+                            </button>
+                        </div>
                         <div class="kanji-meaning">${{item.meaning}}</div>
                         <div class="kanji-sub-row">
                             <span class="kanji-tag">${{item.lessonName}}</span>
                             <span class="kanji-tag">${{item.strokes}} nét</span>
+                            <span class="kanji-tag" style="background:#fef3c7; color:#92400e; font-weight:800;">Đọc: ${{item.hiragana}}</span>
                         </div>
                     </div>
                 </div>
@@ -3170,9 +3341,11 @@ html_content = f"""<!DOCTYPE html>
                 k.hv.toLowerCase().includes(keyword) ||
                 k.meaning.toLowerCase().includes(keyword) ||
                 (k.kun && k.kun.toLowerCase().includes(keyword)) ||
-                (k.on && k.on.toLowerCase().includes(keyword))
+                (k.on && k.on.toLowerCase().includes(keyword)) ||
+                (k.hiragana && k.hiragana.includes(keyword))
             );
         }}
+        currentFilteredKanji = filtered;
         renderKanji(filtered);
     }}
 
