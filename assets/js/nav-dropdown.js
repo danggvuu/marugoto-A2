@@ -1,10 +1,10 @@
 /**
- * GLOBAL HUB NAVIGATION DROPDOWN CONTROLLER
- * Toggles for:
+ * GLOBAL HUB NAVIGATION CONTROLLER (nav-dropdown.js)
+ * Toggles and event listeners for:
  * - testsDropdownMenu (🎯 Ôn Tập & Đề Thi ▾)
  * - lessonsDropdownMenu (🚀 Web Bài Học ▾)
  */
-(function() {
+(function () {
     'use strict';
 
     function toggleTestsDropdown(e) {
@@ -37,8 +37,8 @@
         }
     }
 
-    // Close when clicking anywhere outside
-    window.addEventListener('click', function(e) {
+    // Close when clicking outside
+    document.addEventListener('click', function (e) {
         if (e && e.target && e.target.closest && e.target.closest('.hub-dropdown')) {
             return;
         }
@@ -49,7 +49,7 @@
     });
 
     // Close on Escape key
-    window.addEventListener('keydown', function(e) {
+    document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') {
             const lm = document.getElementById('lessonsDropdownMenu');
             if (lm) lm.classList.remove('show');
@@ -58,7 +58,7 @@
         }
     });
 
-    // Expose globally
+    // Expose globally for inline onclick
     window.toggleTestsDropdown = toggleTestsDropdown;
     window.toggleLessonsDropdown = toggleLessonsDropdown;
 })();
