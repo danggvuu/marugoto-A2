@@ -157,31 +157,39 @@
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            padding: 7px 14px;
-            border-radius: 999px;
+            padding: 7px 16px;
+            border-radius: 9999px;
             text-decoration: none;
-            color: var(--gray);
+            color: #475569;
             font-size: 0.88rem;
             font-weight: 700;
-            transition: all 0.2s;
-            border: none;
-            background: transparent;
+            transition: all 0.2s ease;
             cursor: pointer;
             font-family: inherit;
+
+            /* 2 DÒNG TẠO NÊN CÁI VÒNG XÁM ĐÂY: */
+            background: #ffffff;
+            /* Nền trắng viên thuốc */
+            border: 1.5px solid #cbd5e1;
+            /* Viền xám bao quanh từng nút */
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            /* Đổ bóng nhẹ cho nổi */
         }
 
         .hub-nav-item:hover {
-            background: #f1f5f9;
+            background: #f8fafc;
+            border-color: var(--primary);
+            /* Di chuột vào viền đổi sang màu xanh */
             color: var(--primary);
+            transform: translateY(-1px);
         }
 
         .hub-nav-item.active-hub {
             background: var(--primary);
-            color: #ffffff;
-            /* Chữ trắng tinh giống bên Thể TA */
-            font-weight: 800;
+            color: #ffffff !important;
+            border-color: var(--primary);
+            /* Nút đang chọn thì phủ màu xanh kín */
             box-shadow: 0 4px 12px rgba(5, 150, 105, 0.35);
-            /* Đổ bóng nhẹ cho nổi */
         }
 
         /* Dropdown Hub Nav */
@@ -483,37 +491,46 @@
             color: var(--danger);
         }
 
-        /* Filter Row */
+        /* 1. KHUNG VIÊN THUỐC VIỀN XÁM BAO QUANH CẢ CỤM (Cái vòng xám) */
         .filter-row {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-            margin-bottom: 16px;
+            display: inline-flex;
             align-items: center;
+            background: #f1f5f9;
+            border: 1.5px solid #cbd5e1;
+            /* Viền xám bo tròn bao ngoài */
+            border-radius: 9999px;
+            /* Bo tròn viên thuốc 100% */
+            padding: 4px 6px;
+            gap: 4px;
+            margin-bottom: 0;
         }
 
+        /* 2. CÁC NÚT BÊN TRONG: Bỏ viền riêng để nằm lọt vào trong khung xám */
         .filter-pill {
-            padding: 8px 16px;
-            border-radius: 999px;
-            border: 1.5px solid var(--border);
-            background: #ffffff;
-            font-size: 0.88rem;
+            padding: 6px 14px;
+            border-radius: 9999px;
+            border: none;
+            /* Xóa viền riêng từng nút */
+            background: transparent;
+            /* Nền trong suốt */
+            font-size: 0.85rem;
             font-weight: 700;
-            color: var(--gray);
+            color: #64748b;
             cursor: pointer;
-            transition: all 0.2s;
+            transition: all 0.2s ease;
         }
 
         .filter-pill:hover {
-            border-color: var(--primary);
             color: var(--primary);
+            background: #f1f5f9;
         }
 
+        /* Nút đang chọn: Đổ màu xanh ngọc nổi bật bên trong vòng xám */
         .filter-pill.active {
             background: var(--primary);
             color: #ffffff;
-            border-color: var(--primary);
-            box-shadow: 0 2px 8px rgba(5, 150, 105, 0.3);
+            border: none;
+            box-shadow: 0 2px 6px rgba(5, 150, 105, 0.35);
         }
 
         .btn-action {
