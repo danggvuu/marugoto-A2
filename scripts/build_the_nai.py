@@ -1,0 +1,1242 @@
+import json
+import os
+
+WORKSPACE = '/Users/dangvu/Downloads/nhật'
+
+verbs_nai = [
+    # Nhóm 1: i -> wa + nai
+    {"id": 1, "masu": "あいます", "kanji": "会います", "vi": "Gặp gỡ", "group": "1", "nai": "あわない", "note": "⚠️ Bẫy i ➔ わ: あわない", "isTrap": True},
+    {"id": 2, "masu": "かいます", "kanji": "買います", "vi": "Mua sắm", "group": "1", "nai": "かわない", "note": "⚠️ Bẫy i ➔ わ: かわない", "isTrap": True},
+    {"id": 3, "masu": "すいます", "kanji": "吸います", "vi": "Hút (thuốc)", "group": "1", "nai": "すわない", "note": "⚠️ Bẫy i ➔ わ: すわない", "isTrap": True},
+    {"id": 4, "masu": "ならいます", "kanji": "習います", "vi": "Học tập", "group": "1", "nai": "ならわない", "note": "⚠️ Bẫy i ➔ わ: ならわない", "isTrap": True},
+    {"id": 5, "masu": "うたいます", "kanji": "歌います", "vi": "Hát", "group": "1", "nai": "うたわない", "note": "⚠️ Bẫy i ➔ わ: うたわない", "isTrap": True},
+    {"id": 6, "masu": "つかいます", "kanji": "使います", "vi": "Sử dụng, dùng", "group": "1", "nai": "つかわない", "note": "⚠️ Bẫy i ➔ わ: つかわない", "isTrap": True},
+    {"id": 7, "masu": "おもいます", "kanji": "思います", "vi": "Suy nghĩ", "group": "1", "nai": "おもわない", "note": "⚠️ Bẫy i ➔ わ: おもわない", "isTrap": True},
+    {"id": 8, "masu": "てつだいます", "kanji": "手伝います", "vi": "Giúp đỡ", "group": "1", "nai": "てつだわない", "note": "⚠️ Bẫy i ➔ わ: てつだわない", "isTrap": True},
+
+    # Nhóm 1: chi -> ta + nai
+    {"id": 9, "masu": "まちます", "kanji": "待ちます", "vi": "Chờ đợi", "group": "1", "nai": "またない", "note": "chi ➔ た: またない"},
+    {"id": 10, "masu": "たちます", "kanji": "立ちます", "vi": "Đứng lên", "group": "1", "nai": "たたない", "note": "chi ➔ た: たたない"},
+    {"id": 11, "masu": "もちます", "kanji": "持ちます", "vi": "Cầm, mang", "group": "1", "nai": "もたない", "note": "chi ➔ た: もたない"},
+
+    # Nhóm 1: ri -> ra + nai
+    {"id": 12, "masu": "とります", "kanji": "取ります/撮ります", "vi": "Lấy / Chụp ảnh", "group": "1", "nai": "とらない", "note": "ri ➔ ら: とらない"},
+    {"id": 13, "masu": "つくります", "kanji": "作ります", "vi": "Làm, chế biến", "group": "1", "nai": "つくらない", "note": "ri ➔ ら: つくらない"},
+    {"id": 14, "masu": "すわります", "kanji": "座ります", "vi": "Ngồi xuống", "group": "1", "nai": "すわらない", "note": "ri ➔ ら: すわらない"},
+    {"id": 15, "masu": "のぼります", "kanji": "登ります", "vi": "Leo núi", "group": "1", "nai": "のぼらない", "note": "ri ➔ ら: のぼらない"},
+    {"id": 16, "masu": "とまります", "kanji": "泊まります", "vi": "Trọ lại", "group": "1", "nai": "とまらない", "note": "ri ➔ ら: とまらない"},
+    {"id": 17, "masu": "まがります", "kanji": "曲がります", "vi": "Rẽ, quẹo", "group": "1", "nai": "まがらない", "note": "ri ➔ ら: まがらない"},
+    {"id": 18, "masu": "わたります", "kanji": "渡ります", "vi": "Băng qua", "group": "1", "nai": "わたらない", "note": "ri ➔ ら: わたらない"},
+    {"id": 19, "masu": "わかります", "kanji": "分かります", "vi": "Hiểu, rõ", "group": "1", "nai": "わからない", "note": "ri ➔ ら: わからない"},
+    {"id": 20, "masu": "おわります", "kanji": "終わります", "vi": "Kết thúc", "group": "1", "nai": "おわらない", "note": "ri ➔ ら: おわらない"},
+
+    # Nhóm 1 Bẫy Đuôi IRU/ERU
+    {"id": 21, "masu": "かえります", "kanji": "帰ります", "vi": "Đi về", "group": "1", "nai": "かえらない", "note": "⚠️ Bẫy nhóm 1: ri ➔ ら (かえらない)", "isTrap": True},
+    {"id": 22, "masu": "はいります", "kanji": "入ります", "vi": "Đi vào", "group": "1", "nai": "はいらない", "note": "⚠️ Bẫy nhóm 1: ri ➔ ら (はいらない)", "isTrap": True},
+    {"id": 23, "masu": "はしります", "kanji": "走ります", "vi": "Chạy", "group": "1", "nai": "はしらない", "note": "⚠️ Bẫy nhóm 1: ri ➔ ら (はしらない)", "isTrap": True},
+    {"id": 24, "masu": "しります", "kanji": "知ります", "vi": "Biết", "group": "1", "nai": "しらない", "note": "⚠️ Bẫy nhóm 1: ri ➔ ら (しらない)", "isTrap": True},
+    {"id": 25, "masu": "きります", "kanji": "切ります", "vi": "Cắt", "group": "1", "nai": "きらない", "note": "⚠️ Bẫy nhóm 1: ri ➔ ら (きらない)", "isTrap": True},
+    {"id": 26, "masu": "いります", "kanji": "要ります", "vi": "Cần thiết", "group": "1", "nai": "いらない", "note": "⚠️ Bẫy nhóm 1: ri ➔ ら (いらない)", "isTrap": True},
+
+    # Nhóm 1: mi -> ma + nai
+    {"id": 27, "masu": "のみます", "kanji": "飲みます", "vi": "Uống", "group": "1", "nai": "のまない", "note": "mi ➔ ま: のまない"},
+    {"id": 28, "masu": "よみます", "kanji": "読みます", "vi": "Đọc sách", "group": "1", "nai": "よまない", "note": "mi ➔ ま: よまない"},
+    {"id": 29, "masu": "やすみます", "kanji": "休みます", "vi": "Nghỉ ngơi", "group": "1", "nai": "やすまない", "note": "mi ➔ ま: やすまない"},
+    {"id": 30, "masu": "すみます", "kanji": "住みます", "vi": "Sinh sống", "group": "1", "nai": "すまない", "note": "mi ➔ ま: すまない"},
+    {"id": 31, "masu": "たのみます", "kanji": "頼みます", "vi": "Nhờ vả", "group": "1", "nai": "たのまない", "note": "mi ➔ ま: たのまない"},
+
+    # Nhóm 1: bi -> ba + nai, ni -> na + nai
+    {"id": 32, "masu": "あそびます", "kanji": "遊びます", "vi": "Vui chơi", "group": "1", "nai": "あそばない", "note": "bi ➔ ば: あそばない"},
+    {"id": 33, "masu": "えらびます", "kanji": "選びます", "vi": "Chọn lựa", "group": "1", "nai": "えらばない", "note": "bi ➔ ば: えらばない"},
+    {"id": 34, "masu": "よびます", "kanji": "呼びます", "vi": "Gọi, kêu", "group": "1", "nai": "よばない", "note": "bi ➔ ば: よばない"},
+    {"id": 35, "masu": "しにます", "kanji": "死にます", "vi": "Chết", "group": "1", "nai": "しなない", "note": "ni ➔ な: しなない"},
+
+    # Nhóm 1: ki -> ka + nai, gi -> ga + nai
+    {"id": 36, "masu": "かきます", "kanji": "書きます", "vi": "Viết, vẽ", "group": "1", "nai": "かかない", "note": "ki ➔ か: かかない"},
+    {"id": 37, "masu": "ききます", "kanji": "聞きます", "vi": "Nghe, hỏi", "group": "1", "nai": "きかない", "note": "ki ➔ か: きかない"},
+    {"id": 38, "masu": "あるきます", "kanji": "歩きます", "vi": "Đi bộ", "group": "1", "nai": "あるかない", "note": "ki ➔ か: あるかない"},
+    {"id": 39, "masu": "はたらきます", "kanji": "働きます", "vi": "Làm việc", "group": "1", "nai": "はたらかない", "note": "ki ➔ か: はたらかない"},
+    {"id": 40, "masu": "いきます", "kanji": "行きます", "vi": "Đi tới nơi nào", "group": "1", "nai": "いかない", "note": "ki ➔ か: いかない (⚠️ Quy tắc: không phải いった)", "isTrap": True},
+    {"id": 41, "masu": "およぎます", "kanji": "泳ぎます", "vi": "Bơi lội", "group": "1", "nai": "およがない", "note": "gi ➔ が: およがない"},
+    {"id": 42, "masu": "いそぎます", "kanji": "急ぎます", "vi": "Gấp gáp, vội", "group": "1", "nai": "いそがない", "note": "gi ➔ が: いそがない"},
+    {"id": 43, "masu": "ぬぎます", "kanji": "脱ぎます", "vi": "Cởi đồ", "group": "1", "nai": "ぬがない", "note": "gi ➔ が: ぬがない"},
+
+    # Nhóm 1: shi -> sa + nai
+    {"id": 44, "masu": "はなします", "kanji": "話します", "vi": "Nói chuyện", "group": "1", "nai": "はなさない", "note": "shi ➔ さ: はなさない"},
+    {"id": 45, "masu": "かします", "kanji": "貸します", "vi": "Cho mượn", "group": "1", "nai": "かさない", "note": "shi ➔ さ: かさない"},
+    {"id": 46, "masu": "けします", "kanji": "消します", "vi": "Tắt đèn, xóa", "group": "1", "nai": "けさない", "note": "shi ➔ さ: けさない"},
+    {"id": 47, "masu": "なおします", "kanji": "直します", "vi": "Sửa chữa", "group": "1", "nai": "なおさない", "note": "shi ➔ さ: なおさない"},
+    {"id": 48, "masu": "だします", "kanji": "出します", "vi": "Gửi, đưa ra, nộp", "group": "1", "nai": "ださない", "note": "shi ➔ さ: ださない"},
+
+    # Nhóm 1 Ngoại lệ tối thượng: あります
+    {"id": 49, "masu": "あります", "kanji": "有ります", "vi": "Có (đồ vật)", "group": "1", "nai": "ない", "note": "🚨 Bẫy số 1: あります ➔ ない (không có あらない)", "isTrap": True},
+
+    # Nhóm 2: bo masu them nai
+    {"id": 50, "masu": "たべます", "kanji": "食べます", "vi": "Ăn", "group": "2", "nai": "たべない", "note": "Bỏ ます + ない"},
+    {"id": 51, "masu": "みます", "kanji": "見ます", "vi": "Xem, ngắm", "group": "2", "nai": "みない", "note": "1 âm tiết: Bỏ ます + ない", "isTrap": True},
+    {"id": 52, "masu": "ねます", "kanji": "寝ます", "vi": "Đi ngủ", "group": "2", "nai": "ねない", "note": "Bỏ ます + ない"},
+    {"id": 53, "masu": "おきます", "kanji": "起きます", "vi": "Thức dậy", "group": "2", "nai": "おきない", "note": "⚠️ Đặc biệt nhóm 2 (âm i)", "isTrap": True},
+    {"id": 54, "masu": "かります", "kanji": "借ります", "vi": "Vay mượn", "group": "2", "nai": "かりない", "note": "⚠️ Đặc biệt nhóm 2 (âm i)", "isTrap": True},
+    {"id": 55, "masu": "おります", "kanji": "降ります", "vi": "Xuống tàu/xe", "group": "2", "nai": "おりない", "note": "⚠️ Đặc biệt nhóm 2 (âm i)", "isTrap": True},
+    {"id": 56, "masu": "あびます", "kanji": "浴びます", "vi": "Tắm vòi sen", "group": "2", "nai": "あびない", "note": "⚠️ Đặc biệt nhóm 2 (âm i)", "isTrap": True},
+    {"id": 57, "masu": "きます", "kanji": "着ます", "vi": "Mặc (áo sơ mi)", "group": "2", "nai": "きない", "note": "⚠️ Đặc biệt nhóm 2: 1 âm tiết (きない)", "isTrap": True},
+    {"id": 58, "masu": "できます", "kanji": "出来ます", "vi": "Có thể làm được", "group": "2", "nai": "できない", "note": "⚠️ Đặc biệt nhóm 2", "isTrap": True},
+    {"id": 59, "masu": "おしえます", "kanji": "教えます", "vi": "Dạy học, chỉ dẫn", "group": "2", "nai": "おしえない", "note": "Bỏ ます + ない"},
+    {"id": 60, "masu": "みせます", "kanji": "見せます", "vi": "Cho xem", "group": "2", "nai": "みせない", "note": "Bỏ ます + ない"},
+    {"id": 61, "masu": "あけます", "kanji": "開けます", "vi": "Mở (cửa)", "group": "2", "nai": "あけない", "note": "Bỏ ます + ない"},
+    {"id": 62, "masu": "しめます", "kanji": "閉めます", "vi": "Đóng (cửa)", "group": "2", "nai": "しめない", "note": "Bỏ ます + ない"},
+    {"id": 63, "masu": "とめます", "kanji": "止めます", "vi": "Dừng xe", "group": "2", "nai": "とめない", "note": "Bỏ ます + ない"},
+    {"id": 64, "masu": "すてます", "kanji": "捨てます", "vi": "Vứt rác", "group": "2", "nai": "すてない", "note": "Bỏ ます + ない"},
+    {"id": 65, "masu": "あつめます", "kanji": "集めます", "vi": "Sưu tầm", "group": "2", "nai": "あつめない", "note": "Bỏ ます + ない"},
+    {"id": 66, "masu": "つかれます", "kanji": "疲れます", "vi": "Mệt mỏi", "group": "2", "nai": "つかれない", "note": "Bỏ ます + ない"},
+    {"id": 67, "masu": "わすれます", "kanji": "忘れます", "vi": "Quên mất", "group": "2", "nai": "わすれない", "note": "Bỏ ます + ない"},
+    {"id": 68, "masu": "おぼえます", "kanji": "覚えます", "vi": "Ghi nhớ", "group": "2", "nai": "おぼえない", "note": "Bỏ ます + ない"},
+
+    # Nhóm 3: shimasu -> shinai, kimasu -> konai
+    {"id": 69, "masu": "します", "kanji": "為ます", "vi": "Làm hành động", "group": "3", "nai": "しない", "note": "suru ➔ しない"},
+    {"id": 70, "masu": "きます", "kanji": "来ます", "vi": "Đến nơi", "group": "3", "nai": "こない", "note": "🚨 Bẫy số 2: kuru ➔ こない (来ない)", "isTrap": True},
+    {"id": 71, "masu": "べんきょうします", "kanji": "勉強します", "vi": "Học tập", "group": "3", "nai": "べんきょうしない", "note": "N+します ➔ しない"},
+    {"id": 72, "masu": "しゅっぱつします", "kanji": "出発します", "vi": "Khởi hành", "group": "3", "nai": "しゅっぱつしない", "note": "N+します ➔ しない"},
+    {"id": 73, "masu": "しゅっちょうします", "kanji": "出張します", "vi": "Đi công tác", "group": "3", "nai": "しゅっちょうしない", "note": "N+します ➔ しない"},
+    {"id": 74, "masu": "さんぽします", "kanji": "散歩します", "vi": "Đi dạo", "group": "3", "nai": "さんぽしない", "note": "N+します ➔ しない"},
+    {"id": 75, "masu": "うんどうします", "kanji": "運動します", "vi": "Tập thể dục", "group": "3", "nai": "うんどうしない", "note": "N+します ➔ しない"},
+    {"id": 76, "masu": "もってきます", "kanji": "持って来ます", "vi": "Mang đến", "group": "3", "nai": "もってこない", "note": "kuru ➔ こない", "isTrap": True},
+    {"id": 77, "masu": "つれてきます", "kanji": "連れて来ます", "vi": "Dẫn đến", "group": "3", "nai": "つれてこない", "note": "kuru ➔ こない", "isTrap": True}
+]
+
+verbs_json = json.dumps(verbs_nai, ensure_ascii=False)
+
+html_content = f"""<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="referrer" content="no-referrer">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📗 Cẩm Nang & Luyện Tập Chia Thể NAI (Phủ Định Ngắn ～ない) - Marugoto A2</title>
+    <meta name="description" content="Chinh phục toàn diện thể NAI tiếng Nhật (ない形): 77 động từ thực chiến, 3 thần chú bẫy âm, phòng thí nghiệm đổi 4 thể và 15 câu trắc nghiệm phản xạ.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {{
+            --primary: #059669;
+            --primary-dark: #047857;
+            --primary-light: #10b981;
+            --primary-bg: #ecfdf5;
+            --secondary: #0284c7;
+            --secondary-bg: #f0f9ff;
+            --accent: #f59e0b;
+            --success: #10b981;
+            --success-bg: #ecfdf5;
+            --danger: #ef4444;
+            --danger-bg: #fef2f2;
+            --warning: #f59e0b;
+            --purple: #8b5cf6;
+            --purple-bg: #faf5ff;
+            --dark: #0f172a;
+            --gray: #64748b;
+            --border: #e2e8f0;
+            --shadow: 0 10px 25px rgba(0,0,0,0.06);
+            --radius: 16px;
+        }}
+
+        * {{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }}
+
+        html, body {{
+            max-width: 100vw;
+            overflow-x: hidden;
+        }}
+
+        body {{
+            background-color: #f8fafc;
+            color: var(--dark);
+            line-height: 1.6;
+            padding: 20px 10px 80px 10px;
+        }}
+
+        .jp-text {{
+            font-family: 'Noto Sans JP', sans-serif;
+        }}
+
+        .container {{
+            max-width: 1200px;
+            margin: 0 auto;
+        }}
+
+        /* Header */
+        header {{
+            background: linear-gradient(135deg, #059669 0%, #047857 50%, #064e3b 100%);
+            color: white;
+            padding: 36px 20px;
+            border-radius: var(--radius);
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(5, 150, 105, 0.28);
+            margin-bottom: 25px;
+            position: relative;
+            overflow: hidden;
+        }}
+
+        header::after {{
+            content: "無";
+            position: absolute;
+            right: 15px;
+            bottom: -35px;
+            font-size: 160px;
+            font-family: 'Noto Sans JP', sans-serif;
+            font-weight: 900;
+            color: rgba(255,255,255,0.05);
+            pointer-events: none;
+        }}
+
+        .header-badge {{
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 255, 255, 0.18);
+            backdrop-filter: blur(8px);
+            padding: 6px 16px;
+            border-radius: 999px;
+            font-size: 0.86rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }}
+
+        header h1 {{
+            font-size: 2.1rem;
+            font-weight: 900;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }}
+
+        header p {{
+            font-size: 1.05rem;
+            max-width: 800px;
+            margin: 0 auto 20px auto;
+            opacity: 0.95;
+            line-height: 1.6;
+        }}
+
+        .stats-pills {{
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }}
+
+        .stat-pill {{
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.88rem;
+            font-weight: 700;
+        }}
+
+        /* Global Hub Nav */
+        .global-hub-nav {{
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            margin-bottom: 22px;
+            box-shadow: var(--shadow);
+            flex-wrap: wrap;
+        }}
+        .hub-nav-item {{
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 7px 14px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--gray);
+            font-size: 0.88rem;
+            font-weight: 700;
+            transition: all 0.2s;
+        }}
+        .hub-nav-item:hover {{
+            background: #f1f5f9;
+            color: var(--primary);
+        }}
+        .hub-nav-item.active-hub {{
+            background: var(--primary-bg);
+            color: var(--primary-dark);
+            font-weight: 800;
+        }}
+
+        /* Nav Tabs */
+        .nav-tabs {{
+            display: flex;
+            gap: 8px;
+            background: #ffffff;
+            padding: 8px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            margin-bottom: 22px;
+            overflow-x: auto;
+        }}
+
+        .nav-tab-btn {{
+            flex: 1;
+            min-width: 180px;
+            padding: 12px 16px;
+            border: none;
+            background: transparent;
+            color: var(--gray);
+            font-size: 0.95rem;
+            font-weight: 800;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            white-space: nowrap;
+        }}
+
+        .nav-tab-btn:hover {{
+            color: var(--primary);
+            background: #f8fafc;
+        }}
+
+        .nav-tab-btn.active {{
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 4px 12px rgba(5, 150, 105, 0.35);
+        }}
+
+        .tab-panel {{
+            display: none;
+        }}
+
+        .tab-panel.active {{
+            display: block;
+            animation: fadeIn 0.25s ease-out;
+        }}
+
+        @keyframes fadeIn {{
+            from {{ opacity: 0; transform: translateY(6px); }}
+            to {{ opacity: 1; transform: translateY(0); }}
+        }}
+
+        /* Card */
+        .card {{
+            background: #ffffff;
+            border-radius: var(--radius);
+            padding: 26px 22px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            margin-bottom: 25px;
+        }}
+
+        /* Golden Rule Box */
+        .golden-rule-box {{
+            background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+            border: 2px solid #a7f3d0;
+            border-radius: 14px;
+            padding: 22px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.1);
+        }}
+        .golden-rule-box h3 {{
+            color: #065f46;
+            font-size: 1.25rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }}
+
+        /* Shift Badges */
+        .shift-badge {{
+            display: inline-block;
+            background: #ffffff;
+            color: var(--primary-dark);
+            padding: 4px 12px;
+            border-radius: 999px;
+            font-weight: 800;
+            font-size: 0.85rem;
+            border: 1.5px solid #a7f3d0;
+            margin: 2px;
+        }}
+
+        /* Tables */
+        .rule-table {{
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }}
+        .rule-table th, .rule-table td {{
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }}
+        .rule-table th {{
+            background: #f1f5f9;
+            color: var(--dark);
+            font-weight: 800;
+            text-align: left;
+        }}
+        .rule-table tr:hover td {{
+            background: #f8fafc;
+        }}
+
+        .group-tag {{
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.82rem;
+            font-weight: 800;
+        }}
+        .tag-g1 {{ background: #e0f2fe; color: #0369a1; }}
+        .tag-g2 {{ background: #ede9fe; color: #6d28d9; }}
+        .tag-g3 {{ background: #ffedd5; color: #c2410c; }}
+        .tag-trap {{ background: #fee2e2; color: #b91c1c; border: 1px solid #f87171; }}
+
+        /* Exercise Table */
+        .table-responsive {{
+            overflow-x: auto;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            background: #ffffff;
+        }}
+        .exercise-table {{
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 760px;
+        }}
+        .exercise-table th, .exercise-table td {{
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.95rem;
+        }}
+        .exercise-table th {{
+            background: #f8fafc;
+            font-weight: 800;
+            color: #334155;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }}
+        .exercise-table tr:hover {{
+            background: #f8fafc;
+        }}
+
+        .input-nai {{
+            width: 100%;
+            padding: 8px 12px;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            outline: none;
+            transition: all 0.2s;
+            font-family: 'Noto Sans JP', sans-serif;
+        }}
+        .input-nai:focus {{
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.15);
+        }}
+        .input-nai.correct {{
+            border-color: var(--success);
+            background: var(--success-bg);
+            color: #065f46;
+        }}
+        .input-nai.wrong {{
+            border-color: var(--danger);
+            background: var(--danger-bg);
+            color: #991b1b;
+        }}
+
+        .status-badge {{
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 800;
+            text-align: center;
+        }}
+        .status-pending {{ background: #f1f5f9; color: var(--gray); }}
+        .status-ok {{ background: var(--success-bg); color: var(--success); }}
+        .status-err {{ background: var(--danger-bg); color: var(--danger); }}
+
+        /* Filter Row */
+        .filter-row {{
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+            align-items: center;
+        }}
+        .filter-pill {{
+            padding: 8px 16px;
+            border-radius: 999px;
+            border: 1.5px solid var(--border);
+            background: #ffffff;
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: var(--gray);
+            cursor: pointer;
+            transition: all 0.2s;
+        }}
+        .filter-pill:hover {{
+            border-color: var(--primary);
+            color: var(--primary);
+        }}
+        .filter-pill.active {{
+            background: var(--primary);
+            color: #ffffff;
+            border-color: var(--primary);
+            box-shadow: 0 2px 8px rgba(5, 150, 105, 0.3);
+        }}
+
+        .btn-action {{
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 9px 18px;
+            border-radius: 8px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: white;
+        }}
+        .btn-green {{ background: var(--primary); }}
+        .btn-green:hover {{ background: var(--primary-dark); }}
+        .btn-gray {{ background: #475569; }}
+        .btn-gray:hover {{ background: #334155; }}
+        .btn-blue {{ background: var(--secondary); }}
+        .btn-blue:hover {{ background: #0369a1; }}
+
+        .sound-btn {{
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.15rem;
+            color: var(--primary);
+            transition: transform 0.15s;
+            padding: 2px 6px;
+        }}
+        .sound-btn:hover {{
+            transform: scale(1.25);
+        }}
+
+        /* Responsive */
+        @media (max-width: 768px) {{
+            header h1 {{ font-size: 1.6rem; }}
+            .nav-tab-btn {{ min-width: 150px; padding: 10px 12px; font-size: 0.88rem; }}
+            .card {{ padding: 18px 14px; }}
+        }}
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Global Hub Navigation -->
+    <div class="global-hub-nav">
+        <a href="index.html" class="hub-nav-item">🌸 Thể TE (～て)</a>
+        <a href="the_ru.html" class="hub-nav-item">📘 Thể RU (Từ Điển)</a>
+        <a href="the_ta.html" class="hub-nav-item">📕 Thể TA (Quá Khứ)</a>
+        <a href="the_nai.html" class="hub-nav-item active-hub">📗 Thể NAI (Phủ Định ～ない)</a>
+        <a href="kanji_a2.html" class="hub-nav-item">⛩️ Học Kanji & Nét Viết</a>
+        <a href="Tu_Vung_Marugoto_A1_16_A2_1_10.html" class="hub-nav-item">📖 Kho Từ Vựng A1-A2</a>
+        <a href="kien_thuc_bo_sung.html" class="hub-nav-item">💡 Kiến Thức Bổ Sung</a>
+        <a href="tests/On_Tap_Cap_Toc_Kanji_11_18_NPBS14.html" class="hub-nav-item">⚡ Cấp Tốc Đêm Nay</a>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-badge">📗 BẢN ĐỒ NGỮ PHÁP TIẾNG NHẬT MARUGOTO A1 - A2</div>
+        <h1>📗 Cẩm Nang & Luyện Tập Chia Thể NAI (Phủ Định Ngắn ～ない)</h1>
+        <p>Hệ thống tự động chấm điểm gõ thể Nai cho 77 động từ cốt lõi, bảng bí kíp chuyển đổi hàng い ➔ hàng あ, bẫy âm kinh điển và 5 cấu trúc ngữ pháp thực chiến A2.</p>
+        <div class="stats-pills">
+            <span class="stat-pill">✍️ 77 Động Từ Thực Hành</span>
+            <span class="stat-pill">🔄 Chuyển Đổi Hàng い ➔ あ</span>
+            <span class="stat-pill">🚨 12 Bẫy Kinh Điển (ある➔ない, くる➔こない)</span>
+            <span class="stat-pill">💡 5 Mẫu Ngữ Pháp A2</span>
+        </div>
+    </header>
+
+    <!-- Nav Tabs -->
+    <div class="nav-tabs">
+        <button class="nav-tab-btn active" onclick="switchTab('tab-practice')">✍️ Luyện Tập Chia Thể NAI (77 Từ)</button>
+        <button class="nav-tab-btn" onclick="switchTab('tab-theory')">📖 Quy Tắc Chia & 3 Thần Chú Bất Bại</button>
+        <button class="nav-tab-btn" onclick="switchTab('tab-grammar')">💡 5 Mẫu Câu Ngữ Pháp Thể NAI A2</button>
+        <button class="nav-tab-btn" onclick="switchTab('tab-lab')">🧪 Phòng Thí Nghiệm Đổi 4 Thể</button>
+        <button class="nav-tab-btn" onclick="switchTab('tab-quiz')">🎯 Trắc Nghiệm Phản Xạ 15 Câu</button>
+    </div>
+
+    <!-- TAB 1: PRACTICE TABLE -->
+    <div id="tab-practice" class="tab-panel active">
+        <div class="card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
+                <div class="filter-row" style="margin-bottom: 0;">
+                    <button class="filter-pill active" onclick="setFilter('all', this)">Tất Cả (77)</button>
+                    <button class="filter-pill" onclick="setFilter('1', this)">Nhóm ① (49)</button>
+                    <button class="filter-pill" onclick="setFilter('2', this)">Nhóm ② (19)</button>
+                    <button class="filter-pill" onclick="setFilter('3', this)">Nhóm ③ (9)</button>
+                    <button class="filter-pill" onclick="setFilter('trap', this)">🚨 Bẫy & Ngoại Lệ (12)</button>
+                </div>
+                <div style="display: flex; gap: 8px;">
+                    <button type="button" class="btn-action btn-green" onclick="toggleShowAllAnswers()" id="btnToggleAnswers">👁️ Hiện Toàn Bộ Đáp Án</button>
+                    <button type="button" class="btn-action btn-gray" onclick="resetAllInputs()">🔄 Làm Lại Từ Đầu</button>
+                </div>
+            </div>
+
+            <div style="margin-bottom: 14px;">
+                <input type="text" id="searchInput" placeholder="🔍 Tìm kiếm động từ theo thể Masu, Kanji, Nghĩa, hoặc Thể Nai..." style="width: 100%; padding: 10px 14px; border: 1.5px solid var(--border); border-radius: 8px; font-size: 0.95rem;" oninput="filterVerbs()">
+            </div>
+
+            <div class="table-responsive">
+                <table class="exercise-table" id="verbsTable">
+                    <thead>
+                        <tr>
+                            <th style="width: 50px; text-align: center;">STT</th>
+                            <th style="width: 250px;">Vます (Động Từ Thường)</th>
+                            <th style="width: 110px;">Nhóm</th>
+                            <th>Thể NAI (Nhập đáp án để kiểm tra)</th>
+                            <th style="width: 110px; text-align: center;">Trạng Thái</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                        <!-- Populated via JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- TAB 2: THEORY & MNEMONICS -->
+    <div id="tab-theory" class="tab-panel">
+        <div class="card">
+            <div class="golden-rule-box">
+                <h3>💡 3 THẦN CHÚ BẤT BẠI KHI CHIA THỂ NAI (ない形)</h3>
+                <div style="font-size: 1.05rem; line-height: 1.8; color: #064e3b; margin-top: 8px;">
+                    <p>🔥 <strong>Thần chú 1 (Bẫy đuôi い):</strong> Đuôi <strong>「い」</strong> chuyển thành <strong>「わ」 + ない</strong> (Ví dụ: 会います ➔ <strong>あわない</strong>, 買います ➔ <strong>かわない</strong>. <em>Tuyệt đối không có ああない hay かあない!</em>)</p>
+                    <p>🔥 <strong>Thần chú 2 (Bẫy ngoại lệ tối thượng):</strong> Động từ <strong>「あります (Có đồ vật)」</strong> sang thể Nai là <strong>「ない」</strong> (<em>Không bao giờ có あらない!</em>)</p>
+                    <p>🔥 <strong>Thần chú 3 (Bẫy biến âm Nhóm 3):</strong> <strong>「来ます (きます - Đến)」</strong> sang thể Nai đổi âm đọc thành <strong>「こない (来ない)」</strong>!</p>
+                </div>
+            </div>
+
+            <h2 style="font-size: 1.4rem; font-weight: 800; color: #065f46; margin-bottom: 12px;">📖 Bảng Quy Tắc Chia Chi Tiết Cho 3 Nhóm Động Từ</h2>
+
+            <table class="rule-table">
+                <thead>
+                    <tr>
+                        <th style="width: 130px;">Nhóm</th>
+                        <th style="width: 260px;">Đuôi trước ます</th>
+                        <th style="width: 220px;">Quy Tắc Đổi Thể NAI</th>
+                        <th>Ví Dụ Minh Họa</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Nhóm 1 -->
+                    <tr>
+                        <td rowspan="9" style="vertical-align: middle; text-align: center; font-weight: bold; background: #f0f9ff;">
+                            <span class="group-tag tag-g1">Nhóm ①</span><br>
+                            <small style="color:#0284c7;">Hàng 「い」 ➔ 「あ」 + ない</small>
+                        </td>
+                        <td><strong>い</strong> (âm i)</td>
+                        <td>Đổi thành <strong>～わない</strong></td>
+                        <td>• あ<strong>い</strong>ます ➔ あ<strong>わない</strong> (Gặp)<br>• か<strong>い</strong>ます ➔ か<strong>わない</strong> (Mua)<br>• つか<strong>い</strong>ます ➔ つか<strong>わない</strong> (Dùng)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ち</strong> (âm chi)</td>
+                        <td>Đổi thành <strong>～たない</strong></td>
+                        <td>• ま<strong>ち</strong>ます ➔ ま<strong>たない</strong> (Chờ)<br>• た<strong>ち</strong>ます ➔ た<strong>たない</strong> (Đứng)<br>• も<strong>ち</strong>ます ➔ も<strong>たない</strong> (Cầm)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>り</strong> (âm ri)</td>
+                        <td>Đổi thành <strong>～らない</strong></td>
+                        <td>• と<strong>り</strong>ます ➔ と<strong>らない</strong> (Lấy)<br>• つく<strong>り</strong>ます ➔ つく<strong>らない</strong> (Làm)<br>• わか<strong>り</strong>ます ➔ わか<strong>らない</strong> (Hiểu)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>み</strong> (âm mi)</td>
+                        <td>Đổi thành <strong>～まない</strong></td>
+                        <td>• の<strong>み</strong>ます ➔ の<strong>まない</strong> (Uống)<br>• よ<strong>み</strong>ます ➔ よ<strong>まない</strong> (Đọc)<br>• やす<strong>み</strong>ます ➔ やす<strong>まない</strong> (Nghỉ)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>び</strong> (âm bi)</td>
+                        <td>Đổi thành <strong>～ばない</strong></td>
+                        <td>• あそ<strong>び</strong>ます ➔ あそ<strong>ばない</strong> (Chơi)<br>• えら<strong>び</strong>ます ➔ えら<strong>ばない</strong> (Chọn)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>に</strong> (âm ni)</td>
+                        <td>Đổi thành <strong>～なない</strong></td>
+                        <td>• し<strong>に</strong>ます ➔ し<strong>なない</strong> (Chết)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>き</strong> (âm ki)</td>
+                        <td>Đổi thành <strong>～かない</strong></td>
+                        <td>• か<strong>き</strong>ます ➔ か<strong>かない</strong> (Viết)<br>• き<strong>き</strong>ます ➔ き<strong>かない</strong> (Nghe)<br>• い<strong>き</strong>ます ➔ い<strong>かない</strong> (Đi)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ぎ</strong> (âm gi)</td>
+                        <td>Đổi thành <strong>～がない</strong></td>
+                        <td>• およ<strong>ぎ</strong>ます ➔ およ<strong>がない</strong> (Bơi)<br>• いそ<strong>ぎ</strong>ます ➔ いそ<strong>がない</strong> (Vội)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>し</strong> (âm shi)</td>
+                        <td>Đổi thành <strong>～さない</strong></td>
+                        <td>• はな<strong>し</strong>ます ➔ はな<strong>さない</strong> (Nói)<br>• だ<strong>し</strong>ます ➔ だ<strong>さない</strong> (Nộp/Gửi)</td>
+                    </tr>
+
+                    <!-- Nhóm 2 -->
+                    <tr>
+                        <td style="vertical-align: middle; text-align: center; font-weight: bold; background: #faf5ff;">
+                            <span class="group-tag tag-g2">Nhóm ②</span><br>
+                            <small style="color:#6d28d9;">Bỏ ます + ない</small>
+                        </td>
+                        <td>
+                            Đuôi hàng <strong>「え」</strong> hoặc <strong>「い」</strong> đặc biệt
+                        </td>
+                        <td>
+                            Bỏ <strong>ます</strong> ➔ thêm <strong>ない</strong>
+                        </td>
+                        <td>
+                            • たべます ➔ <strong>たべない</strong> (Ăn)<br>
+                            • みます ➔ <strong>みない</strong> (Xem)<br>
+                            • ねます ➔ <strong>ねない</strong> (Ngủ)<br>
+                            • おきます ➔ <strong>おきない</strong> (Thức dậy)<br>
+                            • かります ➔ <strong>かりない</strong> (Vay mượn)<br>
+                            • おります ➔ <strong>おりない</strong> (Xuống tàu)
+                        </td>
+                    </tr>
+
+                    <!-- Nhóm 3 -->
+                    <tr>
+                        <td rowspan="2" style="vertical-align: middle; text-align: center; font-weight: bold; background: #fff7ed;">
+                            <span class="group-tag tag-g3">Nhóm ③</span><br>
+                            <small style="color:#c2410c;">Bất quy tắc</small>
+                        </td>
+                        <td><strong>します</strong> (Làm) / Danh từ + します</td>
+                        <td>Đổi thành <strong>しない</strong></td>
+                        <td>• します ➔ <strong>しない</strong><br>• べんきょうします ➔ <strong>べんきょうしない</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>きます (来ます - Đến)</strong></td>
+                        <td>Đổi thành <strong>こない (来ない)</strong></td>
+                        <td>• きます ➔ <strong>こない</strong> (🚨 Đọc là KO-NAI, không phải ki-nai)<br>• もってきます ➔ <strong>もってこない</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- TAB 3: GRAMMAR -->
+    <div id="tab-grammar" class="tab-panel">
+        <div class="card">
+            <h2 style="font-size: 1.5rem; font-weight: 800; color: #065f46; margin-bottom: 6px;">💡 5 Mẫu Câu Ngữ Pháp Thể NAI Cốt Lõi A1 - A2</h2>
+            <p style="color: var(--gray); margin-bottom: 24px;">Toàn bộ các cấu trúc ngữ pháp dùng thể NAI bám sát giáo trình Marugoto và kỳ thi năng lực tiếng Nhật.</p>
+
+            <!-- Mẫu 1 -->
+            <div style="background: #ecfdf5; border: 1.5px solid #a7f3d0; border-radius: 14px; padding: 20px; margin-bottom: 20px;">
+                <h3 style="color: #047857; font-size: 1.2rem; margin-bottom: 6px;">🌸 1. Xin đừng làm V: V-ないで ください</h3>
+                <p style="color: #374151; margin-bottom: 10px;"><strong>Ý nghĩa:</strong> Khuyên nhủ, nhắc nhở hoặc yêu cầu đối phương một cách lịch sự rằng không được làm một việc gì đó (biển báo, bệnh viện, bảo tàng...).</p>
+                <div style="background: white; border-radius: 10px; padding: 14px; border: 1px solid #d1fae5;">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 8px;">
+                        <div>
+                            <span class="jp-text" style="font-size: 1.05rem; font-weight: 700; color: #065f46;">ここで 写真を <ruby>撮<rt>と</rt></ruby>らないで ください。</span>
+                            <div style="color: #64748b; font-size: 0.9rem;">➡ Xin đừng chụp ảnh ở khu vực này ạ.</div>
+                        </div>
+                        <button type="button" class="sound-btn" onclick="speakJapanese('ここで写真を撮らないでください')">🔊</button>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                        <div>
+                            <span class="jp-text" style="font-size: 1.05rem; font-weight: 700; color: #065f46;"><ruby>無理<rt>むり</rt></ruby>を しないで ください。</span>
+                            <div style="color: #64748b; font-size: 0.9rem;">➡ Xin đừng làm việc quá sức nhé (chăm sóc sức khỏe).</div>
+                        </div>
+                        <button type="button" class="sound-btn" onclick="speakJapanese('無理をしないでください')">🔊</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mẫu 2 -->
+            <div style="background: #eff6ff; border: 1.5px solid #bfdbfe; border-radius: 14px; padding: 20px; margin-bottom: 20px;">
+                <h3 style="color: #1d4ed8; font-size: 1.2rem; margin-bottom: 6px;">🌸 2. Phải làm V: V-なければ なりません (Hoặc V-ないと)</h3>
+                <p style="color: #374151; margin-bottom: 10px;"><strong>Ý nghĩa:</strong> Diễn tả nghĩa vụ, bổn phận hoặc việc bắt buộc phải làm dù muốn hay không.</p>
+                <div style="background: white; border-radius: 10px; padding: 14px; border: 1px solid #dbeafe;">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 8px;">
+                        <div>
+                            <span class="jp-text" style="font-size: 1.05rem; font-weight: 700; color: #1e40af;"><ruby>薬<rt>くすり</rt></ruby>を <ruby>飲<rt>の</rt></ruby>まなければ なりません。</span>
+                            <div style="color: #64748b; font-size: 0.9rem;">➡ Tôi phải uống thuốc đúng giờ.</div>
+                        </div>
+                        <button type="button" class="sound-btn" onclick="speakJapanese('薬を飲まなければなりません')">🔊</button>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                        <div>
+                            <span class="jp-text" style="font-size: 1.05rem; font-weight: 700; color: #1e40af;"><ruby>明日<rt>あした</rt></ruby> レポートを <ruby>出<rt>だ</rt></ruby>さなければ なりません。</span>
+                            <div style="color: #64748b; font-size: 0.9rem;">➡ Ngày mai tôi phải nộp bài báo cáo.</div>
+                        </div>
+                        <button type="button" class="sound-btn" onclick="speakJapanese('明日レポートを出さなければなりません')">🔊</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mẫu 3 -->
+            <div style="background: #fdf4ff; border: 1.5px solid #f0abfc; border-radius: 14px; padding: 20px; margin-bottom: 20px;">
+                <h3 style="color: #a21caf; font-size: 1.2rem; margin-bottom: 6px;">🌸 3. Không cần làm V cũng được: V-なくても いいです</h3>
+                <p style="color: #374151; margin-bottom: 10px;"><strong>Ý nghĩa:</strong> Diễn tả sự không bắt buộc, người nghe không cần phải thực hiện hành động đó.</p>
+                <div style="background: white; border-radius: 10px; padding: 14px; border: 1px solid #fae8ff;">
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                        <div>
+                            <span class="jp-text" style="font-size: 1.05rem; font-weight: 700; color: #86198f;"><ruby>明日<rt>あした</rt></ruby>は <ruby>来<rt>こ</rt></ruby>なくても いいですよ。</span>
+                            <div style="color: #64748b; font-size: 0.9rem;">➡ Ngày mai bạn không cần đến công ty cũng được nhé.</div>
+                        </div>
+                        <button type="button" class="sound-btn" onclick="speakJapanese('明日は来なくてもいいですよ')">🔊</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mẫu 4 -->
+            <div style="background: #fffbeb; border: 1.5px solid #fde68a; border-radius: 14px; padding: 20px; margin-bottom: 20px;">
+                <h3 style="color: #b45309; font-size: 1.2rem; margin-bottom: 6px;">🌸 4. Không nên làm V: V-ない ほうが いいです</h3>
+                <p style="color: #374151; margin-bottom: 10px;"><strong>Ý nghĩa:</strong> Đưa ra lời khuyên nhủ đối phương không nên làm việc gì vì sẽ gây hại hoặc không tốt.</p>
+                <div style="background: white; border-radius: 10px; padding: 14px; border: 1px solid #fef3c7;">
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                        <div>
+                            <span class="jp-text" style="font-size: 1.05rem; font-weight: 700; color: #92400e;">あまり お<ruby>酒<rt>さけ</rt></ruby>を <ruby>飲<rt>の</rt></ruby>まない ほうが いいです。</span>
+                            <div style="color: #64748b; font-size: 0.9rem;">➡ Bạn không nên uống quá nhiều rượu bia đâu.</div>
+                        </div>
+                        <button type="button" class="sound-btn" onclick="speakJapanese('あまりお酒を飲まないほうがいいです')">🔊</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mẫu 5 -->
+            <div style="background: #f8fafc; border: 1.5px solid #cbd5e1; border-radius: 14px; padding: 20px;">
+                <h3 style="color: #334155; font-size: 1.2rem; margin-bottom: 6px;">🌸 5. Không làm V1 mà làm V2: V1-ないで、V2</h3>
+                <p style="color: #374151; margin-bottom: 10px;"><strong>Ý nghĩa:</strong> Diễn tả hành động V2 được thực hiện trong trạng thái không làm hành động V1.</p>
+                <div style="background: white; border-radius: 10px; padding: 14px; border: 1px solid #e2e8f0;">
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                        <div>
+                            <span class="jp-text" style="font-size: 1.05rem; font-weight: 700; color: #1e293b;">朝ごはんを <ruby>食<rt>た</rt></ruby>べないで、<ruby>会社<rt>かいしゃ</rt></ruby>へ <ruby>行<rt>い</rt></ruby>きました。</span>
+                            <div style="color: #64748b; font-size: 0.9rem;">➡ Tôi đã không ăn bữa sáng mà đến công ty luôn.</div>
+                        </div>
+                        <button type="button" class="sound-btn" onclick="speakJapanese('朝ごはんを食べないで会社へ行きました')">🔊</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TAB 4: VERB TRANSFORMER LAB -->
+    <div id="tab-lab" class="tab-panel">
+        <div class="card">
+            <h2 style="font-size: 1.4rem; font-weight: 800; color: #065f46; margin-bottom: 6px;">🧪 Phòng Thí Nghiệm Đổi 4 Thể Động Từ (Masu ➔ Te, Ru, Ta, Nai)</h2>
+            <p style="color: var(--gray); margin-bottom: 18px;">Nhập động từ thể Masu hoặc chọn từ nhanh bên dưới để xem máy biến đổi tức thì sang cả 4 thể!</p>
+
+            <div style="display: flex; gap: 10px; margin-bottom: 16px;">
+                <input type="text" id="labInput" placeholder="Nhập động từ thể Masu (VD: かえります, あいます, きます, します, あります)..." style="flex: 1; padding: 12px 16px; border: 2px solid var(--border); border-radius: 8px; font-size: 1.1rem; font-weight: 700; font-family:'Noto Sans JP', sans-serif;" oninput="transformLabVerb()">
+                <button type="button" class="btn-action btn-green" onclick="transformLabVerb()">⚡ Chuyển Đổi</button>
+            </div>
+
+            <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 22px;">
+                <span style="font-size: 0.88rem; font-weight: 800; color: var(--gray); align-self: center;">Mẫu nhanh:</span>
+                <button type="button" class="filter-pill" onclick="setLabInput('あいます')">会います (V1)</button>
+                <button type="button" class="filter-pill" onclick="setLabInput('かえります')">帰ります (V1 Bẫy)</button>
+                <button type="button" class="filter-pill" onclick="setLabInput('あります')">あります (Ngoại lệ)</button>
+                <button type="button" class="filter-pill" onclick="setLabInput('いきます')">行きます (V1)</button>
+                <button type="button" class="filter-pill" onclick="setLabInput('たべます')">食べます (V2)</button>
+                <button type="button" class="filter-pill" onclick="setLabInput('みます')">見ます (V2)</button>
+                <button type="button" class="filter-pill" onclick="setLabInput('きます')">来ます (V3)</button>
+                <button type="button" class="filter-pill" onclick="setLabInput('します')">します (V3)</button>
+            </div>
+
+            <div id="labResultBox" style="background: #f8fafc; border: 2px dashed #cbd5e1; border-radius: 14px; padding: 24px; text-align: center;">
+                <div style="color: var(--gray); font-size: 1.05rem;">Hãy gõ một động từ hoặc chọn từ mẫu bên trên để xem kết quả phân tích 4 thể!</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TAB 5: QUIZ -->
+    <div id="tab-quiz" class="tab-panel">
+        <div class="card">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; flex-wrap:wrap; gap:10px;">
+                <div>
+                    <h2 style="font-size: 1.5rem; font-weight: 800; color: #065f46;">🎯 15 Câu Trắc Nghiệm Phản Xạ Thể NAI</h2>
+                    <p style="color: var(--gray); margin-top: 4px;">Kiểm tra độ nhạy với các bẫy đuôi âm kinh điển và cấu trúc ngữ pháp thể NAI.</p>
+                </div>
+                <div style="font-size: 1.1rem; font-weight: 800; background: #ecfdf5; color: #047857; padding: 8px 18px; border-radius: 999px;">
+                    Điểm số: <span id="quizScoreText">0</span> / 15
+                </div>
+            </div>
+
+            <div id="quizContainer">
+                <!-- Populated via JS -->
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    const verbsData = {verbs_json};
+    let currentFilter = 'all';
+    let showAnswersState = false;
+
+    function switchTab(tabId) {{
+        document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.remove('active'));
+        document.querySelectorAll('.nav-tab-btn').forEach(btn => btn.classList.remove('active'));
+        
+        const target = document.getElementById(tabId);
+        if (target) target.classList.add('active');
+        const activeBtn = Array.from(document.querySelectorAll('.nav-tab-btn')).find(b => b.getAttribute('onclick')?.includes(tabId));
+        if (activeBtn) activeBtn.classList.add('active');
+    }}
+
+    function setFilter(filterType, btn) {{
+        currentFilter = filterType;
+        document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        renderTable();
+    }}
+
+    function filterVerbs() {{
+        renderTable();
+    }}
+
+    function renderTable() {{
+        const tbody = document.getElementById('tableBody');
+        tbody.innerHTML = '';
+        const searchVal = (document.getElementById('searchInput')?.value || '').trim().toLowerCase();
+
+        const filtered = verbsData.filter(item => {{
+            if (currentFilter === '1' && item.group !== '1') return false;
+            if (currentFilter === '2' && item.group !== '2') return false;
+            if (currentFilter === '3' && item.group !== '3') return false;
+            if (currentFilter === 'trap' && !item.isTrap) return false;
+
+            if (searchVal) {{
+                const text = `${{item.masu}} ${{item.kanji}} ${{item.vi}} ${{item.nai}} ${{item.note}}`.toLowerCase();
+                if (!text.includes(searchVal)) return false;
+            }}
+            return true;
+        }});
+
+        filtered.forEach((item, index) => {{
+            const tr = document.createElement('tr');
+            
+            // Group badge
+            let groupBadge = '';
+            if (item.group === '1') groupBadge = '<span class="group-tag tag-g1">Nhóm ①</span>';
+            else if (item.group === '2') groupBadge = '<span class="group-tag tag-g2">Nhóm ②</span>';
+            else groupBadge = '<span class="group-tag tag-g3">Nhóm ③</span>';
+
+            if (item.isTrap) {{
+                groupBadge += ' <span class="group-tag tag-trap">Bẫy</span>';
+            }}
+
+            tr.innerHTML = `
+                <td style="text-align: center; color: var(--gray); font-weight: bold;">${{index + 1}}</td>
+                <td>
+                    <div style="font-weight: 800; font-size: 1.05rem;" class="jp-text">${{item.kanji}}</div>
+                    <div style="color: var(--primary); font-size: 0.9rem;" class="jp-text">${{item.masu}}</div>
+                    <div style="color: var(--gray); font-size: 0.85rem;">${{item.vi}}</div>
+                </td>
+                <td>${{groupBadge}}</td>
+                <td>
+                    <div style="display: flex; gap: 8px; align-items: center;">
+                        <input type="text" class="input-nai" id="input_${{item.id}}" placeholder="Nhập thể Nai..." oninput="checkVerbInput(${{item.id}})" autocomplete="off">
+                        <button type="button" class="sound-btn" onclick="speakJapanese('${{item.nai}}', this)" title="Nghe phát âm thể Nai">🔊</button>
+                    </div>
+                    <div id="hint_${{item.id}}" style="font-size: 0.82rem; color: #047857; margin-top: 4px; display: none;">
+                        💡 ${{item.note}} ➔ <strong class="jp-text">${{item.nai}}</strong>
+                    </div>
+                </td>
+                <td style="text-align: center;">
+                    <span class="status-badge status-pending" id="status_${{item.id}}">Chưa nhập</span>
+                </td>
+            `;
+            tbody.appendChild(tr);
+
+            if (showAnswersState) {{
+                const input = document.getElementById(`input_${{item.id}}`);
+                input.value = item.nai;
+                checkVerbInput(item.id);
+            }}
+        }});
+    }}
+
+    function cleanKana(str) {{
+        return (str || '').trim().toLowerCase().replace(/[\\s　]+/g, '');
+    }}
+
+    function checkVerbInput(id) {{
+        const item = verbsData.find(v => v.id === id);
+        if (!item) return;
+        const input = document.getElementById(`input_${{id}}`);
+        const status = document.getElementById(`status_${{id}}`);
+        const hint = document.getElementById(`hint_${{id}}`);
+        const val = cleanKana(input.value);
+
+        if (!val) {{
+            input.className = 'input-nai';
+            status.className = 'status-badge status-pending';
+            status.innerText = 'Chưa nhập';
+            hint.style.display = 'none';
+            return;
+        }}
+
+        const expected = cleanKana(item.nai);
+        if (val === expected) {{
+            input.className = 'input-nai correct';
+            status.className = 'status-badge status-ok';
+            status.innerText = '✓ Chính xác';
+            hint.style.display = 'block';
+        }} else {{
+            input.className = 'input-nai wrong';
+            status.className = 'status-badge status-err';
+            status.innerText = '✕ Chưa đúng';
+            hint.style.display = 'block';
+        }}
+    }}
+
+    function toggleShowAllAnswers() {{
+        showAnswersState = !showAnswersState;
+        const btn = document.getElementById('btnToggleAnswers');
+        if (showAnswersState) {{
+            btn.innerText = '🙈 Ẩn Toàn Bộ Đáp Án';
+            verbsData.forEach(item => {{
+                const input = document.getElementById(`input_${{item.id}}`);
+                if (input) {{
+                    input.value = item.nai;
+                    checkVerbInput(item.id);
+                }}
+            }});
+        }} else {{
+            btn.innerText = '👁️ Hiện Toàn Bộ Đáp Án';
+            resetAllInputs();
+        }}
+    }}
+
+    function resetAllInputs() {{
+        showAnswersState = false;
+        document.getElementById('btnToggleAnswers').innerText = '👁️ Hiện Toàn Bộ Đáp Án';
+        verbsData.forEach(item => {{
+            const input = document.getElementById(`input_${{item.id}}`);
+            if (input) {{
+                input.value = '';
+                checkVerbInput(item.id);
+            }}
+        }});
+    }}
+
+    function speakJapanese(text, btn) {{
+        if (!('speechSynthesis' in window)) return;
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(text);
+        u.lang = 'ja-JP';
+        u.rate = 0.88;
+        if (btn) {{
+            btn.style.transform = 'scale(1.3)';
+            u.onend = () => {{ btn.style.transform = ''; }};
+        }}
+        window.speechSynthesis.speak(u);
+    }}
+
+    // Lab Transformer
+    const VERB_TRANSFORMS = {{
+        'あいます': {{ kanji: '会います', group: 1, te: 'あって', ru: 'あう', ta: 'あった', nai: 'あわない', note: '⚠️ i ➔ わ + ない' }},
+        'かいます': {{ kanji: '買います', group: 1, te: 'かって', ru: 'かう', ta: 'かった', nai: 'かわない', note: '⚠️ i ➔ わ + ない' }},
+        'かえります': {{ kanji: '帰ります', group: 1, te: 'かえって', ru: 'かえる', ta: 'かえった', nai: 'かえらない', note: '⚠️ Bẫy nhóm 1 đuôi eru: ri ➔ ら + ない' }},
+        'はいります': {{ kanji: '入ります', group: 1, te: 'はいって', ru: 'はいる', ta: 'はいった', nai: 'はいらない', note: '⚠️ Bẫy nhóm 1 đuôi iru: ri ➔ ら + ない' }},
+        'あります': {{ kanji: '有ります', group: 1, te: 'あって', ru: 'ある', ta: 'あった', nai: 'ない', note: '🚨 Ngoại lệ tối thượng: ない (không có あらない)' }},
+        'いきます': {{ kanji: '行きます', group: 1, te: 'いって', ru: 'いく', ta: 'いった', nai: 'いかない', note: 'Thể Nai theo quy tắc: ki ➔ か + ない' }},
+        'のみます': {{ kanji: '飲みます', group: 1, te: 'のんで', ru: 'のむ', ta: 'のんだ', nai: 'のまない', note: 'mi ➔ ま + ない' }},
+        'かきます': {{ kanji: '書きます', group: 1, te: 'かいて', ru: 'かく', ta: 'かいた', nai: 'かかない', note: 'ki ➔ か + ない' }},
+        'はなします': {{ kanji: '話します', group: 1, te: 'はなして', ru: 'はなす', ta: 'はなした', nai: 'はなさない', note: 'shi ➔ さ + ない' }},
+        'たべます': {{ kanji: '食べます', group: 2, te: 'たべて', ru: 'たべる', ta: 'たべた', nai: 'たべない', note: 'Nhóm 2: Bỏ ます + ない' }},
+        'みます': {{ kanji: '見ます', group: 2, te: 'みて', ru: 'みる', ta: 'みた', nai: 'みない', note: 'Nhóm 2: 1 âm tiết bỏ ます + ない' }},
+        'おきます': {{ kanji: '起きます', group: 2, te: 'おきて', ru: 'おきる', ta: 'おきた', nai: 'おきない', note: 'Nhóm 2 đặc biệt âm i: bỏ ます + ない' }},
+        'きます': {{ kanji: '来ます', group: 3, te: 'きて', ru: 'くる', ta: 'きた', nai: 'こない', note: '🚨 Bẫy nhóm 3: kuru ➔ こない (đổi âm sang KO)' }},
+        'します': {{ kanji: '為ます', group: 3, te: 'して', ru: 'する', ta: 'した', nai: 'しない', note: 'Nhóm 3: suru ➔ しない' }}
+    }};
+
+    function setLabInput(val) {{
+        document.getElementById('labInput').value = val;
+        transformLabVerb();
+    }}
+
+    function transformLabVerb() {{
+        const raw = cleanKana(document.getElementById('labInput').value);
+        const resBox = document.getElementById('labResultBox');
+        if (!raw) {{
+            resBox.innerHTML = '<div style="color: var(--gray); font-size: 1.05rem;">Hãy gõ một động từ hoặc chọn từ mẫu bên trên để xem kết quả phân tích 4 thể!</div>';
+            return;
+        }}
+
+        // Check if in dictionary
+        let found = VERB_TRANSFORMS[raw];
+        if (!found) {{
+            // Check in verbsData
+            const item = verbsData.find(v => cleanKana(v.masu) === raw || cleanKana(v.kanji) === raw);
+            if (item) {{
+                found = {{
+                    kanji: item.kanji,
+                    group: parseInt(item.group),
+                    te: '—',
+                    ru: '—',
+                    ta: '—',
+                    nai: item.nai,
+                    note: item.note
+                }};
+            }}
+        }}
+
+        if (found) {{
+            resBox.innerHTML = `
+                <div style="font-size: 1.6rem; font-weight: 900; color: #065f46; margin-bottom: 4px;" class="jp-text">${{found.kanji || raw}} (${{raw}})</div>
+                <div style="display: inline-block; padding: 4px 14px; border-radius: 999px; background: #d1fae5; color: #065f46; font-weight: 800; font-size: 0.88rem; margin-bottom: 18px;">
+                    Nhóm ${{found.group}} • ${{found.note || 'Quy tắc chuẩn'}}
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; text-align: left;">
+                    <div style="background: white; border: 2px solid #a7f3d0; border-radius: 12px; padding: 14px; box-shadow: var(--shadow);">
+                        <div style="font-size: 0.82rem; font-weight: 800; color: #047857;">📗 THỂ NAI (ない形)</div>
+                        <div style="font-size: 1.4rem; font-weight: 900; color: #047857; margin: 4px 0;" class="jp-text">${{found.nai}}</div>
+                        <div style="font-size: 0.82rem; color: var(--gray);">Phủ định ngắn</div>
+                    </div>
+                    <div style="background: white; border: 2px solid #bfdbfe; border-radius: 12px; padding: 14px; box-shadow: var(--shadow);">
+                        <div style="font-size: 0.82rem; font-weight: 800; color: #1d4ed8;">📘 THỂ RU (辞書形)</div>
+                        <div style="font-size: 1.4rem; font-weight: 900; color: #1d4ed8; margin: 4px 0;" class="jp-text">${{found.ru || '—'}}</div>
+                        <div style="font-size: 0.82rem; color: var(--gray);">Thể từ điển</div>
+                    </div>
+                    <div style="background: white; border: 2px solid #fbcfe8; border-radius: 12px; padding: 14px; box-shadow: var(--shadow);">
+                        <div style="font-size: 0.82rem; font-weight: 800; color: #be185d;">🌸 THỂ TE (て形)</div>
+                        <div style="font-size: 1.4rem; font-weight: 900; color: #be185d; margin: 4px 0;" class="jp-text">${{found.te || '—'}}</div>
+                        <div style="font-size: 0.82rem; color: var(--gray);">Nối câu, xin phép</div>
+                    </div>
+                    <div style="background: white; border: 2px solid #fecdd3; border-radius: 12px; padding: 14px; box-shadow: var(--shadow);">
+                        <div style="font-size: 0.82rem; font-weight: 800; color: #e11d48;">📕 THỂ TA (た形)</div>
+                        <div style="font-size: 1.4rem; font-weight: 900; color: #e11d48; margin: 4px 0;" class="jp-text">${{found.ta || '—'}}</div>
+                        <div style="font-size: 0.82rem; color: var(--gray);">Thể quá khứ ngắn</div>
+                    </div>
+                </div>
+            `;
+        }} else {{
+            // Heuristic deduction
+            resBox.innerHTML = `
+                <div style="font-size: 1.3rem; font-weight: 800; color: var(--dark); margin-bottom: 8px;">Đang phân tích: <span class="jp-text">${{raw}}</span></div>
+                <div style="color: var(--gray);">Gợi ý chuyển đổi theo quy tắc chung: Chuyển âm trước <strong>ます</strong> từ hàng <strong>「い」</strong> sang hàng <strong>「あ」</strong> rồi thêm <strong>ない</strong>!</div>
+            `;
+        }}
+    }}
+
+    // Quiz 15 Questions
+    const QUIZ_LIST = [
+        {{ q: "Động từ 会います (あいます - Gặp) chia sang thể NAI là gì?", opts: ["あわない", "ああない", "あない", "あえあい"], ans: 0, exp: "Đuôi 'い' của nhóm 1 luôn chuyển thành 'わ' ➔ あわない." }},
+        {{ q: "Động từ あります (Có đồ vật) chia sang thể NAI là gì?", opts: ["あらない", "あない", "ない", "ありない"], ans: 2, exp: "Bẫy số 1: あります chuyển thành 'ない' (không có あらない)." }},
+        {{ q: "Động từ 来ます (きます - Đến) chia sang thể NAI là gì?", opts: ["きない", "こない", "くらない", "かない"], ans: 1, exp: "Bẫy số 2: kuru ➔ こない (chữ Hán là 来ない)." }},
+        {{ q: "Động từ 帰ります (かえります - Về) chia sang thể NAI là gì?", opts: ["かえらない", "かえない", "かえらないで", "かえりない"], ans: 0, exp: "帰ります thuộc Nhóm 1 (đuôi ri) ➔ かえらない." }},
+        {{ q: "Động từ 食べます (たべます - Ăn) chia sang thể NAI là gì?", opts: ["たべない", "たばない", "たべらない", "たべわない"], ans: 0, exp: "Nhóm 2 chỉ cần bỏ ます thêm ない ➔ たべない." }},
+        {{ q: "Động từ 行きます (いきます - Đi) chia sang thể NAI là gì?", opts: ["いかない", "いった", "いかないで", "いわない"], ans: 0, exp: "Khác với thể Te/Ta (いった), thể Nai của 行きます hoàn toàn quy tắc: ki ➔ ka ➔ いかない." }},
+        {{ q: "Động từ 待ちます (まちます - Chờ) chia sang thể NAI là gì?", opts: ["またない", "まちない", "まったない", "まつない"], ans: 0, exp: "Đuôi chi ➔ ta ➔ またない." }},
+        {{ q: "Động từ 話します (はなします - Nói) chia sang thể NAI là gì?", opts: ["はなさない", "はなしない", "はなしたない", "はなさらない"], ans: 0, exp: "Đuôi shi ➔ sa ➔ はなさない." }},
+        {{ q: "Động từ 買います (かいます - Mua) chia sang thể NAI là gì?", opts: ["かわない", "かあない", "かない", "かいらない"], ans: 0, exp: "Đuôi i ➔ wa ➔ かわない." }},
+        {{ q: "Cấu trúc: 'Xin đừng chụp ảnh ở đây' trong tiếng Nhật là:", opts: ["ここで 写真を 撮らないで ください。", "ここで 写真を 撮らなくて ください。", "ここで 写真を 撮らない ほうが いいです。", "ここで 写真を 撮って ください。"], ans: 0, exp: "Mẫu câu xin đừng làm gì: V-ないで ください." }},
+        {{ q: "Động từ 着ます (きます - Mặc áo) chia sang thể NAI là gì?", opts: ["きない", "こない", "きらない", "かかない"], ans: 0, exp: "着ます (mặc) thuộc Nhóm 2 ➔ きない. (Phân biệt với 来ます - đến ➔ こない)." }},
+        {{ q: "Động từ 起きます (おきます - Thức dậy) chia sang thể NAI là gì?", opts: ["おきない", "おかない", "おきらない", "おきわない"], ans: 0, exp: "起きます thuộc Nhóm 2 đặc biệt ➔ おきない." }},
+        {{ q: "Cấu trúc: 'Tôi phải uống thuốc' trong tiếng Nhật là:", opts: ["薬を 飲まなければ なりません。", "薬を 飲まなくても いいです。", "薬を 飲まないで ください。", "薬を 飲んだ ことが あります。"], ans: 0, exp: "Nghĩa vụ phải làm: V-なければ なりません." }},
+        {{ q: "Động từ 急ぎます (いそぎます - Vội) chia sang thể NAI là gì?", opts: ["いそがない", "いそかない", "いそぎない", "いそごない"], ans: 0, exp: "Đuôi gi ➔ ga ➔ いそがない." }},
+        {{ q: "Cấu trúc: 'Ngày mai bạn không cần đến cũng được' là:", opts: ["明日は 来なくても いいですよ。", "明日は 来ないで ください。", "明日は 来なければ なりません。", "明日は 来ない ほうが いいです。"], ans: 0, exp: "Không cần làm gì cũng được: V-なくても いいです." }}
+    ];
+
+    let quizAnswers = {{}};
+
+    function renderQuiz() {{
+        const container = document.getElementById('quizContainer');
+        container.innerHTML = QUIZ_LIST.map((q, idx) => `
+            <div style="background: #ffffff; border: 1.5px solid var(--border); border-radius: 12px; padding: 18px; margin-bottom: 14px;" id="qCard_${{idx}}">
+                <div style="font-size: 0.85rem; font-weight: 800; color: var(--primary); margin-bottom: 6px;">CÂU ${{idx + 1}} / 15</div>
+                <div style="font-size: 1.05rem; font-weight: 700; margin-bottom: 12px;" class="jp-text">${{q.q}}</div>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 8px;">
+                    ${{q.opts.map((opt, optIdx) => `
+                        <button type="button" onclick="selectQuizAnswer(${{idx}}, ${{optIdx}}, this)" style="background: #f8fafc; border: 1.5px solid var(--border); padding: 10px 14px; border-radius: 8px; font-weight: 700; cursor: pointer; text-align: left; transition: all 0.2s;">
+                            ${{['A', 'B', 'C', 'D'][optIdx]}}. ${{opt}}
+                        </button>
+                    `).join('')}}
+                </div>
+                <div id="qFb_${{idx}}" style="display: none; margin-top: 10px; padding: 10px 14px; border-radius: 8px; font-size: 0.92rem; font-weight: 600;"></div>
+            </div>
+        `).join('');
+    }}
+
+    function selectQuizAnswer(qIdx, optIdx, btn) {{
+        if (quizAnswers[qIdx] !== undefined) return;
+        quizAnswers[qIdx] = optIdx;
+        const q = QUIZ_LIST[qIdx];
+        const card = document.getElementById(`qCard_${{qIdx}}`);
+        const fb = document.getElementById(`qFb_${{qIdx}}`);
+        const buttons = card.querySelectorAll('button');
+
+        buttons.forEach((b, idx) => {{
+            b.disabled = true;
+            if (idx === q.ans) {{
+                b.style.background = '#10b981';
+                b.style.color = '#ffffff';
+                b.style.borderColor = '#10b981';
+            }} else if (idx === optIdx) {{
+                b.style.background = '#ef4444';
+                b.style.color = '#ffffff';
+                b.style.borderColor = '#ef4444';
+            }} else {{
+                b.style.opacity = '0.5';
+            }}
+        }});
+
+        fb.style.display = 'block';
+        if (optIdx === q.ans) {{
+            fb.style.background = '#d1fae5';
+            fb.style.color = '#065f46';
+            fb.innerHTML = `✓ <strong>Chính xác!</strong> ${{q.exp}}`;
+        }} else {{
+            fb.style.background = '#fee2e2';
+            fb.style.color = '#991b1b';
+            fb.innerHTML = `✕ <strong>Chưa chính xác!</strong> ${{q.exp}}`;
+        }}
+
+        updateScore();
+    }}
+
+    function updateScore() {{
+        let score = 0;
+        QUIZ_LIST.forEach((q, idx) => {{
+            if (quizAnswers[idx] === q.ans) score++;
+        }});
+        document.getElementById('quizScoreText').innerText = score;
+    }}
+
+    // Init
+    document.addEventListener('DOMContentLoaded', () => {{
+        renderTable();
+        renderQuiz();
+    }});
+</script>
+<script src="assets/js/nav-dropdown.js"></script>
+</body>
+</html>
+"""
+
+output_path = os.path.join(WORKSPACE, 'the_nai.html')
+with open(output_path, 'w', encoding='utf-8') as f:
+    f.write(html_content)
+
+print(f"Successfully generated {output_path} ({len(html_content)} bytes)")
