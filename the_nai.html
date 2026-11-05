@@ -138,13 +138,17 @@
         /* Global Hub Nav */
         .global-hub-nav {
             display: flex;
+            justify-content: center;
+            /* QUAN TRỌNG: Căn giữa 2 hàng nút như bên Thể TA */
             align-items: center;
-            gap: 8px;
-            padding: 10px 16px;
+            gap: 10px;
+            /* Khoảng cách thoáng hơn */
+            padding: 14px 20px;
+            /* Đệm trên dưới dày dặn giống Thể TA */
             background: #ffffff;
             border: 1px solid var(--border);
-            border-radius: 12px;
-            margin-bottom: 22px;
+            border-radius: var(--radius);
+            margin-bottom: 25px;
             box-shadow: var(--shadow);
             flex-wrap: wrap;
         }
@@ -564,6 +568,111 @@
             transform: scale(1.25);
         }
 
+        /* ===================================================
+           BỘ CSS CHO FORM & NÚT BẤM CHUẨN THỂ TA
+           =================================================== */
+        .control-bar-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 14px;
+        }
+
+        /* Ô tìm kiếm viên thuốc góc trái */
+        .search-box-pill {
+            flex: 1;
+            min-width: 260px;
+            max-width: 360px;
+        }
+
+        .search-box-pill input {
+            width: 100%;
+            padding: 9px 18px;
+            border: 1.5px solid var(--border);
+            border-radius: 9999px;
+            /* Tròn xoe như Thể TA */
+            font-size: 0.92rem;
+            outline: none;
+            transition: all 0.2s ease;
+            background: #ffffff;
+        }
+
+        .search-box-pill input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.15);
+        }
+
+        /* Hàng chứa các nút bấm tác vụ */
+        .control-bar-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 18px;
+        }
+
+        .btn-ta-action {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.18s ease;
+            border: 1px solid transparent;
+            font-family: inherit;
+        }
+
+        /* Nút Nộp Bài (xanh ngọc) */
+        .btn-ta-submit {
+            background: var(--primary);
+            color: #ffffff;
+        }
+
+        .btn-ta-submit:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+
+        /* Nút Hiện/Ẩn (nền trắng viền xám) */
+        .btn-ta-outline {
+            background: #ffffff;
+            color: #334155;
+            border-color: #cbd5e1;
+        }
+
+        .btn-ta-outline:hover {
+            background: #f8fafc;
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        /* Nút Làm Lại (xám nhạt) */
+        .btn-ta-reset {
+            background: #f1f5f9;
+            color: #475569;
+            border-color: #e2e8f0;
+        }
+
+        .btn-ta-reset:hover {
+            background: #e2e8f0;
+            color: var(--dark);
+        }
+
+        /* Nút Quizlet */
+        .btn-ta-quizlet {
+            background: var(--secondary);
+            color: #ffffff;
+        }
+
+        .btn-ta-quizlet:hover {
+            background: #0369a1;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             header h1 {
@@ -576,12 +685,15 @@
 
             .global-hub-nav {
                 display: flex;
-                flex-wrap: nowrap;
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-                justify-content: flex-start;
-                gap: 8px;
-                padding: 10px 12px;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+                padding: 0;
+                background: transparent;
+                border: none;
+                box-shadow: none;
+                margin-bottom: 22px;
+                flex-wrap: wrap;
             }
 
             .hub-nav-item {
@@ -663,17 +775,11 @@
         </div>
 
         <!-- Header -->
+        <!-- Header chuẩn tối giản giống Thể TA -->
         <header>
-            <div class="header-badge">📗 BẢN ĐỒ NGỮ PHÁP TIẾNG NHẬT MARUGOTO A1 - A2</div>
-            <h1>📗 Cẩm Nang & Luyện Tập Chia Thể NAI (Phủ Định Ngắn ～ない)</h1>
+            <h1>📗 BẢNG CHIA THỂ NAI (PHỦ ĐỊNH NGẮN - ない形)</h1>
             <p>Hệ thống tự động chấm điểm gõ thể Nai cho 77 động từ cốt lõi, bảng bí kíp chuyển đổi hàng い ➔ hàng あ, bẫy
                 âm kinh điển và 5 cấu trúc ngữ pháp thực chiến A2.</p>
-            <div class="stats-pills">
-                <span class="stat-pill">✍️ 77 Động Từ Thực Hành</span>
-                <span class="stat-pill">🔄 Chuyển Đổi Hàng い ➔ あ</span>
-                <span class="stat-pill">🚨 12 Bẫy Kinh Điển (ある➔ない, くる➔こない)</span>
-                <span class="stat-pill">💡 5 Mẫu Ngữ Pháp A2</span>
-            </div>
         </header>
 
         <!-- Nav Tabs -->
@@ -689,42 +795,49 @@
         <!-- TAB 1: PRACTICE TABLE -->
         <div id="tab-practice" class="tab-panel active">
             <div class="card">
-                <div
-                    style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
+                <!-- HÀNG 1: Ô Tìm kiếm viên thuốc (trái) + Filter nhóm (phải) -->
+                <div class="control-bar-top">
+                    <div class="search-box-pill">
+                        <input type="text" id="searchInput" placeholder="🔍 Tìm kiếm động từ, nghĩa..."
+                            oninput="filterVerbs()">
+                    </div>
                     <div class="filter-row" style="margin-bottom: 0;">
-                        <button class="filter-pill active" onclick="setFilter('all', this)">Tất Cả (77)</button>
-                        <button class="filter-pill" onclick="setFilter('1', this)">Nhóm ① (49)</button>
-                        <button class="filter-pill" onclick="setFilter('2', this)">Nhóm ② (19)</button>
-                        <button class="filter-pill" onclick="setFilter('3', this)">Nhóm ③ (9)</button>
-                        <button class="filter-pill" onclick="setFilter('trap', this)">🚨 Bẫy & Ngoại Lệ (12)</button>
-                    </div>
-                    <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-                        <button type="button" class="btn-action btn-blue" onclick="copyQuizletFormat()"
-                            title="Sao chép toàn bộ động từ dạng Tab để nhập vào Quizlet Pro">📋 Copy Chuẩn Quizlet Pro
-                            (Tab)</button>
-                        <button type="button" class="btn-action btn-green" onclick="toggleShowAllAnswers()"
-                            id="btnToggleAnswers">👁️ Hiện Toàn Bộ Đáp Án</button>
-                        <button type="button" class="btn-action btn-gray" onclick="resetAllInputs()">🔄 Làm Lại Từ
-                            Đầu</button>
+                        <button class="filter-pill active" onclick="setFilter('all', this)">Tất cả (77)</button>
+                        <button class="filter-pill" onclick="setFilter('1', this)">Nhóm 1</button>
+                        <button class="filter-pill" onclick="setFilter('2', this)">Nhóm 2</button>
+                        <button class="filter-pill" onclick="setFilter('3', this)">Nhóm 3</button>
+                        <button class="filter-pill" onclick="setFilter('trap', this)">⚠️ Động từ bẫy</button>
                     </div>
                 </div>
 
-                <div style="margin-bottom: 14px;">
-                    <input type="text" id="searchInput"
-                        placeholder="🔍 Tìm kiếm động từ theo thể Masu, Kanji, Nghĩa, hoặc Thể Nai..."
-                        style="width: 100%; padding: 10px 14px; border: 1.5px solid var(--border); border-radius: 8px; font-size: 0.95rem;"
-                        oninput="filterVerbs()">
+                <!-- HÀNG 2: Bộ 3 nút tác vụ giống hệt Thể TA -->
+                <div class="control-bar-actions">
+                    <button type="button" class="btn-ta-action btn-ta-submit" onclick="gradeAllInputs()">
+                        ✓ Nộp Bài / Chấm Điểm
+                    </button>
+                    <button type="button" class="btn-ta-action btn-ta-outline" onclick="toggleShowAllAnswers()"
+                        id="btnToggleAnswers">
+                        👁️ Hiện / Ẩn Đáp Án
+                    </button>
+                    <button type="button" class="btn-ta-action btn-ta-reset" onclick="resetAllInputs()">
+                        🔄 Làm Lại
+                    </button>
+                    <button type="button" class="btn-ta-action btn-ta-quizlet" onclick="copyQuizletFormat()"
+                        title="Sao chép toàn bộ vào Quizlet">
+                        📋 Copy Chuẩn Quizlet Pro
+                    </button>
                 </div>
 
+                <!-- Bảng danh sách bài tập -->
                 <div class="table-responsive">
                     <table class="exercise-table" id="verbsTable">
                         <thead>
                             <tr>
                                 <th style="width: 50px; text-align: center;">STT</th>
                                 <th style="width: 250px;">Vます (Động Từ Thường)</th>
-                                <th style="width: 110px;">Nhóm</th>
+                                <th style="width: 120px;">Nhóm</th>
                                 <th>Thể NAI (Nhập đáp án để kiểm tra)</th>
-                                <th style="width: 110px; text-align: center;">Trạng Thái</th>
+                                <th style="width: 120px; text-align: center;">Kết Quả</th>
                             </tr>
                         </thead>
                         <tbody id="tableBody">
@@ -734,7 +847,6 @@
                 </div>
             </div>
         </div>
-
         <!-- TAB 2: THEORY & MNEMONICS -->
         <div id="tab-theory" class="tab-panel">
             <div class="card">
@@ -746,14 +858,17 @@
                             <strong>かわない</strong>. <em>Tuyệt đối không có ああない hay かあない!</em>)
                         </p>
                         <p>🔥 <strong>Thần chú 2 (Bẫy ngoại lệ tối thượng):</strong> Động từ <strong>「あります (Có đồ
-                                vật)」</strong> sang thể Nai là <strong>「ない」</strong> (<em>Không bao giờ có あらない!</em>)
+                                vật)」</strong> sang thể Nai là <strong>「ない」</strong> (<em>Không bao giờ có
+                                あらない!</em>)
                         </p>
-                        <p>🔥 <strong>Thần chú 3 (Bẫy biến âm Nhóm 3):</strong> <strong>「来ます (きます - Đến)」</strong> sang
+                        <p>🔥 <strong>Thần chú 3 (Bẫy biến âm Nhóm 3):</strong> <strong>「来ます (きます - Đến)」</strong>
+                            sang
                             thể Nai đổi âm đọc thành <strong>「こない (来ない)」</strong>!</p>
                     </div>
                 </div>
 
-                <h2 style="font-size: 1.4rem; font-weight: 800; color: #065f46; margin-bottom: 12px;">📖 Bảng Quy Tắc
+                <h2 style="font-size: 1.4rem; font-weight: 800; color: #065f46; margin-bottom: 12px;">📖 Bảng Quy
+                    Tắc
                     Chia Chi Tiết Cho 3 Nhóm Động Từ</h2>
 
                 <table class="rule-table">
@@ -776,34 +891,39 @@
                             <td><strong>い</strong> (âm i)</td>
                             <td>Đổi thành <strong>～わない</strong></td>
                             <td>• あ<strong>い</strong>ます ➔ あ<strong>わない</strong> (Gặp)<br>• か<strong>い</strong>ます ➔
-                                か<strong>わない</strong> (Mua)<br>• つか<strong>い</strong>ます ➔ つか<strong>わない</strong> (Dùng)
+                                か<strong>わない</strong> (Mua)<br>• つか<strong>い</strong>ます ➔ つか<strong>わない</strong>
+                                (Dùng)
                             </td>
                         </tr>
                         <tr>
                             <td><strong>ち</strong> (âm chi)</td>
                             <td>Đổi thành <strong>～たない</strong></td>
                             <td>• ま<strong>ち</strong>ます ➔ ま<strong>たない</strong> (Chờ)<br>• た<strong>ち</strong>ます ➔
-                                た<strong>たない</strong> (Đứng)<br>• も<strong>ち</strong>ます ➔ も<strong>たない</strong> (Cầm)
+                                た<strong>たない</strong> (Đứng)<br>• も<strong>ち</strong>ます ➔ も<strong>たない</strong>
+                                (Cầm)
                             </td>
                         </tr>
                         <tr>
                             <td><strong>り</strong> (âm ri)</td>
                             <td>Đổi thành <strong>～らない</strong></td>
                             <td>• と<strong>り</strong>ます ➔ と<strong>らない</strong> (Lấy)<br>• つく<strong>り</strong>ます ➔
-                                つく<strong>らない</strong> (Làm)<br>• わか<strong>り</strong>ます ➔ わか<strong>らない</strong> (Hiểu)
+                                つく<strong>らない</strong> (Làm)<br>• わか<strong>り</strong>ます ➔ わか<strong>らない</strong>
+                                (Hiểu)
                             </td>
                         </tr>
                         <tr>
                             <td><strong>み</strong> (âm mi)</td>
                             <td>Đổi thành <strong>～まない</strong></td>
                             <td>• の<strong>み</strong>ます ➔ の<strong>まない</strong> (Uống)<br>• よ<strong>み</strong>ます ➔
-                                よ<strong>まない</strong> (Đọc)<br>• やす<strong>み</strong>ます ➔ やす<strong>まない</strong> (Nghỉ)
+                                よ<strong>まない</strong> (Đọc)<br>• やす<strong>み</strong>ます ➔ やす<strong>まない</strong>
+                                (Nghỉ)
                             </td>
                         </tr>
                         <tr>
                             <td><strong>び</strong> (âm bi)</td>
                             <td>Đổi thành <strong>～ばない</strong></td>
-                            <td>• あそ<strong>び</strong>ます ➔ あそ<strong>ばない</strong> (Chơi)<br>• えら<strong>び</strong>ます ➔
+                            <td>• あそ<strong>び</strong>ます ➔ あそ<strong>ばない</strong> (Chơi)<br>• えら<strong>び</strong>ます
+                                ➔
                                 えら<strong>ばない</strong> (Chọn)</td>
                         </tr>
                         <tr>
@@ -821,7 +941,8 @@
                         <tr>
                             <td><strong>ぎ</strong> (âm gi)</td>
                             <td>Đổi thành <strong>～がない</strong></td>
-                            <td>• およ<strong>ぎ</strong>ます ➔ およ<strong>がない</strong> (Bơi)<br>• いそ<strong>ぎ</strong>ます ➔
+                            <td>• およ<strong>ぎ</strong>ます ➔ およ<strong>がない</strong> (Bơi)<br>• いそ<strong>ぎ</strong>ます
+                                ➔
                                 いそ<strong>がない</strong> (Vội)</td>
                         </tr>
                         <tr>
@@ -880,18 +1001,23 @@
         <!-- TAB 3: GRAMMAR -->
         <div id="tab-grammar" class="tab-panel">
             <div class="card">
-                <h2 style="font-size: 1.5rem; font-weight: 800; color: #065f46; margin-bottom: 6px;">💡 5 Mẫu Câu Ngữ
+                <h2 style="font-size: 1.5rem; font-weight: 800; color: #065f46; margin-bottom: 6px;">💡 5 Mẫu Câu
+                    Ngữ
                     Pháp Thể NAI Cốt Lõi A1 - A2</h2>
-                <p style="color: var(--gray); margin-bottom: 24px;">Toàn bộ các cấu trúc ngữ pháp dùng thể NAI bám sát
+                <p style="color: var(--gray); margin-bottom: 24px;">Toàn bộ các cấu trúc ngữ pháp dùng thể NAI bám
+                    sát
                     giáo trình Marugoto và kỳ thi năng lực tiếng Nhật.</p>
 
                 <!-- Mẫu 1 -->
                 <div
                     style="background: #ecfdf5; border: 1.5px solid #a7f3d0; border-radius: 14px; padding: 20px; margin-bottom: 20px;">
-                    <h3 style="color: #047857; font-size: 1.2rem; margin-bottom: 6px;">🌸 1. Xin đừng làm V: V-ないで ください
+                    <h3 style="color: #047857; font-size: 1.2rem; margin-bottom: 6px;">🌸 1. Xin đừng làm V: V-ないで
+                        ください
                     </h3>
-                    <p style="color: #374151; margin-bottom: 10px;"><strong>Ý nghĩa:</strong> Khuyên nhủ, nhắc nhở hoặc
-                        yêu cầu đối phương một cách lịch sự rằng không được làm một việc gì đó (biển báo, bệnh viện, bảo
+                    <p style="color: #374151; margin-bottom: 10px;"><strong>Ý nghĩa:</strong> Khuyên nhủ, nhắc nhở
+                        hoặc
+                        yêu cầu đối phương một cách lịch sự rằng không được làm một việc gì đó (biển báo, bệnh viện,
+                        bảo
                         tàng...).</p>
                     <div style="background: white; border-radius: 10px; padding: 14px; border: 1px solid #d1fae5;">
                         <div
@@ -908,9 +1034,11 @@
                         <div style="display:flex; justify-content:space-between; align-items:center;">
                             <div>
                                 <span class="jp-text"
-                                    style="font-size: 1.05rem; font-weight: 700; color: #065f46;"><ruby>無理<rt>むり</rt>
+                                    style="font-size: 1.05rem; font-weight: 700; color: #065f46;"><ruby>無理<rt>むり
+                                        </rt>
                                     </ruby>を しないで ください。</span>
-                                <div style="color: #64748b; font-size: 0.9rem;">➡ Xin đừng làm việc quá sức nhé (chăm
+                                <div style="color: #64748b; font-size: 0.9rem;">➡ Xin đừng làm việc quá sức nhé
+                                    (chăm
                                     sóc sức khỏe).</div>
                             </div>
                             <button type="button" class="sound-btn" onclick="speakJapanese('無理をしないでください')">🔊</button>
@@ -921,25 +1049,30 @@
                 <!-- Mẫu 2 -->
                 <div
                     style="background: #eff6ff; border: 1.5px solid #bfdbfe; border-radius: 14px; padding: 20px; margin-bottom: 20px;">
-                    <h3 style="color: #1d4ed8; font-size: 1.2rem; margin-bottom: 6px;">🌸 2. Phải làm V: V-なければ なりません
+                    <h3 style="color: #1d4ed8; font-size: 1.2rem; margin-bottom: 6px;">🌸 2. Phải làm V: V-なければ
+                        なりません
                         (Hoặc V-ないと)</h3>
-                    <p style="color: #374151; margin-bottom: 10px;"><strong>Ý nghĩa:</strong> Diễn tả nghĩa vụ, bổn phận
+                    <p style="color: #374151; margin-bottom: 10px;"><strong>Ý nghĩa:</strong> Diễn tả nghĩa vụ, bổn
+                        phận
                         hoặc việc bắt buộc phải làm dù muốn hay không.</p>
                     <div style="background: white; border-radius: 10px; padding: 14px; border: 1px solid #dbeafe;">
                         <div
                             style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 8px;">
                             <div>
                                 <span class="jp-text"
-                                    style="font-size: 1.05rem; font-weight: 700; color: #1e40af;"><ruby>薬<rt>くすり</rt>
+                                    style="font-size: 1.05rem; font-weight: 700; color: #1e40af;"><ruby>薬<rt>くすり
+                                        </rt>
                                     </ruby>を <ruby>飲<rt>の</rt></ruby>まなければ なりません。</span>
-                                <div style="color: #64748b; font-size: 0.9rem;">➡ Tôi phải uống thuốc đúng giờ.</div>
+                                <div style="color: #64748b; font-size: 0.9rem;">➡ Tôi phải uống thuốc đúng giờ.
+                                </div>
                             </div>
                             <button type="button" class="sound-btn" onclick="speakJapanese('薬を飲まなければなりません')">🔊</button>
                         </div>
                         <div style="display:flex; justify-content:space-between; align-items:center;">
                             <div>
                                 <span class="jp-text"
-                                    style="font-size: 1.05rem; font-weight: 700; color: #1e40af;"><ruby>明日<rt>あした</rt>
+                                    style="font-size: 1.05rem; font-weight: 700; color: #1e40af;"><ruby>明日<rt>あした
+                                        </rt>
                                     </ruby> レポートを <ruby>出<rt>だ</rt></ruby>さなければ なりません。</span>
                                 <div style="color: #64748b; font-size: 0.9rem;">➡ Ngày mai tôi phải nộp bài báo cáo.
                                 </div>
@@ -953,15 +1086,18 @@
                 <!-- Mẫu 3 -->
                 <div
                     style="background: #fdf4ff; border: 1.5px solid #f0abfc; border-radius: 14px; padding: 20px; margin-bottom: 20px;">
-                    <h3 style="color: #a21caf; font-size: 1.2rem; margin-bottom: 6px;">🌸 3. Không cần làm V cũng được:
+                    <h3 style="color: #a21caf; font-size: 1.2rem; margin-bottom: 6px;">🌸 3. Không cần làm V cũng
+                        được:
                         V-なくても いいです</h3>
-                    <p style="color: #374151; margin-bottom: 10px;"><strong>Ý nghĩa:</strong> Diễn tả sự không bắt buộc,
+                    <p style="color: #374151; margin-bottom: 10px;"><strong>Ý nghĩa:</strong> Diễn tả sự không bắt
+                        buộc,
                         người nghe không cần phải thực hiện hành động đó.</p>
                     <div style="background: white; border-radius: 10px; padding: 14px; border: 1px solid #fae8ff;">
                         <div style="display:flex; justify-content:space-between; align-items:center;">
                             <div>
                                 <span class="jp-text"
-                                    style="font-size: 1.05rem; font-weight: 700; color: #86198f;"><ruby>明日<rt>あした</rt>
+                                    style="font-size: 1.05rem; font-weight: 700; color: #86198f;"><ruby>明日<rt>あした
+                                        </rt>
                                     </ruby>は <ruby>来<rt>こ</rt></ruby>なくても いいですよ。</span>
                                 <div style="color: #64748b; font-size: 0.9rem;">➡ Ngày mai bạn không cần đến công ty
                                     cũng được nhé.</div>
@@ -974,16 +1110,19 @@
                 <!-- Mẫu 4 -->
                 <div
                     style="background: #fffbeb; border: 1.5px solid #fde68a; border-radius: 14px; padding: 20px; margin-bottom: 20px;">
-                    <h3 style="color: #b45309; font-size: 1.2rem; margin-bottom: 6px;">🌸 4. Không nên làm V: V-ない ほうが
+                    <h3 style="color: #b45309; font-size: 1.2rem; margin-bottom: 6px;">🌸 4. Không nên làm V: V-ない
+                        ほうが
                         いいです</h3>
-                    <p style="color: #374151; margin-bottom: 10px;"><strong>Ý nghĩa:</strong> Đưa ra lời khuyên nhủ đối
+                    <p style="color: #374151; margin-bottom: 10px;"><strong>Ý nghĩa:</strong> Đưa ra lời khuyên nhủ
+                        đối
                         phương không nên làm việc gì vì sẽ gây hại hoặc không tốt.</p>
                     <div style="background: white; border-radius: 10px; padding: 14px; border: 1px solid #fef3c7;">
                         <div style="display:flex; justify-content:space-between; align-items:center;">
                             <div>
                                 <span class="jp-text" style="font-size: 1.05rem; font-weight: 700; color: #92400e;">あまり
                                     お<ruby>酒<rt>さけ</rt></ruby>を <ruby>飲<rt>の</rt></ruby>まない ほうが いいです。</span>
-                                <div style="color: #64748b; font-size: 0.9rem;">➡ Bạn không nên uống quá nhiều rượu bia
+                                <div style="color: #64748b; font-size: 0.9rem;">➡ Bạn không nên uống quá nhiều rượu
+                                    bia
                                     đâu.</div>
                             </div>
                             <button type="button" class="sound-btn"
@@ -996,7 +1135,8 @@
                 <div style="background: #f8fafc; border: 1.5px solid #cbd5e1; border-radius: 14px; padding: 20px;">
                     <h3 style="color: #334155; font-size: 1.2rem; margin-bottom: 6px;">🌸 5. Không làm V1 mà làm V2:
                         V1-ないで、V2</h3>
-                    <p style="color: #374151; margin-bottom: 10px;"><strong>Ý nghĩa:</strong> Diễn tả hành động V2 được
+                    <p style="color: #374151; margin-bottom: 10px;"><strong>Ý nghĩa:</strong> Diễn tả hành động V2
+                        được
                         thực hiện trong trạng thái không làm hành động V1.</p>
                     <div style="background: white; border-radius: 10px; padding: 14px; border: 1px solid #e2e8f0;">
                         <div style="display:flex; justify-content:space-between; align-items:center;">
@@ -1005,7 +1145,8 @@
                                     style="font-size: 1.05rem; font-weight: 700; color: #1e293b;">朝ごはんを <ruby>食<rt>た
                                         </rt></ruby>べないで、<ruby>会社<rt>かいしゃ</rt></ruby>へ <ruby>行<rt>い</rt>
                                     </ruby>きました。</span>
-                                <div style="color: #64748b; font-size: 0.9rem;">➡ Tôi đã không ăn bữa sáng mà đến công
+                                <div style="color: #64748b; font-size: 0.9rem;">➡ Tôi đã không ăn bữa sáng mà đến
+                                    công
                                     ty luôn.</div>
                             </div>
                             <button type="button" class="sound-btn"
@@ -1019,9 +1160,11 @@
         <!-- TAB 4: VERB TRANSFORMER LAB -->
         <div id="tab-lab" class="tab-panel">
             <div class="card">
-                <h2 style="font-size: 1.4rem; font-weight: 800; color: #065f46; margin-bottom: 6px;">🧪 Phòng Thí Nghiệm
+                <h2 style="font-size: 1.4rem; font-weight: 800; color: #065f46; margin-bottom: 6px;">🧪 Phòng Thí
+                    Nghiệm
                     Đổi 4 Thể Động Từ (Masu ➔ Te, Ru, Ta, Nai)</h2>
-                <p style="color: var(--gray); margin-bottom: 18px;">Nhập động từ thể Masu hoặc chọn từ nhanh bên dưới để
+                <p style="color: var(--gray); margin-bottom: 18px;">Nhập động từ thể Masu hoặc chọn từ nhanh bên
+                    dưới để
                     xem máy biến đổi tức thì sang cả 4 thể!</p>
 
                 <div style="display: flex; gap: 10px; margin-bottom: 16px;">
@@ -1048,7 +1191,8 @@
 
                 <div id="labResultBox"
                     style="background: #f8fafc; border: 2px dashed #cbd5e1; border-radius: 14px; padding: 24px; text-align: center;">
-                    <div style="color: var(--gray); font-size: 1.05rem;">Hãy gõ một động từ hoặc chọn từ mẫu bên trên để
+                    <div style="color: var(--gray); font-size: 1.05rem;">Hãy gõ một động từ hoặc chọn từ mẫu bên
+                        trên để
                         xem kết quả phân tích 4 thể!</div>
                 </div>
             </div>
@@ -1060,9 +1204,11 @@
                 <div
                     style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; flex-wrap:wrap; gap:10px;">
                     <div>
-                        <h2 style="font-size: 1.5rem; font-weight: 800; color: #065f46;">🎯 15 Câu Trắc Nghiệm Phản Xạ
+                        <h2 style="font-size: 1.5rem; font-weight: 800; color: #065f46;">🎯 15 Câu Trắc Nghiệm Phản
+                            Xạ
                             Thể NAI</h2>
-                        <p style="color: var(--gray); margin-top: 4px;">Kiểm tra độ nhạy với các bẫy đuôi âm kinh điển
+                        <p style="color: var(--gray); margin-top: 4px;">Kiểm tra độ nhạy với các bẫy đuôi âm kinh
+                            điển
                             và cấu trúc ngữ pháp thể NAI.</p>
                     </div>
                     <div
@@ -1200,7 +1346,27 @@
                 hint.style.display = 'block';
             }
         }
+        function gradeAllInputs() {
+            let correct = 0;
+            let total = 0;
 
+            verbsData.forEach(item => {
+                const input = document.getElementById(`input_${item.id}`);
+                if (input && input.value.trim()) {
+                    total++;
+                    checkVerbInput(item.id);
+                    if (cleanKana(input.value) === cleanKana(item.nai)) {
+                        correct++;
+                    }
+                }
+            });
+
+            if (total === 0) {
+                showToast('⚠️ Bạn chưa nhập đáp án nào!');
+            } else {
+                showToast(`🎯 Kết quả: Đúng ${correct}/${total} câu đã nhập!`);
+            }
+        }
         function toggleShowAllAnswers() {
             showAnswersState = !showAnswersState;
             const btn = document.getElementById('btnToggleAnswers');
