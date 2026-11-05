@@ -523,7 +523,8 @@
                     <button class="filter-pill" onclick="setFilter('3', this)">Nhóm ③ (9)</button>
                     <button class="filter-pill" onclick="setFilter('trap', this)">🚨 Bẫy & Ngoại Lệ (12)</button>
                 </div>
-                <div style="display: flex; gap: 8px;">
+                <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                    <button type="button" class="btn-action btn-blue" onclick="copyQuizletFormat()" title="Sao chép toàn bộ động từ dạng Tab để nhập vào Quizlet Pro">📋 Copy Chuẩn Quizlet Pro (Tab)</button>
                     <button type="button" class="btn-action btn-green" onclick="toggleShowAllAnswers()" id="btnToggleAnswers">👁️ Hiện Toàn Bộ Đáp Án</button>
                     <button type="button" class="btn-action btn-gray" onclick="resetAllInputs()">🔄 Làm Lại Từ Đầu</button>
                 </div>
@@ -1153,12 +1154,30 @@
         document.getElementById('quizScoreText').innerText = score;
     }
 
+    function copyQuizletFormat() {
+        const text = verbsData.map(v => `${v.kanji}\t[${v.nai}] ${v.vi}`).join('\n');
+        navigator.clipboard.writeText(text).then(() => {
+            showToast(`✅ Đã copy ${verbsData.length} động từ thể NAI chuẩn Tab Quizlet Pro!`);
+        }).catch(err => {
+            alert('Không thể truy cập clipboard, vui lòng thử lại!');
+        });
+    }
+
+    function showToast(msg) {
+        let t = document.getElementById('toast');
+        if (!t) return;
+        t.innerText = msg;
+        t.style.display = 'block';
+        setTimeout(() => { t.style.display = 'none'; }, 2800);
+    }
+
     // Init
     document.addEventListener('DOMContentLoaded', () => {
         renderTable();
         renderQuiz();
     });
 </script>
+<div id="toast" style="display:none; position:fixed; bottom:24px; right:24px; background:#0f172a; color:#fff; padding:12px 24px; border-radius:10px; font-weight:700; z-index:9999; box-shadow:0 10px 25px rgba(0,0,0,0.3); border:1px solid #334155; animation:fadeIn 0.3s ease;"></div>
 <script src="assets/js/nav-dropdown.js"></script>
 </body>
 </html>
