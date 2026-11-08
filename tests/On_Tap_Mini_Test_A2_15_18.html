@@ -55,35 +55,45 @@
 
         body {
             font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+            background-color: #f1f5f9;
             color: var(--gray-800);
             line-height: 1.6;
-            min-height: 100vh;
+            padding: 20px 12px 80px 12px;
         }
 
         .jp-text {
             font-family: 'Noto Sans JP', sans-serif;
         }
 
-        /* Hero Header */
-        .hero-header {
-            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #312e81 100%);
-            color: var(--white);
-            padding: 40px 20px 32px 20px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            border-bottom: 3px solid rgba(255, 255, 255, 0.1);
+        /* Container */
+        .container {
+            max-width: 1240px;
+            margin: 0 auto;
         }
 
-        .hero-header::before {
-            content: '';
+        /* Hero Header */
+        .hero-banner {
+            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 40%, #4f46e5 100%);
+            border-radius: var(--radius-xl);
+            padding: 38px 28px;
+            color: #ffffff;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            text-align: center;
+        }
+
+        .hero-banner::after {
+            content: "満点";
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 60%);
+            right: 20px;
+            bottom: -30px;
+            font-size: 160px;
+            font-family: 'Noto Sans JP', sans-serif;
+            font-weight: 900;
+            color: rgba(255, 255, 255, 0.04);
             pointer-events: none;
         }
 
@@ -91,7 +101,7 @@
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.18);
             backdrop-filter: blur(8px);
             padding: 6px 16px;
             border-radius: var(--radius-full);
@@ -99,7 +109,7 @@
             font-weight: 700;
             letter-spacing: 0.5px;
             margin-bottom: 14px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.25);
             color: #c7d2fe;
         }
 
@@ -131,9 +141,9 @@
         }
 
         .hero-stat-pill {
-            background: rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             padding: 8px 18px;
             border-radius: var(--radius-full);
             font-size: 0.88rem;
@@ -144,34 +154,23 @@
             gap: 8px;
         }
 
-        /* Container */
-        .main-container {
-            max-width: 1240px;
-            margin: 0 auto;
-            padding: 24px 16px 80px 16px;
-        }
-
         /* Tab Navigation Bar */
         .tab-nav-wrapper {
             position: sticky;
-            top: 0;
-            z-index: 50;
-            background: rgba(248, 250, 252, 0.95);
-            backdrop-filter: blur(12px);
-            padding: 12px 0;
+            top: 10px;
+            z-index: 100;
             margin-bottom: 24px;
-            border-bottom: 1px solid var(--gray-200);
         }
 
         .tab-nav {
             display: flex;
-            gap: 8px;
+            gap: 6px;
             overflow-x: auto;
             scrollbar-width: thin;
             background: var(--white);
             border-radius: var(--radius-lg);
             padding: 6px;
-            box-shadow: var(--shadow-sm);
+            box-shadow: var(--shadow-md);
             border: 1px solid var(--gray-200);
         }
 
@@ -897,11 +896,13 @@
 </head>
 <body>
 
+<div class="container">
+
     <!-- Global Hub Navigation Placeholder -->
     <div id="navbar-placeholder"></div>
 
     <!-- Hero Header -->
-    <header class="hero-header">
+    <header class="hero-banner">
         <div class="hero-badge">🎓 MARUGOTO A2-2 • FINAL REVIEW EXAM</div>
         <h1 class="hero-title">Đề Thi Thử & Cẩm Nang Ôn Tập Bài 15 - 18</h1>
         <p class="hero-desc">Hệ thống tổng hợp toàn diện 4 bài cuối giáo trình Marugoto A2-2: Lý thuyết chuyên sâu, 135 từ vựng Quizlet sạch, 34 chữ Hán chiết tự, Đề thi chuẩn 6 dạng 100 điểm & Luyện gõ phản xạ Nhật - Việt.</p>
@@ -925,8 +926,6 @@
             <button class="tab-btn" onclick="switchMainTab('tab-cheatsheet')">⚡ Cẩm Nang Bỏ Túi</button>
         </nav>
     </div>
-
-    <main class="main-container">
 
         <!-- ========================================== -->
         <!-- TAB 1: LÝ THUYẾT NGỮ PHÁP (BÀI 15 - 18)    -->
@@ -1369,7 +1368,7 @@
             </div>
         </div>
 
-    </main>
+    </div> <!-- end .container -->
 
     <!-- Toast Notification -->
     <div id="toast"></div>
