@@ -1526,56 +1526,12 @@
     <script src="../assets/js/vendor/three.min.js"></script>
     <script src="../assets/js/vendor/OrbitControls.js"></script>
     <script src="../assets/js/vocab-3d-engine.js" defer></script>
+    <link rel="stylesheet" href="../assets/css/site-theme.css">
 </head>
 <body>
     <!-- Global Hub Navigation -->
-                                                                                <div class="global-hub-nav">
-        <a href="../index.html" class="hub-nav-item">🌸 Thể TE (～て)</a>
-        <a href="../the_ru.html" class="hub-nav-item">📘 Thể RU (Từ Điển)</a>
-        <a href="../the_ta.html" class="hub-nav-item">📕 Thể TA (Quá Khứ)</a>
-        <a href="../the_nai.html" class="hub-nav-item">📗 Thể NAI (Phủ Định)</a>
-        <a href="../kanji_a2.html" class="hub-nav-item">⛩️ Học Kanji & Nét Viết</a>
-        <a href="../Tu_Vung_Marugoto_A1_16_A2_1_10.html" class="hub-nav-item">📖 Kho Từ Vựng A1-A2</a>
-        <a href="../kien_thuc_bo_sung.html" class="hub-nav-item">💡 Kiến Thức Bổ Sung</a>
-        <a href="../demo_3d.html" class="hub-nav-item">⛩️ Không Gian 3D</a>
-        <div class="hub-dropdown">
-            <button type="button" class="hub-nav-item" onclick="toggleTestsDropdown(event)">🎯 Ôn Tập & Đề Thi ▾</button>
-            <div class="hub-dropdown-menu" id="testsDropdownMenu">
-                <a href="../tests/On_Tap_Cap_Toc_Kanji_11_18_NPBS14.html" class="hub-drop-link">⚡ Cấp Tốc Đêm Nay: Kanji 11-18 & NPBS 14</a>
-                <a href="../tests/De_Thi_Midterm_A2_1.html" class="hub-drop-link">🎯 Bộ 5 Đề Thi Giữa Kỳ Midterm (M101 - M105)</a>
-                <a href="../tests/On_Tap_Dich_Cau_Lesson_1_10.html" class="hub-drop-link">✍️ Luyện Dịch Câu Bài 1 - 10 (40 Câu)</a>
-                <a href="../tests/On_Tap_Mini_Test_A2_1_4.html" class="hub-drop-link">🎯 Ôn Tập Bài 1-4 (Mini Test)</a>
-                <a href="../tests/On_Tap_Mini_Test_A2_5_8.html" class="hub-drop-link">🎯 Ôn Tập Bài 5-8 (Mini Test)</a>
-                <a href="../tests/On_Tap_Mini_Test_A2_11_14.html" class="hub-drop-link">🎯 Ôn Tập Bài 11-14 (Mini Test)</a>
-                <a href="../tests/De_Thi_Thu_Marugoto_A2_5_8.html" class="hub-drop-link">📝 5 Mã Đề Thi Thử (101-105)</a>
-                <a href="../tests/Kiem_Tra_Marugoto_L6_7_8.html" class="hub-drop-link">📑 Đề Kiểm Tra L6, 7, 8</a>
-                <a href="../tests/Luyen_Tap_The_Te_A2_1.html" class="hub-drop-link">🌸 Luyện Tập Thể Te</a>
-            </div>
-        </div>
-        <div class="hub-dropdown">
-            <button type="button" class="hub-nav-item active-hub" onclick="toggleLessonsDropdown(event)">🚀 Web Bài Học ▾</button>
-            <div class="hub-dropdown-menu" id="lessonsDropdownMenu">
-                <a href="Marugoto_A2_Lesson_1.html" class="hub-drop-link">🌸 Bài 1: Nơi ở & Gia đình</a>
-                <a href="Marugoto_A2_Lesson_2.html" class="hub-drop-link">🎨 Bài 2: Sở thích & Ngôn ngữ</a>
-                <a href="Marugoto_A2_Lesson_3.html" class="hub-drop-link">🍁 Bài 3: Mùa & Khí hậu</a>
-                <a href="Marugoto_A2_Lesson_4.html" class="hub-drop-link">⛅ Bài 4: Thời tiết & Dự báo</a>
-                <a href="Marugoto_A2_Lesson_5.html" class="hub-drop-link">🏙️ Bài 5: Phố xá & Nơi chốn</a>
-                <a href="Marugoto_A2_Lesson_6.html" class="hub-drop-link">🗺️ Bài 6: Chỉ đường & Ngã rẽ</a>
-                <a href="Marugoto_A2_Lesson_7.html" class="hub-drop-link">⏰ Bài 7: Hẹn gặp & Giờ giấc</a>
-                <a href="Marugoto_A2_Lesson_8.html" class="hub-drop-link">⛩️ Bài 8: Sự kiện & Mời mọc</a>
-                <a href="Marugoto_A2_Lesson_9.html" class="hub-drop-link">🗣️ Bài 9: Học tập & Phát âm</a>
-                <a href="Marugoto_A2_Lesson_10.html" class="hub-drop-link">🌟 Bài 10: Ngoại ngữ & Văn hóa</a>
-                <a href="Marugoto_A2_Lesson_11.html" class="hub-drop-link">🍱 Bài 11: Dã ngoại & Ăn uống</a>
-                <a href="Marugoto_A2_Lesson_12.html" class="hub-drop-link">🍜 Bài 12: Món ăn ngày đặc biệt</a>
-                <a href="Marugoto_A2_Lesson_13.html" class="hub-drop-link">✈️ Bài 13: Đi công tác & Gặp gỡ</a>
-                <a href="Marugoto_A2_Lesson_14.html" class="hub-drop-link active">💻 Bài 14: Quy tắc nơi làm việc</a>
-                <a href="Marugoto_A2_Lesson_15.html" class="hub-drop-link">🏥 Bài 15: Sức khỏe & Thể dục</a>
-                <a href="Marugoto_A2_Lesson_16.html" class="hub-drop-link">🏃 Bài 16: Tập luyện & Vận động</a>
-                <a href="Marugoto_A2_Lesson_17.html" class="hub-drop-link">🎁 Bài 17: Quà tặng & Kỷ niệm</a>
-                <a href="Marugoto_A2_Lesson_18.html" class="hub-drop-link">👘 Bài 18: Tiệc tùng & Sự kiện</a>
-            </div>
-        </div>
-    </div>
+                                                                                <!-- Global Hub Navigation Placeholder -->
+        <div id="navbar-placeholder"></div>
 
     <!-- STICKY SECTION SUB-NAV -->
     <div class="section-nav">
@@ -1585,6 +1541,7 @@
         <a href="#sec-verb-lab" class="sec-link">🔬 Thể Te & Xin Phép</a>
         <a href="#sec-dialogue" class="sec-link">💬 Giao Tiếp Văn Phòng</a>
         <a href="#sec-vocab" class="sec-link">🎴 25 Từ Vựng 3D</a>
+        <a href="#sec-typing-practice" class="sec-link" style="text-decoration:none;">⌨️ Luyện Gõ Từ Vựng</a>
         <a href="#sec-kanji" class="sec-link">⛩️ 8 Chữ Hán Bài 14</a>
                 <a href="#sec-quiz" class="sec-link">📝 Mini Test 15 Câu</a>
         <button type="button" class="furigana-toggle-btn" id="btnFuriganaToggle" onclick="toggleFurigana()" title="Bật / Tắt hiển thị Furigana (cách đọc Hiragana)">
@@ -2019,6 +1976,9 @@
                 <!-- Cards rendered via JS -->
             </div>
         </section>
+
+    <!-- Typing Practice Section -->
+    <section class="content-section" id="sec-typing-practice"></section>
 
         <!-- KANJI SECTION -->
         <section class="content-section" id="sec-kanji">
@@ -2665,5 +2625,7 @@
     
 
 </script><script src="../assets/js/nav-dropdown.js"></script>
+    <script src="../assets/nav.js" defer></script>
+    <script src="../assets/js/typing-practice.js" defer></script>
 </body>
 </html>
