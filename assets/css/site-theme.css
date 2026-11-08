@@ -80,34 +80,37 @@ body {
     z-index: 100000 !important;
 }
 
+/* 1. Global Hub Navigation Container */
+.global-hub-nav-wrapper {
+    position: relative !important;
+    margin-bottom: 25px !important;
+    z-index: 100000 !important;
+}
+
 .global-hub-nav {
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     flex-wrap: wrap !important;
-    gap: 10px !important;
+    gap: 8px !important;
     background: #ffffff !important;
-    padding: 14px 20px !important;
-    border-radius: 20px !important;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06) !important;
-    margin-bottom: 25px !important;
-    border: 1px solid #e2e8f0 !important;
+    padding: 12px 18px !important;
+    border-radius: 9999px !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06) !important;
+    border: 1.5px solid #e2e8f0 !important;
     position: relative !important;
     overflow: visible !important;
-    overflow-x: visible !important;
-    overflow-y: visible !important;
-    z-index: 100000 !important;
 }
 
 .hub-nav-item {
     display: inline-flex !important;
     align-items: center !important;
     gap: 6px !important;
-    padding: 7px 16px !important;
+    padding: 7px 15px !important;
     border-radius: 9999px !important;
     background: #ffffff !important;
     color: #475569 !important;
-    font-size: 0.88rem !important;
+    font-size: 0.86rem !important;
     font-weight: 700 !important;
     text-decoration: none !important;
     border: 1.5px solid #cbd5e1 !important;
@@ -132,49 +135,52 @@ body {
     box-shadow: 0 4px 12px rgba(225, 29, 72, 0.35) !important;
 }
 
-/* Dropdown Menu */
-.hub-dropdown {
-    position: relative !important;
-    display: inline-block !important;
-    z-index: 100001 !important;
-}
-
+/* Dropdown Menu (Desktop Floating & Positioned) */
 .hub-dropdown-menu {
-    display: none !important;
-    position: absolute !important;
-    top: calc(100% + 8px) !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    background: #ffffff !important;
-    border: 1.5px solid #e2e8f0 !important;
-    border-radius: 16px !important;
-    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.18) !important;
-    padding: 8px !important;
-    min-width: 280px !important;
-    max-height: 480px !important;
-    overflow-y: auto !important;
-    scrollbar-width: thin !important;
-    z-index: 9999999 !important;
+    display: none;
+    position: absolute;
+    background: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 18px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
+    padding: 10px;
+    min-width: 310px;
+    max-height: 480px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    z-index: 1000000;
 }
 
 .hub-dropdown-menu.show {
     display: block !important;
-    animation: hubDropFadeIn 0.2s ease-out !important;
+    animation: hubDropDesktopIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
-@keyframes hubDropFadeIn {
+@keyframes hubDropDesktopIn {
     from {
         opacity: 0;
-        transform: translate(-50%, -6px);
+        transform: translate(-50%, -8px) scale(0.97);
     }
     to {
         opacity: 1;
-        transform: translate(-50%, 0);
+        transform: translate(-50%, 0) scale(1);
     }
 }
 
+.hub-drop-header {
+    display: none;
+}
+
+.hub-drop-body {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
 .hub-drop-link {
-    display: block !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
     padding: 9px 14px !important;
     color: #334155 !important;
     font-size: 0.88rem !important;
@@ -188,11 +194,25 @@ body {
 .hub-drop-link:hover {
     background: var(--primary-bg) !important;
     color: var(--primary) !important;
+    transform: translateX(2px) !important;
 }
 
 .hub-drop-link.active {
     background: var(--primary) !important;
     color: #ffffff !important;
+}
+
+.hub-drop-tag {
+    font-size: 0.72rem !important;
+    font-weight: 800 !important;
+    padding: 2px 8px !important;
+    border-radius: 9999px !important;
+    background: rgba(255, 255, 255, 0.25) !important;
+    color: inherit !important;
+}
+
+.hub-backdrop {
+    display: none;
 }
 
 /* ==========================================================================
@@ -985,7 +1005,16 @@ header p, .hero-desc {
         font-size: 16px !important;
     }
 
+    /* Khóa cuộn màn hình khi mở Bottom Sheet */
+    body.hub-menu-open {
+        overflow: hidden !important;
+    }
+
     /* 2. Global Hub Navigation (Dải cuộn ngang mượt mà bằng ngón tay) */
+    .global-hub-nav-wrapper {
+        margin-bottom: 16px !important;
+    }
+
     .global-hub-nav {
         display: flex !important;
         flex-wrap: nowrap !important;
@@ -995,9 +1024,10 @@ header p, .hero-desc {
         -webkit-overflow-scrolling: touch !important;
         scrollbar-width: none !important;
         gap: 6px !important;
-        margin-bottom: 16px !important;
-        border-radius: 12px !important;
+        margin-bottom: 0 !important;
+        border-radius: 14px !important;
         justify-content: flex-start !important;
+        border: 1.5px solid #e2e8f0 !important;
     }
 
     .global-hub-nav::-webkit-scrollbar {
@@ -1006,25 +1036,131 @@ header p, .hero-desc {
 
     .hub-nav-item {
         flex-shrink: 0 !important;
-        padding: 7px 13px !important;
-        font-size: 0.82rem !important;
+        padding: 8px 14px !important;
+        font-size: 0.84rem !important;
     }
 
-    /* Dropdown Hub Menu trên Mobile (Không bao giờ bị tràn lề màn hình) */
+    /* Lớp phủ mờ (Backdrop) trên Mobile */
+    .hub-backdrop {
+        display: none;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        background: rgba(15, 23, 42, 0.6) !important;
+        backdrop-filter: blur(5px) !important;
+        -webkit-backdrop-filter: blur(5px) !important;
+        z-index: 9999998 !important;
+        opacity: 0;
+        transition: opacity 0.25s ease !important;
+    }
+
+    .hub-backdrop.show {
+        display: block !important;
+        opacity: 1 !important;
+    }
+
+    /* Bottom Sheet Modal trên Mobile (Không bao giờ bị lấp, kẹt hay tràn màn hình) */
     .hub-dropdown-menu {
         position: fixed !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
         top: auto !important;
-        bottom: 12px !important;
-        left: 10px !important;
-        right: 10px !important;
-        transform: none !important;
-        width: auto !important;
-        max-width: calc(100vw - 20px) !important;
-        max-height: 65vh !important;
-        border-radius: 16px !important;
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3) !important;
-        border: 2px solid var(--border) !important;
-        z-index: 100000 !important;
+        transform: translateY(100%) !important;
+        max-height: 82vh !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        border-radius: 24px 24px 0 0 !important;
+        box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.35) !important;
+        background: #ffffff !important;
+        border: none !important;
+        border-top: 1.5px solid #e2e8f0 !important;
+        z-index: 9999999 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        padding: 0 !important;
+        transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        visibility: hidden !important;
+        animation: none !important;
+    }
+
+    .hub-dropdown-menu.show {
+        transform: translateY(0) !important;
+        visibility: visible !important;
+    }
+
+    .hub-drop-header {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        padding: 16px 20px !important;
+        border-bottom: 1.5px solid #f1f5f9 !important;
+        background: #ffffff !important;
+        border-radius: 24px 24px 0 0 !important;
+        position: sticky !important;
+        top: 0 !important;
+        z-index: 10 !important;
+    }
+
+    .hub-drop-title {
+        font-size: 1.05rem !important;
+        font-weight: 800 !important;
+        color: #0f172a !important;
+    }
+
+    .hub-drop-close {
+        width: 36px !important;
+        height: 36px !important;
+        border-radius: 50% !important;
+        background: #f1f5f9 !important;
+        border: 1px solid #e2e8f0 !important;
+        font-size: 1.1rem !important;
+        font-weight: 800 !important;
+        color: #475569 !important;
+        cursor: pointer !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        transition: all 0.15s ease !important;
+    }
+
+    .hub-drop-close:active {
+        background: #e2e8f0 !important;
+        transform: scale(0.92) !important;
+    }
+
+    .hub-drop-body {
+        padding: 12px 16px 40px 16px !important;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        flex: 1 1 auto !important;
+        max-height: calc(82vh - 68px) !important;
+    }
+
+    .hub-drop-link {
+        padding: 13px 16px !important;
+        font-size: 0.98rem !important;
+        margin-bottom: 6px !important;
+        border-radius: 12px !important;
+        background: #f8fafc !important;
+        border: 1px solid #e2e8f0 !important;
+        color: #1e293b !important;
+    }
+
+    .hub-drop-link:active {
+        background: #eff6ff !important;
+        border-color: #93c5fd !important;
+        color: #1d4ed8 !important;
+    }
+
+    .hub-drop-link.active {
+        background: var(--primary) !important;
+        color: #ffffff !important;
+        border-color: var(--primary) !important;
     }
 
     /* 3. Sticky Section Nav trong trang Bài học (Cuộn ngang tiện lợi) */
@@ -1106,7 +1242,7 @@ header p, .hero-desc {
     }
 
     /* 5. Nav Tabs & Filter Pills */
-    .nav-tabs {
+    .nav-tabs, .tab-nav {
         display: flex !important;
         flex-wrap: nowrap !important;
         overflow-x: auto !important;
@@ -1114,19 +1250,39 @@ header p, .hero-desc {
         -webkit-overflow-scrolling: touch !important;
         scrollbar-width: none !important;
         gap: 6px !important;
-        padding: 4px 2px 10px 2px !important;
+        padding: 5px 8px !important;
         margin-bottom: 16px !important;
         justify-content: flex-start !important;
+        border-radius: 9999px !important;
+        width: 100% !important;
     }
 
-    .nav-tabs::-webkit-scrollbar {
+    .nav-tabs::-webkit-scrollbar, .tab-nav::-webkit-scrollbar {
         display: none !important;
     }
 
-    .nav-tab-btn {
+    .nav-tab-btn, .tab-btn {
         flex-shrink: 0 !important;
-        padding: 8px 14px !important;
-        font-size: 0.85rem !important;
+        flex: 0 0 auto !important;
+        padding: 7px 13px !important;
+        font-size: 0.81rem !important;
+    }
+
+    /* Theory Quicknav Pills on Mobile (Gọn gàng, không bị tràn màn hình) */
+    .theory-quicknav {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 6px !important;
+        margin-bottom: 18px !important;
+        width: 100% !important;
+    }
+
+    .quicknav-pill {
+        flex-shrink: 0 !important;
+        padding: 6px 12px !important;
+        font-size: 0.78rem !important;
     }
 
     .filter-pills, .filter-row {

@@ -1,64 +1,33 @@
 /**
- * GLOBAL HUB NAVIGATION CONTROLLER (nav-dropdown.js)
- * Toggles and event listeners for:
- * - testsDropdownMenu (🎯 Ôn Tập & Đề Thi ▾)
- * - lessonsDropdownMenu (🚀 Web Bài Học ▾)
+ * GLOBAL HUB NAVIGATION CONTROLLER (assets/js/nav-dropdown.js)
+ * Cầu nối tương thích ngược hỗ trợ gọi toggle dropdown mượt mà cho cả Desktop & Mobile.
  */
 (function () {
     'use strict';
 
-    function toggleTestsDropdown(e) {
-        if (e) {
-            e.preventDefault();
-            e.stopPropagation();
-        }
-        const m = document.getElementById('testsDropdownMenu');
-        if (m) {
-            m.classList.toggle('show');
-        }
-        const lm = document.getElementById('lessonsDropdownMenu');
-        if (lm) {
-            lm.classList.remove('show');
-        }
-    }
-
-    function toggleLessonsDropdown(e) {
-        if (e) {
-            e.preventDefault();
-            e.stopPropagation();
-        }
-        const m = document.getElementById('lessonsDropdownMenu');
-        if (m) {
-            m.classList.toggle('show');
-        }
-        const tm = document.getElementById('testsDropdownMenu');
-        if (tm) {
-            tm.classList.remove('show');
-        }
-    }
-
-    // Close when clicking outside
-    document.addEventListener('click', function (e) {
-        if (e && e.target && e.target.closest && e.target.closest('.hub-dropdown')) {
-            return;
-        }
-        const lm = document.getElementById('lessonsDropdownMenu');
-        if (lm) lm.classList.remove('show');
-        const tm = document.getElementById('testsDropdownMenu');
-        if (tm) tm.classList.remove('show');
-    });
-
-    // Close on Escape key
-    document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') {
+    if (!window.toggleTestsDropdown) {
+        window.toggleTestsDropdown = function (e) {
+            if (e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+            const m = document.getElementById('testsDropdownMenu');
+            if (m) m.classList.toggle('show');
             const lm = document.getElementById('lessonsDropdownMenu');
             if (lm) lm.classList.remove('show');
+        };
+    }
+
+    if (!window.toggleLessonsDropdown) {
+        window.toggleLessonsDropdown = function (e) {
+            if (e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+            const m = document.getElementById('lessonsDropdownMenu');
+            if (m) m.classList.toggle('show');
             const tm = document.getElementById('testsDropdownMenu');
             if (tm) tm.classList.remove('show');
-        }
-    });
-
-    // Expose globally for inline onclick
-    window.toggleTestsDropdown = toggleTestsDropdown;
-    window.toggleLessonsDropdown = toggleLessonsDropdown;
+        };
+    }
 })();

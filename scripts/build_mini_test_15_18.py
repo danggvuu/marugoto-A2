@@ -687,11 +687,11 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         .tab-btn {
             flex: 1 1 auto;
             white-space: nowrap;
-            padding: 9px 16px;
+            padding: 8px 14px;
             border: 1.5px solid transparent;
             background: transparent;
             color: var(--gray-600);
-            font-size: 0.88rem;
+            font-size: 0.84rem;
             font-weight: 800;
             border-radius: 9999px;
             cursor: pointer;
@@ -699,7 +699,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 6px;
+            gap: 5px;
         }
 
         /* Distinct Colors for each tab */
@@ -1420,7 +1420,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             }
         }
     </style>
-    <link rel="stylesheet" href="../assets/css/site-theme.css?v=4">
+    <link rel="stylesheet" href="../assets/css/site-theme.css?v=5">
 </head>
 <body>
 
@@ -1446,10 +1446,10 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     <!-- Sticky Tab Navigation -->
     <div class="tab-nav-wrapper">
         <nav class="tab-nav">
-            <button class="tab-btn tab-btn-theory active" onclick="switchMainTab('tab-theory')">📖 Lý Thuyết (Bài 15 - 18)</button>
+            <button class="tab-btn tab-btn-theory active" onclick="switchMainTab('tab-theory')">📖 Lý Thuyết (L15-18)</button>
             <button class="tab-btn tab-btn-vocab" onclick="switchMainTab('tab-vocab')">🎴 135 Từ Vựng</button>
             <button class="tab-btn tab-btn-kanji" onclick="switchMainTab('tab-kanji')">⛩️ 34 Chữ Hán</button>
-            <button class="tab-btn tab-btn-quiz" onclick="switchMainTab('tab-quiz')">🎯 Đề Thi Thử (6 Dạng • 100đ)</button>
+            <button class="tab-btn tab-btn-quiz" onclick="switchMainTab('tab-quiz')">🎯 Đề Thi 100đ (6 Dạng)</button>
             <button class="tab-btn tab-btn-typing" onclick="switchMainTab('tab-typing')">⌨️ Luyện Gõ Phản Xạ</button>
             <button class="tab-btn tab-btn-cheatsheet" onclick="switchMainTab('tab-cheatsheet')">⚡ Cẩm Nang Bỏ Túi</button>
         </nav>
@@ -1461,10 +1461,10 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         <div id="tab-theory" class="tab-panel active">
             <!-- Quick Jump Bar -->
             <div class="theory-quicknav">
-                <a href="#grammar-l15" class="quicknav-pill qn-b15">🏥 Bài 15 (～んです／～といい)</a>
-                <a href="#grammar-l16" class="quicknav-pill qn-b16">🏃 Bài 16 (～たり／～たほうがいい)</a>
+                <a href="#grammar-l15" class="quicknav-pill qn-b15">🏥 Bài 15 (～んです／といい)</a>
+                <a href="#grammar-l16" class="quicknav-pill qn-b16">🏃 Bài 16 (～たり／たほうがいい)</a>
                 <a href="#grammar-l17" class="quicknav-pill qn-b17">🎁 Bài 17 (もらいました／あげます)</a>
-                <a href="#grammar-l18" class="quicknav-pill qn-b18">👘 Bài 18 (～と思います／着ています)</a>
+                <a href="#grammar-l18" class="quicknav-pill qn-b18">👘 Bài 18 (～と思う／着ています)</a>
             </div>
 
             <!-- BÀI 15 -->
@@ -2688,7 +2688,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             updateTotalScore();
         });
     </script>
-    <script src="../assets/nav.js?v=4" defer></script>
+    <script src="../assets/nav.js?v=5" defer></script>
 </body>
 </html>
 """

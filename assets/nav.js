@@ -1,7 +1,8 @@
 /**
  * MARUGOTO A1-A2 GLOBAL NAVBAR COMPONENT (assets/nav.js)
- * Tự động render thanh điều hướng (navbar/dropdown) chuẩn dùng chung cho toàn bộ website.
+ * Tự động render thanh điều hướng (navbar/dropdown/bottom sheet) chuẩn dùng chung cho toàn bộ website.
  * Tự động nhận diện thư mục gốc hay thư mục con (lessons/, tests/) để sinh đường dẫn chuẩn xác.
+ * Tối ưu hóa 100% cho cả Điện thoại (Mobile Bottom Sheet) và Máy tính (Desktop Floating Dropdown).
  */
 
 (function () {
@@ -62,7 +63,7 @@
         if (!existingLink) {
             const link = document.createElement('link');
             link.rel = 'stylesheet';
-            link.href = rootPrefix + 'assets/css/site-theme.css?v=4';
+            link.href = rootPrefix + 'assets/css/site-theme.css?v=5';
             document.head.appendChild(link);
         }
     })();
@@ -81,52 +82,119 @@
     // 5. SINH HTML CHO CÁC MỤC DROPDOWN
     const testsDropdownHtml = ALL_TESTS.map(t => {
         const isCurrent = isTests && currentFileName === t.file;
-        return `<a href="${testsPrefix}${t.file}" class="hub-drop-link${isCurrent ? ' active' : ''}">${t.title}</a>`;
+        return `<a href="${testsPrefix}${t.file}" class="hub-drop-link${isCurrent ? ' active' : ''}">
+            <span class="hub-drop-text">${t.title}</span>
+            ${isCurrent ? '<span class="hub-drop-tag">Đang mở</span>' : ''}
+        </a>`;
     }).join('\n                ');
 
     const lessonsDropdownHtml = ALL_LESSONS.map(l => {
         const isCurrent = isLessons && currentFileName === l.file;
-        return `<a href="${lessonsPrefix}${l.file}" class="hub-drop-link${isCurrent ? ' active' : ''}">${l.title}</a>`;
+        return `<a href="${lessonsPrefix}${l.file}" class="hub-drop-link${isCurrent ? ' active' : ''}">
+            <span class="hub-drop-text">${l.title}</span>
+            ${isCurrent ? '<span class="hub-drop-tag">Đang mở</span>' : ''}
+        </a>`;
     }).join('\n                ');
 
-    // 6. TỔNG HỢP HTML TOÀN BỘ THANH NAVBAR
+    // 6. TỔNG HỢP HTML TOÀN BỘ THANH NAVBAR VÀ BOTTOM SHEET/DROPDOWN
     const navbarHtml = `
-    <div class="global-hub-nav">
-        <a href="${rootPrefix}index.html" class="hub-nav-item${isTeActive ? ' active-hub' : ''}">🌸 Thể TE (～て)</a>
-        <a href="${rootPrefix}the_ru.html" class="hub-nav-item${isRuActive ? ' active-hub' : ''}">📘 Thể RU (Từ Điển)</a>
-        <a href="${rootPrefix}the_ta.html" class="hub-nav-item${isTaActive ? ' active-hub' : ''}">📕 Thể TA (Quá Khứ)</a>
-        <a href="${rootPrefix}the_nai.html" class="hub-nav-item${isNaiActive ? ' active-hub' : ''}">📗 Thể NAI (Phủ Định)</a>
-        <a href="${rootPrefix}kanji_a2.html" class="hub-nav-item${isKanjiActive ? ' active-hub' : ''}">⛩️ Học Kanji & Nét Viết</a>
-        <a href="${rootPrefix}Tu_Vung_Marugoto_A1_16_A2_1_10.html" class="hub-nav-item${isVocabActive ? ' active-hub' : ''}">📖 Kho Từ Vựng A1-A2</a>
-        <a href="${rootPrefix}Tong_Hop_Ngu_Phap_Marugoto_A1_A2.html" class="hub-nav-item${isGrammarActive ? ' active-hub' : ''}">📗 Ngữ Pháp A1-A2</a>
-        <a href="${rootPrefix}kien_thuc_bo_sung.html" class="hub-nav-item${isKtbsActive ? ' active-hub' : ''}">💡 Kiến Thức Bổ Sung</a>
-        <a href="${rootPrefix}demo_3d.html" class="hub-nav-item${is3dActive ? ' active-hub' : ''}">⛩️ Không Gian 3D</a>
-        
-        <div class="hub-dropdown">
-            <button type="button" class="hub-nav-item${isTests ? ' active-hub' : ''}" onclick="window.toggleTestsDropdown(event)">🎯 Ôn Tập & Đề Thi ▾</button>
-            <div class="hub-dropdown-menu" id="testsDropdownMenu">
+    <div class="global-hub-nav-wrapper">
+        <nav class="global-hub-nav" aria-label="Thanh điều hướng chính Marugoto">
+            <a href="${rootPrefix}index.html" class="hub-nav-item${isTeActive ? ' active-hub' : ''}">🌸 Thể TE (～て)</a>
+            <a href="${rootPrefix}the_ru.html" class="hub-nav-item${isRuActive ? ' active-hub' : ''}">📘 Thể RU (Từ Điển)</a>
+            <a href="${rootPrefix}the_ta.html" class="hub-nav-item${isTaActive ? ' active-hub' : ''}">📕 Thể TA (Quá Khứ)</a>
+            <a href="${rootPrefix}the_nai.html" class="hub-nav-item${isNaiActive ? ' active-hub' : ''}">📗 Thể NAI (Phủ Định)</a>
+            <a href="${rootPrefix}kanji_a2.html" class="hub-nav-item${isKanjiActive ? ' active-hub' : ''}">⛩️ Học Kanji & Nét Viết</a>
+            <a href="${rootPrefix}Tu_Vung_Marugoto_A1_16_A2_1_10.html" class="hub-nav-item${isVocabActive ? ' active-hub' : ''}">📖 Kho Từ Vựng A1-A2</a>
+            <a href="${rootPrefix}Tong_Hop_Ngu_Phap_Marugoto_A1_A2.html" class="hub-nav-item${isGrammarActive ? ' active-hub' : ''}">📗 Ngữ Pháp A1-A2</a>
+            <a href="${rootPrefix}kien_thuc_bo_sung.html" class="hub-nav-item${isKtbsActive ? ' active-hub' : ''}">💡 Kiến Thức Bổ Sung</a>
+            <a href="${rootPrefix}demo_3d.html" class="hub-nav-item${is3dActive ? ' active-hub' : ''}">⛩️ Không Gian 3D</a>
+            
+            <button type="button" id="hubBtnTests" class="hub-nav-item${isTests ? ' active-hub' : ''}" onclick="window.toggleTestsDropdown(event)">🎯 Ôn Tập & Đề Thi ▾</button>
+            <button type="button" id="hubBtnLessons" class="hub-nav-item${isLessons ? ' active-hub' : ''}" onclick="window.toggleLessonsDropdown(event)">🚀 Web Bài Học ▾</button>
+        </nav>
+
+        <!-- Lớp phủ mờ (Backdrop) cho Mobile và ngoài vùng click -->
+        <div class="hub-backdrop" id="hubNavBackdrop" onclick="window.closeAllHubDropdowns()"></div>
+
+        <!-- Menu Ôn Tập & Đề Thi (Desktop Dropdown & Mobile Bottom Sheet) -->
+        <div class="hub-dropdown-menu" id="testsDropdownMenu" role="dialog" aria-modal="true">
+            <div class="hub-drop-header">
+                <span class="hub-drop-title">🎯 Ôn Tập & Đề Thi Marugoto</span>
+                <button type="button" class="hub-drop-close" onclick="window.closeAllHubDropdowns()" aria-label="Đóng">✕</button>
+            </div>
+            <div class="hub-drop-body">
                 ${testsDropdownHtml}
             </div>
         </div>
 
-        <div class="hub-dropdown">
-            <button type="button" class="hub-nav-item${isLessons ? ' active-hub' : ''}" onclick="window.toggleLessonsDropdown(event)">🚀 Web Bài Học ▾</button>
-            <div class="hub-dropdown-menu" id="lessonsDropdownMenu">
+        <!-- Menu Web Bài Học (Desktop Dropdown & Mobile Bottom Sheet) -->
+        <div class="hub-dropdown-menu" id="lessonsDropdownMenu" role="dialog" aria-modal="true">
+            <div class="hub-drop-header">
+                <span class="hub-drop-title">🚀 Toàn Bộ Bài Học (Bài 1 - 18)</span>
+                <button type="button" class="hub-drop-close" onclick="window.closeAllHubDropdowns()" aria-label="Đóng">✕</button>
+            </div>
+            <div class="hub-drop-body">
                 ${lessonsDropdownHtml}
             </div>
         </div>
     </div>`;
 
-    // 7. HÀM TOGGLE DROPDOWN
+    // 7. HÀM ĐỊNH VỊ VÀ ĐIỀU KHIỂN DROPDOWN
+    function positionDesktopMenu(btn, menu) {
+        if (!btn || !menu) return;
+        if (window.innerWidth > 768) {
+            const wrapper = menu.closest('.global-hub-nav-wrapper') || btn.parentElement;
+            const btnRect = btn.getBoundingClientRect();
+            const wrapperRect = wrapper.getBoundingClientRect();
+
+            menu.style.top = (btnRect.bottom - wrapperRect.top + 8) + 'px';
+            menu.style.left = (btnRect.left - wrapperRect.left + (btnRect.width / 2)) + 'px';
+            menu.style.transform = 'translateX(-50%)';
+        } else {
+            menu.style.top = '';
+            menu.style.left = '';
+            menu.style.transform = '';
+        }
+    }
+
+    function closeAllHubDropdowns() {
+        const tm = document.getElementById('testsDropdownMenu');
+        const lm = document.getElementById('lessonsDropdownMenu');
+        const bd = document.getElementById('hubNavBackdrop');
+        if (tm) tm.classList.remove('show');
+        if (lm) lm.classList.remove('show');
+        if (bd) bd.classList.remove('show');
+        document.body.classList.remove('hub-menu-open');
+    }
+
     function toggleTestsDropdown(e) {
         if (e) {
             e.preventDefault();
             e.stopPropagation();
         }
-        const m = document.getElementById('testsDropdownMenu');
-        if (m) m.classList.toggle('show');
+        const tm = document.getElementById('testsDropdownMenu');
         const lm = document.getElementById('lessonsDropdownMenu');
+        const bd = document.getElementById('hubNavBackdrop');
+        const btn = document.getElementById('hubBtnTests');
+
+        if (!tm) return;
+
         if (lm) lm.classList.remove('show');
+
+        const willOpen = !tm.classList.contains('show');
+        if (willOpen) {
+            positionDesktopMenu(btn, tm);
+            tm.classList.add('show');
+            if (bd) bd.classList.add('show');
+            if (window.innerWidth <= 768) {
+                document.body.classList.add('hub-menu-open');
+            }
+        } else {
+            tm.classList.remove('show');
+            if (bd) bd.classList.remove('show');
+            document.body.classList.remove('hub-menu-open');
+        }
     }
 
     function toggleLessonsDropdown(e) {
@@ -134,36 +202,61 @@
             e.preventDefault();
             e.stopPropagation();
         }
-        const m = document.getElementById('lessonsDropdownMenu');
-        if (m) m.classList.toggle('show');
         const tm = document.getElementById('testsDropdownMenu');
+        const lm = document.getElementById('lessonsDropdownMenu');
+        const bd = document.getElementById('hubNavBackdrop');
+        const btn = document.getElementById('hubBtnLessons');
+
+        if (!lm) return;
+
         if (tm) tm.classList.remove('show');
+
+        const willOpen = !lm.classList.contains('show');
+        if (willOpen) {
+            positionDesktopMenu(btn, lm);
+            lm.classList.add('show');
+            if (bd) bd.classList.add('show');
+            if (window.innerWidth <= 768) {
+                document.body.classList.add('hub-menu-open');
+            }
+        } else {
+            lm.classList.remove('show');
+            if (bd) bd.classList.remove('show');
+            document.body.classList.remove('hub-menu-open');
+        }
     }
 
-    // Đóng dropdown khi click ra ngoài
+    // Đóng dropdown khi click ra ngoài (dành cho Desktop)
     document.addEventListener('click', function (e) {
-        if (e && e.target && e.target.closest && e.target.closest('.hub-dropdown')) {
+        if (e && e.target && e.target.closest && (e.target.closest('.hub-dropdown-menu') || e.target.closest('#hubBtnTests') || e.target.closest('#hubBtnLessons'))) {
             return;
         }
-        const lm = document.getElementById('lessonsDropdownMenu');
-        if (lm) lm.classList.remove('show');
-        const tm = document.getElementById('testsDropdownMenu');
-        if (tm) tm.classList.remove('show');
+        closeAllHubDropdowns();
     });
 
     // Đóng khi nhấn phím Escape
     document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') {
-            const lm = document.getElementById('lessonsDropdownMenu');
-            if (lm) lm.classList.remove('show');
-            const tm = document.getElementById('testsDropdownMenu');
-            if (tm) tm.classList.remove('show');
+            closeAllHubDropdowns();
+        }
+    });
+
+    // Tự động căn chỉnh khi resize màn hình
+    window.addEventListener('resize', function () {
+        const tm = document.getElementById('testsDropdownMenu');
+        const lm = document.getElementById('lessonsDropdownMenu');
+        if (tm && tm.classList.contains('show')) {
+            positionDesktopMenu(document.getElementById('hubBtnTests'), tm);
+        }
+        if (lm && lm.classList.contains('show')) {
+            positionDesktopMenu(document.getElementById('hubBtnLessons'), lm);
         }
     });
 
     // Phơi ra global để onclick gọi được
     window.toggleTestsDropdown = toggleTestsDropdown;
     window.toggleLessonsDropdown = toggleLessonsDropdown;
+    window.closeAllHubDropdowns = closeAllHubDropdowns;
 
     // 8. RENDER VÀO DOM (Tìm #navbar-placeholder hoặc thay thế .global-hub-nav)
     function renderNavbar() {
@@ -183,7 +276,7 @@
         }
 
         // Nếu chưa có chỗ, chèn vào đầu container hoặc đầu body
-        const container = document.querySelector('.container');
+        const container = document.querySelector('.container') || document.querySelector('.main-container');
         if (container) {
             const temp = document.createElement('div');
             temp.innerHTML = navbarHtml;
