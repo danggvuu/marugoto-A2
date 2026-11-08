@@ -172,7 +172,7 @@
 
         .tab-nav {
             display: flex;
-            gap: 8px;
+            gap: 6px;
             background: #ffffff;
             padding: 6px 10px;
             border-radius: 9999px;
@@ -182,6 +182,7 @@
             scrollbar-width: none;
             justify-content: center;
             align-items: center;
+            flex-wrap: nowrap;
         }
 
         .tab-nav::-webkit-scrollbar {
@@ -191,11 +192,11 @@
         .tab-btn {
             flex: 1 1 auto;
             white-space: nowrap;
-            padding: 10px 20px;
+            padding: 9px 16px;
             border: 1.5px solid transparent;
             background: transparent;
             color: var(--gray-600);
-            font-size: 0.92rem;
+            font-size: 0.88rem;
             font-weight: 800;
             border-radius: 9999px;
             cursor: pointer;
@@ -203,21 +204,27 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: 6px;
         }
 
-        .tab-btn:hover {
-            color: #e11d48;
-            background: #fff1f2;
-            border-color: #fecdd3;
-        }
+        /* Distinct Colors for each tab */
+        .tab-btn-theory:hover, [onclick*="theory"]:hover { color: #2563eb; background: #eff6ff; border-color: #bfdbfe; }
+        .tab-btn-theory.active, [onclick*="theory"].active { background: linear-gradient(135deg, #3b82f6, #1d4ed8) !important; color: #fff !important; border-color: #2563eb !important; box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35) !important; }
 
-        .tab-btn.active {
-            background: linear-gradient(135deg, #e11d48, #be123c);
-            color: var(--white);
-            border-color: #e11d48;
-            box-shadow: 0 4px 14px rgba(225, 29, 72, 0.35);
-        }
+        .tab-btn-vocab:hover, [onclick*="vocab"]:hover { color: #059669; background: #ecfdf5; border-color: #a7f3d0; }
+        .tab-btn-vocab.active, [onclick*="vocab"].active { background: linear-gradient(135deg, #10b981, #047857) !important; color: #fff !important; border-color: #059669 !important; box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35) !important; }
+
+        .tab-btn-kanji:hover, [onclick*="kanji"]:hover { color: #d97706; background: #fffbeb; border-color: #fde68a; }
+        .tab-btn-kanji.active, [onclick*="kanji"].active { background: linear-gradient(135deg, #f59e0b, #d97706) !important; color: #fff !important; border-color: #d97706 !important; box-shadow: 0 4px 14px rgba(245, 158, 11, 0.35) !important; }
+
+        .tab-btn-quiz:hover, [onclick*="quiz"]:hover { color: #e11d48; background: #fff1f2; border-color: #fecdd3; }
+        .tab-btn-quiz.active, [onclick*="quiz"].active { background: linear-gradient(135deg, #e11d48, #be123c) !important; color: #fff !important; border-color: #e11d48 !important; box-shadow: 0 4px 14px rgba(225, 29, 72, 0.35) !important; }
+
+        .tab-btn-typing:hover, [onclick*="typing"]:hover { color: #0284c7; background: #f0f9ff; border-color: #bae6fd; }
+        .tab-btn-typing.active, [onclick*="typing"].active { background: linear-gradient(135deg, #0284c7, #0369a1) !important; color: #fff !important; border-color: #0284c7 !important; box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35) !important; }
+
+        .tab-btn-cheatsheet:hover, [onclick*="cheatsheet"]:hover { color: #7c3aed; background: #faf5ff; border-color: #ddd6fe; }
+        .tab-btn-cheatsheet.active, [onclick*="cheatsheet"].active { background: linear-gradient(135deg, #8b5cf6, #6d28d9) !important; color: #fff !important; border-color: #7c3aed !important; box-shadow: 0 4px 14px rgba(139, 92, 246, 0.35) !important; }
 
         /* Tab Content Panels */
         .tab-panel {
@@ -271,27 +278,35 @@
         /* Grammar Styles */
         .theory-quicknav {
             display: flex;
-            gap: 8px;
-            overflow-x: auto;
-            padding: 4px 4px 18px 4px;
-            margin-bottom: 22px;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 24px;
         }
         .quicknav-pill {
-            padding: 8px 16px;
+            padding: 9px 18px;
             border-radius: var(--radius-full);
-            background: var(--white);
-            border: 1px solid var(--gray-300);
             font-size: 0.88rem;
-            font-weight: 700;
-            color: var(--gray-700);
+            font-weight: 800;
             text-decoration: none;
             white-space: nowrap;
-            transition: all 0.2s;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
         }
-        .quicknav-pill:hover {
-            background: var(--primary);
-            color: var(--white);
-            border-color: var(--primary);
+        .qn-b15 { background: #eff6ff; color: #1d4ed8; border: 1.5px solid #bfdbfe; }
+        .qn-b15:hover { background: #2563eb; color: #ffffff; border-color: #2563eb; transform: translateY(-2px); }
+        .qn-b16 { background: #ecfdf5; color: #047857; border: 1.5px solid #a7f3d0; }
+        .qn-b16:hover { background: #059669; color: #ffffff; border-color: #059669; transform: translateY(-2px); }
+        .qn-b17 { background: #faf5ff; color: #6d28d9; border: 1.5px solid #ddd6fe; }
+        .qn-b17:hover { background: #7c3aed; color: #ffffff; border-color: #7c3aed; transform: translateY(-2px); }
+        .qn-b18 { background: #fff1f2; color: #be123c; border: 1.5px solid #fecdd3; }
+        .qn-b18:hover { background: #e11d48; color: #ffffff; border-color: #e11d48; transform: translateY(-2px); }
+
+        .grammar-card, [id^="grammar-"] {
+            scroll-margin-top: 100px;
         }
         .grammar-card {
             background: var(--white);
@@ -910,7 +925,7 @@
             }
         }
     </style>
-    <link rel="stylesheet" href="../assets/css/site-theme.css?v=3">
+    <link rel="stylesheet" href="../assets/css/site-theme.css?v=4">
 </head>
 <body>
 
@@ -936,12 +951,12 @@
     <!-- Sticky Tab Navigation -->
     <div class="tab-nav-wrapper">
         <nav class="tab-nav">
-            <button class="tab-btn active" onclick="switchMainTab('tab-theory')">📖 Lý Thuyết (Bài 15 - 18)</button>
-            <button class="tab-btn" onclick="switchMainTab('tab-vocab')">🎴 135 Từ Vựng</button>
-            <button class="tab-btn" onclick="switchMainTab('tab-kanji')">⛩️ 34 Chữ Hán</button>
-            <button class="tab-btn" onclick="switchMainTab('tab-quiz')">🎯 Đề Thi Thử (6 Dạng • 100đ)</button>
-            <button class="tab-btn" onclick="switchMainTab('tab-typing')">⌨️ Luyện Gõ Phản Xạ</button>
-            <button class="tab-btn" onclick="switchMainTab('tab-cheatsheet')">⚡ Cẩm Nang Bỏ Túi</button>
+            <button class="tab-btn tab-btn-theory active" onclick="switchMainTab('tab-theory')">📖 Lý Thuyết (Bài 15 - 18)</button>
+            <button class="tab-btn tab-btn-vocab" onclick="switchMainTab('tab-vocab')">🎴 135 Từ Vựng</button>
+            <button class="tab-btn tab-btn-kanji" onclick="switchMainTab('tab-kanji')">⛩️ 34 Chữ Hán</button>
+            <button class="tab-btn tab-btn-quiz" onclick="switchMainTab('tab-quiz')">🎯 Đề Thi Thử (6 Dạng • 100đ)</button>
+            <button class="tab-btn tab-btn-typing" onclick="switchMainTab('tab-typing')">⌨️ Luyện Gõ Phản Xạ</button>
+            <button class="tab-btn tab-btn-cheatsheet" onclick="switchMainTab('tab-cheatsheet')">⚡ Cẩm Nang Bỏ Túi</button>
         </nav>
     </div>
 
@@ -951,10 +966,10 @@
         <div id="tab-theory" class="tab-panel active">
             <!-- Quick Jump Bar -->
             <div class="theory-quicknav">
-                <a href="#grammar-l15" class="quicknav-pill" style="background: var(--primary); color: white;">🏥 Bài 15: Cơ Thể & Triệu Chứng (～んです／～といい)</a>
-                <a href="#grammar-l16" class="quicknav-pill" style="background: var(--primary); color: white;">🏃 Bài 16: Rèn Luyện Sức Khỏe (～たり～たり／～たほうがいい)</a>
-                <a href="#grammar-l17" class="quicknav-pill" style="background: var(--primary); color: white;">🎁 Bài 17: Quà Tặng & Kỷ Niệm (もらいました／あげます／とか)</a>
-                <a href="#grammar-l18" class="quicknav-pill" style="background: var(--primary); color: white;">👘 Bài 18: Lễ Hội & Trang Phục (～と思います／着ています)</a>
+                <a href="#grammar-l15" class="quicknav-pill qn-b15">🏥 Bài 15 (～んです／～といい)</a>
+                <a href="#grammar-l16" class="quicknav-pill qn-b16">🏃 Bài 16 (～たり／～たほうがいい)</a>
+                <a href="#grammar-l17" class="quicknav-pill qn-b17">🎁 Bài 17 (もらいました／あげます)</a>
+                <a href="#grammar-l18" class="quicknav-pill qn-b18">👘 Bài 18 (～と思います／着ています)</a>
             </div>
 
             <!-- BÀI 15 -->
@@ -2178,6 +2193,6 @@
             updateTotalScore();
         });
     </script>
-    <script src="../assets/nav.js?v=3" defer></script>
+    <script src="../assets/nav.js?v=4" defer></script>
 </body>
 </html>

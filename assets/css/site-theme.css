@@ -198,7 +198,7 @@ body {
 /* ==========================================================================
    2. HEADER BANNER
    ========================================================================== */
-header, .hero-header, .hero-banner {
+header {
     background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
     color: #ffffff;
     padding: 34px 22px;
@@ -211,19 +211,37 @@ header, .hero-header, .hero-banner {
     overflow: hidden;
 }
 
-.header-badge {
-    display: inline-block;
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    padding: 5px 14px;
-    border-radius: var(--radius-pill);
-    font-size: 0.82rem;
-    font-weight: 800;
-    letter-spacing: 0.5px;
-    margin-bottom: 12px;
-    text-transform: uppercase;
-    border: 1px solid rgba(255, 255, 255, 0.25);
+/* Hero Header & Hero Banner chuẩn Midnight Indigo cho các trang Ôn tập & Đề thi */
+.hero-header, .hero-banner {
+    background: linear-gradient(135deg, #1e1b4b 0%, #312e81 40%, #4f46e5 100%) !important;
+    color: #ffffff !important;
+    padding: 38px 24px !important;
+    border-radius: 24px !important;
+    text-align: center !important;
+    margin-bottom: 25px !important;
+    position: relative !important;
+    z-index: 1 !important;
+    overflow: hidden !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    box-shadow: 0 12px 30px rgba(30, 27, 75, 0.25) !important;
+}
+
+.header-badge, .hero-badge {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    background: rgba(255, 255, 255, 0.16) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+    padding: 6px 16px !important;
+    border-radius: var(--radius-pill) !important;
+    font-size: 0.82rem !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.5px !important;
+    margin-bottom: 12px !important;
+    text-transform: uppercase !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    color: #ffffff !important;
 }
 
 header h1, .hero-title {
@@ -237,7 +255,7 @@ header h1, .hero-title {
 header p, .hero-desc {
     font-size: 1.02rem;
     opacity: 0.95;
-    max-width: 780px;
+    max-width: 820px;
     margin: 0 auto;
     line-height: 1.6;
 }
@@ -245,24 +263,29 @@ header p, .hero-desc {
 .stats-pills, .hero-stats {
     display: flex;
     justify-content: center;
-    gap: 8px;
+    gap: 10px;
     flex-wrap: wrap;
-    margin-top: 16px;
+    margin-top: 18px;
 }
 
 .stat-pill, .hero-stat-pill {
     background: rgba(255, 255, 255, 0.15);
     border: 1px solid rgba(255, 255, 255, 0.25);
-    padding: 6px 14px;
+    padding: 6px 16px;
     border-radius: var(--radius-pill);
-    font-size: 0.82rem;
+    font-size: 0.84rem;
     font-weight: 700;
     backdrop-filter: blur(4px);
     white-space: nowrap;
 }
 
+/* Chống che khuất tiêu đề khi bấm nhảy anchor link (Anchor Scroll Margin) */
+.grammar-card, [id^="grammar-"], .content-card, .tab-panel > div, section {
+    scroll-margin-top: 100px !important;
+}
+
 /* ==========================================================================
-   3. NAV TABS & TAB PANELS (Chuẩn Viên Thuốc Capsule Không Đè Chữ)
+   3. NAV TABS & TAB PANELS (Chuẩn Viên Thuốc Capsule Đa Màu Sắc & Không Bị Lấp)
    ========================================================================== */
 .tab-nav-wrapper {
     position: sticky !important;
@@ -273,9 +296,9 @@ header p, .hero-desc {
 
 .nav-tabs, .tab-nav {
     display: flex !important;
-    gap: 8px !important;
+    gap: 6px !important;
     background: #ffffff !important;
-    padding: 6px 10px !important;
+    padding: 6px 8px !important;
     border-radius: 9999px !important;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06) !important;
     border: 1.5px solid var(--border) !important;
@@ -283,7 +306,7 @@ header p, .hero-desc {
     scrollbar-width: none !important;
     justify-content: center !important;
     align-items: center !important;
-    flex-wrap: wrap !important;
+    flex-wrap: nowrap !important; /* KHÔNG wrap thành 2 hàng để chống phình to lấp nội dung */
     margin-bottom: 25px !important;
 }
 
@@ -295,9 +318,9 @@ header p, .hero-desc {
     flex: 1 1 auto !important;
     background: transparent !important;
     border: 1.5px solid transparent !important;
-    padding: 10px 20px !important;
+    padding: 9px 16px !important;
     border-radius: 9999px !important;
-    font-size: 0.92rem !important;
+    font-size: 0.88rem !important;
     font-weight: 800 !important;
     cursor: pointer !important;
     color: #475569 !important;
@@ -305,30 +328,105 @@ header p, .hero-desc {
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    gap: 8px !important;
+    gap: 6px !important;
     white-space: nowrap !important;
     font-family: inherit !important;
     text-decoration: none !important;
     box-shadow: none !important;
 }
 
-.nav-tab-btn:hover, .tab-btn:hover {
-    border-color: var(--primary-light) !important;
-    color: var(--primary) !important;
-    background: var(--primary-bg) !important;
-    transform: translateY(-1px) !important;
+/* BẢNG MÀU PHÂN BIỆT RÕ RÀNG TỪNG TAB RIÊNG BIỆT (VIBRANT TAB PALETTES) */
+/* Tab 1: Lý Thuyết - Indigo Blue */
+.tab-btn-theory:hover, [onclick*="theory"]:hover {
+    color: #2563eb !important;
+    background: #eff6ff !important;
+    border-color: #bfdbfe !important;
+}
+.tab-btn-theory.active, [onclick*="theory"].active {
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8) !important;
+    color: #ffffff !important;
+    border-color: #2563eb !important;
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35) !important;
 }
 
-.nav-tab-btn.active, .tab-btn.active {
+/* Tab 2: Kho Từ Vựng - Emerald Green */
+.tab-btn-vocab:hover, [onclick*="vocab"]:hover {
+    color: #059669 !important;
+    background: #ecfdf5 !important;
+    border-color: #a7f3d0 !important;
+}
+.tab-btn-vocab.active, [onclick*="vocab"].active {
+    background: linear-gradient(135deg, #10b981, #047857) !important;
+    color: #ffffff !important;
+    border-color: #059669 !important;
+    box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35) !important;
+}
+
+/* Tab 3: Chữ Hán Kanji - Amber Sunset Gold */
+.tab-btn-kanji:hover, [onclick*="kanji"]:hover, [onclick*="hack"]:hover {
+    color: #d97706 !important;
+    background: #fffbeb !important;
+    border-color: #fde68a !important;
+}
+.tab-btn-kanji.active, [onclick*="kanji"].active, [onclick*="hack"].active {
+    background: linear-gradient(135deg, #f59e0b, #d97706) !important;
+    color: #ffffff !important;
+    border-color: #d97706 !important;
+    box-shadow: 0 4px 14px rgba(245, 158, 11, 0.35) !important;
+}
+
+/* Tab 4: Đề Thi Thử - Ruby Crimson Red */
+.tab-btn-quiz:hover, [onclick*="quiz"]:hover, [onclick*="test"]:hover {
+    color: #e11d48 !important;
+    background: #fff1f2 !important;
+    border-color: #fecdd3 !important;
+}
+.tab-btn-quiz.active, [onclick*="quiz"].active, [onclick*="test"].active {
     background: linear-gradient(135deg, #e11d48, #be123c) !important;
     color: #ffffff !important;
     border-color: #e11d48 !important;
     box-shadow: 0 4px 14px rgba(225, 29, 72, 0.35) !important;
-    transform: translateY(-1px) !important;
+}
+
+/* Tab 5: Luyện Gõ Phản Xạ / Cram - Electric Sky Blue */
+.tab-btn-typing:hover, [onclick*="typing"]:hover, [onclick*="cram"]:hover {
+    color: #0284c7 !important;
+    background: #f0f9ff !important;
+    border-color: #bae6fd !important;
+}
+.tab-btn-typing.active, [onclick*="typing"].active, [onclick*="cram"].active {
+    background: linear-gradient(135deg, #0284c7, #0369a1) !important;
+    color: #ffffff !important;
+    border-color: #0284c7 !important;
+    box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35) !important;
+}
+
+/* Tab 6: Cẩm Nang Bỏ Túi / NPBS - Royal Purple */
+.tab-btn-cheatsheet:hover, [onclick*="cheatsheet"]:hover, [onclick*="npbs"]:hover {
+    color: #7c3aed !important;
+    background: #faf5ff !important;
+    border-color: #ddd6fe !important;
+}
+.tab-btn-cheatsheet.active, [onclick*="cheatsheet"].active, [onclick*="npbs"].active {
+    background: linear-gradient(135deg, #8b5cf6, #6d28d9) !important;
+    color: #ffffff !important;
+    border-color: #7c3aed !important;
+    box-shadow: 0 4px 14px rgba(139, 92, 246, 0.35) !important;
+}
+
+/* Thanh nhảy nhanh Lý thuyết (Không bao giờ bị cắt cụt hay lấp chữ) */
+.theory-quicknav {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    margin-bottom: 24px !important;
+    padding: 0 !important;
+    border-bottom: none !important;
 }
 
 /* Viên thuốc Subtabs, Filter Pills & Action Buttons */
-.quicknav-pill, .filter-btn, .filter-pill, .theory-quicknav a, .btn-quizlet, .btn-cram-action {
+.quicknav-pill, .filter-btn, .filter-pill, .theory-quicknav a, .btn-quizlet, .btn-cram-action, .v-filter-btn {
     border-radius: 9999px !important;
 }
 

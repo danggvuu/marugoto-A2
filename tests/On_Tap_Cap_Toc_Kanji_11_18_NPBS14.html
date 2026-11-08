@@ -174,7 +174,7 @@
         }
         .tab-nav {
             display: flex;
-            gap: 8px;
+            gap: 6px;
             background: #ffffff;
             padding: 6px 10px;
             border-radius: var(--radius-full);
@@ -184,6 +184,7 @@
             scrollbar-width: none;
             justify-content: center;
             align-items: center;
+            flex-wrap: nowrap;
         }
         .tab-nav::-webkit-scrollbar {
             display: none;
@@ -191,11 +192,11 @@
         .tab-btn {
             flex: 1 1 auto;
             min-width: 170px;
-            padding: 10px 20px;
+            padding: 9px 16px;
             border: 1.5px solid transparent;
             background: transparent;
             color: var(--gray-600);
-            font-size: 0.92rem;
+            font-size: 0.88rem;
             font-weight: 800;
             border-radius: var(--radius-full);
             cursor: pointer;
@@ -203,20 +204,25 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: 6px;
             white-space: nowrap;
         }
-        .tab-btn:hover {
-            color: #e11d48;
-            background: #fff1f2;
-            border-color: #fecdd3;
-        }
-        .tab-btn.active {
-            background: linear-gradient(135deg, #e11d48, #be123c);
-            color: var(--white);
-            border-color: #e11d48;
-            box-shadow: 0 4px 14px rgba(225, 29, 72, 0.35);
-        }
+
+        /* Distinct Colors for each tab */
+        .tab-btn-vocab:hover, [onclick*="vocab"]:hover { color: #059669; background: #ecfdf5; border-color: #a7f3d0; }
+        .tab-btn-vocab.active, [onclick*="vocab"].active { background: linear-gradient(135deg, #10b981, #047857) !important; color: #fff !important; border-color: #059669 !important; box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35) !important; }
+
+        .tab-btn-typing:hover, [onclick*="cram"]:hover { color: #0284c7; background: #f0f9ff; border-color: #bae6fd; }
+        .tab-btn-typing.active, [onclick*="cram"].active { background: linear-gradient(135deg, #0284c7, #0369a1) !important; color: #fff !important; border-color: #0284c7 !important; box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35) !important; }
+
+        .tab-btn-kanji:hover, [onclick*="hack"]:hover { color: #d97706; background: #fffbeb; border-color: #fde68a; }
+        .tab-btn-kanji.active, [onclick*="hack"].active { background: linear-gradient(135deg, #f59e0b, #d97706) !important; color: #fff !important; border-color: #d97706 !important; box-shadow: 0 4px 14px rgba(245, 158, 11, 0.35) !important; }
+
+        .tab-btn-cheatsheet:hover, [onclick*="npbs"]:hover { color: #7c3aed; background: #faf5ff; border-color: #ddd6fe; }
+        .tab-btn-cheatsheet.active, [onclick*="npbs"].active { background: linear-gradient(135deg, #8b5cf6, #6d28d9) !important; color: #fff !important; border-color: #7c3aed !important; box-shadow: 0 4px 14px rgba(139, 92, 246, 0.35) !important; }
+
+        .tab-btn-quiz:hover, [onclick*="test"]:hover { color: #e11d48; background: #fff1f2; border-color: #fecdd3; }
+        .tab-btn-quiz.active, [onclick*="test"].active { background: linear-gradient(135deg, #e11d48, #be123c) !important; color: #fff !important; border-color: #e11d48 !important; box-shadow: 0 4px 14px rgba(225, 29, 72, 0.35) !important; }
 
         .tab-panel {
             display: none;
@@ -514,7 +520,7 @@
             .tab-btn { min-width: 140px; padding: 10px 12px; font-size: 0.85rem; }
         }
     </style>
-    <link rel="stylesheet" href="../assets/css/site-theme.css?v=3">
+    <link rel="stylesheet" href="../assets/css/site-theme.css?v=4">
 </head>
 <body>
 
@@ -555,11 +561,11 @@
     <!-- Sticky Tab Navigation -->
     <div class="tab-nav-wrapper">
         <nav class="tab-nav">
-            <button class="tab-btn active" onclick="switchMainTab('tab-vocab')">🎴 121 Từ Vựng (L11-18)</button>
-            <button class="tab-btn" onclick="switchMainTab('tab-cram')">⚡ Flashcard Cram Mode</button>
-            <button class="tab-btn" onclick="switchMainTab('tab-hack')">🧠 Hack Não 6 Chuỗi Kanji</button>
-            <button class="tab-btn" onclick="switchMainTab('tab-npbs')">⚡ NPBS Bài 14 & Thử Thách</button>
-            <button class="tab-btn" onclick="switchMainTab('tab-test')">🎯 Đề Thi Đột Kích 20 Câu</button>
+            <button class="tab-btn tab-btn-vocab active" onclick="switchMainTab('tab-vocab')">🎴 121 Từ Vựng (L11-18)</button>
+            <button class="tab-btn tab-btn-typing" onclick="switchMainTab('tab-cram')">⚡ Flashcard Cram Mode</button>
+            <button class="tab-btn tab-btn-kanji" onclick="switchMainTab('tab-hack')">🧠 Hack Não 6 Chuỗi Kanji</button>
+            <button class="tab-btn tab-btn-cheatsheet" onclick="switchMainTab('tab-npbs')">⚡ NPBS Bài 14 & Thử Thách</button>
+            <button class="tab-btn tab-btn-quiz" onclick="switchMainTab('tab-test')">🎯 Đề Thi Đột Kích 20 Câu</button>
         </nav>
     </div>
 
@@ -1273,6 +1279,6 @@
     });
 </script>
 <script src="../assets/js/nav-dropdown.js"></script>
-    <script src="../assets/nav.js?v=3" defer></script>
+    <script src="../assets/nav.js?v=4" defer></script>
 </body>
 </html>
