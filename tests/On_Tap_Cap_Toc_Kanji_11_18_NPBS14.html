@@ -71,90 +71,6 @@
             margin: 0 auto;
         }
 
-        /* Global Hub Nav */
-        .global-hub-nav {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 16px;
-            background: #ffffff;
-            border: 1px solid var(--gray-200);
-            border-radius: var(--radius-md);
-            margin-bottom: 24px;
-            box-shadow: var(--shadow-sm);
-            flex-wrap: wrap;
-        }
-        .hub-nav-item {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 7px 14px;
-            border-radius: var(--radius-sm);
-            text-decoration: none;
-            color: var(--gray-700);
-            font-size: 0.88rem;
-            font-weight: 700;
-            transition: all 0.2s;
-            border: none;
-            background: transparent;
-            cursor: pointer;
-            font-family: inherit;
-        }
-        .hub-nav-item:hover {
-            background: var(--gray-100);
-            color: var(--primary);
-        }
-        .hub-nav-item.active-hub {
-            background: var(--purple-light);
-            color: var(--purple);
-            font-weight: 800;
-        }
-
-        /* Dropdown Hub Nav */
-        .hub-dropdown {
-            position: relative;
-            display: inline-block;
-        }
-        .hub-dropdown-menu {
-            display: none;
-            position: absolute;
-            top: calc(100% + 6px);
-            left: 50%;
-            transform: translateX(-50%);
-            background: #ffffff;
-            border: 1.5px solid #e2e8f0;
-            border-radius: 14px;
-            box-shadow: 0 12px 28px rgba(0,0,0,0.12);
-            padding: 8px;
-            min-width: 260px;
-            max-height: 480px;
-            overflow-y: auto;
-            scrollbar-width: thin;
-            z-index: 9999;
-        }
-        .hub-dropdown-menu.show {
-            display: block;
-        }
-        .hub-drop-link {
-            display: block;
-            padding: 8px 14px;
-            color: #334155;
-            font-size: 0.88rem;
-            font-weight: 700;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: all 0.15s ease;
-            white-space: nowrap;
-        }
-        .hub-drop-link:hover {
-            background: #eef2ff;
-            color: #4f46e5;
-        }
-        .hub-drop-link.active {
-            background: #4f46e5;
-            color: #ffffff !important;
-        }
-
         /* Hero Header */
         .hero-banner {
             background: linear-gradient(135deg, #1e1b4b 0%, #312e81 40%, #4f46e5 100%);
@@ -231,7 +147,7 @@
             align-items: center;
             gap: 8px;
             padding: 11px 22px;
-            border-radius: var(--radius-md);
+            border-radius: var(--radius-full);
             font-size: 0.92rem;
             font-weight: 800;
             border: none;
@@ -258,26 +174,32 @@
         }
         .tab-nav {
             display: flex;
-            gap: 6px;
+            gap: 8px;
             background: #ffffff;
-            padding: 6px;
-            border-radius: var(--radius-lg);
+            padding: 6px 10px;
+            border-radius: var(--radius-full);
             box-shadow: var(--shadow-md);
-            border: 1px solid var(--gray-200);
+            border: 1.5px solid var(--gray-200);
             overflow-x: auto;
+            scrollbar-width: none;
+            justify-content: center;
+            align-items: center;
+        }
+        .tab-nav::-webkit-scrollbar {
+            display: none;
         }
         .tab-btn {
-            flex: 1;
+            flex: 1 1 auto;
             min-width: 170px;
-            padding: 12px 16px;
-            border: none;
+            padding: 10px 20px;
+            border: 1.5px solid transparent;
             background: transparent;
             color: var(--gray-600);
             font-size: 0.92rem;
             font-weight: 800;
-            border-radius: var(--radius-md);
+            border-radius: var(--radius-full);
             cursor: pointer;
-            transition: all 0.2s;
+            transition: all 0.2s ease;
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -285,13 +207,15 @@
             white-space: nowrap;
         }
         .tab-btn:hover {
-            color: var(--primary);
-            background: var(--gray-50);
+            color: #e11d48;
+            background: #fff1f2;
+            border-color: #fecdd3;
         }
         .tab-btn.active {
-            background: var(--primary);
+            background: linear-gradient(135deg, #e11d48, #be123c);
             color: var(--white);
-            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+            border-color: #e11d48;
+            box-shadow: 0 4px 14px rgba(225, 29, 72, 0.35);
         }
 
         .tab-panel {
@@ -590,7 +514,7 @@
             .tab-btn { min-width: 140px; padding: 10px 12px; font-size: 0.85rem; }
         }
     </style>
-    <link rel="stylesheet" href="../assets/css/site-theme.css">
+    <link rel="stylesheet" href="../assets/css/site-theme.css?v=3">
 </head>
 <body>
 
@@ -1349,6 +1273,6 @@
     });
 </script>
 <script src="../assets/js/nav-dropdown.js"></script>
-    <script src="../assets/nav.js?v=2" defer></script>
+    <script src="../assets/nav.js?v=3" defer></script>
 </body>
 </html>

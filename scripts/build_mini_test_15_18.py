@@ -657,28 +657,42 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             margin-bottom: 24px;
         }
 
+        /* Tab Navigation Bar (Capsule Pill Standard) */
+        .tab-nav-wrapper {
+            position: sticky;
+            top: 10px;
+            z-index: 500;
+            margin-bottom: 24px;
+        }
+
         .tab-nav {
             display: flex;
-            gap: 6px;
+            gap: 8px;
+            background: #ffffff;
+            padding: 6px 10px;
+            border-radius: 9999px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+            border: 1.5px solid var(--gray-200);
             overflow-x: auto;
-            scrollbar-width: thin;
-            background: var(--white);
-            border-radius: var(--radius-lg);
-            padding: 6px;
-            box-shadow: var(--shadow-md);
-            border: 1px solid var(--gray-200);
+            scrollbar-width: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .tab-nav::-webkit-scrollbar {
+            display: none;
         }
 
         .tab-btn {
-            flex: 1;
+            flex: 1 1 auto;
             white-space: nowrap;
-            padding: 12px 18px;
-            border: none;
+            padding: 10px 20px;
+            border: 1.5px solid transparent;
             background: transparent;
             color: var(--gray-600);
-            font-size: 0.95rem;
-            font-weight: 700;
-            border-radius: var(--radius-md);
+            font-size: 0.92rem;
+            font-weight: 800;
+            border-radius: 9999px;
             cursor: pointer;
             transition: all 0.2s ease;
             display: inline-flex;
@@ -686,14 +700,18 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             justify-content: center;
             gap: 8px;
         }
+
         .tab-btn:hover {
-            color: var(--primary);
-            background: var(--gray-100);
+            color: #e11d48;
+            background: #fff1f2;
+            border-color: #fecdd3;
         }
+
         .tab-btn.active {
-            background: var(--primary);
+            background: linear-gradient(135deg, #e11d48, #be123c);
             color: var(--white);
-            box-shadow: 0 4px 14px rgba(79, 70, 229, 0.3);
+            border-color: #e11d48;
+            box-shadow: 0 4px 14px rgba(225, 29, 72, 0.35);
         }
 
         /* Tab Content Panels */
@@ -1387,7 +1405,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             }
         }
     </style>
-    <link rel="stylesheet" href="../assets/css/site-theme.css">
+    <link rel="stylesheet" href="../assets/css/site-theme.css?v=3">
 </head>
 <body>
 
@@ -2655,7 +2673,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             updateTotalScore();
         });
     </script>
-    <script src="../assets/nav.js?v=2" defer></script>
+    <script src="../assets/nav.js?v=3" defer></script>
 </body>
 </html>
 """

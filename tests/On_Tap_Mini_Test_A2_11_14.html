@@ -65,104 +65,23 @@
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1240px;
             margin: 0 auto;
-        }
-
-        /* Global Hub Nav */
-        .global-hub-nav {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 16px;
-            background: #ffffff;
-            border: 1px solid var(--gray-200);
-            border-radius: var(--radius-md);
-            margin-bottom: 20px;
-            box-shadow: var(--shadow-sm);
-            overflow-x: auto;
-            scrollbar-width: none;
-        }
-        .global-hub-nav::-webkit-scrollbar {
-            display: none;
-        }
-        .hub-nav-item {
-            text-decoration: none;
-            color: var(--gray-600);
-            font-size: 0.88rem;
-            font-weight: 700;
-            padding: 6px 14px;
-            border-radius: var(--radius-full);
-            white-space: nowrap;
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            transition: all 0.2s;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-        .hub-nav-item:hover {
-            background: var(--gray-100);
-            color: var(--primary);
-        }
-        .hub-nav-item.active-hub {
-            background: var(--primary-light);
-            color: var(--primary);
-        }
-        .hub-dropdown {
-            position: relative;
-            display: inline-block;
-        }
-        .hub-dropdown-menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            z-index: 1000;
-            background: #ffffff;
-            min-width: 280px;
-            max-height: 480px;
-            overflow-y: auto;
-            box-shadow: var(--shadow-lg);
-            border-radius: var(--radius-md);
-            border: 1px solid var(--gray-200);
-            padding: 8px 0;
-            margin-top: 6px;
-        }
-        .hub-dropdown-menu.show {
-            display: block;
-        }
-        .hub-drop-link {
-            display: block;
-            padding: 9px 18px;
-            color: var(--gray-700);
-            text-decoration: none;
-            font-size: 0.88rem;
-            font-weight: 600;
-            transition: all 0.15s;
-        }
-        .hub-drop-link:hover {
-            background: var(--gray-50);
-            color: var(--primary);
-        }
-        .hub-drop-link.active {
-            background: var(--primary-light);
-            color: var(--primary);
-            font-weight: 700;
         }
 
         /* Hero Header */
         .hero-header {
             background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4338ca 100%);
             color: var(--white);
-            padding: 36px 24px;
-            border-radius: var(--radius-lg);
+            padding: 38px 24px;
+            border-radius: 24px;
             text-align: center;
             margin-bottom: 24px;
             box-shadow: 0 10px 30px rgba(49, 46, 129, 0.25);
             position: relative;
+            z-index: 1;
             overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.15);
         }
         .hero-header::before {
             content: "満点";
@@ -217,38 +136,39 @@
             border: 1px solid rgba(255, 255, 255, 0.18);
         }
 
-        /* Tab Navigation Bar */
+        /* Tab Navigation Bar (Capsule Pill Standard) */
         .tab-nav-wrapper {
             position: sticky;
-            top: 12px;
-            z-index: 100;
-            background: rgba(255, 255, 255, 0.94);
-            backdrop-filter: blur(12px);
-            padding: 8px;
-            border-radius: var(--radius-lg);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            border: 1px solid rgba(226, 232, 240, 0.8);
-            margin-bottom: 25px;
+            top: 10px;
+            z-index: 500;
+            margin-bottom: 24px;
         }
         .tab-nav {
             display: flex;
-            gap: 6px;
+            gap: 8px;
+            background: #ffffff;
+            padding: 6px 10px;
+            border-radius: var(--radius-full);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+            border: 1.5px solid var(--gray-200);
             overflow-x: auto;
             scrollbar-width: none;
+            justify-content: center;
+            align-items: center;
         }
         .tab-nav::-webkit-scrollbar {
             display: none;
         }
         .tab-btn {
-            flex: 1;
+            flex: 1 1 auto;
             white-space: nowrap;
-            padding: 12px 18px;
-            border: none;
+            padding: 10px 20px;
+            border: 1.5px solid transparent;
             background: transparent;
             color: var(--gray-600);
-            font-size: 0.95rem;
-            font-weight: 700;
-            border-radius: var(--radius-md);
+            font-size: 0.92rem;
+            font-weight: 800;
+            border-radius: var(--radius-full);
             cursor: pointer;
             transition: all 0.2s ease;
             display: inline-flex;
@@ -257,13 +177,15 @@
             gap: 8px;
         }
         .tab-btn:hover {
-            color: var(--primary);
-            background: var(--gray-100);
+            color: #e11d48;
+            background: #fff1f2;
+            border-color: #fecdd3;
         }
         .tab-btn.active {
-            background: var(--primary);
+            background: linear-gradient(135deg, #e11d48, #be123c);
             color: var(--white);
-            box-shadow: 0 4px 14px rgba(79, 70, 229, 0.3);
+            border-color: #e11d48;
+            box-shadow: 0 4px 14px rgba(225, 29, 72, 0.35);
         }
 
         /* Tab Content Panels */
@@ -526,7 +448,7 @@
             color: var(--white);
             border: none;
             padding: 9px 18px;
-            border-radius: var(--radius-md);
+            border-radius: var(--radius-full);
             font-size: 0.88rem;
             font-weight: 700;
             cursor: pointer;
@@ -1273,7 +1195,7 @@
             }
         }
     </style>
-    <link rel="stylesheet" href="../assets/css/site-theme.css">
+    <link rel="stylesheet" href="../assets/css/site-theme.css?v=3">
 </head>
 <body>
 
@@ -2839,6 +2761,6 @@
     });
 </script>
 <script src="../assets/js/nav-dropdown.js"></script>
-    <script src="../assets/nav.js?v=2" defer></script>
+    <script src="../assets/nav.js?v=3" defer></script>
 </body>
 </html>

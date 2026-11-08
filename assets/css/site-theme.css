@@ -73,83 +73,93 @@ body {
 }
 
 /* ==========================================================================
-   1. GLOBAL HUB NAVIGATION & DROPDOWNS
+   1. GLOBAL HUB NAVIGATION & DROPDOWNS (CHUẨN VIÊN THUỐC CAPSULE THE_NAI)
    ========================================================================== */
+#navbar-placeholder {
+    position: relative !important;
+    z-index: 100000 !important;
+}
+
 .global-hub-nav {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
-    background: #ffffff;
-    padding: 14px 20px;
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    margin-bottom: 25px;
-    border: 1px solid var(--border);
-    position: relative;
-    z-index: 1000;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+    gap: 10px !important;
+    background: #ffffff !important;
+    padding: 14px 20px !important;
+    border-radius: 20px !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06) !important;
+    margin-bottom: 25px !important;
+    border: 1px solid #e2e8f0 !important;
+    position: relative !important;
+    overflow: visible !important;
+    overflow-x: visible !important;
+    overflow-y: visible !important;
+    z-index: 100000 !important;
 }
 
 .hub-nav-item {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 8px 16px;
-    border-radius: var(--radius-pill);
-    background: #f1f5f9;
-    color: #475569;
-    font-size: 0.88rem;
-    font-weight: 700;
-    text-decoration: none;
-    border: 1px solid transparent;
-    transition: all 0.2s ease;
-    cursor: pointer;
-    font-family: inherit;
-    white-space: nowrap;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    padding: 7px 16px !important;
+    border-radius: 9999px !important;
+    background: #ffffff !important;
+    color: #475569 !important;
+    font-size: 0.88rem !important;
+    font-weight: 700 !important;
+    text-decoration: none !important;
+    border: 1.5px solid #cbd5e1 !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+    transition: all 0.2s ease !important;
+    cursor: pointer !important;
+    font-family: inherit !important;
+    white-space: nowrap !important;
 }
 
 .hub-nav-item:hover {
-    background: var(--primary-bg);
-    color: var(--primary);
-    border-color: var(--primary-light);
-    transform: translateY(-1px);
+    background: #fff1f2 !important;
+    color: var(--primary) !important;
+    border-color: var(--primary) !important;
+    transform: translateY(-1px) !important;
 }
 
 .hub-nav-item.active-hub {
-    background: var(--primary);
+    background: var(--primary) !important;
     color: #ffffff !important;
-    border-color: var(--primary);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-color: var(--primary) !important;
+    box-shadow: 0 4px 12px rgba(225, 29, 72, 0.35) !important;
 }
 
 /* Dropdown Menu */
 .hub-dropdown {
-    position: relative;
-    display: inline-block;
+    position: relative !important;
+    display: inline-block !important;
+    z-index: 100001 !important;
 }
 
 .hub-dropdown-menu {
     display: none !important;
-    position: absolute;
-    top: calc(100% + 8px);
-    left: 50%;
-    transform: translateX(-50%);
-    background: #ffffff;
-    border: 1.5px solid var(--border);
-    border-radius: 14px;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
-    padding: 8px;
-    min-width: 270px;
-    max-height: 480px;
-    overflow-y: auto;
-    scrollbar-width: thin;
-    z-index: 99999;
+    position: absolute !important;
+    top: calc(100% + 8px) !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    background: #ffffff !important;
+    border: 1.5px solid #e2e8f0 !important;
+    border-radius: 16px !important;
+    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.18) !important;
+    padding: 8px !important;
+    min-width: 280px !important;
+    max-height: 480px !important;
+    overflow-y: auto !important;
+    scrollbar-width: thin !important;
+    z-index: 9999999 !important;
 }
 
 .hub-dropdown-menu.show {
     display: block !important;
-    animation: hubDropFadeIn 0.2s ease-out;
+    animation: hubDropFadeIn 0.2s ease-out !important;
 }
 
 @keyframes hubDropFadeIn {
@@ -164,39 +174,40 @@ body {
 }
 
 .hub-drop-link {
-    display: block;
-    padding: 9px 14px;
-    color: #334155;
-    font-size: 0.88rem;
-    font-weight: 700;
-    text-decoration: none;
-    border-radius: 8px;
-    transition: all 0.15s ease;
-    white-space: nowrap;
+    display: block !important;
+    padding: 9px 14px !important;
+    color: #334155 !important;
+    font-size: 0.88rem !important;
+    font-weight: 700 !important;
+    text-decoration: none !important;
+    border-radius: 10px !important;
+    transition: all 0.15s ease !important;
+    white-space: nowrap !important;
 }
 
 .hub-drop-link:hover {
-    background: var(--primary-bg);
-    color: var(--primary);
+    background: var(--primary-bg) !important;
+    color: var(--primary) !important;
 }
 
 .hub-drop-link.active {
-    background: var(--primary);
+    background: var(--primary) !important;
     color: #ffffff !important;
 }
 
 /* ==========================================================================
    2. HEADER BANNER
    ========================================================================== */
-header {
+header, .hero-header, .hero-banner {
     background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
     color: #ffffff;
     padding: 34px 22px;
-    border-radius: var(--radius);
+    border-radius: 24px !important;
     text-align: center;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
     margin-bottom: 25px;
-    position: relative;
+    position: relative !important;
+    z-index: 1 !important;
     overflow: hidden;
 }
 
@@ -215,7 +226,7 @@ header {
     border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
-header h1 {
+header h1, .hero-title {
     font-size: 2.1rem;
     font-weight: 900;
     margin-bottom: 10px;
@@ -223,7 +234,7 @@ header h1 {
     line-height: 1.25;
 }
 
-header p {
+header p, .hero-desc {
     font-size: 1.02rem;
     opacity: 0.95;
     max-width: 780px;
@@ -231,7 +242,7 @@ header p {
     line-height: 1.6;
 }
 
-.stats-pills {
+.stats-pills, .hero-stats {
     display: flex;
     justify-content: center;
     gap: 8px;
@@ -239,7 +250,7 @@ header p {
     margin-top: 16px;
 }
 
-.stat-pill {
+.stat-pill, .hero-stat-pill {
     background: rgba(255, 255, 255, 0.15);
     border: 1px solid rgba(255, 255, 255, 0.25);
     padding: 6px 14px;
@@ -251,51 +262,74 @@ header p {
 }
 
 /* ==========================================================================
-   3. NAV TABS & TAB PANELS (Chuẩn Viên Thuốc Không Đè Chữ)
+   3. NAV TABS & TAB PANELS (Chuẩn Viên Thuốc Capsule Không Đè Chữ)
    ========================================================================== */
-.nav-tabs {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 25px;
-    justify-content: center;
-    flex-wrap: wrap;
-    background: transparent;
-    padding: 0;
+.tab-nav-wrapper {
+    position: sticky !important;
+    top: 10px !important;
+    z-index: 500 !important;
+    margin-bottom: 24px !important;
 }
 
-.nav-tab-btn {
-    background: #ffffff;
-    border: 2px solid var(--border);
-    padding: 11px 22px;
-    border-radius: var(--radius-pill);
-    font-size: 0.94rem;
-    font-weight: 700;
-    cursor: pointer;
-    color: #334155;
-    transition: all 0.2s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    white-space: nowrap;
-    font-family: inherit;
-    text-decoration: none;
+.nav-tabs, .tab-nav {
+    display: flex !important;
+    gap: 8px !important;
+    background: #ffffff !important;
+    padding: 6px 10px !important;
+    border-radius: 9999px !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06) !important;
+    border: 1.5px solid var(--border) !important;
+    overflow-x: auto !important;
+    scrollbar-width: none !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+    margin-bottom: 25px !important;
 }
 
-.nav-tab-btn:hover {
-    border-color: var(--primary-light);
-    color: var(--primary);
-    background: var(--primary-bg);
-    transform: translateY(-2px);
+.nav-tabs::-webkit-scrollbar, .tab-nav::-webkit-scrollbar {
+    display: none !important;
 }
 
-.nav-tab-btn.active {
-    background: var(--primary);
+.nav-tab-btn, .tab-btn {
+    flex: 1 1 auto !important;
+    background: transparent !important;
+    border: 1.5px solid transparent !important;
+    padding: 10px 20px !important;
+    border-radius: 9999px !important;
+    font-size: 0.92rem !important;
+    font-weight: 800 !important;
+    cursor: pointer !important;
+    color: #475569 !important;
+    transition: all 0.2s ease !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    white-space: nowrap !important;
+    font-family: inherit !important;
+    text-decoration: none !important;
+    box-shadow: none !important;
+}
+
+.nav-tab-btn:hover, .tab-btn:hover {
+    border-color: var(--primary-light) !important;
+    color: var(--primary) !important;
+    background: var(--primary-bg) !important;
+    transform: translateY(-1px) !important;
+}
+
+.nav-tab-btn.active, .tab-btn.active {
+    background: linear-gradient(135deg, #e11d48, #be123c) !important;
     color: #ffffff !important;
-    border-color: var(--primary);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    transform: translateY(-2px);
+    border-color: #e11d48 !important;
+    box-shadow: 0 4px 14px rgba(225, 29, 72, 0.35) !important;
+    transform: translateY(-1px) !important;
+}
+
+/* Viên thuốc Subtabs, Filter Pills & Action Buttons */
+.quicknav-pill, .filter-btn, .filter-pill, .theory-quicknav a, .btn-quizlet, .btn-cram-action {
+    border-radius: 9999px !important;
 }
 
 .tab-panel {

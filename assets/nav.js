@@ -62,7 +62,7 @@
         if (!existingLink) {
             const link = document.createElement('link');
             link.rel = 'stylesheet';
-            link.href = rootPrefix + 'assets/css/site-theme.css';
+            link.href = rootPrefix + 'assets/css/site-theme.css?v=3';
             document.head.appendChild(link);
         }
     })();
