@@ -1420,7 +1420,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             }
         }
     </style>
-    <link rel="stylesheet" href="../assets/css/site-theme.css?v=5">
+    <link rel="stylesheet" href="../assets/css/site-theme.css?v=6">
 </head>
 <body>
 
@@ -2688,7 +2688,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             updateTotalScore();
         });
     </script>
-    <script src="../assets/nav.js?v=5" defer></script>
+    <script src="../assets/nav.js?v=6" defer></script>
 </body>
 </html>
 """

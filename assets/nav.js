@@ -8,7 +8,16 @@
 (function () {
     'use strict';
 
-    // 1. DỮ LIỆU BÀI HỌC VÀ ĐỀ THI
+    // 1. DỮ LIỆU CÁC THỂ ĐỘNG TỪ (Được gom chung vào 1 thẻ gọn gàng)
+    const ALL_VERB_FORMS = [
+        { file: 'index.html', title: '🌸 Thể TE (～て)', desc: 'Cẩm nang & Bảng luyện tập chia thể TE (56 từ)' },
+        { file: 'the_ru.html', title: '📘 Thể RU (Từ Điển)', desc: 'Thể nguyên mẫu Từ điển & Quy tắc chia Jisho' },
+        { file: 'the_ta.html', title: '📕 Thể TA (Quá Khứ)', desc: 'Thể quá khứ ngắn Ta-kei & Hành động kinh nghiệm' },
+        { file: 'the_nai.html', title: '📗 Thể NAI (Phủ Định)', desc: 'Thể phủ định ngắn Nai-kei & Mẫu câu khuyên cấm' },
+        { file: 'Luyen_Tap_The_Te_A2_1.html', title: '⚡ Đấu Trường Luyện Thể TE', desc: 'Mini test phản xạ chia thể TE tốc độ cao', isTestFile: true }
+    ];
+
+    // DỮ LIỆU BÀI HỌC VÀ ĐỀ THI
     const ALL_LESSONS = [
         { file: 'Marugoto_A2_Lesson_1.html', title: '🌸 Bài 1: Nơi ở & Gia đình' },
         { file: 'Marugoto_A2_Lesson_2.html', title: '🎨 Bài 2: Sở thích & Ngôn ngữ' },
@@ -63,7 +72,7 @@
         if (!existingLink) {
             const link = document.createElement('link');
             link.rel = 'stylesheet';
-            link.href = rootPrefix + 'assets/css/site-theme.css?v=5';
+            link.href = rootPrefix + 'assets/css/site-theme.css?v=6';
             document.head.appendChild(link);
         }
     })();
@@ -73,6 +82,9 @@
     const isRuActive = (!isLessons && !isTests && currentFileName === 'the_ru.html');
     const isTaActive = (!isLessons && !isTests && currentFileName === 'the_ta.html');
     const isNaiActive = (!isLessons && !isTests && currentFileName === 'the_nai.html');
+    const isTePracticeActive = (isTests && currentFileName === 'Luyen_Tap_The_Te_A2_1.html');
+    const isFormsActive = isTeActive || isRuActive || isTaActive || isNaiActive || isTePracticeActive;
+
     const isKanjiActive = (!isLessons && !isTests && currentFileName === 'kanji_a2.html');
     const isVocabActive = (!isLessons && !isTests && currentFileName === 'Tu_Vung_Marugoto_A1_16_A2_1_10.html');
     const isGrammarActive = (!isLessons && !isTests && currentFileName === 'Tong_Hop_Ngu_Phap_Marugoto_A1_A2.html');
@@ -80,6 +92,20 @@
     const is3dActive = (!isLessons && !isTests && currentFileName === 'demo_3d.html');
 
     // 5. SINH HTML CHO CÁC MỤC DROPDOWN
+    const formsDropdownHtml = ALL_VERB_FORMS.map(f => {
+        const linkHref = f.isTestFile ? `${testsPrefix}${f.file}` : `${rootPrefix}${f.file}`;
+        const isCurrent = f.isTestFile
+            ? (isTests && currentFileName === f.file)
+            : (!isLessons && !isTests && (currentFileName === f.file || (f.file === 'index.html' && (currentFileName === '' || currentFileName === 'index.html'))));
+        return `<a href="${linkHref}" class="hub-drop-link${isCurrent ? ' active' : ''}">
+            <div class="hub-drop-info">
+                <span class="hub-drop-text">${f.title}</span>
+                <span class="hub-drop-desc">${f.desc}</span>
+            </div>
+            ${isCurrent ? '<span class="hub-drop-tag">Đang mở</span>' : ''}
+        </a>`;
+    }).join('\n                ');
+
     const testsDropdownHtml = ALL_TESTS.map(t => {
         const isCurrent = isTests && currentFileName === t.file;
         return `<a href="${testsPrefix}${t.file}" class="hub-drop-link${isCurrent ? ' active' : ''}">
@@ -100,10 +126,9 @@
     const navbarHtml = `
     <div class="global-hub-nav-wrapper">
         <nav class="global-hub-nav" aria-label="Thanh điều hướng chính Marugoto">
-            <a href="${rootPrefix}index.html" class="hub-nav-item${isTeActive ? ' active-hub' : ''}">🌸 Thể TE (～て)</a>
-            <a href="${rootPrefix}the_ru.html" class="hub-nav-item${isRuActive ? ' active-hub' : ''}">📘 Thể RU (Từ Điển)</a>
-            <a href="${rootPrefix}the_ta.html" class="hub-nav-item${isTaActive ? ' active-hub' : ''}">📕 Thể TA (Quá Khứ)</a>
-            <a href="${rootPrefix}the_nai.html" class="hub-nav-item${isNaiActive ? ' active-hub' : ''}">📗 Thể NAI (Phủ Định)</a>
+            <!-- Thẻ gộp Các Thể Động Từ (Gọn gàng thay vì 4 nút riêng biệt) -->
+            <button type="button" id="hubBtnForms" class="hub-nav-item${isFormsActive ? ' active-hub' : ''}" onclick="window.toggleFormsDropdown(event)">🎴 Các Thể Động Từ ▾</button>
+            
             <a href="${rootPrefix}kanji_a2.html" class="hub-nav-item${isKanjiActive ? ' active-hub' : ''}">⛩️ Học Kanji & Nét Viết</a>
             <a href="${rootPrefix}Tu_Vung_Marugoto_A1_16_A2_1_10.html" class="hub-nav-item${isVocabActive ? ' active-hub' : ''}">📖 Kho Từ Vựng A1-A2</a>
             <a href="${rootPrefix}Tong_Hop_Ngu_Phap_Marugoto_A1_A2.html" class="hub-nav-item${isGrammarActive ? ' active-hub' : ''}">📗 Ngữ Pháp A1-A2</a>
@@ -116,6 +141,17 @@
 
         <!-- Lớp phủ mờ (Backdrop) cho Mobile và ngoài vùng click -->
         <div class="hub-backdrop" id="hubNavBackdrop" onclick="window.closeAllHubDropdowns()"></div>
+
+        <!-- Menu Các Thể Động Từ (Desktop Dropdown & Mobile Bottom Sheet) -->
+        <div class="hub-dropdown-menu" id="formsDropdownMenu" role="dialog" aria-modal="true">
+            <div class="hub-drop-header">
+                <span class="hub-drop-title">🎴 Các Thể Động Từ (TE / RU / TA / NAI)</span>
+                <button type="button" class="hub-drop-close" onclick="window.closeAllHubDropdowns()" aria-label="Đóng">✕</button>
+            </div>
+            <div class="hub-drop-body">
+                ${formsDropdownHtml}
+            </div>
+        </div>
 
         <!-- Menu Ôn Tập & Đề Thi (Desktop Dropdown & Mobile Bottom Sheet) -->
         <div class="hub-dropdown-menu" id="testsDropdownMenu" role="dialog" aria-modal="true">
@@ -159,13 +195,46 @@
     }
 
     function closeAllHubDropdowns() {
+        const fm = document.getElementById('formsDropdownMenu');
         const tm = document.getElementById('testsDropdownMenu');
         const lm = document.getElementById('lessonsDropdownMenu');
         const bd = document.getElementById('hubNavBackdrop');
+        if (fm) fm.classList.remove('show');
         if (tm) tm.classList.remove('show');
         if (lm) lm.classList.remove('show');
         if (bd) bd.classList.remove('show');
         document.body.classList.remove('hub-menu-open');
+    }
+
+    function toggleFormsDropdown(e) {
+        if (e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+        const fm = document.getElementById('formsDropdownMenu');
+        const tm = document.getElementById('testsDropdownMenu');
+        const lm = document.getElementById('lessonsDropdownMenu');
+        const bd = document.getElementById('hubNavBackdrop');
+        const btn = document.getElementById('hubBtnForms');
+
+        if (!fm) return;
+
+        if (tm) tm.classList.remove('show');
+        if (lm) lm.classList.remove('show');
+
+        const willOpen = !fm.classList.contains('show');
+        if (willOpen) {
+            positionDesktopMenu(btn, fm);
+            fm.classList.add('show');
+            if (bd) bd.classList.add('show');
+            if (window.innerWidth <= 768) {
+                document.body.classList.add('hub-menu-open');
+            }
+        } else {
+            fm.classList.remove('show');
+            if (bd) bd.classList.remove('show');
+            document.body.classList.remove('hub-menu-open');
+        }
     }
 
     function toggleTestsDropdown(e) {
@@ -173,6 +242,7 @@
             e.preventDefault();
             e.stopPropagation();
         }
+        const fm = document.getElementById('formsDropdownMenu');
         const tm = document.getElementById('testsDropdownMenu');
         const lm = document.getElementById('lessonsDropdownMenu');
         const bd = document.getElementById('hubNavBackdrop');
@@ -180,6 +250,7 @@
 
         if (!tm) return;
 
+        if (fm) fm.classList.remove('show');
         if (lm) lm.classList.remove('show');
 
         const willOpen = !tm.classList.contains('show');
@@ -202,6 +273,7 @@
             e.preventDefault();
             e.stopPropagation();
         }
+        const fm = document.getElementById('formsDropdownMenu');
         const tm = document.getElementById('testsDropdownMenu');
         const lm = document.getElementById('lessonsDropdownMenu');
         const bd = document.getElementById('hubNavBackdrop');
@@ -209,6 +281,7 @@
 
         if (!lm) return;
 
+        if (fm) fm.classList.remove('show');
         if (tm) tm.classList.remove('show');
 
         const willOpen = !lm.classList.contains('show');
@@ -228,7 +301,12 @@
 
     // Đóng dropdown khi click ra ngoài (dành cho Desktop)
     document.addEventListener('click', function (e) {
-        if (e && e.target && e.target.closest && (e.target.closest('.hub-dropdown-menu') || e.target.closest('#hubBtnTests') || e.target.closest('#hubBtnLessons'))) {
+        if (e && e.target && e.target.closest && (
+            e.target.closest('.hub-dropdown-menu') || 
+            e.target.closest('#hubBtnForms') || 
+            e.target.closest('#hubBtnTests') || 
+            e.target.closest('#hubBtnLessons')
+        )) {
             return;
         }
         closeAllHubDropdowns();
@@ -243,8 +321,12 @@
 
     // Tự động căn chỉnh khi resize màn hình
     window.addEventListener('resize', function () {
+        const fm = document.getElementById('formsDropdownMenu');
         const tm = document.getElementById('testsDropdownMenu');
         const lm = document.getElementById('lessonsDropdownMenu');
+        if (fm && fm.classList.contains('show')) {
+            positionDesktopMenu(document.getElementById('hubBtnForms'), fm);
+        }
         if (tm && tm.classList.contains('show')) {
             positionDesktopMenu(document.getElementById('hubBtnTests'), tm);
         }
@@ -254,6 +336,7 @@
     });
 
     // Phơi ra global để onclick gọi được
+    window.toggleFormsDropdown = toggleFormsDropdown;
     window.toggleTestsDropdown = toggleTestsDropdown;
     window.toggleLessonsDropdown = toggleLessonsDropdown;
     window.closeAllHubDropdowns = closeAllHubDropdowns;
