@@ -1425,6 +1425,7 @@
     <!-- STICKY SECTION SUB-NAV -->
     <div class="section-nav">
         <a href="#sec-grammar1" class="sec-link">① Liệt kê (V-たり V-たり)</a>
+        <a href="#sec-grammar-relative" class="sec-link">② Người mà... (V thường + N)</a>
         <a href="#sec-grammar2" class="sec-link">② Mục đích (N の ために)</a>
         <a href="#sec-grammar3" class="sec-link">③ Lời khuyên (V-たほうがいい)</a>
         <a href="#sec-verb-lab" class="sec-link">🔬 Biến Thể Thể Tari</a>
@@ -1524,6 +1525,27 @@
                 </table>
 
                 <div class="example-list">
+                    <div class="example-item" style="border-left: 3px solid #10b981; background: #f0fdf4;">
+                        <div class="ex-text-wrap">
+                            <div class="ex-jp">あした へやを そうじしたり、せんたくしたり します。</div>
+                            <div class="ex-vi">Ngày mai tôi sẽ dọn dẹp phòng, giặt giũ quần áo v.v...</div>
+                        </div>
+                        <button type="button" class="btn-speak" onclick="speakText('あしたへやをそうじしたり、せんたくしたりします。')">🔊</button>
+                    </div>
+                    <div class="example-item" style="border-left: 3px solid #10b981; background: #f0fdf4;">
+                        <div class="ex-text-wrap">
+                            <div class="ex-jp">きのう ともだちと えいがを みたり しました。</div>
+                            <div class="ex-vi">Hôm qua tôi đã đi xem phim với bạn bè (nêu 1 hành động tiêu biểu, thì quá khứ しました).</div>
+                        </div>
+                        <button type="button" class="btn-speak" onclick="speakText('きのうともだちとえいがをみたりしました。')">🔊</button>
+                    </div>
+                    <div class="example-item" style="border-left: 3px solid #10b981; background: #f0fdf4;">
+                        <div class="ex-text-wrap">
+                            <div class="ex-jp">毎日 さんぽしたり、ヨガを したり して います。</div>
+                            <div class="ex-vi">Hằng ngày tôi đi dạo, tập yoga v.v... (thói quen duy trì: しています).</div>
+                        </div>
+                        <button type="button" class="btn-speak" onclick="speakText('まいにちさんぽしたり、ヨガをしたりしています。')">🔊</button>
+                    </div>
                     <div class="example-item">
                         <div class="ex-text-wrap">
                             <div class="ex-jp">週末は 公園を 走ったり、プールで 泳いだり しています。</div>
@@ -1531,20 +1553,131 @@
                         </div>
                         <button type="button" class="btn-speak" onclick="speakText('週末は 公園を 走ったり、プールで 泳いだり しています。')">🔊</button>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MỤC 2: MỆNH ĐỀ BỔ NGHĨA V + 人 / N -->
+        <section class="content-section" id="sec-grammar-relative">
+            <div class="section-header">
+                <h2 class="section-title"><span>👤</span> 2. Người mà...: V〈ふつうけい (Thể thường)〉＋ 人 / N</h2>
+                <span class="section-tag" style="background:#0284c7; color:#fff;">Mệnh đề bổ ngữ</span>
+            </div>
+
+            <p style="margin-bottom: 16px; color: #334155;">
+                Dùng để bổ sung thêm thông tin chi tiết về một người nào đó (Người mà làm V / Người không làm V...). Trong tiếng Nhật, mệnh đề bổ nghĩa <strong>luôn đứng ngay trước</strong> danh từ được bổ nghĩa.
+            </p>
+
+            <div class="grammar-card">
+                <div class="rule-box" style="border-left-color: #0284c7;">
+                    <div class="rule-formula" style="color: #0369a1;">
+                        V〈ふつうけい (Thể thông thường)〉＋ 人 (hoặc Danh từ N)<br>
+                        <span style="font-size:0.95rem; font-weight:600; color:#475569;">➡ Bổ nghĩa cho danh từ: "Người mà...", "Cái mà..."</span>
+                    </div>
+                </div>
+
+                <!-- Bảng chuyển đổi Thể lịch sự ➔ Thể thông thường -->
+                <div style="margin-bottom:16px;">
+                    <div style="font-weight:700; color:#0369a1; margin-bottom:6px;">📋 Bảng đối chiếu 6 dạng thì thường gặp:</div>
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Ý nghĩa / Thể</th>
+                                <th>Thể Lịch sự (～ます)</th>
+                                <th>Thể Thông thường (ふつうけい)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>☺ Khẳng định hiện tại</td>
+                                <td><code>V ます</code></td>
+                                <td><strong style="color:#0284c7;">V る (Thể từ điển)</strong></td>
+                            </tr>
+                            <tr>
+                                <td>☹ Phủ định hiện tại</td>
+                                <td><code>V ません</code></td>
+                                <td><strong style="color:#ef4444;">V ない (Thể phủ định ngắn)</strong></td>
+                            </tr>
+                            <tr>
+                                <td>☺ Khẳng định quá khứ</td>
+                                <td><code>V ました</code></td>
+                                <td><strong style="color:#059669;">V た (Thể quá khứ ngắn)</strong></td>
+                            </tr>
+                            <tr>
+                                <td>☹ Phủ định quá khứ</td>
+                                <td><code>V ませんでした</code></td>
+                                <td><strong style="color:#dc2626;">V なかった (Quá khứ phủ định)</strong></td>
+                            </tr>
+                            <tr>
+                                <td>☺ Đang tiếp diễn</td>
+                                <td><code>V て います</code></td>
+                                <td><strong style="color:#7c3aed;">V て いる</strong></td>
+                            </tr>
+                            <tr>
+                                <td>☹ Không tiếp diễn</td>
+                                <td><code>V て いません</code></td>
+                                <td><strong style="color:#9333ea;">V て いない</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Ví dụ căn bản -->
+                <div class="example-list" style="margin-bottom:16px;">
                     <div class="example-item">
                         <div class="ex-text-wrap">
-                            <div class="ex-jp">休みの日は 音楽を 聞いたり、掃除を したり します。</div>
-                            <div class="ex-vi">Vào ngày nghỉ tôi nghe nhạc rồi lúc thì dọn dẹp phòng ốc.</div>
+                            <div class="ex-jp">朝ごはんを 食べる 人 は 20人です。</div>
+                            <div class="ex-vi">Số người ăn bữa sáng là 20 người.</div>
                         </div>
-                        <button type="button" class="btn-speak" onclick="speakText('休みの日は 音楽を 聞いたり、掃除を したり します。')">🔊</button>
+                        <button type="button" class="btn-speak" onclick="speakText('あさごはんをたべるひとはにじゅうにんです。')">🔊</button>
                     </div>
                     <div class="example-item">
                         <div class="ex-text-wrap">
-                            <div class="ex-jp">健康の ために、歩いたり 野菜を たくさん 食べたり しています。</div>
-                            <div class="ex-vi">Để giữ gìn sức khỏe, tôi đi bộ và ăn nhiều rau xanh.</div>
+                            <div class="ex-jp">コーヒーを 飲まない 人 は 10人です。</div>
+                            <div class="ex-vi">Số người không uống cà phê là 10 người.</div>
                         </div>
-                        <button type="button" class="btn-speak" onclick="speakText('健康の ために、歩いたり 野菜を たくさん 食べたり しています。')">🔊</button>
+                        <button type="button" class="btn-speak" onclick="speakText('コーヒーをのまないひとはじゅうにんです。')">🔊</button>
                     </div>
+                </div>
+
+                <!-- 5 Cặp Luyện Tập Thực Chiến Cốt Lõi -->
+                <div style="background:#f8fafc; border-radius:10px; padding:16px; border:1px solid #cbd5e1; margin-bottom:16px;">
+                    <div style="font-weight:800; color:#0369a1; font-size:1.02rem; margin-bottom:10px;">🎯 5 Bài Luyện Tập Thực Chiến:</div>
+                    <div style="display:flex; flex-direction:column; gap:10px; line-height:1.7;">
+                        <div style="background:#fff; padding:10px 14px; border-radius:8px; border:1px solid #e2e8f0;">
+                            <strong>1. Người đọc sách:</strong> <code>本を 読む 人</code> ➔ Người hay đọc sách: <code>よく 本を 読む 人</code><br>
+                            ➡ <strong>よく 本を 読む 人は あたまが いいです。</strong> (Người hay đọc sách thì thông minh.)
+                        </div>
+                        <div style="background:#fff; padding:10px 14px; border-radius:8px; border:1px solid #e2e8f0;">
+                            <strong>2. Người đàn ông hút thuốc:</strong> <code>たばこを すう 男の人</code><br>
+                            ➡ <strong>わたしは たばこを すう 男の人が すきじゃないです。</strong> (Tớ không thích người đàn ông hút thuốc.)<br>
+                            Người không hút thuốc: <code>たばこを すわない 人</code> ➡ <strong>たばこを すわない 人は かっこいいです。</strong> (Người không hút thuốc lá thì thật ngầu.)
+                        </div>
+                        <div style="background:#fff; padding:10px 14px; border-radius:8px; border:1px solid #e2e8f0;">
+                            <strong>3. Đứa trẻ chơi game:</strong> <code>ゲームを する 子ども</code><br>
+                            ➡ <strong>ゲームを する 子どもは 目が わるいです。</strong> (Đứa trẻ chơi game thì mắt kém.)
+                        </div>
+                        <div style="background:#fff; padding:10px 14px; border-radius:8px; border:1px solid #e2e8f0;">
+                            <strong>4. Người uống bia:</strong> <code>ビールを 飲む 人</code><br>
+                            ➡ <strong>ビールを 飲む 人は おなかが 大きく なります。</strong> (Người uống nhiều bia thì bụng trở nên to bự.)
+                        </div>
+                        <div style="background:#fff; padding:10px 14px; border-radius:8px; border:1px solid #e2e8f0;">
+                            <strong>5. Đứa trẻ không ăn rau:</strong> <code>野菜を 食べない 子ども</code><br>
+                            ➡ <strong>野菜を 食べない 子どもは あまり げんきじゃないです。</strong> (Đứa trẻ không ăn rau thì không được khỏe mạnh lắm.)
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mở rộng: Đang làm gì & Đã làm gì -->
+                <div style="background:#f0f9ff; border-radius:10px; padding:16px; border:1px solid #bae6fd;">
+                    <div style="font-weight:800; color:#0284c7; font-size:1.02rem; margin-bottom:8px;">🚀 Mở Rộng: Mệnh đề bổ nghĩa cho Danh từ đồ vật & hành động:</div>
+                    <ul style="margin:0; padding-left:20px; line-height:1.8; color:#1e293b;">
+                        <li><strong>Đứa trẻ đang xem tivi:</strong> <code>テレビを 見て いる 子ども</code> ➡ <strong>テレビを 見て いる 子どもは おとうとです。</strong> (Đứa trẻ đang xem tivi là em trai tôi.)</li>
+                        <li><strong>Người đang đọc sách:</strong> <code>本を 読んで いる 人</code> ➡ <strong>本を 読んで いる 人は 山田さんの おねえさんです。</strong> (Người đang đọc sách là chị gái của anh Yamada.)</li>
+                        <li><strong>Bộ phim đã xem:</strong> <code>みました ＋ えいが ➡ みた えいが</code> ➡ <strong>きのう みた えいがは おもしろかったです。</strong> (Bộ phim đã xem hôm qua rất là hay.)</li>
+                        <li><strong>Cuốn sách đang đọc:</strong> <code>よんで います ＋ 本 ➡ よんで いる 本</code> ➡ <strong>よんで いる 本は ドラえもんです。</strong> (Cuốn sách tôi đang đọc là Doraemon.)</li>
+                        <li><strong>Món ăn đã nấu:</strong> <code>つくった りょうり</code> | <strong>Bánh mì đã mua:</strong> <code>かった パン</code></li>
+                    </ul>
                 </div>
             </div>
         </section>
