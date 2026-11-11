@@ -117,83 +117,83 @@ for k in kanji_15_18:
 PART1_MC = [
     {
         "id": 1,
-        "category": "Bài 15 • Triệu chứng & Giải thích lý do",
-        "q": "「顔色が 悪いですね。どうしたんですか。」――「ちょっと お腹が [____]。」",
-        "options": ["痛いんです", "痛いです", "痛くなんです", "痛かったんですか"],
-        "correct": 0,
-        "explain": "Khi đối phương hỏi thăm tình trạng bất thường 「どうしたんですか」, ta dùng tính từ đuôi い + 「んです」 (痛いんです) để giải thích tình trạng cơ thể khó chịu."
+        "category": "Bài 15 • Hỏi thăm & Giải thích triệu chứng (～んです)",
+        "q": "「どうしたんですか。」――「きのうから 頭が [____]。」",
+        "options": ["いたいです", "いたいんです", "いたいんですか", "いたかったなんです"],
+        "correct": 1,
+        "explain": "Khi đối phương hỏi thăm hoàn cảnh 「どうしたんですか」(Bạn bị làm sao vậy?), ta dùng tính từ đuôi い + 「んです」 (いたいんです) để giải thích triệu chứng cơ thể đang gặp phải."
     },
     {
         "id": 2,
-        "category": "Bài 15 • Lời khuyên nhẹ nhàng",
-        "q": "「喉が 痛くて、声が 出ないんです。」――「じゃあ、温かい お茶を [____] と いいですよ。」",
-        "options": ["飲む", "飲んだ", "飲んで", "飲み"],
-        "correct": 0,
-        "explain": "Đưa ra lời khuyên hữu ích cho sức khỏe: 「Động từ thể Từ điển (V-る) ＋ といいですよ」 (Làm ... thì tốt đấy nhé!)."
+        "category": "Bài 15 • Lời khuyên nhẹ nhàng (V-る ＋ と いいですよ)",
+        "q": "「おなかが いたくて、ねられません。」――「ねる まえに、この くすりを [____] と いいですよ。」",
+        "options": ["飲んだ", "飲んで", "飲む", "飲みます"],
+        "correct": 2,
+        "explain": "Đưa ra lời khuyên hữu ích cho sức khỏe: 「Động từ thể Từ điển (V-る) ＋ と いいですよ」 (Làm ... thì tốt đấy nhé!)."
     },
     {
         "id": 3,
-        "category": "Bài 15 • Dặn dò khuyên can",
-        "q": "「熱が 38度も ありますから、きょうは お風呂に [____] ください。」",
-        "options": ["入らないで", "入らない", "入らなくて", "入るないで"],
+        "category": "Bài 15 • Dặn dò đừng làm (V-ない ＋ で ください)",
+        "q": "「ねつが ありますから、きょうは お酒を [____] ください。」",
+        "options": ["飲まないで", "飲まない", "飲まなくて", "飲むないで"],
         "correct": 0,
-        "explain": "Dặn dò, khuyên can bệnh nhân không nên làm điều gì quá sức: 「V(thể ない) ＋ でください」 (Xin đừng...)."
+        "explain": "Đề nghị, dặn dò ai đó đừng làm hành động gì: 「V(thể ない) ＋ で ください」 (Xin đừng uống rượu)."
     },
     {
         "id": 4,
-        "category": "Bài 16 • Liệt kê hành động",
-        "q": "休みの日は 公園を [____]、ジムで 泳いだり しています。",
-        "options": ["走ったり", "走って", "走るたり", "走った"],
-        "correct": 0,
-        "explain": "Cấu trúc liệt kê hành động tiêu biểu đại diện: 「V1-たり、V2-たり します / しています」. Động từ 走る nhóm 1 ➔ 走った ➔ 走ったり."
+        "category": "Bài 16 • Liệt kê hành động tiêu biểu (V1-たり、V2-たり)",
+        "q": "週末は 外を [____]、プールで 泳いだり しています。",
+        "options": ["走って", "走るたり", "走った", "走ったり"],
+        "correct": 3,
+        "explain": "Cấu trúc liệt kê hành động tiêu biểu: 「V1-たり、V2-たり します / しています」. Động từ 走る nhóm 1 ➔ 走った ➔ 走ったり."
     },
     {
         "id": 5,
-        "category": "Bài 16 • Mục đích hành động",
-        "q": "「[____] の ために、毎日 階段を 使っているんですか。」――「健康のためです。」",
-        "options": ["何", "だれ", "どこ", "いつ"],
-        "correct": 0,
-        "explain": "Hỏi mục đích: 「何 (なん) の ために [Hành động]」 (Để phục vụ cho điều gì / Vì cái gì?)."
+        "category": "Bài 16 • Mệnh đề bổ nghĩa cho danh từ (V〈ふつうけい〉＋ 人)",
+        "q": "私の 会社で、毎朝 コーヒーを [____] 人は 10人です。",
+        "options": ["飲みません", "飲まない", "飲まなくて", "飲まなかったです"],
+        "correct": 1,
+        "explain": "Động từ đứng trước bổ nghĩa cho danh từ 「人」 phải chia về thể thông thường (ふつうけい). Phủ định hiện tại 「飲みません」 ➔ 「飲まない」."
     },
     {
         "id": 6,
-        "category": "Bài 16 • Lời khuyên nên làm",
-        "q": "「風邪を ひいたようです。」――「無理を しないで、きょうは 早く [____] ほうが いいですよ。」",
-        "options": ["寝た", "寝る", "寝て", "寝ない"],
+        "category": "Bài 16 • Hỏi mục đích (何 の ために)",
+        "q": "「[____] の ために、毎日 歩いて いるんですか。」――「けんこうの ためです。」",
+        "options": ["何", "だれ", "どこ", "いつ"],
         "correct": 0,
-        "explain": "Khuyên bảo dứt khoát nên làm gì: 「V-た ほうがいいです」 (Nên làm... thì tốt hơn)."
+        "explain": "Hỏi mục đích làm một việc gì đó: 「何 (なん) の ために [Hành động]」 (Để làm gì / Vì mục đích gì?)."
     },
     {
         "id": 7,
-        "category": "Bài 17 • Trợ từ nhận quà",
-        "q": "「素敵な 時計ですね。」――「ええ、誕生日に 父 [____] もらったんです。」",
-        "options": ["に", "を", "で", "へ"],
-        "correct": 0,
+        "category": "Bài 17 • Trợ từ nhận quà (～に もらいました)",
+        "q": "「すてきな 時計ですね。」――「ええ、去年の 誕生日に 父 [____] もらったんです。」",
+        "options": ["を", "で", "に", "へ"],
+        "correct": 2,
         "explain": "Nhận quà từ ai đó dùng trợ từ 「に」 (hoặc 「から」): 「[Người tặng] に [Món quà] を もらいました / もらったんです」."
     },
     {
         "id": 8,
-        "category": "Bài 17 • Liệt kê đại diện とか",
-        "q": "引越し祝いには、お皿 [____] グラス [____] が いいと 思います。",
-        "options": ["とか／とか", "や／など", "と／と", "たり／たり"],
-        "correct": 0,
-        "explain": "Liệt kê danh từ tiêu biểu mang tính đại diện, tự nhiên trong hội thoại: 「N1 とか N2 とか」 (như là... hay là...)."
+        "category": "Bài 17 • Thể thông thường + んです (Biến đổi だ ➔ な)",
+        "q": "「どうして おくれたんですか。」――「すみません、道が [____]。」",
+        "options": ["じゅうたいだんです", "じゅうたいなんです", "じゅうたいのです", "じゅうたいなです"],
+        "correct": 1,
+        "explain": "Danh từ và Tính từ đuôi な trước 「んです」 phải biến đổi 「だ ➔ な」: 「じゅうたいだ」 ➔ 「じゅうたいなんです」."
     },
     {
         "id": 9,
-        "category": "Bài 18 • Bày tỏ quan điểm cá nhân",
-        "q": "「送別会の プレゼントは 何が いいですか。」――「鈴木さんは お酒が 好きですから、ワインが [____] と 思います。」",
-        "options": ["いい", "いいだ", "よく", "いいの"],
-        "correct": 0,
-        "explain": "Trước 「と思います」 là thể thông thường (Futsuukei). Tính từ đuôi い giữ nguyên dạng: 「いい と 思います」."
+        "category": "Bài 17 • Liệt kê đại diện danh từ (とか／とか)",
+        "q": "結婚の お祝いに、絵 [____] 時計 [____] を あげます。",
+        "options": ["と／と", "や／など", "たり／たり", "とか／とか"],
+        "correct": 3,
+        "explain": "Liệt kê các món quà mang tính đại diện, ví dụ tiêu biểu: 「N1 とか N2 とか」 (như là tranh hay là đồng hồ...)."
     },
     {
         "id": 10,
-        "category": "Bài 18 • Động từ mặc trang phục",
-        "q": "パーティーの 会場に、黒い スーツを 着て、眼鏡を [____] いる 人が います。",
-        "options": ["かけて", "かぶって", "はいて", "きて"],
-        "correct": 0,
-        "explain": "Đeo kính dùng động từ 「掛けます (かけます)」 ➔ 「眼鏡を 掛けています」. (Đội mũ dùng 被る, mặc quần/giày dùng 履く, mặc áo dùng 着る)."
+        "category": "Bài 18 • Bày tỏ quan điểm với Tính từ đuôi な (～と 思います)",
+        "q": "「あべさんの 結婚の お祝いに 花びんは どうですか。」――「ええ、とても [____] と 思います。」",
+        "options": ["きれい", "きれいな", "きれいだ", "きれいです"],
+        "correct": 2,
+        "explain": "Trước 「と 思います」 dùng thể thông thường. Tính từ đuôi な ở hiện tại khẳng định BẮT BUỘC phải thêm 「だ」: 「きれいだ と 思います」."
     }
 ]
 
@@ -201,73 +201,73 @@ PART1_MC = [
 PART2_ARRANGE = [
     {
         "id": 11,
-        "category": "Bài 15 • Trình bày lý do nghỉ làm",
+        "category": "Bài 15 • Khuyên nhủ khi đau bụng (V-る といいですよ)",
         "prompt": "Sắp xếp các cụm từ sau thành câu hoàn chỉnh và tìm từ ở vị trí ngôi sao [ ★ ]:",
-        "pre": "今朝から",
-        "post": "休んだんです。",
-        "chips": ["熱が", "あって、", "頭も痛いので", "会社を"],
-        "correctOrder": [0, 1, 2, 3],
+        "pre": "おなかが",
+        "post": "いいですよ。",
+        "chips": ["この", "飲むと", "いたい とき、", "くすりを"],
+        "correctOrder": [2, 0, 3, 1],
         "starIndex": 2,
-        "starChip": "頭も痛いので",
-        "fullSentence": "今朝から 熱が あって、頭も痛いので 会社を 休んだんです。",
-        "simplifiedSentence": "今朝から 熱があって、頭も痛いので 会社を 休んだんです。",
-        "explain": "Nối hai triệu chứng sức khỏe bằng thể Te 「熱があって」 + lý do 「頭も痛いので」 + kết quả 「会社を休んだんです」. Vị trí ngôi sao là [頭も痛いので]."
+        "starChip": "くすりを",
+        "fullSentence": "おなかが いたい とき、この くすりを 飲むと いいですよ。",
+        "simplifiedSentence": "おなかが いたいとき、この くすりを 飲むと いいですよ。",
+        "explain": "Điều kiện thời gian 「いたい とき」 + tân ngữ 「この くすりを」 + lời khuyên 「飲むと いいですよ」. Vị trí ngôi sao là [くすりを]."
     },
     {
         "id": 12,
-        "category": "Bài 16 • Khuyên nhủ vì sức khỏe",
+        "category": "Bài 16 • Mệnh đề bổ nghĩa cho người (V〈ふつうけい〉＋ 人)",
         "prompt": "Sắp xếp các cụm từ sau thành câu hoàn chỉnh và tìm từ ở vị trí ngôi sao [ ★ ]:",
-        "pre": "健康の",
-        "post": "ほうがいいですよ。",
-        "chips": ["ために、", "野菜を", "食べた", "たくさん"],
-        "correctOrder": [0, 1, 3, 2],
+        "pre": "よく",
+        "post": "いいです。",
+        "chips": ["読む", "頭が", "本を", "人は"],
+        "correctOrder": [2, 0, 3, 1],
         "starIndex": 2,
-        "starChip": "たくさん",
-        "fullSentence": "健康の ために、野菜を たくさん 食べた ほうがいいですよ。",
-        "simplifiedSentence": "健康のために、野菜をたくさん食べたほうがいいですよ。",
-        "explain": "Mục đích 「健康のために」 + bổ ngữ chỉ lượng 「野菜を たくさん」 + khuyên nhủ 「食べた ほうがいいですよ」. Vị trí ngôi sao là [たくさん]."
+        "starChip": "人は",
+        "fullSentence": "よく 本を 読む 人は 頭が いいです。",
+        "simplifiedSentence": "よく 本を 読む 人は 頭が いいです。",
+        "explain": "Mệnh đề động từ thể thường bổ nghĩa đứng trước danh từ 「よく 本を 読む 人は」 + vị ngữ 「頭が いいです」. Vị trí ngôi sao là [人は]."
     },
     {
         "id": 13,
-        "category": "Bài 16 • Liệt kê thói quen rèn luyện",
+        "category": "Bài 16 • Nêu hành động tiêu biểu (V-たり しました)",
         "prompt": "Sắp xếp các cụm từ sau thành câu hoàn chỉnh và tìm từ ở vị trí ngôi sao [ ★ ]:",
-        "pre": "休みの日は",
-        "post": "しています。",
-        "chips": ["公園を", "走ったり、", "プールで", "泳いだり"],
-        "correctOrder": [0, 1, 2, 3],
+        "pre": "きのう",
+        "post": "しました。",
+        "chips": ["えいがを", "友だちと", "見たり", "おもしろい"],
+        "correctOrder": [1, 3, 0, 2],
         "starIndex": 2,
-        "starChip": "プールで",
-        "fullSentence": "休みの日は 公園を 走ったり、プールで 泳いだり しています。",
-        "simplifiedSentence": "休みの日は 公園を走ったり、プールで泳いだりしています。",
-        "explain": "Cấu trúc liệt kê: 「[Địa điểm 1] を 走ったり、[★ Địa điểm 2 で] 泳いだり しています」. Vị trí ngôi sao là [プールで]."
+        "starChip": "えいがを",
+        "fullSentence": "きのう 友だちと おもしろい えいがを 見たり しました。",
+        "simplifiedSentence": "きのう 友だちと おもしろい えいがを 見たり しました。",
+        "explain": "Cùng ai 「友だちと」 + danh từ có tính từ bổ nghĩa 「おもしろい えいがを」 + động từ thể 「見たり しました」. Vị trí ngôi sao là [えいがを]."
     },
     {
         "id": 14,
-        "category": "Bài 17 • Tặng quà cưới bạn thân",
+        "category": "Bài 17 • Tặng quà Ngày của Mẹ (N1 に N2 を あげました)",
         "prompt": "Sắp xếp các cụm từ sau thành câu hoàn chỉnh và tìm từ ở vị trí ngôi sao [ ★ ]:",
-        "pre": "友だちの",
+        "pre": "母の 日に、",
         "post": "あげました。",
-        "chips": ["結婚祝いに、", "二人に", "きれいな", "ペアグラスを"],
-        "correctOrder": [0, 1, 2, 3],
+        "chips": ["母に", "花を", "わたしは", "きれいな"],
+        "correctOrder": [2, 0, 3, 1],
         "starIndex": 2,
         "starChip": "きれいな",
-        "fullSentence": "友だちの 結婚祝いに、二人に きれいな ペアグラスを あげました。",
-        "simplifiedSentence": "友だちの 結婚祝いに、二人に きれいな ペアグラスを あげました。",
-        "explain": "Dịp tặng quà 「結婚祝いに」 + đối tượng nhận 「二人に」 + tính từ bổ nghĩa 「きれいな」 + tân ngữ 「ペアグラスを」 + động từ 「あげました」. Vị trí ngôi sao là [きれいな]."
+        "fullSentence": "母の 日に、わたしは 母に きれいな 花を あげました。",
+        "simplifiedSentence": "母の 日に、わたしは 母に きれいな 花を あげました。",
+        "explain": "Chủ ngữ 「わたしは」 + người nhận 「母に」 + tính từ bổ nghĩa 「きれいな」 + món quà 「花を」 + 「あげました」. Vị trí ngôi sao là [きれいな]."
     },
     {
         "id": 15,
-        "category": "Bài 18 • Trích dẫn lời người khác",
+        "category": "Bài 18 • Trích dẫn lời người khác (～と 言っていました)",
         "prompt": "Sắp xếp các cụm từ sau thành câu hoàn chỉnh và tìm từ ở vị trí ngôi sao [ ★ ]:",
-        "pre": "山田さんは",
+        "pre": "あべさんは",
         "post": "言っていました。",
-        "chips": ["都合が", "悪くて", "パーティーに", "行けないと"],
-        "correctOrder": [0, 1, 2, 3],
+        "chips": ["パーティーは", "楽しかったと", "きのうの", "とても"],
+        "correctOrder": [2, 0, 3, 1],
         "starIndex": 2,
-        "starChip": "パーティーに",
-        "fullSentence": "山田さんは 都合が 悪くて パーティーに 行けないと 言っていました。",
-        "simplifiedSentence": "山田さんは 都合が悪くて パーティーに行けないと言っていました。",
-        "explain": "Nguyên nhân bận việc 「都合が悪くて」 + điểm đến 「パーティーに」 + thể phủ định khả năng 「行けないと」 + trích dẫn 「言っていました」. Vị trí ngôi sao là [パーティーに]."
+        "starChip": "とても",
+        "fullSentence": "あべさんは きのうの パーティーは とても 楽しかったと 言っていました。",
+        "simplifiedSentence": "あべさんは きのうの パーティーは とても 楽しかったと 言っていました。",
+        "explain": "Nội dung trích dẫn ở thể thông thường quá khứ: 「きのうの パーティーは とても 楽しかったと」 + 「言っていました」. Vị trí ngôi sao là [とても]."
     }
 ]
 
@@ -275,48 +275,48 @@ PART2_ARRANGE = [
 PART3_CONJUGATE = [
     {
         "id": 16,
-        "category": "Bài 15 • Động từ thể Phủ định cấm đoán nhẹ",
-        "sentence": "熱が あるときは、無理を (する) [_______] でください。",
-        "baseWord": "する",
+        "category": "Bài 15 • Động từ thể Phủ định dặn dò (V-ないで ください)",
+        "sentence": "ねつが ある ときは、無理を (します) [_______] で ください。",
+        "baseWord": "します",
         "accepted": ["しない", "shinai"],
         "displayAnswer": "しない (shinai)",
-        "explain": "Động từ bất quy tắc nhóm 3 「する」 chuyển sang thể Phủ định ngắn (Nai) là 「しない」. Cấu trúc: 「V-ないでください」 (Xin đừng...)."
+        "explain": "Động từ nhóm 3 「します」 chuyển sang thể Phủ định ngắn (Nai) là 「しない」. Cấu trúc: 「V-ないで ください」 (Xin đừng làm quá sức)."
     },
     {
         "id": 17,
-        "category": "Bài 15 • Động từ thể Từ điển đưa lời khuyên",
-        "sentence": "風邪気味の ときは、ビタミンCを たくさん (とる) [_______] と いいですよ。",
-        "baseWord": "とる (取ります)",
-        "accepted": ["とる", "取る", "toru"],
-        "displayAnswer": "とる / 取る (toru)",
-        "explain": "Cấu trúc đưa lời khuyên hữu ích cho sức khỏe: 「V(thể từ điển) ＋ といいですよ」. Động từ 取る giữ nguyên dạng từ điển."
+        "category": "Bài 15 • Động từ thể Từ điển đưa lời khuyên (V-る といいですよ)",
+        "sentence": "ねる まえに、おふろに (入ります) [_______] と いいですよ。",
+        "baseWord": "入ります (はいります)",
+        "accepted": ["はいる", "入る", "hairu"],
+        "displayAnswer": "入る / はいる (hairu)",
+        "explain": "Đưa ra lời khuyên: 「V(thể từ điển) ＋ と いいですよ」. Động từ 「入ります」 nhóm 1 chuyển về thể từ điển là 「入る (はいる)」."
     },
     {
         "id": 18,
-        "category": "Bài 16 • Động từ thể Quá khứ khuyên nhủ nên làm",
-        "sentence": "夜 遅くまで 起きていないで、早く (寝る) [_______] ほうが いいですよ。",
-        "baseWord": "寝る (ねる)",
-        "accepted": ["ねた", "寝た", "neta"],
-        "displayAnswer": "寝た / ねた (neta)",
-        "explain": "Động từ nhóm 2 「寝る (ねる)」 chuyển sang thể Quá khứ (Ta) là 「寝た (ねた)」. Cấu trúc: 「V-た ほうがいいです」."
+        "category": "Bài 16 • Động từ liệt kê hành động (V-たり、V-たり します)",
+        "sentence": "週末は よく 外を (歩きます) [_______]、水泳を したり しています。",
+        "baseWord": "歩きます (あるきます)",
+        "accepted": ["あるいたり", "歩いたり", "aruitari"],
+        "displayAnswer": "歩いたり / あるいたり (aruitari)",
+        "explain": "Động từ 「歩きます」 nhóm 1 đuôi き ➔ thể Ta là 「歩いた」 ➔ ghép 「り」 thành 「歩いたり (あるいたり)」."
     },
     {
         "id": 19,
-        "category": "Bài 17 • Định ngữ thể Quá khứ nhận quà",
-        "sentence": "これは 去年の 誕生日に 恋人に (もらう) [_______] ペアリングです。",
-        "baseWord": "もらう",
+        "category": "Bài 17 • Mệnh đề bổ nghĩa nhận quà (V-た ＋ N)",
+        "sentence": "これは 誕生日に 父に (もらいます) [_______] 時計です。",
+        "baseWord": "もらいます",
         "accepted": ["もらった", "moratta"],
         "displayAnswer": "もらった (moratta)",
-        "explain": "Định ngữ bổ nghĩa cho danh từ ペアリング trong quá khứ: Động từ nhóm 1 đuôi う ➔ 「もらった」."
+        "explain": "Bổ nghĩa cho danh từ 「時計」 ở thì quá khứ: Động từ 「もらいます」 chia về thể thông thường quá khứ là 「もらった」."
     },
     {
         "id": 20,
-        "category": "Bài 18 • Động từ thể Te diễn tả trang phục",
-        "sentence": "あそこで 青い 着物を (着る) [_______] いる 人は どなたですか。",
-        "baseWord": "着る (きる)",
-        "accepted": ["きて", "着て", "kite"],
-        "displayAnswer": "着て / きて (kite)",
-        "explain": "Động từ nhóm 2 「着る (きる)」 chuyển sang thể Te là 「着て」. Cấu trúc trạng thái đang mặc trang phục: 「V-ています」."
+        "category": "Bài 18 • Tính từ đuôi な trước と思います (Na ＋ だ ＋ と思います)",
+        "sentence": "この 着物は とても (きれいです) [_______] と 思います。",
+        "baseWord": "きれいです",
+        "accepted": ["きれいだ", "kireida"],
+        "displayAnswer": "きれいだ (kireida)",
+        "explain": "Trước 「と 思います」 phải chia về thể thông thường. Tính từ đuôi な ở hiện tại khẳng định thêm 「だ」: 「きれいです」 ➔ 「きれいだ」."
     }
 ]
 
@@ -324,35 +324,35 @@ PART3_CONJUGATE = [
 PART4_MATCH = [
     {
         "id": 21,
-        "category": "Bài 15 • Triệu chứng & Khuyên đi khám",
-        "promptA": "「昨日から 熱が あって、喉も すごく 痛いんです。」",
+        "category": "Bài 15 • Kể triệu chứng & Dặn dò nghỉ ngơi",
+        "promptA": "「さいきん、ちょっと こしが いたいんです。」",
         "correctBId": "B1",
-        "promptB": "「それは 大変ですね。きょうは 無理を しないで、病院へ 行くと いいですよ。」",
-        "explain": "Khi nghe đối phương kể triệu chứng bị sốt và đau họng, ta đáp lại bằng lời đồng cảm 「それは大変ですね」 kèm lời khuyên 「無理をしないで、病院へ行くといいですよ」."
+        "promptB": "「それは たいへんですね。あまり 無理を しないで ください。おふろに 入ると いいですよ。」",
+        "explain": "Khi đối phương nói bị đau lưng/eo 「こしが いたいんです」, ta đồng cảm 「たいへんですね」 và dặn dò 「無理を しないで ください」「おふろに 入ると いいですよ」."
     },
     {
         "id": 22,
-        "category": "Bài 16 • Thói quen lười vận động & Lời khuyên",
-        "promptA": "「最近、お腹が 出てきて、体が 重いんです。」",
+        "category": "Bài 16 • Hỏi thăm thói quen rèn luyện sức khỏe",
+        "promptA": "「けんこうの ために、なにか して いますか。」",
         "correctBId": "B2",
-        "promptB": "「健康のために、エレベーターを 使わないで、階段を 歩いた ほうが いいですよ。」",
-        "explain": "Lời khuyên thực tế để giảm cân và rèn luyện: 「階段を歩いたほうがいいですよ」 (Nên đi bộ cầu thang bộ)."
+        "promptB": "「はい、毎朝 外を 歩いたり、週末に 泳いだり して います。」",
+        "explain": "Trả lời câu hỏi về hoạt động rèn luyện vì sức khỏe bằng cấu trúc liệt kê 「〜たり、〜たり しています」."
     },
     {
         "id": 23,
-        "category": "Bài 17 • Khen ngợi phụ kiện & Nguồn gốc",
-        "promptA": "「その ネクタイ、とても おしゃれですね。どこで 買ったんですか。」",
+        "category": "Bài 17 • Khen đồ vật & Chia sẻ nguồn gốc quà tặng",
+        "promptA": "「その 時計、すてきですね。どこで 買ったんですか。」",
         "correctBId": "B3",
-        "promptB": "「これですか。就職祝いに 兄に もらったんです。」",
-        "explain": "Khi được khen đồ dùng cá nhân, người Nhật thường khiêm tốn giải thích nguồn gốc được tặng bằng cấu trúc 「〜にもらったんです」."
+        "promptB": "「これですか。そつぎょうの お祝いに 父に もらったんです。」",
+        "explain": "Khi được khen chiếc đồng hồ đẹp, ta giải thích nguồn gốc món quà được tặng bằng cấu trúc 「〜の お祝いに 〜に もらったんです」."
     },
     {
         "id": 24,
-        "category": "Bài 18 • Hỏi ý kiến về trang phục dự tiệc",
-        "promptA": "「明日の ホームパーティー、どんな 服を 着て 行けば いいですか。」",
+        "category": "Bài 18 • Bàn bạc quà mừng kết hôn",
+        "promptA": "「あべさんの 結婚の お祝い、何が いいと 思いますか。」",
         "correctBId": "B4",
-        "promptB": "「カジュアルな 集まりですから、スーツじゃなくて ジーンズでも いいと 思いますよ。」",
-        "explain": "Tư vấn trang phục cho tiệc tại nhà: Không cần mặc comple cứng nhắc, mặc quần bò cũng được (「ジーンズでもいいと思います」)."
+        "promptB": "「あべさんは 写真が 好きだと 言っていましたから、すてきな 写真たてが いいと 思います。」",
+        "explain": "Kết hợp trích dẫn sở thích của người khác 「〜と言っていました」 và đưa ra ý kiến đề xuất quà tặng 「〜がいいと思います」."
     }
 ]
 
@@ -360,63 +360,63 @@ PART4_MATCH = [
 PART5_READING = [
     {
         "passageId": 1,
-        "title": "BÀI ĐỌC 1: 健康な 生活の アドバイス (Lời Khuyên Giữ Gìn Sức Khỏe - Bài 15 & 16)",
-        "text": "みなさん、毎日 元気に 過ごして いますか。冬は 空気が 乾燥して、風邪を ひきやすい 季節です。もし「少し 喉が 痛いな」とか「熱が あるな」と 思ったら、無理を しないで 早く 寝る ことが 大切です。お風呂に 長く 入らないで、温かい スープや お茶を 飲むと いいですよ。<br>また、病気に ならない ために、普段から 運動した ほうが いいです。毎朝 走ったり、階段を 歩いたり して、体を 動かしましょう。そして、野菜や 果物を たくさん 食べる ように してください。",
+        "title": "BÀI ĐỌC 1: けんこうの ための アドバイス (Giữ Gìn Sức Khỏe - Bài 15 & 16)",
+        "text": "みなさん、毎日 元気に すごして いますか。わたしは 先月、頭が いたかった とき、あまり 無理を しないで はやく ねました。ねる まえに おふろに 入ったり、くすりを 飲んだり すると いいですよ。<br>また、けんこうの ために、毎日 すこし うんどうする ことが たいせつです。毎朝 外を 歩いたり、週末に プールで 泳いだり して います。よく うんどうを する 人は 元気だと 思います。みなさんも、野菜を たくさん 食べて、お酒を あまり 飲まないで くださいね。",
         "questions": [
             {
                 "id": 25,
-                "q": "風邪気味の とき、どうした ほうが いいと 書いてありますか。",
+                "q": "頭が いたかった とき、この 人は どう しましたか。",
                 "options": [
-                    "お風呂に 長く 入った ほうがいい",
-                    "無理を しないで、温かいものを 飲んで 早く 寝た ほうがいい",
-                    "公園を たくさん 走った ほうがいい",
-                    "冷たい 水を たくさん 飲んだ ほうがいい"
+                    "たくさん お酒を 飲みました",
+                    "くすりを 飲まないで しごとを しました",
+                    "あまり 無理を しないで、はやく ねました",
+                    "毎日 プールで 泳ぎました"
                 ],
-                "correct": 1,
-                "explain": "Trong bài viết: 「無理を しないで 早く 寝る ことが 大切です。お風呂に 長く 入らないで、温かい スープや お茶を 飲むと いいですよ」."
+                "correct": 2,
+                "explain": "Trong bài viết nêu rõ: 「頭が いたかった とき、あまり 無理を しないで はやく ねました」."
             },
             {
                 "id": 26,
-                "q": "病気に ならない ために、普段から 何を すると いいですか。",
+                "q": "けんこうの ために、この 人は いつも 何を して いますか。",
                 "options": [
-                    "階段を 使わないで エレベーターに 乗る",
-                    "走ったり 階段を 歩いたり して 体を 動かす",
-                    "薬を 毎日 飲む",
-                    "一日中 家で 休む"
+                    "毎朝 外を 歩いたり、週末に 泳いだり して います",
+                    "おふろに 入らないで います",
+                    "野菜を あまり 食べません",
+                    "毎日 うんどうを しません"
                 ],
-                "correct": 1,
-                "explain": "Trong bài viết nêu rõ: 「病気に ならない ために、普段から 運動した ほうが いいです。毎朝 走ったり、階段を 歩いたり して、体を 動かしましょう」."
+                "correct": 0,
+                "explain": "Trong bài viết nêu rõ: 「毎朝 外を 歩いたり、週末に プールで 泳いだり して います」."
             }
         ]
     },
     {
         "passageId": 2,
-        "title": "BÀI ĐỌC 2: 送別会と プレゼントの 相談 (Bàn Bạc Tiệc Chia Tay & Chọn Quà - Bài 17 & 18)",
-        "text": "来週の 金曜日、会社で 田中さんの 送別会を します。田中さんは 来月から 大阪の 支社へ 引っ越します。みんなで レストランで 食事を したり、思い出の 写真を 見たり する 予定です。<br>昨日、幹事の リンさんに「プレゼントは 何が いいですか」と 聞きました。リンさんは「田中さんは コーヒーが 好きですから、おしゃれな コーヒーカップとか タンブラーが いいと 思います」と 言っていました。田中さんは いつも 青い シャツを 着て いますから、青い カップを 買う つもりです。",
+        "title": "BÀI ĐỌC 2: あべさんの 結婚の お祝い (Bàn Bạc Mừng Kết Hôn - Bài 17 & 18)",
+        "text": "来週の 日よう日、会社の 友だちと いっしょに あべさんの 結婚の お祝いを します。あべさんは 先月、新しい 家に ひっこしました。<br>きのう、キムさんに「お祝いの プレゼントは 何が いいですか」と 聞きました。キムさんは「あべさんは 料理が 好きですから、料理の ときに 使う ものとか 花びんとかが いいと 思います」と 言っていました。ですから、みんなで きれいな 花びんを あげます。あべさんは きっと よろこぶと 思います。",
         "questions": [
             {
                 "id": 27,
-                "q": "田中さんは 来月から どうしますか。",
+                "q": "キムさんは お祝いの プレゼントについて 何と 言っていましたか。",
                 "options": [
-                    "会社を やめて 外国へ 行く",
-                    "大阪の 支社へ 引っ越す",
-                    "東京で 新しい 会社に 入る",
-                    "リンさんと いっしょに 旅行する"
+                    "時計とか 絵とかが いいと 言っていました",
+                    "おもちゃとか にんぎょうとかが いいと 言っていました",
+                    "セーターを あげないと 言っていました",
+                    "料理の ときに 使う ものとか 花びんとかが いいと 言っていました"
                 ],
-                "correct": 1,
-                "explain": "Trong bài viết: 「田中さんは 来月から 大阪の 支社へ 引っ越します」."
+                "correct": 3,
+                "explain": "Trong bài viết: 「キムさんは『あべさんは 料理が 好きですから、料理の ときに 使う ものとか 花びんとかが いいと 思います』と 言っていました」."
             },
             {
                 "id": 28,
-                "q": "リンさんは プレゼントについて 何と 言っていましたか。",
+                "q": "あべさんの 結婚の お祝いに、みんなで 何を あげますか。",
                 "options": [
-                    "高い スーツを あげた ほうがいいと言っていた",
-                    "コーヒーカップとか タンブラーが いいと 言っていた",
-                    "何も 買わないで 現金を あげると言っていた",
-                    "お酒や ビールが 一番いいと言っていた"
+                    "時計を あげます",
+                    "きれいな 花びんを あげます",
+                    "シャツと セーターを あげます",
+                    "カメラと 写真を あげます"
                 ],
                 "correct": 1,
-                "explain": "Trong bài viết: 「リンさんは『田中さんは コーヒーが 好きですから、おしゃれな コーヒーカップとか タンブラーが いいと 思います』と 言っていました」."
+                "explain": "Trong bài viết kết luận: 「ですから、みんなで きれいな 花びんを あげます」."
             }
         ]
     }
@@ -426,59 +426,59 @@ PART5_READING = [
 PART6_TRANSLATION = [
     {
         "id": 29,
-        "category": "Bài 15 • Giải thích lý do nghỉ làm",
-        "vi": "Từ sáng nay tôi bị sốt nên đã xin nghỉ làm ở công ty.",
-        "hint": "今朝から (けさから), 熱があります (ねつがあります), 会社 (かいしゃ), 休みました (やすみました)",
-        "modelSentence": "今朝から 熱が あるので、会社を 休んだんです。",
-        "modelKana": "けさから ねつが あるので、かいしゃを やすんだんです。",
-        "keywords": ["今朝から", "熱が", "あるので", "会社を", "休んだ"],
+        "category": "Bài 15 • Giải thích triệu chứng (～んです)",
+        "vi": "Gần đây, cổ của tôi hơi bị đau một chút.",
+        "hint": "さいきん, ちょっと, くび, いたい (～んです)",
+        "modelSentence": "さいきん、ちょっと くびが いたいんです。",
+        "modelKana": "さいきん、ちょっと くびが いたいんです。",
+        "keywords": ["さいきん", "くびが", "いたいんです"],
         "breakdown": [
-            {"part": "今朝から", "role": "Thời điểm bắt đầu (từ sáng nay)"},
-            {"part": "熱が あるので / 熱があって", "role": "Nguyên nhân chỉ lý do (bị sốt)"},
-            {"part": "会社を 休んだんです", "role": "Kết quả thực tế + んです phân trần giải thích"}
+            {"part": "さいきん", "role": "Thời gian gần đây"},
+            {"part": "ちょっと くびが", "role": "Bộ phận cơ thể bị đau (cổ)"},
+            {"part": "いたいんです", "role": "Tính từ đuôi い + んです giải thích tình trạng cho đối phương"}
         ]
     },
     {
         "id": 30,
-        "category": "Bài 16 • Mục đích & Liệt kê rèn luyện",
-        "vi": "Để tốt cho sức khỏe, vào ngày nghỉ tôi lúc thì chạy bộ, lúc thì bơi lội.",
-        "hint": "健康 (けんこう), ために, 休みの 日 (やすみのひ), 走ります (はしります ➔ はしったり), 泳ぎます (およぎます ➔ およいだり)",
-        "modelSentence": "健康の ために、休みの 日は 走ったり、泳いだり しています。",
-        "modelKana": "けんこうの ために、やすみの ひは はしったり、およいだり しています。",
-        "keywords": ["健康", "ために", "休み", "走ったり", "泳いだり"],
+        "category": "Bài 16 • Mệnh đề bổ nghĩa cho người (V〈ふつうけい〉＋ 人)",
+        "vi": "Người hay đọc sách thì thông minh (đầu óc tốt).",
+        "hint": "よく, 本を 読みます (➔ 読む), 人 (ひと), 頭が いいです (あたまが いいです)",
+        "modelSentence": "よく 本を 読む 人は 頭が いいです。",
+        "modelKana": "よく 本を よむ ひとは あたまが いいです。",
+        "keywords": ["よく", "本を", "読む", "人は", "頭が", "いいです"],
         "breakdown": [
-            {"part": "健康の ために", "role": "Biểu đạt mục đích: N の ために (vì sức khỏe)"},
-            {"part": "休みの 日は", "role": "Chủ đề thời gian (vào ngày nghỉ)"},
-            {"part": "走ったり、泳いだり しています", "role": "Liệt kê hành động tiêu biểu: V1-たり、V2-たり しています"}
+            {"part": "よく 本を 読む", "role": "Động từ thể thường (ふつうけい) bổ nghĩa đứng trước danh từ"},
+            {"part": "人は", "role": "Danh từ được bổ nghĩa làm chủ đề câu (người mà...)"},
+            {"part": "頭が いいです", "role": "Nhận xét tính chất (thông minh / đầu óc tốt)"}
         ]
     },
     {
         "id": 31,
-        "category": "Bài 17 • Nhận quà từ người thân",
-        "vi": "Chiếc đồng hồ này là món quà tôi đã nhận được từ bố vào ngày sinh nhật.",
-        "hint": "この 時計 (この とけい), 誕生日 (たんじょうび), 父 (ちち), もらいました / もらったんです",
-        "modelSentence": "この 時計は 誕生日に 父に もらったんです。",
-        "modelKana": "この とけいは たんじょうびに ちちに もらったんです。",
-        "keywords": ["時計", "誕生日に", "父に", "もらった"],
+        "category": "Bài 17 • Nhận quà & Giải thích hoàn cảnh (～んです)",
+        "vi": "Chiếc đồng hồ này là món quà tôi đã nhận từ bố nhân dịp mừng tốt nghiệp.",
+        "hint": "この 時計 (この とけい), そつぎょうの お祝い (そつぎょうの おいわい), 父に, もらったんです",
+        "modelSentence": "この 時計は そつぎょうの お祝いに 父に もらったんです。",
+        "modelKana": "この とけいは そつぎょうの おいわいに ちちに もらったんです。",
+        "keywords": ["時計", "そつぎょう", "お祝い", "父に", "もらったんです"],
         "breakdown": [
             {"part": "この 時計は", "role": "Chủ ngữ được đưa lên làm đề tài (chiếc đồng hồ này)"},
-            {"part": "誕生日に", "role": "Thời điểm (vào ngày sinh nhật)"},
+            {"part": "そつぎょうの お祝いに", "role": "Dịp kỷ niệm chúc mừng tốt nghiệp"},
             {"part": "父に", "role": "Đối tượng trao quà (nhận từ ai đó: [Người] に)"},
-            {"part": "もらったんです", "role": "Động từ nhận quà ở thì quá khứ + んです giải thích nguồn gốc"}
+            {"part": "もらったんです", "role": "Động từ nhận quà ở thì quá khứ + んです giải thích hoàn cảnh"}
         ]
     },
     {
         "id": 32,
-        "category": "Bài 18 • Bày tỏ ý kiến cá nhân với Tính từ đuôi な",
-        "vi": "Tôi nghĩ rằng bữa tiệc chia tay vào tuần sau sẽ rất náo nhiệt và vui vẻ.",
-        "hint": "来週 (らいしゅう), 送別会 (そうべつかい), とても, にぎやか (tính từ đuôi な), 思います (おもいます)",
-        "modelSentence": "来週の 送別会は とても にぎやかだと 思います。",
-        "modelKana": "らいしゅうの そうべつかいは とても にぎやかだと おもいます。",
-        "keywords": ["来週", "送別会", "とても", "にぎやかだ", "思います"],
+        "category": "Bài 18 • Quan điểm cá nhân (～と 思います)",
+        "vi": "Tôi nghĩ rằng tiệc mừng kết hôn của anh Abe thì bữa tiệc là hay nhất, chắc chắn anh ấy sẽ vui.",
+        "hint": "あべさんの 結婚の お祝い, パーティーが いい, きっと よろこぶ, 思います (おもいます)",
+        "modelSentence": "あべさんの 結婚の お祝いは パーティーが いいと 思います。きっと よろこぶと 思います。",
+        "modelKana": "あべさんの けっこんの おいわいは パーティーが いいと おもいます。きっと よろこぶと おもいます。",
+        "keywords": ["結婚", "お祝い", "パーティーが", "いいと", "よろこぶと", "思います"],
         "breakdown": [
-            {"part": "来週の 送別会は", "role": "Chủ ngữ (bữa tiệc chia tay tuần sau)"},
-            {"part": "とても にぎやかだと", "role": "Tính từ đuôi な thể thông thường khẳng định hiện tại phải thêm だ (にぎやかだ + と)"},
-            {"part": "思います", "role": "Mẫu câu nêu suy nghĩ, quan điểm cá nhân"}
+            {"part": "あべさんの 結婚の お祝いは", "role": "Chủ đề tiệc chúc mừng kết hôn của anh Abe"},
+            {"part": "パーティーが いいと 思います", "role": "Nêu quan điểm đề xuất tổ chức tiệc là hay"},
+            {"part": "きっと よろこぶと 思います", "role": "Dự đoán suy nghĩ dùng thể từ điển 「よろこぶ」 + 「と 思います」"}
         ]
     }
 ]
@@ -1461,59 +1461,58 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         <div id="tab-theory" class="tab-panel active">
             <!-- Quick Jump Bar -->
             <div class="theory-quicknav">
-                <a href="#grammar-l15" class="quicknav-pill qn-b15">🏥 Bài 15 (～んです／といい)</a>
-                <a href="#grammar-l16" class="quicknav-pill qn-b16">🏃 Bài 16 (～たり／たほうがいい)</a>
-                <a href="#grammar-l17" class="quicknav-pill qn-b17">🎁 Bài 17 (もらいました／あげます)</a>
-                <a href="#grammar-l18" class="quicknav-pill qn-b18">👘 Bài 18 (～と思う／着ています)</a>
+                <a href="#grammar-l15" class="quicknav-pill qn-b15">🏥 Bài 15 (～んです／といい／ないで)</a>
+                <a href="#grammar-l16" class="quicknav-pill qn-b16">🏃 Bài 16 (～たり／ために／V thường+N)</a>
+                <a href="#grammar-l17" class="quicknav-pill qn-b17">🎁 Bài 17 (もらう／あげる／とか／んです)</a>
+                <a href="#grammar-l18" class="quicknav-pill qn-b18">💐 Bài 18 (～と思う／と言う／お祝い)</a>
             </div>
 
             <!-- BÀI 15 -->
             <div class="grammar-card" id="grammar-l15">
                 <div class="grammar-header">
                     <div>
-                        <span class="grammar-tag">BÀI 15 (A2-2)</span>
-                        <h2 class="grammar-title">体操するといいですよ (Cơ Thể & Triệu Chứng Bệnh • Giải Thích & Lời Khuyên)</h2>
+                        <span class="grammar-tag">BÀI 15 (A2-1 • SỨC KHỎE)</span>
+                        <h2 class="grammar-title">たいそうすると いいですよ (Sức Khỏe & Triệu Chứng • Giải Thích & Lời Khuyên)</h2>
                     </div>
-                    <span class="section-badge">Trọng điểm A2-2</span>
+                    <span class="section-badge">Chuẩn Giáo Trình</span>
                 </div>
                 <div class="grammar-body">
                     <div class="formula-box">
-                        1. Giải thích lý do, tình trạng sức khỏe: <code>[Thể thông thường] ＋ んです</code><br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;• Động từ: <code>休むんです</code> / <code>起きられないんです</code><br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;• Tính từ đuôi い: <code>痛いんです</code> / <code>だるいんです</code><br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;• Tính từ đuôi な / Danh từ: <code>病気なんです</code> / <code>風邪なんです</code><br>
-                        2. Lời khuyên nhẹ nhàng hữu ích: <code>V(thể từ điển) ＋ といいですよ</code><br>
-                        3. Dặn dò, khuyên can cấm đoán nhẹ: <code>V(thể ない) ＋ でください</code>
+                        1. Hỏi & giải thích triệu chứng, lý do: <code>どうしたんですか。</code> ➔ <code>[Thể thông thường] ＋ んです</code><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;• Động từ / Tính từ い: <code>ねられないんです</code> / <code>頭が いたいんです</code><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;• Tính từ な / Danh từ (<code>だ ➔ な</code>): <code>びょうきなんです</code> / <code>たいへんなんです</code><br>
+                        2. Lời khuyên gợi ý nhẹ nhàng: <code>V(thể từ điển V-る) ＋ と いいですよ</code> (Làm V thì tốt đấy)<br>
+                        3. Đề nghị đừng làm V: <code>V(thể Phủ định ngắn V-ない) ＋ で ください</code> (Xin đừng làm V)
                     </div>
                     <p class="grammar-explain">
                         <strong>Phân tích chi tiết:</strong><br>
-                        • <code>〜んです</code>: Mẫu câu kinh điển khi được hỏi thăm <em>「どうしたんですか」(Bạn bị làm sao vậy?)</em> để bày tỏ và giải thích triệu chứng đang gặp phải, mong nhận được sự thông cảm hoặc tư vấn.<br>
-                        • <code>〜といいですよ</code>: Lời khuyên thân thiện, mang tính chia sẻ kinh nghiệm hữu ích cho đối phương mà không hề áp đặt.<br>
-                        • <code>〜ないでください</code>: Nhắc nhở người bệnh dặn dò chăm sóc bản thân, không làm quá sức (<em>あまり無理をしないでください</em>).
+                        • <code>〜んですか / 〜んです</code>: Dùng khi thấy người khác có vẻ mệt mỏi để hỏi thăm tình hình <em>(どうしたんですか)</em> và để người nói giải thích lý do, hoàn cảnh của mình.<br>
+                        • <code>〜と いいですよ</code>: Đưa ra lời khuyên gợi ý nhẹ nhàng tốt cho sức khỏe.<br>
+                        • <code>〜ないで ください</code>: Dặn dò đừng làm hành động quá sức hoặc không tốt cho cơ thể.
                     </p>
                     <ul class="example-list">
                         <li class="example-item">
-                            <div class="ex-jp jp-text">「どうしたんですか。」――「ちょっと 頭が <span style="color: var(--primary);">痛いんです</span>。」
-                                <button type="button" class="audio-btn" onclick="speakText('どうしたんですか。ちょっと頭が痛いんです。')">🔊</button>
+                            <div class="ex-jp jp-text">「どうしたんですか。」――「さいきん、ちょっと こしが <span style="color: var(--primary);">いたいんです</span>。」
+                                <button type="button" class="audio-btn" onclick="speakText('どうしたんですか。さいきん、ちょっとこしがいたいんです。')">🔊</button>
                             </div>
-                            <div class="ex-vi">"Bạn bị làm sao vậy?" ―― "Tôi bị đau đầu một chút."</div>
+                            <div class="ex-vi">"Bạn bị làm sao thế?" ―― "Gần đây eo/lưng của tôi hơi bị đau một chút."</div>
                         </li>
                         <li class="example-item">
-                            <div class="ex-jp jp-text">寝る 前に、温かい お茶を <span style="color: var(--primary);">飲むと いいですよ</span>。
-                                <button type="button" class="audio-btn" onclick="speakText('寝る前に、温かいお茶を飲むといいですよ。')">🔊</button>
+                            <div class="ex-jp jp-text">ねる まえに、おふろに <span style="color: var(--primary);">入ると いいですよ</span>。
+                                <button type="button" class="audio-btn" onclick="speakText('ねるまえに、おふろにはいるといいですよ。')">🔊</button>
                             </div>
-                            <div class="ex-vi">Trước khi đi ngủ, bạn uống một tách trà ấm thì rất tốt đấy nhé!</div>
+                            <div class="ex-vi">Trước khi đi ngủ, bạn nên tắm bồn thì rất tốt đấy!</div>
                         </li>
                         <li class="example-item">
-                            <div class="ex-jp jp-text">熱が ありますから、きょうは お風呂に <span style="color: var(--primary);">入らないで ください</span>。
-                                <button type="button" class="audio-btn" onclick="speakText('熱がありますから、きょうはお風呂に入らないでください。')">🔊</button>
+                            <div class="ex-jp jp-text">あまり <span style="color: var(--primary);">無理を しないで ください</span>。お酒を <span style="color: var(--primary);">飲まないで ください</span>。
+                                <button type="button" class="audio-btn" onclick="speakText('あまりむりをしないでください。おさけをのまないでください。')">🔊</button>
                             </div>
-                            <div class="ex-vi">Vì bạn đang bị sốt nên hôm nay xin đừng ngâm bồn tắm nhé.</div>
+                            <div class="ex-vi">Xin đừng làm quá sức quá nhé. Đừng uống rượu nhé.</div>
                         </li>
                     </ul>
                     <div class="trap-box">
                         <strong>⚠️ Bẫy thi cần chú ý:</strong>
-                        Trước <code>んです</code>: Tính từ đuôi な và Danh từ thì hiện tại khẳng định bắt buộc phải chuyển thành <code>なん (病気なんです, 暇なんです)</code>, TUYỆT ĐỐI không dùng <code>だんです</code>.
+                        Trước <code>といいですよ</code> luôn là <strong>V-る (thể từ điển)</strong>, KHÔNG chia quá khứ V-た. Trước <code>でください</code> là <strong>V-ない</strong>!
                     </div>
                 </div>
             </div>
@@ -1522,47 +1521,46 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             <div class="grammar-card" id="grammar-l16">
                 <div class="grammar-header">
                     <div>
-                        <span class="grammar-tag">BÀI 16 (A2-2)</span>
-                        <h2 class="grammar-title">走ったり、泳いだりしています (Lối Sống Lành Mạnh • Liệt Kê & Lời Khuyên Nên Làm)</h2>
+                        <span class="grammar-tag">BÀI 16 (A2-1 • VẬN ĐỘNG & BỔ NGHĨA)</span>
+                        <h2 class="grammar-title">走ったり、泳いだりしています & Mệnh Đề Bổ Nghĩa V〈ふつうけい〉＋ 人 / N</h2>
                     </div>
-                    <span class="section-badge">Trọng điểm A2-2</span>
+                    <span class="section-badge">Trọng tâm NPBS 16</span>
                 </div>
                 <div class="grammar-body">
                     <div class="formula-box">
-                        1. Liệt kê hành động tiêu biểu: <code>V1-たり、V2-たり します / しています</code><br>
-                        2. Biểu đạt mục đích hành động: <code>[Danh từ] の ために ＋ [Hành động]</code><br>
-                        3. Lời khuyên nên làm: <code>V(thể Quá khứ Ta) ＋ ほうがいいです</code><br>
-                        4. Lời khuyên KHÔNG nên làm: <code>V(thể Phủ định Nai) ＋ ほうがいいです</code>
+                        1. Nêu hành động tiêu biểu: <code>V1-たり、V2-たり します / しています</code> (Có thể nêu 1 hoặc 2 hành động tiêu biểu)<br>
+                        2. Hỏi & nói mục đích: <code>何の ために 〜ていますか</code> ➔ <code>[Danh từ] の ために 〜ています</code><br>
+                        3. <strong>Mệnh đề bổ nghĩa cho danh từ:</strong> <code>V〈ふつうけい (Thể thường)〉＋ 人 / Danh từ (N)</code><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;• <code>Vます ➔ Vる</code> | <code>Vません ➔ Vない</code> | <code>Vました ➔ Vた</code> | <code>Vていません ➔ Vていない</code>
                     </div>
                     <p class="grammar-explain">
                         <strong>Phân tích chi tiết:</strong><br>
-                        • <code>〜たり、〜たりします</code>: Liệt kê một vài hành động đại diện trong số nhiều việc mình làm (ví dụ: ngày nghỉ tôi lúc thì chạy bộ, lúc thì đọc sách). Đuôi cuối cùng chia theo thì của cả câu.<br>
-                        • <code>〜のために</code>: Nêu rõ mục đích vì cái gì (<em>健康のために: vì sức khỏe; 試験のために: vì kỳ thi</em>).<br>
-                        • <code>〜たほうがいい / 〜ないほうがいい</code>: Lời khuyên dứt khoát, so sánh giữa việc nên làm và không làm (ví dụ: nên ăn nhiều rau xanh, không nên thức khuya).
+                        • <code>〜たり、〜たり します</code>: Đuôi <code>します</code> ở cuối câu chia linh hoạt theo các ngữ pháp đã học (quá khứ <code>しました</code>, thói quen <code>しています</code>).<br>
+                        • <code>V〈ふつうけい〉＋ 人 / N</code>: Dùng động từ chia thể thông thường đặt <strong>ngay trước danh từ</strong> để bổ nghĩa ("Người mà...", "Cái mà...").
                     </p>
                     <ul class="example-list">
                         <li class="example-item">
-                            <div class="ex-jp jp-text">休みの日は 公園を <span style="color: var(--primary);">走ったり</span>、プールで <span style="color: var(--primary);">泳いだり しています</span>。
-                                <button type="button" class="audio-btn" onclick="speakText('休みの日は公園を走ったり、プールで泳いだりしています。')">🔊</button>
+                            <div class="ex-jp jp-text">毎日 さんぽしたり、ヨガを <span style="color: var(--primary);">したり して います</span>。
+                                <button type="button" class="audio-btn" onclick="speakText('まいにちさんぽしたり、ヨガをしたりしています。')">🔊</button>
                             </div>
-                            <div class="ex-vi">Vào ngày nghỉ, tôi lúc thì chạy bộ ở công viên, lúc thì đi bơi ở hồ bơi.</div>
+                            <div class="ex-vi">Hằng ngày tôi đi dạo, tập yoga v.v...</div>
                         </li>
                         <li class="example-item">
-                            <div class="ex-jp jp-text"><span style="color: var(--primary);">健康の ために</span>、毎朝 ジョギングを しています。
-                                <button type="button" class="audio-btn" onclick="speakText('健康のために、毎朝ジョギングをしています。')">🔊</button>
+                            <div class="ex-jp jp-text">よく 本を <span style="color: var(--primary);">読む 人</span>は 頭が いいです。コーヒーを <span style="color: var(--primary);">飲まない 人</span>は 10人です。
+                                <button type="button" class="audio-btn" onclick="speakText('よくほんをよむひとはあたまがいいです。コーヒーをのまないひとはじゅうにんです。')">🔊</button>
                             </div>
-                            <div class="ex-vi">Vì sức khỏe, mỗi buổi sáng tôi đều chạy bộ thể dục.</div>
+                            <div class="ex-vi">Người hay đọc sách thì thông minh. Số người không uống cà phê là 10 người.</div>
                         </li>
                         <li class="example-item">
-                            <div class="ex-jp jp-text">野菜を たくさん <span style="color: var(--primary);">食べた ほうがいいですよ</span>。
-                                <button type="button" class="audio-btn" onclick="speakText('野菜をたくさん食べたほうがいいですよ。')">🔊</button>
+                            <div class="ex-jp jp-text">たばこを <span style="color: var(--primary);">すわない 人</span>は かっこいいです。野菜を <span style="color: var(--primary);">食べない 子ども</span>は あまり 元気じゃないです。
+                                <button type="button" class="audio-btn" onclick="speakText('たばこをすわないひとはかっこいいです。やさいをたべないこどもはあまりげんきじゃないです。')">🔊</button>
                             </div>
-                            <div class="ex-vi">Bạn nên ăn nhiều rau xanh thì tốt hơn đấy.</div>
+                            <div class="ex-vi">Người không hút thuốc lá thì thật ngầu. Đứa trẻ không ăn rau thì không khỏe lắm.</div>
                         </li>
                     </ul>
                     <div class="trap-box">
                         <strong>⚠️ Bẫy thi cần chú ý:</strong>
-                        Cẩn thận nhầm lẫn giữa <code>V-た ほうがいい</code> (khuyên nên làm - dùng thể Quá khứ) và <code>V-ない ほうがいい</code> (khuyên không nên làm - dùng thể Phủ định Nai, KHÔNG dùng thể quá khứ phủ định).
+                        Trước danh từ <code>人 / N</code> TUYỆT ĐỐI không được dùng đuôi lịch sự <code>ます / ません / ました</code>! Phải chuyển sang thể thông thường (<code>Vる / Vない / Vた / Vている</code>).
                     </div>
                 </div>
             </div>
@@ -1571,48 +1569,46 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             <div class="grammar-card" id="grammar-l17">
                 <div class="grammar-header">
                     <div>
-                        <span class="grammar-tag">BÀI 17 (A2-2)</span>
-                        <h2 class="grammar-title">誕生日に彼にもらったんです (Quà Tặng & Kỷ Niệm • Trao Nhận & Liệt Kê とか)</h2>
+                        <span class="grammar-tag">BÀI 17 (A2-1 • QUÀ TẶNG & ～んです)</span>
+                        <h2 class="grammar-title">誕生日に かれに もらったんです (Cho-Nhận, とか, V thường+N & Thể thường+んです)</h2>
                     </div>
-                    <span class="section-badge">Trọng điểm A2-2</span>
+                    <span class="section-badge">Trọng tâm NPBS 17</span>
                 </div>
                 <div class="grammar-body">
                     <div class="formula-box">
-                        1. Nhận quà từ ai đó: <code>Watashi wa [Người tặng] に [Vật] を もらいました / もらったんです</code><br>
-                        2. Tặng quà cho ai đó: <code>Watashi wa [Người nhận] に [Vật] を あげます / あげました</code><br>
-                        3. Liệt kê danh từ đại diện: <code>N1 とか N2 とか</code><br>
-                        4. Định ngữ với もの (đồ vật để làm gì): <code>[V(thể từ điển)] ＋ もの</code>
+                        1. Nhận quà: <code>[Người tặng] に [Vật] を もらいました / もらったんです</code><br>
+                        2. Tặng quà: <code>[Người nhận] に [Vật] を あげます / あげました</code><br>
+                        3. Liệt kê đại diện: <code>N1 とか N2 とか</code> | Đồ vật dùng để làm gì: <code>V〈ふつうけい〉＋ もの / N</code><br>
+                        4. Tổng hợp <code>Thể thông thường ＋ んです（だ ➔ な）</code>: Mở đầu nhờ vả <code>～んですが</code>, hỏi thăm <code>どうしたんですか</code>, hỏi lý do <code>どうして～んですか</code>.
                     </div>
                     <p class="grammar-explain">
                         <strong>Phân tích chi tiết:</strong><br>
-                        • <code>〜に もらいました</code>: Diễn tả việc nhận đồ từ ai đó. Trong giao tiếp thực tế, khi đối phương khen đồ của mình, người Nhật dùng <code>〜にもらったんです</code> để chia sẻ nguồn gốc món quà ấm áp.<br>
-                        • <code>〜に あげます</code>: Tặng cho ai đó món quà nhân dịp kỷ niệm (sinh nhật, ngày của Mẹ, đám cưới, thôi nôi).<br>
-                        • <code>〜とか 〜とか</code>: Liệt kê danh từ nhẹ nhàng, tự nhiên trong khẩu ngữ hàng ngày (<em>スカーフとか手袋とか</em>).<br>
-                        • <code>V-る ＋ もの</code>: Tạo cụm danh từ chỉ đồ vật dùng vào mục đích cụ thể (<em>書くもの: đồ để viết; 部屋に飾るもの: đồ trang trí phòng</em>).
+                        • <strong>Biến đổi だ ➔ な:</strong> Danh từ & Tính từ đuôi な đổi <code>だ</code> thành <code>な</code> trước <code>んです</code> (<em>きらいなんです, しずかなんです, びょうきなんです, たいへんなんです</em>).<br>
+                        • <strong>Định ngữ bổ nghĩa cho danh từ (V thể thường + N):</strong> <em>きのう 買った 本, 日本で はたらいている 人, 母が 作った 料理, 毎日 使う パソコン, あかちゃんが 着る もの</em>.
                     </p>
                     <ul class="example-list">
                         <li class="example-item">
-                            <div class="ex-jp jp-text">この ネックレスは 誕生日に 彼<span style="color: var(--primary);">に もらったんです</span>。
-                                <button type="button" class="audio-btn" onclick="speakText('このネックレスは誕生日に彼にもらったんです。')">🔊</button>
+                            <div class="ex-jp jp-text">この 時計は そつぎょうの お祝いに <span style="color: var(--primary);">父に もらったんです</span>。
+                                <button type="button" class="audio-btn" onclick="speakText('このとけいはそつぎょうのおいわいに、ちちにもらったんです。')">🔊</button>
                             </div>
-                            <div class="ex-vi">Chiếc dây chuyền này là tôi nhận được từ bạn trai nhân dịp sinh nhật đấy.</div>
+                            <div class="ex-vi">Chiếc đồng hồ này là tôi nhận được từ bố nhân dịp chúc mừng tốt nghiệp đấy.</div>
                         </li>
                         <li class="example-item">
-                            <div class="ex-jp jp-text">母の日に 母<span style="color: var(--primary);">に 花を あげました</span>。
-                                <button type="button" class="audio-btn" onclick="speakText('母の日に母に花をあげました。')">🔊</button>
+                            <div class="ex-jp jp-text">日本語が よく <span style="color: var(--primary);">分からないんですが</span>、おしえて くださいませんか。
+                                <button type="button" class="audio-btn" onclick="speakText('にほんごがよくわからないんですが、おしえてくださいませんか。')">🔊</button>
                             </div>
-                            <div class="ex-vi">Vào Ngày của Mẹ, tôi đã tặng hoa cho mẹ.</div>
+                            <div class="ex-vi">Tôi không hiểu tiếng Nhật lắm, bạn có thể chỉ cho tôi được không ạ? (～んですが mở đầu nhờ vả)</div>
                         </li>
                         <li class="example-item">
-                            <div class="ex-jp jp-text">冬の プレゼントは 手袋<span style="color: var(--primary);">とか</span> マフラー<span style="color: var(--primary);">とか</span>が いいですね。
-                                <button type="button" class="audio-btn" onclick="speakText('冬のプレゼントは手袋とかマフラーとかがいいですね。')">🔊</button>
+                            <div class="ex-jp jp-text">「どうして おくれたんですか。」――「道が <span style="color: var(--primary);">じゅうたいなんです</span>。」
+                                <button type="button" class="audio-btn" onclick="speakText('どうしておくれたんですか。みちがじゅうたいなんです。')">🔊</button>
                             </div>
-                            <div class="ex-vi">Quà tặng mùa đông thì những thứ như găng tay hay khăn quàng cổ là rất hợp nhỉ.</div>
+                            <div class="ex-vi">"Tại sao bạn đến muộn vậy?" ―― "Vì đường bị tắc nghẽn đấy ạ."</div>
                         </li>
                     </ul>
                     <div class="trap-box">
                         <strong>⚠️ Bẫy thi cần chú ý:</strong>
-                        Người tặng hay người nhận đều đi với trợ từ <code>に</code>. Cần nhìn động từ cuối câu: Nếu là <code>もらいました</code> thì người đứng trước <code>に</code> là NGƯỜI TẶNG; nếu là <code>あげました</code> thì người đứng trước <code>に</code> là NGƯỜI NHẬN.
+                        Trợ từ đứng trước động từ cho-nhận: <code>もらいます</code> ➔ đứng trước <code>に</code> là NGƯỜI TẶNG. <code>あげます</code> ➔ đứng trước <code>に</code> là NGƯỜI NHẬN!
                     </div>
                 </div>
             </div>
@@ -1621,52 +1617,47 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             <div class="grammar-card" id="grammar-l18">
                 <div class="grammar-header">
                     <div>
-                        <span class="grammar-tag">BÀI 18 (A2-2)</span>
-                        <h2 class="grammar-title">パーティーがいいと思います (Sự Kiện & Trang Phục • Quan Điểm, Trích Dẫn & Thể V-ています)</h2>
+                        <span class="grammar-tag">BÀI 18 (A2-1 • CHÚC MỪNG & Ý KIẾN)</span>
+                        <h2 class="grammar-title">パーティーが いいと 思います (Bày Tỏ Ý Kiến, Trích Dẫn & Chúc Mừng)</h2>
                     </div>
-                    <span class="section-badge">Trọng điểm A2-2</span>
+                    <span class="section-badge">Chuẩn Giáo Trình</span>
                 </div>
                 <div class="grammar-body">
                     <div class="formula-box">
-                        1. Bày tỏ ý kiến cá nhân: <code>[Thể thông thường (Futsuukei)] ＋ と 思います</code><br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;• Tính từ đuôi な / Danh từ: <code>[N / Na] ＋ だ ＋ と 思います</code> (Lưu ý chữ だ!)<br>
-                        2. Trích dẫn gián tiếp lời người khác: <code>[Thể thông thường] ＋ と 言っていました</code><br>
-                        3. Động từ trang phục trạng thái đang mặc: <code>V-ています</code><br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;• Mặc thân trên / toàn thân: <code>着ます ➔ 着ています</code> (áo sơ mi, vest, kimono)<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;• Mặc thân dưới / chân: <code>履きます ➔ 履いています</code> (quần, tất, giày, váy ngắn)<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;• Đội đầu: <code>被ります ➔ 被っています</code> (mũ, nón)<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;• Đeo mắt: <code>掛けます ➔ 掛けています</code> (kính)<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;• Phụ kiện: <code>します ➔ しています</code> (cà vạt, đồng hồ, nhẫn)
+                        1. Bày tỏ suy nghĩ, ý kiến cá nhân: <code>[Thể thông thường (Futsuukei)] ＋ と 思います</code><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;• Động từ / Tính từ đuôi い: <code>よろこぶ と 思います</code> / <code>パーティーが いい と 思います</code><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;• <strong>Danh từ / Tính từ đuôi な (Hiện tại khẳng định):</strong> <code>[N / Na] ＋ だ ＋ と 思います</code><br>
+                        2. Trích dẫn lại lời người khác đã nói: <code>[Thể thông thường] ＋ と 言っていました</code><br>
+                        3. Giao tiếp chúc mừng & cảm ơn quà: <code>ご結婚 おめでとう ございます</code> / <code>おれいを 言います</code> / <code>たいせつに します</code>
                     </div>
                     <p class="grammar-explain">
                         <strong>Phân tích chi tiết:</strong><br>
-                        • <code>〜と思います</code>: Bày tỏ suy nghĩ chủ quan, dự đoán khi bàn bạc tổ chức sự kiện, liên hoan.<br>
-                        • <code>〜と言っていました</code>: Truyền đạt lại thông tin mà người thứ ba đã nói trước đó.<br>
-                        • <code>Động từ trang phục</code>: Tiếng Nhật phân chia cực kỳ tỉ mỉ theo từng bộ phận cơ thể. Khi miêu tả ai đó đang mặc món đồ gì, bắt buộc dùng thì tiếp diễn trạng thái <code>〜ています</code>.
+                        • <code>〜と 思います</code>: Bày tỏ nhận xét, đề xuất ý kiến của bản thân khi bàn bạc tổ chức lễ chúc mừng hoặc chọn quà tặng.<br>
+                        • <code>〜と 言っていました</code>: Truyền đạt lại lời nói, mong muốn của một người thứ ba (<em>あべさんは みんなと 話したいと 言っていました</em>).
                     </p>
                     <ul class="example-list">
                         <li class="example-item">
-                            <div class="ex-jp jp-text">明日の 送別会は とても にぎやか<span style="color: var(--primary);">だと 思います</span>。
-                                <button type="button" class="audio-btn" onclick="speakText('明日の送別会はとてもにぎやかだと思います。')">🔊</button>
+                            <div class="ex-jp jp-text">お祝いは パーティーが <span style="color: var(--primary);">いいと 思います</span>。着物が <span style="color: var(--primary);">きれいだと 思います</span>。
+                                <button type="button" class="audio-btn" onclick="speakText('おいわいはパーティーがいいとおもいます。きものがきれいだとおもいます。')">🔊</button>
                             </div>
-                            <div class="ex-vi">Tôi nghĩ rằng buổi tiệc chia tay ngày mai sẽ rất là náo nhiệt.</div>
+                            <div class="ex-vi">Tôi nghĩ buổi chúc mừng tổ chức tiệc là hay. Tôi nghĩ bộ Kimono rất đẹp.</div>
                         </li>
                         <li class="example-item">
-                            <div class="ex-jp jp-text">山田さんは 来週 出張する<span style="color: var(--primary);">と 言っていました</span>。
-                                <button type="button" class="audio-btn" onclick="speakText('山田さんは来週出張すると言っていました。')">🔊</button>
+                            <div class="ex-jp jp-text">あべさんは みんなと <span style="color: var(--primary);">話したいと 言っていました</span>。
+                                <button type="button" class="audio-btn" onclick="speakText('あべさんはみんなとはなしたいといっていました。')">🔊</button>
                             </div>
-                            <div class="ex-vi">Anh Yamada đã nói rằng tuần sau anh ấy sẽ đi công tác.</div>
+                            <div class="ex-vi">Anh Abe đã nói là muốn trò chuyện với tất cả mọi người.</div>
                         </li>
                         <li class="example-item">
-                            <div class="ex-jp jp-text">白い シャツを <span style="color: var(--primary);">着て</span>、眼鏡を <span style="color: var(--primary);">掛けている</span> 人です。
-                                <button type="button" class="audio-btn" onclick="speakText('白いシャツを着て、眼鏡を掛けている人です。')">🔊</button>
+                            <div class="ex-jp jp-text">たなかさんは パーティーが <span style="color: var(--primary);">楽しかったと 言っていました</span>。
+                                <button type="button" class="audio-btn" onclick="speakText('たなかさんはパーティーがたのしかったといっていました。')">🔊</button>
                             </div>
-                            <div class="ex-vi">Là người đang mặc áo sơ mi trắng và đeo kính mắt.</div>
+                            <div class="ex-vi">Anh Tanaka đã nói là buổi tiệc rất vui.</div>
                         </li>
                     </ul>
                     <div class="trap-box">
                         <strong>⚠️ Bẫy thi cần chú ý:</strong>
-                        Trước <code>と思います</code>, nếu là Danh từ hoặc Tính từ đuôi な ở dạng khẳng định hiện tại, BẮT BUỘC phải thêm <code>だ</code>: <em>「パーティーは にぎやか【だ】と 思います」</em>, <em>「あの人は 先生【だ】と 思います」</em>. Thiếu <code>だ</code> là sai ngữ pháp!
+                        Trước <code>と 思います / と 言っていました</code>, nếu là Tính từ đuôi な hoặc Danh từ ở thì hiện tại khẳng định, BẮT BUỘC phải có <code>だ</code>: <em>「きれい【だ】と 思います」「しあわせ【だ】と 言っていました」</em>. Thiếu <code>だ</code> là sai!
                     </div>
                 </div>
             </div>
@@ -1843,53 +1834,52 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             <div class="content-card">
                 <div class="section-header">
                     <div>
-                        <h2 class="section-title">⚡ Cẩm Nang Bỏ Túi • Bí Kíp Tránh Bẫy Sư Phạm</h2>
-                        <p style="color: var(--gray-600); font-size: 0.92rem; margin-top: 4px;">Những điểm ngữ pháp the chốt thường xuyên xuất hiện trong đề kiểm tra giữa kỳ & cuối kỳ Marugoto A2.</p>
+                        <h2 class="section-title">⚡ Cẩm Nang Bỏ Túi • Bí Kíp Tránh Bẫy Bài 15 ➔ 18</h2>
+                        <p style="color: var(--gray-600); font-size: 0.92rem; margin-top: 4px;">Tổng hợp đúng 4 bẫy ngữ pháp trọng tâm của Bài 15-18 & Kiến Thức Bổ Sung trên lớp.</p>
                     </div>
                 </div>
 
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px;">
                     <!-- Cheatsheet 1 -->
                     <div style="background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: var(--radius-md); padding: 20px;">
-                        <h3 style="font-size: 1.1rem; font-weight: 800; color: var(--primary); margin-bottom: 10px;">1. Phân Biệt 3 Sắc Thái Khuyên Nhủ</h3>
+                        <h3 style="font-size: 1.1rem; font-weight: 800; color: var(--primary); margin-bottom: 10px;">1. Khuyên Nhủ & Bối Cảnh ～んです (Bài 15 & 17)</h3>
                         <p style="font-size: 0.92rem; color: var(--gray-700); line-height: 1.7;">
-                            • <code>V-るといいですよ</code>: Lời khuyên thân thiện, gợi ý bổ ích (ví dụ: uống trà nóng thì tốt đấy). Không mang tính ép buộc.<br>
-                            • <code>V-たほうがいいですよ</code>: Khuyên dứt khoát, so sánh giữa 2 lựa chọn (nên làm A thì tốt hơn làm B, nếu không làm sẽ không tốt).<br>
-                            • <code>V-ないでください</code>: Nhắc nhở dặn dò cấm đoán nhẹ (đừng cố quá sức, đừng uống bia lạnh).
+                            • <code>V-る ＋ と いいですよ</code>: Khuyên nhẹ nhàng nên làm gì (luôn dùng thể từ điển V-る!).<br>
+                            • <code>V-ない ＋ で ください</code>: Dặn dò đừng làm gì (dùng thể Phủ định ngắn V-ない!).<br>
+                            • <code>Thể thông thường ＋ んです</code>: Danh từ & Tính từ đuôi な phải đổi <strong>だ ➔ な</strong> (<em>びょうきなんです, しずかなんです, じゅうたいなんです</em>).
                         </p>
                     </div>
 
                     <!-- Cheatsheet 2 -->
                     <div style="background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: var(--radius-md); padding: 20px;">
-                        <h3 style="font-size: 1.1rem; font-weight: 800; color: var(--primary); margin-bottom: 10px;">2. Ma Trận Cho - Nhận (Trao Tặng)</h3>
+                        <h3 style="font-size: 1.1rem; font-weight: 800; color: var(--primary); margin-bottom: 10px;">2. Mệnh Đề Bổ Nghĩa V〈ふつうけい〉＋ 人 / N (Bài 16 & 17)</h3>
                         <p style="font-size: 0.92rem; color: var(--gray-700); line-height: 1.7;">
-                            • <code>[Người nhận] に [Vật] を あげます</code>: Tặng cho ai đó (hướng hành động đi ra xa khỏi người nói).<br>
-                            • <code>[Người tặng] に [Vật] を もらいました</code>: Nhận từ ai đó. (Khi khoe đồ người khác tặng dùng: <em>〜にもらったんです</em>).<br>
-                            • <strong>Tuyệt chiêu nhận diện:</strong> Nhìn động từ cuối câu để biết người đứng trước trợ từ <code>に</code> là người tặng hay người nhận!
+                            • Động từ bổ nghĩa luôn đặt <strong>TRƯỚC danh từ</strong> và phải chia về thể thông thường:<br>
+                            &nbsp;&nbsp;<code>Vます ➔ Vる</code> | <code>Vません ➔ Vない</code> | <code>Vました ➔ Vた</code> | <code>Vています ➔ Vている</code>.<br>
+                            • Ví dụ chuẩn: <em>よく 本を 読む 人</em>, <em>コーヒーを 飲まない 人</em>, <em>きのう 買った 本</em>, <em>母が 作った 料理</em>.
                         </p>
                     </div>
 
                     <!-- Cheatsheet 3 -->
                     <div style="background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: var(--radius-md); padding: 20px;">
-                        <h3 style="font-size: 1.1rem; font-weight: 800; color: var(--primary); margin-bottom: 10px;">3. Bản Đồ Động Từ Mặc Trang Phục</h3>
+                        <h3 style="font-size: 1.1rem; font-weight: 800; color: var(--primary); margin-bottom: 10px;">3. Ma Trận Cho - Nhận Quà Tặng (Bài 17)</h3>
                         <p style="font-size: 0.92rem; color: var(--gray-700); line-height: 1.7;">
-                            • <strong>Thân trên & Toàn thân:</strong> <code>着ます (きます)</code> ➔ áo sơ mi, áo khoác, vest, kimono, váy liền.<br>
-                            • <strong>Thân dưới & Chân:</strong> <code>履きます (はきます)</code> ➔ quần dài, quần đùi, váy ngắn, giày, tất.<br>
-                            • <strong>Đầu:</strong> <code>被ります (かぶります)</code> ➔ mũ len, nón bảo hiểm.<br>
-                            • <strong>Mắt:</strong> <code>掛けます (かけます)</code> ➔ kính mắt, kính râm.<br>
-                            • <strong>Phụ kiện:</strong> <code>します</code> ➔ cà vạt, đồng hồ đeo tay, nhẫn, vòng cổ.
+                            • <code>[Người tặng] に [Vật] を もらいました / もらったんです</code>: Nhận quà từ ai.<br>
+                            • <code>[Người nhận] に [Vật] を あげます / あげました</code>: Tặng quà cho ai.<br>
+                            • <strong>Mẹo phân biệt:</strong> Nhìn động từ cuối câu để biết người đứng trước trợ từ <code>に</code> là người tặng hay người nhận!<br>
+                            • Liệt kê gợi ý quà tặng: <code>N1 とか N2 とか</code> (<em>絵とか 時計とか</em>).
                         </p>
                     </div>
 
                     <!-- Cheatsheet 4 -->
                     <div style="background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: var(--radius-md); padding: 20px;">
-                        <h3 style="font-size: 1.1rem; font-weight: 800; color: var(--primary); margin-bottom: 10px;">4. Bẫy Thể Thông Thường Trước と思います</h3>
+                        <h3 style="font-size: 1.1rem; font-weight: 800; color: var(--primary); margin-bottom: 10px;">4. Bẫy 「だ」 Trước と思います & と言っていました (Bài 18)</h3>
                         <p style="font-size: 0.92rem; color: var(--gray-700); line-height: 1.7;">
-                            • Động từ: <code>行く / 行かない / 行った</code> + <code>と思います</code>.<br>
-                            • Tính từ đuôi い: <code>おいしい / いい</code> + <code>と思います</code>.<br>
+                            • Động từ: <code>よろこぶ / 来られない / 楽しかった</code> + <code>と思います / と言っていました</code>.<br>
+                            • Tính từ đuôi い: <code>いい / おもしろい</code> + <code>と思います</code>.<br>
                             • <strong>BẪY LỚN:</strong> Tính từ đuôi な và Danh từ ở thì hiện tại khẳng định BẮT BUỘC phải thêm <code>だ</code>:<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;➔ <em>にぎやか<strong>だ</strong>と思います</em> (Không được nói: にぎやかと思います)<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;➔ <em>先生<strong>だ</strong>と思います</em> (Không được nói: 先生と思います).
+                            &nbsp;&nbsp;&nbsp;&nbsp;➔ <em>きれい<strong>だ</strong>と思います</em> (Không nói: きれいと思います)<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;➔ <em>しあわせ<strong>だ</strong>と言っていました</em>.
                         </p>
                     </div>
                 </div>
