@@ -19,8 +19,21 @@ Tạo trang web chuyên đề Ôn Tập Mini Test Bài 15 - 18 (Marugoto A2-2 Fi
 
 import json
 import os
+import sys
 
-WORKSPACE = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
+SCRIPT_DIR = os.path.abspath(os.path.dirname(__file__))
+if SCRIPT_DIR not in sys.path:
+    sys.path.insert(0, SCRIPT_DIR)
+
+from mini_test_15_18_exams import (
+    EXAM_152,
+    EXAM_153,
+    EXAM_154,
+    EXAM_155,
+    validate_exam_suite,
+)
+
+WORKSPACE = os.path.abspath(os.path.dirname(SCRIPT_DIR))
 
 # 1. Load Vocab
 with open(os.path.join(WORKSPACE, 'data/master_vocab_official.json'), 'r', encoding='utf-8') as f:
@@ -483,15 +496,31 @@ PART6_TRANSLATION = [
     }
 ]
 
+EXAM_151 = {
+    "id": "151",
+    "code": "151",
+    "shortTitle": "Tổng Hợp Chuẩn",
+    "fullTitle": "MÃ ĐỀ 151 • TỔNG HỢP CHUẨN MARUGOTO A2-1 (BÀI 15 - 18)",
+    "subtitle": "Bao phủ cân đối toàn bộ Bài 15–18 & NPBS: ～んです, といい, ないで, たり, ために, bổ nghĩa V+N, もらう/あげる, と思う/と言う.",
+    "badge": "🎯 Chuẩn Toàn Diện",
+    "p1": PART1_MC,
+    "p2": PART2_ARRANGE,
+    "p3": PART3_CONJUGATE,
+    "p4": PART4_MATCH,
+    "p5": PART5_READING,
+    "p6": PART6_TRANSLATION,
+}
+
+EXAMS_SUITE = [EXAM_151, EXAM_152, EXAM_153, EXAM_154, EXAM_155]
+_validation = validate_exam_suite(EXAMS_SUITE)
+assert not _validation["structure_errors"], f"Structure errors: {_validation['structure_errors']}"
+assert not _validation["banned_hits"], f"Banned grammar/vocab hits: {_validation['banned_hits']}"
+assert not _validation["unlearned_hits"], f"Unlearned Kanji hits: {_validation['unlearned_hits']}"
+
 # Build JSON Data Strings
 vocab_json_str = json.dumps(vocab_15_18, ensure_ascii=False)
 kanji_json_str = json.dumps(kanji_15_18, ensure_ascii=False)
-p1_json_str = json.dumps(PART1_MC, ensure_ascii=False)
-p2_json_str = json.dumps(PART2_ARRANGE, ensure_ascii=False)
-p3_json_str = json.dumps(PART3_CONJUGATE, ensure_ascii=False)
-p4_json_str = json.dumps(PART4_MATCH, ensure_ascii=False)
-p5_json_str = json.dumps(PART5_READING, ensure_ascii=False)
-p6_json_str = json.dumps(PART6_TRANSLATION, ensure_ascii=False)
+exams_json_str = json.dumps(EXAMS_SUITE, ensure_ascii=False)
 
 HTML_TEMPLATE = """<!DOCTYPE html>
 <html lang="vi">
@@ -1075,6 +1104,79 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         }
 
         /* Quiz & Exam Section */
+        .exam-switcher-card {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-lg);
+            padding: 18px 20px;
+            margin-bottom: 18px;
+            box-shadow: var(--shadow-sm);
+        }
+        .exam-switcher-grid {
+            display: grid;
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+            gap: 10px;
+        }
+        @media (max-width: 1024px) {
+            .exam-switcher-grid {
+                grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            }
+        }
+        .exam-switch-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 4px;
+            padding: 12px 14px;
+            border-radius: var(--radius-md);
+            border: 2px solid var(--gray-200);
+            background: var(--gray-50);
+            cursor: pointer;
+            text-align: left;
+            transition: all 0.2s ease;
+        }
+        .exam-switch-btn:hover {
+            border-color: var(--primary);
+            background: var(--white);
+            transform: translateY(-1px);
+        }
+        .exam-switch-btn.active {
+            border-color: var(--primary);
+            background: var(--primary-light);
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.14);
+        }
+        .exam-switch-top {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 6px;
+        }
+        .exam-switch-code {
+            font-size: 0.78rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+        .exam-switch-score {
+            font-size: 0.74rem;
+            font-weight: 800;
+            padding: 2px 7px;
+            border-radius: var(--radius-full);
+            background: var(--gray-200);
+            color: var(--gray-700);
+        }
+        .exam-switch-score.has-score {
+            background: var(--success-light);
+            color: #065f46;
+        }
+        .exam-switch-name {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            line-height: 1.3;
+        }
         .exam-timer-box {
             display: flex;
             align-items: center;
@@ -1431,14 +1533,14 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 
     <!-- Hero Header -->
     <header class="hero-banner">
-        <div class="hero-badge">🎓 MARUGOTO A2-2 • FINAL REVIEW EXAM</div>
-        <h1 class="hero-title">Đề Thi Thử & Cẩm Nang Ôn Tập Bài 15 - 18</h1>
-        <p class="hero-desc">Hệ thống tổng hợp toàn diện 4 bài cuối giáo trình Marugoto A2-2: Lý thuyết chuyên sâu, 135 từ vựng Quizlet sạch, 34 chữ Hán chiết tự, Đề thi chuẩn 6 dạng 100 điểm & Luyện gõ phản xạ Nhật - Việt.</p>
+        <div class="hero-badge">🎓 MARUGOTO A2-1 • BỘ 5 MÃ ĐỀ BÀI 15 - 18</div>
+        <h1 class="hero-title">Bộ 5 Đề Thi Thử & Cẩm Nang Ôn Tập Bài 15 - 18</h1>
+        <p class="hero-desc">Hệ thống tổng hợp toàn diện 4 bài (L15–L18): Lý thuyết chuyên sâu, 135 từ vựng Quizlet sạch, 34 chữ Hán chiết tự, Bộ 5 Mã Đề (160 câu chuẩn 100 điểm/đề) & Luyện gõ phản xạ Nhật - Việt.</p>
         <div class="hero-stats">
             <span class="hero-stat-pill">📖 4 Bài Học (L15 ➔ L18)</span>
             <span class="hero-stat-pill">🎴 135 Từ Vựng Cốt Lõi</span>
             <span class="hero-stat-pill">⛩️ 34 Chữ Hán Kanji</span>
-            <span class="hero-stat-pill">🎯 Đề Thi Thử 100 Điểm (6 Dạng)</span>
+            <span class="hero-stat-pill">🎯 Bộ 5 Mã Đề 100đ (160 Câu)</span>
             <span class="hero-stat-pill">⌨️ Flash Typing Gõ Nhật - Việt</span>
         </div>
     </header>
@@ -1449,7 +1551,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             <button class="tab-btn tab-btn-theory active" onclick="switchMainTab('tab-theory')">📖 Lý Thuyết (L15-18)</button>
             <button class="tab-btn tab-btn-vocab" onclick="switchMainTab('tab-vocab')">🎴 135 Từ Vựng</button>
             <button class="tab-btn tab-btn-kanji" onclick="switchMainTab('tab-kanji')">⛩️ 34 Chữ Hán</button>
-            <button class="tab-btn tab-btn-quiz" onclick="switchMainTab('tab-quiz')">🎯 Đề Thi 100đ (6 Dạng)</button>
+            <button class="tab-btn tab-btn-quiz" onclick="switchMainTab('tab-quiz')">🎯 Bộ 5 Mã Đề (160 Câu)</button>
             <button class="tab-btn tab-btn-typing" onclick="switchMainTab('tab-typing')">⌨️ Luyện Gõ Phản Xạ</button>
             <button class="tab-btn tab-btn-cheatsheet" onclick="switchMainTab('tab-cheatsheet')">⚡ Cẩm Nang Bỏ Túi</button>
         </nav>
@@ -1719,18 +1821,32 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         <!-- TAB 4: ĐỀ THI THỬ ĐA DẠNG NĂNG LỰC (100Đ)   -->
         <!-- ========================================== -->
         <div id="tab-quiz" class="tab-panel">
+            <!-- Exam Switcher Card -->
+            <div class="exam-switcher-card">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 12px;">
+                    <div>
+                        <div style="font-size: 0.8rem; font-weight: 800; color: var(--primary); letter-spacing: 0.04em;">CHỌN MÃ ĐỀ LUYỆN TẬP (MỖI ĐỀ 32 CÂU • 100 ĐIỂM)</div>
+                        <div id="activeExamSubtitle" style="font-size: 0.92rem; color: var(--gray-600); margin-top: 2px;"></div>
+                    </div>
+                    <div id="overallProgressSummary" style="font-size: 0.84rem; font-weight: 700; color: var(--gray-700); background: var(--gray-100); padding: 6px 14px; border-radius: var(--radius-full);">
+                        Đã làm: 0 / 5 mã đề
+                    </div>
+                </div>
+                <div class="exam-switcher-grid" id="examSwitcherGrid"></div>
+            </div>
+
             <!-- Exam Timer & Score Bar -->
             <div class="exam-timer-box">
                 <div>
-                    <div style="font-size: 0.85rem; color: #c7d2fe; font-weight: 700;">ĐỀ THI TỔNG HỢP MARUGOTO A2-2 (BÀI 15 - 18)</div>
-                    <div style="font-size: 1.3rem; font-weight: 800; margin-top: 2px;">6 Dạng Bài Chuẩn Sư Phạm • 32 Câu Hỏi</div>
+                    <div id="examTimerHeaderTitle" style="font-size: 0.85rem; color: #c7d2fe; font-weight: 700;">MÃ ĐỀ 151 • TỔNG HỢP CHUẨN MARUGOTO A2-1 (BÀI 15 - 18)</div>
+                    <div id="examTimerHeaderMeta" style="font-size: 1.3rem; font-weight: 800; margin-top: 2px;">6 Dạng Bài Chuẩn Sư Phạm • 32 Câu Hỏi</div>
                 </div>
                 <div style="display: flex; align-items: center; gap: 18px; flex-wrap: wrap;">
                     <div style="text-align: right;">
-                        <div style="font-size: 0.82rem; color: #cbd5e1;">ĐIỂM SỐ HIỆN TẠI</div>
+                        <div style="font-size: 0.82rem; color: #cbd5e1;">ĐIỂM SỐ MÃ ĐỀ NÀY</div>
                         <div class="exam-score-display" id="totalScoreText">0 / 100 Điểm</div>
                     </div>
-                    <button type="button" class="btn-primary" onclick="resetAllExam()" style="background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25);">🔄 Làm Lại Từ Đầu</button>
+                    <button type="button" class="btn-primary" onclick="resetAllExam()" style="background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25);">🔄 Làm Lại Đề Này</button>
                 </div>
             </div>
 
@@ -1896,27 +2012,165 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         // DỮ LIỆU TỪ BACKEND PYTHON
         const VOCAB_DATA = __VOCAB_JSON__;
         const KANJI_DATA = __KANJI_JSON__;
-        const P1_DATA = __P1_JSON__;
-        const P2_DATA = __P2_JSON__;
-        const P3_DATA = __P3_JSON__;
-        const P4_DATA = __P4_JSON__;
-        const P5_DATA = __P5_JSON__;
-        const P6_DATA = __P6_JSON__;
+        const EXAMS_LIST = __EXAMS_JSON__;
 
         // TRẠNG THÁI TOÀN CỤC
         let currentTab = 'tab-theory';
         let currentVocabFilter = 'all';
         let isMeaningHidden = false;
 
-        // Điểm số các phần
-        let scoreState = {
-            p1: {},
-            p2: {},
-            p3: {},
-            p4: {},
-            p5: {},
-            p6: {}
-        };
+        // Quản lý 5 Mã Đề & Trạng thái riêng từng Mã Đề
+        let currentExamId = EXAMS_LIST[0].id;
+        const examStates = {};
+
+        let P1_DATA = EXAMS_LIST[0].p1;
+        let P2_DATA = EXAMS_LIST[0].p2;
+        let P3_DATA = EXAMS_LIST[0].p3;
+        let P4_DATA = EXAMS_LIST[0].p4;
+        let P5_DATA = EXAMS_LIST[0].p5;
+        let P6_DATA = EXAMS_LIST[0].p6;
+        let scoreState = { p1: {}, p2: {}, p3: {}, p4: {}, p5: {}, p6: {} };
+        let arrangeState = {};
+        let selectedA = null;
+        let matchedPairs = {};
+
+        function getExamById(examId) {
+            return EXAMS_LIST.find(e => e.id === examId) || EXAMS_LIST[0];
+        }
+
+        function createEmptyExamState(exam) {
+            return {
+                scoreState: { p1: {}, p2: {}, p3: {}, p4: {}, p5: {}, p6: {} },
+                p1Chosen: {},
+                arrangeState: {},
+                arrangeChecked: {},
+                p3Answers: {},
+                p4Order: exam.p4.slice().sort(() => Math.random() - 0.5),
+                matchedPairs: {},
+                p5Chosen: {},
+                p6Draft: {},
+                p6ModelOpen: {},
+                p6StatusPts: {}
+            };
+        }
+
+        function getActiveExamState() {
+            const exam = getExamById(currentExamId);
+            if (!examStates[currentExamId]) {
+                examStates[currentExamId] = createEmptyExamState(exam);
+            }
+            return examStates[currentExamId];
+        }
+
+        function bindActiveExamAliases() {
+            const exam = getExamById(currentExamId);
+            const st = getActiveExamState();
+            P1_DATA = exam.p1;
+            P2_DATA = exam.p2;
+            P3_DATA = exam.p3;
+            P4_DATA = exam.p4;
+            P5_DATA = exam.p5;
+            P6_DATA = exam.p6;
+            scoreState = st.scoreState;
+            arrangeState = st.arrangeState;
+            matchedPairs = st.matchedPairs;
+            selectedA = null;
+        }
+
+        function computeExamScore(examId) {
+            const st = examStates[examId];
+            if (!st) return 0;
+            let total = 0;
+            ['p1', 'p2', 'p3', 'p4', 'p5', 'p6'].forEach(p => {
+                Object.values(st.scoreState[p]).forEach(val => {
+                    total += Number(val) || 0;
+                });
+            });
+            return Math.round(total * 10) / 10;
+        }
+
+        function hasExamProgress(examId) {
+            const st = examStates[examId];
+            if (!st) return false;
+            return (
+                Object.keys(st.p1Chosen).length > 0 ||
+                Object.keys(st.arrangeChecked).length > 0 ||
+                Object.keys(st.p3Answers).some(k => st.p3Answers[k] && st.p3Answers[k].locked) ||
+                Object.keys(st.matchedPairs).length > 0 ||
+                Object.keys(st.p5Chosen).length > 0 ||
+                Object.keys(st.p6StatusPts).length > 0
+            );
+        }
+
+        function saveCurrentExamDrafts() {
+            const st = examStates[currentExamId];
+            if (!st) return;
+            P3_DATA.forEach(item => {
+                const inp = document.getElementById(`p3_input_${item.id}`);
+                if (inp) {
+                    const prev = st.p3Answers[item.id] || { value: '', locked: false, isCorrect: false };
+                    st.p3Answers[item.id] = { ...prev, value: inp.value };
+                }
+            });
+            P6_DATA.forEach(item => {
+                const txt = document.getElementById(`p6_txt_${item.id}`);
+                if (txt) st.p6Draft[item.id] = txt.value;
+            });
+        }
+
+        function updateExamHeaderBanner() {
+            const exam = getExamById(currentExamId);
+            const titleEl = document.getElementById('examTimerHeaderTitle');
+            const metaEl = document.getElementById('examTimerHeaderMeta');
+            const subEl = document.getElementById('activeExamSubtitle');
+            if (titleEl) titleEl.innerText = exam.fullTitle;
+            if (metaEl) metaEl.innerText = `${exam.badge} • 6 Dạng Bài Chuẩn Sư Phạm • 32 Câu Hỏi`;
+            if (subEl) subEl.innerText = exam.subtitle;
+        }
+
+        function renderExamSwitcher() {
+            const grid = document.getElementById('examSwitcherGrid');
+            if (grid) {
+                grid.innerHTML = EXAMS_LIST.map(ex => {
+                    const sc = computeExamScore(ex.id);
+                    const touched = hasExamProgress(ex.id);
+                    const activeCls = ex.id === currentExamId ? ' active' : '';
+                    const scoreCls = (touched || sc > 0) ? ' has-score' : '';
+                    const scoreText = (touched || sc > 0) ? `${sc}/100đ` : 'Mới';
+                    return `
+                        <button type="button" class="exam-switch-btn${activeCls}" id="examSwitch_${ex.id}" onclick="switchExamSet('${ex.id}')">
+                            <div class="exam-switch-top">
+                                <span class="exam-switch-code">Mã Đề ${ex.code}</span>
+                                <span class="exam-switch-score${scoreCls}">${scoreText}</span>
+                            </div>
+                            <span class="exam-switch-name">${ex.shortTitle}</span>
+                        </button>
+                    `;
+                }).join('');
+            }
+            const summaryEl = document.getElementById('overallProgressSummary');
+            if (summaryEl) {
+                const startedCount = EXAMS_LIST.filter(ex => hasExamProgress(ex.id)).length;
+                summaryEl.innerText = `Đang mở: Đề ${currentExamId} • Đã làm: ${startedCount} / ${EXAMS_LIST.length} mã đề`;
+            }
+        }
+
+        function switchExamSet(examId) {
+            if (examId === currentExamId) return;
+            saveCurrentExamDrafts();
+            currentExamId = examId;
+            bindActiveExamAliases();
+            updateExamHeaderBanner();
+            renderPart1();
+            renderPart2();
+            renderPart3();
+            renderPart4();
+            renderPart5();
+            renderPart6();
+            updateTotalScore();
+            renderExamSwitcher();
+            showToast(`Đã chuyển sang Mã Đề ${examId} (${getExamById(examId).shortTitle})!`);
+        }
 
         // Chuyển tab chính
         function switchMainTab(tabId) {
@@ -2065,29 +2319,43 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         function renderPart1() {
             const c = document.getElementById('part1Container');
             if (!c) return;
-            c.innerHTML = P1_DATA.map((item, idx) => `
-                <div class="question-item" id="p1_item_${item.id}">
-                    <div class="q-title">
-                        <span class="q-badge">Câu ${item.id}</span>
-                        <span class="jp-text" style="font-size:1.1rem;">${item.q}</span>
+            const st = getActiveExamState();
+            c.innerHTML = P1_DATA.map(item => {
+                const chosenIdx = st.p1Chosen[item.id];
+                const answered = chosenIdx !== undefined;
+                return `
+                    <div class="question-item" id="p1_item_${item.id}">
+                        <div class="q-title">
+                            <span class="q-badge">Câu ${item.id}</span>
+                            <span class="jp-text" style="font-size:1.1rem;">${item.q}</span>
+                        </div>
+                        <div class="options-list">
+                            ${item.options.map((opt, oIdx) => {
+                                let cls = 'opt-btn jp-text';
+                                if (answered) {
+                                    if (oIdx === item.correct) cls += ' is-correct';
+                                    else if (oIdx === chosenIdx) cls += ' is-wrong';
+                                }
+                                return `
+                                    <button type="button" class="${cls}" id="p1_opt_${item.id}_${oIdx}" onclick="selectPart1Answer(${item.id}, ${oIdx})" ${answered ? 'disabled' : ''}>
+                                        ${['A', 'B', 'C', 'D'][oIdx]}. ${opt}
+                                    </button>
+                                `;
+                            }).join('')}
+                        </div>
+                        <div class="explain-box" id="p1_exp_${item.id}" style="display:${answered ? 'block' : 'none'};">
+                            <strong>💡 Giải thích:</strong> ${item.explain}
+                        </div>
                     </div>
-                    <div class="options-list">
-                        ${item.options.map((opt, oIdx) => `
-                            <button type="button" class="opt-btn jp-text" id="p1_opt_${item.id}_${oIdx}" onclick="selectPart1Answer(${item.id}, ${oIdx})">
-                                ${['A', 'B', 'C', 'D'][oIdx]}. ${opt}
-                            </button>
-                        `).join('')}
-                    </div>
-                    <div class="explain-box" id="p1_exp_${item.id}">
-                        <strong>💡 Giải thích:</strong> ${item.explain}
-                    </div>
-                </div>
-            `).join('');
+                `;
+            }).join('');
         }
 
         function selectPart1Answer(qId, oIdx) {
             const item = P1_DATA.find(q => q.id === qId);
             if (!item) return;
+            const st = getActiveExamState();
+            st.p1Chosen[qId] = oIdx;
 
             item.options.forEach((_, idx) => {
                 const btn = document.getElementById(`p1_opt_${qId}_${idx}`);
@@ -2116,16 +2384,24 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         }
 
         // PART 2: ARRANGE
-        let arrangeState = {};
-
         function renderPart2() {
             const c = document.getElementById('part2Container');
             if (!c) return;
+            const st = getActiveExamState();
             c.innerHTML = P2_DATA.map(item => {
-                arrangeState[item.id] = {
-                    placed: [],
-                    available: item.chips.map((chip, idx) => ({ text: chip, origIdx: idx }))
-                };
+                if (!st.arrangeState[item.id]) {
+                    st.arrangeState[item.id] = {
+                        placed: [],
+                        available: item.chips.map((chip, idx) => ({ text: chip, origIdx: idx }))
+                    };
+                }
+                const qSt = st.arrangeState[item.id];
+                const chk = st.arrangeChecked[item.id];
+                const statusHtml = chk
+                    ? (chk.ok
+                        ? '<span style="color:var(--success);">✓ Chính xác! (+3.0 điểm)</span>'
+                        : '<span style="color:var(--accent);">✗ Chưa chính xác (0 điểm)</span>')
+                    : '';
                 return `
                     <div class="question-item" id="p2_item_${item.id}">
                         <div class="q-title">
@@ -2138,19 +2414,25 @@ HTML_TEMPLATE = """<!DOCTYPE html>
                             <span class="jp-text">${item.post}</span>
                         </div>
                         <div class="arrange-slot-box" id="p2_slot_${item.id}">
-                            <span style="color:var(--gray-400); font-size:0.9rem;">(Click các mảnh ghép bên dưới để sắp xếp vào đây)</span>
+                            ${qSt.placed.length === 0
+                                ? '<span style="color:var(--gray-400); font-size:0.9rem;">(Click các mảnh ghép bên dưới để sắp xếp vào đây)</span>'
+                                : qSt.placed.map((ch, pos) => `
+                                    <button type="button" class="chip-btn in-slot jp-text" onclick="removeArrangeChip(${item.id}, ${ch.origIdx})" title="Click để gỡ ra">
+                                        ${pos === 2 ? '★ ' : ''}${ch.text}
+                                    </button>
+                                `).join('')}
                         </div>
                         <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px;" id="p2_pool_${item.id}">
-                            ${item.chips.map((chip, idx) => `
-                                <button type="button" class="chip-btn jp-text" id="p2_chip_${item.id}_${idx}" onclick="clickArrangeChip(${item.id}, ${idx})">${chip}</button>
+                            ${qSt.available.map(ch => `
+                                <button type="button" class="chip-btn jp-text" id="p2_chip_${item.id}_${ch.origIdx}" onclick="clickArrangeChip(${item.id}, ${ch.origIdx})">${ch.text}</button>
                             `).join('')}
                         </div>
                         <div style="display:flex; gap:10px; align-items:center;">
                             <button type="button" class="btn-primary" onclick="checkArrangeAnswer(${item.id})" style="padding:6px 14px; font-size:0.88rem;">Kiểm Tra</button>
                             <button type="button" class="btn-primary" onclick="resetSingleArrange(${item.id})" style="padding:6px 14px; font-size:0.88rem; background:var(--gray-600);">Đặt Lại</button>
-                            <span id="p2_status_${item.id}" style="font-weight:700; font-size:0.92rem;"></span>
+                            <span id="p2_status_${item.id}" style="font-weight:700; font-size:0.92rem;">${statusHtml}</span>
                         </div>
-                        <div class="explain-box" id="p2_exp_${item.id}">
+                        <div class="explain-box" id="p2_exp_${item.id}" style="display:${chk ? 'block' : 'none'};">
                             <strong>💡 Câu hoàn chỉnh:</strong> <span class="jp-text">${item.fullSentence}</span><br>
                             <strong>Giải thích:</strong> ${item.explain}
                         </div>
@@ -2197,25 +2479,30 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             }
 
             poolBox.innerHTML = st.available.map(c => `
-                <button type="button" class="chip-btn jp-text" onclick="clickArrangeChip(${qId}, ${c.origIdx})">${c.text}</button>
+                <button type="button" class="chip-btn jp-text" id="p2_chip_${qId}_${c.origIdx}" onclick="clickArrangeChip(${qId}, ${c.origIdx})">${c.text}</button>
             `).join('');
         }
 
         function resetSingleArrange(qId) {
             const item = P2_DATA.find(q => q.id === qId);
             if (!item) return;
+            const exSt = getActiveExamState();
             arrangeState[qId] = {
                 placed: [],
                 available: item.chips.map((chip, idx) => ({ text: chip, origIdx: idx }))
             };
+            delete exSt.arrangeChecked[qId];
+            delete scoreState.p2[qId];
             updateArrangeUI(qId);
             document.getElementById(`p2_status_${qId}`).innerText = '';
             document.getElementById(`p2_exp_${qId}`).style.display = 'none';
+            updateTotalScore();
         }
 
         function checkArrangeAnswer(qId) {
             const item = P2_DATA.find(q => q.id === qId);
             const st = arrangeState[qId];
+            const exSt = getActiveExamState();
             const statusEl = document.getElementById(`p2_status_${qId}`);
             const expEl = document.getElementById(`p2_exp_${qId}`);
 
@@ -2230,9 +2517,11 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             if (isFullCorrect || isStarCorrect) {
                 statusEl.innerHTML = '<span style="color:var(--success);">✓ Chính xác! (+3.0 điểm)</span>';
                 scoreState.p2[qId] = 3.0;
+                exSt.arrangeChecked[qId] = { ok: true };
             } else {
                 statusEl.innerHTML = '<span style="color:var(--accent);">✗ Chưa chính xác (0 điểm)</span>';
                 scoreState.p2[qId] = 0;
+                exSt.arrangeChecked[qId] = { ok: false };
             }
 
             expEl.style.display = 'block';
@@ -2243,27 +2532,45 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         function renderPart3() {
             const c = document.getElementById('part3Container');
             if (!c) return;
-            c.innerHTML = P3_DATA.map(item => `
-                <div class="question-item" id="p3_item_${item.id}">
-                    <div class="q-title">
-                        <span class="q-badge">Câu ${item.id}</span>
-                        <span class="jp-text" style="font-size:1.05rem;">${item.sentence}</span>
+            const st = getActiveExamState();
+            c.innerHTML = P3_DATA.map(item => {
+                const ans = st.p3Answers[item.id] || { value: '', locked: false, isCorrect: false };
+                const inputCls = ans.locked
+                    ? `conjugate-input jp-text ${ans.isCorrect ? 'is-correct' : 'is-wrong'}`
+                    : 'conjugate-input jp-text';
+                const statusHtml = ans.locked
+                    ? (ans.isCorrect
+                        ? '<span style="color:var(--success);">✓ Chính xác! (+3.0 điểm)</span>'
+                        : '<span style="color:var(--accent);">✗ Chưa đúng!</span>')
+                    : '';
+                return `
+                    <div class="question-item" id="p3_item_${item.id}">
+                        <div class="q-title">
+                            <span class="q-badge">Câu ${item.id}</span>
+                            <span class="jp-text" style="font-size:1.05rem;">${item.sentence}</span>
+                        </div>
+                        <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin:12px 0;">
+                            <input type="text" class="${inputCls}" id="p3_input_${item.id}" placeholder="Nhập đáp án..." ${ans.locked ? 'disabled' : ''}>
+                            <button type="button" class="btn-primary" onclick="checkConjugateAnswer(${item.id})" style="padding:7px 16px; font-size:0.9rem;">Kiểm Tra</button>
+                            <span id="p3_status_${item.id}" style="font-weight:700; font-size:0.92rem;">${statusHtml}</span>
+                        </div>
+                        <div class="explain-box" id="p3_exp_${item.id}" style="display:${ans.locked ? 'block' : 'none'};">
+                            <strong>💡 Đáp án đúng:</strong> <span class="jp-text" style="color:var(--success); font-weight:800;">${item.displayAnswer}</span><br>
+                            <strong>Giải thích:</strong> ${item.explain}
+                        </div>
                     </div>
-                    <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin:12px 0;">
-                        <input type="text" class="conjugate-input jp-text" id="p3_input_${item.id}" placeholder="Nhập đáp án...">
-                        <button type="button" class="btn-primary" onclick="checkConjugateAnswer(${item.id})" style="padding:7px 16px; font-size:0.9rem;">Kiểm Tra</button>
-                        <span id="p3_status_${item.id}" style="font-weight:700; font-size:0.92rem;"></span>
-                    </div>
-                    <div class="explain-box" id="p3_exp_${item.id}">
-                        <strong>💡 Đáp án đúng:</strong> <span class="jp-text" style="color:var(--success); font-weight:800;">${item.displayAnswer}</span><br>
-                        <strong>Giải thích:</strong> ${item.explain}
-                    </div>
-                </div>
-            `).join('');
+                `;
+            }).join('');
+            P3_DATA.forEach(item => {
+                const inp = document.getElementById(`p3_input_${item.id}`);
+                const ans = st.p3Answers[item.id];
+                if (inp && ans && ans.value) inp.value = ans.value;
+            });
         }
 
         function checkConjugateAnswer(qId) {
             const item = P3_DATA.find(q => q.id === qId);
+            const st = getActiveExamState();
             const input = document.getElementById(`p3_input_${qId}`);
             const statusEl = document.getElementById(`p3_status_${qId}`);
             const expEl = document.getElementById(`p3_exp_${qId}`);
@@ -2276,6 +2583,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 
             const isOk = item.accepted.some(acc => acc.toLowerCase() === val);
             input.disabled = true;
+            st.p3Answers[qId] = { value: input.value.trim(), locked: true, isCorrect: isOk };
 
             if (isOk) {
                 input.classList.add('is-correct');
@@ -2292,12 +2600,12 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         }
 
         // PART 4: MATCHING
-        let selectedA = null;
-        let matchedPairs = {};
-
         function renderPart4() {
             const c = document.getElementById('part4Container');
             if (!c) return;
+            const st = getActiveExamState();
+            const matchedBSet = new Set(Object.values(matchedPairs));
+            const allMatched = Object.keys(matchedPairs).length === P4_DATA.length;
             c.innerHTML = `
                 <div class="question-item">
                     <div style="font-size:0.95rem; color:var(--gray-600); margin-bottom:14px;">
@@ -2306,14 +2614,14 @@ HTML_TEMPLATE = """<!DOCTYPE html>
                     <div class="matching-grid">
                         <div id="colAContainer">
                             ${P4_DATA.map(item => `
-                                <div class="match-card jp-text" id="match_A_${item.id}" onclick="clickMatchA(${item.id})">
+                                <div class="match-card jp-text${matchedPairs[item.id] ? ' matched' : ''}" id="match_A_${item.id}" onclick="clickMatchA(${item.id})">
                                     <strong>A${item.id - 20}:</strong> ${item.promptA}
                                 </div>
                             `).join('')}
                         </div>
                         <div id="colBContainer">
-                            ${P4_DATA.slice().sort(() => Math.random() - 0.5).map(item => `
-                                <div class="match-card jp-text" id="match_B_${item.correctBId}" onclick="clickMatchB('${item.correctBId}')">
+                            ${st.p4Order.map(item => `
+                                <div class="match-card jp-text${matchedBSet.has(item.correctBId) ? ' matched' : ''}" id="match_B_${item.correctBId}" onclick="clickMatchB('${item.correctBId}')">
                                     <strong>${item.correctBId}:</strong> ${item.promptB}
                                 </div>
                             `).join('')}
@@ -2321,9 +2629,9 @@ HTML_TEMPLATE = """<!DOCTYPE html>
                     </div>
                     <div style="display:flex; gap:12px; align-items:center;">
                         <button type="button" class="btn-primary" onclick="resetMatching()" style="background:var(--gray-600); padding:6px 14px; font-size:0.88rem;">Đặt Lại Cột Nối</button>
-                        <span id="matchScoreText" style="font-weight:700;"></span>
+                        <span id="matchScoreText" style="font-weight:700;">${allMatched ? '<span style="color:var(--success);">🎉 Đã nối chuẩn xác toàn bộ 4 cặp câu! (+10 Điểm)</span>' : ''}</span>
                     </div>
-                    <div class="explain-box" id="p4_exp_all">
+                    <div class="explain-box" id="p4_exp_all" style="display:${allMatched ? 'block' : 'none'};">
                         <strong>💡 Phân tích các cặp hội thoại chuẩn:</strong><br>
                         ${P4_DATA.map(p => `• <strong>${p.correctBId}</strong>: ${p.explain}`).join('<br>')}
                     </div>
@@ -2371,8 +2679,10 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         }
 
         function resetMatching() {
+            const st = getActiveExamState();
             selectedA = null;
-            matchedPairs = {};
+            st.matchedPairs = {};
+            matchedPairs = st.matchedPairs;
             P4_DATA.forEach(q => {
                 scoreState.p4[q.id] = 0;
             });
@@ -2384,29 +2694,41 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         function renderPart5() {
             const c = document.getElementById('part5Container');
             if (!c) return;
+            const st = getActiveExamState();
             c.innerHTML = P5_DATA.map(passage => `
                 <div class="question-item">
                     <h3 style="font-size:1.15rem; font-weight:800; color:var(--primary); margin-bottom:12px;">${passage.title}</h3>
                     <div class="reading-box jp-text">${passage.text}</div>
                     <div>
-                        ${passage.questions.map(q => `
-                            <div style="margin-bottom:18px; padding-bottom:14px; border-bottom:1px dashed var(--gray-200);">
-                                <div class="q-title">
-                                    <span class="q-badge">Câu ${q.id}</span>
-                                    <span class="jp-text">${q.q}</span>
+                        ${passage.questions.map(q => {
+                            const chosenIdx = st.p5Chosen[q.id];
+                            const answered = chosenIdx !== undefined;
+                            return `
+                                <div style="margin-bottom:18px; padding-bottom:14px; border-bottom:1px dashed var(--gray-200);">
+                                    <div class="q-title">
+                                        <span class="q-badge">Câu ${q.id}</span>
+                                        <span class="jp-text">${q.q}</span>
+                                    </div>
+                                    <div class="options-list">
+                                        ${q.options.map((opt, oIdx) => {
+                                            let cls = 'opt-btn jp-text';
+                                            if (answered) {
+                                                if (oIdx === q.correct) cls += ' is-correct';
+                                                else if (oIdx === chosenIdx) cls += ' is-wrong';
+                                            }
+                                            return `
+                                                <button type="button" class="${cls}" id="p5_opt_${q.id}_${oIdx}" onclick="selectPart5Answer(${q.id}, ${oIdx}, ${passage.passageId})" ${answered ? 'disabled' : ''}>
+                                                    ${['A', 'B', 'C', 'D'][oIdx]}. ${opt}
+                                                </button>
+                                            `;
+                                        }).join('')}
+                                    </div>
+                                    <div class="explain-box" id="p5_exp_${q.id}" style="display:${answered ? 'block' : 'none'};">
+                                        <strong>💡 Giải thích:</strong> ${q.explain}
+                                    </div>
                                 </div>
-                                <div class="options-list">
-                                    ${q.options.map((opt, oIdx) => `
-                                        <button type="button" class="opt-btn jp-text" id="p5_opt_${q.id}_${oIdx}" onclick="selectPart5Answer(${q.id}, ${oIdx}, ${passage.passageId})">
-                                            ${['A', 'B', 'C', 'D'][oIdx]}. ${opt}
-                                        </button>
-                                    `).join('')}
-                                </div>
-                                <div class="explain-box" id="p5_exp_${q.id}">
-                                    <strong>💡 Giải thích:</strong> ${q.explain}
-                                </div>
-                            </div>
-                        `).join('')}
+                            `;
+                        }).join('')}
                     </div>
                 </div>
             `).join('');
@@ -2417,6 +2739,8 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             if (!passage) return;
             const item = passage.questions.find(q => q.id === qId);
             if (!item) return;
+            const st = getActiveExamState();
+            st.p5Chosen[qId] = oIdx;
 
             item.options.forEach((_, idx) => {
                 const btn = document.getElementById(`p5_opt_${qId}_${idx}`);
@@ -2448,44 +2772,71 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         function renderPart6() {
             const c = document.getElementById('part6Container');
             if (!c) return;
-            c.innerHTML = P6_DATA.map(item => `
-                <div class="question-item" id="p6_item_${item.id}">
-                    <div class="q-title">
-                        <span class="q-badge">Câu ${item.id} • ${item.category}</span>
-                        <span>${item.vi}</span>
-                    </div>
-                    <div style="font-size:0.88rem; color:#475569; margin-bottom:10px;">
-                        💡 <strong>Từ khóa gợi ý:</strong> ${item.hint}
-                    </div>
-                    <textarea class="conjugate-input jp-text" id="p6_txt_${item.id}" rows="2" style="width:100%; font-size:1rem; margin-bottom:10px;" placeholder="Gõ câu dịch tiếng Nhật của bạn vào đây..."></textarea>
-                    <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
-                        <button type="button" class="btn-primary" onclick="toggleTranslationModel(${item.id})" style="padding:6px 14px; font-size:0.88rem;">👁️ Xem Đáp Án Mẫu</button>
-                        <button type="button" class="btn-primary" onclick="selfGradeTranslation(${item.id}, 3.75)" style="background:var(--success); padding:6px 14px; font-size:0.88rem;">✓ Tự Chấm Đúng (+3.75đ)</button>
-                        <button type="button" class="btn-primary" onclick="selfGradeTranslation(${item.id}, 0)" style="background:var(--gray-600); padding:6px 14px; font-size:0.88rem;">✗ Tự Chấm Sai (0đ)</button>
-                        <span id="p6_status_${item.id}" style="font-weight:700;"></span>
-                    </div>
-                    <div class="explain-box" id="p6_model_${item.id}">
-                        <div style="font-size:1.1rem; font-weight:800; color:var(--primary); margin-bottom:6px;" class="jp-text">
-                            ${item.modelSentence}
-                            <button type="button" class="audio-btn" onclick="speakText('${item.modelSentence}')" style="vertical-align:middle; margin-left:6px;">🔊</button>
+            const st = getActiveExamState();
+            c.innerHTML = P6_DATA.map(item => {
+                const pts = st.p6StatusPts[item.id];
+                const modelOpen = Boolean(st.p6ModelOpen[item.id]);
+                const statusHtml = pts !== undefined
+                    ? (pts > 0
+                        ? `<span style="color:var(--success);">✓ Đã cộng ${pts} điểm</span>`
+                        : `<span style="color:var(--accent);">✗ 0 điểm</span>`)
+                    : '';
+                return `
+                    <div class="question-item" id="p6_item_${item.id}">
+                        <div class="q-title">
+                            <span class="q-badge">Câu ${item.id} • ${item.category}</span>
+                            <span>${item.vi}</span>
                         </div>
-                        <div style="color:var(--gray-600); font-size:0.9rem; margin-bottom:8px;">${item.modelKana}</div>
-                        <strong>Phân tích ngữ pháp:</strong>
-                        <ul style="margin-left:20px; font-size:0.92rem; color:var(--gray-700);">
-                            ${item.breakdown.map(b => `<li><strong>${b.part}</strong>: ${b.role}</li>`).join('')}
-                        </ul>
+                        <div style="font-size:0.88rem; color:#475569; margin-bottom:10px;">
+                            💡 <strong>Từ khóa gợi ý:</strong> ${item.hint}
+                        </div>
+                        <textarea class="conjugate-input jp-text" id="p6_txt_${item.id}" rows="2" style="width:100%; font-size:1rem; margin-bottom:10px;" placeholder="Gõ câu dịch tiếng Nhật của bạn vào đây..."></textarea>
+                        <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+                            <button type="button" class="btn-primary" onclick="toggleTranslationModel(${item.id})" style="padding:6px 14px; font-size:0.88rem;">👁️ Xem Đáp Án Mẫu</button>
+                            <button type="button" class="btn-primary" onclick="selfGradeTranslation(${item.id}, 3.75)" style="background:var(--success); padding:6px 14px; font-size:0.88rem;">✓ Tự Chấm Đúng (+3.75đ)</button>
+                            <button type="button" class="btn-primary" onclick="selfGradeTranslation(${item.id}, 0)" style="background:var(--gray-600); padding:6px 14px; font-size:0.88rem;">✗ Tự Chấm Sai (0đ)</button>
+                            <span id="p6_status_${item.id}" style="font-weight:700;">${statusHtml}</span>
+                        </div>
+                        <div class="explain-box" id="p6_model_${item.id}" style="display:${modelOpen ? 'block' : 'none'};">
+                            <div style="font-size:1.1rem; font-weight:800; color:var(--primary); margin-bottom:6px;" class="jp-text">
+                                ${item.modelSentence}
+                                <button type="button" class="audio-btn" onclick="speakP6Model(${item.id})" style="vertical-align:middle; margin-left:6px;">🔊</button>
+                            </div>
+                            <div style="color:var(--gray-600); font-size:0.9rem; margin-bottom:8px;">${item.modelKana}</div>
+                            <strong>Phân tích ngữ pháp:</strong>
+                            <ul style="margin-left:20px; font-size:0.92rem; color:var(--gray-700);">
+                                ${item.breakdown.map(b => `<li><strong>${b.part}</strong>: ${b.role}</li>`).join('')}
+                            </ul>
+                        </div>
                     </div>
-                </div>
-            `).join('');
+                `;
+            }).join('');
+            P6_DATA.forEach(item => {
+                const txt = document.getElementById(`p6_txt_${item.id}`);
+                if (txt && st.p6Draft[item.id]) txt.value = st.p6Draft[item.id];
+            });
+        }
+
+        function speakP6Model(qId) {
+            const item = P6_DATA.find(q => q.id === qId);
+            if (item) speakText(item.modelSentence);
         }
 
         function toggleTranslationModel(qId) {
             const el = document.getElementById(`p6_model_${qId}`);
-            if (el) el.style.display = el.style.display === 'block' ? 'none' : 'block';
+            const st = getActiveExamState();
+            if (el) {
+                const nextOpen = el.style.display !== 'block';
+                el.style.display = nextOpen ? 'block' : 'none';
+                st.p6ModelOpen[qId] = nextOpen;
+            }
         }
 
         function selfGradeTranslation(qId, pts) {
+            const st = getActiveExamState();
             scoreState.p6[qId] = pts;
+            st.p6StatusPts[qId] = pts;
+            st.p6ModelOpen[qId] = true;
             const statusEl = document.getElementById(`p6_status_${qId}`);
             if (pts > 0) {
                 statusEl.innerHTML = `<span style="color:var(--success);">✓ Đã cộng ${pts} điểm</span>`;
@@ -2498,21 +2849,18 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 
         // TOTAL SCORE
         function updateTotalScore() {
-            let total = 0;
-            ['p1', 'p2', 'p3', 'p4', 'p5', 'p6'].forEach(p => {
-                Object.values(scoreState[p]).forEach(val => {
-                    total += Number(val) || 0;
-                });
-            });
+            const total = computeExamScore(currentExamId);
             const disp = document.getElementById('totalScoreText');
             if (disp) {
-                disp.innerText = `${Math.round(total * 10) / 10} / 100 Điểm`;
+                disp.innerText = `${total} / 100 Điểm`;
             }
+            renderExamSwitcher();
         }
 
         function resetAllExam() {
-            if (!confirm('Bạn có chắc chắn muốn làm lại toàn bộ đề thi không?')) return;
-            scoreState = { p1: {}, p2: {}, p3: {}, p4: {}, p5: {}, p6: {} };
+            if (!confirm(`Bạn có chắc chắn muốn làm lại toàn bộ Mã Đề ${currentExamId} không?`)) return;
+            examStates[currentExamId] = createEmptyExamState(getExamById(currentExamId));
+            bindActiveExamAliases();
             renderPart1();
             renderPart2();
             renderPart3();
@@ -2520,7 +2868,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             renderPart5();
             renderPart6();
             updateTotalScore();
-            showToast('Đã đặt lại toàn bộ đề thi!');
+            showToast(`Đã đặt lại toàn bộ Mã Đề ${currentExamId}!`);
         }
 
         // ==========================================
@@ -2667,6 +3015,9 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             }
 
             // Khởi tạo hiển thị dữ liệu
+            bindActiveExamAliases();
+            updateExamHeaderBanner();
+            renderExamSwitcher();
             renderVocab(VOCAB_DATA);
             renderKanji(KANJI_DATA);
             renderPart1();
@@ -2683,14 +3034,11 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 </html>
 """
 
-html_content = HTML_TEMPLATE.replace('__VOCAB_JSON__', vocab_json_str) \
-                            .replace('__KANJI_JSON__', kanji_json_str) \
-                            .replace('__P1_JSON__', p1_json_str) \
-                            .replace('__P2_JSON__', p2_json_str) \
-                            .replace('__P3_JSON__', p3_json_str) \
-                            .replace('__P4_JSON__', p4_json_str) \
-                            .replace('__P5_JSON__', p5_json_str) \
-                            .replace('__P6_JSON__', p6_json_str)
+html_content = (
+    HTML_TEMPLATE.replace('__VOCAB_JSON__', vocab_json_str)
+    .replace('__KANJI_JSON__', kanji_json_str)
+    .replace('__EXAMS_JSON__', exams_json_str)
+)
 
 output_path = os.path.join(WORKSPACE, 'tests/On_Tap_Mini_Test_A2_15_18.html')
 with open(output_path, 'w', encoding='utf-8') as f:

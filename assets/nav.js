@@ -46,7 +46,7 @@
         { file: 'On_Tap_Mini_Test_A2_1_4.html', title: '🎯 Ôn Tập Bài 1-4 (Mini Test)' },
         { file: 'On_Tap_Mini_Test_A2_5_8.html', title: '🎯 Ôn Tập Bài 5-8 (Mini Test)' },
         { file: 'On_Tap_Mini_Test_A2_11_14.html', title: '🎯 Ôn Tập Bài 11-14 (Mini Test)' },
-        { file: 'On_Tap_Mini_Test_A2_15_18.html', title: '🎯 Ôn Tập Bài 15-18 (Mini Test Final)' },
+        { file: 'On_Tap_Mini_Test_A2_15_18.html', title: '🎯 Ôn Tập Bài 15-18 (Bộ 5 Mã Đề)' },
         { file: 'De_Thi_Thu_Marugoto_A2_5_8.html', title: '📝 5 Mã Đề Thi Thử (101-105)' },
         { file: 'Kiem_Tra_Marugoto_L6_7_8.html', title: '📑 Đề Kiểm Tra L6, 7, 8' },
         { file: 'Luyen_Tap_The_Te_A2_1.html', title: '🌸 Luyện Tập Thể Te' }
