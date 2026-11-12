@@ -137,15 +137,7 @@ function switchMainTab(tabId, opts) {
     }
 }
 
-function speakText(text) {
-    if (window.speakJapanese) {
-        window.speakJapanese(text);
-    } else if ('speechSynthesis' in window) {
-        const u = new SpeechSynthesisUtterance(text);
-        u.lang = 'ja-JP';
-        window.speechSynthesis.speak(u);
-    }
-}
+// Phát âm TTS sử dụng Unified Audio Engine (audio-engine.js)
 
 // ==========================================
 // RENDER PART 1: TRẮC NGHIỆM (10 CÂU - 25Đ)

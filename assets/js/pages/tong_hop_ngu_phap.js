@@ -94,12 +94,7 @@ function showToast(msg) {
     setTimeout(() => toast.classList.remove('show'), 2200);
 }
 
-// Tokyo Audio Speech Synthesis (Dual Engine via audio-engine.js)
-function speakText(text) {
-    if (window.speakJapanese) {
-        window.speakJapanese(text);
-    }
-}
+// Tokyo Audio Speech Synthesis (Unified via audio-engine.js)
 
 function speakFromElement(elId) {
     const el = document.getElementById(elId);

@@ -5,12 +5,7 @@ const VERB_MORPH_DATA = [{"kanji": "あげる", "masu": "あげます", "vi": "T
 const QUIZ_QUESTIONS = [{"id": 1, "category": "Ngữ pháp: もらいました", "q": "誕生日に 彼 [____] 素敵な ネックレスを もらいました。", "options": ["に", "を", "で", "が"], "correct": 0, "explain": "Nhận cái gì từ ai: [Người tặng] + に もらいました (Nhận từ bạn trai)."}, {"id": 2, "category": "Ngữ pháp: あげます", "q": "母の日に お母さん [____] きれいな 花を あげます。", "options": ["に", "を", "と", "から"], "correct": 0, "explain": "Tặng quà cho ai: [Người nhận] + に あげます (Tặng cho mẹ)."}, {"id": 3, "category": "Ngữ pháp: ～んです giải thích nguồn gốc", "q": "「その 時計、素敵ですね。」――「父に [____] んです。」", "options": ["もらった", "もらう", "もらって", "あげた"], "correct": 0, "explain": "Động từ thể Quá khứ ngắn (Thể た) + んです: もらった ➔ 「もらったんです」 (Tôi được bố tặng đấy)."}, {"id": 4, "category": "Ngữ pháp: Liệt kê ～とか", "q": "結婚の お祝いに 絵 [____] 時計 [____] あげます。", "options": ["とか / とか", "ても / ても", "たり / たり", "など / など"], "correct": 0, "explain": "Liệt kê các danh từ đại diện: 「N1 とか N2 とか」 (Như là tranh, như là đồng hồ)."}, {"id": 5, "category": "Ngữ pháp: Định ngữ V-る + もの", "q": "新居の 部屋に [____] ものを プレゼントしたいです。", "options": ["飾る", "飾って", "飾った", "飾り"], "correct": 0, "explain": "Mệnh đề bổ nghĩa cho danh từ chỉ vật: V thể Từ điển + もの ➔ 「飾るもの」 (Đồ dùng để trang trí)."}, {"id": 6, "category": "Từ vựng: Lễ hội & Kỷ niệm", "q": "12月25日の お祝いは [____] です。", "options": ["クリスマス", "バレンタイン・デー", "母の日", "父の日"], "correct": 0, "explain": "Ngày lễ 25 tháng 12 là Giáng sinh: 「クリスマス」 (Christmas)."}, {"id": 7, "category": "Từ vựng: Lễ hội", "q": "2月14日に チョコレートを あげる 日は [____] です。", "options": ["バレンタイン・デー", "クリスマス", "誕生日", "入学"], "correct": 0, "explain": "Ngày 14 tháng 2 tặng sô-cô-la là Valentine: 「バレンタイン・デー」."}, {"id": 8, "category": "Từ vựng: Sự kiện", "q": "学校の 勉強を 全部 終えて 出る ことを [____] と 言います。", "options": ["卒業 (そつぎょう)", "入学 (にゅうがく)", "就職 (しゅうしょく)", "結婚 (けっこん)"], "correct": 0, "explain": "Hoàn thành việc học và ra trường là 「卒業」 (そつぎょう - Tốt nghiệp)."}, {"id": 9, "category": "Từ vựng: Quà tặng", "q": "時間を 知る ための 道具は [____] です。", "options": ["時計 (とけい)", "写真 (しゃしん)", "絵 (え)", "おもちゃ"], "correct": 0, "explain": "Dụng cụ để xem giờ là đồng hồ: 「時計」 (とけい)."}, {"id": 10, "category": "Từ vựng: Sự kiện", "q": "赤ちゃんが 生まれる ことを [____] と 言います。", "options": ["出産 (しゅっさん)", "就職", "引越し", "入学"], "correct": 0, "explain": "Sinh em bé là 「出産」 (しゅっさん - Xuất sản)."}, {"id": 11, "category": "Chữ Hán Bài 17: 祝 (Chúc)", "q": "Chữ Hán 「祝」 trong 「お祝い (おいわい)」 có âm Hán Việt là:", "options": ["CHÚC", "ĐẢN", "KẾT", "HÔN"], "correct": 0, "explain": "Chữ 祝 có âm Hán Việt là CHÚC (9 nét, bộ Kỳ 礻 + chữ Huynh 兄)."}, {"id": 12, "category": "Chữ Hán Bài 17: 誕 (Đản)", "q": "Từ 「たんじょうび」 (Sinh nhật) có chữ Hán đầu tiên là:", "options": ["誕", "祝", "結", "計"], "correct": 0, "explain": "「たんじょうび」 viết là 「誕生日」 (ĐẢN SINH NHẬT - chữ 誕 có 15 nét)."}, {"id": 13, "category": "Chữ Hán Bài 17: 結婚", "q": "Từ 「けっこん」 (Kết hôn) được viết bằng cặp chữ Hán nào?", "options": ["結婚", "結絵", "婚誕", "祝婚"], "correct": 0, "explain": "「けっこん」 viết là 「結婚」 (KẾT HÔN - chữ 結 12 nét, chữ 婚 11 nét)."}, {"id": 14, "category": "Chữ Hán Bài 17: 写真", "q": "Từ 「しゃしん」 (Bức ảnh) gồm 2 chữ Hán nào?", "options": ["写真", "画真", "絵真", "写計"], "correct": 0, "explain": "「しゃしん」 là 「写真」 (TẢ CHÂN - chữ 写 5 nét, chữ 真 10 nét)."}, {"id": 15, "category": "Chữ Hán Bài 17: 時計", "q": "Từ 「とけい」 (Đồng hồ) viết bằng chữ Hán là:", "options": ["時計", "時真", "時写", "時結"], "correct": 0, "explain": "「とけい」 viết là 「時計」 (THỜI KẾ - chữ 時 10 nét, chữ 計 9 nét)."}];
 const DIALOGUE_STEPS = [{"options": [{"text": "ありがとうございます！実は、先週の誕生日に彼にもらったんです。", "vi": "Cảm ơn bạn! Thực ra là tôi được bạn trai tặng vào ngày sinh nhật tuần trước đấy.", "replyAvatar": "👩‍💼", "replyNpc": "Kobayashi", "replyText": "彼からのプレゼントですか！とても似合っていますよ。羨ましいです。", "replyVi": "Quà bạn trai tặng ư! Trông hợp với bạn lắm luôn. Ghen tị thật đấy."}, {"text": "自分で買ったんじゃなくて、大学の卒業祝いに両親にもらったんです。", "vi": "Không phải tôi tự mua đâu, mà tôi được bố mẹ tặng làm quà mừng tốt nghiệp đại học đấy.", "replyAvatar": "👩‍💼", "replyNpc": "Kobayashi", "replyText": "ご両親からの記念の品なんですね。ずっと大切に使えますね！", "replyVi": "Kỷ vật từ bố mẹ tặng ý nghĩa quá. Bạn có thể giữ gìn và dùng suốt đời được đấy!"}]}, {"npcName": "Kobayashi", "avatar": "👩‍💼", "npcText": "来月、佐藤先輩の結婚式があるんですが、日本のお祝いには何をあげればいいでしょうか。", "npcVi": "Tháng sau có đám cưới của tiền bối Sato, theo phong tục Nhật thì nên tặng quà gì thì hợp lý nhỉ?", "options": [{"text": "そうですね、おしゃれなペアのコーヒーカップとか、部屋に飾る絵がいいと思いますよ。", "vi": "Theo tôi thì một bộ tách cà phê đôi xinh xắn hoặc bức tranh trang trí trong phòng sẽ rất tuyệt đấy.", "replyAvatar": "👩‍💼", "replyNpc": "Kobayashi", "replyText": "ペアカップ！素敵ですね。二人で毎日使ってもらえそうです。探してみます！", "replyVi": "Cốc đôi ư! Hay quá. Hai vợ chồng có thể dùng cùng nhau mỗi ngày. Tôi sẽ đi tìm thử!"}, {"text": "料理が好きな先輩ですから、料理のときに使う上質な鍋や食器はどうですか。", "vi": "Vì chị Sato thích nấu ăn, nên những đồ dùng khi nấu nướng như bộ nồi hay chén đĩa cao cấp thì sao?", "replyAvatar": "👩‍💼", "replyNpc": "Kobayashi", "replyText": "さすが！実用的で絶対に喜んでくれますね。アドバイスありがとう！", "replyVi": "Quả đúng là bạn! Rất thiết thực và chị ấy chắc chắn sẽ thích mê. Cảm ơn bạn nhiều nhé!"}]}];
 
-// Tokyo Audio Speech Synthesis (Dual Engine via audio-engine.js)
-function speakText(text) {
-    if (window.speakJapanese) {
-        window.speakJapanese(text);
-    }
-}
+// Tokyo Audio Speech Synthesis handled globally via assets/js/audio-engine.js
 
 // Verb Morphing Laboratory
 let currentVerbIdx = 0;
@@ -191,55 +186,55 @@ function chooseDialogue(stepIdx, optIdx) {
     const step = DIALOGUE_STEPS[stepIdx];
     const opt = step.options[optIdx];
     const chat = document.getElementById('chatContainer');
+    const optBox = document.getElementById('chatOptionsGrid');
+    if (optBox) optBox.innerHTML = '';
 
-    const userBubble = document.createElement('div');
-    userBubble.className = 'chat-bubble user';
-    userBubble.innerHTML = `
-        <div class="chat-avatar">🧑</div>
-        <div class="chat-msg">
-            <div class="chat-name">Bạn (Tôi)</div>
-            <div class="chat-jp">${opt.text}</div>
-            <div class="chat-vi">${opt.vi}</div>
-        </div>
-    `;
-    chat.appendChild(userBubble);
-    speakText(opt.text);
-
-    setTimeout(() => {
-        const npcBubble = document.createElement('div');
-        npcBubble.className = 'chat-bubble bot';
-        npcBubble.innerHTML = `
-            <div class="chat-avatar">${opt.replyAvatar || '👩'}</div>
+    const appendBubble = (isUser, avatar, name, jp, vi) => {
+        const bubble = document.createElement('div');
+        bubble.className = 'chat-bubble ' + (isUser ? 'user' : 'bot');
+        bubble.innerHTML = `
+            <div class="chat-avatar">${avatar}</div>
             <div class="chat-msg">
-                <div class="chat-name">${opt.replyNpc}</div>
-                <div class="chat-jp">${opt.replyText}</div>
-                <div class="chat-vi">${opt.replyVi}</div>
+                <div class="chat-name">${name}</div>
+                <div class="chat-jp">${jp}</div>
+                <div class="chat-vi">${vi}</div>
             </div>
         `;
-        chat.appendChild(npcBubble);
-        speakText(opt.replyText);
+        chat.appendChild(bubble);
+        chat.scrollTop = chat.scrollHeight;
+    };
 
-        if (stepIdx + 1 < DIALOGUE_STEPS.length) {
-            setTimeout(() => {
-                const nextPrompt = DIALOGUE_STEPS[stepIdx + 1];
-                const promptBubble = document.createElement('div');
-                promptBubble.className = 'chat-bubble bot';
-                promptBubble.innerHTML = `
-                    <div class="chat-avatar">${nextPrompt.avatar || '👨'}</div>
-                    <div class="chat-msg">
-                        <div class="chat-name">${nextPrompt.npcName}</div>
-                        <div class="chat-jp">${nextPrompt.npcText}</div>
-                        <div class="chat-vi">${nextPrompt.npcVi}</div>
-                    </div>
-                `;
-                chat.appendChild(promptBubble);
-                speakText(nextPrompt.npcText);
-                renderDialogueOptions(stepIdx + 1);
-            }, 1000);
-        } else {
-            renderDialogueOptions(stepIdx + 1);
+    appendBubble(true, '🧑', 'Bạn (Tôi)', opt.text, opt.vi);
+
+    const queueItems = [
+        { text: opt.text },
+        {
+            text: opt.replyText,
+            onStart: () => appendBubble(false, opt.replyAvatar || '👩', opt.replyNpc, opt.replyText, opt.replyVi)
         }
-    }, 600);
+    ];
+
+    if (stepIdx + 1 < DIALOGUE_STEPS.length) {
+        const nextPrompt = DIALOGUE_STEPS[stepIdx + 1];
+        queueItems.push({
+            text: nextPrompt.npcText,
+            onStart: () => {
+                appendBubble(false, nextPrompt.avatar || '👨', nextPrompt.npcName, nextPrompt.npcText, nextPrompt.npcVi);
+                renderDialogueOptions(stepIdx + 1);
+            }
+        });
+    } else {
+        queueItems.push({
+            text: '',
+            onStart: () => renderDialogueOptions(stepIdx + 1)
+        });
+    }
+
+    if (window.AudioEngine && typeof window.AudioEngine.queue === 'function') {
+        window.AudioEngine.queue(queueItems);
+    } else {
+        queueItems.forEach(item => { if (item.onStart) item.onStart(); });
+    }
 }
 
 // Quiz Logic

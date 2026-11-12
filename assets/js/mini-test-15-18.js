@@ -195,17 +195,7 @@ function switchMainTab(tabId, skipSave) {
     }
 }
 
-// Phát âm TTS
-function speakText(text) {
-    if (window.AudioEngine && typeof window.AudioEngine.speak === 'function') {
-        window.AudioEngine.speak(text);
-    } else if ('speechSynthesis' in window) {
-        const u = new SpeechSynthesisUtterance(text);
-        u.lang = 'ja-JP';
-        u.rate = 0.95;
-        window.speechSynthesis.speak(u);
-    }
-}
+// Phát âm TTS sử dụng Unified Audio Engine (audio-engine.js)
 
 // Toast
 function showToast(msg) {

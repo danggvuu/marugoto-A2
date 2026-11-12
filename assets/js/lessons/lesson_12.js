@@ -5,12 +5,7 @@ const VERB_MORPH_DATA = [{"kanji": "美味しい", "masu": "おいしい", "vi":
 const QUIZ_QUESTIONS = [{"id": 1, "category": "Ngữ pháp: ～そう", "q": "この ラーメンは とても [____] ですね。", "options": ["おいしそう", "おいしいそう", "おいしくそう", "おいしかったそう"], "correct": 0, "explain": "Tính từ đuôi い khi kết hợp với ～そう sẽ bỏ い: おいしい ➔ おいしそう (Trông có vẻ ngon)."}, {"id": 2, "category": "Ngữ pháp: ～そう", "q": "スープが 赤いですから、ちょっと [____] ですね。", "options": ["からそう", "からいそう", "からくそう", "からだそう"], "correct": 0, "explain": "からい ➔ bỏ い thêm そう thành 「からそう」 (Trông có vẻ cay)."}, {"id": 3, "category": "Ngữ pháp: Nối tính từ A-くて", "q": "この サラダは ちょっと [____]、おいしいです。", "options": ["からくて", "からいで", "からいから", "からくても"], "correct": 0, "explain": "Nối 2 tính từ: からい ➔ からくて (Hơi cay một chút mà ngon)."}, {"id": 4, "category": "Từ vựng: Vị giác", "q": "レモンは どんな 味ですか。―― とても [____] です。", "options": ["すっぱい", "あまい", "にがい", "しょっぱい"], "correct": 0, "explain": "Quả chanh (レモン) thì có vị chua là 「すっぱい」."}, {"id": 5, "category": "Từ vựng: Vị giác", "q": "ケーキや チョコレートは [____] です。", "options": ["あまい", "からい", "すっぱい", "まずい"], "correct": 0, "explain": "Bánh ngọt và sô-cô-la có vị ngọt là 「あまい」."}, {"id": 6, "category": "Từ vựng: Vị giác", "q": "しおが たくさん 入っていますから、とても [____] です。", "options": ["しょっぱい", "すっぱい", "にがい", "あまい"], "correct": 0, "explain": "Cho nhiều muối (しお) thì món ăn sẽ bị mặn muối là 「しょっぱい」."}, {"id": 7, "category": "Ngữ pháp: So sánh ～と似ています", "q": "日本の すしは 韓国の キンパ [____] 似ています。", "options": ["と", "に", "を", "で"], "correct": 0, "explain": "Cấu trúc so sánh giống với cái gì: 「N と 似ています」 (Giống với N)."}, {"id": 8, "category": "Ngữ pháp: Mẫu câu kinh nghiệm", "q": "あなたは 納豆を [____] ことがありますか。", "options": ["食べた", "食べる", "食べ", "食べて"], "correct": 0, "explain": "Cấu trúc hỏi trải nghiệm kinh nghiệm trong quá khứ là: V-た ことがありますか ➔ 「食べたことがありますか」."}, {"id": 9, "category": "Giao tiếp: Mời ăn", "q": "Khi muốn lịch sự mời bạn bè dùng thử món ăn của mình, ta nói:", "options": ["よかったら、どうぞ", "ごちそうさまでした", "お邪魔します", "失礼します"], "correct": 0, "explain": "「よかったら、どうぞ」 nghĩa là 'Nếu được xin mời bạn cứ tự nhiên dùng'."}, {"id": 10, "category": "Giao tiếp: Đáp lại lời mời", "q": "Khi nhận món ăn người khác mời, câu chào trước khi ăn là:", "options": ["いただきます", "ごちそうさま", "お疲れ様", "どういたしまして"], "correct": 0, "explain": "Câu nói bắt buộc khi bắt đầu ăn là 「いただきます」."}, {"id": 11, "category": "Chữ Hán Bài 12: 料 (Liệu)", "q": "Chữ Hán 「料」 trong từ 「料理 (りょうり)」 có âm Hán Việt là:", "options": ["LIỆU", "LÝ", "KHOA", "VỊ"], "correct": 0, "explain": "Chữ 料 có âm Hán Việt là LIỆU (10 nét), mang nghĩa nguyên liệu, vật liệu."}, {"id": 12, "category": "Chữ Hán Bài 12: 理 (Lý)", "q": "Chữ Hán nào kết hợp với 「料」 để tạo thành từ 「りょうり」 (Món ăn)?", "options": ["理", "野", "菜", "味"], "correct": 0, "explain": "「料理」 gồm chữ LIỆU (料) và chữ LÝ (理 - 11 nét)."}, {"id": 13, "category": "Chữ Hán Bài 12: 味 (Vị)", "q": "Từ 「あじ」 (Mùi vị) được viết bằng chữ Hán là:", "options": ["味", "色", "少", "菜"], "correct": 0, "explain": "「あじ」 viết bằng chữ Hán là 「味」 (VỊ - 8 nét, gồm bộ Khẩu 口 và chữ Mùi 未)."}, {"id": 14, "category": "Chữ Hán Bài 12: 野 & 菜", "q": "Từ 「やさい」 (Rau xanh, rau củ) được viết bằng cặp chữ Hán nào?", "options": ["野菜", "料理", "風味", "少色"], "correct": 0, "explain": "「やさい」 viết Hán tự là 「野菜」 (DÃ THÁI)."}, {"id": 15, "category": "Chữ Hán Bài 12: 少 (Thiểu)", "q": "Từ 「すこし」 (Một chút, một ít) có chữ Hán là:", "options": ["少し", "多し", "小さし", "高し"], "correct": 0, "explain": "「すこし」 viết chữ Hán là 「少し」 (chữ THIỂU - 4 nét)."}];
 const DIALOGUE_STEPS = [{"options": [{"text": "わあ、とても おいしそうですね！いただきます。", "vi": "Oa, trông ngon mắt quá chừng! Mình xin phép ăn nhé.", "replyAvatar": "👩‍🦰", "replyNpc": "Emi", "replyText": "どうぞ！卵焼きと唐揚げが入っていますよ。", "replyVi": "Cứ tự nhiên nhé! Có trứng cuộn và gà rán bên trong đó."}, {"text": "きれいですね！韓国のキンパと似ていますね。", "vi": "Đẹp mắt quá! Trông khá giống món Kimbap của Hàn Quốc nhỉ.", "replyAvatar": "👩‍🦰", "replyNpc": "Emi", "replyText": "そうですね！でも海苔巻きの味は少し違いますよ。", "replyVi": "Đúng thế thật! Nhưng vị của cơm cuộn rong biển Nhật thì hơi khác một chút đấy."}]}, {"npcName": "Tanaka", "avatar": "👨‍💼", "npcText": "こちらのサラダも どうですか。ちょっと からいですよ。", "npcVi": "Thử thêm món salad này nữa xem sao? Có vị hơi cay một chút đấy.", "options": [{"text": "辛いのは 大好きですから、ぜひ いただきます！", "vi": "Mình cực kỳ thích ăn cay nên nhất định sẽ thử ạ!", "replyAvatar": "👨‍💼", "replyNpc": "Tanaka", "replyText": "本当ですか！口に合ってよかったです。", "replyVi": "Thật ư! Rất mừng vì món ăn hợp khẩu vị của bạn nhé."}, {"text": "ありがとうございます。辛くて シャキシャキして おいしいです！", "vi": "Cảm ơn bạn. Rau vừa cay vừa giòn sần sật, ngon tuyệt vời!", "replyAvatar": "👨‍💼", "replyNpc": "Tanaka", "replyText": "たくさん 食べてくださいね！", "replyVi": "Bạn hãy ăn thật nhiều vào nhé!"}]}];
 
-// Tokyo Audio Speech Synthesis (Dual Engine via audio-engine.js)
-function speakText(text) {
-    if (window.speakJapanese) {
-        window.speakJapanese(text);
-    }
-}
+// Tokyo Audio Speech Synthesis handled globally via assets/js/audio-engine.js
 
 // Verb Morphing Laboratory
 let currentVerbIdx = 0;
@@ -191,55 +186,55 @@ function chooseDialogue(stepIdx, optIdx) {
     const step = DIALOGUE_STEPS[stepIdx];
     const opt = step.options[optIdx];
     const chat = document.getElementById('chatContainer');
+    const optBox = document.getElementById('chatOptionsGrid');
+    if (optBox) optBox.innerHTML = '';
 
-    const userBubble = document.createElement('div');
-    userBubble.className = 'chat-bubble user';
-    userBubble.innerHTML = `
-        <div class="chat-avatar">🧑</div>
-        <div class="chat-msg">
-            <div class="chat-name">Bạn (Tôi)</div>
-            <div class="chat-jp">${opt.text}</div>
-            <div class="chat-vi">${opt.vi}</div>
-        </div>
-    `;
-    chat.appendChild(userBubble);
-    speakText(opt.text);
-
-    setTimeout(() => {
-        const npcBubble = document.createElement('div');
-        npcBubble.className = 'chat-bubble bot';
-        npcBubble.innerHTML = `
-            <div class="chat-avatar">${opt.replyAvatar || '👩'}</div>
+    const appendBubble = (isUser, avatar, name, jp, vi) => {
+        const bubble = document.createElement('div');
+        bubble.className = 'chat-bubble ' + (isUser ? 'user' : 'bot');
+        bubble.innerHTML = `
+            <div class="chat-avatar">${avatar}</div>
             <div class="chat-msg">
-                <div class="chat-name">${opt.replyNpc}</div>
-                <div class="chat-jp">${opt.replyText}</div>
-                <div class="chat-vi">${opt.replyVi}</div>
+                <div class="chat-name">${name}</div>
+                <div class="chat-jp">${jp}</div>
+                <div class="chat-vi">${vi}</div>
             </div>
         `;
-        chat.appendChild(npcBubble);
-        speakText(opt.replyText);
+        chat.appendChild(bubble);
+        chat.scrollTop = chat.scrollHeight;
+    };
 
-        if (stepIdx + 1 < DIALOGUE_STEPS.length) {
-            setTimeout(() => {
-                const nextPrompt = DIALOGUE_STEPS[stepIdx + 1];
-                const promptBubble = document.createElement('div');
-                promptBubble.className = 'chat-bubble bot';
-                promptBubble.innerHTML = `
-                    <div class="chat-avatar">${nextPrompt.avatar || '👨'}</div>
-                    <div class="chat-msg">
-                        <div class="chat-name">${nextPrompt.npcName}</div>
-                        <div class="chat-jp">${nextPrompt.npcText}</div>
-                        <div class="chat-vi">${nextPrompt.npcVi}</div>
-                    </div>
-                `;
-                chat.appendChild(promptBubble);
-                speakText(nextPrompt.npcText);
-                renderDialogueOptions(stepIdx + 1);
-            }, 1000);
-        } else {
-            renderDialogueOptions(stepIdx + 1);
+    appendBubble(true, '🧑', 'Bạn (Tôi)', opt.text, opt.vi);
+
+    const queueItems = [
+        { text: opt.text },
+        {
+            text: opt.replyText,
+            onStart: () => appendBubble(false, opt.replyAvatar || '👩', opt.replyNpc, opt.replyText, opt.replyVi)
         }
-    }, 600);
+    ];
+
+    if (stepIdx + 1 < DIALOGUE_STEPS.length) {
+        const nextPrompt = DIALOGUE_STEPS[stepIdx + 1];
+        queueItems.push({
+            text: nextPrompt.npcText,
+            onStart: () => {
+                appendBubble(false, nextPrompt.avatar || '👨', nextPrompt.npcName, nextPrompt.npcText, nextPrompt.npcVi);
+                renderDialogueOptions(stepIdx + 1);
+            }
+        });
+    } else {
+        queueItems.push({
+            text: '',
+            onStart: () => renderDialogueOptions(stepIdx + 1)
+        });
+    }
+
+    if (window.AudioEngine && typeof window.AudioEngine.queue === 'function') {
+        window.AudioEngine.queue(queueItems);
+    } else {
+        queueItems.forEach(item => { if (item.onStart) item.onStart(); });
+    }
 }
 
 // Quiz Logic

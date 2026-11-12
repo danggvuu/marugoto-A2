@@ -4,12 +4,7 @@ window.VOCAB_DATA = VOCAB_DATA;
 const VERB_MORPH_DATA = [{"masu": "かいます", "kanji": "買います", "te": "かって", "te_iki": "買って行きます", "te_ki": "買ってきます", "mashou": "買いましょうか", "vi": "Mua", "ex": "肉と野菜は私が買って行きます。"}, {"masu": "つくります", "kanji": "作ります", "te": "つくって", "te_iki": "作って行きます", "te_ki": "作ってきます", "mashou": "作りましょうか", "vi": "Làm / Nấu", "ex": "私はおにぎりを作って行きます。"}, {"masu": "もちます", "kanji": "持ちます", "te": "もって", "te_iki": "持って行きます", "te_ki": "持ってきます", "mashou": "持ちましょうか", "vi": "Cầm / Mang", "ex": "レジャーシートを持って行きます。"}, {"masu": "もっていきます", "kanji": "持っていきます", "te": "もっていって", "te_iki": "持っていきます", "te_ki": "持ってきます", "mashou": "持っていきましょうか", "vi": "Mang theo đi", "ex": "大きいカメラを持っていきます。"}, {"masu": "てつだいます", "kanji": "手伝います", "te": "てつだって", "te_iki": "手伝って行きます", "te_ki": "手伝ってきます", "mashou": "手伝いましょうか", "vi": "Giúp đỡ", "ex": "料理の準備を手伝いましょうか。"}, {"masu": "じゅんびします", "kanji": "準備します", "te": "じゅんびして", "te_iki": "準備して行きます", "te_ki": "準備してきます", "mashou": "準備しましょうか", "vi": "Chuẩn bị", "ex": "飲み物を準備して行きます。"}, {"masu": "のみます", "kanji": "飲みます", "te": "のんで", "te_iki": "飲んで行きます", "te_ki": "飲んできます", "mashou": "飲みましょうか", "vi": "Uống", "ex": "つめたいお茶を飲んで行きます。"}, {"masu": "たべます", "kanji": "食べます", "te": "たべて", "te_iki": "食べて行きます", "te_ki": "食べてきます", "mashou": "食べましょうか", "vi": "Ăn", "ex": "みんなでお弁当を食べましょう。"}, {"masu": "やきます", "kanji": "焼きます", "te": "やいて", "te_iki": "焼いて行きます", "te_ki": "焼いてきます", "mashou": "焼きましょうか", "vi": "Nướng (thịt)", "ex": "私が肉を焼きましょうか。"}, {"masu": "あつめます", "kanji": "集めます", "te": "あつめて", "te_iki": "集めて行きます", "te_ki": "集めてきます", "mashou": "集めましょうか", "vi": "Gom / Thu dọn", "ex": "ゴミ袋にゴミを集めましょう。"}];
 const QUIZ_QUESTIONS = [{"id": 1, "category": "Ngữ pháp: V-ていきます (Làm rồi mang đi)", "q": "バーベキューの にくと やさいは、わたしが [____] 行きます。", "options": ["かって", "かいて", "かいます", "かう"], "correct": 0, "explain": "Động từ 「かいます」 (nhóm 1) chia sang thể Te là 「かって」 ➔ 「買って行きます」 (Tôi sẽ mua thịt và rau rồi mang đi đến buổi BBQ)."}, {"id": 2, "category": "Ngữ pháp: V-てきます (Đi làm rồi quay lại)", "q": "くるまから ゴミぶくろを [____] きますから、ちょっと まってください。", "options": ["もって", "まち", "もつ", "もった"], "correct": 0, "explain": "Cấu trúc đi lấy đồ gì đó rồi quay lại vị trí hiện tại: 「V-て ＋ きます」. 「もちます」 chia sang thể Te là 「もって」 ➔ 「持ってきます」 (Tôi đi lấy túi rác đem lại đây)."}, {"id": 3, "category": "Ngữ pháp: Nghi vấn từ + でも (Bất cứ cái gì cũng được)", "q": "A: 「のみものは なにが いいですか。」 ―― B: 「[____] いいですよ。」", "options": ["なんでも", "だれでも", "どこでも", "いつでも"], "correct": 0, "explain": "A hỏi về đồ uống (なに). Để trả lời 'Cái gì cũng được / Đồ gì cũng ổn', ta dùng 「なんでも いいです」."}, {"id": 4, "category": "Ngữ pháp: Nghi vấn từ + でも (Khi nào cũng được)", "q": "A: 「ピクニックは どようびと にちようび、どちらが いいですか。」 ―― B: 「わたしは [____] いいですよ。」", "options": ["いつでも", "どこでも", "なんでも", "いくつでも"], "correct": 0, "explain": "A hỏi về thời gian (thứ Bảy hay Chủ Nhật). Để trả lời 'Khi nào / lúc nào tôi cũng rảnh/được cả', ta dùng 「いつでも いいです」."}, {"id": 5, "category": "Ngữ pháp: So sánh どちらがいいですか", "q": "「おにぎりと サンドイッチ、どちらが いいですか。」 ―― 「おにぎり[____] いいです。」", "options": ["が", "を", "に", "で"], "correct": 0, "explain": "Cặp câu hỏi và trả lời so sánh sự lựa chọn: 「N1 と N2、どちらが いいですか」 ➔ 「N1 が いいです」 (Tôi thích N1 hơn / N1 thì tốt hơn)."}, {"id": 6, "category": "Ngữ pháp: V-ましょうか (Đề nghị giúp đỡ)", "q": "にもつが おもそうですね。わたしが [____] ましょうか。", "options": ["もち", "もって", "もつ", "もった"], "correct": 0, "explain": "Cấu trúc đề nghị làm gì giúp ai đó: 「V-ます (bỏ ます) ＋ ましょうか」. 「もちます」 bỏ ます thành 「もち」 ➔ 「持ちましょうか」 (Để tôi xách giúp đồ nhé?)."}, {"id": 7, "category": "Từ vựng: Vật dụng dã ngoại", "q": "しばふ（bãi cỏ）の うえに すわる ために、[____] を もって 行きます。", "options": ["レジャーシート", "ゴミぶくろ", "わりばし", "メニュー"], "correct": 0, "explain": "Tấm bạt lớn trải trên bãi cỏ để ngồi dã ngoại gọi là 「レジャーシート」 (Leisure sheet)."}, {"id": 8, "category": "Từ vựng: Môi trường & Rác thải", "q": "ピクニックの あと、ゴミを あつめる ために [____] が ひつようです。", "options": ["ゴミぶくろ", "かみコップ", "おべんとう", "くだもの"], "correct": 0, "explain": "Túi dùng để thu gom rác sau buổi dã ngoại là 「ゴミぶくろ」 (ゴミ袋 - Túi đựng rác)."}, {"id": 9, "category": "Từ vựng: Đồ dùng ăn uống picnic", "q": "ジュースを のむ ために [____] を かって 行きましょう。", "options": ["かみコップ", "わりばし", "レジャーシート", "かみざら"], "correct": 0, "explain": "Cốc giấy dùng để uống nước giải khát là 「かみコップ」 (紙コップ)."}, {"id": 10, "category": "Chữ Hán Bài 11: 酒 (Tửu)", "q": "Chữ Hán của từ 「おさけ」 (Rượu, đồ uống có cồn) là chữ nào?", "options": ["お酒", "お茶", "お物", "お作"], "correct": 0, "explain": "Chữ Hán của 「おさけ」 là 「お酒」 (âm Hán Việt là Tửu - 10 nét, bộ Thủy 氵 + bộ Dậu 酉)."}, {"id": 11, "category": "Chữ Hán Bài 11: 作 (Tác)", "q": "Chữ Hán của từ 「つくります」 (Làm ra, nấu ăn, chế tạo) là:", "options": ["作ります", "持ちます", "飲みます", "行きます"], "correct": 0, "explain": "Động từ 「つくります」 viết bằng chữ Hán là 「作ります」 (Tác - 7 nét, bộ Nhân đứng 亻 + chữ Sạ 乍)."}, {"id": 12, "category": "Chữ Hán Bài 11: 物 (Vật)", "q": "Từ 「のみもの」 (Đồ uống) được viết bằng chữ Hán là:", "options": ["飲み物", "飲み茶", "飲み酒", "飲ん事"], "correct": 0, "explain": "「のみもの」 viết Hán tự là 「飲み物」 (Ẩm Vật - 8 nét chữ Vật 物)."}, {"id": 13, "category": "Chữ Hán Bài 11: 茶 (Trà)", "q": "Từ 「きっさてん」 (Quán giải khát, cà phê) chứa chữ Hán nào?", "options": ["喫茶店", "喫酒館", "喫物屋", "喫作処"], "correct": 0, "explain": "「きっさてん」 viết chữ Hán là 「喫茶店」 (Khiết Trà Điếm - chứa chữ Trà 茶 - 9 nét)."}, {"id": 14, "category": "Chữ Hán Bài 11: 持 (Trì)", "q": "「わたしは レジャーシートを [____] 行きます。」 (もちます chia thể Te):", "options": ["持って", "作って", "買って", "待って"], "correct": 0, "explain": "「もちます」 (cầm/mang) có chữ Hán là 「持ちます」, chia thể Te thành 「持って」 (chữ Trì 持 - 9 nét)."}, {"id": 15, "category": "Chữ Hán Bài 11: 願 (Nguyện)", "q": "Cụm từ quen thuộc khi nhờ vả ai chuẩn bị giúp: 「お[____]いします」:", "options": ["願い", "酒い", "茶い", "物い"], "correct": 0, "explain": "「おねがいします」 viết Hán tự là 「お願いします」 (chữ Nguyện 願 - 19 nét, cấu tạo từ chữ Nguyên 原 + bộ Hiệt 頁)."}];
 
-// Tokyo Audio Speech Synthesis (Dual Engine via audio-engine.js)
-function speakText(text) {
-    if (window.speakJapanese) {
-        window.speakJapanese(text);
-    }
-}
+// Tokyo Audio Speech Synthesis handled globally via assets/js/audio-engine.js
 
 // Verb Morphing Laboratory
 let currentVerbIdx = 0;
@@ -227,58 +222,55 @@ function chooseDialogue(stepIdx, optIdx) {
     const step = dialogueSteps[stepIdx];
     const opt = step.options[optIdx];
     const chat = document.getElementById('chatContainer');
+    const optBox = document.getElementById('chatOptionsGrid');
+    if (optBox) optBox.innerHTML = '';
 
-    // Add user bubble
-    const userBubble = document.createElement('div');
-    userBubble.className = 'chat-bubble user';
-    userBubble.innerHTML = `
-        <div class="chat-avatar">🧑</div>
-        <div class="chat-msg">
-            <div class="chat-name">Bạn (Tôi)</div>
-            <div class="chat-jp">${opt.text}</div>
-            <div class="chat-vi">${opt.vi}</div>
-        </div>
-    `;
-    chat.appendChild(userBubble);
-    speakText(opt.text);
-
-    // Add NPC reply
-    setTimeout(() => {
-        const npcBubble = document.createElement('div');
-        npcBubble.className = 'chat-bubble bot';
-        npcBubble.innerHTML = `
-            <div class="chat-avatar">${opt.replyNpc === 'Sakura-chan' ? '👩' : '👨'}</div>
+    const appendBubble = (isUser, avatar, name, jp, vi) => {
+        const bubble = document.createElement('div');
+        bubble.className = 'chat-bubble ' + (isUser ? 'user' : 'bot');
+        bubble.innerHTML = `
+            <div class="chat-avatar">${avatar}</div>
             <div class="chat-msg">
-                <div class="chat-name">${opt.replyNpc}</div>
-                <div class="chat-jp">${opt.replyText}</div>
-                <div class="chat-vi">${opt.replyVi}</div>
+                <div class="chat-name">${name}</div>
+                <div class="chat-jp">${jp}</div>
+                <div class="chat-vi">${vi}</div>
             </div>
         `;
-        chat.appendChild(npcBubble);
-        speakText(opt.replyText);
+        chat.appendChild(bubble);
+        chat.scrollTop = chat.scrollHeight;
+    };
 
-        // Move next step
-        if (stepIdx + 1 < dialogueSteps.length) {
-            setTimeout(() => {
-                const nextPrompt = dialogueSteps[stepIdx + 1];
-                const promptBubble = document.createElement('div');
-                promptBubble.className = 'chat-bubble bot';
-                promptBubble.innerHTML = `
-                    <div class="chat-avatar">👨</div>
-                    <div class="chat-msg">
-                        <div class="chat-name">${nextPrompt.npcName}</div>
-                        <div class="chat-jp">${nextPrompt.npcText}</div>
-                        <div class="chat-vi">${nextPrompt.npcVi}</div>
-                    </div>
-                `;
-                chat.appendChild(promptBubble);
-                speakText(nextPrompt.npcText);
-                renderDialogueOptions(stepIdx + 1);
-            }, 1000);
-        } else {
-            renderDialogueOptions(stepIdx + 1);
+    appendBubble(true, '🧑', 'Bạn (Tôi)', opt.text, opt.vi);
+
+    const queueItems = [
+        { text: opt.text },
+        {
+            text: opt.replyText,
+            onStart: () => appendBubble(false, opt.replyNpc === 'Sakura-chan' ? '👩' : '👨', opt.replyNpc, opt.replyText, opt.replyVi)
         }
-    }, 600);
+    ];
+
+    if (stepIdx + 1 < dialogueSteps.length) {
+        const nextPrompt = dialogueSteps[stepIdx + 1];
+        queueItems.push({
+            text: nextPrompt.npcText,
+            onStart: () => {
+                appendBubble(false, '👨', nextPrompt.npcName, nextPrompt.npcText, nextPrompt.npcVi);
+                renderDialogueOptions(stepIdx + 1);
+            }
+        });
+    } else {
+        queueItems.push({
+            text: '',
+            onStart: () => renderDialogueOptions(stepIdx + 1)
+        });
+    }
+
+    if (window.AudioEngine && typeof window.AudioEngine.queue === 'function') {
+        window.AudioEngine.queue(queueItems);
+    } else {
+        queueItems.forEach(item => { if (item.onStart) item.onStart(); });
+    }
 }
 
 // Quiz Logic

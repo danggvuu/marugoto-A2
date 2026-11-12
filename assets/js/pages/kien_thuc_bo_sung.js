@@ -23,17 +23,11 @@ window.addEventListener('click', function (e) {
     if (tm) tm.classList.remove('show');
 });
 
-// Speech synthesis
-function speakJP(text) {
-    if (!('speechSynthesis' in window)) {
-        alert('Trình duyệt của bạn không hỗ trợ phát âm Audio.');
-        return;
+// Speech synthesis (Unified via audio-engine.js)
+function speakJP(text, btn) {
+    if (window.speakJapanese) {
+        window.speakJapanese(text, btn);
     }
-    window.speechSynthesis.cancel();
-    const u = new SpeechSynthesisUtterance(text);
-    u.lang = 'ja-JP';
-    u.rate = 0.9;
-    window.speechSynthesis.speak(u);
 }
 
 // Toggle furigana

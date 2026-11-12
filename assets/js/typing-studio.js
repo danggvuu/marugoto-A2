@@ -314,8 +314,22 @@
         if (typeof window.showToast === 'function') window.showToast(msg);
     }
 
-    function say(txt) {
-        if (typeof window.speakText === 'function') window.speakText(txt);
+    function getSpeakableTypingText(item) {
+        if (!item) return '';
+        if (window.tpState.mode === 'sentence') {
+            var natural = item.kanjiModel || item.hira || '';
+            return String(natural).replace(/[（(]\s*[／/][^）)]*[）)]/g, '').trim();
+        }
+        return item.kanji || item.jp || item.kana || '';
+    }
+
+    function say(txt, btn) {
+        if (!txt) return;
+        if (window.AudioEngine && typeof window.AudioEngine.speak === 'function') {
+            window.AudioEngine.speak(txt, btn);
+        } else if (typeof window.speakText === 'function') {
+            window.speakText(txt, btn);
+        }
     }
 
     function updateTypingModeButtons() {
@@ -578,7 +592,7 @@
         }
 
         var res = window.JpTypingGrader.grade(rawVal, item, window.tpState.mode, { allowKanji: window.tpState.allowKanji });
-        var audioTxt = window.tpState.mode === 'sentence' ? item.hira : (item.jp || item.kanji || item.kana);
+        var audioTxt = getSpeakableTypingText(item);
 
         if (res.ok) {
             window.tpState.streak++;
@@ -697,13 +711,19 @@
         persistCheckpoint();
     }
 
-    function speakCurrentTypingWord() {
+    function speakCurrentTypingWord(btn) {
         var pool = getFilteredTypingPool();
         var bucket = getActiveBucketKey();
         var idx = window.tpState.idxByBucket[bucket] || 0;
         if (pool[idx]) {
-            var it = pool[idx];
-            say(window.tpState.mode === 'sentence' ? it.hira : (it.kanji || it.jp || it.kana));
+            var triggerBtn = (btn && btn.classList) ? btn : null;
+            try {
+                if (!triggerBtn && window.event && window.event.currentTarget && window.event.currentTarget.tagName === 'BUTTON') {
+                    triggerBtn = window.event.currentTarget;
+                }
+            } catch (e) {}
+            if (!triggerBtn) triggerBtn = document.getElementById('tpCardSpeakBtn');
+            say(getSpeakableTypingText(pool[idx]), triggerBtn);
         }
     }
 
@@ -739,7 +759,7 @@
         window.tpState.history[item.id] = { status: 'reveal', lastInput: ans, whyWrong: [] };
         delete window.tpState.drafts[item.id];
         window.tpState.gradedCurrent = true;
-        say(window.tpState.mode === 'sentence' ? item.hira : (item.kanji || item.jp));
+        say(getSpeakableTypingText(item));
         renderTypingCard(false);
         persistCheckpoint();
     }

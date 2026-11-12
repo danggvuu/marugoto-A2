@@ -259,12 +259,7 @@ function applyKanjiFilter() {
     renderKanji(filtered);
 }
 
-// Speech Synthesis (Dual Engine via audio-engine.js)
-function speakText(text) {
-    if (window.speakJapanese) {
-        window.speakJapanese(text);
-    }
-}
+// Speech Synthesis (Unified via audio-engine.js)
 
 // Render Quiz Questions
 function renderQuiz() {

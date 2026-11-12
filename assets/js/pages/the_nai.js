@@ -170,18 +170,7 @@ function resetAllInputs() {
     });
 }
 
-function speakJapanese(text, btn) {
-    if (!('speechSynthesis' in window)) return;
-    window.speechSynthesis.cancel();
-    const u = new SpeechSynthesisUtterance(text);
-    u.lang = 'ja-JP';
-    u.rate = 0.88;
-    if (btn) {
-        btn.style.transform = 'scale(1.3)';
-        u.onend = () => { btn.style.transform = ''; };
-    }
-    window.speechSynthesis.speak(u);
-}
+// Audio TTS handled globally via assets/js/audio-engine.js
 
 // Lab Transformer
 const VERB_TRANSFORMS = {

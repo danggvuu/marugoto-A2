@@ -588,13 +588,8 @@ function onRowClick(idx) {
 }
 
 // ==========================================
-// AUDIO HELPER (Dual Engine via audio-engine.js)
+// AUDIO HELPER (Unified via audio-engine.js)
 // ==========================================
-function speakJapanese(text, btnEl) {
-    if (window.speakText) {
-        window.speakText(text, btnEl);
-    }
-}
 
 function speakCurrent(e) {
     if (e) e.stopPropagation();

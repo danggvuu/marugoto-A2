@@ -5,12 +5,7 @@ const VERB_MORPH_DATA = [{"kanji": "動かします", "masu": "うごかしま�
 const QUIZ_QUESTIONS = [{"id": 1, "category": "Ngữ pháp: ～んです", "q": "「どうしたんですか。」――「ちょっと 頭が [____]。」", "options": ["痛いんです", "痛いです", "痛くなんです", "痛かったんですか"], "correct": 0, "explain": "Tính từ đuôi い kết hợp với ～んです để giải thích tình trạng: 痛い ➔ 「痛いんです」 (Tôi bị đau đầu)."}, {"id": 2, "category": "Ngữ pháp: V-るといいですよ", "q": "寝る 前に、この 薬を [____] と いいですよ。", "options": ["飲む", "飲んだ", "飲んで", "飲み"], "correct": 0, "explain": "Mẫu câu khuyên bảo nhẹ nhàng: V-る (thể từ điển) + といいですよ ➔ 「飲むといいですよ」."}, {"id": 3, "category": "Ngữ pháp: V-ないでください", "q": "熱が ありますから、あまり 無理を [____] ください。", "options": ["しないで", "しなくて", "するな", "しまないで"], "correct": 0, "explain": "Mẫu câu dặn dò đừng làm gì: V-ない + でください: します ➔ 「しないでください」 (Đừng làm quá sức nhé)."}, {"id": 4, "category": "Từ vựng: Cơ thể", "q": "物や 人を 見る ための 身体の 部分は [____] です。", "options": ["目 (め)", "耳 (みみ)", "口 (くち)", "鼻 (はな)"], "correct": 0, "explain": "Bộ phận để nhìn là con mắt: 「目」 (め)."}, {"id": 5, "category": "Từ vựng: Cơ thể", "q": "音や 音楽を 聞く ための 身体の 部分は [____] です。", "options": ["耳 (みみ)", "目 (め)", "手 (て)", "足 (あし)"], "correct": 0, "explain": "Bộ phận để nghe là cái tai: 「耳」 (みみ)."}, {"id": 6, "category": "Từ vựng: Triệu chứng", "q": "体温が 38度以上 ある 状態を [____] と 言います。", "options": ["熱がある", "かぜをひく", "つかれる", "元気"], "correct": 0, "explain": "Thân nhiệt cao từ 38 độ trở lên gọi là bị sốt: 「熱がある」 (ねつがある)."}, {"id": 7, "category": "Từ vựng: Khó chịu", "q": "車に 酔って 吐き気が するときは 「[____]」 と 言います。", "options": ["気持ちが 悪い", "気持ちが いい", "頭が いい", "足が 速い"], "correct": 0, "explain": "Buồn nôn, khó chịu nôn nao trong người là 「気持ちが悪い」 (きもちがわるい)."}, {"id": 8, "category": "Giao tiếp: Chúc bình phục", "q": "Khi nghe người khác bị ốm hoặc mệt, câu chúc mau khỏi bệnh quen thuộc là:", "options": ["お大事に (おだいじに)", "ごちそうさまでした", "お邪魔します", "失礼します"], "correct": 0, "explain": "Câu chúc mau khỏi bệnh: 「お大事に」 (Chúc bạn mau khỏe lại nhé!)."}, {"id": 9, "category": "Từ vựng: Khám bệnh", "q": "かぜを ひいたので [____] へ 行って 薬を もらいます。", "options": ["病院 (びょういん)", "美容院 (びよういん)", "郵便局", "空港"], "correct": 0, "explain": "Bị cảm cúm thì đi bệnh viện khám lấy thuốc: 「病院」 (びょういん)."}, {"id": 10, "category": "Từ vựng: Cơ thể", "q": "手を 上に あげるときに 動く 部分は [____] です。", "options": ["肩 (かた)", "腰 (こし)", "足 (あし)", "お腹 (おなか)"], "correct": 0, "explain": "Bờ vai là 「肩」 (かた)."}, {"id": 11, "category": "Chữ Hán Bài 15: 体 (Thể)", "q": "Chữ Hán 「体」 trong 「からだ」 có bao nhiêu nét viết?", "options": ["7 nét", "5 nét", "6 nét", "8 nét"], "correct": 0, "explain": "Chữ 体 (THỂ) có 7 nét, gồm bộ Nhân đứng 亻 (2 nét) và chữ Bổn 本 (5 nét)."}, {"id": 12, "category": "Chữ Hán Bài 15: 頭 (Đầu)", "q": "Chữ Hán của từ 「あたま」 (Cái đầu) là:", "options": ["頭", "顔", "首", "体"], "correct": 0, "explain": "「あたま」 có chữ Hán là 「頭」 (ĐẦU - 16 nét)."}, {"id": 13, "category": "Chữ Hán Bài 15: 目 & 口", "q": "Hai chữ Hán 「目」 và 「口」 lần lượt có số nét là:", "options": ["5 nét và 3 nét", "4 nét và 3 nét", "5 nét và 4 nét", "6 nét và 3 nét"], "correct": 0, "explain": "Chữ 目 (MỤC) có 5 nét; chữ 口 (KHẨU) có 3 nét."}, {"id": 14, "category": "Chữ Hán Bài 15: 手 & 足", "q": "Cặp từ 「て」 (Bàn tay) và 「あし」 (Bàn chân) được viết là:", "options": ["手 và 足", "毛 và 是", "耳 và 目", "上 và 下"], "correct": 0, "explain": "Bàn tay là 「手」 (THỦ - 4 nét), bàn chân là 「足」 (TÚC - 7 nét)."}, {"id": 15, "category": "Chữ Hán Bài 15: 上 & 下", "q": "Hai chữ Hán đối lập vị trí 「うえ」 và 「した」 là:", "options": ["上 và 下", "左 và 右", "前 và 後", "大 và 小"], "correct": 0, "explain": "Bên trên là 「上」 (THƯỢNG - 3 nét); bên dưới là 「下」 (HẠ - 3 nét)."}];
 const DIALOGUE_STEPS = [{"options": [{"text": "実は、朝から頭が痛くて、少し熱もあるんです。", "vi": "Thực ra từ sáng đến giờ tôi bị đau đầu, và hình như hơi sốt nữa.", "replyAvatar": "👩‍💼", "replyNpc": "Yamada", "replyText": "それは大変ですね！無理をしないで、早く病院へ行ったほうがいいですよ。", "replyVi": "Thế thì vất vả quá! Bạn đừng cố làm quá sức, nên đi bệnh viện khám sớm đi."}, {"text": "パソコンを見すぎて、首と肩がすごく痛いんです。", "vi": "Nhìn máy tính nhiều quá nên cổ và vai tôi đau nhức kinh khủng.", "replyAvatar": "👩‍💼", "replyNpc": "Yamada", "replyText": "こうやって、ゆっくり肩を回して深呼吸するといいですよ。", "replyVi": "Cứ làm thế này, xoay vai từ từ rồi hít thở sâu thì sẽ đỡ đau đấy."}]}, {"npcName": "Yamada", "avatar": "👩‍💼", "npcText": "今日は残業しないで、あたたかいお風呂に入って早く寝てくださいね。", "npcVi": "Hôm nay đừng làm thêm giờ nhé, về nhà ngâm bồn nước ấm rồi đi ngủ sớm đi nha.", "options": [{"text": "ありがとうございます。そうします。ご迷惑をおかけしてすみません。", "vi": "Cảm ơn bạn. Tôi sẽ làm như vậy. Xin lỗi vì đã làm phiền mọi người.", "replyAvatar": "👩‍💼", "replyNpc": "Yamada", "replyText": "気にしないで！健康が一番ですから。どうぞお大事に！", "replyVi": "Đừng bận tâm! Sức khỏe là trên hết mà. Chúc bạn mau khỏe lại nhé!"}, {"text": "親切にアドバイスをくれて、本当にありがとうございます。", "vi": "Bạn cho tôi lời khuyên chu đáo quá, thật lòng cảm ơn bạn rất nhiều.", "replyAvatar": "👩‍💼", "replyNpc": "Yamada", "replyText": "いいえ、どういたしまして。お大事にね！", "replyVi": "Không có chi đâu. Chúc bạn mau khỏe lại nhé!"}]}];
 
-// Tokyo Audio Speech Synthesis (Dual Engine via audio-engine.js)
-function speakText(text) {
-    if (window.speakJapanese) {
-        window.speakJapanese(text);
-    }
-}
+// Tokyo Audio Speech Synthesis handled globally via assets/js/audio-engine.js
 
 // Verb Morphing Laboratory
 let currentVerbIdx = 0;
@@ -191,55 +186,55 @@ function chooseDialogue(stepIdx, optIdx) {
     const step = DIALOGUE_STEPS[stepIdx];
     const opt = step.options[optIdx];
     const chat = document.getElementById('chatContainer');
+    const optBox = document.getElementById('chatOptionsGrid');
+    if (optBox) optBox.innerHTML = '';
 
-    const userBubble = document.createElement('div');
-    userBubble.className = 'chat-bubble user';
-    userBubble.innerHTML = `
-        <div class="chat-avatar">🧑</div>
-        <div class="chat-msg">
-            <div class="chat-name">Bạn (Tôi)</div>
-            <div class="chat-jp">${opt.text}</div>
-            <div class="chat-vi">${opt.vi}</div>
-        </div>
-    `;
-    chat.appendChild(userBubble);
-    speakText(opt.text);
-
-    setTimeout(() => {
-        const npcBubble = document.createElement('div');
-        npcBubble.className = 'chat-bubble bot';
-        npcBubble.innerHTML = `
-            <div class="chat-avatar">${opt.replyAvatar || '👩'}</div>
+    const appendBubble = (isUser, avatar, name, jp, vi) => {
+        const bubble = document.createElement('div');
+        bubble.className = 'chat-bubble ' + (isUser ? 'user' : 'bot');
+        bubble.innerHTML = `
+            <div class="chat-avatar">${avatar}</div>
             <div class="chat-msg">
-                <div class="chat-name">${opt.replyNpc}</div>
-                <div class="chat-jp">${opt.replyText}</div>
-                <div class="chat-vi">${opt.replyVi}</div>
+                <div class="chat-name">${name}</div>
+                <div class="chat-jp">${jp}</div>
+                <div class="chat-vi">${vi}</div>
             </div>
         `;
-        chat.appendChild(npcBubble);
-        speakText(opt.replyText);
+        chat.appendChild(bubble);
+        chat.scrollTop = chat.scrollHeight;
+    };
 
-        if (stepIdx + 1 < DIALOGUE_STEPS.length) {
-            setTimeout(() => {
-                const nextPrompt = DIALOGUE_STEPS[stepIdx + 1];
-                const promptBubble = document.createElement('div');
-                promptBubble.className = 'chat-bubble bot';
-                promptBubble.innerHTML = `
-                    <div class="chat-avatar">${nextPrompt.avatar || '👨'}</div>
-                    <div class="chat-msg">
-                        <div class="chat-name">${nextPrompt.npcName}</div>
-                        <div class="chat-jp">${nextPrompt.npcText}</div>
-                        <div class="chat-vi">${nextPrompt.npcVi}</div>
-                    </div>
-                `;
-                chat.appendChild(promptBubble);
-                speakText(nextPrompt.npcText);
-                renderDialogueOptions(stepIdx + 1);
-            }, 1000);
-        } else {
-            renderDialogueOptions(stepIdx + 1);
+    appendBubble(true, '🧑', 'Bạn (Tôi)', opt.text, opt.vi);
+
+    const queueItems = [
+        { text: opt.text },
+        {
+            text: opt.replyText,
+            onStart: () => appendBubble(false, opt.replyAvatar || '👩', opt.replyNpc, opt.replyText, opt.replyVi)
         }
-    }, 600);
+    ];
+
+    if (stepIdx + 1 < DIALOGUE_STEPS.length) {
+        const nextPrompt = DIALOGUE_STEPS[stepIdx + 1];
+        queueItems.push({
+            text: nextPrompt.npcText,
+            onStart: () => {
+                appendBubble(false, nextPrompt.avatar || '👨', nextPrompt.npcName, nextPrompt.npcText, nextPrompt.npcVi);
+                renderDialogueOptions(stepIdx + 1);
+            }
+        });
+    } else {
+        queueItems.push({
+            text: '',
+            onStart: () => renderDialogueOptions(stepIdx + 1)
+        });
+    }
+
+    if (window.AudioEngine && typeof window.AudioEngine.queue === 'function') {
+        window.AudioEngine.queue(queueItems);
+    } else {
+        queueItems.forEach(item => { if (item.onStart) item.onStart(); });
+    }
 }
 
 // Quiz Logic

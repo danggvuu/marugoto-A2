@@ -412,13 +412,8 @@ function applyKanjiFilter() {
 
 
     // ==========================================
-    // 1. NATIVE JAPANESE VOICE ENGINE (Dual Engine via audio-engine.js)
+    // 1. NATIVE JAPANESE VOICE ENGINE (Unified via audio-engine.js)
     // ==========================================
-    function speakText(text) {
-        if (window.speakJapanese) {
-            window.speakJapanese(text);
-        }
-    }
 
 
 

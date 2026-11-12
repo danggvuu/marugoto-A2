@@ -5,12 +5,7 @@ const VERB_MORPH_DATA = [{"kanji": "走ります", "masu": "はしります", "v
 const QUIZ_QUESTIONS = [{"id": 1, "category": "Ngữ pháp: V-たり V-たりします", "q": "休みの 日は 本を [____]、映画を 見たり します。", "options": ["読んだり", "読んで", "読んだ", "読みたり"], "correct": 0, "explain": "Động từ thể Quá khứ ngắn (Thể た) + り: 読みます ➔ 読んだ ➔ 「読んだり」 (Lúc đọc sách, lúc xem phim)."}, {"id": 2, "category": "Ngữ pháp: V-たり V-たりします", "q": "週末は プールで [____]、公園を 走ったり しています。", "options": ["泳いだり", "泳ぎたり", "泳いで", "泳いだ"], "correct": 0, "explain": "泳ぎます chia thể Quá khứ là 泳いだ ➔ Thêm り thành 「泳いだり」."}, {"id": 3, "category": "Ngữ pháp: N のために", "q": "健康 [____] ために、毎朝 ウォーキングを しています。", "options": ["の", "に", "を", "で"], "correct": 0, "explain": "Cấu trúc chỉ mục đích với danh từ: 「Danh từ + の ために」 (Vì sức khỏe)."}, {"id": 4, "category": "Ngữ pháp: V-たほうがいい", "q": "夜遅くまで 起きていないで、早く [____] ほうが いいですよ。", "options": ["寝た", "寝る", "寝て", "寝ない"], "correct": 0, "explain": "Khuyên nên làm gì: V-た + ほうがいい ➔ 「寝たほうがいい」 (Nên đi ngủ sớm)."}, {"id": 5, "category": "Ngữ pháp: V-ないほうがいい", "q": "お酒を 飲み [____] ほうが いいですよ。", "options": ["すぎない", "すぎた", "すぎる", "すぎて"], "correct": 0, "explain": "Khuyên không nên làm gì: V-ない + ほうがいい ➔ 飲みすぎない ほうがいい (Không nên uống quá nhiều)."}, {"id": 6, "category": "Từ vựng: Thể thao", "q": "プールで 手足を 動かして 進む 運動は [____] です。", "options": ["すいえい (水泳)", "ジョギング", "ヨガ", "たいそう"], "correct": 0, "explain": "Bơi lội trong hồ bơi là 「水泳」 (すいえい) / 泳ぎます."}, {"id": 7, "category": "Từ vựng: Rèn luyện", "q": "道を 一歩一歩 足で 進む 運動は [____] です。", "options": ["ウォーキング (歩く)", "ドライブ", "フライト", "スキー"], "correct": 0, "explain": "Đi bộ thể dục là 「ウォーキング」 (Walking) / 歩きます."}, {"id": 8, "category": "Từ vựng: Thói quen", "q": "「あさはやく おきます」 có nghĩa tiếng Việt là gì?", "options": ["Dậy sớm vào buổi sáng", "Đi ngủ sớm", "Ăn sáng sớm", "Đi làm sớm"], "correct": 0, "explain": "「朝早く起きます」 nghĩa là thức dậy sớm vào buổi sáng."}, {"id": 9, "category": "Từ vựng: Cảnh báo", "q": "自分の 体力以上に 無理をして 働く ことを [____] と 言います。", "options": ["働きすぎます", "休みます", "走ります", "歩きます"], "correct": 0, "explain": "Lao động quá độ quá sức gọi là 「働きすぎます」 (はたらきすぎます)."}, {"id": 10, "category": "Từ vựng: Sức khỏe", "q": "病気が なくて 体が 丈夫な 状態を 表す 言葉は [____] です。", "options": ["元気 (げんき)", "気持ちが悪い", "疲れている", "眠い"], "correct": 0, "explain": "Khỏe khoắn, dồi dào sinh lực là 「元気」 (げんき)."}, {"id": 11, "category": "Chữ Hán Bài 16: 毎 (Mỗi)", "q": "Chữ Hán 「毎」 trong 「毎日 / 毎朝」 có bao nhiêu nét?", "options": ["6 nét", "5 nét", "7 nét", "8 nét"], "correct": 0, "explain": "Chữ 毎 (MỖI) có 6 nét viết."}, {"id": 12, "category": "Chữ Hán Bài 16: 週末", "q": "Từ 「しゅうまつ」 (Cuối tuần) viết bằng cặp chữ Hán nào?", "options": ["週末", "週未", "週末", "週本"], "correct": 0, "explain": "「しゅうまつ」 là 「週末」 (CHU MẠT - chữ 末 có nét ngang trên dài hơn nét dưới)."}, {"id": 13, "category": "Chữ Hán Bài 16: 歩 & 走", "q": "Cặp động từ 「あるきます」 (Đi bộ) và 「はしります」 (Chạy) viết là:", "options": ["歩きます và 走ります", "足きます và 走きます", "止きます và 走ります", "行きます và 来ます"], "correct": 0, "explain": "Đi bộ là 「歩きます」 (BỘ - 8 nét); chạy là 「走ります」 (TẨU - 7 nét)."}, {"id": 14, "category": "Chữ Hán Bài 16: 泳 (Vịnh)", "q": "Động từ 「およぎます」 (Bơi lội) chứa bộ thủ nào?", "options": ["Bộ Thủy (氵)", "Bộ Hỏa (灬)", "Bộ Mộc (木)", "Bộ Kim (金)"], "correct": 0, "explain": "Bơi lội dưới nước nên chữ 泳 (VỊNH) có bộ Thủy (氵 - 3 nét chấm thủy)."}, {"id": 15, "category": "Chữ Hán Bài 16: 起 (Khởi)", "q": "Động từ 「おきます」 trong 「朝早く起きます」 có chữ Hán là:", "options": ["起きます", "走きます", "歩きます", "行きます"], "correct": 0, "explain": "Thức dậy là 「起きます」 (KHỞI - 10 nét, bộ Tẩu 走 + chữ Kỷ 己)."}];
 const DIALOGUE_STEPS = [{"options": [{"text": "はい、休みの日はジョギングをしたり、ジムで泳いだりしています。", "vi": "Vâng, vào ngày nghỉ tôi lúc thì chạy bộ, lúc thì đi bơi ở phòng gym.", "replyAvatar": "👨‍💼", "replyNpc": "Kato", "replyText": "素晴らしいですね！どのくらいのペースで続けているんですか。", "replyVi": "Tuyệt vời quá! Bạn duy trì với tần suất như thế nào vậy?"}, {"text": "朝早く起きて、30分くらい近所をウォーキングしています。", "vi": "Tôi thức dậy sớm vào buổi sáng rồi đi bộ khoảng 30 phút quanh khu phố.", "replyAvatar": "👨‍💼", "replyNpc": "Kato", "replyText": "朝のウォーキングは気持ちがいいですね！見習いたいです。", "replyVi": "Đi bộ buổi sáng không khí trong lành dễ chịu lắm nhỉ! Tôi phải học tập bạn mới được."}]}, {"npcName": "Kato", "avatar": "👨‍💼", "npcText": "実は最近、仕事で疲れて運動不足なんです。どうすればいいでしょうか。", "npcVi": "Thực ra dạo này công việc bận rộn nên tôi ít vận động quá. Tôi nên làm thế nào bây giờ nhỉ?", "options": [{"text": "まずは無理をしないで、エスカレーターを使わずに階段を歩いたほうがいいですよ。", "vi": "Trước tiên đừng quá gượng ép, thay vì đi thang cuốn bạn nên đi cầu thang bộ thì tốt hơn đấy.", "replyAvatar": "👨‍💼", "replyNpc": "Kato", "replyText": "なるほど！駅の階段を使うことから始めてみます。アドバイスありがとう！", "replyVi": "Ra là vậy! Tôi sẽ bắt đầu từ việc leo cầu thang ở nhà ga. Cảm ơn lời khuyên của bạn nhé!"}, {"text": "夜はスマホを見ないで早く寝て、休日に散歩から始めたほうがいいですよ。", "vi": "Ban đêm không nên xem điện thoại mà hãy ngủ sớm, cuối tuần bắt đầu bằng việc đi dạo thì tốt hơn đấy.", "replyAvatar": "👨‍💼", "replyNpc": "Kato", "replyText": "いいアドバイスですね！今夜から実践してみます。", "replyVi": "Lời khuyên hay quá! Tối nay tôi sẽ thực hiện luôn."}]}];
 
-// Tokyo Audio Speech Synthesis (Dual Engine via audio-engine.js)
-function speakText(text) {
-    if (window.speakJapanese) {
-        window.speakJapanese(text);
-    }
-}
+// Tokyo Audio Speech Synthesis handled globally via assets/js/audio-engine.js
 
 // Verb Morphing Laboratory
 let currentVerbIdx = 0;
@@ -191,55 +186,55 @@ function chooseDialogue(stepIdx, optIdx) {
     const step = DIALOGUE_STEPS[stepIdx];
     const opt = step.options[optIdx];
     const chat = document.getElementById('chatContainer');
+    const optBox = document.getElementById('chatOptionsGrid');
+    if (optBox) optBox.innerHTML = '';
 
-    const userBubble = document.createElement('div');
-    userBubble.className = 'chat-bubble user';
-    userBubble.innerHTML = `
-        <div class="chat-avatar">🧑</div>
-        <div class="chat-msg">
-            <div class="chat-name">Bạn (Tôi)</div>
-            <div class="chat-jp">${opt.text}</div>
-            <div class="chat-vi">${opt.vi}</div>
-        </div>
-    `;
-    chat.appendChild(userBubble);
-    speakText(opt.text);
-
-    setTimeout(() => {
-        const npcBubble = document.createElement('div');
-        npcBubble.className = 'chat-bubble bot';
-        npcBubble.innerHTML = `
-            <div class="chat-avatar">${opt.replyAvatar || '👩'}</div>
+    const appendBubble = (isUser, avatar, name, jp, vi) => {
+        const bubble = document.createElement('div');
+        bubble.className = 'chat-bubble ' + (isUser ? 'user' : 'bot');
+        bubble.innerHTML = `
+            <div class="chat-avatar">${avatar}</div>
             <div class="chat-msg">
-                <div class="chat-name">${opt.replyNpc}</div>
-                <div class="chat-jp">${opt.replyText}</div>
-                <div class="chat-vi">${opt.replyVi}</div>
+                <div class="chat-name">${name}</div>
+                <div class="chat-jp">${jp}</div>
+                <div class="chat-vi">${vi}</div>
             </div>
         `;
-        chat.appendChild(npcBubble);
-        speakText(opt.replyText);
+        chat.appendChild(bubble);
+        chat.scrollTop = chat.scrollHeight;
+    };
 
-        if (stepIdx + 1 < DIALOGUE_STEPS.length) {
-            setTimeout(() => {
-                const nextPrompt = DIALOGUE_STEPS[stepIdx + 1];
-                const promptBubble = document.createElement('div');
-                promptBubble.className = 'chat-bubble bot';
-                promptBubble.innerHTML = `
-                    <div class="chat-avatar">${nextPrompt.avatar || '👨'}</div>
-                    <div class="chat-msg">
-                        <div class="chat-name">${nextPrompt.npcName}</div>
-                        <div class="chat-jp">${nextPrompt.npcText}</div>
-                        <div class="chat-vi">${nextPrompt.npcVi}</div>
-                    </div>
-                `;
-                chat.appendChild(promptBubble);
-                speakText(nextPrompt.npcText);
-                renderDialogueOptions(stepIdx + 1);
-            }, 1000);
-        } else {
-            renderDialogueOptions(stepIdx + 1);
+    appendBubble(true, '🧑', 'Bạn (Tôi)', opt.text, opt.vi);
+
+    const queueItems = [
+        { text: opt.text },
+        {
+            text: opt.replyText,
+            onStart: () => appendBubble(false, opt.replyAvatar || '👩', opt.replyNpc, opt.replyText, opt.replyVi)
         }
-    }, 600);
+    ];
+
+    if (stepIdx + 1 < DIALOGUE_STEPS.length) {
+        const nextPrompt = DIALOGUE_STEPS[stepIdx + 1];
+        queueItems.push({
+            text: nextPrompt.npcText,
+            onStart: () => {
+                appendBubble(false, nextPrompt.avatar || '👨', nextPrompt.npcName, nextPrompt.npcText, nextPrompt.npcVi);
+                renderDialogueOptions(stepIdx + 1);
+            }
+        });
+    } else {
+        queueItems.push({
+            text: '',
+            onStart: () => renderDialogueOptions(stepIdx + 1)
+        });
+    }
+
+    if (window.AudioEngine && typeof window.AudioEngine.queue === 'function') {
+        window.AudioEngine.queue(queueItems);
+    } else {
+        queueItems.forEach(item => { if (item.onStart) item.onStart(); });
+    }
 }
 
 // Quiz Logic

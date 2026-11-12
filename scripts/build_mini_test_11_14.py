@@ -515,7 +515,7 @@ html_content = f"""<!DOCTYPE html>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
-    <script src="../assets/js/audio-engine.js"></script>
+    <script src="../assets/js/audio-engine.js?v=2"></script>
     <link rel="stylesheet" href="../assets/css/mini-test-11-14.css?v=1">
 </head>
 <body>
@@ -1104,7 +1104,7 @@ html_content = f"""<!DOCTYPE html>
 <div id="toast" class="toast">Đã copy vào bộ nhớ tạm!</div>
 
 <script src="../assets/data/mini_11_14_data.js?v=1"></script>
-<script src="../assets/js/mini-test-11-14.js?v=1"></script>
+<script src="../assets/js/mini-test-11-14.js?v=2"></script>
 <script src="../assets/nav.js?v=6" defer></script>
 </body>
 </html>

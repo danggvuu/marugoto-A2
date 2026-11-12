@@ -29,11 +29,8 @@ function cleanJapaneseText(text) {
 // ==========================================
 // AUDIO HELPER (Dual Engine via audio-engine.js)
 // ==========================================
-function speakText(text) {
-    if (window.speakJapanese) {
-        window.speakJapanese(text);
-    }
-}
+// AUDIO HANDLED GLOBALLY VIA assets/js/audio-engine.js
+// ==========================================
 
 
 // 2. Smooth Scroll

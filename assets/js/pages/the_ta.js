@@ -261,23 +261,7 @@ function resetExercise() {
     if (banner) banner.style.display = 'none';
 }
 
-// Audio TTS Function
-function speakJapanese(text, btn) {
-    if (!('speechSynthesis' in window)) {
-        alert('Trình duyệt không hỗ trợ phát âm Audio.');
-        return;
-    }
-    window.speechSynthesis.cancel();
-    const u = new SpeechSynthesisUtterance(text);
-    u.lang = 'ja-JP';
-    u.rate = 0.88;
-    if (btn) {
-        btn.style.transform = 'scale(1.25)';
-        u.onend = () => { btn.style.transform = ''; };
-        u.onerror = () => { btn.style.transform = ''; };
-    }
-    window.speechSynthesis.speak(u);
-}
+// Audio TTS Function handled globally via assets/js/audio-engine.js
 
 // Interactive Verb Lab Transformer Logic
 const IRREGULAR_VERBS = {

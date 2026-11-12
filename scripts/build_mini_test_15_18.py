@@ -533,7 +533,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
-    <script src="../assets/js/audio-engine.js"></script>
+    <script src="../assets/js/audio-engine.js?v=2"></script>
     <link rel="stylesheet" href="../assets/css/mini-test-15-18.css?v=1">
     <link rel="stylesheet" href="../assets/css/site-theme.css?v=6">
 </head>
@@ -968,7 +968,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
                     <div class="typing-actions">
                         <button type="button" class="btn-primary" style="background:var(--gray-500);" onclick="prevTypingItem()">⬅️ Trước</button>
                         <button type="button" class="btn-primary" id="tpCardCheckBtn" onclick="handleTypingPrimaryBtn()">Kiểm Tra Đáp Án ⏎</button>
-                        <button type="button" class="btn-primary" style="background:#0ea5e9;" onclick="speakCurrentTypingWord()">🔊 Nghe Mẫu</button>
+                        <button type="button" class="btn-primary" id="tpCardSpeakBtn" style="background:#0ea5e9;" onclick="speakCurrentTypingWord(this)">🔊 Nghe Mẫu</button>
                         <button type="button" class="btn-primary" style="background:var(--purple);" onclick="showTypingHint()">💡 Gợi Ý</button>
                         <button type="button" class="btn-primary" style="background:var(--warning);" onclick="revealTypingAnswer()">👁️ Xem Đáp Án</button>
                         <button type="button" class="btn-primary" style="background:var(--gray-600);" onclick="skipTypingWord()">Tiếp Theo ➔</button>
@@ -1081,8 +1081,8 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     <!-- Scripts -->
     <script src="../assets/data/mini_15_18_data.js?v=1"></script>
     <script src="../assets/js/jp-typing-grader.js?v=1"></script>
-    <script src="../assets/js/typing-studio.js?v=1"></script>
-    <script src="../assets/js/mini-test-15-18.js?v=1"></script>
+    <script src="../assets/js/typing-studio.js?v=2"></script>
+    <script src="../assets/js/mini-test-15-18.js?v=2"></script>
     <script src="../assets/nav.js?v=6" defer></script>
 </body>
 </html>

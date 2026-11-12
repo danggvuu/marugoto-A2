@@ -5,12 +5,7 @@ const VERB_MORPH_DATA = [{"kanji": "会います", "masu": "あいます", "vi":
 const QUIZ_QUESTIONS = [{"id": 1, "category": "Ngữ pháp: V-たことがあります", "q": "私は 田中さんに [____] ことがあります。", "options": ["会った", "会う", "会いて", "会いまし"], "correct": 0, "explain": "Động từ thể Quá khứ ngắn (Thể た): 会います ➔ 会った + ことがあります (Đã từng gặp)."}, {"id": 2, "category": "Ngữ pháp: V-たことがあります", "q": "日本へ 出張に [____] ことがありますか。", "options": ["行った", "行きます", "行かない", "行くて"], "correct": 0, "explain": "行きます có thể Ta bất quy tắc là 「行った」 ➔ 行ったことがありますか (Đã từng đi chưa?)."}, {"id": 3, "category": "Ngữ pháp: Lịch trình", "q": "飛行機は 午後3時に 空港 [____] 着きます。", "options": ["に", "で", "を", "から"], "correct": 0, "explain": "Địa điểm đến nơi đi với trợ từ に: 「空港に着きます」 (Hạ cánh tại sân bay)."}, {"id": 4, "category": "Từ vựng: Công tác", "q": "仕事で よその 土地へ 行く ことを [____] と 言います。", "options": ["出張 (しゅっちょう)", "旅行 (りょこう)", "留学 (りゅうがく)", "引越し (ひっこし)"], "correct": 0, "explain": "Chuyến đi làm việc tại nơi khác gọi là công tác: 「出張」 (しゅっちょう)."}, {"id": 5, "category": "Từ vựng: Công ty", "q": "会社で 一番 中心に なる 建物は [____] です。", "options": ["本社 (ほんしゃ)", "支社 (ししゃ)", "空港 (くうこう)", "ホテル"], "correct": 0, "explain": "Trụ sở chính đầu não của công ty là 「本社」 (ほんしゃ)."}, {"id": 6, "category": "Từ vựng: Sân bay", "q": "飛行機が 飛び立つ 場所は [____] です。", "options": ["空港 (くうこう)", "駅 (えき)", "港 (みなと)", "バス停"], "correct": 0, "explain": "Nơi máy bay cất cánh là sân bay: 「空港」 (くうこう)."}, {"id": 7, "category": "Giao tiếp: Đón khách", "q": "Khi đón đối tác từ phương xa đến, câu chào hỏi lịch sự là:", "options": ["お疲れ様でした。ようこそ！", "いってらっしゃい！", "ごちそうさまでした！", "お大事に！"], "correct": 0, "explain": "「お疲れ様でした。ようこそ！」 (Anh đã vất vả rồi, chào mừng anh đã tới!)."}, {"id": 8, "category": "Giao tiếp: Hỏi thăm", "q": "Để hỏi thăm đối tác chuyến bay có thuận lợi không, ta nói:", "options": ["フライトは いかがでしたか", "お元気ですか", "何時に起きましたか", "どこへ行きますか"], "correct": 0, "explain": "「フライトは いかがでしたか」 (Chuyến bay của anh thế nào ạ?)."}, {"id": 9, "category": "Từ vựng: Đưa đón", "q": "空港まで 友達を [____] 行きます (Đi đón).", "options": ["むかえに", "おくりに", "かえりに", "あいに"], "correct": 0, "explain": "Đi đón ai đó là 「迎えに行きます」 (むかえにいきます)."}, {"id": 10, "category": "Từ vựng: Xuất phát & Đến", "q": "「しゅっぱつ」 có nghĩa đối lập với từ nào?", "options": ["とうちゃく (到着)", "しゅっちょう (出張)", "よてい (予定)", "フライト"], "correct": 0, "explain": "「出発」 (Khởi hành) đối lập với 「到着」 (Đến nơi)."}, {"id": 11, "category": "Chữ Hán Bài 13: 会 & 社", "q": "Từ 「かいしゃ」 (Công ty) gồm 2 chữ Hán nào?", "options": ["会社", "本社", "支社", "社会"], "correct": 0, "explain": "「かいしゃ」 viết chữ Hán là 「会社」 (HỘI XÃ)."}, {"id": 12, "category": "Chữ Hán Bài 13: 支社", "q": "Từ 「ししゃ」 (Chi nhánh công ty) gồm chữ Hán nào?", "options": ["支社", "本社", "張社", "発社"], "correct": 0, "explain": "Chi nhánh là 「支社」 (CHI XÃ - 4 nét chữ 支)."}, {"id": 13, "category": "Chữ Hán Bài 13: 出張", "q": "Từ 「しゅっちょう」 (Chuyến công tác) viết bằng chữ Hán là:", "options": ["出張", "出長", "発張", "着張"], "correct": 0, "explain": "Công tác viết chữ Hán là 「出張」 (XUẤT TRƯƠNG)."}, {"id": 14, "category": "Chữ Hán Bài 13: 空港", "q": "Từ 「くうこう」 (Sân bay) viết Hán tự là:", "options": ["空港", "海港", "発港", "着港"], "correct": 0, "explain": "Sân bay là 「空港」 (KHÔNG CẢNG - gồm chữ 空 và 港)."}, {"id": 15, "category": "Chữ Hán Bài 13: 午前 & 午後", "q": "Chữ Hán 「午」 trong 「午前 / 午後」 mang ý nghĩa gì?", "options": ["Giờ ngọ (12 giờ trưa)", "Buổi sáng", "Buổi tối", "Nửa đêm"], "correct": 0, "explain": "Chữ 午 (NGỌ) là mốc 12 giờ trưa; 午前 (trước trưa = sáng), 午後 (sau trưa = chiều)."}];
 const DIALOGUE_STEPS = [{"options": [{"text": "田中さん、お疲れ様でした。ようこそベトナムへ！", "vi": "Chào anh Tanaka, anh đã vất vả rồi. Chào mừng anh đến với Việt Nam!", "replyAvatar": "👨‍💼", "replyNpc": "Tanaka", "replyText": "ありがとうございます。迎えに来てくれて助かりました。", "replyVi": "Cảm ơn bạn rất nhiều. Bạn ra đón thế này đỡ cho tôi quá."}, {"text": "初めまして！フライトはいかがでしたか。", "vi": "Rất vui được gặp anh lần đầu! Chuyến bay của anh thế nào ạ?", "replyAvatar": "👨‍💼", "replyNpc": "Tanaka", "replyText": "とても快適でしたよ。天気も良くてよかったです。", "replyVi": "Rất thoải mái bạn ạ. Thời tiết đẹp nên chuyến bay êm lắm."}]}, {"npcName": "Tanaka", "avatar": "👨‍💼", "npcText": "今からホテルへ向かいますか。車を手配してくれましたか。", "npcVi": "Bây giờ chúng ta di chuyển về khách sạn chứ nhỉ? Bạn đã sắp xếp xe giúp tôi chưa?", "options": [{"text": "はい、外にタクシーが待っています。荷物を持ちましょうか。", "vi": "Vâng, bên ngoài có xe taxi đang đợi sẵn rồi ạ. Để tôi xách hành lý giúp anh nhé.", "replyAvatar": "👨‍💼", "replyNpc": "Tanaka", "replyText": "すみません、ありがとうございます。よろしくお願いします。", "replyVi": "Ngại quá, cảm ơn bạn nhiều nhé. Nhờ cả vào bạn."}, {"text": "会社の車を用意しました。ホテルまで約30分で着きますよ。", "vi": "Chúng tôi đã chuẩn bị sẵn xe công ty rồi ạ. Về đến khách sạn mất khoảng 30 phút thôi.", "replyAvatar": "👨‍💼", "replyNpc": "Tanaka", "replyText": "素晴らしいですね！とても助かります。", "replyVi": "Tuyệt vời quá! Rất cảm ơn sự chu đáo của công ty bạn."}]}];
 
-// Tokyo Audio Speech Synthesis (Dual Engine via audio-engine.js)
-function speakText(text) {
-    if (window.speakJapanese) {
-        window.speakJapanese(text);
-    }
-}
+// Tokyo Audio Speech Synthesis handled globally via assets/js/audio-engine.js
 
 // Verb Morphing Laboratory
 let currentVerbIdx = 0;
@@ -191,55 +186,55 @@ function chooseDialogue(stepIdx, optIdx) {
     const step = DIALOGUE_STEPS[stepIdx];
     const opt = step.options[optIdx];
     const chat = document.getElementById('chatContainer');
+    const optBox = document.getElementById('chatOptionsGrid');
+    if (optBox) optBox.innerHTML = '';
 
-    const userBubble = document.createElement('div');
-    userBubble.className = 'chat-bubble user';
-    userBubble.innerHTML = `
-        <div class="chat-avatar">🧑</div>
-        <div class="chat-msg">
-            <div class="chat-name">Bạn (Tôi)</div>
-            <div class="chat-jp">${opt.text}</div>
-            <div class="chat-vi">${opt.vi}</div>
-        </div>
-    `;
-    chat.appendChild(userBubble);
-    speakText(opt.text);
-
-    setTimeout(() => {
-        const npcBubble = document.createElement('div');
-        npcBubble.className = 'chat-bubble bot';
-        npcBubble.innerHTML = `
-            <div class="chat-avatar">${opt.replyAvatar || '👩'}</div>
+    const appendBubble = (isUser, avatar, name, jp, vi) => {
+        const bubble = document.createElement('div');
+        bubble.className = 'chat-bubble ' + (isUser ? 'user' : 'bot');
+        bubble.innerHTML = `
+            <div class="chat-avatar">${avatar}</div>
             <div class="chat-msg">
-                <div class="chat-name">${opt.replyNpc}</div>
-                <div class="chat-jp">${opt.replyText}</div>
-                <div class="chat-vi">${opt.replyVi}</div>
+                <div class="chat-name">${name}</div>
+                <div class="chat-jp">${jp}</div>
+                <div class="chat-vi">${vi}</div>
             </div>
         `;
-        chat.appendChild(npcBubble);
-        speakText(opt.replyText);
+        chat.appendChild(bubble);
+        chat.scrollTop = chat.scrollHeight;
+    };
 
-        if (stepIdx + 1 < DIALOGUE_STEPS.length) {
-            setTimeout(() => {
-                const nextPrompt = DIALOGUE_STEPS[stepIdx + 1];
-                const promptBubble = document.createElement('div');
-                promptBubble.className = 'chat-bubble bot';
-                promptBubble.innerHTML = `
-                    <div class="chat-avatar">${nextPrompt.avatar || '👨'}</div>
-                    <div class="chat-msg">
-                        <div class="chat-name">${nextPrompt.npcName}</div>
-                        <div class="chat-jp">${nextPrompt.npcText}</div>
-                        <div class="chat-vi">${nextPrompt.npcVi}</div>
-                    </div>
-                `;
-                chat.appendChild(promptBubble);
-                speakText(nextPrompt.npcText);
-                renderDialogueOptions(stepIdx + 1);
-            }, 1000);
-        } else {
-            renderDialogueOptions(stepIdx + 1);
+    appendBubble(true, '🧑', 'Bạn (Tôi)', opt.text, opt.vi);
+
+    const queueItems = [
+        { text: opt.text },
+        {
+            text: opt.replyText,
+            onStart: () => appendBubble(false, opt.replyAvatar || '👩', opt.replyNpc, opt.replyText, opt.replyVi)
         }
-    }, 600);
+    ];
+
+    if (stepIdx + 1 < DIALOGUE_STEPS.length) {
+        const nextPrompt = DIALOGUE_STEPS[stepIdx + 1];
+        queueItems.push({
+            text: nextPrompt.npcText,
+            onStart: () => {
+                appendBubble(false, nextPrompt.avatar || '👨', nextPrompt.npcName, nextPrompt.npcText, nextPrompt.npcVi);
+                renderDialogueOptions(stepIdx + 1);
+            }
+        });
+    } else {
+        queueItems.push({
+            text: '',
+            onStart: () => renderDialogueOptions(stepIdx + 1)
+        });
+    }
+
+    if (window.AudioEngine && typeof window.AudioEngine.queue === 'function') {
+        window.AudioEngine.queue(queueItems);
+    } else {
+        queueItems.forEach(item => { if (item.onStart) item.onStart(); });
+    }
 }
 
 // Quiz Logic
