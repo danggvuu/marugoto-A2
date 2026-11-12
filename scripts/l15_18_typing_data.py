@@ -618,16 +618,79 @@ SENTENCE_TYPING_DATA = [
     {
         "id": "s15_12", "lesson": "A2-15", "category": "ÔN TẬP L15 ③ Vないで ください",
         "pattern": "Vないで ください",
-        "vi": "Xin đừng đột nhiên bẻ cổ.",
+        "vi": "Xin đừng đột nhiên bẻ / xoay cổ.",
         "hira": "きゅうに くびを まげないで ください。",
-        "acceptedHira": ["きゅうにくびをまげないでください"],
-        "kanjiModel": "きゅうに首をまげないでください。",
-        "kanjiAccepted": ["急に首を曲げないでください", "きゅうに首を曲げないでください", "急に首をまげないでください"],
-        "grammarRule": "③ まげます (bẻ, uốn cong) thuộc Nhóm II (đuôi -emasu) ➔ bỏ ます thêm ない ➔ <b>まげない</b>. Phó từ 'đột nhiên' = きゅうに.",
+        "acceptedHira": [
+            "きゅうにくびをまげないでください",
+            "きゅうにくびをまがさないでください",
+            "きゅうにくびをまわさないでください"
+        ],
+        "kanjiModel": "きゅうに首をまげないでください。（PDF: まがさないで）",
+        "kanjiAccepted": [
+            "急に首を曲げないでください", "きゅうに首を曲げないでください", "急に首をまげないでください",
+            "きゅうに首をまがさないでください", "急に首をまがさないでください",
+            "急に首を回さないでください", "きゅうに首をまわさないでください"
+        ],
+        "grammarRule": "③ まげます (bẻ/cúi gập, Nhóm II) ➔ <b>まげない</b>. File PDF ôn tập có ghi bản <b>まがさないで</b> (Nhóm I) / <b>まわさないで</b> (xoay cổ) nên đều được chấp nhận ở đây!",
         "breakdown": "きゅうに (đột nhiên) + くびを (cổ) + まげないで ください (xin đừng bẻ).",
         "traps": [
-            {"regex": "まがないで|まげらないで", "why": "まげます thuộc Nhóm II (-eます), chỉ việc bỏ ます + ない ➔ まげないで ください (không biến âm kiểu Nhóm I)!"},
+            {"regex": "まがないで|まげらないで", "why": "まげます thuộc Nhóm II (-eます) ➔ bỏ ます + ない ➔ まげないで ください (hoặc dùng đúng thể Nhóm I まわさないで/まがさないで)."},
             {"regex": "きゅに", "why": "きゅうに có trường âm う ở chữ きゅう."}
+        ]
+    },
+    {
+        "id": "s15_13", "lesson": "A2-15", "category": "ÔN TẬP L15 ① Vる まえに",
+        "pattern": "Vる ＋ まえに",
+        "vi": "Trước khi đi làm, tôi tự làm cơm hộp.",
+        "hira": "しごとに いく まえに、おべんとうを つくります。",
+        "acceptedHira": [
+            "しごとにいくまえに、おべんとうをつくります",
+            "しごとにいくまえにべんとうをつくります",
+            "しごとにいくまえにおべんとうをつくります"
+        ],
+        "kanjiModel": "仕事に行く前に、おべんとうを作ります。",
+        "kanjiAccepted": ["仕事に行く前に、おべんとうを作ります", "仕事に行く前に、お弁当を作ります", "仕事に行く前にお弁当を作ります"],
+        "grammarRule": "① Hành động xảy ra trước một hành động khác: Động từ đứng trước <b>まえに</b> LUÔN chia ở thể từ điển <b>Vる</b> (いきます ➔ <b>いく</b>).",
+        "breakdown": "しごとに いく まえに (trước khi đi làm) + おべんとうを つくります (làm cơm hộp).",
+        "traps": [
+            {"regex": "いきますまえに|いったまえに|いくのまえに", "why": "Trước 「まえに」 bắt buộc chia động từ về thể từ điển Vる (いく) và KHÔNG chen thêm 「の」 hay để 「いきます」!"}
+        ]
+    },
+    {
+        "id": "s15_14", "lesson": "A2-15", "category": "ÔN TẬP L15 ① Vる まえに (Vế sau Quá khứ)",
+        "pattern": "Vる ＋ まえに、～ました",
+        "vi": "Trước khi sang Nhật, tôi đã học tiếng Nhật.",
+        "hira": "にほんに いく まえに、にほんごを べんきょうしました。",
+        "acceptedHira": [
+            "にほんにいくまえに、にほんごをべんきょうしました",
+            "にほんへいくまえに、にほんごをべんきょうしました",
+            "にほんにいくまえににほんごをべんきょうしました"
+        ],
+        "kanjiModel": "日本に行く前に、日本語を勉強しました。",
+        "kanjiAccepted": ["日本に行く前に、日本語を勉強しました", "日本に行く前に日本語を勉強しました", "日本へ行く前に日本語を勉強しました"],
+        "grammarRule": "① BẪY KINH ĐIỂN TRONG PDF: Dù cả câu kể chuyện ĐÃ XẢY RA ở quá khứ (<b>べんきょうしました</b>), động từ trước <b>まえに</b> vẫn LUÔN là thể từ điển <b>いく</b> (TUYỆT ĐỐI không chia いった!).",
+        "breakdown": "にほんに いく まえに (trước khi đi Nhật) + にほんごを べんきょうしました (đã học tiếng Nhật).",
+        "traps": [
+            {"regex": "いったまえに|きましたまえに|きますまえに|いくのまえに", "why": "BẪY PDF L15: Dù vế sau là quá khứ (~ました), động từ trước まえに LUÔN là Vる (にほんに いく まえに), tuyệt đối không dùng いった まえに!"}
+        ]
+    },
+    {
+        "id": "s15_15", "lesson": "A2-15", "category": "ÔN TẬP L15 ① Khoảng thời gian + まえに",
+        "pattern": "〈Khoảng thời gian〉＋ まえに",
+        "vi": "10 phút trước, tôi đã đến nhà ga.",
+        "hira": "10ぷんまえに、えきに つきました。",
+        "acceptedHira": [
+            "10ぷんまえに、えきにつきました",
+            "じゅっぷんまえに、えきにつきました",
+            "じっぷんまえに、えきにつきました",
+            "じゅうぷんまえにえきにつきました"
+        ],
+        "kanjiModel": "10分前に、駅に着きました。",
+        "kanjiAccepted": ["10分前に、駅に着きました", "10分前に駅に着きました", "十分前に駅に着きました"],
+        "grammarRule": "① Khoảng thời gian + <b>まえに</b>: Nối trực tiếp KHÔNG cần trợ từ 「の」 ở giữa (10ぷんまえに / 3ねんまえに). Chỉ có Danh từ sự kiện mới cần 「の」(食事の前に).",
+        "breakdown": "10ぷん まえに (10 phút trước, không có の) + えきに つきました (đã đến nhà ga).",
+        "traps": [
+            {"regex": "10ぷんのまえに|じゅっぷんのまえに|じっぷんのまえに|さんねんのまえに", "why": "BẪY PDF TRANG 19: Khoảng thời gian (3ねん, 10ぷん) đứng trước まえに KHÔNG có 「の」! Chỉ danh từ sự kiện mới thêm の."}
         ]
     },
 
@@ -1420,6 +1483,51 @@ SENTENCE_TYPING_DATA = [
             {"regex": "べんきょうができます|べんきょうをできる", "why": "Trước 「きっさてん」 phải đổi できます ➔ できる, và できる đi với trợ từ 「が」 (べんきょうが できる)."}
         ]
     },
+    {
+        "id": "s17_np7", "lesson": "A2-17", "category": "NGỮ PHÁP L17 Mở đầu ～んですが",
+        "pattern": "～んですが、～て くださいませんか",
+        "vi": "Tôi không hiểu tiếng Nhật lắm, nên anh/chị chỉ cho tôi được không?",
+        "hira": "にほんごが よく わからないんですが、おしえて くださいませんか。",
+        "acceptedHira": [
+            "にほんごがよくわからないんですが、おしえてくださいませんか",
+            "にほんごがよくわかりませんが、おしえてくださいませんか"
+        ],
+        "kanjiModel": "日本語がよく分からないんですが、教えてくださいませんか。",
+        "kanjiAccepted": ["日本語がよく分からないんですが、教えてくださいませんか", "日本語がよくわからないんですが、教えてくださいませんか"],
+        "grammarRule": "Ngữ pháp L17 (mục 1): Dùng <b>V〈ふつうけい〉＋ んですが</b> để nêu bối cảnh mềm mại trước khi nhờ vả <b>～て くださいませんか</b>.",
+        "breakdown": "にほんごが よく わからないんですが (tôi không hiểu tiếng Nhật lắm nên...) + おしえて くださいませんか (xin chỉ giúp tôi được không?).",
+        "traps": [
+            {"regex": "わかりない|わからないだんです", "why": "わかります (Nhóm I) chia thể ない ➔ わからない + んです (không thêm だ trước ん!)."}
+        ]
+    },
+    {
+        "id": "s17_np8", "lesson": "A2-17", "category": "NGỮ PHÁP L17 Mở đầu ～んですが",
+        "pattern": "ちょっと Nが あるんですが…",
+        "vi": "Tôi có chút việc muốn nhờ...",
+        "hira": "ちょっと おねがいが あるんですが。",
+        "acceptedHira": ["ちょっとおねがいがあるんですが"],
+        "kanjiModel": "ちょっとお願いがあるんですが…。",
+        "kanjiAccepted": ["ちょっとお願いがあるんですが", "ちょっとお願いがあるんですが…"],
+        "grammarRule": "Mẫu mở lời nhờ vả kinh điển L17: <b>ちょっと おねがいが あるんですが…</b> (「あります」 ở thể thông thường là <b>ある</b> + <b>んです</b>).",
+        "breakdown": "ちょっと (một chút) + おねがいが (điều nhờ vả) + あるんですが (có đấy ạ, nhưng...).",
+        "traps": [
+            {"regex": "ありますんですが|あるだんです|おねがいをある", "why": "「あります」 chuyển thể thông thường là 「ある」 + んですが (không để nguyên あります, không dùng trợ từ を)."}
+        ]
+    },
+    {
+        "id": "s17_np9", "lesson": "A2-17", "category": "NGỮ PHÁP L17 Hỏi tình hình",
+        "pattern": "どうしたんですか",
+        "vi": "Có chuyện gì vậy?",
+        "hira": "どうしたんですか。",
+        "acceptedHira": ["どうしたんですか"],
+        "kanjiModel": "どうしたんですか。",
+        "kanjiAccepted": ["どうしたんですか"],
+        "grammarRule": "Ngữ pháp L17 (mục 2): Câu hỏi thăm tình hình khi thấy ai có vẻ bất thường (mệt, lo lắng...): <b>どうしたんですか</b> (Thể た của します = した + んですか).",
+        "breakdown": "どう (thế nào/sao vậy) + した (đã xảy ra/làm gì) + んですか.",
+        "traps": [
+            {"regex": "どうしますか|どうするんですか|どうしたですか", "why": "Hỏi chuyện vừa xảy ra với ai đó dùng cố định thì quá khứ ngắn 「どうしたんですか」 (không dùng どうしたですか)."}
+        ]
+    },
 
     # ================= LESSON 18 =================
     {
@@ -1588,5 +1696,395 @@ SENTENCE_TYPING_DATA = [
         "grammarRule": "② BẪY ĐỘNG TỪ 「あります」: Phủ định thông thường của 「あります」 là <b>ない</b> (KHÔNG phải あらない hay ありません!). Sau 「テストが ない」 nối thẳng với 「と いって いました」.",
         "breakdown": "せんせいは + らいしゅう (tuần sau) + テストが ない (không có bài kiểm tra) + と いって いました (đã nói rằng).",
         "traps": [{"regex": "あらない|ありませんと|ないだと", "why": "BẪY CỰC QUAN TRỌNG! Phủ định ngắn của 「あります」 luôn là 「ない」 (tuyệt đối không có あらない, và không thêm だ sau ない)!"}]
+    },
+    {
+        "id": "s18_13", "lesson": "A2-18", "category": "ÔN TẬP L18 ① Hỏi ý kiến ～について どう思いますか",
+        "pattern": "Nに ついて、どう おもいますか",
+        "vi": "Bạn nghĩ thế nào về cuộc sống ở Nhật?",
+        "hira": "にほんの せいかつに ついて、どう おもいますか。",
+        "acceptedHira": ["にほんのせいかつについて、どうおもいますか"],
+        "kanjiModel": "日本の生活について、どう思いますか。",
+        "kanjiAccepted": ["日本の生活について、どう思いますか", "日本の生活についてどう思いますか", "日本のせいかつについて、どう思いますか"],
+        "grammarRule": "① PDF L18: Hỏi ý kiến về chủ đề N dùng <b>Nに ついて、どう おもいますか</b> (tuyệt đối KHÔNG dùng なに おもいますか!).",
+        "breakdown": "にほんの せいかつ (cuộc sống ở Nhật) + について (về vấn đề...) + どう おもいますか (bạn nghĩ thế nào?).",
+        "traps": [
+            {"regex": "なにおもいますか|なにとおもいますか", "why": "Hỏi ý kiến về một chủ đề luôn dùng 「どう おもいますか」 (KHÔNG dùng なにおもいますか)!"}
+        ]
+    },
+
+    # ================= ÔN THÊM L11-14 (THEO PDF TỔNG HỢP L11~L18) =================
+    {
+        "id": "s11_01", "lesson": "A2-11", "category": "BÀI 11 ① Vて いきます",
+        "pattern": "Vて いきます",
+        "vi": "Tôi sẽ mua cơm hộp rồi mang đi (đến chỗ hẹn/chuyến đi).",
+        "hira": "おべんとうを かって いきます。",
+        "acceptedHira": ["おべんとうをかっていきます", "べんとうをかっていきます"],
+        "kanjiModel": "お弁当を買っていきます。",
+        "kanjiAccepted": ["お弁当を買っていきます", "お弁当を買って行きます", "おべんとうを買っていきます"],
+        "grammarRule": "L11 ① <b>Vて いきます</b>: Làm hành động V xong rồi <b>đi khỏi</b> vị trí hiện tại (hoặc mua sẵn rồi mang theo đi).",
+        "breakdown": "おべんとうを (cơm hộp) + かって いきます (mua rồi mang đi).",
+        "traps": [
+            {"regex": "かていきます|かいっていきます", "why": "かいます chia thể て là 「かって」 (có âm ngắt っ nhỏ)."}
+        ]
+    },
+    {
+        "id": "s11_02", "lesson": "A2-11", "category": "BÀI 11 ① Vて きます",
+        "pattern": "Vて きます",
+        "vi": "Tôi sẽ mang đồ uống đến (tiệc / chỗ hẹn).",
+        "hira": "のみものを もって きます。",
+        "acceptedHira": ["のみものをもってきます"],
+        "kanjiModel": "飲み物を持ってきます。",
+        "kanjiAccepted": ["飲み物を持ってきます", "飲み物を持って来ます"],
+        "grammarRule": "L11 ① <b>Vて きます</b>: Mang thứ gì đó <b>đến/tới</b> nơi hẹn hoặc chỗ người nói. Phân biệt với 「買っていきます」(mua rồi đi).",
+        "breakdown": "のみものを (đồ uống) + もって きます (cầm/mang đến).",
+        "traps": [
+            {"regex": "もてきます|もちてきます", "why": "もちます chia thể て là 「もって」 (âm ngắt っ nhỏ)."}
+        ]
+    },
+    {
+        "id": "s11_03", "lesson": "A2-11", "category": "BÀI 11 ② Từ để hỏi + でも いいです",
+        "pattern": "いつでも いいです",
+        "vi": "Lúc nào cũng được.",
+        "hira": "いつでも いいです。",
+        "acceptedHira": ["いつでもいいです", "いつでもいいですよ"],
+        "kanjiModel": "いつでもいいです。",
+        "kanjiAccepted": ["いつでもいいです", "いつでも良いです"],
+        "grammarRule": "L11 ② <b>Từ để hỏi ＋ でも いいです</b>: Đưa ra sự lựa chọn thoải mái không câu nệ thời gian (いつでも = lúc nào cũng được).",
+        "breakdown": "いつ (bao giờ) + でも (cũng) + いいです (được/tốt).",
+        "traps": [
+            {"regex": "いつでもいいだ|いつもいいです", "why": "「いつも」 là 'luôn luôn'; còn 'lúc nào cũng được' là 「いつでも いいです」!"}
+        ]
+    },
+    {
+        "id": "s11_04", "lesson": "A2-11", "category": "BÀI 11 ② Từ để hỏi + でも いいです",
+        "pattern": "どこでも いいです",
+        "vi": "Ở đâu cũng được.",
+        "hira": "どこでも いいです。",
+        "acceptedHira": ["どこでもいいです", "どこでもいいですよ"],
+        "kanjiModel": "どこでもいいです。",
+        "kanjiAccepted": ["どこでもいいです", "何処でもいいです"],
+        "grammarRule": "L11 ② <b>どこ ＋ でも いいです</b>: Địa điểm nào cũng được (chú ý どこ chứ không dùng なに hay どれ).",
+        "breakdown": "どこ (ở đâu) + でも いいです (cũng được).",
+        "traps": [
+            {"regex": "どこもいいです|どこがいいです", "why": "Phải dùng trợ từ 「でも」 sau từ để hỏi: どこでも いいです."}
+        ]
+    },
+    {
+        "id": "s11_05", "lesson": "A2-11", "category": "BÀI 11 ② Từ để hỏi + でも いいです",
+        "pattern": "なんでも いいです",
+        "vi": "Cái gì cũng được.",
+        "hira": "なんでも いいです。",
+        "acceptedHira": ["なんでもいいです", "なんでもいいですよ"],
+        "kanjiModel": "なんでもいいです。",
+        "kanjiAccepted": ["なんでもいいです", "何でもいいです"],
+        "grammarRule": "L11 ② BẪY ĐỌC ÂM: <b>何 + でも</b> đọc là <b>なんでも</b> (KHÔNG đọc là なにでも!).",
+        "breakdown": "なん (gì) + でも いいです (cũng được).",
+        "traps": [
+            {"regex": "なにでもいいです", "why": "BẪY PHÁT ÂM QUAN TRỌNG: 何 + でも đọc chuẩn là 「なんでも いいです」 (không phải なにでも)!"}
+        ]
+    },
+    {
+        "id": "s11_06", "lesson": "A2-11", "category": "BÀI 11 ③ N1と N2と、どちらが いいですか",
+        "pattern": "N1と N2と、どちらが いいですか",
+        "vi": "Giữa cà phê và trà, bạn thích cái nào hơn?",
+        "hira": "こーひーと おちゃと、どちらが いいですか。",
+        "acceptedHira": [
+            "こーひーとおちゃと、どちらがいいですか",
+            "こーひーとおちゃ、どちらがいいですか",
+            "コーヒーとおちゃと、どちらがいいですか"
+        ],
+        "kanjiModel": "コーヒーとお茶と、どちらがいいですか。",
+        "kanjiAccepted": ["コーヒーとお茶と、どちらがいいですか", "コーヒーとお茶とどちらがいいですか"],
+        "grammarRule": "L11 ③ Hỏi chọn 1 trong 2 thứ: <b>N1と N2と、どちらが いいですか</b> (trả lời: コーヒーが いいです).",
+        "breakdown": "コーヒーと (cà phê và) + おちゃと (trà) + どちらが いいですか (cái nào tốt hơn/thích hơn?).",
+        "traps": [
+            {"regex": "どれがいいですか|なにがいいですか", "why": "So sánh giữa 2 thứ dùng 「どちらが いいですか」 (từ 3 thứ trở lên mới dùng どれ)!"}
+        ]
+    },
+    {
+        "id": "s12_01", "lesson": "A2-12", "category": "BÀI 12 ① Tính từ + そうです",
+        "pattern": "いA(bỏ い) ＋ そうです",
+        "vi": "Trông có vẻ ngon.",
+        "hira": "おいしそうです。",
+        "acceptedHira": ["おいしそうです", "おいしそうですね"],
+        "kanjiModel": "おいしそうです。",
+        "kanjiAccepted": ["おいしそうです", "美味しそうです"],
+        "grammarRule": "L12 ① Diễn tả vẻ bề ngoài nhìn thấy bằng mắt: Tính từ đuôi い <b>bỏ い + そうです</b> (おいしい ➔ <b>おいしそうです</b>).",
+        "breakdown": "おいし (bỏ い của おいしい) + そうです (trông có vẻ).",
+        "traps": [
+            {"regex": "おいしいそう", "why": "BẪY KINH ĐIỂN L12: Phải BỎ chữ 「い」 cuối tính từ! 「おいしいそう」 sai ➔ đúng là 「おいしそうです」!"}
+        ]
+    },
+    {
+        "id": "s12_02", "lesson": "A2-12", "category": "BÀI 12 ① Tính từ + そうです",
+        "pattern": "いA(bỏ い) ＋ そうです",
+        "vi": "Trông có vẻ cay.",
+        "hira": "からそうです。",
+        "acceptedHira": ["からそうです", "からそうですね"],
+        "kanjiModel": "辛そうです。",
+        "kanjiAccepted": ["辛そうです", "からそうです"],
+        "grammarRule": "L12 ① Từ 「からい」 (cay) bỏ chữ 「い」 rồi cộng 「そうです」 ➔ <b>からそうです</b>.",
+        "breakdown": "から (bỏ い của からい) + そうです (trông có vẻ cay).",
+        "traps": [
+            {"regex": "からいそう", "why": "Phải bỏ chữ 「い」 trước そうです ➔ 「からそうです」!"}
+        ]
+    },
+    {
+        "id": "s12_03", "lesson": "A2-12", "category": "BÀI 12 ① Tính từ な + そうです",
+        "pattern": "なA(bỏ な) ＋ そうです",
+        "vi": "Trông có vẻ khỏe.",
+        "hira": "げんきそうです。",
+        "acceptedHira": ["げんきそうです", "げんきそうですね"],
+        "kanjiModel": "元気そうです。",
+        "kanjiAccepted": ["元気そうです", "元気そうですね"],
+        "grammarRule": "L12 ① Tính từ đuôi な bỏ な (không thêm な hay だ) + thẳng <b>そうです</b> ➔ <b>げんきそうです</b>.",
+        "breakdown": "げんき (tính từ な bỏ な) + そうです (trông có vẻ khỏe).",
+        "traps": [
+            {"regex": "げんきなそう|げんきだそう", "why": "Tính từ đuôi な ghép thẳng với そうです, KHÔNG giữ 「な」 hay 「だ」 ➔ 「げんきそうです」!"}
+        ]
+    },
+    {
+        "id": "s12_04", "lesson": "A2-12", "category": "BÀI 12 ① Ngoại lệ いい ➔ よさそうです",
+        "pattern": "いい ➔ よさそうです (Điểm dễ nhầm PDF p.19)",
+        "vi": "Trông có vẻ tốt / hay đấy.",
+        "hira": "よさそうです。",
+        "acceptedHira": ["よさそうです", "よさそうですね"],
+        "kanjiModel": "よさそうです。",
+        "kanjiAccepted": ["よさそうです", "良さそうです"],
+        "grammarRule": "L12 ① NGOẠI LỆ ĐẶC BIỆT TRONG PDF TRANG 19: Tính từ 「いい」 (tốt) khi ghép với そうです BẮT BUỘC đổi thành <b>よさそうです</b> (thêm chữ <b>さ</b>)! 「ない」 cũng thành なさそうです.",
+        "breakdown": "よ (gốc của いい) + さ + そうです = よさそうです (trông có vẻ tốt).",
+        "traps": [
+            {"regex": "いいそう|いそう|よそう", "why": "BẪY ĐẶC BIỆT PDF: 「いい」 KHÔNG đổi thành いそう hay よそう mà bắt buộc thêm 「さ」 thành 「よさそうです」!"}
+        ]
+    },
+    {
+        "id": "s12_05", "lesson": "A2-12", "category": "BÀI 12 ② ～て / ～で (Nguyên nhân)",
+        "pattern": "いA(bỏ い)くて、～",
+        "vi": "Vì ngon nên tôi đã ăn quá nhiều.",
+        "hira": "おいしくて、たべすぎました。",
+        "acceptedHira": ["おいしくて、たべすぎました", "おいしくてたべすぎました"],
+        "kanjiModel": "おいしくて、食べすぎました。",
+        "kanjiAccepted": ["おいしくて、食べすぎました", "美味しくて、食べすぎました", "おいしくて食べすぎました"],
+        "grammarRule": "L12 ② Tính từ đuôi い chỉ nguyên nhân: bỏ い + <b>くて</b> (おいしい ➔ <b>おいしくて</b>). Vế sau dùng mẫu Vます(bỏ ます) + すぎます = ăn quá nhiều.",
+        "breakdown": "おいしくて (vì ngon nên) + たべすぎました (đã ăn quá nhiều).",
+        "traps": [
+            {"regex": "おいしいで|おいくて", "why": "おいしい đổi sang thể て chỉ nguyên nhân phải giữ chữ し: 「おいしくて」 (không phải おいしいで)!"}
+        ]
+    },
+    {
+        "id": "s12_06", "lesson": "A2-12", "category": "BÀI 12 ② ～くて (Phủ định いA)",
+        "pattern": "いAくない ➔ いAくなくて、～",
+        "vi": "Quán này không đắt nên tôi hay đi.",
+        "hira": "この みせは たかくなくて、よく いきます。",
+        "acceptedHira": ["このみせはたかくなくて、よくいきます", "このみせはたかくなくてよくいきます"],
+        "kanjiModel": "この店は高くなくて、よく行きます。",
+        "kanjiAccepted": ["この店は高くなくて、よく行きます", "この店は高くなくてよく行きます"],
+        "grammarRule": "L12 ② BẪY PHỦ ĐỊNH: Đuôi 「～くない」 hoạt động như tính từ đuôi い, nên bỏ い + くて thành <b>たかくなくて</b>!",
+        "breakdown": "この みせは (quán này) + たかくなくて (vì không đắt nên) + よく いきます (hay đi).",
+        "traps": [
+            {"regex": "たかくないで|たかくないて|たかくなくで", "why": "たかくない chia thể て là 「たかくなくて」 (KHÔNG phải たかくないて hay たかくないで)!"}
+        ]
+    },
+    {
+        "id": "s12_07", "lesson": "A2-12", "category": "BÀI 12 ② なA + で (Nguyên nhân)",
+        "pattern": "なA ＋ で、～",
+        "vi": "Khách sạn này tiện lợi nên tôi hay sử dụng.",
+        "hira": "この ほてるは べんりで、よく つかいます。",
+        "acceptedHira": [
+            "このほてるはべんりで、よくつかいます",
+            "このホテルはべんりで、よくつかいます",
+            "このほてるはべんりでよくつかいます"
+        ],
+        "kanjiModel": "このホテルは便利で、よく使います。",
+        "kanjiAccepted": ["このホテルは便利で、よく使います", "このホテルは便利でよく使います"],
+        "grammarRule": "L12 ② Tính từ đuôi な chỉ nguyên nhân nối bằng <b>で</b>: べんり ➔ <b>べんりで</b>.",
+        "breakdown": "この ホテルは (khách sạn này) + べんりで (vì tiện nên) + よく つかいます (hay dùng).",
+        "traps": [
+            {"regex": "べんりくて|べんりて|べんりなで", "why": "べんり là tính từ đuôi な ➔ thêm thẳng 「で」 thành 「べんりで」 (không dùng くて hay なで)!"}
+        ]
+    },
+    {
+        "id": "s12_08", "lesson": "A2-12", "category": "BÀI 12 ② なAじゃなくて (Nguyên nhân phủ định)",
+        "pattern": "なAじゃなくて、～",
+        "vi": "Xe buýt không tiện lắm nên mỗi ngày tôi đi làm bằng xe máy.",
+        "hira": "ばすは あまり べんりじゃなくて、まいにち ばいくで かいしゃに いきます。",
+        "acceptedHira": [
+            "ばすはあまりべんりじゃなくて、まいにちばいくでかいしゃにいきます",
+            "バスはあまりべんりじゃなくて、まいにちバイクでかいしゃにいきます"
+        ],
+        "kanjiModel": "バスはあまり便利じゃなくて、毎日バイクで会社に行きます。",
+        "kanjiAccepted": ["バスはあまり便利じゃなくて、毎日バイクで会社に行きます", "バスはあまり便利じゃなくて毎日バイクで会社に行きます"],
+        "grammarRule": "L12 ② Phủ định của Danh từ / Tính từ な chỉ nguyên nhân: <b>じゃない ➔ じゃなくて</b> (べんりじゃなくて).",
+        "breakdown": "バスは あまり べんりじゃなくて (xe buýt không tiện lắm nên) + まいにち バイクで かいしゃに いきます.",
+        "traps": [
+            {"regex": "べんりじゃないで|べんりくなくて", "why": "べんり (なA) chia phủ định thể て là 「べんりじゃなくて」 (KHÔNG dùng べんりくなくて)!"}
+        ]
+    },
+    {
+        "id": "s12_09", "lesson": "A2-12", "category": "BÀI 12 ② Danh từ + で (Nguyên nhân)",
+        "pattern": "N ＋ で、～",
+        "vi": "Vì tắc đường nên tôi đã đến trường muộn.",
+        "hira": "じゅうたいで、がっこうに おくれました。",
+        "acceptedHira": ["じゅうたいで、がっこうにおくれました", "じゅうたいでがっこうにおくれました"],
+        "kanjiModel": "じゅうたいで、学校におくれました。",
+        "kanjiAccepted": ["じゅうたいで、学校におくれました", "渋滞で、学校に遅れました", "じゅうたいで学校に遅れました"],
+        "grammarRule": "L12 ② Danh từ + <b>で</b> diễn tả nguyên nhân sự cố (tắc đường, ốm, bão...): じゅうたい<b>で</b>、おくれました (tắc đường nên bị muộn).",
+        "breakdown": "じゅうたいで (vì tắc đường nên) + がっこうに おくれました (đã trễ học).",
+        "traps": [
+            {"regex": "じゅうたいから|じゅうたいくて|がっこうをおくれました", "why": "Dùng 「じゅうたいで」 để chỉ nguyên nhân danh từ, và động từ 'muộn' đi với trợ từ 「に」 (がっこうに おくれました)!"}
+        ]
+    },
+    {
+        "id": "s13_01", "lesson": "A2-13", "category": "BÀI 13 ① Vた ことが あります",
+        "pattern": "Vた ＋ ことが あります",
+        "vi": "Tôi đã từng đi Nhật Bản.",
+        "hira": "にほんに いった ことが あります。",
+        "acceptedHira": ["にほんにいったことがあります", "にほんへいったことがあります"],
+        "kanjiModel": "日本に行ったことがあります。",
+        "kanjiAccepted": ["日本に行ったことがあります", "日本へ行ったことがあります"],
+        "grammarRule": "L13 ① Nói về trải nghiệm quá khứ ('đã từng làm gì'): <b>Vた ＋ ことが あります</b>. Bẫy: động từ phải chia thể <b>た</b> (いった), KHÔNG để Vる (いく)!",
+        "breakdown": "にほんに (đến Nhật) + いった ことが あります (đã từng đi).",
+        "traps": [
+            {"regex": "いくことがあります|いきましたことがあります", "why": "BẪY L13: Diễn tả trải nghiệm 'đã từng' bắt buộc dùng thể 「Vた」 ➔ 「いった ことが あります」 (いく ことが あります mang nghĩa 'thỉnh thoảng đi')!"}
+        ]
+    },
+    {
+        "id": "s13_02", "lesson": "A2-13", "category": "BÀI 13 ① Vた ことが あります",
+        "pattern": "Vた ＋ ことが あります",
+        "vi": "Tôi đã từng nhìn thấy núi Phú Sĩ.",
+        "hira": "ふじさんを みた ことが あります。",
+        "acceptedHira": ["ふじさんをみたことがあります"],
+        "kanjiModel": "ふじさんを見たことがあります。",
+        "kanjiAccepted": ["ふじさんを見たことがあります", "富士山を見たことがあります"],
+        "grammarRule": "L13 ① Động từ みます (nhìn thấy, Nhóm II) ➔ thể た là <b>みた</b> + ことが あります.",
+        "breakdown": "ふじさんを (núi Phú Sĩ) + みた ことが あります (đã từng thấy).",
+        "traps": [
+            {"regex": "みることがあります|みましたことがあります", "why": "Trước 「ことが あります」 khi nói về trải nghiệm luôn dùng 「Vた」 ➔ 「みた ことが あります」!"}
+        ]
+    },
+    {
+        "id": "s13_03", "lesson": "A2-13", "category": "BÀI 13 ② Vます / Tính từ ＋ すぎます",
+        "pattern": "いA(bỏ い) ＋ すぎます",
+        "vi": "Món mì ramen này cay quá. Tôi đã uống rất nhiều nước.",
+        "hira": "この らーめんは からすぎます。みずを たくさん のみました。",
+        "acceptedHira": [
+            "このらーめんはからすぎます。みずをたくさんのみました",
+            "このラーメンはからすぎます。みずをたくさんのみました",
+            "このらーめんはからすぎますみずをたくさんのみました"
+        ],
+        "kanjiModel": "このラーメンはからすぎます。水をたくさん飲みました。",
+        "kanjiAccepted": ["このラーメンはからすぎます。水をたくさん飲みました", "このラーメンは辛すぎます。水をたくさん飲みました"],
+        "grammarRule": "L13 ② Mức độ thái quá ('quá mức'): Tính từ い bỏ い + <b>すぎます</b> (からい ➔ <b>からすぎます</b>).",
+        "breakdown": "この ラーメンは (mì ramen này) + からすぎます (cay quá) + みずを たくさん のみました (uống nhiều nước).",
+        "traps": [
+            {"regex": "からいすぎます", "why": "Phải bỏ chữ 「い」 của からい trước すぎます ➔ 「からすぎます」!"}
+        ]
+    },
+    {
+        "id": "s13_04", "lesson": "A2-13", "category": "BÀI 13 ③ ～ですが、～",
+        "pattern": "S1(đối lập) ですが、S2",
+        "vi": "Khách sạn tuy cũ nhưng sạch đẹp.",
+        "hira": "ほてるは ふるいですが、きれいです。",
+        "acceptedHira": ["ほてるはふるいですが、きれいです", "ホテルはふるいですが、きれいです"],
+        "kanjiModel": "ホテルは古いですが、きれいです。",
+        "kanjiAccepted": ["ホテルは古いですが、きれいです", "ホテルは古いですが、綺麗です"],
+        "grammarRule": "L13 ③ Nối hai vế tương phản ('tuy ... nhưng ...'): <b>Tính từ い + ですが</b> (ふるいですが、きれいです).",
+        "breakdown": "ホテルは ふるいですが (khách sạn cũ nhưng) + きれいです (sạch đẹp).",
+        "traps": [
+            {"regex": "ふるいが|ふるいだですが", "why": "Khi dùng mẫu câu lịch sự với が ('nhưng'), ghép sau thể lịch sự です ➔ 「ふるいですが」!"}
+        ]
+    },
+    {
+        "id": "s13_05", "lesson": "A2-13", "category": "BÀI 13 ③ ～ですが、～",
+        "pattern": "S1 ですが、S2",
+        "vi": "Hơi đắt một chút nhưng tiện lợi.",
+        "hira": "ちょっと たかいですが、べんりです。",
+        "acceptedHira": ["ちょっとたかいですが、べんりです", "ちょっとたかいですがべんりです"],
+        "kanjiModel": "ちょっと高いですが、便利です。",
+        "kanjiAccepted": ["ちょっと高いですが、便利です", "ちょっと高いですが便利です"],
+        "grammarRule": "L13 ③ Dùng trạng từ giảm nhẹ <b>ちょっと</b> + Tính từ + ですが + vế tích cực.",
+        "breakdown": "ちょっと たかいですが (hơi đắt một chút nhưng) + べんりです (tiện lợi).",
+        "traps": [
+            {"regex": "たかいが", "why": "Sau tính từ câu lịch sự cần thêm です trước が ➔ 「たかいですが」!"}
+        ]
+    },
+    {
+        "id": "s14_01", "lesson": "A2-14", "category": "BÀI 14 ① Vて、〈Thời gian〉に なります",
+        "pattern": "Vて、〈Thời gian〉に なります",
+        "vi": "Từ khi đến Nhật đã được 3 năm rồi.",
+        "hira": "にほんに きて、3ねんに なります。",
+        "acceptedHira": [
+            "にほんにきて、3ねんになります",
+            "にほんにきて、さんねんになります",
+            "にほんへきて、3ねんになります",
+            "にほんへきて、さんねんになります"
+        ],
+        "kanjiModel": "日本に来て、3年になります。",
+        "kanjiAccepted": ["日本に来て、3年になります", "日本に来て3年になります", "日本に来て、三年になります"],
+        "grammarRule": "L14 ① Diễn tả mốc thời gian tích lũy kể từ một sự kiện: <b>Vて、〈Thời gian〉に なります</b>.",
+        "breakdown": "にほんに きて (từ khi đến Nhật) + 3ねんに なります (đã thành/được 3 năm).",
+        "traps": [
+            {"regex": "くるて|きたで|3ねんなります", "why": "きます chia thể て là 「きて」; trước なります cần có trợ từ 「に」 (3ねんに なります)!"}
+        ]
+    },
+    {
+        "id": "s14_02", "lesson": "A2-14", "category": "BÀI 14 ① Vて、〈Thời gian〉に なります",
+        "pattern": "Vて、〈Thời gian〉に なります",
+        "vi": "Tôi làm việc ở công ty này đã được 2 năm rồi.",
+        "hira": "この かいしゃで はたらいて、2ねんに なります。",
+        "acceptedHira": [
+            "このかいしゃではたらいて、2ねんになります",
+            "このかいしゃではたらいて、にねんになります",
+            "このかいしゃではたらいて2ねんになります"
+        ],
+        "kanjiModel": "この会社で働いて、2年になります。",
+        "kanjiAccepted": ["この会社で働いて、2年になります", "この会社で働いて2年になります", "この会社で働いて、二年になります"],
+        "grammarRule": "L14 ① Hành động 'làm việc' xảy ra tại công ty dùng trợ từ 「で」 (かいしゃで); động từ はたらきます ➔ thể て là <b>はたらいて</b>.",
+        "breakdown": "この かいしゃで はたらいて (làm việc ở công ty này) + 2ねんに なります (đã được 2 năm).",
+        "traps": [
+            {"regex": "はたらきて|はたらって|かいしゃにはたらいて", "why": "はたらきます đuôi き chia thể て ➔ 「はたらいて」 (âm い, không phải っ); nơi làm việc dùng trợ từ 「で」!"}
+        ]
+    },
+    {
+        "id": "s14_03", "lesson": "A2-14", "category": "BÀI 14 ② Vても いいですか",
+        "pattern": "Vても いいですか",
+        "vi": "Tôi ngồi ở đây có được không?",
+        "hira": "ここに すわっても いいですか。",
+        "acceptedHira": ["ここにすわってもいいですか"],
+        "kanjiModel": "ここに座ってもいいですか。",
+        "kanjiAccepted": ["ここに座ってもいいですか"],
+        "grammarRule": "L14 ② Xin phép lịch sự: <b>Vても いいですか</b>. Động từ すわります (ngồi, Nhóm I đuôi り) ➔ <b>すわって</b>; nơi đích gắn chỗ ngồi dùng 「に」 (ここに).",
+        "breakdown": "ここに (ở đây) + すわっても いいですか (tôi ngồi có được không?).",
+        "traps": [
+            {"regex": "すわりても|すわて|ここで", "why": "すわります chia thể て là 「すわって」 (có っ nhỏ), vị trí ngồi đi với động từ đứng yên/đích 「ここに」!"}
+        ]
+    },
+    {
+        "id": "s14_04", "lesson": "A2-14", "category": "BÀI 14 ② Vても いいですか",
+        "pattern": "Vても いいですか",
+        "vi": "Tôi chụp ảnh có được không?",
+        "hira": "しゃしんを とっても いいですか。",
+        "acceptedHira": ["しゃしんをとってもいいですか"],
+        "kanjiModel": "写真を撮ってもいいですか。",
+        "kanjiAccepted": ["写真を撮ってもいいですか"],
+        "grammarRule": "L14 ② とります (chụp ảnh, Nhóm I đuôi り) ➔ thể て là <b>とって</b> + も いいですか.",
+        "breakdown": "しゃしんを (ảnh) + とっても いいですか (chụp có được không?).",
+        "traps": [
+            {"regex": "とりても|とて", "why": "とります (Nhóm I) chuyển り ➔ って: 「とっても いいですか」!"}
+        ]
+    },
+    {
+        "id": "s14_05", "lesson": "A2-14", "category": "BÀI 14 ③ Từ chối nhẹ nhàng",
+        "pattern": "すみません、ちょっと…",
+        "vi": "Xin lỗi, hơi (khó xử / không tiện)...",
+        "hira": "すみません、ちょっと。",
+        "acceptedHira": ["すみません、ちょっと", "すみません、ちょっと。", "すみませんちょっと"],
+        "kanjiModel": "すみません、ちょっと…。",
+        "kanjiAccepted": ["すみません、ちょっと", "すみません、ちょっと…"],
+        "grammarRule": "L14 ③ Cách người Nhật từ chối khéo lời xin phép (khi câu trả lời là KHÔNG): nói lửng <b>すみません、ちょっと…</b> thay vì nói thẳng 'ダメです'.",
+        "breakdown": "すみません (xin lỗi) + ちょっと… (hơi... [bất tiện nên không được đâu ạ]).",
+        "traps": [
+            {"regex": "すいません、だめ|いいえ、だめ", "why": "Văn hóa giao tiếp L14: Tránh nói 'ダメです', dùng câu lửng lịch sự 「すみません、ちょっと…」!"}
+        ]
     },
 ]

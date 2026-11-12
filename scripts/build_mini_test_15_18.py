@@ -2095,9 +2095,9 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             <div class="typing-container">
                 <div class="section-header">
                     <div>
-                        <h2 class="section-title">⌨️ Luyện Gõ Ôn Tập Bài 15-18: Dịch Câu & Đọc Chữ Hán ➔ Hiragana</h2>
+                        <h2 class="section-title">⌨️ Luyện Gõ Ôn Tập Bài 11–18: Dịch Câu & Đọc Chữ Hán ➔ Hiragana</h2>
                         <p style="color: var(--gray-600); font-size: 0.92rem; margin-top: 4px;">
-                            Luyện gõ trực tiếp theo tài liệu cô gửi (L15-18, Kaiwa Mid 2 &amp; 2 file PDF Kanji 11-18). Chấm chi tiết <strong>nghĩa + công thức + giải thích vì sao sai</strong> và <strong>tự động lưu checkpoint</strong> từng câu!
+                            Luyện gõ theo bộ tài liệu cô gửi (<strong>PDF Tổng hợp ngữ pháp L11–L18</strong>, Kaiwa Mid 2 &amp; 2 file PDF Kanji 11–18). Chấm chi tiết <strong>nghĩa + công thức + giải thích vì sao sai</strong> và <strong>tự động lưu checkpoint</strong> từng câu!
                         </p>
                     </div>
                 </div>
@@ -2227,6 +2227,29 @@ HTML_TEMPLATE = """<!DOCTYPE html>
                             &nbsp;&nbsp;&nbsp;&nbsp;➔ <em>きれい<strong>だ</strong>と思います</em> (Không nói: きれいと思います)<br>
                             &nbsp;&nbsp;&nbsp;&nbsp;➔ <em>しあわせ<strong>だ</strong>と言っていました</em>.
                         </p>
+                    </div>
+
+                    <!-- Cheatsheet 5: PDF L11-L18 Bảng Ôn Nhanh & 6 Điểm Dễ Nhầm -->
+                    <div style="grid-column: 1 / -1; background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%); border: 1px solid #fcd34d; border-radius: var(--radius-md); padding: 20px;">
+                        <h3 style="font-size: 1.12rem; font-weight: 800; color: #b45309; margin-bottom: 10px;">5. Bảng Ôn Nhanh &amp; 6 Điểm Dễ Nhầm Toàn Tập L11–L18 (Theo PDF Cô Gửi)</h3>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 14px; font-size: 0.9rem; color: #78350f; line-height: 1.68;">
+                            <div style="background: rgba(255,255,255,0.82); padding: 12px 14px; border-radius: 10px; border: 1px solid #fde68a;">
+                                <strong style="color:#92400e;">📌 Ôn nhanh nền tảng L11–L14:</strong><br>
+                                • <strong>L11:</strong> <code>Vて いきます / きます</code> (mua mang đi / mang tới); <code>いつでも・どこでも・なんでも いいです</code>; <code>N1と N2と、どちらが いいですか</code>.<br>
+                                • <strong>L12:</strong> Bỏ <code>い/な</code> + <code>そうです</code> (trông có vẻ); <code>いAくて / なAで / Nで</code> (nguyên nhân).<br>
+                                • <strong>L13:</strong> <code>Vた ことが あります</code> (đã từng); <code>すぎます</code> (quá); <code>S1 ですが、S2</code>.<br>
+                                • <strong>L14:</strong> <code>Vて、3年に なります</code> (được 3 năm); <code>Vても いいですか</code> (xin phép) &amp; <code>すみません、ちょっと…</code> (từ chối khéo).
+                            </div>
+                            <div style="background: rgba(255,255,255,0.82); padding: 12px 14px; border-radius: 10px; border: 1px solid #fde68a;">
+                                <strong style="color:#92400e;">🚨 6 Điểm dễ nhầm PDF Trang 19:</strong><br>
+                                1. <strong>Mệnh đề bổ ngữ V + N:</strong> TUYỆT ĐỐI KHÔNG chen <code>の</code> (<s>とったのしゃしん</s> ❌ ➔ <code>とった しゃしん</code> ✅).<br>
+                                2. <strong>Ngoại lệ 「そうです」:</strong> <code>いい</code> ➔ <code>よさそうです</code> ✅ (KHÔNG dùng <s>いいそう</s> ❌).<br>
+                                3. <strong>Chủ ngữ mệnh đề phụ:</strong> Phải dùng <code>が</code> thay <code>は</code> (<code>母<strong>が</strong>作った料理</code> ✅).<br>
+                                4. <strong>ナA / N + と思います / 言っていました:</strong> Phải thêm <code>だ</code> ở hiện tại khẳng định (<code>元気<strong>だ</strong>と思います</code> ✅).<br>
+                                5. <strong>Trước 「まえに」 dù câu quá khứ:</strong> Vẫn chia <code>Vる</code> (<code>日本に 行く まえに、勉強しました</code> ✅).<br>
+                                6. <strong>Khoảng thời gian + まえに:</strong> Không thêm <code>の</code> (<code>3年前に</code> / <code>10分前に</code> ✅; danh từ sự kiện mới thêm <code>の</code>).
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -3307,13 +3330,19 @@ HTML_TEMPLATE = """<!DOCTYPE html>
                 }
             }
 
-            // 5. General comparison fallback
+            // 5. General comparison fallback & global PDF trap checks
             if (mode === 'sentence' && !reasons.length) {
-                const diff = buildCharDiffHtml(rawUser, targetSample);
-                if (normUserHira.includes('わ') && normTarget.includes('は') && normUserHira.replace(/わ/g, 'は') === normTarget.replace(/わ/g, 'は')) {
-                    reasons.push('📌 <strong>Nhầm trợ từ 「は」 thành 「わ」:</strong> Trợ từ chủ đề câu phát âm là <em>wa</em> nhưng viết bằng chữ <strong>「は」</strong>!');
-                } else if (diff.expectedChunk || diff.gotChunk) {
-                    reasons.push(`🔎 <strong>Lệch tại cụm ký tự:</strong> Bạn gõ <code>${escapeHtml(diff.gotChunk || '(thiếu)')}</code> trong khi đáp án chuẩn cần <code>${escapeHtml(diff.expectedChunk || '(không có)')}</code>.`);
+                const isRelClause = (item.pattern || '').includes('＋ N') || (item.pattern || '').includes('＋ 人') || (item.category || '').includes('Bổ nghĩa');
+                const relNoFix = normUserHira.replace(/([ただいるうくぐすつぬぶむ])の/g, '$1');
+                if (isRelClause && relNoFix !== normUserHira && acceptedList.some(acc => cleanJpCompare(acc, true) === relNoFix)) {
+                    reasons.push('🚫 <strong>BẪY PDF L16–17 (Thừa trợ từ 「の」 trong mệnh đề bổ nghĩa):</strong> Sau động từ thể thông thường đứng trước Danh từ, TUYỆT ĐỐI KHÔNG chen 「の」 (ví dụ <em>とった しゃしん ✅</em>, không dùng <s>とったのしゃしん</s> ❌)!');
+                } else {
+                    const diff = buildCharDiffHtml(rawUser, targetSample);
+                    if (normUserHira.includes('わ') && normTarget.includes('は') && normUserHira.replace(/わ/g, 'は') === normTarget.replace(/わ/g, 'は')) {
+                        reasons.push('📌 <strong>Nhầm trợ từ 「は」 thành 「わ」:</strong> Trợ từ chủ đề câu phát âm là <em>wa</em> nhưng viết bằng chữ <strong>「は」</strong>!');
+                    } else if (diff.expectedChunk || diff.gotChunk) {
+                        reasons.push(`🔎 <strong>Lệch tại cụm ký tự:</strong> Bạn gõ <code>${escapeHtml(diff.gotChunk || '(thiếu)')}</code> trong khi đáp án chuẩn cần <code>${escapeHtml(diff.expectedChunk || '(không có)')}</code>.`);
+                    }
                 }
             } else if (mode === 'kanji' && !reasons.length) {
                 const diff = buildCharDiffHtml(rawUser, targetSample);
@@ -3345,12 +3374,14 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             const items = getModeItems(mode);
             if (mode === 'sentence') {
                 return [
-                    { key: 'all', label: `Tất cả (${items.length})` },
+                    { key: 'all', label: `Tất cả L11-18 (${items.length})` },
+                    { key: 'focus-15-18', label: `Trọng tâm L15-18 (${items.filter(x => !/^A2-1[1-4]$/.test(x.lesson)).length})` },
                     { key: 'A2-15', label: `Bài 15 (${items.filter(x => x.lesson === 'A2-15').length})` },
                     { key: 'A2-16', label: `Bài 16 (${items.filter(x => x.lesson === 'A2-16').length})` },
                     { key: 'Kaiwa Mid 2', label: `Kaiwa Mid 2 (${items.filter(x => x.lesson === 'Kaiwa Mid 2').length})` },
                     { key: 'A2-17', label: `Bài 17 (${items.filter(x => x.lesson === 'A2-17').length})` },
                     { key: 'A2-18', label: `Bài 18 (${items.filter(x => x.lesson === 'A2-18').length})` },
+                    { key: 'review-11-14', label: `Ôn thêm L11-14 (${items.filter(x => /^A2-1[1-4]$/.test(x.lesson)).length})` },
                     { key: 'wrong', label: `🔁 Câu sai (${items.filter(x => wrongIds.has(x.id)).length})` }
                 ];
             }
@@ -3387,6 +3418,10 @@ HTML_TEMPLATE = """<!DOCTYPE html>
                 base = all.filter(x => tpState.history[x.id] && tpState.history[x.id].status === 'err');
             } else if (f === 'all') {
                 base = [...all];
+            } else if (m === 'sentence' && f === 'focus-15-18') {
+                base = all.filter(x => !/^A2-1[1-4]$/.test(x.lesson));
+            } else if (m === 'sentence' && f === 'review-11-14') {
+                base = all.filter(x => /^A2-1[1-4]$/.test(x.lesson));
             } else if (m === 'kanji') {
                 base = all.filter(x => x.group === f);
             } else {
