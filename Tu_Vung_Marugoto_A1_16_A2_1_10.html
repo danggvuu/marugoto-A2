@@ -19178,12 +19178,49 @@
             }
         ];
 
+        const TV_CP_KEY = 'marugoto_tuvung_portal_cp_v1';
+        window.__MARUGOTO_NATIVE_DOM_DISABLED__ = true;
+        window.__MARUGOTO_CP_EXTRA_KEYS__ = [TV_CP_KEY];
+        window.__MARUGOTO_ON_RESET__ = function () {
+            try { localStorage.removeItem(TV_CP_KEY); } catch (e) {}
+            window.location.reload();
+        };
+
+        let currentView = 'view-table';
+        let isRestoringTv = false;
         let currentFiltered = [...rawVocab];
         let currentCardIndex = 0;
         let cardFlipped = false;
 
+        function saveTvCheckpoint() {
+            if (isRestoringTv) return;
+            try {
+                const searchEl = document.getElementById('searchInput');
+                const activePanel = document.querySelector('.view-panel.active');
+                const payload = {
+                    t: Date.now(),
+                    currentView: currentView || (activePanel ? activePanel.id : 'view-table'),
+                    selectedLessons: Array.from(selectedLessons),
+                    currentLevelScope,
+                    isMultiSelectMode,
+                    searchQuery: searchEl ? searchEl.value : '',
+                    currentCardIndex,
+                    cardFlipped,
+                    cardSidePrompt,
+                    cardOrder: currentFiltered.map(x => `${x.l}|${x.kanji}|${x.kana}`),
+                    quizSettings,
+                    quizSession: quizSession && Array.isArray(quizSession.questions) && quizSession.questions.length > 0 ? quizSession : null
+                };
+                localStorage.setItem(TV_CP_KEY, JSON.stringify(payload));
+                if (window.MarugotoCheckpoint && typeof window.MarugotoCheckpoint.notifySaved === 'function') {
+                    window.MarugotoCheckpoint.notifySaved();
+                }
+            } catch (e) {}
+        }
+
         // View Switching
-        function switchView(viewId) {
+        function switchView(viewId, opts) {
+            currentView = viewId;
             document.querySelectorAll('.view-panel').forEach(p => p.classList.remove('active'));
             document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
             const target = document.getElementById(viewId);
@@ -19192,11 +19229,18 @@
             if (activeBtn) activeBtn.classList.add('active');
 
             if (viewId === 'view-flashcard') {
-                currentCardIndex = 0;
-                cardFlipped = false;
+                if (!(opts && opts.isRestore)) {
+                    currentCardIndex = 0;
+                    cardFlipped = false;
+                }
                 renderCard();
             } else if (viewId === 'view-quiz') {
-                startNewQuizTest();
+                if (!(opts && opts.isRestore) || !quizSession.questions || quizSession.questions.length === 0) {
+                    startNewQuizTest();
+                }
+            }
+            if (!(opts && opts.skipSave)) {
+                saveTvCheckpoint();
             }
         }
 
@@ -19607,7 +19651,7 @@
         // ==========================================
         // FILTER LOGIC (Kanji, Kana, Han-Viet, Romaji, Vietnamese)
         // ==========================================
-        function applyFilter() {
+        function applyFilter(opts) {
             const query = document.getElementById('searchInput').value.trim().toLowerCase();
 
             currentFiltered = rawVocab.filter(item => {
@@ -19645,13 +19689,18 @@
             }
 
             renderTable();
-            currentCardIndex = 0;
-            cardFlipped = false;
-            if (document.getElementById('view-flashcard').classList.contains('active')) {
-                renderCard();
+            if (!(opts && opts.isRestore)) {
+                currentCardIndex = 0;
+                cardFlipped = false;
+                if (document.getElementById('view-flashcard').classList.contains('active')) {
+                    renderCard();
+                }
+                if (document.getElementById('view-quiz').classList.contains('active')) {
+                    startNewQuizTest();
+                }
             }
-            if (document.getElementById('view-quiz').classList.contains('active')) {
-                startNewQuizTest();
+            if (!(opts && opts.skipSave)) {
+                saveTvCheckpoint();
             }
         }
 
@@ -19825,6 +19874,7 @@
             if (cardInner) {
                 cardInner.classList.toggle('is-flipped', cardFlipped);
             }
+            saveTvCheckpoint();
         }
 
         function nextCard() {
@@ -19832,6 +19882,7 @@
             currentCardIndex = (currentCardIndex + 1) % currentFiltered.length;
             cardFlipped = false;
             renderCard();
+            saveTvCheckpoint();
         }
 
         function prevCard() {
@@ -19839,6 +19890,7 @@
             currentCardIndex = (currentCardIndex - 1 + currentFiltered.length) % currentFiltered.length;
             cardFlipped = false;
             renderCard();
+            saveTvCheckpoint();
         }
 
         function shuffleCards() {
@@ -19851,6 +19903,7 @@
             cardFlipped = false;
             renderCard();
             showToast("🔀 Đã xáo trộn danh sách thẻ!");
+            saveTvCheckpoint();
         }
 
         function toggleCardSidePrompt() {
@@ -19862,6 +19915,7 @@
             }
             renderCard();
             showToast(cardSidePrompt === 'jp' ? "Đã chuyển: Mặt trước là Tiếng Nhật" : "Đã chuyển: Mặt trước là Tiếng Việt");
+            saveTvCheckpoint();
         }
 
         // ==========================================
@@ -19976,6 +20030,7 @@
                 correctCount: 0,
                 wrongCount: 0,
                 answered: false,
+                lastSelectedOpt: null,
                 wrongItems: []
             };
 
@@ -19985,12 +20040,16 @@
             if (resView) resView.style.display = 'none';
 
             renderQuizQuestion();
+            saveTvCheckpoint();
         }
 
-        function renderQuizQuestion() {
+        function renderQuizQuestion(opts) {
             if (quizSession.questions.length === 0) return;
             const q = quizSession.questions[quizSession.currentIndex];
-            quizSession.answered = false;
+            if (!(opts && opts.preserveAnswered)) {
+                quizSession.answered = false;
+                quizSession.lastSelectedOpt = null;
+            }
 
             const totalQ = quizSession.questions.length;
             const curIdx = quizSession.currentIndex + 1;
@@ -20053,6 +20112,7 @@
         function handleQuizOptionClick(selectedOpt, btnEl, questionObj) {
             if (quizSession.answered) return;
             quizSession.answered = true;
+            quizSession.lastSelectedOpt = selectedOpt;
 
             const isCorrect = (selectedOpt === questionObj.correctAnswer);
             const optContainer = document.getElementById('quizOptions');
@@ -20093,7 +20153,9 @@
                     }
                     banner.style.display = 'flex';
                 }
+                saveTvCheckpoint();
             } else {
+                saveTvCheckpoint();
                 // Chế độ Thi thử (Test): Tự động chuyển câu sau 0.45s
                 setTimeout(() => {
                     advanceQuiz();
@@ -20112,6 +20174,7 @@
             } else {
                 showQuizResults();
             }
+            saveTvCheckpoint();
         }
 
         function showQuizResults() {
@@ -20322,10 +20385,118 @@
             setTimeout(() => { toast.style.display = 'none'; }, 2500);
         }
 
+        function restoreTvCheckpoint() {
+            try {
+                const raw = localStorage.getItem(TV_CP_KEY);
+                if (!raw) return false;
+                const saved = JSON.parse(raw);
+                if (!saved || typeof saved !== 'object') return false;
+                isRestoringTv = true;
+
+                if (Array.isArray(saved.selectedLessons)) {
+                    selectedLessons = new Set(saved.selectedLessons);
+                }
+                if (saved.currentLevelScope) currentLevelScope = saved.currentLevelScope;
+                if (typeof saved.isMultiSelectMode === 'boolean') {
+                    isMultiSelectMode = saved.isMultiSelectMode;
+                    const msChk = document.getElementById('chkMultiSelect');
+                    if (msChk) msChk.checked = isMultiSelectMode;
+                }
+                if (saved.cardSidePrompt === 'vi' || saved.cardSidePrompt === 'jp') {
+                    cardSidePrompt = saved.cardSidePrompt;
+                    const label = document.getElementById('lblToggleSide');
+                    if (label) {
+                        label.textContent = cardSidePrompt === 'jp' ? "Mặt trước: Tiếng Nhật" : "Mặt trước: Tiếng Việt";
+                    }
+                }
+                if (saved.quizSettings && typeof saved.quizSettings === 'object') {
+                    quizSettings = { ...quizSettings, ...saved.quizSettings };
+                    const selAnswer = document.getElementById('qsettingAnswerWith');
+                    const selCount = document.getElementById('qsettingCount');
+                    const selMode = document.getElementById('qsettingMode');
+                    const chkSpeak = document.getElementById('qsettingAutoSpeak');
+                    if (selAnswer) selAnswer.value = quizSettings.answerWith;
+                    if (selCount) selCount.value = String(quizSettings.count);
+                    if (selMode) selMode.value = quizSettings.mode;
+                    if (chkSpeak) chkSpeak.checked = Boolean(quizSettings.autoSpeak);
+                }
+                const searchEl = document.getElementById('searchInput');
+                if (searchEl && typeof saved.searchQuery === 'string') {
+                    searchEl.value = saved.searchQuery;
+                }
+
+                initLessonChips();
+                applyFilter({ isRestore: true, skipSave: true });
+
+                if (Array.isArray(saved.cardOrder) && saved.cardOrder.length > 0 && currentFiltered.length > 0) {
+                    const pool = [...currentFiltered];
+                    const ordered = [];
+                    saved.cardOrder.forEach(k => {
+                        const idx = pool.findIndex(x => `${x.l}|${x.kanji}|${x.kana}` === k);
+                        if (idx !== -1) ordered.push(pool.splice(idx, 1)[0]);
+                    });
+                    currentFiltered = ordered.concat(pool);
+                }
+                if (Number.isInteger(saved.currentCardIndex) && currentFiltered.length > 0) {
+                    currentCardIndex = Math.max(0, Math.min(saved.currentCardIndex, currentFiltered.length - 1));
+                }
+                cardFlipped = Boolean(saved.cardFlipped);
+
+                if (saved.quizSession && Array.isArray(saved.quizSession.questions) && saved.quizSession.questions.length > 0) {
+                    quizSession = saved.quizSession;
+                }
+
+                const targetView = saved.currentView || 'view-table';
+                switchView(targetView, { isRestore: true, skipSave: true });
+
+                if (targetView === 'view-quiz' && quizSession.questions && quizSession.questions.length > 0) {
+                    const activeBox = document.getElementById('quizActiveBox');
+                    const resView = document.getElementById('quizResultView');
+                    if (quizSession.currentIndex >= quizSession.questions.length) {
+                        showQuizResults();
+                    } else {
+                        if (activeBox) activeBox.style.display = 'block';
+                        if (resView) resView.style.display = 'none';
+                        renderQuizQuestion({ preserveAnswered: true });
+                        if (quizSession.answered) {
+                            const q = quizSession.questions[quizSession.currentIndex];
+                            const allBtns = document.querySelectorAll('#quizOptions .quiz-opt-btn');
+                            allBtns.forEach(b => {
+                                b.disabled = true;
+                                const text = b.querySelector('.opt-text')?.innerText;
+                                if (text === q.correctAnswer) b.classList.add('correct');
+                                else if (text === quizSession.lastSelectedOpt) b.classList.add('wrong');
+                            });
+                            if (quizSettings.mode === 'instant') {
+                                const isCorrect = quizSession.lastSelectedOpt === q.correctAnswer;
+                                const banner = document.getElementById('quizFeedbackBanner');
+                                const feedbackText = document.getElementById('quizFeedbackText');
+                                if (banner && feedbackText) {
+                                    banner.className = isCorrect ? 'quiz-feedback-banner feedback-correct' : 'quiz-feedback-banner feedback-wrong';
+                                    feedbackText.innerHTML = isCorrect
+                                        ? `✓ Chính xác! Rất tốt.`
+                                        : `✕ Chưa đúng! Đáp án đúng: <strong>${q.correctAnswer}</strong> (${q.rawItem.jp} : ${q.rawItem.vi})`;
+                                    banner.style.display = 'flex';
+                                }
+                            }
+                        }
+                    }
+                }
+
+                isRestoringTv = false;
+                return true;
+            } catch (e) {
+                isRestoringTv = false;
+                return false;
+            }
+        }
+
         // Initial render
         window.addEventListener('DOMContentLoaded', () => {
-            initLessonChips();
-            applyFilter();
+            if (!restoreTvCheckpoint()) {
+                initLessonChips();
+                applyFilter({ skipSave: true });
+            }
         });
     </script>
 

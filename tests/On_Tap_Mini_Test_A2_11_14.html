@@ -65,23 +65,104 @@
         }
 
         .container {
-            max-width: 1240px;
+            max-width: 1200px;
             margin: 0 auto;
+        }
+
+        /* Global Hub Nav */
+        .global-hub-nav {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            background: #ffffff;
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-md);
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-sm);
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+        .global-hub-nav::-webkit-scrollbar {
+            display: none;
+        }
+        .hub-nav-item {
+            text-decoration: none;
+            color: var(--gray-600);
+            font-size: 0.88rem;
+            font-weight: 700;
+            padding: 6px 14px;
+            border-radius: var(--radius-full);
+            white-space: nowrap;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .hub-nav-item:hover {
+            background: var(--gray-100);
+            color: var(--primary);
+        }
+        .hub-nav-item.active-hub {
+            background: var(--primary-light);
+            color: var(--primary);
+        }
+        .hub-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .hub-dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 1000;
+            background: #ffffff;
+            min-width: 280px;
+            max-height: 480px;
+            overflow-y: auto;
+            box-shadow: var(--shadow-lg);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--gray-200);
+            padding: 8px 0;
+            margin-top: 6px;
+        }
+        .hub-dropdown-menu.show {
+            display: block;
+        }
+        .hub-drop-link {
+            display: block;
+            padding: 9px 18px;
+            color: var(--gray-700);
+            text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: 600;
+            transition: all 0.15s;
+        }
+        .hub-drop-link:hover {
+            background: var(--gray-50);
+            color: var(--primary);
+        }
+        .hub-drop-link.active {
+            background: var(--primary-light);
+            color: var(--primary);
+            font-weight: 700;
         }
 
         /* Hero Header */
         .hero-header {
             background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4338ca 100%);
             color: var(--white);
-            padding: 38px 24px;
-            border-radius: 24px;
+            padding: 36px 24px;
+            border-radius: var(--radius-lg);
             text-align: center;
             margin-bottom: 24px;
             box-shadow: 0 10px 30px rgba(49, 46, 129, 0.25);
             position: relative;
-            z-index: 1;
             overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.15);
         }
         .hero-header::before {
             content: "満点";
@@ -136,63 +217,54 @@
             border: 1px solid rgba(255, 255, 255, 0.18);
         }
 
-        /* Tab Navigation Bar (Capsule Pill Standard) */
+        /* Tab Navigation Bar */
         .tab-nav-wrapper {
             position: sticky;
-            top: 10px;
-            z-index: 500;
-            margin-bottom: 24px;
+            top: 12px;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.94);
+            backdrop-filter: blur(12px);
+            padding: 8px;
+            border-radius: var(--radius-lg);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            margin-bottom: 25px;
         }
         .tab-nav {
             display: flex;
             gap: 6px;
-            background: #ffffff;
-            padding: 6px 10px;
-            border-radius: var(--radius-full);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
-            border: 1.5px solid var(--gray-200);
             overflow-x: auto;
             scrollbar-width: none;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: nowrap;
         }
         .tab-nav::-webkit-scrollbar {
             display: none;
         }
         .tab-btn {
-            flex: 1 1 auto;
+            flex: 1;
             white-space: nowrap;
-            padding: 9px 16px;
-            border: 1.5px solid transparent;
+            padding: 12px 18px;
+            border: none;
             background: transparent;
             color: var(--gray-600);
-            font-size: 0.88rem;
-            font-weight: 800;
-            border-radius: var(--radius-full);
+            font-size: 0.95rem;
+            font-weight: 700;
+            border-radius: var(--radius-md);
             cursor: pointer;
             transition: all 0.2s ease;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 6px;
+            gap: 8px;
         }
-
-        /* Distinct Colors for each tab */
-        .tab-btn-theory:hover, [onclick*="theory"]:hover { color: #2563eb; background: #eff6ff; border-color: #bfdbfe; }
-        .tab-btn-theory.active, [onclick*="theory"].active { background: linear-gradient(135deg, #3b82f6, #1d4ed8) !important; color: #fff !important; border-color: #2563eb !important; box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35) !important; }
-
-        .tab-btn-vocab:hover, [onclick*="vocab"]:hover { color: #059669; background: #ecfdf5; border-color: #a7f3d0; }
-        .tab-btn-vocab.active, [onclick*="vocab"].active { background: linear-gradient(135deg, #10b981, #047857) !important; color: #fff !important; border-color: #059669 !important; box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35) !important; }
-
-        .tab-btn-kanji:hover, [onclick*="kanji"]:hover { color: #d97706; background: #fffbeb; border-color: #fde68a; }
-        .tab-btn-kanji.active, [onclick*="kanji"].active { background: linear-gradient(135deg, #f59e0b, #d97706) !important; color: #fff !important; border-color: #d97706 !important; box-shadow: 0 4px 14px rgba(245, 158, 11, 0.35) !important; }
-
-        .tab-btn-quiz:hover, [onclick*="quiz"]:hover { color: #e11d48; background: #fff1f2; border-color: #fecdd3; }
-        .tab-btn-quiz.active, [onclick*="quiz"].active { background: linear-gradient(135deg, #e11d48, #be123c) !important; color: #fff !important; border-color: #e11d48 !important; box-shadow: 0 4px 14px rgba(225, 29, 72, 0.35) !important; }
-
-        .tab-btn-cheatsheet:hover, [onclick*="cheatsheet"]:hover { color: #7c3aed; background: #faf5ff; border-color: #ddd6fe; }
-        .tab-btn-cheatsheet.active, [onclick*="cheatsheet"].active { background: linear-gradient(135deg, #8b5cf6, #6d28d9) !important; color: #fff !important; border-color: #7c3aed !important; box-shadow: 0 4px 14px rgba(139, 92, 246, 0.35) !important; }
+        .tab-btn:hover {
+            color: var(--primary);
+            background: var(--gray-100);
+        }
+        .tab-btn.active {
+            background: var(--primary);
+            color: var(--white);
+            box-shadow: 0 4px 14px rgba(79, 70, 229, 0.3);
+        }
 
         /* Tab Content Panels */
         .tab-panel {
@@ -246,37 +318,31 @@
         /* Grammar Styles */
         .theory-quicknav {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 24px;
-            padding: 0;
-            border-bottom: none;
+            gap: 8px;
+            overflow-x: auto;
+            padding: 4px 4px 18px 4px;
+            margin-bottom: 22px;
+            border-bottom: 1px dashed var(--gray-200);
+            -webkit-overflow-scrolling: touch;
         }
         .quicknav-pill {
-            padding: 9px 18px;
+            padding: 6px 14px;
             border-radius: var(--radius-full);
-            font-size: 0.88rem;
-            font-weight: 800;
+            background: #f1f5f9;
+            color: var(--gray-700);
             text-decoration: none;
+            font-weight: 700;
+            font-size: 0.85rem;
             white-space: nowrap;
             transition: all 0.2s ease;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
+            border: 1px solid var(--gray-200);
+            display: inline-block;
         }
-        .qn-b11 { background: #eff6ff; color: #1d4ed8; border: 1.5px solid #bfdbfe; }
-        .qn-b11:hover { background: #2563eb; color: #ffffff; border-color: #2563eb; transform: translateY(-2px); }
-        .qn-b12 { background: #ecfdf5; color: #047857; border: 1.5px solid #a7f3d0; }
-        .qn-b12:hover { background: #059669; color: #ffffff; border-color: #059669; transform: translateY(-2px); }
-        .qn-b13 { background: #faf5ff; color: #6d28d9; border: 1.5px solid #ddd6fe; }
-        .qn-b13:hover { background: #7c3aed; color: #ffffff; border-color: #7c3aed; transform: translateY(-2px); }
-        .qn-b14 { background: #fff1f2; color: #be123c; border: 1.5px solid #fecdd3; }
-        .qn-b14:hover { background: #e11d48; color: #ffffff; border-color: #e11d48; transform: translateY(-2px); }
-
-        .grammar-card, [id^="grammar-"] {
-            scroll-margin-top: 100px;
+        .quicknav-pill:hover, .quicknav-pill:active {
+            background: var(--primary);
+            color: var(--white);
+            border-color: var(--primary);
+            transform: translateY(-1px);
         }
         .grammar-card {
             background: var(--white);
@@ -460,7 +526,7 @@
             color: var(--white);
             border: none;
             padding: 9px 18px;
-            border-radius: var(--radius-full);
+            border-radius: var(--radius-md);
             font-size: 0.88rem;
             font-weight: 700;
             cursor: pointer;
@@ -1207,15 +1273,33 @@
             }
         }
     </style>
-    <link rel="stylesheet" href="../assets/css/site-theme.css?v=6">
 </head>
 <body>
 
 <div class="container">
 
     <!-- Global Hub Navigation -->
-                        <!-- Global Hub Navigation Placeholder -->
-        <div id="navbar-placeholder"></div>
+    <div class="global-hub-nav">
+        <a href="../index.html" class="hub-nav-item">🌸 Thể TE (～て)</a>
+        <a href="../the_ru.html" class="hub-nav-item">📘 Thể RU (Từ Điển)</a>
+        <a href="../the_ta.html" class="hub-nav-item">📕 Thể TA (Quá Khứ)</a>
+        <a href="../kanji_a2.html" class="hub-nav-item">⛩️ Học Kanji & Nét Viết</a>
+        <a href="../Tu_Vung_Marugoto_A1_16_A2_1_10.html" class="hub-nav-item">📖 Kho Từ Vựng A1-A2</a>
+        <a href="../kien_thuc_bo_sung.html" class="hub-nav-item">💡 Kiến Thức Bổ Sung</a>
+        <a href="../demo_3d.html" class="hub-nav-item">⛩️ Không Gian 3D</a>
+        <div class="hub-dropdown">
+            <button type="button" class="hub-nav-item active-hub" onclick="toggleTestsDropdown(event)">🎯 Ôn Tập & Đề Thi ▾</button>
+            <div class="hub-dropdown-menu" id="testsDropdownMenu">
+                <!-- Sync script will populate -->
+            </div>
+        </div>
+        <div class="hub-dropdown">
+            <button type="button" class="hub-nav-item" onclick="toggleLessonsDropdown(event)">🚀 Web Bài Học ▾</button>
+            <div class="hub-dropdown-menu" id="lessonsDropdownMenu">
+                <!-- Sync script will populate -->
+            </div>
+        </div>
+    </div>
 
     <!-- Hero Header -->
     <header class="hero-header">
@@ -1250,11 +1334,11 @@
     <!-- Sticky Tab Navigation -->
     <div class="tab-nav-wrapper">
         <nav class="tab-nav">
-            <button class="tab-btn tab-btn-theory active" onclick="switchMainTab('tab-theory')">📖 Lý Thuyết (Bài 11 - 14)</button>
-            <button class="tab-btn tab-btn-vocab" onclick="switchMainTab('tab-vocab')">🎴 118 Từ Vựng</button>
-            <button class="tab-btn tab-btn-kanji" onclick="switchMainTab('tab-kanji')">⛩️ 30 Chữ Hán</button>
-            <button class="tab-btn tab-btn-quiz" onclick="switchMainTab('tab-quiz')">🎯 Đề Thi Thử Đa Dạng (6 Dạng • 100đ)</button>
-            <button class="tab-btn tab-btn-cheatsheet" onclick="switchMainTab('tab-cheatsheet')">⚡ Cẩm Nang Bỏ Túi</button>
+            <button class="tab-btn active" onclick="switchMainTab('tab-theory')">📖 Lý Thuyết (Bài 11 - 14)</button>
+            <button class="tab-btn" onclick="switchMainTab('tab-vocab')">🎴 118 Từ Vựng</button>
+            <button class="tab-btn" onclick="switchMainTab('tab-kanji')">⛩️ 30 Chữ Hán</button>
+            <button class="tab-btn" onclick="switchMainTab('tab-quiz')">🎯 Đề Thi Thử Đa Dạng (6 Dạng • 100đ)</button>
+            <button class="tab-btn" onclick="switchMainTab('tab-cheatsheet')">⚡ Cẩm Nang Bỏ Túi</button>
         </nav>
     </div>
 
@@ -1265,10 +1349,10 @@
 
         <!-- Quick Jump Bar -->
         <div class="theory-quicknav">
-            <a href="#grammar-l11" class="quicknav-pill qn-b11">🍱 Bài 11 (～ましょう／に します)</a>
-            <a href="#grammar-l12" class="quicknav-pill qn-b12">🍜 Bài 12 (～そう／～くなる)</a>
-            <a href="#grammar-l13" class="quicknav-pill qn-b13">✈️ Bài 13 (～たことがある／～すぎる)</a>
-            <a href="#grammar-l14" class="quicknav-pill qn-b14">💻 Bài 14 (～てもいい／～かた)</a>
+            <a href="#grammar-l11" class="quicknav-pill" style="background: var(--primary); color: white; border-color: var(--primary);">🍱 Bài 11: ピクニック (～ましょう／に します)</a>
+            <a href="#grammar-l12" class="quicknav-pill" style="background: var(--primary); color: white; border-color: var(--primary);">🍜 Bài 12: 日本料理 (～そう／～くなる)</a>
+            <a href="#grammar-l13" class="quicknav-pill" style="background: var(--primary); color: white; border-color: var(--primary);">✈️ Bài 13: 出張 (～たことがある／～すぎる)</a>
+            <a href="#grammar-l14" class="quicknav-pill" style="background: var(--primary); color: white; border-color: var(--primary);">💻 Bài 14: 会社で (～てもいい／～かた)</a>
         </div>
 
         <!-- BÀI 11 -->
@@ -1785,6 +1869,16 @@
     const part5Data = [{"passageId": 1, "title": "BÀI ĐỌC 1: ピクニックの 計画 (Kế Hoạch Dã Ngoại Cuối Tuần - Bài 11 & 12)", "text": "今週の 日曜日に、クラスの みんなと こうえんへ ピクニックに 行きます。天気予報に よると、日曜日は いい 天気に なりそうです。<br>たなかさんは お弁当と おにぎりを 作って 持って行きます。スミスさんは くだものと お菓子を 買います。わたしは 飲み物を 準備します。みんなで おいしい 料理を 食べて、写真を たくさん 撮りましょう。", "questions": [{"id": 25, "q": "日曜日の 天気は どうですか。", "options": ["雨が 降ります", "いい 天気に なりそうです", "とても 寒くなります", "風が 強いです"], "correct": 1, "explain": "Trong bài viết: 「天気予報に よると、日曜日は いい 天気に なりそうです」."}, {"id": 26, "q": "たなかさんは 何を 準備して 持って行きますか。", "options": ["くだものと お菓子", "飲み物と ジュース", "お弁当と おにぎり", "カメラと パソコン"], "correct": 2, "explain": "Trong bài viết: 「たなかさんは お弁当と おにぎりを 作って 持って行きます」."}]}, {"passageId": 2, "title": "BÀI ĐỌC 2: 初めての 東京出張 (Chuyến Đi Công Tác Tokyo Đầu Tiên - Bài 13 & 14)", "text": "わたしは 先週、仕事で 初めて 東京へ 出張しました。今までに 一度も 飛行機に 乗った ことが ありませんでしたから、少し きんちょうしました。<br>東京で 取引先の 山田さんに 会って、いっしょに 会議を しました。夜、山田さんと レストランへ 行って、日本料理を 食べました。天ぷらが とても おいしかったので、食べすぎて しまいました。<br>次の日は 会社で コピー機の 使い方や パソコンの ルールを 教えてもらいました。とても いい 経験に なりました。", "questions": [{"id": 27, "q": "マイさんは どうして 飛行機に 乗る とき、きんちょうしましたか。", "options": ["飛行機が きらいだから", "今までに 一度も 飛行機に 乗った ことが なかったから", "荷物が 重すぎたから", "時間が なかったから"], "correct": 1, "explain": "Trong bài viết: 「今までに 一度も 飛行機に 乗った ことが ありませんでしたから、少し きんちょうしました」."}, {"id": 28, "q": "マイさんは レストランで どうして 料理を 食べすぎて しまいましたか。", "options": ["お腹が とても すいていたから", "天ぷらが とても おいしかったから", "料理が 安かったから", "山田さんに たくさん もらったから"], "correct": 1, "explain": "Trong bài viết: 「天ぷらが とても おいしかったので、食べすぎて しまいました」."}]}];
     const part6Data = [{"id": 29, "category": "Bài 13 • Thể kinh nghiệm quá khứ", "vi": "Tôi đã từng bơi một mình ở biển vào ban đêm.", "hint": "夜 (よる), 一人で (ひとりで), 海 (うみ), 泳ぎます (およぎます ➔ およいだ)", "modelSentence": "わたしは 夜、一人で 海で 泳いだ ことが あります。", "modelKana": "わたしは よる、ひとりで うみで およいだ ことがあります。", "keywords": ["夜", "一人で", "海", "泳いだ", "こと", "あります"], "breakdown": [{"part": "夜 (よる)", "role": "Thời gian (ban đêm)"}, {"part": "一人で (ひとりで)", "role": "Phương thức (một mình)"}, {"part": "海で (うみで)", "role": "Địa điểm hành động (ở biển - trợ từ で)"}, {"part": "泳いだ ことが あります", "role": "Thể kinh nghiệm V-た ことが あります"}]}, {"id": 30, "category": "Bài 13 • Mức độ quá đà với tính từ", "vi": "Bộ vest này đẹp nhưng mà đắt quá đi.", "hint": "スーツ, きれい (tính từ đuôi な), 高い (たかい ➔ たかすぎます)", "modelSentence": "この スーツは きれいだけど、高すぎます。", "modelKana": "この すーつは きれいだけど、たかすぎます。", "keywords": ["スーツ", "きれい", "だけど", "高すぎ"], "breakdown": [{"part": "この スーツは", "role": "Chủ ngữ (bộ vest này)"}, {"part": "きれいだけど", "role": "Tính từ đuôi な nối tương phản (hoặc きれいですが)"}, {"part": "高すぎます", "role": "Tính từ đuôi い bỏ い + すぎます (đắt quá)"}]}, {"id": 31, "category": "Bài 13 • Quá đà chỉ nguyên nhân", "vi": "Vì căn phòng này quá yên tĩnh, nên hơi đáng sợ.", "hint": "部屋 (へや), 静か (しずか - tính từ đuôi な), こわい (đáng sợ)", "modelSentence": "この 部屋は 静かすぎて、ちょっと こわいです。", "modelKana": "この へやは しずかすぎて、ちょっと こわいです。", "keywords": ["部屋", "静かすぎ", "ちょっと", "こわい"], "breakdown": [{"part": "この 部屋は", "role": "Chủ ngữ (căn phòng này)"}, {"part": "静かすぎて", "role": "Tính từ đuôi な bỏ な + すぎて chỉ nguyên nhân (quá yên tĩnh nên...)"}, {"part": "ちょっと こわいです", "role": "Hơi đáng sợ"}]}, {"id": 32, "category": "Bài 13 & Bài 11 • Nấu quá nhiều đồ ăn", "vi": "Vì nấu quá nhiều món ăn, nên tôi đã không thể ăn hết một mình.", "hint": "料理 (りょうり), 作りすぎました (つくりすぎました), 一人で, 全部 (ぜんぶ)", "modelSentence": "料理を 作りすぎたので、一人で 全部 食べられませんでした。", "modelKana": "りょうりを つくりすぎたので、ひとりで ぜんぶ たべられませんでした。", "keywords": ["料理", "作りすぎ", "一人で", "食べられません"], "breakdown": [{"part": "料理を 作りすぎたので", "role": "Động từ bỏ ます + すぎたので (vì đã nấu quá nhiều món)"}, {"part": "一人で", "role": "Một mình"}, {"part": "全部 食べられませんでした", "role": "Không thể ăn hết (hoặc 食べきれませんでした)"}]}];
 
+    const MINI11_14_CP_KEY = 'marugoto_mini11_14_cp_v1';
+    window.__MARUGOTO_NATIVE_DOM_DISABLED__ = true;
+    window.__MARUGOTO_CP_EXTRA_KEYS__ = [MINI11_14_CP_KEY];
+    window.__MARUGOTO_ON_RESET__ = function () {
+        try { localStorage.removeItem(MINI11_14_CP_KEY); } catch (e) {}
+        window.location.reload();
+    };
+
+    let currentTab = null;
+    let isRestoringMini11_14 = false;
     let currentVocabFilter = 'ALL';
     let currentKanjiFilter = 'ALL';
     let isMeaningHidden = false;
@@ -1805,14 +1899,59 @@
     let timerInterval = null;
     let isTimerRunning = true;
 
+    function saveMini11_14Checkpoint() {
+        if (isRestoringMini11_14) return;
+        try {
+            const p3Inputs = {};
+            part3Data.forEach(item => {
+                const inp = document.getElementById(`p3_input_${item.id}`);
+                if (inp && inp.value) p3Inputs[item.id] = inp.value;
+            });
+            const p6Drafts = {};
+            const p6ModelsOpen = {};
+            part6Data.forEach(item => {
+                const ta = document.getElementById(`trans_input_${item.id}`);
+                if (ta && ta.value) p6Drafts[item.id] = ta.value;
+                const mb = document.getElementById(`trans_model_${item.id}`);
+                if (mb && mb.style.display === 'block') p6ModelsOpen[item.id] = true;
+            });
+            const payload = {
+                t: Date.now(),
+                currentTab: currentTab || (document.querySelector('.tab-panel.active') ? document.querySelector('.tab-panel.active').id : 'tab-quiz'),
+                currentVocabFilter,
+                currentKanjiFilter,
+                isMeaningHidden,
+                p1Answers,
+                p2Selected,
+                p2Graded,
+                p3Graded,
+                p3Inputs,
+                p4Selected,
+                p4Graded,
+                p5Answers,
+                p6SelfScores,
+                p6Drafts,
+                p6ModelsOpen,
+                totalSeconds,
+                isTimerRunning
+            };
+            localStorage.setItem(MINI11_14_CP_KEY, JSON.stringify(payload));
+            if (window.MarugotoCheckpoint && typeof window.MarugotoCheckpoint.notifySaved === 'function') {
+                window.MarugotoCheckpoint.notifySaved();
+            }
+        } catch (e) {}
+    }
+
     function startTimer() {
         if (timerInterval) clearInterval(timerInterval);
         timerInterval = setInterval(() => {
             if (isTimerRunning && totalSeconds > 0) {
                 totalSeconds--;
                 updateTimerDisplay();
+                if (totalSeconds % 5 === 0) saveMini11_14Checkpoint();
             } else if (totalSeconds <= 0) {
                 clearInterval(timerInterval);
+                saveMini11_14Checkpoint();
                 alert("⏱️ Hết thời gian 45 phút làm bài! Hãy xem lại kết quả tổng điểm của bạn.");
             }
         }, 1000);
@@ -1829,15 +1968,15 @@
 
     function toggleTimer() {
         isTimerRunning = !isTimerRunning;
-        const btn = event.target;
-        if (isTimerRunning) {
-            btn.innerText = "⏸️ Tạm Dừng";
-        } else {
-            btn.innerText = "▶️ Tiếp Tục";
+        const btn = (typeof event !== 'undefined' && event && event.target) ? event.target : null;
+        if (btn) {
+            btn.innerText = isTimerRunning ? "⏸️ Tạm Dừng" : "▶️ Tiếp Tục";
         }
+        saveMini11_14Checkpoint();
     }
 
-    function switchMainTab(tabId) {
+    function switchMainTab(tabId, opts) {
+        currentTab = tabId;
         document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
         document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
 
@@ -1848,7 +1987,12 @@
 
         const targetPanel = document.getElementById(tabId);
         if (targetPanel) targetPanel.classList.add('active');
-        window.scrollTo({ top: 180, behavior: 'smooth' });
+        if (!(opts && opts.skipScroll)) {
+            window.scrollTo({ top: 180, behavior: 'smooth' });
+        }
+        if (!(opts && opts.skipSave)) {
+            saveMini11_14Checkpoint();
+        }
     }
 
     function speakText(text) {
@@ -1986,6 +2130,7 @@
             const slot = document.getElementById(`p2_slot_${qId}_${pos}`);
             if (slot) slot.innerText = qItem.chips[cIdx];
         });
+        saveMini11_14Checkpoint();
     }
 
     function resetSingleArrange(qId) {
@@ -1999,6 +2144,7 @@
             const chipBtn = document.getElementById(`p2_chip_btn_${qId}_${i}`);
             if (chipBtn) chipBtn.classList.remove('used');
         }
+        saveMini11_14Checkpoint();
     }
 
     function checkArrangeAnswer(qId) {
@@ -2051,7 +2197,7 @@
                 </div>
                 <div class="q-text jp-text">${item.sentence}</div>
                 <div class="conjugate-row">
-                    <input type="text" class="conj-input jp-text" id="p3_input_${item.id}" placeholder="Nhập dạng chia đúng..." onkeydown="if(event.key==='Enter') checkConjugateAnswer(${item.id})">
+                    <input type="text" class="conj-input jp-text" id="p3_input_${item.id}" placeholder="Nhập dạng chia đúng..." oninput="saveMini11_14Checkpoint()" onkeydown="if(event.key==='Enter' && !event.isComposing && event.keyCode!==229) checkConjugateAnswer(${item.id})">
                     <button type="button" class="btn-check-arrange" id="p3_btn_${item.id}" onclick="checkConjugateAnswer(${item.id})">
                         Kiểm Tra
                     </button>
@@ -2143,6 +2289,7 @@
     function onSelectMatchAnswer(qId) {
         const sel = document.getElementById(`matchSelect_${qId}`);
         p4Selected[qId] = sel.value;
+        saveMini11_14Checkpoint();
     }
 
     function checkAllMatching() {
@@ -2255,7 +2402,7 @@
                 <div style="font-size: 0.88rem; color: var(--gray-600); margin-bottom: 8px;">
                     💡 <em>Gợi ý từ vựng:</em> ${item.hint}
                 </div>
-                <textarea class="trans-input-box jp-text" id="trans_input_${item.id}" placeholder="Nhập bản dịch tiếng Nhật của bạn vào đây..."></textarea>
+                <textarea class="trans-input-box jp-text" id="trans_input_${item.id}" placeholder="Nhập bản dịch tiếng Nhật của bạn vào đây..." oninput="saveMini11_14Checkpoint()"></textarea>
                 
                 <div style="margin-top: 10px; display: flex; gap: 10px; flex-wrap: wrap; align-items: center;">
                     <button type="button" class="btn-check-arrange" onclick="toggleTranslationModel(${item.id})">
@@ -2293,6 +2440,7 @@
         const box = document.getElementById(`trans_model_${qId}`);
         if (box) {
             box.style.display = (box.style.display === 'block') ? 'none' : 'block';
+            saveMini11_14Checkpoint();
         }
     }
 
@@ -2376,6 +2524,7 @@
             document.getElementById('quizStatusTitle').innerText = 
                 `HOÀN THÀNH BÀI THI: ${totalRounded} / 100 ĐIỂM - ${rank}`;
         }
+        saveMini11_14Checkpoint();
     }
 
     function resetAllExam() {
@@ -2403,6 +2552,7 @@
         document.getElementById('quizStatusTitle').innerText = 'Đề Khảo Sát Năng Lực Toàn Diện Bài 11 - 14';
         document.getElementById('quizProgressText').innerText = 'Hoàn thành: 0/32 câu • Tổng điểm hiện tại: 0 / 100đ';
 
+        localStorage.removeItem(MINI11_14_CP_KEY);
         window.scrollTo({ top: document.getElementById('tab-quiz').offsetTop - 60, behavior: 'smooth' });
     }
 
@@ -2441,6 +2591,7 @@
             btn.classList.add('active');
         }
         applyVocabFilter();
+        saveMini11_14Checkpoint();
     }
 
     function handleVocabSearch() {
@@ -2619,6 +2770,7 @@
             if (isMeaningHidden) el.classList.add('hidden-meaning');
             else el.classList.remove('hidden-meaning');
         });
+        saveMini11_14Checkpoint();
     }
 
     let currentFilteredKanji = [...rawKanji];
@@ -2733,6 +2885,7 @@
             btn.classList.add('active');
         }
         applyKanjiFilter();
+        saveMini11_14Checkpoint();
     }
 
     function handleKanjiSearch() {
@@ -2759,20 +2912,209 @@
         renderKanji(filtered);
     }
 
+    function restoreMini11_14Checkpoint() {
+        try {
+            const raw = localStorage.getItem(MINI11_14_CP_KEY);
+            if (!raw) return false;
+            const saved = JSON.parse(raw);
+            if (!saved || typeof saved !== 'object') return false;
+            isRestoringMini11_14 = true;
+
+            if (saved.currentVocabFilter) {
+                currentVocabFilter = saved.currentVocabFilter;
+                document.querySelectorAll('button[onclick*="filterVocab("]').forEach(b => {
+                    const oc = b.getAttribute('onclick') || '';
+                    b.classList.toggle('active', oc.includes(`'${currentVocabFilter}'`));
+                });
+            }
+            if (saved.currentKanjiFilter) {
+                currentKanjiFilter = saved.currentKanjiFilter;
+                document.querySelectorAll('button[onclick*="filterKanji("]').forEach(b => {
+                    const oc = b.getAttribute('onclick') || '';
+                    b.classList.toggle('active', oc.includes(`'${currentKanjiFilter}'`));
+                });
+            }
+            if (typeof saved.isMeaningHidden === 'boolean') {
+                isMeaningHidden = saved.isMeaningHidden;
+                const hideBtn = document.getElementById('hideMeaningBtn');
+                if (hideBtn) {
+                    hideBtn.classList.toggle('active', isMeaningHidden);
+                    hideBtn.innerHTML = isMeaningHidden
+                        ? '👁️ Đang ẩn nghĩa (Chạm vào thẻ để xem)'
+                        : '👁️ Ẩn nghĩa tiếng Việt (Tự dò)';
+                }
+            }
+            if (saved.p1Answers && typeof saved.p1Answers === 'object') p1Answers = saved.p1Answers;
+            if (saved.p2Selected && typeof saved.p2Selected === 'object') p2Selected = saved.p2Selected;
+            if (saved.p2Graded && typeof saved.p2Graded === 'object') p2Graded = saved.p2Graded;
+            if (saved.p3Graded && typeof saved.p3Graded === 'object') p3Graded = saved.p3Graded;
+            if (saved.p4Selected && typeof saved.p4Selected === 'object') p4Selected = saved.p4Selected;
+            if (saved.p4Graded && typeof saved.p4Graded === 'object') p4Graded = saved.p4Graded;
+            if (saved.p5Answers && typeof saved.p5Answers === 'object') p5Answers = saved.p5Answers;
+            if (saved.p6SelfScores && typeof saved.p6SelfScores === 'object') p6SelfScores = saved.p6SelfScores;
+            if (Number.isFinite(saved.totalSeconds)) {
+                totalSeconds = saved.totalSeconds;
+                updateTimerDisplay();
+            }
+            if (typeof saved.isTimerRunning === 'boolean') {
+                isTimerRunning = saved.isTimerRunning;
+                const tBtn = document.querySelector('button[onclick*="toggleTimer("]');
+                if (tBtn) tBtn.innerText = isTimerRunning ? "⏸️ Tạm Dừng" : "▶️ Tiếp Tục";
+            }
+
+            applyVocabFilter();
+            applyKanjiFilter();
+            renderPart1();
+            renderPart2();
+            renderPart3();
+            renderPart4();
+            renderPart5();
+            renderPart6();
+
+            // Khôi phục UI Part 1
+            part1Data.forEach(item => {
+                const chosen = p1Answers[item.id];
+                if (chosen === undefined) return;
+                item.options.forEach((_, idx) => {
+                    const btn = document.getElementById(`optBtn_p1_${item.id}_${idx}`);
+                    if (!btn) return;
+                    btn.disabled = true;
+                    if (idx === item.correct) btn.classList.add('correct');
+                    else if (idx === chosen) btn.classList.add('wrong');
+                });
+                const ex = document.getElementById(`explain_p1_${item.id}`);
+                if (ex) ex.style.display = 'block';
+            });
+
+            // Khôi phục UI Part 2
+            part2Data.forEach(item => {
+                const chosen = p2Selected[item.id] || [];
+                chosen.forEach(cIdx => {
+                    const chipBtn = document.getElementById(`p2_chip_btn_${item.id}_${cIdx}`);
+                    if (chipBtn) chipBtn.classList.add('used');
+                });
+                if (p2Graded[item.id] !== undefined) {
+                    const isCorrect = p2Graded[item.id] > 0;
+                    const checkBtn = document.getElementById(`p2_check_btn_${item.id}`);
+                    if (checkBtn) {
+                        checkBtn.disabled = true;
+                        checkBtn.style.background = isCorrect ? '#10b981' : '#f43f5e';
+                        checkBtn.innerText = isCorrect ? "✅ Chính Xác (+3.0đ)" : "❌ Chưa Đúng (0đ)";
+                    }
+                    const ex = document.getElementById(`explain_p2_${item.id}`);
+                    if (ex) ex.style.display = 'block';
+                }
+            });
+
+            // Khôi phục UI Part 3
+            const p3Inputs = saved.p3Inputs || {};
+            part3Data.forEach(item => {
+                const inp = document.getElementById(`p3_input_${item.id}`);
+                const btn = document.getElementById(`p3_btn_${item.id}`);
+                if (inp && typeof p3Inputs[item.id] === 'string') inp.value = p3Inputs[item.id];
+                if (p3Graded[item.id] !== undefined) {
+                    const isMatched = p3Graded[item.id] > 0;
+                    if (inp) {
+                        inp.disabled = true;
+                        inp.classList.add(isMatched ? 'correct' : 'wrong');
+                    }
+                    if (btn) {
+                        btn.disabled = true;
+                        btn.style.background = isMatched ? '#10b981' : '#f43f5e';
+                        btn.innerText = isMatched ? "✅ Đúng (+3.0đ)" : "❌ Sai (0đ)";
+                    }
+                    const ex = document.getElementById(`explain_p3_${item.id}`);
+                    if (ex) ex.style.display = 'block';
+                }
+            });
+
+            // Khôi phục UI Part 4
+            const p4GradedAny = Object.keys(p4Graded).length > 0;
+            part4Data.forEach(item => {
+                const sel = document.getElementById(`matchSelect_${item.id}`);
+                if (sel && p4Selected[item.id] !== undefined) sel.value = String(p4Selected[item.id]);
+                if (p4Graded[item.id] !== undefined) {
+                    if (sel) sel.disabled = true;
+                    const card = document.getElementById(`matchCard_${item.id}`);
+                    if (card) {
+                        const ok = p4Graded[item.id] > 0;
+                        card.style.borderColor = ok ? '#10b981' : '#f43f5e';
+                        card.style.background = ok ? '#f0fdf4' : '#fff1f2';
+                    }
+                    const ex = document.getElementById(`explain_p4_${item.id}`);
+                    if (ex) ex.style.display = 'block';
+                }
+            });
+            if (p4GradedAny) {
+                const btnAll = document.getElementById('btnCheckMatchAll');
+                if (btnAll) {
+                    btnAll.disabled = true;
+                    btnAll.innerText = "Đã Hoàn Thành Chấm Điểm";
+                }
+            }
+
+            // Khôi phục UI Part 5
+            part5Data.forEach(pass => {
+                pass.questions.forEach(q => {
+                    const chosen = p5Answers[q.id];
+                    if (chosen === undefined) return;
+                    q.options.forEach((_, idx) => {
+                        const btn = document.getElementById(`optBtn_p5_${q.id}_${idx}`);
+                        if (!btn) return;
+                        btn.disabled = true;
+                        if (idx === q.correct) btn.classList.add('correct');
+                        else if (idx === chosen) btn.classList.add('wrong');
+                    });
+                    const ex = document.getElementById(`explain_p5_${q.id}`);
+                    if (ex) ex.style.display = 'block';
+                });
+            });
+
+            // Khôi phục UI Part 6
+            const p6Drafts = saved.p6Drafts || {};
+            const p6ModelsOpen = saved.p6ModelsOpen || {};
+            part6Data.forEach(item => {
+                const ta = document.getElementById(`trans_input_${item.id}`);
+                if (ta && typeof p6Drafts[item.id] === 'string') ta.value = p6Drafts[item.id];
+                const mb = document.getElementById(`trans_model_${item.id}`);
+                if (mb && p6ModelsOpen[item.id]) mb.style.display = 'block';
+                if (p6SelfScores[item.id] > 0) {
+                    const btn = document.getElementById(`btnSelfGrade_${item.id}`);
+                    if (btn) {
+                        btn.classList.add('active');
+                        btn.innerText = "✅ Đã Tính Điểm (+3.75đ)";
+                    }
+                }
+            });
+
+            updateTotalScore();
+            if (saved.currentTab) {
+                switchMainTab(saved.currentTab, { skipScroll: true, skipSave: true });
+            }
+            isRestoringMini11_14 = false;
+            return true;
+        } catch (e) {
+            isRestoringMini11_14 = false;
+            return false;
+        }
+    }
+
     // Initialize All Components on Load
     document.addEventListener('DOMContentLoaded', () => {
-        applyVocabFilter();
-        renderKanji(rawKanji);
-        renderPart1();
-        renderPart2();
-        renderPart3();
-        renderPart4();
-        renderPart5();
-        renderPart6();
+        const restored = restoreMini11_14Checkpoint();
+        if (!restored) {
+            applyVocabFilter();
+            renderKanji(rawKanji);
+            renderPart1();
+            renderPart2();
+            renderPart3();
+            renderPart4();
+            renderPart5();
+            renderPart6();
+        }
         startTimer();
     });
 </script>
-<script src="../assets/js/nav-dropdown.js"></script>
-    <script src="../assets/nav.js?v=6" defer></script>
+<script src="../assets/nav.js?v=6" defer></script>
 </body>
 </html>

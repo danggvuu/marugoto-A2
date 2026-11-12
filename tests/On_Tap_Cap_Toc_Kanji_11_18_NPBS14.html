@@ -71,6 +71,41 @@
             margin: 0 auto;
         }
 
+        /* Global Hub Nav */
+        .global-hub-nav {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            background: #ffffff;
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-md);
+            margin-bottom: 24px;
+            box-shadow: var(--shadow-sm);
+            flex-wrap: wrap;
+        }
+        .hub-nav-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 7px 14px;
+            border-radius: var(--radius-sm);
+            text-decoration: none;
+            color: var(--gray-700);
+            font-size: 0.88rem;
+            font-weight: 700;
+            transition: all 0.2s;
+        }
+        .hub-nav-item:hover {
+            background: var(--gray-100);
+            color: var(--primary);
+        }
+        .hub-nav-item.active-hub {
+            background: var(--purple-light);
+            color: var(--purple);
+            font-weight: 800;
+        }
+
         /* Hero Header */
         .hero-banner {
             background: linear-gradient(135deg, #1e1b4b 0%, #312e81 40%, #4f46e5 100%);
@@ -147,7 +182,7 @@
             align-items: center;
             gap: 8px;
             padding: 11px 22px;
-            border-radius: var(--radius-full);
+            border-radius: var(--radius-md);
             font-size: 0.92rem;
             font-weight: 800;
             border: none;
@@ -176,53 +211,39 @@
             display: flex;
             gap: 6px;
             background: #ffffff;
-            padding: 6px 10px;
-            border-radius: var(--radius-full);
+            padding: 6px;
+            border-radius: var(--radius-lg);
             box-shadow: var(--shadow-md);
-            border: 1.5px solid var(--gray-200);
+            border: 1px solid var(--gray-200);
             overflow-x: auto;
-            scrollbar-width: none;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: nowrap;
-        }
-        .tab-nav::-webkit-scrollbar {
-            display: none;
         }
         .tab-btn {
-            flex: 1 1 auto;
+            flex: 1;
             min-width: 170px;
-            padding: 9px 16px;
-            border: 1.5px solid transparent;
+            padding: 12px 16px;
+            border: none;
             background: transparent;
             color: var(--gray-600);
-            font-size: 0.88rem;
+            font-size: 0.92rem;
             font-weight: 800;
-            border-radius: var(--radius-full);
+            border-radius: var(--radius-md);
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: all 0.2s;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 6px;
+            gap: 8px;
             white-space: nowrap;
         }
-
-        /* Distinct Colors for each tab */
-        .tab-btn-vocab:hover, [onclick*="vocab"]:hover { color: #059669; background: #ecfdf5; border-color: #a7f3d0; }
-        .tab-btn-vocab.active, [onclick*="vocab"].active { background: linear-gradient(135deg, #10b981, #047857) !important; color: #fff !important; border-color: #059669 !important; box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35) !important; }
-
-        .tab-btn-typing:hover, [onclick*="cram"]:hover { color: #0284c7; background: #f0f9ff; border-color: #bae6fd; }
-        .tab-btn-typing.active, [onclick*="cram"].active { background: linear-gradient(135deg, #0284c7, #0369a1) !important; color: #fff !important; border-color: #0284c7 !important; box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35) !important; }
-
-        .tab-btn-kanji:hover, [onclick*="hack"]:hover { color: #d97706; background: #fffbeb; border-color: #fde68a; }
-        .tab-btn-kanji.active, [onclick*="hack"].active { background: linear-gradient(135deg, #f59e0b, #d97706) !important; color: #fff !important; border-color: #d97706 !important; box-shadow: 0 4px 14px rgba(245, 158, 11, 0.35) !important; }
-
-        .tab-btn-cheatsheet:hover, [onclick*="npbs"]:hover { color: #7c3aed; background: #faf5ff; border-color: #ddd6fe; }
-        .tab-btn-cheatsheet.active, [onclick*="npbs"].active { background: linear-gradient(135deg, #8b5cf6, #6d28d9) !important; color: #fff !important; border-color: #7c3aed !important; box-shadow: 0 4px 14px rgba(139, 92, 246, 0.35) !important; }
-
-        .tab-btn-quiz:hover, [onclick*="test"]:hover { color: #e11d48; background: #fff1f2; border-color: #fecdd3; }
-        .tab-btn-quiz.active, [onclick*="test"].active { background: linear-gradient(135deg, #e11d48, #be123c) !important; color: #fff !important; border-color: #e11d48 !important; box-shadow: 0 4px 14px rgba(225, 29, 72, 0.35) !important; }
+        .tab-btn:hover {
+            color: var(--primary);
+            background: var(--gray-50);
+        }
+        .tab-btn.active {
+            background: var(--primary);
+            color: var(--white);
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+        }
 
         .tab-panel {
             display: none;
@@ -520,14 +541,20 @@
             .tab-btn { min-width: 140px; padding: 10px 12px; font-size: 0.85rem; }
         }
     </style>
-    <link rel="stylesheet" href="../assets/css/site-theme.css?v=6">
 </head>
 <body>
 
 <div class="container">
     <!-- Global Navigation -->
-                <!-- Global Hub Navigation Placeholder -->
-        <div id="navbar-placeholder"></div>
+    <div class="global-hub-nav">
+        <a href="../index.html" class="hub-nav-item">🏠 Trang Chủ</a>
+        <a href="../the_ru.html" class="hub-nav-item">📘 Thể Từ Điển</a>
+        <a href="../the_ta.html" class="hub-nav-item">📙 Thể Ta</a>
+        <a href="../kanji_a2.html" class="hub-nav-item">⛩️ Kanji A2</a>
+        <a href="../kien_thuc_bo_sung.html" class="hub-nav-item">💡 Kiến Thức Bổ Sung</a>
+        <a href="On_Tap_Mini_Test_A2_11_14.html" class="hub-nav-item">🎯 Mini Test 11-14</a>
+        <a href="On_Tap_Cap_Toc_Kanji_11_18_NPBS14.html" class="hub-nav-item active-hub">⚡ Cấp Tốc Đêm Nay (L11-18)</a>
+    </div>
 
     <!-- Hero Header -->
     <header class="hero-banner">
@@ -561,11 +588,11 @@
     <!-- Sticky Tab Navigation -->
     <div class="tab-nav-wrapper">
         <nav class="tab-nav">
-            <button class="tab-btn tab-btn-vocab active" onclick="switchMainTab('tab-vocab')">🎴 121 Từ Vựng (L11-18)</button>
-            <button class="tab-btn tab-btn-typing" onclick="switchMainTab('tab-cram')">⚡ Flashcard Cram Mode</button>
-            <button class="tab-btn tab-btn-kanji" onclick="switchMainTab('tab-hack')">🧠 Hack Não 6 Chuỗi Kanji</button>
-            <button class="tab-btn tab-btn-cheatsheet" onclick="switchMainTab('tab-npbs')">⚡ NPBS Bài 14 & Thử Thách</button>
-            <button class="tab-btn tab-btn-quiz" onclick="switchMainTab('tab-test')">🎯 Đề Thi Đột Kích 20 Câu</button>
+            <button class="tab-btn active" onclick="switchMainTab('tab-vocab')">🎴 121 Từ Vựng (L11-18)</button>
+            <button class="tab-btn" onclick="switchMainTab('tab-cram')">⚡ Flashcard Cram Mode</button>
+            <button class="tab-btn" onclick="switchMainTab('tab-hack')">🧠 Hack Não 6 Chuỗi Kanji</button>
+            <button class="tab-btn" onclick="switchMainTab('tab-npbs')">⚡ NPBS Bài 14 & Thử Thách</button>
+            <button class="tab-btn" onclick="switchMainTab('tab-test')">🎯 Đề Thi Đột Kích 20 Câu</button>
         </nav>
     </div>
 
@@ -833,24 +860,66 @@
 <div id="toast" class="toast"></div>
 
 <script>
+    const CRAM_CP_KEY = 'marugoto_cram_11_18_cp_v1';
+    window.__MARUGOTO_NATIVE_DOM_DISABLED__ = true;
+    window.__MARUGOTO_CP_EXTRA_KEYS__ = [CRAM_CP_KEY];
+    window.__MARUGOTO_ON_RESET__ = function () {
+        try { localStorage.removeItem(CRAM_CP_KEY); } catch (e) {}
+        window.location.reload();
+    };
+
     const rawVocab = [{"lesson": 11, "kanji": "お酒", "kana": "おさけ", "vi": "Rượu, đồ có cồn", "group": "Ẩm thực"}, {"lesson": 11, "kanji": "日本酒", "kana": "にほんしゅ", "vi": "Rượu Nhật", "group": "Ẩm thực"}, {"lesson": 11, "kanji": "作ります", "kana": "つくります", "vi": "Làm, tạo ra", "group": "Hành động"}, {"lesson": 11, "kanji": "作文", "kana": "さくぶん", "vi": "Bài văn, làm văn", "group": "Học tập"}, {"lesson": 11, "kanji": "食べ物", "kana": "たべもの", "vi": "Đồ ăn", "group": "Ẩm thực"}, {"lesson": 11, "kanji": "飲み物", "kana": "のみもの", "vi": "Đồ uống", "group": "Ẩm thực"}, {"lesson": 11, "kanji": "乗り物", "kana": "のりもの", "vi": "Phương tiện giao thông", "group": "Giao thông"}, {"lesson": 11, "kanji": "荷物", "kana": "にもつ", "vi": "Hành lý, đồ đạc", "group": "Đời sống"}, {"lesson": 11, "kanji": "お茶", "kana": "おちゃ", "vi": "Trà", "group": "Ẩm thực"}, {"lesson": 11, "kanji": "喫茶店", "kana": "きっさてん", "vi": "Quán giải khát, quán cà phê", "group": "Địa điểm"}, {"lesson": 11, "kanji": "持ちます", "kana": "もちます", "vi": "Mang, cầm / Có, sở hữu", "group": "Hành động"}, {"lesson": 11, "kanji": "気持ち", "kana": "きもち", "vi": "Cảm xúc", "group": "Tâm trạng"}, {"lesson": 11, "kanji": "お願い", "kana": "おねがい", "vi": "Yêu cầu, điều nhờ vả", "group": "Giao tiếp"}, {"lesson": 11, "kanji": "お願いします", "kana": "おねがいします", "vi": "Làm ơn, vui lòng...", "group": "Giao tiếp"}, {"lesson": 11, "kanji": "願い事", "kana": "ねがいごと", "vi": "Mong ước, ước nguyện", "group": "Tâm trạng"}, {"lesson": 12, "kanji": "料理", "kana": "りょうり", "vi": "Món ăn", "group": "Ẩm thực"}, {"lesson": 12, "kanji": "料金", "kana": "りょうきん", "vi": "Phí, tiền phí", "group": "Chi phí"}, {"lesson": 12, "kanji": "無料", "kana": "むりょう", "vi": "Miễn phí", "group": "Chi phí"}, {"lesson": 12, "kanji": "資料", "kana": "しりょう", "vi": "Tài liệu", "group": "Công việc"}, {"lesson": 12, "kanji": "理由", "kana": "りゆう", "vi": "Lý do", "group": "Tư duy"}, {"lesson": 12, "kanji": "無理", "kana": "むり", "vi": "Vô lý, quá sức, miễn cưỡng", "group": "Tính chất"}, {"lesson": 12, "kanji": "味", "kana": "あじ", "vi": "Vị", "group": "Ẩm thực"}, {"lesson": 12, "kanji": "地味", "kana": "じみ", "vi": "Giản dị, đơn giản", "group": "Tính chất"}, {"lesson": 12, "kanji": "色", "kana": "いろ", "vi": "Màu sắc", "group": "Màu sắc"}, {"lesson": 12, "kanji": "色々", "kana": "いろいろ", "vi": "Đa dạng", "group": "Tính chất"}, {"lesson": 12, "kanji": "野菜", "kana": "やさい", "vi": "Rau", "group": "Ẩm thực"}, {"lesson": 12, "kanji": "中", "kana": "なか", "vi": "Bên trong", "group": "Vị trí"}, {"lesson": 12, "kanji": "仕事中", "kana": "しごとちゅう", "vi": "Đang làm việc", "group": "Công việc"}, {"lesson": 12, "kanji": "一年中", "kana": "いちねんじゅう", "vi": "Cả một năm", "group": "Thời gian"}, {"lesson": 12, "kanji": "中止", "kana": "ちゅうし", "vi": "Dừng, hủy", "group": "Hành động"}, {"lesson": 12, "kanji": "入ります", "kana": "はいります", "vi": "Đi vào", "group": "Di chuyển"}, {"lesson": 12, "kanji": "入れます", "kana": "いれます", "vi": "Cho vào, bỏ vào", "group": "Hành động"}, {"lesson": 12, "kanji": "入学", "kana": "にゅうがく", "vi": "Nhập học", "group": "Học tập"}, {"lesson": 13, "kanji": "会います", "kana": "あいます", "vi": "Gặp gỡ", "group": "Giao tiếp"}, {"lesson": 13, "kanji": "社会", "kana": "しゃかい", "vi": "Xã hội", "group": "Xã hội"}, {"lesson": 13, "kanji": "会社員", "kana": "かいしゃいん", "vi": "Nhân viên công ty", "group": "Nghề nghiệp"}, {"lesson": 13, "kanji": "本社", "kana": "ほんしゃ", "vi": "Trụ sở chính, công ty mẹ", "group": "Công ty"}, {"lesson": 13, "kanji": "入社", "kana": "にゅうしゃ", "vi": "Vào công ty", "group": "Công ty"}, {"lesson": 13, "kanji": "神社", "kana": "じんじゃ", "vi": "Đền thờ", "group": "Địa điểm"}, {"lesson": 13, "kanji": "支社", "kana": "ししゃ", "vi": "Chi nhánh", "group": "Công ty"}, {"lesson": 13, "kanji": "出ます", "kana": "でます", "vi": "Đi ra, xuất hiện", "group": "Di chuyển"}, {"lesson": 13, "kanji": "出します", "kana": "だします", "vi": "Gửi, đưa ra, nộp", "group": "Hành động"}, {"lesson": 13, "kanji": "出かけます", "kana": "でかけます", "vi": "Ra ngoài", "group": "Di chuyển"}, {"lesson": 13, "kanji": "出口", "kana": "でぐち", "vi": "Cửa ra", "group": "Địa điểm"}, {"lesson": 13, "kanji": "出張", "kana": "しゅっちょう", "vi": "Công tác", "group": "Công việc"}, {"lesson": 13, "kanji": "出発", "kana": "しゅっぱつ", "vi": "Xuất phát", "group": "Di chuyển"}, {"lesson": 13, "kanji": "発音", "kana": "はつおん", "vi": "Phát âm", "group": "Ngôn ngữ"}, {"lesson": 13, "kanji": "到着", "kana": "とうちゃく", "vi": "Đến nơi (hạ cánh)", "group": "Di chuyển"}, {"lesson": 13, "kanji": "着ます", "kana": "きます", "vi": "Mặc (áo…)", "group": "Trang phục"}, {"lesson": 13, "kanji": "着物", "kana": "きもの", "vi": "Bộ kimono", "group": "Trang phục"}, {"lesson": 13, "kanji": "着きます", "kana": "つきます", "vi": "Đến nơi", "group": "Di chuyển"}, {"lesson": 13, "kanji": "空", "kana": "そら", "vi": "Bầu trời", "group": "Tự nhiên"}, {"lesson": 13, "kanji": "空気", "kana": "くうき", "vi": "Không khí", "group": "Tự nhiên"}, {"lesson": 13, "kanji": "港", "kana": "みなと", "vi": "Cảng biển", "group": "Địa điểm"}, {"lesson": 13, "kanji": "空港", "kana": "くうこう", "vi": "Sân bay", "group": "Địa điểm"}, {"lesson": 14, "kanji": "自分", "kana": "じぶん", "vi": "Bản thân, tự mình", "group": "Bản thân"}, {"lesson": 14, "kanji": "自由", "kana": "じゆう", "vi": "Tự do", "group": "Tính chất"}, {"lesson": 14, "kanji": "自然", "kana": "しぜん", "vi": "Tự nhiên, thiên nhiên", "group": "Tự nhiên"}, {"lesson": 14, "kanji": "車", "kana": "くるま", "vi": "Xe / Xe ô tô", "group": "Giao thông"}, {"lesson": 14, "kanji": "自動車", "kana": "じどうしゃ", "vi": "Ô tô", "group": "Giao thông"}, {"lesson": 14, "kanji": "自転車", "kana": "じてんしゃ", "vi": "Xe đạp", "group": "Giao thông"}, {"lesson": 14, "kanji": "電話", "kana": "でんわ", "vi": "Điện thoại", "group": "Thiết bị"}, {"lesson": 14, "kanji": "電車", "kana": "でんしゃ", "vi": "Tàu điện", "group": "Giao thông"}, {"lesson": 14, "kanji": "電子レンジ", "kana": "でんしレンジ", "vi": "Lò vi sóng", "group": "Thiết bị"}, {"lesson": 14, "kanji": "電気", "kana": "でんき", "vi": "Đèn điện, điện lực", "group": "Thiết bị"}, {"lesson": 14, "kanji": "病気", "kana": "びょうき", "vi": "Bệnh", "group": "Sức khỏe"}, {"lesson": 14, "kanji": "人気", "kana": "にんき", "vi": "Được yêu thích, ưa chuộng", "group": "Tính chất"}, {"lesson": 14, "kanji": "使います", "kana": "つかいます", "vi": "Sử dụng", "group": "Hành động"}, {"lesson": 14, "kanji": "大使館", "kana": "たいしかん", "vi": "Đại sứ quán", "group": "Địa điểm"}, {"lesson": 14, "kanji": "借ります", "kana": "かります", "vi": "Mượn, vay", "group": "Hành động"}, {"lesson": 14, "kanji": "送ります", "kana": "おくります", "vi": "Gửi, tiễn", "group": "Hành động"}, {"lesson": 15, "kanji": "体", "kana": "からだ", "vi": "Cơ thể", "group": "Cơ thể"}, {"lesson": 15, "kanji": "全体", "kana": "ぜんたい", "vi": "Toàn bộ, tổng thể", "group": "Tính chất"}, {"lesson": 15, "kanji": "頭", "kana": "あたま", "vi": "Đầu", "group": "Cơ thể"}, {"lesson": 15, "kanji": "目", "kana": "め", "vi": "Mắt", "group": "Cơ thể"}, {"lesson": 15, "kanji": "目的", "kana": "もくてき", "vi": "Mục đích", "group": "Tư duy"}, {"lesson": 15, "kanji": "耳", "kana": "みみ", "vi": "Tai", "group": "Cơ thể"}, {"lesson": 15, "kanji": "手", "kana": "て", "vi": "Tay", "group": "Cơ thể"}, {"lesson": 15, "kanji": "上", "kana": "うえ", "vi": "Trên", "group": "Vị trí"}, {"lesson": 15, "kanji": "上手", "kana": "じょうず", "vi": "Giỏi", "group": "Kỹ năng"}, {"lesson": 15, "kanji": "下", "kana": "した", "vi": "Dưới", "group": "Vị trí"}, {"lesson": 15, "kanji": "下手", "kana": "へた", "vi": "Kém", "group": "Kỹ năng"}, {"lesson": 15, "kanji": "歌手", "kana": "かしゅ", "vi": "Ca sĩ", "group": "Nghề nghiệp"}, {"lesson": 15, "kanji": "運転手", "kana": "うんてんしゅ", "vi": "Lái xe", "group": "Nghề nghiệp"}, {"lesson": 15, "kanji": "足", "kana": "あし", "vi": "Chân", "group": "Cơ thể"}, {"lesson": 15, "kanji": "足ります", "kana": "たります", "vi": "Đủ…", "group": "Trạng thái"}, {"lesson": 16, "kanji": "毎日", "kana": "まいにち", "vi": "Mỗi ngày", "group": "Thời gian"}, {"lesson": 16, "kanji": "毎朝", "kana": "まいあさ", "vi": "Mỗi sáng", "group": "Thời gian"}, {"lesson": 16, "kanji": "毎週", "kana": "まいしゅう", "vi": "Mỗi tuần", "group": "Thời gian"}, {"lesson": 16, "kanji": "毎月", "kana": "まいつき／まいげつ", "vi": "Mỗi tháng", "group": "Thời gian"}, {"lesson": 16, "kanji": "週末", "kana": "しゅうまつ", "vi": "Cuối tuần", "group": "Thời gian"}, {"lesson": 16, "kanji": "元気", "kana": "げんき", "vi": "Khỏe mạnh", "group": "Sức khỏe"}, {"lesson": 16, "kanji": "起きます", "kana": "おきます", "vi": "Thức dậy", "group": "Hành động"}, {"lesson": 16, "kanji": "歩きます", "kana": "あるきます", "vi": "Đi bộ", "group": "Vận động"}, {"lesson": 16, "kanji": "走ります", "kana": "はしります", "vi": "Chạy", "group": "Vận động"}, {"lesson": 16, "kanji": "泳ぎます", "kana": "およぎます", "vi": "Bơi", "group": "Vận động"}, {"lesson": 16, "kanji": "水泳", "kana": "すいえい", "vi": "Bơi", "group": "Vận động"}, {"lesson": 16, "kanji": "外", "kana": "そと", "vi": "Bên ngoài", "group": "Vị trí"}, {"lesson": 16, "kanji": "外国", "kana": "がいこく", "vi": "Nước ngoài", "group": "Địa điểm"}, {"lesson": 16, "kanji": "外食", "kana": "がいしょく", "vi": "Ăn ngoài", "group": "Ẩm thực"}, {"lesson": 17, "kanji": "お祝い", "kana": "おいわい", "vi": "Sự chúc mừng", "group": "Sự kiện"}, {"lesson": 17, "kanji": "誕生日", "kana": "たんじょうび", "vi": "Sinh nhật", "group": "Sự kiện"}, {"lesson": 17, "kanji": "結婚", "kana": "けっこん", "vi": "Kết hôn", "group": "Sự kiện"}, {"lesson": 17, "kanji": "絵", "kana": "え", "vi": "Bức tranh", "group": "Nghệ thuật"}, {"lesson": 17, "kanji": "写真", "kana": "しゃしん", "vi": "Bức ảnh", "group": "Nghệ thuật"}, {"lesson": 17, "kanji": "真面目", "kana": "まじめ", "vi": "Nghiêm túc, chăm chỉ", "group": "Tính cách"}, {"lesson": 17, "kanji": "計ります", "kana": "はかります", "vi": "Cân đo", "group": "Hành động"}, {"lesson": 17, "kanji": "時計", "kana": "とけい", "vi": "Đồng hồ", "group": "Đồ vật"}, {"lesson": 17, "kanji": "会計", "kana": "かいけい", "vi": "Thanh toán, kế toán", "group": "Chi phí"}, {"lesson": 17, "kanji": "着ます", "kana": "きます", "vi": "Mặc", "group": "Trang phục"}, {"lesson": 18, "kanji": "先週", "kana": "せんしゅう", "vi": "Tuần trước", "group": "Thời gian"}, {"lesson": 18, "kanji": "今月", "kana": "こんげつ", "vi": "Tháng này", "group": "Thời gian"}, {"lesson": 18, "kanji": "今朝", "kana": "けさ", "vi": "Sáng nay", "group": "Thời gian"}, {"lesson": 18, "kanji": "来年", "kana": "らいねん", "vi": "Năm sau", "group": "Thời gian"}, {"lesson": 18, "kanji": "今年", "kana": "ことし", "vi": "Năm nay", "group": "Thời gian"}, {"lesson": 18, "kanji": "去年", "kana": "きょねん", "vi": "Năm ngoái", "group": "Thời gian"}, {"lesson": 18, "kanji": "家", "kana": "いえ", "vi": "Nhà", "group": "Gia đình"}, {"lesson": 18, "kanji": "家族", "kana": "かぞく", "vi": "Gia đình", "group": "Gia đình"}, {"lesson": 18, "kanji": "作家", "kana": "さっか", "vi": "Tác giả, nhà văn", "group": "Nghề nghiệp"}, {"lesson": 18, "kanji": "画家", "kana": "がか", "vi": "Họa sĩ", "group": "Nghề nghiệp"}, {"lesson": 18, "kanji": "思います", "kana": "おもいます", "vi": "Nghĩ", "group": "Tư duy"}];
+    let currentTab = 'tab-vocab';
+    let isRestoringCram = false;
     let currentFilteredVocab = [...rawVocab];
     let currentLessonFilter = 'ALL';
     let isMeaningHidden = false;
+    let speedTestFinished = false;
 
     // Cram Flashcard state
     let cramIndex = 0;
     let cramList = [...rawVocab];
 
+    function saveCramCheckpoint() {
+        if (isRestoringCram) return;
+        try {
+            const searchEl = document.getElementById('vocabSearchInput');
+            const cardEl = document.getElementById('mainFlashcard');
+            const payload = {
+                t: Date.now(),
+                currentTab,
+                currentLessonFilter,
+                searchQuery: searchEl ? searchEl.value : '',
+                isMeaningHidden,
+                cramIndex,
+                cramFlipped: cardEl ? cardEl.classList.contains('is-flipped') : false,
+                cramOrder: cramList.map(c => `${c.lesson}|${c.kanji}|${c.kana}`),
+                npbsUserAnswers,
+                speedTestAnswers,
+                speedTestFinished
+            };
+            localStorage.setItem(CRAM_CP_KEY, JSON.stringify(payload));
+            if (window.MarugotoCheckpoint && typeof window.MarugotoCheckpoint.notifySaved === 'function') {
+                window.MarugotoCheckpoint.notifySaved();
+            }
+        } catch (e) {}
+    }
+
     // Navigation
-    function switchMainTab(tabId) {
+    function switchMainTab(tabId, opts) {
+        currentTab = tabId;
         document.querySelectorAll('.tab-btn').forEach(btn => {
             btn.classList.toggle('active', btn.getAttribute('onclick').includes(tabId));
         });
         document.querySelectorAll('.tab-panel').forEach(panel => {
             panel.classList.toggle('active', panel.id === tabId);
         });
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        if (!(opts && opts.skipScroll)) {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        if (!(opts && opts.skipSave)) {
+            saveCramCheckpoint();
+        }
     }
 
     // Render Vocab
@@ -913,6 +982,7 @@
         currentFilteredVocab = filtered;
         document.getElementById('currentFilteredCount').innerText = filtered.length;
         renderVocab(filtered);
+        saveCramCheckpoint();
     }
 
     function toggleHideMeaning() {
@@ -926,6 +996,7 @@
             btn.style.background = '';
         }
         renderVocab(currentFilteredVocab);
+        saveCramCheckpoint();
     }
 
     // Copy Handlers
@@ -1011,21 +1082,35 @@
         if (card.classList.contains('is-flipped')) {
             speakCramWord();
         }
+        saveCramCheckpoint();
     }
 
     function nextCramCard() {
         cramIndex = (cramIndex + 1) % cramList.length;
         updateCramCard();
+        saveCramCheckpoint();
     }
 
     function prevCramCard() {
         cramIndex = (cramIndex - 1 + cramList.length) % cramList.length;
         updateCramCard();
+        saveCramCheckpoint();
     }
 
     function speakCramWord() {
         const item = cramList[cramIndex];
-        audioEngine.speak(item.kana);
+        if (!item) return;
+        if (window.AudioEngine && typeof window.AudioEngine.speak === 'function') {
+            window.AudioEngine.speak(item.kana);
+        } else if (typeof audioEngine !== 'undefined' && audioEngine && typeof audioEngine.speak === 'function') {
+            audioEngine.speak(item.kana);
+        } else if (typeof window.speakJapanese === 'function') {
+            window.speakJapanese(item.kana);
+        } else if ('speechSynthesis' in window) {
+            const u = new SpeechSynthesisUtterance(item.kana);
+            u.lang = 'ja-JP';
+            window.speechSynthesis.speak(u);
+        }
     }
 
     // Keyboard support for Flashcard
@@ -1168,6 +1253,7 @@
             fb.style.border = '1px solid #f87171';
             fb.innerHTML = `✕ <strong>Chưa đúng!</strong> ${q.explain}`;
         }
+        saveCramCheckpoint();
     }
 
     // 20 CÂU SPEED TEST
@@ -1229,9 +1315,11 @@
                 b.style.color = 'var(--gray-800)';
             }
         });
+        saveCramCheckpoint();
     }
 
-    function finishSpeedTest() {
+    function finishSpeedTest(opts) {
+        speedTestFinished = true;
         let score = 0;
         SPEED_TEST_QUESTIONS.forEach((q, idx) => {
             const chosen = speedTestAnswers[idx];
@@ -1266,19 +1354,150 @@
         });
 
         document.getElementById('speedTestScore').innerText = score;
-        showToast(`🎉 Bạn đạt ${score} / 100 điểm! Đêm nay đã nạp đầy đủ kiến thức!`);
-        window.scrollTo({ top: document.getElementById('tab-test').offsetTop, behavior: 'smooth' });
+        if (!(opts && opts.skipToast)) {
+            showToast(`🎉 Bạn đạt ${score} / 100 điểm! Đêm nay đã nạp đầy đủ kiến thức!`);
+        }
+        if (!(opts && opts.skipScroll)) {
+            window.scrollTo({ top: document.getElementById('tab-test').offsetTop, behavior: 'smooth' });
+        }
+        if (!(opts && opts.skipSave)) {
+            saveCramCheckpoint();
+        }
+    }
+
+    function restoreCramCheckpoint() {
+        try {
+            const raw = localStorage.getItem(CRAM_CP_KEY);
+            if (!raw) return false;
+            const saved = JSON.parse(raw);
+            if (!saved || typeof saved !== 'object') return false;
+            isRestoringCram = true;
+
+            if (saved.currentLessonFilter !== undefined) {
+                currentLessonFilter = saved.currentLessonFilter;
+                document.querySelectorAll('button[onclick*="filterVocabByLesson"]').forEach(btn => {
+                    const oc = btn.getAttribute('onclick') || '';
+                    const isAll = currentLessonFilter === 'ALL' && oc.includes("'ALL'");
+                    const isNum = currentLessonFilter !== 'ALL' && new RegExp(`filterVocabByLesson\(['"]?${currentLessonFilter}['"]?`).test(oc);
+                    btn.classList.toggle('active', isAll || isNum);
+                });
+            }
+
+            const searchEl = document.getElementById('vocabSearchInput');
+            if (searchEl && typeof saved.searchQuery === 'string') {
+                searchEl.value = saved.searchQuery;
+            }
+
+            if (typeof saved.isMeaningHidden === 'boolean') {
+                isMeaningHidden = saved.isMeaningHidden;
+                const hideBtn = document.getElementById('btnHideMeaning');
+                if (hideBtn) {
+                    hideBtn.innerText = isMeaningHidden ? '👁️ Hiện lại nghĩa' : '👁️ Ẩn nghĩa (Tự dò)';
+                    hideBtn.style.background = isMeaningHidden ? '#e11d48' : '';
+                }
+            }
+
+            if (Array.isArray(saved.cramOrder) && saved.cramOrder.length > 0) {
+                const pool = [...rawVocab];
+                const ordered = [];
+                saved.cramOrder.forEach(k => {
+                    const idx = pool.findIndex(c => `${c.lesson}|${c.kanji}|${c.kana}` === k);
+                    if (idx !== -1) ordered.push(pool.splice(idx, 1)[0]);
+                });
+                cramList = ordered.concat(pool);
+            }
+            if (Number.isInteger(saved.cramIndex) && saved.cramIndex >= 0 && saved.cramIndex < cramList.length) {
+                cramIndex = saved.cramIndex;
+            }
+
+            if (saved.npbsUserAnswers && typeof saved.npbsUserAnswers === 'object') {
+                npbsUserAnswers = saved.npbsUserAnswers;
+            }
+            if (saved.speedTestAnswers && typeof saved.speedTestAnswers === 'object') {
+                speedTestAnswers = saved.speedTestAnswers;
+            }
+            speedTestFinished = Boolean(saved.speedTestFinished);
+
+            applyFilter();
+            updateCramCard();
+            if (saved.cramFlipped) {
+                const card = document.getElementById('mainFlashcard');
+                if (card) card.classList.add('is-flipped');
+            }
+
+            renderNpbsChallenge();
+            Object.keys(npbsUserAnswers).forEach(qIdKey => {
+                const qId = parseInt(qIdKey, 10);
+                const selectedIdx = npbsUserAnswers[qIdKey];
+                const q = NPBS_CHALLENGES.find(item => item.id === qId);
+                const card = document.getElementById(`npbsQ_${qId}`);
+                const fb = document.getElementById(`npbsFb_${qId}`);
+                if (!q || !card || !fb) return;
+                card.querySelectorAll('button').forEach((b, idx) => {
+                    b.disabled = true;
+                    if (idx === q.correct) {
+                        b.style.background = '#10b981';
+                        b.style.color = '#ffffff';
+                    } else if (idx === selectedIdx) {
+                        b.style.background = '#ef4444';
+                        b.style.color = '#ffffff';
+                    } else {
+                        b.style.opacity = '0.5';
+                    }
+                });
+                fb.style.display = 'block';
+                if (selectedIdx === q.correct) {
+                    fb.style.background = 'rgba(16, 185, 129, 0.3)';
+                    fb.style.border = '1px solid #34d399';
+                    fb.innerHTML = `✓ <strong>Chính xác!</strong> ${q.explain}`;
+                } else {
+                    fb.style.background = 'rgba(239, 68, 68, 0.3)';
+                    fb.style.border = '1px solid #f87171';
+                    fb.innerHTML = `✕ <strong>Chưa đúng!</strong> ${q.explain}`;
+                }
+            });
+
+            renderSpeedTest();
+            if (speedTestFinished) {
+                finishSpeedTest({ skipScroll: true, skipToast: true, skipSave: true });
+            } else {
+                Object.keys(speedTestAnswers).forEach(qIdxKey => {
+                    const qIdx = parseInt(qIdxKey, 10);
+                    const optIdx = speedTestAnswers[qIdxKey];
+                    const card = document.getElementById(`stCard_${qIdx}`);
+                    if (!card) return;
+                    card.querySelectorAll('button').forEach((b, idx) => {
+                        if (idx === optIdx) {
+                            b.style.background = '#e0e7ff';
+                            b.style.borderColor = '#4f46e5';
+                            b.style.color = '#3730a3';
+                        }
+                    });
+                });
+            }
+
+            if (saved.currentTab) {
+                switchMainTab(saved.currentTab, { skipScroll: true, skipSave: true });
+            }
+            isRestoringCram = false;
+            return true;
+        } catch (e) {
+            isRestoringCram = false;
+            return false;
+        }
     }
 
     // Init All
     document.addEventListener('DOMContentLoaded', () => {
-        renderVocab(rawVocab);
-        updateCramCard();
-        renderNpbsChallenge();
-        renderSpeedTest();
+        const restored = restoreCramCheckpoint();
+        if (!restored) {
+            renderVocab(rawVocab);
+            updateCramCard();
+            renderNpbsChallenge();
+            renderSpeedTest();
+        }
     });
 </script>
-<script src="../assets/js/nav-dropdown.js"></script>
-    <script src="../assets/nav.js?v=6" defer></script>
+<script src="../assets/nav.js?v=6" defer></script>
 </body>
 </html>

@@ -2375,6 +2375,16 @@ html_content = f"""<!DOCTYPE html>
     const part5Data = {p5_json_str};
     const part6Data = {p6_json_str};
 
+    const MINI11_14_CP_KEY = 'marugoto_mini11_14_cp_v1';
+    window.__MARUGOTO_NATIVE_DOM_DISABLED__ = true;
+    window.__MARUGOTO_CP_EXTRA_KEYS__ = [MINI11_14_CP_KEY];
+    window.__MARUGOTO_ON_RESET__ = function () {{
+        try {{ localStorage.removeItem(MINI11_14_CP_KEY); }} catch (e) {{}}
+        window.location.reload();
+    }};
+
+    let currentTab = null;
+    let isRestoringMini11_14 = false;
     let currentVocabFilter = 'ALL';
     let currentKanjiFilter = 'ALL';
     let isMeaningHidden = false;
@@ -2395,14 +2405,59 @@ html_content = f"""<!DOCTYPE html>
     let timerInterval = null;
     let isTimerRunning = true;
 
+    function saveMini11_14Checkpoint() {{
+        if (isRestoringMini11_14) return;
+        try {{
+            const p3Inputs = {{}};
+            part3Data.forEach(item => {{
+                const inp = document.getElementById(`p3_input_${{item.id}}`);
+                if (inp && inp.value) p3Inputs[item.id] = inp.value;
+            }});
+            const p6Drafts = {{}};
+            const p6ModelsOpen = {{}};
+            part6Data.forEach(item => {{
+                const ta = document.getElementById(`trans_input_${{item.id}}`);
+                if (ta && ta.value) p6Drafts[item.id] = ta.value;
+                const mb = document.getElementById(`trans_model_${{item.id}}`);
+                if (mb && mb.style.display === 'block') p6ModelsOpen[item.id] = true;
+            }});
+            const payload = {{
+                t: Date.now(),
+                currentTab: currentTab || (document.querySelector('.tab-panel.active') ? document.querySelector('.tab-panel.active').id : 'tab-quiz'),
+                currentVocabFilter,
+                currentKanjiFilter,
+                isMeaningHidden,
+                p1Answers,
+                p2Selected,
+                p2Graded,
+                p3Graded,
+                p3Inputs,
+                p4Selected,
+                p4Graded,
+                p5Answers,
+                p6SelfScores,
+                p6Drafts,
+                p6ModelsOpen,
+                totalSeconds,
+                isTimerRunning
+            }};
+            localStorage.setItem(MINI11_14_CP_KEY, JSON.stringify(payload));
+            if (window.MarugotoCheckpoint && typeof window.MarugotoCheckpoint.notifySaved === 'function') {{
+                window.MarugotoCheckpoint.notifySaved();
+            }}
+        }} catch (e) {{}}
+    }}
+
     function startTimer() {{
         if (timerInterval) clearInterval(timerInterval);
         timerInterval = setInterval(() => {{
             if (isTimerRunning && totalSeconds > 0) {{
                 totalSeconds--;
                 updateTimerDisplay();
+                if (totalSeconds % 5 === 0) saveMini11_14Checkpoint();
             }} else if (totalSeconds <= 0) {{
                 clearInterval(timerInterval);
+                saveMini11_14Checkpoint();
                 alert("⏱️ Hết thời gian 45 phút làm bài! Hãy xem lại kết quả tổng điểm của bạn.");
             }}
         }}, 1000);
@@ -2419,15 +2474,15 @@ html_content = f"""<!DOCTYPE html>
 
     function toggleTimer() {{
         isTimerRunning = !isTimerRunning;
-        const btn = event.target;
-        if (isTimerRunning) {{
-            btn.innerText = "⏸️ Tạm Dừng";
-        }} else {{
-            btn.innerText = "▶️ Tiếp Tục";
+        const btn = (typeof event !== 'undefined' && event && event.target) ? event.target : null;
+        if (btn) {{
+            btn.innerText = isTimerRunning ? "⏸️ Tạm Dừng" : "▶️ Tiếp Tục";
         }}
+        saveMini11_14Checkpoint();
     }}
 
-    function switchMainTab(tabId) {{
+    function switchMainTab(tabId, opts) {{
+        currentTab = tabId;
         document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
         document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
 
@@ -2438,7 +2493,12 @@ html_content = f"""<!DOCTYPE html>
 
         const targetPanel = document.getElementById(tabId);
         if (targetPanel) targetPanel.classList.add('active');
-        window.scrollTo({{ top: 180, behavior: 'smooth' }});
+        if (!(opts && opts.skipScroll)) {{
+            window.scrollTo({{ top: 180, behavior: 'smooth' }});
+        }}
+        if (!(opts && opts.skipSave)) {{
+            saveMini11_14Checkpoint();
+        }}
     }}
 
     function speakText(text) {{
@@ -2576,6 +2636,7 @@ html_content = f"""<!DOCTYPE html>
             const slot = document.getElementById(`p2_slot_${{qId}}_${{pos}}`);
             if (slot) slot.innerText = qItem.chips[cIdx];
         }});
+        saveMini11_14Checkpoint();
     }}
 
     function resetSingleArrange(qId) {{
@@ -2589,6 +2650,7 @@ html_content = f"""<!DOCTYPE html>
             const chipBtn = document.getElementById(`p2_chip_btn_${{qId}}_${{i}}`);
             if (chipBtn) chipBtn.classList.remove('used');
         }}
+        saveMini11_14Checkpoint();
     }}
 
     function checkArrangeAnswer(qId) {{
@@ -2641,7 +2703,7 @@ html_content = f"""<!DOCTYPE html>
                 </div>
                 <div class="q-text jp-text">${{item.sentence}}</div>
                 <div class="conjugate-row">
-                    <input type="text" class="conj-input jp-text" id="p3_input_${{item.id}}" placeholder="Nhập dạng chia đúng..." onkeydown="if(event.key==='Enter') checkConjugateAnswer(${{item.id}})">
+                    <input type="text" class="conj-input jp-text" id="p3_input_${{item.id}}" placeholder="Nhập dạng chia đúng..." oninput="saveMini11_14Checkpoint()" onkeydown="if(event.key==='Enter' && !event.isComposing && event.keyCode!==229) checkConjugateAnswer(${{item.id}})">
                     <button type="button" class="btn-check-arrange" id="p3_btn_${{item.id}}" onclick="checkConjugateAnswer(${{item.id}})">
                         Kiểm Tra
                     </button>
@@ -2733,6 +2795,7 @@ html_content = f"""<!DOCTYPE html>
     function onSelectMatchAnswer(qId) {{
         const sel = document.getElementById(`matchSelect_${{qId}}`);
         p4Selected[qId] = sel.value;
+        saveMini11_14Checkpoint();
     }}
 
     function checkAllMatching() {{
@@ -2845,7 +2908,7 @@ html_content = f"""<!DOCTYPE html>
                 <div style="font-size: 0.88rem; color: var(--gray-600); margin-bottom: 8px;">
                     💡 <em>Gợi ý từ vựng:</em> ${{item.hint}}
                 </div>
-                <textarea class="trans-input-box jp-text" id="trans_input_${{item.id}}" placeholder="Nhập bản dịch tiếng Nhật của bạn vào đây..."></textarea>
+                <textarea class="trans-input-box jp-text" id="trans_input_${{item.id}}" placeholder="Nhập bản dịch tiếng Nhật của bạn vào đây..." oninput="saveMini11_14Checkpoint()"></textarea>
                 
                 <div style="margin-top: 10px; display: flex; gap: 10px; flex-wrap: wrap; align-items: center;">
                     <button type="button" class="btn-check-arrange" onclick="toggleTranslationModel(${{item.id}})">
@@ -2883,6 +2946,7 @@ html_content = f"""<!DOCTYPE html>
         const box = document.getElementById(`trans_model_${{qId}}`);
         if (box) {{
             box.style.display = (box.style.display === 'block') ? 'none' : 'block';
+            saveMini11_14Checkpoint();
         }}
     }}
 
@@ -2966,6 +3030,7 @@ html_content = f"""<!DOCTYPE html>
             document.getElementById('quizStatusTitle').innerText = 
                 `HOÀN THÀNH BÀI THI: ${{totalRounded}} / 100 ĐIỂM - ${{rank}}`;
         }}
+        saveMini11_14Checkpoint();
     }}
 
     function resetAllExam() {{
@@ -2993,6 +3058,7 @@ html_content = f"""<!DOCTYPE html>
         document.getElementById('quizStatusTitle').innerText = 'Đề Khảo Sát Năng Lực Toàn Diện Bài 11 - 14';
         document.getElementById('quizProgressText').innerText = 'Hoàn thành: 0/32 câu • Tổng điểm hiện tại: 0 / 100đ';
 
+        localStorage.removeItem(MINI11_14_CP_KEY);
         window.scrollTo({{ top: document.getElementById('tab-quiz').offsetTop - 60, behavior: 'smooth' }});
     }}
 
@@ -3031,6 +3097,7 @@ html_content = f"""<!DOCTYPE html>
             btn.classList.add('active');
         }}
         applyVocabFilter();
+        saveMini11_14Checkpoint();
     }}
 
     function handleVocabSearch() {{
@@ -3209,6 +3276,7 @@ html_content = f"""<!DOCTYPE html>
             if (isMeaningHidden) el.classList.add('hidden-meaning');
             else el.classList.remove('hidden-meaning');
         }});
+        saveMini11_14Checkpoint();
     }}
 
     let currentFilteredKanji = [...rawKanji];
@@ -3323,6 +3391,7 @@ html_content = f"""<!DOCTYPE html>
             btn.classList.add('active');
         }}
         applyKanjiFilter();
+        saveMini11_14Checkpoint();
     }}
 
     function handleKanjiSearch() {{
@@ -3349,20 +3418,210 @@ html_content = f"""<!DOCTYPE html>
         renderKanji(filtered);
     }}
 
+    function restoreMini11_14Checkpoint() {{
+        try {{
+            const raw = localStorage.getItem(MINI11_14_CP_KEY);
+            if (!raw) return false;
+            const saved = JSON.parse(raw);
+            if (!saved || typeof saved !== 'object') return false;
+            isRestoringMini11_14 = true;
+
+            if (saved.currentVocabFilter) {{
+                currentVocabFilter = saved.currentVocabFilter;
+                document.querySelectorAll('button[onclick*="filterVocab("]').forEach(b => {{
+                    const oc = b.getAttribute('onclick') || '';
+                    b.classList.toggle('active', oc.includes(`'${{currentVocabFilter}}'`));
+                }});
+            }}
+            if (saved.currentKanjiFilter) {{
+                currentKanjiFilter = saved.currentKanjiFilter;
+                document.querySelectorAll('button[onclick*="filterKanji("]').forEach(b => {{
+                    const oc = b.getAttribute('onclick') || '';
+                    b.classList.toggle('active', oc.includes(`'${{currentKanjiFilter}}'`));
+                }});
+            }}
+            if (typeof saved.isMeaningHidden === 'boolean') {{
+                isMeaningHidden = saved.isMeaningHidden;
+                const hideBtn = document.getElementById('hideMeaningBtn');
+                if (hideBtn) {{
+                    hideBtn.classList.toggle('active', isMeaningHidden);
+                    hideBtn.innerHTML = isMeaningHidden
+                        ? '👁️ Đang ẩn nghĩa (Chạm vào thẻ để xem)'
+                        : '👁️ Ẩn nghĩa tiếng Việt (Tự dò)';
+                }}
+            }}
+            if (saved.p1Answers && typeof saved.p1Answers === 'object') p1Answers = saved.p1Answers;
+            if (saved.p2Selected && typeof saved.p2Selected === 'object') p2Selected = saved.p2Selected;
+            if (saved.p2Graded && typeof saved.p2Graded === 'object') p2Graded = saved.p2Graded;
+            if (saved.p3Graded && typeof saved.p3Graded === 'object') p3Graded = saved.p3Graded;
+            if (saved.p4Selected && typeof saved.p4Selected === 'object') p4Selected = saved.p4Selected;
+            if (saved.p4Graded && typeof saved.p4Graded === 'object') p4Graded = saved.p4Graded;
+            if (saved.p5Answers && typeof saved.p5Answers === 'object') p5Answers = saved.p5Answers;
+            if (saved.p6SelfScores && typeof saved.p6SelfScores === 'object') p6SelfScores = saved.p6SelfScores;
+            if (Number.isFinite(saved.totalSeconds)) {{
+                totalSeconds = saved.totalSeconds;
+                updateTimerDisplay();
+            }}
+            if (typeof saved.isTimerRunning === 'boolean') {{
+                isTimerRunning = saved.isTimerRunning;
+                const tBtn = document.querySelector('button[onclick*="toggleTimer("]');
+                if (tBtn) tBtn.innerText = isTimerRunning ? "⏸️ Tạm Dừng" : "▶️ Tiếp Tục";
+            }}
+
+            applyVocabFilter();
+            applyKanjiFilter();
+            renderPart1();
+            renderPart2();
+            renderPart3();
+            renderPart4();
+            renderPart5();
+            renderPart6();
+
+            // Khôi phục UI Part 1
+            part1Data.forEach(item => {{
+                const chosen = p1Answers[item.id];
+                if (chosen === undefined) return;
+                item.options.forEach((_, idx) => {{
+                    const btn = document.getElementById(`optBtn_p1_${{item.id}}_${{idx}}`);
+                    if (!btn) return;
+                    btn.disabled = true;
+                    if (idx === item.correct) btn.classList.add('correct');
+                    else if (idx === chosen) btn.classList.add('wrong');
+                }});
+                const ex = document.getElementById(`explain_p1_${{item.id}}`);
+                if (ex) ex.style.display = 'block';
+            }});
+
+            // Khôi phục UI Part 2
+            part2Data.forEach(item => {{
+                const chosen = p2Selected[item.id] || [];
+                chosen.forEach(cIdx => {{
+                    const chipBtn = document.getElementById(`p2_chip_btn_${{item.id}}_${{cIdx}}`);
+                    if (chipBtn) chipBtn.classList.add('used');
+                }});
+                if (p2Graded[item.id] !== undefined) {{
+                    const isCorrect = p2Graded[item.id] > 0;
+                    const checkBtn = document.getElementById(`p2_check_btn_${{item.id}}`);
+                    if (checkBtn) {{
+                        checkBtn.disabled = true;
+                        checkBtn.style.background = isCorrect ? '#10b981' : '#f43f5e';
+                        checkBtn.innerText = isCorrect ? "✅ Chính Xác (+3.0đ)" : "❌ Chưa Đúng (0đ)";
+                    }}
+                    const ex = document.getElementById(`explain_p2_${{item.id}}`);
+                    if (ex) ex.style.display = 'block';
+                }}
+            }});
+
+            // Khôi phục UI Part 3
+            const p3Inputs = saved.p3Inputs || {{}};
+            part3Data.forEach(item => {{
+                const inp = document.getElementById(`p3_input_${{item.id}}`);
+                const btn = document.getElementById(`p3_btn_${{item.id}}`);
+                if (inp && typeof p3Inputs[item.id] === 'string') inp.value = p3Inputs[item.id];
+                if (p3Graded[item.id] !== undefined) {{
+                    const isMatched = p3Graded[item.id] > 0;
+                    if (inp) {{
+                        inp.disabled = true;
+                        inp.classList.add(isMatched ? 'correct' : 'wrong');
+                    }}
+                    if (btn) {{
+                        btn.disabled = true;
+                        btn.style.background = isMatched ? '#10b981' : '#f43f5e';
+                        btn.innerText = isMatched ? "✅ Đúng (+3.0đ)" : "❌ Sai (0đ)";
+                    }}
+                    const ex = document.getElementById(`explain_p3_${{item.id}}`);
+                    if (ex) ex.style.display = 'block';
+                }}
+            }});
+
+            // Khôi phục UI Part 4
+            const p4GradedAny = Object.keys(p4Graded).length > 0;
+            part4Data.forEach(item => {{
+                const sel = document.getElementById(`matchSelect_${{item.id}}`);
+                if (sel && p4Selected[item.id] !== undefined) sel.value = String(p4Selected[item.id]);
+                if (p4Graded[item.id] !== undefined) {{
+                    if (sel) sel.disabled = true;
+                    const card = document.getElementById(`matchCard_${{item.id}}`);
+                    if (card) {{
+                        const ok = p4Graded[item.id] > 0;
+                        card.style.borderColor = ok ? '#10b981' : '#f43f5e';
+                        card.style.background = ok ? '#f0fdf4' : '#fff1f2';
+                    }}
+                    const ex = document.getElementById(`explain_p4_${{item.id}}`);
+                    if (ex) ex.style.display = 'block';
+                }}
+            }});
+            if (p4GradedAny) {{
+                const btnAll = document.getElementById('btnCheckMatchAll');
+                if (btnAll) {{
+                    btnAll.disabled = true;
+                    btnAll.innerText = "Đã Hoàn Thành Chấm Điểm";
+                }}
+            }}
+
+            // Khôi phục UI Part 5
+            part5Data.forEach(pass => {{
+                pass.questions.forEach(q => {{
+                    const chosen = p5Answers[q.id];
+                    if (chosen === undefined) return;
+                    q.options.forEach((_, idx) => {{
+                        const btn = document.getElementById(`optBtn_p5_${{q.id}}_${{idx}}`);
+                        if (!btn) return;
+                        btn.disabled = true;
+                        if (idx === q.correct) btn.classList.add('correct');
+                        else if (idx === chosen) btn.classList.add('wrong');
+                    }});
+                    const ex = document.getElementById(`explain_p5_${{q.id}}`);
+                    if (ex) ex.style.display = 'block';
+                }});
+            }});
+
+            // Khôi phục UI Part 6
+            const p6Drafts = saved.p6Drafts || {{}};
+            const p6ModelsOpen = saved.p6ModelsOpen || {{}};
+            part6Data.forEach(item => {{
+                const ta = document.getElementById(`trans_input_${{item.id}}`);
+                if (ta && typeof p6Drafts[item.id] === 'string') ta.value = p6Drafts[item.id];
+                const mb = document.getElementById(`trans_model_${{item.id}}`);
+                if (mb && p6ModelsOpen[item.id]) mb.style.display = 'block';
+                if (p6SelfScores[item.id] > 0) {{
+                    const btn = document.getElementById(`btnSelfGrade_${{item.id}}`);
+                    if (btn) {{
+                        btn.classList.add('active');
+                        btn.innerText = "✅ Đã Tính Điểm (+3.75đ)";
+                    }}
+                }}
+            }});
+
+            updateTotalScore();
+            if (saved.currentTab) {{
+                switchMainTab(saved.currentTab, {{ skipScroll: true, skipSave: true }});
+            }}
+            isRestoringMini11_14 = false;
+            return true;
+        }} catch (e) {{
+            isRestoringMini11_14 = false;
+            return false;
+        }}
+    }}
+
     // Initialize All Components on Load
     document.addEventListener('DOMContentLoaded', () => {{
-        applyVocabFilter();
-        renderKanji(rawKanji);
-        renderPart1();
-        renderPart2();
-        renderPart3();
-        renderPart4();
-        renderPart5();
-        renderPart6();
+        const restored = restoreMini11_14Checkpoint();
+        if (!restored) {{
+            applyVocabFilter();
+            renderKanji(rawKanji);
+            renderPart1();
+            renderPart2();
+            renderPart3();
+            renderPart4();
+            renderPart5();
+            renderPart6();
+        }}
         startTimer();
     }});
 </script>
-<script src="../assets/js/nav-dropdown.js"></script>
+<script src="../assets/nav.js?v=6" defer></script>
 </body>
 </html>
 """

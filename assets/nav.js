@@ -66,7 +66,7 @@
     let currentFileName = pathname.split('/').pop() || 'index.html';
     if (!currentFileName || currentFileName.trim() === '') currentFileName = 'index.html';
 
-    // 3. ĐẢM BẢO CSS SITE-THEME ĐƯỢC NẠP
+    // 3. ĐẢM BẢO CSS SITE-THEME & CHECKPOINT SYNC ĐƯỢC NẠP
     (function ensureThemeCSS() {
         const existingLink = document.querySelector('link[href*="site-theme.css"]');
         if (!existingLink) {
@@ -74,6 +74,12 @@
             link.rel = 'stylesheet';
             link.href = rootPrefix + 'assets/css/site-theme.css?v=6';
             document.head.appendChild(link);
+        }
+        if (!window.__MARUGOTO_CHECKPOINT_LOADED__ && !document.querySelector('script[src*="checkpoint-sync.js"]')) {
+            const cpScript = document.createElement('script');
+            cpScript.src = rootPrefix + 'assets/js/checkpoint-sync.js?v=1';
+            cpScript.defer = true;
+            document.head.appendChild(cpScript);
         }
     })();
 

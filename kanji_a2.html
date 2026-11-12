@@ -1676,7 +1676,7 @@
         apply121Filter();
     }
 
-    function apply121Filter() {
+    function apply121Filter(opts) {
         const q = (document.getElementById('search121Input')?.value || '').trim().toLowerCase();
         current121Filtered = VOCAB_121_DATA.filter(item => {
             const matchLesson = (current121Lesson === 'ALL' || item.lesson == current121Lesson);
@@ -1684,6 +1684,7 @@
             return matchLesson && matchQuery;
         });
         render121Table();
+        if (!(opts && opts.skipSave) && typeof saveKanjiCheckpoint === 'function') saveKanjiCheckpoint();
     }
 
     function copyAll121Quizlet() {
@@ -3748,22 +3749,64 @@
         }
     ];
 
+    const KANJI_CP_KEY = 'marugoto_kanji_a2_cp_v1';
+    window.__MARUGOTO_NATIVE_DOM_DISABLED__ = true;
+    window.__MARUGOTO_CP_EXTRA_KEYS__ = [KANJI_CP_KEY];
+    window.__MARUGOTO_ON_RESET__ = function () {
+        try { localStorage.removeItem(KANJI_CP_KEY); } catch (e) {}
+        window.location.reload();
+    };
+
+    let currentKanjiTab = 'tab-cards';
+    let isRestoringKanji = false;
     let filteredKanji = [];
     let currentVocabExercises = [];
     let showHints = false;
+    let typingAnswers = {};
+    let typingGraded = false;
+
+    function saveKanjiCheckpoint() {
+        if (isRestoringKanji) return;
+        try {
+            const searchEl = document.getElementById('searchInput');
+            const search121El = document.getElementById('search121Input');
+            const payload = {
+                t: Date.now(),
+                currentKanjiTab,
+                selectedLessons: Array.from(selectedLessons),
+                searchQuery: searchEl ? searchEl.value : '',
+                current121Lesson: typeof current121Lesson !== 'undefined' ? current121Lesson : 'ALL',
+                search121Query: search121El ? search121El.value : '',
+                typingAnswers,
+                typingGraded,
+                showHints
+            };
+            localStorage.setItem(KANJI_CP_KEY, JSON.stringify(payload));
+            if (window.MarugotoCheckpoint && typeof window.MarugotoCheckpoint.notifySaved === 'function') {
+                window.MarugotoCheckpoint.notifySaved();
+            }
+        } catch (e) {}
+    }
 
     // Switch Tabs
-    function switchTab(tabId) {
+    function switchTab(tabId, opts) {
+        currentKanjiTab = tabId;
         document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-        document.querySelectorAll('.mode-tab-btn').forEach(b => b.classList.remove('active'));
-        document.getElementById(tabId).classList.add('active');
-        event.currentTarget.classList.add('active');
+        document.querySelectorAll('.mode-tab-btn').forEach(b => {
+            const oc = b.getAttribute('onclick') || '';
+            b.classList.toggle('active', oc.includes(tabId));
+        });
+        const targetPanel = document.getElementById(tabId);
+        if (targetPanel) targetPanel.classList.add('active');
 
-        if (tabId === 'tab-exercises') {
+        if (tabId === 'tab-exercises' && !(opts && opts.isRestore)) {
             renderTypingExercise();
             generateQuiz();
         } else if (tabId === 'tab-vocab-11-18') {
             render121Table();
+        }
+        if (!(opts && opts.skipSave)) {
+            saveKanjiCheckpoint();
         }
     }
 
@@ -4106,6 +4149,7 @@
         renderCards(filteredKanji);
         renderTypingExercise();
         generateQuiz();
+        saveKanjiCheckpoint();
     }
 
     // Render Kanji Cards with Interactive Writing Canvas & Step-by-Step Breakdown (Optimized with DocumentFragment & Lazy SVG Player)
@@ -4797,7 +4841,6 @@
         const tbody = document.getElementById('exTableBody');
         tbody.innerHTML = '';
         document.getElementById('exScoreBanner').style.display = 'none';
-        showHints = false;
 
         // Collect all unique vocabulary examples from filtered Kanji
         const map = new Map();
@@ -4819,18 +4862,35 @@
                 <td class="col-ex-meaning"><span class="ex-meaning-text">${ex.vi}</span></td>
                 <td class="col-ex-input">
                     <input type="text" class="ex-input" id="ex-in-${idx}" placeholder="Nhập Hiragana...">
-                    <div class="ex-hint" id="ex-hint-${idx}">👉 Đáp án: <strong>${ex.reading}</strong></div>
+                    <div class="ex-hint" id="ex-hint-${idx}" style="display:${showHints ? 'block' : 'none'}">👉 Đáp án: <strong>${ex.reading}</strong></div>
                 </td>
                 <td class="col-ex-status" id="ex-status-${idx}"></td>
             `;
             tbody.appendChild(tr);
+
+            const inp = tr.querySelector(`#ex-in-${idx}`);
+            if (inp) {
+                if (typeof typingAnswers[ex.word] === 'string') {
+                    inp.value = typingAnswers[ex.word];
+                }
+                inp.addEventListener('input', () => {
+                    typingAnswers[ex.word] = inp.value;
+                    typingGraded = false;
+                    saveKanjiCheckpoint();
+                });
+            }
         });
+
+        if (typingGraded && currentVocabExercises.length > 0) {
+            gradeTypingExercise({ skipSave: true });
+        }
     }
 
-    function gradeTypingExercise() {
+    function gradeTypingExercise(opts) {
         let correct = 0;
         const total = currentVocabExercises.length;
         if (total === 0) return;
+        typingGraded = true;
 
         currentVocabExercises.forEach((ex, idx) => {
             const input = document.getElementById(`ex-in-${idx}`);
@@ -4853,6 +4913,7 @@
         const percent = Math.round((correct / total) * 100);
         banner.style.display = 'block';
         banner.innerHTML = `🎉 Kết quả: Đúng ${correct}/${total} từ (${percent}%)`;
+        if (!(opts && opts.skipSave)) saveKanjiCheckpoint();
     }
 
     function toggleExerciseHints() {
@@ -4861,10 +4922,15 @@
             const h = document.getElementById(`ex-hint-${idx}`);
             if (h) h.style.display = showHints ? 'block' : 'none';
         });
+        saveKanjiCheckpoint();
     }
 
     function resetTypingExercise() {
+        typingAnswers = {};
+        typingGraded = false;
+        showHints = false;
         renderTypingExercise();
+        saveKanjiCheckpoint();
     }
 
     // EXERCISE 2: MULTIPLE CHOICE QUIZ
@@ -4940,9 +5006,66 @@
         });
     }
 
+    function restoreKanjiCheckpoint() {
+        try {
+            const raw = localStorage.getItem(KANJI_CP_KEY);
+            if (!raw) return false;
+            const saved = JSON.parse(raw);
+            if (!saved || typeof saved !== 'object') return false;
+            isRestoringKanji = true;
+
+            if (Array.isArray(saved.selectedLessons)) {
+                selectedLessons = new Set(saved.selectedLessons);
+            }
+            const searchEl = document.getElementById('searchInput');
+            if (searchEl && typeof saved.searchQuery === 'string') {
+                searchEl.value = saved.searchQuery;
+            }
+            if (saved.current121Lesson !== undefined && typeof current121Lesson !== 'undefined') {
+                current121Lesson = saved.current121Lesson;
+                document.querySelectorAll('.filter-121-btn').forEach(btn => {
+                    const oc = btn.getAttribute('onclick') || '';
+                    const isMatch = current121Lesson === 'ALL'
+                        ? oc.includes("'ALL'")
+                        : new RegExp(`filter121Vocab\\(['"]?${current121Lesson}['"]?`).test(oc);
+                    btn.classList.toggle('active', isMatch);
+                });
+            }
+            const search121El = document.getElementById('search121Input');
+            if (search121El && typeof saved.search121Query === 'string') {
+                search121El.value = saved.search121Query;
+            }
+            if (saved.typingAnswers && typeof saved.typingAnswers === 'object') {
+                typingAnswers = saved.typingAnswers;
+            }
+            typingGraded = Boolean(saved.typingGraded);
+            showHints = Boolean(saved.showHints);
+
+            initKanjiLessonChips();
+            updatePresetPillsState();
+            if (typeof updateChipsUI === 'function') updateChipsUI();
+            applyLessonFilter();
+            if (typeof apply121Filter === 'function') apply121Filter({ skipSave: true });
+
+            if (saved.currentKanjiTab) {
+                switchTab(saved.currentKanjiTab, { isRestore: true, skipSave: true });
+            }
+
+            isRestoringKanji = false;
+            return true;
+        } catch (e) {
+            isRestoringKanji = false;
+            return false;
+        }
+    }
+
     window.addEventListener('DOMContentLoaded', () => {
-        initKanjiLessonChips();
-        applyLessonFilter();
+        if (!restoreKanjiCheckpoint()) {
+            initKanjiLessonChips();
+            isRestoringKanji = true;
+            applyLessonFilter();
+            isRestoringKanji = false;
+        }
     });
 </script>
 

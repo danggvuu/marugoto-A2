@@ -871,24 +871,66 @@ html = f"""<!DOCTYPE html>
 <div id="toast" class="toast"></div>
 
 <script>
+    const CRAM_CP_KEY = 'marugoto_cram_11_18_cp_v1';
+    window.__MARUGOTO_NATIVE_DOM_DISABLED__ = true;
+    window.__MARUGOTO_CP_EXTRA_KEYS__ = [CRAM_CP_KEY];
+    window.__MARUGOTO_ON_RESET__ = function () {{
+        try {{ localStorage.removeItem(CRAM_CP_KEY); }} catch (e) {{}}
+        window.location.reload();
+    }};
+
     const rawVocab = {vocab_json_str};
+    let currentTab = 'tab-vocab';
+    let isRestoringCram = false;
     let currentFilteredVocab = [...rawVocab];
     let currentLessonFilter = 'ALL';
     let isMeaningHidden = false;
+    let speedTestFinished = false;
 
     // Cram Flashcard state
     let cramIndex = 0;
     let cramList = [...rawVocab];
 
+    function saveCramCheckpoint() {{
+        if (isRestoringCram) return;
+        try {{
+            const searchEl = document.getElementById('vocabSearchInput');
+            const cardEl = document.getElementById('mainFlashcard');
+            const payload = {{
+                t: Date.now(),
+                currentTab,
+                currentLessonFilter,
+                searchQuery: searchEl ? searchEl.value : '',
+                isMeaningHidden,
+                cramIndex,
+                cramFlipped: cardEl ? cardEl.classList.contains('is-flipped') : false,
+                cramOrder: cramList.map(c => `${{c.lesson}}|${{c.kanji}}|${{c.kana}}`),
+                npbsUserAnswers,
+                speedTestAnswers,
+                speedTestFinished
+            }};
+            localStorage.setItem(CRAM_CP_KEY, JSON.stringify(payload));
+            if (window.MarugotoCheckpoint && typeof window.MarugotoCheckpoint.notifySaved === 'function') {{
+                window.MarugotoCheckpoint.notifySaved();
+            }}
+        }} catch (e) {{}}
+    }}
+
     // Navigation
-    function switchMainTab(tabId) {{
+    function switchMainTab(tabId, opts) {{
+        currentTab = tabId;
         document.querySelectorAll('.tab-btn').forEach(btn => {{
             btn.classList.toggle('active', btn.getAttribute('onclick').includes(tabId));
         }});
         document.querySelectorAll('.tab-panel').forEach(panel => {{
             panel.classList.toggle('active', panel.id === tabId);
         }});
-        window.scrollTo({{ top: 0, behavior: 'smooth' }});
+        if (!(opts && opts.skipScroll)) {{
+            window.scrollTo({{ top: 0, behavior: 'smooth' }});
+        }}
+        if (!(opts && opts.skipSave)) {{
+            saveCramCheckpoint();
+        }}
     }}
 
     // Render Vocab
@@ -951,6 +993,7 @@ html = f"""<!DOCTYPE html>
         currentFilteredVocab = filtered;
         document.getElementById('currentFilteredCount').innerText = filtered.length;
         renderVocab(filtered);
+        saveCramCheckpoint();
     }}
 
     function toggleHideMeaning() {{
@@ -964,6 +1007,7 @@ html = f"""<!DOCTYPE html>
             btn.style.background = '';
         }}
         renderVocab(currentFilteredVocab);
+        saveCramCheckpoint();
     }}
 
     // Copy Handlers
@@ -1049,21 +1093,35 @@ html = f"""<!DOCTYPE html>
         if (card.classList.contains('is-flipped')) {{
             speakCramWord();
         }}
+        saveCramCheckpoint();
     }}
 
     function nextCramCard() {{
         cramIndex = (cramIndex + 1) % cramList.length;
         updateCramCard();
+        saveCramCheckpoint();
     }}
 
     function prevCramCard() {{
         cramIndex = (cramIndex - 1 + cramList.length) % cramList.length;
         updateCramCard();
+        saveCramCheckpoint();
     }}
 
     function speakCramWord() {{
         const item = cramList[cramIndex];
-        audioEngine.speak(item.kana);
+        if (!item) return;
+        if (window.AudioEngine && typeof window.AudioEngine.speak === 'function') {{
+            window.AudioEngine.speak(item.kana);
+        }} else if (typeof audioEngine !== 'undefined' && audioEngine && typeof audioEngine.speak === 'function') {{
+            audioEngine.speak(item.kana);
+        }} else if (typeof window.speakJapanese === 'function') {{
+            window.speakJapanese(item.kana);
+        }} else if ('speechSynthesis' in window) {{
+            const u = new SpeechSynthesisUtterance(item.kana);
+            u.lang = 'ja-JP';
+            window.speechSynthesis.speak(u);
+        }}
     }}
 
     // Keyboard support for Flashcard
@@ -1206,6 +1264,7 @@ html = f"""<!DOCTYPE html>
             fb.style.border = '1px solid #f87171';
             fb.innerHTML = `✕ <strong>Chưa đúng!</strong> ${{q.explain}}`;
         }}
+        saveCramCheckpoint();
     }}
 
     // 20 CÂU SPEED TEST
@@ -1267,9 +1326,11 @@ html = f"""<!DOCTYPE html>
                 b.style.color = 'var(--gray-800)';
             }}
         }});
+        saveCramCheckpoint();
     }}
 
-    function finishSpeedTest() {{
+    function finishSpeedTest(opts) {{
+        speedTestFinished = true;
         let score = 0;
         SPEED_TEST_QUESTIONS.forEach((q, idx) => {{
             const chosen = speedTestAnswers[idx];
@@ -1304,19 +1365,151 @@ html = f"""<!DOCTYPE html>
         }});
 
         document.getElementById('speedTestScore').innerText = score;
-        showToast(`🎉 Bạn đạt ${{score}} / 100 điểm! Đêm nay đã nạp đầy đủ kiến thức!`);
-        window.scrollTo({{ top: document.getElementById('tab-test').offsetTop, behavior: 'smooth' }});
+        if (!(opts && opts.skipToast)) {{
+            showToast(`🎉 Bạn đạt ${{score}} / 100 điểm! Đêm nay đã nạp đầy đủ kiến thức!`);
+        }}
+        if (!(opts && opts.skipScroll)) {{
+            window.scrollTo({{ top: document.getElementById('tab-test').offsetTop, behavior: 'smooth' }});
+        }}
+        if (!(opts && opts.skipSave)) {{
+            saveCramCheckpoint();
+        }}
+    }}
+
+    function restoreCramCheckpoint() {{
+        try {{
+            const raw = localStorage.getItem(CRAM_CP_KEY);
+            if (!raw) return false;
+            const saved = JSON.parse(raw);
+            if (!saved || typeof saved !== 'object') return false;
+            isRestoringCram = true;
+
+            if (saved.currentLessonFilter !== undefined) {{
+                currentLessonFilter = saved.currentLessonFilter;
+                document.querySelectorAll('button[onclick*="filterVocabByLesson"]').forEach(btn => {{
+                    const oc = btn.getAttribute('onclick') || '';
+                    const isAll = currentLessonFilter === 'ALL' && oc.includes("'ALL'");
+                    const isNum = currentLessonFilter !== 'ALL' && new RegExp(`filterVocabByLesson\\(['"]?${{currentLessonFilter}}['"]?`).test(oc);
+                    btn.classList.toggle('active', isAll || isNum);
+                }});
+            }}
+
+            const searchEl = document.getElementById('vocabSearchInput');
+            if (searchEl && typeof saved.searchQuery === 'string') {{
+                searchEl.value = saved.searchQuery;
+            }}
+
+            if (typeof saved.isMeaningHidden === 'boolean') {{
+                isMeaningHidden = saved.isMeaningHidden;
+                const hideBtn = document.getElementById('btnHideMeaning');
+                if (hideBtn) {{
+                    hideBtn.innerText = isMeaningHidden ? '👁️ Hiện lại nghĩa' : '👁️ Ẩn nghĩa (Tự dò)';
+                    hideBtn.style.background = isMeaningHidden ? '#e11d48' : '';
+                }}
+            }}
+
+            if (Array.isArray(saved.cramOrder) && saved.cramOrder.length > 0) {{
+                const pool = [...rawVocab];
+                const ordered = [];
+                saved.cramOrder.forEach(k => {{
+                    const idx = pool.findIndex(c => `${{c.lesson}}|${{c.kanji}}|${{c.kana}}` === k);
+                    if (idx !== -1) ordered.push(pool.splice(idx, 1)[0]);
+                }});
+                cramList = ordered.concat(pool);
+            }}
+            if (Number.isInteger(saved.cramIndex) && saved.cramIndex >= 0 && saved.cramIndex < cramList.length) {{
+                cramIndex = saved.cramIndex;
+            }}
+
+            if (saved.npbsUserAnswers && typeof saved.npbsUserAnswers === 'object') {{
+                npbsUserAnswers = saved.npbsUserAnswers;
+            }}
+            if (saved.speedTestAnswers && typeof saved.speedTestAnswers === 'object') {{
+                speedTestAnswers = saved.speedTestAnswers;
+            }}
+            speedTestFinished = Boolean(saved.speedTestFinished);
+
+            applyFilter();
+            updateCramCard();
+            if (saved.cramFlipped) {{
+                const card = document.getElementById('mainFlashcard');
+                if (card) card.classList.add('is-flipped');
+            }}
+
+            renderNpbsChallenge();
+            Object.keys(npbsUserAnswers).forEach(qIdKey => {{
+                const qId = parseInt(qIdKey, 10);
+                const selectedIdx = npbsUserAnswers[qIdKey];
+                const q = NPBS_CHALLENGES.find(item => item.id === qId);
+                const card = document.getElementById(`npbsQ_${{qId}}`);
+                const fb = document.getElementById(`npbsFb_${{qId}}`);
+                if (!q || !card || !fb) return;
+                card.querySelectorAll('button').forEach((b, idx) => {{
+                    b.disabled = true;
+                    if (idx === q.correct) {{
+                        b.style.background = '#10b981';
+                        b.style.color = '#ffffff';
+                    }} else if (idx === selectedIdx) {{
+                        b.style.background = '#ef4444';
+                        b.style.color = '#ffffff';
+                    }} else {{
+                        b.style.opacity = '0.5';
+                    }}
+                }});
+                fb.style.display = 'block';
+                if (selectedIdx === q.correct) {{
+                    fb.style.background = 'rgba(16, 185, 129, 0.3)';
+                    fb.style.border = '1px solid #34d399';
+                    fb.innerHTML = `✓ <strong>Chính xác!</strong> ${{q.explain}}`;
+                }} else {{
+                    fb.style.background = 'rgba(239, 68, 68, 0.3)';
+                    fb.style.border = '1px solid #f87171';
+                    fb.innerHTML = `✕ <strong>Chưa đúng!</strong> ${{q.explain}}`;
+                }}
+            }});
+
+            renderSpeedTest();
+            if (speedTestFinished) {{
+                finishSpeedTest({{ skipScroll: true, skipToast: true, skipSave: true }});
+            }} else {{
+                Object.keys(speedTestAnswers).forEach(qIdxKey => {{
+                    const qIdx = parseInt(qIdxKey, 10);
+                    const optIdx = speedTestAnswers[qIdxKey];
+                    const card = document.getElementById(`stCard_${{qIdx}}`);
+                    if (!card) return;
+                    card.querySelectorAll('button').forEach((b, idx) => {{
+                        if (idx === optIdx) {{
+                            b.style.background = '#e0e7ff';
+                            b.style.borderColor = '#4f46e5';
+                            b.style.color = '#3730a3';
+                        }}
+                    }});
+                }});
+            }}
+
+            if (saved.currentTab) {{
+                switchMainTab(saved.currentTab, {{ skipScroll: true, skipSave: true }});
+            }}
+            isRestoringCram = false;
+            return true;
+        }} catch (e) {{
+            isRestoringCram = false;
+            return false;
+        }}
     }}
 
     // Init All
     document.addEventListener('DOMContentLoaded', () => {{
-        renderVocab(rawVocab);
-        updateCramCard();
-        renderNpbsChallenge();
-        renderSpeedTest();
+        const restored = restoreCramCheckpoint();
+        if (!restored) {{
+            renderVocab(rawVocab);
+            updateCramCard();
+            renderNpbsChallenge();
+            renderSpeedTest();
+        }}
     }});
 </script>
-<script src="../assets/js/nav-dropdown.js"></script>
+<script src="../assets/nav.js?v=6" defer></script>
 </body>
 </html>
 """

@@ -1480,6 +1480,201 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             flex-wrap: wrap;
             margin-top: 14px;
         }
+        .tp-mode-switch {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 14px 0 18px 0;
+            padding: 6px;
+            background: var(--gray-100);
+            border-radius: var(--radius-md);
+        }
+        .tp-mode-pill {
+            flex: 1;
+            min-width: 190px;
+            padding: 11px 16px;
+            border: 2px solid transparent;
+            border-radius: var(--radius-sm);
+            background: transparent;
+            color: var(--gray-700);
+            font-weight: 800;
+            font-size: 0.92rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+        }
+        .tp-mode-pill:hover {
+            background: rgba(255, 255, 255, 0.8);
+            color: var(--primary);
+        }
+        .tp-mode-pill.active {
+            background: var(--white);
+            color: var(--primary);
+            border-color: var(--primary);
+            box-shadow: var(--shadow-sm);
+        }
+        .tp-toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 18px;
+            padding-bottom: 14px;
+            border-bottom: 1px dashed var(--gray-200);
+        }
+        .tp-toggles {
+            display: flex;
+            gap: 14px;
+            align-items: center;
+            flex-wrap: wrap;
+            font-size: 0.85rem;
+            color: var(--gray-700);
+            font-weight: 600;
+        }
+        .tp-toggles label {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            user-select: none;
+        }
+        .tp-kanji-hero {
+            font-size: 3.1rem;
+            font-weight: 900;
+            color: var(--primary-dark);
+            letter-spacing: 0.04em;
+            line-height: 1.3;
+            margin: 12px 0;
+        }
+        .tp-vi-hero {
+            font-size: 1.45rem;
+            font-weight: 800;
+            color: var(--gray-900);
+            line-height: 1.45;
+            margin: 12px 0 8px 0;
+        }
+        .tp-pattern-badge {
+            display: inline-block;
+            background: #fef3c7;
+            color: #b45309;
+            font-weight: 800;
+            font-size: 0.8rem;
+            padding: 4px 12px;
+            border-radius: var(--radius-full);
+            margin-top: 4px;
+        }
+        .tp-detail-panel {
+            margin-top: 20px;
+            text-align: left;
+            border-radius: var(--radius-md);
+            padding: 20px 22px;
+            border: 2px solid var(--gray-200);
+            background: var(--gray-50);
+            display: none;
+        }
+        .tp-detail-panel.show {
+            display: block;
+        }
+        .tp-detail-panel.is-ok {
+            background: #f0fdf4;
+            border-color: #86efac;
+        }
+        .tp-detail-panel.is-err {
+            background: #fff1f2;
+            border-color: #fda4af;
+        }
+        .tp-detail-panel.is-reveal {
+            background: #fffbeb;
+            border-color: #fcd34d;
+        }
+        .tp-why-box {
+            background: rgba(255, 255, 255, 0.9);
+            border-left: 4px solid var(--accent);
+            padding: 12px 15px;
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            margin: 12px 0;
+            font-size: 0.94rem;
+            color: #9f1239;
+            line-height: 1.65;
+        }
+        .tp-meaning-box {
+            background: rgba(255, 255, 255, 0.95);
+            border-left: 4px solid var(--primary);
+            padding: 12px 15px;
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            margin-top: 10px;
+            font-size: 0.93rem;
+            color: var(--gray-800);
+            line-height: 1.65;
+        }
+        .tp-diff-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 8px;
+            margin: 10px 0;
+            padding: 12px;
+            background: var(--white);
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--gray-200);
+        }
+        .diff-bad {
+            background: #fecdd3;
+            color: #9f1239;
+            text-decoration: underline wavy #e11d48;
+            padding: 0 2px;
+            border-radius: 3px;
+            font-weight: 800;
+        }
+        .diff-good {
+            background: #bbf7d0;
+            color: #166534;
+            padding: 0 2px;
+            border-radius: 3px;
+            font-weight: 800;
+        }
+        .tp-overview-drawer {
+            display: none;
+            margin: 14px 0 22px 0;
+            padding: 16px;
+            background: var(--gray-50);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-md);
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .tp-overview-drawer.show {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+            gap: 8px;
+        }
+        .tp-overview-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 10px;
+            border-radius: var(--radius-sm);
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            cursor: pointer;
+            font-size: 0.82rem;
+            text-align: left;
+            transition: all 0.15s;
+        }
+        .tp-overview-item:hover {
+            border-color: var(--primary);
+        }
+        .tp-overview-item.active {
+            border-color: var(--primary);
+            background: var(--primary-light);
+            font-weight: 700;
+        }
+        .tp-overview-item.done-ok {
+            border-left: 4px solid var(--success);
+        }
+        .tp-overview-item.done-err {
+            border-left: 4px solid var(--accent);
+        }
 
         /* Toast */
         #toast {
@@ -1552,7 +1747,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             <button class="tab-btn tab-btn-vocab" onclick="switchMainTab('tab-vocab')">🎴 135 Từ Vựng</button>
             <button class="tab-btn tab-btn-kanji" onclick="switchMainTab('tab-kanji')">⛩️ 34 Chữ Hán</button>
             <button class="tab-btn tab-btn-quiz" onclick="switchMainTab('tab-quiz')">🎯 Bộ 5 Mã Đề (160 Câu)</button>
-            <button class="tab-btn tab-btn-typing" onclick="switchMainTab('tab-typing')">⌨️ Luyện Gõ Phản Xạ</button>
+            <button class="tab-btn tab-btn-typing" onclick="switchMainTab('tab-typing')">⌨️ Luyện Gõ Câu & Kanji ➔ Hira</button>
             <button class="tab-btn tab-btn-cheatsheet" onclick="switchMainTab('tab-cheatsheet')">⚡ Cẩm Nang Bỏ Túi</button>
         </nav>
     </div>
@@ -1894,50 +2089,85 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         </div>
 
         <!-- ========================================== -->
-        <!-- TAB 5: LUYỆN GÕ PHẢN XẠ NHẬT - VIỆT         -->
+        <!-- TAB 5: LUYỆN GÕ CÂU & CHỮ HÁN ➔ HIRAGANA  -->
         <!-- ========================================== -->
         <div id="tab-typing" class="tab-panel">
             <div class="typing-container">
                 <div class="section-header">
                     <div>
-                        <h2 class="section-title">⌨️ Luyện Gõ Tiếng Nhật Phản Xạ Từ Tiếng Việt</h2>
-                        <p style="color: var(--gray-600); font-size: 0.92rem; margin-top: 4px;">Nhìn nghĩa tiếng Việt ➔ gõ ngay Romaji hoặc Hiragana hoặc Kanji. Tự động chấm điểm, phát âm Tokyo chuẩn!</p>
-                    </div>
-                    <div class="vocab-filter-group" id="typingFilterGroup">
-                        <button type="button" class="v-filter-btn active" onclick="switchTypingLesson('all')">Tất cả (135)</button>
-                        <button type="button" class="v-filter-btn" onclick="switchTypingLesson('A2-15')">Bài 15</button>
-                        <button type="button" class="v-filter-btn" onclick="switchTypingLesson('A2-16')">Bài 16</button>
-                        <button type="button" class="v-filter-btn" onclick="switchTypingLesson('A2-17')">Bài 17</button>
-                        <button type="button" class="v-filter-btn" onclick="switchTypingLesson('A2-18')">Bài 18</button>
+                        <h2 class="section-title">⌨️ Luyện Gõ Ôn Tập Bài 15-18: Dịch Câu & Đọc Chữ Hán ➔ Hiragana</h2>
+                        <p style="color: var(--gray-600); font-size: 0.92rem; margin-top: 4px;">
+                            Luyện gõ trực tiếp theo tài liệu cô gửi (L15-18, Kaiwa Mid 2 &amp; 2 file PDF Kanji 11-18). Chấm chi tiết <strong>nghĩa + công thức + giải thích vì sao sai</strong> và <strong>tự động lưu checkpoint</strong> từng câu!
+                        </p>
                     </div>
                 </div>
 
+                <!-- Chọn chế độ luyện gõ -->
+                <div class="tp-mode-switch" role="tablist" aria-label="Chế độ luyện gõ">
+                    <button type="button" class="tp-mode-pill active" id="tpModeBtn_sentence" onclick="switchTypingMode('sentence')">🇻🇳 Câu Tiếng Việt ➔ Gõ Hiragana</button>
+                    <button type="button" class="tp-mode-pill" id="tpModeBtn_kanji" onclick="switchTypingMode('kanji')">⛩️ Chữ Hán (Kanji) ➔ Gõ Hiragana</button>
+                    <button type="button" class="tp-mode-pill" id="tpModeBtn_vocab" onclick="switchTypingMode('vocab')">🗂️ Từ Vựng A2 (135 từ)</button>
+                </div>
+
+                <!-- Bộ lọc bài học + Công cụ -->
+                <div class="tp-toolbar">
+                    <div class="vocab-filter-group" id="typingFilterGroup"></div>
+                    <div class="tp-toggles">
+                        <label id="tpKanjiAllowWrap" title="Nếu quên tắt bộ gõ Kanji vẫn chấp nhận nếu khớp mặt chữ chuẩn">
+                            <input type="checkbox" id="tpAllowKanjiToggle" onchange="toggleTypingOption('allowKanji', this.checked)"> Cho phép kèm Kanji
+                        </label>
+                        <label title="Tắt mặc định để bạn đọc kỹ nghĩa và giải thích trước khi sang câu tiếp theo">
+                            <input type="checkbox" id="tpAutoAdvToggle" onchange="toggleTypingOption('autoAdvance', this.checked)"> Tự nhảy câu khi đúng
+                        </label>
+                        <button type="button" class="vocab-action-btn" onclick="toggleTypingOverview()" id="tpOverviewBtn">📋 Danh Sách Câu</button>
+                        <button type="button" class="vocab-action-btn" onclick="shuffleTypingPool()">🔀 Xáo Trộn</button>
+                    </div>
+                </div>
+
+                <!-- Danh sách câu thu gọn -->
+                <div class="tp-overview-drawer" id="tpOverviewDrawer"></div>
+
+                <!-- Khung thẻ luyện gõ chính -->
                 <div class="typing-card-view">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-                        <span id="tpCardBadge" style="font-weight: 700; color: var(--gray-500); font-size: 0.9rem;">Thẻ 1 / 135</span>
-                        <span id="tpStreakBadge" class="typing-streak">🔥 Chuỗi: 0</span>
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; gap:8px; flex-wrap:wrap;">
+                        <span style="font-size:0.84rem; font-weight:800; color:var(--primary); background:var(--primary-light); padding:4px 12px; border-radius:var(--radius-full);" id="tpCardBadge">Câu 1 / --</span>
+                        <span class="tp-pattern-badge" id="tpPatternBadge">Mẫu câu</span>
+                        <div class="typing-streak" id="tpStreakBadge" style="margin:0;">🔥 Chuỗi: 0</div>
                     </div>
 
-                    <div style="background: var(--gray-50); border: 2px dashed var(--gray-300); border-radius: var(--radius-lg); padding: 30px 20px; margin-bottom: 20px;">
-                        <div style="font-size: 0.85rem; color: var(--gray-500); font-weight: 700; text-transform: uppercase;">Ý NGHĨA TIẾNG VIỆT</div>
-                        <div id="tpPromptVi" class="typing-prompt">Đang tải...</div>
-                        <div id="tpCardFeedback" style="min-height: 24px; font-weight: 700; font-size: 0.98rem;"></div>
+                    <div id="tpPromptArea" style="background:linear-gradient(135deg,#f8fafc 0%,#eef2ff 100%); border:1px solid #c7d2fe; border-radius:var(--radius-md); padding:20px 18px; margin:12px 0 18px 0;">
+                        <div style="font-size:0.8rem; font-weight:700; color:var(--gray-500); text-transform:uppercase; letter-spacing:0.04em;" id="tpPromptSubtitle">ĐỀ BÀI TIẾNG VIỆT</div>
+                        <div class="tp-vi-hero" id="tpPromptVi">Đang tải...</div>
+                        <div id="tpHintPreview" style="display:none; margin-top:10px; padding:8px 12px; background:#ffffff; border-radius:8px; font-size:0.88rem; color:var(--primary-dark); border:1px dashed #a5b4fc;"></div>
                     </div>
 
-                    <input type="text" id="tpCardInput" class="typing-input-large" placeholder="Gõ Romaji hoặc Hiragana/Kanji rồi bấm Enter..." autocomplete="off" autocapitalize="off" spellcheck="false">
+                    <div style="font-size:0.86rem; font-weight:700; color:var(--gray-600); margin-bottom:8px;" id="tpInputDirective">
+                        ⬇️ Nhập câu tiếng Nhật bằng <strong>Hiragana</strong> rồi nhấn Enter (hoặc Kiểm Tra):
+                    </div>
+
+                    <textarea class="typing-input-large jp-text" id="tpCardInput" rows="2" style="resize:vertical; min-height:66px; max-width:100%;" placeholder="Ví dụ: ねる まえに、よく ほんを よみます。" autocomplete="off" autocapitalize="off" spellcheck="false"></textarea>
 
                     <div class="typing-actions">
-                        <button type="button" class="btn-primary" id="tpCardCheckBtn" onclick="handleTypingSubmit()">Kiểm Tra (Enter)</button>
-                        <button type="button" class="btn-primary" onclick="speakCurrentTypingWord()" style="background: var(--secondary);">🔊 Phát Âm</button>
-                        <button type="button" class="btn-primary" onclick="showTypingHint()" style="background: var(--purple);">💡 Gợi Ý</button>
-                        <button type="button" class="btn-primary" onclick="revealTypingAnswer()" style="background: var(--warning);">👁️ Đáp Án</button>
-                        <button type="button" class="btn-primary" onclick="skipTypingWord()" style="background: var(--gray-600);">⏭️ Bỏ Qua</button>
+                        <button type="button" class="btn-primary" style="background:var(--gray-500);" onclick="prevTypingItem()">⬅️ Trước</button>
+                        <button type="button" class="btn-primary" id="tpCardCheckBtn" onclick="handleTypingPrimaryBtn()">Kiểm Tra Đáp Án ⏎</button>
+                        <button type="button" class="btn-primary" style="background:#0ea5e9;" onclick="speakCurrentTypingWord()">🔊 Nghe Mẫu</button>
+                        <button type="button" class="btn-primary" style="background:var(--purple);" onclick="showTypingHint()">💡 Gợi Ý</button>
+                        <button type="button" class="btn-primary" style="background:var(--warning);" onclick="revealTypingAnswer()">👁️ Xem Đáp Án</button>
+                        <button type="button" class="btn-primary" style="background:var(--gray-600);" onclick="skipTypingWord()">Tiếp Theo ➔</button>
+                        <button type="button" class="btn-primary" style="background:#be123c;" onclick="resetCurrentTypingMode()">🔄 Làm Lại Chế Độ Này</button>
                     </div>
 
-                    <div style="margin-top: 24px; display: flex; justify-content: center; gap: 24px; font-size: 0.95rem; font-weight: 700; color: var(--gray-600);">
-                        <span>Đúng: <strong id="tpStatCorrect" style="color: var(--success);">0</strong></span>
-                        <span>Sai: <strong id="tpStatWrong" style="color: var(--accent);">0</strong></span>
-                        <span>Tỷ lệ: <strong id="tpStatPercent" style="color: var(--primary);">0%</strong></span>
+                    <!-- Bảng giải thích chi tiết (Nghĩa + So sánh + Vì sao sai) -->
+                    <div id="tpDetailPanel" class="tp-detail-panel"></div>
+
+                    <div style="width:100%; height:10px; background:var(--gray-200); border-radius:10px; overflow:hidden; margin: 22px 0 12px 0;">
+                        <div id="tpProgressBar" style="width:0%; height:100%; background:linear-gradient(90deg, var(--primary), var(--secondary)); transition:width 0.3s;"></div>
+                    </div>
+
+                    <div style="display:flex; justify-content:space-around; flex-wrap:wrap; gap:10px; font-size:0.95rem; font-weight:700; color:var(--gray-700);">
+                        <span>✅ Đã làm đúng: <strong style="color:var(--success);" id="tpStatCorrect">0</strong></span>
+                        <span>❌ Đang sai / cần ôn: <strong style="color:var(--accent);" id="tpStatWrong">0</strong></span>
+                        <span>🎯 Đã chạm / tổng: <strong style="color:var(--primary);" id="tpStatPercent">0%</strong></span>
                     </div>
                 </div>
             </div>
@@ -2013,6 +2243,11 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         const VOCAB_DATA = __VOCAB_JSON__;
         const KANJI_DATA = __KANJI_JSON__;
         const EXAMS_LIST = __EXAMS_JSON__;
+        const KANJI_15_18_DATA = __KANJI_15_18_JSON__;
+        const KANJI_11_14_DATA = __KANJI_11_14_JSON__;
+        const SENTENCE_TYPING_DATA = __SENTENCES_JSON__;
+        const MINI15_18_CP_KEY = 'marugoto_mini15_18_cp_v2';
+        window.__MARUGOTO_NATIVE_DOM_DISABLED__ = true;
 
         // TRẠNG THÁI TOÀN CỤC
         let currentTab = 'tab-theory';
@@ -2169,16 +2404,17 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             renderPart6();
             updateTotalScore();
             renderExamSwitcher();
+            saveMini15_18Checkpoint();
             showToast(`Đã chuyển sang Mã Đề ${examId} (${getExamById(examId).shortTitle})!`);
         }
 
         // Chuyển tab chính
-        function switchMainTab(tabId) {
+        function switchMainTab(tabId, skipSave) {
             currentTab = tabId;
             document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
             document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
 
-            const activeBtn = Array.from(document.querySelectorAll('.tab-btn')).find(b => b.getAttribute('onclick').includes(tabId));
+            const activeBtn = Array.from(document.querySelectorAll('.tab-btn')).find(b => (b.getAttribute('onclick') || '').includes(tabId));
             if (activeBtn) activeBtn.classList.add('active');
 
             const targetPanel = document.getElementById(tabId);
@@ -2187,7 +2423,14 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             if (tabId === 'tab-typing') {
                 initTypingPractice();
             }
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            if (!skipSave) {
+                const curHash = (window.location.hash || '').toLowerCase();
+                if (tabId !== 'tab-typing' && (curHash === '#typing' || curHash === '#tab-typing') && window.history && window.history.replaceState) {
+                    window.history.replaceState(null, '', window.location.pathname + window.location.search);
+                }
+                saveMini15_18Checkpoint();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
         }
 
         // Phát âm TTS
@@ -2450,6 +2693,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             st.available = st.available.filter(c => c.origIdx !== origIdx);
             st.placed.push(chipData);
             updateArrangeUI(qId);
+            saveMini15_18Checkpoint();
         }
 
         function removeArrangeChip(qId, origIdx) {
@@ -2461,6 +2705,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             st.placed = st.placed.filter(c => c.origIdx !== origIdx);
             st.available.push(chipData);
             updateArrangeUI(qId);
+            saveMini15_18Checkpoint();
         }
 
         function updateArrangeUI(qId) {
@@ -2829,6 +3074,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
                 const nextOpen = el.style.display !== 'block';
                 el.style.display = nextOpen ? 'block' : 'none';
                 st.p6ModelOpen[qId] = nextOpen;
+                saveMini15_18Checkpoint();
             }
         }
 
@@ -2855,6 +3101,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
                 disp.innerText = `${total} / 100 Điểm`;
             }
             renderExamSwitcher();
+            if (typeof saveMini15_18Checkpoint === 'function') saveMini15_18Checkpoint();
         }
 
         function resetAllExam() {
@@ -2868,153 +3115,912 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             renderPart5();
             renderPart6();
             updateTotalScore();
+            saveMini15_18Checkpoint();
             showToast(`Đã đặt lại toàn bộ Mã Đề ${currentExamId}!`);
         }
 
         // ==========================================
-        // TYPING PRACTICE ENGINE
+        // TYPING STUDIO ENGINE (SENTENCE / KANJI / VOCAB) + CHECKPOINT
         // ==========================================
-        let typingWords = [];
-        let typingIdx = 0;
-        let typingStreak = 0;
-        let typingCorrect = 0;
-        let typingWrong = 0;
+        let tpInitialized = false;
+        let tpState = {
+            mode: 'sentence', // 'sentence' | 'kanji' | 'vocab'
+            filterByMode: { sentence: 'all', kanji: '15-18', vocab: 'all' },
+            idxByBucket: {},
+            orderByBucket: {},
+            history: {}, // id -> { status: 'ok'|'err'|'reveal', lastInput, whyWrong, isKanjiMatch }
+            drafts: {}, // id -> raw unsaved input text
+            allowKanji: false,
+            autoAdvance: false,
+            showOverview: false,
+            streak: 0,
+            gradedCurrent: false
+        };
+
+        function escapeHtml(str) {
+            return String(str || '')
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;');
+        }
+
+        function toHiragana(str) {
+            if (!str) return '';
+            let out = '';
+            for (const ch of String(str)) {
+                const code = ch.charCodeAt(0);
+                if (code >= 0x30A1 && code <= 0x30F6) {
+                    out += String.fromCharCode(code - 0x60);
+                } else if (code >= 0xFF01 && code <= 0xFF5E) {
+                    out += String.fromCharCode(code - 0xFEE0);
+                } else {
+                    out += ch;
+                }
+            }
+            return out.toLowerCase();
+        }
+
+        function cleanJpCompare(s, convertKata) {
+            if (!s) return '';
+            const base = convertKata ? toHiragana(s) : String(s).toLowerCase();
+            return base
+                .trim()
+                .replace(/[()（）「」『』""''…・~～/／、,。.,?!？！\\s\\-_\\t　]/g, '');
+        }
+
+        function containsKanji(s) {
+            return /[\\u4E00-\\u9FAF\\u3400-\\u4DBF]/.test(s || '');
+        }
+
+        function stripDakutenChar(ch) {
+            const map = {
+                'が':'か','ぎ':'き','ぐ':'く','げ':'け','ご':'こ',
+                'ざ':'さ','じ':'し','ず':'す','ぜ':'せ','ぞ':'そ',
+                'だ':'た','ぢ':'ち','づ':'つ','で':'て','ど':'と',
+                'ば':'は','び':'ひ','ぶ':'ふ','べ':'へ','ぼ':'ほ',
+                'ぱ':'は','ぴ':'ひ','ぷ':'ふ','ぺ':'へ','ぽ':'ほ',
+                'ゔ':'う'
+            };
+            return map[ch] || ch;
+        }
+
+        function stripDakutenStr(s) {
+            return Array.from(s || '').map(stripDakutenChar).join('');
+        }
+
+        function collapseLongVowels(s) {
+            return (s || '')
+                .replace(/ー/g, '')
+                .replace(/([おこそとのほもよろをごぞどぼぽうくすつぬふむゆるぐずづぶぷ])う/g, '$1')
+                .replace(/([えけせてねへめれげぜでべぺい])い/g, '$1')
+                .replace(/([あかさたなはまやらわがざだばぱ])あ/g, '$1');
+        }
+
+        function bigSmallKana(s) {
+            return (s || '')
+                .replace(/ゃ/g, 'や').replace(/ゅ/g, 'ゆ').replace(/ょ/g, 'よ')
+                .replace(/っ/g, 'つ').replace(/ぁ/g, 'あ').replace(/ぃ/g, 'い')
+                .replace(/ぅ/g, 'う').replace(/ぇ/g, 'え').replace(/ぉ/g, 'お');
+        }
+
+        function buildCharDiffHtml(typedRaw, targetRaw) {
+            const a = Array.from(cleanJpCompare(typedRaw, true));
+            const b = Array.from(cleanJpCompare(targetRaw, true));
+            let typedHtml = '';
+            let targetHtml = '';
+            let prefix = 0;
+            while (prefix < a.length && prefix < b.length && a[prefix] === b[prefix]) prefix++;
+            let suffix = 0;
+            while (
+                suffix < (a.length - prefix) &&
+                suffix < (b.length - prefix) &&
+                a[a.length - 1 - suffix] === b[b.length - 1 - suffix]
+            ) suffix++;
+
+            for (let i = 0; i < prefix; i++) {
+                typedHtml += `<span class="diff-good">${escapeHtml(a[i])}</span>`;
+                targetHtml += `<span class="diff-good">${escapeHtml(b[i])}</span>`;
+            }
+            const midA = a.slice(prefix, a.length - suffix);
+            const midB = b.slice(prefix, b.length - suffix);
+            if (midA.length) typedHtml += `<span class="diff-bad">${escapeHtml(midA.join(''))}</span>`;
+            if (midB.length) targetHtml += `<span class="diff-good" style="background:#fde68a;color:#92400e;">${escapeHtml(midB.join(''))}</span>`;
+            for (let i = a.length - suffix; i < a.length; i++) {
+                typedHtml += `<span class="diff-good">${escapeHtml(a[i])}</span>`;
+            }
+            for (let i = b.length - suffix; i < b.length; i++) {
+                targetHtml += `<span class="diff-good">${escapeHtml(b[i])}</span>`;
+            }
+            return {
+                typedHtml: typedHtml || '<em style="color:var(--gray-400);">(trống)</em>',
+                targetHtml,
+                expectedChunk: midB.join(''),
+                gotChunk: midA.join('')
+            };
+        }
+
+        function diagnoseTypingMistake(rawUser, item, mode) {
+            const reasons = [];
+            const normUserHira = cleanJpCompare(rawUser, true);
+            const targetSample = mode === 'sentence' ? item.hira : (mode === 'kanji' ? item.kana : (item.kana || item.jp));
+            const acceptedList = mode === 'sentence'
+                ? (item.acceptedHira || [item.hira])
+                : (mode === 'kanji' ? (item.accepted || [item.kana]) : [item.jp, item.kana, item.romaji].filter(Boolean));
+            const normTarget = cleanJpCompare(targetSample, true);
+
+            // 1. Item-specific targeted grammar / reading traps
+            if (item.traps && Array.isArray(item.traps)) {
+                for (const t of item.traps) {
+                    if (t.regex) {
+                        const re = new RegExp(t.regex, 'i');
+                        if (re.test(normUserHira) || re.test(rawUser)) {
+                            reasons.push(`🎯 <strong>Bẫy hay sai ở câu/từ này:</strong> ${t.why}`);
+                        }
+                    } else if (t.wrong && Array.isArray(t.wrong)) {
+                        if (t.wrong.some(w => cleanJpCompare(w, true) === normUserHira)) {
+                            reasons.push(`🎯 <strong>Lỗi nhầm cách đọc phổ biến:</strong> ${t.why}`);
+                        }
+                    }
+                }
+            }
+
+            // 2. Typed Kanji check
+            if (containsKanji(rawUser)) {
+                if (mode === 'kanji') {
+                    reasons.push('⛩️ <strong>Bạn vừa nhập lại mặt chữ Kanji!</strong> Chế độ này yêu cầu nhập <strong>cách đọc Hiragana</strong> (không giữ chữ Hán).');
+                } else if (mode === 'sentence') {
+                    const kanjiMatches = (item.kanjiAccepted || []).some(k => cleanJpCompare(k, true) === normUserHira);
+                    if (kanjiMatches) {
+                        reasons.push('⛩️ Câu bạn gõ khớp bản có chữ Hán nhưng chế độ hiện đang chấm <strong>thuần Hiragana</strong>. Hãy tắt chuyển chữ Kanji hoặc bật mục <em>"Cho phép kèm Kanji"</em> ở phía trên!');
+                    } else {
+                        reasons.push('⛩️ Trong bài gõ có dính ký tự <strong>Kanji</strong> — hãy chuyển IME sang thuần <strong>Hiragana</strong> rồi kiểm tra lại cách chia ngữ pháp bên dưới.');
+                    }
+                }
+            }
+
+            // 3. Forgot IME (ASCII letters typed in Hiragana modes)
+            const asciiLettersOnly = (rawUser || '').replace(/fpt|youtube/ig, '');
+            if (mode !== 'vocab' && /[a-zA-Z]{2,}/.test(asciiLettersOnly)) {
+                reasons.push('⌨️ <strong>Có chữ cái Latinh (Romaji):</strong> Có vẻ bạn quên bật bộ gõ Hiragana tiếng Nhật (chế độ này yêu cầu nhập bằng Hiragana chứ không để Romaji thô).');
+            }
+
+            // 4. Phonological spelling diagnostics
+            for (const acc of acceptedList) {
+                const nt = cleanJpCompare(acc, true);
+                if (!nt || !normUserHira) continue;
+                if (normUserHira.replace(/っ/g, '') === nt.replace(/っ/g, '') && normUserHira !== nt) {
+                    reasons.push('✂️ <strong>Thiếu hoặc thừa âm ngắt chữ 「っ」 nhỏ:</strong> Hãy kiểm tra lại các chữ có ngắt âm đôi (như <code>さっか, けっこん, いった, かった, とった, まって, きっさてん, しゅっぱつ</code>).');
+                    break;
+                }
+                if (collapseLongVowels(normUserHira) === collapseLongVowels(nt) && normUserHira !== nt) {
+                    reasons.push('🔊 <strong>Sai / thiếu trường âm (<code>う, い, ー</code>):</strong> Ví dụ <code>せんしゅう</code> (có う), <code>たんじょうび</code> (có う), <code>とけい / かいけい</code> (có い), hoặc <code>セーター</code> (có ー).');
+                    break;
+                }
+                if (stripDakutenStr(normUserHira) === stripDakutenStr(nt) && normUserHira !== nt) {
+                    reasons.push('゛ <strong>Nhầm âm đục / bán đục (tenten <code>゛</code> hoặc maru <code>゜</code>):</strong> Ví dụ <code>が/か, ぎ/き, ぐ/く, ざ/さ, じ/し, ぞ/そ, だ/た, で/て, ば/は, ぱ/は</code>.');
+                    break;
+                }
+                if (bigSmallKana(normUserHira) === bigSmallKana(nt) && normUserHira !== nt) {
+                    reasons.push('🔡 <strong>Nhầm chữ nhỏ với chữ thường:</strong> Cần dùng <code>ゃ, ゅ, ょ, っ</code> nhỏ chứ không phải <code>や, ゆ, よ, つ</code> lớn (ví dụ <code>しゃ / きょ / しゅ</code>).');
+                    break;
+                }
+            }
+
+            // 5. General comparison fallback
+            if (mode === 'sentence' && !reasons.length) {
+                const diff = buildCharDiffHtml(rawUser, targetSample);
+                if (normUserHira.includes('わ') && normTarget.includes('は') && normUserHira.replace(/わ/g, 'は') === normTarget.replace(/わ/g, 'は')) {
+                    reasons.push('📌 <strong>Nhầm trợ từ 「は」 thành 「わ」:</strong> Trợ từ chủ đề câu phát âm là <em>wa</em> nhưng viết bằng chữ <strong>「は」</strong>!');
+                } else if (diff.expectedChunk || diff.gotChunk) {
+                    reasons.push(`🔎 <strong>Lệch tại cụm ký tự:</strong> Bạn gõ <code>${escapeHtml(diff.gotChunk || '(thiếu)')}</code> trong khi đáp án chuẩn cần <code>${escapeHtml(diff.expectedChunk || '(không có)')}</code>.`);
+                }
+            } else if (mode === 'kanji' && !reasons.length) {
+                const diff = buildCharDiffHtml(rawUser, targetSample);
+                reasons.push(`🔎 <strong>Đối chiếu mặt âm đọc:</strong> Bạn gõ <code>${escapeHtml(normUserHira)}</code>, phần khác biệt so với cách đọc chuẩn nằm ở <code>${escapeHtml(diff.expectedChunk || normTarget)}</code>.`);
+            }
+
+            if (!reasons.length) {
+                reasons.push('💡 Hãy kiểm tra lại trợ từ (<code>は, が, を, に, で, と</code>), cách chia thể thông thường (<code>Vる / Vない / Vた / ている / だ</code>) và đối chiếu từng vế câu bên dưới.');
+            }
+            return reasons;
+        }
+
+        function getModeItems(mode) {
+            if (mode === 'sentence') return SENTENCE_TYPING_DATA;
+            if (mode === 'kanji') return [...KANJI_15_18_DATA, ...KANJI_11_14_DATA];
+            return VOCAB_DATA.map((v, i) => ({
+                id: 'v_' + i + '_' + (v.jp || ''),
+                lesson: v.l || 'A2',
+                vi: v.vi,
+                jp: v.jp,
+                kana: v.kana,
+                romaji: v.romaji,
+                kanji: v.kanji
+            }));
+        }
+
+        function getFilterDefs(mode) {
+            const wrongIds = new Set(Object.keys(tpState.history).filter(id => tpState.history[id] && tpState.history[id].status === 'err'));
+            const items = getModeItems(mode);
+            if (mode === 'sentence') {
+                return [
+                    { key: 'all', label: `Tất cả (${items.length})` },
+                    { key: 'A2-15', label: `Bài 15 (${items.filter(x => x.lesson === 'A2-15').length})` },
+                    { key: 'A2-16', label: `Bài 16 (${items.filter(x => x.lesson === 'A2-16').length})` },
+                    { key: 'Kaiwa Mid 2', label: `Kaiwa Mid 2 (${items.filter(x => x.lesson === 'Kaiwa Mid 2').length})` },
+                    { key: 'A2-17', label: `Bài 17 (${items.filter(x => x.lesson === 'A2-17').length})` },
+                    { key: 'A2-18', label: `Bài 18 (${items.filter(x => x.lesson === 'A2-18').length})` },
+                    { key: 'wrong', label: `🔁 Câu sai (${items.filter(x => wrongIds.has(x.id)).length})` }
+                ];
+            }
+            if (mode === 'kanji') {
+                return [
+                    { key: '15-18', label: `Kanji L15-18 (${KANJI_15_18_DATA.length})` },
+                    { key: '11-14', label: `Kanji L11-14 (${KANJI_11_14_DATA.length})` },
+                    { key: 'all', label: `Tất cả (${items.length})` },
+                    { key: 'wrong', label: `🔁 Chữ hay sai (${items.filter(x => wrongIds.has(x.id)).length})` }
+                ];
+            }
+            return [
+                { key: 'all', label: `Tất cả (${items.length})` },
+                { key: 'A2-15', label: 'Bài 15' },
+                { key: 'A2-16', label: 'Bài 16' },
+                { key: 'A2-17', label: 'Bài 17' },
+                { key: 'A2-18', label: 'Bài 18' },
+                { key: 'wrong', label: `🔁 Từ sai (${items.filter(x => wrongIds.has(x.id)).length})` }
+            ];
+        }
+
+        function getActiveBucketKey() {
+            const m = tpState.mode;
+            const f = tpState.filterByMode[m] || (m === 'kanji' ? '15-18' : 'all');
+            return `${m}::${f}`;
+        }
+
+        function getFilteredTypingPool() {
+            const m = tpState.mode;
+            const f = tpState.filterByMode[m] || (m === 'kanji' ? '15-18' : 'all');
+            const all = getModeItems(m);
+            let base;
+            if (f === 'wrong') {
+                base = all.filter(x => tpState.history[x.id] && tpState.history[x.id].status === 'err');
+            } else if (f === 'all') {
+                base = [...all];
+            } else if (m === 'kanji') {
+                base = all.filter(x => x.group === f);
+            } else {
+                base = all.filter(x => x.lesson === f);
+            }
+            const bucket = getActiveBucketKey();
+            const savedOrder = tpState.orderByBucket[bucket];
+            if (Array.isArray(savedOrder) && savedOrder.length > 0 && f !== 'wrong') {
+                const mapById = new Map(base.map(it => [it.id, it]));
+                const ordered = savedOrder.map(id => mapById.get(id)).filter(Boolean);
+                const missing = base.filter(it => !savedOrder.includes(it.id));
+                return [...ordered, ...missing];
+            }
+            return base;
+        }
 
         function initTypingPractice() {
-            switchTypingLesson('all');
+            tpInitialized = true;
+            updateTypingModeButtons();
+            renderTypingFilters();
+            renderTypingControlsState();
+            renderTypingCard(false);
         }
 
-        function switchTypingLesson(lesson) {
-            document.querySelectorAll('#typingFilterGroup .v-filter-btn').forEach(b => b.classList.remove('active'));
-            const activeBtn = Array.from(document.querySelectorAll('#typingFilterGroup .v-filter-btn')).find(b => b.getAttribute('onclick').includes(lesson));
-            if (activeBtn) activeBtn.classList.add('active');
-
-            typingWords = lesson === 'all' ? [...VOCAB_DATA] : VOCAB_DATA.filter(w => w.l === lesson);
-            typingWords.sort(() => Math.random() - 0.5);
-            typingIdx = 0;
-            typingStreak = 0;
-            typingCorrect = 0;
-            typingWrong = 0;
-            loadTypingCard();
+        function updateTypingModeButtons() {
+            ['sentence', 'kanji', 'vocab'].forEach(m => {
+                const btn = document.getElementById(`tpModeBtn_${m}`);
+                if (btn) btn.classList.toggle('active', tpState.mode === m);
+            });
+            const kWrap = document.getElementById('tpKanjiAllowWrap');
+            if (kWrap) kWrap.style.display = tpState.mode === 'sentence' ? 'inline-flex' : 'none';
         }
 
-        function loadTypingCard() {
-            if (typingIdx >= typingWords.length) {
-                document.getElementById('tpPromptVi').innerHTML = '🎉 Chúc mừng bạn đã hoàn thành toàn bộ danh sách gõ phản xạ!';
-                document.getElementById('tpCardFeedback').innerText = '';
-                document.getElementById('tpCardInput').disabled = true;
+        function renderTypingControlsState() {
+            const kTog = document.getElementById('tpAllowKanjiToggle');
+            const aTog = document.getElementById('tpAutoAdvToggle');
+            if (kTog) kTog.checked = Boolean(tpState.allowKanji);
+            if (aTog) aTog.checked = Boolean(tpState.autoAdvance);
+            const drawer = document.getElementById('tpOverviewDrawer');
+            const oBtn = document.getElementById('tpOverviewBtn');
+            if (drawer) drawer.classList.toggle('show', Boolean(tpState.showOverview));
+            if (oBtn) oBtn.classList.toggle('active', Boolean(tpState.showOverview));
+        }
+
+        function renderTypingFilters() {
+            const grp = document.getElementById('typingFilterGroup');
+            if (!grp) return;
+            const m = tpState.mode;
+            const curF = tpState.filterByMode[m] || (m === 'kanji' ? '15-18' : 'all');
+            const defs = getFilterDefs(m);
+            grp.innerHTML = defs.map(d => `
+                <button type="button" class="v-filter-btn ${d.key === curF ? 'active' : ''}" onclick="switchTypingLesson('${d.key}')">${d.label}</button>
+            `).join('');
+        }
+
+        function switchTypingMode(mode) {
+            tpState.mode = mode;
+            tpState.gradedCurrent = false;
+            updateTypingModeButtons();
+            renderTypingFilters();
+            renderTypingCard(true);
+            saveMini15_18Checkpoint();
+        }
+
+        function switchTypingLesson(lessonKey) {
+            tpState.filterByMode[tpState.mode] = lessonKey;
+            tpState.gradedCurrent = false;
+            renderTypingFilters();
+            renderTypingCard(true);
+            saveMini15_18Checkpoint();
+        }
+
+        function toggleTypingOption(optName, val) {
+            if (optName === 'allowKanji') tpState.allowKanji = Boolean(val);
+            if (optName === 'autoAdvance') tpState.autoAdvance = Boolean(val);
+            saveMini15_18Checkpoint();
+        }
+
+        function toggleTypingOverview() {
+            tpState.showOverview = !tpState.showOverview;
+            renderTypingControlsState();
+            renderTypingOverview();
+            saveMini15_18Checkpoint();
+        }
+
+        function renderTypingOverview() {
+            const drawer = document.getElementById('tpOverviewDrawer');
+            if (!drawer || !tpState.showOverview) return;
+            const pool = getFilteredTypingPool();
+            const bucket = getActiveBucketKey();
+            const curIdx = tpState.idxByBucket[bucket] || 0;
+            if (!pool.length) {
+                drawer.innerHTML = '<div style="grid-column:1/-1; color:var(--gray-500); font-size:0.9rem;">Chưa có mục nào trong bộ lọc này.</div>';
                 return;
             }
-            const item = typingWords[typingIdx];
-            document.getElementById('tpCardBadge').innerText = `Thẻ ${typingIdx + 1} / ${typingWords.length} (${item.l || ''})`;
-            document.getElementById('tpStreakBadge').innerText = `🔥 Chuỗi: ${typingStreak}`;
-            document.getElementById('tpPromptVi').innerText = item.vi;
-            document.getElementById('tpCardFeedback').innerText = '';
-            const inp = document.getElementById('tpCardInput');
-            inp.disabled = false;
-            inp.value = '';
-            inp.className = 'typing-input-large';
-            inp.focus();
-            updateTypingStats();
+            drawer.innerHTML = pool.map((it, idx) => {
+                const hist = tpState.history[it.id];
+                const stCls = hist ? (hist.status === 'ok' ? 'done-ok' : (hist.status === 'err' ? 'done-err' : '')) : '';
+                const icon = hist ? (hist.status === 'ok' ? '✅' : (hist.status === 'err' ? '❌' : '👁️')) : `${idx + 1}.`;
+                const title = tpState.mode === 'kanji' ? `${it.kanji} (${it.vi})` : (tpState.mode === 'sentence' ? it.vi : `${it.vi} (${it.jp})`);
+                return `
+                    <button type="button" class="tp-overview-item ${idx === curIdx ? 'active' : ''} ${stCls}" onclick="jumpToTypingItem(${idx})">
+                        <span>${icon}</span>
+                        <span style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">${escapeHtml(title)}</span>
+                    </button>
+                `;
+            }).join('');
         }
 
-        function cleanAnswerStr(s) {
-            if (!s) return '';
-            return s.toString().toLowerCase().trim().replace(/[()（）~～/／、,。.\\s\\-_\\t]/g, '');
+        function jumpToTypingItem(idx) {
+            const bucket = getActiveBucketKey();
+            tpState.idxByBucket[bucket] = idx;
+            tpState.gradedCurrent = false;
+            renderTypingCard(true);
+            saveMini15_18Checkpoint();
+        }
+
+        function shuffleTypingPool() {
+            const pool = getFilteredTypingPool();
+            if (!pool.length) return;
+            const shuffled = pool.map(x => x.id).sort(() => Math.random() - 0.5);
+            const bucket = getActiveBucketKey();
+            tpState.orderByBucket[bucket] = shuffled;
+            tpState.idxByBucket[bucket] = 0;
+            tpState.gradedCurrent = false;
+            renderTypingCard(true);
+            saveMini15_18Checkpoint();
+            showToast('Đã xáo trộn thứ tự các thẻ!');
+        }
+
+        function renderTypingCard(shouldFocus) {
+            const pool = getFilteredTypingPool();
+            const bucket = getActiveBucketKey();
+            let idx = tpState.idxByBucket[bucket] || 0;
+            if (idx >= pool.length) idx = Math.max(0, pool.length - 1);
+            if (idx < 0) idx = 0;
+            tpState.idxByBucket[bucket] = idx;
+
+            const badge = document.getElementById('tpCardBadge');
+            const patBadge = document.getElementById('tpPatternBadge');
+            const subEl = document.getElementById('tpPromptSubtitle');
+            const promptEl = document.getElementById('tpPromptVi');
+            const dirEl = document.getElementById('tpInputDirective');
+            const hintPrev = document.getElementById('tpHintPreview');
+            const inp = document.getElementById('tpCardInput');
+            const checkBtn = document.getElementById('tpCardCheckBtn');
+            const detailPanel = document.getElementById('tpDetailPanel');
+            document.getElementById('tpStreakBadge').innerText = `🔥 Chuỗi: ${tpState.streak}`;
+
+            if (!pool.length) {
+                if (badge) badge.innerText = '0 / 0';
+                if (patBadge) patBadge.innerText = 'Bộ lọc trống';
+                if (subEl) subEl.innerText = 'TRẠNG THÁI';
+                if (promptEl) {
+                    promptEl.className = 'tp-vi-hero';
+                    promptEl.innerText = '🎉 Tuyệt vời! Không có câu/chữ nào đang sai trong bộ lọc này.';
+                }
+                if (inp) {
+                    inp.value = '';
+                    inp.disabled = true;
+                }
+                if (detailPanel) { detailPanel.className = 'tp-detail-panel'; detailPanel.innerHTML = ''; }
+                updateTypingStats(pool);
+                renderTypingOverview();
+                return;
+            }
+
+            const item = pool[idx];
+            if (hintPrev) { hintPrev.style.display = 'none'; hintPrev.innerHTML = ''; }
+
+            if (tpState.mode === 'sentence') {
+                badge.innerText = `Câu ${idx + 1} / ${pool.length} • ${item.lesson}`;
+                patBadge.innerText = item.category || item.pattern || 'Bài 15-18';
+                subEl.innerText = 'ĐỀ BÀI TIẾNG VIỆT — DỊCH & GÕ HIRAGANA';
+                promptEl.className = 'tp-vi-hero';
+                promptEl.innerText = item.vi;
+                dirEl.innerHTML = '⬇️ Nhập câu tiếng Nhật bằng <strong>Hiragana</strong> rồi nhấn <strong>Enter</strong>:';
+                inp.placeholder = 'Ví dụ: ねる まえに、よく ほんを よみます。';
+                inp.rows = 2;
+            } else if (tpState.mode === 'kanji') {
+                badge.innerText = `Chữ Hán ${idx + 1} / ${pool.length} • PDF Kanji ${item.group} (#${item.stt})`;
+                patBadge.innerText = `Kanji Lesson ${item.group}`;
+                subEl.innerText = 'NHÌN CHỮ HÁN (KANJI) — GÕ CÁCH ĐỌC HIRAGANA';
+                promptEl.className = 'tp-kanji-hero jp-text';
+                promptEl.innerText = item.kanji;
+                dirEl.innerHTML = '⬇️ Nhập <strong>cách đọc Hiragana</strong> của chữ Hán trên rồi nhấn <strong>Enter</strong>:';
+                inp.placeholder = 'Gõ cách đọc bằng Hiragana (ví dụ: らいねん)...';
+                inp.rows = 1;
+            } else {
+                badge.innerText = `Từ ${idx + 1} / ${pool.length} • ${item.lesson}`;
+                patBadge.innerText = 'Từ Vựng A2';
+                subEl.innerText = 'Ý NGHĨA TIẾNG VIỆT — GÕ PHẢN XẠ';
+                promptEl.className = 'tp-vi-hero';
+                promptEl.innerText = item.vi;
+                dirEl.innerHTML = '⬇️ Gõ <strong>Hiragana, Kanji hoặc Romaji</strong> rồi nhấn <strong>Enter</strong>:';
+                inp.placeholder = 'Gõ Hiragana / Kanji / Romaji...';
+                inp.rows = 1;
+            }
+
+            const hist = tpState.history[item.id];
+            const draftVal = tpState.drafts[item.id];
+            inp.disabled = false;
+            inp.className = 'typing-input-large jp-text';
+
+            if (hist && tpState.gradedCurrent) {
+                inp.value = hist.lastInput || draftVal || '';
+                if (hist.status === 'ok') inp.classList.add('correct');
+                else if (hist.status === 'err') inp.classList.add('wrong');
+                renderTypingDetailBox(item, hist);
+                checkBtn.innerText = 'Câu Tiếp Theo ➔ (Enter)';
+                checkBtn.style.background = 'var(--secondary)';
+            } else if (hist && hist.status && (draftVal === undefined || draftVal === hist.lastInput)) {
+                inp.value = hist.lastInput || '';
+                if (hist.status === 'ok') inp.classList.add('correct');
+                else if (hist.status === 'err') inp.classList.add('wrong');
+                renderTypingDetailBox(item, hist);
+                tpState.gradedCurrent = true;
+                checkBtn.innerText = 'Câu Tiếp Theo ➔ (Enter)';
+                checkBtn.style.background = 'var(--secondary)';
+            } else {
+                inp.value = draftVal || '';
+                detailPanel.className = 'tp-detail-panel';
+                detailPanel.innerHTML = '';
+                tpState.gradedCurrent = false;
+                checkBtn.innerText = 'Kiểm Tra Đáp Án ⏎';
+                checkBtn.style.background = 'var(--primary)';
+            }
+
+            updateTypingStats(pool);
+            renderTypingOverview();
+            if (shouldFocus) inp.focus();
+        }
+
+        function renderTypingDetailBox(item, hist) {
+            const detailPanel = document.getElementById('tpDetailPanel');
+            if (!detailPanel) return;
+
+            let headerHtml = '';
+            let panelCls = 'tp-detail-panel show ';
+            if (hist.status === 'ok') {
+                panelCls += 'is-ok';
+                headerHtml = `<div style="font-size:1.08rem; font-weight:800; color:#15803d; margin-bottom:10px;">
+                    ✅ CHÍNH XÁC! ${hist.isKanjiMatch ? '<span style="font-size:0.84rem; color:#0369a1; font-weight:700;">(Chấp nhận dạng kèm Kanji)</span>' : ''}
+                </div>`;
+            } else if (hist.status === 'reveal') {
+                panelCls += 'is-reveal';
+                headerHtml = `<div style="font-size:1.08rem; font-weight:800; color:#b45309; margin-bottom:10px;">👁️ XEM ĐÁP ÁN CHUẨN</div>`;
+            } else {
+                panelCls += 'is-err';
+                headerHtml = `<div style="font-size:1.08rem; font-weight:800; color:#be123c; margin-bottom:10px;">❌ CHƯA ĐÚNG — CÙNG XEM VÌ SAO SAI NHÉ!</div>`;
+            }
+
+            let compareHtml = '';
+            const primaryReading = tpState.mode === 'sentence' ? item.hira : (tpState.mode === 'kanji' ? item.kana : (item.kana || item.jp));
+            if (hist.status === 'err' && hist.lastInput !== undefined) {
+                const diff = buildCharDiffHtml(hist.lastInput, primaryReading);
+                compareHtml = `
+                    <div class="tp-diff-row">
+                        <div><strong style="color:#be123c;">Bạn đã gõ:</strong> <span class="jp-text" style="font-size:1.06rem;">${diff.typedHtml}</span></div>
+                        <div><strong style="color:#15803d;">Đáp án đúng:</strong> <span class="jp-text" style="font-size:1.06rem;">${diff.targetHtml}</span></div>
+                    </div>
+                `;
+            }
+
+            let whyHtml = '';
+            if (hist.status === 'err' && hist.whyWrong && hist.whyWrong.length) {
+                whyHtml = `
+                    <div class="tp-why-box">
+                        <div style="font-weight:800; margin-bottom:6px;">🚨 Phân tích vì sao sai:</div>
+                        <ul style="margin:0 0 0 18px; padding:0;">
+                            ${hist.whyWrong.map(r => `<li style="margin-bottom:4px;">${r}</li>`).join('')}
+                        </ul>
+                    </div>
+                `;
+            }
+
+            let meaningHtml = '';
+            if (tpState.mode === 'sentence') {
+                const alts = (item.acceptedHira || []).slice(1, 4);
+                meaningHtml = `
+                    <div class="tp-meaning-box">
+                        <div style="margin-bottom:6px;">
+                            <strong>🔊 Câu Hiragana chuẩn:</strong>
+                            <span class="jp-text" style="font-size:1.12rem; font-weight:800; color:var(--primary-dark);">${escapeHtml(item.hira)}</span>
+                            <button type="button" class="audio-btn" onclick="speakCurrentTypingWord()" style="vertical-align:middle; margin-left:6px;" title="Nghe phát âm">🔊</button>
+                        </div>
+                        <div style="margin-bottom:6px;"><strong>⛩️ Tham khảo kèm Kanji:</strong> <span class="jp-text" style="font-weight:700; color:#334155;">${escapeHtml(item.kanjiModel)}</span></div>
+                        <div style="margin-bottom:6px;"><strong>🇻🇳 Nghĩa tiếng Việt:</strong> ${escapeHtml(item.vi)}</div>
+                        <div style="margin-bottom:6px;"><strong>📐 Ngữ pháp (${escapeHtml(item.pattern)}):</strong> ${item.grammarRule}</div>
+                        <div><strong>🧩 Bóc tách câu:</strong> ${item.breakdown}</div>
+                        ${alts.length ? `<div style="margin-top:6px; font-size:0.84rem; color:#475569;"><strong>✔️ Biến thể cô cũng chấp nhận:</strong> ${alts.map(a => `<code class="jp-text">${escapeHtml(a)}</code>`).join(' • ')}</div>` : ''}
+                    </div>
+                `;
+            } else if (tpState.mode === 'kanji') {
+                meaningHtml = `
+                    <div class="tp-meaning-box">
+                        <div style="margin-bottom:6px; display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+                            <span><strong>⛩️ Kanji:</strong> <span class="jp-text" style="font-size:1.35rem; font-weight:900; color:var(--primary-dark);">${escapeHtml(item.kanji)}</span></span>
+                            <span><strong>🔤 Hiragana chuẩn:</strong> <span class="jp-text" style="font-size:1.2rem; font-weight:800; color:#15803d;">${escapeHtml(item.kana)}</span></span>
+                            <button type="button" class="audio-btn" onclick="speakCurrentTypingWord()" title="Nghe phát âm">🔊</button>
+                        </div>
+                        <div style="margin-bottom:6px;"><strong>🏮 Âm Hán Việt:</strong> <span style="font-weight:800; color:#b45309; background:#fef3c7; padding:2px 8px; border-radius:6px;">${escapeHtml(item.hv)}</span></div>
+                        <div style="margin-bottom:6px;"><strong>🇻🇳 Ý nghĩa:</strong> <strong>${escapeHtml(item.vi)}</strong></div>
+                        <div><strong>🧠 Mẹo nhớ &amp; Phân biệt:</strong> ${item.note}</div>
+                    </div>
+                `;
+            } else {
+                meaningHtml = `
+                    <div class="tp-meaning-box">
+                        <div style="margin-bottom:6px;">
+                            <strong>🇯🇵 Tiếng Nhật:</strong> <span class="jp-text" style="font-size:1.15rem; font-weight:800; color:var(--primary-dark);">${escapeHtml(item.jp)}</span>
+                            ${item.kana ? `<span class="jp-text" style="color:var(--primary);">【${escapeHtml(item.kana)}】</span>` : ''}
+                            <button type="button" class="audio-btn" onclick="speakCurrentTypingWord()" style="vertical-align:middle; margin-left:6px;">🔊</button>
+                        </div>
+                        <div style="margin-bottom:6px;"><strong>🔤 Romaji:</strong> ${escapeHtml(item.romaji || '')}</div>
+                        <div><strong>🇻🇳 Nghĩa tiếng Việt:</strong> ${escapeHtml(item.vi)}</div>
+                    </div>
+                `;
+            }
+
+            detailPanel.className = panelCls;
+            detailPanel.innerHTML = headerHtml + compareHtml + whyHtml + meaningHtml + `
+                <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap; align-items:center;">
+                    <button type="button" class="btn-primary" style="padding:7px 14px; font-size:0.86rem; background:var(--secondary);" onclick="skipTypingWord()">➔ Sang câu tiếp theo (Enter)</button>
+                    ${hist.status === 'err' ? `<button type="button" class="btn-primary" style="padding:7px 14px; font-size:0.86rem; background:var(--gray-600);" onclick="retryCurrentTypingCard()">🔄 Thử gõ lại câu này</button>` : ''}
+                </div>
+            `;
+        }
+
+        function handleTypingPrimaryBtn() {
+            if (tpState.gradedCurrent) {
+                skipTypingWord();
+            } else {
+                handleTypingSubmit();
+            }
+        }
+
+        function retryCurrentTypingCard() {
+            const pool = getFilteredTypingPool();
+            const bucket = getActiveBucketKey();
+            const item = pool[tpState.idxByBucket[bucket] || 0];
+            if (!item) return;
+            tpState.gradedCurrent = false;
+            tpState.drafts[item.id] = '';
+            delete tpState.history[item.id];
+            renderTypingFilters();
+            renderTypingCard(true);
+            saveMini15_18Checkpoint();
         }
 
         function handleTypingSubmit() {
-            if (typingIdx >= typingWords.length) return;
-            const item = typingWords[typingIdx];
-            const inp = document.getElementById('tpCardInput');
-            const feedback = document.getElementById('tpCardFeedback');
-            const userVal = cleanAnswerStr(inp.value);
+            const pool = getFilteredTypingPool();
+            const bucket = getActiveBucketKey();
+            const idx = tpState.idxByBucket[bucket] || 0;
+            if (!pool.length || idx >= pool.length) return;
 
-            if (!userVal) {
-                feedback.innerHTML = '<span style="color:var(--warning);">Vui lòng gõ đáp án trước khi bấm Enter!</span>';
+            const item = pool[idx];
+            const inp = document.getElementById('tpCardInput');
+            const rawVal = (inp.value || '').trim();
+            if (!rawVal) {
+                showToast('Vui lòng gõ đáp án trước khi kiểm tra!');
+                inp.focus();
                 return;
             }
 
-            const accepted = new Set([
-                cleanAnswerStr(item.jp),
-                cleanAnswerStr(item.kana),
-                cleanAnswerStr(item.romaji)
-            ]);
+            const normUser = cleanJpCompare(rawVal, true);
+            let isCorrect = false;
+            let isKanjiMatch = false;
 
-            const isCorrect = accepted.has(userVal);
+            if (tpState.mode === 'sentence') {
+                const normAcceptedHira = (item.acceptedHira || [item.hira]).map(x => cleanJpCompare(x, true));
+                const hiraMatchNoKanji = normAcceptedHira.includes(normUser) && !containsKanji(rawVal);
+                if (hiraMatchNoKanji) {
+                    isCorrect = true;
+                } else if (tpState.allowKanji) {
+                    const normKanjiAcc = (item.kanjiAccepted || [item.kanjiModel]).map(x => cleanJpCompare(x, true));
+                    if (normKanjiAcc.includes(normUser) || normAcceptedHira.includes(normUser)) {
+                        isCorrect = true;
+                        isKanjiMatch = containsKanji(rawVal);
+                    }
+                }
+            } else if (tpState.mode === 'kanji') {
+                if (!containsKanji(rawVal)) {
+                    const normAccepted = (item.accepted || [item.kana]).map(x => cleanJpCompare(x, true));
+                    isCorrect = normAccepted.includes(normUser);
+                }
+            } else {
+                const accepted = new Set([cleanJpCompare(item.jp, true), cleanJpCompare(item.kana, true), cleanJpCompare(item.romaji, true)].filter(Boolean));
+                isCorrect = accepted.has(normUser);
+            }
 
             if (isCorrect) {
-                typingStreak++;
-                typingCorrect++;
-                inp.classList.add('correct');
-                feedback.innerHTML = `<span style="color:var(--success);">✓ Chính xác! (${item.jp} • ${item.kana || ''})</span>`;
-                speakText(item.jp);
-                setTimeout(() => {
-                    typingIdx++;
-                    loadTypingCard();
-                }, 700);
+                tpState.streak++;
+                tpState.history[item.id] = { status: 'ok', lastInput: rawVal, whyWrong: [], isKanjiMatch };
+                delete tpState.drafts[item.id];
+                tpState.gradedCurrent = true;
+                const audioTxt = tpState.mode === 'sentence' ? item.hira : (item.jp || item.kanji || item.kana);
+                speakText(audioTxt);
+                renderTypingFilters();
+                renderTypingCard(false);
+                saveMini15_18Checkpoint();
+                if (tpState.autoAdvance) {
+                    setTimeout(() => {
+                        skipTypingWord();
+                    }, 900);
+                }
             } else {
-                typingStreak = 0;
-                typingWrong++;
-                inp.classList.add('wrong');
-                feedback.innerHTML = `<span style="color:var(--accent);">✗ Chưa chính xác! Đáp án đúng: <strong>${item.jp}</strong> (${item.kana || ''})</span>`;
-                speakText(item.jp);
+                tpState.streak = 0;
+                const whyWrong = diagnoseTypingMistake(rawVal, item, tpState.mode);
+                tpState.history[item.id] = { status: 'err', lastInput: rawVal, whyWrong, isKanjiMatch: false };
+                tpState.drafts[item.id] = rawVal;
+                tpState.gradedCurrent = true;
+                const audioTxt = tpState.mode === 'sentence' ? item.hira : (item.jp || item.kanji || item.kana);
+                speakText(audioTxt);
+                renderTypingFilters();
+                renderTypingCard(false);
+                saveMini15_18Checkpoint();
             }
-            updateTypingStats();
         }
 
-        function updateTypingStats() {
-            document.getElementById('tpStatCorrect').innerText = typingCorrect;
-            document.getElementById('tpStatWrong').innerText = typingWrong;
-            const total = typingCorrect + typingWrong;
-            const pct = total === 0 ? 0 : Math.round((typingCorrect / total) * 100);
-            document.getElementById('tpStatPercent').innerText = `${pct}%`;
+        function updateTypingStats(pool) {
+            const items = pool && pool.length ? pool : getModeItems(tpState.mode);
+            let ok = 0, err = 0;
+            items.forEach(it => {
+                const h = tpState.history[it.id];
+                if (h && h.status === 'ok') ok++;
+                else if (h && h.status === 'err') err++;
+            });
+            document.getElementById('tpStatCorrect').innerText = ok;
+            document.getElementById('tpStatWrong').innerText = err;
+            const touched = ok + err;
+            const pct = items.length === 0 ? 0 : Math.round((ok / items.length) * 100);
+            document.getElementById('tpStatPercent').innerText = `${pct}% (${touched}/${items.length})`;
+            const bar = document.getElementById('tpProgressBar');
+            if (bar) bar.style.width = `${pct}%`;
         }
 
         function speakCurrentTypingWord() {
-            if (typingIdx < typingWords.length) {
-                speakText(typingWords[typingIdx].jp);
+            const pool = getFilteredTypingPool();
+            const bucket = getActiveBucketKey();
+            const idx = tpState.idxByBucket[bucket] || 0;
+            if (pool[idx]) {
+                const it = pool[idx];
+                speakText(tpState.mode === 'sentence' ? it.hira : (it.kanji || it.jp || it.kana));
             }
         }
 
         function showTypingHint() {
-            if (typingIdx < typingWords.length) {
-                const item = typingWords[typingIdx];
-                const hint = (item.kana || item.jp).charAt(0);
-                document.getElementById('tpCardFeedback').innerHTML = `<span style="color:var(--purple);">💡 Chữ cái đầu tiên: <strong>${hint}...</strong></span>`;
-                document.getElementById('tpCardInput').focus();
+            const pool = getFilteredTypingPool();
+            const bucket = getActiveBucketKey();
+            const idx = tpState.idxByBucket[bucket] || 0;
+            const item = pool[idx];
+            const box = document.getElementById('tpHintPreview');
+            if (!item || !box) return;
+
+            if (tpState.mode === 'sentence') {
+                const words = item.hira.split(/\\s+/);
+                box.innerHTML = `💡 <strong>Gợi ý công thức:</strong> <code>${escapeHtml(item.pattern)}</code> • <strong>Bắt đầu bằng:</strong> <span class="jp-text">${escapeHtml(words.slice(0, 2).join(' '))}...</span>`;
+            } else if (tpState.mode === 'kanji') {
+                box.innerHTML = `💡 <strong>Gợi ý Hán Việt &amp; Nghĩa:</strong> <span style="color:#b45309;font-weight:800;">${escapeHtml(item.hv)}</span> (${escapeHtml(item.vi)}) • Chữ đầu: <strong class="jp-text">${escapeHtml((item.kana || '').charAt(0))}...</strong>`;
+            } else {
+                box.innerHTML = `💡 <strong>Gợi ý chữ cái đầu:</strong> <strong class="jp-text">${escapeHtml((item.kana || item.jp).charAt(0))}...</strong>`;
             }
+            box.style.display = 'block';
+            document.getElementById('tpCardInput').focus();
         }
 
         function revealTypingAnswer() {
-            if (typingIdx < typingWords.length) {
-                const item = typingWords[typingIdx];
-                typingStreak = 0;
-                document.getElementById('tpStreakBadge').innerText = `🔥 Chuỗi: 0`;
-                document.getElementById('tpCardInput').value = item.jp;
-                document.getElementById('tpCardFeedback').innerHTML = `<span style="color:var(--warning);">Đáp án: <strong>${item.jp}</strong> (${item.kana || ''} - ${item.romaji || ''})</span>`;
-                speakText(item.jp);
-            }
+            const pool = getFilteredTypingPool();
+            const bucket = getActiveBucketKey();
+            const idx = tpState.idxByBucket[bucket] || 0;
+            const item = pool[idx];
+            if (!item) return;
+
+            tpState.streak = 0;
+            const ans = tpState.mode === 'sentence' ? item.hira : (tpState.mode === 'kanji' ? item.kana : (item.kana || item.jp));
+            tpState.history[item.id] = { status: 'reveal', lastInput: ans, whyWrong: [] };
+            delete tpState.drafts[item.id];
+            tpState.gradedCurrent = true;
+            speakText(tpState.mode === 'sentence' ? item.hira : (item.kanji || item.jp));
+            renderTypingCard(false);
+            saveMini15_18Checkpoint();
+        }
+
+        function prevTypingItem() {
+            const pool = getFilteredTypingPool();
+            if (!pool.length) return;
+            const bucket = getActiveBucketKey();
+            const cur = tpState.idxByBucket[bucket] || 0;
+            tpState.idxByBucket[bucket] = (cur - 1 + pool.length) % pool.length;
+            tpState.gradedCurrent = false;
+            renderTypingCard(true);
+            saveMini15_18Checkpoint();
         }
 
         function skipTypingWord() {
-            typingIdx++;
-            loadTypingCard();
+            const pool = getFilteredTypingPool();
+            if (!pool.length) return;
+            const bucket = getActiveBucketKey();
+            const cur = tpState.idxByBucket[bucket] || 0;
+            tpState.idxByBucket[bucket] = (cur + 1) % pool.length;
+            tpState.gradedCurrent = false;
+            renderTypingCard(true);
+            saveMini15_18Checkpoint();
         }
 
-        // Bắt phím Enter trong ô input gõ
+        function resetCurrentTypingMode() {
+            const label = tpState.mode === 'sentence' ? 'Câu Tiếng Việt ➔ Hiragana' : (tpState.mode === 'kanji' ? 'Chữ Hán ➔ Hiragana' : 'Từ Vựng A2');
+            if (!confirm(`Đặt lại tiến độ luyện gõ chế độ "${label}"?`)) return;
+            getModeItems(tpState.mode).forEach(it => {
+                delete tpState.history[it.id];
+                delete tpState.drafts[it.id];
+            });
+            const bucket = getActiveBucketKey();
+            tpState.idxByBucket[bucket] = 0;
+            delete tpState.orderByBucket[bucket];
+            tpState.streak = 0;
+            tpState.gradedCurrent = false;
+            renderTypingFilters();
+            renderTypingCard(true);
+            saveMini15_18Checkpoint();
+            showToast(`Đã làm mới chế độ ${label}!`);
+        }
+
+        // ==========================================
+        // CHECKPOINT LƯU / KHÔI PHỤC TOÀN BỘ TRẠNG THÁI (LOCALSTORAGE)
+        // ==========================================
+        function saveMini15_18Checkpoint() {
+            try {
+                saveCurrentExamDrafts();
+                const payload = {
+                    version: 2,
+                    updatedAt: Date.now(),
+                    currentTab,
+                    currentExamId,
+                    currentVocabFilter,
+                    isMeaningHidden,
+                    examStates,
+                    tpState
+                };
+                localStorage.setItem(MINI15_18_CP_KEY, JSON.stringify(payload));
+                if (window.MarugotoCheckpoint && typeof window.MarugotoCheckpoint.notifySaved === 'function') {
+                    window.MarugotoCheckpoint.notifySaved();
+                }
+            } catch (e) {
+                console.warn('Could not save checkpoint:', e);
+            }
+        }
+
+        function restoreMini15_18Checkpoint() {
+            try {
+                const raw = localStorage.getItem(MINI15_18_CP_KEY);
+                if (!raw) return false;
+                const saved = JSON.parse(raw);
+                if (!saved || saved.version !== 2) return false;
+
+                if (saved.examStates && typeof saved.examStates === 'object') {
+                    Object.keys(saved.examStates).forEach(k => {
+                        if (EXAMS_LIST.some(e => e.id === k)) {
+                            examStates[k] = saved.examStates[k];
+                        }
+                    });
+                }
+                if (saved.currentExamId && EXAMS_LIST.some(e => e.id === saved.currentExamId)) {
+                    currentExamId = saved.currentExamId;
+                }
+                if (typeof saved.isMeaningHidden === 'boolean') isMeaningHidden = saved.isMeaningHidden;
+                if (typeof saved.currentVocabFilter === 'string') currentVocabFilter = saved.currentVocabFilter;
+                if (saved.tpState && typeof saved.tpState === 'object') {
+                    tpState = Object.assign({}, tpState, saved.tpState);
+                }
+                if (typeof saved.currentTab === 'string') {
+                    currentTab = saved.currentTab;
+                }
+                return true;
+            } catch (e) {
+                console.warn('Could not restore checkpoint:', e);
+                return false;
+            }
+        }
+
+        window.__MARUGOTO_CP_EXTRA_KEYS__ = [MINI15_18_CP_KEY];
+        window.__MARUGOTO_ON_RESET__ = function () {
+            localStorage.removeItem(MINI15_18_CP_KEY);
+            window.location.reload();
+        };
+
         document.addEventListener('DOMContentLoaded', () => {
+            const restored = restoreMini15_18Checkpoint();
+
             const inp = document.getElementById('tpCardInput');
             if (inp) {
                 inp.addEventListener('keydown', (e) => {
-                    if (e.key === 'Enter') {
+                    if (e.key === 'Enter' && !e.shiftKey && !e.isComposing && e.keyCode !== 229) {
                         e.preventDefault();
-                        handleTypingSubmit();
+                        handleTypingPrimaryBtn();
+                    }
+                });
+                inp.addEventListener('input', () => {
+                    const pool = getFilteredTypingPool();
+                    const bucket = getActiveBucketKey();
+                    const item = pool[tpState.idxByBucket[bucket] || 0];
+                    if (item) {
+                        tpState.drafts[item.id] = inp.value;
+                        if (tpState.gradedCurrent) {
+                            tpState.gradedCurrent = false;
+                            const btn = document.getElementById('tpCardCheckBtn');
+                            if (btn) {
+                                btn.innerText = 'Kiểm Tra Đáp Án ⏎';
+                                btn.style.background = 'var(--primary)';
+                            }
+                        }
+                        saveMini15_18Checkpoint();
                     }
                 });
             }
 
-            // Khởi tạo hiển thị dữ liệu
+            const p3Wrap = document.getElementById('part3Container');
+            if (p3Wrap) {
+                p3Wrap.addEventListener('input', (e) => {
+                    if (e.target && e.target.id && e.target.id.startsWith('p3_input_')) {
+                        saveMini15_18Checkpoint();
+                    }
+                });
+            }
+            const p6Wrap = document.getElementById('part6Container');
+            if (p6Wrap) {
+                p6Wrap.addEventListener('input', (e) => {
+                    if (e.target && e.target.id && e.target.id.startsWith('p6_txt_')) {
+                        saveMini15_18Checkpoint();
+                    }
+                });
+            }
+
             bindActiveExamAliases();
             updateExamHeaderBanner();
             renderExamSwitcher();
@@ -3026,7 +4032,19 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             renderPart4();
             renderPart5();
             renderPart6();
-            updateTotalScore();
+            const total = computeExamScore(currentExamId);
+            const disp = document.getElementById('totalScoreText');
+            if (disp) disp.innerText = `${total} / 100 Điểm`;
+
+            const h = (window.location.hash || '').toLowerCase();
+            if (h === '#typing' || h === '#tab-typing') {
+                switchMainTab('tab-typing', true);
+            } else if (restored && currentTab && document.getElementById(currentTab)) {
+                switchMainTab(currentTab, true);
+            }
+            if (restored) {
+                showToast('💾 Đã khôi phục checkpoint bài làm trước đó!');
+            }
         });
     </script>
     <script src="../assets/nav.js?v=6" defer></script>
@@ -3034,10 +4052,18 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 </html>
 """
 
+from l15_18_typing_data import KANJI_15_18_ITEMS, KANJI_11_14_ITEMS, SENTENCE_TYPING_DATA
+kanji_15_18_json_str = json.dumps(KANJI_15_18_ITEMS, ensure_ascii=False)
+kanji_11_14_json_str = json.dumps(KANJI_11_14_ITEMS, ensure_ascii=False)
+sentences_json_str = json.dumps(SENTENCE_TYPING_DATA, ensure_ascii=False)
+
 html_content = (
     HTML_TEMPLATE.replace('__VOCAB_JSON__', vocab_json_str)
     .replace('__KANJI_JSON__', kanji_json_str)
     .replace('__EXAMS_JSON__', exams_json_str)
+    .replace('__KANJI_15_18_JSON__', kanji_15_18_json_str)
+    .replace('__KANJI_11_14_JSON__', kanji_11_14_json_str)
+    .replace('__SENTENCES_JSON__', sentences_json_str)
 )
 
 output_path = os.path.join(WORKSPACE, 'tests/On_Tap_Mini_Test_A2_15_18.html')
