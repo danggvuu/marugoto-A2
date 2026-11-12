@@ -1,0 +1,530 @@
+/* Extracted styles for On_Tap_Cap_Toc_Kanji_11_18_NPBS14 */
+:root {
+    --primary: #4f46e5;
+    --primary-dark: #3730a3;
+    --primary-light: #e0e7ff;
+    --secondary: #0ea5e9;
+    --secondary-light: #e0f2fe;
+    --accent: #f43f5e;
+    --accent-light: #ffe4e6;
+    --success: #10b981;
+    --success-light: #d1fae5;
+    --warning: #f59e0b;
+    --warning-light: #fef3c7;
+    --purple: #8b5cf6;
+    --purple-light: #ede9fe;
+    --amber: #d97706;
+    --dark: #0f172a;
+    --gray-900: #0f172a;
+    --gray-800: #1e293b;
+    --gray-700: #334155;
+    --gray-600: #475569;
+    --gray-500: #64748b;
+    --gray-400: #94a3b8;
+    --gray-300: #cbd5e1;
+    --gray-200: #e2e8f0;
+    --gray-100: #f1f5f9;
+    --gray-50: #f8fafc;
+    --white: #ffffff;
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 18px;
+    --radius-xl: 24px;
+    --radius-full: 9999px;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+    --shadow-md: 0 4px 14px rgba(0,0,0,0.08);
+    --shadow-lg: 0 14px 32px rgba(0,0,0,0.12);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+    background-color: #f1f5f9;
+    color: var(--gray-800);
+    line-height: 1.6;
+    padding: 20px 12px 80px 12px;
+}
+
+.jp-text {
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+.container {
+    max-width: 1240px;
+    margin: 0 auto;
+}
+
+/* Global Hub Nav */
+.global-hub-nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: #ffffff;
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-md);
+    margin-bottom: 24px;
+    box-shadow: var(--shadow-sm);
+    flex-wrap: wrap;
+}
+.hub-nav-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 14px;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    color: var(--gray-700);
+    font-size: 0.88rem;
+    font-weight: 700;
+    transition: all 0.2s;
+}
+.hub-nav-item:hover {
+    background: var(--gray-100);
+    color: var(--primary);
+}
+.hub-nav-item.active-hub {
+    background: var(--purple-light);
+    color: var(--purple);
+    font-weight: 800;
+}
+
+/* Hero Header */
+.hero-banner {
+    background: linear-gradient(135deg, #1e1b4b 0%, #312e81 40%, #4f46e5 100%);
+    border-radius: var(--radius-xl);
+    padding: 38px 28px;
+    color: #ffffff;
+    margin-bottom: 26px;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.15);
+}
+.hero-banner::after {
+    content: "夜";
+    position: absolute;
+    right: 20px;
+    bottom: -30px;
+    font-size: 160px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 900;
+    color: rgba(255,255,255,0.04);
+    pointer-events: none;
+}
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(239, 68, 68, 0.25);
+    border: 1px solid #f87171;
+    padding: 5px 14px;
+    border-radius: var(--radius-full);
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    margin-bottom: 14px;
+    color: #fecaca;
+}
+.hero-title {
+    font-size: 2.1rem;
+    font-weight: 900;
+    line-height: 1.25;
+    margin-bottom: 10px;
+    letter-spacing: -0.5px;
+}
+.hero-desc {
+    font-size: 1.02rem;
+    color: #e0e7ff;
+    max-width: 820px;
+    margin-bottom: 22px;
+    line-height: 1.6;
+}
+.hero-stats {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+}
+.stat-pill {
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 7px 16px;
+    border-radius: var(--radius-full);
+    font-size: 0.88rem;
+    font-weight: 700;
+}
+.hero-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.btn-cram-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 22px;
+    border-radius: var(--radius-md);
+    font-size: 0.92rem;
+    font-weight: 800;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+    color: #ffffff;
+}
+.btn-cram-action:hover {
+    transform: translateY(-2px);
+    opacity: 0.95;
+}
+.btn-purple { background: linear-gradient(135deg, #7c3aed, #9333ea); }
+.btn-green { background: linear-gradient(135deg, #059669, #10b981); }
+.btn-amber { background: linear-gradient(135deg, #d97706, #f59e0b); }
+.btn-sky { background: linear-gradient(135deg, #0284c7, #06b6d4); }
+
+/* Sticky Tabs */
+.tab-nav-wrapper {
+    position: sticky;
+    top: 10px;
+    z-index: 100;
+    margin-bottom: 24px;
+}
+.tab-nav {
+    display: flex;
+    gap: 6px;
+    background: #ffffff;
+    padding: 6px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--gray-200);
+    overflow-x: auto;
+}
+.tab-btn {
+    flex: 1;
+    min-width: 170px;
+    padding: 12px 16px;
+    border: none;
+    background: transparent;
+    color: var(--gray-600);
+    font-size: 0.92rem;
+    font-weight: 800;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    white-space: nowrap;
+}
+.tab-btn:hover {
+    color: var(--primary);
+    background: var(--gray-50);
+}
+.tab-btn.active {
+    background: var(--primary);
+    color: var(--white);
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+}
+
+.tab-panel {
+    display: none;
+}
+.tab-panel.active {
+    display: block;
+    animation: fadeIn 0.25s ease-out;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Toolbar Cards */
+.toolbar-card {
+    background: #ffffff;
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    padding: 20px;
+    margin-bottom: 22px;
+    box-shadow: var(--shadow-sm);
+}
+.filter-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+    align-items: center;
+}
+.filter-btn {
+    padding: 7px 15px;
+    border-radius: var(--radius-full);
+    border: 1.5px solid var(--gray-200);
+    background: #ffffff;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--gray-600);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.filter-btn:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+.filter-btn.active {
+    background: var(--primary);
+    color: #ffffff;
+    border-color: var(--primary);
+    box-shadow: 0 2px 8px rgba(79, 70, 229, 0.25);
+}
+.action-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.search-box {
+    flex: 1;
+    min-width: 260px;
+    position: relative;
+}
+.search-input {
+    width: 100%;
+    padding: 10px 14px 10px 38px;
+    border: 1.5px solid var(--gray-200);
+    border-radius: var(--radius-md);
+    font-size: 0.92rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+.search-input:focus {
+    border-color: var(--primary);
+}
+.search-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--gray-400);
+}
+
+/* Vocab Grid */
+.vocab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+}
+.vocab-card {
+    background: #ffffff;
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-md);
+    padding: 18px;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+.vocab-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: #cbd5e1;
+}
+.vc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 8px;
+}
+.vc-kanji {
+    font-size: 1.65rem;
+    font-weight: 800;
+    color: var(--gray-900);
+    line-height: 1.2;
+}
+.vc-kana {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #059669;
+    margin-bottom: 6px;
+}
+.vc-vi {
+    font-size: 0.95rem;
+    color: var(--gray-700);
+    font-weight: 500;
+    line-height: 1.45;
+}
+.vc-footer {
+    margin-top: 14px;
+    padding-top: 10px;
+    border-top: 1px solid var(--gray-100);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.badge-lesson {
+    font-size: 0.74rem;
+    font-weight: 800;
+    padding: 3px 9px;
+    border-radius: var(--radius-full);
+    background: #ede9fe;
+    color: #6b21a8;
+}
+.badge-group {
+    font-size: 0.74rem;
+    font-weight: 700;
+    padding: 3px 9px;
+    border-radius: var(--radius-full);
+    background: #e0f2fe;
+    color: #0369a1;
+}
+.card-btns {
+    display: flex;
+    gap: 6px;
+}
+.btn-card-action {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    border: 1px solid var(--gray-200);
+    background: #ffffff;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+}
+.btn-card-action:hover {
+    background: var(--gray-100);
+    border-color: var(--primary);
+}
+
+/* FLASHCARD CRAM MODE */
+.cram-box {
+    background: #ffffff;
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--gray-200);
+    padding: 36px 24px;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    max-width: 680px;
+    margin: 0 auto;
+}
+.flashcard-scene {
+    perspective: 1000px;
+    width: 100%;
+    height: 300px;
+    margin: 20px auto 26px auto;
+    cursor: pointer;
+}
+.flashcard {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.4s ease;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+.flashcard.is-flipped {
+    transform: rotateY(180deg);
+}
+.card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: var(--radius-lg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+    box-sizing: border-box;
+}
+.card-front {
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    border: 2px solid #cbd5e1;
+    color: var(--gray-900);
+}
+.card-back {
+    background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+    border: 2px solid #818cf8;
+    color: #ffffff;
+    transform: rotateY(180deg);
+}
+.cram-kanji {
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin-bottom: 12px;
+}
+.cram-kana {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #67e8f9;
+    margin-bottom: 8px;
+}
+.cram-vi {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #f1f5f9;
+}
+.cram-hint {
+    font-size: 0.88rem;
+    color: var(--gray-400);
+    margin-top: 10px;
+}
+.cram-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin-top: 18px;
+}
+.btn-cram-ctrl {
+    padding: 12px 24px;
+    border-radius: var(--radius-md);
+    font-size: 1rem;
+    font-weight: 800;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.btn-prev { background: var(--gray-200); color: var(--gray-800); }
+.btn-next { background: var(--primary); color: #ffffff; }
+.btn-flip { background: var(--purple); color: #ffffff; }
+
+/* Toast */
+.toast {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: #1e293b;
+    color: white;
+    padding: 14px 24px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    font-size: 0.95rem;
+    font-weight: 700;
+    z-index: 9999;
+    display: none;
+    animation: toastPop 0.3s ease;
+}
+@keyframes toastPop {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-title { font-size: 1.6rem; }
+    .cram-kanji { font-size: 2.6rem; }
+    .tab-btn { min-width: 140px; padding: 10px 12px; font-size: 0.85rem; }
+}

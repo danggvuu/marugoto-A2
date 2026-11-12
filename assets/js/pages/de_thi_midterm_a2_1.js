@@ -1,0 +1,1409 @@
+/* Extracted page script for tests/De_Thi_Midterm_A2_1.html */
+const EXAMS_DATA = [{"code": "M101", "name": "Mã Đề M101 (Đề Tổng Hợp Toàn Diện A2-1)", "tag": "📘 Tổng Hợp Bài 1 - 10 • Chuẩn Marugoto A2-1 Can-do", "desc": "Đề khảo sát năng lực toàn diện Marugoto A2-1 (Bài 1 - 10): 100% bám sát 40 câu ôn tập trọng điểm, kiểm soát nghiêm ngặt chỉ dùng 86 chữ Hán đã học.", "timeLimit": 2700, "sections": [{"id": "sec1_vocab", "partNumber": "I", "partTitle": "TỪ VỰNG (語彙 - 10 CÂU)", "partDesc": "Gồm 2 dạng bài: Điền từ thích hợp vào chỗ trống (1-5) và Chọn câu đồng nghĩa (6-10).", "badge": "25 Điểm", "groups": [{"groupTitle": "DẠNG 1: Điền từ vào chỗ trống trong ngoặc (   )", "groupInstruction": "Chọn từ thích hợp nhất trong 4 phương án (A, B, C, D) để hoàn thành câu:", "items": [{"id": 1, "type": "mc", "prompt": "あねは ちゅうごくの ペキンに (   ) います。", "promptVi": "Chị gái tôi đang sống ở Bắc Kinh, Trung Quốc. (Câu 16 trong bộ 40 câu ôn tập)", "options": ["あそんで", "やすんで", "すんで", "まって"], "correct": 2, "explain": "💡 <strong>Động từ chỉ nơi cư trú (Bài 1):</strong><br>• ～に <strong>すんで います</strong>: Đang sinh sống ở... (Đúng theo Câu 16 ôn tập: Chị gái tôi đang sống ở Bắc Kinh).<br>• あそんで: Chơi.<br>• やすんで: Nghỉ ngơi.<br>• まって: Chờ đợi."}, {"id": 2, "type": "mc", "prompt": "一ねんの なかで、(   ) が いちばん 好きです。", "promptVi": "Trong một năm, tôi thích mùa hè nhất vì tôi thích ăn kem. (Câu 24 trong bộ 40 câu ôn tập)", "options": ["夏", "雨", "雪", "雲"], "correct": 0, "explain": "💡 <strong>Từ vựng 4 mùa (Bài 3):</strong><br>• <strong>夏 (なつ)</strong>: Mùa hè (Đúng theo Câu 24 ôn tập: Trong 1 năm, bạn thích mùa nào nhất? - Tôi thích mùa hè nhất).<br>• 雨 (あめ): Mưa.<br>• 雪 (ゆき): Tuyết.<br>• 雲 (くも): Mây."}, {"id": 3, "type": "mc", "prompt": "スーパーは 駅の (   )に あります。", "promptVi": "Siêu thị ở gần nhà ga. (Câu 4 trong bộ 40 câu ôn tập)", "options": ["とおく", "なか", "うえ", "ちかく"], "correct": 3, "explain": "💡 <strong>Từ vựng chỉ vị trí (Bài 5):</strong><br>• 駅の <strong>ちかく (近く)</strong>: Gần nhà ga (Đúng theo Câu 4 ôn tập: Siêu thị ở gần nhà ga).<br>• とおく: Xa.<br>• なか: Bên trong.<br>• うえ: Phía trên."}, {"id": 4, "type": "mc", "prompt": "えいがを みる 前に、カフェへ 行って (   )を かいたいです。", "promptVi": "Trước khi xem phim, tôi muốn đi quán cà phê mua đồ uống. (Câu 13 trong bộ 40 câu ôn tập)", "options": ["きっぷ", "のみもの", "本", "シャツ"], "correct": 1, "explain": "💡 <strong>Từ vựng sinh hoạt (Bài 7-8):</strong><br>• <strong>のみもの (飲み物)</strong>: Đồ uống / nước uống (Đúng theo Câu 13 ôn tập: Trước khi xem phim, tôi muốn đi quán cà phê mua đồ uống).<br>• きっぷ: Vé xe/tàu.<br>• 本: Sách.<br>• シャツ: Áo sơ mi."}, {"id": 5, "type": "mc", "prompt": "うえのこうえんは とても (   ) ゆうめいです。なかに どうぶつえんが あります。", "promptVi": "Công viên Ueno rất rộng và nổi tiếng. Bên trong có sở thú. (Câu 1 trong bộ 40 câu ôn tập)", "options": ["広くて", "せまくて", "高くて", "安くて"], "correct": 0, "explain": "💡 <strong>Nối tính từ đuôi い:</strong><br>• <strong>広い ➔ 広くて</strong>: Rộng và... (Đúng theo câu 1 ôn tập: Công viên Ueno rất rộng và nổi tiếng).<br>• せまい: Hẹp. 高い: Cao/đắt. 安い: Rẻ."}]}, {"groupTitle": "DẠNG 2: Chọn câu có ý nghĩa gần nhất với câu gạch chân", "groupInstruction": "Chọn từ hoặc cụm từ ngắn gọn mang ý nghĩa tương đương nhất với phần gạch chân:", "items": [{"id": 6, "type": "mc", "prompt": "あきはばらは でんきやが <u>たくさん あります</u>から、とても べんりです。", "promptVi": "Akihabara có nhiều cửa hàng điện tử nên rất tiện lợi. (Câu 2 trong bộ 40 câu ôn tập)", "options": ["少なくて", "多くて", "高くて", "やすくて"], "correct": 1, "explain": "💡 <strong>Từ đồng nghĩa (Bài 5):</strong> たくさん あります ＝ <strong>多くて</strong> (nhiều). Ngược nghĩa là 少なくて (ít). Chữ 多 (Đa - nhiều) đã học ở Bài 5."}, {"id": 7, "type": "mc", "prompt": "この へんには <u>かわいらしい</u> ふくやが たくさん あります。", "promptVi": "Ở khu vực này có nhiều cửa hàng thời trang dễ thương. (Câu 3 trong bộ 40 câu ôn tập)", "options": ["かわいい", "こわい", "ふるい", "きたない"], "correct": 0, "explain": "💡 <strong>Từ đồng nghĩa (Bài 7):</strong> かわいらしい ＝ <strong>かわいい</strong> (dễ thương, xinh xắn)."}, {"id": 8, "type": "mc", "prompt": "あさひはくぶつかんへ 行きたいんですが、<u>どうやって 行きますか</u>。", "promptVi": "Tôi muốn đi đến viện bảo tàng Asahi, đi như thế nào? (Câu 6 trong bộ 40 câu ôn tập)", "options": ["何時に 行きますか", "だれと 行きますか", "いくら かかりますか", "行きかたを おしえて ください"], "correct": 3, "explain": "💡 <strong>Cách hỏi đường (Bài 5):</strong> どうやって 行きますか ＝ <strong>行きかたを おしえて ください</strong> (Hãy chỉ cho tôi cách đi). Chữ 行 (Hành) đã học ở Bài 5."}, {"id": 9, "type": "mc", "prompt": "やくそくの 時間を <u>まちがえて</u> しまいました。", "promptVi": "Mình bị nhầm thời gian cuộc hẹn mất rồi... (Câu 10 trong bộ 40 câu ôn tập)", "options": ["はやく 行きました", "ちょうど つきました", "ちがう 時間に 行きました", "わすれませんでした"], "correct": 2, "explain": "💡 <strong>Từ vựng sinh hoạt (Bài 7):</strong> まちがえる (nhầm lẫn) ＝ <strong>ちがう 時間に 行きました</strong> (đã đến vào thời gian khác)."}, {"id": 10, "type": "mc", "prompt": "わたしの しゅみは まんがを たくさん <u>あつめる</u> ことです。", "promptVi": "Sở thích của tôi là sưu tầm thật nhiều truyện tranh. (Câu 40 trong bộ 40 câu ôn tập)", "options": ["うる", "もつ", "すてる", "かりる"], "correct": 1, "explain": "💡 <strong>Từ vựng sở thích (Bài 10):</strong> あつめる (sưu tầm, tích lũy) ＝ <strong>もつ</strong> (có, sở hữu nhiều)."}]}]}, {"id": "sec2_kanji", "partNumber": "II", "partTitle": "HÁN TỰ (漢字 - 10 CÂU)", "partDesc": "Gồm 2 dạng bài: Đọc chữ Hán thành Hiragana (11-15) và Chọn chữ Hán đúng từ Hiragana (16-20) chuẩn 100% chữ Hán Bài 1-10.", "badge": "20 Điểm", "groups": [{"groupTitle": "DẠNG 1: Chọn cách đọc Hiragana đúng cho chữ Hán trong ngoặc 【 】", "groupInstruction": "Chọn cách đọc Hiragana chính xác nhất cho chữ Hán được gạch chân (Chữ Hán Bài 1-10):", "items": [{"id": 11, "type": "mc", "prompt": "学校で いろいろな 【外国語】を 勉強して います。", "promptVi": "Tôi đang học nhiều thứ tiếng nước ngoài ở trường học.", "options": ["そとくにこ", "がいこくご", "がいごくご", "がいこくこと"], "correct": 1, "explain": "💡 <strong>Chữ Hán [Bài 2]: 外 (NGOẠI) + 国 (QUỐC) + 語 (NGỮ)</strong>.<br>• Ghép lại đọc âm On-yomi là <strong>がいこくご</strong>."}, {"id": 12, "type": "mc", "prompt": "きょうは いい 天気で、きれいな 【青空】が 広がって います。", "promptVi": "Hôm nay thời tiết đẹp, bầu trời xanh ngắt trải rộng.", "options": ["せいくう", "あおそら", "しろぞら", "あおぞら"], "correct": 3, "explain": "💡 <strong>Chữ Hán [Bài 4 & 6]: 青 (THANH) + 空 (KHÔNG)</strong>.<br>• Biến âm Renkaku: 空 (そら) ➔ <strong>ぞら</strong> ➔ Đọc đúng là <strong>あおぞら</strong>."}, {"id": 13, "type": "mc", "prompt": "あしたの まちあわせの 【場所】は どこですか。", "promptVi": "Địa điểm hẹn gặp ngày mai là ở đâu thế?", "options": ["はしょ", "ばしょ", "じょうしょ", "ばところ"], "correct": 1, "explain": "💡 <strong>Chữ Hán [Bài 7]: 場 (TRƯỜNG) + 所 (SỞ)</strong>.<br>• Ghép lại đọc là <strong>ばしょ</strong> (có âm đục ば)."}, {"id": 14, "type": "mc", "prompt": "父と 母と いっしょに レストランで 【食事】を しました。", "promptVi": "Tôi đã cùng bố và mẹ dùng bữa ở nhà hàng.", "options": ["たべこと", "しょくし", "しょくじ", "じきじ"], "correct": 2, "explain": "💡 <strong>Chữ Hán [Bài 8]: 食 (THỰC) + 事 (SỰ)</strong>.<br>• Ghép lại đọc âm On là <strong>しょくじ</strong> (có âm đục じ)."}, {"id": 15, "type": "mc", "prompt": "にちようびに ベトナムの 【友達】と こうえんへ 行きました。", "promptVi": "Chủ nhật tôi đã đi công viên cùng người bạn Việt Nam.", "options": ["ゆうだち", "ともだち", "ともたち", "ゆうたち"], "correct": 1, "explain": "💡 <strong>Chữ Hán [Bài 10]: 友 (HỮU) + 達 (ĐẠT)</strong>.<br>• Biến âm đục: 達 (たち) ➔ <strong>だち</strong> ➔ Đọc đúng là <strong>ともだち</strong>."}]}, {"groupTitle": "DẠNG 2: Chọn chữ Hán đúng cho từ Hiragana trong ngoặc 【 】", "groupInstruction": "Chọn chữ Hán viết đúng nhất cho từ Hiragana trong câu (Chữ Hán Bài 1-10):", "items": [{"id": 16, "type": "mc", "prompt": "わたしの へやは 【ひろい】ですから、とても いいです。", "promptVi": "Phòng của tôi rộng rãi nên rất thoải mái.", "options": ["店い", "高い", "安い", "広い"], "correct": 3, "explain": "💡 <strong>Chữ Hán [Bài 5]: 広 (QUẢNG)</strong> ➔ <strong>広い (ひろい)</strong>. Phân biệt: 店 (tiệm), 高 (cao), 安 (an: rẻ)."}, {"id": 17, "type": "mc", "prompt": "えきの ロビーで 十ぷんぐらい 【まって】 ください。", "promptVi": "Xin vui lòng đợi khoảng 10 phút ở sảnh nhà ga.", "options": ["止って", "出って", "待って", "行って"], "correct": 2, "explain": "💡 <strong>Chữ Hán [Bài 7]: 待 (ĐÃI)</strong> ➔ <strong>待つ (まつ)</strong> có bộ Xích (彳). Phân biệt: 止 (chỉ: dừng), 持 (trì: cầm, bộ Thủ 扌)."}, {"id": 18, "type": "mc", "prompt": "きょうは 【てんき】が いいですから、山が よく みえます。", "promptVi": "Hôm nay thời tiết đẹp nên có thể nhìn thấy rõ núi.", "options": ["雨気", "風気", "天気", "空気"], "correct": 2, "explain": "💡 <strong>Chữ Hán [Bài 4]: 天 (THIÊN) + 気 (KHÍ)</strong> ➔ <strong>天気 (てんき)</strong>."}, {"id": 19, "type": "mc", "prompt": "すみません、えきへ 行く 【みち】を おしえて ください。", "promptVi": "Xin lỗi, xin hãy chỉ cho tôi đường đi đến nhà ga.", "options": ["通", "右", "左", "道"], "correct": 3, "explain": "💡 <strong>Chữ Hán [Bài 6]: 道 (ĐẠO)</strong> ➔ <strong>道 (みち)</strong>: Con đường."}, {"id": 20, "type": "mc", "prompt": "まいばん、日本語の ぶんぽうを 一時間 【べんきょう】します。", "promptVi": "Mỗi tối tôi học ngữ pháp tiếng Nhật 1 tiếng.", "options": ["学強", "強勉", "勉強", "生勉"], "correct": 2, "explain": "💡 <strong>Chữ Hán [Bài 9]: 勉 (MIỄN) + 強 (CƯỜNG)</strong> ➔ <strong>勉強 (べんきょう)</strong>."}]}]}, {"id": "sec3_grammar", "partNumber": "III", "partTitle": "NGỮ PHÁP (文法 - 12 CÂU)", "partDesc": "Gồm 3 dạng bài: Trắc nghiệm trợ từ & cấu trúc (21-26), Sắp xếp câu Hái sao ☆ (27-30) và Dịch câu tự luận (31-32).", "badge": "30 Điểm", "groups": [{"groupTitle": "DẠNG 1: Chọn phương án đúng nhất điền vào chỗ trống", "groupInstruction": "Chọn từ / trợ từ thích hợp nhất để hoàn thành câu:", "items": [{"id": 21, "type": "mc", "prompt": "この 道を まっすぐ 行って、ひとつめの かど (   ) 右に まがって ください。", "promptVi": "Đi thẳng con đường này, rồi hãy rẽ phải ở góc đường thứ nhất. (Câu 6 trong bộ 40 câu ôn tập)", "options": ["に", "で", "へ", "を"], "correct": 3, "explain": "💡 <strong>Trợ từ chỉ hành động rẽ:</strong> Đi qua hoặc quẹo ở một địa điểm cụ thể (かど, こうさてん) dùng trợ từ <strong>を</strong> (かどを まがる)."}, {"id": 22, "type": "mc", "prompt": "あした 九時 (   ) しんじゅく駅の にしぐちで あいましょう。", "promptVi": "Ngày mai chúng ta hẹn gặp nhau vào lúc 9 giờ tại cổng tây ga Shinjuku nhé. (Câu 7 trong bộ 40 câu ôn tập)", "options": ["で", "を", "に", "へ"], "correct": 2, "explain": "💡 <strong>Trợ từ thời gian xác định:</strong> Mốc giờ cụ thể (九時, 十時) luôn đi kèm trợ từ <strong>に</strong>."}, {"id": 23, "type": "mc", "prompt": "えいがを みる (   )、カフェで コーヒーを のみたいです。", "promptVi": "Trước khi xem phim, tôi muốn đi quán cà phê uống nước. (Câu 13 trong bộ 40 câu ôn tập)", "options": ["前に", "後で", "から", "ので"], "correct": 0, "explain": "💡 <strong>Cấu trúc: Động từ thể từ điển (Vる) ＋ 前に:</strong> Trước khi làm việc gì (みる前に)."}, {"id": 24, "type": "mc", "prompt": "すみません、その じしょを (   )も いいですか。", "promptVi": "Xin lỗi, có thể cho tôi mượn quyển từ điển đó được không? (Câu 14 trong bộ 40 câu ôn tập)", "options": ["かりて", "かり", "かりる", "かりません"], "correct": 0, "explain": "💡 <strong>Cấu trúc xin phép: Động từ thể て ＋ もいいですか:</strong> かりる (Nhóm 2) ➔ <strong>かりても いいですか</strong>."}, {"id": 25, "type": "mc", "prompt": "とうきょうは おきなわ (   ) 人が 多いです。", "promptVi": "Tokyo thì đông người hơn Okinawa. (Câu 28 trong bộ 40 câu ôn tập)", "options": ["ほど", "より", "のほうが", "いちばん"], "correct": 1, "explain": "💡 <strong>Cấu trúc so sánh hơn: A は B より ～:</strong> Tokyo thì đông người hơn Okinawa ➔ dùng <strong>より</strong>."}, {"id": 26, "type": "mc", "prompt": "たいふう (   )、でんしゃが 止まりました。", "promptVi": "Vì bão nên tàu điện đã dừng chạy. (Câu 35 trong bộ 40 câu ôn tập)", "options": ["で", "に", "を", "へ"], "correct": 0, "explain": "💡 <strong>Trợ từ で chỉ nguyên nhân do biến cố, thời tiết (Bài 4):</strong> たいふう<strong>で</strong> (Do bão) ➔ Đúng theo Câu 35 trong bộ 40 câu ôn tập."}]}, {"groupTitle": "DẠNG 2: Sắp xếp câu tìm từ tại vị trí ngôi sao (★)", "groupInstruction": "Sắp xếp 4 từ/cụm từ theo thứ tự đúng và chọn từ nằm ở vị trí ngôi sao (★):", "items": [{"id": 27, "type": "star", "prompt": "日本語は　＿＿＿　＿＿＿　★　＿＿＿　のが にがてです。", "promptVi": "Tiếng Nhật thì từ vựng nhiều. Và tôi kém việc đọc câu văn. (Câu 39 trong bộ 40 câu ôn tập)", "options": ["ぶんしょうを", "ことばが", "読む", "多いですから、"], "correct": 0, "explain": "💡 <strong>Thứ tự sắp xếp câu:</strong><br>[2] ことばが ➔ [4] 多いですから、 ➔ <strong>★ [1] ぶんしょうを (Vị trí số 3)</strong> ➔ [3] 読む<br>➔ Câu hoàn chỉnh: 日本語は ことばが 多いですから、ぶんしょうを 読む のが にがてです。<br>➔ Vị trí ngôi sao (★) là phương án <strong>[1] ぶんしょうを</strong>."}, {"id": 28, "type": "star", "prompt": "ドラえもんの　＿＿＿　＿＿＿　★　＿＿＿　ありますから。", "promptVi": "Mình thích Doraemon hơn. Vì Doremon có chiếc túi thần kỳ. (Câu 30 trong bộ 40 câu ôn tập)", "options": ["好きです。", "ポケットが", "ほうが", "ふしぎな"], "correct": 3, "explain": "💡 <strong>Thứ tự sắp xếp câu:</strong><br>[3] ほうが ➔ [1] 好きです。 ➔ <strong>★ [4] ふしぎな (Vị trí số 3)</strong> ➔ [2] ポケットが<br>➔ Câu hoàn chỉnh: ドラえもんの ほうが 好きです。ふしぎな ポケットが ありますから。<br>➔ Vị trí ngôi sao (★) là phương án <strong>[4] ふしぎな</strong>."}, {"id": 29, "type": "star", "prompt": "はくぶつかんは　＿＿＿　＿＿＿　★　＿＿＿　あります。", "promptVi": "Bảo tàng thì đi thẳng đường này, ở bên tay trái. (Câu 6 trong bộ 40 câu ôn tập)", "options": ["左がわに", "まっすぐ行くと、", "この", "道を"], "correct": 1, "explain": "💡 <strong>Thứ tự sắp xếp câu:</strong><br>[3] この ➔ [4] 道を ➔ <strong>★ [2] まっすぐ行くと、 (Vị trí số 3)</strong> ➔ [1] 左がわに<br>➔ Câu hoàn chỉnh: はくぶつかんは この 道を まっすぐ行くと、左がわに あります。<br>➔ Vị trí ngôi sao (★) là phương án <strong>[2] まっすぐ行くと、</strong>."}, {"id": 30, "type": "star", "prompt": "わたしは　＿＿＿　＿＿＿　★　＿＿＿　勉強して います。", "promptVi": "Tôi đang học tiếng Nhật 1 tuần 3 lần ở trung tâm. (Câu 32 trong bộ 40 câu ôn tập)", "options": ["日本語を", "週に", "三回", "センターで"], "correct": 2, "explain": "💡 <strong>Thứ tự sắp xếp câu:</strong><br>[4] センターで ➔ [2] 週に ➔ <strong>★ [3] 三回 (Vị trí số 3)</strong> ➔ [1] 日本語を<br>➔ Câu hoàn chỉnh: わたしは センターで 週に 三回 日本語を 勉強して います。<br>➔ Vị trí ngôi sao (★) là phương án <strong>[3] 三回</strong>."}]}, {"groupTitle": "DẠNG 3: Dịch câu tự luận (Việt ➔ Nhật)", "groupInstruction": "Nhập bản dịch tiếng Nhật chính xác cho các câu sau:", "items": [{"id": 31, "type": "trans", "prompt": "Trong 1 năm, tôi thích mùa hè nhất vì tôi thích kem. Và tôi sợ lạnh.", "promptVi": "Câu 24 trong bộ 40 câu ôn tập", "reference": "わたしは 夏が いちばん 好きです。アイスクリームが 好きですから。そして、さむいのが にがてですから。", "acceptAnswers": ["わたしは 夏が いちばん 好きです。アイスクリームが 好きですから。そして、さむいのが にがてですから。", "夏が いちばん 好きです。アイスクリームが 好きですから。さむいのが にがてですから。", "夏が いちばん 好きです。アイスクリームが 好きですから。そして さむいのが にがてですから。", "夏が いちばん 好きです。アイスが 好きですから。そして、さむいのが にがてです。", "夏が いちばん 好きです。アイスクリームが 好きですから。それから、さむいのが にがてです。", "一ねんの なかで、夏が いちばん 好きです。アイスクリームが 好きですから。そして、さむいのが にがてです。", "一ねんで 夏が いちばん 好きです。アイスが 好きですから。そして さむいのが にがてです。", "わたしは なつが いちばん すきです。あいすくりーむが すきですから。そして、さむいのが にがてですから。", "なつが いちばん すきです。あいすくりーむが すきですから。そして、さむいのが にがてですから。", "なつが いちばん すきです。あいすが すきですから。それから、さむいのが にがてです。", "いちねん、なつがいちばんすきですから、クリームがすきです。それから、さむいが にがてです。", "いちねんのなかで なつが いちばん すきです。あいすが すきですから。そして、さむいのが にがてです。", "なつが いちばん すきです。あいすくりーむが すきですから。さむいのが にがてです。"], "hints": ["夏が いちばん 好きです", "アイスクリームが 好きですから", "さむいのが にがてですから"]}, {"id": 32, "type": "trans", "prompt": "Vì bão, nên tàu điện và xe bus dừng chạy.", "promptVi": "Câu 35 trong bộ 40 câu ôn tập", "reference": "たいふうで、でんしゃと バスが 止まりました。", "acceptAnswers": ["たいふうで、でんしゃと バスが 止まりました。", "たいふうで でんしゃと バスが 止まりました。", "たいふうですから、でんしゃと バスが 止まりました。", "たいふうだから、でんしゃと バスが 止まりました。", "たいふうなので、でんしゃと バスが 止まりました。", "たいふうで、バスと でんしゃが 止まりました。", "たいふうで、でんしゃと バスが とまりました。", "たいふうですから、でんしゃと ばすが とまりました。"], "hints": ["たいふうで (do bão)", "でんしゃと バスが (tàu điện và xe bus)", "止まりました (đã dừng lại)"]}]}]}, {"id": "sec4_reading", "partNumber": "IV", "partTitle": "ĐỌC HIỂU (読解 - 2 CÂU TRẮC NGHIỆM)", "partDesc": "Đọc tin nhắn đời sống chân thực và chọn đáp án đúng nhất (Câu 33-34).", "badge": "10 Điểm", "passage": "アンさんへ。\nあしたの やくそくの 時間は 朝 十時です。\nしんじゅく駅の にしぐちで 待って います。\nえきの 前の 道を まっすぐ 行って、右がわに ある 日本りょうりの 店で 食事を しましょう。\nもし 時間に おくれたら、でんわを して ください。\nたなかより", "passageVi": "Gửi bạn An.\nThời gian hẹn ngày mai là 10 giờ sáng.\nMình sẽ đợi bạn ở cổng Tây ga Shinjuku nhé.\nĐi thẳng con đường phía trước nhà ga, chúng mình sẽ cùng dùng bữa ở quán món ăn Nhật Bản nằm ở phía bên tay phải.\nNếu bị muộn giờ thì hãy gọi điện thoại cho mình nhé.\nTừ Tanaka", "items": [{"id": 33, "type": "mc", "prompt": "たなかさんと アンさんは どこで あいますか。", "promptVi": "Tanaka và An sẽ gặp nhau ở đâu?", "options": ["えきの なかの 店", "日本りょうりの 店の なか", "あさひはくぶつかん", "しんじゅく駅の にしぐち"], "correct": 3, "explain": "💡 <strong>Thông tin trong bài:</strong> 「しんじゅく駅の にしぐちで 待って います」 ➔ Hai người hẹn gặp ở cổng Tây ga Shinjuku."}, {"id": 34, "type": "mc", "prompt": "ふたりは あした どこで 食事を しますか。", "promptVi": "Hai người ngày mai ăn cơm ở đâu?", "options": ["日本りょうりの 店", "カフェ", "えきの なか", "学校"], "correct": 0, "explain": "💡 <strong>Thông tin trong bài đọc:</strong> '右がわに ある 日本りょうりの 店で いっしょに ごはんを 食べましょう' ➔ Quán ăn Nhật Bản."}]}, {"id": "sec5_essay", "partNumber": "V", "partTitle": "TỰ LUẬN TRẢ LỜI CÂU HỎI (2 CÂU)", "partDesc": "Viết đoạn văn tối thiểu 50 từ/ký tự theo chủ đề Can-do đời sống Nhật Bản (Câu 35-36).", "badge": "15 Điểm", "items": [{"id": 35, "type": "essay", "prompt": "あなたが すんで いる まちについて かいて ください。（とくちょう、すきな 場所、店など、五十じ いじょう）", "promptVi": "Hãy viết đoạn văn giới thiệu về thành phố nơi bạn đang sống (đặc điểm, nơi bạn thích, cửa hàng... tối thiểu 50 chữ/ký tự).", "minWords": 50, "placeholder": "Gõ đoạn văn tiếng Nhật tại đây (tối thiểu 50 từ/ký tự)... Ví dụ: わたしの まちは とても 広くて、べんりな まちです...", "hints": ["Đặc điểm thành phố: わたしの まちは ～て、～な まちです (広くて べんり / しずかで きれい)", "Có những gì: えきの ちかくに ～が たくさん あります (店 / こうえん)", "Nơi bạn thích: わたしは ～へ 行く ことが 好きです", "Độ dài: Yêu cầu tối thiểu 50 chữ/ký tự"], "modelAnswer": "わたしの まちは とても 広くて、べんりな まちです。えきの ちかくには たくさんの 店が あって、いつも 人が 多いです。わたしは えきの 前の カフェで 音楽を きく ことが 好きです。こうえんも あって、春には きれいな 花が たくさん さきます。とても すみやすい まちですから、ぜひ あそびに きて ください。", "modelVi": "Thành phố của tôi rất rộng và tiện lợi. Gần nhà ga có rất nhiều cửa hàng và lúc nào cũng đông người. Tôi thích nghe nhạc ở quán cà phê trước ga. Thành phố cũng có công viên, mùa xuân có rất nhiều hoa đẹp nở rộ. Đây là một thành phố rất đáng sống, bạn hãy ghé chơi nhé.", "rubric": "Tiêu chí chấm điểm Can-do: Đạt độ dài tối thiểu ≥ 50 từ/ký tự; miêu tả rõ ràng đặc điểm thành phố, sử dụng đúng tính từ nối (広くて) và cấu trúc sở thích (～ことが好き)."}, {"id": 36, "type": "essay", "prompt": "あなたの 日本語の 勉強について おしえて ください。（おもしろい こと、むずかしい こと、れんしゅうの ほうほうなど、五十じ いじょう）", "promptVi": "Hãy viết đoạn văn chia sẻ về việc học tiếng Nhật của bạn (điều thú vị, điều khó khăn, cách luyện tập... tối thiểu 50 chữ/ký tự).", "minWords": 50, "placeholder": "Gõ đoạn văn tiếng Nhật tại đây (tối thiểu 50 từ/ký tự)... Ví dụ: わたしは 学校で 日本語を 勉強して います...", "hints": ["Bạn đang học ở đâu: わたしは 学校 / センターで 日本語を 勉強して います", "Điều thú vị / khó: かん字を かく ことが おもしろい / ぶんしょうを 読む のが むずかしい", "Cách bạn luyện tập: まい日 ～を れんしゅうして います (はなす / まんがを 読む)", "Độ dài: Yêu cầu tối thiểu 50 chữ/ký tự"], "modelAnswer": "わたしは いま、学校で 日本語を 勉強して います。日本語は かんじを かく ことが とても おもしろいです。でも、ことばが 多くて、ぶんしょうを 読む のが 少し むずかしいです。ですから、まい朝 三十ぷん 日本語を はなす れんしゅうを して います。そして、日本の まんがを たくさん 読んで います。これからも いっしょうけんめい がんばりたいです。", "modelVi": "Bây giờ tôi đang học tiếng Nhật ở trường học. Tiếng Nhật thì việc viết chữ Hán rất thú vị. Nhưng từ vựng nhiều và việc đọc câu văn hơi khó một chút. Vì vậy, mỗi sáng tôi đều luyện nói tiếng Nhật 30 phút. Và tôi đọc rất nhiều truyện tranh Nhật Bản. Sau này tôi cũng sẽ cố gắng hết mình.", "rubric": "Tiêu chí chấm điểm Can-do: Đạt độ dài tối thiểu ≥ 50 từ/ký tự; nêu rõ cảm nhận về việc học tiếng Nhật, phương pháp rèn luyện tích cực."}]}]}, {"code": "M102", "name": "Mã Đề M102 (Chuyên Sâu Động Từ & So Sánh)", "tag": "⚡ Thể て • Thể Từ Điển • So Sánh hơn/nhất • Chuẩn A2-1", "desc": "Đề chuyên sâu về Thể liên kết (～てから, ～てもいい, ～てください), Thể từ điển (～まえに, ～ことができる, ～こと), và So sánh (より, どちら, ほう, いちばん) bám sát 40 câu ôn tập.", "timeLimit": 2700, "sections": [{"id": "sec1_vocab", "partNumber": "I", "partTitle": "TỪ VỰNG (語彙 - 10 CÂU)", "partDesc": "Gồm 2 dạng bài: Điền từ thích hợp vào chỗ trống (1-5) và Chọn câu đồng nghĩa (6-10).", "badge": "25 Điểm", "groups": [{"groupTitle": "DẠNG 1: Điền từ vào chỗ trống trong ngoặc (   )", "groupInstruction": "Chọn từ vựng chính xác nhất điền vào khoảng trống câu sau:", "items": [{"id": 1, "type": "mc", "prompt": "わたしは つめたい (   ) を のみたいです。", "promptVi": "Tôi muốn uống cà phê lạnh. (Câu 22 trong bộ 40 câu ôn tập)", "options": ["コーヒー", "シャツ", "ぼうし", "くつ"], "correct": 0, "explain": "💡 <strong>Từ vựng đồ uống:</strong> Đi với động từ 飲む (のみたい - muốn uống) và tính từ つめたい (lạnh) chỉ có thể là <strong>コーヒー</strong> (cà phê). Các từ còn lại là đồ trang phục: シャツ (áo sơ mi), ぼうし (mũ), くつ (giày)."}, {"id": 2, "type": "mc", "prompt": "白い (   ) が ほしいです。", "promptVi": "Tớ muốn có chiếc áo sơ mi trắng. (Câu 21 trong bộ 40 câu ôn tập)", "options": ["おちゃ", "みず", "あめ", "シャツ"], "correct": 3, "explain": "💡 <strong>Từ vựng trang phục & màu sắc:</strong> 白い (trắng) bổ nghĩa cho danh từ chỉ quần áo: <strong>シャツ</strong> (áo sơ mi). Chữ Hán 白 (Bạch) đã học ở Bài 6."}, {"id": 3, "type": "mc", "prompt": "わたしの しゅみは まんがを (   ) ことです。", "promptVi": "Sở thích của tôi là đọc truyện tranh. (Câu 40 trong bộ 40 câu ôn tập)", "options": ["読む", "食べる", "のむ", "行く"], "correct": 0, "explain": "💡 <strong>Cấu trúc sở thích: N / V-る ＋ ことです:</strong> まんが (truyện tranh) đi với động từ <strong>読む</strong> (đọc - chữ Hán 読 học ở Bài 2). まんがを 読む こと: Việc đọc truyện tranh."}, {"id": 4, "type": "mc", "prompt": "フランス語は (   ) が かんたんでは ありません。", "promptVi": "Tiếng Pháp thì phát âm không đơn giản. (Câu 36 trong bộ 40 câu ôn tập)", "options": ["ことば", "ぶんぽう", "かんじ", "はつおん"], "correct": 3, "explain": "💡 <strong>Từ vựng học ngoại ngữ (Bài 2):</strong> <strong>はつおん</strong> (phát âm). Câu 36 ôn tập: 'Tiếng Pháp thì phát âm không đơn giản' ➔ フランス語は はつおんが かんたんでは ありません。"}, {"id": 5, "type": "mc", "prompt": "あした、いっしょに とうきょうタワーを (   )。夜の けしきが きれいですよ。", "promptVi": "Mai bạn ngắm tháp Tokyo với tôi không? Cảnh đêm đẹp lắm đó. (Câu 27 trong bộ 40 câu ôn tập)", "options": ["みました", "みて", "みないで", "みませんか"], "correct": 3, "explain": "💡 <strong>Cấu trúc rủ rê lịch sự: ～ませんか:</strong> 'Cùng ngắm tháp Tokyo với tôi không?' ➔ <strong>みませんか</strong>. Chữ 夜 (Dạ - đêm) đã học ở Bài 8."}]}, {"groupTitle": "DẠNG 2: Chọn câu có ý nghĩa gần nhất với câu gạch chân", "groupInstruction": "Chọn từ hoặc cụm từ ngắn gọn mang ý nghĩa tương đương nhất với phần gạch chân:", "items": [{"id": 6, "type": "mc", "prompt": "とうきょうは おきなわより 人が <u>多い</u>です。", "promptVi": "Tokyo thì đông người hơn Okinawa. (Câu 28 trong bộ 40 câu ôn tập)", "options": ["たくさん います", "すくないです", "ぜんぜん いません", "ちいさいです"], "correct": 0, "explain": "💡 <strong>Quan hệ so sánh (Bài 4):</strong> 人が 多い (nhiều người, đông đúc) ＝ <strong>たくさん います</strong> (có nhiều người). Chữ 多 (Đa) và 人 (Nhân) đều đã học."}, {"id": 7, "type": "mc", "prompt": "えいがを みる 前に、カフェへ 行って のみものを <u>かいたいです</u>。", "promptVi": "Trước khi xem phim, tôi muốn đi quán cà phê mua đồ uống. (Câu 13 trong bộ 40 câu ôn tập)", "options": ["かう つもりです", "のむ つもりです", "みる つもりです", "いく つもりです"], "correct": 0, "explain": "💡 <strong>Cách diễn đạt ý định (Bài 7-8):</strong> ～たい (muốn làm) ＝ <strong>～つもり</strong> (dự định, có ý định làm). かいたいです ＝ かう つもりです (muốn mua đồ uống)."}, {"id": 8, "type": "mc", "prompt": "ドラえもんの ほうが 好きです。<u>ふしぎな</u> ポケットが ありますから。", "promptVi": "Mình thích Doraemon hơn. Vì Doraemon có chiếc túi thần kỳ. (Câu 30 trong bộ 40 câu ôn tập)", "options": ["ふつうの", "すごい", "ちいさな", "ふるい"], "correct": 1, "explain": "💡 <strong>Tính từ cảm thán (Bài 10):</strong> ふしぎな (kỳ diệu, thần kỳ) ＝ <strong>すごい</strong> (tuyệt vời, phi thường)."}, {"id": 9, "type": "mc", "prompt": "ベトナム語は はなす ことが <u>むずかしい</u>です。", "promptVi": "Tiếng Việt thì việc nói chuyện khó khăn. (Câu 37 trong bộ 40 câu ôn tập)", "options": ["とくいです", "かんたんです", "おもしろいです", "たいへんです"], "correct": 3, "explain": "💡 <strong>Tính từ chỉ độ khó (Bài 2):</strong> むずかしい (khó khăn) ＝ <strong>たいへんです</strong> (vất vả, khó). Ngược nghĩa là かんたんです."}, {"id": 10, "type": "mc", "prompt": "あの 店は 駅の <u>ちかく</u>に あります。", "promptVi": "Cửa hàng đó ở gần nhà ga. (Câu 4 trong bộ 40 câu ôn tập)", "options": ["とおく", "なか", "すぐ そば", "うしろ"], "correct": 2, "explain": "💡 <strong>Từ vựng vị trí (Bài 5):</strong> ちかく (gần) ＝ <strong>すぐ そば</strong> (ngay sát cạnh bên). Chữ 駅 và 店 đều đã học."}]}]}, {"id": "sec2_kanji", "partNumber": "II", "partTitle": "HÁN TỰ (漢字 - 10 CÂU)", "partDesc": "Kiểm tra năng lực nhận diện âm đọc và chữ viết Hán tự đã học (Bài 1 - 10).", "badge": "25 Điểm", "groups": [{"groupTitle": "DẠNG 1: Chọn cách đọc Hiragana đúng cho chữ Hán trong ngoặc 【 】", "groupInstruction": "Chọn âm đọc chính xác của chữ Hán trong câu:", "items": [{"id": 11, "type": "mc", "prompt": "まい朝、七時に えきを 【出】ます。", "promptVi": "Mỗi sáng, tôi ra khỏi ga lúc 7 giờ.", "options": ["で", "ま", "と", "い"], "correct": 0, "explain": "💡 <strong>Chữ 出 (XUẤT - Bài 7):</strong> Âm Kun là <strong>で (る)</strong>. 出ます đọc là <strong>でます</strong> (đi ra, rời khỏi)."}, {"id": 12, "type": "mc", "prompt": "駅で 友だちを 【待】ちます。", "promptVi": "Tôi đợi bạn ở nhà ga.", "options": ["も", "ま", "と", "た"], "correct": 1, "explain": "💡 <strong>Chữ 待 (ĐÃI - Bài 7):</strong> Âm Kun là <strong>ま (つ)</strong>. 待ちます đọc là <strong>まちます</strong> (chờ, đợi)."}, {"id": 13, "type": "mc", "prompt": "バスが 【止】まりました。", "promptVi": "Xe buýt đã dừng lại.", "options": ["とま", "と", "の", "で"], "correct": 1, "explain": "💡 <strong>Chữ 止 (CHỈ - Bài 7):</strong> Âm Kun là <strong>と (まる)</strong>. 止まりました đọc là <strong>とまりました</strong> (đã dừng)."}, {"id": 14, "type": "mc", "prompt": "この 【道】を まっすぐ 行って ください。", "promptVi": "Xin hãy đi thẳng con đường này. (Câu 6 trong bộ 40 câu ôn tập)", "options": ["まち", "かわ", "やま", "みち"], "correct": 3, "explain": "💡 <strong>Chữ 道 (ĐẠO - Bài 6):</strong> Âm Kun là <strong>みち</strong> (con đường). Tránh nhầm với 町 (まち - thị trấn), 川 (かわ - con sông), 山 (やま - ngọn núi)."}, {"id": 15, "type": "mc", "prompt": "スーパーは 【駅】の ちかくに あります。", "promptVi": "Siêu thị ở gần nhà ga. (Câu 4 trong bộ 40 câu ôn tập)", "options": ["みち", "まち", "えき", "みせ"], "correct": 2, "explain": "💡 <strong>Chữ 駅 (DỊCH - Bài 7):</strong> Đọc là <strong>えき</strong> (nhà ga)."}]}, {"groupTitle": "DẠNG 2: Chọn chữ Hán đúng cho từ Hiragana trong ngoặc 【 】", "groupInstruction": "Chọn chữ Hán chính xác trong 4 phương án cho từ được gạch dưới:", "items": [{"id": 16, "type": "mc", "prompt": "あしたの 【あさ】 九時に あいましょう。", "promptVi": "9h sáng mai chúng ta gặp nhau nhé. (Câu 7 trong bộ 40 câu ôn tập)", "options": ["昼", "朝", "夜", "今"], "correct": 1, "explain": "💡 <strong>Chữ 朝 (TRIÊU - Bài 8):</strong> Đọc là <strong>あさ</strong> (buổi sáng). Các chữ phân biệt: 昼 (ひる - trưa), 夜 (よる - đêm), 今 (いま - bây giờ)."}, {"id": 17, "type": "mc", "prompt": "ごはんの 【まえ】に、てを あらいます。", "promptVi": "Trước bữa ăn, tôi rửa tay.", "options": ["後", "前", "右", "左"], "correct": 1, "explain": "💡 <strong>Chữ 前 (TIỀN - Bài 8):</strong> Đọc là <strong>まえ</strong> (phía trước, trước khi). Chữ 後 (HẬU - Bài 8) đọc là あと/うしろ."}, {"id": 18, "type": "mc", "prompt": "じゅぎょうの 【あと】で、としょかんへ 行きます。", "promptVi": "Sau giờ học, tôi đi đến thư viện.", "options": ["前", "待", "後", "止"], "correct": 2, "explain": "💡 <strong>Chữ Hán: 後 (Hậu):</strong> Trong từ 【あと】 (sau). 【じゅぎょうの 後で】: Sau giờ học. Chữ 行 đã học ở Bài 5."}, {"id": 19, "type": "mc", "prompt": "あそこで バスに 【の】ります。", "promptVi": "Tôi lên xe buýt ở đằng kia.", "options": ["出", "待", "乗", "行"], "correct": 2, "explain": "💡 <strong>Chữ 乗 (THỪA - Bài 8):</strong> Âm Kun là <strong>の (る)</strong> (lên xe, đi tàu xe: 乗ります - のります)."}, {"id": 20, "type": "mc", "prompt": "にちようびに 【ともだち】と あそびます。", "promptVi": "Chủ nhật tôi đi chơi cùng bạn bè.", "options": ["友達", "先生", "学校", "留学生"], "correct": 0, "explain": "💡 <strong>Chữ 友達 (HỮU ĐẠT - Bài 10):</strong> Đọc là <strong>ともだち</strong> (bạn bè). Cả 2 chữ 友 và 達 đều được học ở Bài 10."}]}]}, {"id": "sec3_grammar", "partNumber": "III", "partTitle": "NGỮ PHÁP (文法 - 12 CÂU)", "partDesc": "Kiểm tra thể liên kết, thể từ điển, cấu trúc xin phép, so sánh và sắp xếp câu sao (★).", "badge": "25 Điểm", "groups": [{"groupTitle": "DẠNG 1: Chọn phương án đúng nhất điền vào chỗ trống", "groupInstruction": "Chọn từ/thể ngữ pháp chính xác nhất điền vào chỗ trống trong ngoặc (   ):", "items": [{"id": 21, "type": "mc", "prompt": "すみません、その じしょを かり (   ) も いいですか。", "promptVi": "Xin lỗi, có thể cho tôi mượn quyển từ điển đó được không? (Câu 14 trong bộ 40 câu ôn tập)", "options": ["たら", "ては", "ても", "のに"], "correct": 2, "explain": "💡 <strong>Cấu trúc xin phép lịch sự: V-てもいいですか:</strong> かりる (Nhóm 2) ➔ かりて ＋ もいいですか (Tôi mượn có được không?)."}, {"id": 22, "type": "mc", "prompt": "ええ、どうぞ (   ) ください。", "promptVi": "Được chứ, bạn hãy dùng đi. (Câu 14 trong bộ 40 câu ôn tập)", "options": ["つかい", "つかって", "つかう", "つかいます"], "correct": 1, "explain": "💡 <strong>Cấu trúc yêu cầu / khuyến khích nhẹ nhàng: V-てください:</strong> つかう ➔ thể て là <strong>つかって</strong>."}, {"id": 23, "type": "mc", "prompt": "えいがを (   ) 前に、カフェへ 行って おちゃを のみたいです。", "promptVi": "Trước khi xem phim, tôi muốn đi quán cà phê uống trà. (Câu 13 trong bộ 40 câu ôn tập)", "options": ["みます", "みて", "みない", "みる"], "correct": 3, "explain": "💡 <strong>Cấu trúc trình tự thời gian (Bài 8): Động từ thể từ điển (V-る) ＋ 前に:</strong> Trước khi xem phim ➔ <strong>みる 前に</strong>. Đúng theo Câu 13 trong bộ 40 câu ôn tập."}, {"id": 24, "type": "mc", "prompt": "ポケモンと ドラえもんと、(   ) が 好きですか。", "promptVi": "Giữa Pokemon và Doraemon, bạn thích cái nào hơn? (Câu 30 trong bộ 40 câu ôn tập)", "options": ["どこ", "だれ", "どちら", "いくら"], "correct": 2, "explain": "💡 <strong>Cấu trúc so sánh chọn 1 trong 2: Aと Bと どちらが ～:</strong> Khi so sánh giữa 2 đối tượng, bắt buộc dùng từ để hỏi <strong>どちら</strong> (bên nào, cái nào)."}, {"id": 25, "type": "mc", "prompt": "日本で どこが (   ) さむいですか。", "promptVi": "Ở Nhật Bản, ở đâu là lạnh nhất? (Câu 29 trong bộ 40 câu ôn tập)", "options": ["もっと", "あまり", "ぜんぜん", "いちばん"], "correct": 3, "explain": "💡 <strong>Cấu trúc so sánh nhất trong phạm vi: [Phạm vi] で [Từ để hỏi] が いちばん ～:</strong> Ở Nhật thì ở đâu lạnh nhất ➔ dùng <strong>いちばん</strong>."}, {"id": 26, "type": "mc", "prompt": "たいふう (   )、でんしゃと バスが 止まりました。", "promptVi": "Vì bão, nên tàu điện và xe buýt dừng chạy. (Câu 35 trong bộ 40 câu ôn tập)", "options": ["に", "を", "で", "へ"], "correct": 2, "explain": "💡 <strong>Trợ từ で chỉ nguyên nhân do thiên tai, biến cố: N(thiên tai) + で:</strong> たいふうで (Do bão) nên tàu xe dừng lại."}]}, {"groupTitle": "DẠNG 2: Sắp xếp câu tìm từ tại vị trí ngôi sao (★)", "groupInstruction": "Sắp xếp 4 cụm từ theo đúng ngữ pháp và chọn từ nằm ở vị trí ngôi sao (★):", "items": [{"id": 27, "type": "star", "prompt": "えいがを [  ] [  ] [ ★ ] [  ] みずを かいたいです。", "promptVi": "Trước khi xem phim, tôi muốn đi quán cà phê mua nước. (Câu 13)", "options": ["前に、", "行って", "みる", "カフェへ"], "correct": 3, "explain": "💡 <strong>Thứ tự sắp xếp câu:</strong><br>[3] みる ➔ [1] 前に、 ➔ <strong>★ [4] カフェへ (Vị trí số 3)</strong> ➔ [2] 行って<br>➔ Câu hoàn chỉnh: えいがを みる 前に、カフェへ 行って みずを かいたいです。<br>➔ Vị trí ngôi sao (★) là phương án <strong>[4] カフェへ</strong>."}, {"id": 28, "type": "star", "prompt": "ポケモンと [  ] [  ] [ ★ ] [  ] 好きですか。", "promptVi": "Giữa Pokemon và Doraemon, bạn thích cái nào hơn? (Câu 30)", "options": ["が", "ドラえもんと、", "いちばん", "どちら"], "correct": 0, "explain": "💡 <strong>Thứ tự sắp xếp câu:</strong><br>[2] ドラえもんと、 ➔ [4] どちら ➔ <strong>★ [1] が (Vị trí số 3)</strong> ➔ [3] いちばん<br>➔ Câu hoàn chỉnh: ポケモンと ドラえもんと、どちらが いちばん 好きですか。<br>➔ Vị trí ngôi sao (★) là phương án <strong>[1] が</strong>."}, {"id": 29, "type": "star", "prompt": "とうきょうは [  ] [  ] [ ★ ] [  ] 多いです。", "promptVi": "Tokyo thì đông người hơn Okinawa. (Câu 28)", "options": ["より", "とても", "人が", "おきなわ"], "correct": 2, "explain": "💡 <strong>Thứ tự sắp xếp câu:</strong><br>[4] おきなわ ➔ [1] より ➔ <strong>★ [3] 人が (Vị trí số 3)</strong> ➔ [2] とても<br>➔ Câu hoàn chỉnh: とうきょうは おきなわより 人が とても 多いです。<br>➔ Vị trí ngôi sao (★) là phương án <strong>[3] 人が</strong>."}, {"id": 30, "type": "star", "prompt": "私の しゅみは [  ] [  ] [ ★ ] [  ] ことです。", "promptVi": "Sở thích của tôi là đọc truyện tranh. (Câu 40)", "options": ["まんがを", "たくさん", "読む", "日本の"], "correct": 1, "explain": "💡 <strong>Thứ tự sắp xếp câu:</strong><br>[4] 日本の ➔ [1] まんがを ➔ <strong>★ [2] たくさん (Vị trí số 3)</strong> ➔ [3] 読む<br>➔ Câu hoàn chỉnh: 私の しゅみは 日本の まんがを たくさん 読む ことです。<br>➔ Vị trí ngôi sao (★) là phương án <strong>[2] たくさん</strong>."}]}, {"groupTitle": "DẠNG 3: Dịch câu tự luận (Việt ➔ Nhật)", "groupInstruction": "Nhập bản dịch tiếng Nhật chính xác cho các câu sau:", "items": [{"id": 31, "type": "trans", "prompt": "Tiếng Việt thì việc nói chuyện khó.", "promptVi": "Câu 37 trong bộ 40 câu ôn tập", "reference": "ベトナム語は はなす ことが むずかしいです。", "acceptAnswers": ["ベトナム語は はなす ことが むずかしいです。", "ベトナム語は はなす のが むずかしいです。", "ベトナム語は はなす ことが たいへんです。", "ベトナム語は はなす のが たいへんです。", "ベトナムごは はなす ことが むずかしいです。", "ベトナムごは はなす のが むずかしいです。", "べとなむごは はなす ことが むずかしいです。", "べとなむごは はなす のが むずかしいです。", "ベトナム語は かいわが むずかしいです。"], "hints": ["ベトナム語は", "はなす ことが / のが", "むずかしいです"]}, {"id": 32, "type": "trans", "prompt": "Tôi muốn có chiếc áo sơ mi trắng.", "promptVi": "Câu 21 trong bộ 40 câu ôn tập", "reference": "白い シャツが ほしいです。", "acceptAnswers": ["白い シャツが ほしいです。", "わたしは 白い シャツが ほしいです。", "白いシャツが ほしいです。", "白い シャツを ほしいです。", "しろい シャツが ほしいです。", "わたしは しろい シャツが ほしいです。", "しろい しゃつが ほしいです。", "白い ふくが ほしいです。"], "hints": ["白い (しろい)", "シャツが", "ほしいです"]}]}]}, {"id": "sec4_reading", "partNumber": "IV", "partTitle": "ĐỌC HIỂU (読解 - 2 CÂU TRẮC NGHIỆM)", "partDesc": "Đọc bài viết chia sẻ về sở thích, việc học và chọn đáp án chính xác nhất (Câu 33-34).", "badge": "10 Điểm", "passage": "わたしは いま、学校で 日本語を 勉強して います。\n日本語は かんじを かく ことが とても おもしろいです。でも、ことばが 多くて、ぶんしょうを 読む のが 少し むずかしいです。\nわたしの しゅみは まんがを 読む ことです。日本の まんがが 好きですから、いえに たくさん あります。\nえいがを みる 前に、カフェへ 行って つめたい コーヒーを のむ のも 好きです。\nらいねん、日本へ 友達と 旅行に 行ってみたいです。", "passageVi": "Bây giờ tôi đang học tiếng Nhật ở trường học.\nTiếng Nhật thì việc viết chữ Hán rất thú vị. Nhưng từ vựng nhiều và việc đọc câu văn hơi khó một chút.\nSở thích của tôi là đọc truyện tranh. Vì tôi thích truyện tranh Nhật Bản nên ở nhà có rất nhiều.\nTrước khi xem phim, tôi cũng thích ghé quán cà phê để uống cà phê lạnh.\nNăm sau, tôi rất muốn đi du lịch Nhật Bản cùng bạn bè.", "items": [{"id": 33, "type": "mc", "prompt": "この 人は 日本語の 何が おもしろいですか。", "promptVi": "Người này thấy điều gì ở tiếng Nhật thú vị?", "options": ["ぶんしょうを 読む こと", "かんじを かく こと", "ことばを おぼえる こと", "テストを うける こと"], "correct": 1, "explain": "💡 <strong>Thông tin trong bài đọc:</strong> 「日本語は かんじを かく ことが とても おもしろいです」 ➔ Việc viết chữ Hán rất thú vị."}, {"id": 34, "type": "mc", "prompt": "この 人は えいがを みる 前に 何を しますか。", "promptVi": "Người này làm gì trước khi xem phim?", "options": ["カフェで つめたい コーヒーを のみます。", "まんがを 読みます。", "日本へ 旅行に 行きます。", "学校で 勉強します。"], "correct": 0, "explain": "💡 <strong>Thông tin trong bài đọc:</strong> 「えいがを みる 前に、カフェへ 行って つめたい コーヒーを のむ のも 好きです」 ➔ Đi quán cà phê uống cà phê lạnh."}]}, {"id": "sec5_essay", "partNumber": "V", "partTitle": "TỰ LUẬN TRẢ LỜI CÂU HỎI (2 CÂU)", "partDesc": "Viết đoạn văn ngắn trả lời câu hỏi và bài luận theo chủ đề (tối thiểu 50 chữ/ký tự).", "badge": "15 Điểm", "items": [{"id": 35, "type": "essay", "prompt": "あなたの しゅみは 何ですか。（すきな こと、よく することなどを かいて ください）", "promptVi": "Sở thích của bạn là gì? Hãy chia sẻ về điều bạn thích làm khi rảnh rỗi.", "minWords": 30, "placeholder": "Gõ câu trả lời tiếng Nhật tại đây... Ví dụ: わたしの しゅみは まんがを 読む ことです...", "hints": ["Cấu trúc sở thích: わたしの しゅみは ～ ことです (まんがを 読む / おんがくを きく)", "Nêu tần suất / nơi làm: やすみの 日に うちで / 週に 三回...", "Cảm xúc: とても おもしろい / たのしいです"], "modelAnswer": "わたしの しゅみは まんがを 読む ことです。日本の まんがが 好きですから、いえに たくさん あります。やすみの 日に、へやで 音楽を ききながら 読みます。とても たのしい 時間です。", "modelVi": "Sở thích của tôi là đọc truyện tranh. Vì tôi thích truyện tranh Nhật Bản nên ở nhà có rất nhiều. Vào ngày nghỉ, tôi vừa nghe nhạc trong phòng vừa đọc. Đó là khoảng thời gian rất vui vẻ.", "rubric": "Tiêu chí chấm điểm Can-do: Sử dụng đúng cấu trúc sở thích (～ことです), nêu rõ cảm xúc và bối cảnh thực hiện."}, {"id": 36, "type": "essay", "prompt": "一ねんの なかで どの きせつが いちばん 好きですか。その りゆうも おしえて ください。（五十じ いじょう）", "promptVi": "Trong 4 mùa của năm, bạn thích nhất mùa nào? Hãy giải thích rõ lý do tại sao (Viết đoạn văn tối thiểu 50 chữ/ký tự).", "minWords": 50, "placeholder": "Gõ đoạn văn tiếng Nhật tại đây (tối thiểu 50 từ/ký tự)... Ví dụ: わたしは 夏が いちばん 好きです...", "hints": ["Mùa yêu thích nhất: わたしは [春 / 夏 / 秋 / 冬] が いちばん 好きです", "Lý do thời tiết: 天気が いいですから / さむくないですから", "Hoạt động / Đồ ăn: アイスクリームを たべる / 花を みる / 旅行に 行く", "Độ dài: Tối thiểu 50 chữ/ký tự"], "modelAnswer": "わたしは 夏が いちばん 好きです。夏は 天気が よくて、海へ 行く ことが できますから。そして、つめたい アイスクリームを たべる のが 好きです。冬は とても さむくて、外へ 出る のが にがてですから、あたたかい 夏の ほうが 好きです。", "modelVi": "Tôi thích mùa hè nhất. Vì mùa hè thời tiết đẹp và tôi có thể đi biển. Và tôi thích ăn kem lạnh. Mùa đông thì rất lạnh, tôi rất ngại đi ra ngoài nên tôi thích mùa hè ấm áp hơn.", "rubric": "Tiêu chí chấm điểm Can-do: Đạt độ dài tối thiểu ≥ 50 từ/ký tự; nêu rõ mùa ưa thích bằng cấu trúc so sánh nhất (いちばん好き), sử dụng cấu trúc chỉ lý do (～から) và so sánh hơn (～のほうが好き)."}]}]}, {"code": "M103", "name": "Mã Đề M103 (Chỉ Đường, Không Gian & Thời Tiết 4 Mùa)", "tag": "🗺️ Phương Hướng • Màu Sắc • Khí Hậu 4 Mùa • Chuẩn A2-1", "desc": "Đề chuyên sâu về chỉ dẫn đường đi (まっすぐ, 右, 左, かどを曲がる), miêu tả màu sắc hình dáng tòa nhà (赤, 青, 白, 黒), và thời tiết các mùa (春, 夏, 秋, 冬, 天気, 雨, 雪, 風, 雲).", "timeLimit": 2700, "sections": [{"id": "sec1_vocab", "partNumber": "I", "partTitle": "TỪ VỰNG (語彙 - 10 CÂU)", "partDesc": "Gồm 2 dạng bài: Điền từ thích hợp vào chỗ trống (1-5) và Chọn câu đồng nghĩa (6-10).", "badge": "25 Điểm", "groups": [{"groupTitle": "DẠNG 1: Điền từ vào chỗ trống trong ngoặc (   )", "groupInstruction": "Chọn từ vựng chính xác nhất điền vào khoảng trống câu sau:", "items": [{"id": 1, "type": "mc", "prompt": "あそこに (   ) はしが みえますか。", "promptVi": "Bạn có nhìn thấy cây cầu màu đỏ ở đằng kia không? (Câu 5 trong bộ 40 câu ôn tập)", "options": ["青い", "白い", "黒い", "赤い"], "correct": 3, "explain": "💡 <strong>Từ vựng màu sắc (Bài 6):</strong> Cây cầu màu đỏ ➔ <strong>赤い</strong> (あかい). Các màu khác: 青い (xanh), 白い (trắng), 黒い (đen)."}, {"id": 2, "type": "mc", "prompt": "この 道を (   ) 行って ください。はくぶつかんは 左がわに あります。", "promptVi": "Hãy đi thẳng con đường này. Bảo tàng ở bên tay trái. (Câu 6 trong bộ 40 câu ôn tập)", "options": ["まっすぐ", "ゆっくり", "たくさん", "あまり"], "correct": 0, "explain": "💡 <strong>Phó từ chỉ phương hướng (Bài 6):</strong> <strong>まっすぐ</strong> (thẳng, đi thẳng: まっすぐ行く)."}, {"id": 3, "type": "mc", "prompt": "あそこに まるくて (   ) たてものが みえますか。", "promptVi": "Bạn có nhìn thấy tòa nhà hình tròn, thú vị ở đằng kia không? (Câu 8 trong bộ 40 câu ôn tập)", "options": ["ふるい", "たかい", "すくない", "おもしろい"], "correct": 3, "explain": "💡 <strong>Từ vựng tính từ (Bài 6):</strong> まるくて (tròn và) ＋ <strong>おもしろい</strong> (thú vị, lạ mắt)."}, {"id": 4, "type": "mc", "prompt": "私の いえの となりに 青くて (   ) たてものが あります。", "promptVi": "Ở cạnh nhà tôi có tòa nhà màu xanh, thon dài. (Câu 9 trong bộ 40 câu ôn tập)", "options": ["まるい", "ひろい", "やすい", "ほそながい"], "correct": 3, "explain": "💡 <strong>Từ vựng hình dáng (Bài 6):</strong> <strong>ほそながい</strong> (thon dài, mảnh khảnh). 青くて ほそながい: màu xanh và thon dài."}, {"id": 5, "type": "mc", "prompt": "うえのこうえんは とても 広くて (   ) です。なかに どうぶつえんが あります。", "promptVi": "Công viên Ueno rất rộng và nổi tiếng. Bên trong có sở thú. (Câu 1 trong bộ 40 câu ôn tập)", "options": ["ゆうめい", "べんり", "しずか", "すき"], "correct": 0, "explain": "💡 <strong>Từ vựng miêu tả thành phố (Bài 5):</strong> 広くて <strong>ゆうめい</strong> (rộng rãi và nổi tiếng)."}]}, {"groupTitle": "DẠNG 2: Chọn câu có ý nghĩa gần nhất với câu gạch chân", "groupInstruction": "Chọn từ hoặc cụm từ ngắn gọn mang ý nghĩa tương đương nhất với phần gạch chân:", "items": [{"id": 6, "type": "mc", "prompt": "ハノイの 秋は <u>きれいで</u>、しずかです。", "promptVi": "Mùa thu Hà Nội rất đẹp và yên bình. (Câu 33 trong bộ 40 câu ôn tập)", "options": ["きたなくて", "あつくて", "すてきで", "うるさくて"], "correct": 2, "explain": "💡 <strong>Tính từ khen ngợi (Bài 3):</strong> きれい (đẹp, thanh lịch) ＝ <strong>すてき</strong> (tuyệt vời, tươi đẹp). Chữ 秋 (Thu) đã học ở Bài 3."}, {"id": 7, "type": "mc", "prompt": "私の いえの となりに 青くて <u>ほそながい</u> たてものが あります。", "promptVi": "Ở cạnh nhà tôi có tòa nhà màu xanh, thon dài. (Câu 9 trong bộ 40 câu ôn tập)", "options": ["まるくて おおきい", "ひろくて ひくい", "ながくて ほそい", "みじかくて おもい"], "correct": 2, "explain": "💡 <strong>Tính từ ghép hình dáng (Bài 5):</strong> ほそながい ＝ <strong>ながくて ほそい</strong> (thon và dài)."}, {"id": 8, "type": "mc", "prompt": "たいふうで、でんしゃと バスが <u>止まりました</u>。", "promptVi": "Vì bão nên tàu điện và xe buýt đã dừng chạy. (Câu 35 trong bộ 40 câu ôn tập)", "options": ["はしりました", "うごきませんでした", "つきました", "でました"], "correct": 1, "explain": "💡 <strong>Động từ chỉ trạng thái giao thông (Bài 4):</strong> 止まりました (đã dừng lại) ＝ <strong>うごきませんでした</strong> (đã không di chuyển/hoạt động). Chữ 止 đã học ở Bài 7."}, {"id": 9, "type": "mc", "prompt": "お母さんは とても かわいくて、<u>しんせつな</u> 人です。", "promptVi": "Mẹ tôi là người rất dễ thương và tốt bụng. (Câu 20 trong bộ 40 câu ôn tập)", "options": ["やさしい", "こわい", "きびしい", "つめたい"], "correct": 0, "explain": "💡 <strong>Tính từ tính cách (Bài 1):</strong> しんせつな (tốt bụng, ân cần) ＝ <strong>やさしい</strong> (hiền hậu, tốt bụng). Chữ 母 và 人 đều đã học."}, {"id": 10, "type": "mc", "prompt": "十二月ごろ、さむく なりますから、<u>あまり 外へ 出ません</u>。", "promptVi": "Khoảng tháng 12 trời trở lạnh nên tôi không hay ra ngoài lắm. (Câu 33 trong bộ 40 câu ôn tập)", "options": ["まい日 外へ 出る", "旅行に よく 行く", "うちに いる ことが 多い", "外で あそぶ"], "correct": 2, "explain": "💡 <strong>Cách nói tương đương sinh hoạt (Bài 3-4):</strong> あまり 外へ 出ません (ít khi ra ngoài) ＝ <strong>うちに いる ことが 多い</strong> (thường ở trong nhà). Chữ 外, 出, 多 đều đã học."}]}]}, {"id": "sec2_kanji", "partNumber": "II", "partTitle": "HÁN TỰ (漢字 - 10 CÂU)", "partDesc": "Kiểm tra nhận diện âm Hiragana và chữ Hán chủ đề thiên nhiên, thời tiết, phương hướng (Bài 1 - 10).", "badge": "25 Điểm", "groups": [{"groupTitle": "DẠNG 1: Chọn cách đọc Hiragana đúng cho chữ Hán trong ngoặc 【 】", "groupInstruction": "Chọn âm đọc chính xác của chữ Hán trong câu:", "items": [{"id": 11, "type": "mc", "prompt": "ハノイは 九月ごろ 【秋】に なります。", "promptVi": "Hà Nội khoảng tháng 9 sang mùa thu.", "options": ["はる", "なつ", "ふゆ", "あき"], "correct": 3, "explain": "💡 <strong>Chữ 秋 (THU - Bài 3):</strong> Đọc là <strong>あき</strong> (mùa thu). Phân biệt: 春 (はる - xuân), 夏 (なつ - hạ), 冬 (ふゆ - đông)."}, {"id": 12, "type": "mc", "prompt": "きょうは 【天気】が とても いいです。", "promptVi": "Hôm nay thời tiết rất đẹp.", "options": ["てんき", "でんき", "げんき", "くうき"], "correct": 0, "explain": "💡 <strong>Chữ 天気 (THIÊN KHÍ - Bài 4):</strong> Đọc là <strong>てんき</strong> (thời tiết)."}, {"id": 13, "type": "mc", "prompt": "きのう、白い 【雪】が ふりました。", "promptVi": "Hôm qua tuyết trắng đã rơi.", "options": ["あめ", "くも", "かぜ", "ゆき"], "correct": 3, "explain": "💡 <strong>Chữ 雪 (TUYẾT - Bài 4):</strong> Đọc là <strong>ゆき</strong> (tuyết). Phân biệt: 雨 (あめ - mưa), 雲 (くも - mây), 風 (かぜ - gió)."}, {"id": 14, "type": "mc", "prompt": "その かどを 【右】に まがって ください。", "promptVi": "Hãy rẽ phải ở góc đường đó.", "options": ["ひだり", "まえ", "みぎ", "うしろ"], "correct": 2, "explain": "💡 <strong>Chữ 右 (HỮU - Bài 6):</strong> Đọc là <strong>みぎ</strong> (bên phải). Chữ 左 (TẢ - Bài 6) đọc là ひだり (bên trái)."}, {"id": 15, "type": "mc", "prompt": "はくぶつかんは 【左】がわに あります。", "promptVi": "Bảo tàng nằm ở phía bên trái.", "options": ["ひだり", "みぎ", "きた", "みなみ"], "correct": 0, "explain": "💡 <strong>Chữ 左 (TẢ - Bài 6):</strong> Đọc là <strong>ひだり</strong> (bên trái)."}]}, {"groupTitle": "DẠNG 2: Chọn chữ Hán đúng cho từ Hiragana trong ngoặc 【 】", "groupInstruction": "Chọn chữ Hán chính xác trong 4 phương án cho từ được gạch dưới:", "items": [{"id": 16, "type": "mc", "prompt": "春には きれいな 【はな】が さきます。", "promptVi": "Vào mùa xuân có hoa đẹp nở rộ.", "options": ["海", "花", "山", "川"], "correct": 1, "explain": "💡 <strong>Chữ 花 (HOA - Bài 3):</strong> Đọc là <strong>はな</strong> (bông hoa). Phân biệt: 海 (うみ - biển), 山 (やま - núi), 川 (かわ - sông)."}, {"id": 17, "type": "mc", "prompt": "きょうは 【あめ】が ふって います。", "promptVi": "Hôm nay trời đang mưa.", "options": ["雪", "雲", "雨", "風"], "correct": 2, "explain": "💡 <strong>Chữ 雨 (VŨ - Bài 4):</strong> Đọc là <strong>あめ</strong> (cơn mưa)."}, {"id": 18, "type": "mc", "prompt": "つよい 【かぜ】が ふいて います。", "promptVi": "Gió mạnh đang thổi.", "options": ["雨", "空", "風", "気"], "correct": 2, "explain": "💡 <strong>Chữ 風 (PHONG - Bài 4):</strong> Đọc là <strong>かぜ</strong> (ngọn gió)."}, {"id": 19, "type": "mc", "prompt": "青い 【そら】が ひろがって います。", "promptVi": "Bầu trời xanh trải rộng bao la.", "options": ["晴", "空", "雲", "海"], "correct": 1, "explain": "💡 <strong>Chữ 空 (KHÔNG - Bài 4):</strong> Đọc là <strong>そら</strong> (bầu trời)."}, {"id": 20, "type": "mc", "prompt": "この 【まち】には 外国人が 多いです。", "promptVi": "Ở thị trấn này có nhiều người nước ngoài.", "options": ["店", "町", "道", "駅"], "correct": 1, "explain": "💡 <strong>Chữ 町 (ĐINH - Bài 5):</strong> Đọc là <strong>まち</strong> (thị trấn, phố xá). 店 (みせ), 道 (みち), 駅 (えき)."}]}]}, {"id": "sec3_grammar", "partNumber": "III", "partTitle": "NGỮ PHÁP (文法 - 12 CÂU)", "partDesc": "Kiểm tra ngữ pháp phương hướng, tính từ nối, trợ từ nguyên nhân và so sánh.", "badge": "25 Điểm", "groups": [{"groupTitle": "DẠNG 1: Chọn phương án đúng nhất điền vào chỗ trống", "groupInstruction": "Chọn từ/thể ngữ pháp chính xác nhất điền vào chỗ trống trong ngoặc (   ):", "items": [{"id": 21, "type": "mc", "prompt": "一ばんめの かどを 右 (   ) まがって ください。", "promptVi": "Hãy rẽ phải ở góc đường thứ nhất. (Câu 6 trong bộ 40 câu ôn tập)", "options": ["を", "で", "へ", "に"], "correct": 3, "explain": "💡 <strong>Cấu trúc rẽ hướng: [Hướng] に まがる:</strong> Rẽ sang bên phải ➔ <strong>右に まがる</strong>. Lưu ý góc đường dùng trợ từ を (かどを)."}, {"id": 22, "type": "mc", "prompt": "ハノイの 秋は きれい (   )、しずかです。", "promptVi": "Mùa thu của Hà Nội thì đẹp và yên bình. (Câu 33 trong bộ 40 câu ôn tập)", "options": ["くて", "で", "くては", "な"], "correct": 1, "explain": "💡 <strong>Cấu trúc nối Tính từ đuôi な: Tính từ (bỏ な) + で:</strong> きれい (Tính từ đuôi な) ➔ <strong>きれいで</strong>, しずかです."}, {"id": 23, "type": "mc", "prompt": "十二月ごろ、さむく (   ) から、あまり 外へ 出ません。", "promptVi": "Khoảng tháng 12 trời trở lạnh nên tôi không hay ra ngoài lắm. (Câu 33 trong bộ 40 câu ôn tập)", "options": ["します", "あります", "なります", "行きます"], "correct": 2, "explain": "💡 <strong>Cấu trúc biến đổi trạng thái tự nhiên: Tính từ đuôi い (bỏ い) + く なります:</strong> さむい ➔ <strong>さむく なります</strong> (trở nên lạnh)."}, {"id": 24, "type": "mc", "prompt": "夜は、道も しずかに (   )。", "promptVi": "Buổi đêm, đường phố cũng trở nên yên tĩnh hơn. (Câu 33 trong bộ 40 câu ôn tập)", "options": ["します", "できます", "きます", "なります"], "correct": 3, "explain": "💡 <strong>Cấu trúc biến đổi tính từ đuôi な: Tính từ (bỏ な) + に なります:</strong> しずか ➔ <strong>しずかに なります</strong> (trở nên yên tĩnh)."}, {"id": 25, "type": "mc", "prompt": "あさひはくぶつかんへ 行きたいんですが、(   ) 行きますか。", "promptVi": "Tôi muốn đi đến viện bảo tàng Asahi, đi như thế nào? (Câu 6 trong bộ 40 câu ôn tập)", "options": ["いくらで", "どうやって", "だれと", "なぜ"], "correct": 1, "explain": "💡 <strong>Từ để hỏi cách thức/đường đi: どうやって:</strong> 'Đi như thế nào / bằng cách nào?' ➔ <strong>どうやって 行きますか</strong>."}, {"id": 26, "type": "mc", "prompt": "この ところには かわいい ふくやが (   ) あります。", "promptVi": "Ở khu vực này có nhiều cửa hàng thời trang dễ thương. (Câu 3 trong bộ 40 câu ôn tập)", "options": ["すこし", "たくさん", "あまり", "ぜんぜん"], "correct": 1, "explain": "💡 <strong>Phó từ chỉ số lượng nhiều: たくさん:</strong> Có rất nhiều tiệm quần áo dễ thương."}]}, {"groupTitle": "DẠNG 2: Sắp xếp câu tìm từ tại vị trí ngôi sao (★)", "groupInstruction": "Sắp xếp 4 cụm từ theo đúng ngữ pháp và chọn từ nằm ở vị trí ngôi sao (★):", "items": [{"id": 27, "type": "star", "prompt": "あさひはくぶつかんは [  ] [  ] [ ★ ] [  ] あります。", "promptVi": "Bảo tàng Asahi ở bên tay trái. (Câu 6)", "options": ["の", "左がわ", "に", "道"], "correct": 1, "explain": "💡 <strong>Thứ tự sắp xếp câu:</strong><br>[4] 道 ➔ [1] の ➔ <strong>★ [2] 左がわ (Vị trí số 3)</strong> ➔ [3] に<br>➔ Câu hoàn chỉnh: あさひはくぶつかんは 道の 左がわに あります。<br>➔ Vị trí ngôi sao (★) là phương án <strong>[2] 左がわ</strong>."}, {"id": 28, "type": "star", "prompt": "私の [  ] [  ] [ ★ ] [  ] たてものが あります。", "promptVi": "Ở cạnh nhà tôi có tòa nhà màu xanh, thon dài. (Câu 9 trong bộ 40 câu ôn tập)", "options": ["青くて", "ほそながい", "いえの", "となりに"], "correct": 0, "explain": "💡 <strong>Thứ tự sắp xếp câu:</strong><br>[3] いえの ➔ [4] となりに ➔ <strong>★ [1] 青くて (Vị trí số 3)</strong> ➔ [2] ほそながい<br>➔ Câu hoàn chỉnh: 私の いえの となりに 青くて ほそながい たてものが あります。<br>➔ Vị trí ngôi sao (★) là phương án <strong>[1] 青くて</strong>."}, {"id": 29, "type": "star", "prompt": "ハノイは [  ] [  ] [ ★ ] [  ] なります。", "promptVi": "Hà Nội thì khoảng tháng 9 sẽ chuyển sang mùa thu. (Câu 33)", "options": ["に", "きれいな", "九月ごろ", "秋"], "correct": 3, "explain": "💡 <strong>Thứ tự sắp xếp câu:</strong><br>[3] 九月ごろ ➔ [2] きれいな ➔ <strong>★ [4] 秋 (Vị trí số 3)</strong> ➔ [1] に<br>➔ Câu hoàn chỉnh: ハノイは 九月ごろ きれいな 秋に なります。<br>➔ Vị trí ngôi sao (★) là phương án <strong>[4] 秋</strong>."}, {"id": 30, "type": "star", "prompt": "あそこに [  ] [  ] [ ★ ] [  ] みえますか。", "promptVi": "Bạn có nhìn thấy cây cầu màu đỏ ở đằng kia không? (Câu 5)", "options": ["よく", "赤い", "が", "はし"], "correct": 2, "explain": "💡 <strong>Thứ tự sắp xếp câu:</strong><br>[2] 赤い ➔ [4] はし ➔ <strong>★ [3] が (Vị trí số 3)</strong> ➔ [1] よく<br>➔ Câu hoàn chỉnh: あそこに 赤い はしが よく みえますか。<br>➔ Vị trí ngôi sao (★) là phương án <strong>[3] が</strong>."}]}, {"groupTitle": "DẠNG 3: Dịch câu tự luận (Việt ➔ Nhật)", "groupInstruction": "Nhập bản dịch tiếng Nhật chính xác cho các câu sau:", "items": [{"id": 31, "type": "trans", "prompt": "Bạn có nhìn thấy cây cầu màu đỏ ở đằng kia không?", "promptVi": "Câu 5 trong bộ 40 câu ôn tập", "reference": "あそこに 赤い はしが みえますか。", "acceptAnswers": ["あそこに 赤い はしが みえますか。", "あそこの 赤い はしが みえますか。", "あそこに 赤いはしが みえますか。", "あそこに あかい はしが みえますか。", "あちらに 赤い はしが みえますか。", "あそこに 赤い はしが ありますか。"], "hints": ["あそこに / あそこの", "赤い (あかい) はしが", "みえますか"]}, {"id": 32, "type": "trans", "prompt": "Ở cạnh nhà tôi có tòa nhà màu xanh, thon dài.", "promptVi": "Câu 9 trong bộ 40 câu ôn tập", "reference": "私の いえの となりに 青くて ほそながい たてものが あります。", "acceptAnswers": ["私の いえの となりに 青くて ほそながい たてものが あります。", "わたしの いえの となりに 青くて ほそながい たてものが あります。", "いえの となりに 青くて ほそながい たてものが あります。", "私の いえの ちかくに 青くて ほそながい たてものが あります。", "わたしの いえの となりに あおくて ほそながい たてものが あります。", "私の いえの となりに 青くて ながくて ほそい たてものが あります。", "私の うちの となりに 青くて ほそながい たてものが あります。"], "hints": ["私の いえの となりに", "青くて ほそながい", "たてものが あります"]}]}]}, {"id": "sec4_reading", "partNumber": "IV", "partTitle": "ĐỌC HIỂU (読解 - 2 CÂU TRẮC NGHIỆM)", "partDesc": "Đọc bài viết về khí hậu mùa thu Hà Nội và mùa đông và chọn đáp án đúng nhất (Câu 33-34).", "badge": "10 Điểm", "passage": "ハノイは 九月ごろ 秋に なります。ハノイの 秋は きれいで、しずかです。\n私は よく ふるい まちへ しゃしんを とりに 行きます。\nでも、十二月ごろに なると、とても さむく なりますから、あまり 外へ 出ません。\n夜は、道も しずかに なります。\n日本は 十二月から 二月まで 冬です。雪が たくさん ふりますから、白い 山が とても きれいです。\nわたしは いつか 冬の 日本へ 行って、雪を みてみたいです。", "passageVi": "Hà Nội khoảng tháng 9 sang mùa thu. Mùa thu Hà Nội rất đẹp và yên bình.\nTôi thường đến khu phố cổ chụp ảnh.\nNhưng đến khoảng tháng 12, trời trở nên rất lạnh nên tôi không hay ra ngoài lắm.\nBuổi đêm, đường phố cũng trở nên vắng lặng hơn.\nỞ Nhật Bản, từ tháng 12 đến tháng 2 là mùa đông. Tuyết rơi rất nhiều nên những ngọn núi phủ tuyết trắng rất đẹp.\nMột ngày nào đó tôi muốn đến Nhật Bản vào mùa đông để ngắm tuyết.", "items": [{"id": 33, "type": "mc", "prompt": "この 人は なぜ 十二月に あまり 外へ 出ませんか。", "promptVi": "Tại sao vào tháng 12 người này lại không hay ra ngoài?", "options": ["とても さむく なりますから。", "雨が たくさん ふりますから。", "学校の テストが ありますから。", "まちが にぎやかですから。"], "correct": 0, "explain": "💡 <strong>Thông tin trong bài đọc:</strong> 「とても さむく なりますから、あまり 外へ 出ません」 ➔ Vì trời trở nên rất lạnh."}, {"id": 34, "type": "mc", "prompt": "この 人は 日本の 冬の 何を みてみたいと いって いますか。", "promptVi": "Người này muốn ngắm điều gì ở mùa đông Nhật Bản?", "options": ["雪", "花", "海", "川"], "correct": 0, "explain": "💡 <strong>Thông tin trong bài đọc:</strong> 「雪を みてみたいです」 ➔ Muốn ngắm tuyết (chữ 雪 - Tuyết học ở Bài 4)."}]}, {"id": "sec5_essay", "partNumber": "V", "partTitle": "TỰ LUẬN TRẢ LỜI CÂU HỎI (2 CÂU)", "partDesc": "Viết đoạn văn ngắn trả lời câu hỏi và bài luận theo chủ đề (tối thiểu 50 chữ/ký tự).", "badge": "15 Điểm", "items": [{"id": 35, "type": "essay", "prompt": "あなたの いえの ちかくには どんな たてものが ありますか。（いろや かたちを おしえて ください）", "promptVi": "Gần nhà bạn có những tòa nhà như thế nào? Hãy miêu tả màu sắc và hình dáng của chúng.", "minWords": 30, "placeholder": "Gõ câu trả lời tiếng Nhật tại đây... Ví dụ: 私の いえの ちかくに 青くて たかい たてものが あります...", "hints": ["Vị trí: 私の いえの ちかくに / となりに...", "Màu sắc & Hình dáng: 赤くて / 青くて / 白くて / まるくて / ほそながい たてもの", "Tên tòa nhà: スーパー / 駅 / カフェ / 店"], "modelAnswer": "私の いえの ちかくには、青くて ほそながい たてものが あります。そして、駅の 前に 白くて おおきい スーパーも あります。とても べんりで、きれいな まちです。", "modelVi": "Gần nhà tôi có một tòa nhà màu xanh và thon dài. Và trước ga cũng có một siêu thị màu trắng rất to. Đây là một khu phố rất tiện lợi và sạch đẹp.", "rubric": "Tiêu chí chấm điểm Can-do: Vận dụng đúng các từ vựng chỉ màu sắc (青くて, 白くて) và phương hướng vị trí (ちかく, 前)."}, {"id": 36, "type": "essay", "prompt": "あなたの 国の きせつと 天気について おしえて ください。（すきな きせつ、てんき、その とき することなど、五十じ いじょう）", "promptVi": "Hãy viết đoạn văn giới thiệu về các mùa và thời tiết ở đất nước của bạn (mùa bạn thích, thời tiết, hoạt động thường làm... tối thiểu 50 chữ/ký tự).", "minWords": 50, "placeholder": "Gõ đoạn văn tiếng Nhật tại đây (tối thiểu 50 từ/ký tự)... Ví dụ: ベトナムの ハノイは 九月ごろ 秋に なります...", "hints": ["Giới thiệu mùa: ベトナムは 九月ごろ 秋に なります / 私の くには 四つの 季節が あります", "Miêu tả thời tiết: 秋は 天気が よくて、すずしいです / 冬は さむいです", "Hoạt động: 私は よく まちへ 行って しゃしんを とります / 友だちと お茶を 飲みます", "Độ dài: Tối thiểu 50 chữ/ký tự"], "modelAnswer": "ベトナムの ハノイは 九月ごろ 秋に なります。ハノイの 秋は 天気が よくて、とても すずしいです。まちの 道には きれいな 花が たくさん さきます。わたしは 秋が いちばん 好きですから、やすみの 日に 友達と まちへ 行って、しゃしんを たくさん とります。夜も しずかで、とても すみやすいです。", "modelVi": "Hà Nội ở Việt Nam khoảng tháng 9 thì sang thu. Mùa thu Hà Nội thời tiết đẹp và rất mát mẻ. Trên các con đường trong phố có nhiều hoa đẹp nở rộ. Tôi thích mùa thu nhất, nên vào ngày nghỉ tôi thường cùng bạn bè lên phố chụp nhiều ảnh. Buổi đêm cũng yên tĩnh, rất dễ chịu.", "rubric": "Tiêu chí chấm điểm Can-do: Đạt độ dài tối thiểu ≥ 50 từ/ký tự; miêu tả rõ ràng thời tiết (天気がいい, すずしい), mùa (秋), hoạt động cá nhân và cảm nhận."}]}]}, {"code": "M104", "name": "Mã Đề M104 (Giao Tiếp, Mua Sắm & Tần Suất Đời Sống)", "tag": "🛍️ Mua Sắm • Hẹn Gặp • Tần Suất • Nhờ Vả Lịch Sự • Chuẩn A2-1", "desc": "Đề chuyên sâu về các tình huống giao tiếp đời sống thực tế: lời xin lỗi vì đến muộn, cách hỏi và chỉ cách làm món ăn (～かたを おしえて くださいませんか), tần suất hành động (週に三回, 月に五回), mua sắm và tặng quà.", "timeLimit": 2700, "sections": [{"id": "sec1_vocab", "partNumber": "I", "partTitle": "TỪ VỰNG (語彙 - 10 CÂU)", "partDesc": "Gồm 2 dạng bài: Điền từ thích hợp vào chỗ trống (1-5) và Chọn câu đồng nghĩa (6-10).", "badge": "25 Điểm", "groups": [{"groupTitle": "DẠNG 1: Điền từ vào chỗ trống trong ngoặc (   )", "groupInstruction": "Chọn từ vựng chính xác nhất điền vào khoảng trống câu sau:", "items": [{"id": 1, "type": "mc", "prompt": "あきはばらは でんきやが 多くて、とても (   ) です。", "promptVi": "Akihabara có nhiều cửa hàng điện tử nên rất tiện lợi. (Câu 2 trong bộ 40 câu ôn tập)", "options": ["ゆうめい", "しずか", "べんり", "さむい"], "correct": 2, "explain": "💡 <strong>Từ vựng tính từ (Bài 5):</strong> Có nhiều cửa hàng nên rất thuận tiện, tiện lợi ➔ <strong>べんり</strong> (tiện lợi)."}, {"id": 2, "type": "mc", "prompt": "あした 十時に ホテルの (   ) で あいましょう。", "promptVi": "Ngày mai chúng ta hẹn gặp nhau vào lúc 10h tại sảnh khách sạn nhé. (Câu 17 trong bộ 40 câu ôn tập)", "options": ["トイレ", "シャワー", "ロビー", "エレベーター"], "correct": 2, "explain": "💡 <strong>Từ vựng nơi chốn khách sạn (Bài 7):</strong> Sảnh đợi khách sạn là <strong>ロビー</strong> (lobby)."}, {"id": 3, "type": "mc", "prompt": "きょねんの たんじょうびに かわいい (   ) を もらいました。", "promptVi": "Dịp sinh nhật năm ngoái, tôi đã nhận được chiếc áo phông rất dễ thương. (Câu 19 trong bộ 40 câu ôn tập)", "options": ["コーヒー", "みず", "おちゃ", "Tシャツ"], "correct": 3, "explain": "💡 <strong>Từ vựng quà tặng trang phục (Bài 6):</strong> Áo phông là <strong>Tシャツ</strong>."}, {"id": 4, "type": "mc", "prompt": "わあ、きれいな (   ) ですね。だれに もらいましたか。", "promptVi": "Ôi, đồng hồ đẹp quá. Bạn nhận được từ ai vậy? (Câu 20 trong bộ 40 câu ôn tập)", "options": ["じしょ", "まんが", "てがみ", "とけい"], "correct": 3, "explain": "💡 <strong>Từ vựng đồ dùng cá nhân (Bài 7):</strong> Chiếc đồng hồ là <strong>とけい</strong>."}, {"id": 5, "type": "mc", "prompt": "あねは いま、ゲームの かいしゃで (   ) を して います。", "promptVi": "Chị gái tôi bây giờ đang làm việc tại một công ty trò chơi. (Câu 16 trong bộ 40 câu ôn tập)", "options": ["仕事", "食事", "勉強", "旅行"], "correct": 0, "explain": "💡 <strong>Từ vựng nghề nghiệp (Bài 8):</strong> Làm việc tại công ty ➔ <strong>仕事</strong>を して います (しごとを して います). Chữ 仕 và 事 đều học ở Bài 8."}]}, {"groupTitle": "DẠNG 2: Chọn câu có ý nghĩa gần nhất với câu gạch chân", "groupInstruction": "Chọn từ hoặc cụm từ ngắn gọn mang ý nghĩa tương đương nhất với phần gạch chân:", "items": [{"id": 6, "type": "mc", "prompt": "あしたの 朝 九時に しんじゅく駅の にしぐちで <u>あいましょう</u>。", "promptVi": "Hẹn gặp nhau lúc 9h sáng mai ở cửa Tây ga Shinjuku nhé. (Câu 7 trong bộ 40 câu ôn tập)", "options": ["かえります", "まちます", "でんわします", "やすみます"], "correct": 1, "explain": "💡 <strong>Ngữ cảnh hẹn gặp (Bài 7):</strong> あいましょう (hãy gặp nhau nhé) ➔ <strong>まちます</strong> (sẽ đợi gặp nhau ở địa điểm đó). Chữ 朝, 九, 駅 đều đã học."}, {"id": 7, "type": "mc", "prompt": "あべさん、おそくなって すみません。時間を <u>まちがえました</u>…", "promptVi": "Abe ơi xin lỗi mình đến muộn, mình bị nhầm thời gian hẹn... (Câu 10 trong bộ 40 câu ôn tập)", "options": ["おくれました", "はやく きました", "ちょうど つきました", "わすれませんでした"], "correct": 0, "explain": "💡 <strong>Ngữ cảnh cuộc hẹn (Bài 7):</strong> 時間を まちがえた (nhầm giờ hẹn) ➔ <strong>おくれました</strong> (bị trễ/muộn hẹn). Chữ 時間 đã học ở Bài 7."}, {"id": 8, "type": "mc", "prompt": "私は センターで <u>週に 三回</u> 日本語を 勉強して います。", "promptVi": "Tôi đang học tiếng Nhật một tuần ba lần ở trung tâm. (Câu 32 trong bộ 40 câu ôn tập)", "options": ["一か月に 三回", "まい日", "一ねんに 三回", "一週間に 三日"], "correct": 3, "explain": "💡 <strong>Tần suất thời gian (Bài 9):</strong> 週に 三回 ＝ <strong>一週間に 三日</strong> (ba ngày trong một tuần). Chữ 週, 三, 回 đều đã học."}, {"id": 9, "type": "mc", "prompt": "<u>月に 五回</u> レストランへ 食べに 行きます。", "promptVi": "Một tháng tôi đến nhà hàng ăn 5 lần. (Câu 32 trong bộ 40 câu ôn tập)", "options": ["一か月に 五回", "いちねんに 五回", "まい週 五回", "まい日 五回"], "correct": 0, "explain": "💡 <strong>Tần suất thời gian (Bài 9):</strong> 月に 五回 ＝ <strong>一か月に 五回</strong> (năm lần trong một tháng). Chữ 月, 五, 回 đều đã học."}, {"id": 10, "type": "mc", "prompt": "あねは ちゅうごくの ペキンに <u>すんで います</u>。", "promptVi": "Chị gái tôi đang sống ở Bắc Kinh, Trung Quốc. (Câu 16 trong bộ 40 câu ôn tập)", "options": ["旅行して います", "いえが あります", "あそんで います", "行って いません"], "correct": 1, "explain": "💡 <strong>Động từ cư trú (Bài 1):</strong> すんで います (đang sinh sống) ＝ <strong>いえが あります</strong> (có nhà/định cư ở đó)."}]}]}, {"id": "sec2_kanji", "partNumber": "II", "partTitle": "HÁN TỰ (漢字 - 10 CÂU)", "partDesc": "Kiểm tra chữ Hán chủ đề gia đình, quốc gia, thời gian, trường học (Bài 1 - 10).", "badge": "25 Điểm", "groups": [{"groupTitle": "DẠNG 1: Chọn cách đọc Hiragana đúng cho chữ Hán trong ngoặc 【 】", "groupInstruction": "Chọn âm đọc chính xác của chữ Hán trong câu:", "items": [{"id": 11, "type": "mc", "prompt": "わたしの 【母】は とても しんせつです。", "promptVi": "Mẹ tôi rất tốt bụng.", "options": ["ちち", "はは", "あね", "いもうと"], "correct": 1, "explain": "💡 <strong>Chữ 母 (MẪU - Bài 1):</strong> Đọc là <strong>はは</strong> (mẹ mình). Chữ 父 (PHỤ - Bài 1) đọc là ちち (bố mình)."}, {"id": 12, "type": "mc", "prompt": "わたしの 【父】は まい朝 さんぽを します。", "promptVi": "Bố tôi mỗi sáng đều đi dạo.", "options": ["はは", "あに", "おとうと", "ちち"], "correct": 3, "explain": "💡 <strong>Chữ 父 (PHỤ - Bài 1):</strong> Đọc là <strong>ちち</strong> (bố mình)."}, {"id": 13, "type": "mc", "prompt": "あの 【男】の 人は だれですか。", "promptVi": "Người đàn ông đằng kia là ai thế?", "options": ["おんな", "ひと", "おとこ", "こども"], "correct": 2, "explain": "💡 <strong>Chữ 男 (NAM - Bài 1):</strong> Đọc là <strong>おとこ</strong>. 男の人: おとこのひと (người đàn ông)."}, {"id": 14, "type": "mc", "prompt": "あそこで 【女】の 子が あそんで います。", "promptVi": "Đằng kia có bé gái đang chơi đùa.", "options": ["おとこ", "おんな", "はは", "ちち"], "correct": 1, "explain": "💡 <strong>Chữ 女 (NỮ - Bài 1):</strong> Đọc là <strong>おんな</strong>. 女の子: おんなのこ (bé gái)."}, {"id": 15, "type": "mc", "prompt": "センターで 【週】に 三回 勉強します。", "promptVi": "Tôi học 3 lần một tuần ở trung tâm.", "options": ["かい", "つき", "しゅう", "ねん"], "correct": 2, "explain": "💡 <strong>Chữ 週 (CHU - Bài 10):</strong> Đọc là <strong>しゅう</strong> (tuần). 週に三回: しゅうにさんかい."}]}, {"groupTitle": "DẠNG 2: Chọn chữ Hán đúng cho từ Hiragana trong ngoặc 【 】", "groupInstruction": "Chọn chữ Hán chính xác trong 4 phương án cho từ được gạch dưới:", "items": [{"id": 16, "type": "mc", "prompt": "月に 五【かい】 レストランへ 行きます。", "promptVi": "Mỗi tháng tôi đến nhà hàng 5 lần.", "options": ["週", "回", "時", "間"], "correct": 1, "explain": "💡 <strong>Chữ 回 (HỒI - Bài 10):</strong> Đọc là <strong>かい</strong> (số lần: 一回, 二回, 三回, 五回)."}, {"id": 17, "type": "mc", "prompt": "日本の 【ぶんか】を まなびたいです。", "promptVi": "Tôi muốn học hỏi văn hóa Nhật Bản.", "options": ["音楽", "文化", "旅行", "友達"], "correct": 1, "explain": "💡 <strong>Chữ 文化 (VĂN HÓA - Bài 10):</strong> Đọc là <strong>ぶんか</strong>. Cả 2 chữ 文 và 化 đều học ở Bài 10."}, {"id": 18, "type": "mc", "prompt": "へやで 【おんがく】を ききます。", "promptVi": "Tôi nghe nhạc ở trong phòng.", "options": ["文化", "外国", "日本語", "音楽"], "correct": 3, "explain": "💡 <strong>Chữ 音楽 (ÂM NHẠC - Bài 10):</strong> Đọc là <strong>おんがく</strong>. Chữ 音 (Âm) và 楽 (Nhạc/Lạc) học ở Bài 10."}, {"id": 19, "type": "mc", "prompt": "夏やすみに 【りょこう】を します。", "promptVi": "Nghỉ hè tôi đi du lịch.", "options": ["旅行", "留学", "食事", "仕事"], "correct": 0, "explain": "💡 <strong>Chữ 旅行 (LỮ HÀNH - Bài 10):</strong> Đọc là <strong>りょこう</strong> (chuyến du lịch)."}, {"id": 20, "type": "mc", "prompt": "あしたは 【がっこう】が やすみです。", "promptVi": "Ngày mai trường học được nghỉ.", "options": ["先生", "友達", "学校", "留学生"], "correct": 2, "explain": "💡 <strong>Chữ 学校 (HỌC HIỆU - Bài 9):</strong> Đọc là <strong>がっこう</strong> (trường học)."}]}]}, {"id": "sec3_grammar", "partNumber": "III", "partTitle": "NGỮ PHÁP (文法 - 12 CÂU)", "partDesc": "Kiểm tra cách nói lịch sự, tần suất hành động, cách làm (～かた), và liên từ chỉ lý do.", "badge": "25 Điểm", "groups": [{"groupTitle": "DẠNG 1: Chọn phương án đúng nhất điền vào chỗ trống", "groupInstruction": "Chọn từ/thể ngữ pháp chính xác nhất điền vào chỗ trống trong ngoặc (   ):", "items": [{"id": 21, "type": "mc", "prompt": "ベトナムりょうりの つくりかたを おしえて (   )。", "promptVi": "Bạn có thể chỉ cho tôi cách làm món ăn Việt Nam được không? (Câu 31 trong bộ 40 câu ôn tập)", "options": ["くださいませんか", "くださいました", "くれますか", "あげますか"], "correct": 0, "explain": "💡 <strong>Cấu trúc nhờ vả lịch sự: V-て くださいませんか:</strong> Nhờ người khác chỉ bảo cho mình một cách tôn trọng, lịch sự."}, {"id": 22, "type": "mc", "prompt": "私は センターで 週 (   ) 三回 日本語を 勉強して います。", "promptVi": "Tôi đang học tiếng Nhật một tuần ba lần ở trung tâm. (Câu 32 trong bộ 40 câu ôn tập)", "options": ["で", "を", "に", "へ"], "correct": 2, "explain": "💡 <strong>Cấu trúc chỉ tần suất: [Đơn vị thời gian] に [Số lần] 回:</strong> 週に三回 (3 lần một tuần), 月に五回 (5 lần một tháng)."}, {"id": 23, "type": "mc", "prompt": "きれいな とけいですね。(   ) に もらいましたか。", "promptVi": "Đồng hồ đẹp quá, bạn nhận được từ ai vậy? (Câu 20 trong bộ 40 câu ôn tập)", "options": ["だれ", "どこ", "いつ", "なに"], "correct": 0, "explain": "💡 <strong>Cấu trúc nhận từ ai: [Người] に もらう:</strong> Từ để hỏi người nhận là <strong>だれに</strong> もらいましたか."}, {"id": 24, "type": "mc", "prompt": "あした、何時に (   ) か。", "promptVi": "Ngày mai mấy giờ chúng ta gặp nhau thế? (Câu 7 trong bộ 40 câu ôn tập)", "options": ["あいまし", "あう", "あって", "あいます"], "correct": 3, "explain": "💡 <strong>Hỏi giờ gặp nhau: 何時に あいますか:</strong> Thể lịch sự ます đi với trợ từ nghi vấn か."}, {"id": 25, "type": "mc", "prompt": "あべさん、おそくなって すみません。時間を (   )…", "promptVi": "Anh Abe ơi, mình xin lỗi vì đến muộn nhé. Mình bị nhầm thời gian hẹn... (Câu 10)", "options": ["まちがえます", "わすれました", "なくしました", "まちがえました"], "correct": 3, "explain": "💡 <strong>Từ vựng nhầm lẫn: じかんを まちがえました:</strong> Tôi đã nhầm giờ hẹn."}, {"id": 26, "type": "mc", "prompt": "いつか、日本へ (   ) したいです。", "promptVi": "Một ngày nào đó, tôi muốn đi du học ở Nhật Bản. (Câu 32 trong bộ 40 câu ôn tập)", "options": ["りゅうがく", "りょこう", "かいもの", "さんぽ"], "correct": 0, "explain": "💡 <strong>Cấu trúc nguyện vọng du học: 日本へ りゅうがくしたいです (Muốn đi du học Nhật Bản).</strong>"}]}, {"groupTitle": "DẠNG 2: Sắp xếp câu tìm từ tại vị trí ngôi sao (★)", "groupInstruction": "Sắp xếp 4 cụm từ theo đúng ngữ pháp và chọn từ nằm ở vị trí ngôi sao (★):", "items": [{"id": 27, "type": "star", "prompt": "あしたの 朝 九時に [  ] [  ] [ ★ ] [  ] あいましょう。", "promptVi": "9h sáng mai tại cổng tây ga Shinjuku nhé. (Câu 7)", "options": ["で", "しんじゅく駅", "にしぐち", "の"], "correct": 2, "explain": "💡 <strong>Thứ tự sắp xếp câu:</strong><br>[2] しんじゅく駅 ➔ [4] の ➔ <strong>★ [3] にしぐち (Vị trí số 3)</strong> ➔ [1] で<br>➔ Câu hoàn chỉnh: あしたの 朝 九時に しんじゅく駅の にしぐちで あいましょう。<br>➔ Vị trí ngôi sao (★) là phương án <strong>[3] にしぐち</strong>."}, {"id": 28, "type": "star", "prompt": "ベトナムりょうりの [  ] [  ] [ ★ ] [  ] くださいませんか。", "promptVi": "Bạn có thể chỉ cho tôi cách làm món ăn Việt Nam không? (Câu 31)", "options": ["私に", "つくりかた", "おしえて", "を"], "correct": 0, "explain": "💡 <strong>Thứ tự sắp xếp câu:</strong><br>[2] つくりかた ➔ [4] を ➔ <strong>★ [1] 私に (Vị trí số 3)</strong> ➔ [3] おしえて<br>➔ Câu hoàn chỉnh: ベトナムりょうりの つくりかたを 私に おしえて くださいませんか。<br>➔ Vị trí ngôi sao (★) là phương án <strong>[1] 私に</strong>."}, {"id": 29, "type": "star", "prompt": "私は センターで [  ] [  ] [ ★ ] [  ] 勉強して います。", "promptVi": "Tôi đang học tiếng Nhật một tuần ba lần ở trung tâm. (Câu 32)", "options": ["三回", "を", "週に", "日本語"], "correct": 3, "explain": "💡 <strong>Thứ tự sắp xếp câu:</strong><br>[3] 週に ➔ [1] 三回 ➔ <strong>★ [4] 日本語 (Vị trí số 3)</strong> ➔ [2] を<br>➔ Câu hoàn chỉnh: 私は センターで 週に 三回 日本語を 勉強して います。<br>➔ Vị trí ngôi sao (★) là phương án <strong>[4] 日本語</strong>."}, {"id": 30, "type": "star", "prompt": "あねは いま、[  ] [  ] [ ★ ] [  ] して います。", "promptVi": "Chị tôi đang làm việc tại công ty trò chơi. (Câu 16)", "options": ["かいしゃで", "仕事", "ゲームの", "を"], "correct": 1, "explain": "💡 <strong>Thứ tự sắp xếp câu:</strong><br>[3] ゲームの ➔ [1] かいしゃで ➔ <strong>★ [2] 仕事 (Vị trí số 3)</strong> ➔ [4] を<br>➔ Câu hoàn chỉnh: あねは いま、ゲームの かいしゃで 仕事を して います。<br>➔ Vị trí ngôi sao (★) là phương án <strong>[2] 仕事</strong>."}]}, {"groupTitle": "DẠNG 3: Dịch câu tự luận (Việt ➔ Nhật)", "groupInstruction": "Nhập bản dịch tiếng Nhật chính xác cho các câu sau:", "items": [{"id": 31, "type": "trans", "prompt": "Ngày mai chúng ta hẹn gặp nhau vào lúc 10h tại sảnh khách sạn nhé.", "promptVi": "Câu 17 trong bộ 40 câu ôn tập", "reference": "あした 十時に ホテルの ロビーで あいましょう。", "acceptAnswers": ["あした 十時に ホテルの ロビーで あいましょう。", "あした 10時に ホテルの ロビーで あいましょう。", "あした 10じに ホテルの ロビーで あいましょう。", "あした 10時に ホテルの ロビーで あいましょうね。", "あした 十時に ホテルロビーで あいましょう。", "あした 10時に ほてるの ろびーで あいましょう。"], "hints": ["あした 十時に", "ホテルの ロビーで", "あいましょう (あいましょう)"]}, {"id": 32, "type": "trans", "prompt": "Bạn có thể chỉ cho tôi cách làm món ăn Việt Nam không?", "promptVi": "Câu 31 trong bộ 40 câu ôn tập", "reference": "ベトナムりょうりの つくりかたを おしえて くださいませんか。", "acceptAnswers": ["ベトナムりょうりの つくりかたを おしえて くださいませんか。", "ベトナムりょうりの つくりかたを おしえて ください。", "ベトナムりょうりの つくりかたを おしえてくださいませんか。", "ベトナムりょうりの つくりかたを おしえて もらえませんか。", "ベトナムりょうりの つくりかたを おしえて くれませんか。", "ベトナムの りょうりの つくりかたを おしえて ください。", "べとなむりょうりの つくりかたを おしえて くださいませんか。"], "hints": ["ベトナムりょうりの", "つくりかたを", "おしえて くださいませんか"]}]}]}, {"id": "sec4_reading", "partNumber": "IV", "partTitle": "ĐỌC HIỂU (読解 - 2 CÂU TRẮC NGHIỆM)", "partDesc": "Đọc tin nhắn hẹn gặp và chọn đáp án chính xác nhất (Câu 33-34).", "badge": "10 Điểm", "passage": "ナムさんへ。\nメッセージを ありがとうございます。\nあしたの にちようび、十時に ホテルの ロビーで あいましょう。\nあきはばらは でんきやが 多くて、とても べんりですから、いっしょに 行って でんしじしょを みませんか。\nかいものの 後で、おいしい 日本りょうりを たべましょう。\nもし 時間に おくれたら、れんらくを して くださいね。\nさとうより", "passageVi": "Gửi bạn Nam.\nCảm ơn tin nhắn của bạn.\nChủ nhật ngày mai chúng ta gặp nhau lúc 10 giờ ở sảnh khách sạn nhé.\nAkihabara có nhiều tiệm điện tử và rất tiện lợi, bạn cùng đi xem kim từ điển với mình nhé.\nSau khi mua sắm, chúng mình cùng đi ăn món Nhật ngon lành nhé.\nNếu bị muộn giờ thì hãy liên lạc cho mình nhé.\nTừ Sato", "items": [{"id": 33, "type": "mc", "prompt": "さとうさんと ナムさんは あした 何時に あいますか。", "promptVi": "Sato và Nam ngày mai sẽ gặp nhau lúc mấy giờ?", "options": ["九時", "七時", "十時", "十二時"], "correct": 2, "explain": "💡 <strong>Thông tin trong bài đọc:</strong> 「十時に ホテルの ロビーで あいましょう」 ➔ Hẹn gặp lúc 10 giờ."}, {"id": 34, "type": "mc", "prompt": "ふたりは あきはばらで 何を しますか。", "promptVi": "Hai người họ sẽ làm gì ở Akihabara?", "options": ["ホテルに とまります。", "でんしじしょを みて、日本りょうりを たべます。", "学校で 勉強します。", "でんしゃの きっぷを かいます。"], "correct": 1, "explain": "💡 <strong>Thông tin trong bài đọc:</strong> Xem kim từ điển và sau đó đi ăn món ăn Nhật."}]}, {"id": "sec5_essay", "partNumber": "V", "partTitle": "TỰ LUẬN TRẢ LỜI CÂU HỎI (2 CÂU)", "partDesc": "Viết đoạn văn ngắn trả lời câu hỏi và bài luận theo chủ đề (tối thiểu 50 chữ/ký tự).", "badge": "15 Điểm", "items": [{"id": 35, "type": "essay", "prompt": "あなたの たんじょうびに どんな プレゼントを もらいましたか。（だれに、何を もらったか かいて ください）", "promptVi": "Vào dịp sinh nhật, bạn đã nhận được món quà gì? (Hãy viết rõ bạn nhận từ ai và nhận món gì).", "minWords": 30, "placeholder": "Gõ câu trả lời tiếng Nhật tại đây... Ví dụ: きょねんの たんじょうびに 友達に かわいい Tシャツを もらいました...", "hints": ["Bối cảnh: きょねんの たんじょうびに...", "Người tặng: 母に / 友達に / 父に...", "Món quà: かわいい Tシャツ / 白い シャツ / とけいを もらいました", "Cảm xúc: とても うれしかったです"], "modelAnswer": "きょねんの たんじょうびに、友達に 白い かわいい シャツを もらいました。そして、父と 母に きれいな とけいを もらいました。とても うれしかったです。", "modelVi": "Vào dịp sinh nhật năm ngoái, bạn bè đã tặng tôi một chiếc áo sơ mi trắng rất dễ thương. Và bố mẹ đã tặng tôi một chiếc đồng hồ rất đẹp. Tôi đã rất vui mừng.", "rubric": "Tiêu chí chấm điểm Can-do: Sử dụng đúng cấu trúc nhận quà (N(người) に N(vật) を もらいました), tính từ miêu tả đồ vật."}, {"id": 36, "type": "essay", "prompt": "あなたの まちの 日本文化センターや 好きな 日本りょうりについて かいて ください。（週や 月の かいすう、すきな りゆう、しょうらいの ゆめなど、五十じ いじょう）", "promptVi": "Hãy viết đoạn văn chia sẻ về hoạt động học tập tại trung tâm văn hóa Nhật Bản hoặc món ăn Nhật yêu thích của bạn (tần suất theo tuần/tháng, lý do thích, ước mơ du học... tối thiểu 50 chữ/ký tự).", "minWords": 50, "placeholder": "Gõ đoạn văn tiếng Nhật tại đây (tối thiểu 50 từ/ký tự)... Ví dụ: 私の まちには 日本の 文化センターが あります...", "hints": ["Giới thiệu nơi học: 私の まちには 日本の 文化センターが あります", "Tần suất học & ăn: 私は センターで 週に 三回 勉強して います / 月に 五回 レストランへ 行きます", "Lý do thích: 日本りょうりが 好きですから / とても おいしいですから", "Ước mơ tương lai: いつか、日本へ 留学したいです", "Độ dài: Tối thiểu 50 chữ/ký tự"], "modelAnswer": "私の 町には 外国人が たくさん います。町の なかに、日本の 文化センターが あります。私は センターで 週に 三回 日本語を 勉強して います。そして、日本りょうりが 好きですから、月に 五回 レストランへ たべに 行きます。いつか、日本へ 留学生として 行きたいです。", "modelVi": "Thành phố của tôi có nhiều người nước ngoài. Trong thành phố có trung tâm văn hóa Nhật Bản. Tôi đang học tiếng Nhật một tuần ba lần ở trung tâm. Và tôi thích món ăn Nhật nên một tháng tôi đến nhà hàng ăn năm lần. Một ngày nào đó, tôi muốn đến Nhật Bản với tư cách là một lưu học sinh.", "rubric": "Tiêu chí chấm điểm Can-do: Đạt độ dài tối thiểu ≥ 50 từ/ký tự; bám sát câu 32 bộ ôn tập, vận dụng chính xác cấu trúc tần suất (週に三回, 月に五回) và nguyện vọng tương lai (～たいです)."}]}]}, {"code": "M105", "name": "Mã Đề M105 (Phương Pháp Học Ngoại Ngữ & Ước Mơ)", "tag": "🎓 Ngoại Ngữ • Kỹ Năng Nghe Nói Đọc • Ước Mơ Du Học • Chuẩn A2-1", "desc": "Đề chuyên sâu về phương pháp học tiếng Nhật (ことば, ぶんぽう, かんじ, まんがを 読む), so sánh độ khó các ngoại ngữ (ベトナム語, フランス語, えいご, ちゅうごく語), và mục tiêu du học.", "timeLimit": 2700, "sections": [{"id": "sec1_vocab", "partNumber": "I", "partTitle": "TỪ VỰNG (語彙 - 10 CÂU)", "partDesc": "Gồm 2 dạng bài: Điền từ thích hợp vào chỗ trống (1-5) và Chọn câu đồng nghĩa (6-10).", "badge": "25 Điểm", "groups": [{"groupTitle": "DẠNG 1: Điền từ vào chỗ trống trong ngoặc (   )", "groupInstruction": "Chọn từ vựng chính xác nhất điền vào khoảng trống câu sau:", "items": [{"id": 1, "type": "mc", "prompt": "日本語は (   ) を かく ことが とても おもしろいです。", "promptVi": "Tiếng Nhật thì việc viết chữ Hán rất thú vị. (Câu 38 trong bộ 40 câu ôn tập)", "options": ["みず", "かんじ", "えき", "まち"], "correct": 1, "explain": "💡 <strong>Từ vựng kỹ năng học tiếng Nhật (Bài 2):</strong> Viết chữ Hán ➔ <strong>かんじ</strong>を かく こと."}, {"id": 2, "type": "mc", "prompt": "いままで どんな (   ) を 勉強しましたか。", "promptVi": "Cho đến bây giờ bạn đã học ngoại ngữ nào rồi? (Câu 12 trong bộ 40 câu ôn tập)", "options": ["天気", "場所", "時間", "外国語"], "correct": 3, "explain": "💡 <strong>Chữ Hán ghép (Bài 2):</strong> Ngoại ngữ là <strong>外国語</strong> (がいこくご). Cả 外, 国, 語 đều học ở Bài 2."}, {"id": 3, "type": "mc", "prompt": "すみません、この (   ) の つかいかたを おしえて くださいませんか。", "promptVi": "Xin lỗi, bạn có thể chỉ cho tôi cách sử dụng kim từ điển này không? (Câu 18 trong bộ 40 câu ôn tập)", "options": ["でんしじしょ", "コーヒー", "シャツ", "くつ"], "correct": 0, "explain": "💡 <strong>Từ vựng công cụ học tập (Bài 2):</strong> Kim từ điển là <strong>でんしじしょ</strong>."}, {"id": 4, "type": "mc", "prompt": "日本語は ことばが 多いです。そして、(   ) を 読む のが にがてです。", "promptVi": "Tiếng Nhật thì từ vựng nhiều. Và tôi kém việc đọc câu văn. (Câu 39 trong bộ 40 câu ôn tập)", "options": ["みず", "やま", "ぶんしょう", "かわ"], "correct": 2, "explain": "💡 <strong>Từ vựng đọc hiểu (Bài 2):</strong> Đọc đoạn văn, câu văn là <strong>ぶんしょう</strong>を 読む."}, {"id": 5, "type": "mc", "prompt": "学校の としょかんで 日本語の じしょを (   )ました。", "promptVi": "Tôi đã mượn cuốn từ điển tiếng Nhật ở thư viện trường. (Câu 14 trong bộ 40 câu ôn tập)", "options": ["かり", "まち", "よみ", "かき"], "correct": 0, "explain": "💡 <strong>Động từ mượn sách/từ điển (Bài 8):</strong> かりる (かりました ➔ đã mượn). Chữ 学校, 本 đều đã học."}]}, {"groupTitle": "DẠNG 2: Chọn câu có ý nghĩa gần nhất với câu gạch chân", "groupInstruction": "Chọn từ hoặc cụm từ ngắn gọn mang ý nghĩa tương đương nhất với phần gạch chân:", "items": [{"id": 6, "type": "mc", "prompt": "日本語が <u>じょうずに なりたい</u>んですが、どうやって 勉強したら いいですか。", "promptVi": "Tôi muốn giỏi tiếng Nhật thì phải học thế nào? (Câu 11 trong bộ 40 câu ôn tập)", "options": ["うまく なりたい", "やめたい", "きらいになりたい", "へたになりたい"], "correct": 0, "explain": "💡 <strong>Từ đồng nghĩa (Bài 2):</strong> じょうずに なりたい (muốn giỏi tiếng Nhật) ＝ <strong>うまく なりたい</strong> (muốn thành thạo, khéo léo). Chữ 勉強 đã học ở Bài 9."}, {"id": 7, "type": "mc", "prompt": "ちゅうごく語の 勉強は むずかしいですが、かんじは <u>おもしろい</u>です。", "promptVi": "Việc học tiếng Trung khó nhưng chữ Hán thì thú vị. (Câu 15 trong bộ 40 câu ôn tập)", "options": ["つまらない", "たいへんな", "たのしい", "こわい"], "correct": 2, "explain": "💡 <strong>Tính từ khen ngợi (Bài 2):</strong> おもしろい (thú vị) ＝ <strong>たのしい</strong> (vui vẻ, hào hứng)."}, {"id": 8, "type": "mc", "prompt": "フランス語は はつおんが <u>かんたんでは ありません</u>。", "promptVi": "Tiếng Pháp thì phát âm không đơn giản chút nào. (Câu 36 trong bộ 40 câu ôn tập)", "options": ["たのしいです", "はやいです", "みじかいです", "むずかしいです"], "correct": 3, "explain": "💡 <strong>Phủ định tính từ (Bài 2):</strong> かんたんでは ありません (không đơn giản) ＝ <strong>むずかしいです</strong> (khó)."}, {"id": 9, "type": "mc", "prompt": "ぶんしょうを 読む のが <u>にがてです</u>。", "promptVi": "Tôi kém việc đọc câu văn. (Câu 39 trong bộ 40 câu ôn tập)", "options": ["とても じょうずだ", "だいすきだ", "あまり とくいではない", "かんたんだ"], "correct": 2, "explain": "💡 <strong>Tính từ chỉ năng lực (Bài 2):</strong> にがてです (kém, không tự tin) ＝ <strong>あまり とくいではない</strong> (không thành thạo lắm). Chữ 読 đã học ở Bài 2."}, {"id": 10, "type": "mc", "prompt": "日本の まんがを たくさん <u>あつめて います</u>。", "promptVi": "Tôi đang sưu tầm nhiều truyện tranh của Nhật Bản. (Câu 40 trong bộ 40 câu ôn tập)", "options": ["うる こと", "すてる こと", "かりる こと", "もつ こと"], "correct": 3, "explain": "💡 <strong>Từ vựng sở thích (Bài 10):</strong> あつめて います (sưu tầm, tích trữ) ＝ <strong>もつ こと</strong> (sở hữu trong nhà). Chữ 日本 đã học."}]}]}, {"id": "sec2_kanji", "partNumber": "II", "partTitle": "HÁN TỰ (漢字 - 10 CÂU)", "partDesc": "Kiểm tra nhận diện chữ Hán chủ đề học tập, trường học, ngôn ngữ (Bài 1 - 10).", "badge": "25 Điểm", "groups": [{"groupTitle": "DẠNG 1: Chọn cách đọc Hiragana đúng cho chữ Hán trong ngoặc 【 】", "groupInstruction": "Chọn âm đọc chính xác của chữ Hán trong câu:", "items": [{"id": 11, "type": "mc", "prompt": "まい日、学校で 【勉強】します。", "promptVi": "Mỗi ngày tôi đều học ở trường.", "options": ["ぶんきょう", "べんきょうう", "めんきょう", "べんきょう"], "correct": 3, "explain": "💡 <strong>Chữ 勉強 (MIỄN CƯỜNG - Bài 9):</strong> Đọc là <strong>べんきょう</strong> (học tập)."}, {"id": 12, "type": "mc", "prompt": "あの 人は わたしの 【先生】です。", "promptVi": "Người đó là giáo viên của tôi.", "options": ["がくせい", "せんせい", "ともだち", "りゅうがくせい"], "correct": 1, "explain": "💡 <strong>Chữ 先生 (TIÊN SINH - Bài 9):</strong> Đọc là <strong>せんせい</strong> (thầy cô giáo)."}, {"id": 13, "type": "mc", "prompt": "やすみの 日に 本を 【読】みます。", "promptVi": "Vào ngày nghỉ tôi đọc sách.", "options": ["の", "み", "よ", "か"], "correct": 2, "explain": "💡 <strong>Chữ 読 (ĐỘC - Bài 2):</strong> Âm Kun là <strong>よ (む)</strong>. 読みます đọc là <strong>よみます</strong>."}, {"id": 14, "type": "mc", "prompt": "わたしは まんがが 【好】きです。", "promptVi": "Tôi thích truyện tranh.", "options": ["たの", "おもしろ", "す", "やす"], "correct": 2, "explain": "💡 <strong>Chữ 好 (HẢO - Bài 2):</strong> Đọc là <strong>す (き)</strong> (thích)."}, {"id": 15, "type": "mc", "prompt": "これは 【何】ですか。", "promptVi": "Cái này là cái gì thế?", "options": ["どこ", "なん", "だれ", "いつ"], "correct": 1, "explain": "💡 <strong>Chữ 何 (HÀ - Bài 2):</strong> Đọc là <strong>なん / なに</strong> (cái gì)."}]}, {"groupTitle": "DẠNG 2: Chọn chữ Hán đúng cho từ Hiragana trong ngoặc 【 】", "groupInstruction": "Chọn chữ Hán chính xác trong 4 phương án cho từ được gạch dưới:", "items": [{"id": 16, "type": "mc", "prompt": "いろいろな 【がいこくご】を 勉強したいです。", "promptVi": "Tôi muốn học nhiều ngoại ngữ khác nhau.", "options": ["日本語", "文化語", "外国語", "旅行語"], "correct": 2, "explain": "💡 <strong>Chữ 外国語 (NGOẠI QUỐC NGỮ - Bài 2):</strong> Đọc là <strong>がいこくご</strong>."}, {"id": 17, "type": "mc", "prompt": "学校に 【りゅうがくせい】が たくさん います。", "promptVi": "Ở trường học có rất nhiều lưu học sinh.", "options": ["先生", "友達", "外国人", "留学生"], "correct": 3, "explain": "💡 <strong>Chữ 留学生 (LƯU HỌC SINH - Bài 9, 10):</strong> Đọc là <strong>りゅうがくせい</strong>."}, {"id": 18, "type": "mc", "prompt": "この 【ほん】は とても おもしろいです。", "promptVi": "Quyển sách này rất thú vị.", "options": ["本", "国", "語", "何"], "correct": 0, "explain": "💡 <strong>Chữ 本 (BỔN/BẢN - Bài 2):</strong> Đọc là <strong>ほん</strong> (quyển sách)."}, {"id": 19, "type": "mc", "prompt": "【いま】、日本語を 勉強して います。", "promptVi": "Bây giờ tôi đang học tiếng Nhật.", "options": ["朝", "今", "昼", "夜"], "correct": 1, "explain": "💡 <strong>Chữ 今 (KIM - Bài 3):</strong> Đọc là <strong>いま</strong> (bây giờ)."}, {"id": 20, "type": "mc", "prompt": "あした、どこへ 【い】きますか。", "promptVi": "Ngày mai bạn đi đâu thế?", "options": ["出", "行", "待", "止"], "correct": 1, "explain": "💡 <strong>Chữ 行 (HÀNH - Bài 10):</strong> Đọc là <strong>い (きます)</strong> (đi)."}]}]}, {"id": "sec3_grammar", "partNumber": "III", "partTitle": "NGỮ PHÁP (文法 - 12 CÂU)", "partDesc": "Kiểm tra cấu trúc lời khuyên, danh từ hóa V-ること, liên từ nối và trợ từ so sánh.", "badge": "25 Điểm", "groups": [{"groupTitle": "DẠNG 1: Chọn phương án đúng nhất điền vào chỗ trống", "groupInstruction": "Chọn từ/thể ngữ pháp chính xác nhất điền vào chỗ trống trong ngoặc (   ):", "items": [{"id": 21, "type": "mc", "prompt": "いつも 日本語を (   ) ください。そして、ことばを たくさん おぼえて ください。", "promptVi": "Hãy thường xuyên nói tiếng Nhật. Và hãy nhớ nhiều từ vựng nhé. (Câu 11 trong bộ 40 câu ôn tập)", "options": ["はなして", "はなす", "はなします", "はなし"], "correct": 0, "explain": "💡 <strong>Cấu trúc lời khuyên/yêu cầu lịch sự: V-てください:</strong> はなす (Nhóm 1) ➔ Thể て là <strong>はなして</strong>."}, {"id": 22, "type": "mc", "prompt": "むずかしいですが、かんじは おもしろいです。えいご (   ) ちがいますから。", "promptVi": "Khó nhưng chữ Hán thú vị. Vì khác với tiếng Anh. (Câu 15 trong bộ 40 câu ôn tập)", "options": ["に", "と", "を", "で"], "correct": 1, "explain": "💡 <strong>Cấu trúc so sánh khác biệt: A と ちがう:</strong> Khác với tiếng Anh ➔ <strong>えいごと ちがいます</strong>."}, {"id": 23, "type": "mc", "prompt": "日本語は かんじを かく (   ) が おもしろいです。", "promptVi": "Tiếng Nhật thì việc viết chữ Hán thú vị. (Câu 38 trong bộ 40 câu ôn tập)", "options": ["もの", "ひと", "ところ", "こと"], "correct": 3, "explain": "💡 <strong>Danh từ hóa động từ: V-る ＋ こと (việc làm gì):</strong> かく こと (việc viết)."}, {"id": 24, "type": "mc", "prompt": "私の しゅみは まんがを (   ) ことです。", "promptVi": "Sở thích của tôi là đọc truyện tranh. (Câu 40 trong bộ 40 câu ôn tập)", "options": ["読む", "読みます", "読んで", "読み"], "correct": 0, "explain": "💡 <strong>Cấu trúc sở thích: Nの しゅみは [Động từ thể từ điển (V-る)] ことです:</strong> まんがを <strong>読む</strong> ことです."}, {"id": 25, "type": "mc", "prompt": "ちゅうごく語は むずかしいですが、おもしろいです。えいごと ちがいます (   )。", "promptVi": "Tiếng Trung khó nhưng thú vị. Vì khác với tiếng Anh. (Câu 15 trong bộ 40 câu ôn tập)", "options": ["ので", "のに", "から", "けど"], "correct": 2, "explain": "💡 <strong>Liên từ chỉ lý do nguyên nhân (Bài 2/10): ～から:</strong> ちがいます<strong>から</strong> (Vì khác với tiếng Anh). Đúng theo Câu 15 trong bộ 40 câu ôn tập."}, {"id": 26, "type": "mc", "prompt": "らいねん、日本へ 行って (   ) です。", "promptVi": "Năm sau tôi rất muốn đi thử đến Nhật Bản. (Câu 26 trong bộ 40 câu ôn tập)", "options": ["ほしい", "たくない", "にくい", "みたい"], "correct": 3, "explain": "💡 <strong>Cấu trúc làm thử việc gì: V-て みたい (muốn thử làm gì):</strong> 行ってみたいです (muốn đi thử)."}]}, {"groupTitle": "DẠNG 2: Sắp xếp câu tìm từ tại vị trí ngôi sao (★)", "groupInstruction": "Sắp xếp 4 cụm từ theo đúng ngữ pháp và chọn từ nằm ở vị trí ngôi sao (★):", "items": [{"id": 27, "type": "star", "prompt": "いつも 日本語を [  ] [  ] [ ★ ] [  ] おぼえて ください。", "promptVi": "Hãy thường xuyên nói tiếng Nhật. Và hãy nhớ nhiều từ vựng. (Câu 11)", "options": ["ことばを", "たくさん", "はなして", "ください。そして、"], "correct": 0, "explain": "💡 <strong>Thứ tự sắp xếp câu:</strong><br>[3] はなして ➔ [4] ください。そして、 ➔ <strong>★ [1] ことばを (Vị trí số 3)</strong> ➔ [2] たくさん<br>➔ Câu hoàn chỉnh: いつも 日本語を はなして ください。そして、ことばを たくさん おぼえて ください。<br>➔ Vị trí ngôi sao (★) là phương án <strong>[1] ことばを</strong>."}, {"id": 28, "type": "star", "prompt": "かんじは [  ] [  ] [ ★ ] [  ] ちがいますから。", "promptVi": "Chữ Hán thú vị vì khác với tiếng Anh. (Câu 15)", "options": ["ぜんぜん", "えいご", "おもしろいです。", "と"], "correct": 3, "explain": "💡 <strong>Thứ tự sắp xếp câu:</strong><br>[3] おもしろいです。 ➔ [2] えいご ➔ <strong>★ [4] と (Vị trí số 3)</strong> ➔ [1] ぜんぜん<br>➔ Câu hoàn chỉnh: かんじは おもしろいです。えいごと ぜんぜん ちがいますから。<br>➔ Vị trí ngôi sao (★) là phương án <strong>[4] と</strong>."}, {"id": 29, "type": "star", "prompt": "日本語は [  ] [  ] [ ★ ] [  ] おもしろいです。", "promptVi": "Tiếng Nhật thì việc viết chữ Hán rất thú vị. (Câu 38)", "options": ["かく", "とても", "かんじを", "ことが"], "correct": 3, "explain": "💡 <strong>Thứ tự sắp xếp câu:</strong><br>[3] かんじを ➔ [1] かく ➔ <strong>★ [4] ことが (Vị trí số 3)</strong> ➔ [2] とても<br>➔ Câu hoàn chỉnh: 日本語は かんじを かく ことが とても おもしろいです。<br>➔ Vị trí ngôi sao (★) là phương án <strong>[4] ことが</strong>."}, {"id": 30, "type": "star", "prompt": "日本語は　＿＿＿　＿＿＿　★　＿＿＿　にがてです。", "promptVi": "Tiếng Nhật thì việc đọc câu văn tôi hơi kém một chút. (Câu 39 trong bộ 40 câu ôn tập)", "options": ["少し", "ぶんしょうを", "のが", "読む"], "correct": 2, "explain": "💡 <strong>Thứ tự sắp xếp đúng:</strong><br>ぶんしょうを (1) ➔ 読む (2) ➔ <strong>のが (3 - ★)</strong> ➔ 少し (4).<br>➔ Câu hoàn chỉnh: 日本語は ぶんしょうを 読む のが 少し にがてです。", "sentencePre": "日本語は", "sentencePost": "にがてです。", "starPos": 3, "parts": [{"id": 1, "text": "ぶんしょうを"}, {"id": 2, "text": "読む"}, {"id": 3, "text": "のが"}, {"id": 4, "text": "少し"}], "fullSentence": "日本語は ぶんしょうを 読む のが 少し にがてです。"}]}, {"groupTitle": "DẠNG 3: Dịch câu tự luận (Việt ➔ Nhật)", "groupInstruction": "Nhập bản dịch tiếng Nhật chính xác cho các câu sau:", "items": [{"id": 31, "type": "trans", "prompt": "Tiếng Nhật thì việc viết chữ Hán thú vị.", "promptVi": "Câu 38 trong bộ 40 câu ôn tập", "reference": "日本語は かんじを かく ことが おもしろいです。", "acceptAnswers": ["日本語は かんじを かく ことが おもしろいです。", "日本語は かんじを かく のが おもしろいです。", "日本語は かんじを かく ことが とても おもしろいです。", "にほんごは かんじを かく ことが おもしろいです。", "にほんごは かんじを かく のが おもしろいです。", "日本語は かんじを かく ことが たのしいです。", "日本語は かんじを かく のが たのしいです。"], "hints": ["日本語は", "かんじを かく ことが / のが", "おもしろいです"]}, {"id": 32, "type": "trans", "prompt": "Vì lạc đường, nên tôi đã không thể làm được bài kiểm tra tiếng Nhật.", "promptVi": "Câu 34 trong bộ 40 câu ôn tập", "reference": "道に まよったので、日本語の テストが できませんでした。", "acceptAnswers": ["道に まよったので、日本語の テストが できませんでした。", "道に まよいましたから、日本語の テストが できませんでした。", "道に まよったから、日本語の テストが できませんでした。", "みちに まよったので、にほんごの てすとが できませんでした。", "みちに まよいましたから、にほんごの てすとが できませんでした。", "道に まよって、日本語の テストが できませんでした。"], "hints": ["道に まよったので / まよいましたから", "日本語の テストが", "できませんでした"]}]}]}, {"id": "sec4_reading", "partNumber": "IV", "partTitle": "ĐỌC HIỂU (読解 - 2 CÂU TRẮC NGHIỆM)", "partDesc": "Đọc bài chia sẻ về việc học ngoại ngữ và chọn đáp án chính xác nhất (Câu 33-34).", "badge": "10 Điểm", "passage": "わたしは 学校で 外国語を 勉強する ことが 好きです。\nいままで えいごと フランス語を 勉強しました。\nフランス語は はつおんが 少し むずかしいですが、とても きれいな ことばです。\nいまは、学校で 日本語を 勉強して います。\n日本語は かんじを かく ことが とても おもしろいです。\nでも、ことばが 多くて、ぶんしょうを 読む のが 少し にがてですから、まい朝 三十ぷん 読む れんしゅうを して います。\nしょうらい、日本へ 留学生として 行って、たくさんの 友達を つくりたいです。", "passageVi": "Tôi rất thích việc học ngoại ngữ ở trường học.\nCho đến nay tôi đã học tiếng Anh và tiếng Pháp.\nTiếng Pháp thì phát âm hơi khó một chút nhưng là một ngôn ngữ rất đẹp.\nHiện tại, tôi đang học tiếng Nhật ở trường.\nTiếng Nhật thì việc viết chữ Hán rất thú vị.\nTuy nhiên từ vựng nhiều và việc đọc câu văn tôi hơi kém một chút, nên mỗi sáng tôi luyện đọc 30 phút.\nTrong tương lai, tôi muốn sang Nhật Bản với tư cách là lưu học sinh và kết thật nhiều bạn bè.", "items": [{"id": 33, "type": "mc", "prompt": "この 人は なぜ まい朝 三十ぷん 読む れんしゅうを して いますか。", "promptVi": "Tại sao mỗi sáng người này lại luyện đọc 30 phút?", "options": ["かんじを かく のが きらいですから。", "ぶんしょうを 読む のが 少し にがてですから。", "フランス語を はなしたいですから。", "テストが ぜんぜん ありませんから。"], "correct": 1, "explain": "💡 <strong>Thông tin trong bài đọc:</strong> 「ぶんしょうを 読む のが 少し にがてですから、まい朝 三十ぷん 読む れんしゅうを して います」 ➔ Vì việc đọc văn bản hơi kém một chút."}, {"id": 34, "type": "mc", "prompt": "この 人の しょうらいの ゆめは 何ですか。", "promptVi": "Ước mơ trong tương lai của người này là gì?", "options": ["日本へ 留学生として 行く こと。", "フランスで 先生に なる こと。", "えいごの 本を かく こと。", "学校を やめる こと。"], "correct": 0, "explain": "💡 <strong>Thông tin trong bài đọc:</strong> 「しょうらい、日本へ 留学生として 行って、たくさんの 友達を つくりたいです」 ➔ Đi du học Nhật Bản."}]}, {"id": "sec5_essay", "partNumber": "V", "partTitle": "TỰ LUẬN TRẢ LỜI CÂU HỎI (2 CÂU)", "partDesc": "Viết đoạn văn ngắn trả lời câu hỏi và bài luận theo chủ đề (tối thiểu 50 chữ/ký tự).", "badge": "15 Điểm", "items": [{"id": 35, "type": "essay", "prompt": "あなたにとって、日本語の 勉強で 何が おもしろいですか。何が むずかしいですか。", "promptVi": "Đối với bạn, trong việc học tiếng Nhật điều gì thú vị và điều gì khó khăn? Hãy chia sẻ ngắn gọn.", "minWords": 30, "placeholder": "Gõ câu trả lời tiếng Nhật tại đây... Ví dụ: 日本語は かんじを かく ことが おもしろいです...", "hints": ["Điều thú vị: かんじを かく ことが おもしろい / はなす のが たのしい", "Điều khó khăn: ことばが 多い / ぶんしょうを 読む のが にがて", "Cảm xúc: これからも いっしょうけんめい 勉強したいです"], "modelAnswer": "日本語は かんじを かく ことが とても おもしろいです。でも、ことばが 多くて、ぶんしょうを 読む のが 少し にがてです。これからも いっしょうけんめい がんばります。", "modelVi": "Tiếng Nhật thì việc viết chữ Hán rất thú vị. Nhưng từ vựng nhiều và việc đọc văn bản tôi hơi kém một chút. Sau này tôi sẽ cố gắng hết mình.", "rubric": "Tiêu chí chấm điểm Can-do: Sử dụng đúng cấu trúc danh từ hóa (V-ること / V-るの), nêu bật cả điểm thú vị và điểm khó khăn."}, {"id": 36, "type": "essay", "prompt": "あなたの しょうらいの ゆめや、これから 勉強したい 外国語について かいて ください。（りゆう、もくひょうなど、五十じ いじょう）", "promptVi": "Hãy viết đoạn văn chia sẻ về ước mơ tương lai hoặc ngoại ngữ bạn muốn học tiếp theo (lý do, mục tiêu học tập... tối thiểu 50 chữ/ký tự).", "minWords": 50, "placeholder": "Gõ đoạn văn tiếng Nhật tại đây (tối thiểu 50 từ/ký tự)... Ví dụ: わたしは しょうらい、日本へ 留学生として 行きたいです...", "hints": ["Ước mơ: わたしは しょうらい、日本へ 留学生として 行きたいです", "Ngoại ngữ muốn học: 日本語や えいごを もっと じょうずに はなしたいです", "Kế hoạch rèn luyện: まい日、三十ぷん 日本語を 勉強して、日本の 友達を つくります", "Độ dài: Tối thiểu 50 chữ/ký tự"], "modelAnswer": "わたしは しょうらい、日本へ 留学生として 行きたいです。日本の 文化や 音楽が 好きですから、学校で もっと 日本語を 勉強します。そして、まい日 三十ぷん 日本語を はなす れんしゅうを して、日本の 友達を たくさん つくりたいです。これからも いっしょうけんめい がんばります。", "modelVi": "Trong tương lai, tôi muốn đến Nhật Bản với tư cách là một lưu học sinh. Vì tôi thích văn hóa và âm nhạc Nhật Bản nên tôi sẽ học tiếng Nhật nhiều hơn ở trường. Mỗi ngày tôi sẽ luyện nói tiếng Nhật 30 phút và kết thật nhiều bạn bè người Nhật. Sau này tôi sẽ cố gắng hết mình.", "rubric": "Tiêu chí chấm điểm Can-do: Đạt độ dài tối thiểu ≥ 50 từ/ký tự; nêu rõ ước mơ (留学生として行きたい), sử dụng đúng liên từ lý do (～から) và từ vựng Bài 1 - 10."}]}]}];
+
+// ==========================================
+// EXAM CONTROLLER STATE
+// ==========================================
+const ACTIVE_EXAM_STORAGE_KEY = "marugoto_midterm_active_code_v1";
+
+function getInitialExamCode() {
+    // 1. Kiểm tra hash trên URL (ví dụ: #M102, #M103)
+    const hash = (window.location.hash || "").replace("#", "").trim().toUpperCase();
+    if (hash && typeof EXAMS_DATA !== 'undefined' && EXAMS_DATA.some(e => e.code === hash)) {
+        return hash;
+    }
+    // 2. Kiểm tra bộ nhớ localStorage phiên trước
+    try {
+        const saved = localStorage.getItem(ACTIVE_EXAM_STORAGE_KEY);
+        if (saved && typeof EXAMS_DATA !== 'undefined' && EXAMS_DATA.some(e => e.code === saved)) {
+            return saved;
+        }
+    } catch (e) {}
+    // 3. Mặc định là mã đề đầu tiên
+    return (typeof EXAMS_DATA !== 'undefined' && EXAMS_DATA.length > 0) ? EXAMS_DATA[0].code : "M101";
+}
+
+let currentExamCode = getInitialExamCode();
+let userAnswers = {}; // { [qId]: { value, starOrder, isCorrect, checked } }
+let timerSeconds = 45 * 60;
+let timerInterval = null;
+let isTimerRunning = false;
+let isImmediateMode = false;
+let isExamSubmitted = false;
+
+const STORAGE_KEY_PREFIX = "marugoto_midterm_draft_";
+const HISTORY_STORAGE_KEY = "marugoto_midterm_history_v1";
+
+// 1. Initialize
+document.addEventListener("DOMContentLoaded", () => {
+    currentExamCode = getInitialExamCode();
+    initExamTabs();
+    loadExam(currentExamCode);
+    updateHistoryBadge();
+});
+
+window.addEventListener("hashchange", () => {
+    const hash = (window.location.hash || "").replace("#", "").trim().toUpperCase();
+    if (hash && hash !== currentExamCode && typeof EXAMS_DATA !== 'undefined' && EXAMS_DATA.some(e => e.code === hash)) {
+        switchExam(hash);
+    }
+});
+
+// 2. Exam Tabs
+function initExamTabs() {
+    const container = document.getElementById("examCodeTabsContainer");
+    if (!container) return;
+    container.innerHTML = EXAMS_DATA.map(ex => `
+        <div class="code-tab-btn ${ex.code === currentExamCode ? 'active' : ''}" onclick="switchExam('${ex.code}')">
+            <div class="tab-code">
+                <span>${ex.name}</span>
+                <span class="tab-badge">${ex.tag}</span>
+            </div>
+            <div class="tab-desc">${ex.desc}</div>
+        </div>
+    `).join("");
+}
+
+function switchExam(code) {
+    if (code === currentExamCode) return;
+    if (!isExamSubmitted && Object.keys(userAnswers).length > 0) {
+        if (!confirm("Bạn có bài làm dở ở đề hiện tại. Chuyển đề sẽ chuyển sang mã đề mới (tiến độ đề cũ vẫn được lưu). Tiếp tục?")) {
+            return;
+        }
+    }
+    currentExamCode = code;
+    try {
+        localStorage.setItem(ACTIVE_EXAM_STORAGE_KEY, code);
+        history.replaceState(null, "", "#" + code);
+    } catch (e) {}
+    initExamTabs();
+    loadExam(code);
+}
+
+// 3. Timer Engine
+function startTimer() {
+    stopTimer();
+    isTimerRunning = true;
+    const btn = document.getElementById("btnToggleTimer");
+    if (btn) btn.textContent = "⏸️";
+    timerInterval = setInterval(() => {
+        if (timerSeconds > 0) {
+            timerSeconds--;
+            updateTimerDisplay();
+            if (timerSeconds % 10 === 0) {
+                saveDraft();
+            }
+        } else {
+            stopTimer();
+            alert("⏰ Hết giờ làm bài! Hệ thống đang tự động nộp bài thi của bạn.");
+            submitExam(true);
+        }
+    }, 1000);
+}
+
+function stopTimer() {
+    isTimerRunning = false;
+    if (timerInterval) clearInterval(timerInterval);
+    const btn = document.getElementById("btnToggleTimer");
+    if (btn) btn.textContent = "▶️";
+}
+
+function toggleTimer() {
+    if (isExamSubmitted) return;
+    if (isTimerRunning) {
+        stopTimer();
+        showToast("⏸️ Đã tạm dừng đồng hồ");
+    } else {
+        startTimer();
+        showToast("▶️ Tiếp tục tính giờ");
+    }
+}
+
+function resetTimer() {
+    if (isExamSubmitted) return;
+    const exam = EXAMS_DATA.find(e => e.code === currentExamCode) || EXAMS_DATA[0];
+    const limit = exam.timeLimit || (45 * 60);
+    const mins = Math.floor(limit / 60);
+    if (confirm(`Bạn có muốn đặt lại đồng hồ đếm ngược về ${mins}:00 không?`)) {
+        timerSeconds = limit;
+        updateTimerDisplay();
+        startTimer();
+        saveDraft();
+        showToast(`⏱️ Đã đặt lại thời gian thi về ${mins}:00!`);
+    }
+}
+
+function resetCurrentExam() {
+    const exam = EXAMS_DATA.find(e => e.code === currentExamCode) || EXAMS_DATA[0];
+    if (confirm(`Bạn có chắc chắn muốn xóa bài làm và làm lại mã đề [${currentExamCode}] từ đầu không?`)) {
+        clearDraft(currentExamCode);
+        loadExam(currentExamCode);
+        showToast(`🔄 Đã làm mới đề thi [${currentExamCode}] và đặt lại thời gian 45:00!`);
+    }
+}
+
+window.resetTimer = resetTimer;
+window.resetCurrentExam = resetCurrentExam;
+
+function updateTimerDisplay() {
+    const d = document.getElementById("timerDisplay");
+    const b = document.getElementById("timerBox");
+    if (!d) return;
+    const m = Math.floor(timerSeconds / 60);
+    const s = timerSeconds % 60;
+    d.textContent = `${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`;
+    if (timerSeconds <= 5 * 60) {
+        if (b) b.classList.add("warning");
+    } else {
+        if (b) b.classList.remove("warning");
+    }
+}
+
+// 4. Load & Render Exam
+function loadExam(code) {
+    const exam = EXAMS_DATA.find(e => e.code === code) || EXAMS_DATA[0];
+    currentExamCode = exam.code;
+    try {
+        localStorage.setItem(ACTIVE_EXAM_STORAGE_KEY, currentExamCode);
+        if (window.location.hash !== "#" + currentExamCode) {
+            history.replaceState(null, "", "#" + currentExamCode);
+        }
+    } catch (e) {}
+    document.body.classList.remove("review-mode");
+    isExamSubmitted = false;
+
+    // Restore draft if exists
+    const draft = loadDraft(code);
+    if (draft) {
+        userAnswers = draft.userAnswers || {};
+        let sec = (typeof draft.timerSeconds === "number") ? draft.timerSeconds : exam.timeLimit;
+        if (sec <= 0) sec = exam.timeLimit;
+        timerSeconds = sec;
+        showToast(`💾 Đã khôi phục bài làm nháp đề [${code}]!`);
+    } else {
+        userAnswers = {};
+        timerSeconds = exam.timeLimit;
+    }
+
+    renderExamDOM(exam);
+    renderPalette(exam);
+    updateProgress();
+    updateTimerDisplay();
+    startTimer();
+}
+
+function renderExamDOM(exam) {
+    const main = document.getElementById("examContentContainer");
+    if (!main) return;
+
+    let html = "";
+    exam.sections.forEach(sec => {
+        html += `
+            <section class="exam-section-card" id="${sec.id}">
+                <div class="section-header">
+                    <div class="sec-title-group">
+                        <div class="sec-badge-num">${sec.partNumber}</div>
+                        <h2 class="sec-title-text">${sec.partTitle}</h2>
+                    </div>
+                    <span class="sec-weight-badge">${sec.badge}</span>
+                </div>
+                <div class="sec-desc-text">${sec.partDesc}</div>
+        `;
+
+        // If reading section, render reading passage box first
+        const p = sec.readingPassage || (sec.passage ? {
+            title: sec.passageTitle || '【ĐOẠN VĂN ĐỌC HIỂU】',
+            content: sec.passage,
+            translation: sec.passageVi || ''
+        } : null);
+
+        if (p) {
+            html += `
+                <div class="passage-card">
+                    <div class="passage-title">
+                        <span class="jp-text">${p.title || '【Bài Đọc】'}</span>
+                        <div style="display:flex; gap:8px;">
+                            <button type="button" class="btn-speak" onclick="speakJapanese(decodeURIComponent('${encodeURIComponent(p.content || '')}'))">
+                                🔊 Nghe Bài Đọc (Tokyo)
+                            </button>
+                            <button type="button" class="btn-toggle-trans" onclick="togglePassageTrans('${sec.id}')">
+                                📜 Xem Dịch
+                            </button>
+                        </div>
+                    </div>
+                    <div class="passage-body jp-text">${p.content || ''}</div>
+                    <div class="passage-translation" id="trans_${sec.id}">
+                        ${(p.translation || '').replace(/\n/g, '<br>')}
+                    </div>
+                </div>
+            `;
+        }
+
+        // Render groups or direct items
+        if (sec.groups) {
+            sec.groups.forEach(grp => {
+                html += `
+                    <div class="group-divider">
+                        <div class="group-title">${grp.groupTitle}</div>
+                        <div class="group-instruction">${grp.groupInstruction}</div>
+                    </div>
+                `;
+                grp.items.forEach(item => {
+                    html += renderQuestionItem(item);
+                });
+            });
+        } else if (sec.items) {
+            sec.items.forEach(item => {
+                html += renderQuestionItem(item);
+            });
+        }
+
+        html += `</section>`;
+    });
+
+    main.innerHTML = html;
+
+    // Restore UI state for rendered items
+    restoreItemsUI();
+}
+
+function renderQuestionItem(item) {
+    const ans = userAnswers[item.id] || {};
+    let qHtml = `
+        <div class="q-item-card" id="q_card_${item.id}">
+            <div class="q-meta-row">
+                <span class="q-number-badge">CÂU ${item.id}</span>
+                <div style="display:flex; align-items:center; gap:6px;">
+                    ${item.promptVi ? `
+                        <button type="button" class="btn-hint-vi" id="btn_hint_${item.id}" onclick="toggleSingleVi(${item.id})">
+                            👁️ Dịch
+                        </button>
+                    ` : ''}
+                    <button type="button" class="btn-speak" onclick="speakQuestionAudio(${item.id})">
+                        🔊 Phát âm
+                    </button>
+                </div>
+            </div>
+    `;
+
+    if (item.type === "mc") {
+        qHtml += `
+            <div class="q-prompt-jp jp-text">${item.prompt}</div>
+            <div class="q-prompt-vi" id="q_prompt_vi_${item.id}">${item.promptVi || ''}</div>
+            <div class="options-grid">
+                ${item.options.map((opt, oIdx) => `
+                    <label class="option-label" id="opt_lbl_${item.id}_${oIdx}" onclick="handleSelectOption(${item.id}, ${oIdx})">
+                        <input type="radio" name="opt_${item.id}" value="${oIdx}">
+                        <div class="option-radio-mark">${['A', 'B', 'C', 'D'][oIdx]}</div>
+                        <span class="option-text-jp jp-text">${opt}</span>
+                    </label>
+                `).join("")}
+            </div>
+        `;
+    } else if (item.type === "star") {
+        const parts = (item.parts && Array.isArray(item.parts)) ? item.parts :
+                      (item.options && Array.isArray(item.options)) ? item.options.map((opt, i) => ({ id: i + 1, text: opt })) : [];
+        item.parts = parts;
+
+        const sPre = item.sentencePre !== undefined ? item.sentencePre : (item.prompt ? item.prompt.split(/[_\s]*[＿\[]\s*[_ ]*[＿\]]/)[0] : "");
+        const sPost = item.sentencePost !== undefined ? item.sentencePost : "";
+        const starPos = item.starPos || 3;
+        const starIdx = starPos - 1;
+
+        qHtml += `
+            <div class="q-prompt-vi" id="q_prompt_vi_${item.id}">${item.promptVi || ''}</div>
+            <div class="star-container">
+                <div class="star-sentence-box jp-text">
+                    <span>${sPre}</span>
+                    ${[0, 1, 2, 3].map(slotIdx => {
+                        const isStar = (slotIdx === starIdx);
+                        return `<div class="star-slot ${isStar ? 'slot-star' : ''}" id="star_slot_${item.id}_${slotIdx}" onclick="removeStarSlot(${item.id}, ${slotIdx})">${isStar ? '★ ' : ''}___ ${slotIdx + 1} ___</div>`;
+                    }).join("")}
+                    <span>${sPost}</span>
+                </div>
+
+                <div style="font-size:0.82rem; font-weight:700; color:#92400e; margin-bottom:8px;">
+                    👉 Bấm lần lượt 4 cụm từ dưới đây để điền vào 4 vị trí:
+                </div>
+
+                <div class="star-pool-box" id="star_pool_${item.id}">
+                    ${parts.map(p => `
+                        <button type="button" class="star-pill jp-text" id="star_pill_${item.id}_${p.id}" onclick="placeStarPart(${item.id}, ${p.id})">
+                            <strong>[${p.id}]</strong> ${p.text}
+                        </button>
+                    `).join("")}
+                </div>
+
+                <div class="star-actions">
+                    <button type="button" class="btn-reset-star" onclick="resetStarOrder(${item.id})">
+                        🔄 Xếp lại từ đầu
+                    </button>
+                    <span style="font-size:0.82rem; color:#78350f;">
+                        Chọn đáp án ở vị trí ngôi sao (★):
+                    </span>
+                </div>
+            </div>
+
+            <div class="options-grid">
+                ${parts.map(p => `
+                    <label class="option-label" id="opt_lbl_${item.id}_${p.id}" onclick="handleSelectStarRadio(${item.id}, ${p.id})">
+                        <input type="radio" name="opt_${item.id}" value="${p.id}">
+                        <div class="option-radio-mark">${p.id}</div>
+                        <span class="option-text-jp jp-text">${p.text}</span>
+                    </label>
+                `).join("")}
+            </div>
+        `;
+    } else if (item.type === "trans") {
+        const placeholder = item.placeholder || "Nhập câu dịch tiếng Nhật tại đây...";
+        item.placeholder = placeholder;
+        if (!item.acceptable && item.acceptAnswers) item.acceptable = item.acceptAnswers;
+        if (!item.standard && item.reference) item.standard = item.reference;
+        if (!item.dir) item.dir = "vi_to_ja";
+
+        qHtml += `
+            <div class="q-prompt-jp jp-text" style="font-size:1.05rem;">${item.prompt}</div>
+            <div class="trans-input-box">
+                <input type="text" class="trans-textarea jp-text" id="trans_input_${item.id}" 
+                       placeholder="${placeholder}" 
+                       oninput="handleTransInput(${item.id}, this.value)">
+                <div class="trans-btn-row">
+                    <button type="button" class="btn-trans-check" onclick="checkTranslationSingle(${item.id})">
+                        🔍 Kiểm Tra Bản Dịch
+                    </button>
+                </div>
+            </div>
+        `;
+    } else if (item.type === "essay") {
+        qHtml += `
+            <div class="q-prompt-jp jp-text" style="font-size:1.1rem; color:#4338ca;">${item.prompt}</div>
+            <div class="q-prompt-vi" id="q_prompt_vi_${item.id}">${item.promptVi || ''}</div>
+            <div class="hint-pills-row">
+                ${(item.hints || []).map(h => `<span class="hint-pill">${h}</span>`).join("")}
+            </div>
+            <div class="essay-box">
+                <textarea class="essay-textarea jp-text" id="essay_input_${item.id}" 
+                          placeholder="${item.placeholder}" 
+                          oninput="handleEssayInput(${item.id}, this.value)"></textarea>
+                <div class="essay-meta-row">
+                    <span id="essay_count_${item.id}" class="essay-char-counter">
+                        ✍️ <strong>Độ dài: 0 / 50 ký tự</strong> (Cần viết ít nhất 50 từ/ký tự)
+                    </span>
+                    <button type="button" class="btn-trans-check" onclick="toggleEssayModel(${item.id})">
+                        💡 Xem Câu Mẫu & Chấm Can-do
+                    </button>
+                </div>
+            </div>
+            <div class="essay-model-card" id="essay_model_${item.id}">
+                <div class="model-header">
+                    <span>🌟 CÂU TRẢ LỜI MẪU CAN-DO (Chuẩn Marugoto A2):</span>
+                    <button type="button" class="btn-speak" onclick="speakJapanese(decodeURIComponent('${encodeURIComponent(item.modelAnswer)}'))">
+                        🔊 Nghe đọc mẫu
+                    </button>
+                </div>
+                <div class="model-text-jp jp-text">${item.modelAnswer}</div>
+                <div class="model-text-vi">${item.modelVi}</div>
+                <div class="model-rubric"><strong>📌 Tiêu chí:</strong> ${item.rubric}</div>
+            </div>
+        `;
+    }
+
+    // Explanation container (hidden initially)
+    qHtml += `
+        <div class="explain-box" id="explain_${item.id}">
+            <div id="explain_content_${item.id}"></div>
+        </div>
+    </div>`;
+
+    return qHtml;
+}
+
+// 5. Restore UI from state
+function restoreItemsUI() {
+    const exam = EXAMS_DATA.find(e => e.code === currentExamCode) || EXAMS_DATA[0];
+    getAllItems(exam).forEach(item => {
+        const state = userAnswers[item.id];
+        if (!state) return;
+
+        if (item.type === "mc") {
+            if (typeof state.value === "number") {
+                const lbl = document.getElementById(`opt_lbl_${item.id}_${state.value}`);
+                if (lbl) {
+                    lbl.classList.add("selected");
+                    const inp = lbl.querySelector("input");
+                    if (inp) inp.checked = true;
+                }
+            }
+        } else if (item.type === "star") {
+            if (state.starOrder && state.starOrder.length > 0) {
+                renderStarOrderSlots(item.id, state.starOrder);
+            }
+            if (typeof state.value === "number") {
+                const lbl = document.getElementById(`opt_lbl_${item.id}_${state.value}`);
+                if (lbl) {
+                    lbl.classList.add("selected");
+                    const inp = lbl.querySelector("input");
+                    if (inp) inp.checked = true;
+                }
+            }
+        } else if (item.type === "trans") {
+            const inp = document.getElementById(`trans_input_${item.id}`);
+            if (inp && state.value) {
+                inp.value = state.value;
+            }
+        } else if (item.type === "essay") {
+            const inp = document.getElementById(`essay_input_${item.id}`);
+            const cnt = document.getElementById(`essay_count_${item.id}`);
+            if (inp && state.value) {
+                inp.value = state.value;
+                const len = (state.value || "").trim().length;
+                if (cnt) {
+                    if (len >= 50) {
+                        cnt.innerHTML = `✅ <strong>Độ dài: ${len} / 50 ký tự</strong> (Đạt yêu cầu tối thiểu)`;
+                        cnt.style.color = "#059669";
+                    } else {
+                        cnt.innerHTML = `✍️ <strong>Độ dài: ${len} / 50 ký tự</strong> (Cần thêm ít nhất ${50 - len} ký tự nữa)`;
+                        cnt.style.color = "#dc2626";
+                    }
+                }
+            }
+        }
+
+        if (isImmediateMode || isExamSubmitted) {
+            showItemExplanation(item.id);
+        }
+    });
+}
+
+// 6. Palette Render
+function renderPalette(exam) {
+    const container = document.getElementById("paletteGroupsContainer");
+    if (!container) return;
+
+    let html = "";
+    exam.sections.forEach(sec => {
+        const items = getSectionItems(sec);
+        html += `
+            <div class="palette-sec-row">
+                <span class="palette-sec-name">${sec.partTitle.split('(')[0].trim()}</span>
+                <div class="palette-bubbles">
+                    ${items.map(it => {
+                        const isAnswered = isItemAnswered(it.id);
+                        const isStar = it.type === "star";
+                        const isEssay = it.type === "essay";
+                        return `
+                            <a href="#q_card_${it.id}" class="q-bubble ${isAnswered ? 'answered' : ''} ${isStar ? 'is-star' : ''} ${isEssay ? 'is-essay' : ''}" id="palette_bubble_${it.id}">
+                                ${it.id}
+                            </a>
+                        `;
+                    }).join("")}
+                </div>
+            </div>
+        `;
+    });
+
+    container.innerHTML = html;
+}
+
+function updatePaletteBubble(itemId) {
+    const b = document.getElementById(`palette_bubble_${itemId}`);
+    if (!b) return;
+    if (isItemAnswered(itemId)) {
+        b.classList.add("answered");
+    } else {
+        b.classList.remove("answered");
+    }
+}
+
+function isItemAnswered(itemId) {
+    const s = userAnswers[itemId];
+    if (!s) return false;
+    if (typeof s.value === "number") return true;
+    if (typeof s.value === "string") {
+        const trimmed = s.value.trim();
+        if (itemId === 35 || itemId === 36) {
+            return trimmed.length >= 50;
+        }
+        return trimmed.length > 0;
+    }
+    return false;
+}
+
+function updateProgress() {
+    const exam = EXAMS_DATA.find(e => e.code === currentExamCode) || EXAMS_DATA[0];
+    const all = getAllItems(exam);
+    const total = all.length;
+    let answered = 0;
+    all.forEach(it => {
+        if (isItemAnswered(it.id)) answered++;
+    });
+
+    const pct = Math.round((answered / total) * 100);
+    const fill = document.getElementById("progressBarFill");
+    const txt = document.getElementById("progressText");
+    if (fill) fill.style.width = `${pct}%`;
+    if (txt) txt.textContent = `${answered} / ${total} câu (${pct}%)`;
+}
+
+// 7. Interactive Input Handlers
+function handleSelectOption(itemId, oIdx) {
+    if (isExamSubmitted) return;
+    const card = document.getElementById(`q_card_${itemId}`);
+    if (!card) return;
+
+    // Clear other selections in this question
+    card.querySelectorAll(".option-label").forEach(l => l.classList.remove("selected"));
+
+    const lbl = document.getElementById(`opt_lbl_${itemId}_${oIdx}`);
+    if (lbl) {
+        lbl.classList.add("selected");
+        const inp = lbl.querySelector("input");
+        if (inp) inp.checked = true;
+    }
+
+    userAnswers[itemId] = {
+        ...(userAnswers[itemId] || {}),
+        value: oIdx
+    };
+
+    updatePaletteBubble(itemId);
+    updateProgress();
+    saveDraft();
+
+    if (isImmediateMode) {
+        showItemExplanation(itemId);
+    }
+}
+
+// Star Ranking Slot Interactivity
+function placeStarPart(itemId, partId) {
+    if (isExamSubmitted) return;
+    const exam = EXAMS_DATA.find(e => e.code === currentExamCode);
+    const item = getAllItems(exam).find(it => it.id === itemId);
+    if (!item) return;
+
+    let currentOrder = (userAnswers[itemId] && userAnswers[itemId].starOrder) ? [...userAnswers[itemId].starOrder] : [];
+    if (currentOrder.includes(partId)) return;
+    if (currentOrder.length >= 4) return;
+
+    currentOrder.push(partId);
+    renderStarOrderSlots(itemId, currentOrder);
+
+    // If star position slot is filled, auto-select radio
+    const starIdx = (item.starPos || 3) - 1;
+    let selectedValue = (userAnswers[itemId] && typeof userAnswers[itemId].value === "number") ? userAnswers[itemId].value : null;
+    if (currentOrder.length > starIdx) {
+        selectedValue = currentOrder[starIdx];
+        handleSelectStarRadio(itemId, selectedValue, false);
+    }
+
+    userAnswers[itemId] = {
+        ...(userAnswers[itemId] || {}),
+        starOrder: currentOrder,
+        value: selectedValue
+    };
+
+    updatePaletteBubble(itemId);
+    updateProgress();
+    saveDraft();
+
+    if (isImmediateMode && currentOrder.length === 4) {
+        showItemExplanation(itemId);
+    }
+}
+
+function removeStarSlot(itemId, slotIdx) {
+    if (isExamSubmitted) return;
+    let currentOrder = (userAnswers[itemId] && userAnswers[itemId].starOrder) ? [...userAnswers[itemId].starOrder] : [];
+    if (slotIdx >= currentOrder.length) return;
+
+    currentOrder.splice(slotIdx, 1);
+    renderStarOrderSlots(itemId, currentOrder);
+
+    userAnswers[itemId] = {
+        ...(userAnswers[itemId] || {}),
+        starOrder: currentOrder
+    };
+
+    updatePaletteBubble(itemId);
+    updateProgress();
+    saveDraft();
+}
+
+function resetStarOrder(itemId) {
+    if (isExamSubmitted) return;
+    renderStarOrderSlots(itemId, []);
+    const card = document.getElementById(`q_card_${itemId}`);
+    if (card) {
+        card.querySelectorAll(".option-label").forEach(l => l.classList.remove("selected"));
+        card.querySelectorAll("input[type='radio']").forEach(i => i.checked = false);
+    }
+
+    userAnswers[itemId] = {
+        ...(userAnswers[itemId] || {}),
+        starOrder: [],
+        value: null
+    };
+
+    updatePaletteBubble(itemId);
+    updateProgress();
+    saveDraft();
+}
+
+function renderStarOrderSlots(itemId, order) {
+    const exam = EXAMS_DATA.find(e => e.code === currentExamCode);
+    const item = getAllItems(exam).find(it => it.id === itemId);
+    if (!item) return;
+
+    const starIdx = (item.starPos || 3) - 1;
+    for (let i = 0; i < 4; i++) {
+        const slot = document.getElementById(`star_slot_${itemId}_${i}`);
+        if (!slot) continue;
+        const isStar = (i === starIdx);
+        if (i < order.length) {
+            const partId = order[i];
+            const part = (item.parts || []).find(p => p.id === partId);
+            slot.textContent = part ? `${isStar ? '★ ' : ''}[${part.id}] ${part.text}` : `${isStar ? '★ ' : ''}[${partId}]`;
+            slot.classList.add("filled");
+        } else {
+            slot.textContent = isStar ? `★ ___ ${i+1} ___` : `___ ${i+1} ___`;
+            slot.classList.remove("filled");
+        }
+    }
+
+    // Toggle disabled pills
+    (item.parts || []).forEach(p => {
+        const pill = document.getElementById(`star_pill_${itemId}_${p.id}`);
+        if (pill) {
+            if (order.includes(p.id)) {
+                pill.classList.add("placed");
+            } else {
+                pill.classList.remove("placed");
+            }
+        }
+    });
+}
+
+function handleSelectStarRadio(itemId, partId, doSave = true) {
+    if (isExamSubmitted) return;
+    const card = document.getElementById(`q_card_${itemId}`);
+    if (!card) return;
+
+    card.querySelectorAll(".option-label").forEach(l => l.classList.remove("selected"));
+    const lbl = document.getElementById(`opt_lbl_${itemId}_${partId}`);
+    if (lbl) {
+        lbl.classList.add("selected");
+        const inp = lbl.querySelector("input");
+        if (inp) inp.checked = true;
+    }
+
+    userAnswers[itemId] = {
+        ...(userAnswers[itemId] || {}),
+        value: partId
+    };
+
+    updatePaletteBubble(itemId);
+    updateProgress();
+    if (doSave) saveDraft();
+
+    if (isImmediateMode) {
+        showItemExplanation(itemId);
+    }
+}
+
+// Translation Handlers
+function handleTransInput(itemId, val) {
+    userAnswers[itemId] = {
+        ...(userAnswers[itemId] || {}),
+        value: val
+    };
+    updatePaletteBubble(itemId);
+    updateProgress();
+    saveDraft();
+}
+
+function checkTranslationSingle(itemId) {
+    const exam = EXAMS_DATA.find(e => e.code === currentExamCode);
+    const item = getAllItems(exam).find(it => it.id === itemId);
+    if (!item) return;
+
+    const val = (userAnswers[itemId] && userAnswers[itemId].value) ? userAnswers[itemId].value.trim() : "";
+    if (!val) {
+        alert("Vui lòng nhập câu dịch trước khi kiểm tra!");
+        return;
+    }
+
+    const isMatch = evaluateTranslation(item, val);
+    userAnswers[itemId].isCorrect = isMatch;
+    userAnswers[itemId].checked = true;
+
+    showItemExplanation(itemId);
+}
+
+function evaluateTranslation(item, userStr) {
+    if (!userStr || !userStr.trim()) return false;
+
+    // Comprehensive Kanji to Hiragana mapping for A2-1 & common student inputs
+    const KANJI_HIRA_MAP = [
+        ["ベトナム料理", "べとなむりょうり"], ["ベトナム語", "べとなむご"], ["ベトナム", "べとなむ"],
+        ["日本語", "にほんご"], ["日本", "にほん"],
+        ["アイスクリーム", "あいすくりーむ"], ["アイス", "あいす"], ["クリーム", "くりーむ"],
+        ["一年のなかで", "いちねんのなかで"], ["一年", "いちねん"], ["1年", "いちねん"],
+        ["一ねんのなかで", "いちねんのなかで"], ["一ねん", "いちねん"],
+        ["一番", "いちばん"], ["1番", "いちばん"],
+        ["台風", "たいふう"], ["電車", "でんしゃ"],
+        ["止まりました", "とまりました"], ["止まった", "とまった"], ["止まる", "とまる"],
+        ["話す", "はなす"], ["話", "はなし"], ["会話", "かいわ"],
+        ["難しい", "むずかしい"], ["大変", "たいへん"],
+        ["面白", "おもしろ"],
+        ["白い", "しろい"], ["シャツ", "しゃつ"], ["欲しい", "ほしい"],
+        ["赤い", "あかい"], ["見えます", "みえます"], ["見える", "みえる"], ["見られます", "みられます"],
+        ["細長い", "ほそながい"], ["建物", "たてもの"], ["ビル", "びる"], ["となり", "となり"], ["近く", "ちかく"],
+        ["明日", "あした"], ["十時", "じゅうじ"], ["10時", "じゅうじ"], ["ロビー", "ろびー"], ["ホテル", "ほてる"],
+        ["会いましょう", "あいましょう"], ["会う", "あう"],
+        ["料理", "りょうり"], ["作り方", "つくりかた"], ["教えて", "おしえて"], ["教える", "おしえる"],
+        ["漢字", "かんじ"], ["書く", "かく"], ["楽しい", "たのしい"],
+        ["道", "みち"], ["迷いました", "まよいました"], ["迷った", "まよった"],
+        ["テスト", "てすと"], ["試験", "しけん"],
+        ["できませんでした", "できませんでした"], ["出来ませんでした", "できませんでした"],
+        ["夏", "なつ"], ["好", "す"], ["寒", "さむ"], ["苦", "にが"], ["手", "て"], ["電", "でん"], ["車", "しゃ"], ["止", "と"],
+        ["語", "ご"], ["話", "はな"], ["難", "むずか"], ["白", "しろ"], ["欲", "ほ"], ["赤", "あか"], ["橋", "はし"],
+        ["見", "み"], ["私", "わたし"], ["家", "いえ"], ["隣", "となり"], ["青", "あお"], ["細", "ほそ"], ["長", "なが"],
+        ["建", "たて"], ["物", "もの"], ["明", "あ"], ["十", "じゅう"], ["時", "じ"], ["会", "あ"], ["料", "りょう"],
+        ["理", "り"], ["作", "つく"], ["教", "おし"], ["日", "に"], ["本", "ほん"], ["漢", "かん"], ["字", "じ"],
+        ["書", "か"], ["面", "めん"], ["道", "みち"], ["迷", "まよ"], ["出", "で"], ["来", "き"]
+    ];
+
+    function katakanaToHiragana(str) {
+        return (str || "").replace(/[\u30A1-\u30F6]/g, ch => String.fromCharCode(ch.charCodeAt(0) - 0x60));
+    }
+
+    function normalizeJp(str) {
+        if (!str) return "";
+        let s = str.toLowerCase();
+        s = s.replace(/10/g, "じゅう").replace(/1/g, "いち");
+        for (const [k, h] of KANJI_HIRA_MAP) {
+            s = s.split(k).join(h);
+        }
+        s = katakanaToHiragana(s);
+        s = s.replace(/[\s、。,.?!！？「」『』〜~・（）\(\)\-_:：\/]/g, "");
+        return s;
+    }
+
+    const cleanUser = normalizeJp(userStr);
+
+    const acceptableList = item.acceptable || item.acceptAnswers || (item.standard ? [item.standard] : []);
+    if (item.dir === "vi_to_ja" || acceptableList.length > 0) {
+        // 1. Kiểm tra khớp chuỗi chính xác / bao hàm sau khi chuẩn hoá Kanji ➔ Hiragana
+        const isDirectMatch = acceptableList.some(acc => {
+            const cAcc = normalizeJp(acc);
+            return cAcc === cleanUser || cleanUser.includes(cAcc) || cAcc.includes(cleanUser);
+        });
+        if (isDirectMatch) return true;
+
+        // 2. Chấm điểm thông minh theo nhóm thành phần ngữ nghĩa (Semantic Clause Check)
+        const SEMANTIC_RULES = {
+            "M101_31": [
+                ["なつ"],
+                ["くりーむ", "あいす"],
+                ["さむい", "さむいの", "さむいが"]
+            ],
+            "M101_32": [
+                ["たいふう"],
+                ["でんしゃ", "ばす"],
+                ["とまり", "とまった", "とまる", "うごい"]
+            ],
+            "M102_31": [
+                ["べとなむ"],
+                ["はなす", "はなし", "かいわ"],
+                ["むずかし", "たいへん", "にがて"]
+            ],
+            "M102_32": [
+                ["しろい", "しろ"],
+                ["しゃつ", "ふく"],
+                ["ほしい", "かいたい"]
+            ],
+            "M103_31": [
+                ["あそこ", "あちら", "あっち"],
+                ["あかい", "あか"],
+                ["はし"],
+                ["みえ", "みられ", "みる"]
+            ],
+            "M103_32": [
+                ["いえ", "うち", "となり", "ちかく", "そば"],
+                ["あお"],
+                ["ほそなが", "なが", "ほそい"],
+                ["たてもの", "びる", "あり", "ある"]
+            ],
+            "M104_31": [
+                ["あした", "あす"],
+                ["じゅうじ", "10じ"],
+                ["ろびー", "ほてる"],
+                ["あい", "あおう", "あいま"]
+            ],
+            "M104_32": [
+                ["べとなむ"],
+                ["りょうり", "ごはん"],
+                ["つくりかた", "つくり", "つくる"],
+                ["おしえ"]
+            ],
+            "M105_31": [
+                ["にほんご", "にほん"],
+                ["かんじ"],
+                ["かく", "かき"],
+                ["おもしろ", "たのし"]
+            ],
+            "M105_32": [
+                ["みち"],
+                ["まよ"],
+                ["てすと", "しけん"],
+                ["できませ", "できな"]
+            ]
+        };
+
+        const key = `${currentExamCode}_${item.id}`;
+        const rules = SEMANTIC_RULES[key];
+        if (rules && rules.length > 0) {
+            const allMatched = rules.every(clauseOptions => {
+                return clauseOptions.some(opt => cleanUser.includes(normalizeJp(opt)));
+            });
+            if (allMatched) return true;
+        }
+
+        return false;
+    } else {
+        // ja_to_vi: check keywords
+        const userLower = userStr.toLowerCase();
+        const keywords = item.keywords || [];
+        let matched = 0;
+        keywords.forEach(kw => {
+            if (userLower.includes(kw.toLowerCase())) matched++;
+        });
+        return matched >= Math.ceil(keywords.length * 0.6);
+    }
+}
+
+// Essay Handlers
+function handleEssayInput(itemId, val) {
+    userAnswers[itemId] = {
+        ...(userAnswers[itemId] || {}),
+        value: val
+    };
+    const len = (val || "").trim().length;
+    const cnt = document.getElementById(`essay_count_${itemId}`);
+    if (cnt) {
+        if (len >= 50) {
+            cnt.innerHTML = `✅ <strong>Độ dài: ${len} / 50 ký tự</strong> (Đạt yêu cầu tối thiểu)`;
+            cnt.style.color = "#059669";
+        } else {
+            cnt.innerHTML = `✍️ <strong>Độ dài: ${len} / 50 ký tự</strong> (Cần thêm ít nhất ${50 - len} ký tự nữa)`;
+            cnt.style.color = "#dc2626";
+        }
+    }
+    updatePaletteBubble(itemId);
+    updateProgress();
+    saveDraft();
+}
+
+function toggleEssayModel(itemId) {
+    const m = document.getElementById(`essay_model_${itemId}`);
+    if (m) {
+        m.classList.toggle("show");
+    }
+}
+
+function togglePassageTrans(secId) {
+    const t = document.getElementById(`trans_${secId}`);
+    if (t) t.classList.toggle("show");
+}
+
+// 8. Explanation Engine
+function showItemExplanation(itemId) {
+    const exam = EXAMS_DATA.find(e => e.code === currentExamCode);
+    const item = getAllItems(exam).find(it => it.id === itemId);
+    if (!item) return;
+
+    const box = document.getElementById(`explain_${itemId}`);
+    const content = document.getElementById(`explain_content_${itemId}`);
+    if (!box || !content) return;
+
+    let isCorrect = false;
+    let rightAnsText = "";
+    const state = userAnswers[itemId] || {};
+
+    if (item.type === "mc") {
+        isCorrect = (state.value === item.correct);
+        rightAnsText = `Phương án ${['A','B','C','D'][item.correct]}: ${item.options[item.correct]}`;
+    } else if (item.type === "star") {
+        const correctOpt = item.correctOption !== undefined ? item.correctOption : ((typeof item.correct === 'number') ? item.correct + 1 : 3);
+        isCorrect = (state.value === correctOpt);
+        const partObj = (item.parts || []).find(p => p.id === correctOpt);
+        rightAnsText = partObj ? `Ngôi sao (★) là phương án [${correctOpt}]: ${partObj.text}` : `Phương án [${correctOpt}]`;
+    } else if (item.type === "trans") {
+        isCorrect = (state.isCorrect !== undefined) ? state.isCorrect : evaluateTranslation(item, state.value || "");
+        rightAnsText = item.standard || item.reference || "";
+    } else if (item.type === "essay") {
+        const text = (state.value || "").trim();
+        isCorrect = (text.length >= 50);
+        rightAnsText = isCorrect 
+            ? `Đạt yêu cầu độ dài Can-do (${text.length} / 50 ký tự)!` 
+            : `Chưa đạt độ dài yêu cầu (Hiện có: ${text.length} / 50 ký tự. Cần viết ít nhất 50 từ/ký tự)`;
+    }
+
+    box.className = `explain-box show ${isCorrect ? 'correct' : 'wrong'}`;
+
+    let detailHtml = `
+        <div style="font-weight:800; font-size:0.95rem; margin-bottom:6px;">
+            ${isCorrect ? '✅ CHÍNH XÁC!' : '❌ CHƯA CHÍNH XÁC!'} 
+            ${!isCorrect ? `<span style="font-weight:600; color:#1e1b4b; margin-left:8px;">Đáp án tham khảo: <strong>${rightAnsText}</strong></span>` : ''}
+        </div>
+    `;
+
+    if (item.type === "trans" && isCorrect) {
+        detailHtml += `<div style="font-size:0.88rem; color:#047857; margin-bottom:6px;">
+            💡 Câu dịch chuẩn xác, truyền tải đầy đủ ngữ nghĩa &amp; đúng văn phạm Marugoto A2-1!
+        </div>`;
+    }
+
+    if (item.type === "star" && item.fullSentence) {
+        detailHtml += `<div style="font-size:0.95rem; font-weight:700; color:#92400e; margin-bottom:6px;">
+            🌟 Câu hoàn chỉnh: <em>${item.fullSentence}</em>
+        </div>`;
+    }
+
+    if (item.explain) {
+        detailHtml += `<div style="margin-top:6px; line-height:1.6;">${item.explain}</div>`;
+    }
+
+    if (item.type === "trans" && !isCorrect) {
+        detailHtml += `
+            <div style="margin-top:10px; padding:10px 14px; background:#fef3c7; border:1px solid #f59e0b; border-radius:8px; display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap;">
+                <span style="font-size:0.85rem; color:#92400e; font-weight:600;">💡 Bạn dùng từ đồng nghĩa hoặc câu dịch tự nhiên theo cách khác?</span>
+                <button type="button" onclick="overrideTransCorrect(${item.id})" style="background:#f59e0b; color:#fff; border:none; padding:6px 14px; border-radius:6px; font-weight:700; font-size:0.83rem; cursor:pointer;">
+                    🎯 Tôi Thấy Tôi Viết Đúng (Ghi Nhận Điểm)
+                </button>
+            </div>
+        `;
+    }
+
+    content.innerHTML = detailHtml;
+}
+
+function overrideTransCorrect(itemId) {
+    userAnswers[itemId] = userAnswers[itemId] || {};
+    userAnswers[itemId].isCorrect = true;
+    userAnswers[itemId].checked = true;
+    showToast("🎯 Đã ghi nhận bản dịch của bạn là ĐÚNG (+điểm)!");
+    showItemExplanation(itemId);
+    updatePaletteBubble(itemId);
+    updateProgress();
+    saveDraft();
+}
+
+let isGlobalViShown = false;
+function toggleGlobalVi(show) {
+    if (show === undefined) show = !isGlobalViShown;
+    isGlobalViShown = show;
+    const toggleInput = document.getElementById("toggleViGlobal");
+    if (toggleInput) toggleInput.checked = show;
+
+    if (show) {
+        document.body.classList.add("show-all-vi");
+        showToast("👁️ Đã hiện bản dịch tiếng Việt tất cả câu hỏi");
+    } else {
+        document.body.classList.remove("show-all-vi");
+        showToast("🙈 Đã ẩn bản dịch tiếng Việt (Chuẩn thi thật)");
+    }
+
+    document.querySelectorAll(".btn-hint-vi").forEach(btn => {
+        if (show) {
+            btn.classList.add("active");
+            btn.innerHTML = "🙈 Ẩn dịch";
+        } else {
+            btn.classList.remove("active");
+            btn.innerHTML = "👁️ Dịch";
+        }
+    });
+}
+
+function toggleSingleVi(itemId) {
+    const viEl = document.getElementById(`q_prompt_vi_${itemId}`);
+    const btn = document.getElementById(`btn_hint_${itemId}`);
+    if (!viEl) return;
+    const isShown = viEl.classList.toggle("revealed");
+    if (btn) {
+        btn.classList.toggle("active", isShown);
+        btn.innerHTML = isShown ? "🙈 Ẩn dịch" : "👁️ Dịch";
+    }
+}
+
+function toggleImmediateMode() {
+    const chk = document.getElementById("immediateCheckToggle");
+    isImmediateMode = chk ? chk.checked : false;
+    if (isImmediateMode) {
+        document.body.classList.add("immediate-mode");
+        showToast("⚡ Đã bật Chế độ kiểm tra ngay (Luyện tập)");
+        const exam = EXAMS_DATA.find(e => e.code === currentExamCode);
+        getAllItems(exam).forEach(it => {
+            if (isItemAnswered(it.id)) {
+                showItemExplanation(it.id);
+            }
+        });
+    } else {
+        document.body.classList.remove("immediate-mode");
+        showToast("🔒 Đã chuyển về Chế độ làm bài thi chuẩn");
+        if (!isExamSubmitted) {
+            document.querySelectorAll(".explain-box").forEach(b => b.classList.remove("show"));
+        }
+    }
+}
+
+// 9. Audio TTS Helper
+function speakQuestionAudio(itemId) {
+    const exam = EXAMS_DATA.find(e => e.code === currentExamCode);
+    const item = getAllItems(exam).find(it => it.id === itemId);
+    if (!item) return;
+
+    let textToRead = "";
+    if (item.type === "mc") {
+        textToRead = item.prompt;
+    } else if (item.type === "star") {
+        textToRead = item.fullSentence || `${item.sentencePre} ${item.sentencePost}`;
+    } else if (item.type === "trans") {
+        textToRead = item.dir === "ja_to_vi" ? item.prompt : item.standard;
+    } else if (item.type === "essay") {
+        textToRead = item.prompt;
+    }
+
+    speakJapanese(textToRead);
+}
+
+// 10. Exam Submission & Scoring Engine
+function submitExam(isAuto = false) {
+    const exam = EXAMS_DATA.find(e => e.code === currentExamCode);
+    const allItems = getAllItems(exam);
+
+    if (!isAuto) {
+        let unanswered = 0;
+        allItems.forEach(it => {
+            if (!isItemAnswered(it.id)) unanswered++;
+        });
+
+        if (unanswered > 0) {
+            if (!confirm(`Bạn vẫn còn ${unanswered} câu chưa hoàn thành. Bạn có chắc chắn muốn nộp bài thi ngay không?`)) {
+                return;
+            }
+        } else {
+            if (!confirm("Bạn đã hoàn thành tất cả câu hỏi! Bạn có muốn nộp bài để xem kết quả chi tiết không?")) {
+                return;
+            }
+        }
+    }
+
+    stopTimer();
+    isExamSubmitted = true;
+
+    // Calculate scores
+    // Part 1: Vocab (10 items x 2.5 = 25 pts)
+    // Part 2: Kanji (10 items x 2.0 = 20 pts)
+    // Part 3: Grammar (12 items = 6x2.5 + 4x2.5 + 2x2.5 = 30 pts)
+    // Part 4: Reading (2 items x 5.0 = 10 pts)
+    // Part 5: Essay (2 items x 7.5 = 15 pts)
+    // Total = 100 pts
+
+    let totalScore = 0;
+    let sectionScores = {
+        sec1_vocab: { score: 0, max: 25, title: "Từ Vựng" },
+        sec2_kanji: { score: 0, max: 20, title: "Kanji" },
+        sec3_grammar: { score: 0, max: 30, title: "Ngữ Pháp" },
+        sec4_reading: { score: 0, max: 10, title: "Đọc Hiểu" },
+        sec5_essay: { score: 0, max: 15, title: "Tự Luận" }
+    };
+
+    allItems.forEach(item => {
+        const st = userAnswers[item.id] || {};
+        let isCorrect = false;
+
+        if (item.type === "mc") {
+            isCorrect = (st.value === item.correct);
+        } else if (item.type === "star") {
+            const correctOpt = item.correctOption !== undefined ? item.correctOption : ((typeof item.correct === 'number') ? item.correct + 1 : 3);
+            isCorrect = (st.value === correctOpt);
+        } else if (item.type === "trans") {
+            isCorrect = (st.isCorrect !== undefined) ? st.isCorrect : evaluateTranslation(item, st.value || "");
+        } else if (item.type === "essay") {
+            const text = (st.value || "").trim();
+            isCorrect = (text.length >= 50);
+        }
+
+        st.isCorrect = isCorrect;
+        userAnswers[item.id] = st;
+
+        if (isCorrect) {
+            let pts = 0;
+            if (item.id <= 10) pts = 2.5; // Vocab
+            else if (item.id <= 20) pts = 2.0; // Kanji
+            else if (item.id <= 32) pts = 2.5; // Grammar
+            else if (item.id <= 34) pts = 5.0; // Reading
+            else pts = 7.5; // Essay
+
+            totalScore += pts;
+
+            if (item.id <= 10) sectionScores.sec1_vocab.score += pts;
+            else if (item.id <= 20) sectionScores.sec2_kanji.score += pts;
+            else if (item.id <= 32) sectionScores.sec3_grammar.score += pts;
+            else if (item.id <= 34) sectionScores.sec4_reading.score += pts;
+            else sectionScores.sec5_essay.score += pts;
+        }
+    });
+
+    totalScore = Math.round(totalScore * 10) / 10;
+    const scoreOutOf10 = Math.round((totalScore / 10) * 10) / 10;
+    const timeSpentSec = exam.timeLimit - timerSeconds;
+    const m = Math.floor(timeSpentSec / 60);
+    const s = timeSpentSec % 60;
+    const timeSpentStr = `${m}m ${s}s`;
+
+    // Save to History
+    const record = {
+        id: Date.now(),
+        code: currentExamCode,
+        examName: exam.name,
+        totalScore: totalScore,
+        scoreOutOf10: scoreOutOf10,
+        timeSpent: timeSpentStr,
+        date: new Date().toLocaleDateString("vi-VN", { hour: '2-digit', minute: '2-digit', day: '2-digit', month: '2-digit', year: 'numeric' })
+    };
+    saveHistory(record);
+    updateHistoryBadge();
+
+    // Render Result Modal
+    showResultModal(totalScore, scoreOutOf10, timeSpentStr, sectionScores);
+}
+
+function showResultModal(score100, score10, timeStr, secScores) {
+    const modal = document.getElementById("resultModal");
+    if (!modal) return;
+
+    const trophy = document.getElementById("modalTrophy");
+    const bigScore = document.getElementById("modalScoreBig");
+    const subScore = document.getElementById("modalScoreSub");
+    const ratingPill = document.getElementById("modalRatingPill");
+    const breakdown = document.getElementById("modalBreakdownGrid");
+    const feedback = document.getElementById("modalFeedbackMsg");
+
+    bigScore.textContent = `${score100} / 100`;
+    subScore.textContent = `Điểm hệ số 10: ${score10.toFixed(1)} • Thời gian làm bài: ${timeStr}`;
+
+    if (score100 >= 90) {
+        trophy.textContent = "🏆";
+        ratingPill.className = "modal-rating-pill rating-gold";
+        ratingPill.textContent = "🌟 XUẤT SẮC (S GRADE)";
+        feedback.textContent = "Quá đỉnh! Bạn đã nắm trọn vẹn 100% ngữ pháp, từ vựng và kỹ năng Can-do chuẩn thi giữa kỳ Marugoto A2-1!";
+    } else if (score100 >= 80) {
+        trophy.textContent = "🥇";
+        ratingPill.className = "modal-rating-pill rating-green";
+        ratingPill.textContent = "✨ GIỎI (A GRADE)";
+        feedback.textContent = "Rất tốt! Bạn làm chủ hầu hết kiến thức bài 1-8. Chỉ cần chú ý thêm một vài câu bẫy nhỏ để đạt điểm tuyệt đối!";
+    } else if (score100 >= 65) {
+        trophy.textContent = "🥈";
+        ratingPill.className = "modal-rating-pill rating-blue";
+        ratingPill.textContent = "👍 KHÁ (B GRADE)";
+        feedback.textContent = "Bạn đã đạt mức khá! Hãy bấm nút 'Xem Lại Bài Làm' bên dưới để ôn kỹ lại các câu sai và ghi nhớ kiến thức nhé.";
+    } else {
+        trophy.textContent = "💪";
+        ratingPill.className = "modal-rating-pill rating-orange";
+        ratingPill.textContent = "📚 CẦN CỐ GẮNG (C GRADE)";
+        feedback.textContent = "Đừng nản lòng! Bạn hãy xem lại từng câu giải thích chi tiết, ôn lại từ vựng & ngữ pháp rồi bấm Làm lại đề nhé!";
+    }
+
+    let bdHtml = "";
+    for (let k in secScores) {
+        const sec = secScores[k];
+        const p = Math.round((sec.score / sec.max) * 100);
+        bdHtml += `
+            <div class="breakdown-item">
+                <div class="breakdown-title">${sec.title}</div>
+                <div class="breakdown-score">${sec.score} <span style="font-size:0.8rem; color:#94a3b8;">/ ${sec.max}đ</span></div>
+                <div style="font-size:0.75rem; color:${p >= 80 ? '#10b981' : (p >= 60 ? '#f59e0b' : '#ef4444')}; font-weight:700; margin-top:2px;">
+                    ${p}%
+                </div>
+            </div>
+        `;
+    }
+    breakdown.innerHTML = bdHtml;
+
+    modal.classList.add("show");
+}
+
+function closeResultModal() {
+    const modal = document.getElementById("resultModal");
+    if (modal) modal.classList.remove("show");
+}
+
+function enterReviewMode() {
+    closeResultModal();
+    document.body.classList.add("review-mode");
+
+    const exam = EXAMS_DATA.find(e => e.code === currentExamCode);
+    const allItems = getAllItems(exam);
+
+    allItems.forEach(item => {
+        const st = userAnswers[item.id] || {};
+        showItemExplanation(item.id);
+
+        // Highlight options
+        if (item.type === "mc") {
+            const rightLbl = document.getElementById(`opt_lbl_${item.id}_${item.correct}`);
+            if (rightLbl) rightLbl.classList.add("is-correct-ans");
+            if (typeof st.value === "number" && st.value !== item.correct) {
+                const wrongLbl = document.getElementById(`opt_lbl_${item.id}_${st.value}`);
+                if (wrongLbl) wrongLbl.classList.add("is-wrong-ans");
+            }
+        } else if (item.type === "star") {
+            const correctOpt = item.correctOption !== undefined ? item.correctOption : ((typeof item.correct === 'number') ? item.correct + 1 : 3);
+            const rightLbl = document.getElementById(`opt_lbl_${item.id}_${correctOpt}`);
+            if (rightLbl) rightLbl.classList.add("is-correct-ans");
+            if (typeof st.value === "number" && st.value !== correctOpt) {
+                const wrongLbl = document.getElementById(`opt_lbl_${item.id}_${st.value}`);
+                if (wrongLbl) wrongLbl.classList.add("is-wrong-ans");
+            }
+        }
+    });
+
+    // Scroll smoothly to top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    showToast("🔍 Đang ở Chế độ Xem Lại Chi Tiết (Review Mode)");
+}
+
+function confirmResetExam() {
+    if (confirm("Bạn có chắc chắn muốn làm lại đề thi này từ đầu không?")) {
+        clearDraft(currentExamCode);
+        closeResultModal();
+        loadExam(currentExamCode);
+    }
+}
+
+// 11. Storage Helpers
+function saveDraft() {
+    try {
+        const data = {
+            userAnswers,
+            timerSeconds,
+            updatedAt: Date.now()
+        };
+        localStorage.setItem(STORAGE_KEY_PREFIX + currentExamCode, JSON.stringify(data));
+    } catch (e) {}
+}
+
+function loadDraft(code) {
+    try {
+        const s = localStorage.getItem(STORAGE_KEY_PREFIX + code);
+        return s ? JSON.parse(s) : null;
+    } catch (e) {
+        return null;
+    }
+}
+
+function clearDraft(code) {
+    try {
+        localStorage.removeItem(STORAGE_KEY_PREFIX + code);
+    } catch (e) {}
+}
+
+function saveHistory(record) {
+    try {
+        let hist = getHistory();
+        hist.unshift(record);
+        if (hist.length > 20) hist = hist.slice(0, 20);
+        localStorage.setItem(HISTORY_STORAGE_KEY, JSON.stringify(hist));
+    } catch (e) {}
+}
+
+function getHistory() {
+    try {
+        const s = localStorage.getItem(HISTORY_STORAGE_KEY);
+        return s ? JSON.parse(s) : [];
+    } catch (e) {
+        return [];
+    }
+}
+
+function updateHistoryBadge() {
+    const hist = getHistory();
+    const b = document.getElementById("historyCountBadge");
+    if (b) b.textContent = hist.length;
+}
+
+function openHistoryModal() {
+    const m = document.getElementById("historyModal");
+    const list = document.getElementById("historyListContainer");
+    if (!m || !list) return;
+
+    const hist = getHistory();
+    if (hist.length === 0) {
+        list.innerHTML = `<div style="text-align:center; padding:30px; color:#94a3b8;">Chưa có lần thi nào được lưu. Hãy bấm Nộp bài thi để lưu kết quả!</div>`;
+    } else {
+        list.innerHTML = hist.map(h => `
+            <div class="history-row">
+                <div>
+                    <div style="font-weight:800; color:#1e1b4b;">${h.examName}</div>
+                    <div style="font-size:0.8rem; color:#64748b;">${h.date} • Thời gian: ${h.timeSpent}</div>
+                </div>
+                <div style="text-align:right;">
+                    <span style="font-size:1.3rem; font-weight:900; color:${h.totalScore >= 80 ? '#10b981' : (h.totalScore >= 65 ? '#f59e0b' : '#ef4444')};">
+                        ${h.totalScore}
+                    </span>
+                    <span style="font-size:0.85rem; color:#94a3b8;">/100đ</span>
+                </div>
+            </div>
+        `).join("");
+    }
+
+    m.classList.add("show");
+}
+
+function closeHistoryModal() {
+    const m = document.getElementById("historyModal");
+    if (m) m.classList.remove("show");
+}
+
+function clearAllHistory() {
+    if (confirm("Bạn có chắc chắn muốn xóa toàn bộ lịch sử thi không?")) {
+        localStorage.removeItem(HISTORY_STORAGE_KEY);
+        updateHistoryBadge();
+        openHistoryModal();
+    }
+}
+
+function showToast(msg) {
+    const t = document.getElementById("toastNotify");
+    const m = document.getElementById("toastMsg");
+    if (!t || !m) return;
+    m.textContent = msg;
+    t.classList.add("show");
+    setTimeout(() => {
+        t.classList.remove("show");
+    }, 3000);
+}
+
+// 12. Utility Extractors
+function getAllItems(exam) {
+    let items = [];
+    exam.sections.forEach(sec => {
+        items = items.concat(getSectionItems(sec));
+    });
+    return items;
+}
+
+function getSectionItems(sec) {
+    let items = [];
+    if (sec.groups) {
+        sec.groups.forEach(g => {
+            items = items.concat(g.items);
+        });
+    } else if (sec.items) {
+        items = items.concat(sec.items);
+    }
+    return items;
+}

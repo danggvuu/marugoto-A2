@@ -1,0 +1,214 @@
+/* Extracted page styles for tests/Kiem_Tra_Marugoto_L6_7_8.html */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+h1 {
+    color: #2c3e50;
+    text-align: center;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+}
+h2 {
+    color: #e67e22;
+    margin-top: 30px;
+    border-bottom: 1px dashed #ccc;
+    padding-bottom: 5px;
+}
+.question-box {
+    margin-bottom: 25px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    border-left: 5px solid #3498db;
+}
+.question-title {
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-bottom: 15px;
+}
+.options label {
+    display: block;
+    margin: 10px 0;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+.options label:hover {
+    background-color: #eef;
+}
+input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 10px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+.submit-btn {
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    margin-top: 30px;
+    transition: background 0.3s;
+}
+.submit-btn:hover {
+    background-color: #219653;
+}
+.result-box {
+    margin-top: 25px;
+    font-size: 20px;
+    text-align: center;
+    display: none;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #e8f8f5;
+    color: #27ae60;
+    border: 2px solid #27ae60;
+    font-weight: bold;
+}
+.feedback {
+    font-size: 0.95em;
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #eef;
+    border-radius: 5px;
+    display: none;
+    color: #333;
+}
+.correct-opt {
+    background-color: #d5f5e3 !important;
+    color: #27ae60;
+    font-weight: bold;
+}
+.wrong-opt {
+    background-color: #fadbd8 !important;
+    color: #c0392b;
+    font-weight: bold;
+}
+.suggested-answer {
+    background-color: #fef9e7;
+    padding: 15px;
+    border-left: 4px solid #f1c40f;
+    margin-top: 15px;
+    display: none;
+    font-size: 0.95em;
+    border-radius: 4px;
+}
+
+/* ==========================================
+   GLOBAL HUB NAVIGATION (CLEAN & NON-STICKY)
+   ========================================== */
+.global-hub-nav {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px 0 24px 0;
+    flex-wrap: wrap;
+}
+.hub-nav-item {
+    text-decoration: none;
+    background: #ffffff;
+    color: #475569;
+    padding: 9px 18px;
+    border-radius: 9999px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    border: 1.5px solid #e2e8f0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    font-family: inherit;
+}
+.hub-nav-item:hover {
+    border-color: #4f46e5;
+    color: #4f46e5;
+    transform: translateY(-2px);
+}
+.hub-nav-item.active-hub {
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+    color: #ffffff !important;
+    border-color: transparent;
+    box-shadow: 0 4px 15px rgba(79, 70, 229, 0.35);
+}
+/* Hub Dropdown Menu */
+.hub-dropdown {
+    position: relative;
+    display: inline-block;
+}
+.hub-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 14px;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+    padding: 8px;
+    min-width: 260px;
+    max-height: 480px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    z-index: 9999;
+}
+.hub-dropdown-menu.show {
+    display: block;
+}
+.hub-drop-link {
+    display: block;
+    padding: 8px 14px;
+    color: #334155;
+    font-size: 0.88rem;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.15s ease;
+}
+.hub-drop-link:hover {
+    background: #eef2ff;
+    color: #4f46e5;
+}
+.hub-drop-link.active {
+    background: #4f46e5;
+    color: #ffffff !important;
+}
+@media (max-width: 768px) {
+    .global-hub-nav {
+        justify-content: flex-start;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding-bottom: 8px;
+        -webkit-overflow-scrolling: touch;
+    }
+    .hub-nav-item {
+        flex-shrink: 0;
+        white-space: nowrap;
+    }
+}
+

@@ -12,10 +12,12 @@
     // 1. CHUẨN HÓA VÀ SO KHỚP ĐÁP ÁN THÔNG MINH
     function cleanStr(s) {
         if (!s) return '';
-        return s.toString()
-            .toLowerCase()
+        const base = window.JpTypingGrader
+            ? window.JpTypingGrader.toHiragana(s)
+            : s.toString().toLowerCase();
+        return base
             .trim()
-            .replace(/[()（）~～/／、,。.\s\-_\t]/g, '');
+            .replace(/[()（）「」『』~～/／、,。.\s\-_\t]/g, '');
     }
 
     function getAcceptedAnswers(item) {

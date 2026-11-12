@@ -12,6 +12,9 @@ docs/pdf/*.pdf
 !docs/pdf/K_contents_eng.pdf
 !docs/pdf/R_contents_eng.pdf
 !docs/pdf/N5_MARUGOTO_T__V_NG__A1_Lesson_3____A2_1_Lesson_18.pdf
+!docs/pdf/Kanji_Lesson_11-14.pdf
+!docs/pdf/Kanji_Lesson_15-18.pdf
+!docs/pdf/*L11~L18_A2.1.pdf
 
 # Data files
 !data/master_vocab_official.json
