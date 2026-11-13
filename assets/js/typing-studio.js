@@ -513,23 +513,31 @@
         var hintPrev = document.getElementById('tpHintPreview');
         var inp = document.getElementById('tpCardInput');
         var checkBtn = document.getElementById('tpCardCheckBtn');
+        var retryBtn = document.getElementById('tpCardRetryBtn');
         var detailPanel = document.getElementById('tpDetailPanel');
         var streakEl = document.getElementById('tpStreakBadge');
         if (streakEl) streakEl.innerText = '🔥 Chuỗi: ' + window.tpState.streak;
 
         if (!pool.length) {
+            var isWrongEmpty = (window.tpState.filterByMode[window.tpState.mode] === 'wrong');
             if (badge) badge.innerText = '0 / 0';
-            if (patBadge) patBadge.innerText = 'Bộ lọc trống';
+            if (patBadge) patBadge.innerText = isWrongEmpty ? 'Đã hoàn thành!' : 'Bộ lọc trống';
             if (subEl) subEl.innerText = 'TRẠNG THÁI';
             if (promptEl) {
                 promptEl.className = 'tp-vi-hero';
-                promptEl.innerText = '🎉 Tuyệt vời! Không có câu/chữ nào đang sai trong bộ lọc này.';
+                if (isWrongEmpty) {
+                    promptEl.innerHTML = '🎉 <strong style="color:#16a34a;">Xuất sắc!</strong> Bạn đã làm đúng và không còn từ/câu nào bị sai trong danh sách nữa.' +
+                        '<div style="margin-top:14px;"><button type="button" class="btn-primary" style="background:#0284c7; padding:9px 20px; font-size:0.95rem; border-radius:10px; cursor:pointer;" onclick="switchTypingLesson(\'all\')">📚 Quay Lại Học Tiếp Toàn Bộ</button></div>';
+                } else {
+                    promptEl.innerText = 'Không có câu/chữ nào trong bộ lọc này.';
+                }
             }
             if (inp) {
                 inp.value = '';
                 inp.disabled = true;
             }
             if (detailPanel) { detailPanel.className = 'tp-detail-panel'; detailPanel.innerHTML = ''; }
+            if (retryBtn) retryBtn.style.display = 'none';
             updateTypingStats(pool);
             renderTypingOverview();
             return;
@@ -571,12 +579,22 @@
         inp.disabled = false;
         var hist = window.tpState.history[item.id];
         var draftVal = window.tpState.drafts[item.id];
-        if (hist && (hist.status === 'ok' || hist.status === 'err' || hist.status === 'reveal')) {
+        var isWrongFilter = (window.tpState.filterByMode[window.tpState.mode] === 'wrong');
+
+        if (isWrongFilter && hist && hist.status === 'err' && !window.tpState.gradedCurrent) {
+            inp.value = '';
+            detailPanel.className = 'tp-detail-panel';
+            detailPanel.innerHTML = '';
+            checkBtn.innerText = 'Kiểm Tra Đáp Án ⏎';
+            checkBtn.style.background = 'var(--primary)';
+            if (retryBtn) retryBtn.style.display = 'none';
+        } else if (hist && (hist.status === 'ok' || hist.status === 'err' || hist.status === 'reveal')) {
             inp.value = draftVal !== undefined ? draftVal : (hist.lastInput || '');
             renderTypingDetailBox(item, hist);
             window.tpState.gradedCurrent = true;
             checkBtn.innerText = 'Câu Tiếp Theo ➔ (Enter)';
             checkBtn.style.background = 'var(--secondary)';
+            if (retryBtn) retryBtn.style.display = (hist.status === 'err' || hist.status === 'reveal') ? 'inline-block' : 'none';
         } else {
             inp.value = draftVal || '';
             detailPanel.className = 'tp-detail-panel';
@@ -584,6 +602,7 @@
             window.tpState.gradedCurrent = false;
             checkBtn.innerText = 'Kiểm Tra Đáp Án ⏎';
             checkBtn.style.background = 'var(--primary)';
+            if (retryBtn) retryBtn.style.display = 'none';
         }
 
         updateTypingStats(pool);
@@ -790,11 +809,81 @@
         persistCheckpoint();
     }
 
+    function showRoundSummaryModal(total, wrongCount) {
+        var m = window.tpState.mode;
+        var modeLabel = m === 'sentence' ? 'câu' : (m === 'kanji' ? 'chữ Hán' : 'từ');
+        var modalId = 'tpRoundSummaryModal';
+        var existing = document.getElementById(modalId);
+        if (existing) existing.remove();
+
+        var okCount = Math.max(0, total - wrongCount);
+        var div = document.createElement('div');
+        div.id = modalId;
+        div.style.cssText = 'position:fixed; inset:0; background:rgba(15,23,42,0.65); z-index:99999; display:flex; align-items:center; justify-content:center; padding:16px; backdrop-filter:blur(4px);';
+        div.innerHTML = 
+            '<div style="background:#ffffff; border-radius:18px; max-width:480px; width:100%; padding:26px 24px; box-shadow:0 20px 40px rgba(0,0,0,0.25); text-align:center; border:2px solid #e2e8f0;">' +
+            '  <div style="font-size:2.8rem; margin-bottom:6px;">🎉</div>' +
+            '  <h3 style="font-size:1.3rem; font-weight:900; color:#1e1b4b; margin:0 0 10px 0;">Hoàn Thành 1 Vòng ' + total + ' ' + modeLabel + '!</h3>' +
+            '  <p style="color:#475569; font-size:0.95rem; margin:0 0 18px 0; line-height:1.6;">' +
+            '    Kết quả vòng này: <strong style="color:#16a34a;">' + okCount + ' Đúng</strong> • <strong style="color:#e11d48;">' + wrongCount + ' Chưa chuẩn</strong>.<br>' +
+            '    Bạn có muốn gom ngay <strong>' + wrongCount + ' ' + modeLabel + ' chưa đúng</strong> này để gõ lại cho thuộc không?' +
+            '  </p>' +
+            '  <div style="display:flex; flex-direction:column; gap:10px;">' +
+            '    <button type="button" id="btnGoToWrong" style="background:#e11d48; color:#ffffff; font-weight:800; font-size:1rem; padding:12px 20px; border-radius:10px; border:none; cursor:pointer; box-shadow:0 4px 12px rgba(225,29,72,0.3);">' +
+            '      🔁 Bắt Đầu Vòng Gõ Lại ' + wrongCount + ' ' + modeLabel + ' Sai Ngay' +
+            '    </button>' +
+            '    <button type="button" id="btnRestartRound" style="background:#0284c7; color:#ffffff; font-weight:700; font-size:0.92rem; padding:10px 18px; border-radius:10px; border:none; cursor:pointer;">' +
+            '      🔄 Luyện Lại Toàn Bộ Vòng Này Từ Đầu' +
+            '    </button>' +
+            '    <button type="button" id="btnCloseModal" style="background:#f1f5f9; color:#475569; font-weight:700; font-size:0.88rem; padding:8px 16px; border-radius:8px; border:1px solid #cbd5e1; cursor:pointer;">' +
+            '      Tiếp tục xem lại (Đóng)' +
+            '    </button>' +
+            '  </div>' +
+            '</div>';
+
+        document.body.appendChild(div);
+
+        document.getElementById('btnGoToWrong').onclick = function () {
+            div.remove();
+            switchTypingLesson('wrong');
+        };
+        document.getElementById('btnRestartRound').onclick = function () {
+            div.remove();
+            var bucket = getActiveBucketKey();
+            window.tpState.idxByBucket[bucket] = 0;
+            window.tpState.gradedCurrent = false;
+            renderTypingCard(true);
+        };
+        document.getElementById('btnCloseModal').onclick = function () {
+            div.remove();
+            var bucket = getActiveBucketKey();
+            window.tpState.idxByBucket[bucket] = 0;
+            window.tpState.gradedCurrent = false;
+            renderTypingCard(true);
+        };
+    }
+
     function skipTypingWord() {
         var pool = getFilteredTypingPool();
         if (!pool.length) return;
         var bucket = getActiveBucketKey();
         var cur = window.tpState.idxByBucket[bucket] || 0;
+        var m = window.tpState.mode;
+        var curF = window.tpState.filterByMode[m] || 'all';
+
+        // Nếu vừa đi qua câu cuối cùng của vòng (và không phải đang ở bộ lọc wrong)
+        if (cur >= pool.length - 1 && curF !== 'wrong') {
+            var wrongCount = pool.filter(function (x) {
+                var h = window.tpState.history[x.id];
+                return h && (h.status === 'err' || h.status === 'reveal');
+            }).length;
+
+            if (wrongCount > 0) {
+                showRoundSummaryModal(pool.length, wrongCount);
+                return;
+            }
+        }
+
         window.tpState.idxByBucket[bucket] = (cur + 1) % pool.length;
         window.tpState.gradedCurrent = false;
         renderTypingCard(true);
@@ -827,6 +916,9 @@
             if (e.key === 'Enter' && !e.shiftKey && !e.isComposing && e.keyCode !== 229) {
                 e.preventDefault();
                 handleTypingPrimaryBtn();
+            } else if (e.key === 'Escape' && window.tpState.gradedCurrent) {
+                e.preventDefault();
+                retryCurrentTypingCard();
             }
         });
         inp.addEventListener('input', function () {

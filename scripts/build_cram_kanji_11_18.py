@@ -181,6 +181,7 @@ html = f"""<!DOCTYPE html>
             <div class="typing-actions">
                 <button type="button" class="btn-primary" style="background:var(--gray-500);" onclick="prevTypingItem()">⬅️ Trước</button>
                 <button type="button" class="btn-primary" id="tpCardCheckBtn" onclick="handleTypingPrimaryBtn()">Kiểm Tra Đáp Án ⏎</button>
+                <button type="button" class="btn-primary" id="tpCardRetryBtn" style="background:#0284c7; display:none;" onclick="retryCurrentTypingCard()">🔄 Gõ Lại Từ Này (Esc)</button>
                 <button type="button" class="btn-primary" id="tpCardSpeakBtn" style="background:#0ea5e9;" onclick="speakCurrentTypingWord(this)">🔊 Nghe Mẫu</button>
                 <button type="button" class="btn-primary" style="background:var(--purple);" onclick="showTypingHint()">💡 Gợi Ý</button>
                 <button type="button" class="btn-primary" style="background:var(--warning);" onclick="revealTypingAnswer()">👁️ Xem Đáp Án</button>
@@ -429,7 +430,7 @@ html = f"""<!DOCTYPE html>
 
 <script src="../assets/data/mini_15_18_data.js?v=2"></script>
 <script src="../assets/js/jp-typing-grader.js?v=2"></script>
-<script src="../assets/js/typing-studio.js?v=3"></script>
+<script src="../assets/js/typing-studio.js?v=4"></script>
 <script src="../assets/data/cram_kanji_data.js?v=1"></script>
 <script src="../assets/js/cram-kanji.js?v=2"></script>
 <script src="../assets/nav.js?v=6" defer></script>
