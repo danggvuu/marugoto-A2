@@ -40,6 +40,9 @@
         </div>
 
         <div class="hero-actions">
+            <button type="button" class="btn-cram-action btn-indigo" onclick="switchMainTab('tab-typing')" style="background: linear-gradient(135deg, #4f46e5, #7c3aed); color: #fff; font-weight: 800;">
+                ⌨️ Luyện Gõ 121 Kanji (Theo Bài 11-18)
+            </button>
             <button type="button" class="btn-cram-action btn-purple" onclick="copyAllQuizletTab()">
                 📋 Copy Quizlet Toàn Bộ (121 từ)
             </button>
@@ -59,6 +62,7 @@
     <div class="tab-nav-wrapper">
         <nav class="tab-nav">
             <button class="tab-btn active" onclick="switchMainTab('tab-vocab')">🎴 121 Từ Vựng (L11-18)</button>
+            <button class="tab-btn" onclick="switchMainTab('tab-typing')">⌨️ Luyện Gõ 121 Kanji (L11-18)</button>
             <button class="tab-btn" onclick="switchMainTab('tab-cram')">⚡ Flashcard Cram Mode</button>
             <button class="tab-btn" onclick="switchMainTab('tab-hack')">🧠 Hack Não 6 Chuỗi Kanji</button>
             <button class="tab-btn" onclick="switchMainTab('tab-npbs')">⚡ NPBS Bài 14 & Thử Thách</button>
@@ -102,6 +106,89 @@
 
         <div class="vocab-grid" id="vocabContainer">
             <!-- Render via JS -->
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- TAB: LUYỆN GÕ 121 KANJI BÀI 11 - 18        -->
+    <!-- ========================================== -->
+    <div id="tab-typing" class="tab-panel">
+        <div class="toolbar-card" style="margin-bottom: 20px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+                <div>
+                    <h2 style="font-size: 1.45rem; font-weight: 900; color: #1e1b4b; margin: 0 0 4px 0;">⌨️ Phòng Luyện Gõ Phản Xạ 121 Kanji Bài 11 ➔ 18</h2>
+                    <p style="color: var(--gray-600); margin: 0; font-size: 0.92rem;">Nhìn mặt chữ Hán Kanji ➔ Gõ cách đọc Hiragana theo từng bài học (11-18). Tự động chấm điểm, phát âm Tokyo và hiển thị mẹo nhớ!</p>
+                </div>
+            </div>
+
+            <!-- Chọn chế độ luyện gõ -->
+            <div class="tp-mode-switch" role="tablist" aria-label="Chế độ luyện gõ" style="margin-top: 14px;">
+                <button type="button" class="tp-mode-pill active" id="tpModeBtn_kanji" onclick="switchTypingMode('kanji')">⛩️ Chữ Hán (Kanji) ➔ Gõ Hiragana (121 từ)</button>
+                <button type="button" class="tp-mode-pill" id="tpModeBtn_sentence" onclick="switchTypingMode('sentence')">🇻🇳 Câu Tiếng Việt ➔ Gõ Hiragana (112 câu)</button>
+                <button type="button" class="tp-mode-pill" id="tpModeBtn_vocab" onclick="switchTypingMode('vocab')">🗂️ Từ Vựng A2 (135 từ)</button>
+            </div>
+
+            <!-- Bộ lọc bài học + Công cụ -->
+            <div class="tp-toolbar" style="margin-top: 14px;">
+                <div class="vocab-filter-group" id="typingFilterGroup"></div>
+                <div class="tp-toggles">
+                    <label id="tpKanjiAllowWrap" style="display:none;" title="Nếu quên tắt bộ gõ Kanji vẫn chấp nhận nếu khớp mặt chữ chuẩn">
+                        <input type="checkbox" id="tpAllowKanjiToggle" onchange="toggleTypingOption('allowKanji', this.checked)"> Cho phép kèm Kanji
+                    </label>
+                    <label title="Tự động nhảy câu/chữ khi gõ đúng">
+                        <input type="checkbox" id="tpAutoAdvToggle" onchange="toggleTypingOption('autoAdvance', this.checked)"> Tự nhảy khi đúng
+                    </label>
+                    <button type="button" class="vocab-action-btn" onclick="toggleTypingOverview()" id="tpOverviewBtn">📋 Danh Sách Chữ</button>
+                    <button type="button" class="vocab-action-btn" onclick="shuffleTypingPool()">🔀 Xáo Trộn</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Danh sách chữ thu gọn -->
+        <div class="tp-overview-drawer" id="tpOverviewDrawer"></div>
+
+        <!-- Khung thẻ luyện gõ chính -->
+        <div class="typing-card-view">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; gap:8px; flex-wrap:wrap;">
+                <span style="font-size:0.84rem; font-weight:800; color:var(--primary); background:rgba(79,70,229,0.1); padding:4px 12px; border-radius:var(--radius-full);" id="tpCardBadge">Chữ Hán 1 / --</span>
+                <span class="tp-pattern-badge" id="tpPatternBadge">Bài 11</span>
+                <div class="typing-streak" id="tpStreakBadge" style="margin:0;">🔥 Chuỗi: 0</div>
+            </div>
+
+            <div id="tpPromptArea" style="background:linear-gradient(135deg,#f8fafc 0%,#eef2ff 100%); border:1px solid #c7d2fe; border-radius:var(--radius-md); padding:20px 18px; margin:12px 0 18px 0;">
+                <div style="font-size:0.8rem; font-weight:700; color:var(--gray-500); text-transform:uppercase; letter-spacing:0.04em;" id="tpPromptSubtitle">NHÌN CHỮ HÁN (KANJI) — GÕ CÁCH ĐỌC HIRAGANA</div>
+                <div class="tp-kanji-hero jp-text" id="tpPromptVi">Đang tải...</div>
+                <div id="tpHintPreview" style="display:none; margin-top:10px; padding:8px 12px; background:#ffffff; border-radius:8px; font-size:0.88rem; color:var(--primary-dark); border:1px dashed #a5b4fc;"></div>
+            </div>
+
+            <div style="font-size:0.86rem; font-weight:700; color:var(--gray-600); margin-bottom:8px;" id="tpInputDirective">
+                ⬇️ Nhập <strong>cách đọc Hiragana</strong> của chữ Hán trên rồi nhấn Enter:
+            </div>
+
+            <input type="text" class="typing-input-large jp-text" id="tpCardInput" placeholder="Ví dụ: はつおん..." autocomplete="off" autocapitalize="off" spellcheck="false">
+
+            <div class="typing-actions">
+                <button type="button" class="btn-primary" style="background:var(--gray-500);" onclick="prevTypingItem()">⬅️ Trước</button>
+                <button type="button" class="btn-primary" id="tpCardCheckBtn" onclick="handleTypingPrimaryBtn()">Kiểm Tra Đáp Án ⏎</button>
+                <button type="button" class="btn-primary" id="tpCardSpeakBtn" style="background:#0ea5e9;" onclick="speakCurrentTypingWord(this)">🔊 Nghe Mẫu</button>
+                <button type="button" class="btn-primary" style="background:var(--purple);" onclick="showTypingHint()">💡 Gợi Ý</button>
+                <button type="button" class="btn-primary" style="background:var(--warning);" onclick="revealTypingAnswer()">👁️ Xem Đáp Án</button>
+                <button type="button" class="btn-primary" style="background:var(--gray-600);" onclick="skipTypingWord()">Tiếp Theo ➔</button>
+                <button type="button" class="btn-primary" style="background:#be123c;" onclick="resetCurrentTypingMode()">🔄 Làm Lại Chế Độ Này</button>
+            </div>
+
+            <!-- Bảng giải thích chi tiết (Nghĩa + So sánh + Vì sao sai) -->
+            <div id="tpDetailPanel" class="tp-detail-panel"></div>
+
+            <div style="width:100%; height:10px; background:var(--gray-200); border-radius:10px; overflow:hidden; margin: 22px 0 12px 0;">
+                <div id="tpProgressBar" style="width:0%; height:100%; background:linear-gradient(90deg, var(--primary), var(--secondary)); transition:width 0.3s;"></div>
+            </div>
+
+            <div style="display:flex; justify-content:space-around; flex-wrap:wrap; gap:10px; font-size:0.95rem; font-weight:700; color:var(--gray-700);">
+                <span>✅ Đã làm đúng: <strong style="color:var(--success);" id="tpStatCorrect">0</strong></span>
+                <span>❌ Cần luyện thêm: <strong style="color:var(--accent);" id="tpStatWrong">0</strong></span>
+                <span>🎯 Đã chạm / tổng: <strong style="color:var(--primary);" id="tpStatPercent">0%</strong></span>
+            </div>
         </div>
     </div>
 
@@ -329,8 +416,11 @@
 
 <div id="toast" class="toast"></div>
 
+<script src="../assets/data/mini_15_18_data.js?v=2"></script>
+<script src="../assets/js/jp-typing-grader.js?v=2"></script>
+<script src="../assets/js/typing-studio.js?v=2"></script>
 <script src="../assets/data/cram_kanji_data.js?v=1"></script>
-<script src="../assets/js/cram-kanji.js?v=1"></script>
+<script src="../assets/js/cram-kanji.js?v=2"></script>
 <script src="../assets/nav.js?v=6" defer></script>
 </body>
 </html>

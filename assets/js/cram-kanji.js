@@ -48,11 +48,16 @@ function saveCramCheckpoint() {
 function switchMainTab(tabId, opts) {
     currentTab = tabId;
     document.querySelectorAll('.tab-btn').forEach(btn => {
-        btn.classList.toggle('active', btn.getAttribute('onclick').includes(tabId));
+        btn.classList.toggle('active', (btn.getAttribute('onclick') || '').includes(tabId));
     });
     document.querySelectorAll('.tab-panel').forEach(panel => {
         panel.classList.toggle('active', panel.id === tabId);
     });
+    if (tabId === 'tab-typing' && typeof initTypingPractice === 'function') {
+        if (window.tpState) window.tpState.mode = 'kanji';
+        if (typeof switchTypingMode === 'function') switchTypingMode('kanji');
+        initTypingPractice();
+    }
     if (!(opts && opts.skipScroll)) {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -635,4 +640,11 @@ document.addEventListener('DOMContentLoaded', () => {
         renderNpbsChallenge();
         renderSpeedTest();
     }
+    const h = (window.location.hash || '').toLowerCase();
+    if (h === '#typing' || h === '#tab-typing' || h === '#kanji-typing') {
+        switchMainTab('tab-typing', { skipScroll: true, skipSave: true });
+    }
 });
+
+// Explicitly bind to window
+window.switchMainTab = switchMainTab;
