@@ -121,7 +121,13 @@
         var clean = tok.replace(/[、。,.]/g, '');
         if (!clean) return true;
         // Clause boundaries, topic/subject markers, or predicates must NEVER reorder across
-        return /(は|が|も|なら|ます|ました|ません|ませんでした|です|でした|じゃないです|だ|だった|ない|なかった|ている|ていた|て|たり|まえに|あとで|ときに|とき|ために|から|ので|けど|んですが|ですが|ても|たら|おもいます|いっていました|ください|くださいませんか|いただけませんか)$/.test(clean);
+        if (/(は|が|も|なら|ます|ました|ません|ませんでした|です|でした|じゃないです|だ|だった|ない|なかった|ないで|なくて|ている|ていた|て|たり|まえに|あとで|ときに|とき|ために|から|ので|けど|んですが|ですが|ても|たら|おもいます|いっていました|ください|くださいませんか|いただけませんか)$/.test(clean)) {
+            return true;
+        }
+        if (/[うくぐすつぬぶむる]と$/.test(clean)) {
+            return true;
+        }
+        return false;
     }
 
     function isAdjunctToken(tok) {
