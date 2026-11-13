@@ -975,8 +975,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (disp) disp.innerText = `${total} / 100 Điểm`;
 
     const h = (window.location.hash || '').toLowerCase();
-    if (h === '#typing' || h === '#tab-typing') {
+    if (h === '#typing' || h === '#tab-typing' || h === '#kanji-typing' || h === '#tab-kanji-typing') {
         switchMainTab('tab-typing', true);
+        if (h === '#kanji-typing' || h === '#tab-kanji-typing') {
+            if (typeof switchTypingMode === 'function') switchTypingMode('kanji');
+        }
     } else if (restored && currentTab && document.getElementById(currentTab)) {
         switchMainTab(currentTab, true);
     }

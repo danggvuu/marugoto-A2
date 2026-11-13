@@ -9,7 +9,7 @@
     window.tpInitialized = false;
     window.tpState = {
         mode: 'sentence', // 'sentence' | 'kanji' | 'vocab'
-        filterByMode: { sentence: 'all', kanji: '15-18', vocab: 'all' },
+        filterByMode: { sentence: 'all', kanji: 'all', vocab: 'all' },
         idxByBucket: {},
         orderByBucket: {},
         history: {}, // id -> { status: 'ok'|'err'|'reveal', lastInput, whyWrong, isKanjiMatch, variantNote }
@@ -252,9 +252,17 @@
             var k15 = getDataSource('KANJI_15_18_DATA');
             var k11 = getDataSource('KANJI_11_14_DATA');
             return [
-                { key: '15-18', label: 'Kanji L15-18 (' + k15.length + ')' },
-                { key: '11-14', label: 'Kanji L11-14 (' + k11.length + ')' },
-                { key: 'all', label: 'Tất cả (' + items.length + ')' },
+                { key: 'all', label: 'Tất cả L11-18 (' + items.length + ')' },
+                { key: 'A2-11', label: 'Bài 11 (' + items.filter(function (x) { return x.lesson === 'A2-11'; }).length + ')' },
+                { key: 'A2-12', label: 'Bài 12 (' + items.filter(function (x) { return x.lesson === 'A2-12'; }).length + ')' },
+                { key: 'A2-13', label: 'Bài 13 (' + items.filter(function (x) { return x.lesson === 'A2-13'; }).length + ')' },
+                { key: 'A2-14', label: 'Bài 14 (' + items.filter(function (x) { return x.lesson === 'A2-14'; }).length + ')' },
+                { key: 'A2-15', label: 'Bài 15 (' + items.filter(function (x) { return x.lesson === 'A2-15'; }).length + ')' },
+                { key: 'A2-16', label: 'Bài 16 (' + items.filter(function (x) { return x.lesson === 'A2-16'; }).length + ')' },
+                { key: 'A2-17', label: 'Bài 17 (' + items.filter(function (x) { return x.lesson === 'A2-17'; }).length + ')' },
+                { key: 'A2-18', label: 'Bài 18 (' + items.filter(function (x) { return x.lesson === 'A2-18'; }).length + ')' },
+                { key: '15-18', label: 'Cụm L15-18 (' + k15.length + ')' },
+                { key: '11-14', label: 'Cụm L11-14 (' + k11.length + ')' },
                 { key: 'wrong', label: '🔁 Chữ hay sai (' + items.filter(function (x) { return wrongIds.has(x.id); }).length + ')' }
             ];
         }
@@ -270,13 +278,13 @@
 
     function getActiveBucketKey() {
         var m = window.tpState.mode;
-        var f = window.tpState.filterByMode[m] || (m === 'kanji' ? '15-18' : 'all');
+        var f = window.tpState.filterByMode[m] || 'all';
         return m + '::' + f;
     }
 
     function getFilteredTypingPool() {
         var m = window.tpState.mode;
-        var f = window.tpState.filterByMode[m] || (m === 'kanji' ? '15-18' : 'all');
+        var f = window.tpState.filterByMode[m] || 'all';
         var all = getModeItems(m);
         var base;
         if (f === 'wrong') {
@@ -288,7 +296,13 @@
         } else if (m === 'sentence' && f === 'review-11-14') {
             base = all.filter(function (x) { return /^A2-1[1-4]$/.test(x.lesson); });
         } else if (m === 'kanji') {
-            base = all.filter(function (x) { return x.group === f; });
+            if (f === '15-18' || f === '11-14') {
+                base = all.filter(function (x) { return x.group === f; });
+            } else if (/^A2-1[1-8]$/.test(f)) {
+                base = all.filter(function (x) { return x.lesson === f; });
+            } else {
+                base = all.slice();
+            }
         } else {
             base = all.filter(function (x) { return x.lesson === f; });
         }
@@ -534,13 +548,14 @@
             inp.placeholder = 'Ví dụ: ねる まえに、よく ほんを よみます。';
             inp.rows = 2;
         } else if (window.tpState.mode === 'kanji') {
-            badge.innerText = 'Chữ Hán ' + (idx + 1) + ' / ' + pool.length + ' • PDF Kanji ' + item.group + ' (#' + item.stt + ')';
-            patBadge.innerText = 'Kanji Lesson ' + item.group;
-            subEl.innerText = 'NHÌN CHỮ HÁN (KANJI) — GÕ CÁCH ĐỌC HIRAGANA';
+            var lessonLabel = item.lesson ? (item.lesson.replace('A2-', 'Bài ') + ' • ') : '';
+            badge.innerText = 'Chữ Hán ' + (idx + 1) + ' / ' + pool.length + ' • ' + lessonLabel + '#' + item.stt;
+            patBadge.innerText = (item.lesson ? item.lesson.replace('A2-', 'Bài ') : ('Kanji ' + item.group)) + (item.hv ? (' • [' + item.hv + ']') : '');
+            subEl.innerText = 'NHÌN CHỮ HÁN (KANJI) — GÕ CÁCH ĐỌC HIRAGANA (' + (item.vi || '') + ')';
             promptEl.className = 'tp-kanji-hero jp-text';
             promptEl.innerText = item.kanji;
             dirEl.innerHTML = '⬇️ Nhập <strong>cách đọc Hiragana</strong> của chữ Hán trên rồi nhấn <strong>Enter</strong>:';
-            inp.placeholder = 'Gõ cách đọc bằng Hiragana (ví dụ: らいねん)...';
+            inp.placeholder = 'Gõ cách đọc bằng Hiragana (ví dụ: ' + (item.kana || '...') + ')...';
             inp.rows = 1;
         } else {
             badge.innerText = 'Từ ' + (idx + 1) + ' / ' + pool.length + ' • ' + item.lesson;

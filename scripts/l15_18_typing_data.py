@@ -4,7 +4,7 @@
 # 50 items strictly verified from Kanji_Lesson_15-18.pdf
 KANJI_15_18_ITEMS = [
     {
-        "id": "k1518_01", "stt": 1, "group": "15-18",
+        "id": "k1518_01", "stt": 1, "group": "15-18", "lesson": "A2-18",
         "kanji": "来年", "kana": "らいねん", "accepted": ["らいねん"],
         "hv": "LAI NIÊN", "vi": "năm sau",
         "note": "来 (LAI = tới) + 年 (NIÊN = năm). Phân biệt với 今年 (ことし - năm nay) và 去年 (きょねん - năm ngoái).",
@@ -12,343 +12,343 @@ KANJI_15_18_ITEMS = [
                   {"wrong": ["らいとし", "くるねん", "らいね"], "why": "Âm ghép On'yomi chuẩn của 来年 là らい・ねん (không đọc らいとし hay thiếu chữ ん)."}]
     },
     {
-        "id": "k1518_02", "stt": 2, "group": "15-18",
+        "id": "k1518_02", "stt": 2, "group": "15-18", "lesson": "A2-16",
         "kanji": "外", "kana": "そと", "accepted": ["そと"],
         "hv": "NGOẠI", "vi": "bên ngoài",
         "note": "Đứng một mình đọc Kun'yomi là そと. Khi ghép từ Hán Việt như 外国 (がいこく), 外食 (がいしょく) mới đọc là がい.",
         "traps": [{"wrong": ["がい"], "why": "Khi chữ 外 đứng MỘT MÌNH chỉ vị trí thì đọc Kun'yomi là そと; đọc がい chỉ dùng trong từ ghép như 外国 / 外食."}]
     },
     {
-        "id": "k1518_03", "stt": 3, "group": "15-18",
+        "id": "k1518_03", "stt": 3, "group": "15-18", "lesson": "A2-16",
         "kanji": "毎日", "kana": "まいにち", "accepted": ["まいにち"],
         "hv": "MỖI NHẬT", "vi": "hằng ngày, mỗi ngày",
         "note": "毎 (MỖI = まい) + 日 (NHẬT = にち). Phân biệt chuỗi 毎: 毎朝 (まいあさ), 毎週 (まいしゅう), 毎月 (まいつき/まいげつ).",
         "traps": [{"wrong": ["まいひ", "まいび"], "why": "日 trong 毎日 đọc âm On là にち ➔ まいにち (không đọc まいひ)."}]
     },
     {
-        "id": "k1518_04", "stt": 4, "group": "15-18",
+        "id": "k1518_04", "stt": 4, "group": "15-18", "lesson": "A2-15",
         "kanji": "足ります", "kana": "たります", "accepted": ["たります"],
         "hv": "TÚC", "vi": "đủ",
         "note": "Cùng chữ 足 (TÚC): danh từ 'cái chân' đọc là あし (足), còn động từ 'đủ' nhóm II đọc là たります (足ります).",
         "traps": [{"wrong": ["あしります", "そくります", "たれます"], "why": "Động từ 足ります mang nghĩa 'đủ' đọc là たります (khác với danh từ 足 = あし 'chân')."}]
     },
     {
-        "id": "k1518_05", "stt": 5, "group": "15-18",
+        "id": "k1518_05", "stt": 5, "group": "15-18", "lesson": "A2-15",
         "kanji": "下", "kana": "した", "accepted": ["した"],
         "hv": "HẠ", "vi": "dưới, bên dưới",
         "note": "Đứng một mình đọc là した. Chú ý khi ghép thành 下手 (へた - kém) lại đọc đặc biệt là へた!",
         "traps": [{"wrong": ["うえ", "へた", "か"], "why": "Chữ 下 đứng một mình đọc した ('bên dưới'). うえ là 上 ('bên trên'), へた là 下手 ('kém')."}]
     },
     {
-        "id": "k1518_06", "stt": 6, "group": "15-18",
+        "id": "k1518_06", "stt": 6, "group": "15-18", "lesson": "A2-16",
         "kanji": "元気", "kana": "げんき", "accepted": ["げんき"],
         "hv": "NGUYÊN KHÍ", "vi": "khỏe mạnh, khỏe",
         "note": "Tính từ đuôi な (元気な / 元気です). 元 (NGUYÊN = げん) + 気 (KHÍ = き). Cẩn thận đục âm げ chứ không phải けん.",
         "traps": [{"wrong": ["けんき", "げんぎ"], "why": "Sai đục âm! 元 đọc là げん (có tenten ゛) và 気 đọc là き (không tenten) ➔ げんき."}]
     },
     {
-        "id": "k1518_07", "stt": 7, "group": "15-18",
+        "id": "k1518_07", "stt": 7, "group": "15-18", "lesson": "A2-18",
         "kanji": "今年", "kana": "ことし", "accepted": ["ことし"],
         "hv": "KIM NIÊN", "vi": "năm nay",
         "note": "BẤT QUY TẮC (đọc gộp): 今年 đọc là ことし (không đọc こんねん hay いまとし!). Giống 今朝 (けさ).",
         "traps": [{"wrong": ["こんねん", "こんとし", "いまとし"], "why": "Từ đặc biệt bất quy tắc! 今年 KHÔNG ghép theo âm Hán mà đọc thuộc lòng là ことし."}]
     },
     {
-        "id": "k1518_08", "stt": 8, "group": "15-18",
+        "id": "k1518_08", "stt": 8, "group": "15-18", "lesson": "A2-16",
         "kanji": "外食", "kana": "がいしょく", "accepted": ["がいしょく"],
         "hv": "NGOẠI THỰC", "vi": "ăn ngoài",
         "note": "外 (NGOẠI = がい) + 食 (THỰC = しょく). Có âm ghép ょ ở しょ! Tránh gõ nhầm しよく hay そとたべ.",
         "traps": [{"wrong": ["そとたべ", "がいしよく", "かいしょく"], "why": "外 ghép On'yomi là がい (có tenten), 食 là しょく (chữ ょ nhỏ, ghép thành しょ)."}]
     },
     {
-        "id": "k1518_09", "stt": 9, "group": "15-18",
+        "id": "k1518_09", "stt": 9, "group": "15-18", "lesson": "A2-18",
         "kanji": "先週", "kana": "せんしゅう", "accepted": ["せんしゅう"],
         "hv": "TIÊN CHU", "vi": "tuần trước",
         "note": "先 (TIÊN = せん) + 週 (CHU = しゅう, có ゅ nhỏ và trường âm う!). Đừng quên trường âm う ở cuối.",
         "traps": [{"wrong": ["せんしゅ", "せんしゆう", "せんしゅん"], "why": "Chữ 週 đọc là しゅう — gồm ゅ nhỏ và trường âm う ở cuối (せんしゅう)."}]
     },
     {
-        "id": "k1518_10", "stt": 10, "group": "15-18",
+        "id": "k1518_10", "stt": 10, "group": "15-18", "lesson": "A2-17",
         "kanji": "写真", "kana": "しゃしん", "accepted": ["しゃしん"],
         "hv": "TẢ CHÂN", "vi": "ảnh, hình ảnh",
         "note": "写 (TẢ = しゃ, có ゃ nhỏ) + 真 (CHÂN = しん). Lưu ý gõ đúng âm ghép しゃ.",
         "traps": [{"wrong": ["しやしん", "しゃじん", "さしん"], "why": "Chú ý しゃ có chữ ゃ nhỏ (âm ghép 'sha') và 真 là しん (không có tenten)."}]
     },
     {
-        "id": "k1518_11", "stt": 11, "group": "15-18",
+        "id": "k1518_11", "stt": 11, "group": "15-18", "lesson": "A2-17",
         "kanji": "着ます", "kana": "きます", "accepted": ["きます"],
         "hv": "TRƯỚC", "vi": "mặc",
         "note": "Phân biệt cặp song sinh cực hay thi nhầm: 着ます (きます = mặc áo/váy, L17) vs 着きます (つきます = đến nơi, L13)!",
         "traps": [{"wrong": ["つきます", "ちゃくます"], "why": "Coi chừng nhầm cặp 着ます / 着きます! Không có chữ き ở giữa thì là 着ます (きます = MẶC). Còn 着きます (つきます) mới là ĐẾN NƠI."}]
     },
     {
-        "id": "k1518_12", "stt": 12, "group": "15-18",
+        "id": "k1518_12", "stt": 12, "group": "15-18", "lesson": "A2-15",
         "kanji": "下手", "kana": "へた", "accepted": ["へた"],
         "hv": "HẠ THỦ", "vi": "không giỏi, kém",
         "note": "Từ đọc ĐẶC BIỆT (jukujikun): 下手 đọc là へた (không đọc したて hay かしゅ!). Đối nghĩa với 上手 (じょうず = giỏi).",
         "traps": [{"wrong": ["したて", "じょうず", "かしゅ", "げて"], "why": "Từ đặc biệt đọc thuộc lòng là へた! Không đọc したて (theo nghĩa chữ) hay じょうず (trái nghĩa: giỏi)."}]
     },
     {
-        "id": "k1518_13", "stt": 13, "group": "15-18",
+        "id": "k1518_13", "stt": 13, "group": "15-18", "lesson": "A2-16",
         "kanji": "水泳", "kana": "すいえい", "accepted": ["すいえい"],
         "hv": "THỦY VỊNH", "vi": "bơi lội",
         "note": "Danh từ chỉ môn bơi lội: 水 (THỦY = すい) + 泳 (VỊNH = えい). Khi là động từ 'bơi' dùng 泳ぎます (およぎます).",
         "traps": [{"wrong": ["みずおよぎ", "すいおよ", "すいえ"], "why": "Cụm Hán Việt THỦY VỊNH đọc bằng On'yomi hết: すい + えい = すいえい."}]
     },
     {
-        "id": "k1518_14", "stt": 14, "group": "15-18",
+        "id": "k1518_14", "stt": 14, "group": "15-18", "lesson": "A2-15",
         "kanji": "目", "kana": "め", "accepted": ["め"],
         "hv": "MỤC", "vi": "mắt",
         "note": "Bộ phận cơ thể Bài 15: 目 (め - mắt), 耳 (みみ - tai), 手 (て - tay), 足 (あし - chân), 頭 (あたま - đầu), 体 (からだ - cơ thể).",
         "traps": [{"wrong": ["みみ", "もく", "て"], "why": "Chữ 目 (MỤC = mắt) đọc là め (đứng một mình). Không nhầm với 耳 (みみ - tai) hay âm On もく trong 目的 (もくてき)."}]
     },
     {
-        "id": "k1518_15", "stt": 15, "group": "15-18",
+        "id": "k1518_15", "stt": 15, "group": "15-18", "lesson": "A2-15",
         "kanji": "耳", "kana": "みみ", "accepted": ["みみ"],
         "hv": "NHĨ", "vi": "tai",
         "note": "耳 (NHĨ = tai) đọc là みみ. Dễ nhớ: hai vòng chữ み lặp lại như đôi tai.",
         "traps": [{"wrong": ["め", "て"], "why": "耳 (NHĨ = tai) đọc là みみ (không nhầm với 目 = め 'mắt')."}]
     },
     {
-        "id": "k1518_16", "stt": 16, "group": "15-18",
+        "id": "k1518_16", "stt": 16, "group": "15-18", "lesson": "A2-18",
         "kanji": "去年", "kana": "きょねん", "accepted": ["きょねん"],
         "hv": "KHỨ NIÊN", "vi": "năm ngoái",
         "note": "去 (KHỨ = きょ, âm ghép có ょ nhỏ!) + 年 (NIÊN = ねん). Đừng gõ trường âm う thành きょうねん!",
         "traps": [{"wrong": ["きょうねん", "きよねん", "らいねん"], "why": "Bẫy kinh điển! 去 đọc ngắn là きょ (KHÔNG có trường âm う, tránh gõ thành きょうねん hay きよねん)."}]
     },
     {
-        "id": "k1518_17", "stt": 17, "group": "15-18",
+        "id": "k1518_17", "stt": 17, "group": "15-18", "lesson": "A2-16",
         "kanji": "外国", "kana": "がいこく", "accepted": ["がいこく"],
         "hv": "NGOẠI QUỐC", "vi": "nước ngoài",
         "note": "外 (NGOẠI = がい) + 国 (QUỐC = こく). Để ý đục âm ở chữ đầu がい, chữ sau こく KHÔNG có đục âm.",
         "traps": [{"wrong": ["かいこく", "がいごく", "そとくに"], "why": "Đọc đúng đục âm: がい (có tenten) + こく (không tenten) ➔ がいこく."}]
     },
     {
-        "id": "k1518_18", "stt": 18, "group": "15-18",
+        "id": "k1518_18", "stt": 18, "group": "15-18", "lesson": "A2-17",
         "kanji": "計ります", "kana": "はかります", "accepted": ["はかります"],
         "hv": "KẾ", "vi": "đo, cân, tính",
         "note": "Chữ 計 đứng trong 時計 (とけい), 会計 (かいけい) đọc là けい, nhưng khi làm động từ 計ります lại đọc Kun'yomi là はかります!",
         "traps": [{"wrong": ["けいります", "とけいます", "わかります"], "why": "Bẫy cực hay sai! 計 trong 時計 đọc là けい, nhưng động từ 計ります ('đo/cân') đọc bằng âm Kun là はかります."}]
     },
     {
-        "id": "k1518_19", "stt": 19, "group": "15-18",
+        "id": "k1518_19", "stt": 19, "group": "15-18", "lesson": "A2-15",
         "kanji": "運転手", "kana": "うんてんしゅ", "accepted": ["うんてんしゅ"],
         "hv": "VẬN CHUYỂN THỦ", "vi": "tài xế, lái xe",
         "note": "運転 (VẬN CHUYỂN = うんてん 'lái xe') + 手 (THỦ = しゅ 'người làm nghề...'). Chú ý âm ghép しゅ, KHÔNG có trường âm う!",
         "traps": [{"wrong": ["うんてんて", "うんてんしゅう", "うんてんしゆ"], "why": "Chữ 手 chỉ nghề nghiệp đọc ngắn là しゅ (ゅ nhỏ, không kéo dài thành しゅう và không đọc て)."}]
     },
     {
-        "id": "k1518_20", "stt": 20, "group": "15-18",
+        "id": "k1518_20", "stt": 20, "group": "15-18", "lesson": "A2-18",
         "kanji": "今朝", "kana": "けさ", "accepted": ["けさ"],
         "hv": "KIM TRIỀU", "vi": "sáng nay",
         "note": "Từ BẤT QUY TẮC: 今朝 đọc là けさ (không đọc こんあさ hay いまあさ!). Đối chiếu 今年 (ことし - năm nay), 今日 (きょう - hôm nay).",
         "traps": [{"wrong": ["こんあさ", "いまあさ", "こんちょう"], "why": "Bất quy tắc đặc biệt! 今朝 đọc gộp thuộc lòng là けさ (không đọc こんあさ hay いまあさ)."}]
     },
     {
-        "id": "k1518_21", "stt": 21, "group": "15-18",
+        "id": "k1518_21", "stt": 21, "group": "15-18", "lesson": "A2-16",
         "kanji": "泳ぎます", "kana": "およぎます", "accepted": ["およぎます"],
         "hv": "VỊNH", "vi": "bơi",
         "note": "Chú ý đục âm ở chữ ぎ: お・よ・ぎ・ま・す (Nhóm I, thể て = およいで, thể ない = およがない).",
         "traps": [{"wrong": ["およきます", "えいぎます", "すいぎます"], "why": "Có tenten ở chữ ぎ! Đọc là およぎます (không phải およきます)."}]
     },
     {
-        "id": "k1518_22", "stt": 22, "group": "15-18",
+        "id": "k1518_22", "stt": 22, "group": "15-18", "lesson": "A2-16",
         "kanji": "毎週", "kana": "まいしゅう", "accepted": ["まいしゅう"],
         "hv": "MỖI CHU", "vi": "hằng tuần, mỗi tuần",
         "note": "毎 (まい) + 週 (しゅう, có ゅ nhỏ và trường âm う).",
         "traps": [{"wrong": ["まいしゅ", "まいじゅう", "まいしゆう"], "why": "週 là しゅう (chữ ゅ nhỏ + trường âm う ➔ まいしゅう)."}]
     },
     {
-        "id": "k1518_23", "stt": 23, "group": "15-18",
+        "id": "k1518_23", "stt": 23, "group": "15-18", "lesson": "A2-15",
         "kanji": "手", "kana": "て", "accepted": ["て"],
         "hv": "THỦ", "vi": "tay",
         "note": "Đứng một mình đọc là て. Khi ghép nghề nghiệp đọc là しゅ (歌手, 運転手); đặc biệt 上手 (じょうず), 下手 (へた).",
         "traps": [{"wrong": ["しゅ", "め", "あし"], "why": "手 đứng một mình chỉ bộ phận cơ thể đọc là て."}]
     },
     {
-        "id": "k1518_24", "stt": 24, "group": "15-18",
+        "id": "k1518_24", "stt": 24, "group": "15-18", "lesson": "A2-18",
         "kanji": "作家", "kana": "さっか", "accepted": ["さっか"],
         "hv": "TÁC GIA", "vi": "tác giả, nhà văn",
         "note": "BIẾN ÂM NGẮT っ! さく + か biến âm thành さっか. Rất hay thiếu chữ っ nhỏ! Phân biệt với 画家 (がか - họa sĩ, không có っ).",
         "traps": [{"wrong": ["さか", "さくか", "さくいえ"], "why": "Chữ 作 (さく) gặp 家 (か) biến âm ngắt thành っ ➔ さっか (chứ không phải さか hay さくか)."}]
     },
     {
-        "id": "k1518_25", "stt": 25, "group": "15-18",
+        "id": "k1518_25", "stt": 25, "group": "15-18", "lesson": "A2-17",
         "kanji": "時計", "kana": "とけい", "accepted": ["とけい"],
         "hv": "THỜI KẾ", "vi": "đồng hồ",
         "note": "Ghép Kun + On: 時 (と) + 計 (けい). Đừng nhầm thành じけい hay thiếu trường âm い ở けい.",
         "traps": [{"wrong": ["じけい", "とけ", "ときけい"], "why": "Từ đặc biệt đọc là とけい (có chữ い ở cuối けい, chữ đầu đọc と chứ không phải じ)."}]
     },
     {
-        "id": "k1518_26", "stt": 26, "group": "15-18",
+        "id": "k1518_26", "stt": 26, "group": "15-18", "lesson": "A2-15",
         "kanji": "頭", "kana": "あたま", "accepted": ["あたま"],
         "hv": "ĐẦU", "vi": "đầu",
         "note": "頭 (ĐẦU = đầu) đọc là あたま. Mẫu hay gặp: 頭がいい (thông minh), 頭が痛い (đau đầu).",
         "traps": [{"wrong": ["からだ", "かお", "とう"], "why": "頭 đứng một mình đọc là あたま ('đầu'). Không nhầm với 体 (からだ - cơ thể)."}]
     },
     {
-        "id": "k1518_27", "stt": 27, "group": "15-18",
+        "id": "k1518_27", "stt": 27, "group": "15-18", "lesson": "A2-16",
         "kanji": "週末", "kana": "しゅうまつ", "accepted": ["しゅうまつ"],
         "hv": "CHU MẠT", "vi": "cuối tuần",
         "note": "週 (しゅう - có trường âm う!) + 末 (まつ - âm cuối つ). Gặp thường xuyên ở các bài A2.",
         "traps": [{"wrong": ["しゅまつ", "しゅうまち", "しゆうまつ"], "why": "Chú ý 週 là しゅう (ゅ nhỏ + trường âm う) và 末 là まつ ➔ しゅうまつ."}]
     },
     {
-        "id": "k1518_28", "stt": 28, "group": "15-18",
+        "id": "k1518_28", "stt": 28, "group": "15-18", "lesson": "A2-18",
         "kanji": "思います", "kana": "おもいます", "accepted": ["おもいます"],
         "hv": "TƯ", "vi": "nghĩ, cho rằng",
         "note": "Ngữ pháp trọng tâm Bài 18: 〈ふつうけい〉＋と思います. Động từ nhóm I đọc là おもいます.",
         "traps": [{"wrong": ["おもうます", "しみます", "おみます"], "why": "思います đọc là お・も・い・ま・す (Nhóm I, thể từ điển là おもう)."}]
     },
     {
-        "id": "k1518_29", "stt": 29, "group": "15-18",
+        "id": "k1518_29", "stt": 29, "group": "15-18", "lesson": "A2-18",
         "kanji": "今月", "kana": "こんげつ", "accepted": ["こんげつ"],
         "hv": "KIM NGUYỆT", "vi": "tháng này",
         "note": "今 (こん) + 月 (げつ - có đục âm げ!). Không đọc こんがつ hay こんつき.",
         "traps": [{"wrong": ["こんがつ", "こんつき", "こんけつ"], "why": "月 chỉ 'tháng này' đọc là げつ (có tenten げ) ➔ こんげつ."}]
     },
     {
-        "id": "k1518_30", "stt": 30, "group": "15-18",
+        "id": "k1518_30", "stt": 30, "group": "15-18", "lesson": "A2-15",
         "kanji": "全体", "kana": "ぜんたい", "accepted": ["ぜんたい"],
         "hv": "TOÀN THỂ", "vi": "toàn thể, toàn bộ",
         "note": "全 (ぜん - có đục âm ぜ!) + 体 (たい). Phân biệt 体 đứng một mình đọc からだ (cơ thể), ghép Hán đọc たい (全体 ぜんたい).",
         "traps": [{"wrong": ["せんたい", "ぜんからだ", "ぜんてい"], "why": "全 có tenten đọc là ぜん, ghép với 体 đọc âm On là たい ➔ ぜんたい."}]
     },
     {
-        "id": "k1518_31", "stt": 31, "group": "15-18",
+        "id": "k1518_31", "stt": 31, "group": "15-18", "lesson": "A2-18",
         "kanji": "画家", "kana": "がか", "accepted": ["がか"],
         "hv": "HỌA GIA", "vi": "họa sĩ",
         "note": "画 (が) + 家 (か). KHÔNG có âm ngắt っ (khác với 作家 さっか!). Đứng một mình chữ 絵 là え (tranh).",
         "traps": [{"wrong": ["がっか", "えか", "かか"], "why": "Bẫy so với 作家 (さっか): 画家 KHÔNG có chữ っ nhỏ mà đọc liền がか (が có tenten, か không tenten)."}]
     },
     {
-        "id": "k1518_32", "stt": 32, "group": "15-18",
+        "id": "k1518_32", "stt": 32, "group": "15-18", "lesson": "A2-16",
         "kanji": "歩きます", "kana": "あるきます", "accepted": ["あるきます"],
         "hv": "BỘ", "vi": "đi bộ",
         "note": "Động từ nhóm I: 歩きます (あるきます). Dễ nhầm với 走ります (はしります - chạy).",
         "traps": [{"wrong": ["はしります", "ほきます", "あきます"], "why": "歩きます đọc là あるきます ('đi bộ'). Đừng nhầm với 走ります (はしります - chạy)."}]
     },
     {
-        "id": "k1518_33", "stt": 33, "group": "15-18",
+        "id": "k1518_33", "stt": 33, "group": "15-18", "lesson": "A2-16",
         "kanji": "毎月", "kana": "まいげつ", "accepted": ["まいげつ", "まいつき", "まいげつまいつき"],
         "hv": "MỖI NGUYỆT", "vi": "hằng tháng, mỗi tháng",
         "note": "Theo bảng PDF có 2 cách đọc đều đúng: まいげつ hoặc まいつき (hội thoại hay dùng まいつき, văn viết/hành chính hay dùng まいげつ).",
         "traps": [{"wrong": ["まいがつ", "まいけつ"], "why": "毎月 có 2 cách đọc đúng là まいげつ (có tenten げ) hoặc まいつき (không đọc まいがつ)."}]
     },
     {
-        "id": "k1518_34", "stt": 34, "group": "15-18",
+        "id": "k1518_34", "stt": 34, "group": "15-18", "lesson": "A2-17",
         "kanji": "結婚", "kana": "けっこん", "accepted": ["けっこん"],
         "hv": "KẾT HÔN", "vi": "kết hôn, hôn nhân",
         "note": "ÂM NGẮT っ! 結 (けつ) + 婚 (こん) biến âm thành けっこん. Tránh thiếu chữ っ hoặc gõ nhầm けつこん.",
         "traps": [{"wrong": ["けこん", "けつこん", "けっこ"], "why": "Chữ 結 biến âm thành けっ (có っ nhỏ) và giữ ん cuối ➔ けっこん."}]
     },
     {
-        "id": "k1518_35", "stt": 35, "group": "15-18",
+        "id": "k1518_35", "stt": 35, "group": "15-18", "lesson": "A2-15",
         "kanji": "目的", "kana": "もくてき", "accepted": ["もくてき"],
         "hv": "MỤC ĐÍCH", "vi": "mục đích",
         "note": "目 ghép từ Hán Việt đọc là もく (khác với 目 đứng một mình là め) + 的 (てき) ➔ もくてき.",
         "traps": [{"wrong": ["めてき", "もくでき", "もってい"], "why": "目 trong từ ghép đọc On'yomi là もく, 的 là てき (không tenten) ➔ もくてき."}]
     },
     {
-        "id": "k1518_36", "stt": 36, "group": "15-18",
+        "id": "k1518_36", "stt": 36, "group": "15-18", "lesson": "A2-17",
         "kanji": "お祝い", "kana": "おいわい", "accepted": ["おいわい"],
         "hv": "CHÚC", "vi": "lời chúc, quà mừng",
         "note": "Trong ghi chú L17 có cụm そつぎょうの おいわいに (làm quà mừng tốt nghiệp). Đọc là お・い・わ・い (chú ý わ rồi い).",
         "traps": [{"wrong": ["おしゅく", "おいわ", "おゆわい"], "why": "Chữ 祝 trong danh từ お祝い đọc Kun là いわい ➔ おいわい (không đọc おゆわい hay thiếu chữ い cuối)."}]
     },
     {
-        "id": "k1518_37", "stt": 37, "group": "15-18",
+        "id": "k1518_37", "stt": 37, "group": "15-18", "lesson": "A2-16",
         "kanji": "起きます", "kana": "おきます", "accepted": ["おきます"],
         "hv": "KHỞI", "vi": "thức dậy",
         "note": "Động từ nhóm II đặc biệt (đuôi i-masu nhưng thuộc nhóm II!): 起きます (おきます). Phân biệt mặt chữ 走ります (はしります) & 起きます!",
         "traps": [{"wrong": ["はしります", "ねます", "ききます"], "why": "Chữ 起 (KHỞI = thức dậy) đọc là おきます. Chú ý bộ 走 + 己 bên phải!"}]
     },
     {
-        "id": "k1518_38", "stt": 38, "group": "15-18",
+        "id": "k1518_38", "stt": 38, "group": "15-18", "lesson": "A2-18",
         "kanji": "家", "kana": "いえ", "accepted": ["いえ"],
         "hv": "GIA", "vi": "nhà",
         "note": "Đứng một mình ở A2 Bài 15-18 đọc là いえ (tài liệu nhà ở: 家 = いえ). Khi ghép 家族 đọc かぞく, 作家 đọc さっか.",
         "traps": [{"wrong": ["うち", "か", "かぞく"], "why": "Trong bảng Kanji L15-18, 家 (GIA) đọc là いえ (không phải うち — từ うち thường viết bằng Kana hoặc 内)."}]
     },
     {
-        "id": "k1518_39", "stt": 39, "group": "15-18",
+        "id": "k1518_39", "stt": 39, "group": "15-18", "lesson": "A2-17",
         "kanji": "会計", "kana": "かいけい", "accepted": ["かいけい"],
         "hv": "HỘI KẾ", "vi": "tính tiền, thanh toán",
         "note": "会 (かい, L13 会います) + 計 (けい, giống trong 時計 とけい) ➔ かいけい. Đừng quên hai chữ い!",
         "traps": [{"wrong": ["かいけ", "かけい", "あいけい"], "why": "Cả hai chữ đều kết thúc bằng い: かい + けい = かいけい."}]
     },
     {
-        "id": "k1518_40", "stt": 40, "group": "15-18",
+        "id": "k1518_40", "stt": 40, "group": "15-18", "lesson": "A2-16",
         "kanji": "走ります", "kana": "はしります", "accepted": ["はしります"],
         "hv": "TẨU", "vi": "chạy",
         "note": "Động từ nhóm I (nhìn ngoài tưởng nhóm II vì đuôi -irimasu nhưng 走ります thuộc NHÓM I ➔ はしらない, はしって!).",
         "traps": [{"wrong": ["あるきます", "おきます", "そうります"], "why": "走ります (TẨU = chạy) đọc là はしります. Tránh nhầm mặt chữ với 起きます (おきます) hay nghĩa với 歩きます (あるきます)."}]
     },
     {
-        "id": "k1518_41", "stt": 41, "group": "15-18",
+        "id": "k1518_41", "stt": 41, "group": "15-18", "lesson": "A2-15",
         "kanji": "足", "kana": "あし", "accepted": ["あし"],
         "hv": "TÚC", "vi": "chân",
         "note": "Đứng một mình đọc あし (chân). Khi chia động từ 足ります đọc là たります (đủ).",
         "traps": [{"wrong": ["たり", "そく", "て"], "why": "足 đứng một mình chỉ bộ phận cơ thể đọc là あし ('chân')."}]
     },
     {
-        "id": "k1518_42", "stt": 42, "group": "15-18",
+        "id": "k1518_42", "stt": 42, "group": "15-18", "lesson": "A2-15",
         "kanji": "上手", "kana": "じょうず", "accepted": ["じょうず"],
         "hv": "THƯỢNG THỦ", "vi": "giỏi, khéo",
         "note": "Tính từ な đặc biệt: 上 (じょう - ょ nhỏ + trường âm う + じ có tenten!) + 手 (ず - có tenten!).",
         "traps": [{"wrong": ["じょうしゅ", "じょず", "うえのて", "しょうず"], "why": "Cách đọc đặc biệt rất hay sai chính tả: じょう (có tenten じ, ょ nhỏ và trường âm う) + ず (có tenten ở ず)!"}]
     },
     {
-        "id": "k1518_43", "stt": 43, "group": "15-18",
+        "id": "k1518_43", "stt": 43, "group": "15-18", "lesson": "A2-15",
         "kanji": "歌手", "kana": "かしゅ", "accepted": ["かしゅ"],
         "hv": "CA THỦ", "vi": "ca sĩ",
         "note": "歌 (か) + 手 (しゅ - ゅ nhỏ, KHÔNG có trường âm う!). Giống chữ 手 trong 運転手 (うんてんしゅ).",
         "traps": [{"wrong": ["かて", "かしゅう", "うたて", "かしゆ"], "why": "Chữ 手 chỉ nghề nghiệp đọc là しゅ (ngắn, ゅ nhỏ, không có trường âm う)."}]
     },
     {
-        "id": "k1518_44", "stt": 44, "group": "15-18",
+        "id": "k1518_44", "stt": 44, "group": "15-18", "lesson": "A2-18",
         "kanji": "家族", "kana": "かぞく", "accepted": ["かぞく"],
         "hv": "GIA TỘC", "vi": "gia đình",
         "note": "家 (か) + 族 (ぞく - có đục âm ở ぞ!).",
         "traps": [{"wrong": ["かそく", "いえぞく", "かずく"], "why": "族 đọc có đục âm ぞ: か・ぞ・く (không phải かそく)."}]
     },
     {
-        "id": "k1518_45", "stt": 45, "group": "15-18",
+        "id": "k1518_45", "stt": 45, "group": "15-18", "lesson": "A2-17",
         "kanji": "絵", "kana": "え", "accepted": ["え"],
         "hv": "HỘI", "vi": "tranh, bức tranh",
         "note": "Chỉ có đúng 1 âm tiết え! Có mặt trong câu Kaiwa Mid 2 #10: 父が買った絵 (ちちが かった え).",
         "traps": [{"wrong": ["かい", "が", "しゃしん"], "why": "Chữ 絵 (tranh) đứng một mình đọc rất ngắn gọn là え (không đọc が như trong 画家)."}]
     },
     {
-        "id": "k1518_46", "stt": 46, "group": "15-18",
+        "id": "k1518_46", "stt": 46, "group": "15-18", "lesson": "A2-15",
         "kanji": "上", "kana": "うえ", "accepted": ["うえ"],
         "hv": "THƯỢNG", "vi": "trên, bên trên",
         "note": "Đứng một mình chỉ vị trí: うえ. Ghép thành 上手 đọc じょうず.",
         "traps": [{"wrong": ["した", "じょう"], "why": "上 đứng một mình đọc là うえ ('bên trên'). Đừng nhầm với 下 (した - bên dưới)."}]
     },
     {
-        "id": "k1518_47", "stt": 47, "group": "15-18",
+        "id": "k1518_47", "stt": 47, "group": "15-18", "lesson": "A2-15",
         "kanji": "体", "kana": "からだ", "accepted": ["からだ"],
         "hv": "THỂ", "vi": "cơ thể",
         "note": "Đứng một mình đọc là からだ (chữ だ có đục âm!). Ghép trong 全体 đọc là ぜんたい.",
         "traps": [{"wrong": ["からた", "たい", "あたま"], "why": "Chữ cuối là だ (có tenten!): からだ (cơ thể)."}]
     },
     {
-        "id": "k1518_48", "stt": 48, "group": "15-18",
+        "id": "k1518_48", "stt": 48, "group": "15-18", "lesson": "A2-17",
         "kanji": "誕生日", "kana": "たんじょうび", "accepted": ["たんじょうび"],
         "hv": "ĐẢN SINH NHẬT", "vi": "sinh nhật",
         "note": "誕 (たん) + 生 (じょう - ょ nhỏ + trường âm う!) + 日 (び - đục âm!). Gặp trong Bài 17!",
         "traps": [{"wrong": ["たんじょうひ", "たんじょび", "たんしょうび"], "why": "Coi chừng 2 chỗ hay gõ thiếu: じょう (có じ có tenten + ょ nhỏ + う) và chữ cuối là び (có tenten)!"}]
     },
     {
-        "id": "k1518_49", "stt": 49, "group": "15-18",
+        "id": "k1518_49", "stt": 49, "group": "15-18", "lesson": "A2-16",
         "kanji": "毎朝", "kana": "まいあさ", "accepted": ["まいあさ"],
         "hv": "MỖI TRIỀU", "vi": "mỗi sáng, hằng sáng",
         "note": "毎 (まい) + 朝 (あさ). Tránh nhầm với 今朝 (けさ - sáng nay!).",
         "traps": [{"wrong": ["まいけさ", "けさ", "まいちょう"], "why": "朝 đi với 毎 đọc bình thường là あさ ➔ まいあさ (chỉ có 今朝 mới đọc bất quy tắc thành けさ)."}]
     },
     {
-        "id": "k1518_50", "stt": 50, "group": "15-18",
+        "id": "k1518_50", "stt": 50, "group": "15-18", "lesson": "A2-17",
         "kanji": "真面目", "kana": "まじめ", "accepted": ["まじめ"],
         "hv": "CHÂN DIỆN MỤC", "vi": "nghiêm túc, chăm chỉ",
         "note": "Tính từ đuôi な (真面目な / 真面目です). Đọc là ま・じ・め (không liên quan gì tới âm đọc thường của 目 là め đâu nhưng phần cuối vẫn giữ め!).",
@@ -358,75 +358,77 @@ KANJI_15_18_ITEMS = [
 
 # 69 items strictly verified from Kanji_Lesson_11-14.pdf
 KANJI_11_14_ITEMS = [
-    {"id": "k1114_01", "stt": 1, "group": "11-14", "kanji": "電子レンジ", "kana": "でんしレンジ", "accepted": ["でんしレンジ", "でんしれんじ"], "hv": "ĐIỆN TỬ", "vi": "lò vi sóng", "note": "電 (でん) + 子 (し) + レンジ (Katakana, nhập でんしレンジ hay でんしれんじ đều được chấm đúng)."},
-    {"id": "k1114_02", "stt": 2, "group": "11-14", "kanji": "電車", "kana": "でんしゃ", "accepted": ["でんしゃ"], "hv": "ĐIỆN XA", "vi": "tàu điện", "note": "電 (でん) + 車 (しゃ - ゃ nhỏ). Khác với 車 đứng một mình là くるま."},
-    {"id": "k1114_03", "stt": 3, "group": "11-14", "kanji": "着ます", "kana": "きます", "accepted": ["きます"], "hv": "TRƯỚC", "vi": "mặc", "note": "Không có き ở thân ➔ 着ます (きます = mặc). Có き ở thân ➔ 着きます (つきます = đến nơi)."},
-    {"id": "k1114_04", "stt": 4, "group": "11-14", "kanji": "電話", "kana": "でんわ", "accepted": ["でんわ"], "hv": "ĐIỆN THOẠI", "vi": "điện thoại", "note": "電 (でん) + 話 (わ)."},
-    {"id": "k1114_05", "stt": 5, "group": "11-14", "kanji": "出かけます", "kana": "でかけます", "accepted": ["でかけます"], "hv": "XUẤT", "vi": "đi ra ngoài", "note": "Động từ nhóm II: 出かけます (でかけます). Phân biệt 出ます (でます) và 出します (だします)."},
-    {"id": "k1114_06", "stt": 6, "group": "11-14", "kanji": "仕事中", "kana": "しごとちゅう", "accepted": ["しごとちゅう"], "hv": "SỰ SĨ TRUNG", "vi": "đang làm việc", "note": "Cụm [N]+中 mang nghĩa 'đang trong lúc...' đọc là ちゅう (chữ ゅ nhỏ + trường âm う)."},
-    {"id": "k1114_07", "stt": 7, "group": "11-14", "kanji": "到着", "kana": "とうちゃく", "accepted": ["とうちゃく"], "hv": "ĐÁO TRƯỚC", "vi": "đến nơi", "note": "到 (とう - có trường âm う!) + 着 (ちゃく - ゃ nhỏ!)."},
-    {"id": "k1114_08", "stt": 8, "group": "11-14", "kanji": "日本酒", "kana": "にほんしゅ", "accepted": ["にほんしゅ", "にっぽんしゅ"], "hv": "NHẬT BẢN TỬU", "vi": "rượu Nhật, sake", "note": "日本 (にほん) + 酒 (しゅ - ゅ nhỏ, không trường âm う!)."},
-    {"id": "k1114_09", "stt": 9, "group": "11-14", "kanji": "味", "kana": "あじ", "accepted": ["あじ"], "hv": "VỊ", "vi": "vị, hương vị", "note": "Đứng một mình đọc là あじ (じ có tenten!). Ghép trong 地味 đọc là じみ."},
-    {"id": "k1114_10", "stt": 10, "group": "11-14", "kanji": "お茶", "kana": "おちゃ", "accepted": ["おちゃ"], "hv": "TRÀ", "vi": "trà", "note": "お + ちゃ (ゃ nhỏ)."},
-    {"id": "k1114_11", "stt": 11, "group": "11-14", "kanji": "お酒", "kana": "おさけ", "accepted": ["おさけ"], "hv": "TỬU", "vi": "rượu", "note": "酒 đứng sau お đọc Kun'yomi là おさけ; ghép Hán Việt như 日本酒 đọc là にほんしゅ."},
-    {"id": "k1114_12", "stt": 12, "group": "11-14", "kanji": "人気", "kana": "にんき", "accepted": ["にんき"], "hv": "NHÂN KHÍ", "vi": "được yêu thích, nổi tiếng", "note": "Coi chừng nhầm sang ひとき hoặc じんき! Đây là từ đặc biệt đọc にんき (Nhân = にん)."},
-    {"id": "k1114_13", "stt": 13, "group": "11-14", "kanji": "資料", "kana": "しりょう", "accepted": ["しりょう"], "hv": "TƯ LIỆU", "vi": "tài liệu", "note": "資 (し) + 料 (りょう - ょ nhỏ + trường âm う!). Phân biệt 料理 (りょうり)."},
-    {"id": "k1114_14", "stt": 14, "group": "11-14", "kanji": "喫茶店", "kana": "きっさてん", "accepted": ["きっさてん"], "hv": "KHIẾT TRÀ ĐIẾM", "vi": "quán cà phê, quán giải khát", "note": "Có âm ngắt っ nhỏ: きっさてん (gặp nhiều ở Bài 17!)."},
-    {"id": "k1114_15", "stt": 15, "group": "11-14", "kanji": "乗り物", "kana": "のりもの", "accepted": ["のりもの"], "hv": "THỪA VẬT", "vi": "phương tiện đi lại", "note": "Cụm [Vます bỏ ます] + 物 (もの): 乗ります ➔ のりもの."},
-    {"id": "k1114_16", "stt": 16, "group": "11-14", "kanji": "空港", "kana": "くうこう", "accepted": ["くうこう"], "hv": "KHÔNG CẢNG", "vi": "sân bay", "note": "Cả 2 chữ đều có trường âm う: 空 (くう) + 港 (こう) ➔ くうこう."},
-    {"id": "k1114_17", "stt": 17, "group": "11-14", "kanji": "会います", "kana": "あいます", "accepted": ["あいます"], "hv": "HỘI", "vi": "gặp", "note": "会います đọc là あいます (gặp trong Bài 18 ～と会わない)."},
-    {"id": "k1114_18", "stt": 18, "group": "11-14", "kanji": "作文", "kana": "さくぶん", "accepted": ["さくぶん"], "hv": "TÁC VĂN", "vi": "bài văn, bài viết", "note": "作 (さく) + 文 (ぶん - có tenten ở ぶ!)."},
-    {"id": "k1114_19", "stt": 19, "group": "11-14", "kanji": "使います", "kana": "つかいます", "accepted": ["つかいます"], "hv": "SỬ", "vi": "sử dụng", "note": "Gặp nhiều trong Bài 15-18 (使って/使う/使わないで)."},
-    {"id": "k1114_20", "stt": 20, "group": "11-14", "kanji": "飲み物", "kana": "のみもの", "accepted": ["のみもの"], "hv": "ẨM VẬT", "vi": "đồ uống", "note": "飲 (のみ) + 物 (もの)."},
-    {"id": "k1114_21", "stt": 21, "group": "11-14", "kanji": "中止", "kana": "ちゅうし", "accepted": ["ちゅうし"], "hv": "TRUNG CHỈ", "vi": "hoãn, hủy, ngừng", "note": "中 (ちゅう - có ゅ nhỏ + trường âm う!) + 止 (し)."},
-    {"id": "k1114_22", "stt": 22, "group": "11-14", "kanji": "一年中", "kana": "いちねんじゅう", "accepted": ["いちねんじゅう"], "hv": "NHẤT NIÊN TRUNG", "vi": "quanh năm", "note": "Biến đục âm đặc biệt ở 中: 'cả năm/quanh năm' đọc じゅう (có tenten じ!), khác với 仕事中 (ちゅう)."},
-    {"id": "k1114_23", "stt": 23, "group": "11-14", "kanji": "中", "kana": "なか", "accepted": ["なか"], "hv": "TRUNG", "vi": "trong, bên trong", "note": "Đứng một mình chỉ vị trí đọc là なか (có trong Bài 18: おかしの中で)."},
-    {"id": "k1114_24", "stt": 24, "group": "11-14", "kanji": "荷物", "kana": "にもつ", "accepted": ["にもつ"], "hv": "HÀ VẬT", "vi": "hành lý, đồ đạc", "note": "荷 (に) + 物 (もつ - khác với もの trong 食べ物/飲み物!)."},
-    {"id": "k1114_25", "stt": 25, "group": "11-14", "kanji": "支社", "kana": "ししゃ", "accepted": ["ししゃ"], "hv": "CHI XÃ", "vi": "chi nhánh công ty", "note": "支 (し) + 社 (しゃ - ゃ nhỏ). Đối chiếu 本社 (ほんしゃ - trụ sở chính)."},
-    {"id": "k1114_26", "stt": 26, "group": "11-14", "kanji": "発音", "kana": "はつおん", "accepted": ["はつおん"], "hv": "PHÁT ÂM", "vi": "phát âm", "note": "Khác với 出発 (しゅっぱつ có âm ngắt っ): 発音 KHÔNG biến âm っ mà đọc đủ はつおん."},
-    {"id": "k1114_27", "stt": 27, "group": "11-14", "kanji": "自由", "kana": "じゆう", "accepted": ["じゆう"], "hv": "TỰ DO", "vi": "tự do", "note": "Chú ý chữ ゆ TO (không nhỏ!) + trường âm う ➔ じ・ゆ・う!"},
-    {"id": "k1114_28", "stt": 28, "group": "11-14", "kanji": "空", "kana": "そら", "accepted": ["そら"], "hv": "KHÔNG", "vi": "bầu trời", "note": "Đứng một mình đọc そら ('bầu trời'). Ghép từ Hán đọc くう (空気 くうき, 空港 くうこう)."},
-    {"id": "k1114_29", "stt": 29, "group": "11-14", "kanji": "本社", "kana": "ほんしゃ", "accepted": ["ほんしゃ"], "hv": "BẢN XÃ", "vi": "trụ sở chính", "note": "本 (ほん) + 社 (しゃ - ゃ nhỏ)."},
-    {"id": "k1114_30", "stt": 30, "group": "11-14", "kanji": "料理", "kana": "りょうり", "accepted": ["りょうり"], "hv": "LIỆU LÝ", "vi": "món ăn, nấu ăn", "note": "Chú ý trường âm đầu りょう (ょ nhỏ + う), gặp nhiều trong Bài 16-18."},
-    {"id": "k1114_31", "stt": 31, "group": "11-14", "kanji": "電気", "kana": "でんき", "accepted": ["でんき"], "hv": "ĐIỆN KHÍ", "vi": "điện", "note": "Chú ý phân biệt với 元気 (げんき) và 病気 (びょうき)! Trong Bài 18 có cụm 電気バイク (xe máy điện)."},
-    {"id": "k1114_32", "stt": 32, "group": "11-14", "kanji": "出発", "kana": "しゅっぱつ", "accepted": ["しゅっぱつ"], "hv": "XUẤT PHÁT", "vi": "khởi hành", "note": "Bán đục âm + âm ngắt: しゅ・っ・ぱ・つ (ぱ có maru ゜, xuất hiện trong Bài 17 hội thoại #5!)."},
-    {"id": "k1518_aux_33" if False else "k1114_33", "stt": 33, "group": "11-14", "kanji": "作ります", "kana": "つくります", "accepted": ["つくります"], "hv": "TÁC", "vi": "làm, chế tạo", "note": "Động từ nhóm I: 作ります (つくります ➔ 作らない / 作った)."},
-    {"id": "k1114_34", "stt": 34, "group": "11-14", "kanji": "願い事", "kana": "ねがいごと", "accepted": ["ねがいごと"], "hv": "NGUYỆN SỰ", "vi": "điều ước, nguyện vọng", "note": "Biến đục âm ご: ねがい + ごと (có tenten ở ご!)."},
-    {"id": "k1114_35", "stt": 35, "group": "11-14", "kanji": "お願い", "kana": "おねがい", "accepted": ["おねがい"], "hv": "NGUYỆN", "vi": "lời nhờ, yêu cầu", "note": "Danh từ dùng trong Bài 17: ちょっとお願いがあるんですが…"},
-    {"id": "k1114_36", "stt": 36, "group": "11-14", "kanji": "送ります", "kana": "おくります", "accepted": ["おくります"], "hv": "TỐNG", "vi": "gửi", "note": "お・く・り・ま・す. Tránh nhầm với おきます (起きます - thức dậy)."},
-    {"id": "k1114_37", "stt": 37, "group": "11-14", "kanji": "持ちます", "kana": "もちます", "accepted": ["もちます"], "hv": "TRÌ", "vi": "cầm, mang, có", "note": "Gặp trong Bài 18 #1: 持ってこない (もってこない)."},
-    {"id": "k1114_38", "stt": 38, "group": "11-14", "kanji": "野菜", "kana": "やさい", "accepted": ["やさい"], "hv": "DÃ THÁI", "vi": "rau củ", "note": "Gặp rất nhiều ở Bài 16 & Bài 18 (野菜を食べない子ども / 野菜のほうが健康にいい)."},
-    {"id": "k1114_39", "stt": 39, "group": "11-14", "kanji": "会社員", "kana": "かいしゃいん", "accepted": ["かいしゃいん"], "hv": "HỘI XÃ VIÊN", "vi": "nhân viên công ty", "note": "かい + しゃ + いん."},
-    {"id": "k1114_40", "stt": 40, "group": "11-14", "kanji": "入社", "kana": "にゅうしゃ", "accepted": ["にゅうしゃ"], "hv": "NHẬP XÃ", "vi": "vào công ty, gia nhập công ty", "note": "入 (にゅう - ゅ nhỏ + trường âm う!) + 社 (しゃ - ゃ nhỏ)."},
-    {"id": "k1114_41", "stt": 41, "group": "11-14", "kanji": "入ります", "kana": "はいります", "accepted": ["はいります"], "hv": "NHẬP", "vi": "vào", "note": "Tự động từ NHÓM I (coi chừng bẫy: nhìn kết thúc -irimasu nhưng vẫn là Nhóm I ➔ はいらない / はいって!)."},
-    {"id": "k1114_42", "stt": 42, "group": "11-14", "kanji": "自然", "kana": "しぜん", "accepted": ["しぜん"], "hv": "TỰ NHIÊN", "vi": "thiên nhiên, tự nhiên", "note": "Đục âm ở ぜ: しぜん."},
-    {"id": "k1114_43", "stt": 43, "group": "11-14", "kanji": "社会", "kana": "しゃかい", "accepted": ["しゃかい"], "hv": "XÃ HỘI", "vi": "xã hội", "note": "Đọc ngược âm với 会社 (かいしゃ): 社会 = しゃかい."},
-    {"id": "k1114_44", "stt": 44, "group": "11-14", "kanji": "入学", "kana": "にゅうがく", "accepted": ["にゅうがく"], "hv": "NHẬP HỌC", "vi": "nhập học", "note": "にゅう + がく (có tenten ở が!). Dùng trong Bài 15: 大学に入学しました."},
-    {"id": "k1114_45", "stt": 45, "group": "11-14", "kanji": "出張", "kana": "しゅっちょう", "accepted": ["しゅっちょう"], "hv": "XUẤT TRƯƠNG", "vi": "đi công tác", "note": "Âm ngắt っ + trường âm ょう: しゅ・っ・ちょ・う!"},
-    {"id": "k1114_46", "stt": 46, "group": "11-14", "kanji": "大使館", "kana": "たいしかん", "accepted": ["たいしかん"], "hv": "ĐẠI SỨ QUÁN", "vi": "đại sứ quán", "note": "大 (たい) + 使 (し) + 館 (かん)."},
-    {"id": "k1114_47", "stt": 47, "group": "11-14", "kanji": "出口", "kana": "でぐち", "accepted": ["でぐち"], "hv": "XUẤT KHẨU", "vi": "lối ra", "note": "Biến đục âm rendaku ở ぐ: でぐち (không đọc でくち!)."},
-    {"id": "k1114_48", "stt": 48, "group": "11-14", "kanji": "自分", "kana": "じぶん", "accepted": ["じぶん"], "hv": "TỰ PHÂN", "vi": "bản thân, chính mình", "note": "Cả 2 chữ đều có tenten: じ + ぶん (gặp ở Bài 18 #5: 自分で)."},
-    {"id": "k1114_49", "stt": 49, "group": "11-14", "kanji": "車", "kana": "くるま", "accepted": ["くるま"], "hv": "XA", "vi": "xe, ô tô", "note": "Đứng một mình đọc くるま (Kun'yomi)."},
-    {"id": "k1114_50", "stt": 50, "group": "11-14", "kanji": "食べ物", "kana": "たべもの", "accepted": ["たべもの"], "hv": "THỰC VẬT", "vi": "đồ ăn, thức ăn", "note": "たべ + もの."},
-    {"id": "k1114_51", "stt": 51, "group": "11-14", "kanji": "気持ち", "kana": "きもち", "accepted": ["きもち"], "hv": "KHÍ TRÌ", "vi": "cảm giác, tâm trạng", "note": "き + もち."},
-    {"id": "k1114_52", "stt": 52, "group": "11-14", "kanji": "入れます", "kana": "いれます", "accepted": ["いれます"], "hv": "NHẬP", "vi": "cho vào, bỏ vào", "note": "Tha động từ NHÓM II: いれます (khác với 入ります はいります là tự động từ 'đi vào')."},
-    {"id": "k1114_53", "stt": 53, "group": "11-14", "kanji": "お願いします", "kana": "おねがいします", "accepted": ["おねがいします"], "hv": "NGUYỆN", "vi": "nhờ, mong, làm ơn", "note": "お + ねがい + します."},
-    {"id": "k1114_54", "stt": 54, "group": "11-14", "kanji": "出します", "kana": "だします", "accepted": ["だします"], "hv": "XUẤT", "vi": "lấy ra, đưa ra, nộp", "note": "Tha động từ: だします (khác với 出ます でます 'đi ra')."},
-    {"id": "k1114_55", "stt": 55, "group": "11-14", "kanji": "神社", "kana": "じんじゃ", "accepted": ["じんじゃ"], "hv": "THẦN XÃ", "vi": "đền Thần đạo", "note": "Cả 2 đều đục âm: じん + じゃ (ゃ nhỏ)."},
-    {"id": "k1114_56", "stt": 56, "group": "11-14", "kanji": "理由", "kana": "りゆう", "accepted": ["りゆう"], "hv": "LÝ DO", "vi": "lý do", "note": "Chữ ゆ TO + trường âm う: り・ゆ・う (cần thiết cho Bài 17 hỏi lý do!)."},
-    {"id": "k1114_57", "stt": 57, "group": "11-14", "kanji": "借ります", "kana": "かります", "accepted": ["かります"], "hv": "TÁ", "vi": "mượn, thuê", "note": "Động từ NHÓM II đặc biệt (đuôi -irimasu nhưng vẫn Nhóm II ➔ かりない / かりて!)."},
-    {"id": "k1114_58", "stt": 58, "group": "11-14", "kanji": "港", "kana": "みなと", "accepted": ["みなと"], "hv": "CẢNG", "vi": "cảng", "note": "Đứng một mình đọc みなと; ghép trong 空港 đọc こう."},
-    {"id": "k1114_59", "stt": 59, "group": "11-14", "kanji": "自転車", "kana": "じてんしゃ", "accepted": ["じてんしゃ"], "hv": "TỰ CHUYỂN XA", "vi": "xe đạp", "note": "じ (có tenten) + てん + しゃ (ゃ nhỏ)."},
-    {"id": "k1114_60", "stt": 60, "group": "11-14", "kanji": "出ます", "kana": "でます", "accepted": ["でます"], "hv": "XUẤT", "vi": "ra, rời khỏi", "note": "Động từ nhóm II: でます."},
-    {"id": "k1114_61", "stt": 61, "group": "11-14", "kanji": "色", "kana": "いろ", "accepted": ["いろ"], "hv": "SẮC", "vi": "màu sắc", "note": "Đứng một mình đọc いろ."},
-    {"id": "k1114_62", "stt": 62, "group": "11-14", "kanji": "空気", "kana": "くうき", "accepted": ["くうき"], "hv": "KHÔNG KHÍ", "vi": "không khí", "note": "空 có trường âm う: くう・き."},
-    {"id": "k1114_63", "stt": 63, "group": "11-14", "kanji": "料金", "kana": "りょうきん", "accepted": ["りょうきん"], "hv": "LIỆU KIM", "vi": "phí, cước phí", "note": "料 đọc là りょう (ょ nhỏ + trường âm う) + きん."},
-    {"id": "k1114_64", "stt": 64, "group": "11-14", "kanji": "着きます", "kana": "つきます", "accepted": ["つきます"], "hv": "TRƯỚC", "vi": "đến, tới nơi", "note": "Có き giữa chữ ➔ đọc là つきます (đến nơi). Không nhầm với 着ます (きます - mặc)!"},
-    {"id": "k1114_65", "stt": 65, "group": "11-14", "kanji": "無理", "kana": "むり", "accepted": ["むり"], "hv": "VÔ LÝ", "vi": "không thể, quá sức", "note": "Gặp trong Bài 15: むりをしないでください (đừng làm quá sức)."},
-    {"id": "k1114_66", "stt": 66, "group": "11-14", "kanji": "病気", "kana": "びょうき", "accepted": ["びょうき"], "hv": "BỆNH KHÍ", "vi": "bệnh, ốm", "note": "病 đọc là びょう (び có tenten + ょ nhỏ + trường âm う!)."},
-    {"id": "k1114_67", "stt": 67, "group": "11-14", "kanji": "色々", "kana": "いろいろ", "accepted": ["いろいろ"], "hv": "SẮC", "vi": "nhiều loại, đa dạng", "note": "Từ láy いろいろ."},
-    {"id": "k1114_68", "stt": 68, "group": "11-14", "kanji": "自動車", "kana": "じどうしゃ", "accepted": ["じどうしゃ"], "hv": "TỰ ĐỘNG XA", "vi": "ô tô, xe hơi", "note": "じ + どう (trường âm う!) + しゃ (ゃ nhỏ)."},
-    {"id": "k1114_69", "stt": 69, "group": "11-14", "kanji": "地味", "kana": "じみ", "accepted": ["じみ"], "hv": "ĐỊA VỊ", "vi": "giản dị, không nổi bật", "note": "Tính từ đuôi な (地味な): đọc là じみ (じ có tenten!)."},
+    {"id": "k1114_01", "stt": 1, "group": "11-14", "lesson": "A2-14", "kanji": "電子レンジ", "kana": "でんしレンジ", "accepted": ["でんしレンジ", "でんしれんじ"], "hv": "ĐIỆN TỬ", "vi": "lò vi sóng", "note": "電 (でん) + 子 (し) + レンジ (Katakana, nhập でんしレンジ hay でんしれんじ đều được chấm đúng)."},
+    {"id": "k1114_02", "stt": 2, "group": "11-14", "lesson": "A2-14", "kanji": "電車", "kana": "でんしゃ", "accepted": ["でんしゃ"], "hv": "ĐIỆN XA", "vi": "tàu điện", "note": "電 (でん) + 車 (しゃ - ゃ nhỏ). Khác với 車 đứng một mình là くるま."},
+    {"id": "k1114_03", "stt": 3, "group": "11-14", "lesson": "A2-13", "kanji": "着ます", "kana": "きます", "accepted": ["きます"], "hv": "TRƯỚC", "vi": "mặc", "note": "Không có き ở thân ➔ 着ます (きます = mặc). Có き ở thân ➔ 着きます (つきます = đến nơi)."},
+    {"id": "k1114_04", "stt": 4, "group": "11-14", "lesson": "A2-14", "kanji": "電話", "kana": "でんわ", "accepted": ["でんわ"], "hv": "ĐIỆN THOẠI", "vi": "điện thoại", "note": "電 (でん) + 話 (わ)."},
+    {"id": "k1114_05", "stt": 5, "group": "11-14", "lesson": "A2-13", "kanji": "出かけます", "kana": "でかけます", "accepted": ["でかけます"], "hv": "XUẤT", "vi": "đi ra ngoài", "note": "Động từ nhóm II: 出かけます (でかけます). Phân biệt 出ます (でます) và 出します (だします)."},
+    {"id": "k1114_06", "stt": 6, "group": "11-14", "lesson": "A2-12", "kanji": "仕事中", "kana": "しごとちゅう", "accepted": ["しごとちゅう"], "hv": "SỰ SĨ TRUNG", "vi": "đang làm việc", "note": "Cụm [N]+中 mang nghĩa 'đang trong lúc...' đọc là ちゅう (chữ ゅ nhỏ + trường âm う)."},
+    {"id": "k1114_07", "stt": 7, "group": "11-14", "lesson": "A2-13", "kanji": "到着", "kana": "とうちゃく", "accepted": ["とうちゃく"], "hv": "ĐÁO TRƯỚC", "vi": "đến nơi", "note": "到 (とう - có trường âm う!) + 着 (ちゃく - ゃ nhỏ!)."},
+    {"id": "k1114_08", "stt": 8, "group": "11-14", "lesson": "A2-11", "kanji": "日本酒", "kana": "にほんしゅ", "accepted": ["にほんしゅ", "にっぽんしゅ"], "hv": "NHẬT BẢN TỬU", "vi": "rượu Nhật, sake", "note": "日本 (にほん) + 酒 (しゅ - ゅ nhỏ, không trường âm う!)."},
+    {"id": "k1114_09", "stt": 9, "group": "11-14", "lesson": "A2-12", "kanji": "味", "kana": "あじ", "accepted": ["あじ"], "hv": "VỊ", "vi": "vị, hương vị", "note": "Đứng một mình đọc là あじ (じ có tenten!). Ghép trong 地味 đọc là じみ."},
+    {"id": "k1114_10", "stt": 10, "group": "11-14", "lesson": "A2-11", "kanji": "お茶", "kana": "おちゃ", "accepted": ["おちゃ"], "hv": "TRÀ", "vi": "trà", "note": "お + ちゃ (ゃ nhỏ)."},
+    {"id": "k1114_11", "stt": 11, "group": "11-14", "lesson": "A2-11", "kanji": "お酒", "kana": "おさけ", "accepted": ["おさけ"], "hv": "TỬU", "vi": "rượu", "note": "酒 đứng sau お đọc Kun'yomi là おさけ; ghép Hán Việt như 日本酒 đọc là にほんしゅ."},
+    {"id": "k1114_12", "stt": 12, "group": "11-14", "lesson": "A2-14", "kanji": "人気", "kana": "にんき", "accepted": ["にんき"], "hv": "NHÂN KHÍ", "vi": "được yêu thích, nổi tiếng", "note": "Coi chừng nhầm sang ひとき hoặc じんき! Đây là từ đặc biệt đọc にんき (Nhân = にん)."},
+    {"id": "k1114_13", "stt": 13, "group": "11-14", "lesson": "A2-12", "kanji": "資料", "kana": "しりょう", "accepted": ["しりょう"], "hv": "TƯ LIỆU", "vi": "tài liệu", "note": "資 (し) + 料 (りょう - ょ nhỏ + trường âm う!). Phân biệt 料理 (りょうり)."},
+    {"id": "k1114_14", "stt": 14, "group": "11-14", "lesson": "A2-11", "kanji": "喫茶店", "kana": "きっさてん", "accepted": ["きっさてん"], "hv": "KHIẾT TRÀ ĐIẾM", "vi": "quán cà phê, quán giải khát", "note": "Có âm ngắt っ nhỏ: きっさてん (gặp nhiều ở Bài 17!)."},
+    {"id": "k1114_15", "stt": 15, "group": "11-14", "lesson": "A2-11", "kanji": "乗り物", "kana": "のりもの", "accepted": ["のりもの"], "hv": "THỪA VẬT", "vi": "phương tiện đi lại", "note": "Cụm [Vます bỏ ます] + 物 (もの): 乗ります ➔ のりもの."},
+    {"id": "k1114_16", "stt": 16, "group": "11-14", "lesson": "A2-13", "kanji": "空港", "kana": "くうこう", "accepted": ["くうこう"], "hv": "KHÔNG CẢNG", "vi": "sân bay", "note": "Cả 2 chữ đều có trường âm う: 空 (くう) + 港 (こう) ➔ くうこう."},
+    {"id": "k1114_17", "stt": 17, "group": "11-14", "lesson": "A2-13", "kanji": "会います", "kana": "あいます", "accepted": ["あいます"], "hv": "HỘI", "vi": "gặp", "note": "会います đọc là あいます (gặp trong Bài 18 ～と会わない)."},
+    {"id": "k1114_18", "stt": 18, "group": "11-14", "lesson": "A2-11", "kanji": "作文", "kana": "さくぶん", "accepted": ["さくぶん"], "hv": "TÁC VĂN", "vi": "bài văn, bài viết", "note": "作 (さく) + 文 (ぶん - có tenten ở ぶ!)."},
+    {"id": "k1114_19", "stt": 19, "group": "11-14", "lesson": "A2-14", "kanji": "使います", "kana": "つかいます", "accepted": ["つかいます"], "hv": "SỬ", "vi": "sử dụng", "note": "Gặp nhiều trong Bài 15-18 (使って/使う/使わないで)."},
+    {"id": "k1114_20", "stt": 20, "group": "11-14", "lesson": "A2-11", "kanji": "飲み物", "kana": "のみもの", "accepted": ["のみもの"], "hv": "ẨM VẬT", "vi": "đồ uống", "note": "飲 (のみ) + 物 (もの)."},
+    {"id": "k1114_21", "stt": 21, "group": "11-14", "lesson": "A2-12", "kanji": "中止", "kana": "ちゅうし", "accepted": ["ちゅうし"], "hv": "TRUNG CHỈ", "vi": "hoãn, hủy, ngừng", "note": "中 (ちゅう - có ゅ nhỏ + trường âm う!) + 止 (し)."},
+    {"id": "k1114_22", "stt": 22, "group": "11-14", "lesson": "A2-12", "kanji": "一年中", "kana": "いちねんじゅう", "accepted": ["いちねんじゅう"], "hv": "NHẤT NIÊN TRUNG", "vi": "quanh năm", "note": "Biến đục âm đặc biệt ở 中: 'cả năm/quanh năm' đọc じゅう (có tenten じ!), khác với 仕事中 (ちゅう)."},
+    {"id": "k1114_23", "stt": 23, "group": "11-14", "lesson": "A2-12", "kanji": "中", "kana": "なか", "accepted": ["なか"], "hv": "TRUNG", "vi": "trong, bên trong", "note": "Đứng một mình chỉ vị trí đọc là なか (có trong Bài 18: おかしの中で)."},
+    {"id": "k1114_24", "stt": 24, "group": "11-14", "lesson": "A2-11", "kanji": "荷物", "kana": "にもつ", "accepted": ["にもつ"], "hv": "HÀ VẬT", "vi": "hành lý, đồ đạc", "note": "荷 (に) + 物 (もつ - khác với もの trong 食べ物/飲み物!)."},
+    {"id": "k1114_25", "stt": 25, "group": "11-14", "lesson": "A2-13", "kanji": "支社", "kana": "ししゃ", "accepted": ["ししゃ"], "hv": "CHI XÃ", "vi": "chi nhánh công ty", "note": "支 (し) + 社 (しゃ - ゃ nhỏ). Đối chiếu 本社 (ほんしゃ - trụ sở chính)."},
+    {"id": "k1114_26", "stt": 26, "group": "11-14", "lesson": "A2-13", "kanji": "発音", "kana": "はつおん", "accepted": ["はつおん"], "hv": "PHÁT ÂM", "vi": "phát âm", "note": "Khác với 出発 (しゅっぱつ có âm ngắt っ): 発音 KHÔNG biến âm っ mà đọc đủ はつおん."},
+    {"id": "k1114_27", "stt": 27, "group": "11-14", "lesson": "A2-14", "kanji": "自由", "kana": "じゆう", "accepted": ["じゆう"], "hv": "TỰ DO", "vi": "tự do", "note": "Chú ý chữ ゆ TO (không nhỏ!) + trường âm う ➔ じ・ゆ・う!"},
+    {"id": "k1114_28", "stt": 28, "group": "11-14", "lesson": "A2-13", "kanji": "空", "kana": "そら", "accepted": ["そら"], "hv": "KHÔNG", "vi": "bầu trời", "note": "Đứng một mình đọc そら ('bầu trời'). Ghép từ Hán đọc くう (空気 くうき, 空港 くうこう)."},
+    {"id": "k1114_29", "stt": 29, "group": "11-14", "lesson": "A2-13", "kanji": "本社", "kana": "ほんしゃ", "accepted": ["ほんしゃ"], "hv": "BẢN XÃ", "vi": "trụ sở chính", "note": "本 (ほん) + 社 (しゃ - ゃ nhỏ)."},
+    {"id": "k1114_30", "stt": 30, "group": "11-14", "lesson": "A2-12", "kanji": "料理", "kana": "りょうり", "accepted": ["りょうり"], "hv": "LIỆU LÝ", "vi": "món ăn, nấu ăn", "note": "Chú ý trường âm đầu りょう (ょ nhỏ + う), gặp nhiều trong Bài 16-18."},
+    {"id": "k1114_31", "stt": 31, "group": "11-14", "lesson": "A2-14", "kanji": "電気", "kana": "でんき", "accepted": ["でんき"], "hv": "ĐIỆN KHÍ", "vi": "điện", "note": "Chú ý phân biệt với 元気 (げんき) và 病気 (びょうき)! Trong Bài 18 có cụm 電気バイク (xe máy điện)."},
+    {"id": "k1114_32", "stt": 32, "group": "11-14", "lesson": "A2-13", "kanji": "出発", "kana": "しゅっぱつ", "accepted": ["しゅっぱつ"], "hv": "XUẤT PHÁT", "vi": "khởi hành", "note": "Bán đục âm + âm ngắt: しゅ・っ・ぱ・つ (ぱ có maru ゜, xuất hiện trong Bài 17 hội thoại #5!)."},
+    {"id": "k1518_aux_33" if False else "k1114_33", "stt": 33, "group": "11-14", "lesson": "A2-11", "kanji": "作ります", "kana": "つくります", "accepted": ["つくります"], "hv": "TÁC", "vi": "làm, chế tạo", "note": "Động từ nhóm I: 作ります (つくります ➔ 作らない / 作った)."},
+    {"id": "k1114_34", "stt": 34, "group": "11-14", "lesson": "A2-11", "kanji": "願い事", "kana": "ねがいごと", "accepted": ["ねがいごと"], "hv": "NGUYỆN SỰ", "vi": "điều ước, nguyện vọng", "note": "Biến đục âm ご: ねがい + ごと (có tenten ở ご!)."},
+    {"id": "k1114_35", "stt": 35, "group": "11-14", "lesson": "A2-11", "kanji": "お願い", "kana": "おねがい", "accepted": ["おねがい"], "hv": "NGUYỆN", "vi": "lời nhờ, yêu cầu", "note": "Danh từ dùng trong Bài 17: ちょっとお願いがあるんですが…"},
+    {"id": "k1114_36", "stt": 36, "group": "11-14", "lesson": "A2-14", "kanji": "送ります", "kana": "おくります", "accepted": ["おくります"], "hv": "TỐNG", "vi": "gửi", "note": "お・く・り・ま・す. Tránh nhầm với おきます (起きます - thức dậy)."},
+    {"id": "k1114_37", "stt": 37, "group": "11-14", "lesson": "A2-11", "kanji": "持ちます", "kana": "もちます", "accepted": ["もちます"], "hv": "TRÌ", "vi": "cầm, mang, có", "note": "Gặp trong Bài 18 #1: 持ってこない (もってこない)."},
+    {"id": "k1114_38", "stt": 38, "group": "11-14", "lesson": "A2-12", "kanji": "野菜", "kana": "やさい", "accepted": ["やさい"], "hv": "DÃ THÁI", "vi": "rau củ", "note": "Gặp rất nhiều ở Bài 16 & Bài 18 (野菜を食べない子ども / 野菜のほうが健康にいい)."},
+    {"id": "k1114_39", "stt": 39, "group": "11-14", "lesson": "A2-13", "kanji": "会社員", "kana": "かいしゃいん", "accepted": ["かいしゃいん"], "hv": "HỘI XÃ VIÊN", "vi": "nhân viên công ty", "note": "かい + しゃ + いん."},
+    {"id": "k1114_40", "stt": 40, "group": "11-14", "lesson": "A2-13", "kanji": "入社", "kana": "にゅうしゃ", "accepted": ["にゅうしゃ"], "hv": "NHẬP XÃ", "vi": "vào công ty, gia nhập công ty", "note": "入 (にゅう - ゅ nhỏ + trường âm う!) + 社 (しゃ - ゃ nhỏ)."},
+    {"id": "k1114_41", "stt": 41, "group": "11-14", "lesson": "A2-12", "kanji": "入ります", "kana": "はいります", "accepted": ["はいります"], "hv": "NHẬP", "vi": "vào", "note": "Tự động từ NHÓM I (coi chừng bẫy: nhìn kết thúc -irimasu nhưng vẫn là Nhóm I ➔ はいらない / はいって!)."},
+    {"id": "k1114_42", "stt": 42, "group": "11-14", "lesson": "A2-14", "kanji": "自然", "kana": "しぜん", "accepted": ["しぜん"], "hv": "TỰ NHIÊN", "vi": "thiên nhiên, tự nhiên", "note": "Đục âm ở ぜ: しぜん."},
+    {"id": "k1114_43", "stt": 43, "group": "11-14", "lesson": "A2-13", "kanji": "社会", "kana": "しゃかい", "accepted": ["しゃかい"], "hv": "XÃ HỘI", "vi": "xã hội", "note": "Đọc ngược âm với 会社 (かいしゃ): 社会 = しゃかい."},
+    {"id": "k1114_44", "stt": 44, "group": "11-14", "lesson": "A2-12", "kanji": "入学", "kana": "にゅうがく", "accepted": ["にゅうがく"], "hv": "NHẬP HỌC", "vi": "nhập học", "note": "にゅう + がく (có tenten ở が!). Dùng trong Bài 15: 大学に入学しました."},
+    {"id": "k1114_45", "stt": 45, "group": "11-14", "lesson": "A2-13", "kanji": "出張", "kana": "しゅっちょう", "accepted": ["しゅっちょう"], "hv": "XUẤT TRƯƠNG", "vi": "đi công tác", "note": "Âm ngắt っ + trường âm ょう: しゅ・っ・ちょ・う!"},
+    {"id": "k1114_46", "stt": 46, "group": "11-14", "lesson": "A2-14", "kanji": "大使館", "kana": "たいしかん", "accepted": ["たいしかん"], "hv": "ĐẠI SỨ QUÁN", "vi": "đại sứ quán", "note": "大 (たい) + 使 (し) + 館 (かん)."},
+    {"id": "k1114_47", "stt": 47, "group": "11-14", "lesson": "A2-13", "kanji": "出口", "kana": "でぐち", "accepted": ["でぐち"], "hv": "XUẤT KHẨU", "vi": "lối ra", "note": "Biến đục âm rendaku ở ぐ: でぐち (không đọc でくち!)."},
+    {"id": "k1114_48", "stt": 48, "group": "11-14", "lesson": "A2-14", "kanji": "自分", "kana": "じぶん", "accepted": ["じぶん"], "hv": "TỰ PHÂN", "vi": "bản thân, chính mình", "note": "Cả 2 chữ đều có tenten: じ + ぶん (gặp ở Bài 18 #5: 自分で)."},
+    {"id": "k1114_49", "stt": 49, "group": "11-14", "lesson": "A2-14", "kanji": "車", "kana": "くるま", "accepted": ["くるま"], "hv": "XA", "vi": "xe, ô tô", "note": "Đứng một mình đọc くるま (Kun'yomi)."},
+    {"id": "k1114_50", "stt": 50, "group": "11-14", "lesson": "A2-11", "kanji": "食べ物", "kana": "たべもの", "accepted": ["たべもの"], "hv": "THỰC VẬT", "vi": "đồ ăn, thức ăn", "note": "たべ + もの."},
+    {"id": "k1114_51", "stt": 51, "group": "11-14", "lesson": "A2-11", "kanji": "気持ち", "kana": "きもち", "accepted": ["きもち"], "hv": "KHÍ TRÌ", "vi": "cảm giác, tâm trạng", "note": "き + もち."},
+    {"id": "k1114_52", "stt": 52, "group": "11-14", "lesson": "A2-12", "kanji": "入れます", "kana": "いれます", "accepted": ["いれます"], "hv": "NHẬP", "vi": "cho vào, bỏ vào", "note": "Tha động từ NHÓM II: いれます (khác với 入ります はいります là tự động từ 'đi vào')."},
+    {"id": "k1114_53", "stt": 53, "group": "11-14", "lesson": "A2-11", "kanji": "お願いします", "kana": "おねがいします", "accepted": ["おねがいします"], "hv": "NGUYỆN", "vi": "nhờ, mong, làm ơn", "note": "お + ねがい + します."},
+    {"id": "k1114_54", "stt": 54, "group": "11-14", "lesson": "A2-13", "kanji": "出します", "kana": "だします", "accepted": ["だします"], "hv": "XUẤT", "vi": "lấy ra, đưa ra, nộp", "note": "Tha động từ: だします (khác với 出ます でます 'đi ra')."},
+    {"id": "k1114_55", "stt": 55, "group": "11-14", "lesson": "A2-13", "kanji": "神社", "kana": "じんじゃ", "accepted": ["じんじゃ"], "hv": "THẦN XÃ", "vi": "đền Thần đạo", "note": "Cả 2 đều đục âm: じん + じゃ (ゃ nhỏ)."},
+    {"id": "k1114_56", "stt": 56, "group": "11-14", "lesson": "A2-12", "kanji": "理由", "kana": "りゆう", "accepted": ["りゆう"], "hv": "LÝ DO", "vi": "lý do", "note": "Chữ ゆ TO + trường âm う: り・ゆ・う (cần thiết cho Bài 17 hỏi lý do!)."},
+    {"id": "k1114_57", "stt": 57, "group": "11-14", "lesson": "A2-14", "kanji": "借ります", "kana": "かります", "accepted": ["かります"], "hv": "TÁ", "vi": "mượn, thuê", "note": "Động từ NHÓM II đặc biệt (đuôi -irimasu nhưng vẫn Nhóm II ➔ かりない / かりて!)."},
+    {"id": "k1114_58", "stt": 58, "group": "11-14", "lesson": "A2-13", "kanji": "港", "kana": "みなと", "accepted": ["みなと"], "hv": "CẢNG", "vi": "cảng", "note": "Đứng một mình đọc みなと; ghép trong 空港 đọc こう."},
+    {"id": "k1114_59", "stt": 59, "group": "11-14", "lesson": "A2-14", "kanji": "自転車", "kana": "じてんしゃ", "accepted": ["じてんしゃ"], "hv": "TỰ CHUYỂN XA", "vi": "xe đạp", "note": "じ (có tenten) + てん + しゃ (ゃ nhỏ)."},
+    {"id": "k1114_60", "stt": 60, "group": "11-14", "lesson": "A2-13", "kanji": "出ます", "kana": "でます", "accepted": ["でます"], "hv": "XUẤT", "vi": "ra, rời khỏi", "note": "Động từ nhóm II: でます."},
+    {"id": "k1114_61", "stt": 61, "group": "11-14", "lesson": "A2-12", "kanji": "色", "kana": "いろ", "accepted": ["いろ"], "hv": "SẮC", "vi": "màu sắc", "note": "Đứng một mình đọc いろ."},
+    {"id": "k1114_62", "stt": 62, "group": "11-14", "lesson": "A2-13", "kanji": "空気", "kana": "くうき", "accepted": ["くうき"], "hv": "KHÔNG KHÍ", "vi": "không khí", "note": "空 có trường âm う: くう・き."},
+    {"id": "k1114_63", "stt": 63, "group": "11-14", "lesson": "A2-12", "kanji": "料金", "kana": "りょうきん", "accepted": ["りょうきん"], "hv": "LIỆU KIM", "vi": "phí, cước phí", "note": "料 đọc là りょう (ょ nhỏ + trường âm う) + きん."},
+    {"id": "k1114_64", "stt": 64, "group": "11-14", "lesson": "A2-13", "kanji": "着きます", "kana": "つきます", "accepted": ["つきます"], "hv": "TRƯỚC", "vi": "đến, tới nơi", "note": "Có き giữa chữ ➔ đọc là つきます (đến nơi). Không nhầm với 着ます (きます - mặc)!"},
+    {"id": "k1114_65", "stt": 65, "group": "11-14", "lesson": "A2-12", "kanji": "無理", "kana": "むり", "accepted": ["むり"], "hv": "VÔ LÝ", "vi": "không thể, quá sức", "note": "Gặp trong Bài 15: むりをしないでください (đừng làm quá sức)."},
+    {"id": "k1114_66", "stt": 66, "group": "11-14", "lesson": "A2-14", "kanji": "病気", "kana": "びょうき", "accepted": ["びょうき"], "hv": "BỆNH KHÍ", "vi": "bệnh, ốm", "note": "病 đọc là びょう (び có tenten + ょ nhỏ + trường âm う!)."},
+    {"id": "k1114_67", "stt": 67, "group": "11-14", "lesson": "A2-12", "kanji": "色々", "kana": "いろいろ", "accepted": ["いろいろ"], "hv": "SẮC", "vi": "nhiều loại, đa dạng", "note": "Từ láy いろいろ."},
+    {"id": "k1114_68", "stt": 68, "group": "11-14", "lesson": "A2-14", "kanji": "自動車", "kana": "じどうしゃ", "accepted": ["じどうしゃ"], "hv": "TỰ ĐỘNG XA", "vi": "ô tô, xe hơi", "note": "じ + どう (trường âm う!) + しゃ (ゃ nhỏ)."},
+    {"id": "k1114_69", "stt": 69, "group": "11-14", "lesson": "A2-12", "kanji": "地味", "kana": "じみ", "accepted": ["じみ"], "hv": "ĐỊA VỊ", "vi": "giản dị, không nổi bật", "note": "Tính từ đuôi な (地味な): đọc là じみ (じ có tenten!)."},
+    {"id": "k1114_70", "stt": 70, "group": "11-14", "lesson": "A2-12", "kanji": "無料", "kana": "むりょう", "accepted": ["むりょう"], "hv": "VÔ LIỆU", "vi": "miễn phí", "note": "無 (VÔ = không có, む) + 料 (LIỆU = phí, りょう). Phân biệt với 有料 (ゆうりょう - có phí) và 料理 (りょうり).", "traps": [{"wrong": ["むりょ", "ぶひょう", "ゆうりょう"], "why": "Âm On là む・りょう (chú ý trường âm う ở cuối, khác 有料 là có phí)."}]},
+    {"id": "k1114_71", "stt": 71, "group": "11-14", "lesson": "A2-13", "kanji": "着物", "kana": "きもの", "accepted": ["きもの"], "hv": "TRƯỚC VẬT", "vi": "bộ kimono, trang phục truyền thống Nhật", "note": "着 (TRƯỚC = mặc, き) + 物 (VẬT = đồ, もの). Đọc thuần Nhật là きもの.", "traps": [{"wrong": ["ちゃくぶつ", "きぶつ"], "why": "Từ thuần Nhật quen thuộc đọc là きもの (không đọc âm On ちゃくぶつ)."}]},
 ]
 
 

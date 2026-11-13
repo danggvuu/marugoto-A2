@@ -557,6 +557,9 @@ html_content = f"""<!DOCTYPE html>
             <div class="stat-pill">🎯 6 Dạng Bài • 32 Câu (Thang Điểm 100)</div>
         </div>
         <div style="margin-top: 18px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+            <a href="On_Tap_Mini_Test_A2_15_18.html#kanji-typing" class="btn-quizlet" style="background: linear-gradient(135deg, #4f46e5, #7c3aed); padding: 10px 18px; font-size: 0.9rem; text-decoration: none; color: #fff; font-weight: 700;" title="Phòng luyện gõ chữ Hán Kanji 11-18 tự động chấm điểm">
+                ⌨️ Phòng Luyện Gõ 121 Kanji (L11-18) ➔
+            </a>
             <button type="button" class="btn-quizlet" onclick="copyFullQuizletFormat()" style="padding: 10px 18px; font-size: 0.9rem;" title="Dạng gõ siêu mượt trên Quizlet: くだもの [Tab] Hoa quả">
                 📋 Copy Gõ Kana (Tab): くだもの [Tab] Hoa quả
             </button>
