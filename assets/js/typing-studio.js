@@ -288,7 +288,12 @@
         var all = getModeItems(m);
         var base;
         if (f === 'wrong') {
-            base = all.filter(function (x) { return window.tpState.history[x.id] && window.tpState.history[x.id].status === 'err'; });
+            if (!Array.isArray(window.tpState.wrongQueue)) {
+                window.tpState.wrongQueue = all.filter(function (x) {
+                    return window.tpState.history[x.id] && window.tpState.history[x.id].status === 'err';
+                });
+            }
+            return window.tpState.wrongQueue;
         } else if (f === 'all') {
             base = all.slice();
         } else if (m === 'sentence' && f === 'focus-15-18') {
@@ -676,6 +681,7 @@
     function switchTypingMode(mode) {
         window.tpState.mode = mode;
         window.tpState.gradedCurrent = false;
+        window.tpState.wrongQueue = null;
         updateTypingModeButtons();
         renderTypingFilters();
         renderTypingCard(true);
@@ -683,8 +689,21 @@
     }
 
     function switchTypingLesson(lessonKey) {
-        window.tpState.filterByMode[window.tpState.mode] = lessonKey;
+        var m = window.tpState.mode;
+        window.tpState.filterByMode[m] = lessonKey;
+        var bucket = getActiveBucketKey();
+        window.tpState.idxByBucket[bucket] = 0;
         window.tpState.gradedCurrent = false;
+
+        if (lessonKey === 'wrong') {
+            var all = getModeItems(m);
+            window.tpState.wrongQueue = all.filter(function (x) {
+                return window.tpState.history[x.id] && window.tpState.history[x.id].status === 'err';
+            });
+        } else {
+            window.tpState.wrongQueue = null;
+        }
+
         renderTypingFilters();
         renderTypingCard(true);
         persistCheckpoint();
@@ -714,9 +733,17 @@
     function shuffleTypingPool() {
         var pool = getFilteredTypingPool();
         if (!pool.length) return;
-        var shuffled = pool.map(function (x) { return x.id; }).sort(function () { return Math.random() - 0.5; });
+        var m = window.tpState.mode;
+        var curF = window.tpState.filterByMode[m] || 'all';
         var bucket = getActiveBucketKey();
-        window.tpState.orderByBucket[bucket] = shuffled;
+
+        if (curF === 'wrong' && Array.isArray(window.tpState.wrongQueue)) {
+            window.tpState.wrongQueue.sort(function () { return Math.random() - 0.5; });
+        } else {
+            var shuffled = pool.map(function (x) { return x.id; }).sort(function () { return Math.random() - 0.5; });
+            window.tpState.orderByBucket[bucket] = shuffled;
+        }
+
         window.tpState.idxByBucket[bucket] = 0;
         window.tpState.gradedCurrent = false;
         renderTypingCard(true);
@@ -871,16 +898,45 @@
         var m = window.tpState.mode;
         var curF = window.tpState.filterByMode[m] || 'all';
 
-        // Nếu vừa đi qua câu cuối cùng của vòng (và không phải đang ở bộ lọc wrong)
-        if (cur >= pool.length - 1 && curF !== 'wrong') {
-            var wrongCount = pool.filter(function (x) {
-                var h = window.tpState.history[x.id];
-                return h && (h.status === 'err' || h.status === 'reveal');
-            }).length;
+        // Nếu vừa đi qua câu cuối cùng của vòng câu sai:
+        if (curF === 'wrong') {
+            if (cur >= pool.length - 1) {
+                var stillWrong = pool.filter(function (x) {
+                    var h = window.tpState.history[x.id];
+                    return h && h.status === 'err';
+                });
+                if (stillWrong.length === 0) {
+                    window.tpState.wrongQueue = [];
+                    window.tpState.idxByBucket[bucket] = 0;
+                    window.tpState.gradedCurrent = false;
+                    renderTypingFilters();
+                    renderTypingCard(true);
+                    persistCheckpoint();
+                    notify('🎉 Tuyệt vời! Bạn đã sửa đúng hết toàn bộ các câu sai!');
+                    return;
+                } else {
+                    window.tpState.wrongQueue = stillWrong;
+                    window.tpState.idxByBucket[bucket] = 0;
+                    window.tpState.gradedCurrent = false;
+                    renderTypingFilters();
+                    renderTypingCard(true);
+                    persistCheckpoint();
+                    notify('🔁 Vòng mới: Còn lại ' + stillWrong.length + ' câu chưa đúng, tiếp tục nhé!');
+                    return;
+                }
+            }
+        } else {
+            // Chế độ bài học bình thường:
+            if (cur >= pool.length - 1) {
+                var wrongCount = pool.filter(function (x) {
+                    var h = window.tpState.history[x.id];
+                    return h && (h.status === 'err' || h.status === 'reveal');
+                }).length;
 
-            if (wrongCount > 0) {
-                showRoundSummaryModal(pool.length, wrongCount);
-                return;
+                if (wrongCount > 0) {
+                    showRoundSummaryModal(pool.length, wrongCount);
+                    return;
+                }
             }
         }
 
@@ -900,6 +956,7 @@
         var bucket = getActiveBucketKey();
         window.tpState.idxByBucket[bucket] = 0;
         delete window.tpState.orderByBucket[bucket];
+        window.tpState.wrongQueue = null;
         window.tpState.streak = 0;
         window.tpState.gradedCurrent = false;
         renderTypingFilters();

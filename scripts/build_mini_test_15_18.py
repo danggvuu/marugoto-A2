@@ -1082,7 +1082,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     <!-- Scripts -->
     <script src="../assets/data/mini_15_18_data.js?v=1"></script>
     <script src="../assets/js/jp-typing-grader.js?v=1"></script>
-    <script src="../assets/js/typing-studio.js?v=4"></script>
+    <script src="../assets/js/typing-studio.js?v=5"></script>
     <script src="../assets/js/mini-test-15-18.js?v=2"></script>
     <script src="../assets/nav.js?v=6" defer></script>
 </body>
