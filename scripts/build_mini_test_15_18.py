@@ -963,7 +963,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
                         ⬇️ Nhập câu tiếng Nhật bằng <strong>Hiragana</strong> rồi nhấn Enter (hoặc Kiểm Tra):
                     </div>
 
-                    <textarea class="typing-input-large jp-text" id="tpCardInput" rows="2" style="resize:vertical; min-height:66px; max-width:100%;" placeholder="Ví dụ: ねる まえに、よく ほんを よみます。" autocomplete="off" autocapitalize="off" spellcheck="false"></textarea>
+                    <textarea class="typing-input-large jp-text" id="tpCardInput" rows="2" style="resize:vertical; min-height:66px; max-width:100%;" placeholder="Nhập câu dịch tiếng Nhật bằng Hiragana rồi nhấn Enter..." autocomplete="off" autocapitalize="off" spellcheck="false"></textarea>
 
                     <div class="typing-actions">
                         <button type="button" class="btn-primary" style="background:var(--gray-500);" onclick="prevTypingItem()">⬅️ Trước</button>
@@ -1081,7 +1081,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     <!-- Scripts -->
     <script src="../assets/data/mini_15_18_data.js?v=1"></script>
     <script src="../assets/js/jp-typing-grader.js?v=1"></script>
-    <script src="../assets/js/typing-studio.js?v=2"></script>
+    <script src="../assets/js/typing-studio.js?v=3"></script>
     <script src="../assets/js/mini-test-15-18.js?v=2"></script>
     <script src="../assets/nav.js?v=6" defer></script>
 </body>

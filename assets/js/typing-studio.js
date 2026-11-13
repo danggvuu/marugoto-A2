@@ -545,17 +545,17 @@
             promptEl.className = 'tp-vi-hero';
             promptEl.innerText = item.vi;
             dirEl.innerHTML = '⬇️ Nhập câu tiếng Nhật bằng <strong>Hiragana</strong> rồi nhấn <strong>Enter</strong>:';
-            inp.placeholder = 'Ví dụ: ねる まえに、よく ほんを よみます。';
+            inp.placeholder = 'Nhập câu dịch tiếng Nhật bằng Hiragana rồi nhấn Enter...';
             inp.rows = 2;
         } else if (window.tpState.mode === 'kanji') {
             var lessonLabel = item.lesson ? (item.lesson.replace('A2-', 'Bài ') + ' • ') : '';
             badge.innerText = 'Chữ Hán ' + (idx + 1) + ' / ' + pool.length + ' • ' + lessonLabel + '#' + item.stt;
-            patBadge.innerText = (item.lesson ? item.lesson.replace('A2-', 'Bài ') : ('Kanji ' + item.group)) + (item.hv ? (' • [' + item.hv + ']') : '');
-            subEl.innerText = 'NHÌN CHỮ HÁN (KANJI) — GÕ CÁCH ĐỌC HIRAGANA (' + (item.vi || '') + ')';
+            patBadge.innerText = item.lesson ? item.lesson.replace('A2-', 'Bài ') : ('Kanji ' + item.group);
+            subEl.innerText = 'NHÌN CHỮ HÁN (KANJI) — GÕ CÁCH ĐỌC HIRAGANA';
             promptEl.className = 'tp-kanji-hero jp-text';
             promptEl.innerText = item.kanji;
             dirEl.innerHTML = '⬇️ Nhập <strong>cách đọc Hiragana</strong> của chữ Hán trên rồi nhấn <strong>Enter</strong>:';
-            inp.placeholder = 'Gõ cách đọc bằng Hiragana (ví dụ: ' + (item.kana || '...') + ')...';
+            inp.placeholder = 'Nhập cách đọc Hiragana rồi nhấn Enter...';
             inp.rows = 1;
         } else {
             badge.innerText = 'Từ ' + (idx + 1) + ' / ' + pool.length + ' • ' + item.lesson;
@@ -564,7 +564,7 @@
             promptEl.className = 'tp-vi-hero';
             promptEl.innerText = item.vi;
             dirEl.innerHTML = '⬇️ Nhập bằng Hiragana / Kanji / Romaji rồi nhấn <strong>Enter</strong>:';
-            inp.placeholder = 'Nhập từ tiếng Nhật...';
+            inp.placeholder = 'Nhập từ tiếng Nhật rồi nhấn Enter...';
             inp.rows = 1;
         }
 

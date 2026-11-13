@@ -176,7 +176,7 @@ html = f"""<!DOCTYPE html>
                 ⬇️ Nhập <strong>cách đọc Hiragana</strong> của chữ Hán trên rồi nhấn Enter:
             </div>
 
-            <input type="text" class="typing-input-large jp-text" id="tpCardInput" placeholder="Ví dụ: はつおん..." autocomplete="off" autocapitalize="off" spellcheck="false">
+            <input type="text" class="typing-input-large jp-text" id="tpCardInput" placeholder="Nhập cách đọc Hiragana rồi nhấn Enter..." autocomplete="off" autocapitalize="off" spellcheck="false">
 
             <div class="typing-actions">
                 <button type="button" class="btn-primary" style="background:var(--gray-500);" onclick="prevTypingItem()">⬅️ Trước</button>
@@ -429,7 +429,7 @@ html = f"""<!DOCTYPE html>
 
 <script src="../assets/data/mini_15_18_data.js?v=2"></script>
 <script src="../assets/js/jp-typing-grader.js?v=2"></script>
-<script src="../assets/js/typing-studio.js?v=2"></script>
+<script src="../assets/js/typing-studio.js?v=3"></script>
 <script src="../assets/data/cram_kanji_data.js?v=1"></script>
 <script src="../assets/js/cram-kanji.js?v=2"></script>
 <script src="../assets/nav.js?v=6" defer></script>
