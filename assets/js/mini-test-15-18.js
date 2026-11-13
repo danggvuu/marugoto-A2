@@ -886,7 +886,7 @@ function saveMini15_18Checkpoint() {
             currentVocabFilter,
             isMeaningHidden,
             examStates,
-            tpState
+            tpState: window.tpState
         };
         localStorage.setItem(MINI15_18_CP_KEY, JSON.stringify(payload));
         if (window.MarugotoCheckpoint && typeof window.MarugotoCheckpoint.notifySaved === 'function') {
@@ -916,8 +916,8 @@ function restoreMini15_18Checkpoint() {
         }
         if (typeof saved.isMeaningHidden === 'boolean') isMeaningHidden = saved.isMeaningHidden;
         if (typeof saved.currentVocabFilter === 'string') currentVocabFilter = saved.currentVocabFilter;
-        if (saved.tpState && typeof saved.tpState === 'object') {
-            tpState = Object.assign({}, tpState, saved.tpState);
+        if (saved.tpState && typeof saved.tpState === 'object' && window.tpState) {
+            Object.assign(window.tpState, saved.tpState);
         }
         if (typeof saved.currentTab === 'string') {
             currentTab = saved.currentTab;

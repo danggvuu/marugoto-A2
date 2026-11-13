@@ -6,6 +6,8 @@
 (function (window) {
     'use strict';
 
+    var TYPING_STUDIO_STORAGE_KEY = 'marugoto_typing_studio_v2';
+
     window.tpInitialized = false;
     window.tpState = {
         mode: 'sentence', // 'sentence' | 'kanji' | 'vocab'
@@ -20,6 +22,59 @@
         streak: 0,
         gradedCurrent: false
     };
+
+    function saveTypingStudioState() {
+        try {
+            var data = {
+                version: 2,
+                savedAt: Date.now(),
+                mode: window.tpState.mode,
+                filterByMode: window.tpState.filterByMode,
+                idxByBucket: window.tpState.idxByBucket,
+                orderByBucket: window.tpState.orderByBucket,
+                history: window.tpState.history,
+                drafts: window.tpState.drafts,
+                allowKanji: window.tpState.allowKanji,
+                autoAdvance: window.tpState.autoAdvance,
+                streak: window.tpState.streak
+            };
+            localStorage.setItem(TYPING_STUDIO_STORAGE_KEY, JSON.stringify(data));
+        } catch (e) {
+            console.warn('Could not save typing studio state:', e);
+        }
+    }
+
+    function restoreTypingStudioState() {
+        try {
+            var raw = localStorage.getItem(TYPING_STUDIO_STORAGE_KEY);
+            if (!raw) return false;
+            var data = JSON.parse(raw);
+            if (!data || data.version !== 2) return false;
+            if (data.mode) window.tpState.mode = data.mode;
+            if (data.filterByMode && typeof data.filterByMode === 'object') {
+                Object.assign(window.tpState.filterByMode, data.filterByMode);
+            }
+            if (data.idxByBucket && typeof data.idxByBucket === 'object') {
+                Object.assign(window.tpState.idxByBucket, data.idxByBucket);
+            }
+            if (data.orderByBucket && typeof data.orderByBucket === 'object') {
+                Object.assign(window.tpState.orderByBucket, data.orderByBucket);
+            }
+            if (data.history && typeof data.history === 'object') {
+                Object.assign(window.tpState.history, data.history);
+            }
+            if (data.drafts && typeof data.drafts === 'object') {
+                Object.assign(window.tpState.drafts, data.drafts);
+            }
+            if (typeof data.allowKanji === 'boolean') window.tpState.allowKanji = data.allowKanji;
+            if (typeof data.autoAdvance === 'boolean') window.tpState.autoAdvance = data.autoAdvance;
+            if (typeof data.streak === 'number') window.tpState.streak = data.streak;
+            return true;
+        } catch (e) {
+            console.warn('Could not restore typing studio state:', e);
+            return false;
+        }
+    }
 
     function getDataSource(key) {
         if (window.MINI_15_18_DATA && window.MINI_15_18_DATA[key]) {
@@ -324,8 +379,50 @@
     }
 
     function persistCheckpoint() {
+        saveTypingStudioState();
         if (typeof window.saveMini15_18Checkpoint === 'function') {
             window.saveMini15_18Checkpoint();
+        } else if (window.MarugotoCheckpoint && typeof window.MarugotoCheckpoint.notifySaved === 'function') {
+            window.MarugotoCheckpoint.notifySaved();
+        }
+    }
+
+    function manualSaveTypingProgress() {
+        persistCheckpoint();
+        var pool = getFilteredTypingPool();
+        var bucket = getActiveBucketKey();
+        var idx = window.tpState.idxByBucket[bucket] || 0;
+        var modeLabel = window.tpState.mode === 'sentence' ? 'Câu' : (window.tpState.mode === 'kanji' ? 'Chữ Hán' : 'Từ');
+        notify('💾 Đã lưu tiến độ hiện tại (' + modeLabel + ' ' + (idx + 1) + '/' + pool.length + ')!');
+    }
+
+    function skipOrPassCurrentTypingWord() {
+        var pool = getFilteredTypingPool();
+        var bucket = getActiveBucketKey();
+        var idx = window.tpState.idxByBucket[bucket] || 0;
+        if (!pool.length || idx >= pool.length) return;
+
+        var item = pool[idx];
+
+        // Nếu câu này chưa được chấm (đang làm bài và muốn bỏ qua):
+        if (!window.tpState.gradedCurrent) {
+            window.tpState.streak = 0;
+            var ans = window.tpState.mode === 'sentence' ? item.hira : (window.tpState.mode === 'kanji' ? item.kana : (item.kana || item.jp));
+            window.tpState.history[item.id] = {
+                status: 'err',
+                lastInput: '(Đã bỏ qua)',
+                whyWrong: ['Bạn đã chọn bỏ qua câu này để xem đáp án chuẩn và lưu vào danh sách ôn tập sau.']
+            };
+            delete window.tpState.drafts[item.id];
+            window.tpState.gradedCurrent = true;
+            say(getSpeakableTypingText(item));
+            renderTypingFilters();
+            renderTypingCard(false);
+            persistCheckpoint();
+            notify('⏭️ Đã bỏ qua! Câu này đã được lưu vào danh sách cần ôn tập.');
+        } else {
+            // Nếu câu này đã chấm xong (đang ở màn hình xem đáp án): nhảy luôn sang câu sau
+            skipTypingWord();
         }
     }
 
@@ -671,6 +768,9 @@
     }
 
     function initTypingPractice() {
+        if (!window.tpInitialized) {
+            restoreTypingStudioState();
+        }
         window.tpInitialized = true;
         updateTypingModeButtons();
         renderTypingFilters();
@@ -976,6 +1076,9 @@
             } else if (e.key === 'Escape' && window.tpState.gradedCurrent) {
                 e.preventDefault();
                 retryCurrentTypingCard();
+            } else if ((e.key === 'Tab' || (e.altKey && e.key.toLowerCase() === 's')) && !e.shiftKey) {
+                e.preventDefault();
+                skipOrPassCurrentTypingWord();
             }
         });
         inp.addEventListener('input', function () {
@@ -1012,6 +1115,8 @@
     window.showTypingHint = showTypingHint;
     window.revealTypingAnswer = revealTypingAnswer;
     window.skipTypingWord = skipTypingWord;
+    window.skipOrPassCurrentTypingWord = skipOrPassCurrentTypingWord;
+    window.manualSaveTypingProgress = manualSaveTypingProgress;
     window.resetCurrentTypingMode = resetCurrentTypingMode;
     window.getActiveBucketKey = getActiveBucketKey;
     window.getFilteredTypingPool = getFilteredTypingPool;
