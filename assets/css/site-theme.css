@@ -1,52 +1,147 @@
 /* ==========================================================================
    MARUGOTO A1-A2 MASTER DESIGN SYSTEM & THEME (site-theme.css)
+   Handcrafted, Human-Centered, Tactile, Modern Japanese Editorial Aesthetic
    Chuẩn thiết kế đồng bộ cho toàn bộ hệ thống web:
-   - Header, Global Hub Navigation, Dropdown Menu
-   - Nav Tabs, Filter Pills, Action Buttons
-   - Cards, Tables, Sound Buttons, Japanese Typography
+   - Header, Global Hub Navigation, Dropdown Menu, Bottom Sheet
+   - Nav Tabs, Filter Pills, Action Buttons, Micro-Interactions
+   - Cards, Tables, Sound Buttons, Japanese Typography & Furigana
    - Tối ưu Responsive Desktop & Mobile (chống vỡ, chống tràn, không đè chữ)
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;600;700;900&display=swap');
 
+/* ==========================================================================
+   1. HARMONIOUS COLOR SYSTEM & DESIGN TOKENS
+   ========================================================================== */
 :root {
-    /* Mặc định bảng màu chuẩn (các trang riêng biệt có thể override --primary) */
+    /* Brand Primary - Refined Crimson (Kurenai / 朱色) */
     --primary: #e11d48;
-    --primary-light: #fb7185;
-    --primary-dark: #be123c;
+    --primary-hover: #be123c;
+    --primary-light: #f43f5e;
+    --primary-dark: #9f1239;
     --primary-bg: #fff1f2;
-    --secondary: #0284c7;
-    --secondary-bg: #f0f9ff;
-    --accent: #f59e0b;
-    --accent-bg: #fffbeb;
-    --success: #10b981;
-    --success-bg: #ecfdf5;
-    --danger: #ef4444;
-    --danger-bg: #fef2f2;
-    --warning: #f59e0b;
-    --warning-bg: #fffbeb;
-    --purple: #8b5cf6;
-    --purple-bg: #faf5ff;
+    --primary-border: #fecdd3;
+    --primary-glow: rgba(225, 29, 72, 0.16);
 
+    /* Deep Indigo & Midnight Palette (Ai / 藍色) */
     --dark: #0f172a;
+    --indigo-deep: #0f172a;
+    --indigo-surface: #1e293b;
+    --indigo-dark: #1e1b4b;
+    --indigo-glow: rgba(15, 23, 42, 0.12);
+
+    /* Clean Slate Palette (Sumi Slate / 墨) */
+    --slate-900: #0f172a;
     --slate-800: #1e293b;
     --slate-700: #334155;
+    --slate-600: #475569;
+    --slate-500: #64748b;
+    --slate-400: #94a3b8;
+    --slate-300: #cbd5e1;
+    --slate-200: #e2e8f0;
+    --slate-100: #f1f5f9;
+    --slate-50: #f8fafc;
+
     --gray: #64748b;
     --gray-light: #f8fafc;
+    --text-main: #0f172a;
+    --text-secondary: #334155;
+    --text-muted: #64748b;
+    --text-subtle: #94a3b8;
+
+    /* Soft Warm Amber / Accent (Yamabuki / 琥珀) */
+    --accent: #d97706;
+    --accent-hover: #b45309;
+    --accent-light: #f59e0b;
+    --accent-bg: #fffbeb;
+    --accent-border: #fde68a;
+    --warning: #d97706;
+    --warning-bg: #fffbeb;
+    --warning-border: #fde68a;
+
+    /* Secondary Ocean Blue & Utility Accents */
+    --secondary: #0284c7;
+    --secondary-hover: #0369a1;
+    --secondary-light: #38bdf8;
+    --secondary-bg: #f0f9ff;
+    --secondary-border: #bae6fd;
+
+    /* Refined Matcha / Emerald */
+    --success: #059669;
+    --success-hover: #047857;
+    --success-light: #10b981;
+    --success-bg: #ecfdf5;
+    --success-border: #a7f3d0;
+
+    /* Refined Crimson Danger */
+    --danger: #e11d48;
+    --danger-bg: #fff1f2;
+    --danger-border: #fecdd3;
+
+    /* Refined Fuji Purple */
+    --purple: #7c3aed;
+    --purple-light: #8b5cf6;
+    --purple-bg: #faf5ff;
+    --purple-border: #ddd6fe;
+
+    /* Crisp White & Soft Card Backgrounds */
+    --bg-page: #f8fafc;
+    --bg-card: #ffffff;
+    --bg-subtle: #f1f5f9;
+    --bg-inset: #f8fafc;
     --border: #e2e8f0;
-    --shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
-    --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.08);
-    --shadow-lg: 0 14px 30px rgba(0, 0, 0, 0.12);
+    --border-subtle: #f1f5f9;
+    --border-hover: #cbd5e1;
+
+    /* Micro-Interactions & Spring Transitions */
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-spring: cubic-bezier(0.34, 1.4, 0.64, 1);
+    --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: 0.12s var(--ease-out);
+    --transition-normal: 0.2s var(--ease-out);
+    --transition-smooth: 0.3s var(--ease-smooth);
+    --press-transform: translateY(1px) scale(0.985);
+
+    /* Layered Soft Shadows (Zero harsh drop-shadows) */
+    --shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.04);
+    --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.05), 0 1px 2px rgba(15, 23, 42, 0.03);
+    --shadow: 0 4px 12px -2px rgba(15, 23, 42, 0.05), 0 2px 4px -1px rgba(15, 23, 42, 0.03);
+    --shadow-md: 0 8px 20px -3px rgba(15, 23, 42, 0.07), 0 3px 6px -2px rgba(15, 23, 42, 0.04);
+    --shadow-lg: 0 16px 32px -4px rgba(15, 23, 42, 0.09), 0 6px 12px -3px rgba(15, 23, 42, 0.03);
+    --shadow-xl: 0 24px 48px -6px rgba(15, 23, 42, 0.12);
+    --shadow-hover: 0 12px 28px -4px rgba(15, 23, 42, 0.10), 0 4px 8px -2px rgba(15, 23, 42, 0.03);
+
+    /* Radii */
+    --radius-sm: 8px;
+    --radius-md: 12px;
     --radius: 16px;
+    --radius-lg: 20px;
+    --radius-xl: 24px;
     --radius-pill: 9999px;
+
+    /* Typography */
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-jp: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Meiryo', sans-serif;
+    --line-height-body: 1.68;
+    --line-height-jp: 1.78;
+    --letter-spacing-body: -0.012em;
+    --letter-spacing-jp: 0.03em;
 }
 
-/* Base Reset */
+/* ==========================================================================
+   2. BASE RESET & JAPANESE TYPOGRAPHY
+   ========================================================================== */
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 24px;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
 }
 
 html, body {
@@ -55,35 +150,66 @@ html, body {
 }
 
 body {
-    background-color: #f8fafc;
-    color: var(--dark);
-    line-height: 1.6;
-    padding: 20px 10px 80px 10px;
+    background-color: var(--bg-page);
+    color: var(--text-main);
+    font-family: var(--font-sans);
+    line-height: var(--line-height-body);
+    letter-spacing: var(--letter-spacing-body);
+    padding: 24px 12px 84px 12px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
 
-.container {
+.container, .main-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 12px;
+    padding: 0 14px;
 }
 
-/* Typography Tiếng Nhật */
-.jp-text, [lang="ja"] {
-    font-family: 'Noto Sans JP', sans-serif !important;
+/* Typography Tiếng Nhật chuẩn mực & dễ đọc */
+.jp-text, [lang="ja"], .jp-font, .jp-word, .vocab-jp {
+    font-family: var(--font-jp) !important;
+    line-height: var(--line-height-jp);
+    letter-spacing: var(--letter-spacing-jp);
+    word-break: keep-all;
+    overflow-wrap: break-word;
+}
+
+ruby {
+    ruby-align: center;
+    ruby-position: over;
+}
+
+rt {
+    font-family: var(--font-jp);
+    font-size: 0.58em;
+    font-weight: 600;
+    color: var(--slate-500);
+    letter-spacing: 0.02em;
+    user-select: none;
+    line-height: 1;
+}
+
+.kanji-char, .kanji-big-char, .big-kanji {
+    font-family: var(--font-jp) !important;
+    font-feature-settings: "palt" 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* ==========================================================================
-   1. GLOBAL HUB NAVIGATION & DROPDOWNS (CHUẨN VIÊN THUỐC CAPSULE THE_NAI)
+   3. GLOBAL HUB NAVIGATION & DROPDOWNS (Capsule Glassmorphism & Tactile Feedback)
    ========================================================================== */
 #navbar-placeholder {
     position: relative !important;
     z-index: 100000 !important;
 }
 
-/* 1. Global Hub Navigation Container */
 .global-hub-nav-wrapper {
     position: relative !important;
-    margin-bottom: 25px !important;
+    margin-bottom: 28px !important;
     z-index: 100000 !important;
 }
 
@@ -93,11 +219,13 @@ body {
     justify-content: center !important;
     flex-wrap: wrap !important;
     gap: 8px !important;
-    background: #ffffff !important;
-    padding: 12px 18px !important;
-    border-radius: 9999px !important;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06) !important;
-    border: 1.5px solid #e2e8f0 !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    padding: 10px 18px !important;
+    border-radius: var(--radius-pill) !important;
+    box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06), 0 1px 3px rgba(15, 23, 42, 0.04) !important;
+    border: 1.5px solid rgba(226, 232, 240, 0.9) !important;
     position: relative !important;
     overflow: visible !important;
 }
@@ -105,34 +233,46 @@ body {
 .hub-nav-item {
     display: inline-flex !important;
     align-items: center !important;
-    gap: 6px !important;
-    padding: 7px 15px !important;
-    border-radius: 9999px !important;
+    gap: 7px !important;
+    padding: 8px 16px !important;
+    border-radius: var(--radius-pill) !important;
     background: #ffffff !important;
-    color: #475569 !important;
-    font-size: 0.86rem !important;
+    color: var(--slate-600) !important;
+    font-size: 0.875rem !important;
     font-weight: 700 !important;
     text-decoration: none !important;
-    border: 1.5px solid #cbd5e1 !important;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
-    transition: all 0.2s ease !important;
+    border: 1.5px solid var(--border) !important;
+    box-shadow: var(--shadow-xs) !important;
+    transition: transform 0.12s var(--ease-out),
+                box-shadow 0.12s var(--ease-out),
+                background-color 0.12s ease,
+                color 0.12s ease,
+                border-color 0.12s ease !important;
     cursor: pointer !important;
     font-family: inherit !important;
     white-space: nowrap !important;
+    user-select: none !important;
+    -webkit-tap-highlight-color: transparent !important;
 }
 
 .hub-nav-item:hover {
-    background: #fff1f2 !important;
+    background: var(--primary-bg) !important;
     color: var(--primary) !important;
-    border-color: var(--primary) !important;
-    transform: translateY(-1px) !important;
+    border-color: var(--primary-border) !important;
+    transform: translateY(-1.5px) !important;
+    box-shadow: 0 3px 8px rgba(225, 29, 72, 0.12) !important;
+}
+
+.hub-nav-item:active {
+    transform: var(--press-transform) !important;
+    transition: transform 0.05s ease !important;
 }
 
 .hub-nav-item.active-hub {
     background: var(--primary) !important;
     color: #ffffff !important;
     border-color: var(--primary) !important;
-    box-shadow: 0 4px 12px rgba(225, 29, 72, 0.35) !important;
+    box-shadow: 0 4px 14px rgba(225, 29, 72, 0.32) !important;
 }
 
 /* Dropdown Menu (Desktop Floating & Positioned) */
@@ -140,9 +280,9 @@ body {
     display: none;
     position: absolute;
     background: #ffffff;
-    border: 1.5px solid #e2e8f0;
+    border: 1.5px solid var(--border);
     border-radius: 18px;
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
+    box-shadow: 0 20px 45px -8px rgba(15, 23, 42, 0.16), 0 4px 12px -2px rgba(15, 23, 42, 0.05);
     padding: 10px;
     min-width: 310px;
     max-height: 480px;
@@ -153,7 +293,7 @@ body {
 
 .hub-dropdown-menu.show {
     display: block !important;
-    animation: hubDropDesktopIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    animation: hubDropDesktopIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 @keyframes hubDropDesktopIn {
@@ -182,12 +322,14 @@ body {
     align-items: center !important;
     justify-content: space-between !important;
     padding: 10px 14px !important;
-    color: #334155 !important;
+    color: var(--slate-700) !important;
     font-size: 0.88rem !important;
     font-weight: 700 !important;
     text-decoration: none !important;
     border-radius: 12px !important;
-    transition: all 0.15s ease !important;
+    transition: transform 0.12s var(--ease-out),
+                background-color 0.12s ease,
+                color 0.12s ease !important;
     gap: 12px !important;
 }
 
@@ -207,24 +349,24 @@ body {
 .hub-drop-desc {
     font-size: 0.76rem;
     font-weight: 500;
-    color: #64748b;
+    color: var(--slate-500);
     line-height: 1.35;
     white-space: normal;
 }
 
 .hub-drop-link:hover .hub-drop-desc {
     color: inherit;
-    opacity: 0.85;
+    opacity: 0.9;
 }
 
 .hub-drop-link.active .hub-drop-desc {
-    color: rgba(255, 255, 255, 0.88);
+    color: rgba(255, 255, 255, 0.9);
 }
 
 .hub-drop-link:hover {
     background: var(--primary-bg) !important;
     color: var(--primary) !important;
-    transform: translateX(2px) !important;
+    transform: translateX(3px) !important;
 }
 
 .hub-drop-link.active {
@@ -235,9 +377,9 @@ body {
 .hub-drop-tag {
     font-size: 0.72rem !important;
     font-weight: 800 !important;
-    padding: 2px 8px !important;
-    border-radius: 9999px !important;
-    background: rgba(255, 255, 255, 0.25) !important;
+    padding: 3px 8px !important;
+    border-radius: var(--radius-pill) !important;
+    background: rgba(255, 255, 255, 0.22) !important;
     color: inherit !important;
 }
 
@@ -246,96 +388,158 @@ body {
 }
 
 /* ==========================================================================
-   2. HEADER BANNER
+   4. HEADER & HERO BANNERS (Atmospheric Deep Indigo & Handcrafted Ambient Warmth)
    ========================================================================== */
 header {
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    background: linear-gradient(145deg, #0f172a 0%, #1e293b 60%, #0f172a 100%);
     color: #ffffff;
-    padding: 34px 22px;
-    border-radius: 24px !important;
+    padding: 38px 24px;
+    border-radius: var(--radius-xl) !important;
     text-align: center;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-    margin-bottom: 25px;
+    box-shadow: 0 12px 32px -4px rgba(15, 23, 42, 0.22), 0 0 0 1px rgba(255, 255, 255, 0.08) inset;
+    margin-bottom: 28px;
     position: relative !important;
     z-index: 1 !important;
     overflow: hidden;
 }
 
-/* Hero Header & Hero Banner chuẩn Midnight Indigo cho các trang Ôn tập & Đề thi */
+header::before {
+    content: '';
+    position: absolute;
+    top: -40%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 300px;
+    background: radial-gradient(ellipse at center, rgba(225, 29, 72, 0.18), transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+header.header-crimson, header.header-primary {
+    background: linear-gradient(145deg, #be123c 0%, #e11d48 55%, #9f1239 100%) !important;
+}
+
 .hero-header, .hero-banner {
-    background: linear-gradient(135deg, #1e1b4b 0%, #312e81 40%, #4f46e5 100%) !important;
+    background: linear-gradient(150deg, #0f172a 0%, #1e1b4b 55%, #1e293b 100%) !important;
     color: #ffffff !important;
-    padding: 38px 24px !important;
-    border-radius: 24px !important;
+    padding: 42px 26px !important;
+    border-radius: var(--radius-xl) !important;
     text-align: center !important;
-    margin-bottom: 25px !important;
+    margin-bottom: 28px !important;
     position: relative !important;
     z-index: 1 !important;
     overflow: hidden !important;
-    border: 1px solid rgba(255, 255, 255, 0.15) !important;
-    box-shadow: 0 12px 30px rgba(30, 27, 75, 0.25) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    box-shadow: 0 16px 36px -6px rgba(15, 23, 42, 0.28), 0 0 0 1px rgba(255, 255, 255, 0.05) inset !important;
+}
+
+.hero-header::before, .hero-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 85% 15%, rgba(225, 29, 72, 0.14), transparent 45%),
+                radial-gradient(circle at 15% 85%, rgba(217, 119, 6, 0.08), transparent 45%);
+    pointer-events: none;
 }
 
 .header-badge, .hero-badge {
     display: inline-flex !important;
     align-items: center !important;
-    gap: 6px !important;
-    background: rgba(255, 255, 255, 0.16) !important;
-    backdrop-filter: blur(8px) !important;
-    -webkit-backdrop-filter: blur(8px) !important;
+    gap: 7px !important;
+    background: rgba(255, 255, 255, 0.12) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
     padding: 6px 16px !important;
     border-radius: var(--radius-pill) !important;
     font-size: 0.82rem !important;
     font-weight: 800 !important;
-    letter-spacing: 0.5px !important;
-    margin-bottom: 12px !important;
+    letter-spacing: 0.6px !important;
+    margin-bottom: 14px !important;
     text-transform: uppercase !important;
-    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    border: 1px solid rgba(255, 255, 255, 0.22) !important;
     color: #ffffff !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12) !important;
 }
 
 header h1, .hero-title {
-    font-size: 2.1rem;
+    font-size: 2.2rem;
     font-weight: 900;
-    margin-bottom: 10px;
-    letter-spacing: -0.5px;
-    line-height: 1.25;
+    margin-bottom: 12px;
+    letter-spacing: -0.025em;
+    line-height: 1.28;
+    position: relative;
+    z-index: 1;
 }
 
-header p, .hero-desc {
-    font-size: 1.02rem;
-    opacity: 0.95;
+header p, .hero-desc, .hero-subtitle {
+    font-size: 1.04rem;
+    opacity: 0.94;
     max-width: 820px;
     margin: 0 auto;
-    line-height: 1.6;
+    line-height: 1.62;
+    position: relative;
+    z-index: 1;
 }
 
-.stats-pills, .hero-stats {
+.stats-pills, .hero-stats, .hero-stats-row {
     display: flex;
     justify-content: center;
     gap: 10px;
     flex-wrap: wrap;
-    margin-top: 18px;
+    margin-top: 20px;
+    position: relative;
+    z-index: 1;
 }
 
 .stat-pill, .hero-stat-pill {
-    background: rgba(255, 255, 255, 0.15);
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    padding: 6px 16px;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 7px 18px;
     border-radius: var(--radius-pill);
     font-size: 0.84rem;
     font-weight: 700;
-    backdrop-filter: blur(4px);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     white-space: nowrap;
+    color: #ffffff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
-/* Chống che khuất tiêu đề khi bấm nhảy anchor link (Anchor Scroll Margin) */
-.grammar-card, [id^="grammar-"], .content-card, .tab-panel > div, section {
+.stat-card {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: var(--radius-md);
+    padding: 12px 18px;
+    text-align: center;
+    color: #ffffff;
+    backdrop-filter: blur(8px);
+}
+
+.stat-number {
+    font-size: 1.5rem;
+    font-weight: 900;
+    line-height: 1.2;
+}
+
+.stat-label {
+    font-size: 0.78rem;
+    opacity: 0.85;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Chống che khuất tiêu đề khi bấm nhảy anchor link */
+.grammar-card, [id^="grammar-"], .content-card, .content-section, .tab-panel > div, section {
     scroll-margin-top: 100px !important;
 }
 
 /* ==========================================================================
-   3. NAV TABS & TAB PANELS (Chuẩn Viên Thuốc Capsule Đa Màu Sắc & Không Bị Lấp)
+   5. NAV TABS & TAB PANELS (Refined Capsule Pills with Distinct Hues)
    ========================================================================== */
 .tab-nav-wrapper {
     position: sticky !important;
@@ -347,16 +551,18 @@ header p, .hero-desc {
 .nav-tabs, .tab-nav {
     display: flex !important;
     gap: 6px !important;
-    background: #ffffff !important;
+    background: rgba(255, 255, 255, 0.96) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
     padding: 6px 8px !important;
-    border-radius: 9999px !important;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06) !important;
+    border-radius: var(--radius-pill) !important;
+    box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.06), 0 1px 3px rgba(15, 23, 42, 0.04) !important;
     border: 1.5px solid var(--border) !important;
     overflow-x: auto !important;
     scrollbar-width: none !important;
     justify-content: center !important;
     align-items: center !important;
-    flex-wrap: nowrap !important; /* KHÔNG wrap thành 2 hàng để chống phình to lấp nội dung */
+    flex-wrap: nowrap !important;
     margin-bottom: 25px !important;
 }
 
@@ -368,116 +574,147 @@ header p, .hero-desc {
     flex: 1 1 auto !important;
     background: transparent !important;
     border: 1.5px solid transparent !important;
-    padding: 9px 16px !important;
-    border-radius: 9999px !important;
+    padding: 9px 18px !important;
+    border-radius: var(--radius-pill) !important;
     font-size: 0.88rem !important;
     font-weight: 800 !important;
     cursor: pointer !important;
-    color: #475569 !important;
-    transition: all 0.2s ease !important;
+    color: var(--slate-600) !important;
+    transition: transform 0.12s var(--ease-out),
+                box-shadow 0.12s var(--ease-out),
+                background-color 0.12s ease,
+                color 0.12s ease,
+                border-color 0.12s ease !important;
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    gap: 6px !important;
+    gap: 7px !important;
     white-space: nowrap !important;
     font-family: inherit !important;
     text-decoration: none !important;
-    box-shadow: none !important;
+    user-select: none !important;
+    -webkit-tap-highlight-color: transparent !important;
 }
 
-/* BẢNG MÀU PHÂN BIỆT RÕ RÀNG TỪNG TAB RIÊNG BIỆT (VIBRANT TAB PALETTES) */
-/* Tab 1: Lý Thuyết - Indigo Blue */
+.nav-tab-btn:active, .tab-btn:active {
+    transform: var(--press-transform) !important;
+    transition: transform 0.05s ease !important;
+}
+
+/* Harmonious Curated Tab Color Palettes */
+/* Tab 1: Lý Thuyết - Deep Indigo Blue */
 .tab-btn-theory:hover, [onclick*="theory"]:hover {
-    color: #2563eb !important;
+    color: #1d4ed8 !important;
     background: #eff6ff !important;
     border-color: #bfdbfe !important;
 }
 .tab-btn-theory.active, [onclick*="theory"].active {
-    background: linear-gradient(135deg, #3b82f6, #1d4ed8) !important;
+    background: linear-gradient(135deg, #2563eb, #1d4ed8) !important;
     color: #ffffff !important;
-    border-color: #2563eb !important;
-    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35) !important;
+    border-color: #1d4ed8 !important;
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3) !important;
 }
 
-/* Tab 2: Kho Từ Vựng - Emerald Green */
+/* Tab 2: Kho Từ Vựng - Refined Evergreen / Matcha */
 .tab-btn-vocab:hover, [onclick*="vocab"]:hover {
-    color: #059669 !important;
+    color: #047857 !important;
     background: #ecfdf5 !important;
     border-color: #a7f3d0 !important;
 }
 .tab-btn-vocab.active, [onclick*="vocab"].active {
-    background: linear-gradient(135deg, #10b981, #047857) !important;
+    background: linear-gradient(135deg, #059669, #047857) !important;
     color: #ffffff !important;
-    border-color: #059669 !important;
-    box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35) !important;
+    border-color: #047857 !important;
+    box-shadow: 0 4px 14px rgba(5, 150, 105, 0.3) !important;
 }
 
-/* Tab 3: Chữ Hán Kanji - Amber Sunset Gold */
+/* Tab 3: Chữ Hán Kanji - Warm Amber Gold */
 .tab-btn-kanji:hover, [onclick*="kanji"]:hover, [onclick*="hack"]:hover {
-    color: #d97706 !important;
+    color: #b45309 !important;
     background: #fffbeb !important;
     border-color: #fde68a !important;
 }
 .tab-btn-kanji.active, [onclick*="kanji"].active, [onclick*="hack"].active {
-    background: linear-gradient(135deg, #f59e0b, #d97706) !important;
+    background: linear-gradient(135deg, #d97706, #b45309) !important;
     color: #ffffff !important;
-    border-color: #d97706 !important;
-    box-shadow: 0 4px 14px rgba(245, 158, 11, 0.35) !important;
+    border-color: #b45309 !important;
+    box-shadow: 0 4px 14px rgba(217, 119, 6, 0.3) !important;
 }
 
-/* Tab 4: Đề Thi Thử - Ruby Crimson Red */
+/* Tab 4: Đề Thi Thử - Refined Crimson */
 .tab-btn-quiz:hover, [onclick*="quiz"]:hover, [onclick*="test"]:hover {
-    color: #e11d48 !important;
+    color: #be123c !important;
     background: #fff1f2 !important;
     border-color: #fecdd3 !important;
 }
 .tab-btn-quiz.active, [onclick*="quiz"].active, [onclick*="test"].active {
     background: linear-gradient(135deg, #e11d48, #be123c) !important;
     color: #ffffff !important;
-    border-color: #e11d48 !important;
-    box-shadow: 0 4px 14px rgba(225, 29, 72, 0.35) !important;
+    border-color: #be123c !important;
+    box-shadow: 0 4px 14px rgba(225, 29, 72, 0.3) !important;
 }
 
-/* Tab 5: Luyện Gõ Phản Xạ / Cram - Electric Sky Blue */
+/* Tab 5: Luyện Gõ / Cram - Deep Sky Blue */
 .tab-btn-typing:hover, [onclick*="typing"]:hover, [onclick*="cram"]:hover {
-    color: #0284c7 !important;
+    color: #0369a1 !important;
     background: #f0f9ff !important;
     border-color: #bae6fd !important;
 }
 .tab-btn-typing.active, [onclick*="typing"].active, [onclick*="cram"].active {
     background: linear-gradient(135deg, #0284c7, #0369a1) !important;
     color: #ffffff !important;
-    border-color: #0284c7 !important;
-    box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35) !important;
+    border-color: #0369a1 !important;
+    box-shadow: 0 4px 14px rgba(2, 132, 199, 0.3) !important;
 }
 
-/* Tab 6: Cẩm Nang Bỏ Túi / NPBS - Royal Purple */
+/* Tab 6: Cẩm Nang Bỏ Túi / NPBS - Refined Fuji Violet */
 .tab-btn-cheatsheet:hover, [onclick*="cheatsheet"]:hover, [onclick*="npbs"]:hover {
-    color: #7c3aed !important;
+    color: #6d28d9 !important;
     background: #faf5ff !important;
     border-color: #ddd6fe !important;
 }
 .tab-btn-cheatsheet.active, [onclick*="cheatsheet"].active, [onclick*="npbs"].active {
-    background: linear-gradient(135deg, #8b5cf6, #6d28d9) !important;
+    background: linear-gradient(135deg, #7c3aed, #6d28d9) !important;
     color: #ffffff !important;
-    border-color: #7c3aed !important;
-    box-shadow: 0 4px 14px rgba(139, 92, 246, 0.35) !important;
+    border-color: #6d28d9 !important;
+    box-shadow: 0 4px 14px rgba(124, 58, 237, 0.3) !important;
 }
 
-/* Thanh nhảy nhanh Lý thuyết (Không bao giờ bị cắt cụt hay lấp chữ) */
+/* Theory Quicknav Pills */
 .theory-quicknav {
     display: flex !important;
     flex-wrap: wrap !important;
     justify-content: center !important;
-    gap: 10px !important;
-    margin-bottom: 24px !important;
+    gap: 8px !important;
+    margin-bottom: 26px !important;
     padding: 0 !important;
     border-bottom: none !important;
 }
 
-/* Viên thuốc Subtabs, Filter Pills & Action Buttons */
 .quicknav-pill, .filter-btn, .filter-pill, .theory-quicknav a, .btn-quizlet, .btn-cram-action, .v-filter-btn {
-    border-radius: 9999px !important;
+    border-radius: var(--radius-pill) !important;
+}
+
+.quicknav-pill {
+    padding: 7px 16px !important;
+    background: #ffffff !important;
+    color: var(--slate-600) !important;
+    font-size: 0.85rem !important;
+    font-weight: 700 !important;
+    border: 1.5px solid var(--border) !important;
+    box-shadow: var(--shadow-xs) !important;
+    text-decoration: none !important;
+    transition: transform 0.12s var(--ease-out),
+                border-color 0.12s ease,
+                color 0.12s ease,
+                background-color 0.12s ease !important;
+}
+
+.quicknav-pill:hover {
+    color: var(--primary) !important;
+    border-color: var(--primary-border) !important;
+    background: var(--primary-bg) !important;
+    transform: translateY(-1.5px) !important;
 }
 
 .tab-panel {
@@ -486,7 +723,7 @@ header p, .hero-desc {
 
 .tab-panel.active {
     display: block;
-    animation: siteTabFadeIn 0.25s ease-out;
+    animation: siteTabFadeIn 0.24s var(--ease-out);
 }
 
 @keyframes siteTabFadeIn {
@@ -501,107 +738,204 @@ header p, .hero-desc {
 }
 
 /* ==========================================================================
-   4. CARDS & CONTAINER
+   6. CARDS, SECTIONS & HANDCRAFTED CALLOUT BOXES
    ========================================================================== */
-.card {
+.card, .content-section, .content-card, .grammar-card {
     background: #ffffff;
     border-radius: var(--radius);
-    padding: 26px 22px;
+    padding: 26px 24px;
     box-shadow: var(--shadow);
-    border: 1px solid var(--border);
-    margin-bottom: 25px;
+    border: 1.5px solid var(--border);
+    margin-bottom: 26px;
+    transition: box-shadow 0.2s var(--ease-out),
+                border-color 0.15s ease,
+                transform 0.2s var(--ease-out);
 }
 
-.card h2 {
-    font-size: 1.4rem;
-    color: var(--primary);
-    border-bottom: 2px solid var(--primary-bg);
+.card:hover, .content-section:hover, .grammar-card:hover {
+    border-color: var(--slate-300);
+}
+
+.card h2, .section-title, .grammar-title {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--dark);
+    border-bottom: 2px solid var(--slate-100);
     padding-bottom: 12px;
     margin-bottom: 20px;
     display: flex;
     align-items: center;
     gap: 10px;
+    letter-spacing: -0.015em;
 }
 
 .card h3 {
-    font-size: 1.15rem;
+    font-size: 1.12rem;
+    font-weight: 700;
     margin: 20px 0 10px 0;
-    color: #2c3e50;
+    color: var(--slate-700);
+}
+
+/* Rule Formula Boxes */
+.rule-box, .formula-box, .grammar-explain {
+    background: var(--slate-50);
+    border-left: 4px solid var(--primary);
+    border-top: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    padding: 16px 20px;
+    margin: 16px 0;
+}
+
+.rule-formula {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--dark);
+    margin-bottom: 6px;
+    font-family: var(--font-jp), var(--font-sans);
+}
+
+.rule-meaning {
+    font-size: 0.92rem;
+    color: var(--slate-600);
+    line-height: 1.55;
+}
+
+/* Example Items */
+.example-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 14px 0;
+}
+
+.example-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 12px 18px;
+    background: #ffffff;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-md);
+    transition: transform 0.14s var(--ease-out),
+                border-color 0.14s ease,
+                box-shadow 0.14s var(--ease-out);
+}
+
+.example-item:hover {
+    border-color: var(--slate-300);
+    background: var(--slate-50);
+    box-shadow: var(--shadow-xs);
+}
+
+.ex-text-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    flex: 1;
+}
+
+.ex-jp {
+    font-size: 1.02rem;
+    font-weight: 700;
+    color: var(--dark);
+    font-family: var(--font-jp) !important;
+    line-height: var(--line-height-jp);
+    letter-spacing: var(--letter-spacing-jp);
+}
+
+.ex-vi {
+    font-size: 0.88rem;
+    color: var(--slate-500);
 }
 
 /* ==========================================================================
-   5. CONTROLS BAR: SEARCH, FILTER PILLS & ACTION BUTTONS
+   7. CONTROLS BAR: SEARCH, FILTER PILLS & ACTION BUTTONS
    ========================================================================== */
 .controls-bar, .control-bar-top {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 12px;
-    margin-bottom: 18px;
+    margin-bottom: 20px;
     flex-wrap: wrap;
 }
 
 .search-box, .search-box-pill {
     flex: 1;
     min-width: 240px;
+    position: relative;
 }
 
 .search-box input, .search-box-pill input, #searchInput {
     width: 100%;
-    padding: 10px 16px;
+    padding: 10px 18px;
     border: 1.5px solid var(--border);
     border-radius: var(--radius-pill);
     font-size: 0.92rem;
     font-weight: 600;
     outline: none;
-    transition: all 0.2s ease;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
     background: #ffffff;
     font-family: inherit;
+    color: var(--text-main);
 }
 
 .search-box input:focus, .search-box-pill input:focus, #searchInput:focus {
     border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 0 0 3px var(--primary-glow);
 }
 
-/* Filter Capsule Box (Vòng xám bao quanh) */
+/* Filter Capsule Box (Subtle slate border container) */
 .filter-pills, .filter-row {
     display: inline-flex;
     align-items: center;
-    background: #f1f5f9;
-    border: 1.5px solid #cbd5e1;
+    background: var(--slate-100);
+    border: 1.5px solid var(--slate-200);
     border-radius: var(--radius-pill);
     padding: 4px 6px;
     gap: 4px;
     flex-wrap: wrap;
 }
 
-.filter-pill {
-    padding: 6px 14px;
+.filter-pill, .filter-btn {
+    padding: 6px 15px;
     border-radius: var(--radius-pill);
     border: none;
     background: transparent;
     font-size: 0.85rem;
     font-weight: 700;
-    color: #64748b;
+    color: var(--slate-600);
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: transform 0.12s var(--ease-out),
+                background-color 0.12s ease,
+                color 0.12s ease !important;
     font-family: inherit;
     white-space: nowrap;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
-.filter-pill:hover {
+.filter-pill:hover, .filter-btn:hover {
     color: var(--primary);
-    background: #e2e8f0;
+    background: #ffffff;
+    box-shadow: var(--shadow-xs);
 }
 
-.filter-pill.active {
+.filter-pill:active, .filter-btn:active {
+    transform: var(--press-transform);
+    transition: transform 0.05s ease;
+}
+
+.filter-pill.active, .filter-btn.active {
     background: var(--primary);
     color: #ffffff !important;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 2px 8px rgba(225, 29, 72, 0.28);
 }
 
-/* Button Groups */
+/* Button Groups & Action Buttons */
 .btn-group {
     display: flex;
     gap: 8px;
@@ -609,96 +943,144 @@ header p, .hero-desc {
     align-items: center;
 }
 
-.btn, .btn-action {
+.btn, .btn-action, .btn-ta-action {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 6px;
-    padding: 9px 18px;
-    border-radius: 10px;
-    font-size: 0.88rem;
+    gap: 7px;
+    padding: 10px 20px;
+    border-radius: var(--radius-md);
+    font-size: 0.9rem;
     font-weight: 700;
-    border: none;
+    border: 1px solid transparent;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: transform 0.12s var(--ease-out),
+                box-shadow 0.12s var(--ease-out),
+                background-color 0.12s ease,
+                border-color 0.12s ease,
+                color 0.12s ease;
     text-decoration: none;
     font-family: inherit;
     white-space: nowrap;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.btn:active, .btn-action:active, .btn-ta-action:active {
+    transform: var(--press-transform) !important;
+    transition: transform 0.05s ease !important;
 }
 
 .btn-primary, .btn-green {
     background: var(--primary);
     color: #ffffff !important;
+    box-shadow: 0 2px 6px rgba(225, 29, 72, 0.22);
+}
+
+.btn-primary:hover, .btn-green:hover {
+    background: var(--primary-hover);
+    box-shadow: 0 4px 12px rgba(225, 29, 72, 0.32);
+    transform: translateY(-1.5px);
 }
 
 .btn-secondary, .btn-blue {
     background: var(--secondary);
     color: #ffffff !important;
+    box-shadow: 0 2px 6px rgba(2, 132, 199, 0.2);
+}
+
+.btn-secondary:hover, .btn-blue:hover {
+    background: var(--secondary-hover);
+    box-shadow: 0 4px 12px rgba(2, 132, 199, 0.28);
+    transform: translateY(-1.5px);
 }
 
 .btn-outline, .btn-gray {
-    background: #f1f5f9;
-    color: #475569;
+    background: #ffffff;
+    color: var(--slate-700);
     border: 1.5px solid var(--border);
+    box-shadow: var(--shadow-xs);
 }
 
-.btn:hover, .btn-action:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+.btn-outline:hover, .btn-gray:hover {
+    background: var(--slate-100);
+    border-color: var(--slate-300);
+    color: var(--dark);
+    transform: translateY(-1.5px);
 }
 
 /* ==========================================================================
-   6. TABLES & EXERCISE INPUTS
+   8. TABLES, SOUND BUTTONS & TOAST NOTIFICATION
    ========================================================================== */
 .table-responsive {
     overflow-x: auto;
-    border-radius: 12px;
-    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    border: 1.5px solid var(--border);
     background: #ffffff;
     scrollbar-width: thin;
+    box-shadow: var(--shadow-xs);
 }
 
-.exercise-table, .rule-table {
+.exercise-table, .rule-table, .comparison-table {
     width: 100%;
     border-collapse: collapse;
     min-width: 680px;
 }
 
 .exercise-table th, .exercise-table td,
-.rule-table th, .rule-table td {
-    padding: 12px 16px;
+.rule-table th, .rule-table td,
+.comparison-table th, .comparison-table td {
+    padding: 13px 18px;
     border-bottom: 1px solid var(--border);
-    font-size: 0.95rem;
+    font-size: 0.94rem;
     text-align: left;
 }
 
-.exercise-table th, .rule-table th {
-    background: #f8fafc;
+.exercise-table th, .rule-table th, .comparison-table th {
+    background: var(--slate-50);
     font-weight: 800;
-    color: #334155;
+    color: var(--slate-700);
     position: sticky;
     top: 0;
     z-index: 5;
+    border-bottom: 1.5px solid var(--border);
 }
 
-.exercise-table tr:hover, .rule-table tr:hover {
-    background: #f8fafc;
+.exercise-table tr:hover, .rule-table tr:hover, .comparison-table tr:hover {
+    background: var(--slate-50);
 }
 
-/* Sound Button */
-.sound-btn {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 1.15rem;
+/* Sound Button & Audio Speaker */
+.sound-btn, .btn-speak, .fc-speaker-btn, .table-speaker-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary-bg);
     color: var(--primary);
-    transition: transform 0.15s ease;
-    padding: 2px 6px;
+    border: 1px solid var(--primary-border);
+    border-radius: 50%;
+    width: 34px;
+    height: 34px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: transform 0.14s var(--ease-out),
+                background-color 0.14s ease,
+                box-shadow 0.14s var(--ease-out),
+                color 0.14s ease;
     vertical-align: middle;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
-.sound-btn:hover {
-    transform: scale(1.22);
+.sound-btn:hover, .btn-speak:hover, .fc-speaker-btn:hover, .table-speaker-btn:hover {
+    background: var(--primary);
+    color: #ffffff;
+    transform: scale(1.08);
+    box-shadow: 0 3px 10px rgba(225, 29, 72, 0.28);
+}
+
+.sound-btn:active, .btn-speak:active, .fc-speaker-btn:active, .table-speaker-btn:active {
+    transform: scale(0.95) translateY(1px) !important;
 }
 
 /* Toast Message */
@@ -707,72 +1089,83 @@ header p, .hero-desc {
     position: fixed;
     bottom: 24px;
     right: 24px;
-    background: #0f172a;
+    background: var(--dark);
     color: #ffffff;
     padding: 12px 24px;
-    border-radius: 10px;
+    border-radius: var(--radius-md);
     font-weight: 700;
+    font-size: 0.92rem;
     z-index: 99999;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-    border: 1px solid #334155;
-    animation: toastFadeIn 0.3s ease;
+    box-shadow: var(--shadow-xl);
+    border: 1px solid var(--slate-700);
+    animation: toastFadeIn 0.28s var(--ease-out);
 }
 
 @keyframes toastFadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+    from { opacity: 0; transform: translateY(12px) scale(0.96); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 /* ==========================================================================
-   8. VOCABULARY TYPING PRACTICE COMPONENT (Flash Typing & Table Mode)
+   9. VOCABULARY TYPING PRACTICE COMPONENT (Flash Arena & Table Mode)
    ========================================================================== */
 .typing-practice-container {
     background: #ffffff;
     border: 1.5px solid var(--border);
     border-radius: var(--radius);
-    padding: 24px;
+    padding: 26px;
     box-shadow: var(--shadow);
-    margin-top: 15px;
+    margin-top: 18px;
 }
 
 .tp-mode-switch {
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 8px;
     margin-bottom: 22px;
     flex-wrap: wrap;
 }
 
 .tp-mode-btn {
-    padding: 8px 18px;
+    padding: 8px 20px;
     border-radius: var(--radius-pill);
     border: 1.5px solid var(--border);
-    background: #f8fafc;
-    color: #475569;
+    background: var(--slate-50);
+    color: var(--slate-600);
     font-size: 0.88rem;
     font-weight: 700;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: transform 0.12s var(--ease-out),
+                background-color 0.12s ease,
+                color 0.12s ease,
+                border-color 0.12s ease;
     display: inline-flex;
     align-items: center;
     gap: 6px;
     font-family: inherit;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .tp-mode-btn:hover {
-    background: #eef2ff;
+    background: #ffffff;
     color: var(--primary);
-    border-color: var(--primary-light);
+    border-color: var(--primary-border);
+    transform: translateY(-1px);
+}
+
+.tp-mode-btn:active {
+    transform: var(--press-transform);
 }
 
 .tp-mode-btn.active {
     background: var(--primary);
     color: #ffffff !important;
     border-color: var(--primary);
-    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);
+    box-shadow: 0 4px 12px rgba(225, 29, 72, 0.28);
 }
 
-/* Card Mode */
+/* Arena Card Mode */
 .tp-card-arena {
     max-width: 650px;
     margin: 0 auto;
@@ -780,32 +1173,33 @@ header p, .hero-desc {
 }
 
 .tp-card {
-    background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
-    border: 2px solid #c7d2fe;
-    border-radius: 20px;
-    padding: 30px 22px;
-    box-shadow: 0 10px 25px rgba(79, 70, 229, 0.08);
+    background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 32px 24px;
+    box-shadow: var(--shadow-md);
     position: relative;
-    transition: all 0.25s ease;
+    transition: all 0.22s var(--ease-out);
 }
 
 .tp-prompt-vi {
     font-size: 1.65rem;
     font-weight: 900;
-    color: #1e1b4b;
+    color: var(--dark);
     margin-bottom: 6px;
-    line-height: 1.3;
+    line-height: 1.32;
+    letter-spacing: -0.015em;
 }
 
 .tp-prompt-hint {
-    font-size: 0.86rem;
-    color: #64748b;
-    margin-bottom: 20px;
+    font-size: 0.88rem;
+    color: var(--slate-500);
+    margin-bottom: 22px;
 }
 
 .tp-input-wrap {
     display: flex;
-    gap: 8px;
+    gap: 10px;
     max-width: 460px;
     margin: 0 auto 16px auto;
 }
@@ -813,84 +1207,97 @@ header p, .hero-desc {
 .tp-input {
     flex: 1;
     padding: 12px 18px;
-    border: 2px solid #cbd5e1;
-    border-radius: 12px;
+    border: 2px solid var(--slate-300);
+    border-radius: var(--radius-md);
     font-size: 1.15rem;
     font-weight: 700;
-    font-family: 'Noto Sans JP', 'Plus Jakarta Sans', sans-serif;
+    font-family: var(--font-jp), var(--font-sans);
     outline: none;
-    transition: all 0.2s ease;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
     background: #ffffff;
     text-align: center;
+    color: var(--text-main);
 }
 
 .tp-input:focus {
-    border-color: #4f46e5;
-    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.15);
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px var(--primary-glow);
 }
 
 .tp-input.is-correct {
-    border-color: #10b981 !important;
-    background: #ecfdf5 !important;
+    border-color: var(--success) !important;
+    background: var(--success-bg) !important;
     color: #065f46 !important;
 }
 
 .tp-input.is-wrong {
-    border-color: #ef4444 !important;
-    background: #fef2f2 !important;
+    border-color: var(--danger) !important;
+    background: var(--danger-bg) !important;
     color: #991b1b !important;
-    animation: tpShake 0.4s ease;
+    animation: tpShake 0.38s ease;
 }
 
 @keyframes tpShake {
     0%, 100% { transform: translateX(0); }
-    20%, 60% { transform: translateX(-6px); }
-    40%, 80% { transform: translateX(6px); }
+    20%, 60% { transform: translateX(-5px); }
+    40%, 80% { transform: translateX(5px); }
 }
 
 .tp-btn-check {
-    padding: 12px 22px;
-    background: #4f46e5;
+    padding: 12px 24px;
+    background: var(--primary);
     color: #ffffff;
     border: none;
-    border-radius: 12px;
+    border-radius: var(--radius-md);
     font-size: 0.95rem;
     font-weight: 700;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: transform 0.12s var(--ease-out), background-color 0.12s ease, box-shadow 0.12s ease;
     white-space: nowrap;
     font-family: inherit;
+    box-shadow: 0 2px 6px rgba(225, 29, 72, 0.22);
 }
 
 .tp-btn-check:hover {
-    background: #4338ca;
+    background: var(--primary-hover);
+    box-shadow: 0 4px 12px rgba(225, 29, 72, 0.3);
     transform: translateY(-1px);
+}
+
+.tp-btn-check:active {
+    transform: var(--press-transform) !important;
 }
 
 .tp-actions-row {
     display: flex;
     justify-content: center;
-    gap: 10px;
-    margin-top: 10px;
+    gap: 8px;
+    margin-top: 12px;
     flex-wrap: wrap;
 }
 
 .tp-btn-sub {
     background: #ffffff;
-    border: 1px solid #cbd5e1;
-    color: #475569;
-    padding: 7px 14px;
-    border-radius: 8px;
+    border: 1.5px solid var(--border);
+    color: var(--slate-600);
+    padding: 8px 16px;
+    border-radius: var(--radius-sm);
     font-size: 0.82rem;
     font-weight: 700;
     cursor: pointer;
-    transition: all 0.15s ease;
+    transition: background-color 0.12s ease, color 0.12s ease, border-color 0.12s ease, transform 0.12s ease;
     font-family: inherit;
+    user-select: none;
 }
 
 .tp-btn-sub:hover {
-    background: #f1f5f9;
-    color: #0f172a;
+    background: var(--slate-100);
+    color: var(--dark);
+    border-color: var(--slate-300);
+}
+
+.tp-btn-sub:active {
+    transform: var(--press-transform);
 }
 
 .tp-feedback {
@@ -908,11 +1315,11 @@ header p, .hero-desc {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 18px;
+    margin-top: 20px;
     padding-top: 14px;
-    border-top: 1px solid #e2e8f0;
+    border-top: 1px solid var(--border);
     font-size: 0.86rem;
-    color: #64748b;
+    color: var(--slate-500);
     font-weight: 700;
     flex-wrap: wrap;
     gap: 8px;
@@ -920,15 +1327,15 @@ header p, .hero-desc {
 
 .tp-progress-track {
     height: 8px;
-    background: #e2e8f0;
-    border-radius: 999px;
+    background: var(--slate-200);
+    border-radius: var(--radius-pill);
     overflow: hidden;
     margin-top: 12px;
 }
 
 .tp-progress-fill {
     height: 100%;
-    background: linear-gradient(90deg, #4f46e5 0%, #10b981 100%);
+    background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
     width: 0%;
     transition: width 0.3s ease;
 }
@@ -936,8 +1343,8 @@ header p, .hero-desc {
 /* Table Mode */
 .tp-table-wrap {
     overflow-x: auto;
-    border-radius: 12px;
-    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    border: 1.5px solid var(--border);
     background: #ffffff;
 }
 
@@ -948,62 +1355,215 @@ header p, .hero-desc {
 }
 
 .tp-table th, .tp-table td {
-    padding: 10px 14px;
+    padding: 12px 16px;
     border-bottom: 1px solid var(--border);
     font-size: 0.92rem;
     text-align: left;
 }
 
 .tp-table th {
-    background: #f8fafc;
+    background: var(--slate-50);
     font-weight: 800;
-    color: #334155;
+    color: var(--slate-700);
 }
 
 .tp-table-input {
     width: 100%;
-    padding: 8px 12px;
-    border: 1.5px solid #cbd5e1;
-    border-radius: 8px;
+    padding: 8px 14px;
+    border: 1.5px solid var(--slate-300);
+    border-radius: var(--radius-sm);
     font-size: 0.95rem;
     font-weight: 700;
-    font-family: 'Noto Sans JP', sans-serif;
+    font-family: var(--font-jp), sans-serif;
     outline: none;
-    transition: all 0.2s ease;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
 .tp-table-input:focus {
-    border-color: #4f46e5;
-    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.12);
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px var(--primary-glow);
 }
 
 .tp-table-input.is-correct {
-    border-color: #10b981 !important;
-    background: #ecfdf5 !important;
+    border-color: var(--success) !important;
+    background: var(--success-bg) !important;
     color: #065f46 !important;
 }
 
 .tp-table-input.is-wrong {
-    border-color: #ef4444 !important;
-    background: #fef2f2 !important;
+    border-color: var(--danger) !important;
+    background: var(--danger-bg) !important;
     color: #991b1b !important;
 }
 
 .tp-badge-status {
     display: inline-block;
-    padding: 3px 8px;
+    padding: 3px 9px;
     border-radius: 6px;
     font-size: 0.78rem;
     font-weight: 800;
     text-align: center;
 }
 
-.tp-status-pending { background: #f1f5f9; color: #64748b; }
-.tp-status-ok { background: #d1fae5; color: #065f46; }
-.tp-status-err { background: #fee2e2; color: #991b1b; }
+.tp-status-pending { background: var(--slate-100); color: var(--slate-500); }
+.tp-status-ok { background: var(--success-bg); color: #065f46; border: 1px solid var(--success-border); }
+.tp-status-err { background: var(--danger-bg); color: #991b1b; border: 1px solid var(--danger-border); }
 
 /* ==========================================================================
-   9. COMPREHENSIVE RESPONSIVE ENGINE (MOBILE & TABLET OPTIMIZATION)
+   10. JAPANESE TYPOGRAPHY & KANJI PRESENTATION CARDS
+   ========================================================================== */
+.kanji-detail-card {
+    background: #ffffff;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.16s var(--ease-out), box-shadow 0.16s var(--ease-out), border-color 0.16s ease;
+}
+
+.kanji-detail-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--slate-300);
+}
+
+.kanji-big-char {
+    font-size: 2.8rem;
+    font-weight: 900;
+    line-height: 1;
+    color: var(--dark);
+    background: var(--accent-bg);
+    border: 1.5px solid var(--accent-border);
+    border-radius: var(--radius-md);
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 72px;
+    min-height: 72px;
+    flex-shrink: 0;
+}
+
+.kanji-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.kanji-hv-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--dark);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.kanji-readings {
+    font-size: 0.92rem;
+    color: var(--slate-700);
+    line-height: 1.45;
+}
+
+.kanji-mnemonic {
+    font-size: 0.85rem;
+    color: var(--slate-500);
+    font-style: italic;
+    line-height: 1.4;
+}
+
+/* Verb Morphology Grids */
+.morph-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 10px;
+    margin: 12px 0;
+}
+
+.morph-box {
+    background: var(--slate-50);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 12px 10px;
+    text-align: center;
+    transition: transform 0.12s var(--ease-out), border-color 0.12s ease, background-color 0.12s ease;
+}
+
+.morph-box:hover {
+    background: #ffffff;
+    border-color: var(--primary-border);
+    transform: translateY(-1.5px);
+}
+
+.morph-tag {
+    font-size: 0.74rem;
+    font-weight: 700;
+    color: var(--slate-500);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    display: block;
+}
+
+.morph-val {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--dark);
+    font-family: var(--font-jp) !important;
+}
+
+/* ==========================================================================
+   11. UNIFIED BADGES, PILLS, LEVEL TAGS & INDICATORS
+   ========================================================================== */
+.badge, .section-tag, .section-badge, .group-tag, .grammar-tag, .kanji-strokes-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 10px;
+    border-radius: var(--radius-pill);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.2px;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+/* Level & Category Badges */
+.badge-a1, .badge-n5, .tag-n5 {
+    background: var(--success-bg);
+    color: #047857;
+    border: 1px solid var(--success-border);
+}
+
+.badge-a2, .badge-n4, .tag-n4, .kanji-strokes-badge {
+    background: var(--accent-bg);
+    color: #b45309;
+    border: 1px solid var(--accent-border);
+}
+
+.badge-b1, .badge-n3, .tag-n3 {
+    background: var(--secondary-bg);
+    color: #0369a1;
+    border: 1px solid var(--secondary-border);
+}
+
+.badge-crimson, .tag-crimson, .grammar-tag {
+    background: var(--primary-bg);
+    color: var(--primary-dark);
+    border: 1px solid var(--primary-border);
+}
+
+.badge-neutral, .section-tag, .section-badge, .group-tag {
+    background: var(--slate-100);
+    color: var(--slate-600);
+    border: 1px solid var(--slate-200);
+}
+
+/* ==========================================================================
+   12. COMPREHENSIVE RESPONSIVE ENGINE (MOBILE & TABLET OPTIMIZATION)
    Tối ưu hóa toàn diện giao diện cho mọi thiết bị: Điện thoại nhỏ (<=480px),
    Điện thoại thông minh (<=768px), Máy tính bảng và Laptop.
    ========================================================================== */
@@ -1018,7 +1578,7 @@ header p, .hero-desc {
     }
 
     body {
-        padding: 10px 6px 70px 6px !important;
+        padding: 10px 8px 74px 8px !important;
         -webkit-tap-highlight-color: transparent;
     }
 
@@ -1057,7 +1617,7 @@ header p, .hero-desc {
         margin-bottom: 0 !important;
         border-radius: 14px !important;
         justify-content: flex-start !important;
-        border: 1.5px solid #e2e8f0 !important;
+        border: 1.5px solid var(--border) !important;
     }
 
     .global-hub-nav::-webkit-scrollbar {
@@ -1081,8 +1641,8 @@ header p, .hero-desc {
         width: 100vw !important;
         height: 100vh !important;
         background: rgba(15, 23, 42, 0.6) !important;
-        backdrop-filter: blur(5px) !important;
-        -webkit-backdrop-filter: blur(5px) !important;
+        backdrop-filter: blur(6px) !important;
+        -webkit-backdrop-filter: blur(6px) !important;
         z-index: 9999998 !important;
         opacity: 0;
         transition: opacity 0.25s ease !important;
@@ -1108,7 +1668,7 @@ header p, .hero-desc {
         box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.35) !important;
         background: #ffffff !important;
         border: none !important;
-        border-top: 1.5px solid #e2e8f0 !important;
+        border-top: 1.5px solid var(--border) !important;
         z-index: 9999999 !important;
         display: flex !important;
         flex-direction: column !important;
@@ -1128,7 +1688,7 @@ header p, .hero-desc {
         align-items: center !important;
         justify-content: space-between !important;
         padding: 16px 20px !important;
-        border-bottom: 1.5px solid #f1f5f9 !important;
+        border-bottom: 1.5px solid var(--slate-100) !important;
         background: #ffffff !important;
         border-radius: 24px 24px 0 0 !important;
         position: sticky !important;
@@ -1139,18 +1699,18 @@ header p, .hero-desc {
     .hub-drop-title {
         font-size: 1.05rem !important;
         font-weight: 800 !important;
-        color: #0f172a !important;
+        color: var(--dark) !important;
     }
 
     .hub-drop-close {
         width: 36px !important;
         height: 36px !important;
         border-radius: 50% !important;
-        background: #f1f5f9 !important;
-        border: 1px solid #e2e8f0 !important;
+        background: var(--slate-100) !important;
+        border: 1px solid var(--border) !important;
         font-size: 1.1rem !important;
         font-weight: 800 !important;
-        color: #475569 !important;
+        color: var(--slate-600) !important;
         cursor: pointer !important;
         display: flex !important;
         align-items: center !important;
@@ -1159,7 +1719,7 @@ header p, .hero-desc {
     }
 
     .hub-drop-close:active {
-        background: #e2e8f0 !important;
+        background: var(--slate-200) !important;
         transform: scale(0.92) !important;
     }
 
@@ -1176,9 +1736,9 @@ header p, .hero-desc {
         font-size: 0.98rem !important;
         margin-bottom: 6px !important;
         border-radius: 12px !important;
-        background: #f8fafc !important;
-        border: 1px solid #e2e8f0 !important;
-        color: #1e293b !important;
+        background: var(--slate-50) !important;
+        border: 1px solid var(--border) !important;
+        color: var(--slate-800) !important;
         display: flex !important;
         align-items: center !important;
         justify-content: space-between !important;
@@ -1211,8 +1771,9 @@ header p, .hero-desc {
         position: sticky !important;
         top: 8px !important;
         z-index: 99 !important;
-        background: rgba(241, 245, 249, 0.95) !important;
+        background: rgba(248, 250, 252, 0.95) !important;
         backdrop-filter: blur(8px) !important;
+        -webkit-backdrop-filter: blur(8px) !important;
         border-radius: 12px !important;
         justify-content: flex-start !important;
     }
@@ -1223,27 +1784,27 @@ header p, .hero-desc {
 
     .sec-link, .section-nav .tab-btn {
         flex-shrink: 0 !important;
-        padding: 6px 12px !important;
+        padding: 6px 14px !important;
         font-size: 0.8rem !important;
     }
 
     /* 4. Header & Hero Banners */
     header, .hero-banner {
-        padding: 22px 14px !important;
-        border-radius: 14px !important;
-        margin-bottom: 18px !important;
+        padding: 24px 16px !important;
+        border-radius: 16px !important;
+        margin-bottom: 20px !important;
     }
 
     header h1, .hero-title {
-        font-size: clamp(1.3rem, 5.5vw, 1.75rem) !important;
-        letter-spacing: -0.3px !important;
+        font-size: clamp(1.35rem, 5.5vw, 1.8rem) !important;
+        letter-spacing: -0.02em !important;
         margin-bottom: 8px !important;
         line-height: 1.3 !important;
     }
 
     header p, .hero-subtitle {
-        font-size: 0.88rem !important;
-        line-height: 1.5 !important;
+        font-size: 0.9rem !important;
+        line-height: 1.55 !important;
     }
 
     header::after {
@@ -1261,7 +1822,7 @@ header p, .hero-desc {
         scrollbar-width: none !important;
         justify-content: flex-start !important;
         gap: 6px !important;
-        margin-top: 12px !important;
+        margin-top: 14px !important;
         padding-bottom: 4px !important;
     }
 
@@ -1271,8 +1832,8 @@ header p, .hero-desc {
 
     .stat-pill, .stat-card {
         flex-shrink: 0 !important;
-        padding: 5px 10px !important;
-        font-size: 0.78rem !important;
+        padding: 5px 12px !important;
+        font-size: 0.8rem !important;
     }
 
     /* 5. Nav Tabs & Filter Pills */
@@ -1285,9 +1846,9 @@ header p, .hero-desc {
         scrollbar-width: none !important;
         gap: 6px !important;
         padding: 5px 8px !important;
-        margin-bottom: 16px !important;
+        margin-bottom: 18px !important;
         justify-content: flex-start !important;
-        border-radius: 9999px !important;
+        border-radius: var(--radius-pill) !important;
         width: 100% !important;
     }
 
@@ -1298,11 +1859,11 @@ header p, .hero-desc {
     .nav-tab-btn, .tab-btn {
         flex-shrink: 0 !important;
         flex: 0 0 auto !important;
-        padding: 7px 13px !important;
-        font-size: 0.81rem !important;
+        padding: 7px 14px !important;
+        font-size: 0.82rem !important;
     }
 
-    /* Theory Quicknav Pills on Mobile (Gọn gàng, không bị tràn màn hình) */
+    /* Theory Quicknav Pills on Mobile */
     .theory-quicknav {
         display: flex !important;
         flex-wrap: wrap !important;
@@ -1316,7 +1877,7 @@ header p, .hero-desc {
     .quicknav-pill {
         flex-shrink: 0 !important;
         padding: 6px 12px !important;
-        font-size: 0.78rem !important;
+        font-size: 0.8rem !important;
     }
 
     .filter-pills, .filter-row {
@@ -1338,7 +1899,7 @@ header p, .hero-desc {
     .filter-pill {
         flex-shrink: 0 !important;
         padding: 5px 12px !important;
-        font-size: 0.8rem !important;
+        font-size: 0.82rem !important;
     }
 
     /* 6. Controls Bar (Search Box & Action Buttons) */
@@ -1356,7 +1917,7 @@ header p, .hero-desc {
 
     .search-box input, .search-box-pill input, #searchInput {
         width: 100% !important;
-        padding: 10px 14px !important;
+        padding: 10px 16px !important;
     }
 
     .btn-group {
@@ -1369,21 +1930,21 @@ header p, .hero-desc {
     .btn, .btn-action, .btn-ta-action {
         flex: 1 1 calc(50% - 4px) !important;
         min-width: 120px !important;
-        padding: 10px 12px !important;
-        font-size: 0.84rem !important;
+        padding: 10px 14px !important;
+        font-size: 0.86rem !important;
         text-align: center !important;
         justify-content: center !important;
     }
 
     /* 7. Cards, Rule Boxes & Examples */
     .card, .content-section, .section-card, .grammar-card {
-        padding: 16px 12px !important;
-        border-radius: 12px !important;
+        padding: 18px 14px !important;
+        border-radius: var(--radius-md) !important;
         margin-bottom: 18px !important;
     }
 
     .section-title {
-        font-size: 1.1rem !important;
+        font-size: 1.15rem !important;
         flex-wrap: wrap !important;
     }
 
@@ -1392,7 +1953,7 @@ header p, .hero-desc {
     }
 
     .rule-formula {
-        font-size: 0.94rem !important;
+        font-size: 0.96rem !important;
         word-break: break-word !important;
     }
 
@@ -1408,8 +1969,8 @@ header p, .hero-desc {
 
     /* 8. Tables & Exercise Inputs (Chống tràn bề ngang tuyệt đối) */
     .table-responsive, .tp-table-wrap, .comparison-table-wrap {
-        border-radius: 10px !important;
-        border: 1px solid var(--border) !important;
+        border-radius: var(--radius-sm) !important;
+        border: 1.5px solid var(--border) !important;
         margin-bottom: 14px !important;
         width: 100% !important;
         overflow-x: auto !important;
@@ -1424,8 +1985,8 @@ header p, .hero-desc {
     .rule-table th, .rule-table td,
     .comparison-table th, .comparison-table td,
     .tp-table th, .tp-table td {
-        padding: 8px 10px !important;
-        font-size: 0.86rem !important;
+        padding: 9px 12px !important;
+        font-size: 0.88rem !important;
     }
 
     .input-nai, .input-te, .tp-table-input {
@@ -1445,13 +2006,15 @@ header p, .hero-desc {
     }
 
     .kanji-detail-card {
-        padding: 12px !important;
-        gap: 10px !important;
+        padding: 14px !important;
+        gap: 12px !important;
     }
 
     .kanji-big-char {
-        font-size: 2.2rem !important;
-        padding: 8px 10px !important;
+        font-size: 2.3rem !important;
+        padding: 8px 12px !important;
+        min-width: 60px !important;
+        min-height: 60px !important;
     }
 
     .morph-grid {
@@ -1489,30 +2052,30 @@ header p, .hero-desc {
 
     /* 10. Quizzes & Mini Tests */
     .quiz-card, .quiz-item {
-        padding: 14px 10px !important;
+        padding: 16px 12px !important;
     }
 
     .quiz-opt, .choice-btn, .opt-btn {
         width: 100% !important;
-        padding: 11px 13px !important;
-        font-size: 0.9rem !important;
+        padding: 12px 14px !important;
+        font-size: 0.92rem !important;
         text-align: left !important;
         margin-bottom: 6px !important;
     }
 
     /* 11. Typing Practice Arena trên Điện thoại */
     .typing-practice-container {
-        padding: 14px 10px !important;
-        border-radius: 12px !important;
+        padding: 16px 12px !important;
+        border-radius: var(--radius-md) !important;
     }
 
     .tp-card {
-        padding: 20px 12px !important;
-        border-radius: 16px !important;
+        padding: 22px 14px !important;
+        border-radius: var(--radius) !important;
     }
 
     .tp-prompt-vi {
-        font-size: 1.3rem !important;
+        font-size: 1.35rem !important;
         margin-bottom: 4px !important;
     }
 
@@ -1535,14 +2098,14 @@ header p, .hero-desc {
     }
 
     .tp-actions-row {
-        gap: 5px !important;
+        gap: 6px !important;
         justify-content: center !important;
     }
 
     .tp-btn-sub {
         flex: 1 1 calc(33.33% - 6px) !important;
         padding: 7px 6px !important;
-        font-size: 0.74rem !important;
+        font-size: 0.76rem !important;
         text-align: center !important;
     }
 
@@ -1559,7 +2122,7 @@ header p, .hero-desc {
     .tp-mode-btn {
         flex: 1 1 auto !important;
         padding: 7px 12px !important;
-        font-size: 0.8rem !important;
+        font-size: 0.82rem !important;
         text-align: center !important;
         justify-content: center !important;
     }

@@ -520,6 +520,158 @@
         }).join('');
     }
 
+    function setCheckButtonState(state) {
+        var checkBtn = document.getElementById('tpCardCheckBtn');
+        if (!checkBtn) return;
+        checkBtn.style.background = '';
+        checkBtn.style.backgroundColor = '';
+        if (state === 'next') {
+            checkBtn.className = 'tp-btn-primary is-next';
+            checkBtn.innerHTML = '<span class="tp-btn-icon">➔</span><span class="tp-btn-label">Câu Tiếp Theo</span><kbd class="tp-kbd tp-kbd-light">⏎ Enter</kbd>';
+        } else {
+            checkBtn.className = 'tp-btn-primary is-check';
+            checkBtn.innerHTML = '<span class="tp-btn-icon">✨</span><span class="tp-btn-label">Kiểm Tra Đáp Án</span><kbd class="tp-kbd tp-kbd-light">⏎ Enter</kbd>';
+        }
+    }
+
+    function ensureTypingLayoutStructure() {
+        var cardView = document.querySelector('.typing-card-view');
+        if (!cardView) return;
+
+        var inp = document.getElementById('tpCardInput');
+        if (inp && !document.getElementById('tpShortcutBar')) {
+            var bar = document.createElement('div');
+            bar.className = 'tp-shortcut-bar';
+            bar.id = 'tpShortcutBar';
+            bar.innerHTML =
+                '<span class="tp-shortcut-item"><kbd class="tp-kbd">⏎ Enter</kbd> Kiểm Tra / Tiếp</span>' +
+                '<span class="tp-shortcut-item"><kbd class="tp-kbd">Tab</kbd> Bỏ qua (Skip)</span>' +
+                '<span class="tp-shortcut-item"><kbd class="tp-kbd">Esc</kbd> Gõ lại (Retry)</span>' +
+                '<span class="tp-shortcut-item"><kbd class="tp-kbd">Alt + H</kbd> Gợi ý</span>';
+            if (inp.parentNode) {
+                inp.parentNode.insertBefore(bar, inp.nextSibling);
+            }
+        }
+
+        var actions = cardView.querySelector('.typing-actions');
+        if (actions && !actions.querySelector('.tp-action-row-primary')) {
+            var allBtns = Array.prototype.slice.call(actions.querySelectorAll('button'));
+            var checkBtn = document.getElementById('tpCardCheckBtn');
+            var skipBtn = document.getElementById('tpCardSkipBtn');
+            var retryBtn = document.getElementById('tpCardRetryBtn');
+            var saveBtn = document.getElementById('tpCardSaveBtn');
+            var speakBtn = document.getElementById('tpCardSpeakBtn');
+
+            var prevBtn = allBtns.filter(function (b) {
+                var oc = b.getAttribute('onclick') || '';
+                return oc.indexOf('prevTypingItem') !== -1;
+            })[0];
+            var hintBtn = allBtns.filter(function (b) {
+                var oc = b.getAttribute('onclick') || '';
+                return oc.indexOf('showTypingHint') !== -1;
+            })[0];
+            var revealBtn = allBtns.filter(function (b) {
+                var oc = b.getAttribute('onclick') || '';
+                return oc.indexOf('revealTypingAnswer') !== -1;
+            })[0];
+            var resetBtn = allBtns.filter(function (b) {
+                var oc = b.getAttribute('onclick') || '';
+                return oc.indexOf('resetCurrentTypingMode') !== -1;
+            })[0];
+
+            if (checkBtn) {
+                checkBtn.style.background = '';
+                checkBtn.style.backgroundColor = '';
+                checkBtn.className = 'tp-btn-primary is-check';
+                checkBtn.innerHTML = '<span class="tp-btn-icon">✨</span><span class="tp-btn-label">Kiểm Tra Đáp Án</span><kbd class="tp-kbd tp-kbd-light">⏎ Enter</kbd>';
+            }
+            if (prevBtn) {
+                prevBtn.style.background = '';
+                prevBtn.style.backgroundColor = '';
+                prevBtn.className = 'tp-btn-secondary';
+                prevBtn.id = prevBtn.id || 'tpCardPrevBtn';
+                prevBtn.innerHTML = '<span>⬅️ Trước</span>';
+                prevBtn.title = 'Câu trước';
+            }
+            if (skipBtn) {
+                skipBtn.style.background = '';
+                skipBtn.style.backgroundColor = '';
+                skipBtn.className = 'tp-btn-secondary';
+                skipBtn.innerHTML = '<span>⏭️ Bỏ Qua</span><kbd class="tp-kbd">Tab</kbd>';
+                skipBtn.title = 'Bỏ qua câu này (Tab)';
+            }
+            if (retryBtn) {
+                retryBtn.style.background = '';
+                retryBtn.style.backgroundColor = '';
+                retryBtn.className = 'tp-btn-secondary is-retry';
+                retryBtn.innerHTML = '<span>🔄 Gõ Lại</span><kbd class="tp-kbd">Esc</kbd>';
+                retryBtn.title = 'Gõ lại câu này (Esc)';
+            }
+            if (saveBtn) {
+                saveBtn.style.background = '';
+                saveBtn.style.backgroundColor = '';
+                saveBtn.className = 'tp-btn-secondary';
+                saveBtn.innerHTML = '<span>💾 Lưu</span>';
+                saveBtn.title = 'Lưu tiến độ làm bài';
+            }
+            if (speakBtn) {
+                speakBtn.style.background = '';
+                speakBtn.style.backgroundColor = '';
+                speakBtn.className = 'tp-btn-utility is-audio';
+                speakBtn.innerHTML = '<span>🔊 Nghe Mẫu</span>';
+                speakBtn.title = 'Nghe phát âm chuẩn';
+            }
+            if (hintBtn) {
+                hintBtn.style.background = '';
+                hintBtn.style.backgroundColor = '';
+                hintBtn.className = 'tp-btn-utility is-hint';
+                hintBtn.id = hintBtn.id || 'tpCardHintBtn';
+                hintBtn.innerHTML = '<span>💡 Gợi Ý</span>';
+                hintBtn.title = 'Xem gợi ý công thức';
+            }
+            if (revealBtn) {
+                revealBtn.style.background = '';
+                revealBtn.style.backgroundColor = '';
+                revealBtn.className = 'tp-btn-utility is-reveal';
+                revealBtn.id = revealBtn.id || 'tpCardRevealBtn';
+                revealBtn.innerHTML = '<span>👁️ Xem Đáp Án</span>';
+                revealBtn.title = 'Xem đáp án chuẩn';
+            }
+            if (resetBtn) {
+                resetBtn.style.background = '';
+                resetBtn.style.backgroundColor = '';
+                resetBtn.className = 'tp-btn-utility tp-btn-danger-ghost';
+                resetBtn.id = resetBtn.id || 'tpCardResetBtn';
+                resetBtn.innerHTML = '<span>🔄 Đặt lại</span>';
+                resetBtn.title = 'Làm lại chế độ này từ đầu';
+            }
+
+            var rowPrimary = document.createElement('div');
+            rowPrimary.className = 'tp-action-row-primary';
+            if (checkBtn) rowPrimary.appendChild(checkBtn);
+
+            var rowSecondary = document.createElement('div');
+            rowSecondary.className = 'tp-action-row-secondary';
+            if (prevBtn) rowSecondary.appendChild(prevBtn);
+            if (skipBtn) rowSecondary.appendChild(skipBtn);
+            if (retryBtn) rowSecondary.appendChild(retryBtn);
+            if (saveBtn) rowSecondary.appendChild(saveBtn);
+
+            var rowUtility = document.createElement('div');
+            rowUtility.className = 'tp-action-row-utility';
+            if (speakBtn) rowUtility.appendChild(speakBtn);
+            if (hintBtn) rowUtility.appendChild(hintBtn);
+            if (revealBtn) rowUtility.appendChild(revealBtn);
+            if (resetBtn) rowUtility.appendChild(resetBtn);
+
+            actions.innerHTML = '';
+            actions.className = 'typing-actions typing-actions-wrapper';
+            actions.appendChild(rowPrimary);
+            actions.appendChild(rowSecondary);
+            actions.appendChild(rowUtility);
+        }
+    }
+
     function renderTypingDetailBox(item, hist) {
         var detailPanel = document.getElementById('tpDetailPanel');
         if (!detailPanel) return;
@@ -528,35 +680,60 @@
         var panelCls = 'tp-detail-panel show ';
         if (hist.status === 'ok') {
             panelCls += 'is-ok';
-            headerHtml = '<div style="font-size:1.08rem; font-weight:800; color:#15803d; margin-bottom:10px;">' +
-                '✅ CHÍNH XÁC! ' +
-                (hist.isKanjiMatch ? '<span style="font-size:0.84rem; color:#0369a1; font-weight:700;">(Chấp nhận dạng kèm Kanji)</span>' : '') +
+            headerHtml = '<div class="tp-detail-hero">' +
+                '<div class="tp-detail-hero-icon">🎉</div>' +
+                '<div class="tp-detail-hero-content">' +
+                '<div class="tp-detail-hero-title">CHÍNH XÁC! ' +
+                (hist.isKanjiMatch ? '<span style="font-size:0.82rem; color:#0369a1; font-weight:700; margin-left:8px;">(Chấp nhận dạng kèm Kanji)</span>' : '') +
                 '</div>' +
-                (hist.variantNote ? '<div style="margin-bottom:8px; font-size:0.86rem; color:#047857; background:#ecfdf5; border:1px solid #a7f3d0; padding:6px 10px; border-radius:8px;">' + escapeHtml(hist.variantNote) + '</div>' : '');
+                '<div class="tp-detail-hero-sub">Bạn đã hoàn thành chính xác câu hỏi này.</div>' +
+                '</div>' +
+                '</div>' +
+                (hist.variantNote ? '<div style="margin-bottom:12px; font-size:0.86rem; color:#047857; background:#ecfdf5; border:1px solid #a7f3d0; padding:8px 12px; border-radius:10px;">💡 ' + escapeHtml(hist.variantNote) + '</div>' : '');
         } else if (hist.status === 'reveal') {
             panelCls += 'is-reveal';
-            headerHtml = '<div style="font-size:1.08rem; font-weight:800; color:#b45309; margin-bottom:10px;">👁️ XEM ĐÁP ÁN CHUẨN</div>';
+            headerHtml = '<div class="tp-detail-hero">' +
+                '<div class="tp-detail-hero-icon">👁️</div>' +
+                '<div class="tp-detail-hero-content">' +
+                '<div class="tp-detail-hero-title">ĐÁP ÁN THAM KHẢO CHUẨN</div>' +
+                '<div class="tp-detail-hero-sub">Hãy quan sát kỹ cách đọc, từ vựng và mẫu ngữ pháp trước khi tiếp tục.</div>' +
+                '</div>' +
+                '</div>';
         } else {
             panelCls += 'is-err';
-            headerHtml = '<div style="font-size:1.08rem; font-weight:800; color:#be123c; margin-bottom:10px;">❌ CHƯA ĐÚNG — CÙNG XEM VÌ SAO SAI NHÉ!</div>';
+            headerHtml = '<div class="tp-detail-hero">' +
+                '<div class="tp-detail-hero-icon">💡</div>' +
+                '<div class="tp-detail-hero-content">' +
+                '<div class="tp-detail-hero-title">CHƯA ĐÚNG — CÙNG ĐỐI CHIẾU VÌ SAO SAI NHÉ!</div>' +
+                '<div class="tp-detail-hero-sub">So sánh câu bạn vừa gõ với đáp án chuẩn bên dưới để khắc phục lỗi.</div>' +
+                '</div>' +
+                '</div>';
         }
 
         var compareHtml = '';
         var primaryReading = window.tpState.mode === 'sentence' ? item.hira : (window.tpState.mode === 'kanji' ? item.kana : (item.kana || item.jp));
         if (hist.status === 'err' && hist.lastInput !== undefined) {
             var diff = buildCharDiffHtml(hist.lastInput, primaryReading);
-            compareHtml = '<div class="tp-diff-row">' +
-                '<div><strong style="color:#be123c;">Bạn đã gõ:</strong> <span class="jp-text" style="font-size:1.06rem;">' + diff.typedHtml + '</span></div>' +
-                '<div><strong style="color:#15803d;">Đáp án đúng:</strong> <span class="jp-text" style="font-size:1.06rem;">' + diff.targetHtml + '</span></div>' +
-                '</div>';
+            compareHtml = '<div class="tp-diff-container">' +
+                '<div class="tp-diff-col is-user">' +
+                '<div class="tp-diff-header"><span class="tp-diff-badge is-user">🔴 Bạn đã gõ:</span></div>' +
+                '<div class="tp-diff-body jp-text">' + diff.typedHtml + '</div>' +
+                '</div>' +
+                '<div class="tp-diff-col is-target">' +
+                '<div class="tp-diff-header"><span class="tp-diff-badge is-target">🟢 Đáp án chuẩn:</span></div>' +
+                '<div class="tp-diff-body jp-text">' + diff.targetHtml + '</div>' +
+                '</div>' +
+                '</div>' +
+                ((diff.expectedChunk || diff.gotChunk) ?
+                    '<div class="tp-diff-chunk-note">⚠️ <strong>Lệch ký tự:</strong> bạn gõ <span class="diff-bad">' + escapeHtml(diff.gotChunk || '(thiếu)') + '</span> ➔ chuẩn cần <span class="diff-good">' + escapeHtml(diff.expectedChunk || '(không có)') + '</span></div>' : '');
         }
 
         var whyHtml = '';
         if (hist.status === 'err' && hist.whyWrong && hist.whyWrong.length) {
             whyHtml = '<div class="tp-why-box">' +
-                '<div style="font-weight:800; margin-bottom:6px;">🚨 Phân tích vì sao sai:</div>' +
-                '<ul style="margin:0 0 0 18px; padding:0;">' +
-                hist.whyWrong.map(function (r) { return '<li style="margin-bottom:4px;">' + r + '</li>'; }).join('') +
+                '<div class="tp-why-title">🚨 Phân tích vì sao sai &amp; Bẫy cần tránh:</div>' +
+                '<ul class="tp-why-list">' +
+                hist.whyWrong.map(function (r) { return '<li>' + r + '</li>'; }).join('') +
                 '</ul></div>';
         }
 
@@ -564,42 +741,99 @@
         if (window.tpState.mode === 'sentence') {
             var alts = (item.acceptedHira || []).slice(1, 4);
             meaningHtml = '<div class="tp-meaning-box">' +
-                '<div style="margin-bottom:6px;"><strong>🔊 Câu Hiragana chuẩn:</strong> ' +
-                '<span class="jp-text" style="font-size:1.12rem; font-weight:800; color:var(--primary-dark);">' + escapeHtml(item.hira) + '</span> ' +
-                '<button type="button" class="audio-btn" onclick="speakCurrentTypingWord()" style="vertical-align:middle; margin-left:6px;" title="Nghe phát âm">🔊</button></div>' +
-                '<div style="margin-bottom:6px;"><strong>⛩️ Tham khảo kèm Kanji:</strong> <span class="jp-text" style="font-weight:700; color:#334155;">' + escapeHtml(item.kanjiModel) + '</span></div>' +
-                '<div style="margin-bottom:6px;"><strong>🇻🇳 Nghĩa tiếng Việt:</strong> ' + escapeHtml(item.vi) + '</div>' +
-                '<div style="margin-bottom:6px;"><strong>📐 Ngữ pháp (' + escapeHtml(item.pattern) + '):</strong> ' + item.grammarRule + '</div>' +
-                '<div><strong>🧩 Bóc tách câu:</strong> ' + item.breakdown + '</div>' +
-                (alts.length ? '<div style="margin-top:6px; font-size:0.84rem; color:#475569;"><strong>✔️ Biến thể cô cũng chấp nhận:</strong> ' + alts.map(function (a) { return '<code class="jp-text">' + escapeHtml(a) + '</code>'; }).join(' • ') + '</div>' : '') +
+                '<div class="tp-info-grid">' +
+                '<div class="tp-info-row">' +
+                '<span class="tp-info-label">🔊 Hiragana chuẩn:</span>' +
+                '<span class="tp-info-val"><strong class="jp-text tp-hira-highlight">' + escapeHtml(item.hira) + '</strong>' +
+                '<button type="button" class="tp-btn-audio-pill" onclick="speakCurrentTypingWord(this)" title="Nghe phát âm chuẩn">🔊 Nghe phát âm</button></span>' +
+                '</div>' +
+                (item.kanjiModel ?
+                    '<div class="tp-info-row">' +
+                    '<span class="tp-info-label">⛩️ Kèm Kanji:</span>' +
+                    '<span class="tp-info-val jp-text" style="font-weight:700; color:#334155;">' + escapeHtml(item.kanjiModel) + '</span>' +
+                    '</div>' : '') +
+                '<div class="tp-info-row">' +
+                '<span class="tp-info-label">🇻🇳 Nghĩa tiếng Việt:</span>' +
+                '<span class="tp-info-val"><strong>' + escapeHtml(item.vi) + '</strong></span>' +
+                '</div>' +
+                '<div class="tp-info-row">' +
+                '<span class="tp-info-label">📐 Ngữ pháp (' + escapeHtml(item.pattern) + '):</span>' +
+                '<span class="tp-info-val">' + item.grammarRule + '</span>' +
+                '</div>' +
+                '<div class="tp-info-row">' +
+                '<span class="tp-info-label">🧩 Bóc tách câu:</span>' +
+                '<span class="tp-info-val">' + item.breakdown + '</span>' +
+                '</div>' +
+                (alts.length ?
+                    '<div class="tp-info-row" style="margin-top:4px;">' +
+                    '<span class="tp-info-label">✔️ Biến thể được chấp nhận:</span>' +
+                    '<span class="tp-info-val" style="font-size:0.86rem; color:#475569;">' + alts.map(function (a) { return '<code class="jp-text" style="background:#f1f5f9; padding:2px 6px; border-radius:4px;">' + escapeHtml(a) + '</code>'; }).join(' • ') + '</span>' +
+                    '</div>' : '') +
+                '</div>' +
                 '</div>';
         } else if (window.tpState.mode === 'kanji') {
             meaningHtml = '<div class="tp-meaning-box">' +
-                '<div style="margin-bottom:6px; display:flex; align-items:center; gap:10px; flex-wrap:wrap;">' +
-                '<span><strong>⛩️ Kanji:</strong> <span class="jp-text" style="font-size:1.35rem; font-weight:900; color:var(--primary-dark);">' + escapeHtml(item.kanji) + '</span></span>' +
-                '<span><strong>🔤 Hiragana chuẩn:</strong> <span class="jp-text" style="font-size:1.2rem; font-weight:800; color:#15803d;">' + escapeHtml(item.kana) + '</span></span>' +
-                '<button type="button" class="audio-btn" onclick="speakCurrentTypingWord()" title="Nghe phát âm">🔊</button></div>' +
-                '<div style="margin-bottom:6px;"><strong>🏮 Âm Hán Việt:</strong> <span style="font-weight:800; color:#b45309; background:#fef3c7; padding:2px 8px; border-radius:6px;">' + escapeHtml(item.hv) + '</span></div>' +
-                '<div style="margin-bottom:6px;"><strong>🇻🇳 Ý nghĩa:</strong> <strong>' + escapeHtml(item.vi) + '</strong></div>' +
-                '<div><strong>🧠 Mẹo nhớ &amp; Phân biệt:</strong> ' + item.note + '</div></div>';
+                '<div class="tp-kanji-card-grid">' +
+                '<div class="tp-kanji-big-box jp-text">' + escapeHtml(item.kanji) + '</div>' +
+                '<div class="tp-info-grid">' +
+                '<div class="tp-info-row">' +
+                '<span class="tp-info-label">🔤 Hiragana:</span>' +
+                '<span class="tp-info-val"><strong class="jp-text tp-hira-highlight">' + escapeHtml(item.kana) + '</strong>' +
+                '<button type="button" class="tp-btn-audio-pill" onclick="speakCurrentTypingWord(this)" title="Nghe phát âm">🔊 Nghe</button></span>' +
+                '</div>' +
+                '<div class="tp-info-row">' +
+                '<span class="tp-info-label">🏮 Âm Hán Việt:</span>' +
+                '<span class="tp-info-val"><span class="tp-badge-hv">' + escapeHtml(item.hv) + '</span></span>' +
+                '</div>' +
+                '<div class="tp-info-row">' +
+                '<span class="tp-info-label">🇻🇳 Ý nghĩa:</span>' +
+                '<span class="tp-info-val"><strong>' + escapeHtml(item.vi) + '</strong></span>' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                (item.note ? '<div class="tp-kanji-mnemonic"><strong>🧠 Mẹo nhớ &amp; Phân biệt:</strong> ' + item.note + '</div>' : '') +
+                '</div>';
         } else {
             meaningHtml = '<div class="tp-meaning-box">' +
-                '<div style="margin-bottom:6px;"><strong>🇯🇵 Tiếng Nhật:</strong> <span class="jp-text" style="font-size:1.15rem; font-weight:800; color:var(--primary-dark);">' + escapeHtml(item.jp) + '</span> ' +
-                (item.kana ? '<span class="jp-text" style="color:var(--primary);">【' + escapeHtml(item.kana) + '】</span>' : '') +
-                '<button type="button" class="audio-btn" onclick="speakCurrentTypingWord()" style="vertical-align:middle; margin-left:6px;">🔊</button></div>' +
-                '<div style="margin-bottom:6px;"><strong>🔤 Romaji:</strong> ' + escapeHtml(item.romaji || '') + '</div>' +
-                '<div><strong>🇻🇳 Nghĩa tiếng Việt:</strong> ' + escapeHtml(item.vi) + '</div></div>';
+                '<div class="tp-info-grid">' +
+                '<div class="tp-info-row">' +
+                '<span class="tp-info-label">🇯🇵 Tiếng Nhật:</span>' +
+                '<span class="tp-info-val"><strong class="jp-text tp-hira-highlight">' + escapeHtml(item.jp) + '</strong>' +
+                (item.kana ? '<span class="jp-text" style="color:var(--primary); margin-left:6px;">【' + escapeHtml(item.kana) + '】</span>' : '') +
+                '<button type="button" class="tp-btn-audio-pill" onclick="speakCurrentTypingWord(this)" style="margin-left:8px;" title="Nghe phát âm">🔊 Nghe</button></span>' +
+                '</div>' +
+                (item.romaji ?
+                    '<div class="tp-info-row">' +
+                    '<span class="tp-info-label">🔤 Romaji:</span>' +
+                    '<span class="tp-info-val"><code>' + escapeHtml(item.romaji) + '</code></span>' +
+                    '</div>' : '') +
+                '<div class="tp-info-row">' +
+                '<span class="tp-info-label">🇻🇳 Nghĩa tiếng Việt:</span>' +
+                '<span class="tp-info-val"><strong>' + escapeHtml(item.vi) + '</strong></span>' +
+                '</div>' +
+                '</div>' +
+                '</div>';
         }
 
-        detailPanel.className = panelCls;
-        detailPanel.innerHTML = headerHtml + compareHtml + whyHtml + meaningHtml +
-            '<div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap; align-items:center;">' +
-            '<button type="button" class="btn-primary" style="padding:7px 14px; font-size:0.86rem; background:var(--secondary);" onclick="skipTypingWord()">➔ Sang câu tiếp theo (Enter)</button>' +
-            (hist.status === 'err' ? '<button type="button" class="btn-primary" style="padding:7px 14px; font-size:0.86rem; background:var(--gray-600);" onclick="retryCurrentTypingCard()">🔄 Thử gõ lại câu này</button>' : '') +
+        var actionsHtml = '<div class="tp-detail-actions">' +
+            '<button type="button" class="tp-btn-primary is-next" style="max-width:280px;" onclick="skipTypingWord()">' +
+            '<span>➔ Sang câu tiếp theo</span>' +
+            '<kbd class="tp-kbd tp-kbd-light">⏎ Enter</kbd>' +
+            '</button>' +
+            (hist.status === 'err' ?
+                '<button type="button" class="tp-btn-secondary is-retry" onclick="retryCurrentTypingCard()">' +
+                '<span>🔄 Thử gõ lại câu này</span>' +
+                '<kbd class="tp-kbd">Esc</kbd>' +
+                '</button>' : '') +
             '</div>';
+
+        detailPanel.className = panelCls;
+        detailPanel.innerHTML = headerHtml + compareHtml + whyHtml + meaningHtml + actionsHtml;
     }
 
     function renderTypingCard(shouldFocus) {
+        ensureTypingLayoutStructure();
+
         var pool = getFilteredTypingPool();
         var bucket = getActiveBucketKey();
         var idx = window.tpState.idxByBucket[bucket] || 0;
@@ -614,7 +848,6 @@
         var dirEl = document.getElementById('tpInputDirective');
         var hintPrev = document.getElementById('tpHintPreview');
         var inp = document.getElementById('tpCardInput');
-        var checkBtn = document.getElementById('tpCardCheckBtn');
         var retryBtn = document.getElementById('tpCardRetryBtn');
         var detailPanel = document.getElementById('tpDetailPanel');
         var streakEl = document.getElementById('tpStreakBadge');
@@ -629,13 +862,14 @@
                 promptEl.className = 'tp-vi-hero';
                 if (isWrongEmpty) {
                     promptEl.innerHTML = '🎉 <strong style="color:#16a34a;">Xuất sắc!</strong> Bạn đã làm đúng và không còn từ/câu nào bị sai trong danh sách nữa.' +
-                        '<div style="margin-top:14px;"><button type="button" class="btn-primary" style="background:#0284c7; padding:9px 20px; font-size:0.95rem; border-radius:10px; cursor:pointer;" onclick="switchTypingLesson(\'all\')">📚 Quay Lại Học Tiếp Toàn Bộ</button></div>';
+                        '<div style="margin-top:14px;"><button type="button" class="tp-btn-primary is-next" style="padding:9px 20px; font-size:0.95rem; border-radius:10px; cursor:pointer;" onclick="switchTypingLesson(\'all\')">📚 Quay Lại Học Tiếp Toàn Bộ</button></div>';
                 } else {
                     promptEl.innerText = 'Không có câu/chữ nào trong bộ lọc này.';
                 }
             }
             if (inp) {
                 inp.value = '';
+                inp.classList.remove('correct', 'wrong');
                 inp.disabled = true;
             }
             if (detailPanel) { detailPanel.className = 'tp-detail-panel'; detailPanel.innerHTML = ''; }
@@ -685,25 +919,38 @@
 
         if (isWrongFilter && hist && hist.status === 'err' && !window.tpState.gradedCurrent) {
             inp.value = '';
+            inp.classList.remove('correct', 'wrong');
             detailPanel.className = 'tp-detail-panel';
             detailPanel.innerHTML = '';
-            checkBtn.innerText = 'Kiểm Tra Đáp Án ⏎';
-            checkBtn.style.background = 'var(--primary)';
+            setCheckButtonState('check');
             if (retryBtn) retryBtn.style.display = 'none';
         } else if (hist && (hist.status === 'ok' || hist.status === 'err' || hist.status === 'reveal')) {
             inp.value = draftVal !== undefined ? draftVal : (hist.lastInput || '');
+            if (hist.status === 'ok') {
+                inp.classList.remove('wrong');
+                inp.classList.add('correct');
+            } else if (hist.status === 'err') {
+                inp.classList.remove('correct');
+                inp.classList.add('wrong');
+            } else {
+                inp.classList.remove('correct', 'wrong');
+            }
             renderTypingDetailBox(item, hist);
             window.tpState.gradedCurrent = true;
-            checkBtn.innerText = 'Câu Tiếp Theo ➔ (Enter)';
-            checkBtn.style.background = 'var(--secondary)';
-            if (retryBtn) retryBtn.style.display = (hist.status === 'err' || hist.status === 'reveal') ? 'inline-block' : 'none';
+            setCheckButtonState('next');
+            if (retryBtn) {
+                retryBtn.style.background = '';
+                retryBtn.className = 'tp-btn-secondary is-retry';
+                retryBtn.innerHTML = '<span>🔄 Gõ Lại</span><kbd class="tp-kbd">Esc</kbd>';
+                retryBtn.style.display = (hist.status === 'err' || hist.status === 'reveal') ? 'inline-flex' : 'none';
+            }
         } else {
             inp.value = draftVal || '';
+            inp.classList.remove('correct', 'wrong');
             detailPanel.className = 'tp-detail-panel';
             detailPanel.innerHTML = '';
             window.tpState.gradedCurrent = false;
-            checkBtn.innerText = 'Kiểm Tra Đáp Án ⏎';
-            checkBtn.style.background = 'var(--primary)';
+            setCheckButtonState('check');
             if (retryBtn) retryBtn.style.display = 'none';
         }
 
@@ -732,6 +979,10 @@
 
         if (res.ok) {
             window.tpState.streak++;
+            if (inp) {
+                inp.classList.remove('wrong');
+                inp.classList.add('correct');
+            }
             window.tpState.history[item.id] = {
                 status: 'ok',
                 lastInput: rawVal,
@@ -750,6 +1001,10 @@
             }
         } else {
             window.tpState.streak = 0;
+            if (inp) {
+                inp.classList.remove('correct');
+                inp.classList.add('wrong');
+            }
             var whyWrong = diagnoseTypingMistake(rawVal, item, window.tpState.mode);
             window.tpState.history[item.id] = {
                 status: 'err',
@@ -772,6 +1027,8 @@
             restoreTypingStudioState();
         }
         window.tpInitialized = true;
+        ensureTypingLayoutStructure();
+        bindTypingInputEvents();
         updateTypingModeButtons();
         renderTypingFilters();
         renderTypingControlsState();
@@ -867,6 +1124,11 @@
         window.tpState.gradedCurrent = false;
         window.tpState.drafts[item.id] = '';
         delete window.tpState.history[item.id];
+        var inp = document.getElementById('tpCardInput');
+        if (inp) {
+            inp.value = '';
+            inp.classList.remove('correct', 'wrong');
+        }
         renderTypingFilters();
         renderTypingCard(true);
         persistCheckpoint();
@@ -1073,15 +1335,24 @@
             if (e.key === 'Enter' && !e.shiftKey && !e.isComposing && e.keyCode !== 229) {
                 e.preventDefault();
                 handleTypingPrimaryBtn();
-            } else if (e.key === 'Escape' && window.tpState.gradedCurrent) {
-                e.preventDefault();
-                retryCurrentTypingCard();
+            } else if (e.key === 'Escape') {
+                if (window.tpState.gradedCurrent) {
+                    e.preventDefault();
+                    retryCurrentTypingCard();
+                }
             } else if ((e.key === 'Tab' || (e.altKey && e.key.toLowerCase() === 's')) && !e.shiftKey) {
                 e.preventDefault();
                 skipOrPassCurrentTypingWord();
+            } else if (e.altKey && e.key.toLowerCase() === 'h') {
+                e.preventDefault();
+                showTypingHint();
+            } else if (e.altKey && e.key.toLowerCase() === 'a') {
+                e.preventDefault();
+                speakCurrentTypingWord();
             }
         });
         inp.addEventListener('input', function () {
+            inp.classList.remove('correct', 'wrong');
             var pool = getFilteredTypingPool();
             var bucket = getActiveBucketKey();
             var item = pool[window.tpState.idxByBucket[bucket] || 0];
@@ -1089,11 +1360,7 @@
                 window.tpState.drafts[item.id] = inp.value;
                 if (window.tpState.gradedCurrent) {
                     window.tpState.gradedCurrent = false;
-                    var btn = document.getElementById('tpCardCheckBtn');
-                    if (btn) {
-                        btn.innerText = 'Kiểm Tra Đáp Án ⏎';
-                        btn.style.background = 'var(--primary)';
-                    }
+                    setCheckButtonState('check');
                 }
                 persistCheckpoint();
             }

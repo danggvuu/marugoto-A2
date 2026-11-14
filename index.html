@@ -4,253 +4,822 @@
     <meta charset="UTF-8">
     <meta name="referrer" content="no-referrer">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cẩm Nang & Luyện Tập Chia Động Từ Thể TE (～て) - Tiếng Nhật A2-1</title>
-    <link rel="stylesheet" href="assets/css/pages/index_hub.css?v=1">
-    <!-- Animate UI Core (Spring Physics & Micro-Interactions) -->
+    <title>Marugoto Japanese Interactive Hub • Cổng Học Tiếng Nhật A1–A2</title>
+    
+    <!-- Google Fonts: Plus Jakarta Sans & Noto Sans JP -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="assets/css/site-theme.css?v=6">
     <link rel="stylesheet" href="assets/css/animate-ui.css">
+    <link rel="stylesheet" href="assets/css/pages/index_hub.css?v=2">
+
+    <!-- Core Scripts -->
     <script src="assets/js/animate-ui.js" defer></script>
     <script src="assets/js/audio-engine.js?v=2"></script>
-    <link rel="stylesheet" href="assets/css/site-theme.css?v=6">
 </head>
 <body>
 
-<div class="container">
-    <!-- Global Hub Navigation -->
-                                                                                    <!-- Global Hub Navigation Placeholder -->
-        <div id="navbar-placeholder"></div>
-    
-    
-    
-    
-    
-        <!-- Header -->
-    <header>
-        <h1>🌸 BẢNG LUYỆN TẬP CHIA THỂ TE (～て)</h1>
-        <p>Hệ thống toàn diện lý thuyết & 56 bài tập tương tác chia động từ chuẩn giáo trình Marugoto A2-1</p>
+<div class="container hub-master-container">
+    <!-- Global Hub Navigation Placeholder -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- ======================================================================
+         1. HERO SECTION & LEARNER GUIDANCE
+         ====================================================================== -->
+    <header class="hub-hero">
+        <div class="hub-hero-badge">
+            <span class="hub-badge-dot"></span>
+            <span>🌸 MARUGOTO JAPANESE INTERACTIVE HUB • A1 – A2.1</span>
+        </div>
+        <h1 class="hub-hero-title">
+            Hành Trình Chinh Phục <span class="hub-text-gradient">Tiếng Nhật Marugoto</span>
+        </h1>
+        <p class="hub-hero-jp-sub">日本語学習ポータル • Thực hành ngữ pháp, phản xạ gõ câu, Kanji và đột kích đề thi</p>
+        <p class="hub-hero-desc">
+            Không gian học tập & ôn luyện tương tác toàn diện theo giáo trình Marugoto A1 & A2. Hệ thống tích hợp chấm điểm phản xạ thông minh, phát âm Web Speech chuẩn Tokyo và bộ đề thi thực chiến 100 điểm.
+        </p>
+
+        <!-- Quick Stats Strip -->
+        <div class="hub-hero-stats">
+            <div class="hub-stat-item">
+                <span class="hub-stat-num">18</span>
+                <span class="hub-stat-label">Bài Học A2.1</span>
+            </div>
+            <div class="hub-stat-divider"></div>
+            <div class="hub-stat-item">
+                <span class="hub-stat-num">4 Thể</span>
+                <span class="hub-stat-label">Động Từ Cốt Lõi</span>
+            </div>
+            <div class="hub-stat-divider"></div>
+            <div class="hub-stat-item">
+                <span class="hub-stat-num">119+</span>
+                <span class="hub-stat-label">Kanji Nét Viết</span>
+            </div>
+            <div class="hub-stat-divider"></div>
+            <div class="hub-stat-item">
+                <span class="hub-stat-num">112+</span>
+                <span class="hub-stat-label">Câu Gõ Phản Xạ</span>
+            </div>
+            <div class="hub-stat-divider"></div>
+            <div class="hub-stat-item">
+                <span class="hub-stat-num">10+</span>
+                <span class="hub-stat-label">Bộ Đề Thi Thử</span>
+            </div>
+        </div>
     </header>
 
-    <!-- Navigation Tabs -->
-    <div class="nav-tabs">
-        <button class="nav-tab-btn active" onclick="switchTab('tab-practice')">✍️ Bảng Luyện Tập (56 Từ)</button>
-        <button class="nav-tab-btn" onclick="switchTab('tab-theory')">📖 Lý Thuyết & Quy Tắc Chia Thể</button>
-        <button class="nav-tab-btn" onclick="switchTab('tab-usage')">💡 Ứng Dụng ～ています (Marugoto A2-1)</button>
-    </div>
+    <!-- ======================================================================
+         2. 4-STEP LEARNER ROADMAP
+         ====================================================================== -->
+    <section class="hub-section hub-roadmap-section" aria-labelledby="roadmap-title">
+        <div class="hub-section-header">
+            <span class="hub-section-pill">LỘ TRÌNH 4 BƯỚC</span>
+            <h2 id="roadmap-title" class="hub-section-title">Phương Pháp Học Tối Ưu Cho Người Tự Học</h2>
+            <p class="hub-section-sub">Đi theo 4 bước liên hoàn giúp bạn hiểu bản chất, nhớ sâu từ vựng, phản xạ gõ tự nhiên và tự tin đạt điểm cao trong phòng thi.</p>
+        </div>
 
-    <!-- TAB 1: PRACTICE TABLE -->
-    <div id="tab-practice" class="tab-panel active">
-        <div class="controls-bar">
-            <div class="search-box">
-                <input type="text" id="searchInput" placeholder="🔍 Tìm kiếm động từ..." oninput="filterVerbs()">
+        <div class="hub-steps-grid">
+            <!-- Bước 1 -->
+            <div class="hub-step-card step-1">
+                <div class="hub-step-number">01</div>
+                <div class="hub-step-icon">📗</div>
+                <h3 class="hub-step-title">Ngữ Pháp Cốt Lõi</h3>
+                <p class="hub-step-desc">Nắm vững cấu trúc câu, trật tự từ và 4 thể động từ cốt lõi (Te, Ru, Ta, Nai) trước khi ghép câu.</p>
+                <div class="hub-step-tags">
+                    <span>Tổng hợp A1-A2</span>
+                    <span>4 Thể Động Từ</span>
+                    <span>14 Bài NPBS</span>
+                </div>
+                <a href="Tong_Hop_Ngu_Phap_Marugoto_A1_A2.html" class="hub-step-link">Học Ngữ Pháp →</a>
             </div>
-            <div class="btn-group">
-                <button class="btn btn-primary" onclick="gradeAll()">✅ Nộp Bài / Chấm Điểm</button>
-                <button class="btn btn-outline" onclick="toggleAnswers()">👁️ Hiện / Ẩn Đáp Án</button>
-                <button class="btn btn-secondary" onclick="resetExercise()">🔄 Làm Lại</button>
+
+            <!-- Bước 2 -->
+            <div class="hub-step-card step-2">
+                <div class="hub-step-number">02</div>
+                <div class="hub-step-icon">⛩️</div>
+                <h3 class="hub-step-title">Từ Vựng & Kanji</h3>
+                <p class="hub-step-desc">Mở rộng vốn từ qua 18 chủ đề Marugoto, nghe audio chuẩn và luyện nét viết Kanji trực quan.</p>
+                <div class="hub-step-tags">
+                    <span>Kho Từ Vựng Audio</span>
+                    <span>Kanji A2 Nét Viết</span>
+                    <span>Cấp Tốc Kanji 11-18</span>
+                </div>
+                <a href="kanji_a2.html" class="hub-step-link">Học Kanji & Từ Vựng →</a>
+            </div>
+
+            <!-- Bước 3 -->
+            <div class="hub-step-card step-3">
+                <div class="hub-step-number">03</div>
+                <div class="hub-step-icon">⌨️</div>
+                <h3 class="hub-step-title">Luyện Gõ Phản Xạ</h3>
+                <p class="hub-step-desc">Thực hành gõ câu tiếng Nhật tức thì trong Typing Studio với bộ chấm thông minh linh hoạt.</p>
+                <div class="hub-step-tags">
+                    <span>Typing Studio 15-18</span>
+                    <span>Luyện Gõ L11-14</span>
+                    <span>Dịch Câu L1-10</span>
+                </div>
+                <a href="tests/On_Tap_Mini_Test_A2_15_18.html#typing" class="hub-step-link">Vào Luyện Gõ →</a>
+            </div>
+
+            <!-- Bước 4 -->
+            <div class="hub-step-card step-4">
+                <div class="hub-step-number">04</div>
+                <div class="hub-step-icon">🎯</div>
+                <h3 class="hub-step-title">Đột Kích Đề Thi</h3>
+                <p class="hub-step-desc">Thử lửa với bộ 5 đề Midterm 100 điểm, mini-test 15 phút để cọ xát và tự đánh giá năng lực thực chiến.</p>
+                <div class="hub-step-tags">
+                    <span>Bộ 5 Đề Midterm</span>
+                    <span>Mini Test L15-18</span>
+                    <span>Đề Thi Thử L5-8</span>
+                </div>
+                <a href="tests/De_Thi_Midterm_A2_1.html" class="hub-step-link">Làm Đề Thi Thử →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================================================
+         3. QUICK SEARCH & CATEGORY FILTER BAR
+         ====================================================================== -->
+    <section class="hub-filter-sticky" id="hub-filter-area" aria-label="Bộ lọc tài nguyên">
+        <div class="hub-search-wrapper">
+            <div class="hub-search-box">
+                <span class="hub-search-icon" aria-hidden="true">🔍</span>
+                <input type="text" id="hubSearchInput" placeholder="Tìm kiếm nhanh bài học, ngữ pháp, kanji, đề thi, thể động từ... (Nhấn '/' để tìm)" autocomplete="off">
+                <button type="button" id="hubSearchClear" class="hub-search-clear" title="Xóa tìm kiếm" style="display: none;">✕</button>
+                <kbd class="hub-search-kbd">/</kbd>
             </div>
         </div>
 
-        <div style="margin-bottom: 15px;">
-            <span class="tip-badge">💡 Mẹo làm bài: Cột <strong>Phủ định</strong> bạn có thể điền phủ định thể Te (<strong>～ていません</strong>) HOẶC phủ định thường (<strong>～ません</strong>) hệ thống đều chấm đúng nhé!</span>
+        <!-- Filter category pills -->
+        <div class="hub-filter-pills" id="hubFilterPills" role="tablist">
+            <button type="button" class="hub-pill active" data-filter="all" role="tab" aria-selected="true">
+                <span class="hub-pill-icon">🌟</span> Tất Cả <span class="hub-pill-badge" id="count-all">0</span>
+            </button>
+            <button type="button" class="hub-pill" data-filter="grammar" role="tab" aria-selected="false">
+                <span class="hub-pill-icon">📗</span> Ngữ Pháp & Các Thể <span class="hub-pill-badge" id="count-grammar">0</span>
+            </button>
+            <button type="button" class="hub-pill" data-filter="vocab-kanji" role="tab" aria-selected="false">
+                <span class="hub-pill-icon">⛩️</span> Từ Vựng & Kanji <span class="hub-pill-badge" id="count-vocab-kanji">0</span>
+            </button>
+            <button type="button" class="hub-pill" data-filter="typing" role="tab" aria-selected="false">
+                <span class="hub-pill-icon">⌨️</span> Luyện Gõ Phản Xạ <span class="hub-pill-badge" id="count-typing">0</span>
+            </button>
+            <button type="button" class="hub-pill" data-filter="exams" role="tab" aria-selected="false">
+                <span class="hub-pill-icon">🎯</span> Đề Thi & Ôn Tập <span class="hub-pill-badge" id="count-exams">0</span>
+            </button>
+            <button type="button" class="hub-pill" data-filter="lessons" role="tab" aria-selected="false">
+                <span class="hub-pill-icon">🚀</span> 18 Bài Học A2 <span class="hub-pill-badge" id="count-lessons">18</span>
+            </button>
+            <button type="button" class="hub-pill" data-filter="culture-3d" role="tab" aria-selected="false">
+                <span class="hub-pill-icon">🌸</span> Văn Hóa & 3D <span class="hub-pill-badge" id="count-culture-3d">0</span>
+            </button>
         </div>
 
-        <div id="scoreBanner" class="score-banner"></div>
-
-        <div class="table-responsive">
-            <table class="exercise-table" id="verbsTable">
-                <thead>
-                    <tr>
-                        <th style="width: 45px;">STT</th>
-                        <th style="width: 220px;">Vます (Động từ)</th>
-                        <th style="width: 110px;">Nhóm</th>
-                        <th style="width: 220px;">Thể ～て</th>
-                        <th style="width: 240px;">Phủ Định (～ていません / ～ません)</th>
-                        <th style="width: 90px; text-align: center;">Kết Quả</th>
-                    </tr>
-                </thead>
-                <tbody id="tableBody">
-                    <!-- Dynamic rendering via JS -->
-                </tbody>
-            </table>
+        <div class="hub-filter-status" id="hubFilterStatus">
+            Đang hiển thị <strong id="hubVisibleCount">0</strong> tài nguyên học tập
         </div>
-    </div>
+    </section>
 
-    <!-- TAB 2: FULL THEORY -->
-    <div id="tab-theory" class="tab-panel">
-        <!-- 3 Nhóm Động Từ -->
-        <div class="card">
-            <h2>🏷️ Phân Loại 3 Nhóm Động Từ Trong Tiếng Nhật</h2>
-            
-            <h3>1. Động từ Nhóm ① <span class="group-tag tag-g1">Nhóm 1</span></h3>
-            <p>Là các động từ có <strong>từ 2 âm tiết trở lên</strong>, chữ cái đứng ngay trước <code>～ます</code> thuộc <strong>cột い</strong>:</p>
-            <p style="margin-top: 6px; font-weight: 600; color: #0984e3;">
-                (い, き, し, ち, り, び, ぎ, に, み) + ます
+    <!-- ======================================================================
+         4. FEATURE CARDS GRID
+         ====================================================================== -->
+    <main class="hub-cards-container" id="hubCardsGrid">
+
+        <!-- CARD 1: Tổng Hợp Ngữ Pháp A1-A2 -->
+        <article class="hub-card" data-category="grammar" data-keywords="ngữ pháp grammar mẫu câu trợ từ a1 a2 marugoto cấu trúc câu bách khoa toàn thư">
+            <div class="hub-card-top">
+                <div class="hub-card-icon-box">📗</div>
+                <span class="hub-tag-level hub-tag-teal">Toàn Diện A1–A2</span>
+            </div>
+            <div class="hub-card-subtitle">Bách Khoa Mẫu Câu & Trợ Từ</div>
+            <h2 class="hub-card-title">Tổng Hợp Ngữ Pháp Marugoto A1–A2</h2>
+            <p class="hub-card-desc">
+                Hệ thống hóa toàn bộ cấu trúc ngữ pháp từ sơ cấp A1 đến tiền trung cấp A2.1. Giải thích chi tiết bản chất công thức kèm ví dụ song ngữ Nhật - Việt rõ ràng.
             </p>
-            <div class="example-box">
-                <strong>Ví dụ:</strong> あ<strong>い</strong>ます (gặp), い<strong>き</strong>ます (đi), の<strong>み</strong>ます (uống), かえ<strong>り</strong>ます (về), あそ<strong>び</strong>ます (chơi), ま<strong>ち</strong>ます (chờ), およ<strong>ぎ</strong>ます (bơi)...
+            <div class="hub-card-highlights">
+                <span class="hub-highlight-badge">36 Bài Học A1–A2</span>
+                <span class="hub-highlight-badge">Tra Cứu Nhanh</span>
+                <span class="hub-highlight-badge">Ví Dụ Song Ngữ</span>
             </div>
+            <a href="Tong_Hop_Ngu_Phap_Marugoto_A1_A2.html" class="hub-card-btn hub-btn-primary">
+                <span>Vào Học Ngữ Pháp</span>
+                <span class="hub-btn-arrow">→</span>
+            </a>
+        </article>
 
-            <h3>2. Động từ Nhóm ② <span class="group-tag tag-g2">Nhóm 2</span></h3>
-            <ul>
-                <li><strong>Trường hợp 1:</strong> Có đúng <strong>1 âm tiết</strong> đứng trước <code>～ます</code>:
-                    <br>👉 <strong>ね</strong>ます (ngủ), <strong>み</strong>ます (xem), <strong>い</strong>ます (ở/có), <strong>で</strong>ます (ra ngoài), <strong>き</strong>ます (mặc áo)...</li>
-                <li style="margin-top: 8px;"><strong>Trường hợp 2:</strong> Chữ đứng trước <code>～ます</code> thuộc <strong>cột え</strong> (え, け, せ, て, ね, べ...):
-                    <br>👉 た<strong>べ</strong>ます (ăn), あ<strong>げ</strong>ます (tặng), おし<strong>え</strong>ます (dạy), み<strong>せ</strong>ます (cho xem)...</li>
-                <li style="margin-top: 8px;"><strong>Trường hợp 3 (ĐẶC BIỆT BẮT BUỘC HỌC THUỘC):</strong> Có từ 2 âm tiết trở lên, đứng trước <code>～ます</code> là cột い nhưng vẫn là Nhóm 2:
-                    <br>👉 お<strong>き</strong>ます (thức dậy), お<strong>り</strong>ます (xuống xe), で<strong>き</strong>ます (có thể), あ<strong>び</strong>ます (tắm), か<strong>り</strong>ます (mượn)...</li>
-            </ul>
+        <!-- CARD 2: Thể TE & Bảng Luyện Tập -->
+        <article class="hub-card" data-category="grammar" data-keywords="thể te chia động từ te 56 từ bài vè thần chú quy tắc nhóm 1 2 3 teimasu đang làm trạng thái luyen tap the te">
+            <div class="hub-card-top">
+                <div class="hub-card-icon-box">🌸</div>
+                <span class="hub-tag-level hub-tag-crimson">Động Từ Cốt Lõi</span>
+            </div>
+            <div class="hub-card-subtitle">Quy Tắc & 56 Từ Tương Tác</div>
+            <h2 class="hub-card-title">Cẩm Nang & Đấu Trường Thể TE (～て)</h2>
+            <p class="hub-card-desc">
+                Nắm vững quy tắc chia 3 nhóm động từ với bài vè thần chú kinh điển. Bảng luyện tập 56 động từ thực chiến có chấm điểm tự động và ứng dụng ～ています.
+            </p>
+            <div class="hub-card-highlights">
+                <span class="hub-highlight-badge">56 Động Từ Tương Tác</span>
+                <span class="hub-highlight-badge">Bài Vè Thần Chú</span>
+                <span class="hub-highlight-badge">Chấm Điểm Tự Động</span>
+            </div>
+            <a href="tests/Luyen_Tap_The_Te_A2_1.html" class="hub-card-btn hub-btn-primary">
+                <span>Luyện Chia Thể TE</span>
+                <span class="hub-btn-arrow">→</span>
+            </a>
+        </article>
 
-            <h3>3. Động từ Nhóm ③ <span class="group-tag tag-g3">Nhóm 3</span></h3>
-            <p>Là động từ bất quy tắc, chỉ gồm 2 động từ cơ bản và danh động từ:</p>
-            <ul>
-                <li><strong>します</strong> (làm) ➔ べんきょうします, さんぽします, かいものします, そうじします...</li>
-                <li><strong>きます</strong> (đến) ➔ もってきます (mang đến), つれてきます (dẫn đến)...</li>
-            </ul>
+        <!-- CARD 3: Thể RU (Từ Điển) -->
+        <article class="hub-card" data-category="grammar" data-keywords="thể ru từ điển jisho-kei jisho nguyên mẫu khả năng koto ga dekiru the ru">
+            <div class="hub-card-top">
+                <div class="hub-card-icon-box">📘</div>
+                <span class="hub-tag-level hub-tag-blue">Động Từ Cốt Lõi</span>
+            </div>
+            <div class="hub-card-subtitle">Thể Nguyên Mẫu & Khả Năng</div>
+            <h2 class="hub-card-title">Cẩm Nang Thể RU (辞書形 - Từ Điển)</h2>
+            <p class="hub-card-desc">
+                Quy tắc biến đổi động từ về thể từ điển Jisho-kei. Ứng dụng trong các cấu trúc diễn đạt khả năng (ことができる), sở thích và thói quen sinh hoạt.
+            </p>
+            <div class="hub-card-highlights">
+                <span class="hub-highlight-badge">3 Nhóm Động Từ</span>
+                <span class="hub-highlight-badge">Mẫu Câu Khả Năng</span>
+                <span class="hub-highlight-badge">Bảng Tra Phản Xạ</span>
+            </div>
+            <a href="the_ru.html" class="hub-card-btn hub-btn-primary">
+                <span>Học Thể RU</span>
+                <span class="hub-btn-arrow">→</span>
+            </a>
+        </article>
+
+        <!-- CARD 4: Thể TA (Quá Khứ) -->
+        <article class="hub-card" data-category="grammar" data-keywords="thể ta quá khứ kinh nghiệm koto ga aru liệt kê tari the ta">
+            <div class="hub-card-top">
+                <div class="hub-card-icon-box">📕</div>
+                <span class="hub-tag-level hub-tag-amber">Động Từ Cốt Lõi</span>
+            </div>
+            <div class="hub-card-subtitle">Quá Khứ & Kinh Nghiệm Đã Từng</div>
+            <h2 class="hub-card-title">Cẩm Nang Thể TA (た形 - Quá Khứ)</h2>
+            <p class="hub-card-desc">
+                Quy tắc chia tương đồng thể Te. Chuyên sâu mẫu câu nói về trải nghiệm đã từng làm (ことがある) và cấu trúc liệt kê hành động tiêu biểu (たり～たりする).
+            </p>
+            <div class="hub-card-highlights">
+                <span class="hub-highlight-badge">Mẫu Kinh Nghiệm</span>
+                <span class="hub-highlight-badge">Liệt Kê Tari..tari</span>
+                <span class="hub-highlight-badge">Luyện Tập Phản Xạ</span>
+            </div>
+            <a href="the_ta.html" class="hub-card-btn hub-btn-primary">
+                <span>Học Thể TA</span>
+                <span class="hub-btn-arrow">→</span>
+            </a>
+        </article>
+
+        <!-- CARD 5: Thể NAI (Phủ Định) -->
+        <article class="hub-card" data-category="grammar" data-keywords="thể nai phủ định cấm đoán khuyên bảo naide kudasai nakereba narimasen the nai">
+            <div class="hub-card-top">
+                <div class="hub-card-icon-box">📗</div>
+                <span class="hub-tag-level hub-tag-purple">Động Từ Cốt Lõi</span>
+            </div>
+            <div class="hub-card-subtitle">Phủ Định Ngắn & Khuyên Cấm</div>
+            <h2 class="hub-card-title">Cẩm Nang Thể NAI (ない形 - Phủ Định)</h2>
+            <p class="hub-card-desc">
+                Toàn bộ quy tắc đổi âm sang cột あ của thể Nai-kei. Các cấu trúc quan trọng: khuyên nhủ (ないでください), nghĩa vụ bắt buộc (なければなりません) và cho phép.
+            </p>
+            <div class="hub-card-highlights">
+                <span class="hub-highlight-badge">Quy Tắc Đổi Cột あ</span>
+                <span class="hub-highlight-badge">Khuyên Không Nên Làm</span>
+                <span class="hub-highlight-badge">Nghĩa Vụ Cần Làm</span>
+            </div>
+            <a href="the_nai.html" class="hub-card-btn hub-btn-primary">
+                <span>Học Thể NAI</span>
+                <span class="hub-btn-arrow">→</span>
+            </a>
+        </article>
+
+        <!-- CARD 6: Kiến Thức Bổ Sung & Văn Hóa -->
+        <article class="hub-card" data-category="grammar" data-keywords="kiến thức bổ sung npbs 14 trợ từ văn hóa đời sống giao tiếp kính ngữ">
+            <div class="hub-card-top">
+                <div class="hub-card-icon-box">💡</div>
+                <span class="hub-tag-level hub-tag-teal">Chuyên Đề & Văn Hóa</span>
+            </div>
+            <div class="hub-card-subtitle">14 Chuyên Đề Mở Rộng</div>
+            <h2 class="hub-card-title">Kiến Thức Bổ Sung & Đời Sống Nhật Bản</h2>
+            <p class="hub-card-desc">
+                Tổng hợp 14 bài kiến thức bổ sung (NPBS), phân biệt rõ ràng các cặp trợ từ dễ nhầm lẫn (に/で, は/が), quy tắc giao tiếp và nét đẹp văn hóa đời sống thường nhật.
+            </p>
+            <div class="hub-card-highlights">
+                <span class="hub-highlight-badge">14 Chuyên Đề NPBS</span>
+                <span class="hub-highlight-badge">Phân Biệt Trợ Từ</span>
+                <span class="hub-highlight-badge">Văn Hóa Ứng Xử</span>
+            </div>
+            <a href="kien_thuc_bo_sung.html" class="hub-card-btn hub-btn-primary">
+                <span>Khám Phá NPBS</span>
+                <span class="hub-btn-arrow">→</span>
+            </a>
+        </article>
+
+        <!-- CARD 7: Kho Từ Vựng Toàn Diện -->
+        <article class="hub-card" data-category="vocab-kanji" data-keywords="từ vựng vocabulary audio phát âm web speech marugoto a1 a2 tu vung">
+            <div class="hub-card-top">
+                <div class="hub-card-icon-box">📖</div>
+                <span class="hub-tag-level hub-tag-crimson">Từ Vựng Có Audio</span>
+            </div>
+            <div class="hub-card-subtitle">A1 (16 Bài) & A2.1 (10 Bài)</div>
+            <h2 class="hub-card-title">Kho Từ Vựng Tương Tác Marugoto</h2>
+            <p class="hub-card-desc">
+                Tra cứu và học từ vựng trực quan theo từng bài học. Tích hợp audio phát âm giọng chuẩn Tokyo, bộ lọc nhanh theo chủ đề và chế độ ẩn/hiện nghĩa để tự ôn tập.
+            </p>
+            <div class="hub-card-highlights">
+                <span class="hub-highlight-badge">800+ Từ Vựng Đầy Đủ</span>
+                <span class="hub-highlight-badge">Audio Web Speech</span>
+                <span class="hub-highlight-badge">Lọc Nhanh Từng Bài</span>
+            </div>
+            <a href="Tu_Vung_Marugoto_A1_16_A2_1_10.html" class="hub-card-btn hub-btn-primary">
+                <span>Mở Kho Từ Vựng</span>
+                <span class="hub-btn-arrow">→</span>
+            </a>
+        </article>
+
+        <!-- CARD 8: Học Kanji A2 & Nét Viết -->
+        <article class="hub-card" data-category="vocab-kanji" data-keywords="kanji hán tự stroke order nét viết bộ thủ âm on kun kanji a2 han tu">
+            <div class="hub-card-top">
+                <div class="hub-card-icon-box">⛩️</div>
+                <span class="hub-tag-level hub-tag-amber">Kanji Tương Tác</span>
+            </div>
+            <div class="hub-card-subtitle">Thứ Tự Nét Viết & Bộ Thủ</div>
+            <h2 class="hub-card-title">Học Kanji A2 & Quy Tắc Nét Viết</h2>
+            <p class="hub-card-desc">
+                Mô phỏng sinh động thứ tự từng nét viết (Stroke Order) của các chữ Hán A2. Cung cấp chi tiết âm Hán Việt, âm On/Kun, ý nghĩa bộ thủ và ví dụ ghép từ thực tế.
+            </p>
+            <div class="hub-card-highlights">
+                <span class="hub-highlight-badge">Mô Phỏng Từng Nét</span>
+                <span class="hub-highlight-badge">Âm On/Kun & Hán Việt</span>
+                <span class="hub-highlight-badge">Tra Cứu Bộ Thủ</span>
+            </div>
+            <a href="kanji_a2.html" class="hub-card-btn hub-btn-primary">
+                <span>Luyện Nét Viết Kanji</span>
+                <span class="hub-btn-arrow">→</span>
+            </a>
+        </article>
+
+        <!-- CARD 9: Cấp Tốc Đêm Nay Kanji 11-18 -->
+        <article class="hub-card" data-category="vocab-kanji" data-keywords="cấp tốc đêm nay kanji 11-18 flashcard trắc nghiệm cấp tốc ôn thi gấp cap toc kanji">
+            <div class="hub-card-top">
+                <div class="hub-card-icon-box">⚡</div>
+                <span class="hub-tag-level hub-tag-crimson">Ôn Thi Cấp Tốc</span>
+            </div>
+            <div class="hub-card-subtitle">119 Chữ Trọng Tâm & NPBS 14</div>
+            <h2 class="hub-card-title">Cấp Tốc Đêm Nay: Kanji 11–18</h2>
+            <p class="hub-card-desc">
+                Phòng luyện thi cấp tốc trước giờ G: 119 chữ Kanji xuất hiện dày đặc trong đề thi Bài 11-18, flashcard lật mặt thông minh, audio giọng đọc và trắc nghiệm phản xạ.
+            </p>
+            <div class="hub-card-highlights">
+                <span class="hub-highlight-badge">119 Chữ Đề Thi Thật</span>
+                <span class="hub-highlight-badge">Flashcard 2 Mặt</span>
+                <span class="hub-highlight-badge">Trắc Nghiệm Phản Xạ</span>
+            </div>
+            <a href="tests/On_Tap_Cap_Toc_Kanji_11_18_NPBS14.html" class="hub-card-btn hub-btn-primary">
+                <span>Luyện Cấp Tốc Đêm Nay</span>
+                <span class="hub-btn-arrow">→</span>
+            </a>
+        </article>
+
+        <!-- CARD 10: Typing Studio Bài 15-18 -->
+        <article class="hub-card" data-category="typing" data-keywords="typing studio luyện gõ phản xạ 112 câu bài 15 16 17 18 bộ chấm ai enter tab esc luyen go phan xa">
+            <div class="hub-card-top">
+                <div class="hub-card-icon-box">⌨️</div>
+                <span class="hub-tag-level hub-tag-teal">Typing Studio Cao Cấp</span>
+            </div>
+            <div class="hub-card-subtitle">112 Câu Giao Tiếp Thực Chiến</div>
+            <h2 class="hub-card-title">Typing Studio Phản Xạ (Bài 15–18)</h2>
+            <p class="hub-card-desc">
+                Đấu trường gõ câu tiếng Nhật thông minh với 112 câu thực tế. Bộ chấm linh hoạt chấp nhận đảo phó từ/bổ ngữ, hỗ trợ phím tắt ⏎ Enter, Tab, Esc và tự lưu tiến trình.
+            </p>
+            <div class="hub-card-highlights">
+                <span class="hub-highlight-badge">112 Câu Thực Tế</span>
+                <span class="hub-highlight-badge">Bộ Chấm AI Đảo Ngữ</span>
+                <span class="hub-highlight-badge">Phím Tắt ⏎ Tab Esc</span>
+            </div>
+            <a href="tests/On_Tap_Mini_Test_A2_15_18.html#typing" class="hub-card-btn hub-btn-primary">
+                <span>Vào Typing Studio</span>
+                <span class="hub-btn-arrow">→</span>
+            </a>
+        </article>
+
+        <!-- CARD 11: Luyện Gõ Phản Xạ Bài 11-14 -->
+        <article class="hub-card" data-category="typing" data-keywords="luyện gõ bài 11 12 13 14 dã ngoại ẩm thực công việc quy tắc luyen go phan xa">
+            <div class="hub-card-top">
+                <div class="hub-card-icon-box">💬</div>
+                <span class="hub-tag-level hub-tag-blue">Phản Xạ Theo Bài</span>
+            </div>
+            <div class="hub-card-subtitle">Chủ Đề Dã Ngoại, Công Việc, Ẩm Thực</div>
+            <h2 class="hub-card-title">Luyện Gõ Phản Xạ Câu (Bài 11–14)</h2>
+            <p class="hub-card-desc">
+                Rèn phản xạ gõ câu tiếng Nhật tức thì trong bối cảnh công sở, sắp xếp lịch hẹn, văn hóa ăn uống và nội quy làm việc thuộc chặng Bài 11 đến Bài 14.
+            </p>
+            <div class="hub-card-highlights">
+                <span class="hub-highlight-badge">Ngữ Cảnh Công Sở</span>
+                <span class="hub-highlight-badge">Chấm Điểm Tức Thì</span>
+                <span class="hub-highlight-badge">Tự Lưu Checkpoint</span>
+            </div>
+            <a href="tests/On_Tap_Mini_Test_A2_11_14.html#typing" class="hub-card-btn hub-btn-primary">
+                <span>Luyện Gõ Bài 11–14</span>
+                <span class="hub-btn-arrow">→</span>
+            </a>
+        </article>
+
+        <!-- CARD 12: Thử Thách Dịch Câu Bài 1-10 -->
+        <article class="hub-card" data-category="typing" data-keywords="dịch câu translation 40 câu bài 1 2 3 4 5 6 7 8 9 10 dịch nhật việt dich cau">
+            <div class="hub-card-top">
+                <div class="hub-card-icon-box">✍️</div>
+                <span class="hub-tag-level hub-tag-purple">Dịch Thuật 40 Câu</span>
+            </div>
+            <div class="hub-card-subtitle">Chuyển Ngữ Nhật – Việt Song Chiều</div>
+            <h2 class="hub-card-title">Luyện Dịch Câu Nhật – Việt (Bài 1–10)</h2>
+            <p class="hub-card-desc">
+                Thử thách chuyển ngữ 40 câu giao tiếp thực tế từ Bài 1 đến Bài 10. Tích hợp hệ thống gợi ý từ khóa thông minh, phân tích cấu trúc cú pháp và so sánh đáp án mẫu.
+            </p>
+            <div class="hub-card-highlights">
+                <span class="hub-highlight-badge">40 Câu Giao Tiếp Thật</span>
+                <span class="hub-highlight-badge">Gợi Ý Từ Khóa Cú Pháp</span>
+                <span class="hub-highlight-badge">So Sánh Đáp Án Mẫu</span>
+            </div>
+            <a href="tests/On_Tap_Dich_Cau_Lesson_1_10.html" class="hub-card-btn hub-btn-primary">
+                <span>Luyện Dịch Câu Ngay</span>
+                <span class="hub-btn-arrow">→</span>
+            </a>
+        </article>
+
+        <!-- CARD 13: Bộ 5 Đề Thi Midterm A2-1 -->
+        <article class="hub-card" data-category="exams" data-keywords="midterm đề thi giữa kỳ m101 m102 m103 m104 m105 100 điểm de thi midterm">
+            <div class="hub-card-top">
+                <div class="hub-card-icon-box">🏆</div>
+                <span class="hub-tag-level hub-tag-crimson">Đề Thi Chuẩn 100đ</span>
+            </div>
+            <div class="hub-card-subtitle">Bộ 5 Mã Đề M101 – M105</div>
+            <h2 class="hub-card-title">Bộ 5 Đề Thi Giữa Kỳ Midterm A2.1</h2>
+            <p class="hub-card-desc">
+                Bộ đề thi giữa kỳ chính thức mô phỏng định dạng phòng thi thực tế với thang điểm 100 chuẩn: Nghe hiểu, Từ vựng, Kanji, Ngữ pháp và Đọc hiểu có chấm điểm tự động.
+            </p>
+            <div class="hub-card-highlights">
+                <span class="hub-highlight-badge">5 Mã Đề Độc Lập</span>
+                <span class="hub-highlight-badge">Thang Điểm 100 Chuẩn</span>
+                <span class="hub-highlight-badge">Báo Cáo Điểm Chi Tiết</span>
+            </div>
+            <a href="tests/De_Thi_Midterm_A2_1.html" class="hub-card-btn hub-btn-primary">
+                <span>Vào Thi Midterm</span>
+                <span class="hub-btn-arrow">→</span>
+            </a>
+        </article>
+
+        <!-- CARD 14: Ôn Tập Mini Test Bài 15-18 -->
+        <article class="hub-card" data-category="exams" data-keywords="mini test đề thi 15 16 17 18 5 mã đề sức khỏe thể dục tiệc tùng mini test 15-18">
+            <div class="hub-card-top">
+                <div class="hub-card-icon-box">🎯</div>
+                <span class="hub-tag-level hub-tag-amber">Đề Tổng Hợp A2.1</span>
+            </div>
+            <div class="hub-card-subtitle">Bộ 5 Mã Đề Toàn Diện Chặng Cuối</div>
+            <h2 class="hub-card-title">Ôn Tập Mini Test Bài 15–18</h2>
+            <p class="hub-card-desc">
+                Hệ thống 5 mã đề ôn tập trắc nghiệm và câu hỏi ngữ pháp chuyên sâu các chủ đề sức khỏe, thể dục thể thao, quà tặng và lễ hội tiệc tùng.
+            </p>
+            <div class="hub-card-highlights">
+                <span class="hub-highlight-badge">5 Mã Đề Phong Phú</span>
+                <span class="hub-highlight-badge">Giải Thích Chi Tiết</span>
+                <span class="hub-highlight-badge">Chấm Điểm Tự Động</span>
+            </div>
+            <a href="tests/On_Tap_Mini_Test_A2_15_18.html" class="hub-card-btn hub-btn-primary">
+                <span>Làm Mini Test 15–18</span>
+                <span class="hub-btn-arrow">→</span>
+            </a>
+        </article>
+
+        <!-- CARD 15: Ôn Tập Mini Test Bài 11-14 -->
+        <article class="hub-card" data-category="exams" data-keywords="mini test đề thi 11 12 13 14 dã ngoại ẩm thực công tác quy tắc mini test 11-14">
+            <div class="hub-card-top">
+                <div class="hub-card-icon-box">📝</div>
+                <span class="hub-tag-level hub-tag-blue">Mini Test 15 Phút</span>
+            </div>
+            <div class="hub-card-subtitle">Đánh Giá Nhanh Sau Mỗi Chặng</div>
+            <h2 class="hub-card-title">Ôn Tập Mini Test Bài 11–14</h2>
+            <p class="hub-card-desc">
+                Kiểm tra kiến thức sau mỗi bài học, củng cố ngữ pháp thể điều kiện, thể xin phép, từ vựng chuyên đề công sở và quy tắc nơi làm việc.
+            </p>
+            <div class="hub-card-highlights">
+                <span class="hub-highlight-badge">Trắc Nghiệm 4 Lựa Chọn</span>
+                <span class="hub-highlight-badge">Làm Lại Tức Thì</span>
+                <span class="hub-highlight-badge">Xem Lại Lỗi Sai</span>
+            </div>
+            <a href="tests/On_Tap_Mini_Test_A2_11_14.html" class="hub-card-btn hub-btn-primary">
+                <span>Làm Mini Test 11–14</span>
+                <span class="hub-btn-arrow">→</span>
+            </a>
+        </article>
+
+        <!-- CARD 16: Ôn Tập Mini Test Bài 5-8 & Đề Thi Thử -->
+        <article class="hub-card" data-category="exams" data-keywords="mini test 5 6 7 8 đề thi thử 101 102 103 104 105 chỉ đường hẹn gặp mini test 5-8">
+            <div class="hub-card-top">
+                <div class="hub-card-icon-box">📊</div>
+                <span class="hub-tag-level hub-tag-teal">Đề Thi Thử L5–8</span>
+            </div>
+            <div class="hub-card-subtitle">Kiểm Tra Chỉ Đường & Hẹn Gặp</div>
+            <h2 class="hub-card-title">Mini Test & Đề Thi Thử Bài 5–8</h2>
+            <p class="hub-card-desc">
+                Đánh giá toàn diện kiến thức chỉ đường, địa điểm, hẹn gặp và sự kiện. Kết hợp bộ đề thi thử rèn luyện tốc độ làm bài và phản xạ nhanh.
+            </p>
+            <div class="hub-card-highlights">
+                <span class="hub-highlight-badge">Chỉ Đường & Hẹn Gặp</span>
+                <span class="hub-highlight-badge">Kèm Đề Thi Thử</span>
+                <span class="hub-highlight-badge">Đánh Giá Kịp Thời</span>
+            </div>
+            <a href="tests/On_Tap_Mini_Test_A2_5_8.html" class="hub-card-btn hub-btn-primary">
+                <span>Làm Mini Test 5–8</span>
+                <span class="hub-btn-arrow">→</span>
+            </a>
+        </article>
+
+        <!-- CARD 17: 5 Mã Đề Thi Thử Bài 5-8 -->
+        <article class="hub-card" data-category="exams" data-keywords="đề thi thử 5-8 101 102 103 104 105 trắc nghiệm điền từ de thi thu">
+            <div class="hub-card-top">
+                <div class="hub-card-icon-box">🎖️</div>
+                <span class="hub-tag-level hub-tag-purple">Đề Thi Thử Độc Lập</span>
+            </div>
+            <div class="hub-card-subtitle">5 Mã Đề Thi Thử Riêng Biệt (101–105)</div>
+            <h2 class="hub-card-title">5 Mã Đề Thi Thử Marugoto A2 (Bài 5–8)</h2>
+            <p class="hub-card-desc">
+                Bộ 5 mã đề thi thử độc lập dành riêng cho giai đoạn Bài 5 đến 8 với hệ thống trắc nghiệm và điền từ phong phú, rèn bản lĩnh làm bài thi thực tế.
+            </p>
+            <div class="hub-card-highlights">
+                <span class="hub-highlight-badge">Mã Đề 101 đến 105</span>
+                <span class="hub-highlight-badge">Trắc Nghiệm Đa Dạng</span>
+                <span class="hub-highlight-badge">Tự Động Lưu Điểm</span>
+            </div>
+            <a href="tests/De_Thi_Thu_Marugoto_A2_5_8.html" class="hub-card-btn hub-btn-primary">
+                <span>Làm 5 Mã Đề Thi Thử</span>
+                <span class="hub-btn-arrow">→</span>
+            </a>
+        </article>
+
+        <!-- CARD 18: Ôn Tập Mini Test Căn Bản Bài 1-4 -->
+        <article class="hub-card" data-category="exams" data-keywords="mini test bài 1 2 3 4 căn bản nơi ở sở thích thời tiết khí hậu mini test 1-4">
+            <div class="hub-card-top">
+                <div class="hub-card-icon-box">📋</div>
+                <span class="hub-tag-level hub-tag-blue">Nền Tảng Ban Đầu</span>
+            </div>
+            <div class="hub-card-subtitle">Củng Cố Chặng Khởi Động A2.1</div>
+            <h2 class="hub-card-title">Ôn Tập Mini Test Căn Bản Bài 1–4</h2>
+            <p class="hub-card-desc">
+                Củng cố nền tảng bước đầu khi chuyển tiếp từ A1 lên A2.1: Gia đình, sở thích, mùa và thời tiết. Phù hợp cho người mới bắt đầu làm quen với nhịp độ A2.
+            </p>
+            <div class="hub-card-highlights">
+                <span class="hub-highlight-badge">Nền Tảng Vững Chắc</span>
+                <span class="hub-highlight-badge">Dễ Tiếp Cận</span>
+                <span class="hub-highlight-badge">Phản Hồi Điểm Tức Thì</span>
+            </div>
+            <a href="tests/On_Tap_Mini_Test_A2_1_4.html" class="hub-card-btn hub-btn-primary">
+                <span>Làm Mini Test 1–4</span>
+                <span class="hub-btn-arrow">→</span>
+            </a>
+        </article>
+
+        <!-- CARD 19: Đề Kiểm Tra Chuyên Đề Bài 6, 7, 8 -->
+        <article class="hub-card" data-category="exams" data-keywords="kiểm tra l6 7 8 chuyên đề chỉ đường hẹn gặp giao tiếp kiem tra l6 7 8">
+            <div class="hub-card-top">
+                <div class="hub-card-icon-box">📑</div>
+                <span class="hub-tag-level hub-tag-teal">Chuyên Đề Trọng Tâm</span>
+            </div>
+            <div class="hub-card-subtitle">Chỉ Đường, Địa Điểm & Hẹn Giờ</div>
+            <h2 class="hub-card-title">Đề Kiểm Tra Chuyên Đề (Bài 6, 7, 8)</h2>
+            <p class="hub-card-desc">
+                Bài kiểm tra tập trung đánh giá tình huống giao tiếp đời sống: hỏi đường trong ga tàu, sắp xếp thời gian gặp mặt và cùng bạn bè tham gia sự kiện.
+            </p>
+            <div class="hub-card-highlights">
+                <span class="hub-highlight-badge">Tình Huống Thực Tế</span>
+                <span class="hub-highlight-badge">Chấm Điểm Tự Động</span>
+                <span class="hub-highlight-badge">Củng Cố Kỹ Năng</span>
+            </div>
+            <a href="tests/Kiem_Tra_Marugoto_L6_7_8.html" class="hub-card-btn hub-btn-primary">
+                <span>Làm Đề Kiểm Tra L6–8</span>
+                <span class="hub-btn-arrow">→</span>
+            </a>
+        </article>
+
+        <!-- CARD 20: Không Gian 3D Nhật Bản -->
+        <article class="hub-card" data-category="culture-3d" data-keywords="không gian 3d three.js webgl đền thờ shinto cổng torii vườn thiền văn hóa nhật bản demo 3d">
+            <div class="hub-card-top">
+                <div class="hub-card-icon-box">⛩️</div>
+                <span class="hub-tag-level hub-tag-crimson">Khám Phá Văn Hóa 3D</span>
+            </div>
+            <div class="hub-card-subtitle">Three.js WebGL • Tương Tác 360°</div>
+            <h2 class="hub-card-title">Không Gian Tương Tác 3D Nhật Bản</h2>
+            <p class="hub-card-desc">
+                Trải nghiệm không gian ảo 3D chân thực: dạo bước qua cổng Torii đỏ thắm, chiêm ngưỡng đền thờ Thần Đạo Shinto và thư giãn bên khu vườn sỏi thiền Zen Nhật Bản.
+            </p>
+            <div class="hub-card-highlights">
+                <span class="hub-highlight-badge">Đồ Họa 3D Three.js</span>
+                <span class="hub-highlight-badge">Góc Nhìn 360° Tự Do</span>
+                <span class="hub-highlight-badge">Thư Giãn Giờ Học</span>
+            </div>
+            <a href="demo_3d.html" class="hub-card-btn hub-btn-primary">
+                <span>Khám Phá Không Gian 3D</span>
+                <span class="hub-btn-arrow">→</span>
+            </a>
+        </article>
+
+    </main>
+
+    <!-- ======================================================================
+         5. 18 LESSONS SPECIAL SECTION (MARUGOTO A2.1)
+         ====================================================================== -->
+    <section class="hub-lessons-section" id="hubLessonsSection" data-category="lessons" aria-labelledby="lessons-section-title">
+        <div class="hub-lessons-header">
+            <div class="hub-lessons-title-group">
+                <h2 id="lessons-section-title">🚀 Hệ Thống 18 Bài Học Marugoto A2.1</h2>
+                <p>Khám phá đầy đủ 18 bài học tích hợp lý thuyết, từ vựng ngữ cảnh, luyện gõ và bài tập tương tác chuẩn giáo trình.</p>
+            </div>
+            <span class="hub-tag-level hub-tag-teal">Đầy Đủ 18 Bài</span>
         </div>
 
-        <!-- Quy Tắc Chia Thể TE -->
-        <div class="card">
-            <h2>⚡ Quy Tắc Chia Động Từ Sang Thể TE (～て)</h2>
+        <div class="hub-lessons-grid">
+            <a href="lessons/Marugoto_A2_Lesson_1.html" class="hub-lesson-item">
+                <span class="hub-lesson-num">01</span>
+                <div class="hub-lesson-info">
+                    <span class="hub-lesson-name">Bài 1: Nơi ở & Gia đình</span>
+                    <span class="hub-lesson-jp">住まいと家族</span>
+                </div>
+            </a>
 
-            <table class="rule-table">
-                <thead>
-                    <tr>
-                        <th>Nhóm</th>
-                        <th>Đuôi trước ます</th>
-                        <th>Cách biến đổi sang Thể TE</th>
-                        <th>Ví dụ minh họa</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td rowspan="5" style="vertical-align: middle; text-align: center; font-weight: bold; background: #eaf2fd;">
-                            <span class="group-tag tag-g1">Nhóm 1</span>
-                        </td>
-                        <td><strong>い, ち, り</strong></td>
-                        <td>➔ <strong>って</strong> (tsu nhỏ + te)</td>
-                        <td>
-                            か<strong>い</strong>ます ➔ <strong>かって</strong><br>
-                            ま<strong>ち</strong>ます ➔ <strong>まって</strong><br>
-                            かえ<strong>り</strong>ます ➔ <strong>かえって</strong>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><strong>に, み, び</strong></td>
-                        <td>➔ <strong>んで</strong> (n + de)</td>
-                        <td>
-                            し<strong>に</strong>ます ➔ <strong>しんで</strong><br>
-                            よ<strong>み</strong>ます ➔ <strong>よんで</strong><br>
-                            あそ<strong>び</strong>ます ➔ <strong>あそんで</strong>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><strong>き</strong></td>
-                        <td>
-                            ➔ <strong>いて</strong><br>
-                            <span class="badge-special">NGOẠI LỆ</span> <strong>いきます ➔ いって</strong>
-                        </td>
-                        <td>
-                            か<strong>き</strong>ます ➔ <strong>かいて</strong><br>
-                            き<strong>き</strong>ます ➔ <strong>きいて</strong><br>
-                            ⭐ い<strong>き</strong>ます ➔ <strong>いって</strong>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><strong>ぎ</strong></td>
-                        <td>➔ <strong>いで</strong> (i + de)</td>
-                        <td>
-                            およ<strong>ぎ</strong>ます ➔ <strong>およいで</strong><br>
-                            いそ<strong>ぎ</strong>ます ➔ <strong>いそいで</strong>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><strong>し</strong></td>
-                        <td>➔ <strong>して</strong></td>
-                        <td>
-                            はな<strong>し</strong>ます ➔ <strong>はなして</strong><br>
-                            か<strong>し</strong>ます ➔ <strong>かして</strong>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="vertical-align: middle; text-align: center; font-weight: bold; background: #fff0f6;">
-                            <span class="group-tag tag-g2">Nhóm 2</span>
-                        </td>
-                        <td>Cột <strong>え</strong> / Cột <strong>い</strong> đặc biệt</td>
-                        <td>➔ <strong>Bỏ ます thêm て</strong></td>
-                        <td>
-                            たべます ➔ <strong>たべて</strong><br>
-                            みます ➔ <strong>みて</strong><br>
-                            おきます ➔ <strong>おきて</strong>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="vertical-align: middle; text-align: center; font-weight: bold; background: #f3f0ff;">
-                            <span class="group-tag tag-g3">Nhóm 3</span>
-                        </td>
-                        <td><strong>します / きます</strong></td>
-                        <td>
-                            <strong>します ➔ して</strong><br>
-                            <strong>きます ➔ きて</strong>
-                        </td>
-                        <td>
-                            べんきょうします ➔ <strong>べんきょうして</strong><br>
-                            もってきます ➔ <strong>もってきて</strong>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <a href="lessons/Marugoto_A2_Lesson_2.html" class="hub-lesson-item">
+                <span class="hub-lesson-num">02</span>
+                <div class="hub-lesson-info">
+                    <span class="hub-lesson-name">Bài 2: Sở thích & Ngôn ngữ</span>
+                    <span class="hub-lesson-jp">趣味と外国語</span>
+                </div>
+            </a>
 
-            <div class="rhyme-box">
-                <h4>🎶 BÀI VÈ NHỚ NHANH NHÓM 1 KINH ĐIỂN</h4>
-                <ul>
-                    <li>✨ <em>"Í - Chì - Rỉ"</em> ➔ Gặp nhau đổi thành <strong>って</strong></li>
-                    <li>✨ <em>"Mì - Bún - Nỉ"</em> (Mi - Bi - Ni) ➔ Đổi thành <strong>んで</strong></li>
-                    <li>✨ <em>"Kì"</em> thành <strong>いて</strong>, <em>"Gì"</em> thành <strong>いで</strong></li>
-                    <li>✨ <em>"Xì"</em> thành <strong>して</strong></li>
-                    <li>⚠️ <strong>Cấm quên:</strong> Riêng <em>いきます</em> phải thành <strong>いって</strong>!</li>
-                </ul>
-            </div>
+            <a href="lessons/Marugoto_A2_Lesson_3.html" class="hub-lesson-item">
+                <span class="hub-lesson-num">03</span>
+                <div class="hub-lesson-info">
+                    <span class="hub-lesson-name">Bài 3: Mùa & Khí hậu</span>
+                    <span class="hub-lesson-jp">季節と気候</span>
+                </div>
+            </a>
+
+            <a href="lessons/Marugoto_A2_Lesson_4.html" class="hub-lesson-item">
+                <span class="hub-lesson-num">04</span>
+                <div class="hub-lesson-info">
+                    <span class="hub-lesson-name">Bài 4: Thời tiết & Dự báo</span>
+                    <span class="hub-lesson-jp">天気と予報</span>
+                </div>
+            </a>
+
+            <a href="lessons/Marugoto_A2_Lesson_5.html" class="hub-lesson-item">
+                <span class="hub-lesson-num">05</span>
+                <div class="hub-lesson-info">
+                    <span class="hub-lesson-name">Bài 5: Phố xá & Nơi chốn</span>
+                    <span class="hub-lesson-jp">町と場所</span>
+                </div>
+            </a>
+
+            <a href="lessons/Marugoto_A2_Lesson_6.html" class="hub-lesson-item">
+                <span class="hub-lesson-num">06</span>
+                <div class="hub-lesson-info">
+                    <span class="hub-lesson-name">Bài 6: Chỉ đường & Ngã rẽ</span>
+                    <span class="hub-lesson-jp">道案内と角</span>
+                </div>
+            </a>
+
+            <a href="lessons/Marugoto_A2_Lesson_7.html" class="hub-lesson-item">
+                <span class="hub-lesson-num">07</span>
+                <div class="hub-lesson-info">
+                    <span class="hub-lesson-name">Bài 7: Hẹn gặp & Giờ giấc</span>
+                    <span class="hub-lesson-jp">約束と時間</span>
+                </div>
+            </a>
+
+            <a href="lessons/Marugoto_A2_Lesson_8.html" class="hub-lesson-item">
+                <span class="hub-lesson-num">08</span>
+                <div class="hub-lesson-info">
+                    <span class="hub-lesson-name">Bài 8: Sự kiện & Mời mọc</span>
+                    <span class="hub-lesson-jp">イベントと誘い</span>
+                </div>
+            </a>
+
+            <a href="lessons/Marugoto_A2_Lesson_9.html" class="hub-lesson-item">
+                <span class="hub-lesson-num">09</span>
+                <div class="hub-lesson-info">
+                    <span class="hub-lesson-name">Bài 9: Học tập & Phát âm</span>
+                    <span class="hub-lesson-jp">勉強と発音</span>
+                </div>
+            </a>
+
+            <a href="lessons/Marugoto_A2_Lesson_10.html" class="hub-lesson-item">
+                <span class="hub-lesson-num">10</span>
+                <div class="hub-lesson-info">
+                    <span class="hub-lesson-name">Bài 10: Ngoại ngữ & Văn hóa</span>
+                    <span class="hub-lesson-jp">外国語と文化</span>
+                </div>
+            </a>
+
+            <a href="lessons/Marugoto_A2_Lesson_11.html" class="hub-lesson-item">
+                <span class="hub-lesson-num">11</span>
+                <div class="hub-lesson-info">
+                    <span class="hub-lesson-name">Bài 11: Dã ngoại & Ăn uống</span>
+                    <span class="hub-lesson-jp">ピクニックと食事</span>
+                </div>
+            </a>
+
+            <a href="lessons/Marugoto_A2_Lesson_12.html" class="hub-lesson-item">
+                <span class="hub-lesson-num">12</span>
+                <div class="hub-lesson-info">
+                    <span class="hub-lesson-name">Bài 12: Món ăn ngày đặc biệt</span>
+                    <span class="hub-lesson-jp">特別な日の料理</span>
+                </div>
+            </a>
+
+            <a href="lessons/Marugoto_A2_Lesson_13.html" class="hub-lesson-item">
+                <span class="hub-lesson-num">13</span>
+                <div class="hub-lesson-info">
+                    <span class="hub-lesson-name">Bài 13: Đi công tác & Gặp gỡ</span>
+                    <span class="hub-lesson-jp">出張と出会い</span>
+                </div>
+            </a>
+
+            <a href="lessons/Marugoto_A2_Lesson_14.html" class="hub-lesson-item">
+                <span class="hub-lesson-num">14</span>
+                <div class="hub-lesson-info">
+                    <span class="hub-lesson-name">Bài 14: Quy tắc nơi làm việc</span>
+                    <span class="hub-lesson-jp">職場のルール</span>
+                </div>
+            </a>
+
+            <a href="lessons/Marugoto_A2_Lesson_15.html" class="hub-lesson-item">
+                <span class="hub-lesson-num">15</span>
+                <div class="hub-lesson-info">
+                    <span class="hub-lesson-name">Bài 15: Sức khỏe & Thể dục</span>
+                    <span class="hub-lesson-jp">健康と運動</span>
+                </div>
+            </a>
+
+            <a href="lessons/Marugoto_A2_Lesson_16.html" class="hub-lesson-item">
+                <span class="hub-lesson-num">16</span>
+                <div class="hub-lesson-info">
+                    <span class="hub-lesson-name">Bài 16: Tập luyện & Vận động</span>
+                    <span class="hub-lesson-jp">トレーニングと活動</span>
+                </div>
+            </a>
+
+            <a href="lessons/Marugoto_A2_Lesson_17.html" class="hub-lesson-item">
+                <span class="hub-lesson-num">17</span>
+                <div class="hub-lesson-info">
+                    <span class="hub-lesson-name">Bài 17: Quà tặng & Kỷ niệm</span>
+                    <span class="hub-lesson-jp">プレゼントと思い出</span>
+                </div>
+            </a>
+
+            <a href="lessons/Marugoto_A2_Lesson_18.html" class="hub-lesson-item">
+                <span class="hub-lesson-num">18</span>
+                <div class="hub-lesson-info">
+                    <span class="hub-lesson-name">Bài 18: Tiệc tùng & Sự kiện</span>
+                    <span class="hub-lesson-jp">パーティーとイベント</span>
+                </div>
+            </a>
         </div>
-    </div>
+    </section>
 
-    <!-- TAB 3: USAGE ～ています -->
-    <div id="tab-usage" class="tab-panel">
-        <div class="card">
-            <h2>📌 Ngữ Pháp Trọng Tâm: Cấu Trúc ～ています (Đang V / Trạng thái)</h2>
-            <p>Trong giáo trình Marugoto A2-1, Thể て được dùng phổ biến nhất với mẫu câu <strong>～ています</strong> theo 2 sắc thái ý nghĩa:</p>
-
-            <h3>① Diễn tả hành động đang xảy ra tại thời điểm nói</h3>
-            <p>Thường đi kèm với từ chỉ thời gian <strong>「いま」 (bây giờ)</strong>.</p>
-            <div class="example-box">
-                <p><strong>Cấu trúc:</strong></p>
-                <p>✔️ Khẳng định: <code>S は Vて います。</code> (Đang làm V)</p>
-                <p>❌ Phủ định: <code>S は Vて いません。</code> (Đang không làm V)</p>
-                <p>❓ Nghi vấn: <code>S は 《Từ để hỏi》 Vて いますか。</code></p>
-                <br>
-                <p><strong>Ví dụ:</strong></p>
-                <p>• A: さくらさん、いま <strong>なにを して いますか</strong>。 (Sakura ơi, bây giờ bạn đang làm gì thế?)</p>
-                <p>• B: テレビを <strong>みて います</strong>。 (Tôi đang xem tivi.)</p>
-                <p>• ももさんは いま ごはんを <strong>たべて います</strong>。 (Momo bây giờ đang ăn cơm.)</p>
-            </div>
-
-            <h3 style="margin-top: 25px;">② Diễn tả trạng thái tiếp diễn của hành động (Kéo dài từ quá khứ đến hiện tại)</h3>
-            <p>Dùng cho những hành động mang tính chất duy trì, nghề nghiệp, nơi cư trú...</p>
-            <div class="example-box">
-                <p><strong>Ví dụ điển hình:</strong></p>
-                <p>• わたしは ハノイに <strong>すんで います</strong>。 (Tôi đang sinh sống ở Hà Nội.)</p>
-                <p>• おばは しゅふです。しごとは <strong>して いません</strong>。 (Bác tôi là nội trợ. Bác không đi làm việc.)</p>
-                <p>• かいしゃで <strong>はたらいて います</strong>。 (Tôi đang làm việc ở công ty.)</p>
-                <p>• けっこん <strong>して います</strong>。 (Tôi đã kết hôn.)</p>
-            </div>
+    <!-- ======================================================================
+         6. FOOTER
+         ====================================================================== -->
+    <footer class="hub-footer">
+        <div class="hub-footer-links">
+            <a href="Tong_Hop_Ngu_Phap_Marugoto_A1_A2.html">📗 Ngữ Pháp A1–A2</a>
+            <span class="hub-footer-divider">•</span>
+            <a href="kanji_a2.html">⛩️ Học Kanji A2</a>
+            <span class="hub-footer-divider">•</span>
+            <a href="Tu_Vung_Marugoto_A1_16_A2_1_10.html">📖 Kho Từ Vựng</a>
+            <span class="hub-footer-divider">•</span>
+            <a href="tests/De_Thi_Midterm_A2_1.html">🎯 Đề Thi Midterm</a>
+            <span class="hub-footer-divider">•</span>
+            <a href="tests/On_Tap_Mini_Test_A2_15_18.html#typing">⌨️ Typing Studio</a>
+            <span class="hub-footer-divider">•</span>
+            <a href="demo_3d.html">🌸 Không Gian 3D</a>
         </div>
-    </div>
-
-    <footer>
-        <p>Phát triển cho lớp học tiếng Nhật Marugoto A2-1 • Chúc các bạn luyện tập tốt!</p>
+        <p class="hub-footer-note">
+            Hệ thống học tập Marugoto A1–A2 Interactive Study Hub • Phát triển phục vụ cộng đồng học tiếng Nhật tự học & luyện thi.
+        </p>
+        <div class="hub-footer-badge">
+            <span>✨ Tự động lưu bài làm qua Checkpoint Sync</span>
+            <span>•</span>
+            <span>Phát âm chuẩn Tokyo Web Speech API</span>
+        </div>
     </footer>
 </div>
-<script src="assets/js/pages/index_hub.js?v=1"></script>
 
+<!-- Scripts -->
+<script src="assets/js/pages/index_hub.js?v=2"></script>
 <script src="assets/js/nav-dropdown.js"></script>
-    <script src="assets/nav.js?v=6" defer></script>
+<script src="assets/nav.js?v=6" defer></script>
 </body>
 </html>

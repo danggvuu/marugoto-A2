@@ -172,22 +172,62 @@ html = f"""<!DOCTYPE html>
                 <div id="tpHintPreview" style="display:none; margin-top:10px; padding:8px 12px; background:#ffffff; border-radius:8px; font-size:0.88rem; color:var(--primary-dark); border:1px dashed #a5b4fc;"></div>
             </div>
 
-            <div style="font-size:0.86rem; font-weight:700; color:var(--gray-600); margin-bottom:8px;" id="tpInputDirective">
+            <div style="font-size:0.88rem; font-weight:700; color:var(--gray-600); margin-bottom:8px;" id="tpInputDirective">
                 ⬇️ Nhập <strong>cách đọc Hiragana</strong> của chữ Hán trên rồi nhấn Enter:
             </div>
 
-            <input type="text" class="typing-input-large jp-text" id="tpCardInput" placeholder="Nhập cách đọc Hiragana rồi nhấn Enter..." autocomplete="off" autocapitalize="off" spellcheck="false">
+            <div class="typing-input-wrapper">
+                <input type="text" class="typing-input-large jp-text" id="tpCardInput" placeholder="Nhập cách đọc Hiragana rồi nhấn Enter..." autocomplete="off" autocapitalize="off" spellcheck="false">
+            </div>
 
-            <div class="typing-actions">
-                <button type="button" class="btn-primary" style="background:var(--gray-500);" onclick="prevTypingItem()">⬅️ Trước</button>
-                <button type="button" class="btn-primary" id="tpCardCheckBtn" onclick="handleTypingPrimaryBtn()">Kiểm Tra Đáp Án ⏎</button>
-                <button type="button" class="btn-primary" id="tpCardSkipBtn" style="background:#475569;" onclick="skipOrPassCurrentTypingWord()">⏭️ Bỏ Qua (Tab)</button>
-                <button type="button" class="btn-primary" id="tpCardRetryBtn" style="background:#0284c7; display:none;" onclick="retryCurrentTypingCard()">🔄 Gõ Lại (Esc)</button>
-                <button type="button" class="btn-primary" id="tpCardSpeakBtn" style="background:#0ea5e9;" onclick="speakCurrentTypingWord(this)">🔊 Nghe Mẫu</button>
-                <button type="button" class="btn-primary" style="background:var(--purple);" onclick="showTypingHint()">💡 Gợi Ý</button>
-                <button type="button" class="btn-primary" style="background:var(--warning);" onclick="revealTypingAnswer()">👁️ Xem Đáp Án</button>
-                <button type="button" class="btn-primary" id="tpCardSaveBtn" style="background:#059669;" onclick="manualSaveTypingProgress()">💾 Lưu Tiến Độ</button>
-                <button type="button" class="btn-primary" style="background:#be123c;" onclick="resetCurrentTypingMode()">🔄 Làm Lại Chế Độ</button>
+            <div class="tp-shortcut-bar" id="tpShortcutBar">
+                <span class="tp-shortcut-item"><kbd class="tp-kbd">⏎ Enter</kbd> Kiểm Tra / Tiếp</span>
+                <span class="tp-shortcut-item"><kbd class="tp-kbd">Tab</kbd> Bỏ qua (Skip)</span>
+                <span class="tp-shortcut-item"><kbd class="tp-kbd">Esc</kbd> Gõ lại (Retry)</span>
+                <span class="tp-shortcut-item"><kbd class="tp-kbd">Alt + H</kbd> Gợi ý</span>
+            </div>
+
+            <div class="typing-actions typing-actions-wrapper">
+                <!-- Primary Action (Large prominent brand red / teal) -->
+                <div class="tp-action-row-primary">
+                    <button type="button" class="tp-btn-primary is-check" id="tpCardCheckBtn" onclick="handleTypingPrimaryBtn()">
+                        <span class="tp-btn-icon">✨</span>
+                        <span class="tp-btn-label">Kiểm Tra Đáp Án</span>
+                        <kbd class="tp-kbd tp-kbd-light">⏎ Enter</kbd>
+                    </button>
+                </div>
+                <!-- Secondary Actions (Skip, Retry, Save, Prev) -->
+                <div class="tp-action-row-secondary">
+                    <button type="button" class="tp-btn-secondary" id="tpCardPrevBtn" onclick="prevTypingItem()" title="Câu trước">
+                        <span>⬅️ Trước</span>
+                    </button>
+                    <button type="button" class="tp-btn-secondary" id="tpCardSkipBtn" onclick="skipOrPassCurrentTypingWord()" title="Bỏ qua câu này (Tab)">
+                        <span>⏭️ Bỏ Qua</span>
+                        <kbd class="tp-kbd">Tab</kbd>
+                    </button>
+                    <button type="button" class="tp-btn-secondary is-retry" id="tpCardRetryBtn" style="display:none;" onclick="retryCurrentTypingCard()" title="Gõ lại câu này (Esc)">
+                        <span>🔄 Gõ Lại</span>
+                        <kbd class="tp-kbd">Esc</kbd>
+                    </button>
+                    <button type="button" class="tp-btn-secondary" id="tpCardSaveBtn" onclick="manualSaveTypingProgress()" title="Lưu tiến độ làm bài">
+                        <span>💾 Lưu</span>
+                    </button>
+                </div>
+                <!-- Utility Buttons (Audio, Hint, Reveal, Reset) -->
+                <div class="tp-action-row-utility">
+                    <button type="button" class="tp-btn-utility is-audio" id="tpCardSpeakBtn" onclick="speakCurrentTypingWord(this)" title="Nghe phát âm chuẩn">
+                        <span>🔊 Nghe Mẫu</span>
+                    </button>
+                    <button type="button" class="tp-btn-utility is-hint" id="tpCardHintBtn" onclick="showTypingHint()" title="Xem gợi ý công thức">
+                        <span>💡 Gợi Ý</span>
+                    </button>
+                    <button type="button" class="tp-btn-utility is-reveal" id="tpCardRevealBtn" onclick="revealTypingAnswer()" title="Xem đáp án chuẩn">
+                        <span>👁️ Xem Đáp Án</span>
+                    </button>
+                    <button type="button" class="tp-btn-utility tp-btn-danger-ghost" id="tpCardResetBtn" onclick="resetCurrentTypingMode()" title="Đặt lại toàn bộ tiến độ chế độ này">
+                        <span>🔄 Đặt lại</span>
+                    </button>
+                </div>
             </div>
 
             <!-- Bảng giải thích chi tiết (Nghĩa + So sánh + Vì sao sai) -->
@@ -220,7 +260,7 @@ html = f"""<!DOCTYPE html>
                 <div class="flashcard" id="mainFlashcard">
                     <div class="card-face card-front">
                         <div class="cram-kanji jp-text" id="cramFrontKanji">お酒</div>
-                        <div class="cram-hint">👆 Chạm hoặc bấm Space để lật xem cách đọc & nghĩa</div>
+                        <div class="cram-hint"><span>👆 Chạm thẻ hoặc bấm</span> <kbd class="tp-kbd">Space</kbd> <span>để lật xem</span></div>
                     </div>
                     <div class="card-face card-back">
                         <div class="cram-kana jp-text" id="cramBackKana">おさけ</div>
@@ -234,7 +274,10 @@ html = f"""<!DOCTYPE html>
 
             <div class="cram-controls">
                 <button type="button" class="btn-cram-ctrl btn-prev" onclick="prevCramCard()">⬅️ Trước</button>
-                <button type="button" class="btn-cram-ctrl btn-flip" onclick="flipCurrentCard()">🔄 Lật Thẻ (Space)</button>
+                <button type="button" class="btn-cram-ctrl btn-flip" onclick="flipCurrentCard()">
+                    <span>🔄 Lật Thẻ</span>
+                    <kbd class="tp-kbd tp-kbd-light">Space</kbd>
+                </button>
                 <button type="button" class="btn-cram-ctrl btn-next" onclick="nextCramCard()">Kế tiếp ➡️</button>
             </div>
         </div>

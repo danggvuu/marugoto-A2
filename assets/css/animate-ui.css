@@ -1,30 +1,39 @@
 /**
  * Animate UI (Ultra-High Performance 120fps CSS)
- * Zero-Jank, Hardware-Accelerated Micro-Interactions & Spring Physics
- * Optimized for Large Portals & Low-End Mobile Devices
+ * Handcrafted Micro-Interactions, Spring Physics & Tactile Feedback
+ * Built specifically for Japanese Language Learning Platform
+ * Optimized for Zero-Jank, Battery Efficiency & Fluid Touch Screens
  */
 
 :root {
-  /* Snappy Micro-Interaction Easings */
-  --aui-ease-out: cubic-bezier(0.2, 0.9, 0.3, 1);
+  /* Snappy & Silky Micro-Interaction Curves */
+  --aui-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --aui-ease-spring: cubic-bezier(0.34, 1.4, 0.64, 1);
   --aui-ease-flip: cubic-bezier(0.4, 0.2, 0.2, 1);
+  --aui-ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
 
-  /* Scales */
-  --aui-scale-press: 0.97;
+  /* Precise Tactile Metric Scales */
+  --aui-scale-press: 0.985;
+  --aui-press-y: 1px;
   --aui-scale-hover: 1.02;
+
+  /* Durations */
+  --aui-dur-fast: 0.12s;
+  --aui-dur-normal: 0.2s;
+  --aui-dur-flip: 0.42s;
 }
 
 /* ==========================================================================
-   0. Scroll & Sticky Offsets
+   0. Scroll, Anchors & Sticky Offsets
    ========================================================================== */
 
 html {
-  scroll-padding-top: 24px;
+  scroll-padding-top: 28px;
+  scroll-behavior: smooth;
 }
 
 [id] {
-  scroll-margin-top: 24px;
+  scroll-margin-top: 28px;
 }
 
 table th,
@@ -33,50 +42,75 @@ table th,
 }
 
 /* ==========================================================================
-   1. Tactile Interactive Elements (Buttons, Tabs, Chips, Pills)
+   1. Tactile Interactive Elements (Buttons, Pills, Tabs, Chips)
    ========================================================================== */
 
 button,
 .btn,
+.btn-action,
+.btn-ta-action,
+.btn-quizlet,
 .hub-nav-item,
 .fc-speaker-btn,
 .table-speaker-btn,
 .fc-audio-btn,
+.sound-btn,
 .tab-btn,
 .nav-tab-btn,
 .mode-btn,
 .preset-pill,
 .lesson-chip,
 .quiz-opt,
+.sec-link,
+.filter-btn,
+.filter-pill,
+.quicknav-pill,
+.tp-mode-btn,
+.tp-btn-check,
+.tp-btn-sub,
 a[class*="btn"] {
-  transition: transform 0.12s var(--aui-ease-out),
-              box-shadow 0.12s var(--aui-ease-out),
-              background-color 0.12s ease,
-              border-color 0.12s ease;
+  transition: transform var(--aui-dur-fast) var(--aui-ease-out),
+              box-shadow var(--aui-dur-fast) var(--aui-ease-out),
+              background-color var(--aui-dur-fast) ease,
+              border-color var(--aui-dur-fast) ease,
+              color var(--aui-dur-fast) ease;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
+  backface-visibility: hidden;
+  will-change: transform;
 }
 
-/* Clean Hover Lift */
+/* Elegant & Subtle Hover Lift */
 button:hover:not(:disabled),
 .btn:hover:not(:disabled),
+.btn-action:hover:not(:disabled),
+.btn-ta-action:hover:not(:disabled),
 .fc-speaker-btn:hover,
 .table-speaker-btn:hover,
 .fc-audio-btn:hover,
+.sound-btn:hover,
 .hub-nav-item:hover,
 .tab-btn:hover,
 .nav-tab-btn:hover,
 .mode-btn:hover,
-.preset-pill:hover {
+.preset-pill:hover,
+.sec-link:hover,
+.quicknav-pill:hover,
+.filter-pill:hover,
+.tp-mode-btn:hover {
   transform: translateY(-1.5px);
 }
 
-/* Instant Spring Press Feedback (Zero Lag) */
+/* Handcrafted Tactile Button Press (Natural 1px downward click) */
 button:active:not(:disabled),
 .btn:active:not(:disabled),
+.btn-action:active:not(:disabled),
+.btn-ta-action:active:not(:disabled),
+.btn-quizlet:active,
 .fc-speaker-btn:active,
 .table-speaker-btn:active,
 .fc-audio-btn:active,
+.sound-btn:active,
 .hub-nav-item:active,
 .tab-btn:active,
 .nav-tab-btn:active,
@@ -84,9 +118,15 @@ button:active:not(:disabled),
 .preset-pill:active,
 .lesson-chip:active,
 .quiz-opt:active,
+.sec-link:active,
+.quicknav-pill:active,
+.filter-pill:active,
+.tp-mode-btn:active,
+.tp-btn-check:active,
+.tp-btn-sub:active,
 a[class*="btn"]:active {
-  transform: scale(var(--aui-scale-press)) translateY(1px);
-  transition: transform 0.05s ease;
+  transform: translateY(var(--aui-press-y)) scale(var(--aui-scale-press)) !important;
+  transition: transform 0.05s ease !important;
 }
 
 /* ==========================================================================
@@ -101,16 +141,29 @@ a[class*="btn"]:active {
 .lesson-card,
 .vocab-card,
 .table-card,
-.kanji-card {
-  transition: box-shadow 0.2s var(--aui-ease-out),
-              border-color 0.15s ease;
+.kanji-card,
+.content-section,
+.kanji-detail-card,
+.grammar-card,
+.rule-box {
+  transition: box-shadow var(--aui-dur-normal) var(--aui-ease-out),
+              border-color var(--aui-dur-fast) ease,
+              transform var(--aui-dur-normal) var(--aui-ease-out);
 }
 
 .card:hover,
 .test-card:hover,
 .lesson-card:hover,
-.kanji-card:hover {
-  box-shadow: 0 8px 20px -4px rgba(15, 23, 42, 0.08);
+.kanji-card:hover,
+.kanji-detail-card:hover {
+  box-shadow: 0 10px 24px -4px rgba(15, 23, 42, 0.08),
+              0 4px 8px -2px rgba(15, 23, 42, 0.03);
+}
+
+/* Interactive Card Elevation */
+.card-interactive:hover,
+.lesson-card:hover {
+  transform: translateY(-2px);
 }
 
 /* ==========================================================================
@@ -120,38 +173,54 @@ a[class*="btn"]:active {
 .flashcard-scene,
 .fc-card,
 .card-flip-wrap {
-  perspective: 1000px;
+  perspective: 1200px;
 }
 
 .flashcard-inner,
 .fc-inner,
 .card-flip-inner {
-  transition: transform 0.4s var(--aui-ease-flip) !important;
+  transition: transform var(--aui-dur-flip) var(--aui-ease-flip) !important;
   transform-style: preserve-3d;
+  will-change: transform;
 }
 
 /* ==========================================================================
-   4. Audio Playing Pulse Animation
+   4. Audio Playing Pulse Animation (Handcrafted Crimson/Amber Ambient Glow)
    ========================================================================== */
 
 .aui-audio-playing,
 .audio-playing {
-  animation: aui-audio-pulse 1.2s infinite ease-out !important;
+  animation: aui-audio-pulse 1.35s infinite ease-out !important;
 }
 
 @keyframes aui-audio-pulse {
   0% {
-    box-shadow: 0 0 0 0 rgba(79, 70, 229, 0.6);
-    transform: scale(1.05);
+    box-shadow: 0 0 0 0 rgba(225, 29, 72, 0.45);
+    transform: scale(1.04);
   }
-  60% {
-    box-shadow: 0 0 0 10px rgba(79, 70, 229, 0);
+  50% {
+    box-shadow: 0 0 0 9px rgba(225, 29, 72, 0);
     transform: scale(1);
   }
   100% {
-    box-shadow: 0 0 0 0 rgba(79, 70, 229, 0);
+    box-shadow: 0 0 0 0 rgba(225, 29, 72, 0);
     transform: scale(1);
   }
+}
+
+/* Sound Wave Bar Animation Utility */
+.audio-wave-bar {
+  display: inline-block;
+  width: 3px;
+  height: 12px;
+  background: currentColor;
+  border-radius: 2px;
+  animation: auiWave 0.8s infinite ease-in-out alternate;
+}
+
+@keyframes auiWave {
+  0% { height: 4px; }
+  100% { height: 16px; }
 }
 
 /* ==========================================================================
@@ -159,44 +228,90 @@ a[class*="btn"]:active {
    ========================================================================== */
 
 .quiz-opt:hover {
-  transform: translateX(3px);
+  transform: translateX(4px);
 }
 
-.aui-check-pop {
-  animation: aui-pop-anim 0.35s var(--aui-ease-spring) forwards !important;
+.aui-check-pop,
+.is-correct-anim {
+  animation: aui-pop-anim 0.32s var(--aui-ease-spring) forwards !important;
 }
 
 @keyframes aui-pop-anim {
-  0% { transform: scale(0.97); }
-  50% { transform: scale(1.04); }
+  0% { transform: scale(0.96); }
+  50% { transform: scale(1.035); }
   100% { transform: scale(1); }
 }
 
-.aui-shake {
-  animation: aui-shake-anim 0.35s ease-in-out forwards !important;
+.aui-shake,
+.is-wrong-anim {
+  animation: aui-shake-anim 0.35s cubic-bezier(0.36, 0.07, 0.19, 0.97) forwards !important;
 }
 
 @keyframes aui-shake-anim {
   0%, 100% { transform: translateX(0); }
-  25% { transform: translateX(-5px); }
-  75% { transform: translateX(5px); }
+  20% { transform: translateX(-5px); }
+  40% { transform: translateX(5px); }
+  60% { transform: translateX(-3px); }
+  80% { transform: translateX(3px); }
 }
 
 /* ==========================================================================
-   6. Accessibility (Reduced Motion)
+   6. UI Entrance Animations (Fade, Slide, Drop)
+   ========================================================================== */
+
+.aui-fade-in {
+  animation: auiFadeIn 0.25s var(--aui-ease-out) forwards;
+}
+
+@keyframes auiFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.aui-fade-up {
+  animation: auiFadeUp 0.3s var(--aui-ease-out) forwards;
+}
+
+@keyframes auiFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Subtle Shimmer for Skeleton States */
+.aui-shimmer {
+  background: linear-gradient(90deg, #f1f5f9 0%, #ffffff 50%, #f1f5f9 100%);
+  background-size: 200% 100%;
+  animation: auiShimmer 1.8s infinite ease-in-out;
+}
+
+@keyframes auiShimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* ==========================================================================
+   7. Accessibility (Reduced Motion)
    ========================================================================== */
 
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {
-    animation-duration: 0.01ms !important;
+    animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+    transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
   }
   button:hover,
-  .btn:hover {
+  .btn:hover,
+  .quiz-opt:hover,
+  .card-interactive:hover {
     transform: none !important;
   }
 }

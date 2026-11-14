@@ -1,276 +1,251 @@
-/* Extracted page script for index.html */
-// 56 Verbs data from the classroom assignment
-const verbsData = [
-    { id: 1, masu: "さんぽします", group: "3", te: "さんぽして", note: "" },
-    { id: 2, masu: "かえります", group: "1", te: "かえって", note: "" },
-    { id: 3, masu: "まがります", group: "1", te: "まがって", note: "" },
-    { id: 4, masu: "まちます", group: "1", te: "まって", note: "" },
-    { id: 5, masu: "およぎます", group: "1", te: "およいで", note: "" },
-    { id: 6, masu: "かります", group: "2", te: "かりて", note: "Đặc biệt nhóm 2" },
-    { id: 7, masu: "ねます", group: "2", te: "ねて", note: "" },
-    { id: 8, masu: "あいます", group: "1", te: "あって", note: "" },
-    { id: 9, masu: "はなします", group: "1", te: "はなして", note: "" },
-    { id: 10, masu: "たべます", group: "2", te: "たべて", note: "" },
-    { id: 11, masu: "します", group: "3", te: "して", note: "" },
-    { id: 12, masu: "たべます", group: "2", te: "たべて", note: "" },
-    { id: 13, masu: "うんどうします", group: "3", te: "うんどうして", note: "" },
-    { id: 14, masu: "もってきます", group: "3", te: "もってきて", note: "" },
-    { id: 15, masu: "でます", group: "2", te: "でて", note: "" },
-    { id: 16, masu: "とります", group: "1", te: "とって", note: "" },
-    { id: 17, masu: "やすみます", group: "1", te: "やすんで", note: "" },
-    { id: 18, masu: "シャツを きます", group: "2", te: "シャツを きて", note: "き(mặc): Nhóm 2" },
-    { id: 19, masu: "かします", group: "1", te: "かして", note: "" },
-    { id: 20, masu: "ききます", group: "1", te: "きいて", note: "" },
-    { id: 21, masu: "ねます", group: "2", te: "ねて", note: "" },
-    { id: 22, masu: "けします", group: "1", te: "けして", note: "" },
-    { id: 23, masu: "いきます", group: "1", te: "いって", note: "Ngoại lệ" },
-    { id: 24, masu: "あそびます", group: "1", te: "あそんで", note: "" },
-    { id: 25, masu: "すてます", group: "2", te: "すてて", note: "" },
-    { id: 26, masu: "はいります", group: "1", te: "はいって", note: "" },
-    { id: 27, masu: "はしります", group: "1", te: "はしって", note: "" },
-    { id: 28, masu: "みせます", group: "2", te: "みせて", note: "" },
-    { id: 29, masu: "かいます", group: "1", te: "かって", note: "" },
-    { id: 30, masu: "のぼります", group: "1", te: "のぼって", note: "" },
-    { id: 31, masu: "わたります", group: "1", te: "わたって", note: "" },
-    { id: 32, masu: "７時に おきます", group: "2", te: "７時に おきて", note: "おきる: Nhóm 2 đặc biệt", altTe: "7じに おきて,7時に おきて,７時におきて,7時におきて" },
-    { id: 33, masu: "いります", group: "1", te: "いって", note: "iru (cần): Nhóm 1" },
-    { id: 34, masu: "とまります", group: "1", te: "とまって", note: "" },
-    { id: 35, masu: "みます", group: "2", te: "みて", note: "" },
-    { id: 36, masu: "すわります", group: "1", te: "すわって", note: "" },
-    { id: 37, masu: "あるきます", group: "1", te: "あるいて", note: "" },
-    { id: 38, masu: "いそぎます", group: "1", te: "いそいで", note: "" },
-    { id: 39, masu: "みます", group: "2", te: "みて", note: "" },
-    { id: 40, masu: "かばんを おきます", group: "1", te: "かばんを おいて", note: "おく (đặt): Nhóm 1", altTe: "かばんをおいて" },
-    { id: 41, masu: "たちます", group: "1", te: "たって", note: "" },
-    { id: 42, masu: "あんないします", group: "3", te: "あんないして", note: "" },
-    { id: 43, masu: "のみます", group: "1", te: "のんで", note: "" },
-    { id: 44, masu: "とめます", group: "2", te: "とめて", note: "" },
-    { id: 45, masu: "しにます", group: "1", te: "しんで", note: "" },
-    { id: 46, masu: "よみます", group: "1", te: "よんで", note: "" },
-    { id: 47, masu: "はたらきます", group: "1", te: "はたらいて", note: "" },
-    { id: 48, masu: "おしえます", group: "2", te: "おしえて", note: "" },
-    { id: 49, masu: "かえります", group: "1", te: "かえって", note: "" },
-    { id: 50, masu: "べんきょうします", group: "3", te: "べんきょうして", note: "" },
-    { id: 51, masu: "あつめます", group: "2", te: "あつめて", note: "" },
-    { id: 52, masu: "しります", group: "1", te: "しって", note: "" },
-    { id: 53, masu: "つれてきます", group: "3", te: "つれてきて", note: "" },
-    { id: 54, masu: "きります", group: "1", te: "きって", note: "kiru (cắt): Nhóm 1" },
-    { id: 55, masu: "つかれます", group: "2", te: "つかれて", note: "" },
-    { id: 56, masu: "学校に きます", group: "3", te: "学校に きて", note: "kuru: Nhóm 3", altTe: "がっこうに きて,学校にきて,がっこうにきて" }
-];
+/**
+ * MARUGOTO JAPANESE INTERACTIVE HUB - CLIENT CONTROLLER
+ * File: assets/js/pages/index_hub.js
+ * Handles:
+ * 1. Category filtering (Tabs/Pills)
+ * 2. Real-time fast search (Keyboard shortcut '/', clear button, empty state)
+ * 3. Dynamic badge counts
+ * 4. Filter state persistence with localStorage
+ */
 
-let showAnswersState = false;
+(function () {
+    'use strict';
 
-// Switch Tabs
-function switchTab(tabId) {
-    document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.remove('active'));
-    document.querySelectorAll('.nav-tab-btn').forEach(btn => btn.classList.remove('active'));
-
-    const target = document.getElementById(tabId);
-    if (target) target.classList.add('active');
-    const activeBtn = Array.from(document.querySelectorAll('.nav-tab-btn')).find(b => b.getAttribute('onclick')?.includes(tabId));
-    if (activeBtn) activeBtn.classList.add('active');
-}
-
-// Helper: generate negative forms
-function getNegativeTargets(item) {
-    // Form 1: ～ていません (e.g. たべていません)
-    const negTe = item.te + "いません";
-    const negTeSpace = item.te + " いません";
-
-    // Form 2: ～ません (e.g. たべません)
-    const negMasu = item.masu.replace(/ます$/, 'ません');
-
-    return { negTe, negTeSpace, negMasu };
-}
-
-// Render Table
-function renderTable() {
-    const tbody = document.getElementById('tableBody');
-    tbody.innerHTML = '';
-
-    verbsData.forEach((item, index) => {
-        const tr = document.createElement('tr');
-        tr.id = `row-${item.id}`;
-        const negs = getNegativeTargets(item);
-
-        tr.innerHTML = `
-            <td><strong>${index + 1}</strong></td>
-            <td>
-                <span class="verb-masu">${item.masu}</span>
-                <button type="button" class="fc-speaker-btn" style="margin-left:6px; vertical-align:middle; width:28px; height:28px; font-size:13px;" onclick="speakJapanese('${item.masu}', this)" title="Nghe phát âm">🔊</button>
-            </td>
-            <td>
-                <select class="group-select" id="group-${item.id}">
-                    <option value="">Chọn nhóm</option>
-                    <option value="1">Nhóm 1</option>
-                    <option value="2">Nhóm 2</option>
-                    <option value="3">Nhóm 3</option>
-                </select>
-            </td>
-            <td>
-                <input type="text" class="text-input" id="te-${item.id}" placeholder="Ví dụ: ${item.te.slice(-2)}...">
-                <div class="answer-hint" id="hint-te-${item.id}">👉 ～て: <strong>${item.te}</strong> <button type="button" class="fc-speaker-btn" style="margin-left:4px; vertical-align:middle; width:22px; height:22px; font-size:11px;" onclick="speakJapanese('${item.te}', this)" title="Nghe thể TE">🔊</button> (N${item.group}) ${item.note ? `[${item.note}]` : ''}</div>
-            </td>
-            <td>
-                <input type="text" class="text-input" id="neg-${item.id}" placeholder="Điền ～ていません hoặc ～ません...">
-                <div class="answer-hint" id="hint-neg-${item.id}">👉 Phủ định: <strong>${negs.negTe}</strong> <button type="button" class="fc-speaker-btn" style="margin-left:4px; vertical-align:middle; width:22px; height:22px; font-size:11px;" onclick="speakJapanese('${negs.negTe}', this)" title="Nghe phủ định">🔊</button> / <strong>${negs.negMasu}</strong></div>
-            </td>
-            <td style="text-align: center;">
-                <span id="status-${item.id}" class="status-icon"></span>
-            </td>
-        `;
-        tbody.appendChild(tr);
-    });
-}
-
-// Standardize string comparison
-function normalizeStr(str) {
-    if (!str) return '';
-    return str.trim().toLowerCase().replace(/\s+/g, ' ');
-}
-
-// Grade All Answers
-function gradeAll() {
-    let correctCount = 0;
-    let totalCount = verbsData.length;
-
-    verbsData.forEach(item => {
-        const groupSelect = document.getElementById(`group-${item.id}`);
-        const teInput = document.getElementById(`te-${item.id}`);
-        const negInput = document.getElementById(`neg-${item.id}`);
-        const statusIcon = document.getElementById(`status-${item.id}`);
-
-        const userGroup = groupSelect.value;
-        const userTe = normalizeStr(teInput.value);
-        const userNeg = normalizeStr(negInput.value);
-
-        // Group validation
-        const isGroupCorrect = userGroup === item.group;
-
-        // Te validation (allow alternate spellings and no space)
-        const validTeAnswers = [normalizeStr(item.te)];
-        if (item.altTe) {
-            item.altTe.split(',').forEach(alt => validTeAnswers.push(normalizeStr(alt)));
-        }
-        const userTeNoSpace = userTe.replace(/\s+/g, '');
-        const isTeCorrect = validTeAnswers.some(ans => ans === userTe || ans.replace(/\s+/g, '') === userTeNoSpace);
-
-        // Negative validation (accept both ～ていません AND ～ません)
-        const negs = getNegativeTargets(item);
-        const validNegAnswers = [
-            normalizeStr(negs.negTe),
-            normalizeStr(negs.negTeSpace),
-            normalizeStr(negs.negMasu)
-        ];
-        const userNegNoSpace = userNeg.replace(/\s+/g, '');
-        const isNegCorrect = validNegAnswers.some(ans => ans === userNeg || ans.replace(/\s+/g, '') === userNegNoSpace);
-
-        // Group styling
-        if (isGroupCorrect) {
-            groupSelect.classList.remove('is-incorrect');
-            groupSelect.classList.add('is-correct');
-        } else {
-            groupSelect.classList.remove('is-correct');
-            groupSelect.classList.add('is-incorrect');
-        }
-
-        // Te styling
-        if (isTeCorrect) {
-            teInput.classList.remove('is-incorrect');
-            teInput.classList.add('is-correct');
-        } else {
-            teInput.classList.remove('is-correct');
-            teInput.classList.add('is-incorrect');
-        }
-
-        // Negative styling
-        if (isNegCorrect) {
-            negInput.classList.remove('is-incorrect');
-            negInput.classList.add('is-correct');
-        } else {
-            negInput.classList.remove('is-correct');
-            negInput.classList.add('is-incorrect');
-        }
-
-        // Overall row check
-        if (isGroupCorrect && isTeCorrect && isNegCorrect) {
-            correctCount++;
-            statusIcon.innerHTML = '✅';
-        } else {
-            statusIcon.innerHTML = '❌';
-        }
+    document.addEventListener('DOMContentLoaded', () => {
+        initHubApp();
     });
 
-    // Show Score Banner
-    const banner = document.getElementById('scoreBanner');
-    banner.style.display = 'block';
-    const percent = Math.round((correctCount / totalCount) * 100);
-    banner.innerHTML = `🎉 Bạn làm đúng hoàn toàn: ${correctCount}/${totalCount} câu (${percent}%)`;
+    function initHubApp() {
+        const searchInput = document.getElementById('hubSearchInput');
+        const searchClear = document.getElementById('hubSearchClear');
+        const filterPills = document.querySelectorAll('.hub-pill');
+        const cardsGrid = document.getElementById('hubCardsGrid');
+        const cards = Array.from(document.querySelectorAll('.hub-card'));
+        const visibleCountEl = document.getElementById('hubVisibleCount');
+        const lessonsSection = document.getElementById('hubLessonsSection');
 
-    if (percent >= 80) {
-        banner.style.background = 'linear-gradient(135deg, #00b894 0%, #00cec9 100%)';
-    } else if (percent >= 50) {
-        banner.style.background = 'linear-gradient(135deg, #f39c12 0%, #e67e22 100%)';
-    } else {
-        banner.style.background = 'linear-gradient(135deg, #e74c3c 0%, #c0392b 100%)';
-    }
+        let currentCategory = 'all';
+        let searchQuery = '';
 
-    banner.scrollIntoView({ behavior: 'smooth', block: 'center' });
-}
+        // 1. Calculate & display initial category counts
+        updateCategoryCounts();
 
-// Toggle Answers
-function toggleAnswers() {
-    showAnswersState = !showAnswersState;
-    verbsData.forEach(item => {
-        const hintTe = document.getElementById(`hint-te-${item.id}`);
-        const hintNeg = document.getElementById(`hint-neg-${item.id}`);
-        hintTe.style.display = showAnswersState ? 'block' : 'none';
-        hintNeg.style.display = showAnswersState ? 'block' : 'none';
-    });
-}
+        // 2. Restore saved category if any
+        try {
+            const savedFilter = localStorage.getItem('marugoto_hub_active_filter');
+            if (savedFilter && document.querySelector(`.hub-pill[data-filter="${savedFilter}"]`)) {
+                currentCategory = savedFilter;
+                filterPills.forEach(pill => {
+                    const isActive = pill.getAttribute('data-filter') === currentCategory;
+                    pill.classList.toggle('active', isActive);
+                    pill.setAttribute('aria-selected', isActive ? 'true' : 'false');
+                });
+            }
+        } catch (e) {
+            // Ignore localStorage errors
+        }
 
-// Reset Table
-function resetExercise() {
-    if (confirm("Bạn có chắc chắn muốn xóa hết bài làm để làm lại từ đầu?")) {
-        verbsData.forEach(item => {
-            const groupSelect = document.getElementById(`group-${item.id}`);
-            const teInput = document.getElementById(`te-${item.id}`);
-            const negInput = document.getElementById(`neg-${item.id}`);
-            const statusIcon = document.getElementById(`status-${item.id}`);
-            const hintTe = document.getElementById(`hint-te-${item.id}`);
-            const hintNeg = document.getElementById(`hint-neg-${item.id}`);
+        // Apply initial filter
+        applyFilter();
 
-            groupSelect.value = '';
-            groupSelect.className = 'group-select';
-            teInput.value = '';
-            teInput.className = 'text-input';
-            negInput.value = '';
-            negInput.className = 'text-input';
-            statusIcon.innerHTML = '';
-            hintTe.style.display = 'none';
-            hintNeg.style.display = 'none';
+        // 3. Category Pill Click Handler
+        filterPills.forEach(pill => {
+            pill.addEventListener('click', () => {
+                const filter = pill.getAttribute('data-filter');
+                if (!filter) return;
+
+                currentCategory = filter;
+                filterPills.forEach(p => {
+                    p.classList.remove('active');
+                    p.setAttribute('aria-selected', 'false');
+                });
+                pill.classList.add('active');
+                pill.setAttribute('aria-selected', 'true');
+
+                try {
+                    localStorage.setItem('marugoto_hub_active_filter', currentCategory);
+                } catch (e) {}
+
+                applyFilter();
+
+                // If user clicks lessons pill, smoothly scroll to lessons section
+                if (filter === 'lessons' && lessonsSection) {
+                    lessonsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
         });
-        showAnswersState = false;
-        document.getElementById('scoreBanner').style.display = 'none';
-    }
-}
 
-// Search filter
-function filterVerbs() {
-    const query = normalizeStr(document.getElementById('searchInput').value);
-    verbsData.forEach(item => {
-        const row = document.getElementById(`row-${item.id}`);
-        const textToMatch = normalizeStr(item.masu + ' ' + item.te);
-        if (textToMatch.includes(query)) {
-            row.style.display = '';
-        } else {
-            row.style.display = 'none';
+        // 4. Search Input Handler
+        if (searchInput) {
+            searchInput.addEventListener('input', (e) => {
+                searchQuery = (e.target.value || '').trim().toLowerCase();
+                if (searchClear) {
+                    searchClear.style.display = searchQuery.length > 0 ? 'flex' : 'none';
+                }
+                applyFilter();
+            });
+
+            // Keyboard shortcut: '/' to focus search, 'Esc' to clear & blur
+            document.addEventListener('keydown', (e) => {
+                if (e.key === '/' && document.activeElement !== searchInput) {
+                    const activeTag = document.activeElement ? document.activeElement.tagName.toLowerCase() : '';
+                    if (activeTag !== 'input' && activeTag !== 'textarea') {
+                        e.preventDefault();
+                        searchInput.focus();
+                        searchInput.select();
+                    }
+                } else if (e.key === 'Escape' && document.activeElement === searchInput) {
+                    if (searchInput.value.length > 0) {
+                        searchInput.value = '';
+                        searchQuery = '';
+                        if (searchClear) searchClear.style.display = 'none';
+                        applyFilter();
+                    }
+                    searchInput.blur();
+                }
+            });
         }
-    });
-}
 
-// Initialize
-window.addEventListener('DOMContentLoaded', () => {
-    renderTable();
-});
+        // 5. Search Clear Button Handler
+        if (searchClear) {
+            searchClear.addEventListener('click', () => {
+                if (searchInput) {
+                    searchInput.value = '';
+                    searchInput.focus();
+                }
+                searchQuery = '';
+                searchClear.style.display = 'none';
+                applyFilter();
+            });
+        }
+
+        // 6. Reset Filters (Called by Empty State button)
+        window.resetHubFilters = function () {
+            currentCategory = 'all';
+            searchQuery = '';
+            if (searchInput) {
+                searchInput.value = '';
+            }
+            if (searchClear) {
+                searchClear.style.display = 'none';
+            }
+            filterPills.forEach(p => {
+                const isAll = p.getAttribute('data-filter') === 'all';
+                p.classList.toggle('active', isAll);
+                p.setAttribute('aria-selected', isAll ? 'true' : 'false');
+            });
+            try {
+                localStorage.removeItem('marugoto_hub_active_filter');
+            } catch (e) {}
+            applyFilter();
+        };
+
+        // 7. Core filter & search logic
+        function applyFilter() {
+            let visibleCount = 0;
+
+            // Filter Feature Cards
+            cards.forEach(card => {
+                const category = card.getAttribute('data-category') || '';
+                const title = (card.querySelector('.hub-card-title')?.textContent || '').toLowerCase();
+                const subtitle = (card.querySelector('.hub-card-subtitle')?.textContent || '').toLowerCase();
+                const desc = (card.querySelector('.hub-card-desc')?.textContent || '').toLowerCase();
+                const keywords = (card.getAttribute('data-keywords') || '').toLowerCase();
+                const allCardText = `${title} ${subtitle} ${desc} ${keywords}`;
+
+                const matchesCategory = (currentCategory === 'all' || category === currentCategory);
+                const matchesSearch = searchQuery === '' || allCardText.includes(searchQuery);
+
+                if (matchesCategory && matchesSearch) {
+                    card.style.display = 'flex';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // Filter Lessons Section
+            if (lessonsSection) {
+                const lessonItems = Array.from(lessonsSection.querySelectorAll('.hub-lesson-item'));
+                let visibleLessonItems = 0;
+
+                lessonItems.forEach(item => {
+                    const text = (item.textContent || '').toLowerCase();
+                    const matchesSearch = searchQuery === '' || text.includes(searchQuery);
+                    if (matchesSearch) {
+                        item.style.display = 'flex';
+                        visibleLessonItems++;
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+
+                const shouldShowLessonsSection = (currentCategory === 'all' || currentCategory === 'lessons') && (visibleLessonItems > 0 || searchQuery === '');
+                lessonsSection.style.display = shouldShowLessonsSection ? 'block' : 'none';
+
+                if (shouldShowLessonsSection && (currentCategory === 'lessons' || searchQuery !== '')) {
+                    visibleCount += visibleLessonItems;
+                }
+            }
+
+            // Update visible counter
+            if (visibleCountEl) {
+                visibleCountEl.textContent = String(visibleCount);
+            }
+
+            // Handle Empty State
+            let emptyState = document.getElementById('hubEmptyState');
+            if (visibleCount === 0) {
+                if (!emptyState && cardsGrid) {
+                    emptyState = document.createElement('div');
+                    emptyState.id = 'hubEmptyState';
+                    emptyState.className = 'hub-empty-state';
+                    emptyState.innerHTML = `
+                        <div class="hub-empty-icon">🔍</div>
+                        <h3 class="hub-empty-title">Không tìm thấy tài nguyên phù hợp</h3>
+                        <p class="hub-empty-desc">Không có kết quả nào khớp với từ khóa "${escapeHtml(searchQuery)}" hoặc danh mục đã chọn.</p>
+                        <button type="button" class="hub-empty-reset-btn" onclick="window.resetHubFilters()">Đặt lại bộ lọc</button>
+                    `;
+                    cardsGrid.appendChild(emptyState);
+                }
+                if (emptyState) emptyState.style.display = 'block';
+            } else if (emptyState) {
+                emptyState.style.display = 'none';
+            }
+        }
+
+        // 8. Dynamic count calculations
+        function updateCategoryCounts() {
+            const counts = {
+                all: cards.length,
+                grammar: 0,
+                'vocab-kanji': 0,
+                typing: 0,
+                exams: 0,
+                lessons: 18,
+                'culture-3d': 0
+            };
+
+            cards.forEach(card => {
+                const cat = card.getAttribute('data-category');
+                if (counts[cat] !== undefined) {
+                    counts[cat]++;
+                }
+            });
+
+            // Set badge texts
+            for (const key of Object.keys(counts)) {
+                const badge = document.getElementById(`count-${key}`);
+                if (badge) {
+                    badge.textContent = String(counts[key]);
+                }
+            }
+        }
+
+        function escapeHtml(str) {
+            const div = document.createElement('div');
+            div.textContent = str;
+            return div.innerHTML;
+        }
+    }
+})();
