@@ -4,67 +4,138 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="referrer" content="no-referrer">
-    <title>⛩️ Không Gian Văn Hóa 3D Nhật Bản - Marugoto Learning Portal</title>
+    <title>⛩️ Không Gian 3D Núi Tử Đằng Fujikasane • Marugoto Culture 3D Lab</title>
+
+    <!-- Google Fonts: Plus Jakarta Sans, Noto Sans JP, Shippori Mincho -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Shippori+Mincho:wght@600;800&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="assets/css/animate-ui.css">
     <script src="assets/js/audio-engine.js?v=2"></script>
-    <link rel="stylesheet" href="assets/css/pages/demo_3d.css?v=1">
+    <link rel="stylesheet" href="assets/css/pages/demo_3d.css?v=2">
+
     <!-- Three.js + OrbitControls CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
 </head>
 <body>
 
-    <!-- Top Bar -->
-    <div class="top-bar">
+    <!-- Top Header Bar -->
+    <header class="top-bar">
         <div class="brand-card">
-            <div class="brand-title">⛩️ KHÔNG GIAN VĂN HÓA 3D NHẬT BẢN</div>
-            <div class="brand-sub">Mô hình 3D tương tác WebGL • Học từ vựng & Văn hóa trực quan (Marugoto A1 - A2)</div>
+            <div class="brand-badge">
+                <span class="badge-dot"></span>
+                <span>藤襲山 • MT. FUJIKASANE WISTERIA SHRINE</span>
+            </div>
+            <h1 class="brand-title">
+                <span class="brand-icon">⛩️</span>
+                <span class="brand-name">KHÔNG GIAN VĂN HÓA 3D NHẬT BẢN</span>
+            </h1>
+            <p class="brand-sub">Kỳ quan Núi Tử Đằng • Tương tác WebGL 3D • Học Từ Vựng & Điển Cố Văn Hóa Marugoto (A1–A2)</p>
         </div>
         <div class="nav-actions">
-            <a href="index.html" class="btn-nav-back">🌸 Về Trang Chủ</a>
+            <button class="btn-cinematic-quick" id="btnCinematicTop" onclick="toggleCinematicRoam()" title="Bật/Tắt chế độ quay điện ảnh tự động">
+                <span class="cinematic-icon">🎬</span>
+                <span>Góc Quay Điện Ảnh</span>
+            </button>
+            <a href="index.html" class="btn-nav-back">
+                <span>🌸</span>
+                <span>Về Trang Chủ</span>
+            </a>
         </div>
-    </div>
+    </header>
 
-    <!-- Object Quick Selector -->
-    <div class="object-selector-bar">
+    <!-- Object Quick Selector Strip -->
+    <nav class="object-selector-bar" aria-label="Bộ chọn mô hình 3D">
         <button class="obj-pill active" id="pill-torii" onclick="focusObject('torii')">⛩️ Cổng Torii</button>
-        <button class="obj-pill" id="pill-fuji" onclick="focusObject('fuji')">🗻 Núi Phú Sĩ</button>
+        <button class="obj-pill" id="pill-katana" onclick="focusObject('katana')">⚔️ Kiếm Nichirin</button>
+        <button class="obj-pill" id="pill-wisteria" onclick="focusObject('wisteria')">🪻 Hoa Tử Đằng</button>
+        <button class="obj-pill" id="pill-lantern" onclick="focusObject('lantern')">🏮 Đèn Lồng Đá</button>
+        <button class="obj-pill" id="pill-fuji" onclick="focusObject('fuji')">🗻 Núi Phú Sĩ & Trăng</button>
         <button class="obj-pill" id="pill-daruma" onclick="focusObject('daruma')">🎎 Búp Bê Daruma</button>
         <button class="obj-pill" id="pill-neko" onclick="focusObject('neko')">🐱 Mèo Thần Tài</button>
-        <button class="obj-pill" id="pill-lantern" onclick="focusObject('lantern')">🏮 Đèn Lồng Đá</button>
-        <button class="obj-pill" id="pill-sakura" onclick="focusObject('sakura')">🌸 Hoa Anh Đào</button>
-    </div>
+        <button class="obj-pill" id="pill-sakura" onclick="focusObject('sakura')">🌸 Mưa Cánh Hoa</button>
+    </nav>
 
+    <!-- Interactive Navigation Hint -->
     <div class="hint-bubble">
-        🖱️ Giữ chuột trái để xoay 360° • Cuộn chuột để phóng to/thu nhỏ • Bấm vào vật thể 3D để học từ vựng
+        <span class="hint-icon">✨</span>
+        <span>Kéo chuột để xoay 360° • Cuộn chuột phóng to/thu nhỏ • Bấm trực tiếp vào vật thể 3D để học từ vựng</span>
     </div>
 
-    <!-- 3D Canvas -->
-    <canvas id="canvas3d"></canvas>
+    <!-- 3D WebGL Canvas -->
+    <canvas id="canvas3d" aria-label="3D Japanese Cultural Scene"></canvas>
+
+    <!-- Cinematic Vignette Overlay -->
+    <div class="cinematic-overlay" id="cinematicOverlay">
+        <div class="cinematic-letterbox top"></div>
+        <div class="cinematic-letterbox bottom"></div>
+        <div class="cinematic-badge">
+            <span class="rec-dot"></span>
+            <span>CINEMATIC TOUR • MT. FUJIKASANE (藤襲山)</span>
+        </div>
+    </div>
 
     <!-- Vocab Details Modal Card -->
-    <div class="vocab-modal-card" id="vocabModal">
-        <button class="card-close-btn" onclick="closeModal()">✕</button>
-        <div class="card-tag" id="cardTag">Kiến Trúc Thần Đạo</div>
+    <aside class="vocab-modal-card" id="vocabModal" role="dialog" aria-labelledby="cardKanji" aria-describedby="cardMeaning">
+        <div class="card-header-row">
+            <span class="card-tag" id="cardTag">Kiến Trúc Thần Đạo (Shinto)</span>
+            <button class="card-close-btn" onclick="closeModal()" title="Đóng bảng từ vựng" aria-label="Đóng">✕</button>
+        </div>
+
         <div class="card-kanji-row">
-            <div class="card-kanji" id="cardKanji">鳥居</div>
-            <button class="card-audio-btn" id="cardAudioBtn" onclick="speakCurrentCard()" title="Nghe phát âm bản xứ Tokyo">🔊</button>
+            <div class="card-kanji-wrapper">
+                <div class="card-kanji" id="cardKanji">鳥居</div>
+                <div class="card-romaji" id="cardRomaji">Torii</div>
+            </div>
+            <button class="card-audio-btn" id="cardAudioBtn" onclick="speakCurrentCard()" title="Nghe phát âm chuẩn Tokyo giọng bản xứ" aria-label="Phát âm">
+                <span class="audio-wave-icon">🔊</span>
+            </button>
         </div>
+
         <div class="card-kana" id="cardKana">とりい (Torii)</div>
-        <div class="card-meaning" id="cardMeaning">Cổng Thần đạo truyền thống dẫn vào chốn linh thiêng.</div>
+        <div class="card-meaning" id="cardMeaning">Cổng Thần đạo truyền thống phân định ranh giới cõi thiêng và cõi tục.</div>
+
         <div class="card-culture-note" id="cardCultureNote">
-            💡 Biểu tượng văn hóa đặc trưng xuất hiện xuyên suốt các bài học văn hóa Marugoto. Đánh dấu ranh giới thiêng liêng giữa cõi trần và thế giới thần linh.
+            💡 Biểu tượng linh thiêng đặc trưng trong văn hóa Nhật Bản và anime Kimetsu no Yaiba.
         </div>
-    </div>
+
+        <div class="card-nav-footer">
+            <button class="card-step-btn" onclick="stepObject(-1)" title="Vật thể trước">← Trước</button>
+            <span class="card-step-counter" id="cardStepCounter">1 / 8</span>
+            <button class="card-step-btn" onclick="stepObject(1)" title="Vật thể tiếp theo">Tiếp →</button>
+        </div>
+    </aside>
 
     <!-- Bottom Controls Dock -->
-    <div class="bottom-dock">
-        <button class="dock-action-btn active" id="btnAutoRotate" onclick="toggleAutoRotate()">🔄 Xoay 360°: BẬT</button>
-        <button class="dock-action-btn active" id="btnNightMode" onclick="toggleNightMode()">🌙 Ánh Sáng: Ban Đêm</button>
-        <button class="dock-action-btn active" id="btnSakura" onclick="toggleSakura()">🌸 Mưa Cánh Hoa: BẬT</button>
-        <button class="dock-action-btn" onclick="resetView()">🎯 Toàn Cảnh</button>
-    </div>
+    <footer class="bottom-dock" role="toolbar" aria-label="Thanh điều khiển 3D">
+        <button class="dock-action-btn active" id="btnAutoRotate" onclick="toggleAutoRotate()">
+            <span class="dock-btn-icon">🔄</span>
+            <span class="dock-btn-label">Xoay 360°: BẬT</span>
+        </button>
+        <button class="dock-action-btn active" id="btnNightMode" onclick="toggleNightMode()">
+            <span class="dock-btn-icon">🌙</span>
+            <span class="dock-btn-label">Không Gian: Đêm Tử Đằng</span>
+        </button>
+        <button class="dock-action-btn active" id="btnParticles" onclick="toggleParticles()">
+            <span class="dock-btn-icon">🪻</span>
+            <span class="dock-btn-label">Cánh Hoa & Đom Đóm: BẬT</span>
+        </button>
+        <button class="dock-action-btn" id="btnCinematic" onclick="toggleCinematicRoam()">
+            <span class="dock-btn-icon">🎬</span>
+            <span class="dock-btn-label">Bay Lượn Điện Ảnh</span>
+        </button>
+        <button class="dock-action-btn" id="btnSoundChime" onclick="toggleSoundChime()">
+            <span class="dock-btn-icon">🔔</span>
+            <span class="dock-btn-label">Chuông Đền: BẬT</span>
+        </button>
+        <button class="dock-action-btn" onclick="resetView()">
+            <span class="dock-btn-icon">🎯</span>
+            <span class="dock-btn-label">Toàn Cảnh</span>
+        </button>
+    </footer>
 
-    <script src="assets/js/pages/demo_3d.js?v=1"></script>
+    <script src="assets/js/pages/demo_3d.js?v=2"></script>
 </body>
 </html>

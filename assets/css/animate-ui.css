@@ -24,12 +24,13 @@
 }
 
 /* ==========================================================================
-   0. Scroll, Anchors & Sticky Offsets
+   0. Scroll, Anchors & Sleek Custom Scrollbars
    ========================================================================== */
 
 html {
   scroll-padding-top: 28px;
   scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
 }
 
 [id] {
@@ -39,6 +40,57 @@ html {
 table th,
 .table-sticky-th {
   top: 0;
+}
+
+/* Sleek Minimalist Custom Scrollbar (Desktop & Tablet) */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 transparent;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1;
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+  transition: background-color 0.15s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #94a3b8;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* Subtle Glowing Accents on Focus Ring */
+:focus-visible {
+  outline: 2px solid #e11d48 !important;
+  outline-offset: 2px !important;
+}
+
+/* Form Input & Search Focus Glow */
+input:focus,
+textarea:focus,
+select:focus,
+.aui-input-glow:focus,
+.tp-input:focus,
+.tp-table-input:focus,
+.search-box input:focus,
+#searchInput:focus {
+  border-color: #e11d48 !important;
+  box-shadow: 0 0 0 3.5px rgba(225, 29, 72, 0.18), 0 2px 10px -2px rgba(225, 29, 72, 0.12) !important;
+  outline: none !important;
 }
 
 /* ==========================================================================
@@ -80,7 +132,7 @@ a[class*="btn"] {
   will-change: transform;
 }
 
-/* Elegant & Subtle Hover Lift */
+/* Elegant & Subtle Hover Lift & Soft Radiant Glow */
 button:hover:not(:disabled),
 .btn:hover:not(:disabled),
 .btn-action:hover:not(:disabled),
@@ -99,6 +151,16 @@ button:hover:not(:disabled),
 .filter-pill:hover,
 .tp-mode-btn:hover {
   transform: translateY(-1.5px);
+  box-shadow: 0 4px 12px -2px rgba(15, 23, 42, 0.08);
+}
+
+.btn-primary:hover:not(:disabled),
+.tp-btn-check:hover:not(:disabled) {
+  box-shadow: 0 6px 18px rgba(225, 29, 72, 0.32), 0 0 0 1px rgba(225, 29, 72, 0.15) inset !important;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  box-shadow: 0 6px 18px rgba(2, 132, 199, 0.32), 0 0 0 1px rgba(2, 132, 199, 0.15) inset !important;
 }
 
 /* Handcrafted Tactile Button Press (Natural 1px downward click) */
@@ -130,7 +192,7 @@ a[class*="btn"]:active {
 }
 
 /* ==========================================================================
-   2. Cards & Grammar Boxes (Subtle Elevation, Zero Layout Reflow)
+   2. Cards & Grammar Boxes (Card Lift Micro-Interactions: -3px + Soft Colored Shadow)
    ========================================================================== */
 
 .card,
@@ -143,27 +205,51 @@ a[class*="btn"]:active {
 .table-card,
 .kanji-card,
 .content-section,
+.content-card,
 .kanji-detail-card,
 .grammar-card,
-.rule-box {
+.rule-box,
+.card-lift,
+.aui-lift,
+.card-interactive {
   transition: box-shadow var(--aui-dur-normal) var(--aui-ease-out),
               border-color var(--aui-dur-fast) ease,
               transform var(--aui-dur-normal) var(--aui-ease-out);
+  will-change: transform, box-shadow;
 }
 
+/* Card Lift Micro-Interaction (-3px + Layered Soft Colored Shadow) */
 .card:hover,
 .test-card:hover,
 .lesson-card:hover,
+.vocab-card:hover,
 .kanji-card:hover,
-.kanji-detail-card:hover {
-  box-shadow: 0 10px 24px -4px rgba(15, 23, 42, 0.08),
-              0 4px 8px -2px rgba(15, 23, 42, 0.03);
+.kanji-detail-card:hover,
+.grammar-card:hover,
+.content-card:hover,
+.content-section:hover,
+.card-lift:hover,
+.aui-lift:hover,
+.card-interactive:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 14px 28px -4px rgba(15, 23, 42, 0.09),
+              0 6px 14px -2px rgba(225, 29, 72, 0.05) !important;
+  border-color: rgba(225, 29, 72, 0.22) !important;
 }
 
-/* Interactive Card Elevation */
-.card-interactive:hover,
-.lesson-card:hover {
-  transform: translateY(-2px);
+/* Tactile Active Press State */
+.card:active,
+.test-card:active,
+.lesson-card:active,
+.vocab-card:active,
+.kanji-card:active,
+.kanji-detail-card:active,
+.grammar-card:active,
+.content-card:active,
+.card-lift:active,
+.aui-lift:active {
+  transform: translateY(-1px) scale(0.995) !important;
+  transition: transform 0.06s ease !important;
 }
 
 /* ==========================================================================
@@ -185,30 +271,59 @@ a[class*="btn"]:active {
 }
 
 /* ==========================================================================
-   4. Audio Playing Pulse Animation (Handcrafted Crimson/Amber Ambient Glow)
+   4. Audio Playing Ripple Pulse & Equalizer Wave Animation
    ========================================================================== */
 
 .aui-audio-playing,
-.audio-playing {
-  animation: aui-audio-pulse 1.35s infinite ease-out !important;
+.audio-playing,
+.sound-btn.playing,
+.btn-speak.playing,
+.fc-speaker-btn.playing,
+.table-speaker-btn.playing,
+.fc-audio-btn.playing,
+[data-playing="true"],
+.is-playing {
+  animation: aui-audio-ripple 1.4s cubic-bezier(0.25, 1, 0.5, 1) infinite !important;
+  background: #e11d48 !important;
+  color: #ffffff !important;
+  border-color: #e11d48 !important;
 }
 
-@keyframes aui-audio-pulse {
+@keyframes aui-audio-ripple {
   0% {
-    box-shadow: 0 0 0 0 rgba(225, 29, 72, 0.45);
-    transform: scale(1.04);
+    transform: scale(1.06);
+    box-shadow: 0 0 0 0 rgba(225, 29, 72, 0.6),
+                0 0 0 0 rgba(225, 29, 72, 0.35),
+                0 4px 14px rgba(225, 29, 72, 0.35);
   }
-  50% {
-    box-shadow: 0 0 0 9px rgba(225, 29, 72, 0);
-    transform: scale(1);
+  40% {
+    box-shadow: 0 0 0 6px rgba(225, 29, 72, 0.28),
+                0 0 0 12px rgba(225, 29, 72, 0.15),
+                0 6px 18px rgba(225, 29, 72, 0.3);
+  }
+  70% {
+    transform: scale(1.02);
+    box-shadow: 0 0 0 10px rgba(225, 29, 72, 0.08),
+                0 0 0 18px rgba(225, 29, 72, 0.02),
+                0 4px 12px rgba(225, 29, 72, 0.2);
   }
   100% {
-    box-shadow: 0 0 0 0 rgba(225, 29, 72, 0);
-    transform: scale(1);
+    transform: scale(1.06);
+    box-shadow: 0 0 0 14px rgba(225, 29, 72, 0),
+                0 0 0 24px rgba(225, 29, 72, 0),
+                0 4px 14px rgba(225, 29, 72, 0.35);
   }
 }
 
-/* Sound Wave Bar Animation Utility */
+/* Sound Wave Bar & Equalizer Animation Utility */
+.audio-wave-container {
+  display: inline-flex;
+  align-items: center;
+  gap: 2.5px;
+  height: 16px;
+  vertical-align: middle;
+}
+
 .audio-wave-bar {
   display: inline-block;
   width: 3px;
@@ -217,6 +332,10 @@ a[class*="btn"]:active {
   border-radius: 2px;
   animation: auiWave 0.8s infinite ease-in-out alternate;
 }
+
+.audio-wave-bar:nth-child(2) { animation-delay: 0.18s; }
+.audio-wave-bar:nth-child(3) { animation-delay: 0.36s; }
+.audio-wave-bar:nth-child(4) { animation-delay: 0.54s; }
 
 @keyframes auiWave {
   0% { height: 4px; }
@@ -256,7 +375,7 @@ a[class*="btn"]:active {
 }
 
 /* ==========================================================================
-   6. UI Entrance Animations (Fade, Slide, Drop)
+   6. UI Entrance Animations & Smooth Accordion / Details Transitions
    ========================================================================== */
 
 .aui-fade-in {
@@ -276,6 +395,60 @@ a[class*="btn"]:active {
   from {
     opacity: 0;
     transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Smooth Accordion & Details Transitions */
+details,
+.aui-accordion-item {
+  transition: border-color var(--aui-dur-normal) ease,
+              box-shadow var(--aui-dur-normal) ease,
+              transform var(--aui-dur-normal) var(--aui-ease-out);
+}
+
+details summary,
+.aui-accordion-header {
+  cursor: pointer;
+  user-select: none;
+  list-style: none;
+  transition: background-color var(--aui-dur-fast) ease, color var(--aui-dur-fast) ease;
+}
+
+details summary::-webkit-details-marker,
+details summary::marker {
+  display: none;
+}
+
+.aui-chevron {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 0.25s var(--aui-ease-out);
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+details[open] .aui-chevron,
+.aui-accordion-item.open .aui-chevron {
+  transform: rotate(-135deg);
+}
+
+details[open] > *:not(summary),
+.aui-accordion-body {
+  animation: auiAccordionSlide 0.24s var(--aui-ease-out) forwards;
+}
+
+@keyframes auiAccordionSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
   }
   to {
     opacity: 1;

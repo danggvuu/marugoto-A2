@@ -714,18 +714,18 @@
         var primaryReading = window.tpState.mode === 'sentence' ? item.hira : (window.tpState.mode === 'kanji' ? item.kana : (item.kana || item.jp));
         if (hist.status === 'err' && hist.lastInput !== undefined) {
             var diff = buildCharDiffHtml(hist.lastInput, primaryReading);
-            compareHtml = '<div class="tp-diff-container">' +
-                '<div class="tp-diff-col is-user">' +
+            compareHtml = '<div class="tp-diff-container" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:12px; margin:14px 0; width:100%; box-sizing:border-box;">' +
+                '<div class="tp-diff-col is-user" style="min-width:0; max-width:100%; box-sizing:border-box; overflow:hidden;">' +
                 '<div class="tp-diff-header"><span class="tp-diff-badge is-user">🔴 Bạn đã gõ:</span></div>' +
-                '<div class="tp-diff-body jp-text">' + diff.typedHtml + '</div>' +
+                '<div class="tp-diff-body jp-text" style="word-break:break-word; overflow-wrap:anywhere; white-space:normal; width:100%; box-sizing:border-box;">' + diff.typedHtml + '</div>' +
                 '</div>' +
-                '<div class="tp-diff-col is-target">' +
+                '<div class="tp-diff-col is-target" style="min-width:0; max-width:100%; box-sizing:border-box; overflow:hidden;">' +
                 '<div class="tp-diff-header"><span class="tp-diff-badge is-target">🟢 Đáp án chuẩn:</span></div>' +
-                '<div class="tp-diff-body jp-text">' + diff.targetHtml + '</div>' +
+                '<div class="tp-diff-body jp-text" style="word-break:break-word; overflow-wrap:anywhere; white-space:normal; width:100%; box-sizing:border-box;">' + diff.targetHtml + '</div>' +
                 '</div>' +
                 '</div>' +
                 ((diff.expectedChunk || diff.gotChunk) ?
-                    '<div class="tp-diff-chunk-note">⚠️ <strong>Lệch ký tự:</strong> bạn gõ <span class="diff-bad">' + escapeHtml(diff.gotChunk || '(thiếu)') + '</span> ➔ chuẩn cần <span class="diff-good">' + escapeHtml(diff.expectedChunk || '(không có)') + '</span></div>' : '');
+                    '<div class="tp-diff-chunk-note" style="word-break:break-word; overflow-wrap:anywhere; box-sizing:border-box; width:100%;">⚠️ <strong>Lệch ký tự:</strong> bạn gõ <span class="diff-bad">' + escapeHtml(diff.gotChunk || '(thiếu)') + '</span> ➔ chuẩn cần <span class="diff-good">' + escapeHtml(diff.expectedChunk || '(không có)') + '</span></div>' : '');
         }
 
         var whyHtml = '';

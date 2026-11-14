@@ -1349,6 +1349,11 @@ body {
     display: none;
     box-shadow: 0 10px 25px -4px rgba(15, 23, 42, 0.06);
     animation: tpFadeInUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+    overflow: hidden;
 }
 
 .tp-detail-panel.show {
@@ -1404,9 +1409,12 @@ body {
 /* High Contrast Structured Diff Cards */
 .tp-diff-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 12px;
     margin: 14px 0;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .tp-diff-col {
@@ -1418,6 +1426,12 @@ body {
     flex-direction: column;
     gap: 6px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    word-break: break-word;
+    overflow-wrap: anywhere;
 }
 
 .tp-diff-col.is-user {
@@ -1450,12 +1464,17 @@ body {
 .tp-diff-badge.is-target { color: #15803d; }
 
 .tp-diff-body {
-    font-size: 1.18rem;
+    font-size: 1.15rem;
     font-weight: 700;
     line-height: 1.55;
-    word-break: break-all;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    white-space: normal;
     min-height: 32px;
     color: #0f172a;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .diff-bad {
@@ -1466,6 +1485,10 @@ body {
     padding: 1px 5px;
     border-radius: 4px;
     font-weight: 800;
+    display: inline;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    white-space: normal;
 }
 
 .diff-good {
@@ -1474,6 +1497,10 @@ body {
     padding: 1px 5px;
     border-radius: 4px;
     font-weight: 800;
+    display: inline;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    white-space: normal;
 }
 
 .tp-diff-chunk-note {
@@ -1485,6 +1512,11 @@ body {
     color: #9f1239;
     border: 1px solid #fecdd3;
     line-height: 1.5;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
 }
 
 /* Diagnostic Box */
@@ -1809,6 +1841,9 @@ body {
         grid-template-columns: 1fr;
     }
     .vocab-grid, .kanji-grid {
+        grid-template-columns: 1fr;
+    }
+    .tp-diff-container {
         grid-template-columns: 1fr;
     }
 }

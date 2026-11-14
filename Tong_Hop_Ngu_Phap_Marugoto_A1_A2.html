@@ -14,7 +14,7 @@
     <script src="assets/js/animate-ui.js" defer></script>
     <!-- Unified Tokyo Audio Engine -->
     <script src="assets/js/audio-engine.js?v=2"></script>
-    <link rel="stylesheet" href="assets/css/pages/tong_hop_ngu_phap.css?v=1">
+    <link rel="stylesheet" href="assets/css/pages/tong_hop_ngu_phap.css?v=2">
     <link rel="stylesheet" href="assets/css/site-theme.css?v=6">
 </head>
 <body>
@@ -23,66 +23,70 @@
                                                 <!-- Global Hub Navigation Placeholder -->
         <div id="navbar-placeholder"></div>
 
-    <!-- 2. HERO HEADER & KPI STATS -->
+    <!-- 2. COMPACT PROPORTIONAL JAPANESE HERO BANNER -->
     <header class="hero-section">
         <div class="hero-container">
-            <div class="hero-badge-pill">
-                <span>⚡</span>
-                <span>HỆ THỐNG NGỮ PHÁP CHUẨN JF STANDARD (A1 • A2-1 • A2-2)</span>
-            </div>
-            <h1 class="hero-title">Tổng Hợp Ngữ Pháp Marugoto Toàn Diện</h1>
-            <p class="hero-subtitle">
-                Đầy đủ trọn vẹn 26 bài học từ 5 tài liệu chính thống: A1 (Bài 11~18), A2-1 (Bài 1~10), và A2-2 (Bài 11~18).
-                Tích hợp công thức mẫu, giải thích song ngữ Nhật - Việt, audio giọng chuẩn Tokyo, phòng thực nghiệm biến thể động từ và trắc nghiệm phản xạ 20 câu.
-            </p>
+            <div class="hero-main-row">
+                <!-- Left: Title, Badges & Inline KPI Cluster -->
+                <div class="hero-info-col">
+                    <div class="hero-meta-row">
+                        <span class="hero-badge-pill">
+                            <span class="badge-icon">⚡</span>
+                            <span>JF STANDARD • A1 • A2-1 • A2-2</span>
+                        </span>
+                        <span class="hero-subbadge jp-text">まるごと 文法総まとめ</span>
+                    </div>
 
-            <!-- KPI STATS -->
-            <div class="kpi-grid">
-                <div class="kpi-card">
-                    <div class="kpi-icon">🎓</div>
-                    <div>
-                        <div class="kpi-value">26</div>
-                        <div class="kpi-label">Bài học chuẩn JF</div>
-                    </div>
-                </div>
-                <div class="kpi-card">
-                    <div class="kpi-icon">📌</div>
-                    <div>
-                        <div class="kpi-value">29</div>
-                        <div class="kpi-label">Chuyên đề ngữ pháp</div>
-                    </div>
-                </div>
-                <div class="kpi-card">
-                    <div class="kpi-icon">💡</div>
-                    <div>
-                        <div class="kpi-value">75+</div>
-                        <div class="kpi-label">Công thức & Mẫu câu</div>
-                    </div>
-                </div>
-                <div class="kpi-card">
-                    <div class="kpi-icon">🔊</div>
-                    <div>
-                        <div class="kpi-value">85+</div>
-                        <div class="kpi-label">Ví dụ Audio Tokyo</div>
-                    </div>
-                </div>
-            </div>
+                    <h1 class="hero-title">
+                        Tổng Hợp Ngữ Pháp Marugoto Toàn Diện
+                    </h1>
 
-            <!-- LEARNING PROGRESS BAR -->
-            <div class="progress-box">
-                <div class="progress-header">
-                    <span>🏆 TIẾN ĐỘ THUỘC LÒNG NGỮ PHÁP</span>
-                    <span id="progressStatsText">0 / 29 Đã hiểu (0%)</span>
+                    <!-- Consolidated Inline KPI Badge Cluster -->
+                    <div class="hero-kpi-cluster">
+                        <div class="kpi-chip">
+                            <span class="kpi-chip-icon">🎓</span>
+                            <span class="kpi-chip-val">26</span>
+                            <span class="kpi-chip-lbl">Bài học</span>
+                        </div>
+                        <div class="kpi-chip">
+                            <span class="kpi-chip-icon">📌</span>
+                            <span class="kpi-chip-val">29</span>
+                            <span class="kpi-chip-lbl">Chuyên đề</span>
+                        </div>
+                        <div class="kpi-chip">
+                            <span class="kpi-chip-icon">💡</span>
+                            <span class="kpi-chip-val">75+</span>
+                            <span class="kpi-chip-lbl">Công thức</span>
+                        </div>
+                        <div class="kpi-chip">
+                            <span class="kpi-chip-icon">🔊</span>
+                            <span class="kpi-chip-val">85+</span>
+                            <span class="kpi-chip-lbl">Audio Tokyo</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="progress-track">
-                    <div class="progress-fill" id="progressBarFill"></div>
-                </div>
-                <div class="progress-footer">
-                    <span>Bấm nút <strong>"Đã hiểu ✓"</strong> trên mỗi thẻ ngữ pháp để lưu tiến độ tự động vào máy.</span>
-                    <div>
-                        <button type="button" class="btn-text-action" onclick="markAllLearned()">Đánh dấu tất cả</button>
-                        <span style="opacity:0.4; margin:0 6px;">|</span>
-                        <button type="button" class="btn-text-action" onclick="resetProgress()">Làm lại từ đầu</button>
+
+                <!-- Right: Sleek Glassmorphic Progress Meter -->
+                <div class="hero-progress-widget">
+                    <div class="progress-widget-top">
+                        <div class="progress-widget-title">
+                            <span class="progress-icon">🏆</span>
+                            <span>Tiến độ thuộc lòng:</span>
+                        </div>
+                        <span class="progress-stats-num" id="progressStatsText">0 / 29 Đã hiểu (0%)</span>
+                    </div>
+
+                    <div class="progress-track">
+                        <div class="progress-fill" id="progressBarFill"></div>
+                    </div>
+
+                    <div class="progress-widget-actions">
+                        <span class="progress-hint">Bấm "Đã hiểu ✓" trên thẻ để lưu</span>
+                        <div class="progress-action-links">
+                            <button type="button" class="btn-text-action" onclick="markAllLearned()" title="Đánh dấu tất cả 29 chuyên đề đã thuộc">Đánh dấu tất cả</button>
+                            <span class="action-sep">|</span>
+                            <button type="button" class="btn-text-action" onclick="resetProgress()" title="Đặt lại tiến độ từ đầu">Làm lại</button>
+                        </div>
                     </div>
                 </div>
             </div>
