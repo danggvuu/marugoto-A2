@@ -5,13 +5,13 @@
 
 let scene, camera, renderer, controls;
 let isNight = true;
-let autoRotate = true;
+let autoRotate = false;
 let particlesActive = true;
-let isCinematic = true; // Start in majestic cinematic mode!
+let isCinematic = false; // Start in interactive mode for instant user control
 let soundChimeEnabled = true;
 
 // Lights
-let dirLight, ambientLight, moonRimLight;
+let dirLight, ambientLight, moonRimLight, katanaSpotLight;
 let lanternPointLights = [];
 let wisteriaGlowLights = [];
 
@@ -24,14 +24,19 @@ let fireflyGeo, fireflyParticles;
 let godRaysGroup;
 let moonMesh, moonHaloMesh;
 
-// Model Object References & Camera Targets
+// Model Object References & Raycasting
 const models = {};
 const raycaster = new THREE.Raycaster();
 const mouse = new THREE.Vector2();
 
-// Target camera positions for smooth glide
-let targetCamPos = new THREE.Vector3(0, 3.4, 9.8);
-let targetLookAt = new THREE.Vector3(0, 2.0, 0);
+// Camera Smooth Glide Transition State
+let isTransitioning = false;
+let transitionStartTime = 0;
+let transitionDuration = 900; // ms
+const transitionStartCam = new THREE.Vector3();
+const transitionStartTarget = new THREE.Vector3();
+const transitionEndCam = new THREE.Vector3();
+const transitionEndTarget = new THREE.Vector3();
 
 // Cinematic Camera Roam parameters
 let cinematicAngle = 0;
@@ -56,8 +61,8 @@ const VOCAB_DATABASE = {
         kana: 'とりい (Torii)',
         meaning: 'Cổng Thần đạo truyền thống sơn đỏ chu sa rực rỡ, phân định ranh giới giữa cõi trần và chốn thần linh.',
         culture: '⛩️ Trong anime Kimetsu no Yaiba, cổng Torii sừng sững tại lối vào Đỉnh Núi Tử Đằng (藤襲山 - Fujikasane). Nơi đây treo dây thừng thiêng Shimenawa và giấy trắng Shide, là điểm khởi đầu cho kỳ Tuyển Chọn Cuối Cùng (最終選別 - Saishū Senbetsu).',
-        camPos: new THREE.Vector3(0, 2.8, 6.2),
-        lookAt: new THREE.Vector3(0, 2.4, 0)
+        camPos: new THREE.Vector3(0, 3.0, 7.5),
+        lookAt: new THREE.Vector3(0, 2.6, 0)
     },
     katana: {
         key: 'katana',
@@ -66,9 +71,9 @@ const VOCAB_DATABASE = {
         romaji: 'Nichirin-tō',
         kana: 'にちりんとう (Nichirin-tō)',
         meaning: 'Thanh kiếm Nichirin rèn từ Cát sắt đỏ và Quặng đỏ thẫm hấp thụ ánh sáng mặt trời vĩnh cửu.',
-        culture: '⚔️ Vũ khí tối thượng của các kiếm sĩ Sát Quỷ Đội (鬼殺隊). Khi rơi vào tay kiếm sĩ có thực lực, lưỡi gươm sẽ đổi màu theo hơi thở (Hơi Thở Của Nước xanh thẳm, Mặt Trời đỏ rực). Đặt trang trọng trên giá Katanakake sơn mài đen.',
-        camPos: new THREE.Vector3(0.0, 1.4, 4.0),
-        lookAt: new THREE.Vector3(0.0, 0.95, 2.8)
+        culture: '⚔️ Vũ khí tối thượng của các kiếm sĩ Sát Quỷ Đội (鬼殺隊). Lưỡi kiếm rèn thủ công cong vút uyển chuyển với vân Hamon sắc lẹm, tsuba rực lửa và bao kiếm sơn mài đen tuyền đặt trang trọng trên giá Katanakake.',
+        camPos: new THREE.Vector3(2.4, 1.35, 2.8),
+        lookAt: new THREE.Vector3(2.4, 0.85, 1.2)
     },
     wisteria: {
         key: 'wisteria',
@@ -78,8 +83,8 @@ const VOCAB_DATABASE = {
         kana: 'ふじのはな (Fuji no hana)',
         meaning: 'Hoa Tử Đằng linh thiêng với những chùm hoa tím biếc rủ xuống như thác nước huyền ảo.',
         culture: '🪻 Loài hoa nở rộ bốn mùa trên đỉnh núi Fujikasane. Hương thơm và độc tố của hoa Tử Đằng là khắc tinh số một khiến loài quỷ khiếp sợ và không bao giờ dám đến gần, tạo thành kết giới thiêng liêng bảo vệ loài người.',
-        camPos: new THREE.Vector3(-3.2, 3.2, 3.6),
-        lookAt: new THREE.Vector3(-3.0, 2.8, 0)
+        camPos: new THREE.Vector3(-3.2, 3.2, 4.0),
+        lookAt: new THREE.Vector3(-3.8, 3.0, 1.8)
     },
     lantern: {
         key: 'lantern',
@@ -89,8 +94,8 @@ const VOCAB_DATABASE = {
         kana: 'とうろう (Tōrō)',
         meaning: 'Đèn lồng đá Kasuga cổ kính chạm khắc tinh xảo, thắp sáng ngọn lửa ấm áp giữa đêm sương.',
         culture: '🏮 Được đặt dọc hai bên lối vào đền thờ (Sando). Ngọn lửa thiêng bập bùng bên trong mang ý nghĩa xua tan bóng tối u ám, soi tỏ tâm hồn thanh tịnh và dẫn bước lữ khách trên con đường hướng thiện.',
-        camPos: new THREE.Vector3(-2.6, 1.9, 4.0),
-        lookAt: new THREE.Vector3(-2.6, 1.4, 1.8)
+        camPos: new THREE.Vector3(-2.2, 1.8, 3.6),
+        lookAt: new THREE.Vector3(-2.6, 1.5, 2.2)
     },
     fuji: {
         key: 'fuji',
@@ -99,9 +104,9 @@ const VOCAB_DATABASE = {
         romaji: 'Fuji-san',
         kana: 'ふじさん (Fuji-san)',
         meaning: 'Núi Phú Sĩ tuyết phủ ngàn năm cùng ánh trăng rằm vằng vặc (満月 - Mangetsu).',
-        culture: '🗻 Đỉnh núi linh thiêng cao 3.776m, biểu tượng trường tồn bất diệt của đất nước Mặt Trời Mọc. Xuất hiện trong Bài 3 & Bài 18 giáo trình Marugoto và là nguồn cảm hứng bất tận trong tranh Ukiyo-e của Hokusai.',
-        camPos: new THREE.Vector3(0, 4.5, 12.5),
-        lookAt: new THREE.Vector3(0, 4.2, -12)
+        culture: '🗻 Đỉnh núi linh thiêng cao 3.776m, biểu tượng trường tồn bất diệt của đất nước Mặt Trời Mọc. Đỉnh núi tuyết sừng sững uy nghi phía sau cổng Torii dưới ánh trăng rằm huyền ảo.',
+        camPos: new THREE.Vector3(0, 3.6, 9.2),
+        lookAt: new THREE.Vector3(0, 5.2, -40)
     },
     daruma: {
         key: 'daruma',
@@ -111,8 +116,8 @@ const VOCAB_DATABASE = {
         kana: 'だるま (Daruma)',
         meaning: 'Búp bê tròn đỏ truyền thống tượng trưng cho tinh thần bất khuất "Thất ngã bát khởi" (Ngã 7 lần, đứng dậy 8 lần).',
         culture: '🎎 Khắc chữ vàng "Tất Thắng" (必勝) và "Phúc" (福). Người Nhật khi lập chí lớn sẽ điểm nhãn mắt trái; khi vượt qua thử thách vẻ vang sẽ vẽ nốt mắt phải để tạ ơn thần linh.',
-        camPos: new THREE.Vector3(-1.8, 1.45, 3.6),
-        lookAt: new THREE.Vector3(-1.8, 0.85, 1.6)
+        camPos: new THREE.Vector3(-1.4, 1.35, 2.7),
+        lookAt: new THREE.Vector3(-1.8, 0.85, 1.4)
     },
     neko: {
         key: 'neko',
@@ -122,8 +127,8 @@ const VOCAB_DATABASE = {
         kana: 'まねきねこ (Maneki-neko)',
         meaning: 'Mèo may mắn sứ trắng vẫy tay đón tài lộc, mang lục lạc vàng và đồng tiền cổ Koban.',
         culture: '🐱 Tay phải giơ cao vẫy gọi phúc lành, tiền cổ ghi khắc "Thiên vạn lượng" (千万両 - Senmanryō). Thường được bày trang trọng tại cổng vào cửa hàng, mang lại sự ấm no và bình an cho gia chủ.',
-        camPos: new THREE.Vector3(1.8, 1.45, 3.6),
-        lookAt: new THREE.Vector3(1.8, 0.85, 1.6)
+        camPos: new THREE.Vector3(-2.0, 1.25, 1.8),
+        lookAt: new THREE.Vector3(-2.4, 0.75, 0.5)
     },
     sakura: {
         key: 'sakura',
@@ -133,7 +138,7 @@ const VOCAB_DATABASE = {
         kana: 'さくら の はなびら (Sakura)',
         meaning: 'Những cánh hoa anh đào thanh khiết chao liệng trong làn gió đêm huyền ảo.',
         culture: '🌸 Triết lý "Mono no aware" (U hoài trước vẻ đẹp phù du) - trân quý từng phút giây hiện tại. Sắc hồng hoa anh đào hòa quyện cùng sắc tím hoa Tử Đằng tạo nên bức tranh thiên nhiên tuyệt mỹ.',
-        camPos: new THREE.Vector3(0, 3.4, 9.2),
+        camPos: new THREE.Vector3(0, 3.4, 11.2),
         lookAt: new THREE.Vector3(0, 2.2, 0)
     }
 };
@@ -146,14 +151,14 @@ let currentActiveItem = VOCAB_DATABASE.torii;
 function init() {
     const canvas = document.getElementById('canvas3d');
 
-    // 1. Scene & Mystical Wisteria Atmosphere
+    // 1. Scene & Atmosphere
     scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x070512);
-    scene.fog = new THREE.FogExp2(0x0e071e, 0.026);
+    scene.background = new THREE.Color(0x060411);
+    scene.fog = new THREE.FogExp2(0x0a0518, 0.016);
 
-    // 2. Camera Setup
-    camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 200);
-    camera.position.copy(targetCamPos);
+    // 2. Camera Setup (Balanced initial establishing composition)
+    camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 250);
+    camera.position.set(0, 3.4, 11.2);
 
     // 3. Renderer with High-Performance Shadows
     renderer = new THREE.WebGLRenderer({
@@ -169,14 +174,23 @@ function init() {
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
     renderer.toneMappingExposure = 1.05;
 
-    // 4. Orbit Controls
+    // 4. Orbit Controls (Unrestricted, Silky Smooth)
     controls = new THREE.OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
-    controls.dampingFactor = 0.05;
-    controls.maxPolarAngle = Math.PI / 2 - 0.02; // Keep camera above sacred ground
-    controls.minDistance = 2.2;
-    controls.maxDistance = 32;
-    controls.target.copy(targetLookAt);
+    controls.dampingFactor = 0.06;
+    controls.minDistance = 1.2;
+    controls.maxDistance = 55;
+    controls.minPolarAngle = 0.05; // Can look all the way up to Moon & Fuji summit
+    controls.maxPolarAngle = Math.PI / 2 + 0.02; // Down to stone floor
+    controls.target.set(0, 2.2, 0);
+    controls.autoRotate = false;
+    controls.autoRotateSpeed = 0.8;
+
+    // Any manual touch/mouse interaction cancels active glide & cinematic mode
+    controls.addEventListener('start', () => {
+        isTransitioning = false;
+        if (isCinematic) setCinematicMode(false);
+    });
 
     // 5. Lighting Setup
     setupLighting();
@@ -184,20 +198,19 @@ function init() {
     // 6. Build Scene Geometry
     buildStarfield();
     buildFullMoonAndGodRays();
-    buildMountainRanges();
-    buildGroundAndSteps();
+    buildMajesticMountFuji();
+    buildShrineGroundAndSteps();
     buildGrandToriiGate();
-    buildWisteriaTrees();
-    buildNichirinKatana();
-    buildStoneLanterns();
+    buildWeepingWisteriaForest();
+    buildNichirinKatanaMasterpiece();
+    buildKasugaStoneLanterns();
     buildDarumaDoll();
     buildManekiNeko();
-    buildParticles();
+    buildDualParticleSystems();
 
     // 7. Event Handlers
     window.addEventListener('resize', onWindowResize);
     canvas.addEventListener('click', onCanvasClick);
-    canvas.addEventListener('pointerdown', onUserInteraction);
 
     // Initial Display
     updateLightingVisuals();
@@ -213,28 +226,36 @@ function init() {
 // ==========================================
 function setupLighting() {
     // Ambient light: mystical deep purple indigo
-    ambientLight = new THREE.AmbientLight(0x28124d, 0.85);
+    ambientLight = new THREE.AmbientLight(0x241445, 0.95);
     scene.add(ambientLight);
 
-    // Directional light: Silvery moonbeam casting soft shadows
-    dirLight = new THREE.DirectionalLight(0x93c5fd, 0.75);
-    dirLight.position.set(6, 20, 10);
+    // Main Silvery Moonbeam casting soft shadows
+    dirLight = new THREE.DirectionalLight(0xa5b4fc, 0.95);
+    dirLight.position.set(8, 22, 10);
     dirLight.castShadow = true;
     dirLight.shadow.mapSize.width = 2048;
     dirLight.shadow.mapSize.height = 2048;
     dirLight.shadow.camera.near = 0.5;
-    dirLight.shadow.camera.far = 50;
-    dirLight.shadow.camera.left = -12;
-    dirLight.shadow.camera.right = 12;
-    dirLight.shadow.camera.top = 12;
-    dirLight.shadow.camera.bottom = -12;
-    dirLight.shadow.bias = -0.0005;
+    dirLight.shadow.camera.far = 60;
+    dirLight.shadow.camera.left = -14;
+    dirLight.shadow.camera.right = 14;
+    dirLight.shadow.camera.top = 14;
+    dirLight.shadow.camera.bottom = -14;
+    dirLight.shadow.bias = -0.0004;
     scene.add(dirLight);
 
-    // Moon Rim Light (from behind the mountain towards the Torii gate)
-    moonRimLight = new THREE.DirectionalLight(0xa855f7, 0.95);
-    moonRimLight.position.set(0, 15, -20);
+    // Moon Rim Light (casting luminous violet rim light from behind Fuji)
+    moonRimLight = new THREE.DirectionalLight(0xc084fc, 1.3);
+    moonRimLight.position.set(0, 16, -38);
     scene.add(moonRimLight);
+
+    // Dedicated Katana Altar Spotlight
+    katanaSpotLight = new THREE.SpotLight(0xfef08a, 1.8, 8, Math.PI / 4, 0.35);
+    katanaSpotLight.position.set(2.4, 3.2, 2.5);
+    katanaSpotLight.target.position.set(2.4, 0.85, 1.2);
+    katanaSpotLight.castShadow = true;
+    scene.add(katanaSpotLight);
+    scene.add(katanaSpotLight.target);
 }
 
 // ==========================================
@@ -258,7 +279,7 @@ function createMoonTexture() {
     ctx.fill();
 
     // Lunar Mare (craters and dark basaltic plains)
-    ctx.fillStyle = 'rgba(148, 163, 184, 0.25)';
+    ctx.fillStyle = 'rgba(148, 163, 184, 0.28)';
     const craters = [
         { x: 180, y: 160, r: 70 },
         { x: 230, y: 220, r: 90 },
@@ -298,7 +319,6 @@ function createPetalTexture(colorHex1, colorHex2) {
     canvas.height = 64;
     const ctx = canvas.getContext('2d');
 
-    // Oval petal shape with gradient
     ctx.translate(32, 32);
     const grad = ctx.createRadialGradient(0, 0, 2, 0, 0, 28);
     grad.addColorStop(0, colorHex1);
@@ -319,27 +339,25 @@ function createPetalTexture(colorHex1, colorHex2) {
 
 // 1. Cosmic Starfield
 function buildStarfield() {
-    const starCount = 1200;
+    const starCount = 1500;
     const starGeo = new THREE.BufferGeometry();
     const starPos = new Float32Array(starCount * 3);
     const starColors = new Float32Array(starCount * 3);
 
     for (let i = 0; i < starCount; i++) {
-        // Distribute stars on a wide upper celestial dome
         const theta = 2 * Math.PI * Math.random();
         const phi = Math.acos(2 * Math.random() - 1);
-        const radius = 90 + Math.random() * 40;
+        const radius = 100 + Math.random() * 45;
 
         starPos[i * 3] = radius * Math.sin(phi) * Math.cos(theta);
-        starPos[i * 3 + 1] = Math.abs(radius * Math.cos(phi)) + 5; // Keep above horizon
+        starPos[i * 3 + 1] = Math.abs(radius * Math.cos(phi)) + 6; // Keep above horizon
         starPos[i * 3 + 2] = radius * Math.sin(phi) * Math.sin(theta);
 
-        // Subtly colored stars (white, cyan, purple)
         const rand = Math.random();
         if (rand > 0.7) {
-            starColors[i * 3] = 0.8; starColors[i * 3 + 1] = 0.7; starColors[i * 3 + 2] = 1.0; // Violet
+            starColors[i * 3] = 0.85; starColors[i * 3 + 1] = 0.75; starColors[i * 3 + 2] = 1.0; // Violet
         } else if (rand > 0.4) {
-            starColors[i * 3] = 0.7; starColors[i * 3 + 1] = 0.9; starColors[i * 3 + 2] = 1.0; // Ice blue
+            starColors[i * 3] = 0.7; starColors[i * 3 + 1] = 0.92; starColors[i * 3 + 2] = 1.0; // Ice blue
         } else {
             starColors[i * 3] = 1.0; starColors[i * 3 + 1] = 1.0; starColors[i * 3 + 2] = 1.0; // White
         }
@@ -349,10 +367,10 @@ function buildStarfield() {
     starGeo.setAttribute('color', new THREE.BufferAttribute(starColors, 3));
 
     const starMat = new THREE.PointsMaterial({
-        size: 0.65,
+        size: 0.7,
         vertexColors: true,
         transparent: true,
-        opacity: 0.9,
+        opacity: 0.92,
         depthWrite: false
     });
 
@@ -365,11 +383,11 @@ function buildStarfield() {
 function buildFullMoonAndGodRays() {
     const moonGroup = new THREE.Group();
     moonGroup.name = 'fuji';
-    moonGroup.position.set(0, 14, -32);
+    moonGroup.position.set(4.2, 18.0, -40);
 
     // Core Moon Disc
     const moonTex = createMoonTexture();
-    const moonGeo = new THREE.CircleGeometry(5.2, 64);
+    const moonGeo = new THREE.CircleGeometry(5.5, 64);
     const moonMat = new THREE.MeshBasicMaterial({
         map: moonTex,
         transparent: true,
@@ -380,7 +398,7 @@ function buildFullMoonAndGodRays() {
 
     // Multi-Layered Inner & Outer Moon Glow Halo
     const haloTex = createRadialGlowTexture('rgba(224, 231, 255, 1)', 'rgba(168, 85, 247, 0)');
-    const haloGeo = new THREE.PlaneGeometry(16, 16);
+    const haloGeo = new THREE.PlaneGeometry(18, 18);
     const haloMat = new THREE.MeshBasicMaterial({
         map: haloTex,
         transparent: true,
@@ -393,13 +411,13 @@ function buildFullMoonAndGodRays() {
     moonGroup.add(moonHaloMesh);
 
     // Massive Ethereal Outer Wisteria Aura
-    const outerHaloGeo = new THREE.PlaneGeometry(28, 28);
+    const outerHaloGeo = new THREE.PlaneGeometry(32, 32);
     const outerHaloMat = new THREE.MeshBasicMaterial({
         map: haloTex,
         transparent: true,
         blending: THREE.AdditiveBlending,
         depthWrite: false,
-        opacity: 0.35,
+        opacity: 0.38,
         color: 0x9333ea
     });
     const outerHalo = new THREE.Mesh(outerHaloGeo, outerHaloMat);
@@ -409,7 +427,7 @@ function buildFullMoonAndGodRays() {
     scene.add(moonGroup);
     models.moon = moonGroup;
 
-    // Volumetric God Rays (Slanted moonbeams streaming into the valley)
+    // Volumetric Moonbeams (Slanted rays streaming into the valley)
     godRaysGroup = new THREE.Group();
     const rayMat = new THREE.MeshBasicMaterial({
         color: 0xd8b4fe,
@@ -420,110 +438,183 @@ function buildFullMoonAndGodRays() {
         depthWrite: false
     });
 
-    const angles = [-0.25, -0.1, 0.08, 0.22];
+    const angles = [-0.22, -0.08, 0.10, 0.25];
     angles.forEach((ang, idx) => {
-        const rayGeo = new THREE.CylinderGeometry(0.6, 5.0 + idx * 0.8, 38, 16, 1, true);
+        const rayGeo = new THREE.CylinderGeometry(0.6, 5.5 + idx * 0.8, 42, 16, 1, true);
         const ray = new THREE.Mesh(rayGeo, rayMat);
-        ray.position.set(ang * 24, 10, -18);
-        ray.rotation.z = ang * 0.7;
-        ray.rotation.x = 0.2;
+        ray.position.set(ang * 26, 11, -22);
+        ray.rotation.z = ang * 0.65;
+        ray.rotation.x = 0.18;
         godRaysGroup.add(ray);
     });
     scene.add(godRaysGroup);
 }
 
-// 3. Layered Mountain Silhouettes & Snow-Capped Mt. Fuji
-function buildMountainRanges() {
-    const mountains = new THREE.Group();
-    mountains.name = 'fuji';
-    mountains.position.set(0, 0, -26);
+// 3. Majestic Mount Fuji (Authentic Exponential Volcanic Curvature & Snow Summit)
+function buildMajesticMountFuji() {
+    const fujiGroup = new THREE.Group();
+    fujiGroup.name = 'fuji';
+    fujiGroup.position.set(0, 0.5, -44);
 
-    // Far Background Mountain Ridge (Deep indigo silhouettes)
-    const ridgeMat = new THREE.MeshBasicMaterial({ color: 0x090518 });
-    const ridgePoints = [
-        -40, 0, -35, 7, -30, 4, -24, 9, -18, 5, -12, 8, -6, 4,
-        0, 6, 6, 4, 12, 8, 18, 5, 24, 9, 30, 4, 35, 7, 40, 0
-    ];
-    const shape = new THREE.Shape();
-    shape.moveTo(-45, -2);
-    for (let i = 0; i < ridgePoints.length; i += 2) {
-        shape.lineTo(ridgePoints[i], ridgePoints[i + 1]);
+    // Parametric Exponential Volcanic Flank Geometry
+    const slices = 64;
+    const stacks = 32;
+    const totalHeight = 24.0;
+    const baseRadius = 38.0;
+
+    const fujiGeo = new THREE.BufferGeometry();
+    const positions = [];
+    const uvs = [];
+    const indices = [];
+
+    for (let j = 0; j <= stacks; j++) {
+        const v = j / stacks;
+        const y = v * totalHeight;
+        // Exponential flare: gentle summit tapering out into a wide, majestic mountain base
+        const radius = 3.0 + (baseRadius - 3.0) * Math.pow(1 - v, 1.85);
+
+        for (let i = 0; i <= slices; i++) {
+            const u = i / slices;
+            const theta = u * Math.PI * 2;
+            const x = radius * Math.sin(theta);
+            const z = radius * Math.cos(theta);
+
+            // Subtle ridge undulation
+            const ridge = Math.sin(theta * 16) * 0.3 * (1 - v);
+
+            positions.push(x, y, z + ridge);
+            uvs.push(u, v);
+        }
     }
-    shape.lineTo(45, -2);
-    shape.closePath();
-    const ridgeMesh = new THREE.Mesh(new THREE.ShapeGeometry(shape), ridgeMat);
-    ridgeMesh.position.z = -8;
-    mountains.add(ridgeMesh);
 
-    // Mount Fuji Cone (Sacred Profile with concave curve)
-    const fujiMat = new THREE.MeshStandardMaterial({
-        color: 0x140d30,
+    for (let j = 0; j < stacks; j++) {
+        for (let i = 0; i < slices; i++) {
+            const a = j * (slices + 1) + i;
+            const b = (j + 1) * (slices + 1) + i;
+            const c = (j + 1) * (slices + 1) + (i + 1);
+            const d = j * (slices + 1) + (i + 1);
+
+            indices.push(a, b, d);
+            indices.push(b, c, d);
+        }
+    }
+
+    fujiGeo.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+    fujiGeo.setAttribute('uv', new THREE.Float32BufferAttribute(uvs, 2));
+    fujiGeo.setIndex(indices);
+    fujiGeo.computeVertexNormals();
+
+    // Dark obsidian basalt material for mountain body
+    const rockMat = new THREE.MeshStandardMaterial({
+        color: 0x110c26,
         roughness: 0.95,
         metalness: 0.05
     });
-    const fujiGeo = new THREE.CylinderGeometry(1.2, 22, 16, 64, 1, true);
-    const fujiBody = new THREE.Mesh(fujiGeo, fujiMat);
-    fujiBody.position.set(0, 7.5, 0);
-    mountains.add(fujiBody);
+    const fujiBody = new THREE.Mesh(fujiGeo, rockMat);
+    fujiBody.receiveShadow = true;
+    fujiGroup.add(fujiBody);
 
-    // Fuji Snow-Capped Summit (Glowing under moonlight)
+    // Pure Glistening Snow Cap (From snowline y = 14 to summit y = 24)
+    const snowGeo = new THREE.ConeGeometry(8.2, 10.5, 64);
     const snowMat = new THREE.MeshStandardMaterial({
-        color: 0xf1f5f9,
-        roughness: 0.35,
-        metalness: 0.2,
-        emissive: 0x93c5fd,
-        emissiveIntensity: 0.2
+        color: 0xf8fafc,
+        roughness: 0.28,
+        metalness: 0.15,
+        emissive: 0x818cf8,
+        emissiveIntensity: 0.22
     });
-    const snowGeo = new THREE.ConeGeometry(5.8, 6.5, 64);
     const snowCap = new THREE.Mesh(snowGeo, snowMat);
-    snowCap.position.set(0, 13.8, 0);
-    mountains.add(snowCap);
+    snowCap.position.set(0, 19.5, 0);
+    fujiGroup.add(snowCap);
 
-    scene.add(mountains);
-    models.fuji = mountains;
+    // Jagged Glacier Snow Tongues (Yukikei) streaming down gullies
+    const tongueCount = 14;
+    for (let t = 0; t < tongueCount; t++) {
+        const ang = (t / tongueCount) * Math.PI * 2;
+        const length = 3.5 + Math.sin(t * 3) * 1.5;
+        const tongueGeo = new THREE.ConeGeometry(0.85, length, 8);
+        const tongue = new THREE.Mesh(tongueGeo, snowMat);
+        tongue.position.set(
+            Math.sin(ang) * 9.2,
+            14.5 - length * 0.4,
+            Math.cos(ang) * 9.2
+        );
+        tongue.rotation.z = Math.sin(ang) * 0.35;
+        tongue.rotation.x = -Math.cos(ang) * 0.35;
+        fujiGroup.add(tongue);
+    }
+
+    // Mountain Ridge Silhouettes framing the horizon
+    const ridgeMat = new THREE.MeshBasicMaterial({ color: 0x080415 });
+    const ridgePoints = [
+        -55, 0, -48, 8, -40, 5, -32, 10, -24, 6, -16, 9, -8, 5,
+        0, 7, 8, 5, 16, 9, 24, 6, 32, 10, 40, 5, 48, 8, 55, 0
+    ];
+    const shape = new THREE.Shape();
+    shape.moveTo(-60, -2);
+    for (let i = 0; i < ridgePoints.length; i += 2) {
+        shape.lineTo(ridgePoints[i], ridgePoints[i + 1]);
+    }
+    shape.lineTo(60, -2);
+    shape.closePath();
+    const ridgeMesh = new THREE.Mesh(new THREE.ShapeGeometry(shape), ridgeMat);
+    ridgeMesh.position.set(0, 0, -18);
+    fujiGroup.add(ridgeMesh);
+
+    scene.add(fujiGroup);
+    models.fuji = fujiGroup;
 }
 
-// 4. Sacred Ground, Flagstone Sando Path & Weathered Stairs
-function buildGroundAndSteps() {
+// 4. Shrine Ground, Sando Path & Weathered Steps
+function buildShrineGroundAndSteps() {
     const groundGroup = new THREE.Group();
 
-    // Main Sacred Island Plateau
-    const islandGeo = new THREE.CylinderGeometry(11, 11.6, 0.9, 64);
-    const islandMat = new THREE.MeshStandardMaterial({
-        color: 0x110c24,
-        roughness: 0.92,
-        metalness: 0.08
+    // Expansive Mountain Ridge Plateau (Radius 55m, eliminates void cutoff)
+    const plateauGeo = new THREE.CylinderGeometry(55, 58, 1.5, 64);
+    const plateauMat = new THREE.MeshStandardMaterial({
+        color: 0x0f0b1f,
+        roughness: 0.94,
+        metalness: 0.05
     });
-    const island = new THREE.Mesh(islandGeo, islandMat);
-    island.position.y = -0.45;
-    island.receiveShadow = true;
-    groundGroup.add(island);
+    const plateau = new THREE.Mesh(plateauGeo, plateauMat);
+    plateau.position.y = -0.75;
+    plateau.receiveShadow = true;
+    groundGroup.add(plateau);
 
-    // Weathered Stone Terrace Border
-    const rimGeo = new THREE.TorusGeometry(11, 0.25, 12, 64);
-    const stoneRimMat = new THREE.MeshStandardMaterial({ color: 0x334155, roughness: 0.85 });
-    const rim = new THREE.Mesh(rimGeo, stoneRimMat);
-    rim.rotation.x = Math.PI / 2;
-    rim.position.y = 0.02;
-    groundGroup.add(rim);
+    // Stone Terrace Border
+    const stoneBorderMat = new THREE.MeshStandardMaterial({ color: 0x2b3342, roughness: 0.88 });
+    const stoneTerrace = new THREE.Mesh(new THREE.CylinderGeometry(12.5, 13.0, 0.25, 64), stoneBorderMat);
+    stoneTerrace.position.y = 0.08;
+    stoneTerrace.receiveShadow = true;
+    groundGroup.add(stoneTerrace);
 
-    // Central Sando Flagstone Path (Lối vào đền)
+    // Central Sando Flagstone Path (Paved walkway through Torii)
     const pathMat = new THREE.MeshStandardMaterial({
-        color: 0x24283b,
-        roughness: 0.8,
-        metalness: 0.1
+        color: 0x1f2433,
+        roughness: 0.78,
+        metalness: 0.12
     });
-    const path = new THREE.Mesh(new THREE.PlaneGeometry(2.4, 16), pathMat);
+    const path = new THREE.Mesh(new THREE.PlaneGeometry(2.6, 22), pathMat);
     path.rotation.x = -Math.PI / 2;
-    path.position.set(0, 0.015, 2.2);
+    path.position.set(0, 0.22, 1.0);
     path.receiveShadow = true;
     groundGroup.add(path);
 
-    // Weathered Stone Stairs (Bậc đá Ishidan trước cổng)
-    const stepMat = new THREE.MeshStandardMaterial({ color: 0x3b4252, roughness: 0.85 });
+    // White Raked Shrine Pebbles (Shirakawa-suna) flanking the path
+    const pebbleMat = new THREE.MeshStandardMaterial({ color: 0x475569, roughness: 0.85 });
+    [-1.65, 1.65].forEach(x => {
+        const pebbles = new THREE.Mesh(new THREE.PlaneGeometry(0.7, 22), pebbleMat);
+        pebbles.rotation.x = -Math.PI / 2;
+        pebbles.position.set(x, 0.215, 1.0);
+        pebbles.receiveShadow = true;
+        groundGroup.add(pebbles);
+    });
+
+    // Weathered Stone Steps (Ishidan ascending to Torii)
+    const stepMat = new THREE.MeshStandardMaterial({ color: 0x334155, roughness: 0.85 });
     for (let s = 0; s < 4; s++) {
-        const step = new THREE.Mesh(new THREE.BoxGeometry(3.0 - s * 0.15, 0.1, 0.7), stepMat);
-        step.position.set(0, s * 0.09, 3.6 - s * 0.65);
+        const step = new THREE.Mesh(new THREE.BoxGeometry(3.6 - s * 0.15, 0.11, 0.75), stepMat);
+        step.position.set(0, 0.1 + s * 0.1, 4.4 - s * 0.7);
         step.receiveShadow = true;
         step.castShadow = true;
         groundGroup.add(step);
@@ -534,21 +625,21 @@ function buildGroundAndSteps() {
 }
 
 // ==========================================
-// GRAND TORII SHRINE ENTRANCE BUILDER
+// GRAND TORII SHRINE ENTRANCE (MYOJIN TORII)
 // ==========================================
 function buildGrandToriiGate() {
     const torii = new THREE.Group();
     torii.name = 'torii';
 
-    // Materials
+    // Premium Materials
     const vermilionMat = new THREE.MeshStandardMaterial({
-        color: 0xc02626,
+        color: 0xd62828,
         roughness: 0.32,
-        metalness: 0.12
+        metalness: 0.15
     });
     const blackLacquerMat = new THREE.MeshStandardMaterial({
         color: 0x0f1117,
-        roughness: 0.2,
+        roughness: 0.18,
         metalness: 0.35
     });
     const stoneBaseMat = new THREE.MeshStandardMaterial({
@@ -557,8 +648,8 @@ function buildGrandToriiGate() {
     });
     const goldMat = new THREE.MeshStandardMaterial({
         color: 0xf59e0b,
-        roughness: 0.3,
-        metalness: 0.75
+        roughness: 0.25,
+        metalness: 0.8
     });
     const shimenawaStrawMat = new THREE.MeshStandardMaterial({
         color: 0xd97706,
@@ -570,89 +661,88 @@ function buildGrandToriiGate() {
         side: THREE.DoubleSide
     });
 
-    const dist = 2.0;
-    const height = 4.6;
-    const radius = 0.23;
+    const dist = 2.2;
+    const height = 4.8;
+    const radius = 0.24;
 
-    // 1. Two Grand Vermilion Hashira Pillars with Lacquer Bases
+    // 1. Two Grand Vermilion Hashira Pillars with Entasis & Gold-Banded Bases
     [-dist, dist].forEach(x => {
         // Kamebara (Stone base plinth)
-        const plinth = new THREE.Mesh(new THREE.CylinderGeometry(0.42, 0.48, 0.4, 24), stoneBaseMat);
-        plinth.position.set(x, 0.2, 0);
+        const plinth = new THREE.Mesh(new THREE.CylinderGeometry(0.44, 0.50, 0.4, 24), stoneBaseMat);
+        plinth.position.set(x, 0.3, 0);
         plinth.castShadow = true;
         torii.add(plinth);
 
-        // Black Lacquer Collar & Gold Band
-        const collar = new THREE.Mesh(new THREE.CylinderGeometry(0.32, 0.32, 0.32, 24), blackLacquerMat);
-        collar.position.set(x, 0.52, 0);
+        // Black Lacquer Collar & Polished Gold Ring
+        const collar = new THREE.Mesh(new THREE.CylinderGeometry(0.33, 0.33, 0.34, 24), blackLacquerMat);
+        collar.position.set(x, 0.65, 0);
         torii.add(collar);
 
-        const goldRing = new THREE.Mesh(new THREE.CylinderGeometry(0.33, 0.33, 0.05, 24), goldMat);
-        goldRing.position.set(x, 0.69, 0);
+        const goldRing = new THREE.Mesh(new THREE.CylinderGeometry(0.34, 0.34, 0.05, 24), goldMat);
+        goldRing.position.set(x, 0.84, 0);
         torii.add(goldRing);
 
-        // Main Incline Vermilion Pillar
-        const pillar = new THREE.Mesh(new THREE.CylinderGeometry(radius * 0.92, radius, height, 32), vermilionMat);
-        pillar.position.set(x, height / 2 + 0.4, 0);
-        pillar.rotation.z = x > 0 ? 0.035 : -0.035;
+        // Main Incline Vermilion Pillar (Entasis taper)
+        const pillar = new THREE.Mesh(new THREE.CylinderGeometry(radius * 0.9, radius, height, 32), vermilionMat);
+        pillar.position.set(x, height / 2 + 0.55, 0);
+        pillar.rotation.z = x > 0 ? 0.032 : -0.032;
         pillar.castShadow = true;
         torii.add(pillar);
 
         // Kusabi (Wooden wedges at Nuki tie-beam)
-        const wedge = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.32, 0.55), vermilionMat);
-        wedge.position.set(x, 3.8, 0);
+        const wedge = new THREE.Mesh(new THREE.BoxGeometry(0.12, 0.35, 0.58), vermilionMat);
+        wedge.position.set(x, 4.0, 0);
         torii.add(wedge);
     });
 
     // 2. Kasagi (Top sweeping curved beam with black copper ridge)
     const kasagiCurve = new THREE.QuadraticBezierCurve3(
-        new THREE.Vector3(-3.4, 5.25, 0),
-        new THREE.Vector3(0, 4.95, 0),
-        new THREE.Vector3(3.4, 5.25, 0)
+        new THREE.Vector3(-3.8, 5.5, 0),
+        new THREE.Vector3(0, 5.2, 0),
+        new THREE.Vector3(3.8, 5.5, 0)
     );
-    const kasagi = new THREE.Mesh(new THREE.TubeGeometry(kasagiCurve, 40, 0.22, 12, false), blackLacquerMat);
+    const kasagi = new THREE.Mesh(new THREE.TubeGeometry(kasagiCurve, 48, 0.24, 12, false), blackLacquerMat);
     kasagi.scale.set(1, 1.25, 0.9);
     kasagi.castShadow = true;
     torii.add(kasagi);
 
     // 3. Shimaki (Secondary vermilion beam directly underneath)
-    const shimaki = new THREE.Mesh(new THREE.BoxGeometry(6.0, 0.28, 0.44), vermilionMat);
-    shimaki.position.set(0, 4.75, 0);
+    const shimaki = new THREE.Mesh(new THREE.BoxGeometry(6.6, 0.3, 0.46), vermilionMat);
+    shimaki.position.set(0, 4.98, 0);
     shimaki.castShadow = true;
     torii.add(shimaki);
 
     // 4. Nuki (Lower tie-beam interlocking pillars)
-    const nuki = new THREE.Mesh(new THREE.BoxGeometry(5.2, 0.25, 0.32), vermilionMat);
-    nuki.position.set(0, 3.8, 0);
+    const nuki = new THREE.Mesh(new THREE.BoxGeometry(5.6, 0.26, 0.34), vermilionMat);
+    nuki.position.set(0, 4.0, 0);
     nuki.castShadow = true;
     torii.add(nuki);
 
     // 5. Gakuzuka (Center Plaque inscribed "藤襲山" - Mt. Fujikasane)
-    const gakuzuka = new THREE.Mesh(new THREE.BoxGeometry(0.46, 0.72, 0.1), blackLacquerMat);
-    gakuzuka.position.set(0, 4.28, 0.16);
+    const gakuzuka = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.78, 0.1), blackLacquerMat);
+    gakuzuka.position.set(0, 4.5, 0.16);
     torii.add(gakuzuka);
 
-    const gakuzukaFrame = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.76, 0.08), goldMat);
-    gakuzukaFrame.position.set(0, 4.28, 0.14);
+    const gakuzukaFrame = new THREE.Mesh(new THREE.BoxGeometry(0.54, 0.82, 0.08), goldMat);
+    gakuzukaFrame.position.set(0, 4.5, 0.14);
     torii.add(gakuzukaFrame);
 
     // 6. Sacred Braided Straw Rope (Shimenawa - 注連縄)
     const shimenawaCurve = new THREE.QuadraticBezierCurve3(
-        new THREE.Vector3(-dist + 0.1, 3.65, 0.15),
-        new THREE.Vector3(0, 3.25, 0.22),
-        new THREE.Vector3(dist - 0.1, 3.65, 0.15)
+        new THREE.Vector3(-dist + 0.15, 3.85, 0.15),
+        new THREE.Vector3(0, 3.42, 0.22),
+        new THREE.Vector3(dist - 0.15, 3.85, 0.15)
     );
-    const shimenawa = new THREE.Mesh(new THREE.TubeGeometry(shimenawaCurve, 32, 0.09, 10, false), shimenawaStrawMat);
+    const shimenawa = new THREE.Mesh(new THREE.TubeGeometry(shimenawaCurve, 36, 0.095, 10, false), shimenawaStrawMat);
     torii.add(shimenawa);
 
     // 7. Hanging White Zigzag Paper Streamers (Shide - 紙垂)
-    const shidePositions = [-1.1, -0.4, 0.4, 1.1];
+    const shidePositions = [-1.2, -0.45, 0.45, 1.2];
     models.shideMeshes = [];
     shidePositions.forEach(x => {
         const shideGroup = new THREE.Group();
-        shideGroup.position.set(x, 3.32, 0.2);
+        shideGroup.position.set(x, 3.5, 0.2);
 
-        // 3 zigzag segments for authentic paper shide
         const seg1 = new THREE.Mesh(new THREE.BoxGeometry(0.12, 0.18, 0.01), whiteShideMat);
         seg1.rotation.z = 0.25;
         seg1.position.set(-0.03, -0.09, 0);
@@ -677,244 +767,362 @@ function buildGrandToriiGate() {
 }
 
 // ==========================================
-// KIMETSU GLOWING WISTERIA & SAKURA TREES
+// ORGANIC WEEPING WISTERIA FOREST (KIMETSU STYLE)
 // ==========================================
-function buildWisteriaTrees() {
+function buildWeepingWisteriaForest() {
     const wisteriaGroup = new THREE.Group();
     wisteriaGroup.name = 'wisteria';
 
     const barkMat = new THREE.MeshStandardMaterial({
-        color: 0x2d2424,
-        roughness: 0.9,
+        color: 0x271e1b,
+        roughness: 0.92,
         metalness: 0.05
     });
 
-    // Cascading Wisteria Flower Cluster Material (Emissive Violet Glow)
-    const wisteriaClusterMat = new THREE.MeshStandardMaterial({
+    // Tiered Wisteria Raceme Blossom Materials
+    const baseMat = new THREE.MeshStandardMaterial({
+        color: 0x6b21a8,
+        emissive: 0x7e22ce,
+        emissiveIntensity: 0.6,
+        roughness: 0.4
+    });
+    const midMat = new THREE.MeshStandardMaterial({
         color: 0x9333ea,
         emissive: 0xa855f7,
         emissiveIntensity: 0.75,
-        roughness: 0.4,
-        metalness: 0.1
-    });
-
-    const wisteriaTipMat = new THREE.MeshStandardMaterial({
-        color: 0xe879f9,
-        emissive: 0xf0abfc,
-        emissiveIntensity: 0.65,
         roughness: 0.35
     });
-
-    const sakuraLeafMat = new THREE.MeshStandardMaterial({
-        color: 0xf472b6,
-        roughness: 0.6
+    const tipMat = new THREE.MeshStandardMaterial({
+        color: 0xe879f9,
+        emissive: 0xf0abfc,
+        emissiveIntensity: 0.85,
+        roughness: 0.3
+    });
+    const foliageMat = new THREE.MeshStandardMaterial({
+        color: 0x1a2e26,
+        roughness: 0.85
     });
 
     models.wisteriaClusters = [];
+    wisteriaGlowLights = [];
 
-    // Helper: Build a single twisted wisteria tree with cascading clusters
-    function createWisteriaTree(x, z, scaleX) {
+    // Helper: Build a single twisted wisteria tree with weeping racemes
+    function createWisteriaTree(x, z, archDirection) {
         const tree = new THREE.Group();
-        tree.position.set(x, 0, z);
+        tree.position.set(x, 0.2, z);
 
-        // Twisted trunk using curved tube
+        // Twisted, gnarled ancient trunk
         const trunkCurve = new THREE.CatmullRomCurve3([
             new THREE.Vector3(0, 0, 0),
-            new THREE.Vector3(scaleX * 0.3, 1.4, 0.1),
-            new THREE.Vector3(scaleX * 0.6, 2.8, -0.2),
-            new THREE.Vector3(scaleX * 0.9, 3.8, 0.1)
+            new THREE.Vector3(archDirection * 0.4, 1.2, 0.1),
+            new THREE.Vector3(archDirection * 0.7, 2.6, -0.2),
+            new THREE.Vector3(archDirection * 1.1, 4.0, 0.1)
         ]);
-        const trunk = new THREE.Mesh(new THREE.TubeGeometry(trunkCurve, 20, 0.24, 10, false), barkMat);
+        const trunk = new THREE.Mesh(new THREE.TubeGeometry(trunkCurve, 24, 0.28, 10, false), barkMat);
         trunk.castShadow = true;
         tree.add(trunk);
 
-        // Sweeping branches
-        const branchOffsets = [
-            { x: scaleX * 1.5, y: 4.2, z: 0.8 },
-            { x: scaleX * 1.8, y: 4.0, z: -0.6 },
-            { x: scaleX * 0.7, y: 4.4, z: 0.4 },
-            { x: scaleX * 1.2, y: 4.6, z: -1.0 }
+        // Spreading arching boughs
+        const branchConfigs = [
+            { end: new THREE.Vector3(archDirection * 1.8, 4.5, 0.8), racemes: 6 },
+            { end: new THREE.Vector3(archDirection * 2.2, 4.3, -0.6), racemes: 7 },
+            { end: new THREE.Vector3(archDirection * 1.0, 4.7, 0.4), racemes: 5 },
+            { end: new THREE.Vector3(archDirection * 1.5, 4.8, -1.0), racemes: 6 }
         ];
 
-        branchOffsets.forEach(b => {
+        branchConfigs.forEach(cfg => {
             const bCurve = new THREE.LineCurve3(
-                new THREE.Vector3(scaleX * 0.9, 3.8, 0.1),
-                new THREE.Vector3(b.x, b.y, b.z)
+                new THREE.Vector3(archDirection * 1.1, 4.0, 0.1),
+                cfg.end
             );
-            const branch = new THREE.Mesh(new THREE.TubeGeometry(bCurve, 10, 0.12, 8, false), barkMat);
+            const branch = new THREE.Mesh(new THREE.TubeGeometry(bCurve, 12, 0.14, 8, false), barkMat);
+            branch.castShadow = true;
             tree.add(branch);
 
-            // Sakura foliage cloud at branch head
-            const foliage = new THREE.Mesh(new THREE.SphereGeometry(0.7, 12, 12), sakuraLeafMat);
-            foliage.position.set(b.x, b.y + 0.2, b.z);
-            foliage.scale.set(1.4, 0.7, 1.2);
+            // Foliage canopy cluster
+            const foliage = new THREE.Mesh(new THREE.SphereGeometry(0.85, 12, 12), foliageMat);
+            foliage.position.set(cfg.end.x, cfg.end.y + 0.2, cfg.end.z);
+            foliage.scale.set(1.5, 0.6, 1.3);
             tree.add(foliage);
 
-            // Cascading Wisteria Flower Clusters hanging down (Racemes)
-            for (let c = 0; c < 3; c++) {
-                const clusterGroup = new THREE.Group();
-                clusterGroup.position.set(
-                    b.x + (Math.random() - 0.5) * 0.6,
-                    b.y - 0.1,
-                    b.z + (Math.random() - 0.5) * 0.6
-                );
+            // Flowing Weeping Racemes (Fujinohana curtains)
+            for (let r = 0; r < cfg.racemes; r++) {
+                const cluster = new THREE.Group();
+                const offsetX = (Math.random() - 0.5) * 1.1;
+                const offsetZ = (Math.random() - 0.5) * 1.1;
+                cluster.position.set(cfg.end.x + offsetX, cfg.end.y - 0.1, cfg.end.z + offsetZ);
 
-                // Multi-tier tapered droplets
-                const tiers = 4;
+                // Multi-tiered flower raceme tapering downward
+                const tiers = 5 + Math.floor(Math.random() * 3);
                 for (let t = 0; t < tiers; t++) {
-                    const radius = (tiers - t) * 0.045 + 0.03;
-                    const cMat = t < 2 ? wisteriaClusterMat : wisteriaTipMat;
+                    const radius = (tiers - t) * 0.038 + 0.025;
+                    const cMat = t < 2 ? baseMat : (t < tiers - 1 ? midMat : tipMat);
                     const tierMesh = new THREE.Mesh(new THREE.SphereGeometry(radius, 8, 8), cMat);
-                    tierMesh.position.y = -t * 0.24;
-                    tierMesh.scale.set(1, 1.4, 1);
-                    clusterGroup.add(tierMesh);
+                    tierMesh.position.y = -t * 0.22;
+                    tierMesh.scale.set(1, 1.35, 1);
+                    cluster.add(tierMesh);
                 }
 
-                tree.add(clusterGroup);
-                models.wisteriaClusters.push(clusterGroup);
+                cluster.userData = {
+                    phaseOffset: Math.random() * Math.PI * 2,
+                    speed: 1.5 + Math.random() * 0.6
+                };
+
+                tree.add(cluster);
+                models.wisteriaClusters.push(cluster);
             }
         });
+
+        // Wisteria Glow Point Light
+        const glowLight = new THREE.PointLight(0xa855f7, 2.2, 8);
+        glowLight.position.set(archDirection * 1.5, 3.6, 0);
+        tree.add(glowLight);
+        wisteriaGlowLights.push(glowLight);
 
         return tree;
     }
 
-    // Left and Right Flanking Ancient Wisteria Trees framing the Torii
-    const leftTree = createWisteriaTree(-3.5, 0.5, -1);
-    const rightTree = createWisteriaTree(3.5, 0.5, 1);
-    wisteriaGroup.add(leftTree);
-    wisteriaGroup.add(rightTree);
+    // 4 Flanking Trees (Foreground and Midground framing the Torii)
+    const tree1 = createWisteriaTree(-3.8, 1.8, -1);
+    const tree2 = createWisteriaTree(3.8, 1.8, 1);
+    const tree3 = createWisteriaTree(-4.2, -1.5, -1);
+    const tree4 = createWisteriaTree(4.2, -1.5, 1);
 
-    // Ethereal Purple Point Lights casting wisteria glow on the ground & pillars
-    const leftWisteriaGlow = new THREE.PointLight(0xa855f7, 2.2, 8);
-    leftWisteriaGlow.position.set(-3.5, 3.2, 0.8);
-    scene.add(leftWisteriaGlow);
-    wisteriaGlowLights.push(leftWisteriaGlow);
-
-    const rightWisteriaGlow = new THREE.PointLight(0xa855f7, 2.2, 8);
-    rightWisteriaGlow.position.set(3.5, 3.2, 0.8);
-    scene.add(rightWisteriaGlow);
-    wisteriaGlowLights.push(rightWisteriaGlow);
+    wisteriaGroup.add(tree1);
+    wisteriaGroup.add(tree2);
+    wisteriaGroup.add(tree3);
+    wisteriaGroup.add(tree4);
 
     scene.add(wisteriaGroup);
     models.wisteria = wisteriaGroup;
 }
 
 // ==========================================
-// DEMON SLAYER NICHIRIN KATANA ON STAND
+// MASTERPIECE DEMON SLAYER NICHIRIN KATANA
+// (Museum-Grade Geometry & Shrine Display Table)
 // ==========================================
-function buildNichirinKatana() {
-    const katanaGroup = new THREE.Group();
-    katanaGroup.name = 'katana';
-    katanaGroup.position.set(0.0, 0.0, 2.8);
+function buildNichirinKatanaMasterpiece() {
+    const katanaEnsemble = new THREE.Group();
+    katanaEnsemble.name = 'katana';
+    // Placed on the right terrace, beautifully framing the walkway and lit by lantern
+    katanaEnsemble.position.set(2.4, 0.22, 1.2);
 
-    // 1. Black Lacquer Katanakake Sword Display Stand
-    const standMat = new THREE.MeshStandardMaterial({
-        color: 0x111111,
-        roughness: 0.18,
-        metalness: 0.35
+    // 1. Vermilion & Gold Lacquer Shrine Altar Table (Sanbō)
+    const tableMat = new THREE.MeshStandardMaterial({
+        color: 0x881337,
+        roughness: 0.25,
+        metalness: 0.2
     });
     const goldTrimMat = new THREE.MeshStandardMaterial({
         color: 0xf59e0b,
         roughness: 0.25,
-        metalness: 0.8
+        metalness: 0.85
     });
-
-    // Stand Base Plate
-    const standBase = new THREE.Mesh(new THREE.BoxGeometry(1.6, 0.08, 0.5), standMat);
-    standBase.position.y = 0.04;
-    standBase.castShadow = true;
-    katanaGroup.add(standBase);
-
-    // Stand Golden Crest Emblem (Mitsudomoe circle)
-    const crest = new THREE.Mesh(new THREE.CircleGeometry(0.09, 16), goldTrimMat);
-    crest.position.set(0, 0.05, 0.26);
-    katanaGroup.add(crest);
-
-    // Left and Right Upright Notched Arms
-    [-0.55, 0.55].forEach(x => {
-        const arm = new THREE.Mesh(new THREE.BoxGeometry(0.08, 0.65, 0.22), standMat);
-        arm.position.set(x, 0.36, 0);
-        arm.castShadow = true;
-        katanaGroup.add(arm);
-
-        // Gold finial on top of stand arm
-        const finial = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 0.04, 12), goldTrimMat);
-        finial.position.set(x, 0.7, 0);
-        katanaGroup.add(finial);
-    });
-
-    // 2. Glossy Black Lacquer Saya (Scabbard) resting on lower rack
-    const sayaMat = new THREE.MeshStandardMaterial({
-        color: 0x16161a,
+    const blackStandMat = new THREE.MeshStandardMaterial({
+        color: 0x0f172a,
         roughness: 0.15,
         metalness: 0.3
     });
-    const sayaCurve = new THREE.QuadraticBezierCurve3(
-        new THREE.Vector3(-0.75, 0.35, 0),
-        new THREE.Vector3(0, 0.33, 0),
-        new THREE.Vector3(0.75, 0.37, 0)
-    );
-    const saya = new THREE.Mesh(new THREE.TubeGeometry(sayaCurve, 24, 0.045, 12, false), sayaMat);
-    saya.castShadow = true;
-    katanaGroup.add(saya);
 
-    // Saya Golden Kojiri (tip) and Kurikata (cord knot)
-    const kojiri = new THREE.Mesh(new THREE.CylinderGeometry(0.048, 0.048, 0.06, 12), goldTrimMat);
-    kojiri.position.set(0.75, 0.37, 0);
-    kojiri.rotation.z = Math.PI / 2;
-    katanaGroup.add(kojiri);
+    // Tabletop
+    const tableTop = new THREE.Mesh(new THREE.BoxGeometry(1.6, 0.08, 0.58), tableMat);
+    tableTop.position.y = 0.42;
+    tableTop.castShadow = true;
+    tableTop.receiveShadow = true;
+    katanaEnsemble.add(tableTop);
 
-    // 3. The Nichirin Katana Blade resting on upper rack
-    const steelBladeMat = new THREE.MeshStandardMaterial({
-        color: 0xdde6ed,
-        roughness: 0.18,
-        metalness: 0.95
+    // Table Gold Corner Plates
+    [-0.78, 0.78].forEach(x => {
+        [-0.27, 0.27].forEach(z => {
+            const corner = new THREE.Mesh(new THREE.BoxGeometry(0.06, 0.09, 0.06), goldTrimMat);
+            corner.position.set(x, 0.42, z);
+            katanaEnsemble.add(corner);
+        });
     });
 
-    // Razor Curved Blade with Sori
-    const bladeCurve = new THREE.QuadraticBezierCurve3(
-        new THREE.Vector3(-0.25, 0.60, 0),
-        new THREE.Vector3(0.35, 0.58, 0),
-        new THREE.Vector3(0.95, 0.63, 0)
-    );
-    const blade = new THREE.Mesh(new THREE.TubeGeometry(bladeCurve, 24, 0.032, 8, false), steelBladeMat);
-    blade.scale.set(1, 1.4, 0.35); // Flattened razor blade edge
-    blade.castShadow = true;
-    katanaGroup.add(blade);
+    // Table Carved Legs
+    [-0.68, 0.68].forEach(x => {
+        [-0.22, 0.22].forEach(z => {
+            const leg = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.035, 0.42, 12), tableMat);
+            leg.position.set(x, 0.21, z);
+            leg.castShadow = true;
+            katanaEnsemble.add(leg);
+        });
+    });
 
-    // Habaki (Golden blade collar)
-    const habaki = new THREE.Mesh(new THREE.BoxGeometry(0.08, 0.07, 0.05), goldTrimMat);
-    habaki.position.set(-0.24, 0.60, 0);
-    katanaGroup.add(habaki);
+    // 2. Black Lacquer Katanakake (Sword Stand with Authentic Notches)
+    const standBase = new THREE.Mesh(new THREE.BoxGeometry(1.05, 0.04, 0.26), blackStandMat);
+    standBase.position.y = 0.48;
+    standBase.castShadow = true;
+    katanaEnsemble.add(standBase);
 
-    // Tsuba (Ornate Demon Slayer Guard - Flame / Sun Motif)
-    const tsuba = new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.12, 0.02, 24), goldTrimMat);
-    tsuba.position.set(-0.29, 0.60, 0);
-    tsuba.rotation.z = Math.PI / 2;
-    katanaGroup.add(tsuba);
+    // Crest emblem on stand
+    const crest = new THREE.Mesh(new THREE.CircleGeometry(0.07, 16), goldTrimMat);
+    crest.position.set(0, 0.49, 0.135);
+    katanaEnsemble.add(crest);
 
-    // Tsuka (Handle wrapped in black and white diamond cord)
-    const tsukaMat = new THREE.MeshStandardMaterial({ color: 0x0f172a, roughness: 0.5 });
-    const tsuka = new THREE.Mesh(new THREE.CylinderGeometry(0.038, 0.038, 0.45, 12), tsukaMat);
-    tsuka.position.set(-0.52, 0.61, 0);
+    // Left and Right Uprights with True U-Notches
+    [-0.28, 0.28].forEach(x => {
+        // Lower upright body
+        const lowerBody = new THREE.Mesh(new THREE.BoxGeometry(0.06, 0.14, 0.16), blackStandMat);
+        lowerBody.position.set(x, 0.57, 0);
+        katanaEnsemble.add(lowerBody);
+
+        // Mid section between lower and upper notches
+        const midBody = new THREE.Mesh(new THREE.BoxGeometry(0.06, 0.12, 0.14), blackStandMat);
+        midBody.position.set(x, 0.73, 0);
+        katanaEnsemble.add(midBody);
+
+        // Top finial
+        const topFinial = new THREE.Mesh(new THREE.CylinderGeometry(0.035, 0.035, 0.05, 12), goldTrimMat);
+        topFinial.position.set(x, 0.82, 0);
+        katanaEnsemble.add(topFinial);
+    });
+
+    // 3. The Continuous Curvature Nichirin Katana (Sori: y(x) = y0 + 0.045 * ((x+0.38)/1.06)^2)
+    const y0 = 0.81; // Resting height in upper notch
+    const curveSori = (x) => y0 + 0.045 * Math.pow((x + 0.38) / 1.06, 2);
+
+    // --- A. Faceted Razor-Sharp Blade (Nagasa) from x = -0.10 to x = +0.68 ---
+    const bladeSegments = 24;
+    const bladePositions = [];
+    const bladeNormals = [];
+    const bladeIndices = [];
+
+    for (let i = 0; i <= bladeSegments; i++) {
+        const u = i / bladeSegments;
+        const x = -0.10 + u * (0.68 - (-0.10));
+        const y = curveSori(x);
+        const taper = 1 - u * 0.35;
+
+        // Tangent slope
+        const dy = 0.09 * (x + 0.38) / Math.pow(1.06, 2);
+        const theta = Math.atan(dy);
+        const nx = -Math.sin(theta);
+        const ny = Math.cos(theta);
+
+        // 4 cross-section vertices: Mune (top), Shinogi-Left, Shinogi-Right, Ha (cutting edge)
+        const topW = 0.011 * taper;
+        const botW = 0.0015;
+        const ridgeH = 0.004;
+
+        if (i === bladeSegments) {
+            // Kissaki tip point
+            bladePositions.push(x + 0.03, y + dy * 0.03, 0); // Vertex 0 at tip
+            bladePositions.push(x, y + ridgeH, 0.006 * taper); // Vertex 1
+            bladePositions.push(x, y + ridgeH, -0.006 * taper); // Vertex 2
+            bladePositions.push(x, y - 0.015 * taper, 0); // Vertex 3
+        } else {
+            // Vertex 0: Mune (spine)
+            bladePositions.push(x + nx * topW, y + ny * topW, 0);
+            // Vertex 1: Shinogi Left
+            bladePositions.push(x, y + ridgeH, 0.007 * taper);
+            // Vertex 2: Shinogi Right
+            bladePositions.push(x, y + ridgeH, -0.007 * taper);
+            // Vertex 3: Ha (cutting edge)
+            bladePositions.push(x - nx * 0.015 * taper, y - ny * 0.015 * taper, 0);
+        }
+    }
+
+    for (let i = 0; i < bladeSegments; i++) {
+        const r1 = i * 4;
+        const r2 = (i + 1) * 4;
+
+        // Top ridge left & right
+        bladeIndices.push(r1, r2, r2 + 1); bladeIndices.push(r1, r2 + 1, r1 + 1);
+        bladeIndices.push(r1, r1 + 2, r2 + 2); bladeIndices.push(r1, r2 + 2, r2);
+
+        // Lower bevel to cutting edge left & right
+        bladeIndices.push(r1 + 1, r2 + 1, r2 + 3); bladeIndices.push(r1 + 1, r2 + 3, r1 + 3);
+        bladeIndices.push(r1 + 2, r1 + 3, r2 + 3); bladeIndices.push(r1 + 2, r2 + 3, r2 + 2);
+    }
+
+    const bladeGeo = new THREE.BufferGeometry();
+    bladeGeo.setAttribute('position', new THREE.Float32BufferAttribute(bladePositions, 3));
+    bladeGeo.setIndex(bladeIndices);
+    bladeGeo.computeVertexNormals();
+
+    const steelMat = new THREE.MeshStandardMaterial({
+        color: 0xe2e8f0,
+        metalness: 0.98,
+        roughness: 0.10,
+        emissive: 0x38bdf8,
+        emissiveIntensity: 0.15 // Nichirin energy glow
+    });
+    const bladeMesh = new THREE.Mesh(bladeGeo, steelMat);
+    bladeMesh.castShadow = true;
+    katanaEnsemble.add(bladeMesh);
+
+    // --- B. Habaki (Golden Blade Collar) at x = -0.13 to -0.10 ---
+    const habakiY = curveSori(-0.115);
+    const habaki = new THREE.Mesh(new THREE.BoxGeometry(0.045, 0.038, 0.024), goldTrimMat);
+    habaki.position.set(-0.115, habakiY, 0);
+    katanaEnsemble.add(habaki);
+
+    // --- C. Flame Tsuba (Demon Slayer Sword Guard) at x = -0.14 ---
+    const tsubaY = curveSori(-0.14);
+    const tsubaGroup = new THREE.Group();
+    tsubaGroup.position.set(-0.14, tsubaY, 0);
+    tsubaGroup.rotation.z = Math.PI / 2;
+
+    const tsubaCore = new THREE.Mesh(new THREE.CylinderGeometry(0.09, 0.09, 0.016, 24), blackStandMat);
+    tsubaGroup.add(tsubaCore);
+    const tsubaRim = new THREE.Mesh(new THREE.TorusGeometry(0.09, 0.014, 12, 24), goldTrimMat);
+    tsubaGroup.add(tsubaRim);
+    katanaEnsemble.add(tsubaGroup);
+
+    // --- D. Tsuka (Hilt Wrapped in Silk) from x = -0.38 to -0.14 ---
+    const tsukaLength = 0.24;
+    const tsukaY = curveSori(-0.26);
+    const tsukaMat = new THREE.MeshStandardMaterial({
+        color: 0x0f172a,
+        roughness: 0.6
+    });
+    const tsuka = new THREE.Mesh(new THREE.CylinderGeometry(0.022, 0.024, tsukaLength, 16), tsukaMat);
+    tsuka.position.set(-0.26, tsukaY, 0);
     tsuka.rotation.z = Math.PI / 2;
     tsuka.castShadow = true;
-    katanaGroup.add(tsuka);
+    katanaEnsemble.add(tsuka);
 
-    // Kashira (Gold pommel cap)
-    const kashira = new THREE.Mesh(new THREE.CylinderGeometry(0.042, 0.042, 0.04, 12), goldTrimMat);
-    kashira.position.set(-0.75, 0.61, 0);
+    // Kashira (Gold Pommel Cap) at x = -0.38
+    const kashiraY = curveSori(-0.38);
+    const kashira = new THREE.Mesh(new THREE.CylinderGeometry(0.026, 0.026, 0.025, 16), goldTrimMat);
+    kashira.position.set(-0.38, kashiraY, 0);
     kashira.rotation.z = Math.PI / 2;
-    katanaGroup.add(kashira);
+    katanaEnsemble.add(kashira);
 
-    scene.add(katanaGroup);
-    models.katana = katanaGroup;
+    // 4. Glossy Obsidian Black Lacquer Saya (Scabbard) in Lower Notch
+    const sayaY0 = 0.65;
+    const sayaCurveSori = (x) => sayaY0 + 0.045 * Math.pow((x + 0.38) / 1.06, 2);
+
+    const sayaCurve = new THREE.QuadraticBezierCurve3(
+        new THREE.Vector3(-0.36, sayaCurveSori(-0.36), 0),
+        new THREE.Vector3(0.15, sayaCurveSori(0.15), 0),
+        new THREE.Vector3(0.68, sayaCurveSori(0.68), 0)
+    );
+    const sayaMat = new THREE.MeshStandardMaterial({
+        color: 0x09090b,
+        roughness: 0.12,
+        metalness: 0.25
+    });
+    const saya = new THREE.Mesh(new THREE.TubeGeometry(sayaCurve, 24, 0.028, 12, false), sayaMat);
+    saya.castShadow = true;
+    katanaEnsemble.add(saya);
+
+    // Saya Golden Kojiri (tip cap)
+    const kojiri = new THREE.Mesh(new THREE.CylinderGeometry(0.03, 0.03, 0.04, 12), goldTrimMat);
+    kojiri.position.set(0.68, sayaCurveSori(0.68), 0);
+    kojiri.rotation.z = Math.PI / 2;
+    katanaEnsemble.add(kojiri);
+
+    scene.add(katanaEnsemble);
+    models.katana = katanaEnsemble;
 }
 
 // ==========================================
-// CARVED STONE TORO LANTERNS WITH FLICKERING FIRE
+// KASUGA STONE LANTERNS WITH WARM FLICKERING FLAME
 // ==========================================
-function buildStoneLanterns() {
+function buildKasugaStoneLanterns() {
     const stoneMat = new THREE.MeshStandardMaterial({
         color: 0x475569,
         roughness: 0.88
@@ -926,13 +1134,13 @@ function buildStoneLanterns() {
     models.lanterns = [];
     lanternPointLights = [];
 
-    [-2.5, 2.5].forEach((x, idx) => {
+    [-2.6, 2.6].forEach((x, idx) => {
         const lantern = new THREE.Group();
         lantern.name = 'lantern';
-        lantern.position.set(x, 0, 1.8);
+        lantern.position.set(x, 0.22, 2.2);
 
         // Kiso (Hexagonal Stone Base)
-        const base = new THREE.Mesh(new THREE.CylinderGeometry(0.44, 0.55, 0.35, 6), stoneMat);
+        const base = new THREE.Mesh(new THREE.CylinderGeometry(0.44, 0.54, 0.35, 6), stoneMat);
         base.position.y = 0.175;
         base.castShadow = true;
         lantern.add(base);
@@ -960,21 +1168,21 @@ function buildStoneLanterns() {
         roof.castShadow = true;
         lantern.add(roof);
 
-        // Hōju (Sacred Flaming Jewel finial)
+        // Hōju (Sacred Jewel finial)
         const hoju = new THREE.Mesh(new THREE.SphereGeometry(0.12, 12, 12), stoneMat);
         hoju.position.y = 2.58;
         lantern.add(hoju);
 
         // Warm Flickering Flame Point Light
-        const pLight = new THREE.PointLight(0xff8c1a, 2.4, 8);
-        pLight.position.set(x, 1.9, 1.8);
+        const pLight = new THREE.PointLight(0xff8c1a, 2.5, 7.5);
+        pLight.position.set(x, 2.12, 2.2);
         pLight.castShadow = true;
         pLight.shadow.bias = -0.002;
         scene.add(pLight);
 
         lanternPointLights.push({
             light: pLight,
-            baseIntensity: 2.4,
+            baseIntensity: 2.5,
             flickerOffset: idx * 3.14
         });
 
@@ -989,7 +1197,7 @@ function buildStoneLanterns() {
 function buildDarumaDoll() {
     const daruma = new THREE.Group();
     daruma.name = 'daruma';
-    daruma.position.set(-1.8, 0, 1.6);
+    daruma.position.set(-1.8, 0.22, 1.4);
 
     // Weathered Stone Pedestal
     const altar = new THREE.Mesh(new THREE.CylinderGeometry(0.45, 0.52, 0.42, 16), new THREE.MeshStandardMaterial({ color: 0x334155 }));
@@ -998,158 +1206,128 @@ function buildDarumaDoll() {
     daruma.add(altar);
 
     // Crimson Lacquer Roly-Poly Body
+    const bodyGeo = new THREE.SphereGeometry(0.38, 24, 24);
+    bodyGeo.scale(1, 1.15, 0.95);
     const bodyMat = new THREE.MeshStandardMaterial({
         color: 0xdc2626,
-        roughness: 0.28,
-        metalness: 0.15
+        roughness: 0.35,
+        metalness: 0.1
     });
-    const body = new THREE.Mesh(new THREE.SphereGeometry(0.38, 32, 32), bodyMat);
+    const body = new THREE.Mesh(bodyGeo, bodyMat);
     body.position.y = 0.65;
-    body.scale.set(1.12, 1.0, 0.98);
     body.castShadow = true;
     daruma.add(body);
 
-    // White Face Plate
-    const faceMat = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.4 });
-    const face = new THREE.Mesh(new THREE.CircleGeometry(0.24, 32), faceMat);
-    face.position.set(0, 0.72, 0.35);
+    // White Porcelain Face Area
+    const faceGeo = new THREE.SphereGeometry(0.24, 20, 20);
+    faceGeo.scale(1, 1.1, 0.4);
+    const faceMat = new THREE.MeshStandardMaterial({ color: 0xfef3c7, roughness: 0.6 });
+    const face = new THREE.Mesh(faceGeo, faceMat);
+    face.position.set(0, 0.72, 0.26);
+    face.rotation.x = -0.15;
     daruma.add(face);
 
-    // Crane Eyebrows & Turtle Mustache (Inked)
-    const blackInkMat = new THREE.MeshBasicMaterial({ color: 0x09090b });
-    [-0.09, 0.09].forEach(ex => {
-        const brow = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.03, 0.01), blackInkMat);
-        brow.position.set(ex, 0.82, 0.36);
-        brow.rotation.z = ex > 0 ? -0.22 : 0.22;
-        daruma.add(brow);
-
-        const eye = new THREE.Mesh(new THREE.CircleGeometry(0.045, 16), blackInkMat);
-        eye.position.set(ex, 0.73, 0.36);
+    // Bold Black Eyes
+    const eyeMat = new THREE.MeshBasicMaterial({ color: 0x0f172a });
+    [-0.08, 0.08].forEach(x => {
+        const eye = new THREE.Mesh(new THREE.CircleGeometry(0.045, 16), eyeMat);
+        eye.position.set(x, 0.76, 0.36);
         daruma.add(eye);
     });
-
-    // Gold Calligraphy Emblem ("必勝" - Hisshō / Victory & "福" - Fuku)
-    const goldMat = new THREE.MeshStandardMaterial({
-        color: 0xf59e0b,
-        roughness: 0.2,
-        metalness: 0.75
-    });
-    const kanjiBadge = new THREE.Mesh(new THREE.CircleGeometry(0.12, 16), goldMat);
-    kanjiBadge.position.set(0, 0.48, 0.38);
-    daruma.add(kanjiBadge);
 
     scene.add(daruma);
     models.daruma = daruma;
 }
 
 // ==========================================
-// GLOSSY PORCELAIN MANEKI-NEKO (招き猫)
+// PORCELAIN MANEKI-NEKO (招き猫)
 // ==========================================
 function buildManekiNeko() {
     const neko = new THREE.Group();
     neko.name = 'neko';
-    neko.position.set(1.8, 0, 1.6);
+    neko.position.set(-2.4, 0.22, 0.5);
 
     // Stone Pedestal
-    const altar = new THREE.Mesh(new THREE.CylinderGeometry(0.45, 0.52, 0.42, 16), new THREE.MeshStandardMaterial({ color: 0x334155 }));
-    altar.position.y = 0.21;
-    altar.castShadow = true;
-    neko.add(altar);
+    const plinth = new THREE.Mesh(new THREE.CylinderGeometry(0.42, 0.48, 0.4, 16), new THREE.MeshStandardMaterial({ color: 0x334155 }));
+    plinth.position.y = 0.2;
+    plinth.castShadow = true;
+    neko.add(plinth);
 
-    // Porcelain Materials
-    const porcelainMat = new THREE.MeshStandardMaterial({
-        color: 0xffffff,
+    // Glossy White Porcelain Body
+    const whiteMat = new THREE.MeshStandardMaterial({
+        color: 0xf8fafc,
         roughness: 0.15,
-        metalness: 0.05
+        metalness: 0.1
     });
-    const pinkMat = new THREE.MeshStandardMaterial({ color: 0xf472b6, roughness: 0.4 });
-    const redMat = new THREE.MeshStandardMaterial({ color: 0xe11d48, roughness: 0.25 });
-    const goldMat = new THREE.MeshStandardMaterial({ color: 0xf59e0b, roughness: 0.2, metalness: 0.8 });
+    const goldMat = new THREE.MeshStandardMaterial({
+        color: 0xf59e0b,
+        roughness: 0.25,
+        metalness: 0.85
+    });
 
-    // Porcelain Body
-    const body = new THREE.Mesh(new THREE.SphereGeometry(0.35, 32, 32), porcelainMat);
-    body.position.y = 0.62;
-    body.scale.set(0.92, 1.1, 0.92);
+    const body = new THREE.Mesh(new THREE.SphereGeometry(0.32, 24, 24), whiteMat);
+    body.position.y = 0.6;
+    body.scale.set(1, 1.25, 0.95);
     body.castShadow = true;
     neko.add(body);
 
-    // Cute Head
-    const head = new THREE.Mesh(new THREE.SphereGeometry(0.28, 32, 32), porcelainMat);
-    head.position.y = 0.95;
-    head.castShadow = true;
+    // Head
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.24, 24, 24), whiteMat);
+    head.position.set(0, 0.95, 0.05);
     neko.add(head);
 
-    // Pointed Ears with Pink Interior
-    [-0.14, 0.14].forEach(ex => {
-        const ear = new THREE.Mesh(new THREE.ConeGeometry(0.1, 0.18, 4), porcelainMat);
-        ear.position.set(ex, 1.18, 0);
-        ear.rotation.z = ex > 0 ? -0.2 : 0.2;
+    // Ears
+    [-0.12, 0.12].forEach(x => {
+        const ear = new THREE.Mesh(new THREE.ConeGeometry(0.08, 0.14, 12), whiteMat);
+        ear.position.set(x, 1.15, 0.05);
+        ear.rotation.z = x > 0 ? -0.3 : 0.3;
         neko.add(ear);
-
-        const innerEar = new THREE.Mesh(new THREE.ConeGeometry(0.06, 0.12, 4), pinkMat);
-        innerEar.position.set(ex, 1.18, 0.04);
-        innerEar.rotation.z = ex > 0 ? -0.2 : 0.2;
-        neko.add(innerEar);
     });
 
-    // Crimson Collar & Golden Suzu Bell
-    const collar = new THREE.Mesh(new THREE.TorusGeometry(0.22, 0.035, 12, 24), redMat);
-    collar.position.set(0, 0.78, 0.05);
-    collar.rotation.x = Math.PI / 2;
-    neko.add(collar);
-
-    const bell = new THREE.Mesh(new THREE.SphereGeometry(0.06, 16, 16), goldMat);
-    bell.position.set(0, 0.74, 0.25);
-    neko.add(bell);
-
-    // Raised Right Paw (Beckoning Good Fortune)
-    const arm = new THREE.Mesh(new THREE.CylinderGeometry(0.07, 0.09, 0.32, 16), porcelainMat);
-    arm.position.set(0.26, 0.88, 0.18);
-    arm.rotation.set(0.4, 0, -0.4);
-    neko.add(arm);
-
-    const paw = new THREE.Mesh(new THREE.SphereGeometry(0.08, 16, 16), porcelainMat);
-    paw.position.set(0.32, 1.06, 0.26);
+    // Raised Right Paw (Welcoming Luck)
+    const paw = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 0.22, 12), whiteMat);
+    paw.position.set(0.22, 0.98, 0.14);
+    paw.rotation.z = -0.65;
     neko.add(paw);
 
-    // Golden Koban Coin ("千万両" - 10 Million Gold Ryo)
-    const koban = new THREE.Mesh(new THREE.BoxGeometry(0.18, 0.26, 0.03), goldMat);
-    koban.position.set(0, 0.52, 0.32);
-    koban.rotation.x = -0.15;
-    neko.add(koban);
+    // Golden Bell
+    const bell = new THREE.Mesh(new THREE.SphereGeometry(0.045, 12, 12), goldMat);
+    bell.position.set(0, 0.74, 0.25);
+    neko.add(bell);
 
     scene.add(neko);
     models.neko = neko;
 }
 
 // ==========================================
-// DYNAMIC PARTICLES: SAKURA, WISTERIA & FIREFLIES
+// DUAL PARTICLE SYSTEMS (SAKURA & WISTERIA SPIRITS)
 // ==========================================
-function buildParticles() {
-    // 1. Drifting Sakura Blossom Petals
-    const sakuraCount = 450;
+function buildDualParticleSystems() {
+    // 1. Swirling Pink Sakura Blossom Petals
+    const sakuraCount = 400;
     sakuraGeo = new THREE.BufferGeometry();
-    const sPos = new Float32Array(sakuraCount * 3);
-    const sSpd = new Float32Array(sakuraCount * 3);
+    const sakuraPos = new Float32Array(sakuraCount * 3);
+    const sakuraSpeeds = new Float32Array(sakuraCount * 3);
 
     for (let i = 0; i < sakuraCount; i++) {
-        sPos[i * 3] = (Math.random() - 0.5) * 20;
-        sPos[i * 3 + 1] = Math.random() * 10 + 0.5;
-        sPos[i * 3 + 2] = (Math.random() - 0.5) * 20;
+        sakuraPos[i * 3] = (Math.random() - 0.5) * 22;
+        sakuraPos[i * 3 + 1] = Math.random() * 11;
+        sakuraPos[i * 3 + 2] = (Math.random() - 0.5) * 22;
 
-        sSpd[i * 3] = (Math.random() - 0.5) * 0.025;
-        sSpd[i * 3 + 1] = -(Math.random() * 0.02 + 0.012);
-        sSpd[i * 3 + 2] = Math.random() * 0.02 + 0.008;
+        sakuraSpeeds[i * 3] = (Math.random() - 0.5) * 0.015;
+        sakuraSpeeds[i * 3 + 1] = -0.012 - Math.random() * 0.02;
+        sakuraSpeeds[i * 3 + 2] = (Math.random() - 0.5) * 0.015;
     }
 
-    sakuraGeo.setAttribute('position', new THREE.BufferAttribute(sPos, 3));
-    sakuraGeo.userData.speeds = sSpd;
+    sakuraGeo.setAttribute('position', new THREE.BufferAttribute(sakuraPos, 3));
+    sakuraGeo.userData = { speeds: sakuraSpeeds };
 
-    const sakuraTex = createPetalTexture('rgba(255, 192, 203, 1)', 'rgba(244, 114, 182, 0.8)');
+    const sakuraTex = createPetalTexture('#fbcfe8', '#f472b6');
     const sakuraMat = new THREE.PointsMaterial({
-        size: 0.28,
+        size: 0.38,
         map: sakuraTex,
         transparent: true,
+        opacity: 0.88,
         depthWrite: false,
         blending: THREE.NormalBlending
     });
@@ -1158,64 +1336,65 @@ function buildParticles() {
     scene.add(sakuraParticles);
     models.sakura = sakuraParticles;
 
-    // 2. Glowing Purple Wisteria Embers / Spirit Spores (Demon Slayer Mt. Fujikasane)
-    const wisteriaCount = 350;
+    // 2. Upward Swirling Wisteria Embers (Kimetsu Spirit Spores)
+    const wisteriaCount = 300;
     wisteriaGeo = new THREE.BufferGeometry();
-    const wPos = new Float32Array(wisteriaCount * 3);
-    const wSpd = new Float32Array(wisteriaCount * 3);
+    const wisteriaPos = new Float32Array(wisteriaCount * 3);
+    const wisteriaSpeeds = new Float32Array(wisteriaCount * 3);
 
     for (let i = 0; i < wisteriaCount; i++) {
-        wPos[i * 3] = (Math.random() - 0.5) * 16;
-        wPos[i * 3 + 1] = Math.random() * 7 + 0.2;
-        wPos[i * 3 + 2] = (Math.random() - 0.5) * 16;
+        wisteriaPos[i * 3] = (Math.random() - 0.5) * 16;
+        wisteriaPos[i * 3 + 1] = Math.random() * 7;
+        wisteriaPos[i * 3 + 2] = (Math.random() - 0.5) * 16;
 
-        // Upward floating vortex
-        wSpd[i * 3] = (Math.random() - 0.5) * 0.015;
-        wSpd[i * 3 + 1] = Math.random() * 0.018 + 0.008; // Float UP
-        wSpd[i * 3 + 2] = (Math.random() - 0.5) * 0.015;
+        wisteriaSpeeds[i * 3] = (Math.random() - 0.5) * 0.01;
+        wisteriaSpeeds[i * 3 + 1] = 0.014 + Math.random() * 0.02;
+        wisteriaSpeeds[i * 3 + 2] = (Math.random() - 0.5) * 0.01;
     }
 
-    wisteriaGeo.setAttribute('position', new THREE.BufferAttribute(wPos, 3));
-    wisteriaGeo.userData.speeds = wSpd;
+    wisteriaGeo.setAttribute('position', new THREE.BufferAttribute(wisteriaPos, 3));
+    wisteriaGeo.userData = { speeds: wisteriaSpeeds };
 
     const wisteriaTex = createRadialGlowTexture('rgba(216, 180, 254, 1)', 'rgba(147, 51, 234, 0)');
     const wisteriaMat = new THREE.PointsMaterial({
         size: 0.32,
         map: wisteriaTex,
         transparent: true,
-        depthWrite: false,
-        blending: THREE.AdditiveBlending
+        opacity: 0.75,
+        blending: THREE.AdditiveBlending,
+        depthWrite: false
     });
 
     wisteriaParticles = new THREE.Points(wisteriaGeo, wisteriaMat);
     scene.add(wisteriaParticles);
 
-    // 3. Warm Fireflies dancing near the lanterns
+    // 3. Fireflies Dancing Near Moss & Steps
     const fireflyCount = 60;
     fireflyGeo = new THREE.BufferGeometry();
-    const fPos = new Float32Array(fireflyCount * 3);
-    const fSpd = new Float32Array(fireflyCount * 3);
+    const fireflyPos = new Float32Array(fireflyCount * 3);
+    const fireflySpeeds = new Float32Array(fireflyCount * 3);
 
     for (let i = 0; i < fireflyCount; i++) {
-        fPos[i * 3] = (Math.random() - 0.5) * 10;
-        fPos[i * 3 + 1] = Math.random() * 3.5 + 0.4;
-        fPos[i * 3 + 2] = (Math.random() - 0.5) * 8 + 1.0;
+        fireflyPos[i * 3] = (Math.random() - 0.5) * 10;
+        fireflyPos[i * 3 + 1] = 0.3 + Math.random() * 2.2;
+        fireflyPos[i * 3 + 2] = (Math.random() - 0.5) * 10;
 
-        fSpd[i * 3] = (Math.random() - 0.5) * 0.012;
-        fSpd[i * 3 + 1] = (Math.random() - 0.5) * 0.008;
-        fSpd[i * 3 + 2] = (Math.random() - 0.5) * 0.012;
+        fireflySpeeds[i * 3] = (Math.random() - 0.5) * 0.012;
+        fireflySpeeds[i * 3 + 1] = (Math.random() - 0.5) * 0.008;
+        fireflySpeeds[i * 3 + 2] = (Math.random() - 0.5) * 0.012;
     }
 
-    fireflyGeo.setAttribute('position', new THREE.BufferAttribute(fPos, 3));
-    fireflyGeo.userData.speeds = fSpd;
+    fireflyGeo.setAttribute('position', new THREE.BufferAttribute(fireflyPos, 3));
+    fireflyGeo.userData = { speeds: fireflySpeeds };
 
     const fireflyTex = createRadialGlowTexture('rgba(254, 240, 138, 1)', 'rgba(234, 179, 8, 0)');
     const fireflyMat = new THREE.PointsMaterial({
-        size: 0.26,
+        size: 0.3,
         map: fireflyTex,
         transparent: true,
-        depthWrite: false,
-        blending: THREE.AdditiveBlending
+        opacity: 0.85,
+        blending: THREE.AdditiveBlending,
+        depthWrite: false
     });
 
     fireflyParticles = new THREE.Points(fireflyGeo, fireflyMat);
@@ -1223,70 +1402,22 @@ function buildParticles() {
 }
 
 // ==========================================
-// LIGHTING & NIGHT/DAWN MODE TOGGLE
-// ==========================================
-function updateLightingVisuals() {
-    const btn = document.getElementById('btnNightMode');
-    if (isNight) {
-        // Deep Kimetsu Wisteria Midnight
-        scene.background.set(0x070512);
-        scene.fog.color.set(0x0e071e);
-        ambientLight.color.set(0x28124d);
-        ambientLight.intensity = 0.85;
-
-        dirLight.color.set(0x93c5fd);
-        dirLight.intensity = 0.75;
-        moonRimLight.color.set(0xa855f7);
-        moonRimLight.intensity = 0.95;
-
-        lanternPointLights.forEach(item => item.light.intensity = item.baseIntensity);
-        wisteriaGlowLights.forEach(light => light.intensity = 2.2);
-
-        if (moonMesh) moonMesh.material.opacity = 0.98;
-        if (godRaysGroup) godRaysGroup.visible = true;
-
-        if (btn) {
-            btn.innerHTML = `<span class="dock-btn-icon">🌙</span><span class="dock-btn-label">Không Gian: Đêm Tử Đằng</span>`;
-            btn.classList.add('active');
-        }
-    } else {
-        // Sacred Dawn / Sunrise (Bình minh Akebono)
-        scene.background.set(0x201235);
-        scene.fog.color.set(0x351b47);
-        ambientLight.color.set(0x6b21a8);
-        ambientLight.intensity = 1.35;
-
-        dirLight.color.set(0xfde047);
-        dirLight.intensity = 1.5;
-        moonRimLight.color.set(0xf43f5e);
-        moonRimLight.intensity = 1.2;
-
-        lanternPointLights.forEach(item => item.light.intensity = 0.6);
-        wisteriaGlowLights.forEach(light => light.intensity = 1.0);
-
-        if (godRaysGroup) godRaysGroup.visible = false;
-
-        if (btn) {
-            btn.innerHTML = `<span class="dock-btn-icon">☀️</span><span class="dock-btn-label">Không Gian: Bình Minh Rạng Rỡ</span>`;
-            btn.classList.remove('active');
-        }
-    }
-}
-
-// ==========================================
-// PROCEDURAL SHINTO TEMPLE BELL / CHIME (WEB AUDIO API)
+// PROCEDURAL SHINTO CHIME & AUDIO
 // ==========================================
 function playTempleChimeSound() {
     if (!soundChimeEnabled) return;
+
     try {
-        const AudioContextClass = window.AudioContext || window.webkitAudioContext;
-        if (!AudioContextClass) return;
-        if (!audioCtx) audioCtx = new AudioContextClass();
-        if (audioCtx.state === 'suspended') audioCtx.resume();
+        if (!audioCtx) {
+            audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        }
+        if (audioCtx.state === 'suspended') {
+            audioCtx.resume();
+        }
 
         const now = audioCtx.currentTime;
-        // Two resonant crystal sine harmonics simulating Shinto Suzu Bell
-        const freqs = [880, 1760, 2640];
+        const freqs = [587.33, 880.00, 1174.66, 1760.00]; // D5, A5, D6, A6 harmonics
+
         freqs.forEach((freq, idx) => {
             const osc = audioCtx.createOscillator();
             const gain = audioCtx.createGain();
@@ -1294,18 +1425,17 @@ function playTempleChimeSound() {
             osc.type = idx === 0 ? 'sine' : 'triangle';
             osc.frequency.setValueAtTime(freq, now);
 
-            const initialGain = idx === 0 ? 0.18 : 0.08 / idx;
-            gain.gain.setValueAtTime(initialGain, now);
-            gain.gain.exponentialRampToValueAtTime(0.0001, now + 1.8);
+            gain.gain.setValueAtTime(0.08 / (idx + 1), now);
+            gain.gain.exponentialRampToValueAtTime(0.0001, now + 2.8 + idx * 0.4);
 
             osc.connect(gain);
             gain.connect(audioCtx.destination);
 
             osc.start(now);
-            osc.stop(now + 1.85);
+            osc.stop(now + 3.2 + idx * 0.4);
         });
     } catch (e) {
-        // Audio error silent fallback
+        // Safe fallback if browser blocks audio autoplay
     }
 }
 
@@ -1320,38 +1450,97 @@ function toggleSoundChime() {
 }
 
 // ==========================================
-// INTERACTIVE RAYCASTING & HOTSPOTS
+// LIGHTING VISUAL MODES
 // ==========================================
-function onCanvasClick(e) {
-    mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
-    mouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
+function updateLightingVisuals() {
+    const btn = document.getElementById('btnNightMode');
 
-    raycaster.setFromCamera(mouse, camera);
-    const hits = raycaster.intersectObjects(scene.children, true);
+    if (isNight) {
+        scene.background.setHex(0x060411);
+        scene.fog.color.setHex(0x0a0518);
+        ambientLight.color.setHex(0x241445);
+        ambientLight.intensity = 0.95;
+        dirLight.color.setHex(0xa5b4fc);
+        dirLight.intensity = 0.95;
+        moonRimLight.intensity = 1.3;
 
-    if (hits.length > 0) {
-        let obj = hits[0].object;
-        let foundKey = null;
+        if (models.starfield) models.starfield.visible = true;
+        if (models.moon) models.moon.visible = true;
+        if (godRaysGroup) godRaysGroup.visible = true;
 
-        while (obj && obj !== scene) {
-            if (obj.name && VOCAB_DATABASE[obj.name]) {
-                foundKey = obj.name;
-                break;
-            }
-            obj = obj.parent;
+        lanternPointLights.forEach(item => { item.light.intensity = item.baseIntensity; });
+        wisteriaGlowLights.forEach(light => { light.intensity = 2.2; });
+
+        if (btn) {
+            btn.innerHTML = '<span class="dock-btn-icon">🌙</span><span class="dock-btn-label">Không Gian: Đêm Tử Đằng</span>';
+            btn.classList.add('active');
         }
+    } else {
+        // Dawn of Fujikasane (Hừng Đông Núi Tử Đằng)
+        scene.background.setHex(0x2d1738);
+        scene.fog.color.setHex(0x401f4c);
+        ambientLight.color.setHex(0x5b335c);
+        ambientLight.intensity = 1.25;
+        dirLight.color.setHex(0xfde68a);
+        dirLight.intensity = 1.35;
+        moonRimLight.intensity = 0.3;
 
-        if (foundKey) {
-            focusObject(foundKey);
+        if (models.starfield) models.starfield.visible = false;
+        if (models.moon) models.moon.visible = true;
+        if (godRaysGroup) godRaysGroup.visible = true;
+
+        lanternPointLights.forEach(item => { item.light.intensity = item.baseIntensity * 0.45; });
+        wisteriaGlowLights.forEach(light => { light.intensity = 1.2; });
+
+        if (btn) {
+            btn.innerHTML = '<span class="dock-btn-icon">🌅</span><span class="dock-btn-label">Không Gian: Hừng Đông</span>';
+            btn.classList.remove('active');
         }
     }
 }
 
-function onUserInteraction() {
-    // If user manually rotates or zooms with mouse/touch, pause cinematic roam
-    if (isCinematic) {
-        setCinematicMode(false);
+// ==========================================
+// INTERACTIVE RAYCASTING & FOCUS GLIDE
+// ==========================================
+function onCanvasClick(e) {
+    // If clicking on UI, ignore
+    if (e.target.id !== 'canvas3d') return;
+
+    mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
+    mouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
+
+    raycaster.setFromCamera(mouse, camera);
+
+    const hitObjects = [];
+    ['torii', 'katana', 'wisteria', 'lantern', 'daruma', 'neko'].forEach(key => {
+        if (models[key]) hitObjects.push(models[key]);
+    });
+
+    const intersects = raycaster.intersectObjects(hitObjects, true);
+    if (intersects.length > 0) {
+        let current = intersects[0].object;
+        while (current && current.parent && !current.name) {
+            current = current.parent;
+        }
+        if (current && current.name && VOCAB_DATABASE[current.name]) {
+            focusObject(current.name);
+        }
     }
+}
+
+// Start smooth camera glide without locking controls afterwards
+function startCameraTransition(camEnd, targetEnd, duration = 900) {
+    isTransitioning = true;
+    transitionStartTime = performance.now();
+    transitionDuration = duration;
+
+    transitionStartCam.copy(camera.position);
+    transitionStartTarget.copy(controls.target);
+
+    transitionEndCam.copy(camEnd);
+    transitionEndTarget.copy(targetEnd);
+
+    if (isCinematic) setCinematicMode(false);
 }
 
 function focusObject(key) {
@@ -1361,7 +1550,6 @@ function focusObject(key) {
     currentActiveItem = data;
     currentVocabIndex = VOCAB_KEYS.indexOf(key);
 
-    // Turn off cinematic roam when inspecting a specific object
     if (isCinematic) {
         setCinematicMode(false);
     }
@@ -1374,9 +1562,8 @@ function focusObject(key) {
         activePill.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
     }
 
-    // Set Smooth Camera Glide Target
-    targetCamPos.copy(data.camPos);
-    targetLookAt.copy(data.lookAt);
+    // Smooth glide to object target
+    startCameraTransition(data.camPos, data.lookAt, 900);
 
     // Play tranquil temple chime
     playTempleChimeSound();
@@ -1484,9 +1671,7 @@ function toggleParticles() {
 
 function resetView() {
     document.querySelectorAll('.obj-pill').forEach(p => p.classList.remove('active'));
-    targetCamPos.set(0, 3.4, 9.8);
-    targetLookAt.set(0, 2.0, 0);
-    controls.autoRotate = autoRotate;
+    startCameraTransition(new THREE.Vector3(0, 3.4, 11.2), new THREE.Vector3(0, 2.2, 0), 900);
     showModal(VOCAB_DATABASE.torii, false);
     const toriiPill = document.getElementById('pill-torii');
     if (toriiPill) toriiPill.classList.add('active');
@@ -1510,19 +1695,31 @@ function animate() {
     const delta = clock.getDelta();
     const elapsedTime = clock.getElapsedTime();
 
-    // 1. Cinematic Drone Roam Mode or Smooth Lerp
-    if (isCinematic) {
-        cinematicAngle += 0.22 * delta;
+    // 1. Camera Glide Transition or Cinematic Roam
+    if (isTransitioning) {
+        const now = performance.now();
+        const elapsed = now - transitionStartTime;
+        const t = Math.min(1.0, elapsed / transitionDuration);
+        // Smooth Cubic Easing: 1 - (1 - t)^3
+        const ease = 1 - Math.pow(1 - t, 3);
+
+        camera.position.lerpVectors(transitionStartCam, transitionEndCam, ease);
+        controls.target.lerpVectors(transitionStartTarget, transitionEndTarget, ease);
+
+        if (t >= 1.0) {
+            isTransitioning = false;
+            camera.position.copy(transitionEndCam);
+            controls.target.copy(transitionEndTarget);
+        }
+    } else if (isCinematic) {
+        cinematicAngle += 0.20 * delta;
         const camX = Math.sin(cinematicAngle) * cinematicRadius;
         const camZ = Math.cos(cinematicAngle) * cinematicRadius;
-        const camY = cinematicHeight + Math.sin(cinematicAngle * 1.5) * 0.8;
+        const camY = cinematicHeight + Math.sin(cinematicAngle * 1.5) * 0.7;
 
-        targetCamPos.set(camX, camY, camZ);
-        targetLookAt.set(0, 2.0, 0);
+        camera.position.set(camX, camY, camZ);
+        controls.target.set(0, 2.2, 0);
     }
-
-    camera.position.lerp(targetCamPos, 0.045);
-    controls.target.lerp(targetLookAt, 0.045);
 
     // 2. Flickering Stone Lantern Fire Light
     lanternPointLights.forEach(item => {
@@ -1542,9 +1739,10 @@ function animate() {
     }
 
     if (models.wisteriaClusters) {
-        models.wisteriaClusters.forEach((cluster, idx) => {
-            cluster.rotation.z = Math.sin(elapsedTime * 1.8 + idx * 0.4) * 0.06;
-            cluster.rotation.x = Math.cos(elapsedTime * 1.6 + idx * 0.3) * 0.05;
+        models.wisteriaClusters.forEach(cluster => {
+            const { phaseOffset, speed } = cluster.userData;
+            cluster.rotation.z = Math.sin(elapsedTime * speed + phaseOffset) * 0.07;
+            cluster.rotation.x = Math.cos(elapsedTime * (speed * 0.85) + phaseOffset) * 0.06;
         });
     }
 
@@ -1568,9 +1766,9 @@ function animate() {
             pos[i * 3 + 2] += spd[i * 3 + 2];
 
             if (pos[i * 3 + 1] < 0) {
-                pos[i * 3 + 1] = 10.0;
-                pos[i * 3] = (Math.random() - 0.5) * 20;
-                pos[i * 3 + 2] = (Math.random() - 0.5) * 20;
+                pos[i * 3 + 1] = 11.0;
+                pos[i * 3] = (Math.random() - 0.5) * 22;
+                pos[i * 3 + 2] = (Math.random() - 0.5) * 22;
             }
         }
         sakuraGeo.attributes.position.needsUpdate = true;
@@ -1612,6 +1810,7 @@ function animate() {
         fireflyGeo.attributes.position.needsUpdate = true;
     }
 
+    // Controls update (when not transitioning, OrbitControls has 100% full, smooth control)
     controls.update();
     renderer.render(scene, camera);
 }

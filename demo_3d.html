@@ -12,8 +12,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Shippori+Mincho:wght@600;800&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="assets/css/animate-ui.css">
-    <script src="assets/js/audio-engine.js?v=2"></script>
-    <link rel="stylesheet" href="assets/css/pages/demo_3d.css?v=2">
+    <script src="assets/js/audio-engine.js?v=3"></script>
+    <link rel="stylesheet" href="assets/css/pages/demo_3d.css?v=3">
 
     <!-- Three.js + OrbitControls CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -21,47 +21,49 @@
 </head>
 <body>
 
-    <!-- Top Header Bar -->
-    <header class="top-bar">
-        <div class="brand-card">
-            <div class="brand-badge">
-                <span class="badge-dot"></span>
-                <span>藤襲山 • MT. FUJIKASANE WISTERIA SHRINE</span>
+    <!-- Top Unified Navigation Container -->
+    <header class="top-nav-container">
+        <div class="top-bar">
+            <div class="brand-card">
+                <div class="brand-badge">
+                    <span class="badge-dot"></span>
+                    <span>藤襲山 • MT. FUJIKASANE WISTERIA SHRINE</span>
+                </div>
+                <h1 class="brand-title">
+                    <span class="brand-icon">⛩️</span>
+                    <span class="brand-name">KHÔNG GIAN VĂN HÓA 3D NHẬT BẢN</span>
+                </h1>
+                <p class="brand-sub">Kimetsu no Yaiba • WebGL 3D • Học Từ Vựng & Điển Cố Văn Hóa Marugoto (A1–A2)</p>
             </div>
-            <h1 class="brand-title">
-                <span class="brand-icon">⛩️</span>
-                <span class="brand-name">KHÔNG GIAN VĂN HÓA 3D NHẬT BẢN</span>
-            </h1>
-            <p class="brand-sub">Kỳ quan Núi Tử Đằng • Tương tác WebGL 3D • Học Từ Vựng & Điển Cố Văn Hóa Marugoto (A1–A2)</p>
+            <div class="nav-actions">
+                <button class="btn-cinematic-quick" id="btnCinematicTop" onclick="toggleCinematicRoam()" title="Bật/Tắt chế độ quay điện ảnh tự động">
+                    <span class="cinematic-icon">🎬</span>
+                    <span>Góc Quay Điện Ảnh</span>
+                </button>
+                <a href="index.html" class="btn-nav-back">
+                    <span>🌸</span>
+                    <span>Về Trang Chủ</span>
+                </a>
+            </div>
         </div>
-        <div class="nav-actions">
-            <button class="btn-cinematic-quick" id="btnCinematicTop" onclick="toggleCinematicRoam()" title="Bật/Tắt chế độ quay điện ảnh tự động">
-                <span class="cinematic-icon">🎬</span>
-                <span>Góc Quay Điện Ảnh</span>
-            </button>
-            <a href="index.html" class="btn-nav-back">
-                <span>🌸</span>
-                <span>Về Trang Chủ</span>
-            </a>
-        </div>
+
+        <!-- Object Quick Selector Strip -->
+        <nav class="object-selector-bar" aria-label="Bộ chọn mô hình 3D">
+            <button class="obj-pill active" id="pill-torii" onclick="focusObject('torii')">⛩️ Cổng Torii</button>
+            <button class="obj-pill" id="pill-katana" onclick="focusObject('katana')">⚔️ Kiếm Nichirin</button>
+            <button class="obj-pill" id="pill-wisteria" onclick="focusObject('wisteria')">🪻 Hoa Tử Đằng</button>
+            <button class="obj-pill" id="pill-lantern" onclick="focusObject('lantern')">🏮 Đèn Lồng Đá</button>
+            <button class="obj-pill" id="pill-fuji" onclick="focusObject('fuji')">🗻 Núi Phú Sĩ & Trăng</button>
+            <button class="obj-pill" id="pill-daruma" onclick="focusObject('daruma')">🎎 Búp Bê Daruma</button>
+            <button class="obj-pill" id="pill-neko" onclick="focusObject('neko')">🐱 Mèo Thần Tài</button>
+            <button class="obj-pill" id="pill-sakura" onclick="focusObject('sakura')">🌸 Mưa Cánh Hoa</button>
+        </nav>
     </header>
 
-    <!-- Object Quick Selector Strip -->
-    <nav class="object-selector-bar" aria-label="Bộ chọn mô hình 3D">
-        <button class="obj-pill active" id="pill-torii" onclick="focusObject('torii')">⛩️ Cổng Torii</button>
-        <button class="obj-pill" id="pill-katana" onclick="focusObject('katana')">⚔️ Kiếm Nichirin</button>
-        <button class="obj-pill" id="pill-wisteria" onclick="focusObject('wisteria')">🪻 Hoa Tử Đằng</button>
-        <button class="obj-pill" id="pill-lantern" onclick="focusObject('lantern')">🏮 Đèn Lồng Đá</button>
-        <button class="obj-pill" id="pill-fuji" onclick="focusObject('fuji')">🗻 Núi Phú Sĩ & Trăng</button>
-        <button class="obj-pill" id="pill-daruma" onclick="focusObject('daruma')">🎎 Búp Bê Daruma</button>
-        <button class="obj-pill" id="pill-neko" onclick="focusObject('neko')">🐱 Mèo Thần Tài</button>
-        <button class="obj-pill" id="pill-sakura" onclick="focusObject('sakura')">🌸 Mưa Cánh Hoa</button>
-    </nav>
-
-    <!-- Interactive Navigation Hint -->
-    <div class="hint-bubble">
+    <!-- Interactive Navigation Hint (Fades out automatically after 6s) -->
+    <div class="hint-bubble" id="hintBubble">
         <span class="hint-icon">✨</span>
-        <span>Kéo chuột để xoay 360° • Cuộn chuột phóng to/thu nhỏ • Bấm trực tiếp vào vật thể 3D để học từ vựng</span>
+        <span>Kéo chuột để xoay 360° tự do • Cuộn chuột phóng to/thu nhỏ • Bấm trực tiếp vào vật thể để học từ vựng</span>
     </div>
 
     <!-- 3D WebGL Canvas -->
@@ -136,6 +138,6 @@
         </button>
     </footer>
 
-    <script src="assets/js/pages/demo_3d.js?v=2"></script>
+    <script src="assets/js/pages/demo_3d.js?v=3"></script>
 </body>
 </html>

@@ -49,18 +49,27 @@ body, html {
 }
 
 /* ==========================================================================
-   TOP HEADER BAR
+   TOP UNIFIED NAVIGATION CONTAINER
    ========================================================================== */
-.top-bar {
+.top-nav-container {
     position: absolute;
     top: 14px;
     left: 20px;
     right: 20px;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    pointer-events: none;
+    z-index: 100;
+}
+
+.top-bar {
+    width: 100%;
+    display: flex;
     justify-content: space-between;
     align-items: flex-start;
     pointer-events: none;
-    z-index: 100;
 }
 
 .brand-card {
@@ -69,7 +78,7 @@ body, html {
     -webkit-backdrop-filter: blur(16px) saturate(180%);
     border: 1px solid var(--glass-border);
     border-radius: 16px;
-    padding: 10px 18px;
+    padding: 8px 16px;
     box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5), 0 0 20px var(--glass-glow);
     pointer-events: auto;
     max-width: 580px;
@@ -112,7 +121,7 @@ body, html {
 }
 
 .brand-title {
-    font-size: 1.08rem;
+    font-size: 1.05rem;
     font-weight: 800;
     color: #ffffff;
     display: flex;
@@ -128,10 +137,10 @@ body, html {
 }
 
 .brand-sub {
-    font-size: 0.76rem;
+    font-size: 0.75rem;
     color: #cbd5e1;
-    margin-top: 3px;
-    line-height: 1.4;
+    margin-top: 2px;
+    line-height: 1.35;
 }
 
 .nav-actions {
@@ -177,23 +186,21 @@ body, html {
 }
 
 /* ==========================================================================
-   OBJECT QUICK SELECTOR STRIP
+   OBJECT QUICK SELECTOR STRIP (Clean & Non-Colliding)
    ========================================================================== */
 .object-selector-bar {
-    position: absolute;
-    top: 86px;
-    left: 50%;
-    transform: translateX(-50%);
+    position: static;
+    transform: none;
     display: flex;
     gap: 6px;
-    background: rgba(11, 8, 24, 0.82);
+    background: rgba(11, 8, 24, 0.84);
     backdrop-filter: blur(16px) saturate(180%);
     -webkit-backdrop-filter: blur(16px) saturate(180%);
     border: 1px solid rgba(168, 85, 247, 0.25);
-    padding: 6px 10px;
+    padding: 6px 12px;
     border-radius: 30px;
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5), 0 0 18px rgba(147, 51, 234, 0.2);
-    z-index: 99;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45), 0 0 16px rgba(147, 51, 234, 0.2);
+    pointer-events: auto;
     max-width: 95vw;
     overflow-x: auto;
     scrollbar-width: none;
@@ -235,18 +242,18 @@ body, html {
 }
 
 /* ==========================================================================
-   HINT BUBBLE
+   HINT BUBBLE (Subtle bottom-center pill, auto-fades after 6s)
    ========================================================================== */
 .hint-bubble {
     position: absolute;
-    top: 138px;
+    bottom: 84px;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(10, 8, 22, 0.72);
+    background: rgba(10, 8, 22, 0.78);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(168, 85, 247, 0.2);
-    padding: 5px 16px;
+    border: 1px solid rgba(168, 85, 247, 0.22);
+    padding: 6px 18px;
     border-radius: 20px;
     font-size: 0.76rem;
     color: #cbd5e1;
@@ -256,16 +263,16 @@ body, html {
     align-items: center;
     gap: 6px;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
-    animation: fadeInDown 0.5s ease;
+    animation: hintFadeOut 1s ease 6s forwards;
 }
 
 .hint-icon {
     color: #c084fc;
 }
 
-@keyframes fadeInDown {
-    from { opacity: 0; transform: translate(-50%, -8px); }
-    to { opacity: 1; transform: translate(-50%, 0); }
+@keyframes hintFadeOut {
+    from { opacity: 1; visibility: visible; }
+    to { opacity: 0; pointer-events: none; visibility: hidden; }
 }
 
 /* ==========================================================================
@@ -581,26 +588,30 @@ body, html {
    RESPONSIVE DESIGN (TABLET & MOBILE)
    ========================================================================== */
 @media (max-width: 768px) {
+    .top-nav-container {
+        top: 8px;
+        left: 10px;
+        right: 10px;
+        gap: 6px;
+    }
+
     .top-bar {
         flex-direction: column;
         align-items: stretch;
-        gap: 8px;
-        top: 10px;
-        left: 12px;
-        right: 12px;
+        gap: 6px;
     }
 
     .brand-card {
         max-width: 100%;
-        padding: 8px 14px;
+        padding: 6px 12px;
     }
 
     .brand-title {
-        font-size: 0.98rem;
+        font-size: 0.95rem;
     }
 
     .brand-sub {
-        font-size: 0.72rem;
+        font-size: 0.7rem;
     }
 
     .nav-actions {
@@ -608,10 +619,9 @@ body, html {
     }
 
     .object-selector-bar {
-        top: 120px;
-        width: calc(100vw - 24px);
-        left: 12px;
-        transform: none;
+        position: static;
+        width: 100%;
+        max-width: calc(100vw - 20px);
         justify-content: flex-start;
         padding: 5px 8px;
     }
@@ -621,23 +631,23 @@ body, html {
     }
 
     .vocab-modal-card {
-        width: calc(100vw - 24px);
-        left: 12px;
-        bottom: 74px;
-        padding: 14px 16px;
+        width: calc(100vw - 20px);
+        left: 10px;
+        bottom: 70px;
+        padding: 12px 14px;
     }
 
     .card-kanji {
-        font-size: 1.8rem;
+        font-size: 1.7rem;
     }
 
     .bottom-dock {
-        width: calc(100vw - 24px);
-        left: 12px;
+        width: calc(100vw - 20px);
+        left: 10px;
         transform: none;
         justify-content: flex-start;
-        bottom: 10px;
-        padding: 6px 10px;
+        bottom: 8px;
+        padding: 5px 8px;
     }
 
     .dock-action-btn {
