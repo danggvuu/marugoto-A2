@@ -25,6 +25,28 @@ function test(name, fn) {
 
 console.log('=== RUNNING MARUGOTO REGRESSION TESTS (R1 - R11) ===\n');
 
+console.log('--- Content integrity ---');
+const lessonFiles = fs.readdirSync(path.join(ROOT, 'assets/js/lessons'))
+    .filter(name => /^lesson_\d+\.js$/.test(name));
+for (const lessonFile of lessonFiles) {
+    const content = fs.readFileSync(path.join(ROOT, 'assets/js/lessons', lessonFile), 'utf8');
+    test(`${lessonFile}: no placeholder quiz content`, () => {
+        assert.ok(!content.includes('Câu hỏi ôn tập số'), 'placeholder quiz prompt remains');
+        assert.ok(!content.includes('Đáp án A (Đúng)'), 'placeholder answer remains');
+    });
+    test(`${lessonFile}: quiz answer choices are unique`, () => {
+        const match = content.match(/const (?:QUIZ_DATA|QUIZ_QUESTIONS) = (\[[\s\S]*?\]);/);
+        if (!match) return;
+        const quiz = Function(`return ${match[1]}`)();
+        quiz.forEach((question, index) => {
+            assert.strictEqual(new Set(question.options).size, question.options.length,
+                `duplicate options in question ${index + 1}`);
+            assert.ok(Number.isInteger(question.correct) && question.correct >= 0 &&
+                question.correct < question.options.length, `invalid answer index in question ${index + 1}`);
+        });
+    });
+}
+
 // -----------------------------------------------------------------------------
 // R10: Unicode Normalization (NFKC, NFD, Half-width Katakana)
 // -----------------------------------------------------------------------------
