@@ -1,4 +1,4 @@
-"""Browser regressions for study flows. Run: python3 tests/test_browser.py
+"""Browser regressions for study flows. Run: python3 qa/browser/test_browser.py
 
 Requires Playwright and Chromium (or installed Google Chrome).
 Optional: CHROME_PATH=/path/to/chrome, MARUGOTO_SCREENSHOTS_DIR=/path/to/output.
@@ -13,7 +13,7 @@ import unittest
 
 from playwright.sync_api import sync_playwright
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 EXAM = "tests/De_Thi_Tong_Hop_JLPT_A2_11_18.html"
 VOCAB = "Tu_Vung_Marugoto_A1_16_A2_1_10.html"
 TYPING = "tests/On_Tap_Mini_Test_A2_15_18.html#typing"

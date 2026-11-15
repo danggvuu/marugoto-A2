@@ -7,7 +7,7 @@ const fs = require('fs');
 const path = require('path');
 const assert = require('assert');
 
-const ROOT = path.resolve(__dirname, '..');
+const ROOT = path.resolve(__dirname, '../..');
 let passed = 0;
 let failed = 0;
 

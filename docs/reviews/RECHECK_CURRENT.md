@@ -13,7 +13,7 @@
 > Kết quả sau sửa: **28/28 regression checks**, **14/14 browser tests** và build trong bản sao tạm đều đạt;
 > không có chênh lệch HTML/JS giữa source hiện tại và kết quả build.
 > Browser suite bao gồm smoke test 38 trang và các viewport 360, 390, 768, 1440px trên các trang đại diện.
-> Chạy lại bằng `node tests/run_regression_tests.js` và `python3 tests/test_browser.py`.
+> Chạy lại bằng `node qa/regression/run_regression_tests.js` và `python3 qa/browser/test_browser.py`.
 > Những kiểm tra này không thay cho thẩm định toàn bộ nội dung tiếng Nhật/PDF hoặc kiểm tra Safari/iOS thật.
 
 Ngày kiểm tra: 2026-11-15. Đây là kiểm tra working tree hiện tại, không chỉ commit HEAD. Không sửa code ứng dụng hoặc ghi đè công việc đang có.

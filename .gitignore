@@ -15,6 +15,7 @@ docs/pdf/*.pdf
 !docs/pdf/Kanji_Lesson_11-14.pdf
 !docs/pdf/Kanji_Lesson_15-18.pdf
 !docs/pdf/*L11~L18_A2.1.pdf
+!docs/pdf/De_on_tap_JLPT_A2_Bai_11-18.pdf
 
 # Data files
 !data/master_vocab_official.json
@@ -24,6 +25,6 @@ docs/pdf/*.pdf
 .codegraph/
 
 # Local verification & scratch
-screenshots/
-extracted_pdf_test.txt
-
+artifacts/
+data/extracted/
+.venv/

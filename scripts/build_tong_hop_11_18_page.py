@@ -67,7 +67,7 @@ html_content = """<!DOCTYPE html>
                 <div class="wb-spec-icon">📋</div>
                 <div>
                     <div class="wb-spec-title">4 phần: từ vựng, ngữ pháp, đọc hiểu và xếp câu</div>
-                    <div class="wb-spec-sub">Một đề chuyển từ PDF và năm mã đề tự luyện bổ sung. <a href="../De_on_tap_JLPT_A2_Bai_11-18.pdf">Mở tài liệu PDF</a>.</div>
+                    <div class="wb-spec-sub">Một đề chuyển từ PDF và năm mã đề tự luyện bổ sung. <a href="../docs/pdf/De_on_tap_JLPT_A2_Bai_11-18.pdf">Mở tài liệu PDF</a>.</div>
                 </div>
             </div>
             <div class="wb-spec-tags">
