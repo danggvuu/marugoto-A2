@@ -543,9 +543,9 @@ function setVocabPage(page) {
 }
 
 function clearAllFilters() {
-    selectedLevelScope = 'ALL';
+    currentLevelScope = 'ALL';
     selectedLessons = new Set(LESSON_ORDER);
-    currentSearchQuery = '';
+    vocabCurrentPage = 1;
     const searchInp = document.getElementById('searchInput');
     if (searchInp) searchInp.value = '';
     const searchClear = document.getElementById('searchClearBtn');
@@ -553,8 +553,9 @@ function clearAllFilters() {
     const quickSel = document.getElementById('quickLessonDropdown');
     if (quickSel) quickSel.value = 'ALL';
     document.querySelectorAll('.level-pill').forEach(p => p.classList.toggle('active', p.id === 'pill-all'));
-    renderActiveChips();
-    applyFilters();
+    renderActiveChipsBar();
+    updateLessonUIState();
+    applyFilter();
 }
 
 function renderTable() {
@@ -619,7 +620,8 @@ function renderTable() {
     tbody.innerHTML = rows;
 
     if (paginationBar) {
-        let isFiltered = (selectedLevelScope !== 'ALL' || selectedLessons.size < LESSON_ORDER.length || (currentSearchQuery && currentSearchQuery.length > 0));
+        const queryVal = document.getElementById('searchInput') ? document.getElementById('searchInput').value.trim() : '';
+        let isFiltered = (currentLevelScope !== 'ALL' || selectedLessons.size < LESSON_ORDER.length || Boolean(queryVal));
         let clearFilterHtml = isFiltered ? `<button type="button" class="btn-clear-filter-inline" onclick="clearAllFilters()">✕ Xóa bộ lọc</button>` : '';
 
         let buttonsHtml = '';

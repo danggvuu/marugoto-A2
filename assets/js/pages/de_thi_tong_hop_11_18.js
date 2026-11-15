@@ -407,22 +407,26 @@ function updateStarUI(qId, order) {
         }
     });
 
+    // Save partial or complete star order
+    userAnswers[qId] = userAnswers[qId] || {};
+    userAnswers[qId].starOrder = order;
+
     // Check completion
     if (order.length === 4) {
         const starSelectedPart = order[2]; // position 3 is star
         const isCorrect = (starSelectedPart === qItem.correct);
-        userAnswers[qId] = {
-            starOrder: order,
-            value: starSelectedPart,
-            isCorrect: isCorrect,
-            checked: true
-        };
+        userAnswers[qId].value = starSelectedPart;
+        userAnswers[qId].isCorrect = isCorrect;
+        userAnswers[qId].checked = true;
+
         const expBox = document.getElementById(`explain_box_${qId}`);
         if (expBox && (isImmediateMode || isExamSubmitted)) {
             expBox.style.display = "block";
         }
     } else {
-        delete userAnswers[qId];
+        delete userAnswers[qId].value;
+        delete userAnswers[qId].isCorrect;
+        delete userAnswers[qId].checked;
         const expBox = document.getElementById(`explain_box_${qId}`);
         if (expBox && !isExamSubmitted) {
             expBox.style.display = "none";
