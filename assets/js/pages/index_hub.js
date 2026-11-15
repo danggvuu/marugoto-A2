@@ -250,6 +250,17 @@
 
             let latestActivity = null;
             let latestTime = 0;
+            const hasContent = value => {
+                if (Array.isArray(value)) return value.length > 0;
+                if (value && typeof value === 'object') return Object.values(value).some(hasContent);
+                return value !== '' && value !== null && value !== undefined && value !== false && value !== 0;
+            };
+            const consider = (title, url, timestamp) => {
+                const time = Number(timestamp);
+                if (!Number.isFinite(time) || time <= latestTime) return;
+                latestTime = time;
+                latestActivity = { title, url };
+            };
 
             // Check typing studio progress
             try {
@@ -257,15 +268,11 @@
                 if (tsRaw) {
                     const ts = JSON.parse(tsRaw);
                     const histKeys = ts && ts.history ? Object.keys(ts.history) : [];
-                    if (histKeys.length > 0) {
+                    if (histKeys.length > 0 || hasContent(ts && ts.drafts)) {
                         const m = ts.mode || 'sentence';
                         const modeLabel = m === 'sentence' ? 'Luyện gõ câu' : (m === 'kanji' ? 'Luyện Kanji' : 'Luyện từ vựng');
-                        const targetUrl = m === 'kanji' ? 'tests/On_Tap_Cap_Toc_Kanji_11_18_NPBS14.html' : 'tests/On_Tap_Mini_Test_A2_15_18.html#tab-typing';
-                        latestActivity = {
-                            title: `Tiếp tục: ${modeLabel} (${histKeys.length} câu) →`,
-                            url: targetUrl,
-                            time: 1
-                        };
+                        const targetUrl = 'tests/On_Tap_Mini_Test_A2_15_18.html#typing';
+                        consider(`Tiếp tục: ${modeLabel} →`, targetUrl, ts.savedAt);
                     }
                 }
             } catch (e) {}
@@ -277,9 +284,14 @@
                     if (key && key.startsWith('marugoto_cp_v1::')) {
                         const val = localStorage.getItem(key);
                         if (!val) continue;
-                        const parsed = JSON.parse(val);
+                        let parsed;
+                        try { parsed = JSON.parse(val); } catch (e) { continue; }
+                        const [pagePath, slot] = key.replace('marugoto_cp_v1::', '').split('::');
+                        // Merely opening a menu/tab is not a study session.
+                        if (!['inputs', 'clicks', 'dialogue', 'graded', 'typing_practice'].includes(slot)) continue;
+                        if (!hasContent(parsed && parsed.d)) continue;
+                        if (!/^(?:lessons\/|tests\/)?[\w-]+\.html$/.test(pagePath) || pagePath === 'index.html') continue;
                         if (parsed && parsed.t && parsed.t > latestTime) {
-                            const pagePath = key.replace('marugoto_cp_v1::', '').split('::')[0];
                             let friendlyName = pagePath;
                             let link = pagePath;
 
@@ -300,13 +312,30 @@
                                 friendlyName = 'Luyện Chia Thể TE';
                             }
 
-                            latestTime = parsed.t;
-                            latestActivity = {
-                                title: `Tiếp tục học: ${friendlyName} →`,
-                                url: link,
-                                time: parsed.t
-                            };
+                            consider(`Tiếp tục học: ${friendlyName} →`, link, parsed.t);
                         }
+                    }
+                    // Native controllers own checkpoints outside the generic prefix.
+                    const portals = {
+                        marugoto_tuvung_portal_cp_v1: ['Kho từ vựng', 'Tu_Vung_Marugoto_A1_16_A2_1_10.html'],
+                        marugoto_kanji_a2_cp_v1: ['Kanji & bút thuận', 'kanji_a2.html'],
+                        marugoto_mini11_14_cp_v1: ['Ôn tập bài 11–14', 'tests/On_Tap_Mini_Test_A2_11_14.html'],
+                        marugoto_cram_11_18_cp_v1: ['Ôn Kanji 11–18', 'tests/On_Tap_Cap_Toc_Kanji_11_18_NPBS14.html']
+                    };
+                    if (portals[key]) {
+                        try {
+                            const saved = JSON.parse(localStorage.getItem(key));
+                            if (saved) consider(`Tiếp tục học: ${portals[key][0]} →`, portals[key][1], saved.t);
+                        } catch (e) {}
+                    }
+                    if (key && key.startsWith('marugoto_tonghop_11_18_draft_')) {
+                        try {
+                            const saved = JSON.parse(localStorage.getItem(key));
+                            const code = key.slice('marugoto_tonghop_11_18_draft_'.length);
+                            if (/^(DEGOC|M11[1-5])$/.test(code) && hasContent(saved && saved.userAnswers)) {
+                                consider(`Tiếp tục đề ${code} →`, `tests/De_Thi_Tong_Hop_JLPT_A2_11_18.html#${code}`, saved.updatedAt);
+                            }
+                        } catch (e) {}
                     }
                 }
             } catch (e) {}

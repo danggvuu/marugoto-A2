@@ -98,6 +98,7 @@
             if (data.drafts && typeof data.drafts === 'object') {
                 Object.assign(window.tpState.drafts, data.drafts);
             }
+            migrateSkippedHistory();
             if (typeof data.allowKanji === 'boolean') window.tpState.allowKanji = data.allowKanji;
             if (typeof data.autoAdvance === 'boolean') window.tpState.autoAdvance = data.autoAdvance;
             if (typeof data.streak === 'number') window.tpState.streak = data.streak;
@@ -106,6 +107,19 @@
             console.warn('Could not restore typing studio state:', e);
             return false;
         }
+    }
+
+    // Older checkpoints used this label as if it were an actual answer.
+    function migrateSkippedHistory() {
+        Object.keys(window.tpState.history).forEach(function (id) {
+            var hist = window.tpState.history[id];
+            if (!hist || hist.lastInput !== '(Đã bỏ qua)') return;
+            hist.wasSkipped = true;
+            hist.lastInput = '';
+            if (window.tpState.drafts[id] === '(Đã bỏ qua)') {
+                delete window.tpState.drafts[id];
+            }
+        });
     }
 
     function getDataSource(key) {
@@ -880,6 +894,7 @@
     }
 
     function renderTypingCard(shouldFocus) {
+        migrateSkippedHistory();
         ensureTypingLayoutStructure();
 
         var pool = getFilteredTypingPool();

@@ -80,7 +80,7 @@ let isRestoringKanji = false;
 let filteredKanji = [];
 let kanjiCurrentPage = 1;
 const KANJI_PAGE_SIZE = 12;
-let kanjiViewMode = 'cards'; // 'cards' or 'grid'
+let kanjiViewMode = 'grid'; // 'cards' or 'grid'
 let currentVocabExercises = [];
 let showHints = false;
 let typingAnswers = {};
@@ -94,6 +94,8 @@ function saveKanjiCheckpoint() {
         const payload = {
             t: Date.now(),
             currentKanjiTab,
+            kanjiCurrentPage,
+            kanjiViewMode,
             selectedLessons: Array.from(selectedLessons),
             searchQuery: searchEl ? searchEl.value : '',
             current121Lesson: typeof current121Lesson !== 'undefined' ? current121Lesson : 'ALL',
@@ -475,6 +477,7 @@ function applyLessonFilter(keepPage = false) {
 }
 
 function setKanjiViewMode(mode) {
+    if (!['cards', 'grid'].includes(mode)) return;
     if (kanjiViewMode === mode) return;
     kanjiViewMode = mode;
     const btnCards = document.getElementById('btnViewCards');
@@ -483,11 +486,13 @@ function setKanjiViewMode(mode) {
     if (btnGrid) btnGrid.classList.toggle('active', mode === 'grid');
     kanjiCurrentPage = 1;
     renderCards(filteredKanji, true);
+    saveKanjiCheckpoint();
 }
 
 function setKanjiPage(page) {
-    kanjiCurrentPage = page;
+    kanjiCurrentPage = Number.isInteger(page) ? Math.max(1, page) : 1;
     renderCards(filteredKanji, true);
+    saveKanjiCheckpoint();
     const target = document.getElementById('tab-cards');
     if (target) {
         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -542,7 +547,12 @@ function renderKanjiPagination(totalItems, currentPage, pageSize) {
         <div class="kanji-page-controls">${pagesHtml}</div>
     `;
 
-    if (topBar) topBar.innerHTML = fullHtml;
+    if (topBar) topBar.innerHTML = `
+        <div class="kanji-page-controls">
+            <button type="button" class="kanji-page-btn" ${currentPage === 1 ? 'disabled' : ''} onclick="window.setKanjiPage(${currentPage - 1})">← Trước</button>
+            <span>Trang ${currentPage}/${totalPages}</span>
+            <button type="button" class="kanji-page-btn" ${currentPage === totalPages ? 'disabled' : ''} onclick="window.setKanjiPage(${currentPage + 1})">Tiếp →</button>
+        </div>`;
     if (btmBar) btmBar.innerHTML = fullHtml;
 }
 
@@ -557,6 +567,7 @@ window.viewKanjiDetail = function(globalIndex) {
     
     kanjiCurrentPage = Math.floor(globalIndex / KANJI_PAGE_SIZE) + 1;
     renderCards(filteredKanji, true);
+    saveKanjiCheckpoint();
     setTimeout(() => {
         const el = document.querySelector(`.kanji-card[data-index="${globalIndex}"]`);
         if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -1523,13 +1534,17 @@ function restoreKanjiCheckpoint() {
         if (saved.typingAnswers && typeof saved.typingAnswers === 'object') {
             typingAnswers = saved.typingAnswers;
         }
+        kanjiCurrentPage = Number.isInteger(saved.kanjiCurrentPage) ? Math.max(1, saved.kanjiCurrentPage) : 1;
+        kanjiViewMode = saved.kanjiViewMode === 'grid' ? 'grid' : 'cards';
+        document.getElementById('btnViewCards').classList.toggle('active', kanjiViewMode === 'cards');
+        document.getElementById('btnViewGrid').classList.toggle('active', kanjiViewMode === 'grid');
         typingGraded = Boolean(saved.typingGraded);
         showHints = Boolean(saved.showHints);
 
         initKanjiLessonChips();
         updatePresetPillsState();
         if (typeof updateChipsUI === 'function') updateChipsUI();
-        applyLessonFilter();
+        applyLessonFilter(true);
         if (typeof apply121Filter === 'function') apply121Filter({ skipSave: true });
 
         if (saved.currentKanjiTab) {
@@ -1570,8 +1585,6 @@ function toggleLessonFilterDrawer() {
     if (arrow) arrow.textContent = isOpen ? '▴' : '▾';
     if (btn) btn.classList.toggle('active', isOpen);
 }
-
-
 
 
 

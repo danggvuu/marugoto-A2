@@ -52,5 +52,26 @@ Nền tảng ôn tập Marugoto A1 (L3–18) & A2-1 (L1–18): Từ vựng, Kanj
 
 2. **Build lại đề thi / dữ liệu luyện gõ & kiểm tra toàn vẹn source:**
    ```zsh
-   python3 scripts/build_all.py
+    python3 scripts/build_all.py
+    ```
+
+3. **Kiểm tra logic và luồng sử dụng trên trình duyệt:**
+   ```zsh
+   node tests/run_regression_tests.js
+   python3 -m pip install -r tests/requirements-browser.txt
+   python3 -m playwright install chromium
+   python3 tests/test_browser.py
    ```
+   Browser tests dùng server local và profile tạm, không đụng đến tiến độ học trên trình duyệt của bạn.
+   Có thể dùng Google Chrome đã cài thay cho Chromium. Để chọn binary khác, đặt `CHROME_PATH`.
+   Để xuất ảnh kiểm tra responsive, đặt `MARUGOTO_SCREENSHOTS_DIR` trỏ tới thư mục ảnh mong muốn.
+
+## Nguồn build và tiến độ học
+
+- `scripts/build_all.py` bao gồm cả dữ liệu và trang đề tổng hợp bài 11–18.
+- Controller `assets/js/pages/de_thi_tong_hop_11_18.js` là source được chỉnh trực tiếp.
+  Script `build_tong_hop_11_18_js.py` chỉ kiểm tra cú pháp, không ghi đè controller bằng bản sao cũ.
+- Phiên thi tổng hợp lưu theo mã đề, gồm đáp án, các mảnh câu đang xếp, chế độ,
+  thời gian và trạng thái nộp. Đồng hồ tiếp tục tính khi rời trang, trừ khi đã bấm tạm dừng.
+- Checkpoint cũ được giữ và chuyển đổi khi đọc; không cần xóa toàn bộ lịch sử để cập nhật.
+- Trong bài học có mục **“Mục lục & học theo từng phần”**: chọn xem một phần hoặc toàn bài.

@@ -1,4 +1,4 @@
-/* CONTROLLER FOR TONG HOP JLPT A2.1 (BAI 11 - 18) EXAMS */
+/* Controller for Marugoto A2.1 review exams (lessons 11–18). */
 
 const STORAGE_KEY_PREFIX = "marugoto_tonghop_11_18_draft_";
 const HISTORY_STORAGE_KEY = "marugoto_tonghop_11_18_history_v1";
@@ -26,10 +26,99 @@ let isTimerRunning = false;
 let isImmediateMode = true; // Mặc định mở chế độ ôn luyện (hiện giải thích tức thì)
 let isExamSubmitted = false;
 let currentPaletteFilter = 'all';
+let timerDeadline = null;
+let isRestoringExam = false;
+let allExplained = false;
+let dialogReturnFocus = null;
+
+function openExamDialog(id) {
+    const modal = document.getElementById(id);
+    if (!modal) return;
+    if (!document.activeElement?.closest('#scoreModal, #historyModal')) {
+        dialogReturnFocus = document.activeElement;
+    }
+    document.querySelectorAll('#scoreModal.show, #historyModal.show').forEach(open => open.classList.remove('show'));
+    modal.classList.add('show');
+    document.body.classList.add('has-exam-modal');
+    modal.querySelector('.modal-close-btn, button')?.focus();
+}
+
+function closeExamDialog(id) {
+    document.getElementById(id)?.classList.remove('show');
+    document.body.classList.remove('has-exam-modal');
+    if (dialogReturnFocus?.isConnected && !dialogReturnFocus.disabled) dialogReturnFocus.focus();
+    else document.getElementById('examSectionsContainer')?.focus({ preventScroll: true });
+    dialogReturnFocus = null;
+}
+
+document.addEventListener('keydown', event => {
+    const modal = document.querySelector('#scoreModal.show, #historyModal.show');
+    if (!modal) return;
+    if (event.key === 'Escape') {
+        event.preventDefault();
+        closeExamDialog(modal.id);
+    } else if (event.key === 'Tab') {
+        const buttons = Array.from(modal.querySelectorAll('button:not(:disabled), a[href], [tabindex="0"]'));
+        const first = buttons[0], last = buttons[buttons.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+            event.preventDefault();
+            last?.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+            event.preventDefault();
+            first?.focus();
+        }
+    }
+});
+
+window.__MARUGOTO_NATIVE_DOM_DISABLED__ = true;
+window.__MARUGOTO_CP_EXTRA_KEYS__ = [
+    ...((window.DE_THI_TONG_HOP_DATA || []).map(exam => STORAGE_KEY_PREFIX + exam.code)),
+    ACTIVE_EXAM_STORAGE_KEY
+];
+window.__MARUGOTO_ON_RESET__ = () => window.location.reload();
+
+function canRevealAnswers() {
+    return isImmediateMode || isExamSubmitted;
+}
+
+function getExamItems(exam = getCurrentExam()) {
+    return exam.sections.flatMap(section => section.groups.flatMap(group => group.items));
+}
+
+function refreshRemainingTime() {
+    if (isTimerRunning && timerDeadline !== null) {
+        timerSeconds = Math.max(0, Math.ceil((timerDeadline - Date.now()) / 1000));
+    }
+}
+
+function normalizeExamAnswers(raw, exam) {
+    const answers = {};
+    if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return answers;
+    getExamItems(exam).forEach(item => {
+        const old = raw[item.id];
+        if (!old || typeof old !== 'object') return;
+        if (item.type === 'star' && Array.isArray(old.starOrder)) {
+            const parts = item.parts || item.options || [];
+            const order = [...new Set(old.starOrder.filter(i => Number.isInteger(i) && i >= 0 && i < parts.length))].slice(0, 4);
+            answers[item.id] = { starOrder: order, checked: order.length === 4 };
+            if (order.length === 4) {
+                answers[item.id].value = order[2];
+                answers[item.id].isCorrect = order[2] === item.correct;
+            }
+        } else if (item.type === 'mc' && Number.isInteger(old.value) && old.value >= 0 && old.value < item.options.length) {
+            answers[item.id] = { value: old.value, checked: true, isCorrect: old.value === item.correct };
+        }
+    });
+    return answers;
+}
 
 // Audio pronunciation helper
 function speakAudio(text) {
     if (!text) return;
+    if (window.AudioEngine) {
+        window.AudioEngine.speak(text);
+        return;
+    }
     const cleanText = text.replace(/<[^>]*>/g, '').replace(/[（(].*?[)）]/g, '').trim();
     if (window.speechSynthesis) {
         window.speechSynthesis.cancel();
@@ -45,6 +134,16 @@ document.addEventListener("DOMContentLoaded", () => {
     currentExamCode = getInitialExamCode();
     initExamTabs();
     loadExam(currentExamCode);
+});
+
+window.addEventListener('pagehide', saveCurrentDraft);
+document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'hidden') saveCurrentDraft();
+    else if (isTimerRunning) {
+        refreshRemainingTime();
+        updateTimerDisplay();
+        if (timerSeconds === 0) submitExam(true);
+    }
 });
 
 window.addEventListener("hashchange", () => {
@@ -73,6 +172,7 @@ function initExamTabs() {
 }
 
 function switchExam(code) {
+    if (!(window.DE_THI_TONG_HOP_DATA || []).some(exam => exam.code === code)) return;
     if (code === currentExamCode) return;
     saveCurrentDraft();
     currentExamCode = code;
@@ -92,7 +192,7 @@ function switchExam(code) {
     }
 
     loadExam(code);
-    window.scrollTo({ top: 380, behavior: 'smooth' });
+    document.getElementById('examInfoCard')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 // 3. Load Exam
@@ -101,8 +201,11 @@ function getCurrentExam() {
 }
 
 function loadExam(code) {
-    const exam = getCurrentExam();
+    const exam = (window.DE_THI_TONG_HOP_DATA || []).find(exam => exam.code === code);
     if (!exam) return;
+    stopTimer();
+    currentExamCode = exam.code;
+    isRestoringExam = true;
 
     // Header info
     const tagEl = document.getElementById("currentExamTag");
@@ -114,26 +217,65 @@ function loadExam(code) {
 
     // Restore answers
     isExamSubmitted = false;
+    isImmediateMode = true;
+    currentPaletteFilter = 'all';
+    allExplained = false;
+    timerSeconds = exam.timeLimit || 2700;
+    timerDeadline = null;
+    let shouldRun = false;
     userAnswers = {};
     try {
-        const saved = localStorage.getItem(STORAGE_KEY_PREFIX + code);
-        if (saved) {
-            userAnswers = JSON.parse(saved);
+        localStorage.setItem(ACTIVE_EXAM_STORAGE_KEY, code);
+        const saved = JSON.parse(localStorage.getItem(STORAGE_KEY_PREFIX + code) || 'null');
+        if (saved && saved.version === 2) {
+            userAnswers = normalizeExamAnswers(saved.userAnswers, exam);
+            isImmediateMode = saved.isImmediateMode !== false;
+            isExamSubmitted = saved.isExamSubmitted === true;
+            timerSeconds = Number.isFinite(saved.timerSeconds) ? Math.max(0, Math.min(saved.timerSeconds, exam.timeLimit || 2700)) : timerSeconds;
+            shouldRun = saved.isTimerRunning === true && !isImmediateMode && !isExamSubmitted;
+            if (shouldRun && Number.isFinite(saved.timerDeadline)) {
+                timerSeconds = Math.max(0, Math.ceil((saved.timerDeadline - Date.now()) / 1000));
+            }
+        } else if (saved && !('version' in saved)) {
+            // Legacy drafts only contained answers. Do not discard them.
+            userAnswers = normalizeExamAnswers(saved, exam);
         }
     } catch (e) {}
 
     renderExamDOM(exam);
     renderPalette(exam);
+    filterPalette('all');
     updateProgressCounter();
-
-    // Reset Timer
-    resetTimer();
+    updateModeUI();
+    updateTimerDisplay();
+    if (isExamSubmitted) setExplanationsVisible(true);
+    isRestoringExam = false;
+    if (shouldRun) {
+        if (timerSeconds === 0) submitExam(true);
+        else startTimer();
+    }
 }
 
 function saveCurrentDraft() {
+    if (isRestoringExam) return;
+    refreshRemainingTime();
     try {
-        localStorage.setItem(STORAGE_KEY_PREFIX + currentExamCode, JSON.stringify(userAnswers));
-    } catch (e) {}
+        localStorage.setItem(STORAGE_KEY_PREFIX + currentExamCode, JSON.stringify({
+            version: 2,
+            updatedAt: Date.now(),
+            userAnswers,
+            isImmediateMode,
+            isExamSubmitted,
+            timerSeconds,
+            isTimerRunning,
+            timerDeadline
+        }));
+        window.MarugotoCheckpoint?.notifySaved();
+    } catch (e) {
+        const status = document.getElementById('toastMsg');
+        if (status) status.textContent = 'Không lưu được bài. Hãy giữ trang này mở và kiểm tra bộ nhớ trình duyệt.';
+        document.getElementById('toastNotify')?.classList.add('show');
+    }
 }
 
 // 4. Render Exam DOM
@@ -228,7 +370,7 @@ function renderQuestionItem(item) {
             <div class="options-grid">
                 ${item.options.map((opt, oIdx) => `
                     <label class="option-label" id="opt_lbl_${item.id}_${oIdx}" onclick="handleSelectOption(${item.id}, ${oIdx})">
-                        <input type="radio" name="opt_${item.id}" value="${oIdx}">
+                        <input type="radio" name="opt_${item.id}" value="${oIdx}" ${isExamSubmitted ? 'disabled' : ''}>
                         <div class="option-radio-mark">${oIdx + 1}</div>
                         <span class="option-text-jp jp-text">${opt}</span>
                     </label>
@@ -245,9 +387,9 @@ function renderQuestionItem(item) {
                     ${[0, 1, 2, 3].map(slotIdx => {
                         const isStar = (slotIdx === 2); // 3rd slot is star in standard test
                         return `
-                            <div class="star-slot ${isStar ? 'slot-star' : ''}" id="star_slot_${item.id}_${slotIdx}" onclick="removeStarSlot(${item.id}, ${slotIdx})">
+                             <button type="button" class="star-slot ${isStar ? 'slot-star' : ''}" id="star_slot_${item.id}_${slotIdx}" onclick="removeStarSlot(${item.id}, ${slotIdx})" ${isExamSubmitted ? 'disabled' : ''} aria-label="Gỡ mảnh ở vị trí ${slotIdx + 1}">
                                 ${isStar ? '★ ' : ''}Vị trí ${slotIdx + 1}
-                            </div>
+                             </button>
                         `;
                     }).join("")}
                 </div>
@@ -256,13 +398,13 @@ function renderQuestionItem(item) {
                 </div>
                 <div class="star-pool-box" id="star_pool_${item.id}">
                     ${parts.map((p, pIdx) => `
-                        <button type="button" class="star-pill jp-text" id="star_pill_${item.id}_${pIdx}" onclick="placeStarPart(${item.id}, ${pIdx})">
+                        <button type="button" class="star-pill jp-text" id="star_pill_${item.id}_${pIdx}" onclick="placeStarPart(${item.id}, ${pIdx})" ${isExamSubmitted ? 'disabled' : ''}>
                             <strong>[${pIdx + 1}]</strong> ${p}
                         </button>
                     `).join("")}
                 </div>
                 <div class="star-actions" style="margin-top: 6px;">
-                    <button type="button" class="btn-reset-star" onclick="resetStarOrder(${item.id})">
+                    <button type="button" class="btn-reset-star" onclick="resetStarOrder(${item.id})" ${isExamSubmitted ? 'disabled' : ''}>
                         🔄 Xếp lại từ đầu
                     </button>
                 </div>
@@ -294,7 +436,7 @@ function handleSelectOption(qId, oIdx) {
     exam.sections.forEach(s => s.groups.forEach(g => g.items.forEach(it => {
         if (it.id === qId) qItem = it;
     })));
-    if (!qItem) return;
+    if (!qItem || qItem.type !== 'mc' || !Number.isInteger(oIdx) || oIdx < 0 || oIdx >= qItem.options.length) return;
 
     const isCorrect = (oIdx === qItem.correct);
     userAnswers[qId] = {
@@ -403,7 +545,7 @@ function updateStarUI(qId, order) {
             pill.disabled = true;
         } else {
             pill.classList.remove("used");
-            pill.disabled = false;
+            pill.disabled = isExamSubmitted;
         }
     });
 
@@ -475,6 +617,7 @@ function renderPalette(exam) {
     })));
 
     container.innerHTML = buttonsHtml;
+    updatePaletteFilterCounts();
 }
 
 function updatePaletteCell(qId) {
@@ -504,6 +647,7 @@ function jumpToQuestion(qId) {
 }
 
 function filterPalette(type) {
+    if (type === 'wrong' && !canRevealAnswers()) return;
     currentPaletteFilter = type;
     document.querySelectorAll(".btn-filter-tag").forEach(b => b.classList.remove("active"));
     const activeBtn = document.getElementById(`filterBtn${type.charAt(0).toUpperCase() + type.slice(1)}`);
@@ -531,7 +675,6 @@ function updatePaletteFilterCounts() {
     let wrongCount = 0;
     let answeredCount = 0;
     const exam = getCurrentExam();
-    let total = 71;
 
     exam.sections.forEach(s => s.groups.forEach(g => g.items.forEach(it => {
         const ans = userAnswers[it.id];
@@ -542,7 +685,10 @@ function updatePaletteFilterCounts() {
     })));
 
     const wBtn = document.getElementById("filterBtnWrong");
-    if (wBtn) wBtn.innerText = `Câu sai (${wrongCount})`;
+    if (wBtn) {
+        wBtn.disabled = !canRevealAnswers();
+        wBtn.innerText = canRevealAnswers() ? `Câu sai (${wrongCount})` : 'Câu sai (sau khi nộp)';
+    }
 }
 
 // 7. Counter & Progress
@@ -569,7 +715,24 @@ function updateProgressCounter() {
 
 // 8. Mode Toggle
 function toggleExamMode() {
+    if (isExamSubmitted) return;
+    stopTimer();
     isImmediateMode = !isImmediateMode;
+    allExplained = false;
+    updateModeUI();
+    const exam = getCurrentExam();
+    renderExamDOM(exam);
+    renderPalette(exam);
+    filterPalette('all');
+    updateModeUI();
+    if (!isImmediateMode) {
+        if (timerSeconds === 0) submitExam(true);
+        else startTimer();
+    }
+    saveCurrentDraft();
+}
+
+function updateModeUI() {
     const titleEl = document.getElementById("modeTitle");
     const descEl = document.getElementById("modeDesc");
     const iconEl = document.getElementById("modeIndicatorIcon");
@@ -582,51 +745,67 @@ function toggleExamMode() {
         descEl.innerText = "Bấm chọn đáp án sẽ biết ngay đúng/sai và tự động mở khung phân tích, dịch nghĩa chi tiết.";
         btnEl.innerText = "⏱️ Chuyển Sang Thi Thử (Tính Giờ 45p)";
         if (timerStrip) timerStrip.style.display = "none";
-        stopTimer();
     } else {
         iconEl.innerText = "⏱️";
         titleEl.innerText = "Chế Độ Thi Thử Tính Giờ (45 Phút)";
         descEl.innerText = "Ẩn toàn bộ đáp án và lời giải. Đồng hồ đếm ngược 45 phút đang chạy. Hãy nộp bài để xem điểm.";
         btnEl.innerText = "🎯 Chuyển Sang Ôn Luyện (Tức Thì)";
         if (timerStrip) timerStrip.style.display = "block";
-        startTimer();
     }
 
-    const exam = getCurrentExam();
-    renderExamDOM(exam);
-    renderPalette(exam);
+    btnEl.disabled = isExamSubmitted;
+    document.body.classList.toggle('exam-live', !canRevealAnswers());
+    document.querySelectorAll('[onclick="toggleAllExplanations()"], .btn-hint-vi, .btn-toggle-passage-vi').forEach(button => {
+        button.disabled = !canRevealAnswers();
+    });
+    document.querySelectorAll('[onclick="submitExam()"]').forEach(button => {
+        button.disabled = isExamSubmitted;
+    });
+    const pauseBtn = document.getElementById('btnTimerPause');
+    if (pauseBtn) {
+        pauseBtn.disabled = isExamSubmitted;
+        pauseBtn.textContent = isTimerRunning ? '⏸️ Tạm Dừng' : '▶️ Tiếp Tục';
+    }
+    const text = document.getElementById('toggleExplainText');
+    if (text) text.textContent = 'Hiện Tất Cả Lời Giải';
 }
 
 // 9. Timer
 function startTimer() {
-    if (isTimerRunning) return;
+    if (isTimerRunning || isImmediateMode || isExamSubmitted) return;
+    if (timerSeconds <= 0) {
+        submitExam(true);
+        return;
+    }
     isTimerRunning = true;
+    timerDeadline = Date.now() + timerSeconds * 1000;
     timerInterval = setInterval(() => {
-        if (timerSeconds > 0) {
-            timerSeconds--;
-            updateTimerDisplay();
-        } else {
-            clearInterval(timerInterval);
-            isTimerRunning = false;
-            alert("⏰ Đã hết thời gian làm bài 45 phút! Hệ thống sẽ tự động nộp bài và chấm điểm.");
-            submitExam();
-        }
+        refreshRemainingTime();
+        updateTimerDisplay();
+        if (timerSeconds === 0) submitExam(true);
     }, 1000);
+    updateModeUI();
+    saveCurrentDraft();
 }
 
 function stopTimer() {
+    refreshRemainingTime();
     isTimerRunning = false;
     if (timerInterval) clearInterval(timerInterval);
+    timerInterval = null;
+    timerDeadline = null;
 }
 
 function resetTimer() {
     stopTimer();
-    timerSeconds = 45 * 60;
+    timerSeconds = getCurrentExam().timeLimit || 2700;
     updateTimerDisplay();
     if (!isImmediateMode) startTimer();
+    saveCurrentDraft();
 }
 
 function toggleTimerPause() {
+    if (isExamSubmitted || isImmediateMode) return;
     const btn = document.getElementById("btnTimerPause");
     if (isTimerRunning) {
         stopTimer();
@@ -635,6 +814,7 @@ function toggleTimerPause() {
         startTimer();
         if (btn) btn.innerText = "⏸️ Tạm Dừng";
     }
+    saveCurrentDraft();
 }
 
 function updateTimerDisplay() {
@@ -647,20 +827,26 @@ function updateTimerDisplay() {
 
 // 10. Toggle Translations & Explanations
 function toggleSingleVi(qId) {
+    if (!canRevealAnswers()) return;
     const el = document.getElementById(`q_prompt_vi_${qId}`);
     if (!el) return;
     el.style.display = (el.style.display === "none") ? "block" : "none";
 }
 
 function togglePassageVi(key) {
+    if (!canRevealAnswers()) return;
     const el = document.getElementById(`passage_vi_${key}`);
     if (!el) return;
     el.style.display = (el.style.display === "none") ? "block" : "none";
 }
 
-let allExplained = false;
 function toggleAllExplanations() {
-    allExplained = !allExplained;
+    setExplanationsVisible(!allExplained);
+}
+
+function setExplanationsVisible(visible) {
+    if (!canRevealAnswers()) return;
+    allExplained = Boolean(visible);
     const exam = getCurrentExam();
     exam.sections.forEach(s => s.groups.forEach(g => g.items.forEach(it => {
         const box = document.getElementById(`explain_box_${it.id}`);
@@ -673,7 +859,9 @@ function toggleAllExplanations() {
 }
 
 // 11. Submit Exam & Scoring
-function submitExam() {
+function submitExam(isAuto = false) {
+    if (isExamSubmitted) return;
+    if (!isAuto && !window.confirm('Nộp bài và khóa các câu trả lời của mã đề này?')) return;
     isExamSubmitted = true;
     stopTimer();
 
@@ -721,10 +909,13 @@ function submitExam() {
 
     // Save history
     saveHistory(totalScore);
+    saveCurrentDraft();
 
     // Refresh UI to show all answers
     renderExamDOM(exam);
     renderPalette(exam);
+    updateModeUI();
+    setExplanationsVisible(true);
 }
 
 function showScoreModal(data) {
@@ -738,8 +929,8 @@ function showScoreModal(data) {
     const msg = document.getElementById("modalFeedbackMsg");
     if (data.totalScore >= 85) {
         pill.className = "modal-rating-pill rating-green";
-        pill.innerText = "XUẤT SẮC • ĐẠT CHUẨN JLPT A2.1";
-        msg.innerText = "Xin chúc mừng! Bạn đã nắm vững toàn diện từ vựng, ngữ pháp và kỹ năng đọc hiểu từ Bài 11 đến Bài 18. Bạn hoàn toàn sẵn sàng cho kỳ thi chính thức.";
+        pill.innerText = "LÀM TỐT • ÔN TẬP MARUGOTO A2.1";
+        msg.innerText = "Bạn làm tốt bài ôn tập 11–18. Hãy xem lại phần còn sai; điểm bài này không quy đổi thành kết quả thi JLPT chính thức.";
     } else if (data.totalScore >= 70) {
         pill.className = "modal-rating-pill rating-yellow";
         pill.innerText = "KHÁ GIỎI • CẦN ÔN THÊM CÂU SAI";
@@ -774,33 +965,37 @@ function showScoreModal(data) {
         </div>
     `;
 
-    modal.classList.add("show");
+    openExamDialog('scoreModal');
 }
 
 function closeScoreModal() {
-    const modal = document.getElementById("scoreModal");
-    if (modal) modal.classList.remove("show");
+    closeExamDialog('scoreModal');
 }
 
 function enterReviewMode() {
+    if (!isExamSubmitted) return;
     closeScoreModal();
-    allExplained = true;
-    toggleAllExplanations();
-    window.scrollTo({ top: 500, behavior: 'smooth' });
+    filterPalette('all');
+    setExplanationsVisible(true);
+    document.getElementById('examSectionsContainer')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 function confirmResetExam() {
     if (confirm("Bạn có chắc chắn muốn làm lại mã đề này từ đầu không? Dữ liệu đã chọn sẽ được xóa trắng.")) {
+        stopTimer();
         userAnswers = {};
-        saveCurrentDraft();
         isExamSubmitted = false;
+        allExplained = false;
         closeScoreModal();
         const exam = getCurrentExam();
         renderExamDOM(exam);
         renderPalette(exam);
+        filterPalette('all');
         updateProgressCounter();
         resetTimer();
-        window.scrollTo({ top: 380, behavior: 'smooth' });
+        updateModeUI();
+        saveCurrentDraft();
+        document.getElementById('examInfoCard')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 }
 
@@ -846,12 +1041,11 @@ function openHistoryModal() {
         `).join("");
     }
 
-    modal.classList.add("show");
+    openExamDialog('historyModal');
 }
 
 function closeHistoryModal() {
-    const modal = document.getElementById("historyModal");
-    if (modal) modal.classList.remove("show");
+    closeExamDialog('historyModal');
 }
 
 function clearAllHistory() {

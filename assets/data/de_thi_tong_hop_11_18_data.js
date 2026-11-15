@@ -2,9 +2,9 @@
 window.DE_THI_TONG_HOP_DATA = [
   {
     "code": "DEGOC",
-    "name": "Mã Đề Gốc (Bản Chuẩn PDF Đề Ôn Tập A2.1 Bài 11-18)",
-    "tag": "📑 100% Nguyên Bản File De_on_tap_JLPT_A2_Bai_11-18.pdf",
-    "desc": "Đề thi khảo sát năng lực tổng hợp chuẩn 100% từ file đề PDF của giáo viên: 71 câu trọn vẹn gồm Chữ Hán, Từ vựng, Ngữ pháp, Đọc hiểu 3 bài và Bài điền dấu sao ★.",
+    "name": "Đề từ tài liệu PDF — Marugoto A2.1 bài 11–18",
+    "tag": "📑 Chuyển từ tài liệu PDF",
+    "desc": "71 câu ôn tập: chữ Hán, từ vựng, ngữ pháp, đọc hiểu và xếp câu. Khi cần, hãy đối chiếu với tài liệu PDF đính kèm.",
     "timeLimit": 2700,
     "sections": [
       {
@@ -1171,9 +1171,9 @@ window.DE_THI_TONG_HOP_DATA = [
   },
   {
     "code": "M111",
-    "name": "Mã Đề 101 (Đề Luyện Thi Thực Chiến A2.1)",
-    "tag": "🎯 Luyện Thi Thực Chiến • Biến Thể 1",
-    "desc": "Bộ đề luyện thi thực chiến số 1: Trọng tâm cấu trúc V-ていきます/きます, phán đoán ～そうです, mức độ ～すぎます và đọc hiểu lối sống lành mạnh.",
+    "name": "Mã Đề M111 (Ôn tập A2.1)",
+    "tag": "🎯 Tự luyện • M111",
+    "desc": "Ôn cấu trúc V-ていきます/きます, ～そうです, ～すぎます và đọc hiểu.",
     "timeLimit": 2700,
     "sections": [
       {
@@ -2340,9 +2340,9 @@ window.DE_THI_TONG_HOP_DATA = [
   },
   {
     "code": "M112",
-    "name": "Mã Đề 102 (Đề Khảo Sát Năng Lực Toàn Diện)",
-    "tag": "📘 Toàn Diện Can-do • Biến Thể 2",
-    "desc": "Bộ đề khảo sát số 2: Phân tích bẫy trợ từ に, で, と, を, biến âm âm ngắt chữ Hán và đọc hiểu sự kiện công ty.",
+    "name": "Mã Đề M112 (Ôn tập tổng hợp)",
+    "tag": "📘 Tự luyện • M112",
+    "desc": "Ôn trợ từ に, で, と, を, cách đọc chữ Hán và đọc hiểu.",
     "timeLimit": 2700,
     "sections": [
       {
@@ -3509,9 +3509,9 @@ window.DE_THI_TONG_HOP_DATA = [
   },
   {
     "code": "M113",
-    "name": "Mã Đề 103 (Thách Thức Bẫy Ngữ Pháp & Kanji)",
-    "tag": "⚡ Bẫy Ngữ Pháp & Hán Tự • Biến Thể 3",
-    "desc": "Bộ đề số 3: Tối ưu phản xạ phân biệt tính từ phủ định ～くなくて, định ngữ V-ている/V-た và kỹ năng hái sao ★ điểm 10.",
+    "name": "Mã Đề M113 (Ngữ pháp & Kanji)",
+    "tag": "📚 Tự luyện • M113",
+    "desc": "Luyện tính từ phủ định ～くなくて, định ngữ V-ている/V-た và xếp câu.",
     "timeLimit": 2700,
     "sections": [
       {
@@ -4678,9 +4678,9 @@ window.DE_THI_TONG_HOP_DATA = [
   },
   {
     "code": "M114",
-    "name": "Mã Đề 104 (Phản Xạ Đọc Hiểu & Giao Tiếp Đời Sống)",
-    "tag": "🗣️ Giao Tiếp Đời Sống • Biến Thể 4",
-    "desc": "Bộ đề số 4: Bám sát các tình huống giao tiếp đời sống Nhật Bản: gọi điện quốc tế, tiệc chia tay, khám sức khỏe và quy tắc ứng xử công sở.",
+    "name": "Mã Đề M114 (Đọc hiểu & giao tiếp)",
+    "tag": "🗣️ Tự luyện • M114",
+    "desc": "Ôn các tình huống đời sống và công việc trong bài 11–18.",
     "timeLimit": 2700,
     "sections": [
       {
@@ -5847,9 +5847,9 @@ window.DE_THI_TONG_HOP_DATA = [
   },
   {
     "code": "M115",
-    "name": "Mã Đề 105 (Đột Phá Điểm Số JLPT A2.1 Final)",
-    "tag": "🏆 Đột Phá Điểm Số • Biến Thể 5",
-    "desc": "Bộ đề tổng duyệt chuẩn bị cho kỳ thi chính thức: Tổng hợp toàn bộ 8 bài học (L11 ➔ L18), bứt phá mốc điểm tối đa 100/100.",
+    "name": "Mã Đề M115 (Ôn tập cuối bài 11–18)",
+    "tag": "📝 Tự luyện • M115",
+    "desc": "Bài tự luyện tổng hợp; điểm không quy đổi thành kết quả thi JLPT chính thức.",
     "timeLimit": 2700,
     "sections": [
       {

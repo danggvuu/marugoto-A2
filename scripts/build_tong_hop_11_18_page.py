@@ -9,13 +9,14 @@ html_content = """<!DOCTYPE html>
     <meta charset="UTF-8">
     <meta name="referrer" content="no-referrer">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🎯 Tổng Ôn Tập & Đề Thi Thử JLPT A2.1 (Bài 11 - 18) • Đề Gốc PDF & Bộ 5 Mã Đề</title>
-    <meta name="description" content="Hệ thống làm đề thi trực tuyến JLPT A2.1 Bài 11-18: 100% bám sát file đề De_on_tap_JLPT_A2_Bai_11-18.pdf kèm 5 mã đề thi thử thực chiến (M111-M115), chấm điểm tự động, tính giờ 45 phút, phát âm Tokyo và giải thích cặn kẽ 100% câu hỏi.">
+    <title>Ôn tập Marugoto A2.1 — Bài 11–18</title>
+    <meta name="description" content="Ôn tập Marugoto A2.1 bài 11–18 với câu hỏi, giải thích và phiên thi thử có lưu tiến độ. Không phải đề thi JLPT chính thức.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/pages/de_thi_midterm_a2_1.css?v=2">
     <link rel="stylesheet" href="../assets/css/site-theme.css?v=7">
+    <link rel="stylesheet" href="../assets/css/full-exam.css?v=1">
     <style>
         .badge-degoc {
             background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
@@ -37,7 +38,7 @@ html_content = """<!DOCTYPE html>
         }
     </style>
 </head>
-<body>
+<body class="full-exam-page">
 
     <!-- Global Hub Navigation Placeholder -->
     <div id="navbar-placeholder"></div>
@@ -47,27 +48,26 @@ html_content = """<!DOCTYPE html>
         <header class="hero-banner">
             <span class="hero-badge badge-degoc">📑 ĐỀ ÔN TẬP TỔNG HỢP MARUGOTO A2.1 (BÀI 11 - 18)</span>
             <h1>
-                🎯 Tổng Ôn Tập & Đề Thi Thử JLPT A2.1 (Bài 11 - 18)
+                Ôn tập Marugoto A2.1 — Bài 11–18
             </h1>
             <p class="hero-desc">
-                Hệ thống luyện thi trực tuyến chuyên sâu 8 bài (L11 ➔ L18): Tích hợp 100% nguyên bản <strong>Đề Gốc PDF (De_on_tap_JLPT_A2_Bai_11-18.pdf)</strong> cùng <strong>Bộ 5 Mã Đề Thực Chiến (M111 - M115)</strong> với 426 câu hỏi toàn diện, phát âm Tokyo Audio TTS, chấm điểm tự động, tính giờ 45 phút và giải thích sư phạm cặn kẽ 100% từng câu.
+                Chọn ôn luyện để xem giải thích ngay, hoặc thi thử 45 phút và xem lời giải sau khi nộp. Bài tự luyện này không quy đổi thành cấp độ JLPT.
             </p>
             <div class="hero-features">
-                <span class="feature-pill">⏱️ Thời gian: 45 Phút (71 Câu/Đề)</span>
-                <span class="feature-pill">💯 Thang điểm 100 & Điểm 10</span>
-                <span class="feature-pill">🔊 Phát âm Tokyo Voice TTS</span>
-                <span class="feature-pill">💡 Giải thích chi tiết & Dịch nghĩa từng câu</span>
-                <span class="feature-pill">💾 Tự động lưu tiến độ vào trình duyệt</span>
+                <span class="feature-pill">71 câu / đề · 45 phút · 100 điểm</span>
             </div>
+            <a class="exam-start-link" href="#examSectionsContainer">Vào câu hỏi ↓</a>
         </header>
 
         <!-- Whiteboard Specification Card -->
-        <div class="wb-spec-card">
+        <details class="exam-structure">
+          <summary>Cấu trúc bài ôn tập và nguồn đề</summary>
+          <div class="wb-spec-card">
             <div class="wb-spec-left">
                 <div class="wb-spec-icon">📋</div>
                 <div>
-                    <div class="wb-spec-title">Cấu Trúc 4 Phần Chuẩn Format Đề Ôn Tập A2.1 (71 Câu)</div>
-                    <div class="wb-spec-sub">Bám sát 100% theo chuẩn đề kiểm tra tổng kết 8 bài của giáo viên</div>
+                    <div class="wb-spec-title">4 phần: từ vựng, ngữ pháp, đọc hiểu và xếp câu</div>
+                    <div class="wb-spec-sub">Một đề chuyển từ PDF và năm mã đề tự luyện bổ sung. <a href="../De_on_tap_JLPT_A2_Bai_11-18.pdf">Mở tài liệu PDF</a>.</div>
                 </div>
             </div>
             <div class="wb-spec-tags">
@@ -76,7 +76,8 @@ html_content = """<!DOCTYPE html>
                 <span class="wb-part-tag">3. 読解: 3 bài đọc hiểu đời sống & công việc (8 câu) [20đ]</span>
                 <span class="wb-part-tag">4. Sắp xếp câu: Bài tập tìm dấu sao ★ (6 câu) [15đ]</span>
             </div>
-        </div>
+          </div>
+        </details>
 
         <!-- Exam Code Selector -->
         <div class="code-selector-card">
@@ -91,7 +92,7 @@ html_content = """<!DOCTYPE html>
             <div class="exam-info-header">
                 <div>
                     <span class="exam-tag-pill" id="currentExamTag">ĐỀ GỐC</span>
-                    <h2 class="exam-title-text" id="currentExamName">Đề Ôn Tập Tổng Hợp JLPT A2.1 (Bài 11 - 18)</h2>
+                    <h2 class="exam-title-text" id="currentExamName">Ôn tập Marugoto A2.1 (Bài 11–18)</h2>
                 </div>
                 <div class="exam-actions-group">
                     <button type="button" class="btn-top-action" onclick="toggleAllExplanations()">
@@ -148,7 +149,8 @@ html_content = """<!DOCTYPE html>
         </div>
 
         <!-- Filter Question Palette Bar -->
-        <div class="palette-card">
+        <details class="palette-card">
+            <summary>Đi tới câu hỏi / lọc bài làm</summary>
             <div class="palette-header">
                 <span style="font-weight: 800; font-size: 0.88rem; color: #334155;">📍 BẢNG ĐIỀU HƯỚNG 71 CÂU HỎI:</span>
                 <div class="palette-legend">
@@ -166,10 +168,10 @@ html_content = """<!DOCTYPE html>
             <div class="palette-grid" id="paletteGridContainer">
                 <!-- Rendered dynamically -->
             </div>
-        </div>
+        </details>
 
         <!-- SECTIONS CONTAINER -->
-        <div id="examSectionsContainer">
+        <div id="examSectionsContainer" tabindex="-1">
             <!-- Rendered dynamically -->
         </div>
 
@@ -195,8 +197,8 @@ html_content = """<!DOCTYPE html>
     </div>
 
     <!-- SCORE RESULT MODAL -->
-    <div class="modal-overlay" id="scoreModal">
-        <div class="modal-card">
+    <div class="modal-overlay" id="scoreModal" role="dialog" aria-modal="true" aria-labelledby="modalExamTitle">
+        <div class="modal-card" tabindex="-1">
             <button type="button" class="modal-close-btn" onclick="closeScoreModal()">✕</button>
             
             <div class="modal-badge-row">
@@ -243,10 +245,10 @@ html_content = """<!DOCTYPE html>
     </div>
 
     <!-- HISTORY MODAL -->
-    <div class="modal-overlay" id="historyModal">
-        <div class="modal-card">
+    <div class="modal-overlay" id="historyModal" role="dialog" aria-modal="true" aria-labelledby="historyTitle">
+        <div class="modal-card" tabindex="-1">
             <button type="button" class="modal-close-btn" onclick="closeHistoryModal()">✕</button>
-            <h3 style="font-size: 1.3rem; font-weight: 800; color: #1e1b4b; margin-bottom: 6px;">📜 Lịch Sử Làm Bài Thi Bài 11 - 18</h3>
+            <h3 id="historyTitle" style="font-size: 1.3rem; font-weight: 800; color: #1e1b4b; margin-bottom: 6px;">📜 Lịch Sử Làm Bài Thi Bài 11 - 18</h3>
             <p style="font-size: 0.86rem; color: #64748b; margin-bottom: 16px;">Danh sách kết quả các lần thi của bạn trên trình duyệt này:</p>
             
             <div class="history-list" id="historyListContainer">
@@ -265,7 +267,7 @@ html_content = """<!DOCTYPE html>
     </div>
 
     <!-- TOAST NOTIFICATION -->
-    <div class="toast-notify" id="toastNotify">
+    <div class="toast-notify" id="toastNotify" role="status" aria-live="polite">
         <span id="toastIcon">💾</span>
         <span id="toastMsg">Đã tự động lưu nháp bài làm</span>
     </div>
@@ -275,7 +277,7 @@ html_content = """<!DOCTYPE html>
 
     <!-- EXAMS DATA & CONTROLLER JS -->
     <script src="../assets/data/de_thi_tong_hop_11_18_data.js?v=1"></script>
-    <script src="../assets/js/pages/de_thi_tong_hop_11_18.js?v=1"></script>
+    <script src="../assets/js/pages/de_thi_tong_hop_11_18.js?v=2"></script>
     <script src="../assets/nav.js?v=7" defer></script>
 </body>
 </html>

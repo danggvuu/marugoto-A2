@@ -2371,6 +2371,7 @@ details .details-body, details .details-content, details > *:not(summary), .acco
 
     .stats-pills, .hero-stats-row {
         display: flex !important;
+        flex-wrap: nowrap !important;
         overflow-x: auto !important;
         white-space: nowrap !important;
         -webkit-overflow-scrolling: touch !important;

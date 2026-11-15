@@ -1,5 +1,21 @@
 # Kiểm tra lại dự án Nhật — bản đang chỉnh sửa
 
+> **Cập nhật sau sửa:** Các lỗi thao tác bên dưới là kết quả của lượt audit trước, không phải danh sách lỗi còn mở.
+> Commit `75579bf` đã sửa lỗi biến/hàm không tồn tại và giữ mảnh xếp câu. Lượt sửa tiếp theo đã:
+> - Sửa thứ tự reset/render khi lọc và lưu phân trang từ vựng/Kanji.
+> - Lưu phiên thi theo mã đề (mode, deadline, tạm dừng, đáp án, trạng thái đã nộp); chuyển đổi draft cũ.
+> - Khóa lời giải, bản dịch và bộ lọc sai trước nộp; sửa xem lại bài và ngăn nộp lặp.
+> - Sửa chọn hoạt động mới nhất và chuyển đổi nhãn bỏ qua trong checkpoint cũ mà không xóa lịch sử.
+> - Rút gọn tab/hero mobile, đổi hàng từ vựng mobile thành thẻ có Kana và nút thao tác,
+>   thêm mục lục/chế độ học từng phần, làm rõ đây là bài tự luyện Marugoto chứ không phải chứng nhận JLPT.
+> - Đưa đề tổng hợp vào build; controller JS chỉ có một source để không bị generator cũ ghi đè.
+>
+> Kết quả sau sửa: **28/28 regression checks**, **14/14 browser tests** và build trong bản sao tạm đều đạt;
+> không có chênh lệch HTML/JS giữa source hiện tại và kết quả build.
+> Browser suite bao gồm smoke test 38 trang và các viewport 360, 390, 768, 1440px trên các trang đại diện.
+> Chạy lại bằng `node tests/run_regression_tests.js` và `python3 tests/test_browser.py`.
+> Những kiểm tra này không thay cho thẩm định toàn bộ nội dung tiếng Nhật/PDF hoặc kiểm tra Safari/iOS thật.
+
 Ngày kiểm tra: 2026-11-15. Đây là kiểm tra working tree hiện tại, không chỉ commit HEAD. Không sửa code ứng dụng hoặc ghi đè công việc đang có.
 
 ## Phạm vi và kết quả

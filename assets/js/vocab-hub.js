@@ -27,6 +27,7 @@ function saveTvCheckpoint() {
             isMultiSelectMode,
             searchQuery: searchEl ? searchEl.value : '',
             currentCardIndex,
+            vocabCurrentPage,
             cardFlipped,
             cardSidePrompt,
             cardOrder: currentFiltered.map(x => `${x.l}|${x.kanji}|${x.kana}`),
@@ -510,9 +511,9 @@ function applyFilter(opts) {
         footerCount.textContent = `Đang chọn: ${selectedLessons.size} bài (${currentFiltered.length} từ)`;
     }
 
+    if (!(opts && opts.isRestore)) vocabCurrentPage = 1;
     renderTable();
     if (!(opts && opts.isRestore)) {
-        vocabCurrentPage = 1;
         currentCardIndex = 0;
         cardFlipped = false;
         if (document.getElementById('view-flashcard').classList.contains('active')) {
@@ -534,8 +535,9 @@ let vocabCurrentPage = 1;
 const VOCAB_PAGE_SIZE = 50;
 
 function setVocabPage(page) {
-    vocabCurrentPage = page;
+    vocabCurrentPage = Number.isInteger(page) ? Math.max(1, page) : 1;
     renderTable();
+    saveTvCheckpoint();
     const tableContainer = document.querySelector('.vocab-table-container');
     if (tableContainer) {
         tableContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -566,7 +568,7 @@ function renderTable() {
     const totalItems = currentFiltered.length;
     if (totalItems === 0) {
         tbody.innerHTML = `<tr><td colspan="7" style="text-align: center; color: var(--gray); padding: 30px;">Không tìm thấy từ vựng nào phù hợp!</td></tr>`;
-        if (paginationBar) paginationBar.innerHTML = '';
+        if (paginationBar) paginationBar.innerHTML = '<button type="button" class="btn-clear-filter-inline" onclick="clearAllFilters()">✕ Xóa bộ lọc</button>';
         return;
     }
 
@@ -1042,8 +1044,10 @@ function handleQuizOptionClick(selectedOpt, btnEl, questionObj) {
             quizSession.wrongItems.push(questionObj.rawItem);
         }
         saveTvCheckpoint();
+        const session = quizSession;
+        const index = session.currentIndex;
         setTimeout(() => {
-            advanceQuiz();
+            if (quizSession === session && quizSession.currentIndex === index && currentView === 'view-quiz') advanceQuiz();
         }, 400);
     } else {
         // Chế độ Luyện tập (Instant Feedback Mode)
@@ -1322,7 +1326,7 @@ function restoreTvCheckpoint() {
         if (saved.currentLevelScope) currentLevelScope = saved.currentLevelScope;
         if (typeof saved.isMultiSelectMode === 'boolean') {
             isMultiSelectMode = saved.isMultiSelectMode;
-            const msChk = document.getElementById('chkMultiSelect');
+            const msChk = document.getElementById('multiSelectModeToggle');
             if (msChk) msChk.checked = isMultiSelectMode;
         }
         if (saved.cardSidePrompt === 'vi' || saved.cardSidePrompt === 'jp') {
@@ -1348,6 +1352,7 @@ function restoreTvCheckpoint() {
             searchEl.value = saved.searchQuery;
         }
 
+        vocabCurrentPage = Number.isInteger(saved.vocabCurrentPage) ? Math.max(1, saved.vocabCurrentPage) : 1;
         initLessonChips();
         applyFilter({ isRestore: true, skipSave: true });
 
@@ -1360,6 +1365,7 @@ function restoreTvCheckpoint() {
             });
             currentFiltered = ordered.concat(pool);
         }
+        renderTable();
         if (Number.isInteger(saved.currentCardIndex) && currentFiltered.length > 0) {
             currentCardIndex = Math.max(0, Math.min(saved.currentCardIndex, currentFiltered.length - 1));
         }
@@ -1387,9 +1393,18 @@ function restoreTvCheckpoint() {
                     allBtns.forEach(b => {
                         b.disabled = true;
                         const text = b.querySelector('.opt-text')?.innerText;
-                        if (text === q.correctAnswer) b.classList.add('correct');
+                        if (quizSettings.mode === 'test') {
+                            if (text === quizSession.lastSelectedOpt) b.classList.add('selected');
+                        } else if (text === q.correctAnswer) b.classList.add('correct');
                         else if (text === quizSession.lastSelectedOpt) b.classList.add('wrong');
                     });
+                    if (quizSettings.mode === 'test') {
+                        const session = quizSession;
+                        const index = session.currentIndex;
+                        setTimeout(() => {
+                            if (quizSession === session && quizSession.currentIndex === index && currentView === 'view-quiz') advanceQuiz();
+                        }, 400);
+                    }
                     if (quizSettings.mode === 'instant') {
                         const isCorrect = quizSession.lastSelectedOpt === q.correctAnswer;
                         const banner = document.getElementById('quizFeedbackBanner');

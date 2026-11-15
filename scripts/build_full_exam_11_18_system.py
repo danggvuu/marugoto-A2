@@ -395,21 +395,36 @@ def create_mock_exam(code, title, tag, desc, seed_offset):
 # 1. DEGOC
 degoc_exam = {
     "code": "DEGOC",
-    "name": "Mã Đề Gốc (Bản Chuẩn PDF Đề Ôn Tập A2.1 Bài 11-18)",
-    "tag": "📑 100% Nguyên Bản File De_on_tap_JLPT_A2_Bai_11-18.pdf",
-    "desc": "Đề thi khảo sát năng lực tổng hợp chuẩn 100% từ file đề PDF của giáo viên: 71 câu trọn vẹn gồm Chữ Hán, Từ vựng, Ngữ pháp, Đọc hiểu 3 bài và Bài điền dấu sao ★.",
+    "name": "Đề từ tài liệu PDF — Marugoto A2.1 bài 11–18",
+    "tag": "📑 Chuyển từ tài liệu PDF",
+    "desc": "71 câu ôn tập: chữ Hán, từ vựng, ngữ pháp, đọc hiểu và xếp câu. Khi cần, hãy đối chiếu với tài liệu PDF đính kèm.",
     "timeLimit": 2700,
     "sections": degoc_sections
 }
 
 # 2. Five brand new mock exams
-mock_101 = create_mock_exam("M111", "Mã Đề 101 (Đề Luyện Thi Thực Chiến A2.1)", "🎯 Luyện Thi Thực Chiến • Biến Thể 1", "Bộ đề luyện thi thực chiến số 1: Trọng tâm cấu trúc V-ていきます/きます, phán đoán ～そうです, mức độ ～すぎます và đọc hiểu lối sống lành mạnh.", 1)
-mock_102 = create_mock_exam("M112", "Mã Đề 102 (Đề Khảo Sát Năng Lực Toàn Diện)", "📘 Toàn Diện Can-do • Biến Thể 2", "Bộ đề khảo sát số 2: Phân tích bẫy trợ từ に, で, と, を, biến âm âm ngắt chữ Hán và đọc hiểu sự kiện công ty.", 2)
-mock_103 = create_mock_exam("M113", "Mã Đề 103 (Thách Thức Bẫy Ngữ Pháp & Kanji)", "⚡ Bẫy Ngữ Pháp & Hán Tự • Biến Thể 3", "Bộ đề số 3: Tối ưu phản xạ phân biệt tính từ phủ định ～くなくて, định ngữ V-ている/V-た và kỹ năng hái sao ★ điểm 10.", 3)
-mock_104 = create_mock_exam("M114", "Mã Đề 104 (Phản Xạ Đọc Hiểu & Giao Tiếp Đời Sống)", "🗣️ Giao Tiếp Đời Sống • Biến Thể 4", "Bộ đề số 4: Bám sát các tình huống giao tiếp đời sống Nhật Bản: gọi điện quốc tế, tiệc chia tay, khám sức khỏe và quy tắc ứng xử công sở.", 4)
-mock_105 = create_mock_exam("M115", "Mã Đề 105 (Đột Phá Điểm Số JLPT A2.1 Final)", "🏆 Đột Phá Điểm Số • Biến Thể 5", "Bộ đề tổng duyệt chuẩn bị cho kỳ thi chính thức: Tổng hợp toàn bộ 8 bài học (L11 ➔ L18), bứt phá mốc điểm tối đa 100/100.", 5)
+mock_101 = create_mock_exam("M111", "Mã Đề M111 (Ôn tập A2.1)", "🎯 Tự luyện • M111", "Ôn cấu trúc V-ていきます/きます, ～そうです, ～すぎます và đọc hiểu.", 1)
+mock_102 = create_mock_exam("M112", "Mã Đề M112 (Ôn tập tổng hợp)", "📘 Tự luyện • M112", "Ôn trợ từ に, で, と, を, cách đọc chữ Hán và đọc hiểu.", 2)
+mock_103 = create_mock_exam("M113", "Mã Đề M113 (Ngữ pháp & Kanji)", "📚 Tự luyện • M113", "Luyện tính từ phủ định ～くなくて, định ngữ V-ている/V-た và xếp câu.", 3)
+mock_104 = create_mock_exam("M114", "Mã Đề M114 (Đọc hiểu & giao tiếp)", "🗣️ Tự luyện • M114", "Ôn các tình huống đời sống và công việc trong bài 11–18.", 4)
+mock_105 = create_mock_exam("M115", "Mã Đề M115 (Ôn tập cuối bài 11–18)", "📝 Tự luyện • M115", "Bài tự luyện tổng hợp; điểm không quy đổi thành kết quả thi JLPT chính thức.", 5)
 
 ALL_EXAMS = [degoc_exam, mock_101, mock_102, mock_103, mock_104, mock_105]
+
+for exam in ALL_EXAMS:
+    counts = [sum(len(group["items"]) for group in section["groups"]) for section in exam["sections"]]
+    if counts != [22, 35, 8, 6]:
+        raise ValueError(f"{exam['code']}: invalid section counts {counts}")
+    items = [item for section in exam["sections"] for group in section["groups"] for item in group["items"]]
+    if len({item["id"] for item in items}) != len(items):
+        raise ValueError(f"{exam['code']}: duplicate question IDs")
+    for item in items:
+        if not 0 <= item["correct"] < len(item["options"]):
+            raise ValueError(f"{exam['code']} question {item['id']}: invalid correct option")
+        if item["type"] == "star" and (
+            sorted(item["correctOrder"]) != [0, 1, 2, 3] or item["correctOrder"][2] != item["correct"]
+        ):
+            raise ValueError(f"{exam['code']} question {item['id']}: inconsistent star order")
 
 # Export to assets/data/de_thi_tong_hop_11_18_data.js
 data_js_path = os.path.join(WORKSPACE, "assets/data/de_thi_tong_hop_11_18_data.js")

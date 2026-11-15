@@ -1846,19 +1846,26 @@
      }
 
      .mode-tabs {
-         display: flex;
-         flex-direction: column;
+          display: flex;
+          flex-direction: row;
+          flex-wrap: nowrap;
+          justify-content: flex-start;
+          overflow-x: auto;
          gap: 8px;
          margin-bottom: 15px;
      }
 
      .mode-btn {
-         width: 100%;
+          width: auto;
+          flex: 0 0 auto;
+          min-height: 44px;
          padding: 11px 14px;
          font-size: 0.92rem;
          text-align: center;
-         border-radius: 10px;
+          border-radius: 10px;
      }
+     .level-pills-bar { flex-wrap: nowrap; overflow-x: auto; max-width: 100%; }
+     .level-pills-bar .level-pill { flex-shrink: 0; }
 
      .controls-card {
          flex-direction: column;
@@ -1893,9 +1900,9 @@
          font-size: 0.9rem;
      }
 
-     /* Vocab Table: 100% Fit Mobile, No Horizontal Scroll */
+     /* Mobile rows become readable cards; keep every reading and action available. */
      .vocab-table-container {
-         overflow-x: hidden !important;
+          overflow: visible;
          border-radius: 12px;
          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
          border: 1px solid var(--border);
@@ -1903,28 +1910,45 @@
      }
 
      .vocab-table {
+          display: block;
          width: 100% !important;
          min-width: 0 !important;
          max-width: 100% !important;
-         table-layout: fixed !important;
-         border-collapse: collapse;
+          table-layout: auto !important;
+          border-collapse: collapse;
      }
+     .vocab-table thead { display: none; }
+     .vocab-table tbody { display: grid; gap: 10px; }
+     .vocab-table .vocab-row {
+          display: grid;
+          grid-template-columns: minmax(0, 1fr) auto;
+          column-gap: 12px;
+          padding: 12px;
+          border: 1px solid #e2e8f0;
+          border-radius: 12px;
+     }
+     .vocab-table .vocab-row td { border: 0; min-width: 0; }
 
      .col-stt {
          display: none !important;
      }
 
      .col-lesson {
-         width: 56px !important;
-         padding: 8px 2px !important;
-         text-align: center;
+          grid-column: 1;
+          grid-row: 1;
+          width: auto !important;
+          padding: 0 0 6px !important;
+          text-align: left;
          font-size: 0.75rem !important;
      }
 
      .col-kanji {
-         width: 34% !important;
-         padding: 8px 4px !important;
-         font-size: 0.98rem !important;
+          grid-column: 1;
+          grid-row: 2;
+          width: auto !important;
+          padding: 0 !important;
+          font-size: 0.98rem !important;
+          overflow-wrap: anywhere;
      }
 
      .col-kana,
@@ -1933,15 +1957,22 @@
      }
 
      .col-vi {
-         width: auto !important;
-         padding: 8px 6px !important;
+          grid-column: 1;
+          grid-row: 3;
+          width: auto !important;
+          padding: 6px 0 0 !important;
          font-size: 0.85rem !important;
      }
 
      .col-actions {
-         width: 76px !important;
-         padding: 8px 2px !important;
+          grid-column: 2;
+          grid-row: 1 / 4;
+          align-self: center;
+          width: auto !important;
+          padding: 0 !important;
      }
+     .col-actions .action-btn-group { flex-direction: column; align-items: stretch; gap: 8px; }
+     .col-actions button { min-height: 44px; min-width: 44px; }
 
      .sub-kana-mobile {
          display: block !important;
@@ -1963,11 +1994,6 @@
          padding: 1px 5px !important;
          border-radius: 4px !important;
          margin-left: 3px !important;
-     }
-
-     .col-vi {
-         width: auto !important;
-         padding: 10px 8px !important;
      }
 
      .vocab-table th {

@@ -114,6 +114,15 @@
             cpScript.defer = true;
             document.head.appendChild(cpScript);
         }
+        if (isLessons && !document.querySelector('script[src*="lesson-outline.js"]')) {
+            const outlineCss = document.createElement('link');
+            outlineCss.rel = 'stylesheet';
+            outlineCss.href = rootPrefix + 'assets/css/lesson-outline.css?v=1';
+            document.head.appendChild(outlineCss);
+            const outlineScript = document.createElement('script');
+            outlineScript.src = rootPrefix + 'assets/js/lesson-outline.js?v=1';
+            document.head.appendChild(outlineScript);
+        }
     })();
 
     // 4. TÍNH TOÁN TRẠNG THÁI ACTIVE

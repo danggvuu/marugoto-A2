@@ -5,12 +5,12 @@
     <meta name="referrer" content="no-referrer">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thẻ Học, Tập Viết & Bài Tập Kanji Marugoto A2-1</title>
-    <link rel="stylesheet" href="assets/css/kanji-a2.css?v=1">
     <!-- Animate UI Core (Spring Physics & Micro-Interactions) -->
     <link rel="stylesheet" href="assets/css/animate-ui.css">
     <script src="assets/js/animate-ui.js" defer></script>
     <script src="assets/js/audio-engine.js?v=2"></script>
     <link rel="stylesheet" href="assets/css/site-theme.css?v=6">
+    <link rel="stylesheet" href="assets/css/kanji-a2.css?v=2">
 </head>
 <body>
 
@@ -21,8 +21,8 @@
 
     <!-- Header Hero Banner -->
     <header class="page-hero-banner">
-        <h1>⛩️ THẺ HỌC, TẬP VIẾT & BÀI TẬP KANJI MARUGOTO A2-1</h1>
-        <p>144 chữ Hán chuẩn giáo trình Minato Bài 1-18 • Nét bút hoạt họa SVG • Bảng tập vẽ trực tiếp • Trắc nghiệm phản xạ</p>
+        <h1>Kanji Marugoto A2-1</h1>
+        <p>144 chữ Hán · Chọn một chữ để nghe, xem nét và tập viết.</p>
     </header>
 
     <!-- Mode Tabs (Segmented Control) -->
@@ -38,7 +38,7 @@
         <!-- Row 1: Search, Quick Presets & Actions -->
         <div class="toolbar-primary-row">
             <div class="search-input-wrap">
-                <input type="text" id="searchInput" placeholder="🔍 Tìm chữ Hán, Hán Việt (Thu, Đông...), Kun, On, nghĩa..." oninput="onSearchChange()">
+                <input type="search" id="searchInput" aria-label="Tìm chữ Hán, cách đọc hoặc nghĩa" placeholder="Tìm chữ Hán, cách đọc, nghĩa..." oninput="onSearchChange()">
                 <button class="search-clear-btn" id="searchClearBtn" onclick="clearSearch()" title="Xóa tìm kiếm">✕</button>
             </div>
 
@@ -86,16 +86,16 @@
 
     <!-- TAB 1: KANJI CARDS & INTERACTIVE WRITING -->
     <div id="tab-cards" class="tab-panel active">
-        <div class="writing-tip-pill" id="writingTipPill">
-            <span>💡 <strong>Mẹo luyện viết:</strong> Dùng chuột hoặc ngón tay vẽ trực tiếp vào ô chữ Hán bên phải thẻ để luyện nhớ nét! Bấm nút <em>"Làm mờ mẫu"</em> để tự viết.</span>
-            <button class="tip-close-btn" onclick="document.getElementById('writingTipPill').style.display='none'" title="Đóng mẹo">✕</button>
-        </div>
+        <details class="writing-tip-pill" id="writingTipPill">
+            <summary>Hướng dẫn luyện viết</summary>
+            <p>Mở thẻ chi tiết, bấm “Tập viết” rồi dùng chuột hoặc ngón tay vẽ vào ô chữ. Dùng “Mẫu: Mờ” để tự luyện nhớ nét.</p>
+        </details>
 
         <!-- View Mode Switcher & Top Pagination -->
         <div class="kanji-view-toolbar">
             <div class="kanji-view-toggle" role="group" aria-label="Chế độ hiển thị">
-                <button type="button" class="kanji-view-btn active" id="btnViewCards" onclick="window.setKanjiViewMode('cards')">🎴 Thẻ Chi Tiết & Tập Viết</button>
-                <button type="button" class="kanji-view-btn" id="btnViewGrid" onclick="window.setKanjiViewMode('grid')">📑 Lưới Chữ Gọn</button>
+                <button type="button" class="kanji-view-btn" id="btnViewCards" onclick="window.setKanjiViewMode('cards')">Thẻ chi tiết</button>
+                <button type="button" class="kanji-view-btn active" id="btnViewGrid" onclick="window.setKanjiViewMode('grid')">Lưới gọn</button>
             </div>
             <div id="kanjiTopPageInfo" class="kanji-top-info"></div>
         </div>

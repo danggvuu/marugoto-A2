@@ -18,6 +18,9 @@ BUILDERS = [
     "scripts/build_mini_test_15_18.py",
     "scripts/build_mini_test_11_14.py",
     "scripts/build_cram_kanji_11_18.py",
+    "scripts/build_full_exam_11_18_system.py",
+    "scripts/build_tong_hop_11_18_page.py",
+    "scripts/build_tong_hop_11_18_js.py",
 ]
 
 
@@ -38,7 +41,8 @@ def verify_html_integrity():
     for path in html_files:
         rel_html = os.path.relpath(path, WORKSPACE)
         html_dir = os.path.dirname(path)
-        s = open(path, encoding="utf-8").read()
+        with open(path, encoding="utf-8") as source:
+            s = source.read()
 
         opens = len(re.findall(r"<script(?:\s|>)", s))
         closes = len(re.findall(r"</script>", s))
@@ -63,13 +67,7 @@ def verify_html_integrity():
 
 
 def verify_all_js():
-    js_files = sorted(
-        glob.glob(os.path.join(WORKSPACE, "assets/*.js"))
-        + glob.glob(os.path.join(WORKSPACE, "assets/js/*.js"))
-        + glob.glob(os.path.join(WORKSPACE, "assets/js/lessons/*.js"))
-        + glob.glob(os.path.join(WORKSPACE, "assets/js/pages/*.js"))
-        + glob.glob(os.path.join(WORKSPACE, "assets/data/*.js"))
-    )
+    js_files = sorted(glob.glob(os.path.join(WORKSPACE, "assets/**/*.js"), recursive=True))
     for js_path in js_files:
         subprocess.run(["node", "--check", js_path], check=True)
     print(f"Node JS syntax check OK across {len(js_files)} JS files.")
