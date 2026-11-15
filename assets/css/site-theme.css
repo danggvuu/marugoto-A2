@@ -1103,7 +1103,7 @@ header.page-hero-banner-compact,
 }
 
 /* Rule Formula Boxes */
-.rule-box, .rule-box .formula-box, .grammar-explain {
+.rule-box, .grammar-explain {
     background: var(--slate-50);
     color: var(--slate-800);
     border-left: 4px solid var(--primary);
@@ -1113,6 +1113,23 @@ header.page-hero-banner-compact,
     border-radius: 0 var(--radius-md) var(--radius-md) 0;
     padding: 16px 20px;
     margin: 16px 0;
+}
+
+/* Enforce high-contrast dark indigo formula box across all pages */
+.formula-box {
+    background: #0f172a !important;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%) !important;
+    color: #ffffff !important;
+    border-left: 4px solid #6366f1 !important;
+}
+.formula-box .formula-label {
+    color: #818cf8 !important;
+}
+.formula-box .jp-text {
+    color: #ffffff !important;
+}
+.formula-box rt {
+    color: #fda4af !important;
 }
 
 .rule-formula {
