@@ -109,7 +109,89 @@
  }
 
  /* Filter & Control Bar */
- .controls-card {
+ /* Table Pagination & Controls */
+.vocab-pagination-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 12px 16px;
+    background: #ffffff;
+    border: 1px solid var(--border, #e2e8f0);
+    border-radius: var(--card-radius, 12px);
+    margin-top: 14px;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+}
+
+.vocab-page-info {
+    font-size: 0.86rem;
+    font-weight: 600;
+    color: var(--slate-600, #475569);
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.vocab-page-controls {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+.vocab-page-btn {
+    padding: 5px 11px;
+    min-height: 34px;
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+    background: #ffffff;
+    color: #334155;
+    font-size: 0.84rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.vocab-page-btn:hover:not(:disabled) {
+    background: #f1f5f9;
+    color: #0f172a;
+    border-color: #94a3b8;
+}
+
+.vocab-page-btn.active {
+    background: var(--primary, #e11d48);
+    border-color: var(--primary, #e11d48);
+    color: #ffffff;
+}
+
+.vocab-page-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.btn-clear-filter-inline {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 8px;
+    border-radius: 999px;
+    background: #fee2e2;
+    color: #b91c1c;
+    border: 1px solid #fca5a5;
+    font-size: 0.76rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.btn-clear-filter-inline:hover {
+    background: #ef4444;
+    color: #ffffff;
+}
+
+.controls-card {
      background: white;
      padding: 20px;
      border-radius: var(--card-radius);
@@ -181,6 +263,35 @@
      gap: 12px;
      align-items: center;
      flex-wrap: wrap;
+ }
+
+ .vocab-secondary-tools {
+     margin-top: 10px;
+     border-top: 1px dashed #e2e8f0;
+     padding-top: 8px;
+ }
+
+ .vocab-tools-summary {
+     font-size: 0.82rem;
+     font-weight: 600;
+     color: #64748b;
+     cursor: pointer;
+     user-select: none;
+     display: inline-flex;
+     align-items: center;
+     gap: 6px;
+     padding: 4px 8px;
+     border-radius: 6px;
+     transition: background 0.15s ease, color 0.15s ease;
+ }
+
+ .vocab-tools-summary:hover {
+     background: #f1f5f9;
+     color: #1e293b;
+ }
+
+ .vocab-secondary-tools[open] .quizlet-btns-wrapper {
+     margin-top: 8px;
  }
 
  .quizlet-btns-wrapper {
@@ -1834,17 +1945,24 @@
 
      .sub-kana-mobile {
          display: block !important;
-         font-size: 0.72rem;
-         color: #64748b;
-         margin-top: 2px;
-         line-height: 1.2;
+         font-size: 0.82rem !important;
+         font-family: var(--font-jp) !important;
+         color: #475569 !important;
+         font-weight: 600 !important;
+         margin-top: 3px !important;
+         line-height: 1.35 !important;
      }
 
      .badge-hv-mobile {
-         display: inline-block;
-         font-size: 0.68rem;
-         font-weight: 700;
-         color: #0284c7;
+         display: inline-block !important;
+         font-size: 0.7rem !important;
+         font-weight: 700 !important;
+         color: #0369a1 !important;
+         background: #f0f9ff !important;
+         border: 1px solid #bae6fd !important;
+         padding: 1px 5px !important;
+         border-radius: 4px !important;
+         margin-left: 3px !important;
      }
 
      .col-vi {
@@ -2088,12 +2206,11 @@
  /* =====================================================
 KANJI STROKE ANIMATION MOTION MODEL & ENRICHED VOCAB STYLES
 ===================================================== */
- .sub-kana-mobile {
-     display: none !important;
- }
-
- .badge-hv-mobile {
-     display: none !important;
+ @media (min-width: 769px) {
+     .sub-kana-mobile,
+     .badge-hv-mobile {
+         display: none !important;
+     }
  }
 
  .col-kanji {

@@ -40,24 +40,13 @@
 
         <!-- Filter & Control Bar -->
         <div class="controls-card">
-            <!-- Search & Quizlet Buttons Row -->
+            <!-- Search Row -->
             <div class="search-bar-row">
                 <div class="search-input-wrap">
                     <input type="text" id="searchInput" placeholder="🔍 Tìm kiếm từ vựng (Nhật, Việt, Romaji)..."
                         oninput="onSearchChange()">
                     <button id="searchClearBtn" class="search-clear-btn" onclick="clearSearch()"
                         title="Xóa tìm kiếm">✕</button>
-                </div>
-                <div class="quizlet-btns-wrapper">
-                    <button class="btn btn-quizlet" id="btnQuizlet" onclick="copyQuizletFormat('kana')"
-                        title="Copy cột Nhật dạng Kana sạch 100%, không khoảng trắng, không ~, gõ siêu mượt trên Quizlet">
-                        ⌨️ Copy Gõ Kana (<span id="quizletCount">380</span> từ)
-                    </button>
-                    <button class="btn btn-quizlet btn-quizlet-kanji" id="btnQuizletKanji"
-                        onclick="copyQuizletFormat('kanji')"
-                        title="Copy cột Nhật dạng Kanji sạch, không khoảng trắng, chuẩn luyện gõ chữ Hán trên Quizlet">
-                        🈁 Copy Gõ Kanji
-                    </button>
                 </div>
             </div>
 
@@ -100,6 +89,22 @@
                 <div class="active-chips-bar" id="activeChipsBar">
                     <!-- Dynamically populated chips -->
                 </div>
+
+                <!-- Secondary Tools Collapsible (Export / Quizlet Copy) -->
+                <details class="vocab-secondary-tools">
+                    <summary class="vocab-tools-summary">⚙️ Công cụ phụ: Xuất dữ liệu / Sao chép cho Quizlet ▾</summary>
+                    <div class="quizlet-btns-wrapper">
+                        <button class="btn btn-quizlet" id="btnQuizlet" onclick="copyQuizletFormat('kana')"
+                            title="Copy cột Nhật dạng Kana sạch 100%, không khoảng trắng, không ~, gõ siêu mượt trên Quizlet">
+                            ⌨️ Copy Gõ Kana (<span id="quizletCount">380</span> từ)
+                        </button>
+                        <button class="btn btn-quizlet btn-quizlet-kanji" id="btnQuizletKanji"
+                            onclick="copyQuizletFormat('kanji')"
+                            title="Copy cột Nhật dạng Kanji sạch, không khoảng trắng, chuẩn luyện gõ chữ Hán trên Quizlet">
+                            🈁 Copy Gõ Kanji
+                        </button>
+                    </div>
+                </details>
 
                 <!-- Expandable Advanced Multi-Select Drawer -->
                 <div class="advanced-drawer" id="advancedDrawer" style="display: none;">
@@ -170,6 +175,9 @@
                     </tbody>
                 </table>
             </div>
+
+            <!-- Table Pagination & Results Summary Bar -->
+            <div class="vocab-pagination-bar" id="vocabPaginationBar"></div>
         </div>
 
         <!-- VIEW 2: FLASHCARD (QUIZLET STYLE) -->

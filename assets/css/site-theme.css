@@ -1103,8 +1103,9 @@ header.page-hero-banner-compact,
 }
 
 /* Rule Formula Boxes */
-.rule-box, .formula-box, .grammar-explain {
+.rule-box, .rule-box .formula-box, .grammar-explain {
     background: var(--slate-50);
+    color: var(--slate-800);
     border-left: 4px solid var(--primary);
     border-top: 1px solid var(--border);
     border-right: 1px solid var(--border);

@@ -1,7 +1,7 @@
 import json
 import os
 
-WORKSPACE = '/Users/dangvu/Downloads/nhật'
+WORKSPACE = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
 
 with open(os.path.join(WORKSPACE, 'data/kanji_vocab_11_18.json'), 'r', encoding='utf-8') as f:
     vocab_list = json.load(f)
@@ -182,7 +182,7 @@ html = f"""<!DOCTYPE html>
 
             <div class="tp-shortcut-bar" id="tpShortcutBar">
                 <span class="tp-shortcut-item"><kbd class="tp-kbd">⏎ Enter</kbd> Kiểm Tra / Tiếp</span>
-                <span class="tp-shortcut-item"><kbd class="tp-kbd">Tab</kbd> Bỏ qua (Skip)</span>
+                <span class="tp-shortcut-item"><kbd class="tp-kbd">Alt + S</kbd> Bỏ qua (Skip)</span>
                 <span class="tp-shortcut-item"><kbd class="tp-kbd">Esc</kbd> Gõ lại (Retry)</span>
                 <span class="tp-shortcut-item"><kbd class="tp-kbd">Alt + H</kbd> Gợi ý</span>
             </div>
@@ -201,9 +201,9 @@ html = f"""<!DOCTYPE html>
                     <button type="button" class="tp-btn-secondary" id="tpCardPrevBtn" onclick="prevTypingItem()" title="Câu trước">
                         <span>⬅️ Trước</span>
                     </button>
-                    <button type="button" class="tp-btn-secondary" id="tpCardSkipBtn" onclick="skipOrPassCurrentTypingWord()" title="Bỏ qua câu này (Tab)">
+                    <button type="button" class="tp-btn-secondary" id="tpCardSkipBtn" onclick="skipOrPassCurrentTypingWord()" title="Bỏ qua câu này (Alt + S)">
                         <span>⏭️ Bỏ Qua</span>
-                        <kbd class="tp-kbd">Tab</kbd>
+                        <kbd class="tp-kbd">Alt+S</kbd>
                     </button>
                     <button type="button" class="tp-btn-secondary is-retry" id="tpCardRetryBtn" style="display:none;" onclick="retryCurrentTypingCard()" title="Gõ lại câu này (Esc)">
                         <span>🔄 Gõ Lại</span>

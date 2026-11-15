@@ -512,6 +512,7 @@ function applyFilter(opts) {
 
     renderTable();
     if (!(opts && opts.isRestore)) {
+        vocabCurrentPage = 1;
         currentCardIndex = 0;
         cardFlipped = false;
         if (document.getElementById('view-flashcard').classList.contains('active')) {
@@ -527,33 +528,72 @@ function applyFilter(opts) {
 }
 
 // ==========================================
-// RENDER TABLE (7 Columns with Kanji, Kana, Han-Viet & Motion Trigger)
+// RENDER TABLE (7 Columns with Kanji, Kana, Han-Viet & Motion Trigger & Pagination)
 // ==========================================
+let vocabCurrentPage = 1;
+const VOCAB_PAGE_SIZE = 50;
+
+function setVocabPage(page) {
+    vocabCurrentPage = page;
+    renderTable();
+    const tableContainer = document.querySelector('.vocab-table-container');
+    if (tableContainer) {
+        tableContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+}
+
+function clearAllFilters() {
+    selectedLevelScope = 'ALL';
+    selectedLessons = new Set(LESSON_ORDER);
+    currentSearchQuery = '';
+    const searchInp = document.getElementById('searchInput');
+    if (searchInp) searchInp.value = '';
+    const searchClear = document.getElementById('searchClearBtn');
+    if (searchClear) searchClear.style.display = 'none';
+    const quickSel = document.getElementById('quickLessonDropdown');
+    if (quickSel) quickSel.value = 'ALL';
+    document.querySelectorAll('.level-pill').forEach(p => p.classList.toggle('active', p.id === 'pill-all'));
+    renderActiveChips();
+    applyFilters();
+}
+
 function renderTable() {
     const tbody = document.getElementById('vocabTableBody');
+    const paginationBar = document.getElementById('vocabPaginationBar');
     if (!tbody) return;
 
-    if (currentFiltered.length === 0) {
+    const totalItems = currentFiltered.length;
+    if (totalItems === 0) {
         tbody.innerHTML = `<tr><td colspan="7" style="text-align: center; color: var(--gray); padding: 30px;">Không tìm thấy từ vựng nào phù hợp!</td></tr>`;
+        if (paginationBar) paginationBar.innerHTML = '';
         return;
     }
 
-    const rows = currentFiltered.map((item, idx) => {
+    const totalPages = Math.ceil(totalItems / VOCAB_PAGE_SIZE) || 1;
+    if (vocabCurrentPage > totalPages) vocabCurrentPage = totalPages;
+    if (vocabCurrentPage < 1) vocabCurrentPage = 1;
+
+    const startIdx = (vocabCurrentPage - 1) * VOCAB_PAGE_SIZE;
+    const endIdx = Math.min(startIdx + VOCAB_PAGE_SIZE, totalItems);
+    const pageItems = currentFiltered.slice(startIdx, endIdx);
+
+    const rows = pageItems.map((item, i) => {
+        const realIdx = startIdx + i;
         const safeKana = (item.kana || item.jp).replace(/'/g, "\\'");
         const safeKanji = (item.kanji || item.jp).replace(/'/g, "\\'");
         const hasKanji = item.kanji_chars && item.kanji_chars.length > 0;
         const strokeBtn = hasKanji ? `
-        <button type="button" class="btn-stroke-model" onclick="event.stopPropagation(); openStrokeModel(${idx})" title="Xem mô hình animation chuyển động nét viết">
+        <button type="button" class="btn-stroke-model" onclick="event.stopPropagation(); openStrokeModel(${realIdx})" title="Xem mô hình animation chuyển động nét viết">
             ✍️ Nét viết
         </button>
     ` : `<span class="no-stroke-tag">Kana</span>`;
 
         return `
-        <tr class="vocab-row" onclick="onRowClick(${idx})">
-            <td class="col-stt"><strong>${idx + 1}</strong></td>
+        <tr class="vocab-row" onclick="onRowClick(${realIdx})">
+            <td class="col-stt"><strong>${realIdx + 1}</strong></td>
             <td class="col-lesson"><span class="tag-lesson">${item.l}</span></td>
             <td class="col-kanji">
-                <span class="kanji-word ${hasKanji ? 'clickable-kanji' : ''}" onclick="event.stopPropagation(); ${hasKanji ? `openStrokeModel(${idx})` : ''}" title="${hasKanji ? 'Click để xem chuyển động nét Kanji' : ''}">
+                <span class="kanji-word ${hasKanji ? 'clickable-kanji' : ''}" onclick="event.stopPropagation(); ${hasKanji ? `openStrokeModel(${realIdx})` : ''}" title="${hasKanji ? 'Click để xem chuyển động nét Kanji' : ''}">
                     ${item.kanji}
                 </span>
                 <div class="sub-kana-mobile">${item.kana !== item.kanji ? item.kana : ''} ${item.hv ? `<span class="badge-hv-mobile">${item.hv}</span>` : ''}</div>
@@ -577,6 +617,49 @@ function renderTable() {
     `;
     }).join('');
     tbody.innerHTML = rows;
+
+    if (paginationBar) {
+        let isFiltered = (selectedLevelScope !== 'ALL' || selectedLessons.size < LESSON_ORDER.length || (currentSearchQuery && currentSearchQuery.length > 0));
+        let clearFilterHtml = isFiltered ? `<button type="button" class="btn-clear-filter-inline" onclick="clearAllFilters()">✕ Xóa bộ lọc</button>` : '';
+
+        let buttonsHtml = '';
+        if (totalPages > 1) {
+            buttonsHtml += `<button type="button" class="vocab-page-btn" ${vocabCurrentPage === 1 ? 'disabled' : ''} onclick="setVocabPage(${vocabCurrentPage - 1})">← Trước</button>`;
+
+            const maxVisibleButtons = 5;
+            let startP = Math.max(1, vocabCurrentPage - 2);
+            let endP = Math.min(totalPages, startP + maxVisibleButtons - 1);
+            if (endP - startP < maxVisibleButtons - 1) {
+                startP = Math.max(1, endP - maxVisibleButtons + 1);
+            }
+
+            if (startP > 1) {
+                buttonsHtml += `<button type="button" class="vocab-page-btn" onclick="setVocabPage(1)">1</button>`;
+                if (startP > 2) buttonsHtml += `<span style="padding:0 4px; color:#94a3b8;">...</span>`;
+            }
+
+            for (let p = startP; p <= endP; p++) {
+                buttonsHtml += `<button type="button" class="vocab-page-btn ${p === vocabCurrentPage ? 'active' : ''}" onclick="setVocabPage(${p})">${p}</button>`;
+            }
+
+            if (endP < totalPages) {
+                if (endP < totalPages - 1) buttonsHtml += `<span style="padding:0 4px; color:#94a3b8;">...</span>`;
+                buttonsHtml += `<button type="button" class="vocab-page-btn" onclick="setVocabPage(${totalPages})">${totalPages}</button>`;
+            }
+
+            buttonsHtml += `<button type="button" class="vocab-page-btn" ${vocabCurrentPage === totalPages ? 'disabled' : ''} onclick="setVocabPage(${vocabCurrentPage + 1})">Tiếp →</button>`;
+        }
+
+        paginationBar.innerHTML = `
+            <div class="vocab-page-info">
+                <span>Hiển thị <strong>${startIdx + 1}–${endIdx}</strong> / tổng số <strong>${totalItems}</strong> từ</span>
+                ${clearFilterHtml}
+            </div>
+            <div class="vocab-page-controls">
+                ${buttonsHtml}
+            </div>
+        `;
+    }
 }
 
 function onRowClick(idx) {
@@ -902,6 +985,17 @@ function renderQuizQuestion(opts) {
         feedbackBanner.style.display = 'none';
     }
 
+    // Counters update based on mode
+    const correctEl = document.getElementById('quizCorrectCount');
+    const wrongEl = document.getElementById('quizWrongCount');
+    if (quizSettings.mode === 'test') {
+        if (correctEl) correctEl.innerText = '—';
+        if (wrongEl) wrongEl.innerText = '—';
+    } else {
+        if (correctEl) correctEl.innerText = quizSession.correctCount;
+        if (wrongEl) wrongEl.innerText = quizSession.wrongCount;
+    }
+
     // Options
     const optContainer = document.getElementById('quizOptions');
     optContainer.innerHTML = '';
@@ -936,28 +1030,44 @@ function handleQuizOptionClick(selectedOpt, btnEl, questionObj) {
     const allBtns = optContainer.querySelectorAll('.quiz-opt-btn');
     allBtns.forEach(b => b.disabled = true);
 
-    if (isCorrect) {
-        quizSession.correctCount++;
-        btnEl.classList.add('correct');
+    if (quizSettings.mode === 'test') {
+        // Chế độ Thi thử (Test Mode): Không tiết lộ đáp án ngay, chỉ ghi nhận lựa chọn
+        btnEl.classList.add('selected');
+        if (isCorrect) {
+            quizSession.correctCount++;
+        } else {
+            quizSession.wrongCount++;
+            quizSession.wrongItems.push(questionObj.rawItem);
+        }
+        saveTvCheckpoint();
+        setTimeout(() => {
+            advanceQuiz();
+        }, 400);
     } else {
-        quizSession.wrongCount++;
-        btnEl.classList.add('wrong');
-        quizSession.wrongItems.push(questionObj.rawItem);
-        // Highlight the correct one
-        allBtns.forEach(b => {
-            const text = b.querySelector('.opt-text')?.innerText;
-            if (text === questionObj.correctAnswer) {
-                b.classList.add('correct');
-            }
-        });
-    }
+        // Chế độ Luyện tập (Instant Feedback Mode)
+        if (isCorrect) {
+            quizSession.correctCount++;
+            btnEl.classList.add('correct');
+        } else {
+            quizSession.wrongCount++;
+            btnEl.classList.add('wrong');
+            quizSession.wrongItems.push(questionObj.rawItem);
+            // Highlight the correct one
+            allBtns.forEach(b => {
+                const text = b.querySelector('.opt-text')?.innerText;
+                if (text === questionObj.correctAnswer) {
+                    b.classList.add('correct');
+                }
+            });
+        }
 
-    // Update counts
-    document.getElementById('quizCorrectCount').innerText = quizSession.correctCount;
-    document.getElementById('quizWrongCount').innerText = quizSession.wrongCount;
+        // Cập nhật điểm trực tiếp
+        const countCorr = document.getElementById('quizCorrectCount');
+        const countWrong = document.getElementById('quizWrongCount');
+        if (countCorr) countCorr.innerText = quizSession.correctCount;
+        if (countWrong) countWrong.innerText = quizSession.wrongCount;
 
-    if (quizSettings.mode === 'instant') {
-        // Luyện tập tức thì: hiển thị banner phản hồi
+        // Hiển thị banner phản hồi
         const banner = document.getElementById('quizFeedbackBanner');
         const feedbackText = document.getElementById('quizFeedbackText');
         if (banner && feedbackText) {
@@ -971,12 +1081,6 @@ function handleQuizOptionClick(selectedOpt, btnEl, questionObj) {
             banner.style.display = 'flex';
         }
         saveTvCheckpoint();
-    } else {
-        saveTvCheckpoint();
-        // Chế độ Thi thử (Test): Tự động chuyển câu sau 0.45s
-        setTimeout(() => {
-            advanceQuiz();
-        }, 450);
     }
 }
 
@@ -1307,6 +1411,9 @@ function restoreTvCheckpoint() {
         return false;
     }
 }
+
+window.setVocabPage = setVocabPage;
+window.clearAllFilters = clearAllFilters;
 
 // Initial render
 window.addEventListener('DOMContentLoaded', () => {

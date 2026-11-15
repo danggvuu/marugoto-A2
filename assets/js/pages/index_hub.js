@@ -27,8 +27,9 @@
         let currentCategory = 'all';
         let searchQuery = '';
 
-        // 1. Calculate & display initial category counts
+        // 1. Calculate & display initial category counts & resume progress
         updateCategoryCounts();
+        updateResumeButton();
 
         // 2. Restore saved category if any
         try {
@@ -239,6 +240,83 @@
                 if (badge) {
                     badge.textContent = String(counts[key]);
                 }
+            }
+        }
+
+        // 9. Real-time Resume Study Button derived from localStorage
+        function updateResumeButton() {
+            const resumeBtn = document.getElementById('hubResumeBtn');
+            if (!resumeBtn) return;
+
+            let latestActivity = null;
+            let latestTime = 0;
+
+            // Check typing studio progress
+            try {
+                const tsRaw = localStorage.getItem('marugoto_typing_studio_v2');
+                if (tsRaw) {
+                    const ts = JSON.parse(tsRaw);
+                    const histKeys = ts && ts.history ? Object.keys(ts.history) : [];
+                    if (histKeys.length > 0) {
+                        const m = ts.mode || 'sentence';
+                        const modeLabel = m === 'sentence' ? 'Luyện gõ câu' : (m === 'kanji' ? 'Luyện Kanji' : 'Luyện từ vựng');
+                        const targetUrl = m === 'kanji' ? 'tests/On_Tap_Cap_Toc_Kanji_11_18_NPBS14.html' : 'tests/On_Tap_Mini_Test_A2_15_18.html#tab-typing';
+                        latestActivity = {
+                            title: `Tiếp tục: ${modeLabel} (${histKeys.length} câu) →`,
+                            url: targetUrl,
+                            time: 1
+                        };
+                    }
+                }
+            } catch (e) {}
+
+            // Check checkpoint-sync keys across pages
+            try {
+                for (let i = 0; i < localStorage.length; i++) {
+                    const key = localStorage.key(i);
+                    if (key && key.startsWith('marugoto_cp_v1::')) {
+                        const val = localStorage.getItem(key);
+                        if (!val) continue;
+                        const parsed = JSON.parse(val);
+                        if (parsed && parsed.t && parsed.t > latestTime) {
+                            const pagePath = key.replace('marugoto_cp_v1::', '').split('::')[0];
+                            let friendlyName = pagePath;
+                            let link = pagePath;
+
+                            if (pagePath.includes('Marugoto_A2_Lesson_')) {
+                                const num = pagePath.match(/Lesson_(\d+)/)?.[1] || '';
+                                friendlyName = `Bài ${num} (A2-1)`;
+                            } else if (pagePath.includes('De_Thi_Midterm')) {
+                                friendlyName = 'Đề Thi Midterm A2-1';
+                            } else if (pagePath.includes('Tu_Vung')) {
+                                friendlyName = 'Kho Từ Vựng Toàn Diện';
+                            } else if (pagePath.includes('kanji_a2')) {
+                                friendlyName = 'Kanji & Bút Thuận A2';
+                            } else if (pagePath.includes('Tong_Hop_Ngu_Phap')) {
+                                friendlyName = 'Ngữ Pháp Marugoto A1–A2';
+                            } else if (pagePath.includes('On_Tap_Mini_Test_A2_15_18')) {
+                                friendlyName = 'Ôn Tập Bài 15–18';
+                            } else if (pagePath.includes('Luyen_Tap_The_Te')) {
+                                friendlyName = 'Luyện Chia Thể TE';
+                            }
+
+                            latestTime = parsed.t;
+                            latestActivity = {
+                                title: `Tiếp tục học: ${friendlyName} →`,
+                                url: link,
+                                time: parsed.t
+                            };
+                        }
+                    }
+                }
+            } catch (e) {}
+
+            if (latestActivity) {
+                resumeBtn.href = latestActivity.url;
+                resumeBtn.innerHTML = `<span>⚡ ${escapeHtml(latestActivity.title)}</span>`;
+            } else {
+                resumeBtn.href = 'lessons/Marugoto_A2_Lesson_1.html';
+                resumeBtn.innerHTML = `<span>🚀 Chọn bài để bắt đầu học →</span>`;
             }
         }
 

@@ -1,0 +1,755 @@
+import json
+import os
+
+WORKSPACE = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
+
+# Đề Gốc PDF: 71 câu
+degoc_sections = [
+    {
+        "id": "sec1_kanji_vocab",
+        "partNumber": "I",
+        "partTitle": "PHẦN 1: CHỮ HÁN & TỪ VỰNG (文字・語彙 - 22 CÂU)",
+        "partDesc": "Gồm 2 dạng bài: Đọc chữ Hán gạch chân (Câu 1-10) và Điền từ vựng thích hợp vào chỗ trống (Câu 11-20, 24, 25).",
+        "badge": "25 Điểm",
+        "groups": [
+            {
+                "groupTitle": "DẠNG 1: Chọn cách đọc Hiragana đúng nhất của chữ Hán gạch chân (Câu 1 - 10)",
+                "groupInstruction": "Chọn 1 đáp án đúng nhất trong 4 phương án:",
+                "items": [
+                    {
+                        "id": 1,
+                        "type": "mc",
+                        "prompt": "明日は <u>祝日</u> なので、会社は 休みです。",
+                        "promptVi": "Ngày mai là ngày lễ (ngày nghỉ lễ) nên công ty được nghỉ.",
+                        "targetWord": "祝日",
+                        "options": ["しゅくじつ", "しゅくにち", "いわいび", "しゅうじつ"],
+                        "correct": 0,
+                        "explain": "💡 <strong>Cách đọc âm On của 祝日 (Chúc Nhật - Bài 13):</strong><br>• <strong>祝日 ➔ しゅくじつ</strong>: Ngày nghỉ lễ quốc gia.<br>• Các phương án sai: 'しゅくにち' (sai âm Nhật), 'いわいび' (lẫn âm Kun 祝い), 'しゅうじつ' (sai âm ngắt thành âm dài)."
+                    },
+                    {
+                        "id": 2,
+                        "type": "mc",
+                        "prompt": "飛行機は 午後３時に 空港へ <u>到着</u> します。",
+                        "promptVi": "Máy bay sẽ hạ cánh/đến sân bay lúc 3 giờ chiều.",
+                        "targetWord": "到着",
+                        "options": ["とうちゃく", "どうちゃく", "とうじゃく", "とうちょく"],
+                        "correct": 0,
+                        "explain": "💡 <strong>Cách đọc Hán tự 到着 (Đáo Trước - Bài 14/18):</strong><br>• <strong>到着 ➔ とうちゃく</strong>: Đến nơi, hạ cánh.<br>• Chú ý chữ 到 đọc âm dài 'とう', 着 đọc là 'ちゃく' (không có âm đục 'どう' hay 'じゃく')."
+                    },
+                    {
+                        "id": 3,
+                        "type": "mc",
+                        "prompt": "田中さんは おみやげに <u>日本酒</u> を 持ってきました。",
+                        "promptVi": "Anh Tanaka đã mang rượu sake Nhật Bản đến làm quà lưu niệm.",
+                        "targetWord": "日本酒",
+                        "options": ["にほんしゅ", "にほんさけ", "にっぽんしゅ", "にほんじゅ"],
+                        "correct": 0,
+                        "explain": "💡 <strong>Cách đọc chữ 酒 trong từ ghép (Tửu - Bài 11/12):</strong><br>• Rượu Nhật Bản gọi là <strong>日本酒 (にほんしゅ)</strong>, chữ 酒 trong từ ghép Hán-Hán đọc âm On là <strong>しゅ</strong>.<br>• Khi đứng một mình mới đọc âm Kun là お酒 (おさけ)."
+                    },
+                    {
+                        "id": 4,
+                        "type": "mc",
+                        "prompt": "この レストランは 外国人にも <u>人気</u> が あります。",
+                        "promptVi": "Nhà hàng này cũng rất được người nước ngoài yêu thích/ưa chuộng.",
+                        "targetWord": "人気",
+                        "options": ["にんき", "じんき", "にんぎ", "ひとけい"],
+                        "correct": 0,
+                        "explain": "💡 <strong>Cụm từ cố định 人気がある (Nhân Khí - Bài 11):</strong><br>• <strong>人気 ➔ にんき</strong>: Được yêu thích, nổi tiếng.<br>• Cụm từ: ～に 人気がある (Được ưa chuộng đối với đối tượng nào đó). 'ひとけい' mang nghĩa bóng khí người, không phải độ nổi tiếng."
+                    },
+                    {
+                        "id": 5,
+                        "type": "mc",
+                        "prompt": "クアンさんが <u>空港</u> まで 迎えに 行きます。",
+                        "promptVi": "Anh Quang sẽ đi đến sân bay để đón (ai đó).",
+                        "targetWord": "空港",
+                        "options": ["くうこう", "そらこう", "くうごう", "からこう"],
+                        "correct": 0,
+                        "explain": "💡 <strong>Cách đọc chữ 空港 (Không Cảng - Bài 13/18):</strong><br>• <strong>空港 ➔ くうこう</strong>: Sân bay, phi trường.<br>• Cả 2 chữ đều mang âm dài: 空 (くう) + 港 (こう). Không có âm đục 'ごう'."
+                    },
+                    {
+                        "id": 6,
+                        "type": "mc",
+                        "prompt": "父に もらった <u>時計</u> を 毎日 使っています。",
+                        "promptVi": "Tôi sử dụng chiếc đồng hồ bố tặng mỗi ngày.",
+                        "targetWord": "時計",
+                        "options": ["とけい", "じけい", "どけい", "ときけい"],
+                        "correct": 0,
+                        "explain": "💡 <strong>Từ vựng quen thuộc 時計 (Thời Kế - Bài 14):</strong><br>• <strong>時計 ➔ とけい</strong>: Đồng hồ.<br>• Chữ 時 trong từ này đọc là 'と' (cách đọc đặc biệt trong từ ghép), không đọc là 'じ' hay 'ど'."
+                    },
+                    {
+                        "id": 7,
+                        "type": "mc",
+                        "prompt": "<u>自然</u> が 多い ところが 好きです。",
+                        "promptVi": "Tôi thích những nơi có nhiều thiên nhiên/cảnh sắc tự nhiên.",
+                        "targetWord": "自然",
+                        "options": ["じぜん", "しねん", "じねん", "しぜん"],
+                        "correct": 3,
+                        "explain": "💡 <strong>Cách đọc chữ 自然 (Tự Nhiên - Bài 15/17):</strong><br>• <strong>自然 ➔ しぜん</strong>: Tự nhiên, thiên nhiên.<br>• Bẫy âm đục: Chữ 自 đọc là 'し', chữ 然 đọc âm đục là 'ぜん' ➔ Ghép lại là 'しぜん' (Đáp án 4)."
+                    },
+                    {
+                        "id": 8,
+                        "type": "mc",
+                        "prompt": "飛行機は 午前10時に <u>出発</u> します。",
+                        "promptVi": "Máy bay sẽ xuất phát/khởi hành lúc 10 giờ sáng.",
+                        "targetWord": "出発",
+                        "options": ["しゅっぱつ", "しゅうはつ", "でぱつ", "しゅつぱつ"],
+                        "correct": 0,
+                        "explain": "💡 <strong>Biến âm âm ngắt trong 出発 (Xuất Phát - Bài 18):</strong><br>• <strong>出発 ➔ しゅっぱつ</strong> (Xuất phát/khởi hành).<br>• Chữ 出 (しゅつ) kết hợp với 発 (はつ) tạo thành âm ngắt っ: しゅっぱつ (không kéo dài âm 'しゅう' hay tách 'しゅつぱつ')."
+                    },
+                    {
+                        "id": 9,
+                        "type": "mc",
+                        "prompt": "会社を 休んだ <u>理由</u> を 教えて ください。",
+                        "promptVi": "Xin hãy cho tôi biết lý do bạn nghỉ làm ở công ty.",
+                        "targetWord": "理由",
+                        "options": ["じゆう", "りよう", "りゆう", "りりゅう"],
+                        "correct": 2,
+                        "explain": "💡 <strong>Cách đọc chữ 理由 (Lý Do - Bài 16/18):</strong><br>• <strong>理由 ➔ りゆう</strong>: Lý do, nguyên nhân.<br>• Phân biệt với 自由 (じゆう: tự do) và 利用 (りよう: sử dụng/tận dụng). Chữ 由 đọc là 'ゆう' (Đáp án 3)."
+                    },
+                    {
+                        "id": 10,
+                        "type": "mc",
+                        "prompt": "健康のために、毎日30分ぐらい <u>歩きます</u>。",
+                        "promptVi": "Vì sức khỏe, mỗi ngày tôi đi bộ khoảng 30 phút.",
+                        "targetWord": "歩きます",
+                        "options": ["うごきます", "あるきます", "ききます", "おきます"],
+                        "correct": 1,
+                        "explain": "💡 <strong>Động từ thể lịch sự 歩く (Bộ - Bài 16):</strong><br>• <strong>歩きます ➔ あるきます</strong>: Đi bộ.<br>• Các từ khác: うごきます (cử động/chuyển động), ききます (nghe/hỏi), おきます (thức dậy/đặt để)."
+                    }
+                ]
+            },
+            {
+                "groupTitle": "DẠNG 2: Chọn từ vựng thích hợp điền vào chỗ trống trong ngoặc (   ) (Câu 11 - 20, 24, 25)",
+                "groupInstruction": "Chọn từ có ý nghĩa và ngữ cảnh chính xác nhất:",
+                "items": [
+                    {
+                        "id": 11,
+                        "type": "mc",
+                        "prompt": "ピクニックに 皿と コップと (   ) を 持っていきます。",
+                        "promptVi": "Đi dã ngoại thì mang theo đĩa, cốc và nĩa (dĩa).",
+                        "options": ["フォーク", "フライト", "アンケート", "オフィス"],
+                        "correct": 0,
+                        "explain": "💡 <strong>Từ vựng đồ dùng dã ngoại (Bài 11 - ピクニック):</strong><br>• <strong>フォーク (Fork)</strong>: Cái nĩa/dĩa ăn, cùng bộ với 皿 (đĩa) và コップ (cốc).<br>• フライト: Chuyến bay; アンケート: Bảng khảo sát; オフィス: Văn phòng."
+                    },
+                    {
+                        "id": 12,
+                        "type": "mc",
+                        "prompt": "うめぼしの 味は (   ) です。",
+                        "promptVi": "Hương vị của món mơ muối Umeboshi là vị chua.",
+                        "options": ["すっぱい", "にがい", "しょっぱい", "からい"],
+                        "correct": 0,
+                        "explain": "💡 <strong>Từ vựng vị giác (Bài 12 - 味):</strong><br>• <strong>すっぱい (酸っぱい)</strong>: Chua (Đặc trưng của quả mơ muối Nhật Umeboshi).<br>• にがい: Đắng; しょっぱい: Mặn; からい: Cay."
+                    },
+                    {
+                        "id": 13,
+                        "type": "mc",
+                        "prompt": "空港へ 田中さんを (   ) に 行きます。",
+                        "promptVi": "Tôi đi đến sân bay để đón anh Tanaka.",
+                        "options": ["むかえ", "かざり", "つくり", "しめ"],
+                        "correct": 0,
+                        "explain": "💡 <strong>Cấu trúc đi làm gì (V-bỏ ます + に行く - Bài 13/18):</strong><br>• 迎えに行く (<strong>むかえにいく</strong>): Đi đón ai đó.<br>• かざり: Trang trí; つくり: Nấu/chế tạo; しめ: Buộc/đóng."
+                    },
+                    {
+                        "id": 14,
+                        "type": "mc",
+                        "prompt": "へやを 出る 前に 電気を (   ) ください。",
+                        "promptVi": "Trước khi ra khỏi phòng, xin vui lòng tắt điện.",
+                        "options": ["つけて", "けして", "あけて", "かりて"],
+                        "correct": 1,
+                        "explain": "💡 <strong>Cụm từ bật/tắt thiết bị (Bài 14 - 家電):</strong><br>• 電気を <strong>消す (けす ➔ けして)</strong>: Tắt điện.<br>• 電気を つける: Bật điện; あける: Mở cửa; かりる: Mượn."
+                    },
+                    {
+                        "id": 15,
+                        "type": "mc",
+                        "prompt": "この ネックレスは 山田さんに (   ) います。",
+                        "promptVi": "Chiếc vòng cổ này rất hợp với chị Yamada.",
+                        "options": ["似合って", "到着して", "連絡して", "出発して"],
+                        "correct": 0,
+                        "explain": "💡 <strong>Động từ chỉ sự phù hợp thời trang (Bài 14 - プレゼント):</strong><br>• ～に <strong>似合う (にあう ➔ 似合っている)</strong>: Hợp với ai đó (trang phục, trang sức).<br>• 到着: Đến nơi; 連絡: Liên lạc; 出発: Khởi hành."
+                    },
+                    {
+                        "id": 16,
+                        "type": "mc",
+                        "prompt": "今日は (   ) が わるくて、はやく ねます。",
+                        "promptVi": "Hôm nay sức khỏe/thể trạng không tốt nên tôi ngủ sớm.",
+                        "options": ["たいちょう", "じさ", "からだ", "にんき"],
+                        "correct": 0,
+                        "explain": "💡 <strong>Cụm từ sức khỏe (Bài 16 - 健康・体調):</strong><br>• <strong>体調 (たいちょう) が わるい</strong>: Thể trạng/tình hình sức khỏe không tốt.<br>• じさ (時差): Lệch múi giờ; からだ: Cơ thể (không đi trực tiếp với がわるい mà dùng 具合がわるい); にんき: Nổi tiếng."
+                    },
+                    {
+                        "id": 17,
+                        "type": "mc",
+                        "prompt": "いきを すって、ゆっくり (   ) ください。",
+                        "promptVi": "Hãy hít một hơi thật sâu rồi từ từ thở ra.",
+                        "options": ["はいて", "まげて", "あげて", "はしって"],
+                        "correct": 0,
+                        "explain": "💡 <strong>Động tác hô hấp khi tập thể dục (Bài 16 - 体操):</strong><br>• 息を吸う (hít vào) ➔ 息を <strong>吐く (はく ➔ はいて)</strong>: Thở ra.<br>• まげる: Gập/uốn; あげる: Nâng lên; はしる: Chạy."
+                    },
+                    {
+                        "id": 18,
+                        "type": "mc",
+                        "prompt": "会社の 資料は (   ) に 入れます。",
+                        "promptVi": "Tài liệu của công ty thì cất vào tủ tài liệu.",
+                        "options": ["キャビネット", "レタス", "ネックレス", "クリスマス"],
+                        "correct": 0,
+                        "explain": "💡 <strong>Từ vựng văn phòng (Bài 18 - オフィス):</strong><br>• <strong>キャビネット (Cabinet)</strong>: Tủ hồ sơ/tủ đựng tài liệu văn phòng.<br>• レタス: Rau xà lách; ネックレス: Vòng cổ; クリスマス: Giáng sinh."
+                    },
+                    {
+                        "id": 19,
+                        "type": "mc",
+                        "prompt": "外国へ 電話する とき (   ) を 使います。",
+                        "promptVi": "Khi gọi điện ra nước ngoài, chúng ta sử dụng cuộc gọi quốc tế.",
+                        "options": ["国際電話", "コピーき", "ファクス", "ドライバー"],
+                        "correct": 0,
+                        "explain": "💡 <strong>Từ vựng liên lạc quốc tế (Bài 18 - 通信):</strong><br>• <strong>国際電話 (こくさいでんわ)</strong>: Điện thoại gọi quốc tế.<br>• コピーき: Máy photocopy; ファクス: Máy Fax; ドライバー: Cái tua-vít."
+                    },
+                    {
+                        "id": 20,
+                        "type": "mc",
+                        "prompt": "父の日に 父へ (   ) を 言いました。",
+                        "promptVi": "Vào Ngày của Cha, tôi đã nói lời cảm ơn tới bố.",
+                        "options": ["おれい", "ぐあい", "じさ", "たいそう"],
+                        "correct": 0,
+                        "explain": "💡 <strong>Cụm từ cảm ơn (Bài 14 - 感謝):</strong><br>• <strong>お礼 (おれい) を言う</strong>: Nói lời cảm ơn/bày tỏ lòng biết ơn.<br>• ぐあい (具合): Tình trạng; じさ: Lệch múi giờ; たいそう: Thể dục."
+                    },
+                    {
+                        "id": 24,
+                        "type": "mc",
+                        "prompt": "毎朝 ５ (   ) ぐらい 走ります。",
+                        "promptVi": "Mỗi sáng tôi chạy khoảng 5 ki-lô-mét.",
+                        "options": ["キロメートル", "回", "週間", "時間"],
+                        "correct": 0,
+                        "explain": "💡 <strong>Đơn vị đo khoảng cách chạy bộ (Bài 16 - ジョギング):</strong><br>• <strong>キロメートル (km)</strong>: Kilomet (5km ぐらい走る: chạy khoảng 5km).<br>• 回: Số lần; 週間: Số tuần; 時間: Số tiếng/giờ."
+                    },
+                    {
+                        "id": 25,
+                        "type": "mc",
+                        "prompt": "一週間に ２ (   ) ヨガを します。",
+                        "promptVi": "Một tuần tôi tập yoga 2 lần.",
+                        "options": ["分", "時間", "回", "週間"],
+                        "correct": 2,
+                        "explain": "💡 <strong>Chỉ tần suất hoạt động (Bài 16 - 頻度):</strong><br>• [Khoảng thời gian] に [Số lần] <strong>回 (かい)</strong>: 一週間に２回 (2 lần một tuần).<br>• 分: Phút; 時間: Tiếng; 週間: Tuần."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "sec2_grammar",
+        "partNumber": "II",
+        "partTitle": "PHẦN 2: NGỮ PHÁP TRỌNG TÂM (文法 - 35 CÂU)",
+        "partDesc": "Khảo sát toàn diện 35 mẫu ngữ pháp cốt lõi từ Bài 11 đến Bài 18 (Câu 26 đến Câu 60).",
+        "badge": "40 Điểm",
+        "groups": [
+            {
+                "groupTitle": "Chọn phương án đúng nhất (1, 2, 3 hoặc 4) để hoàn thành câu:",
+                "groupInstruction": "Đọc kỹ câu hỏi và chú ý các dạng chia động từ, tính từ và trợ từ liên kết:",
+                "items": [
+                    {
+                        "id": 26,
+                        "type": "mc",
+                        "prompt": "明日の ピクニックに おべんとうを 買って (   )。",
+                        "promptVi": "Ngày mai tôi sẽ mua cơm hộp mang đi dã ngoại.",
+                        "options": ["いきます", "みます", "きます", "います"],
+                        "correct": 0,
+                        "explain": "💡 <strong>Ngữ pháp V-ていきます (Bài 11):</strong><br>• <strong>買って いきます</strong>: Mua rồi mang đi theo đến địa điểm dã ngoại (rời xa vị trí nói).<br>• V-てみます: Thử làm; V-てきます: Làm rồi quay lại đây; V-ています: Đang làm."
+                    },
+                    {
+                        "id": 27,
+                        "type": "mc",
+                        "prompt": "この ケーキ、おいしそうですね。ちょっと (   )。",
+                        "promptVi": "Chiếc bánh ngọt này trông ngon quá nhỉ. Tôi sẽ ăn thử một chút xem sao.",
+                        "options": ["食べてみます", "食べています", "食べたことがあります", "食べすぎます"],
+                        "correct": 0,
+                        "explain": "💡 <strong>Ngữ pháp V-てみます (Bài 11):</strong><br>• <strong>食べてみます</strong>: Ăn thử xem thế nào.<br>• 食べたことがあります: Đã từng ăn (kinh nghiệm trong quá khứ); 食べすぎます: Ăn quá nhiều."
+                    },
+                    {
+                        "id": 28,
+                        "type": "mc",
+                        "prompt": "コーヒーと お茶と (   ) が いいですか。",
+                        "promptVi": "Cà phê và trà, bạn thích loại nào hơn?",
+                        "options": ["どちら", "どこ", "いつ", "いくつ"],
+                        "correct": 0,
+                        "explain": "💡 <strong>Cấu trúc so sánh 2 vật (Bài 11):</strong><br>• <strong>A と B と どちら (どちらがいいですか)</strong>: Hỏi lựa chọn giữa 2 đối tượng.<br>• どこ: Ở đâu; いつ: Khi nào; いくつ: Mấy cái."
+                    },
+                    {
+                        "id": 29,
+                        "type": "mc",
+                        "prompt": "くだものは (   ) 好きです。体に いいですから。",
+                        "promptVi": "Hoa quả thì thứ nào tôi cũng thích, vì nó tốt cho sức khỏe.",
+                        "options": ["なんでも", "どこでも", "いつでも", "だれでも"],
+                        "correct": 0,
+                        "explain": "💡 <strong>Nghi vấn từ + でも (Bài 11):</strong><br>• <strong>なんでも (何でも)</strong>: Bất cứ thứ gì, cái gì cũng (áp dụng cho đồ ăn hoa quả).<br>• どこでも: Bất kỳ đâu; いつでも: Bất kỳ lúc nào; だれでも: Bất kỳ ai."
+                    },
+                    {
+                        "id": 30,
+                        "type": "mc",
+                        "prompt": "この ケーキは (   ) そうです。",
+                        "promptVi": "Chiếc bánh ngọt này trông có vẻ ngọt.",
+                        "options": ["あまい", "あま", "あまく", "あまかった"],
+                        "correct": 1,
+                        "explain": "💡 <strong>Tính từ chỉ phán đoán vẻ ngoài ～そうです (Bài 12):</strong><br>• Tính từ đuôi い ➔ <strong>Bỏ い + そうです</strong>: 甘い (あまい) ➔ <strong>あまそうです</strong>.<br>• Các dạng 'あまいそうです' mang nghĩa nghe nói, 'あまく' và 'あまかった' là sai quy tắc."
+                    },
+                    {
+                        "id": 31,
+                        "type": "mc",
+                        "prompt": "ジュースは つめた (   )、おいしいです。",
+                        "promptVi": "Nước trái cây mát lạnh và rất ngon.",
+                        "options": ["くて", "で", "に", "の"],
+                        "correct": 0,
+                        "explain": "💡 <strong>Nối tính từ đuôi い (Bài 12):</strong><br>• Tính từ đuôi い: <strong>Bỏ い + くて</strong>: 冷たい (つめたい) ➔ <strong>つめたくて</strong>.<br>• 'で' dùng nối tính từ đuôi な và danh từ."
+                    },
+                    {
+                        "id": 32,
+                        "type": "mc",
+                        "prompt": "カレーは からく (   )、おいしいです。",
+                        "promptVi": "Món cà ri không cay và rất ngon.",
+                        "options": ["ないで", "なくて", "なかった", "ない"],
+                        "correct": 1,
+                        "explain": "💡 <strong>Nối tính từ thể phủ định (Bài 12):</strong><br>• Tính từ phủ định からくない (đuôi い) ➔ Bỏ い + くて ➔ <strong>からくなくて</strong> (Không cay và...).<br>• 'ないで' dùng nối động từ phủ định (V-ないで), không dùng cho tính từ."
+                    },
+                    {
+                        "id": 33,
+                        "type": "mc",
+                        "prompt": "公園は しずか (   )、きれいでした。",
+                        "promptVi": "Công viên thì yên tĩnh và rất đẹp.",
+                        "options": ["くて", "で", "に", "の"],
+                        "correct": 1,
+                        "explain": "💡 <strong>Nối tính từ đuôi な (Bài 12):</strong><br>• Tính từ đuôi な: <strong>Bỏ な + で</strong>: 静か (しずか) ➔ <strong>しずかで</strong>.<br>• 'くて' chỉ dùng cho tính từ đuôi い."
+                    },
+                    {
+                        "id": 34,
+                        "type": "mc",
+                        "prompt": "私は 田中さんに 会ったことが (   )。",
+                        "promptVi": "Tôi đã từng gặp anh Tanaka.",
+                        "options": ["あります", "います", "します", "なります"],
+                        "correct": 0,
+                        "explain": "💡 <strong>Cấu trúc nói về kinh nghiệm từng trải (Bài 12):</strong><br>• <strong>V-た ことが あります</strong>: Đã từng làm hành động V.<br>• Luôn đi với động từ あります, không dùng います hay します."
+                    },
+                    {
+                        "id": 35,
+                        "type": "mc",
+                        "prompt": "Hilton ホテルは ねだんが (   ) すぎます。",
+                        "promptVi": "Khách sạn Hilton giá quá đắt đỏ.",
+                        "options": ["高い", "高く", "高", "高さ"],
+                        "correct": 2,
+                        "explain": "💡 <strong>Ngữ pháp chỉ mức độ quá mức ～すぎます (Bài 13):</strong><br>• Tính từ đuôi い: <strong>Bỏ い + すぎます</strong>: 高い ➔ <strong>高すぎます</strong> (たかすぎます).<br>• Giữ nguyên 高い hoặc chuyển sang 高く là sai cấu trúc."
+                    },
+                    {
+                        "id": 36,
+                        "type": "mc",
+                        "prompt": "ハノイは バイクが (   ) すぎます。",
+                        "promptVi": "Ở Hà Nội xe máy quá nhiều.",
+                        "options": ["多い", "多く", "多", "多さ"],
+                        "correct": 2,
+                        "explain": "💡 <strong>Ngữ pháp ～すぎます với 多い (Bài 13):</strong><br>• Tính từ 多い ➔ <strong>Bỏ い + すぎます ➔ 多すぎます (おおすぎます)</strong>: Quá nhiều.<br>• Phải bỏ đuôi い."
+                    },
+                    {
+                        "id": 37,
+                        "type": "mc",
+                        "prompt": "日本に 来て ３年 (   )。",
+                        "promptVi": "Tôi đến Nhật Bản tính đến nay đã được 3 năm rồi.",
+                        "options": ["になります", "があります", "にします", "をします"],
+                        "correct": 0,
+                        "explain": "💡 <strong>Cấu trúc mốc thời gian trôi qua (Bài 13):</strong><br>• [Khoảng thời gian] <strong>になります</strong>: Đã trôi qua / đạt tới mốc bao nhiêu năm/tháng.<br>• Ví dụ: 日本に来て３年になります."
+                    },
+                    {
+                        "id": 38,
+                        "type": "mc",
+                        "prompt": "この コピー機を 使って (   ) ですか。",
+                        "promptVi": "Tôi sử dụng chiếc máy photocopy này có được không?",
+                        "options": ["もいい", "はいけない", "といい", "ください"],
+                        "correct": 0,
+                        "explain": "💡 <strong>Cấu trúc xin phép làm gì (Bài 13):</strong><br>• <strong>V-ても いいですか</strong>: Xin phép được làm việc gì đó.<br>• V-てはいけません là câu cấm đoán; V-てください là câu yêu cầu."
+                    },
+                    {
+                        "id": 39,
+                        "type": "mc",
+                        "prompt": "ねる (   )、本を 読みます。",
+                        "promptVi": "Trước khi đi ngủ, tôi đọc sách.",
+                        "options": ["まえに", "あとで", "まで", "あと"],
+                        "correct": 0,
+                        "explain": "💡 <strong>Ngữ pháp thứ tự trước sau (Bài 14):</strong><br>• <strong>V-る (thể từ điển) + 前に (まえに)</strong>: Trước khi làm V.<br>• Nếu là あとで thì động từ phía trước phải chia thể Ta (ねた あとで)."
+                    },
+                    {
+                        "id": 40,
+                        "type": "mc",
+                        "prompt": "かたが 痛い とき、体操を する (   ) いいですよ。",
+                        "promptVi": "Khi bị đau vai, bạn tập thể dục thì tốt đấy (lời khuyên).",
+                        "options": ["が", "と", "を", "で"],
+                        "correct": 1,
+                        "explain": "💡 <strong>Mẫu câu khuyên nhủ nhẹ nhàng (Bài 14):</strong><br>• <strong>V-る + と いいですよ</strong>: Nên làm V thì tốt đấy.<br>• Đi với trợ từ <strong>と</strong> (điều kiện hễ làm thì tốt)."
+                    },
+                    {
+                        "id": 41,
+                        "type": "mc",
+                        "prompt": "甘い ものを 食べすぎ (   ) ください。",
+                        "promptVi": "Xin đừng ăn quá nhiều đồ ngọt.",
+                        "options": ["ないで", "なくて", "ないと", "ませんで"],
+                        "correct": 0,
+                        "explain": "💡 <strong>Cấu trúc xin đừng làm gì (Bài 14/16):</strong><br>• <strong>V-ないで ください</strong>: Xin đừng làm gì.<br>• 食べすぎる (nhóm 2) chia phủ định: 食べすぎない ➔ <strong>食べすぎないで ください</strong>."
+                    },
+                    {
+                        "id": 42,
+                        "type": "mc",
+                        "prompt": "休みの 日は 走ったり 泳いだり (   )。",
+                        "promptVi": "Vào ngày nghỉ, tôi khi thì chạy bộ khi thì bơi lội.",
+                        "options": ["します", "あります", "なります", "です"],
+                        "correct": 0,
+                        "explain": "💡 <strong>Ngữ pháp liệt kê hành động tiêu biểu (Bài 15):</strong><br>• <strong>～たり ～たり します</strong>: Liệt kê các hành động không theo thứ tự thời gian.<br>• Luôn kết thúc bằng động từ します (hoặc しました)."
+                    },
+                    {
+                        "id": 43,
+                        "type": "mc",
+                        "prompt": "ヨガを (   ) 人は 私の 姉です。",
+                        "promptVi": "Người đang tập yoga là chị gái của tôi.",
+                        "options": ["している", "したい", "して", "します"],
+                        "correct": 0,
+                        "explain": "💡 <strong>Mệnh đề định ngữ bổ nghĩa cho danh từ (Bài 15):</strong><br>• Hành động đang diễn ra bổ nghĩa cho người: <strong>V-ている + N ➔ ヨガをしている人</strong>.<br>• Không thể dùng thể て lửng lơ hay thể ます trực tiếp trước danh từ."
+                    },
+                    {
+                        "id": 44,
+                        "type": "mc",
+                        "prompt": "どうして おくれた (   ) か。",
+                        "promptVi": "Tại sao bạn lại đến muộn vậy?",
+                        "options": ["んです", "です", "ます", "でした"],
+                        "correct": 0,
+                        "explain": "💡 <strong>Cấu trúc hỏi lý do / nguyên nhân ～んですか (Bài 16):</strong><br>• Thể thông thường (おくれた) + <strong>んですか</strong>: Hỏi để người nghe giải thích lý do.<br>• Sau động từ thể ngắn quá khứ 'おくれた' không thể đi trực tiếp với 'ですか'."
+                    },
+                    {
+                        "id": 45,
+                        "type": "mc",
+                        "prompt": "これは 母が (   ) セーターです。",
+                        "promptVi": "Đây là chiếc áo len mà mẹ tôi đã đan.",
+                        "options": ["あんだ", "あみます", "あんで", "あむです"],
+                        "correct": 0,
+                        "explain": "💡 <strong>Định ngữ thể quá khứ (Bài 15):</strong><br>• Động từ 編む (あむ: đan) chia thể Ta: <strong>あんだ + N ➔ 母があんだセーター</strong>.<br>• Bổ nghĩa cho danh từ trong tiếng Nhật chỉ dùng thể thông thường (あむ hoặc あんだ)."
+                    },
+                    {
+                        "id": 46,
+                        "type": "mc",
+                        "prompt": "日本の せいかつは べんりだ (   )。",
+                        "promptVi": "Tôi nghĩ rằng cuộc sống ở Nhật Bản rất thuận tiện.",
+                        "options": ["と思います", "を思います", "と思いです", "と思うです"],
+                        "correct": 0,
+                        "explain": "💡 <strong>Cấu trúc bày tỏ ý kiến, quan điểm (Bài 16/17):</strong><br>• [Thể thông thường] + <strong>と 思います (とおもいます)</strong>.<br>• Tính từ đuôi な ở thể ngắn: べんりだ + と思います. Luôn dùng trợ từ と."
+                    },
+                    {
+                        "id": 47,
+                        "type": "mc",
+                        "prompt": "先生は 「来週 テストが ある」(   )。",
+                        "promptVi": "Thầy giáo đã nói rằng: 'Tuần sau sẽ có bài kiểm tra'.",
+                        "options": ["と言いました", "と思います", "といいです", "んです"],
+                        "correct": 0,
+                        "explain": "💡 <strong>Trích dẫn lời nói trực tiếp (Bài 16/18):</strong><br>• 「Câu nói nguyên văn」 + <strong>と 言いました (といいました)</strong>: Đã nói rằng.<br>• Thầy giáo là chủ ngữ nói ra câu đó, không thể dùng 'と思います' (tôi nghĩ)."
+                    },
+                    {
+                        "id": 48,
+                        "type": "mc",
+                        "prompt": "この サンドイッチは 自分 (   ) 作りました。",
+                        "promptVi": "Món bánh sandwich này là do tự bản thân tôi làm đấy.",
+                        "options": ["が", "に", "で", "と"],
+                        "correct": 2,
+                        "explain": "💡 <strong>Trợ từ で chỉ phương thức, tự mình thực hiện (Bài 11/14):</strong><br>• <strong>自分で (じぶんで)</strong>: Tự tay mình làm, tự bản thân.<br>• Tương tự: 一人で (một mình)."
+                    },
+                    {
+                        "id": 49,
+                        "type": "mc",
+                        "prompt": "おなか (   ) すきました。",
+                        "promptVi": "Tôi đói bụng rồi.",
+                        "options": ["が", "に", "で", "と"],
+                        "correct": 0,
+                        "explain": "💡 <strong>Cụm thành ngữ cố định chỉ trạng thái cơ thể (Bài 11/16):</strong><br>• <strong>おなかが すく (すきました)</strong>: Đói bụng (dùng trợ từ が).<br>• Tương tự: のどがかわく (khát nước)."
+                    },
+                    {
+                        "id": 50,
+                        "type": "mc",
+                        "prompt": "土曜日 (   ) 日曜日 (   ) どちらが いいですか。",
+                        "promptVi": "Thứ Bảy và Chủ Nhật, ngày nào thì tiện cho bạn hơn?",
+                        "options": ["と・と", "に・が", "で・で", "が・に"],
+                        "correct": 0,
+                        "explain": "💡 <strong>Cấu trúc so sánh lựa chọn giữa 2 danh từ (Bài 11):</strong><br>• <strong>N1 と N2 と どちらが いいですか</strong>.<br>• Cả 2 vế đều đi với trợ từ と."
+                    },
+                    {
+                        "id": 51,
+                        "type": "mc",
+                        "prompt": "キムチは 日本 (   ) 人気 (   ) あります。",
+                        "promptVi": "Món kim chi rất được ưa chuộng tại Nhật Bản.",
+                        "options": ["で・が", "に・で", "で・に", "が・で"],
+                        "correct": 0,
+                        "explain": "💡 <strong>Trợ từ phạm vi và cụm 人気がある (Bài 11):</strong><br>• 日本 <strong>で</strong>: Chỉ phạm vi nơi chốn diễn ra sự yêu thích.<br>• 人気 <strong>が</strong> あります: Cụm từ cố định 'được yêu thích'."
+                    },
+                    {
+                        "id": 52,
+                        "type": "mc",
+                        "prompt": "ケーキの 中 (   ) 何 (   ) 入っていますか。",
+                        "promptVi": "Bên trong chiếc bánh ngọt có chứa thứ gì vậy?",
+                        "options": ["に・が", "で・に", "が・で", "と・が"],
+                        "correct": 0,
+                        "explain": "💡 <strong>Trợ từ vị trí tồn tại và chủ ngữ của tự động từ (Bài 11/12):</strong><br>• [Nơi chốn] <strong>に</strong>: Trong bánh (中に).<br>• Chủ ngữ đi với tự động từ 入っている: 何 <strong>が</strong> 入っていますか."
+                    },
+                    {
+                        "id": 53,
+                        "type": "mc",
+                        "prompt": "来週 ダナン (   ) 出張します。",
+                        "promptVi": "Tuần sau tôi sẽ đi công tác ở Đà Nẵng.",
+                        "options": ["に", "で", "が", "を"],
+                        "correct": 0,
+                        "explain": "💡 <strong>Trợ từ đích đến của hành động di chuyển (Bài 18):</strong><br>• [Địa điểm] <strong>に / へ 出張する</strong>: Đi công tác đến đâu.<br>• Trợ từ に biểu thị đích đến."
+                    },
+                    {
+                        "id": 54,
+                        "type": "mc",
+                        "prompt": "９か月前 (   ) 日本語コース (   ) 入りました。",
+                        "promptVi": "Cách đây 9 tháng tôi đã tham gia vào khóa học tiếng Nhật.",
+                        "options": ["に・に", "で・が", "に・で", "が・に"],
+                        "correct": 0,
+                        "explain": "💡 <strong>Trợ từ thời điểm và đích đến/gia nhập (Bài 13/18):</strong><br>• ９か月前 <strong>に</strong>: Thời điểm xác định có số từ.<br>• コース <strong>に</strong> 入る: Tham gia/bước vào khóa học."
+                    },
+                    {
+                        "id": 55,
+                        "type": "mc",
+                        "prompt": "寒いですね。エアコンを (   ) も いいですか。",
+                        "promptVi": "Trời lạnh quá nhỉ. Tôi bật máy sưởi/điều hòa có được không?",
+                        "options": ["つけて", "つける", "つけた", "つけない"],
+                        "correct": 0,
+                        "explain": "💡 <strong>Chia thể て trong mẫu xin phép (Bài 13):</strong><br>• <strong>V-ても いいですか</strong>.<br>• Động từ つける (nhóm 2) ➔ <strong>つけても いいですか</strong>."
+                    },
+                    {
+                        "id": 56,
+                        "type": "mc",
+                        "prompt": "よる、ねる 前に おふろに (   ) いいですよ。",
+                        "promptVi": "Buổi tối, trước khi đi ngủ bạn nên ngâm bồn tắm thì tốt đấy.",
+                        "options": ["入ると", "入っても", "入ったことが", "入らないで"],
+                        "correct": 0,
+                        "explain": "💡 <strong>Mẫu câu khuyên nhủ V-るといいですよ (Bài 14/16):</strong><br>• おふろに <strong>入ると いいですよ</strong>: Ngâm bồn thì tốt đấy.<br>• Động từ 入る chia thể từ điển kết hợp với と."
+                    },
+                    {
+                        "id": 57,
+                        "type": "mc",
+                        "prompt": "健康のために 歩い (   )、ジョギングを し (   ) しています。",
+                        "promptVi": "Vì sức khỏe, tôi khi thì đi bộ khi thì chạy bộ.",
+                        "options": ["たり・たり", "て・て", "ながら・ながら", "た・た"],
+                        "correct": 0,
+                        "explain": "💡 <strong>Mẫu câu liệt kê hành động tiêu biểu (Bài 15/16):</strong><br>• <strong>～たり ～たり しています</strong>.<br>• 歩く ➔ 歩い<strong>たり</strong>; ジョギングをする ➔ ジョギングをし<strong>たり</strong>."
+                    },
+                    {
+                        "id": 58,
+                        "type": "mc",
+                        "prompt": "毎日 コンピューター (   ) 仕事をして、目 (   ) つかれました。",
+                        "promptVi": "Mỗi ngày làm việc bằng máy tính nên mắt tôi bị mỏi.",
+                        "options": ["で・が", "に・に", "が・で", "と・に"],
+                        "correct": 0,
+                        "explain": "💡 <strong>Trợ từ công cụ phương tiện và chủ ngữ trạng thái (Bài 16):</strong><br>• コンピューター <strong>で</strong>: Bằng máy vi tính (phương tiện).<br>• 目 <strong>が</strong> つかれる: Mắt bị mỏi (chủ ngữ của tự động từ trạng thái)."
+                    },
+                    {
+                        "id": 59,
+                        "type": "mc",
+                        "prompt": "しゅうしょく (   ) とき、姉 (   ) かばんを もらいました。",
+                        "promptVi": "Khi xin được việc làm, tôi đã nhận được chiếc túi xách từ chị gái.",
+                        "options": ["の・に", "が・の", "に・が", "で・に"],
+                        "correct": 0,
+                        "explain": "💡 <strong>Liên kết Danh từ + のとき và đối tượng cho nhận (Bài 14):</strong><br>• 就職 (Danh từ) + <strong>の</strong> とき: Khi xin việc.<br>• 姉 <strong>に (hoặc から)</strong> もらいました: Nhận từ ai đó."
+                    },
+                    {
+                        "id": 60,
+                        "type": "mc",
+                        "prompt": "パーティー (   ) 場所は レストラン (   ) いいと 思います。",
+                        "promptVi": "Địa điểm của bữa tiệc thì tôi nghĩ là nhà hàng sẽ tốt đấy.",
+                        "options": ["の・が", "が・に", "に・で", "で・の"],
+                        "correct": 0,
+                        "explain": "💡 <strong>Liên kết sở hữu danh từ và chỉ định đề xuất (Bài 11/17):</strong><br>• パーティー <strong>の</strong> 場所: Địa điểm của bữa tiệc.<br>• レストラン <strong>が</strong> いいと 思います: Đề xuất lựa chọn thích hợp nhất."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "sec3_reading",
+        "partNumber": "III",
+        "partTitle": "PHẦN 3: ĐỌC HIỂU ĐOẠN VĂN (読解 - 8 CÂU)",
+        "partDesc": "Gồm 3 bài khóa đời sống: Sức khỏe & Thể thao, Tiệc sinh nhật của Mẹ, Chuyến công tác Osaka.",
+        "badge": "20 Điểm",
+        "groups": [
+            {
+                "groupTitle": "BÀI ĐỌC 1: Sức Khỏe & Thể Thao (健康と運動)",
+                "groupInstruction": "Đọc đoạn văn sau và trả lời các câu hỏi 1, 2, 3, 4:",
+                "passage": "健康のために、私は週に三回ジョギングをしています。いつも仕事のあとで、家の近くの公園を30分ぐらい走ります。雨の日はジョギングをしません。家でヨガをしたり、体操をしたりします。\n運動する前に、うでを上げたり、かたを回したりします。つかれたときは、早く休みます。\n前は仕事のあと、よくつかれていました。ときどき、かたやこしも痛かったです。でも、三か月ぐらい運動をして、体調がよくなりました。今は朝も気持ちがいいです。\nこれからも健康のために、ジョギングやヨガをしたいです。週末は時間がありますから、友だちと公園を歩いたり、いっしょに運動したりしたいと思います。",
+                "passageVi": "Vì sức khỏe, tôi chạy bộ một tuần 3 lần. Tôi thường chạy khoảng 30 phút ở công viên gần nhà sau giờ làm việc. Vào những ngày mưa, tôi không chạy bộ mà ở nhà tập yoga hoặc tập thể dục.\nTrước khi vận động, tôi nâng cánh tay lên và xoay bả vai. Những lúc mệt mỏi, tôi nghỉ ngơi sớm.\nTrước đây sau khi đi làm về, tôi rất hay bị mệt. Thỉnh thoảng vai và lưng cũng bị đau. Nhưng sau khi tập luyện thể thao khoảng 3 tháng, thể trạng sức khỏe của tôi đã tốt lên rất nhiều. Bây giờ vào buổi sáng tôi cũng cảm thấy rất sảng khoái dễ chịu.\nTừ nay về sau để giữ gìn sức khỏe, tôi vẫn muốn duy trì chạy bộ và yoga. Cuối tuần vì có thời gian rảnh rỗi nên tôi muốn cùng bạn bè đi dạo trong công viên và tập thể dục cùng nhau.",
+                "items": [
+                    {
+                        "id": 61,
+                        "type": "mc",
+                        "prompt": "1. 雨の日、「私」は 何を しますか。",
+                        "promptVi": "Vào những ngày trời mưa, nhân vật 'Tôi' làm gì?",
+                        "options": ["公園でジョギングをします。", "家でヨガや体操をします。", "30分ぐらい泳ぎます。", "何もしません。"],
+                        "correct": 1,
+                        "explain": "💡 <strong>Căn cứ trong bài đọc:</strong><br>Câu thứ 3-4 trong bài: '雨の日はジョギングをしません。家でヨガをしたり、体操をしたりします' ➔ Chọn đáp án 2 (Ở nhà tập yoga hoặc thể dục)."
+                    },
+                    {
+                        "id": 62,
+                        "type": "mc",
+                        "prompt": "2. 運動する 前に、何を しますか。",
+                        "promptVi": "Trước khi vận động, nhân vật 'Tôi' làm việc gì?",
+                        "options": ["水をたくさん飲みます。", "早く休みます。", "うでを上げたり、かたを回したりします。", "仕事をします。"],
+                        "correct": 2,
+                        "explain": "💡 <strong>Căn cứ trong bài đọc:</strong><br>Đoạn 2 ghi rõ: '運動する前に、うでを上げたり、かたを回したりします' (Trước khi vận động thì nâng cánh tay và xoay khớp vai) ➔ Chọn đáp án 3."
+                    },
+                    {
+                        "id": 63,
+                        "type": "mc",
+                        "prompt": "3. 三か月ぐらい 運動して、どう なりましたか。",
+                        "promptVi": "Sau khi vận động thể thao khoảng 3 tháng thì kết quả thế nào?",
+                        "options": ["体調がよくなりました。", "仕事をやめました。", "こしがもっと痛くなりました。", "毎日つかれるようになりました。"],
+                        "correct": 0,
+                        "explain": "💡 <strong>Căn cứ trong bài đọc:</strong><br>Đoạn 3 ghi rõ: 'でも、三か月ぐらい運動をして、体調がよくなりました' (Nhưng sau 3 tháng vận động thì sức khỏe đã tốt lên) ➔ Chọn đáp án 1."
+                    },
+                    {
+                        "id": 64,
+                        "type": "mc",
+                        "prompt": "4. 週末、「私」は 何を したいですか。",
+                        "promptVi": "Vào dịp cuối tuần, nhân vật 'Tôi' muốn làm gì?",
+                        "options": ["一人で家にいたいです。", "仕事をしたいです。", "友だちと運動したいです。", "ジョギングをやめたいです。"],
+                        "correct": 2,
+                        "explain": "💡 <strong>Căn cứ trong bài đọc:</strong><br>Câu kết thúc: '週末は時間がありますから、友だちと公園を歩いたり、いっしょに運動したりしたいと思います' (Muốn vận động cùng bạn bè) ➔ Chọn đáp án 3."
+                    }
+                ]
+            },
+            {
+                "groupTitle": "BÀI ĐỌC 2: Tiệc Sinh Nhật Của Mẹ (母の誕生日のお祝い)",
+                "groupInstruction": "Đọc đoạn văn sau và trả lời các câu hỏi 1, 2:",
+                "passage": "母の誕生日のお祝いについて、家族で話しました。姉は「レストランで食事をするといいと思う」と言いました。弟は「家でパーティーをしたい」と言いました。私は、母は花やネックレスより、家族といっしょに過ごす時間を一番よろこぶと思います。\nそれで、昼は家でパーティーをして、夜はみんなでレストランへ行くことにしました。",
+                "passageVi": "Cả gia đình tôi đã cùng nhau bàn bạc về việc chúc mừng sinh nhật mẹ. Chị gái nói 'Em nghĩ đi ăn ở nhà hàng là tốt nhất'. Em trai thì bảo 'Em muốn mở tiệc ở nhà'. Còn tôi nghĩ rằng so với hoa hay vòng cổ thì mẹ sẽ vui nhất khi có thời gian quây quần bên gia đình.\nChính vì thế, gia đình tôi đã quyết định trưa thì mở tiệc ở nhà, còn tối thì cả nhà sẽ cùng nhau đi nhà hàng ăn uống.",
+                "items": [
+                    {
+                        "id": 65,
+                        "type": "mc",
+                        "prompt": "1. 家族は どう しますか。",
+                        "promptVi": "Gia đình đã quyết định sẽ làm như thế nào?",
+                        "options": ["花とネックレスを買います。", "昼も夜も家でパーティーをします。", "昼は家、夜はレストランで祝います。", "姉と弟だけで出かけます。"],
+                        "correct": 2,
+                        "explain": "💡 <strong>Căn cứ câu kết bài đọc:</strong><br>'それで、昼は家でパーティーをして、夜はみんなでレストランへ行くことにしました' (Trưa tổ chức ở nhà, tối ra nhà hàng chúc mừng) ➔ Chọn đáp án 3."
+                    },
+                    {
+                        "id": 66,
+                        "type": "mc",
+                        "prompt": "2. 「私」は 母が 何を 一番 よろこぶと 思っていますか。",
+                        "promptVi": "Nhân vật 'Tôi' nghĩ mẹ sẽ cảm thấy vui mừng nhất với điều gì?",
+                        "options": ["高いネックレス", "きれいな花", "家族と過ごす時間", "レストランの料理"],
+                        "correct": 2,
+                        "explain": "💡 <strong>Căn cứ trong bài đọc:</strong><br>'私は、母は花やネックレスより、家族といっしょに過ごす時間を一番よろこぶと思います' (Mẹ sẽ vui nhất với thời gian bên gia đình) ➔ Chọn đáp án 3."
+                    }
+                ]
+            },
+            {
+                "groupTitle": "BÀI ĐỌC 3: Chuyến Công Tác Osaka (大阪出張)",
+                "groupInstruction": "Đọc đoạn văn sau và trả lời các câu hỏi 1, 2:",
+                "passage": "先週、私は大阪へ出張しました。大阪支社の佐藤さんが空港まで迎えに来てくれました。ホテルは少し古かったですが、駅に近くてよかったです。ただ、部屋のお湯が出なかったので、ホテルの人に連絡しました。ホテルの人は「すぐ見に行きます」と言って、チェックに来てくれました。次の日、私は本社でかいぎをして、夜のびんで東京へ帰りました。",
+                "passageVi": "Tuần trước, tôi đã đi công tác ở Osaka. Anh Sato ở chi nhánh Osaka đã đến tận sân bay đón tôi. Khách sạn tuy hơi cũ một chút nhưng ở rất gần nhà ga nên rất thuận tiện. Có điều là phòng lại không chảy nước nóng nên tôi đã liên hệ với nhân viên khách sạn. Nhân viên bảo 'Tôi sẽ đến xem ngay' và đã tới kiểm tra giúp tôi. Ngày hôm sau, tôi họp ở trụ sở chính và trở về Tokyo bằng chuyến bay đêm.",
+                "items": [
+                    {
+                        "id": 67,
+                        "type": "mc",
+                        "prompt": "1. ホテルについて 正しい ものは どれですか。",
+                        "promptVi": "Thông tin nào sau đây là chính xác về khách sạn?",
+                        "options": ["新しくて駅からとおかったです。", "古かったですがべんりな場所でした。", "お湯が出たのでよかったです。", "ホテルの人に連絡しませんでした。"],
+                        "correct": 1,
+                        "explain": "💡 <strong>Căn cứ trong bài đọc:</strong><br>'ホテルは少し古かったですが、駅に近くてよかったです' (Hơi cũ nhưng gần ga nên thuận tiện) ➔ Chọn đáp án 2."
+                    },
+                    {
+                        "id": 68,
+                        "type": "mc",
+                        "prompt": "2. ホテルの 人は 何と 言いましたか。",
+                        "promptVi": "Người nhân viên khách sạn đã nói điều gì?",
+                        "options": ["すぐチェックに行くと言いました。", "明日東京へ行くと言いました。", "「お湯を使わないでください」と言いました。", "部屋を変えたと言いました。"],
+                        "correct": 0,
+                        "explain": "💡 <strong>Căn cứ trong bài đọc:</strong><br>'ホテルの人は「すぐ見に行きます」と言って、チェックに来てくれました' (Nói sẽ đến kiểm tra ngay) ➔ Chọn đáp án 1."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "sec4_star",
+        "partNumber": "IV",
+        "partTitle": "PHẦN 4: BÀI TẬP SẮP XẾP TÌM DẤU SAO ★ (6 CÂU)",
+        "partDesc": "Sắp xếp 4 phương án thành câu hoàn chỉnh và xác định vị trí của dấu sao ★.",
+        "badge": "15 Điểm",
+        "groups": [
+            {
+                "groupTitle": "Chọn phương án đúng ứng với vị trí dấu sao ★:",
+                "groupInstruction": "Sắp xếp 4 từ/cụm từ theo đúng thứ tự ngữ pháp:",
+                "items": [
+                    {
+                        "id": 69,
+                        "type": "star",
+                        "prompt": "会社へ _________ ________ ____★____ _________。",
+                        "promptVi": "Trước khi đến công ty, tôi mua cà phê ở cửa hàng tiện lợi.",
+                        "parts": ["コンビニで", "行く前に", "買います", "コーヒーを"],
+                        "options": ["コンビニで", "行く前に", "買います", "コーヒーを"],
+                        "correctOrder": [1, 0, 3, 2],
+                        "correct": 3,
+                        "explain": "💡 <strong>Thứ tự sắp xếp đúng:</strong><br>会社へ ➔ [2 行く前に] [1 コンビニで] [4 ★コーヒーを] [3 買います]。<br>• Cấu trúc: V-る まえに + nơi chốn で + Tân ngữ を + Động từ.<br>• Vị trí thứ 3 (dấu ★) là: <strong>4. コーヒーを</strong>."
+                    },
+                    {
+                        "id": 70,
+                        "type": "star",
+                        "prompt": "明日は _________ ________ ____★____ _________。",
+                        "promptVi": "Tôi nghĩ rằng ngày mai từ chiều trời sẽ đổ mưa.",
+                        "parts": ["雨が", "と思います", "降る", "午後から"],
+                        "options": ["雨が", "と思います", "降る", "午後から"],
+                        "correctOrder": [3, 0, 2, 1],
+                        "correct": 2,
+                        "explain": "💡 <strong>Thứ tự sắp xếp đúng:</strong><br>明日は ➔ [4 午後から] [1 雨が] [3 ★降る] [2 と思います]。<br>• Cấu trúc: [Thời gian] + 雨が降る (thể ngắn) + と思います.<br>• Vị trí thứ 3 (dấu ★) là: <strong>3. 降る (ふ・る)</strong>."
+                    },
+                    {
+                        "id": 71,
+                        "type": "star",
+                        "prompt": "鈴木さんは _________ ________ ____★____ _________ と言っていました。",
+                        "promptVi": "Anh Suzuki đã nói rằng tiệm sushi trước nhà ga rất là ngon.",
+                        "parts": ["おいしい", "すしや", "は", "駅前の"],
+                        "options": ["おいしい", "すしや", "は", "駅前の"],
+                        "correctOrder": [3, 1, 2, 0],
+                        "correct": 2,
+                        "explain": "💡 <strong>Thứ tự sắp xếp đúng:</strong><br>鈴木さんは ➔ [4 駅前の] [2 すしや] [3 ★は] [1 おいしい] と言っていました。<br>• Cấu trúc: Danh từ bổ nghĩa (駅前のすしや) + は + Tính từ (おいしい) + と言っていました.<br>• Vị trí thứ 3 (dấu ★) là: <strong>3. は</strong>."
+                    },
+                    {
+                        "id": 72,
+                        "type": "star",
+                        "prompt": "この時計は _________ ________ ____★____ _________。",
+                        "promptVi": "Chiếc đồng hồ này là tôi được bố tặng vào ngày sinh nhật đấy.",
+                        "parts": ["もらった", "父に", "んです", "誕生日に"],
+                        "options": ["もらった", "父に", "んです", "誕生日に"],
+                        "correctOrder": [3, 1, 0, 2],
+                        "correct": 0,
+                        "explain": "💡 <strong>Thứ tự sắp xếp đúng:</strong><br>この時計は ➔ [4 誕生日に] [2 父に] [1 ★もらった] [3 んです]。<br>• Cấu trúc: [Dịp] に + [Người tặng] に + Động từ nhận (もらった) + んです.<br>• Vị trí thứ 3 (dấu ★) là: <strong>1. もらった</strong>."
+                    },
+                    {
+                        "id": 73,
+                        "type": "star",
+                        "prompt": "北海道へ _________ ________ ____★____ _________。",
+                        "promptVi": "Tôi đã từng đi Hokkaido một lần.",
+                        "parts": ["行った", "一度", "あります", "ことが"],
+                        "options": ["行った", "一度", "あります", "ことが"],
+                        "correctOrder": [1, 0, 3, 2],
+                        "correct": 3,
+                        "explain": "💡 <strong>Thứ tự sắp xếp đúng:</strong><br>北海道へ ➔ [2 一度] [1 行った] [4 ★ことが] [3 あります]。<br>• Cấu trúc: 一度 + V-た ことが あります.<br>• Vị trí thứ 3 (dấu ★) là: <strong>4. ことが</strong>."
+                    },
+                    {
+                        "id": 74,
+                        "type": "star",
+                        "prompt": "健康のためには _________ ________ ____★____ _________。",
+                        "promptVi": "Vì sức khỏe, nên ăn thật nhiều rau củ quả thì tốt đấy.",
+                        "parts": ["といいです", "食べる", "たくさん", "野菜を"],
+                        "options": ["といいです", "食べる", "たくさん", "野菜を"],
+                        "correctOrder": [3, 2, 1, 0],
+                        "correct": 1,
+                        "explain": "💡 <strong>Thứ tự sắp xếp đúng:</strong><br>健康のためには ➔ [4 野菜を] [3 たくさん] [2 ★食べる] [1 といいです]。<br>• Cấu trúc: Tân ngữ を + Phó từ (たくさん) + V-る + といいです.<br>• Vị trí thứ 3 (dấu ★) là: <strong>2. 食べる</strong>."
+                    }
+                ]
+            }
+        ]
+    }
+]
+
+print("Original exam parsed successfully with total questions:", sum(len(g["items"]) for s in degoc_sections for g in s["groups"]))

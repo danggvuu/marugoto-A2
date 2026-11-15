@@ -90,7 +90,19 @@
             <span>💡 <strong>Mẹo luyện viết:</strong> Dùng chuột hoặc ngón tay vẽ trực tiếp vào ô chữ Hán bên phải thẻ để luyện nhớ nét! Bấm nút <em>"Làm mờ mẫu"</em> để tự viết.</span>
             <button class="tip-close-btn" onclick="document.getElementById('writingTipPill').style.display='none'" title="Đóng mẹo">✕</button>
         </div>
+
+        <!-- View Mode Switcher & Top Pagination -->
+        <div class="kanji-view-toolbar">
+            <div class="kanji-view-toggle" role="group" aria-label="Chế độ hiển thị">
+                <button type="button" class="kanji-view-btn active" id="btnViewCards" onclick="window.setKanjiViewMode('cards')">🎴 Thẻ Chi Tiết & Tập Viết</button>
+                <button type="button" class="kanji-view-btn" id="btnViewGrid" onclick="window.setKanjiViewMode('grid')">📑 Lưới Chữ Gọn</button>
+            </div>
+            <div id="kanjiTopPageInfo" class="kanji-top-info"></div>
+        </div>
+
+        <div class="kanji-pagination-bar" id="kanjiPaginationTop"></div>
         <div class="cards-list" id="cardsContainer"></div>
+        <div class="kanji-pagination-bar" id="kanjiPaginationBottom"></div>
     </div>
 
     <!-- TAB 2: KANJI VOCABULARY EXERCISES -->

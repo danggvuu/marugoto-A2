@@ -46,13 +46,96 @@
 .hub-hero {
     background: linear-gradient(180deg, #ffffff 0%, #fbfcfe 100%);
     border: 1.5px solid var(--hub-border);
-    border-radius: 24px;
-    padding: 44px 32px 36px 32px;
+    border-radius: 20px;
+    padding: 28px 24px;
     text-align: center;
     position: relative;
-    box-shadow: var(--hub-shadow-md);
-    margin-bottom: 36px;
+    box-shadow: var(--hub-shadow-sm);
+    margin-bottom: 24px;
     overflow: hidden;
+}
+
+/* Dynamic Resume & Action Box */
+.hub-resume-box {
+    margin: 18px auto 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.hub-btn-resume {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--hub-crimson);
+    color: #ffffff !important;
+    padding: 10px 20px;
+    border-radius: var(--hub-radius-pill);
+    font-weight: 750;
+    font-size: 0.92rem;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(225, 29, 72, 0.25);
+    transition: all 0.15s ease;
+}
+
+.hub-btn-resume:hover {
+    background: var(--hub-crimson-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(225, 29, 72, 0.32);
+}
+
+.hub-btn-secondary-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #ffffff;
+    color: var(--hub-slate) !important;
+    border: 1px solid var(--hub-border);
+    padding: 9px 16px;
+    border-radius: var(--hub-radius-pill);
+    font-weight: 650;
+    font-size: 0.88rem;
+    text-decoration: none;
+    transition: all 0.15s ease;
+}
+
+.hub-btn-secondary-cta:hover {
+    background: #f1f5f9;
+    color: var(--hub-indigo) !important;
+    border-color: #cbd5e1;
+}
+
+/* Collapsible Roadmap */
+.hub-roadmap-details {
+    margin: 20px auto 0 auto;
+    max-width: 960px;
+    text-align: left;
+    border: 1px solid var(--hub-border);
+    border-radius: var(--hub-radius-md);
+    background: #f8fafc;
+    overflow: hidden;
+}
+
+.hub-roadmap-details summary {
+    padding: 10px 16px;
+    font-size: 0.86rem;
+    font-weight: 700;
+    color: var(--hub-slate);
+    cursor: pointer;
+    user-select: none;
+    background: #f1f5f9;
+    transition: background 0.15s ease;
+}
+
+.hub-roadmap-details summary:hover {
+    background: #e2e8f0;
+    color: var(--hub-indigo);
+}
+
+.hub-roadmap-details-content {
+    padding: 14px 16px;
 }
 
 /* Subtle decorative Japanese accent in top right & bottom left */
@@ -186,11 +269,27 @@
 
 @media (max-width: 768px) {
     .hub-hero {
-        padding: 28px 18px 24px 18px;
-        border-radius: 20px;
+        padding: 22px 14px 18px 14px;
+        border-radius: 16px;
+        margin-bottom: 18px;
     }
     .hub-hero-title {
-        font-size: 1.75rem;
+        font-size: 1.55rem;
+    }
+    .hub-hero-desc {
+        font-size: 0.86rem;
+        margin-bottom: 12px;
+    }
+    .hub-resume-box {
+        flex-direction: column;
+        width: 100%;
+        gap: 8px;
+    }
+    .hub-btn-resume, .hub-btn-secondary-cta {
+        width: 100%;
+        justify-content: center;
+        padding: 10px 14px;
+        font-size: 0.88rem;
     }
     .hub-hero-jp-sub {
         font-size: 0.95rem;

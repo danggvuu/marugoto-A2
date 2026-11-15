@@ -929,9 +929,19 @@ function restoreMini15_18Checkpoint() {
     }
 }
 
-window.__MARUGOTO_CP_EXTRA_KEYS__ = [MINI15_18_CP_KEY];
+if (!window.__MARUGOTO_CP_EXTRA_KEYS__) window.__MARUGOTO_CP_EXTRA_KEYS__ = [];
+if (!window.__MARUGOTO_CP_EXTRA_KEYS__.includes(MINI15_18_CP_KEY)) {
+    window.__MARUGOTO_CP_EXTRA_KEYS__.push(MINI15_18_CP_KEY);
+}
+if (!window.__MARUGOTO_CP_EXTRA_KEYS__.includes('marugoto_typing_studio_v2')) {
+    window.__MARUGOTO_CP_EXTRA_KEYS__.push('marugoto_typing_studio_v2');
+}
 window.__MARUGOTO_ON_RESET__ = function () {
-    localStorage.removeItem(MINI15_18_CP_KEY);
+    try {
+        localStorage.removeItem(MINI15_18_CP_KEY);
+        localStorage.removeItem('marugoto_typing_studio_v2');
+        if (typeof window.resetTypingStudio === 'function') window.resetTypingStudio();
+    } catch (e) {}
     window.location.reload();
 };
 

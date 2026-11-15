@@ -78,6 +78,9 @@ window.__MARUGOTO_ON_RESET__ = function () {
 let currentKanjiTab = 'tab-cards';
 let isRestoringKanji = false;
 let filteredKanji = [];
+let kanjiCurrentPage = 1;
+const KANJI_PAGE_SIZE = 12;
+let kanjiViewMode = 'cards'; // 'cards' or 'grid'
 let currentVocabExercises = [];
 let showHints = false;
 let typingAnswers = {};
@@ -431,7 +434,8 @@ function clearSearch() {
 }
 
 // Filter by Lesson & Search
-function applyLessonFilter() {
+function applyLessonFilter(keepPage = false) {
+    if (!keepPage) kanjiCurrentPage = 1;
     const query = document.getElementById('searchInput') ? document.getElementById('searchInput').value.trim().toLowerCase() : '';
 
     filteredKanji = kanjiData.filter(item => {
@@ -470,22 +474,182 @@ function applyLessonFilter() {
     saveKanjiCheckpoint();
 }
 
-// Render Kanji Cards with Interactive Writing Canvas & Step-by-Step Breakdown (Optimized with DocumentFragment & Lazy SVG Player)
-function renderCards(data) {
-    const container = document.getElementById('cardsContainer');
-    container.innerHTML = '';
+function setKanjiViewMode(mode) {
+    if (kanjiViewMode === mode) return;
+    kanjiViewMode = mode;
+    const btnCards = document.getElementById('btnViewCards');
+    const btnGrid = document.getElementById('btnViewGrid');
+    if (btnCards) btnCards.classList.toggle('active', mode === 'cards');
+    if (btnGrid) btnGrid.classList.toggle('active', mode === 'grid');
+    kanjiCurrentPage = 1;
+    renderCards(filteredKanji, true);
+}
 
-    if (data.length === 0) {
-        container.innerHTML = '<div style="text-align: center; padding: 40px; color: #888;">Không tìm thấy chữ Hán nào phù hợp với bộ lọc hiện tại!</div>';
+function setKanjiPage(page) {
+    kanjiCurrentPage = page;
+    renderCards(filteredKanji, true);
+    const target = document.getElementById('tab-cards');
+    if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+}
+
+function renderKanjiPagination(totalItems, currentPage, pageSize) {
+    const totalPages = Math.max(1, Math.ceil(totalItems / pageSize));
+    const topBar = document.getElementById('kanjiPaginationTop');
+    const btmBar = document.getElementById('kanjiPaginationBottom');
+    const topInfo = document.getElementById('kanjiTopPageInfo');
+
+    const startItem = totalItems === 0 ? 0 : (currentPage - 1) * pageSize + 1;
+    const endItem = Math.min(currentPage * pageSize, totalItems);
+
+    const infoText = `Hiển thị chữ Hán <strong>${startItem}–${endItem}</strong> / tổng số <strong>${totalItems}</strong> chữ (Trang ${currentPage}/${totalPages})`;
+    if (topInfo) topInfo.innerHTML = infoText;
+
+    if (!topBar && !btmBar) return;
+
+    if (totalPages <= 1) {
+        const singleHtml = `<div class="kanji-page-info">${infoText}</div>`;
+        if (topBar) topBar.innerHTML = singleHtml;
+        if (btmBar) btmBar.innerHTML = singleHtml;
         return;
     }
 
+    let pagesHtml = '';
+    pagesHtml += `<button type="button" class="kanji-page-btn" ${currentPage === 1 ? 'disabled' : ''} onclick="window.setKanjiPage(${currentPage - 1})" title="Trang trước">← Trước</button>`;
+
+    let startPage = Math.max(1, currentPage - 2);
+    let endPage = Math.min(totalPages, currentPage + 2);
+
+    if (startPage > 1) {
+        pagesHtml += `<button type="button" class="kanji-page-btn" onclick="window.setKanjiPage(1)">1</button>`;
+        if (startPage > 2) pagesHtml += `<span class="kanji-page-ellipsis">…</span>`;
+    }
+
+    for (let p = startPage; p <= endPage; p++) {
+        pagesHtml += `<button type="button" class="kanji-page-btn ${p === currentPage ? 'active' : ''}" onclick="window.setKanjiPage(${p})">${p}</button>`;
+    }
+
+    if (endPage < totalPages) {
+        if (endPage < totalPages - 1) pagesHtml += `<span class="kanji-page-ellipsis">…</span>`;
+        pagesHtml += `<button type="button" class="kanji-page-btn" onclick="window.setKanjiPage(${totalPages})">${totalPages}</button>`;
+    }
+
+    pagesHtml += `<button type="button" class="kanji-page-btn" ${currentPage === totalPages ? 'disabled' : ''} onclick="window.setKanjiPage(${currentPage + 1})" title="Trang tiếp">Tiếp →</button>`;
+
+    const fullHtml = `
+        <div class="kanji-page-info">${infoText}</div>
+        <div class="kanji-page-controls">${pagesHtml}</div>
+    `;
+
+    if (topBar) topBar.innerHTML = fullHtml;
+    if (btmBar) btmBar.innerHTML = fullHtml;
+}
+
+window.setKanjiViewMode = setKanjiViewMode;
+window.setKanjiPage = setKanjiPage;
+window.viewKanjiDetail = function(globalIndex) {
+    kanjiViewMode = 'cards';
+    const btnCards = document.getElementById('btnViewCards');
+    const btnGrid = document.getElementById('btnViewGrid');
+    if (btnCards) btnCards.classList.add('active');
+    if (btnGrid) btnGrid.classList.remove('active');
+    
+    kanjiCurrentPage = Math.floor(globalIndex / KANJI_PAGE_SIZE) + 1;
+    renderCards(filteredKanji, true);
+    setTimeout(() => {
+        const el = document.querySelector(`.kanji-card[data-index="${globalIndex}"]`);
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 120);
+};
+
+window.retryKanjiSvg = function(char, index) {
+    svgCache.delete(char);
+    const status = document.getElementById(`anim-status-${index}`);
+    if (status) status.innerHTML = `<span style="color:#2563eb; font-size:0.8rem;">⏳ Đang thử tải lại nét SVG...</span>`;
+    const stepsStrip = document.getElementById(`stroke-steps-${index}`);
+    if (stepsStrip) stepsStrip.innerHTML = `<span style="color:#2563eb; font-size:0.82rem; padding:4px;">⏳ Đang kết nối tải KanjiVG...</span>`;
+    
+    if (filteredKanji[index]) {
+        initKanjiPlayer(filteredKanji[index], index);
+    }
+};
+
+// Render Kanji Cards with Interactive Writing Canvas & Step-by-Step Breakdown (Optimized with DocumentFragment & Lazy SVG Player)
+function renderCards(data, preserveScroll = false) {
+    const container = document.getElementById('cardsContainer');
+    if (!container) return;
+    container.innerHTML = '';
+
+    if (!data || data.length === 0) {
+        container.innerHTML = '<div style="text-align: center; padding: 40px; color: #888;">Không tìm thấy chữ Hán nào phù hợp với bộ lọc hiện tại!</div>';
+        renderKanjiPagination(0, 1, KANJI_PAGE_SIZE);
+        return;
+    }
+
+    if (kanjiViewMode === 'grid') {
+        container.className = 'kanji-compact-grid';
+        const GRID_PAGE_SIZE = 24;
+        const totalPages = Math.max(1, Math.ceil(data.length / GRID_PAGE_SIZE));
+        if (kanjiCurrentPage > totalPages) kanjiCurrentPage = totalPages;
+        if (kanjiCurrentPage < 1) kanjiCurrentPage = 1;
+        
+        const startIdx = (kanjiCurrentPage - 1) * GRID_PAGE_SIZE;
+        const endIdx = Math.min(startIdx + GRID_PAGE_SIZE, data.length);
+        const pageItems = data.slice(startIdx, endIdx);
+
+        renderKanjiPagination(data.length, kanjiCurrentPage, GRID_PAGE_SIZE);
+
+        const fragment = document.createDocumentFragment();
+        pageItems.forEach((item, localIdx) => {
+            const globalIndex = startIdx + localIdx;
+            const tile = document.createElement('div');
+            tile.className = 'kanji-compact-tile';
+            tile.innerHTML = `
+                <div class="k-tile-header">
+                    <span class="k-tile-char" onclick="speakJapanese('${item.char}', this)" title="Nghe phát âm">${item.char}</span>
+                    <div class="k-tile-tags">
+                        <span class="k-tile-hv">${item.hv}</span>
+                        <span class="k-tile-strokes">✍️ ${item.strokes} nét</span>
+                    </div>
+                </div>
+                <div class="k-tile-body">
+                    <div class="k-tile-meaning">${item.meaning}</div>
+                    <div class="k-tile-readings">
+                        <div><strong class="k-lbl">Kun:</strong> <span class="info-value-kun">${item.kun}</span></div>
+                        <div><strong class="k-lbl">On:</strong> <span class="info-value-on">${item.on}</span></div>
+                    </div>
+                </div>
+                <div class="k-tile-footer">
+                    <span class="k-tile-lesson">${item.lessonName}</span>
+                    <button type="button" class="k-tile-btn-detail" onclick="window.viewKanjiDetail(${globalIndex})" title="Mở thẻ chi tiết, xem nét bút và luyện viết">Luyện viết ➔</button>
+                </div>
+            `;
+            fragment.appendChild(tile);
+        });
+        container.appendChild(fragment);
+        return;
+    }
+
+    // Standard Cards View
+    container.className = 'cards-list';
+    const totalPages = Math.max(1, Math.ceil(data.length / KANJI_PAGE_SIZE));
+    if (kanjiCurrentPage > totalPages) kanjiCurrentPage = totalPages;
+    if (kanjiCurrentPage < 1) kanjiCurrentPage = 1;
+
+    const startIdx = (kanjiCurrentPage - 1) * KANJI_PAGE_SIZE;
+    const endIdx = Math.min(startIdx + KANJI_PAGE_SIZE, data.length);
+    const pageItems = data.slice(startIdx, endIdx);
+
+    renderKanjiPagination(data.length, kanjiCurrentPage, KANJI_PAGE_SIZE);
+
     const fragment = document.createDocumentFragment();
 
-    data.forEach((item, index) => {
+    pageItems.forEach((item, localIdx) => {
+        const globalIndex = startIdx + localIdx;
         const card = document.createElement('div');
         card.className = 'kanji-card';
-        card.dataset.index = index;
+        card.dataset.index = globalIndex;
 
         const examplesHtml = item.examples.map(ex => 
             `<div class="example-line">• <span class="example-jp" style="cursor:pointer;" onclick="speakJapanese('${ex.word}', this)" title="Bấm để nghe phát âm">${ex.word}（${ex.reading}）</span> <button type="button" class="fc-speaker-btn" style="width:24px; height:24px; font-size:12px; margin-left:4px; vertical-align:middle;" onclick="speakJapanese('${ex.word}', this)" title="Nghe từ vựng này">🔊</button> : ${ex.vi}</div>`
@@ -543,33 +707,33 @@ function renderCards(data) {
                         <div style="font-size: 0.78rem; color: #888;">Chiết tự bộ thủ</div>
                     </div>
 
-                    <div class="anim-status-bar" id="anim-status-${index}">
-                        <span>Nét: <strong id="stroke-curr-${index}">${item.strokes}</strong> / ${item.strokes}</span>
+                    <div class="anim-status-bar" id="anim-status-${globalIndex}">
+                        <span>Nét: <strong id="stroke-curr-${globalIndex}">${item.strokes}</strong> / ${item.strokes}</span>
                     </div>
 
-                    <div class="kanji-grid-box" id="grid-box-${index}">
+                    <div class="kanji-grid-box" id="grid-box-${globalIndex}">
                         <div class="grid-line-h"></div>
                         <div class="grid-line-v"></div>
-                        <div class="kanji-svg-container" id="kanji-svg-container-${index}" data-opacity="1">
-                            <span class="kanji-char-large" id="kanji-fallback-${index}">${item.char}</span>
+                        <div class="kanji-svg-container" id="kanji-svg-container-${globalIndex}" data-opacity="1">
+                            <span class="kanji-char-large" id="kanji-fallback-${globalIndex}">${item.char}</span>
                         </div>
-                        <canvas class="practice-canvas" id="canvas-${index}" width="165" height="165"></canvas>
+                        <canvas class="practice-canvas" id="canvas-${globalIndex}" width="165" height="165"></canvas>
                     </div>
 
                     <!-- Canvas Tools -->
                     <div class="canvas-tools-bar">
-                        <button class="btn-canvas" id="btn-draw-${index}" onclick="togglePracticeMode(${index})" title="Bật chế độ tự dùng tay hoặc chuột viết chữ vào ô vuông">✍️ Tập viết</button>
-                        <button class="btn-canvas" id="btn-clear-${index}" onclick="clearPracticeCanvas(${index})" title="Xóa các nét bạn đã tự vẽ">🗑️ Xóa nét</button>
-                        <button class="btn-canvas" id="btn-ghost-${index}" onclick="cycleGhostOpacity(${index})" title="Thay đổi độ mờ chữ mẫu để tự nhớ cách viết">👁️ Mẫu: Rõ</button>
+                        <button class="btn-canvas" id="btn-draw-${globalIndex}" onclick="togglePracticeMode(${globalIndex})" title="Bật chế độ tự dùng tay hoặc chuột viết chữ vào ô vuông">✍️ Tập viết</button>
+                        <button class="btn-canvas" id="btn-clear-${globalIndex}" onclick="clearPracticeCanvas(${globalIndex})" title="Xóa các nét bạn đã tự vẽ">🗑️ Xóa nét</button>
+                        <button class="btn-canvas" id="btn-ghost-${globalIndex}" onclick="cycleGhostOpacity(${globalIndex})" title="Thay đổi độ mờ chữ mẫu để tự nhớ cách viết">👁️ Mẫu: Rõ</button>
                     </div>
 
                     <!-- Animation & Step Controls -->
                     <div class="anim-controls">
-                        <button class="btn-anim" id="btn-prev-${index}" onclick="stepPrevStroke(${index})" title="Lùi 1 nét">⏮️ Lùi</button>
-                        <button class="btn-anim btn-anim-play" id="btn-play-${index}" onclick="togglePlayAnimation(${index})" title="Phát từng nét chuyển động">▶️ Phát nét</button>
-                        <button class="btn-anim" id="btn-next-${index}" onclick="stepNextStroke(${index})" title="Tiến 1 nét">⏭️ Tiến</button>
-                        <button class="btn-anim" id="btn-replay-${index}" onclick="replayAnimation(${index})" title="Xem vẽ lại từ đầu">🔄 Lại</button>
-                        <button class="btn-anim active-tool" id="btn-num-${index}" onclick="toggleNumbers(${index})" title="Bật/tắt số thứ tự nét">🔢 Số nét</button>
+                        <button class="btn-anim" id="btn-prev-${globalIndex}" onclick="stepPrevStroke(${globalIndex})" title="Lùi 1 nét">⏮️ Lùi</button>
+                        <button class="btn-anim btn-anim-play" id="btn-play-${globalIndex}" onclick="togglePlayAnimation(${globalIndex})" title="Phát từng nét chuyển động">▶️ Phát nét</button>
+                        <button class="btn-anim" id="btn-next-${globalIndex}" onclick="stepNextStroke(${globalIndex})" title="Tiến 1 nét">⏭️ Tiến</button>
+                        <button class="btn-anim" id="btn-replay-${globalIndex}" onclick="replayAnimation(${globalIndex})" title="Xem vẽ lại từ đầu">🔄 Lại</button>
+                        <button class="btn-anim active-tool" id="btn-num-${globalIndex}" onclick="toggleNumbers(${globalIndex})" title="Bật/tắt số thứ tự nét">🔢 Số nét</button>
                     </div>
                 </div>
             </div>
@@ -582,7 +746,7 @@ function renderCards(data) {
                     </div>
                     <span class="stroke-breakdown-hint">👉 Bấm vào từng ô để xem nét đó hoặc tự luyện viết theo thứ tự</span>
                 </div>
-                <div class="stroke-steps-strip" id="stroke-steps-${index}">
+                <div class="stroke-steps-strip" id="stroke-steps-${globalIndex}">
                     <span style="font-size: 0.85rem; color: #7f8c8d; padding: 4px;">Đang tải thứ tự nét KanjiVG...</span>
                 </div>
             </div>
@@ -600,9 +764,9 @@ function renderCards(data) {
                 if (entry.isIntersecting) {
                     const c = entry.target;
                     const idx = parseInt(c.dataset.index, 10);
-                    if (!c.dataset.loaded && data[idx]) {
+                    if (!c.dataset.loaded && filteredKanji[idx]) {
                         c.dataset.loaded = 'true';
-                        initKanjiPlayer(data[idx], idx);
+                        initKanjiPlayer(filteredKanji[idx], idx);
                     }
                     obs.unobserve(c);
                 }
@@ -611,7 +775,7 @@ function renderCards(data) {
 
         container.querySelectorAll('.kanji-card').forEach(c => window._kanjiObserver.observe(c));
     } else {
-        data.forEach((item, index) => initKanjiPlayer(item, index));
+        pageItems.forEach((item, localIdx) => initKanjiPlayer(item, startIdx + localIdx));
     }
 }
 
@@ -670,11 +834,14 @@ function initKanjiPlayer(item, index) {
         } else {
             const status = document.getElementById(`anim-status-${index}`);
             if (status) {
-                status.innerHTML = `<span style="color:#7f8c8d; font-size:0.8rem;">(Xem nét tĩnh)</span>`;
+                status.innerHTML = `<span style="color:#7f8c8d; font-size:0.8rem;">(Xem nét tĩnh)</span> <button type="button" class="btn-canvas-retry" onclick="window.retryKanjiSvg('${item.char}', ${index})" title="Bấm để thử tải lại file nét SVG">🔄 Thử lại</button>`;
             }
             const stepsStrip = document.getElementById(`stroke-steps-${index}`);
             if (stepsStrip) {
-                stepsStrip.innerHTML = `<span style="color:#7f8c8d; font-size:0.82rem; padding:4px;">Chữ này đang hiển thị phông chuẩn (${item.strokes} nét)</span>`;
+                stepsStrip.innerHTML = `<div style="display:flex; align-items:center; gap:8px; padding:6px; color:#64748b; font-size:0.85rem; flex-wrap:wrap;">
+                    <span>Chưa tải được nét động KanjiVG (${item.strokes} nét phông tĩnh).</span>
+                    <button type="button" class="btn-canvas-retry" onclick="window.retryKanjiSvg('${item.char}', ${index})">🔄 Tải lại SVG</button>
+                </div>`;
             }
         }
     });

@@ -1,9 +1,19 @@
 /* Cram Kanji 11-18 & NPBS Engine */
 const CRAM_CP_KEY = 'marugoto_cram_11_18_cp_v1';
 window.__MARUGOTO_NATIVE_DOM_DISABLED__ = true;
-window.__MARUGOTO_CP_EXTRA_KEYS__ = [CRAM_CP_KEY];
+if (!window.__MARUGOTO_CP_EXTRA_KEYS__) window.__MARUGOTO_CP_EXTRA_KEYS__ = [];
+if (!window.__MARUGOTO_CP_EXTRA_KEYS__.includes(CRAM_CP_KEY)) {
+    window.__MARUGOTO_CP_EXTRA_KEYS__.push(CRAM_CP_KEY);
+}
+if (!window.__MARUGOTO_CP_EXTRA_KEYS__.includes('marugoto_typing_studio_v2')) {
+    window.__MARUGOTO_CP_EXTRA_KEYS__.push('marugoto_typing_studio_v2');
+}
 window.__MARUGOTO_ON_RESET__ = function () {
-    try { localStorage.removeItem(CRAM_CP_KEY); } catch (e) {}
+    try {
+        localStorage.removeItem(CRAM_CP_KEY);
+        localStorage.removeItem('marugoto_typing_studio_v2');
+        if (typeof window.resetTypingStudio === 'function') window.resetTypingStudio();
+    } catch (e) {}
     window.location.reload();
 };
 

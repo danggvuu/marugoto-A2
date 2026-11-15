@@ -19,3 +19,11 @@ docs/pdf/*.pdf
 # Data files
 !data/master_vocab_official.json
 !data/master_vocab_enriched.json
+
+# Code intelligence
+.codegraph/
+
+# Local verification & scratch
+screenshots/
+extracted_pdf_test.txt
+

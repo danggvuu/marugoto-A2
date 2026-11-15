@@ -2,7 +2,7 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="referrer" content="no-referrer">
     <title>⛩️ Không Gian 3D Núi Tử Đằng Fujikasane • Marugoto Culture 3D Lab</title>
 
@@ -12,43 +12,45 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Shippori+Mincho:wght@600;800&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="assets/css/animate-ui.css">
-    <script src="assets/js/audio-engine.js?v=3"></script>
-    <link rel="stylesheet" href="assets/css/pages/demo_3d.css?v=3">
+    <script src="assets/js/audio-engine.js?v=4"></script>
+    <link rel="stylesheet" href="assets/css/pages/demo_3d.css?v=4">
 
-    <!-- Three.js + OrbitControls CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <!-- Three.js + OrbitControls local vendor fallback / CDN -->
+    <script src="assets/js/vendor/three.min.js"></script>
+    <script src="assets/js/vendor/OrbitControls.js"></script>
 </head>
 <body>
 
-    <!-- Top Unified Navigation Container -->
-    <header class="top-nav-container">
+    <!-- Top Unified Compact Navigation -->
+    <header class="top-nav-container" id="topNav">
         <div class="top-bar">
             <div class="brand-card">
                 <div class="brand-badge">
                     <span class="badge-dot"></span>
-                    <span>藤襲山 • MT. FUJIKASANE WISTERIA SHRINE</span>
+                    <span>藤襲山 • MT. FUJIKASANE</span>
                 </div>
                 <h1 class="brand-title">
                     <span class="brand-icon">⛩️</span>
                     <span class="brand-name">KHÔNG GIAN VĂN HÓA 3D NHẬT BẢN</span>
                 </h1>
-                <p class="brand-sub">Kimetsu no Yaiba • WebGL 3D • Học Từ Vựng & Điển Cố Văn Hóa Marugoto (A1–A2)</p>
             </div>
             <div class="nav-actions">
+                <button class="btn-tool-icon" id="btnToggleUI" onclick="toggleUIVisibility()" title="Ẩn/Hiện toàn bộ giao diện để ngắm cảnh">
+                    <span>👁️</span>
+                </button>
                 <button class="btn-cinematic-quick" id="btnCinematicTop" onclick="toggleCinematicRoam()" title="Bật/Tắt chế độ quay điện ảnh tự động">
                     <span class="cinematic-icon">🎬</span>
-                    <span>Góc Quay Điện Ảnh</span>
+                    <span class="btn-text-desktop">Góc Quay Điện Ảnh</span>
                 </button>
                 <a href="index.html" class="btn-nav-back">
                     <span>🌸</span>
-                    <span>Về Trang Chủ</span>
+                    <span class="btn-text-desktop">Trang Chủ</span>
                 </a>
             </div>
         </div>
 
         <!-- Object Quick Selector Strip -->
-        <nav class="object-selector-bar" aria-label="Bộ chọn mô hình 3D">
+        <nav class="object-selector-bar" id="objectSelector" aria-label="Bộ chọn mô hình 3D">
             <button class="obj-pill active" id="pill-torii" onclick="focusObject('torii')">⛩️ Cổng Torii</button>
             <button class="obj-pill" id="pill-katana" onclick="focusObject('katana')">⚔️ Kiếm Nichirin</button>
             <button class="obj-pill" id="pill-wisteria" onclick="focusObject('wisteria')">🪻 Hoa Tử Đằng</button>
@@ -60,10 +62,10 @@
         </nav>
     </header>
 
-    <!-- Interactive Navigation Hint (Fades out automatically after 6s) -->
+    <!-- Interactive Navigation Hint -->
     <div class="hint-bubble" id="hintBubble">
         <span class="hint-icon">✨</span>
-        <span>Kéo chuột để xoay 360° tự do • Cuộn chuột phóng to/thu nhỏ • Bấm trực tiếp vào vật thể để học từ vựng</span>
+        <span>Kéo chuột để xoay 360° • Bấm trực tiếp vào vật thể để học từ vựng</span>
     </div>
 
     <!-- 3D WebGL Canvas -->
@@ -79,11 +81,16 @@
         </div>
     </div>
 
-    <!-- Vocab Details Modal Card -->
+    <!-- Vocab Details Modal Card (Adaptive: Floating Card on Desktop, Bottom Sheet on Mobile) -->
     <aside class="vocab-modal-card" id="vocabModal" role="dialog" aria-labelledby="cardKanji" aria-describedby="cardMeaning">
+        <div class="sheet-drag-handle" onclick="toggleSheetExpand()"></div>
+        
         <div class="card-header-row">
-            <span class="card-tag" id="cardTag">Kiến Trúc Thần Đạo (Shinto)</span>
-            <button class="card-close-btn" onclick="closeModal()" title="Đóng bảng từ vựng" aria-label="Đóng">✕</button>
+            <span class="card-tag" id="cardTag">Kiến Trúc Thần Đạo • Mt. Fujikasane</span>
+            <div class="card-header-btns">
+                <button class="card-toggle-expand-btn" id="btnSheetExpand" onclick="toggleSheetExpand()" title="Mở rộng/Thu nhỏ" aria-label="Thu phóng">⤢</button>
+                <button class="card-close-btn" onclick="closeModal()" title="Đóng bảng từ vựng" aria-label="Đóng">✕</button>
+            </div>
         </div>
 
         <div class="card-kanji-row">
@@ -97,10 +104,10 @@
         </div>
 
         <div class="card-kana" id="cardKana">とりい (Torii)</div>
-        <div class="card-meaning" id="cardMeaning">Cổng Thần đạo truyền thống phân định ranh giới cõi thiêng và cõi tục.</div>
+        <div class="card-meaning" id="cardMeaning">Cổng Thần đạo truyền thống sơn đỏ chu sa trầm mặc, phân định ranh giới giữa cõi trần và chốn thần linh.</div>
 
         <div class="card-culture-note" id="cardCultureNote">
-            💡 Biểu tượng linh thiêng đặc trưng trong văn hóa Nhật Bản và anime Kimetsu no Yaiba.
+            ⛩️ Trong anime Kimetsu no Yaiba, cổng Torii sừng sững tại lối vào Đỉnh Núi Tử Đằng (藤襲山 - Fujikasane). Nơi đây treo dây thừng thiêng Shimenawa bện rơm và giấy trắng Shide, là điểm khởi đầu cho kỳ Tuyển Chọn Cuối Cùng (最終選別 - Saishū Senbetsu).
         </div>
 
         <div class="card-nav-footer">
@@ -110,15 +117,15 @@
         </div>
     </aside>
 
-    <!-- Bottom Controls Dock -->
-    <footer class="bottom-dock" role="toolbar" aria-label="Thanh điều khiển 3D">
-        <button class="dock-action-btn active" id="btnAutoRotate" onclick="toggleAutoRotate()">
+    <!-- Bottom Controls Dock (Clean, Modern, Correct Default State) -->
+    <footer class="bottom-dock" id="bottomDock" role="toolbar" aria-label="Thanh điều khiển 3D">
+        <button class="dock-action-btn" id="btnAutoRotate" onclick="toggleAutoRotate()">
             <span class="dock-btn-icon">🔄</span>
-            <span class="dock-btn-label">Xoay 360°: BẬT</span>
+            <span class="dock-btn-label">Xoay 360°: TẮT</span>
         </button>
         <button class="dock-action-btn active" id="btnNightMode" onclick="toggleNightMode()">
             <span class="dock-btn-icon">🌙</span>
-            <span class="dock-btn-label">Không Gian: Đêm Tử Đằng</span>
+            <span class="dock-btn-label">Đêm Tử Đằng</span>
         </button>
         <button class="dock-action-btn active" id="btnParticles" onclick="toggleParticles()">
             <span class="dock-btn-icon">🪻</span>
@@ -128,7 +135,7 @@
             <span class="dock-btn-icon">🎬</span>
             <span class="dock-btn-label">Bay Lượn Điện Ảnh</span>
         </button>
-        <button class="dock-action-btn" id="btnSoundChime" onclick="toggleSoundChime()">
+        <button class="dock-action-btn active" id="btnSoundChime" onclick="toggleSoundChime()">
             <span class="dock-btn-icon">🔔</span>
             <span class="dock-btn-label">Chuông Đền: BẬT</span>
         </button>
@@ -138,6 +145,23 @@
         </button>
     </footer>
 
-    <script src="assets/js/pages/demo_3d.js?v=3"></script>
+    <script>
+        function toggleUIVisibility() {
+            const topNav = document.getElementById('topNav');
+            const bottomDock = document.getElementById('bottomDock');
+            const vocabModal = document.getElementById('vocabModal');
+            const isHidden = topNav.classList.toggle('ui-hidden');
+            if (bottomDock) bottomDock.classList.toggle('ui-hidden', isHidden);
+            if (vocabModal && isHidden) vocabModal.style.display = 'none';
+        }
+
+        function toggleSheetExpand() {
+            const modal = document.getElementById('vocabModal');
+            if (modal) {
+                modal.classList.toggle('sheet-expanded');
+            }
+        }
+    </script>
+    <script src="assets/js/pages/demo_3d.js?v=4"></script>
 </body>
 </html>

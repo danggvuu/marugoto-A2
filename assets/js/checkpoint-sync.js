@@ -67,6 +67,7 @@
     let pillEl = null;
     let statusTextEl = null;
     let lastSaveTimer = null;
+    let lastSavedTimeStr = '--:--';
 
     function injectStyles() {
         if (document.getElementById('mrgCheckpointStyles')) return;
@@ -75,63 +76,178 @@
         st.textContent = `
             #mrgCheckpointBar {
                 position: fixed;
-                bottom: 14px;
-                left: 14px;
+                bottom: max(12px, env(safe-area-inset-bottom));
+                left: max(12px, env(safe-area-inset-left));
                 z-index: 985;
                 display: inline-flex;
                 align-items: center;
-                gap: 8px;
-                background: rgba(15, 23, 42, 0.92);
-                backdrop-filter: blur(8px);
+                gap: 7px;
+                background: rgba(15, 23, 42, 0.88);
+                backdrop-filter: blur(12px);
+                -webkit-backdrop-filter: blur(12px);
                 color: #f8fafc;
-                padding: 6px 10px 6px 12px;
+                padding: 5px 10px 5px 10px;
                 border-radius: 999px;
                 font-family: system-ui, -apple-system, sans-serif;
-                font-size: 0.78rem;
+                font-size: 0.74rem;
                 font-weight: 600;
-                box-shadow: 0 6px 20px rgba(15, 23, 42, 0.25);
-                border: 1px solid rgba(255, 255, 255, 0.14);
-                transition: transform 0.2s ease, opacity 0.2s ease;
+                box-shadow: 0 4px 14px rgba(15, 23, 42, 0.18);
+                border: 1px solid rgba(255, 255, 255, 0.12);
+                transition: transform 0.2s ease, opacity 0.2s ease, background 0.2s ease;
+                cursor: pointer;
+                user-select: none;
+            }
+            #mrgCheckpointBar:hover {
+                background: rgba(15, 23, 42, 0.96);
+                transform: translateY(-1px);
             }
             #mrgCheckpointBar .mrg-cp-dot {
-                width: 8px;
-                height: 8px;
+                width: 7px;
+                height: 7px;
                 border-radius: 50%;
-                background: #34d399;
+                background: #10b981;
                 flex-shrink: 0;
+                transition: background-color 0.2s ease;
             }
-            #mrgCheckpointBar.is-flashing .mrg-cp-dot {
-                background: #a7f3d0;
-                box-shadow: 0 0 8px #34d399;
+            #mrgCheckpointBar.is-saving .mrg-cp-dot {
+                background: #f59e0b;
+                box-shadow: 0 0 6px #f59e0b;
             }
-            #mrgCheckpointBar .mrg-cp-reset {
-                border: 1px solid rgba(255, 255, 255, 0.22);
-                background: rgba(255, 255, 255, 0.1);
-                color: #fda4af;
-                padding: 2px 8px;
-                border-radius: 999px;
-                font-size: 0.73rem;
+            #mrgCheckpointBar.is-error .mrg-cp-dot {
+                background: #ef4444;
+                box-shadow: 0 0 6px #ef4444;
+            }
+            #mrgCheckpointBar .mrg-cp-menu-btn {
+                background: transparent;
+                border: none;
+                color: #94a3b8;
+                font-size: 0.75rem;
+                cursor: pointer;
+                padding: 1px 3px;
+                line-height: 1;
+                border-radius: 4px;
+                transition: color 0.15s ease;
+            }
+            #mrgCheckpointBar:hover .mrg-cp-menu-btn {
+                color: #ffffff;
+            }
+            /* Checkpoint Reset Modal */
+            .mrg-cp-modal-backdrop {
+                position: fixed;
+                top: 0; left: 0; right: 0; bottom: 0;
+                background: rgba(15, 23, 42, 0.5);
+                backdrop-filter: blur(4px);
+                z-index: 999998;
+            }
+            .mrg-cp-modal-card {
+                position: fixed;
+                top: 50%; left: 50%;
+                transform: translate(-50%, -50%);
+                background: #ffffff;
+                color: #0f172a;
+                border-radius: 16px;
+                padding: 22px 24px;
+                width: 90%;
+                max-width: 400px;
+                box-shadow: 0 20px 45px rgba(0, 0, 0, 0.22);
+                border: 1px solid #e2e8f0;
+                z-index: 999999;
+                font-family: system-ui, -apple-system, sans-serif;
+            }
+            .mrg-cp-modal-card h3 {
+                margin: 0 0 10px 0;
+                font-size: 1.05rem;
+                font-weight: 800;
+                color: #0f172a;
+            }
+            .mrg-cp-modal-card p {
+                margin: 0 0 14px 0;
+                font-size: 0.86rem;
+                color: #475569;
+                line-height: 1.5;
+            }
+            .mrg-cp-modal-actions {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                margin-top: 18px;
+            }
+            .mrg-cp-btn-danger {
+                background: #fee2e2;
+                color: #b91c1c;
+                border: 1px solid #fca5a5;
+                padding: 10px 14px;
+                border-radius: 10px;
+                font-size: 0.86rem;
                 font-weight: 700;
                 cursor: pointer;
-                transition: background 0.15s;
+                transition: all 0.15s ease;
             }
-            #mrgCheckpointBar .mrg-cp-reset:hover {
-                background: rgba(225, 29, 72, 0.35);
+            .mrg-cp-btn-danger:hover {
+                background: #ef4444;
                 color: #ffffff;
+            }
+            .mrg-cp-btn-cancel {
+                background: #f1f5f9;
+                color: #334155;
+                border: 1px solid #cbd5e1;
+                padding: 8px 14px;
+                border-radius: 10px;
+                font-size: 0.86rem;
+                font-weight: 600;
+                cursor: pointer;
             }
             @media (max-width: 640px) {
                 #mrgCheckpointBar {
-                    bottom: 10px;
-                    left: 10px;
-                    font-size: 0.72rem;
-                    padding: 5px 8px 5px 10px;
+                    bottom: max(8px, env(safe-area-inset-bottom));
+                    left: max(8px, env(safe-area-inset-left));
+                    font-size: 0.7rem;
+                    padding: 4px 8px;
                 }
             }
             @media print {
-                #mrgCheckpointBar { display: none !important; }
+                #mrgCheckpointBar, .mrg-cp-modal-backdrop, .mrg-cp-modal-card { display: none !important; }
             }
         `;
         document.head.appendChild(st);
+    }
+
+    function openCheckpointModal() {
+        let modal = document.getElementById('mrgCpModal');
+        if (!modal) {
+            modal = document.createElement('div');
+            modal.id = 'mrgCpModal';
+            modal.innerHTML = `
+                <div class="mrg-cp-modal-backdrop" onclick="window.MarugotoCheckpoint.closeModal()"></div>
+                <div class="mrg-cp-modal-card" role="dialog" aria-modal="true" aria-labelledby="mrgCpModalTitle">
+                    <h3 id="mrgCpModalTitle">💾 Lưu Tiến Độ Học Tập</h3>
+                    <p>Tiến độ làm bài, các ô đã nhập và kết quả chấm điểm trên trang này đang được tự động lưu vào bộ nhớ máy.</p>
+                    <p style="font-size:0.8rem; color:#64748b; background:#f8fafc; padding:8px 10px; border-radius:8px; border:1px solid #e2e8f0;">
+                        ⏱️ Lần lưu gần nhất: <strong id="mrgCpModalTime" style="color:#0f172a;">${lastSavedTimeStr}</strong>
+                    </p>
+                    <div class="mrg-cp-modal-actions">
+                        <button type="button" class="mrg-cp-btn-danger" id="mrgCpResetBtnModal">🔄 Làm lại từ đầu (Xóa tiến độ trang này)</button>
+                        <button type="button" class="mrg-cp-btn-cancel" onclick="window.MarugotoCheckpoint.closeModal()">Đóng cửa sổ</button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+            const btnReset = modal.querySelector('#mrgCpResetBtnModal');
+            if (btnReset) {
+                btnReset.addEventListener('click', function () {
+                    closeCheckpointModal();
+                    clearPageCheckpoint(true);
+                });
+            }
+        }
+        const timeEl = document.getElementById('mrgCpModalTime');
+        if (timeEl) timeEl.textContent = lastSavedTimeStr;
+        modal.style.display = 'block';
+    }
+
+    function closeCheckpointModal() {
+        const modal = document.getElementById('mrgCpModal');
+        if (modal) modal.style.display = 'none';
     }
 
     function ensurePill() {
@@ -141,20 +257,18 @@
 
         pillEl = document.createElement('div');
         pillEl.id = 'mrgCheckpointBar';
+        pillEl.title = 'Bấm để xem thông tin lưu tiến độ hoặc đặt lại bài học';
         pillEl.innerHTML = `
             <span class="mrg-cp-dot" aria-hidden="true"></span>
-            <span id="mrgCpText">💾 Đã bật lưu tiến độ</span>
-            <button type="button" class="mrg-cp-reset" id="mrgCpResetBtn" title="Xóa toàn bộ tiến độ đã lưu trên trang này để làm lại từ đầu">🔄 Xóa checkpoint</button>
+            <span id="mrgCpText">Đã bật lưu tiến độ</span>
+            <button type="button" class="mrg-cp-menu-btn" id="mrgCpResetBtn" aria-label="Cài đặt tiến độ">⚙️</button>
         `;
         document.body.appendChild(pillEl);
         statusTextEl = pillEl.querySelector('#mrgCpText');
 
-        const resetBtn = pillEl.querySelector('#mrgCpResetBtn');
-        if (resetBtn) {
-            resetBtn.addEventListener('click', function () {
-                clearPageCheckpoint(true);
-            });
-        }
+        pillEl.addEventListener('click', function (e) {
+            openCheckpointModal();
+        });
         return pillEl;
     }
 
@@ -166,14 +280,36 @@
 
     function notifySaved(customLabel) {
         ensurePill();
+        lastSavedTimeStr = formatTime();
         if (!statusTextEl) return;
-        statusTextEl.textContent = customLabel || `💾 Đã lưu (${formatTime()})`;
+        statusTextEl.textContent = customLabel || `Đã lưu (${lastSavedTimeStr})`;
         if (pillEl) {
+            pillEl.classList.remove('is-saving', 'is-error');
             pillEl.classList.add('is-flashing');
             clearTimeout(lastSaveTimer);
             lastSaveTimer = setTimeout(() => {
                 if (pillEl) pillEl.classList.remove('is-flashing');
-            }, 900);
+            }, 800);
+        }
+    }
+
+    function notifySaving() {
+        ensurePill();
+        if (!statusTextEl) return;
+        statusTextEl.textContent = 'Đang lưu...';
+        if (pillEl) {
+            pillEl.classList.remove('is-error');
+            pillEl.classList.add('is-saving');
+        }
+    }
+
+    function notifyError(msg) {
+        ensurePill();
+        if (!statusTextEl) return;
+        statusTextEl.textContent = msg || 'Lỗi lưu bộ nhớ!';
+        if (pillEl) {
+            pillEl.classList.remove('is-saving');
+            pillEl.classList.add('is-error');
         }
     }
 
@@ -192,7 +328,14 @@
             if (Array.isArray(window.__MARUGOTO_CP_EXTRA_KEYS__)) {
                 window.__MARUGOTO_CP_EXTRA_KEYS__.forEach(k => toRemove.push(k));
             }
-            toRemove.forEach(k => localStorage.removeItem(k));
+            // Luôn đảm bảo dọn dẹp state của Typing Studio nếu tồn tại
+            toRemove.push('marugoto_typing_studio_v2');
+            toRemove.forEach(k => {
+                try { localStorage.removeItem(k); } catch (e) {}
+            });
+            if (typeof window.resetTypingStudio === 'function') {
+                window.resetTypingStudio();
+            }
         } catch (e) {}
 
         if (typeof window.__MARUGOTO_ON_RESET__ === 'function') {
@@ -211,6 +354,10 @@
         load: safeLoad,
         remove: safeRemove,
         notifySaved,
+        notifySaving,
+        notifyError,
+        openModal: openCheckpointModal,
+        closeModal: closeCheckpointModal,
         clearPage: () => clearPageCheckpoint(true),
         silentClearPage: () => clearPageCheckpoint(false)
     };
@@ -219,15 +366,31 @@
     let isRestoring = false;
     const restoredInputKeys = new Set();
 
+    let silentDepth = 0;
+    let trueGlobals = null;
+    let restoreGlobalsTimer = null;
+
     function withSilentUI(fn) {
-        const origSpeak = window.speechSynthesis ? window.speechSynthesis.speak.bind(window.speechSynthesis) : null;
-        const origSpeakText = window.speakText;
-        const origSpeakJp = window.speakJapanese;
-        const origAudioSpeak = window.audioEngine && window.audioEngine.speak;
-        const origAudioCap = window.AudioEngine && window.AudioEngine.speak;
-        const origScrollTo = window.scrollTo;
-        const origScrollIntoView = Element.prototype.scrollIntoView;
-        const origAlert = window.alert;
+        if (restoreGlobalsTimer) {
+            clearTimeout(restoreGlobalsTimer);
+            restoreGlobalsTimer = null;
+        }
+
+        if (silentDepth === 0) {
+            trueGlobals = {
+                synthSpeak: window.speechSynthesis ? window.speechSynthesis.speak.bind(window.speechSynthesis) : null,
+                speakText: typeof window.speakText === 'function' ? window.speakText : null,
+                speakJapanese: typeof window.speakJapanese === 'function' ? window.speakJapanese : null,
+                audioSpeak: window.audioEngine && typeof window.audioEngine.speak === 'function' ? window.audioEngine.speak : null,
+                audioCapSpeak: window.AudioEngine && typeof window.AudioEngine.speak === 'function' ? window.AudioEngine.speak : null,
+                scrollTo: typeof window.scrollTo === 'function' ? window.scrollTo.bind(window) : null,
+                scrollIntoView: Element.prototype.scrollIntoView,
+                alert: typeof window.alert === 'function' ? window.alert.bind(window) : null
+            };
+        }
+
+        silentDepth++;
+        window.isRestoringCheckpoint = true;
 
         try {
             if (window.speechSynthesis) window.speechSynthesis.speak = function () {};
@@ -240,16 +403,23 @@
             window.alert = function () {};
             return fn();
         } finally {
-            setTimeout(() => {
-                if (window.speechSynthesis && origSpeak) window.speechSynthesis.speak = origSpeak;
-                if (origSpeakText) window.speakText = origSpeakText;
-                if (origSpeakJp) window.speakJapanese = origSpeakJp;
-                if (window.audioEngine && origAudioSpeak) window.audioEngine.speak = origAudioSpeak;
-                if (window.AudioEngine && origAudioCap) window.AudioEngine.speak = origAudioCap;
-                window.scrollTo = origScrollTo;
-                Element.prototype.scrollIntoView = origScrollIntoView;
-                window.alert = origAlert;
-            }, 60);
+            silentDepth = Math.max(0, silentDepth - 1);
+            if (silentDepth === 0) {
+                restoreGlobalsTimer = setTimeout(() => {
+                    if (silentDepth === 0 && trueGlobals) {
+                        window.isRestoringCheckpoint = false;
+                        if (window.speechSynthesis && trueGlobals.synthSpeak) window.speechSynthesis.speak = trueGlobals.synthSpeak;
+                        if (trueGlobals.speakText) window.speakText = trueGlobals.speakText;
+                        if (trueGlobals.speakJapanese) window.speakJapanese = trueGlobals.speakJapanese;
+                        if (window.audioEngine && trueGlobals.audioSpeak) window.audioEngine.speak = trueGlobals.audioSpeak;
+                        if (window.AudioEngine && trueGlobals.audioCapSpeak) window.AudioEngine.speak = trueGlobals.audioCapSpeak;
+                        if (trueGlobals.scrollTo) window.scrollTo = trueGlobals.scrollTo;
+                        if (trueGlobals.scrollIntoView) Element.prototype.scrollIntoView = trueGlobals.scrollIntoView;
+                        if (trueGlobals.alert) window.alert = trueGlobals.alert;
+                        trueGlobals = null;
+                    }
+                }, 100);
+            }
         }
     }
 

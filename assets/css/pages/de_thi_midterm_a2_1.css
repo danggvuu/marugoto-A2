@@ -800,6 +800,7 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 5px;
+    white-space: nowrap;
     transition: all 0.2s ease;
 }
 
@@ -820,6 +821,7 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 5px;
+    white-space: nowrap;
     transition: all 0.2s ease;
 }
 

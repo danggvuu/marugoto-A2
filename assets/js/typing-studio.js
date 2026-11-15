@@ -8,6 +8,38 @@
 
     var TYPING_STUDIO_STORAGE_KEY = 'marugoto_typing_studio_v2';
 
+    if (!window.__MARUGOTO_CP_EXTRA_KEYS__) window.__MARUGOTO_CP_EXTRA_KEYS__ = [];
+    if (!window.__MARUGOTO_CP_EXTRA_KEYS__.includes(TYPING_STUDIO_STORAGE_KEY)) {
+        window.__MARUGOTO_CP_EXTRA_KEYS__.push(TYPING_STUDIO_STORAGE_KEY);
+    }
+
+    window.resetTypingStudio = function () {
+        try {
+            localStorage.removeItem(TYPING_STUDIO_STORAGE_KEY);
+        } catch (e) {}
+        window.tpState = {
+            mode: 'sentence',
+            filterByMode: { sentence: 'all', kanji: 'all', vocab: 'all' },
+            idxByBucket: {},
+            orderByBucket: {},
+            history: {},
+            drafts: {},
+            allowKanji: false,
+            autoAdvance: false,
+            showOverview: false,
+            streak: 0,
+            gradedCurrent: false
+        };
+    };
+
+    var autoAdvanceTimer = null;
+    function clearAutoAdvanceTimer() {
+        if (autoAdvanceTimer) {
+            clearTimeout(autoAdvanceTimer);
+            autoAdvanceTimer = null;
+        }
+    }
+
     window.tpInitialized = false;
     window.tpState = {
         mode: 'sentence', // 'sentence' | 'kanji' | 'vocab'
@@ -287,7 +319,8 @@
 
     function getFilterDefs(mode) {
         var wrongIds = new Set(Object.keys(window.tpState.history).filter(function (id) {
-            return window.tpState.history[id] && window.tpState.history[id].status === 'err';
+            var h = window.tpState.history[id];
+            return h && (h.status === 'err' || h.status === 'reveal');
         }));
         var items = getModeItems(mode);
         if (mode === 'sentence') {
@@ -300,7 +333,7 @@
                 { key: 'A2-17', label: 'Bài 17 (' + items.filter(function (x) { return x.lesson === 'A2-17'; }).length + ')' },
                 { key: 'A2-18', label: 'Bài 18 (' + items.filter(function (x) { return x.lesson === 'A2-18'; }).length + ')' },
                 { key: 'review-11-14', label: 'Ôn thêm L11-14 (' + items.filter(function (x) { return /^A2-1[1-4]$/.test(x.lesson); }).length + ')' },
-                { key: 'wrong', label: '🔁 Câu sai (' + items.filter(function (x) { return wrongIds.has(x.id); }).length + ')' }
+                { key: 'wrong', label: '🔁 Câu sai/cần ôn (' + items.filter(function (x) { return wrongIds.has(x.id); }).length + ')' }
             ];
         }
         if (mode === 'kanji') {
@@ -318,7 +351,7 @@
                 { key: 'A2-18', label: 'Bài 18 (' + items.filter(function (x) { return x.lesson === 'A2-18'; }).length + ')' },
                 { key: '15-18', label: 'Cụm L15-18 (' + k15.length + ')' },
                 { key: '11-14', label: 'Cụm L11-14 (' + k11.length + ')' },
-                { key: 'wrong', label: '🔁 Chữ hay sai (' + items.filter(function (x) { return wrongIds.has(x.id); }).length + ')' }
+                { key: 'wrong', label: '🔁 Chữ hay sai/cần ôn (' + items.filter(function (x) { return wrongIds.has(x.id); }).length + ')' }
             ];
         }
         return [
@@ -327,7 +360,7 @@
             { key: 'A2-16', label: 'Bài 16' },
             { key: 'A2-17', label: 'Bài 17' },
             { key: 'A2-18', label: 'Bài 18' },
-            { key: 'wrong', label: '🔁 Từ sai (' + items.filter(function (x) { return wrongIds.has(x.id); }).length + ')' }
+            { key: 'wrong', label: '🔁 Từ sai/cần ôn (' + items.filter(function (x) { return wrongIds.has(x.id); }).length + ')' }
         ];
     }
 
@@ -345,7 +378,8 @@
         if (f === 'wrong') {
             if (!Array.isArray(window.tpState.wrongQueue)) {
                 window.tpState.wrongQueue = all.filter(function (x) {
-                    return window.tpState.history[x.id] && window.tpState.history[x.id].status === 'err';
+                    var h = window.tpState.history[x.id];
+                    return h && (h.status === 'err' || h.status === 'reveal');
                 });
             }
             return window.tpState.wrongQueue;
@@ -410,7 +444,8 @@
             var ans = window.tpState.mode === 'sentence' ? item.hira : (window.tpState.mode === 'kanji' ? item.kana : (item.kana || item.jp));
             window.tpState.history[item.id] = {
                 status: 'err',
-                lastInput: '(Đã bỏ qua)',
+                wasSkipped: true,
+                lastInput: '',
                 whyWrong: ['Bạn đã chọn bỏ qua câu này để xem đáp án chuẩn và lưu vào danh sách ôn tập sau.']
             };
             delete window.tpState.drafts[item.id];
@@ -545,7 +580,7 @@
             bar.id = 'tpShortcutBar';
             bar.innerHTML =
                 '<span class="tp-shortcut-item"><kbd class="tp-kbd">⏎ Enter</kbd> Kiểm Tra / Tiếp</span>' +
-                '<span class="tp-shortcut-item"><kbd class="tp-kbd">Tab</kbd> Bỏ qua (Skip)</span>' +
+                '<span class="tp-shortcut-item"><kbd class="tp-kbd">Alt + S</kbd> Bỏ qua</span>' +
                 '<span class="tp-shortcut-item"><kbd class="tp-kbd">Esc</kbd> Gõ lại (Retry)</span>' +
                 '<span class="tp-shortcut-item"><kbd class="tp-kbd">Alt + H</kbd> Gợi ý</span>';
             if (inp.parentNode) {
@@ -597,8 +632,8 @@
                 skipBtn.style.background = '';
                 skipBtn.style.backgroundColor = '';
                 skipBtn.className = 'tp-btn-secondary';
-                skipBtn.innerHTML = '<span>⏭️ Bỏ Qua</span><kbd class="tp-kbd">Tab</kbd>';
-                skipBtn.title = 'Bỏ qua câu này (Tab)';
+                skipBtn.innerHTML = '<span>⏭️ Bỏ Qua</span><kbd class="tp-kbd">Alt+S</kbd>';
+                skipBtn.title = 'Bỏ qua câu này (Alt + S)';
             }
             if (retryBtn) {
                 retryBtn.style.background = '';
@@ -699,6 +734,15 @@
                 '<div class="tp-detail-hero-sub">Hãy quan sát kỹ cách đọc, từ vựng và mẫu ngữ pháp trước khi tiếp tục.</div>' +
                 '</div>' +
                 '</div>';
+        } else if (hist.wasSkipped) {
+            panelCls += 'is-err';
+            headerHtml = '<div class="tp-detail-hero">' +
+                '<div class="tp-detail-hero-icon">⏭️</div>' +
+                '<div class="tp-detail-hero-content">' +
+                '<div class="tp-detail-hero-title">BẠN ĐÃ BỎ QUA CÂU NÀY</div>' +
+                '<div class="tp-detail-hero-sub">Đã lưu vào danh sách câu sai để ôn lại. Xem kỹ đáp án chuẩn bên dưới nhé!</div>' +
+                '</div>' +
+                '</div>';
         } else {
             panelCls += 'is-err';
             headerHtml = '<div class="tp-detail-hero">' +
@@ -712,7 +756,11 @@
 
         var compareHtml = '';
         var primaryReading = window.tpState.mode === 'sentence' ? item.hira : (window.tpState.mode === 'kanji' ? item.kana : (item.kana || item.jp));
-        if (hist.status === 'err' && hist.lastInput !== undefined) {
+        if (hist.wasSkipped) {
+            compareHtml = '<div style="margin:12px 0; padding:10px 14px; background:#fffbeb; border:1px solid #fde68a; border-radius:10px; font-size:0.88rem; color:#92400e;">' +
+                '⏭️ <strong>Trạng thái:</strong> Bạn đã bỏ qua câu này khi làm bài. Hãy tham khảo đáp án chuẩn và phân tích bên dưới.' +
+                '</div>';
+        } else if (hist.status === 'err' && hist.lastInput !== undefined && hist.lastInput !== '') {
             var diff = buildCharDiffHtml(hist.lastInput, primaryReading);
             compareHtml = '<div class="tp-diff-container" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:12px; margin:14px 0; width:100%; box-sizing:border-box;">' +
                 '<div class="tp-diff-col is-user" style="min-width:0; max-width:100%; box-sizing:border-box; overflow:hidden;">' +
@@ -925,7 +973,11 @@
             setCheckButtonState('check');
             if (retryBtn) retryBtn.style.display = 'none';
         } else if (hist && (hist.status === 'ok' || hist.status === 'err' || hist.status === 'reveal')) {
-            inp.value = draftVal !== undefined ? draftVal : (hist.lastInput || '');
+            if (hist.wasSkipped) {
+                inp.value = draftVal || '';
+            } else {
+                inp.value = draftVal !== undefined ? draftVal : (hist.lastInput || '');
+            }
             if (hist.status === 'ok') {
                 inp.classList.remove('wrong');
                 inp.classList.add('correct');
@@ -956,7 +1008,9 @@
 
         updateTypingStats(pool);
         renderTypingOverview();
-        if (shouldFocus) inp.focus();
+        if (shouldFocus && window.innerWidth > 768 && !('ontouchstart' in window)) {
+            inp.focus();
+        }
     }
 
     function handleTypingSubmit() {
@@ -996,10 +1050,22 @@
             renderTypingFilters();
             renderTypingCard(false);
             persistCheckpoint();
+            clearAutoAdvanceTimer();
             if (window.tpState.autoAdvance) {
-                setTimeout(skipTypingWord, 900);
+                var scheduledItemId = item.id;
+                autoAdvanceTimer = setTimeout(function () {
+                    autoAdvanceTimer = null;
+                    var pool = getFilteredTypingPool();
+                    var bucket = getActiveBucketKey();
+                    var cur = window.tpState.idxByBucket[bucket] || 0;
+                    var curItem = pool[cur];
+                    if (curItem && curItem.id === scheduledItemId) {
+                        skipTypingWord();
+                    }
+                }, 900);
             }
         } else {
+            clearAutoAdvanceTimer();
             window.tpState.streak = 0;
             if (inp) {
                 inp.classList.remove('correct');
@@ -1036,6 +1102,7 @@
     }
 
     function switchTypingMode(mode) {
+        clearAutoAdvanceTimer();
         window.tpState.mode = mode;
         window.tpState.gradedCurrent = false;
         window.tpState.wrongQueue = null;
@@ -1046,6 +1113,7 @@
     }
 
     function switchTypingLesson(lessonKey) {
+        clearAutoAdvanceTimer();
         var m = window.tpState.mode;
         window.tpState.filterByMode[m] = lessonKey;
         var bucket = getActiveBucketKey();
@@ -1055,7 +1123,8 @@
         if (lessonKey === 'wrong') {
             var all = getModeItems(m);
             window.tpState.wrongQueue = all.filter(function (x) {
-                return window.tpState.history[x.id] && window.tpState.history[x.id].status === 'err';
+                var h = window.tpState.history[x.id];
+                return h && (h.status === 'err' || h.status === 'reveal');
             });
         } else {
             window.tpState.wrongQueue = null;
@@ -1080,6 +1149,7 @@
     }
 
     function jumpToTypingItem(idx) {
+        clearAutoAdvanceTimer();
         var bucket = getActiveBucketKey();
         window.tpState.idxByBucket[bucket] = idx;
         window.tpState.gradedCurrent = false;
@@ -1088,6 +1158,7 @@
     }
 
     function shuffleTypingPool() {
+        clearAutoAdvanceTimer();
         var pool = getFilteredTypingPool();
         if (!pool.length) return;
         var m = window.tpState.mode;
@@ -1117,6 +1188,7 @@
     }
 
     function retryCurrentTypingCard() {
+        clearAutoAdvanceTimer();
         var pool = getFilteredTypingPool();
         var bucket = getActiveBucketKey();
         var item = pool[window.tpState.idxByBucket[bucket] || 0];
@@ -1171,6 +1243,7 @@
     }
 
     function revealTypingAnswer() {
+        clearAutoAdvanceTimer();
         var pool = getFilteredTypingPool();
         var bucket = getActiveBucketKey();
         var idx = window.tpState.idxByBucket[bucket] || 0;
@@ -1183,11 +1256,13 @@
         delete window.tpState.drafts[item.id];
         window.tpState.gradedCurrent = true;
         say(getSpeakableTypingText(item));
+        renderTypingFilters();
         renderTypingCard(false);
         persistCheckpoint();
     }
 
     function prevTypingItem() {
+        clearAutoAdvanceTimer();
         var pool = getFilteredTypingPool();
         if (!pool.length) return;
         var bucket = getActiveBucketKey();
@@ -1198,29 +1273,53 @@
         persistCheckpoint();
     }
 
-    function showRoundSummaryModal(total, wrongCount) {
+    function showRoundSummaryModal(pool, wrongCount) {
         var m = window.tpState.mode;
         var modeLabel = m === 'sentence' ? 'câu' : (m === 'kanji' ? 'chữ Hán' : 'từ');
         var modalId = 'tpRoundSummaryModal';
         var existing = document.getElementById(modalId);
         if (existing) existing.remove();
 
-        var okCount = Math.max(0, total - wrongCount);
+        var total = pool.length;
+        var okCount = 0;
+        var errCount = 0;
+        var revealCount = 0;
+        var unansweredCount = 0;
+
+        pool.forEach(function (x) {
+            var h = window.tpState.history[x.id];
+            if (!h) {
+                unansweredCount++;
+            } else if (h.status === 'ok') {
+                okCount++;
+            } else if (h.status === 'err') {
+                errCount++;
+            } else if (h.status === 'reveal') {
+                revealCount++;
+            } else {
+                unansweredCount++;
+            }
+        });
+
+        var needsReviewCount = errCount + revealCount;
         var div = document.createElement('div');
         div.id = modalId;
         div.style.cssText = 'position:fixed; inset:0; background:rgba(15,23,42,0.65); z-index:99999; display:flex; align-items:center; justify-content:center; padding:16px; backdrop-filter:blur(4px);';
         div.innerHTML = 
             '<div style="background:#ffffff; border-radius:18px; max-width:480px; width:100%; padding:26px 24px; box-shadow:0 20px 40px rgba(0,0,0,0.25); text-align:center; border:2px solid #e2e8f0;">' +
-            '  <div style="font-size:2.8rem; margin-bottom:6px;">🎉</div>' +
-            '  <h3 style="font-size:1.3rem; font-weight:900; color:#1e1b4b; margin:0 0 10px 0;">Hoàn Thành 1 Vòng ' + total + ' ' + modeLabel + '!</h3>' +
+            '  <div style="font-size:2.8rem; margin-bottom:6px;">' + (needsReviewCount === 0 ? '🏆' : '🎉') + '</div>' +
+            '  <h3 style="font-size:1.3rem; font-weight:900; color:#1e1b4b; margin:0 0 10px 0;">Hoàn Thành Vòng ' + total + ' ' + modeLabel + '!</h3>' +
             '  <p style="color:#475569; font-size:0.95rem; margin:0 0 18px 0; line-height:1.6;">' +
-            '    Kết quả vòng này: <strong style="color:#16a34a;">' + okCount + ' Đúng</strong> • <strong style="color:#e11d48;">' + wrongCount + ' Chưa chuẩn</strong>.<br>' +
-            '    Bạn có muốn gom ngay <strong>' + wrongCount + ' ' + modeLabel + ' chưa đúng</strong> này để gõ lại cho thuộc không?' +
+            '    Kết quả vòng này: <strong style="color:#16a34a;">' + okCount + ' Đúng</strong> • <strong style="color:#e11d48;">' + errCount + ' Sai</strong>' +
+            (revealCount > 0 ? ' • <strong style="color:#d97706;">' + revealCount + ' Đã xem đáp án</strong>' : '') +
+            (unansweredCount > 0 ? ' • <strong style="color:#64748b;">' + unansweredCount + ' Chưa làm</strong>' : '') + '.<br>' +
+            (needsReviewCount > 0 ? 'Bạn có muốn gom ngay <strong>' + needsReviewCount + ' ' + modeLabel + ' cần ôn lại</strong> này để gõ lại cho thuộc không?' : 'Chúc mừng bạn đã hoàn thành xuất sắc toàn bộ nội dung!') +
             '  </p>' +
             '  <div style="display:flex; flex-direction:column; gap:10px;">' +
+            (needsReviewCount > 0 ? 
             '    <button type="button" id="btnGoToWrong" style="background:#e11d48; color:#ffffff; font-weight:800; font-size:1rem; padding:12px 20px; border-radius:10px; border:none; cursor:pointer; box-shadow:0 4px 12px rgba(225,29,72,0.3);">' +
-            '      🔁 Bắt Đầu Vòng Gõ Lại ' + wrongCount + ' ' + modeLabel + ' Sai Ngay' +
-            '    </button>' +
+            '      🔁 Bắt Đầu Vòng Gõ Lại ' + needsReviewCount + ' ' + modeLabel + ' Cần Ôn Ngay' +
+            '    </button>' : '') +
             '    <button type="button" id="btnRestartRound" style="background:#0284c7; color:#ffffff; font-weight:700; font-size:0.92rem; padding:10px 18px; border-radius:10px; border:none; cursor:pointer;">' +
             '      🔄 Luyện Lại Toàn Bộ Vòng Này Từ Đầu' +
             '    </button>' +
@@ -1232,10 +1331,13 @@
 
         document.body.appendChild(div);
 
-        document.getElementById('btnGoToWrong').onclick = function () {
-            div.remove();
-            switchTypingLesson('wrong');
-        };
+        var btnGo = document.getElementById('btnGoToWrong');
+        if (btnGo) {
+            btnGo.onclick = function () {
+                div.remove();
+                switchTypingLesson('wrong');
+            };
+        }
         document.getElementById('btnRestartRound').onclick = function () {
             div.remove();
             var bucket = getActiveBucketKey();
@@ -1253,6 +1355,7 @@
     }
 
     function skipTypingWord() {
+        clearAutoAdvanceTimer();
         var pool = getFilteredTypingPool();
         if (!pool.length) return;
         var bucket = getActiveBucketKey();
@@ -1265,7 +1368,7 @@
             if (cur >= pool.length - 1) {
                 var stillWrong = pool.filter(function (x) {
                     var h = window.tpState.history[x.id];
-                    return h && h.status === 'err';
+                    return h && (h.status === 'err' || h.status === 'reveal');
                 });
                 if (stillWrong.length === 0) {
                     window.tpState.wrongQueue = [];
@@ -1294,9 +1397,12 @@
                     var h = window.tpState.history[x.id];
                     return h && (h.status === 'err' || h.status === 'reveal');
                 }).length;
+                var answeredCount = pool.filter(function (x) {
+                    return window.tpState.history[x.id];
+                }).length;
 
-                if (wrongCount > 0) {
-                    showRoundSummaryModal(pool.length, wrongCount);
+                if (wrongCount > 0 || answeredCount > 0) {
+                    showRoundSummaryModal(pool, wrongCount);
                     return;
                 }
             }
@@ -1309,6 +1415,7 @@
     }
 
     function resetCurrentTypingMode() {
+        clearAutoAdvanceTimer();
         var label = window.tpState.mode === 'sentence' ? 'Câu Tiếng Việt ➔ Hiragana' : (window.tpState.mode === 'kanji' ? 'Chữ Hán ➔ Hiragana' : 'Từ Vựng A2');
         if (!window.confirm('Đặt lại tiến độ luyện gõ chế độ "' + label + '"?')) return;
         getModeItems(window.tpState.mode).forEach(function (it) {
@@ -1340,7 +1447,7 @@
                     e.preventDefault();
                     retryCurrentTypingCard();
                 }
-            } else if ((e.key === 'Tab' || (e.altKey && e.key.toLowerCase() === 's')) && !e.shiftKey) {
+            } else if (e.altKey && (e.key.toLowerCase() === 's' || e.key.toLowerCase() === 'n')) {
                 e.preventDefault();
                 skipOrPassCurrentTypingWord();
             } else if (e.altKey && e.key.toLowerCase() === 'h') {

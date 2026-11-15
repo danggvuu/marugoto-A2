@@ -11,11 +11,10 @@
 
     // 1. DỮ LIỆU CÁC MỤC ĐIỀU HƯỚNG THEO NHÓM
     const ALL_VERB_FORMS = [
-        { file: 'index.html', title: '🌸 Thể TE (～て)', desc: 'Cẩm nang & Bảng luyện tập chia thể TE (56 từ)', tag: 'Cốt lõi' },
+        { file: 'Luyen_Tap_The_Te_A2_1.html', title: '🌸 Thể TE (～て)', desc: 'Cẩm nang & Bảng luyện tập chia thể TE (56 từ)', isTestFile: true, tag: 'Cốt lõi' },
         { file: 'the_ru.html', title: '📘 Thể RU (Từ Điển)', desc: 'Thể nguyên mẫu Từ điển & Quy tắc chia Jisho', tag: 'Jisho' },
         { file: 'the_ta.html', title: '📕 Thể TA (Quá Khứ)', desc: 'Thể quá khứ ngắn Ta-kei & Mẫu câu kinh nghiệm', tag: 'Ta-kei' },
         { file: 'the_nai.html', title: '📗 Thể NAI (Phủ Định)', desc: 'Thể phủ định ngắn Nai-kei & Mẫu câu khuyên cấm', tag: 'Nai-kei' },
-        { file: 'Luyen_Tap_The_Te_A2_1.html', title: '⚡ Đấu Trường Luyện Thể TE', desc: 'Mini test phản xạ chia thể TE tốc độ cao', isTestFile: true, tag: 'Đấu trường' },
         { file: 'Tong_Hop_Ngu_Phap_Marugoto_A1_A2.html#tabVerbLabView', title: '🧪 Verb Lab: Thí Nghiệm Động Từ', desc: 'Mô phỏng biến đổi đuôi động từ trực quan tương tác', tag: 'Tương tác' }
     ];
 
@@ -40,6 +39,7 @@
     ];
 
     const ALL_TESTS = [
+        { file: 'De_Thi_Tong_Hop_JLPT_A2_11_18.html', title: '🎯 Tổng Ôn Tập & Đề Thi Thử Bài 11 - 18 (Đề Gốc PDF & 5 Mã Đề)', desc: 'Chuẩn 100% De_on_tap_JLPT_A2_Bai_11-18.pdf + 5 mã đề thực chiến 71 câu', tag: 'Đề 11-18' },
         { file: 'De_Thi_Midterm_A2_1.html', title: '🎯 Bộ 5 Đề Thi Giữa Kỳ Midterm (M101 - M105)', desc: 'Bộ 5 đề thi chuẩn điểm 100 có tính giờ & chấm điểm', tag: 'Midterm' },
         { file: 'On_Tap_Mini_Test_A2_15_18.html', title: '🎯 Ôn Tập Bài 15-18 (Bộ 5 Mã Đề)', desc: 'Khảo sát năng lực chuyên sâu 4 bài cuối kỳ A2-1', tag: 'Đề 15-18' },
         { file: 'On_Tap_Mini_Test_A2_11_14.html', title: '🎯 Ôn Tập Bài 11-14 (Mini Test)', desc: '6 dạng bài thực chiến: Trắc nghiệm, xếp câu, nối cột', tag: 'Đề 11-14' },
@@ -87,7 +87,7 @@
     if (!currentFileName || currentFileName.trim() === '') currentFileName = 'index.html';
     currentFileName = currentFileName.split('#')[0].split('?')[0];
 
-    // 3. ĐẢM BẢO CSS SITE-THEME & CHECKPOINT SYNC & NAV STYLES ĐƯỢC NẠP
+    // 3. ĐẢM BẢO CSS SITE-THEME & NAV.CSS & CHECKPOINT SYNC ĐƯỢC NẠP
     (function injectStyles() {
         // Nạp site-theme.css nếu chưa có
         const existingLink = document.querySelector('link[href*="site-theme.css"]');
@@ -98,480 +98,27 @@
             document.head.appendChild(link);
         }
 
+        // Nạp nav.css chuyên dụng
+        const existingNavCss = document.querySelector('link[href*="nav.css"]');
+        if (!existingNavCss) {
+            const navLink = document.createElement('link');
+            navLink.rel = 'stylesheet';
+            navLink.href = rootPrefix + 'assets/css/nav.css?v=2';
+            document.head.appendChild(navLink);
+        }
+
         // Nạp checkpoint-sync.js nếu chưa có
         if (!window.__MARUGOTO_CHECKPOINT_LOADED__ && !document.querySelector('script[src*="checkpoint-sync.js"]')) {
             const cpScript = document.createElement('script');
-            cpScript.src = rootPrefix + 'assets/js/checkpoint-sync.js?v=1';
+            cpScript.src = rootPrefix + 'assets/js/checkpoint-sync.js?v=2';
             cpScript.defer = true;
             document.head.appendChild(cpScript);
-        }
-
-        // Nạp dedicated style cho navbar capsule glassmorphic (chống bị đè bởi legacy page css)
-        if (!document.getElementById('mrg-global-nav-styles')) {
-            const style = document.createElement('style');
-            style.id = 'mrg-global-nav-styles';
-            style.textContent = `
-                /* ==========================================================
-                   MRG GLOBAL NAVBAR CAPSULE & DROPDOWN DESIGN SYSTEM
-                   ========================================================== */
-                html body #navbar-placeholder {
-                    position: sticky !important;
-                    top: 10px !important;
-                    z-index: 999999 !important;
-                    display: block !important;
-                }
-
-                html body .global-hub-nav-wrapper {
-                    position: sticky !important;
-                    top: 10px !important;
-                    z-index: 999999 !important;
-                    width: 100% !important;
-                    max-width: 1200px !important;
-                    margin: 0 auto 20px auto !important;
-                    padding: 0 12px !important;
-                    box-sizing: border-box !important;
-                    pointer-events: none !important;
-                    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
-                }
-
-                html body .global-hub-nav {
-                    pointer-events: auto !important;
-                    display: flex !important;
-                    align-items: center !important;
-                    justify-content: center !important;
-                    flex-wrap: nowrap !important;
-                    gap: 6px !important;
-                    background: rgba(255, 255, 255, 0.86) !important;
-                    backdrop-filter: blur(20px) saturate(180%) !important;
-                    -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
-                    border: 1px solid rgba(226, 232, 240, 0.9) !important;
-                    border-radius: 9999px !important;
-                    padding: 6px 10px !important;
-                    box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.08),
-                                0 4px 12px -2px rgba(15, 23, 42, 0.04),
-                                inset 0 1px 0 rgba(255, 255, 255, 0.95) !important;
-                    position: relative !important;
-                    margin: 0 auto !important;
-                    width: fit-content !important;
-                    max-width: 100% !important;
-                    box-sizing: border-box !important;
-                    overflow: visible !important;
-                }
-
-                html body .hub-nav-item {
-                    display: inline-flex !important;
-                    align-items: center !important;
-                    justify-content: center !important;
-                    gap: 5px !important;
-                    padding: 8px 14px !important;
-                    min-height: 38px !important;
-                    border-radius: 9999px !important;
-                    background: transparent !important;
-                    color: #334155 !important;
-                    font-size: 0.86rem !important;
-                    font-weight: 700 !important;
-                    line-height: 1.4 !important;
-                    text-decoration: none !important;
-                    border: 1px solid transparent !important;
-                    box-shadow: none !important;
-                    cursor: pointer !important;
-                    font-family: inherit !important;
-                    white-space: nowrap !important;
-                    flex-shrink: 0 !important;
-                    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
-                    -webkit-tap-highlight-color: transparent !important;
-                    user-select: none !important;
-                    outline: none !important;
-                }
-
-                html body .hub-nav-item:hover {
-                    background: rgba(241, 245, 249, 0.9) !important;
-                    color: #e11d48 !important;
-                    border-color: rgba(225, 29, 72, 0.2) !important;
-                    transform: translateY(-1.5px) !important;
-                    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06) !important;
-                }
-
-                html body .hub-nav-item:active {
-                    transform: translateY(0.5px) scale(0.98) !important;
-                    transition-duration: 0.08s !important;
-                }
-
-                html body .hub-nav-item:focus-visible {
-                    box-shadow: 0 0 0 3px rgba(225, 29, 72, 0.3) !important;
-                }
-
-                html body .hub-nav-item.active-hub {
-                    background: linear-gradient(135deg, #e11d48 0%, #be123c 100%) !important;
-                    color: #ffffff !important;
-                    border-color: rgba(225, 29, 72, 0.85) !important;
-                    box-shadow: 0 4px 16px rgba(225, 29, 72, 0.38),
-                                inset 0 1px 0 rgba(255, 255, 255, 0.25) !important;
-                    font-weight: 800 !important;
-                }
-
-                html body .hub-nav-item.active-hub:hover {
-                    background: linear-gradient(135deg, #f43f5e 0%, #e11d48 100%) !important;
-                    color: #ffffff !important;
-                    transform: translateY(-1px) !important;
-                    box-shadow: 0 6px 20px rgba(225, 29, 72, 0.45) !important;
-                }
-
-                html body .hub-chevron {
-                    display: inline-block !important;
-                    font-size: 0.68rem !important;
-                    margin-left: 2px !important;
-                    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
-                    opacity: 0.75 !important;
-                }
-
-                html body .hub-nav-item.active-hub .hub-chevron {
-                    opacity: 0.95 !important;
-                }
-
-                html body .hub-nav-item[aria-expanded="true"] .hub-chevron {
-                    transform: rotate(180deg) !important;
-                }
-
-                /* --- Dropdown Menus (Desktop Floating Card) --- */
-                html body .hub-dropdown-menu {
-                    display: none;
-                    position: absolute !important;
-                    background: rgba(255, 255, 255, 0.97) !important;
-                    backdrop-filter: blur(24px) saturate(180%) !important;
-                    -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
-                    border: 1px solid rgba(226, 232, 240, 0.9) !important;
-                    border-radius: 20px !important;
-                    box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.16),
-                                0 8px 18px -4px rgba(15, 23, 42, 0.06),
-                                inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
-                    padding: 12px !important;
-                    min-width: 330px !important;
-                    max-width: 480px !important;
-                    max-height: 520px !important;
-                    overflow-y: auto !important;
-                    scrollbar-width: thin !important;
-                    scrollbar-color: #cbd5e1 transparent !important;
-                    z-index: 1000000 !important;
-                    pointer-events: auto !important;
-                    box-sizing: border-box !important;
-                }
-
-                html body .hub-dropdown-menu.menu-wide {
-                    min-width: 580px !important;
-                    max-width: 680px !important;
-                }
-
-                html body .hub-dropdown-menu.show {
-                    display: block !important;
-                    animation: hubDropDesktopIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) !important;
-                }
-
-                @keyframes hubDropDesktopIn {
-                    from {
-                        opacity: 0;
-                        transform: translate(-50%, -10px) scale(0.97);
-                    }
-                    to {
-                        opacity: 1;
-                        transform: translate(-50%, 0) scale(1);
-                    }
-                }
-
-                html body .hub-sheet-handle {
-                    display: none !important;
-                }
-
-                html body .hub-drop-header {
-                    display: flex !important;
-                    align-items: center !important;
-                    justify-content: space-between !important;
-                    padding: 8px 10px 10px 10px !important;
-                    margin-bottom: 6px !important;
-                    border-bottom: 1px solid #f1f5f9 !important;
-                }
-
-                html body .hub-drop-header-left {
-                    display: flex !important;
-                    flex-direction: column !important;
-                    gap: 2px !important;
-                    text-align: left !important;
-                }
-
-                html body .hub-drop-title {
-                    font-size: 0.95rem !important;
-                    font-weight: 800 !important;
-                    color: #0f172a !important;
-                    letter-spacing: -0.2px !important;
-                }
-
-                html body .hub-drop-subtitle {
-                    font-size: 0.74rem !important;
-                    font-weight: 500 !important;
-                    color: #64748b !important;
-                }
-
-                html body .hub-drop-close {
-                    display: none !important;
-                    width: 32px !important;
-                    height: 32px !important;
-                    border-radius: 50% !important;
-                    border: 1px solid #e2e8f0 !important;
-                    background: #f8fafc !important;
-                    color: #475569 !important;
-                    font-size: 1rem !important;
-                    cursor: pointer !important;
-                    align-items: center !important;
-                    justify-content: center !important;
-                    transition: all 0.15s ease !important;
-                }
-
-                html body .hub-drop-close:hover {
-                    background: #e2e8f0 !important;
-                    color: #0f172a !important;
-                }
-
-                html body .hub-drop-body {
-                    display: flex !important;
-                    flex-direction: column !important;
-                    gap: 5px !important;
-                }
-
-                html body .hub-drop-grid-2col {
-                    display: grid !important;
-                    grid-template-columns: repeat(2, 1fr) !important;
-                    gap: 6px !important;
-                }
-
-                html body .hub-drop-link {
-                    display: flex !important;
-                    align-items: center !important;
-                    justify-content: space-between !important;
-                    padding: 9px 12px !important;
-                    color: #1e293b !important;
-                    font-size: 0.86rem !important;
-                    font-weight: 600 !important;
-                    line-height: 1.35 !important;
-                    text-decoration: none !important;
-                    border-radius: 12px !important;
-                    border: 1px solid transparent !important;
-                    background: transparent !important;
-                    transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1) !important;
-                    gap: 12px !important;
-                    box-sizing: border-box !important;
-                }
-
-                html body .hub-drop-link:hover {
-                    background: #fff1f2 !important;
-                    color: #e11d48 !important;
-                    border-color: rgba(225, 29, 72, 0.15) !important;
-                    transform: translateX(3px) !important;
-                }
-
-                html body .hub-drop-link.active {
-                    background: linear-gradient(135deg, #e11d48 0%, #be123c 100%) !important;
-                    color: #ffffff !important;
-                    box-shadow: 0 4px 14px rgba(225, 29, 72, 0.28) !important;
-                }
-
-                html body .hub-drop-info {
-                    display: flex !important;
-                    flex-direction: column !important;
-                    gap: 2px !important;
-                    text-align: left !important;
-                    flex: 1 !important;
-                }
-
-                html body .hub-drop-text {
-                    font-weight: 750 !important;
-                    color: inherit !important;
-                    font-size: 0.88rem !important;
-                }
-
-                html body .hub-drop-desc {
-                    font-size: 0.74rem !important;
-                    font-weight: 500 !important;
-                    color: #64748b !important;
-                    line-height: 1.3 !important;
-                }
-
-                html body .hub-drop-link:hover .hub-drop-desc {
-                    color: #be123c !important;
-                    opacity: 0.9 !important;
-                }
-
-                html body .hub-drop-link.active .hub-drop-desc {
-                    color: rgba(255, 255, 255, 0.88) !important;
-                }
-
-                html body .hub-drop-tag {
-                    font-size: 0.7rem !important;
-                    font-weight: 750 !important;
-                    padding: 3px 8px !important;
-                    border-radius: 9999px !important;
-                    background: #f1f5f9 !important;
-                    color: #475569 !important;
-                    white-space: nowrap !important;
-                    flex-shrink: 0 !important;
-                }
-
-                html body .hub-drop-link:hover .hub-drop-tag {
-                    background: rgba(225, 29, 72, 0.12) !important;
-                    color: #be123c !important;
-                }
-
-                html body .hub-drop-link.active .hub-drop-tag {
-                    background: rgba(255, 255, 255, 0.25) !important;
-                    color: #ffffff !important;
-                }
-
-                html body .hub-backdrop {
-                    display: none;
-                    position: fixed !important;
-                    top: 0 !important;
-                    left: 0 !important;
-                    right: 0 !important;
-                    bottom: 0 !important;
-                    width: 100vw !important;
-                    height: 100vh !important;
-                    background: rgba(15, 23, 42, 0.5) !important;
-                    backdrop-filter: blur(6px) !important;
-                    -webkit-backdrop-filter: blur(6px) !important;
-                    z-index: 999998 !important;
-                    opacity: 0;
-                    transition: opacity 0.25s ease !important;
-                    pointer-events: auto !important;
-                }
-
-                html body .hub-backdrop.show {
-                    display: block !important;
-                    opacity: 1 !important;
-                }
-
-                /* --- Mobile Responsiveness (< 768px) --- */
-                @media (max-width: 768px) {
-                    html body .global-hub-nav-wrapper {
-                        top: 6px !important;
-                        margin-bottom: 14px !important;
-                        padding: 0 8px !important;
-                    }
-
-                    html body .global-hub-nav {
-                        width: 100% !important;
-                        display: flex !important;
-                        flex-wrap: nowrap !important;
-                        overflow-x: auto !important;
-                        white-space: nowrap !important;
-                        padding: 6px 8px !important;
-                        -webkit-overflow-scrolling: touch !important;
-                        scrollbar-width: none !important;
-                        gap: 5px !important;
-                        border-radius: 9999px !important;
-                        justify-content: flex-start !important;
-                    }
-
-                    html body .global-hub-nav::-webkit-scrollbar {
-                        display: none !important;
-                    }
-
-                    html body .hub-nav-item {
-                        padding: 7px 12px !important;
-                        font-size: 0.82rem !important;
-                        min-height: 36px !important;
-                        line-height: 1.4 !important;
-                        border-radius: 9999px !important;
-                    }
-
-                    html body .hub-dropdown-menu {
-                        position: fixed !important;
-                        bottom: 0 !important;
-                        left: 0 !important;
-                        right: 0 !important;
-                        top: auto !important;
-                        transform: translateY(100%) !important;
-                        max-height: 82vh !important;
-                        width: 100% !important;
-                        max-width: 100% !important;
-                        border-radius: 24px 24px 0 0 !important;
-                        box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.35) !important;
-                        background: #ffffff !important;
-                        border: none !important;
-                        border-top: 1px solid #e2e8f0 !important;
-                        z-index: 9999999 !important;
-                        display: flex !important;
-                        flex-direction: column !important;
-                        padding: 0 0 max(16px, env(safe-area-inset-bottom)) 0 !important;
-                        transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1) !important;
-                        visibility: hidden !important;
-                        animation: none !important;
-                        overscroll-behavior: contain !important;
-                    }
-
-                    html body .hub-dropdown-menu.menu-wide {
-                        min-width: 100% !important;
-                        max-width: 100% !important;
-                    }
-
-                    html body .hub-dropdown-menu.show {
-                        transform: translateY(0) !important;
-                        visibility: visible !important;
-                    }
-
-                    html body .hub-sheet-handle {
-                        display: block !important;
-                        width: 40px !important;
-                        height: 5px !important;
-                        border-radius: 9999px !important;
-                        background: #cbd5e1 !important;
-                        margin: 10px auto 4px auto !important;
-                        flex-shrink: 0 !important;
-                    }
-
-                    html body .hub-drop-header {
-                        display: flex !important;
-                        align-items: center !important;
-                        justify-content: space-between !important;
-                        padding: 12px 18px !important;
-                        border-bottom: 1px solid #f1f5f9 !important;
-                        position: sticky !important;
-                        top: 0 !important;
-                        background: #ffffff !important;
-                        z-index: 10 !important;
-                        border-radius: 24px 24px 0 0 !important;
-                    }
-
-                    html body .hub-drop-close {
-                        display: flex !important;
-                    }
-
-                    html body .hub-drop-body {
-                        padding: 10px 14px !important;
-                        overflow-y: auto !important;
-                        -webkit-overflow-scrolling: touch !important;
-                        gap: 6px !important;
-                    }
-
-                    html body .hub-drop-grid-2col {
-                        grid-template-columns: 1fr !important;
-                    }
-
-                    html body .hub-drop-link {
-                        padding: 11px 14px !important;
-                        border-radius: 14px !important;
-                        background: #f8fafc !important;
-                    }
-
-                    html body .hub-drop-link:active {
-                        transform: scale(0.98) !important;
-                    }
-                }
-            `;
-            document.head.appendChild(style);
         }
     })();
 
     // 4. TÍNH TOÁN TRẠNG THÁI ACTIVE
-    const isFormsActive = (!isLessons && !isTests && ['index.html', '', 'the_ru.html', 'the_ta.html', 'the_nai.html'].includes(currentFileName)) ||
+    const isHomeActive = (!isLessons && !isTests && (currentFileName === '' || currentFileName === 'index.html'));
+    const isFormsActive = (!isLessons && !isTests && ['the_ru.html', 'the_ta.html', 'the_nai.html'].includes(currentFileName)) ||
                           (isTests && currentFileName === 'Luyen_Tap_The_Te_A2_1.html');
     const isKanjiActive = (!isLessons && !isTests && currentFileName === 'kanji_a2.html');
     const isVocabActive = (!isLessons && !isTests && currentFileName === 'Tu_Vung_Marugoto_A1_16_A2_1_10.html');
@@ -640,6 +187,11 @@
     const navbarHtml = `
     <div class="global-hub-nav-wrapper">
         <nav class="global-hub-nav" aria-label="Thanh điều hướng chính Marugoto">
+            <!-- 0. Trang Chủ Pill -->
+            <a href="${rootPrefix}index.html" id="hubBtnHome" class="hub-nav-item${isHomeActive ? ' active-hub' : ''}" title="Trang chủ học tập Marugoto">
+                <span>🏠 Trang Chủ</span>
+            </a>
+
             <!-- 1. Động Từ Dropdown -->
             <button type="button" id="hubBtnForms" class="hub-nav-item${isFormsActive ? ' active-hub' : ''}" onclick="window.toggleFormsDropdown(event)" aria-haspopup="dialog" aria-expanded="false" aria-controls="formsDropdownMenu">
                 <span>🎴 Động Từ</span><span class="hub-chevron">▾</span>
@@ -816,7 +368,9 @@
         'hubBtnLessons'
     ];
 
-    function closeAllHubDropdowns() {
+    let lastFocusedBtn = null;
+
+    function closeAllHubDropdowns(restoreFocus = true) {
         ALL_MENU_IDS.forEach(id => {
             const m = document.getElementById(id);
             if (m) m.classList.remove('show');
@@ -829,6 +383,10 @@
         if (bd) bd.classList.remove('show');
         document.body.classList.remove('hub-menu-open');
         document.body.style.overflow = '';
+        if (restoreFocus && lastFocusedBtn && typeof lastFocusedBtn.focus === 'function') {
+            try { lastFocusedBtn.focus(); } catch (err) {}
+            lastFocusedBtn = null;
+        }
     }
 
     function toggleHubDropdown(menuId, btnId, e) {
@@ -859,6 +417,7 @@
         });
 
         if (willOpen) {
+            lastFocusedBtn = btn;
             positionDesktopMenu(btn, menu);
             menu.classList.add('show');
             if (btn) btn.setAttribute('aria-expanded', 'true');
@@ -867,12 +426,12 @@
                 document.body.classList.add('hub-menu-open');
                 document.body.style.overflow = 'hidden';
             }
+            const firstFocusable = menu.querySelector('.hub-drop-close, .hub-drop-link');
+            if (firstFocusable && typeof firstFocusable.focus === 'function') {
+                setTimeout(() => { try { firstFocusable.focus(); } catch(err){} }, 50);
+            }
         } else {
-            menu.classList.remove('show');
-            if (btn) btn.setAttribute('aria-expanded', 'false');
-            if (bd) bd.classList.remove('show');
-            document.body.classList.remove('hub-menu-open');
-            document.body.style.overflow = '';
+            closeAllHubDropdowns(true);
         }
     }
 
@@ -895,10 +454,26 @@
         closeAllHubDropdowns();
     });
 
-    // Đóng khi nhấn phím Escape
+    // Đóng khi nhấn phím Escape và bẫy focus (Trap Focus) cho Modal
     document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') {
-            closeAllHubDropdowns();
+            closeAllHubDropdowns(true);
+            return;
+        }
+        if (e.key === 'Tab') {
+            const openMenu = document.querySelector('.hub-dropdown-menu.show');
+            if (!openMenu) return;
+            const focusables = Array.from(openMenu.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])')).filter(el => !el.disabled && el.offsetParent !== null);
+            if (!focusables.length) return;
+            const first = focusables[0];
+            const last = focusables[focusables.length - 1];
+            if (e.shiftKey && document.activeElement === first) {
+                e.preventDefault();
+                last.focus();
+            } else if (!e.shiftKey && document.activeElement === last) {
+                e.preventDefault();
+                first.focus();
+            }
         }
     });
 

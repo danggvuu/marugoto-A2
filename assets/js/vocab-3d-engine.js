@@ -1132,7 +1132,26 @@ universalPrism: (word) => {
 
         // Render Loop
         let clock = new THREE.Clock();
+        let isLoopRunning = false;
+
+        function startAnimateLoop() {
+            if (isLoopRunning) return;
+            isLoopRunning = true;
+            clock.start();
+            animate();
+        }
+
+        function stopAnimateLoop() {
+            isLoopRunning = false;
+            if (animFrameId) {
+                cancelAnimationFrame(animFrameId);
+                animFrameId = null;
+            }
+            clock.stop();
+        }
+
         function animate() {
+            if (!isLoopRunning) return;
             animFrameId = requestAnimationFrame(animate);
             const delta = clock.getDelta();
             const time = clock.getElapsedTime();
@@ -1155,7 +1174,17 @@ universalPrism: (word) => {
 
             renderer.render(scene, camera);
         }
-        animate();
+
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                stopAnimateLoop();
+            } else {
+                const modal = document.getElementById('vocab3DModal');
+                if (modal && modal.classList.contains('show')) {
+                    startAnimateLoop();
+                }
+            }
+        });
 
         // Responsive Resize
         window.addEventListener('resize', () => {
@@ -1171,14 +1200,37 @@ universalPrism: (word) => {
         isInitialized = true;
     }
 
+    function disposeHierarchy(obj) {
+        if (!obj) return;
+        obj.traverse((child) => {
+            if (child.geometry) {
+                try { child.geometry.dispose(); } catch (e) {}
+            }
+            if (child.material) {
+                try {
+                    if (Array.isArray(child.material)) {
+                        child.material.forEach(m => {
+                            if (m.map) m.map.dispose();
+                            m.dispose();
+                        });
+                    } else {
+                        if (child.material.map) child.material.map.dispose();
+                        child.material.dispose();
+                    }
+                } catch (e) {}
+            }
+        });
+    }
+
     // Load active 3D model in studio
     function displayVocabIn3D(v, index) {
         if (!scene) return;
         currentVocabIndex = index;
 
-        // Clear previous 3D model
+        // Clear previous 3D model and dispose resources
         if (currentModelGroup) {
             scene.remove(currentModelGroup);
+            disposeHierarchy(currentModelGroup);
             currentModelGroup = null;
         }
 
@@ -1225,6 +1277,10 @@ universalPrism: (word) => {
             document.body.style.overflow = 'hidden';
         }
 
+        if (typeof startAnimateLoop === 'function') {
+            startAnimateLoop();
+        }
+
         // Trigger resize calculation
         setTimeout(() => {
             const container = document.getElementById('v3dViewport');
@@ -1243,6 +1299,9 @@ universalPrism: (word) => {
         const modal = document.getElementById('vocab3DModal');
         if (modal) modal.classList.remove('show');
         document.body.style.overflow = '';
+        if (typeof stopAnimateLoop === 'function') {
+            stopAnimateLoop();
+        }
     };
 
     window.prev3DVocab = function () {

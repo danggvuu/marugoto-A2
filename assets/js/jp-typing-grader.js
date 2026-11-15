@@ -49,7 +49,7 @@
     function toHiragana(str) {
         if (!str) return '';
         var out = '';
-        var s = String(str);
+        var s = String(str).normalize('NFKC');
         for (var i = 0; i < s.length; i++) {
             var code = s.charCodeAt(i);
             if (code >= 0x30A1 && code <= 0x30F6) {
@@ -64,12 +64,13 @@
     }
 
     function containsKanji(str) {
-        return KANJI_RE.test(str || '');
+        return KANJI_RE.test(String(str || '').normalize('NFKC'));
     }
 
     function cleanCompare(str, convertKata) {
         if (!str) return '';
-        var base = convertKata ? toHiragana(str) : String(str).toLowerCase();
+        var normalized = String(str).normalize('NFKC');
+        var base = convertKata ? toHiragana(normalized) : normalized.toLowerCase();
         return base.trim().replace(PUNCT_RE, '');
     }
 

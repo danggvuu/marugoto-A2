@@ -290,7 +290,8 @@ function handleInputDialogue(qId, speaker, val) {
 // 6. Intelligent Fair Grading Algorithm
 function normalizeJp(s) {
     if (!s) return "";
-    return s
+    return String(s)
+        .normalize('NFKC')
         .toLowerCase()
         .replace(/[\s、。,.?!！？「」『』〜~・（）\(\)]/g, "")
         .replace(/[A-Za-z]/g, ch => ch.toLowerCase());
@@ -299,20 +300,27 @@ function normalizeJp(s) {
 // Helper: Match text against target with に/へ particle tolerance and minor variation tolerance
 function isTextFuzzyMatch(userNorm, targetNorm) {
     if (!userNorm || !targetNorm) return false;
-    if (userNorm === targetNorm || userNorm.includes(targetNorm) || targetNorm.includes(userNorm)) return true;
+    // So khớp chính xác toàn câu hoặc user có thêm trợ từ/từ đệm nhỏ ở đầu/cuối
+    if (userNorm === targetNorm) return true;
+    if (userNorm.includes(targetNorm) && userNorm.length <= targetNorm.length + 3) return true;
+
     // Trợ từ chuyển động: に <-> へ tương đương hoàn toàn
     const userAlt = userNorm.replace(/へ/g, 'に');
     const targetAlt = targetNorm.replace(/へ/g, 'に');
-    if (userAlt === targetAlt || userAlt.includes(targetAlt) || targetAlt.includes(userAlt)) return true;
+    if (userAlt === targetAlt) return true;
+    if (userAlt.includes(targetAlt) && userAlt.length <= targetAlt.length + 3) return true;
+
     // ですが <-> んですが tương đương
     const userDesu = userAlt.replace(/んですが/g, 'ですが');
     const targetDesu = targetAlt.replace(/んですが/g, 'ですが');
-    if (userDesu === targetDesu || userDesu.includes(targetDesu) || targetDesu.includes(userDesu)) return true;
+    if (userDesu === targetDesu) return true;
+    if (userDesu.includes(targetDesu) && userDesu.length <= targetDesu.length + 3) return true;
+
     // Dung sai gõ phím: linh hoạt âm ghép (ゅ, ょ, ゃ) và trường âm ー
     const stripSmall = s => s.replace(/[ゅょゃュー]/g, '');
     const uSmall = stripSmall(userDesu);
     const tSmall = stripSmall(targetDesu);
-    if (uSmall === tSmall || uSmall.includes(tSmall) || tSmall.includes(uSmall)) return true;
+    if (uSmall.length >= 3 && (uSmall === tSmall || (uSmall.includes(tSmall) && uSmall.length <= tSmall.length + 3))) return true;
     return false;
 }
 
@@ -325,7 +333,7 @@ function evaluateAnswer(q, userState) {
         const normA = normalizeJp(rawA);
         const normB = normalizeJp(rawB);
 
-        if (!rawA.trim() && !rawB.trim()) {
+        if (!normA || !normB || normA.length < 2 || normB.length < 2) {
             return 0;
         }
 
@@ -339,50 +347,52 @@ function evaluateAnswer(q, userState) {
             return 100;
         }
 
-        // Keyword count for A with Kanji & Hiragana support + に/へ particle tolerance
+        // Keyword count for A with Kanji & Hiragana support
         const kwA = q.keywordsA || [];
         const kwHiraA = q.keywordsHiraA || [];
-        let matchA = matchAccA ? kwA.length : 0;
-        if (!matchAccA) {
-            for (let i = 0; i < kwA.length; i++) {
-                const k1 = normalizeJp(kwA[i]);
-                const k2 = kwHiraA[i] ? normalizeJp(kwHiraA[i]) : "";
-                if (isTextFuzzyMatch(normA, k1) || (k2 && isTextFuzzyMatch(normA, k2))) {
-                    matchA++;
-                }
+        let matchA = 0;
+        for (let i = 0; i < kwA.length; i++) {
+            const k1 = normalizeJp(kwA[i]);
+            const k2 = kwHiraA[i] ? normalizeJp(kwHiraA[i]) : "";
+            if ((k1 && normA.includes(k1)) || (k2 && normA.includes(k2))) {
+                matchA++;
             }
         }
 
-        // Keyword count for B with Kanji & Hiragana support + に/へ particle tolerance
+        // Keyword count for B with Kanji & Hiragana support
         const kwB = q.keywordsB || [];
         const kwHiraB = q.keywordsHiraB || [];
-        let matchB = matchAccB ? kwB.length : 0;
-        if (!matchAccB) {
-            for (let i = 0; i < kwB.length; i++) {
-                const k1 = normalizeJp(kwB[i]);
-                const k2 = kwHiraB[i] ? normalizeJp(kwHiraB[i]) : "";
-                if (isTextFuzzyMatch(normB, k1) || (k2 && isTextFuzzyMatch(normB, k2))) {
-                    matchB++;
-                }
+        let matchB = 0;
+        for (let i = 0; i < kwB.length; i++) {
+            const k1 = normalizeJp(kwB[i]);
+            const k2 = kwHiraB[i] ? normalizeJp(kwHiraB[i]) : "";
+            if ((k1 && normB.includes(k1)) || (k2 && normB.includes(k2))) {
+                matchB++;
             }
         }
 
-        const ratioA = kwA.length > 0 ? (matchA / kwA.length) : (normA.length > 3 ? 1 : 0);
-        const ratioB = kwB.length > 0 ? (matchB / kwB.length) : (normB.length > 3 ? 1 : 0);
+        const ratioA = matchAccA ? 1.0 : (kwA.length > 0 ? (matchA / kwA.length) : (normA.length > 3 ? 0.5 : 0));
+        const ratioB = matchAccB ? 1.0 : (kwB.length > 0 ? (matchB / kwB.length) : (normB.length > 3 ? 0.5 : 0));
         const totalRatio = (ratioA + ratioB) / 2;
 
-        if (totalRatio >= 0.70 || (matchAccA && ratioB >= 0.6) || (matchAccB && ratioA >= 0.6)) return 100;
-        if (totalRatio >= 0.50) return 85;
-        if (totalRatio >= 0.35) return 50;
-        return 25;
+        if (totalRatio >= 0.85) return 85;
+        if (totalRatio >= 0.50) return 50;
+        if (totalRatio >= 0.35) return 25;
+        return 0;
     } else {
         const raw = userState.text || "";
         const norm = normalizeJp(raw);
-        if (!raw.trim()) return 0;
+        if (!norm || norm.length < 2) return 0;
 
         // Direct acceptable match with particle equivalence
         if (normAcceptable.some(acc => isTextFuzzyMatch(norm, acc))) {
             return 100;
+        }
+
+        // Yêu cầu độ dài câu tối thiểu để tránh chỉ nhập 1 trợ từ như "は" mà được điểm
+        const targetLen = normAcceptable[0] ? normAcceptable[0].length : 10;
+        if (norm.length < Math.min(5, Math.floor(targetLen * 0.35))) {
+            return 0;
         }
 
         // Keyword matching with Kanji and Hiragana support
@@ -393,16 +403,17 @@ function evaluateAnswer(q, userState) {
         for (let i = 0; i < kws.length; i++) {
             const k1 = normalizeJp(kws[i]);
             const k2 = kwsHira[i] ? normalizeJp(kwsHira[i]) : "";
-            if (isTextFuzzyMatch(norm, k1) || (k2 && isTextFuzzyMatch(norm, k2))) {
+            // Câu của người dùng phải chứa từ khóa
+            if ((k1 && norm.includes(k1)) || (k2 && norm.includes(k2))) {
                 matches++;
             }
         }
 
-        const ratio = kws.length > 0 ? (matches / kws.length) : 1;
-        if (ratio >= 0.75) return 100;
-        if (ratio >= 0.55) return 85;
-        if (ratio >= 0.35) return 50;
-        return 20;
+        const ratio = kws.length > 0 ? (matches / kws.length) : 0;
+        if (ratio >= 0.90 && norm.length >= targetLen * 0.7) return 85;
+        if (ratio >= 0.60) return 50;
+        if (ratio >= 0.40) return 30;
+        return 0;
     }
 }
 

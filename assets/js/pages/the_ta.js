@@ -90,6 +90,19 @@ const verbsData = [
 
 let currentFilter = 'all';
 let showAnswersState = false;
+const userVerbAnswers = {}; // id -> { group: '', ta: '', isGroupCorrect: null, isTaCorrect: null }
+
+function saveCurrentInputs() {
+    verbsData.forEach(item => {
+        const groupSelect = document.getElementById(`group-${item.id}`);
+        const taInput = document.getElementById(`ta-${item.id}`);
+        if (groupSelect && taInput) {
+            if (!userVerbAnswers[item.id]) userVerbAnswers[item.id] = {};
+            userVerbAnswers[item.id].group = groupSelect.value;
+            userVerbAnswers[item.id].ta = taInput.value;
+        }
+    });
+}
 
 function switchTab(tabId) {
     document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.remove('active'));
@@ -102,6 +115,7 @@ function switchTab(tabId) {
 }
 
 function setFilter(filterType, btn) {
+    saveCurrentInputs();
     currentFilter = filterType;
     document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
@@ -109,10 +123,12 @@ function setFilter(filterType, btn) {
 }
 
 function filterVerbs() {
+    saveCurrentInputs();
     renderTable();
 }
 
 function renderTable() {
+    saveCurrentInputs();
     const tbody = document.getElementById('tableBody');
     tbody.innerHTML = '';
     const searchVal = (document.getElementById('searchInput')?.value || '').trim().toLowerCase();
@@ -135,6 +151,13 @@ function renderTable() {
     filtered.forEach((item, index) => {
         const tr = document.createElement('tr');
         tr.id = `row-${item.id}`;
+        const saved = userVerbAnswers[item.id] || { group: '', ta: '', isGroupCorrect: null, isTaCorrect: null };
+        const groupClass = saved.isGroupCorrect === true ? 'is-correct' : (saved.isGroupCorrect === false ? 'is-incorrect' : '');
+        const taClass = saved.isTaCorrect === true ? 'is-correct' : (saved.isTaCorrect === false ? 'is-incorrect' : '');
+        const statusText = (saved.isGroupCorrect !== null && saved.isTaCorrect !== null)
+            ? ((saved.isGroupCorrect && saved.isTaCorrect) ? '✅' : '❌')
+            : '';
+
         tr.innerHTML = `
             <td><strong>${index + 1}</strong></td>
             <td>
@@ -143,19 +166,19 @@ function renderTable() {
                 <span class="verb-vi">${item.kanji ? `${item.kanji} • ` : ''}${item.vi}</span>
             </td>
             <td>
-                <select class="group-select" id="group-${item.id}">
-                    <option value="">Nhóm</option>
-                    <option value="1">Nhóm 1</option>
-                    <option value="2">Nhóm 2</option>
-                    <option value="3">Nhóm 3</option>
+                <select class="group-select ${groupClass}" id="group-${item.id}">
+                    <option value="" ${!saved.group ? 'selected' : ''}>Nhóm</option>
+                    <option value="1" ${saved.group === '1' ? 'selected' : ''}>Nhóm 1</option>
+                    <option value="2" ${saved.group === '2' ? 'selected' : ''}>Nhóm 2</option>
+                    <option value="3" ${saved.group === '3' ? 'selected' : ''}>Nhóm 3</option>
                 </select>
             </td>
             <td>
-                <input type="text" class="text-input" id="ta-${item.id}" placeholder="Chia thể TA...">
-                <div class="answer-hint" id="hint-${item.id}">👉 Đáp án: <strong>${item.ta}</strong> <button type="button" class="fc-speaker-btn" style="margin-left:4px; vertical-align:middle; width:24px; height:24px; font-size:11px;" onclick="speakJapanese('${item.ta}', this)" title="Nghe thể TA">🔊</button> (N${item.group}) ${item.note ? `[${item.note}]` : ''}</div>
+                <input type="text" class="text-input ${taClass}" id="ta-${item.id}" value="${(saved.ta || '').replace(/"/g, '&quot;')}" placeholder="Chia thể TA...">
+                <div class="answer-hint ${showAnswersState ? 'show' : ''}" id="hint-${item.id}">👉 Đáp án: <strong>${item.ta}</strong> <button type="button" class="fc-speaker-btn" style="margin-left:4px; vertical-align:middle; width:24px; height:24px; font-size:11px;" onclick="speakJapanese('${item.ta}', this)" title="Nghe thể TA">🔊</button> (N${item.group}) ${item.note ? `[${item.note}]` : ''}</div>
             </td>
             <td style="text-align: center;">
-                <span id="status-${item.id}" class="status-icon"></span>
+                <span id="status-${item.id}" class="status-icon">${statusText}</span>
             </td>
         `;
         tbody.appendChild(tr);
@@ -168,17 +191,14 @@ function normalizeStr(str) {
 }
 
 function gradeAll() {
+    saveCurrentInputs();
     let correctCount = 0;
     let totalCount = verbsData.length;
 
     verbsData.forEach(item => {
-        const groupSelect = document.getElementById(`group-${item.id}`);
-        const taInput = document.getElementById(`ta-${item.id}`);
-        const statusIcon = document.getElementById(`status-${item.id}`);
-        if (!groupSelect || !taInput) return;
-
-        const userGroup = groupSelect.value;
-        const userTa = normalizeStr(taInput.value);
+        const saved = userVerbAnswers[item.id] || { group: '', ta: '' };
+        const userGroup = saved.group;
+        const userTa = normalizeStr(saved.ta);
 
         const isGroupCorrect = userGroup === item.group;
 
@@ -190,20 +210,35 @@ function gradeAll() {
         const userTaNoSpace = userTa.replace(/\s+/g, '');
         const isTaCorrect = validTaAnswers.some(ans => ans === userTa || ans.replace(/\s+/g, '') === userTaNoSpace);
 
-        if (isGroupCorrect) {
-            groupSelect.classList.remove('is-incorrect');
-            groupSelect.classList.add('is-correct');
-        } else {
-            groupSelect.classList.remove('is-correct');
-            groupSelect.classList.add('is-incorrect');
+        userVerbAnswers[item.id] = {
+            group: userGroup,
+            ta: saved.ta,
+            isGroupCorrect: isGroupCorrect,
+            isTaCorrect: isTaCorrect
+        };
+
+        const groupSelect = document.getElementById(`group-${item.id}`);
+        const taInput = document.getElementById(`ta-${item.id}`);
+        const statusIcon = document.getElementById(`status-${item.id}`);
+
+        if (groupSelect) {
+            if (isGroupCorrect) {
+                groupSelect.classList.remove('is-incorrect');
+                groupSelect.classList.add('is-correct');
+            } else {
+                groupSelect.classList.remove('is-correct');
+                groupSelect.classList.add('is-incorrect');
+            }
         }
 
-        if (isTaCorrect) {
-            taInput.classList.remove('is-incorrect');
-            taInput.classList.add('is-correct');
-        } else {
-            taInput.classList.remove('is-correct');
-            taInput.classList.add('is-incorrect');
+        if (taInput) {
+            if (isTaCorrect) {
+                taInput.classList.remove('is-incorrect');
+                taInput.classList.add('is-correct');
+            } else {
+                taInput.classList.remove('is-correct');
+                taInput.classList.add('is-incorrect');
+            }
         }
 
         if (isGroupCorrect && isTaCorrect) {
@@ -238,6 +273,7 @@ function toggleAnswers() {
 }
 
 function resetExercise() {
+    Object.keys(userVerbAnswers).forEach(k => delete userVerbAnswers[k]);
     verbsData.forEach(item => {
         const groupSelect = document.getElementById(`group-${item.id}`);
         const taInput = document.getElementById(`ta-${item.id}`);
@@ -266,13 +302,17 @@ function resetExercise() {
 // Interactive Verb Lab Transformer Logic
 const IRREGULAR_VERBS = {
     'いく': { group: 1, masu: 'いきます', ru: 'いく', te: 'いって', ta: 'いった', nai: 'いかない', note: '🚨 Ngoại lệ nhóm 1: いく➔いった' },
-    '行きます': { group: 1, masu: 'いきます', ru: 'いく', te: 'いって', ta: 'いった', nai: 'いかない', note: '🚨 Ngoại lệ nhóm 1: 行く➔行った' },
+    '行きます': { group: 1, masu: '行きます', ru: '行く', te: '行って', ta: '行った', nai: '行かない', note: '🚨 Ngoại lệ nhóm 1: 行く➔行った' },
     'いきます': { group: 1, masu: 'いきます', ru: 'いく', te: 'いって', ta: 'いった', nai: 'いかない', note: '🚨 Ngoại lệ nhóm 1: いきます➔いった' },
-    'する': { group: 3, masu: 'します', ru: 'する', te: 'して', ta: 'した', nai: 'しない', note: 'Nhóm 3 bất quy tắc suru' },
-    'します': { group: 3, masu: 'します', ru: 'する', te: 'して', ta: 'した', nai: 'しない', note: 'Nhóm 3 bất quy tắc suru' },
-    'くる': { group: 3, masu: 'きます', ru: 'くる', te: 'きて', ta: 'きた', nai: 'こない', note: 'Nhóm 3 bất quy tắc kuru' },
-    'きます': { group: 3, masu: 'きます', ru: 'くる', te: 'きて', ta: 'きた', nai: 'こない', note: 'Nhóm 3 kuru (hoặc 着る nhóm 2)' },
-    '来ます': { group: 3, masu: 'きます', ru: 'くる', te: 'きて', ta: 'きた', nai: 'こない', note: 'Nhóm 3 来る' }
+    '行く': { group: 1, masu: '行きます', ru: '行く', te: '行って', ta: '行った', nai: '行かない', note: '🚨 Ngoại lệ nhóm 1: 行く➔行った' },
+    'する': { group: 3, masu: 'します', ru: 'する', te: 'して', ta: 'した', nai: 'しない', note: 'Nhóm 3 bất quy tắc (suru)' },
+    'します': { group: 3, masu: 'します', ru: 'する', te: 'して', ta: 'した', nai: 'しない', note: 'Nhóm 3 bất quy tắc (suru)' },
+    'くる': { group: 3, masu: 'きます', ru: 'くる', te: 'きて', ta: 'きた', nai: 'こない', note: 'Nhóm 3 bất quy tắc (kuru)' },
+    'きます': { group: 3, masu: 'きます', ru: 'くる', te: 'きて', ta: 'きた', nai: 'こない', note: 'Nhóm 3 kuru (đến) hoặc 着る (mặc, nhóm 2)' },
+    '来ます': { group: 3, masu: '来ます', ru: '来る', te: '来て', ta: '来た', nai: '来ない', note: 'Nhóm 3 来る' },
+    '来る': { group: 3, masu: '来ます', ru: '来る', te: '来て', ta: '来た', nai: '来ない', note: 'Nhóm 3 来る' },
+    'ある': { group: 1, masu: 'あります', ru: 'ある', te: 'あって', ta: 'あった', nai: 'ない', note: '🚨 Ngoại lệ: nai là ない' },
+    'あります': { group: 1, masu: 'あります', ru: 'ある', te: 'あって', ta: 'あった', nai: 'ない', note: '🚨 Ngoại lệ: nai là ない' }
 };
 
 function runLabTransform() {
@@ -307,11 +347,78 @@ function speakLab(elemId) {
 }
 
 function transformJapaneseVerb(v) {
+    if (!v) return null;
+    v = v.trim();
     if (IRREGULAR_VERBS[v]) return IRREGULAR_VERBS[v];
 
-    // Suru verbs
-    if (v.endsWith('します') || v.endsWith('する')) {
-        const prefix = v.replace(/します$|する$/, '');
+    // Compound Kuru verbs (e.g. もってくる, つれてくる)
+    if (v.endsWith('くる') || v.endsWith('きます') || v.endsWith('来る') || v.endsWith('来ます')) {
+        const prefix = v.replace(/(くる|きます|来る|来ます)$/, '');
+        return {
+            group: 3,
+            masu: prefix + 'きます',
+            ru: prefix + 'くる',
+            te: prefix + 'きて',
+            ta: prefix + 'きた',
+            nai: prefix + 'こない',
+            note: 'Động từ ghép nhóm 3 (kuru)'
+        };
+    }
+
+    // Specific Godan verbs ending in す / します (Nhóm 1)
+    const godanSuStems = {
+        'か': { ru: 'かす', masu: 'かします', te: 'かして', ta: 'かした', nai: 'かさない' },
+        '貸': { ru: '貸す', masu: '貸します', te: '貸して', ta: '貸した', nai: '貸さない' },
+        'はな': { ru: 'はなす', masu: 'はなします', te: 'はなして', ta: 'はなした', nai: 'はなさない' },
+        '話': { ru: '話す', masu: '話します', te: '話して', ta: '話した', nai: '話さない' },
+        'だ': { ru: 'だす', masu: 'だします', te: 'だして', ta: 'だした', nai: 'ださない' },
+        '出': { ru: '出す', masu: '出します', te: '出して', ta: '出した', nai: '出さない' },
+        'お': { ru: 'おす', masu: 'おします', te: 'おして', ta: 'おした', nai: 'おさない' },
+        '押': { ru: '押す', masu: '押します', te: '押して', ta: '押した', nai: '押さない' },
+        'け': { ru: 'けす', masu: 'けします', te: 'けして', ta: 'けした', nai: 'けさない' },
+        '消': { ru: '消す', masu: '消します', te: '消して', ta: '消した', nai: '消さない' },
+        'なお': { ru: 'なおす', masu: 'なおします', te: 'なおして', ta: 'なおした', nai: 'なおさない' },
+        '直': { ru: '直す', masu: '直します', te: '直して', ta: '直した', nai: '直さない' },
+        'わた': { ru: 'わたす', masu: 'わたします', te: 'わたして', ta: 'わたした', nai: 'わたさない' },
+        '渡': { ru: '渡す', masu: '渡します', te: '渡して', ta: '渡した', nai: '渡さない' },
+        'おと': { ru: 'おとす', masu: 'おとします', te: 'おとして', ta: 'おとした', nai: 'おとさない' },
+        '落': { ru: '落とす', masu: '落とします', te: '落として', ta: '落とした', nai: '落とさない' },
+        'さが': { ru: 'さがす', masu: 'さがします', te: 'さがして', ta: 'さがした', nai: 'さがさない' },
+        '探': { ru: '探す', masu: '探します', te: '探して', ta: '探した', nai: '探さない' },
+        'なく': { ru: 'なくす', masu: 'なくします', te: 'なくして', ta: 'なくした', nai: 'なくさない' },
+        '無く': { ru: '無くす', masu: '無くします', te: '無くして', ta: '無くした', nai: '無くさない' },
+        'おもいだ': { ru: 'おもいだす', masu: 'おもいだします', te: 'おもいだして', ta: 'おもいだした', nai: 'おもいださない' },
+        '思い出し': { ru: '思い出す', masu: '思い出します', te: '思い出して', ta: '思い出したい', nai: '思い出さない' }
+    };
+
+    if (v.endsWith('します')) {
+        const stem = v.slice(0, -3);
+        if (godanSuStems[stem]) {
+            const info = godanSuStems[stem];
+            return {
+                group: 1,
+                masu: info.masu,
+                ru: info.ru,
+                te: info.te,
+                ta: info.ta,
+                nai: info.nai,
+                note: 'Động từ nhóm 1 đuôi す: Bỏ ます (し) thêm <strong>した</strong>'
+            };
+        }
+        // Suru compound (Nhóm 3)
+        return {
+            group: 3,
+            masu: stem + 'します',
+            ru: stem + 'する',
+            te: stem + 'して',
+            ta: stem + 'した',
+            nai: stem + 'しない',
+            note: 'Danh động từ nhóm 3 (N + します)'
+        };
+    }
+
+    if (v.endsWith('する')) {
+        const prefix = v.slice(0, -2);
         return {
             group: 3,
             masu: prefix + 'します',
@@ -319,13 +426,19 @@ function transformJapaneseVerb(v) {
             te: prefix + 'して',
             ta: prefix + 'した',
             nai: prefix + 'しない',
-            note: 'Danh động từ nhóm 3 (N + します)'
+            note: 'Danh động từ nhóm 3 (N + する)'
         };
     }
 
-    // Match common patterns
-    // Group 2 special checks
-    const g2Special = ['おきる', 'おきます', 'みる', 'みます', 'ねる', 'ねます', 'かりる', 'かります', 'おりる', 'おります', 'あびる', 'あびます', 'できる', 'できます', 'たべる', 'たべます', 'おしえる', 'おしえます', 'わすれる', 'わすれます'];
+    // Special Group 2 verbs (Ichidan ending in -iru / -eru)
+    const g2Special = [
+        'おきる', 'おきます', 'みる', 'みます', 'ねる', 'ねます',
+        'かりる', 'かります', 'おりる', 'おります', 'あびる', 'あびます',
+        'できる', 'できます', 'たべる', 'たべます', 'おしえる', 'おしえます',
+        'わすれる', 'わすれます', 'みせる', 'みせます', 'あける', 'あけます',
+        'しめる', 'しめます', 'とめる', 'とめます', 'すてる', 'すてます',
+        'あつめる', 'あつめます', 'つかれる', 'つかれます', 'おぼえる', 'おぼえます'
+    ];
     for (let s of g2Special) {
         if (v === s || v.endsWith(s)) {
             let stem = v.replace(/ます$/, '').replace(/る$/, '');
@@ -419,17 +532,41 @@ function transformJapaneseVerb(v) {
         };
     }
 
-    // Ru dictionary input
-    if (v.endsWith('む') || v.endsWith('ぶ') || v.endsWith('ぬ')) {
+    // Dictionary form (Jisho-kei) inputs
+    if (v.endsWith('う')) {
         const root = v.slice(0, -1);
         return {
             group: 1,
-            masu: root + (v.endsWith('む')?'み':v.endsWith('ぶ')?'び':'に') + 'ます',
+            masu: root + 'います',
             ru: v,
-            te: root + 'んで',
-            ta: root + 'んだ',
-            nai: root + (v.endsWith('む')?'ま':v.endsWith('ぶ')?'ば':'な') + 'ない',
-            note: 'Động từ nhóm 1 đuôi む/ぶ/ぬ đổi thành <strong>んだ</strong>'
+            te: root + 'って',
+            ta: root + 'った',
+            nai: root + 'わない',
+            note: 'Động từ nhóm 1 đuôi う đổi thành <strong>った</strong> (âm ngắt)'
+        };
+    }
+    if (v.endsWith('つ')) {
+        const root = v.slice(0, -1);
+        return {
+            group: 1,
+            masu: root + 'ちます',
+            ru: v,
+            te: root + 'って',
+            ta: root + 'った',
+            nai: root + 'たない',
+            note: 'Động từ nhóm 1 đuôi つ đổi thành <strong>った</strong> (âm ngắt)'
+        };
+    }
+    if (v.endsWith('す')) {
+        const root = v.slice(0, -1);
+        return {
+            group: 1,
+            masu: root + 'します',
+            ru: v,
+            te: root + 'して',
+            ta: root + 'した',
+            nai: root + 'さない',
+            note: 'Động từ nhóm 1 đuôi す đổi thành <strong>した</strong>'
         };
     }
     if (v.endsWith('く')) {
@@ -443,6 +580,64 @@ function transformJapaneseVerb(v) {
             nai: root + 'かない',
             note: 'Động từ nhóm 1 đuôi く đổi thành <strong>いた</strong>'
         };
+    }
+    if (v.endsWith('ぐ')) {
+        const root = v.slice(0, -1);
+        return {
+            group: 1,
+            masu: root + 'ぎます',
+            ru: v,
+            te: root + 'いで',
+            ta: root + 'いだ',
+            nai: root + 'がない',
+            note: 'Động từ nhóm 1 đuôi ぐ đổi thành <strong>いだ</strong>'
+        };
+    }
+    if (v.endsWith('む') || v.endsWith('ぶ') || v.endsWith('ぬ')) {
+        const root = v.slice(0, -1);
+        const lastChar = v.slice(-1);
+        const iMap = { 'む': 'み', 'ぶ': 'び', 'ぬ': 'に' };
+        const aMap = { 'む': 'ま', 'ぶ': 'ば', 'ぬ': 'な' };
+        return {
+            group: 1,
+            masu: root + iMap[lastChar] + 'ます',
+            ru: v,
+            te: root + 'んで',
+            ta: root + 'んだ',
+            nai: root + aMap[lastChar] + 'ない',
+            note: 'Động từ nhóm 1 đuôi む/ぶ/ぬ đổi thành <strong>んだ</strong>'
+        };
+    }
+    if (v.endsWith('る')) {
+        const g1RuTraps = ['かえる', 'はいる', 'はしる', 'しる', 'きる', 'いる', 'へる', 'しゃべる', 'すべる'];
+        const isG1Trap = g1RuTraps.includes(v);
+        const prevChar = v.slice(-2, -1);
+        const aouKana = ['あ','か','さ','た','な','は','ま','や','ら','わ','お','こ','そ','と','の','ほ','モ','よ','ろ','う','く','す','つ','ぬ','ふ','む','ゆ','る'];
+        const isClearlyG1 = aouKana.includes(prevChar);
+
+        if (isG1Trap || isClearlyG1) {
+            const root = v.slice(0, -1);
+            return {
+                group: 1,
+                masu: root + 'ります',
+                ru: v,
+                te: root + 'って',
+                ta: root + 'った',
+                nai: root + 'らない',
+                note: isG1Trap ? '⚠️ Ngoại lệ nhóm 1: đuôi る đổi thành <strong>った</strong>' : 'Động từ nhóm 1 đuôi る đổi thành <strong>った</strong>'
+            };
+        } else {
+            const root = v.slice(0, -1);
+            return {
+                group: 2,
+                masu: root + 'ます',
+                ru: v,
+                te: root + 'て',
+                ta: root + 'た',
+                nai: root + 'ない',
+                note: 'Động từ nhóm 2: Bỏ る thêm <strong>た</strong>'
+            };
+        }
     }
 
     return {

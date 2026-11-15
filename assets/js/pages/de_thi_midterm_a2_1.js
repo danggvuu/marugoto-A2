@@ -791,15 +791,20 @@ function evaluateTranslation(item, userStr) {
     }
 
     const cleanUser = normalizeJp(userStr);
+    if (!cleanUser) return false;
 
     const acceptableList = item.acceptable || item.acceptAnswers || (item.standard ? [item.standard] : []);
     if (item.dir === "vi_to_ja" || acceptableList.length > 0) {
-        // 1. Kiểm tra khớp chuỗi chính xác / bao hàm sau khi chuẩn hoá Kanji ➔ Hiragana
+        // 1. Kiểm tra khớp chuỗi chính xác / bao hàm hợp lệ sau khi chuẩn hoá Kanji ➔ Hiragana
         const isDirectMatch = acceptableList.some(acc => {
             const cAcc = normalizeJp(acc);
-            return cAcc === cleanUser || cleanUser.includes(cAcc) || cAcc.includes(cleanUser);
+            if (!cAcc) return false;
+            return cAcc === cleanUser || (cleanUser.includes(cAcc) && cleanUser.length <= cAcc.length + 4);
         });
         if (isDirectMatch) return true;
+
+        // Từ chối chuỗi quá ngắn khi đối chiếu thành phần ngữ nghĩa
+        if (cleanUser.length < 5) return false;
 
         // 2. Chấm điểm thông minh theo nhóm thành phần ngữ nghĩa (Semantic Clause Check)
         const SEMANTIC_RULES = {

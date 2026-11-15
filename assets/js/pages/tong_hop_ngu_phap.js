@@ -182,7 +182,7 @@ function renderGrammarCards() {
 
                 <!-- Formula -->
                 <div class="formula-box">
-                    <div style="font-size:0.75rem; font-weight:800; color:#a5b4fc; text-transform:uppercase; margin-bottom:4px; letter-spacing:0.05em;">CÔNG THỨC MẪU:</div>
+                    <div class="formula-label">CÔNG THỨC MẪU:</div>
                     <div class="jp-text">${item.formula}</div>
                 </div>
 

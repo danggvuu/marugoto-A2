@@ -397,3 +397,104 @@ body {
     font-size: 0.85rem;
     color: #1e293b;
 }
+
+/* ========================================================
+   RESPONSIVE DESIGN FOR MOBILE & TABLET (Marugoto Lessons 1-18)
+   ======================================================== */
+@media (max-width: 768px) {
+    .main-container {
+        padding: 12px 10px 40px !important;
+    }
+    
+    .section-nav {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        justify-content: flex-start;
+        gap: 8px;
+        padding: 6px 2px 12px;
+        margin-bottom: 18px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+    .section-nav::-webkit-scrollbar {
+        display: none;
+    }
+    .sec-link {
+        flex-shrink: 0;
+        font-size: 0.8rem;
+        padding: 6px 12px;
+        white-space: nowrap;
+    }
+
+    .hero-banner {
+        padding: 22px 16px;
+        border-radius: 16px;
+        margin-bottom: 20px;
+    }
+    .hero-title {
+        font-size: 1.45rem;
+        line-height: 1.25;
+    }
+    .hero-jp-quote {
+        font-size: 1.05rem;
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+    .hero-subtitle {
+        font-size: 0.88rem;
+        margin-bottom: 18px;
+    }
+    .hero-stats-row {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+    .stat-card {
+        padding: 8px 10px;
+        border-radius: 10px;
+    }
+    .stat-number {
+        font-size: 1.2rem;
+    }
+    .stat-label {
+        font-size: 0.72rem;
+    }
+
+    .content-section {
+        padding: 18px 14px;
+        border-radius: 14px;
+        margin-bottom: 18px;
+    }
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+    .section-title {
+        font-size: 1.15rem;
+        line-height: 1.35;
+    }
+
+    .comparison-table {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .quiz-card {
+        padding: 14px 12px;
+    }
+    .quiz-opts {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+    .quiz-opt {
+        padding: 10px 12px;
+        font-size: 0.88rem;
+    }
+
+    .flashcard-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+}
