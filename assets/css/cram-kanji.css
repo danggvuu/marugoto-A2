@@ -1119,6 +1119,7 @@ body {
     gap: 6px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
     min-width: 0;
+    width: 100%;
     max-width: 100%;
     box-sizing: border-box;
     overflow: hidden;
@@ -1504,7 +1505,8 @@ body {
 }
 @media (max-width: 768px) {
     .tp-diff-container {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
+        gap: 10px;
     }
 }
 .v-filter-btn {

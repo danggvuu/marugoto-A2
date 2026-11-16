@@ -306,7 +306,7 @@
             <button type="button" class="vkc-start vkc-primary">Bắt đầu kiểm tra ${icons.arrow}</button></div></div></details>
             <div class="vkc-practice"><div id="vkcStatus" class="vkc-status"></div><div id="vkcCard" class="vkc-card"></div>
             <div class="vkc-session-note"><span>Không tính giờ · Điểm riêng với đề tổng hợp</span><span id="vkcSaveStatus" role="status"></span></div></div>
-            <details class="vkc-about"><summary>Phạm vi nội dung &amp; lưu tiến độ</summary>
+            <details class="vkc-about" open><summary>Phạm vi nội dung &amp; lưu tiến độ</summary>
                 <div><p><strong>Chỉ Marugoto A2 bài 11–18.</strong> ${DATA.vocab.length} mục từ vựng viết bằng Kana,
                 ${DATA.kanji.length} mục từ ghép Kanji từ danh sách ${DATA.allowedKanji.length} chữ.
                 Mọi chữ trong câu hỏi và đáp án Kanji đều được giới hạn trong danh sách này.</p>

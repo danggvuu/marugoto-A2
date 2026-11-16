@@ -534,8 +534,8 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
     <script src="../assets/js/audio-engine.js?v=2"></script>
-    <link rel="stylesheet" href="../assets/css/mini-test-15-18.css?v=7">
-    <link rel="stylesheet" href="../assets/css/site-theme.css?v=7">
+    <link rel="stylesheet" href="../assets/css/mini-test-15-18.css?v=8">
+    <link rel="stylesheet" href="../assets/css/site-theme.css?v=8">
 </head>
 <body>
 
@@ -1123,7 +1123,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     <!-- Scripts -->
     <script src="../assets/data/mini_15_18_data.js?v=2"></script>
     <script src="../assets/js/jp-typing-grader.js?v=2"></script>
-    <script src="../assets/js/typing-studio.js?v=7"></script>
+    <script src="../assets/js/typing-studio.js?v=8"></script>
     <script src="../assets/js/mini-test-15-18.js?v=4"></script>
     <script src="../assets/nav.js?v=7" defer></script>
 </body>
