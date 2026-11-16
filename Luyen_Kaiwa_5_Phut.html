@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="referrer" content="no-referrer">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎙️ Luyện Kaiwa Phỏng Vấn 5 Phút • Marugoto A2.1 (Bảo Vệ Sức Khỏe, Thăm Hỏi & Chúc Mừng)</title>
+    <meta name="description" content="Phòng luyện thi vấn đáp Kaiwa 5 phút Marugoto A2.1 với 3 chủ đề trọng tâm: Bảo vệ sức khỏe, Thăm hỏi sức khỏe và Trao đổi tiệc chúc mừng kết hôn kèm Audio Tokyo TTS và kịch bản song ngữ.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/site-theme.css?v=8">
+    <link rel="stylesheet" href="assets/css/kaiwa-studio.css?v=1">
+</head>
+<body class="kaiwa-page">
+
+    <!-- Global Hub Navigation Placeholder -->
+    <div id="navbar-placeholder"></div>
+
+    <main class="kaiwa-container">
+        <!-- 1. Hero Banner -->
+        <header class="kaiwa-hero">
+            <span class="kaiwa-badge">⛩️ MARUGOTO A2.1 • PHÒNG THI KAIWA VẤN ĐÁP 5 PHÚT</span>
+            <h1>
+                🎙️ LUYỆN KAIWA PHẢN XẠ 5 PHÚT <span class="kaiwa-hero-lessons">(3 CHỦ ĐỀ TRỌNG TÂM)</span>
+            </h1>
+            <p class="kaiwa-hero-desc">
+                Hệ thống mô phỏng bài thi vấn đáp phỏng vấn 5 phút trực tiếp với giáo viên tiếng Nhật. Tích hợp Audio chuẩn Tokyo phát âm từng câu hỏi, mindmap gợi ý phản xạ tức thì, câu trả lời mẫu 2 cấp độ (Cơ bản A2.1 & Nâng cao A2+) cùng kịch bản đối thoại mẫu đầy đủ.
+            </p>
+            <div class="kaiwa-hero-features">
+                <span class="kaiwa-feature-pill">⏱️ Bấm giờ 5:00 phòng thi</span>
+                <span class="kaiwa-feature-pill">👩‍🏫 Giọng Sensei Tokyo phát âm</span>
+                <span class="kaiwa-feature-pill">💡 Gợi ý phản xạ & Từ vựng vàng</span>
+                <span class="kaiwa-feature-pill">🎭 Kịch bản đối thoại hoàn chỉnh</span>
+                <span class="kaiwa-feature-pill">🏆 5 Chiến thuật ăn điểm tối đa</span>
+            </div>
+        </header>
+
+        <!-- 2. Topic Selector Card -->
+        <section class="topic-selector-card" aria-label="Chọn chủ đề phỏng vấn">
+            <span class="topic-selector-label">CHỌN 1 TRONG 3 CHỦ ĐỀ THI KAIWA CỦA CÔ GIÁO:</span>
+            <div class="topic-grid" id="topicGridContainer">
+                <!-- Rendered dynamically -->
+            </div>
+        </section>
+
+        <!-- 3. Mode Switcher Tabs -->
+        <nav class="kaiwa-mode-nav" aria-label="Chọn chế độ học">
+            <button type="button" class="mode-tab-btn active" data-mode="simulator" onclick="window.KaiwaStudio.switchMode('simulator')">
+                ⏱️ Phòng Thi Thử 5 Phút (Simulator)
+            </button>
+            <button type="button" class="mode-tab-btn" data-mode="flashcard" onclick="window.KaiwaStudio.switchMode('flashcard')">
+                🎴 Thẻ Flashcard Hỏi &amp; Đáp
+            </button>
+            <button type="button" class="mode-tab-btn" data-mode="dialogue" onclick="window.KaiwaStudio.switchMode('dialogue')">
+                🎭 Kịch Bản Đối Thoại Hoàn Chỉnh (Roleplay)
+            </button>
+            <button type="button" class="mode-tab-btn" data-mode="tips" onclick="window.KaiwaStudio.switchMode('tips')">
+                🏆 5 Bí Kíp Ghi Điểm Phỏng Vấn
+            </button>
+        </nav>
+
+        <!-- 4. Mode 1: Simulator View -->
+        <section class="simulator-view" id="viewSimulator" aria-label="Chế độ thi thử 5 phút">
+            <!-- Sticky Timer Strip -->
+            <div class="kaiwa-timer-strip">
+                <div class="timer-left-group">
+                    <span class="timer-badge-indicator">⏱️</span>
+                    <div>
+                        <div style="font-size: 0.76rem; font-weight: 800; color: #b45309;">THỜI GIAN PHỎNG VẤN 5 PHÚT</div>
+                        <div class="timer-clock-text" id="kaiwaTimerClock">05:00</div>
+                    </div>
+                </div>
+
+                <div class="timer-track-bar">
+                    <div class="timer-fill-bar" id="kaiwaTimerFill" style="width: 100%;"></div>
+                </div>
+
+                <div class="timer-btn-group">
+                    <button type="button" class="btn-kaiwa-timer btn-kaiwa-start" id="btnTimerToggle" onclick="window.KaiwaStudio.toggleTimer()">
+                        ▶️ Bắt Đầu 5 Phút
+                    </button>
+                    <button type="button" class="btn-kaiwa-timer" onclick="window.KaiwaStudio.resetTimer()">
+                        🔄 Đặt Lại
+                    </button>
+                </div>
+            </div>
+
+            <!-- Original Prompt Sheet Callout -->
+            <div class="prompt-sheet-card" id="promptSheetCallout">
+                <!-- Rendered dynamically -->
+            </div>
+
+            <!-- Question Stage Card -->
+            <div class="question-stage-card">
+                <div class="stage-top-meta">
+                    <span class="stage-q-badge" id="stageQBadge">CÂU HỎI 1 / 5</span>
+                    
+                    <div class="stage-view-toggles">
+                        <label class="view-toggle-item">
+                            <input type="checkbox" id="chkShowVi" checked onchange="window.KaiwaStudio.toggleViewOption('vi')">
+                            <span>👁️ Dịch tiếng Việt</span>
+                        </label>
+                        <label class="view-toggle-item">
+                            <input type="checkbox" id="chkShowMindmap" checked onchange="window.KaiwaStudio.toggleViewOption('mindmap')">
+                            <span>💡 Ý tưởng phản xạ</span>
+                        </label>
+                        <label class="view-toggle-item">
+                            <input type="checkbox" id="chkShowAnswers" checked onchange="window.KaiwaStudio.toggleViewOption('answers')">
+                            <span>🌟 Câu trả lời mẫu</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Sensei Question Bubble -->
+                <div class="sensei-bubble-wrap">
+                    <div class="sensei-header-row">
+                        <span class="sensei-title-tag">👩‍🏫 SENSEI ĐANG HỎI BẠN:</span>
+                        <button type="button" class="btn-speak-sensei" id="btnSpeakSensei" onclick="window.KaiwaStudio.playSenseiQuestion()">
+                            🔊 Nghe Sensei hỏi
+                        </button>
+                    </div>
+                    <div class="sensei-q-text jp-font" id="senseiQText">Đang tải câu hỏi...</div>
+                    <div class="sensei-q-vi" id="senseiQVi">Đang tải bản dịch...</div>
+                    <div class="sensei-intent-note" id="senseiIntentNote">
+                        <!-- Rendered dynamically -->
+                    </div>
+                </div>
+
+                <!-- Quick Mindmap Ideas -->
+                <div class="mindmap-box" id="mindmapBox">
+                    <div class="mindmap-title">
+                        <span>💡 Ý TƯỞNG TRẢ LỜI NHANH (MINDMAP TỨC THÌ ĐỂ BẬT NÓI):</span>
+                    </div>
+                    <div class="mindmap-chips" id="mindmapChips">
+                        <!-- Chips rendered dynamically -->
+                    </div>
+                </div>
+
+                <!-- Sample Answers Area -->
+                <div class="sample-answers-wrap" id="sampleAnswersWrap">
+                    <div class="answers-section-title">
+                        <span>🌟 CÁC MẪU CÂU TRẢ LỜI GỢI Ý (BẬT NÓI TỰ TIN):</span>
+                    </div>
+                    <div id="answersListContainer">
+                        <!-- Answer cards rendered dynamically -->
+                    </div>
+                </div>
+
+                <!-- Stage Nav Bar -->
+                <div class="stage-nav-bar">
+                    <button type="button" class="btn-stage-nav" id="btnPrevQ" onclick="window.KaiwaStudio.prevQuestion()">
+                        ⬅️ Câu trước
+                    </button>
+
+                    <div class="q-dots-strip" id="qDotsStrip">
+                        <!-- Dot buttons rendered dynamically -->
+                    </div>
+
+                    <button type="button" class="btn-stage-nav btn-stage-next" id="btnNextQ" onclick="window.KaiwaStudio.nextQuestion()">
+                        Câu Tiếp Theo (Sensei Hỏi) ➡️
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Mode 2: Flashcard View -->
+        <section class="flashcard-view" id="viewFlashcard" aria-label="Chế độ flashcard">
+            <div id="flashcardContainer">
+                <!-- Rendered dynamically -->
+            </div>
+        </section>
+
+        <!-- 6. Mode 3: Dialogue View -->
+        <section class="dialogue-view" id="viewDialogue" aria-label="Kịch bản đối thoại">
+            <div class="dialogue-intro-card">
+                <strong>🎭 Kịch bản đối thoại trọn vẹn 5 phút:</strong> Luyện tập đóng vai giữa Sensei và Bạn. Bấm nút <code>🔊 Nghe</code> ở từng câu để nghe phát âm giọng chuẩn Tokyo và luyện nhại theo (Shadowing).
+            </div>
+            <div class="chat-thread" id="dialogueChatContainer">
+                <!-- Rendered dynamically -->
+            </div>
+        </section>
+
+        <!-- 7. Mode 4: Tips View -->
+        <section class="tips-view" id="viewTips" aria-label="5 Bí kíp ghi điểm">
+            <div class="dialogue-intro-card" style="border-left: 5px solid #f59e0b;">
+                <strong>🏆 5 Bí Kíp Giúp Bạn Đạt Điểm Tuyệt Đối Trong Bài Thi Vấn Đáp Kaiwa 5 Phút:</strong> Giữ vững tâm lý, phản xạ tự nhiên theo chuẩn văn hóa giao tiếp Nhật Bản.
+            </div>
+            <div class="tips-grid" id="tipsGridContainer">
+                <!-- Rendered dynamically -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal for Original Teacher Prompt Sheet Image -->
+    <div class="kaiwa-modal-overlay" id="kaiwaImageModal" onclick="if(event.target===this) window.KaiwaStudio.closeImageModal()">
+        <div class="kaiwa-modal-card">
+            <button type="button" class="kaiwa-modal-close" onclick="window.KaiwaStudio.closeImageModal()">✕</button>
+            <h3 id="modalImageTitle" style="margin: 0; color: #1e1b4b; font-size: 1.25rem;">📄 Ảnh Đề Gốc Của Cô Giáo</h3>
+            <p style="font-size: 0.85rem; color: #64748b; margin: 4px 0 0 0;">Đề tài vấn đáp Kaiwa chuẩn từ bài học</p>
+            <img src="" alt="Đề cô giáo phóng to" class="kaiwa-modal-img" id="modalPreviewImage">
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/audio-engine.js?v=2"></script>
+    <script src="assets/data/kaiwa_topics_data.js?v=1"></script>
+    <script src="assets/js/pages/kaiwa-studio.js?v=1"></script>
+    <script src="assets/nav.js?v=8" defer></script>
+</body>
+</html>

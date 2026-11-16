@@ -40,6 +40,7 @@
     ];
 
     const ALL_TESTS = [
+        { file: 'Luyen_Kaiwa_5_Phut.html', title: '🎙️ Luyện Kaiwa Phỏng Vấn 5 Phút (3 Chủ Đề)', desc: 'Mô phỏng thi vấn đáp cô giáo: Sức khỏe, Thăm hỏi & Chúc mừng cưới', tag: 'HOT', isRootFile: true },
         { file: 'De_Thi_Tong_Hop_JLPT_A2_11_18.html', title: '🎯 Tổng Ôn Tập & Đề Thi Thử Bài 11 - 18 (Đề Gốc PDF & 5 Mã Đề)', desc: 'Chuẩn 100% De_on_tap_JLPT_A2_Bai_11-18.pdf + 5 mã đề thực chiến 71 câu', tag: 'Đề 11-18' },
         { file: 'De_Thi_Midterm_A2_1.html', title: '🎯 Bộ 5 Đề Thi Giữa Kỳ Midterm (M101 - M105)', desc: 'Bộ 5 đề thi chuẩn điểm 100 có tính giờ & chấm điểm', tag: 'Midterm' },
         { file: 'On_Tap_Mini_Test_A2_15_18.html', title: '🎯 Ôn Tập Bài 15-18 (Bộ 5 Mã Đề)', desc: 'Khảo sát năng lực chuyên sâu 4 bài cuối kỳ A2-1', tag: 'Đề 15-18' },
@@ -51,6 +52,11 @@
         { file: 'On_Tap_Cap_Toc_Kanji_11_18_NPBS14.html', title: '⚡ Cấp Tốc Đêm Nay: Kanji 11-18 & NPBS 14', desc: 'Ôn siêu tốc 121 từ Kanji + 5 chủ điểm NPBS 14', tag: 'Cấp tốc' },
         { file: 'On_Tap_Dich_Cau_Lesson_1_10.html', title: '✍️ Luyện Dịch Câu Bài 1 - 10 (40 Câu)', desc: 'Luyện dịch 2 chiều Nhật - Việt phản xạ nhanh', tag: 'Luyện dịch' },
         { file: 'Luyen_Tap_The_Te_A2_1.html', title: '⚡ Đấu Trường Luyện Thể TE', desc: 'Mini test phản xạ chia thể TE tốc độ cao', tag: 'Động từ' }
+    ];
+
+    const ALL_LESSONS_A2_2 = [
+        { file: 'Marugoto_A2_2_Lesson_1.html', num: '01', title: 'Bài 1: いいなまえですね', desc: 'Tên hay quá nhỉ • Giới thiệu bản thân & 15 Kanji', icon: '🌸', tag: 'A2-2 Mới' },
+        { file: 'Marugoto_A2_2_Lesson_2.html', num: '02', title: 'Bài 2: めがねをかけている人です', desc: 'Người đeo kính • 5 động từ mang mặc & 16 Kanji', icon: '👓', tag: 'A2-2 Mới' }
     ];
 
     const ALL_LESSONS = [
@@ -135,13 +141,16 @@
     const isGrammarActive = (!isLessons && !isTests && (currentFileName === 'Tong_Hop_Ngu_Phap_Marugoto_A1_A2.html' || currentFileName === 'kien_thuc_bo_sung.html'));
     const isTestsActive = isTests;
     const isLessonsActive = isLessons;
+    const isKaiwaActive = (!isLessons && !isTests && currentFileName === 'Luyen_Kaiwa_5_Phut.html');
     const is3dActive = (!isLessons && !isTests && currentFileName === 'demo_3d.html');
 
     // 5. SINH HTML CHO CÁC MỤC DROPDOWN
     function renderDropdownItems(items, type) {
         return items.map(item => {
             let linkHref = '';
-            if (item.isTestFile || type === 'test') {
+            if (item.isRootFile) {
+                linkHref = `${rootPrefix}${item.file}`;
+            } else if (item.isTestFile || type === 'test') {
                 linkHref = `${testsPrefix}${item.file}`;
             } else if (item.isLessonFile || type === 'lesson') {
                 linkHref = `${lessonsPrefix}${item.file}`;
@@ -152,7 +161,9 @@
             const baseFile = (item.file || '').split('#')[0];
             let isCurrent = false;
 
-            if (item.isTestFile || type === 'test') {
+            if (item.isRootFile) {
+                isCurrent = !isLessons && !isTests && currentFileName === baseFile;
+            } else if (item.isTestFile || type === 'test') {
                 isCurrent = isTests && currentFileName === baseFile;
             } else if (item.isLessonFile || type === 'lesson') {
                 isCurrent = isLessons && currentFileName === baseFile;
@@ -183,15 +194,31 @@
     const grammarDropdownHtml = renderDropdownItems(ALL_GRAMMAR_ITEMS, 'grammar');
     const testsDropdownHtml = renderDropdownItems(ALL_TESTS, 'test');
 
-    const lessonsDropdownHtml = ALL_LESSONS.map(l => {
-        const isCurrent = isLessons && currentFileName === l.file;
-        return `<a href="${lessonsPrefix}${l.file}" class="hub-drop-link${isCurrent ? ' active' : ''}">
-            <div class="hub-drop-info">
-                <span class="hub-drop-text">${l.icon} ${l.title}</span>
-            </div>
-            ${isCurrent ? '<span class="hub-drop-tag">Đang học</span>' : ''}
-        </a>`;
-    }).join('\n                ');
+    function renderLessonLinks(list) {
+        return list.map(l => {
+            const isCurrent = isLessons && currentFileName === l.file;
+            const tag = isCurrent ? 'Đang học' : (l.tag || '');
+            const tagHtml = tag ? `<span class="hub-drop-tag">${tag}</span>` : '';
+            const descHtml = l.desc ? `<span class="hub-drop-desc">${l.desc}</span>` : '';
+            return `<a href="${lessonsPrefix}${l.file}" class="hub-drop-link${isCurrent ? ' active' : ''}">
+                <div class="hub-drop-info">
+                    <span class="hub-drop-text">${l.icon} ${l.title}</span>
+                    ${descHtml}
+                </div>
+                ${tagHtml}
+            </a>`;
+        }).join('\n                ');
+    }
+
+    const a2_2Html = renderLessonLinks(ALL_LESSONS_A2_2);
+    const a2_1Html = renderLessonLinks(ALL_LESSONS);
+
+    const lessonsDropdownHtml = `
+        <div class="hub-drop-group-title" style="padding: 6px 12px; font-size: 0.78rem; font-weight: 800; color: #6366f1; text-transform: uppercase; letter-spacing: 0.05em; background: #eef2ff; border-radius: 8px; margin: 4px 0 8px 0; border-left: 3px solid #6366f1;">🌸 Marugoto A2-2 (Sơ Cấp 2 Tập 2 - Mới)</div>
+        ${a2_2Html}
+        <div class="hub-drop-group-title" style="padding: 6px 12px; font-size: 0.78rem; font-weight: 800; color: #475569; text-transform: uppercase; letter-spacing: 0.05em; background: #f1f5f9; border-radius: 8px; margin: 12px 0 8px 0; border-left: 3px solid #94a3b8;">📚 Marugoto A2-1 (Trọn Bộ 18 Bài Tập 1)</div>
+        ${a2_1Html}
+    `;
 
     // 6. TỔNG HỢP HTML TOÀN BỘ THANH NAVBAR VÀ BOTTOM SHEET/DROPDOWN
     const navbarHtml = `
@@ -226,6 +253,11 @@
             <button type="button" id="hubBtnTests" class="hub-nav-item${isTestsActive ? ' active-hub' : ''}" onclick="window.toggleTestsDropdown(event)" aria-haspopup="dialog" aria-expanded="false" aria-controls="testsDropdownMenu">
                 <span>🎯 Đề Thi</span><span class="hub-chevron">▾</span>
             </button>
+
+            <!-- 5.5 Kaiwa 5P Direct Pill -->
+            <a href="${rootPrefix}Luyen_Kaiwa_5_Phut.html" class="hub-nav-item${isKaiwaActive ? ' active-hub' : ''}" title="Phòng luyện phỏng vấn Kaiwa 5 phút 3 chủ đề cô giáo">
+                <span>🎙️ Kaiwa 5P</span>
+            </a>
 
             <!-- 6. Bài Học Dropdown -->
             <button type="button" id="hubBtnLessons" class="hub-nav-item${isLessonsActive ? ' active-hub' : ''}" onclick="window.toggleLessonsDropdown(event)" aria-haspopup="dialog" aria-expanded="false" aria-controls="lessonsDropdownMenu">
@@ -321,8 +353,8 @@
             <div class="hub-sheet-handle"></div>
             <div class="hub-drop-header">
                 <div class="hub-drop-header-left">
-                    <span class="hub-drop-title">🚀 Toàn Bộ Bài Học Marugoto A2-1 (18 Bài)</span>
-                    <span class="hub-drop-subtitle">Trọn bộ 18 chủ đề từ vựng, hội thoại & ngữ cảnh thực tế</span>
+                    <span class="hub-drop-title">🚀 Hệ Thống Bài Học Marugoto (A2-1 & A2-2)</span>
+                    <span class="hub-drop-subtitle">Đầy đủ 18 bài A2-1 và các chuyên đề mới Marugoto A2-2</span>
                 </div>
                 <button type="button" class="hub-drop-close" onclick="window.closeAllHubDropdowns()" aria-label="Đóng">✕</button>
             </div>
