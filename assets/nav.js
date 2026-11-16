@@ -15,6 +15,7 @@
         { file: 'the_ru.html', title: '📘 Thể RU (Từ Điển)', desc: 'Thể nguyên mẫu Từ điển & Quy tắc chia Jisho', tag: 'Jisho' },
         { file: 'the_ta.html', title: '📕 Thể TA (Quá Khứ)', desc: 'Thể quá khứ ngắn Ta-kei & Mẫu câu kinh nghiệm', tag: 'Ta-kei' },
         { file: 'the_nai.html', title: '📗 Thể NAI (Phủ Định)', desc: 'Thể phủ định ngắn Nai-kei & Mẫu câu khuyên cấm', tag: 'Nai-kei' },
+        { file: 'tu_tha_dong_tu.html', title: '⚖️ Tự Động Từ & Tha Động Từ', desc: '50 cặp Tự - Tha, 5 thần chú đuôi & trắc nghiệm', tag: 'Trọng tâm' },
         { file: 'Tong_Hop_Ngu_Phap_Marugoto_A1_A2.html#tabVerbLabView', title: '🧪 Verb Lab: Thí Nghiệm Động Từ', desc: 'Mô phỏng biến đổi đuôi động từ trực quan tương tác', tag: 'Tương tác' }
     ];
 
@@ -127,7 +128,7 @@
 
     // 4. TÍNH TOÁN TRẠNG THÁI ACTIVE
     const isHomeActive = (!isLessons && !isTests && (currentFileName === '' || currentFileName === 'index.html'));
-    const isFormsActive = (!isLessons && !isTests && ['the_ru.html', 'the_ta.html', 'the_nai.html'].includes(currentFileName)) ||
+    const isFormsActive = (!isLessons && !isTests && ['the_ru.html', 'the_ta.html', 'the_nai.html', 'tu_tha_dong_tu.html'].includes(currentFileName)) ||
                           (isTests && currentFileName === 'Luyen_Tap_The_Te_A2_1.html');
     const isKanjiActive = (!isLessons && !isTests && currentFileName === 'kanji_a2.html');
     const isVocabActive = (!isLessons && !isTests && currentFileName === 'Tu_Vung_Marugoto_A1_16_A2_1_10.html');

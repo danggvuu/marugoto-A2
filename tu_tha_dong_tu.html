@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="referrer" content="no-referrer">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚖️ Cẩm Nang & Luyện Tập Tự Động Từ vs Tha Động Từ (自動詞・他動詞) - Marugoto A2</title>
+    <meta name="description" content="Chinh phục toàn diện 50 cặp Tự Động Từ vs Tha Động Từ tiếng Nhật: 5 thần chú phân biệt đuôi, 4 mẫu ngữ pháp cốt lõi te iru / te aru, phòng thí nghiệm so sánh và 20 câu trắc nghiệm phản xạ.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="assets/css/pages/tu_tha_dong_tu.css?v=1">
+    <link rel="stylesheet" href="assets/css/site-theme.css?v=8">
+    <script src="assets/js/audio-engine.js?v=2"></script>
+</head>
+<body>
+
+<div class="container">
+    <!-- Global Hub Navigation Capsule -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- Header Hero Banner -->
+    <header class="tu-tha-header">
+        <span class="header-badge">⚖️ CHUYÊN ĐỀ ĐỘNG TỪ CỐT LÕI (A2 • N4 • N3)</span>
+        <h1>TỰ ĐỘNG TỪ &amp; THA ĐỘNG TỪ (自動詞・他動詞)</h1>
+        <p>Hệ thống sư phạm toàn diện: Bí kíp làm chủ <strong>50 cặp động từ kinh điển</strong>, 5 thần chú nhận diện đuôi bất bại, phân biệt sắc thái <strong>Trợ từ が vs を</strong> và bộ đôi ngữ pháp then chốt <strong>～ています vs ～てあります</strong>.</p>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <nav class="nav-tabs" role="tablist" aria-label="Các phần học tự động từ và tha động từ">
+        <button type="button" class="nav-tab-btn active" onclick="switchTab('tab-pairs')">
+            ✍️ 50 Cặp Tự - Tha (Bảng Tra)
+        </button>
+        <button type="button" class="nav-tab-btn" onclick="switchTab('tab-rules')">
+            📖 5 Thần Chú Phân Biệt Đuôi
+        </button>
+        <button type="button" class="nav-tab-btn" onclick="switchTab('tab-grammar')">
+            💡 4 Mẫu Ngữ Pháp Cốt Lõi A2
+        </button>
+        <button type="button" class="nav-tab-btn" onclick="switchTab('tab-quiz')">
+            🎯 Trắc Nghiệm Phản Xạ (20 Câu)
+        </button>
+        <button type="button" class="nav-tab-btn" onclick="switchTab('tab-lab')">
+            🧪 Phòng Thí Nghiệm So Sánh
+        </button>
+    </nav>
+
+    <!-- ========================================== -->
+    <!-- TAB 1: BẢNG 50 CẶP TỰ - THA ĐỘNG TỪ       -->
+    <!-- ========================================== -->
+    <div id="tab-pairs" class="tab-panel active">
+        <!-- Controls & Search -->
+        <div class="controls-bar">
+            <div class="controls-row-top">
+                <div class="search-box-wrap">
+                    <span class="search-icon-fixed">🔍</span>
+                    <input type="text" id="searchPairInput" placeholder="Tìm theo chữ Hán, Hiragana, nghĩa (mở, tắt, hỏng, rơi...)" autocomplete="off">
+                </div>
+                <div style="font-size:0.88rem; font-weight:800; color:var(--slate-600);" id="filterCountBadge">50 / 50 cặp</div>
+            </div>
+
+            <!-- Category Filter Pills -->
+            <div class="filter-pills-row">
+                <button type="button" class="filter-pill active" onclick="setCategory('all', this)">Tất cả (50)</button>
+                <button type="button" class="filter-pill" onclick="setCategory('appliance', this)">🔌 Thiết bị &amp; Đồ vật</button>
+                <button type="button" class="filter-pill" onclick="setCategory('damage', this)">💥 Hư hỏng &amp; Rơi vỡ</button>
+                <button type="button" class="filter-pill" onclick="setCategory('change', this)">📈 Biến đổi &amp; Trạng thái</button>
+                <button type="button" class="filter-pill" onclick="setCategory('life', this)">🍵 Sinh hoạt thường nhật</button>
+            </div>
+
+            <!-- Flashcard Memory Tools -->
+            <div class="flashcard-tools">
+                <span class="flashcard-tool-lbl">🎴 Chế độ Tự Thử Thách (Flashcard Mode):</span>
+                <button type="button" class="flashcard-toggle-btn active" onclick="setHideMode('none', this)">👁️ Hiện đủ 2 bên</button>
+                <button type="button" class="flashcard-toggle-btn" onclick="setHideMode('hide_ji', this)">🙈 Ẩn Tự Động Từ (Đoán が)</button>
+                <button type="button" class="flashcard-toggle-btn" onclick="setHideMode('hide_ta', this)">🙈 Ẩn Tha Động Từ (Đoán を)</button>
+            </div>
+        </div>
+
+        <!-- Table of 50 Pairs -->
+        <div class="pairs-table-wrapper">
+            <table class="pairs-table">
+                <thead>
+                    <tr>
+                        <th class="col-stt">STT</th>
+                        <th class="col-meaning">Ý nghĩa &amp; Chuyên đề</th>
+                        <th class="col-verb" style="color:var(--ji-dark); background:#f0fdf4;">🟢 TỰ ĐỘNG TỪ (自動詞 - Đi với が)</th>
+                        <th class="col-verb" style="color:var(--ta-dark); background:#fff1f2;">🔴 THA ĐỘNG TỪ (他動詞 - Đi với を)</th>
+                        <th class="col-action">Thử Nghiệm</th>
+                    </tr>
+                </thead>
+                <tbody id="pairsTableBody">
+                    <!-- Populated by tu_tha_dong_tu.js -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- TAB 2: 5 THẦN CHÚ PHÂN BIỆT ĐUÔI           -->
+    <!-- ========================================== -->
+    <div id="tab-rules" class="tab-panel">
+        <div style="background:#ffffff; border-radius:16px; border:1px solid #e2e8f0; padding:22px; margin-bottom:24px;">
+            <h2 style="font-size:1.3rem; font-weight:900; color:var(--dark); margin-bottom:8px;">
+                📖 5 Thần Chú Bất Bại Nhận Diện Tự Động Từ vs Tha Động Từ
+            </h2>
+            <p style="font-size:0.95rem; color:var(--slate-600); line-height:1.6;">
+                Tiếng Nhật có quy luật biến đổi ngữ âm (Morphological rules) rất chặt chẽ giữa Tự động từ và Tha động từ. Ghi nhớ 5 thần chú sau đây sẽ giúp bạn đoán đúng đến <strong>95%</strong> từ vựng ngay khi nhìn vào đuôi từ!
+            </p>
+        </div>
+
+        <div class="theory-grid">
+            <!-- Thần chú 1 -->
+            <div class="theory-card">
+                <span class="theory-card-badge rule-su">THẦN CHÚ VÀNG 1</span>
+                <h3 class="theory-card-title">Đuôi -す (-su) 100% là THA ĐỘNG TỪ!</h3>
+                <p class="theory-card-desc">
+                    Bất kỳ động từ nào trong cặp có đuôi <strong>-す (～します)</strong> thì chắc chắn đó là <strong>Tha động từ</strong>, người thực hiện chủ động tác động lên đối tượng (luôn đi với trợ từ <strong>を</strong>).
+                </p>
+                <div class="theory-examples-box">
+                    <div class="pair-mini-item">
+                        <span>消える (Tự: tắt)</span>
+                        <span>➔ <strong style="color:var(--ta-color);">消す (Tha: tắt đèn)</strong></span>
+                    </div>
+                    <div class="pair-mini-item">
+                        <span>落ちる (Tự: rơi)</span>
+                        <span>➔ <strong style="color:var(--ta-color);">落とす (Tha: đánh rơi)</strong></span>
+                    </div>
+                    <div class="pair-mini-item">
+                        <span>壊れる (Tự: hỏng)</span>
+                        <span>➔ <strong style="color:var(--ta-color);">壊す (Tha: làm hỏng)</strong></span>
+                    </div>
+                    <div class="pair-mini-item">
+                        <span>直る (Tự: được sửa)</span>
+                        <span>➔ <strong style="color:var(--ta-color);">直す (Tha: sửa chữa)</strong></span>
+                    </div>
+                    <div class="pair-mini-item">
+                        <span>出る (Tự: ra)</span>
+                        <span>➔ <strong style="color:var(--ta-color);">出す (Tha: lấy ra, nộp)</strong></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Thần chú 2 -->
+            <div class="theory-card">
+                <span class="theory-card-badge rule-aru">THẦN CHÚ VÀNG 2</span>
+                <h3 class="theory-card-title">Cặp -aru (Tự) vs -eru (Tha)</h3>
+                <p class="theory-card-desc">
+                    Động từ có nguyên âm <strong>A (-aru)</strong> thuộc nhóm 1 là <strong>Tự động từ</strong>; còn đối ứng nguyên âm <strong>E (-eru)</strong> thuộc nhóm 2 là <strong>Tha động từ</strong>.
+                </p>
+                <div class="theory-examples-box">
+                    <div class="pair-mini-item">
+                        <span><strong style="color:var(--ji-color);">閉まる (shimAru - Tự)</strong></span>
+                        <span>➔ <strong style="color:var(--ta-color);">閉める (shimEru - Tha)</strong></span>
+                    </div>
+                    <div class="pair-mini-item">
+                        <span><strong style="color:var(--ji-color);">止まる (tomAru - Tự)</strong></span>
+                        <span>➔ <strong style="color:var(--ta-color);">止める (tomEru - Tha)</strong></span>
+                    </div>
+                    <div class="pair-mini-item">
+                        <span><strong style="color:var(--ji-color);">始まる (hajimAru - Tự)</strong></span>
+                        <span>➔ <strong style="color:var(--ta-color);">始める (hajimEru - Tha)</strong></span>
+                    </div>
+                    <div class="pair-mini-item">
+                        <span><strong style="color:var(--ji-color);">集まる (atsumAru - Tự)</strong></span>
+                        <span>➔ <strong style="color:var(--ta-color);">集める (atsumEru - Tha)</strong></span>
+                    </div>
+                    <div class="pair-mini-item">
+                        <span><strong style="color:var(--ji-color);">変わる (kawAru - Tự)</strong></span>
+                        <span>➔ <strong style="color:var(--ta-color);">変える (kaEru - Tha)</strong></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Thần chú 3 -->
+            <div class="theory-card">
+                <span class="theory-card-badge rule-u">THẦN CHÚ VÀNG 3</span>
+                <h3 class="theory-card-title">Cặp -u (Tự) vs -eru (Tha)</h3>
+                <p class="theory-card-desc">
+                    Động từ nguyên thể đuôi <strong>-u</strong> thuộc nhóm 1 là <strong>Tự động từ</strong>; khi chuyển sang đuôi <strong>-eru</strong> thuộc nhóm 2 thì trở thành <strong>Tha động từ</strong>.
+                </p>
+                <div class="theory-examples-box">
+                    <div class="pair-mini-item">
+                        <span><strong style="color:var(--ji-color);">開く (akU - Tự: mở)</strong></span>
+                        <span>➔ <strong style="color:var(--ta-color);">開ける (akEru - Tha: mở)</strong></span>
+                    </div>
+                    <div class="pair-mini-item">
+                        <span><strong style="color:var(--ji-color);">つく (tsukU - Tự: bật)</strong></span>
+                        <span>➔ <strong style="color:var(--ta-color);">つける (tsukEru - Tha: bật)</strong></span>
+                    </div>
+                    <div class="pair-mini-item">
+                        <span><strong style="color:var(--ji-color);">届く (todokU - Tự: đến)</strong></span>
+                        <span>➔ <strong style="color:var(--ta-color);">届ける (todokEru - Tha: giao)</strong></span>
+                    </div>
+                    <div class="pair-mini-item">
+                        <span><strong style="color:var(--ji-color);">並ぶ (narabU - Tự: xếp)</strong></span>
+                        <span>➔ <strong style="color:var(--ta-color);">並べる (narabEru - Tha: bày)</strong></span>
+                    </div>
+                    <div class="pair-mini-item">
+                        <span><strong style="color:var(--ji-color);">立つ (tatU - Tự: đứng)</strong></span>
+                        <span>➔ <strong style="color:var(--ta-color);">立てる (tatEru - Tha: dựng)</strong></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Thần chú 4 -->
+            <div class="theory-card">
+                <span class="theory-card-badge rule-asu">THẦN CHÚ VÀNG 4</span>
+                <h3 class="theory-card-title">Cặp -eru (Tự) vs -asu (Tha)</h3>
+                <p class="theory-card-desc">
+                    Một số động từ tự nhiên mang đuôi <strong>-eru</strong> (chỉ sự biến chuyển nhiệt độ, trạng thái); khi muốn tác động làm biến đổi thì dùng đuôi <strong>-asu</strong>.
+                </p>
+                <div class="theory-examples-box">
+                    <div class="pair-mini-item">
+                        <span><strong style="color:var(--ji-color);">冷える (hiEru - Tự: lạnh đi)</strong></span>
+                        <span>➔ <strong style="color:var(--ta-color);">冷やす (hiyAsu - Tha: ướp lạnh)</strong></span>
+                    </div>
+                    <div class="pair-mini-item">
+                        <span><strong style="color:var(--ji-color);">燃える (moEru - Tự: cháy)</strong></span>
+                        <span>➔ <strong style="color:var(--ta-color);">燃やす (moyAsu - Tha: đốt cháy)</strong></span>
+                    </div>
+                    <div class="pair-mini-item">
+                        <span><strong style="color:var(--ji-color);">増える (fuEru - Tự: tăng)</strong></span>
+                        <span>➔ <strong style="color:var(--ta-color);">増やす (fuyAsu - Tha: làm tăng)</strong></span>
+                    </div>
+                    <div class="pair-mini-item">
+                        <span><strong style="color:var(--ji-color);">濡れる (nurEru - Tự: ướt)</strong></span>
+                        <span>➔ <strong style="color:var(--ta-color);">濡らす (nurAsu - Tha: làm ướt)</strong></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Thần chú 5 -->
+            <div class="theory-card" style="grid-column: 1 / -1;">
+                <span class="theory-card-badge rule-particle">THẦN CHÚ VÀNG 5: TRỢ TỪ PHẢN XẠ</span>
+                <h3 class="theory-card-title">Khi nào dùng が? Khi nào dùng を?</h3>
+                <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:14px; margin-top:12px;">
+                    <div style="background:#f0fdf4; border:1.5px solid #86efac; border-radius:12px; padding:16px;">
+                        <div style="font-weight:800; color:var(--ji-dark); font-size:1.05rem; margin-bottom:6px;">
+                            🟢 Danh từ + が + TỰ ĐỘNG TỪ
+                        </div>
+                        <ul style="padding-left:18px; font-size:0.88rem; color:#166534; line-height:1.6;">
+                            <li>Quan sát hiện tượng khách quan trước mắt, <strong>không quan tâm ai làm</strong>.</li>
+                            <li>Sự vật tự thân vận động hoặc tự thay đổi trạng thái.</li>
+                            <li><em>Ví dụ:</em> <strong>ドアが 開きました。</strong> (Cửa tự mở ra).</li>
+                        </ul>
+                    </div>
+                    <div style="background:#fff1f2; border:1.5px solid #fecdd3; border-radius:12px; padding:16px;">
+                        <div style="font-weight:800; color:var(--ta-dark); font-size:1.05rem; margin-bottom:6px;">
+                            🔴 Danh từ + を + THA ĐỘNG TỪ
+                        </div>
+                        <ul style="padding-left:18px; font-size:0.88rem; color:#9f1239; line-height:1.6;">
+                            <li>Có <strong>con người / tác nhân chủ động</strong> thực hiện hành động lên đối tượng.</li>
+                            <li>Hành động có ý chí, mục đích rõ ràng.</li>
+                            <li><em>Ví dụ:</em> <strong>田中さんが ドアを 開けました。</strong> (Anh Tanaka mở cửa).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- TAB 3: 4 MẪU NGỮ PHÁP CỐT LÕI A2           -->
+    <!-- ========================================== -->
+    <div id="tab-grammar" class="tab-panel">
+        <!-- Mẫu 1 -->
+        <div class="grammar-card">
+            <div class="grammar-formula-bar">
+                <span>1️⃣ CẤU TRÚC 1:</span>
+                <span>N が + Tự động từ (Thể て) + います</span>
+            </div>
+            <p style="font-size:0.94rem; color:var(--slate-700); line-height:1.6;">
+                <strong>Ý nghĩa:</strong> Diễn tả <strong>trạng thái kết quả</strong> của sự vật đang hiển hiện trước mắt người nói tại thời điểm quan sát. Người nói chỉ đơn thuần miêu tả những gì mình nhìn thấy mà không đề cập đến ai là người gây ra trạng thái đó.
+            </p>
+            <div class="theory-examples-box" style="margin-top:12px;">
+                <div class="pair-mini-item">
+                    <span>窓が <strong>開いて います</strong>。</span>
+                    <span style="color:var(--slate-600);">Cửa sổ đang mở. (Thấy cửa đang mở sẵn trước mắt)</span>
+                </div>
+                <div class="pair-mini-item">
+                    <span>電気が <strong>ついて います</strong>。</span>
+                    <span style="color:var(--slate-600);">Đèn đang sáng.</span>
+                </div>
+                <div class="pair-mini-item">
+                    <span>この パソコンは <strong>壊れて います</strong>。</span>
+                    <span style="color:var(--slate-600);">Chiếc máy tính này đang bị hỏng.</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mẫu 2 -->
+        <div class="grammar-card">
+            <div class="grammar-formula-bar" style="background:linear-gradient(135deg, #881337, #4c0519);">
+                <span>2️⃣ CẤU TRÚC 2:</span>
+                <span>N が + Tha động từ (Thể て) + あります</span>
+            </div>
+            <p style="font-size:0.94rem; color:var(--slate-700); line-height:1.6;">
+                <strong>Ý nghĩa:</strong> Diễn tả <strong>trạng thái là kết quả của một hành động có chủ ý</strong> do ai đó thực hiện nhằm một mục đích nhất định (và kết quả đó vẫn còn lưu lại).
+                <br>⚠️ <em>Đặc biệt lưu ý:</em> Mặc dù dùng Tha động từ nhưng trợ từ của tân ngữ đổi từ <strong>を ➔ が</strong>!
+            </p>
+            <div class="theory-examples-box" style="margin-top:12px;">
+                <div class="pair-mini-item">
+                    <span>壁に カレンダーが <strong>掛けて あります</strong>。</span>
+                    <span style="color:var(--slate-600);">Trên tường có treo sẵn tờ lịch (để xem ngày tháng).</span>
+                </div>
+                <div class="pair-mini-item">
+                    <span>机の上に メモが <strong>置いて あります</strong>。</span>
+                    <span style="color:var(--slate-600);">Tờ giấy nhớ đã được đặt sẵn trên bàn (cho ai đó đọc).</span>
+                </div>
+                <div class="pair-mini-item">
+                    <span>窓が <strong>開けて あります</strong>。</span>
+                    <span style="color:var(--slate-600);">Cửa sổ đã được mở sẵn (ai đó mở ra cho thoáng phòng).</span>
+                </div>
+            </div>
+
+            <!-- Bảng so sánh kinh điển ています vs てあります -->
+            <div class="grammar-compare-grid">
+                <div class="compare-col is-te-iru">
+                    <strong style="color:var(--ji-dark); display:block; margin-bottom:6px;">窓が 開いて います (Tự + ています)</strong>
+                    <p style="font-size:0.86rem; color:#166534; line-height:1.5;">
+                        • Chỉ thuần túy nhìn thấy cửa mở.<br>
+                        • Trạng thái khách quan, không rõ ai mở hay vì lý do gì.
+                    </p>
+                </div>
+                <div class="compare-col is-te-aru">
+                    <strong style="color:var(--ta-dark); display:block; margin-bottom:6px;">窓が 開けて あります (Tha + てあります)</strong>
+                    <p style="font-size:0.86rem; color:#9f1239; line-height:1.5;">
+                        • Ai đó đã chủ đích mở cửa sổ ra.<br>
+                        • Nhằm một mục đích cụ thể (ví dụ: mở sẵn để đón gió, thông thoáng phòng).
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mẫu 3 -->
+        <div class="grammar-card">
+            <div class="grammar-formula-bar" style="background:linear-gradient(135deg, #1e3a8a, #172554);">
+                <span>3️⃣ CẤU TRÚC 3:</span>
+                <span>N を + Tha động từ (Thể て) + おきます</span>
+            </div>
+            <p style="font-size:0.94rem; color:var(--slate-700); line-height:1.6;">
+                <strong>Ý nghĩa:</strong> Thực hiện một hành động trước để chuẩn bị cho một việc gì đó trong tương lai, hoặc giữ nguyên trạng thái một đồ vật.
+            </p>
+            <div class="theory-examples-box" style="margin-top:12px;">
+                <div class="pair-mini-item">
+                    <span>旅行の 前に、切符を <strong>買って おきます</strong>。</span>
+                    <span style="color:var(--slate-600);">Trước chuyến đi, tôi mua sẵn vé tàu xe.</span>
+                </div>
+                <div class="pair-mini-item">
+                    <span>パーティーの 前に、ビールを <strong>冷やして おきます</strong>。</span>
+                    <span style="color:var(--slate-600);">Trước bữa tiệc, ướp lạnh sẵn bia trong tủ.</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mẫu 4 -->
+        <div class="grammar-card">
+            <div class="grammar-formula-bar" style="background:linear-gradient(135deg, #701a75, #4a044e);">
+                <span>4️⃣ CẤU TRÚC 4:</span>
+                <span>N が + Tự động từ (Thể て) + しまいました</span>
+            </div>
+            <p style="font-size:0.94rem; color:var(--slate-700); line-height:1.6;">
+                <strong>Ý nghĩa:</strong> Diễn tả một sự việc bất ngờ xảy ra ngoài ý muốn hoặc gây tiếc nuối, hối tiếc (hỏng hóc, rơi vỡ, đứt, rách...).
+            </p>
+            <div class="theory-examples-box" style="margin-top:12px;">
+                <div class="pair-mini-item">
+                    <span>お気に入りの お皿が <strong>割れて しまいました</strong>。</span>
+                    <span style="color:var(--slate-600);">Cái đĩa yêu thích lỡ bị vỡ mất rồi!</span>
+                </div>
+                <div class="pair-mini-item">
+                    <span>電車に 傘を <strong>忘れて しまいました</strong>。</span>
+                    <span style="color:var(--slate-600);">Tôi lỡ để quên ô trên tàu điện mất rồi.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- TAB 4: TRẮC NGHIỆM PHẢN XẠ 20 CÂU          -->
+    <!-- ========================================== -->
+    <div id="tab-quiz" class="tab-panel">
+        <div class="quiz-top-bar">
+            <div>
+                <h2 style="font-size:1.2rem; font-weight:800; color:var(--dark);">🎯 20 Thử Thách Phản Xạ Tự - Tha Động Từ</h2>
+                <p style="font-size:0.86rem; color:var(--slate-600);">Trắc nghiệm chuẩn đề thi JLPT N5/N4 và kiểm tra Marugoto A2. Chọn đáp án đúng dựa vào ngữ cảnh và trợ từ!</p>
+            </div>
+            <div style="display:flex; gap:8px;">
+                <button type="button" class="btn btn-primary" onclick="gradeQuiz()" style="padding:10px 18px; font-size:0.9rem; font-weight:700; border-radius:10px; cursor:pointer;">
+                    ✅ Nộp Bài / Chấm Điểm
+                </button>
+                <button type="button" class="btn btn-secondary" onclick="resetQuiz()" style="padding:10px 14px; font-size:0.9rem; font-weight:700; border-radius:10px; cursor:pointer;">
+                    🔄 Làm Lại
+                </button>
+            </div>
+        </div>
+
+        <div id="quizScoreBanner" class="quiz-score-banner"></div>
+        <div id="quizContainer"></div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- TAB 5: PHÒNG THÍ NGHIỆM SO SÁNH (LAB)     -->
+    <!-- ========================================== -->
+    <div id="tab-lab" class="tab-panel">
+        <div class="lab-container">
+            <div class="lab-controls-panel">
+                <div class="lab-select-wrap">
+                    <label for="labPairSelect" style="display:block; font-size:0.82rem; font-weight:800; color:var(--slate-500); margin-bottom:6px; text-transform:uppercase;">
+                        Chọn Cặp Động Từ Thử Nghiệm:
+                    </label>
+                    <select id="labPairSelect" onchange="changeLabPair(this)"></select>
+                </div>
+                <div>
+                    <span style="display:block; font-size:0.82rem; font-weight:800; color:var(--slate-500); margin-bottom:6px; text-transform:uppercase;">
+                        Biến Thể So Sánh:
+                    </span>
+                    <div class="lab-tenses-group">
+                        <button type="button" class="lab-tense-pill active" onclick="setLabTense('masu', this)">Thể ます (Hiện tại)</button>
+                        <button type="button" class="lab-tense-pill" onclick="setLabTense('te_iru', this)">Thể ～ています (Trạng thái)</button>
+                        <button type="button" class="lab-tense-pill" onclick="setLabTense('te_aru', this)">Thể ～てあります (Chủ ý)</button>
+                        <button type="button" class="lab-tense-pill" onclick="setLabTense('ta', this)">Thể ました (Quá khứ)</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Duel of Cards -->
+            <div class="lab-cards-duel">
+                <div class="lab-card" id="labJiCard"></div>
+                <div class="lab-card" id="labTaCard"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- SCRIPTS -->
+<script src="assets/data/tu_tha_dong_tu_data.js"></script>
+<script src="assets/js/pages/tu_tha_dong_tu.js"></script>
+<script src="assets/nav.js?v=8" defer></script>
+</body>
+</html>
