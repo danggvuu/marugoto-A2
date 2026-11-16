@@ -570,8 +570,8 @@ window.VOCAB_121_DATA = VOCAB_121_DATA;
             mnemonic: "Cầm rìu (斤) đẽo cánh cửa (戸) dựng lên Nơi ở (所)."
         },
         {
-            char: "駅", hv: "Dịch", lesson: "L7", lessonName: "Bài 7", strokes: 14,
-            meaning: "Nhà ga tàu điện", kun: "えき", on: "えき",
+            char: "駅", hv: "Dịch", lesson: "えき", lessonName: "Bài 7", strokes: 14,
+            meaning: "Nhà ga tàu điện", kun: "—", on: "えき",
             examples: [
                 { word: "駅", reading: "えき", vi: "Nhà ga" },
                 { word: "東京駅", reading: "とうきょうえき", vi: "Ga Tokyo" },
@@ -755,8 +755,8 @@ window.VOCAB_121_DATA = VOCAB_121_DATA;
             mnemonic: "Ngôi nhà bằng gỗ (木) nơi mọi người giao lưu (交) học hỏi là Trường học."
         },
         {
-            char: "先", hv: "Tiên", lesson: "L9", lessonName: "Bài 9", strokes: 6,
-            meaning: "Trước, đi trước", kun: "さき、ま", on: "せん",
+            char: "先", hv: "Tiên", lesson: "せん", lessonName: "Bài 9", strokes: 6,
+            meaning: "Trước, đi trước", kun: "さき、まず", on: "せん",
             examples: [
                 { word: "先", reading: "さき", vi: "Trước đó, tương lai" },
                 { word: "先生", reading: "せんせい", vi: "Thầy cô, giáo viên" },
@@ -1545,8 +1545,8 @@ window.VOCAB_121_DATA = VOCAB_121_DATA;
             mnemonic: "Chạy bộ (走) đưa bản thân mình (己) đứng dậy Khởi (起) sắc ngày mới."
         },
         {
-            char: "歩", hv: "Bộ", lesson: "L16", lessonName: "Bài 16", strokes: 8,
-            meaning: "Đi bộ, từng bước, tản bộ", kun: "ある-く、あゆ-む", on: "ほ、ぽ",
+            char: "歩", hv: "Bộ", lesson: "ほ、ぶ、ふ", lessonName: "Bài 16", strokes: 8,
+            meaning: "Đi bộ, từng bước, tản bộ", kun: "ある-く、あゆ-む", on: "ほ、ぶ、ふ",
             examples: [
                 { word: "歩きます", reading: "あるきます", vi: "Đi bộ" },
                 { word: "散歩", reading: "さんぽ", vi: "Tản bộ, đi dạo" },
@@ -1633,8 +1633,8 @@ window.VOCAB_121_DATA = VOCAB_121_DATA;
             mnemonic: "Dùng muôn lời ca tụng (言) kéo dài (延) mãi ngày chào đời Đản (誕) sinh."
         },
         {
-            char: "結", hv: "Kết", lesson: "L17", lessonName: "Bài 17", strokes: 12,
-            meaning: "Buộc lại, gắn kết, kết quả, kết hôn", kun: "むす-ぶ", on: "けつ、けっ",
+            char: "結", hv: "Kết", lesson: "けつ、けち", lessonName: "Bài 17", strokes: 12,
+            meaning: "Buộc lại, gắn kết, kết quả, kết hôn", kun: "むす-ぶ", on: "けつ、けち",
             examples: [
                 { word: "結婚", reading: "けっこん", vi: "Kết hôn, cưới xin" },
                 { word: "結びます", reading: "むすびます", vi: "Thắt nút, buộc lại" },
@@ -1715,8 +1715,8 @@ window.VOCAB_121_DATA = VOCAB_121_DATA;
 
         // LESSON 18: BÀI 18,
         {
-            char: "先", hv: "Tiên", lesson: "L18", lessonName: "Bài 18", strokes: 6,
-            meaning: "Trước, đi đầu, quá khứ, giáo viên", kun: "さき", on: "せん",
+            char: "先", hv: "Tiên", lesson: "せん", lessonName: "Bài 18", strokes: 6,
+            meaning: "Trước, đi đầu, quá khứ, giáo viên", kun: "さき、まず", on: "せん",
             examples: [
                 { word: "先週", reading: "せんしゅう", vi: "Tuần trước" },
                 { word: "先生", reading: "せんせい", vi: "Giáo viên, thầy cô" },

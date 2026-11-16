@@ -291,6 +291,56 @@ class StudyFlows(unittest.TestCase):
                         output.mkdir(parents=True, exist_ok=True)
                         self.page.screenshot(path=str(output / f"{Path(path).stem}-{width}.png"))
 
+    def test_reviewed_lesson_quizzes_grade_and_restore_correct_choices(self):
+        for lesson in range(1, 19):
+            with self.subTest(lesson=lesson):
+                self.go(f"lessons/Marugoto_A2_Lesson_{lesson}.html")
+                result = self.page.evaluate("""() => {
+                    const items = typeof QUIZ_DATA !== 'undefined' ? QUIZ_DATA : QUIZ_QUESTIONS;
+                    const boxes = [...document.querySelectorAll('#quizContainer .quiz-card')];
+                    if (boxes.length !== items.length) throw new Error('Missing rendered quiz cards');
+                    items.forEach((q, i) => {
+                        const buttons = boxes[i].querySelectorAll('.quiz-opt,.quiz-opt-btn');
+                        buttons[q.correct].click();
+                    });
+                    return {questions:items.length,
+                        correct:boxes.filter(b=>b.querySelector('button.correct')).length,
+                        disabled:boxes.every(b=>[...b.querySelectorAll('.quiz-opt,.quiz-opt-btn')].every(x=>x.disabled))};
+                }""")
+                self.assertEqual(result["questions"], 15)
+                self.assertEqual(result["correct"], 15)
+                self.assertTrue(result["disabled"])
+                self.reload()
+                self.assertEqual(self.page.locator("#quizContainer button.correct").count(), 15)
+
+    def test_old_quiz_clicks_do_not_answer_revised_lesson(self):
+        self.go("index.html")
+        self.page.evaluate("""() => {
+            localStorage.setItem('marugoto_cp_v1::lessons/Marugoto_A2_Lesson_3.html::clicks',
+                JSON.stringify({t:1,d:['oc::checkQuizAnswer(this,0,0)']}));
+            localStorage.setItem('marugoto_cp_v1::lessons/Marugoto_A2_Lesson_3.html::typing_practice',
+                JSON.stringify({t:1,d:{currentIndex:2,correctCount:2}}));
+        }""")
+        self.go("lessons/Marugoto_A2_Lesson_3.html")
+        self.assertEqual(self.page.locator("#quizContainer button:disabled").count(), 0)
+        self.assertTrue(self.page.evaluate("!!localStorage.getItem('marugoto_cp_v1::lessons/Marugoto_A2_Lesson_3.html::typing_practice')"))
+
+    def test_corrected_exam_questions_require_new_attempt(self):
+        self.go(EXAM + "#M111")
+        question_id = self.page.evaluate("getExamItems().find(q=>q.contentRevision===2).id")
+        self.page.evaluate("(id)=>handleSelectOption(id,0)", question_id)
+        self.reload()
+        self.assertTrue(self.page.evaluate("(id)=>!!userAnswers[id]", question_id))
+        self.go("index.html")
+        self.page.evaluate("""(id) => {
+            const key='marugoto_tonghop_11_18_draft_M111';
+            const saved=JSON.parse(localStorage.getItem(key));
+            delete saved.userAnswers[id].contentRevision;
+            localStorage.setItem(key,JSON.stringify(saved));
+        }""", question_id)
+        self.go(EXAM + "#M111")
+        self.assertFalse(self.page.evaluate("(id)=>!!userAnswers[id]", question_id))
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)

@@ -158,7 +158,7 @@ def create_mock_exam(code, title, tag, desc, seed_offset):
         ("あそこで 本を (   ) 人は 田中さんです。", "Người đang đọc sách đằng kia là anh Tanaka.", 0, ["読んでいる", "読みたい", "読んで", "読みます"], "Định ngữ: V-ている + N ➔ 読んでいる人 (Bài 15)."),
         ("どうして 試験を 受けなかった (   ) か。", "Tại sao bạn lại không tham gia kỳ thi vậy?", 0, ["んです", "です", "ます", "でした"], "Thể ngắn + んですか (Bài 16): Hỏi giải thích lý do."),
         ("これは 父が (   ) 時計です。", "Đây là chiếc đồng hồ bố tôi đã mua.", 0, ["買った", "買います", "買って", "買うです"], "Định ngữ quá khứ: V-た + N ➔ 父が買った時計 (Bài 15)."),
-        ("明日は 天気が いい (   ) と 思います。", "Tôi nghĩ rằng ngày mai thời tiết sẽ đẹp.", 0, ["だ", "な", "の", "に"], "Thể ngắn tính từ đuôi な / danh từ: いい (đuôi い) + と思います (Bài 17)."),
+        ("明日は 天気が (   ) と 思います。", "Tôi nghĩ rằng ngày mai thời tiết sẽ đẹp.", 0, ["いい", "いいだ", "よく", "いいな"], "Tính từ い giữ nguyên trước と思います: いいと思います (Bài 18). Không thêm だ."),
         ("社長は 「来月 出張する」(   )。", "Giám đốc đã nói rằng 'Tháng sau tôi sẽ đi công tác'.", 0, ["と言いました", "と思いました", "といいでした", "んです"], "Trích dẫn: 「...」と言いました (Bài 18)."),
         ("この 料理は 自分 (   ) 作ったんです。", "Món ăn này là do tự tay tôi nấu đấy.", 2, ["が", "に", "で", "と"], "Phương thức: 自分で (tự mình làm - Bài 14)."),
         ("のど (   ) かわきました。お茶を 飲みたいです。", "Tôi khát nước quá. Tôi muốn uống trà.", 0, ["が", "に", "で", "と"], "Cụm cố định: のどがかわく (Bài 11/16)."),
@@ -166,7 +166,7 @@ def create_mock_exam(code, title, tag, desc, seed_offset):
         ("この 歌手は 若い 人 (   ) 人気 (   ) あります。", "Ca sĩ này rất được giới trẻ yêu mến.", 0, ["に・が", "で・に", "が・で", "と・に"], "～に 人気がある: Được yêu thích bởi đối tượng nào (Bài 11)."),
         ("冷蔵庫の 中 (   ) 牛乳 (   ) ありますか。", "Trong tủ lạnh có sữa tươi không?", 0, ["に・が", "で・に", "が・で", "と・が"], "[Nơi chốn] に [Vật] が あります (Bài 11)."),
         ("来月 ハノイ (   ) 引っ越しします。", "Tháng sau tôi chuyển nhà đến Hà Nội.", 0, ["に", "で", "が", "を"], "Đích đến di chuyển: ハノイに 引っ越す (Bài 18)."),
-        ("３か月前 (   ) 日本語の 勉強を (   ) 始めました。", "Cách đây 3 tháng tôi đã bắt đầu học tiếng Nhật.", 0, ["に・を", "で・が", "に・で", "が・に"], "Mốc thời gian 3か月前に; Tân ngữ を始めました (Bài 13)."),
+        ("３か月前 (   ) 日本語の 勉強 (   ) 始めました。", "Cách đây 3 tháng tôi đã bắt đầu học tiếng Nhật.", 0, ["に・を", "で・が", "に・で", "が・に"], "３か月前に日本語の勉強を始めました. に chỉ thời điểm, を đánh dấu tân ngữ 勉強."),
         ("暑いですね。窓を (   ) も いいですか。", "Trời nóng quá. Tôi mở cửa sổ có được không?", 0, ["あけて", "あける", "あけた", "あけない"], "V-てもいいですか: あけてもいいですか (Bài 13)."),
         ("風邪を ひいたときは、暖かくして (   ) いいですよ。", "Khi bị cảm cúm, bạn nên giữ ấm cơ thể thì tốt đấy.", 0, ["ねると", "ねても", "ねたことが", "ねないで"], "V-るといいですよ: ねるといいですよ (Bài 14/16)."),
         ("日曜日は 音楽を (   )、掃除を し (   ) しました。", "Chủ nhật tôi khi thì nghe nhạc, khi thì dọn dẹp nhà cửa.", 0, ["聴いたり・たり", "聴いて・て", "聴きながら・ながら", "聴いた・た"], "～たり～たりしました (Bài 15)."),
@@ -188,6 +188,8 @@ def create_mock_exam(code, title, tag, desc, seed_offset):
             "correct": corr,
             "explain": f"💡 <strong>Giải thích ngữ pháp:</strong><br>• {exp}"
         })
+        if g_idx in (20, 28):
+            grammar_items[-1]["contentRevision"] = 2
         
     part2 = {
         "id": f"sec2_{code}",

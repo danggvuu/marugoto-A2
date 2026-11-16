@@ -15,6 +15,7 @@ import sys
 
 WORKSPACE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BUILDERS = [
+    "scripts/build_lesson_content.py",
     "scripts/build_mini_test_15_18.py",
     "scripts/build_mini_test_11_14.py",
     "scripts/build_cram_kanji_11_18.py",
@@ -77,4 +78,5 @@ if __name__ == "__main__":
     run_builders()
     verify_html_integrity()
     verify_all_js()
+    subprocess.run(["node", os.path.join(WORKSPACE, "qa/regression/content_integrity.js")], check=True)
     print("ALL BUILD & INTEGRITY CHECKS PASSED!")

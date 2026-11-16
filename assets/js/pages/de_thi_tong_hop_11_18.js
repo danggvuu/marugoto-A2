@@ -97,6 +97,8 @@ function normalizeExamAnswers(raw, exam) {
     getExamItems(exam).forEach(item => {
         const old = raw[item.id];
         if (!old || typeof old !== 'object') return;
+        // A corrected prompt/answer must be attempted again; keep all other answers.
+        if (item.contentRevision && old.contentRevision !== item.contentRevision) return;
         if (item.type === 'star' && Array.isArray(old.starOrder)) {
             const parts = item.parts || item.options || [];
             const order = [...new Set(old.starOrder.filter(i => Number.isInteger(i) && i >= 0 && i < parts.length))].slice(0, 4);
@@ -106,7 +108,8 @@ function normalizeExamAnswers(raw, exam) {
                 answers[item.id].isCorrect = order[2] === item.correct;
             }
         } else if (item.type === 'mc' && Number.isInteger(old.value) && old.value >= 0 && old.value < item.options.length) {
-            answers[item.id] = { value: old.value, checked: true, isCorrect: old.value === item.correct };
+            answers[item.id] = { value: old.value, checked: true, isCorrect: old.value === item.correct,
+                contentRevision: item.contentRevision || 1 };
         }
     });
     return answers;
@@ -442,7 +445,8 @@ function handleSelectOption(qId, oIdx) {
     userAnswers[qId] = {
         value: oIdx,
         isCorrect: isCorrect,
-        checked: true
+        checked: true,
+        contentRevision: qItem.contentRevision || 1
     };
 
     saveCurrentDraft();

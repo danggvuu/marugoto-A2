@@ -111,6 +111,7 @@ Lệnh này:
 
 ```sh
 node qa/regression/run_regression_tests.js
+node qa/regression/content_integrity.js
 ```
 
 Bao gồm kiểm tra bộ chấm, chuẩn hóa Unicode, chia động từ và một số kiểm tra cấu trúc source. Những kiểm tra dò source không chứng minh toàn bộ hành vi đúng trên trình duyệt.
@@ -171,6 +172,10 @@ MARUGOTO_SCREENSHOTS_DIR=artifacts/screenshots/latest python qa/browser/test_bro
   - `assets/js/pages/de_thi_tong_hop_11_18.js`: controller chuẩn, chỉnh trực tiếp.
   - `build_tong_hop_11_18_js.py`: chỉ xác nhận cú pháp controller, không sinh đè JS.
 - **Dữ liệu tiến độ:** giữ ID câu và có migration nếu đổi cấu trúc checkpoint.
+- **Nội dung đã biên tập Bài 3–18:** các ghi đè lý thuyết/quiz nằm trong `scripts/lesson_content_review.py`;
+  `scripts/build_lesson_content.py` cập nhật vào trang hiện tại và được gọi bởi `build_all.py`.
+  Câu hỏi là bài tự luyện theo chủ điểm, không phải đề chính thức. Chi tiết phạm vi đã đối chiếu:
+  [báo cáo chất lượng nội dung](docs/reviews/CONTENT_QUALITY_2026_11.md).
 - **Tài nguyên local:** để PDF trong `docs/pdf/`, báo cáo trong `docs/reviews/`, ảnh thử nghiệm trong `artifacts/screenshots/`.
 
 ## Trước khi gửi thay đổi

@@ -6,6 +6,7 @@
 const fs = require('fs');
 const path = require('path');
 const assert = require('assert');
+const vmContent = require('vm');
 
 const ROOT = path.resolve(__dirname, '../..');
 let passed = 0;
@@ -35,9 +36,10 @@ for (const lessonFile of lessonFiles) {
         assert.ok(!content.includes('Đáp án A (Đúng)'), 'placeholder answer remains');
     });
     test(`${lessonFile}: quiz answer choices are unique`, () => {
+        new vmContent.Script(content, { filename: lessonFile });
         const match = content.match(/const (?:QUIZ_DATA|QUIZ_QUESTIONS) = (\[[\s\S]*?\]);/);
-        if (!match) return;
-        const quiz = Function(`return ${match[1]}`)();
+        assert.ok(match, 'quiz declaration missing or malformed');
+        const quiz = JSON.parse(match[1]);
         quiz.forEach((question, index) => {
             assert.strictEqual(new Set(question.options).size, question.options.length,
                 `duplicate options in question ${index + 1}`);

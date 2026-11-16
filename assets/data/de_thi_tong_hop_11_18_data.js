@@ -1767,16 +1767,17 @@ window.DE_THI_TONG_HOP_DATA = [
               {
                 "id": 43,
                 "type": "mc",
-                "prompt": "明日は 天気が いい (   ) と 思います。",
+                "prompt": "明日は 天気が (   ) と 思います。",
                 "promptVi": "Tôi nghĩ rằng ngày mai thời tiết sẽ đẹp.",
                 "options": [
-                  "だ",
-                  "な",
-                  "の",
-                  "に"
+                  "いい",
+                  "いいだ",
+                  "よく",
+                  "いいな"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Thể ngắn tính từ đuôi な / danh từ: いい (đuôi い) + と思います (Bài 17)."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Tính từ い giữ nguyên trước と思います: いいと思います (Bài 18). Không thêm だ.",
+                "contentRevision": 2
               },
               {
                 "id": 44,
@@ -1879,7 +1880,7 @@ window.DE_THI_TONG_HOP_DATA = [
               {
                 "id": 51,
                 "type": "mc",
-                "prompt": "３か月前 (   ) 日本語の 勉強を (   ) 始めました。",
+                "prompt": "３か月前 (   ) 日本語の 勉強 (   ) 始めました。",
                 "promptVi": "Cách đây 3 tháng tôi đã bắt đầu học tiếng Nhật.",
                 "options": [
                   "に・を",
@@ -1888,7 +1889,8 @@ window.DE_THI_TONG_HOP_DATA = [
                   "が・に"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Mốc thời gian 3か月前に; Tân ngữ を始めました (Bài 13)."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• ３か月前に日本語の勉強を始めました. に chỉ thời điểm, を đánh dấu tân ngữ 勉強.",
+                "contentRevision": 2
               },
               {
                 "id": 52,
@@ -2894,16 +2896,17 @@ window.DE_THI_TONG_HOP_DATA = [
               {
                 "id": 40,
                 "type": "mc",
-                "prompt": "明日は 天気が いい (   ) と 思います。",
+                "prompt": "明日は 天気が (   ) と 思います。",
                 "promptVi": "Tôi nghĩ rằng ngày mai thời tiết sẽ đẹp.",
                 "options": [
-                  "だ",
-                  "な",
-                  "の",
-                  "に"
+                  "いい",
+                  "いいだ",
+                  "よく",
+                  "いいな"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Thể ngắn tính từ đuôi な / danh từ: いい (đuôi い) + と思います (Bài 17)."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Tính từ い giữ nguyên trước と思います: いいと思います (Bài 18). Không thêm だ.",
+                "contentRevision": 2
               },
               {
                 "id": 41,
@@ -3006,7 +3009,7 @@ window.DE_THI_TONG_HOP_DATA = [
               {
                 "id": 48,
                 "type": "mc",
-                "prompt": "３か月前 (   ) 日本語の 勉強を (   ) 始めました。",
+                "prompt": "３か月前 (   ) 日本語の 勉強 (   ) 始めました。",
                 "promptVi": "Cách đây 3 tháng tôi đã bắt đầu học tiếng Nhật.",
                 "options": [
                   "に・を",
@@ -3015,7 +3018,8 @@ window.DE_THI_TONG_HOP_DATA = [
                   "が・に"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Mốc thời gian 3か月前に; Tân ngữ を始めました (Bài 13)."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• ３か月前に日本語の勉強を始めました. に chỉ thời điểm, を đánh dấu tân ngữ 勉強.",
+                "contentRevision": 2
               },
               {
                 "id": 49,
@@ -4021,16 +4025,17 @@ window.DE_THI_TONG_HOP_DATA = [
               {
                 "id": 37,
                 "type": "mc",
-                "prompt": "明日は 天気が いい (   ) と 思います。",
+                "prompt": "明日は 天気が (   ) と 思います。",
                 "promptVi": "Tôi nghĩ rằng ngày mai thời tiết sẽ đẹp.",
                 "options": [
-                  "だ",
-                  "な",
-                  "の",
-                  "に"
+                  "いい",
+                  "いいだ",
+                  "よく",
+                  "いいな"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Thể ngắn tính từ đuôi な / danh từ: いい (đuôi い) + と思います (Bài 17)."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Tính từ い giữ nguyên trước と思います: いいと思います (Bài 18). Không thêm だ.",
+                "contentRevision": 2
               },
               {
                 "id": 38,
@@ -4133,7 +4138,7 @@ window.DE_THI_TONG_HOP_DATA = [
               {
                 "id": 45,
                 "type": "mc",
-                "prompt": "３か月前 (   ) 日本語の 勉強を (   ) 始めました。",
+                "prompt": "３か月前 (   ) 日本語の 勉強 (   ) 始めました。",
                 "promptVi": "Cách đây 3 tháng tôi đã bắt đầu học tiếng Nhật.",
                 "options": [
                   "に・を",
@@ -4142,7 +4147,8 @@ window.DE_THI_TONG_HOP_DATA = [
                   "が・に"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Mốc thời gian 3か月前に; Tân ngữ を始めました (Bài 13)."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• ３か月前に日本語の勉強を始めました. に chỉ thời điểm, を đánh dấu tân ngữ 勉強.",
+                "contentRevision": 2
               },
               {
                 "id": 46,
@@ -5148,16 +5154,17 @@ window.DE_THI_TONG_HOP_DATA = [
               {
                 "id": 34,
                 "type": "mc",
-                "prompt": "明日は 天気が いい (   ) と 思います。",
+                "prompt": "明日は 天気が (   ) と 思います。",
                 "promptVi": "Tôi nghĩ rằng ngày mai thời tiết sẽ đẹp.",
                 "options": [
-                  "だ",
-                  "な",
-                  "の",
-                  "に"
+                  "いい",
+                  "いいだ",
+                  "よく",
+                  "いいな"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Thể ngắn tính từ đuôi な / danh từ: いい (đuôi い) + と思います (Bài 17)."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Tính từ い giữ nguyên trước と思います: いいと思います (Bài 18). Không thêm だ.",
+                "contentRevision": 2
               },
               {
                 "id": 35,
@@ -5260,7 +5267,7 @@ window.DE_THI_TONG_HOP_DATA = [
               {
                 "id": 42,
                 "type": "mc",
-                "prompt": "３か月前 (   ) 日本語の 勉強を (   ) 始めました。",
+                "prompt": "３か月前 (   ) 日本語の 勉強 (   ) 始めました。",
                 "promptVi": "Cách đây 3 tháng tôi đã bắt đầu học tiếng Nhật.",
                 "options": [
                   "に・を",
@@ -5269,7 +5276,8 @@ window.DE_THI_TONG_HOP_DATA = [
                   "が・に"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Mốc thời gian 3か月前に; Tân ngữ を始めました (Bài 13)."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• ３か月前に日本語の勉強を始めました. に chỉ thời điểm, を đánh dấu tân ngữ 勉強.",
+                "contentRevision": 2
               },
               {
                 "id": 43,
@@ -6275,16 +6283,17 @@ window.DE_THI_TONG_HOP_DATA = [
               {
                 "id": 31,
                 "type": "mc",
-                "prompt": "明日は 天気が いい (   ) と 思います。",
+                "prompt": "明日は 天気が (   ) と 思います。",
                 "promptVi": "Tôi nghĩ rằng ngày mai thời tiết sẽ đẹp.",
                 "options": [
-                  "だ",
-                  "な",
-                  "の",
-                  "に"
+                  "いい",
+                  "いいだ",
+                  "よく",
+                  "いいな"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Thể ngắn tính từ đuôi な / danh từ: いい (đuôi い) + と思います (Bài 17)."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Tính từ い giữ nguyên trước と思います: いいと思います (Bài 18). Không thêm だ.",
+                "contentRevision": 2
               },
               {
                 "id": 32,
@@ -6387,7 +6396,7 @@ window.DE_THI_TONG_HOP_DATA = [
               {
                 "id": 39,
                 "type": "mc",
-                "prompt": "３か月前 (   ) 日本語の 勉強を (   ) 始めました。",
+                "prompt": "３か月前 (   ) 日本語の 勉強 (   ) 始めました。",
                 "promptVi": "Cách đây 3 tháng tôi đã bắt đầu học tiếng Nhật.",
                 "options": [
                   "に・を",
@@ -6396,7 +6405,8 @@ window.DE_THI_TONG_HOP_DATA = [
                   "が・に"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Mốc thời gian 3か月前に; Tân ngữ を始めました (Bài 13)."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• ３か月前に日本語の勉強を始めました. に chỉ thời điểm, を đánh dấu tân ngữ 勉強.",
+                "contentRevision": 2
               },
               {
                 "id": 40,
