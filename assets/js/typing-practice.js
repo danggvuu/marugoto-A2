@@ -469,7 +469,7 @@
                 renderFeedbackFromState(cardFeedbackState, current);
                 statCorrect.innerText = correctCount;
                 streakBadge.innerText = `🔥 Chuỗi: ${streak}`;
-                playAudio(current.jp);
+                playAudio(current.kana || current.jp);
                 persistTpState();
 
                 // Tự động chuyển sau 1 giây
@@ -512,7 +512,7 @@
 
         document.getElementById('tpBtnSpeakWord').addEventListener('click', () => {
             if (currentIndex < words.length) {
-                playAudio(words[currentIndex].jp);
+                playAudio(words[currentIndex].kana || words[currentIndex].jp);
             }
         });
 
@@ -538,7 +538,7 @@
                 cardInput.value = current.jp;
                 cardFeedbackState = { type: 'revealed' };
                 renderFeedbackFromState(cardFeedbackState, current);
-                playAudio(current.jp);
+                playAudio(current.kana || current.jp);
                 persistTpState();
             }
         });
@@ -634,7 +634,7 @@
             tableBody.querySelectorAll('button[data-tp-speak]').forEach(btn => {
                 btn.addEventListener('click', () => {
                     const idx = Number(btn.getAttribute('data-tp-speak'));
-                    if (vocabList[idx]) playAudio(vocabList[idx].jp);
+                    if (vocabList[idx]) playAudio(vocabList[idx].kana || vocabList[idx].jp);
                 });
             });
 
@@ -669,7 +669,7 @@
                         if (checkAnswer(val, item)) {
                             tableState[idx] = { val: rawVal, status: 'ok' };
                             applyTableRowUi(idx, item, tableState[idx]);
-                            playAudio(item.jp);
+                            playAudio(item.kana || item.jp);
                             persistTpState();
 
                             // Tự động nhảy con trỏ sang dòng tiếp theo

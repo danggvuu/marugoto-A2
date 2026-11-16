@@ -1,0 +1,65 @@
+.vocab-kanji-check {
+    margin: 18px 0;
+    border: 1px solid #cbd5e1;
+    border-radius: 16px;
+    background: #fff;
+    overflow: hidden;
+}
+.full-exam-page #fullExamPanel[hidden],
+.full-exam-page #vocabKanjiCheck[hidden],
+.vkc-next[hidden] { display: none; }
+.vkc-panels { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0; }
+.vkc-panels button, .vkc-finished button {
+    min-height: 44px; padding: 10px 14px; border: 1px solid #94a3b8;
+    background: #fff; border-radius: 10px; color: #1e293b; font: inherit; cursor: pointer;
+}
+.vkc-panels button[aria-pressed="true"] { background: #1d4ed8; border-color: #1d4ed8; color: #fff; }
+.vkc-meaning { text-align: center; color: #475569; }
+#vkcSaveStatus { font-size: .82rem; color: #475569; }
+.vkc-option { overflow-wrap: anywhere; }
+.vkc-panels :focus-visible, .vocab-kanji-check :focus-visible { outline: 3px solid #2563eb; outline-offset: 3px; }
+.vkc-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 18px 20px;
+    background: linear-gradient(135deg, #eef2ff, #f0fdfa);
+}
+.vkc-eyebrow { color: #4338ca; font-size: .75rem; font-weight: 800; }
+.vkc-header h2 { margin: 5px 0; color: #172554; }
+.vkc-header p { margin: 0; color: #475569; font-size: .88rem; }
+.vkc-collapse, .vkc-start, .vkc-next {
+    border: 1px solid #cbd5e1; border-radius: 9px; padding: 9px 12px;
+    background: #fff; color: #1e3a8a; font: inherit; font-weight: 700; cursor: pointer;
+}
+.vkc-body { padding: 18px 20px; }
+.vkc-settings { display: flex; flex-wrap: wrap; align-items: end; gap: 10px; }
+.vkc-settings label { display: grid; gap: 5px; color: #475569; font-size: .82rem; font-weight: 700; }
+.vkc-settings select { min-height: 42px; padding: 8px 10px; border: 1px solid #94a3b8; border-radius: 8px; font: inherit; }
+.vkc-start { background: #2563eb; color: #fff; border-color: #2563eb; }
+.vkc-status { margin: 18px 0 10px; color: #475569; }
+.vkc-card { max-width: 760px; margin: auto; }
+.vkc-question-meta { display: flex; justify-content: space-between; color: #64748b; font-size: .82rem; font-weight: 700; }
+.vkc-prompt-label { margin-top: 18px; color: #64748b; text-align: center; }
+.vkc-prompt { margin: 10px 0 18px; text-align: center; font-size: 1.5rem; font-weight: 800; color: #172554; }
+.vkc-prompt.is-kanji { font-size: 3rem; font-family: "Noto Sans JP", sans-serif; }
+.vkc-options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.vkc-option { min-height: 48px; padding: 10px; border: 1px solid #cbd5e1; border-radius: 10px; background: #f8fafc; font: inherit; cursor: pointer; }
+.vkc-option:hover:not(:disabled) { border-color: #2563eb; background: #eff6ff; }
+.vkc-option.is-correct { border-color: #15803d; background: #dcfce7; color: #166534; }
+.vkc-option.is-wrong { border-color: #be123c; background: #ffe4e6; color: #9f1239; }
+.vkc-feedback { margin-top: 14px; padding: 12px; border-radius: 10px; line-height: 1.5; }
+.vkc-feedback.is-correct { background: #f0fdf4; color: #166534; }
+.vkc-feedback.is-wrong { background: #fff1f2; color: #9f1239; }
+.vkc-speak { border: 0; background: transparent; cursor: pointer; font-size: 1rem; }
+.vkc-next { display: block; margin: 12px 0 0 auto; }
+.vkc-finished, .vkc-empty { padding: 24px; text-align: center; color: #334155; }
+@media (max-width: 768px) {
+    .vkc-header, .vkc-body { padding: 14px; }
+    .vkc-header { flex-direction: column; }
+    .vkc-settings > * { width: 100%; }
+    .vkc-settings select, .vkc-start { width: 100%; }
+    .vkc-settings select { font-size: 16px; min-width: 0; }
+    .vkc-panels button { flex: 1 1 150px; }
+    .vkc-options { grid-template-columns: 1fr; }
+}

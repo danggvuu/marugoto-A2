@@ -19,6 +19,7 @@ BUILDERS = [
     "scripts/build_mini_test_15_18.py",
     "scripts/build_mini_test_11_14.py",
     "scripts/build_cram_kanji_11_18.py",
+    "scripts/build_vocab_kanji_check_11_18.py",
     "scripts/build_full_exam_11_18_system.py",
     "scripts/build_tong_hop_11_18_page.py",
     "scripts/build_tong_hop_11_18_js.py",
@@ -79,4 +80,5 @@ if __name__ == "__main__":
     verify_html_integrity()
     verify_all_js()
     subprocess.run(["node", os.path.join(WORKSPACE, "qa/regression/content_integrity.js")], check=True)
+    subprocess.run(["node", os.path.join(WORKSPACE, "qa/regression/vocab_kanji_scope.js")], check=True)
     print("ALL BUILD & INTEGRITY CHECKS PASSED!")

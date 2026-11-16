@@ -68,7 +68,7 @@ function renderFlashcards() {
                 <div class="fc-front">
                     <div style="display:flex; justify-content:space-between; align-items:center;">
                         <span class="fc-badge">${v.badge}</span>
-                        <button type="button" class="btn-speak" style="width:28px; height:28px; font-size:0.75rem;" onclick="event.stopPropagation(); speakText('${v.jp}')">🔊</button>
+                        <button type="button" class="btn-speak" style="width:28px; height:28px; font-size:0.75rem;" onclick="event.stopPropagation(); speakText('${v.kana || v.jp}')">🔊</button>
                     </div>
                     <div class="fc-3d-stage" onclick="event.stopPropagation(); openVocab3D(VOCAB_DATA.indexOf(v))" title="Bấm để mở Mô Hình 3D 360° tương tác">
                         <div class="fc-3d-model-wrapper">

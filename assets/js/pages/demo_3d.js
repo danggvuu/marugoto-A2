@@ -1995,6 +1995,7 @@ function stepObject(direction) {
 function showModal(item, autoPlayAudio = false) {
     const modal = document.getElementById('vocabModal');
     if (!modal) return;
+    currentActiveItem = item;
 
     document.getElementById('cardTag').innerText = item.tag;
     document.getElementById('cardKanji').innerText = item.kanji;
@@ -2012,7 +2013,7 @@ function showModal(item, autoPlayAudio = false) {
     modal.style.display = 'block';
 
     if (autoPlayAudio && window.speakText) {
-        window.speakText(item.kanji, document.getElementById('cardAudioBtn'));
+        window.speakText(item.kana || item.kanji, document.getElementById('cardAudioBtn'));
     }
 }
 
@@ -2026,7 +2027,7 @@ function closeModal() {
 
 function speakCurrentCard() {
     if (currentActiveItem && window.speakText) {
-        window.speakText(currentActiveItem.kanji, document.getElementById('cardAudioBtn'));
+        window.speakText(currentActiveItem.kana || currentActiveItem.kanji, document.getElementById('cardAudioBtn'));
     }
 }
 

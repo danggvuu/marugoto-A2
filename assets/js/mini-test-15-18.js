@@ -222,7 +222,7 @@ function renderVocab(list) {
                         <div class="vocab-jp jp-text">${item.jp}</div>
                         <div class="vocab-kana jp-text">${item.kana || ''} ${item.hv ? `<span style="color:#64748b; font-size:0.8rem;">${item.hv}</span>` : ''}</div>
                     </div>
-                    <button type="button" class="audio-btn" onclick="speakText('${item.jp}')" title="Phát âm">🔊</button>
+                    <button type="button" class="audio-btn" onclick="speakText('${(item.kana || item.jp || '').replace(/'/g, "\\'")}')" title="Nghe cách đọc Kana">🔊</button>
                 </div>
                 <div class="vocab-badge">${item.l || 'A2'} • #${item.num || ''}</div>
             </div>
@@ -816,7 +816,7 @@ function renderPart6() {
 
 function speakP6Model(qId) {
     const item = P6_DATA.find(q => q.id === qId);
-    if (item) speakText(item.modelSentence);
+    if (item) speakText(item.modelKana || item.modelSentence);
 }
 
 function toggleTranslationModel(qId) {

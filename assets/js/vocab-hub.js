@@ -51,7 +51,10 @@ function switchView(viewId, opts) {
     const activeBtn = Array.from(document.querySelectorAll('.mode-btn')).find(b => b.getAttribute('onclick')?.includes(viewId));
     if (activeBtn) activeBtn.classList.add('active');
 
-    if (viewId === 'view-flashcard') {
+    if (viewId === 'view-table') {
+        // Flashcards may have reordered currentFiltered since the table was drawn.
+        renderTable();
+    } else if (viewId === 'view-flashcard') {
         if (!(opts && opts.isRestore)) {
             currentCardIndex = 0;
             cardFlipped = false;
@@ -806,6 +809,7 @@ function shuffleCards() {
     currentCardIndex = 0;
     cardFlipped = false;
     renderCard();
+    renderTable();
     showToast("🔀 Đã xáo trộn danh sách thẻ!");
     saveTvCheckpoint();
 }
@@ -979,7 +983,7 @@ function renderQuizQuestion(opts) {
 
     // Tự động phát âm tiếng Nhật nếu bật
     if (quizSettings.autoSpeak && q.direction === 'vi') {
-        speakJapanese(q.rawItem.jp);
+        speakJapanese(q.rawItem.kana || q.rawItem.jp);
     }
 
     // Reset feedback banner
@@ -1021,7 +1025,7 @@ function renderQuizQuestion(opts) {
 function speakQuizWord() {
     if (quizSession.questions.length === 0) return;
     const q = quizSession.questions[quizSession.currentIndex];
-    speakJapanese(q.rawItem.jp);
+    speakJapanese(q.rawItem.kana || q.rawItem.jp);
 }
 
 function handleQuizOptionClick(selectedOpt, btnEl, questionObj) {
@@ -1082,7 +1086,7 @@ function handleQuizOptionClick(selectedOpt, btnEl, questionObj) {
                 feedbackText.innerHTML = `✓ Chính xác! Rất tốt.`;
             } else {
                 banner.className = 'quiz-feedback-banner feedback-wrong';
-                feedbackText.innerHTML = `✕ Chưa đúng! Đáp án đúng: <strong>${questionObj.correctAnswer}</strong> (${questionObj.rawItem.jp} : ${questionObj.rawItem.vi}) <button type="button" class="fc-audio-btn" style="position:static; width:32px; height:32px; font-size:0.9rem; display:inline-flex;" onclick="speakJapanese('${questionObj.rawItem.jp.replace(/'/g, "\\'")}')" title="Nghe đọc">🔊</button>`;
+                feedbackText.innerHTML = `✕ Chưa đúng! Đáp án đúng: <strong>${questionObj.correctAnswer}</strong> (${questionObj.rawItem.jp} : ${questionObj.rawItem.vi}) <button type="button" class="fc-audio-btn" style="position:static; width:32px; height:32px; font-size:0.9rem; display:inline-flex;" onclick="speakQuizWord()" title="Nghe đọc">🔊</button>`;
             }
             banner.style.display = 'flex';
         }

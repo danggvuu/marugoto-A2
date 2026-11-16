@@ -1319,7 +1319,7 @@ universalPrism: (word) => {
     window.speakCurrent3DVocab = function () {
         if (!currentVocabList || !currentVocabList[currentVocabIndex]) return;
         const v = currentVocabList[currentVocabIndex];
-        const text = v.jp || v.kanji || v.kana;
+        const text = v.kana || v.jp || v.kanji;
         if (typeof window.speakText === 'function') {
             window.speakText(text);
         } else if ('speechSynthesis' in window) {

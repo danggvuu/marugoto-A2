@@ -482,10 +482,10 @@
     function getSpeakableTypingText(item) {
         if (!item) return '';
         if (window.tpState.mode === 'sentence') {
-            var natural = item.kanjiModel || item.hira || '';
+            var natural = item.hira || item.kanjiModel || '';
             return String(natural).replace(/[（(]\s*[／/][^）)]*[）)]/g, '').trim();
         }
-        return item.kanji || item.jp || item.kana || '';
+        return item.kana || item.jp || item.kanji || '';
     }
 
     function say(txt, btn) {

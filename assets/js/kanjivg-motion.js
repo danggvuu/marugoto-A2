@@ -20,6 +20,9 @@
 const motionSvgCache = new Map();
 let currentMotionItem = null;
 let currentMotionChar = null;
+let miniMotionItem = null;
+let miniMotionRequest = 0;
+let motionRequest = 0;
 let motionPlayer = {
     char: '',
     totalStrokes: 0,
@@ -90,6 +93,7 @@ function openStrokeModel(itemIndex) {
 }
 
 function closeStrokeModel() {
+    motionRequest++;
     if (motionPlayer.timer) clearTimeout(motionPlayer.timer);
     motionPlayer.isPlaying = false;
     const modal = document.getElementById('kanjiMotionModal');
@@ -109,6 +113,8 @@ function speakMotionWord() {
 }
 
 async function selectMotionChar(char, btnEl) {
+    const request = ++motionRequest;
+    const item = currentMotionItem;
     if (motionPlayer.timer) clearTimeout(motionPlayer.timer);
     motionPlayer.isPlaying = false;
     currentMotionChar = char;
@@ -127,9 +133,10 @@ async function selectMotionChar(char, btnEl) {
     container.innerHTML = `<div class="motion-loading-spinner">Đang tải nét chữ <strong>${char}</strong>...</div>`;
 
     const svgText = await fetchKanjiSvg(char);
+    if (request !== motionRequest || item !== currentMotionItem) return;
     if (svgText) {
         setupMotionSvgPlayer(char, svgText);
-        loadMiniMotionChar(char, currentMotionItem);
+        loadMiniMotionChar(char, item);
     } else {
         container.innerHTML = `
         <div style="text-align:center; padding:20px; color:#64748b;">
@@ -500,6 +507,8 @@ function togglePracticeGhost() {
 // FLOATING MINI MOTION WIDGET
 // ==========================================
 async function loadMiniMotionChar(char, item) {
+    const request = ++miniMotionRequest;
+    miniMotionItem = item;
     const charEl = document.getElementById('miniMotionChar');
     const hvEl = document.getElementById('miniMotionHv');
     const descEl = document.getElementById('miniWordDesc');
@@ -511,6 +520,7 @@ async function loadMiniMotionChar(char, item) {
 
     if (!container) return;
     const svgText = await fetchKanjiSvg(char);
+    if (request !== miniMotionRequest) return;
     if (!svgText) {
         container.innerHTML = `<span style="font-size:3rem; font-family:'Hiragino Mincho ProN',serif; color:#0f172a;">${char}</span>`;
         return;
@@ -541,8 +551,8 @@ async function loadMiniMotionChar(char, item) {
 }
 
 function expandMiniMotion() {
-    if (currentMotionItem) {
-        const idx = currentFiltered.indexOf(currentMotionItem);
+    if (miniMotionItem) {
+        const idx = currentFiltered.indexOf(miniMotionItem);
         if (idx !== -1) {
             openStrokeModel(idx);
             return;
@@ -561,4 +571,3 @@ function toggleMiniMotionMinimize() {
         btn.innerText = widget.classList.contains('minimized') ? '+' : '–';
     }
 }
-

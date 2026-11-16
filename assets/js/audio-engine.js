@@ -131,8 +131,12 @@
         if (!text) return '';
         let t = String(text).trim();
 
-        // Remove ruby / furigana HTML elements cleanly
-        t = t.replace(/<rt>.*?<\/rt>/gi, '').replace(/<[^>]*>/g, '');
+        // A ruby annotation explicitly specifies the reading; do not ask TTS to guess it.
+        t = t.replace(/<ruby\b[^>]*>([\s\S]*?)<\/ruby>/gi, (whole, inner) => {
+            const parts = Array.from(inner.matchAll(/<rt\b[^>]*>([\s\S]*?)<\/rt>/gi));
+            return parts.length ? parts.map(part => part[1].replace(/<[^>]*>/g, '')).join('') : inner;
+        });
+        t = t.replace(/<r[tp]\b[^>]*>[\s\S]*?<\/r[tp]>/gi, '').replace(/<[^>]*>/g, '');
 
         // Remove angle bracketed non-Japanese notes (e.g. 〈Số đếm〉)
         t = t.replace(/〈[^〉]*〉/g, '');
@@ -501,9 +505,8 @@
 
     function speakJapanese(text, btnOrOpts, maybeOpts) {
         if (!text) return;
-        const clean = cleanJapaneseText(text);
-        if (!clean) return;
-        speakQueue([{ text: clean }], btnOrOpts, maybeOpts);
+        // Normalize once, inside the queue. All aliases use the same pipeline.
+        speakQueue([{ text }], btnOrOpts, maybeOpts);
     }
 
     // Expose globally under all commonly used names across the project

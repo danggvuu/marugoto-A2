@@ -95,6 +95,101 @@ class StudyFlows(unittest.TestCase):
         self.assertTrue(self.page.locator(".btn-stroke-model").first.evaluate(
             "(el) => { const r=el.getBoundingClientRect(); return r.left >= 0 && r.right <= innerWidth; }"))
 
+    def start_scoped_check(self, lesson="all", mode="mixed", direction="forward", count="10"):
+        self.go(EXAM + "#vocab-kanji-check")
+        self.page.locator("#vkcLesson").select_option(lesson)
+        self.page.locator("#vkcMode").select_option(mode)
+        self.page.locator("#vkcDirection").select_option(direction)
+        self.page.locator("#vkcCount").select_option(count)
+        self.page.locator("#vocabKanjiCheck .vkc-start").click()
+
+    def scoped_snapshot(self):
+        return self.page.evaluate("JSON.parse(localStorage.getItem('marugoto_vocab_kanji_check_11_18_v1'))")
+
+    def test_scoped_check_limits_all_questions_and_distractors(self):
+        for mode in ["vocab", "kanji", "mixed"]:
+            for direction in ["forward", "reverse"]:
+                with self.subTest(mode=mode, direction=direction):
+                    self.start_scoped_check("A2-11", mode, direction, "all")
+                    snapshot = self.scoped_snapshot()
+                    self.assertGreater(len(snapshot["session"]["questions"]), 0)
+                    valid = self.page.evaluate(r"""() => {
+                        const d=VOCAB_KANJI_CHECK_DATA;
+                        const s=JSON.parse(localStorage.getItem('marugoto_vocab_kanji_check_11_18_v1')).session;
+                        const allowed=new Set(d.allowedKanji);
+                        return s.questions.every(q=>{
+                            const item=[...d.vocab,...d.kanji].find(x=>x.id===q.id);
+                            return item.lesson==='A2-11' && new Set(q.options).size===4 &&
+                                (s.settings.mode==='mixed'||q.id.startsWith(s.settings.mode+':')) &&
+                                [item.id.startsWith('kanji:')?item.jp:item.kana,...q.options]
+                                    .every(text=>[...text.replace(/々/g,'').matchAll(/\p{Script=Han}/gu)].every(m=>allowed.has(m[0])));
+                        });
+                    }""")
+                    self.assertTrue(valid)
+
+    def test_scoped_check_reload_completion_retry_and_audio(self):
+        self.start_scoped_check()
+        self.assertFalse(self.page.locator(".vkc-next").is_visible())
+        self.page.locator(".vkc-option").first.click()
+        snapshot = self.scoped_snapshot()
+        self.reload()
+        self.assertEqual(self.scoped_snapshot()["session"], snapshot["session"])
+        self.assertEqual(self.page.locator(".vkc-option:disabled").count(), 4)
+        self.page.evaluate("() => {window.__spoken=[];window.speakText=text=>__spoken.push(text);}")
+        self.page.locator(".vkc-speak").click()
+        self.assertEqual(self.page.evaluate("__spoken[0]"), self.page.evaluate("""() => {
+            const id=JSON.parse(localStorage.getItem('marugoto_vocab_kanji_check_11_18_v1')).session.questions[0].id;
+            return [...VOCAB_KANJI_CHECK_DATA.vocab,...VOCAB_KANJI_CHECK_DATA.kanji].find(x=>x.id===id).kana;
+        }"""))
+        self.page.locator(".vkc-next").click()
+        for _ in range(9):
+            wrong = self.page.evaluate("""() => {
+                const s=JSON.parse(localStorage.getItem('marugoto_vocab_kanji_check_11_18_v1')).session;
+                const q=s.questions[s.index];
+                const item=[...VOCAB_KANJI_CHECK_DATA.vocab,...VOCAB_KANJI_CHECK_DATA.kanji].find(x=>x.id===q.id);
+                return q.options.findIndex(x=>x!==item.kana);
+            }""")
+            self.page.locator(f'.vkc-option[data-index="{wrong}"]').click()
+            self.page.locator(".vkc-next").click()
+        self.assertTrue(self.page.locator(".vkc-finished").is_visible())
+        snapshot = self.scoped_snapshot()
+        self.assertEqual(snapshot["session"]["index"], 10)
+        wrong_ids = {q["id"] for q in snapshot["session"]["questions"]}
+        self.reload()
+        self.assertTrue(self.page.locator(".vkc-finished").is_visible())
+        self.page.locator("#vkcRetryWrong").click()
+        retried = self.scoped_snapshot()["session"]
+        self.assertGreaterEqual(len(retried["questions"]), 9)
+        self.assertTrue({q["id"] for q in retried["questions"]}.issubset(wrong_ids))
+
+    def test_scoped_check_isolated_from_exam_and_pauses_timer(self):
+        self.go(EXAM)
+        self.page.evaluate("handleSelectOption(1,0);toggleExamMode()")
+        self.page.locator("#showVocabCheck").click()
+        self.assertFalse(self.page.evaluate("isTimerRunning"))
+        remaining = self.page.evaluate("timerSeconds")
+        self.page.clock.run_for(5000)
+        self.assertEqual(self.page.evaluate("timerSeconds"), remaining)
+        self.page.locator(".vkc-start").click()
+        self.page.locator(".vkc-option").first.click()
+        self.page.locator("#showFullExam").click()
+        self.assertTrue(self.page.evaluate("isTimerRunning"))
+        self.assertEqual(self.page.evaluate("Object.keys(userAnswers)"), ["1"])
+        self.page.locator("#showVocabCheck").click()
+        self.assertEqual(self.page.locator(".vkc-option:disabled").count(), 4)
+
+    def test_scoped_check_rejects_out_of_scope_snapshot(self):
+        self.start_scoped_check()
+        self.page.evaluate("""() => {
+            const key='marugoto_vocab_kanji_check_11_18_v1';
+            const value=JSON.parse(localStorage.getItem(key));
+            value.session.questions[0].options[0]='外国語';
+            localStorage.setItem(key,JSON.stringify(value));
+        }""")
+        self.reload()
+        self.assertEqual(self.page.locator(".vkc-option").count(), 0)
+        self.assertIn("Bắt đầu", self.page.locator("#vkcCard").inner_text())
+
     def test_vocab_test_restore_never_reveals_correct_answer(self):
         self.go(VOCAB)
         self.page.evaluate("quizSettings.mode='test';switchView('view-quiz')")
@@ -105,6 +200,201 @@ class StudyFlows(unittest.TestCase):
         self.assertEqual(self.page.locator("#quizOptions .correct, #quizOptions .wrong").count(), 0)
         self.page.clock.run_for(500)
         self.assertEqual(self.page.evaluate("quizSession.currentIndex"), 1)
+
+    def test_vocab_audio_uses_displayed_kana_not_ambiguous_kanji(self):
+        for path, selector in [
+            ("tests/On_Tap_Mini_Test_A2_11_14.html", "#vocabContainer .sound-btn"),
+            ("tests/On_Tap_Mini_Test_A2_15_18.html", "#vocabGridContainer .audio-btn"),
+        ]:
+            with self.subTest(page=path):
+                self.go(path)
+                self.page.locator('button[onclick="switchMainTab(\\\'tab-vocab\\\')"]').click()
+                self.page.evaluate("""() => {
+                    window.__spoken = [];
+                    window.speakText = text => window.__spoken.push(String(text));
+                    window.speakJapanese = window.speakText;
+                }""")
+                button = self.page.locator(selector).first
+                expected = self.page.evaluate("""() => {
+                    const item = typeof rawVocab !== 'undefined' ? rawVocab[0] : VOCAB_DATA[0];
+                    return item.kana || item.jp || item.kanji;
+                }""")
+                button.click()
+                spoken = self.page.evaluate("window.__spoken.at(-1)")
+                self.assertTrue(spoken, "audio button did not dispatch text")
+                self.assertEqual(spoken, expected)
+
+    def test_audio_mapping_after_shuffle_pagination_filter_and_modal(self):
+        self.go(VOCAB)
+        self.page.evaluate("""() => {
+            fetchKanjiSvg = async () => null;
+            window.__spoken=[];
+            window.speakJapanese=text=>__spoken.push(String(text));
+            window.speakText=window.speakJapanese;
+            switchView('view-flashcard');
+            const original=Math.random;
+            Math.random=()=>0;
+            shuffleCards();
+            Math.random=original;
+            switchView('view-table');
+        }""")
+        for setup in ["setVocabPage(1)", "setVocabPage(2)", "selectLevelScope('A2_2')"]:
+            self.page.evaluate(setup)
+            row = self.page.locator("#vocabTableBody tr").filter(has=self.page.locator(".btn-stroke-model")).first
+            visible_word = row.locator(".kanji-word").inner_text()
+            expected_kana = row.locator(".col-kana .kana-word").text_content()
+            row.locator(".btn-speak-inline").click()
+            self.assertEqual(self.page.evaluate("__spoken.at(-1)"), expected_kana)
+            row.locator(".btn-stroke-model").click()
+            self.assertEqual(self.page.locator("#motionWordKanji").inner_text(), visible_word)
+            self.page.locator(".btn-motion-speak").click()
+            self.assertEqual(self.page.evaluate("__spoken.at(-1)"), expected_kana)
+            self.page.evaluate("closeStrokeModel()")
+
+    def test_kanji_audio_uses_readings_after_filter_and_page_change(self):
+        self.go("kanji_a2.html")
+        self.page.evaluate("""() => {
+            window.__spoken=[];
+            window.speakJapanese=text=>__spoken.push(String(text));
+            window.speakText=window.speakJapanese;
+            setKanjiViewMode('cards');setKanjiPage(2);
+        }""")
+        for setup in ["", "selectPreset('L11_18')"]:
+            if setup:
+                self.page.evaluate(setup)
+            result = self.page.evaluate("""() => {
+                const cards=[...document.querySelectorAll('.kanji-card')];
+                return cards.map(card=>{
+                    const item=filteredKanji[Number(card.dataset.index)];
+                    const buttons=card.querySelectorAll('.example-line button');
+                    const spoken=[...buttons].map(b=>{b.click();return __spoken.at(-1)});
+                    return {expected:item.examples.map(e=>e.reading),spoken};
+                });
+            }""")
+            self.assertGreater(len(result), 0)
+            for card in result:
+                self.assertEqual(card["spoken"], card["expected"])
+        self.page.evaluate("speakKanjiReadings('は-れる、は-らす');")
+        self.assertEqual(self.page.evaluate("__spoken.at(-1)"), "はれる。はらす")
+
+    def test_each_lesson_vocab_audio_dispatches_kana(self):
+        for n in range(1, 19):
+            with self.subTest(lesson=n):
+                self.go(f"lessons/Marugoto_A2_Lesson_{n}.html")
+                result = self.page.evaluate("""() => {
+                    window.__spoken=[];
+                    window.speakText=text=>__spoken.push(String(text));
+                    window.speakJapanese=window.speakText;
+                    const buttons=[...document.querySelectorAll('#sec-vocab button[onclick*="speakText"]')]
+                        .filter(b=>!b.getAttribute('onclick').includes('exJp'));
+                    const cards=[...document.querySelectorAll('#flashcardGrid .fc-item')];
+                    // Rich cards have two buttons per item: word and example.
+                    if (cards.length) cards.forEach(c=>c.click());
+                    else buttons.filter((_,i)=>i%2===0).forEach(b=>b.click());
+                    return {spoken:__spoken,expected:VOCAB_DATA.map(v=>v.kana||v.jp)};
+                }""")
+                self.assertGreater(len(result["spoken"]), 0)
+                self.assertEqual(result["spoken"], result["expected"])
+
+    def test_audio_transport_ruby_normalization_and_cancelled_fallback(self):
+        self.go(VOCAB)
+        self.page.evaluate("""() => {
+            window.__audio=[];
+            window.__utterances=[];
+            window.Audio=class {
+                constructor(){__audio.push(this)}
+                play(){return Promise.resolve()}
+                pause(){this.paused=true}
+                load(){}
+                removeAttribute(){}
+            };
+            speechSynthesis.speak=u=>__utterances.push(u.text);
+            speechSynthesis.cancel=()=>{};
+            AudioEngine.speak('<ruby>生<rt>なま</rt></ruby>たまご');
+        }""")
+        self.assertEqual(self.page.evaluate("new URL(__audio[0].src).searchParams.get('q')"), "なまたまご")
+        self.page.evaluate("""() => {
+            window.__oldError=__audio[0].onerror;
+            AudioEngine.speak('なまえ');
+            __oldError();
+        }""")
+        self.page.clock.run_for(100)
+        self.assertEqual(self.page.evaluate("__utterances.length"), 0)
+        self.assertTrue(self.page.evaluate("__audio[0].paused"))
+        self.page.clock.run_for(2700)
+        self.assertEqual(self.page.evaluate("__utterances"), ["なまえ"])
+
+    def test_motion_requests_cannot_replace_newer_character(self):
+        self.go(VOCAB)
+        result = self.page.evaluate("""async () => {
+            const pending={};
+            fetchKanjiSvg=char=>new Promise(resolve=>pending[char]=resolve);
+            const one=currentFiltered[0],two=currentFiltered[1];
+            const a=loadMiniMotionChar('自',one);
+            const b=loadMiniMotionChar('名',two);
+            pending['名'](null);await b;
+            pending['自'](null);await a;
+            return {heading:document.getElementById('miniMotionChar').textContent,
+                drawing:document.getElementById('miniSvgContainer').textContent};
+        }""")
+        self.assertEqual(result["heading"], "名")
+        self.assertEqual(result["drawing"], "名")
+
+    def test_typing_studio_voice_tracks_current_item_and_mode(self):
+        self.go(TYPING)
+        self.page.evaluate("""() => {
+            window.__spoken=[];
+            AudioEngine.speak=text=>__spoken.push(String(text));
+        }""")
+        for mode in ["sentence", "kanji", "vocab"]:
+            for index in [0, 3]:
+                with self.subTest(mode=mode, index=index):
+                    result = self.page.evaluate(r"""({mode,index}) => {
+                        switchTypingMode(mode);
+                        jumpToTypingItem(index);
+                        const item=getFilteredTypingPool()[index];
+                        document.getElementById('tpCardSpeakBtn').click();
+                        return {spoken:__spoken.at(-1),expected:mode==='sentence'
+                            ? item.hira.replace(/[（(]\\s*[／/][^）)]*[）)]/g,'').trim()
+                            : (item.kana||item.jp||item.kanji)};
+                    }""", {"mode": mode, "index": index})
+                    self.assertEqual(result["spoken"], result["expected"])
+
+    def test_exam_speaker_reaches_actual_transport_after_switching_sets(self):
+        self.go(EXAM)
+        self.page.evaluate("""() => {
+            window.__audio=[];
+            window.Audio=class {
+                constructor(){__audio.push(this)}
+                play(){return Promise.resolve()}
+                pause(){}
+                load(){}
+                removeAttribute(){}
+            };
+        }""")
+        for code in ["DEGOC", "M111", "M115"]:
+            self.page.evaluate("(code)=>{if(currentExamCode!==code)switchExam(code)}", code)
+            result = self.page.evaluate("""() => {
+                const q=getExamItems()[0];
+                const button=document.querySelector(`#q_card_${q.id} .btn-speak`);
+                button.click();
+                return {spoken:new URL(__audio.at(-1).src).searchParams.get('q'),
+                    expected:AudioEngine.clean(q.prompt)};
+            }""")
+            self.assertTrue(result["spoken"])
+            self.assertEqual(result["spoken"], result["expected"])
+
+    def test_3d_vocab_audio_matches_current_card(self):
+        self.go("lessons/Marugoto_A2_Lesson_12.html")
+        self.page.evaluate("""() => {window.__spoken=[];window.speakText=text=>__spoken.push(String(text));openVocab3D(0)}""")
+        self.page.clock.run_for(100)
+        for change in ["", "next3DVocab()", "next3DVocab()", "prev3DVocab()"]:
+            if change:
+                self.page.evaluate(change)
+            expected = self.page.locator("#v3dKana").text_content()
+            self.page.locator("#v3dSpeakBtn").click()
+            self.assertEqual(self.page.evaluate("__spoken.at(-1)"), expected)
+        self.page.evaluate("closeVocab3DModal()")
 
     def test_kanji_page_view_and_detail_restore(self):
         self.go("kanji_a2.html")

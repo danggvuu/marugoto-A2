@@ -32,7 +32,7 @@ function renderVocab(list) {
         <div class="vocab-card">
             <div class="vocab-top">
                 <span class="vocab-badge">${item.l}</span>
-                <button class="sound-btn" onclick="speakText('${item.jp.replace(/'/g, "\'")}')" title="Nghe phát âm">🔊</button>
+                <button class="sound-btn" onclick="speakText('${(item.kana || item.jp).replace(/'/g, "\\'")}')" title="Nghe cách đọc">🔊</button>
             </div>
             <div class="vocab-jp jp-text">${item.jp}</div>
             <div class="vocab-vi ${isMeaningHidden ? 'hidden-meaning' : ''}" title="${isMeaningHidden ? 'Bấm để xem' : ''}" onclick="this.classList.toggle('hidden-meaning')">
@@ -353,6 +353,5 @@ document.addEventListener('DOMContentLoaded', () => {
     renderKanji(rawKanji);
     renderQuiz();
 });
-
 
 

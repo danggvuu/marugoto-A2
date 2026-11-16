@@ -709,7 +709,7 @@ function renderVocab(list) {
                     ${item.kanji && item.kanji !== item.kana ? `<div class="vocab-sub jp-text">${item.kana}</div>` : ''}
                     <div class="vocab-sub">${item.romaji} ${item.hv ? `• <span style="font-weight:700;">${item.hv}</span>` : ''}</div>
                 </div>
-                <button class="sound-btn" onclick="speakText('${item.kanji || item.kana}')" title="Nghe phát âm">🔊</button>
+                <button class="sound-btn" onclick="speakText('${(item.kana || item.jp || item.kanji || '').replace(/'/g, "\\'")}')" title="Nghe cách đọc Kana">🔊</button>
             </div>
             <div class="vocab-vi ${isMeaningHidden ? 'hidden-meaning' : ''}" onclick="this.classList.toggle('hidden-meaning')">
                 ${item.vi}

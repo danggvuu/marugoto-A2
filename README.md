@@ -39,6 +39,7 @@ Không cần cài thư viện để học. Nên dùng server local thay vì mở
 - [Ngữ pháp](Tong_Hop_Ngu_Phap_Marugoto_A1_A2.html)
 - [Luyện gõ câu và Kanji](tests/On_Tap_Mini_Test_A2_15_18.html#typing)
 - [Đề tổng hợp Marugoto A2.1 bài 11–18](tests/De_Thi_Tong_Hop_JLPT_A2_11_18.html)
+- [Kiểm tra Từ vựng & Kanji A2 bài 11–18](tests/De_Thi_Tong_Hop_JLPT_A2_11_18.html#vocab-kanji-check)
 - [3D Lab](demo_3d.html)
 
 ## Tiến độ và phiên thi
@@ -54,6 +55,22 @@ Không cần cài thư viện để học. Nên dùng server local thay vì mở
 ### Kết nối mạng
 
 Nội dung và bài tập được phục vụ từ file local. Font, phát âm qua dịch vụ ngoài và dữ liệu nét Kanji có thể cần mạng. Phát âm còn phụ thuộc giọng tiếng Nhật được hỗ trợ trên máy; khi không tải được SVG, giao diện có chữ tĩnh và tùy chọn thử lại. Không nên coi đây là ứng dụng offline hoàn toàn.
+
+### Kiểm tra riêng Từ vựng & Kanji 11–18
+
+Trong trang tổng hợp 11–18, chọn **“Kiểm tra Từ vựng & Kanji 11–18”**:
+
+- Chọn tất cả hoặc một bài 11–18; chỉ từ vựng, chỉ Kanji hoặc trộn hai loại.
+- Hỏi hai chiều, 10/20 câu hoặc toàn bộ mục đủ điều kiện; báo đúng/sai ngay và ôn lại câu sai.
+- Từ vựng hiển thị bằng Kana. Kanji lấy từ danh sách bài 11–18 và kiểm tra **mọi chữ** trong từ ghép,
+  kể cả đáp án nhiễu. Từ chứa chữ ngoài danh sách bị loại; dấu lặp `々` không phải một chữ Kanji mới.
+- Hiện có 253 mục từ vựng và 62 mục từ ghép Kanji đạt điều kiện; một lượt có thể ít câu hơn
+  số đã chọn sau khi lọc bài, loại trùng và loại câu không đủ ba đáp án nhiễu.
+- Phiên kiểm tra được lưu riêng; điểm không cộng vào đề 71 câu. Mở tab này tạm dừng đồng hồ
+  đề tổng hợp đang chạy; quay lại trong cùng trang sẽ tiếp tục đồng hồ.
+
+Dữ liệu được sinh bởi `scripts/build_vocab_kanji_check_11_18.py`. Chạy
+`node qa/regression/vocab_kanji_scope.js` để kiểm tra giới hạn bài và tập chữ.
 
 ## Cấu trúc thư mục
 

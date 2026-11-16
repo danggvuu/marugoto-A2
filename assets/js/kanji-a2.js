@@ -587,6 +587,15 @@ window.retryKanjiSvg = function(char, index) {
 };
 
 // Render Kanji Cards with Interactive Writing Canvas & Step-by-Step Breakdown (Optimized with DocumentFragment & Lazy SVG Player)
+function speakKanjiReadings(readings, button) {
+    const parts = String(readings || '').split(/[、,，/／]/)
+        .map(reading => reading.replace(/[-.]/g, '').trim())
+        .filter(reading => /[ぁ-んァ-ヶー]/.test(reading));
+    if (!parts.length) return;
+    // Dictionary hyphens mark okurigana, not breaks inside the spoken word.
+    speakJapanese(parts.join('。'), button);
+}
+
 function renderCards(data, preserveScroll = false) {
     const container = document.getElementById('cardsContainer');
     if (!container) return;
@@ -618,7 +627,7 @@ function renderCards(data, preserveScroll = false) {
             tile.className = 'kanji-compact-tile';
             tile.innerHTML = `
                 <div class="k-tile-header">
-                    <span class="k-tile-char" onclick="speakJapanese('${item.char}', this)" title="Nghe phát âm">${item.char}</span>
+                    <span class="k-tile-char" onclick="speakKanjiReadings('${/[ぁ-んァ-ヶ]/.test(item.kun) ? item.kun : item.on}', this)" title="Nghe các âm ${/[ぁ-んァ-ヶ]/.test(item.kun) ? 'Kun: ' + item.kun : 'On: ' + item.on}">${item.char}</span>
                     <div class="k-tile-tags">
                         <span class="k-tile-hv">${item.hv}</span>
                         <span class="k-tile-strokes">✍️ ${item.strokes} nét</span>
@@ -663,12 +672,12 @@ function renderCards(data, preserveScroll = false) {
         card.dataset.index = globalIndex;
 
         const examplesHtml = item.examples.map(ex => 
-            `<div class="example-line">• <span class="example-jp" style="cursor:pointer;" onclick="speakJapanese('${ex.word}', this)" title="Bấm để nghe phát âm">${ex.word}（${ex.reading}）</span> <button type="button" class="fc-speaker-btn" style="width:24px; height:24px; font-size:12px; margin-left:4px; vertical-align:middle;" onclick="speakJapanese('${ex.word}', this)" title="Nghe từ vựng này">🔊</button> : ${ex.vi}</div>`
+            `<div class="example-line">• <span class="example-jp" style="cursor:pointer;" onclick="speakJapanese('${ex.reading}', this)" title="Nghe cách đọc ${ex.reading}">${ex.word}（${ex.reading}）</span> <button type="button" class="fc-speaker-btn" style="width:24px; height:24px; font-size:12px; margin-left:4px; vertical-align:middle;" onclick="speakJapanese('${ex.reading}', this)" title="Nghe cách đọc ${ex.reading}">🔊</button> : ${ex.vi}</div>`
         ).join('');
 
         card.innerHTML = `
             <div class="card-header-bar">
-                <div class="kanji-badge" style="cursor:pointer;" onclick="speakJapanese('${item.char}', this)" title="Bấm để nghe phát âm chữ Hán này">${item.char}</div>
+                <div class="kanji-badge" style="cursor:pointer;" onclick="speakKanjiReadings('${/[ぁ-んァ-ヶ]/.test(item.kun) ? item.kun : item.on}', this)" title="Nghe các âm ${/[ぁ-んァ-ヶ]/.test(item.kun) ? 'Kun: ' + item.kun : 'On: ' + item.on}">${item.char}</div>
                 <div class="han-viet-title">${item.hv}</div>
                 <span class="stroke-badge">✍️ ${item.strokes} nét</span>
                 <div class="lesson-tag">${item.lessonName}</div>
@@ -687,12 +696,12 @@ function renderCards(data, preserveScroll = false) {
                             <li class="info-item">
                                 <span class="info-bullet">•</span>
                                 <span class="info-label">Kun:</span>
-                                <span class="info-value-kun" style="cursor:pointer;" onclick="speakJapanese('${item.kun}', this)" title="Nghe âm Kun">${item.kun}</span> <button type="button" class="fc-speaker-btn" style="width:20px; height:20px; font-size:10px; margin-left:4px; vertical-align:middle;" onclick="speakJapanese('${item.kun}', this)" title="Nghe âm Kun">🔊</button>
+                                <span class="info-value-kun" style="cursor:pointer;" onclick="speakKanjiReadings('${item.kun}', this)" title="Nghe âm Kun">${item.kun}</span> <button type="button" class="fc-speaker-btn" style="width:20px; height:20px; font-size:10px; margin-left:4px; vertical-align:middle;" onclick="speakKanjiReadings('${item.kun}', this)" title="Nghe âm Kun" ${/[ぁ-んァ-ヶ]/.test(item.kun) ? '' : 'disabled'}>🔊</button>
                             </li>
                             <li class="info-item">
                                 <span class="info-bullet">•</span>
                                 <span class="info-label">On:</span>
-                                <span class="info-value-on" style="cursor:pointer;" onclick="speakJapanese('${item.on}', this)" title="Nghe âm On">${item.on}</span> <button type="button" class="fc-speaker-btn" style="width:20px; height:20px; font-size:10px; margin-left:4px; vertical-align:middle;" onclick="speakJapanese('${item.on}', this)" title="Nghe âm On">🔊</button>
+                                <span class="info-value-on" style="cursor:pointer;" onclick="speakKanjiReadings('${item.on}', this)" title="Nghe âm On">${item.on}</span> <button type="button" class="fc-speaker-btn" style="width:20px; height:20px; font-size:10px; margin-left:4px; vertical-align:middle;" onclick="speakKanjiReadings('${item.on}', this)" title="Nghe âm On" ${/[ぁ-んァ-ヶ]/.test(item.on) ? '' : 'disabled'}>🔊</button>
                             </li>
                         </ul>
 
@@ -1585,7 +1594,6 @@ function toggleLessonFilterDrawer() {
     if (arrow) arrow.textContent = isOpen ? '▴' : '▾';
     if (btn) btn.classList.toggle('active', isOpen);
 }
-
 
 
 
