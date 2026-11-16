@@ -234,6 +234,8 @@
             root.querySelector('#' + id).value = String(settings[key]);
         }
         root.querySelector('.vkc-start').addEventListener('click', () => start());
+        // Reveal the anchor target before the browser performs its native scroll.
+        document.querySelector('.exam-start-link')?.addEventListener('click', () => selectPanel(false));
         document.getElementById('showFullExam').addEventListener('click', () => {
             history.replaceState(null, '', location.pathname + location.search + '#' + currentExamCode);
             selectPanel(false);
