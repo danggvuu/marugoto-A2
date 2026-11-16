@@ -15,6 +15,30 @@
     let settings = { ...defaults };
     let session = null;
     let previousExamRunning = false;
+    const icons = {
+        arrow: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>',
+        sound: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m11 5-6 4H2v6h3l6 4V5Z"/><path d="M15 8a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14"/></svg>',
+        settings: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 7h16M4 17h16"/><circle cx="9" cy="7" r="3" fill="white"/><circle cx="15" cy="17" r="3" fill="white"/></svg>'
+    };
+    const lessonName = lesson => lesson === 'all' ? 'Bài 11–18' : `Bài ${lesson.slice(3)}`;
+    const modeName = mode => ({ mixed: 'Từ vựng + Kanji', vocab: 'Từ vựng', kanji: 'Kanji' })[mode];
+
+    function updateDirectionLabels() {
+        const mode = root.querySelector('#vkcMode').value;
+        const labels = mode === 'kanji' ? ['Kanji → Kana', 'Kana → Kanji']
+            : mode === 'vocab' ? ['Nghĩa Việt → Kana', 'Kana → Nghĩa Việt']
+                : ['Nghĩa / Kanji → Kana', 'Kana → Nghĩa / Kanji'];
+        root.querySelectorAll('#vkcDirection option').forEach((option, i) => { option.textContent = labels[i]; });
+    }
+
+    function focusQuestion() {
+        const area = root.querySelector('.vkc-practice');
+        area.querySelector('[tabindex="-1"]')?.focus({ preventScroll: true });
+        const rect = area.getBoundingClientRect();
+        if (rect.top < 80 || rect.bottom > window.innerHeight) {
+            area.scrollIntoView({ block: 'start', behavior: 'instant' });
+        }
+    }
 
     function shuffled(array) {
         const result = [...array];
@@ -68,9 +92,11 @@
     function save() {
         try {
             localStorage.setItem(KEY, JSON.stringify({ version: DATA.version, settings, session, updatedAt: Date.now() }));
-            root.querySelector('#vkcSaveStatus').textContent = 'Đã lưu phiên kiểm tra trên trình duyệt này.';
+            root.querySelector('#vkcSaveStatus').textContent = 'Đã lưu tiến độ';
+            root.querySelector('#vkcSaveStatus').classList.remove('vkc-save-error');
         } catch (error) {
             root.querySelector('#vkcSaveStatus').textContent = 'Chưa lưu được phiên. Bạn vẫn có thể tiếp tục trong trang hiện tại.';
+            root.querySelector('#vkcSaveStatus').classList.add('vkc-save-error');
         }
     }
 
@@ -137,6 +163,8 @@
         session = combined.length ? { settings: config, questions: shuffled(combined.slice(0, limit)), index: 0 } : null;
         save();
         renderQuestion();
+        root.querySelector('#vkcSettings').open = false;
+        focusQuestion();
     }
 
     function score() {
@@ -147,45 +175,87 @@
     function renderQuestion() {
         const card = root.querySelector('#vkcCard');
         const status = root.querySelector('#vkcStatus');
+        const summary = root.querySelector('#vkcSettingsSummary');
+        summary.textContent = session
+            ? `${lessonName(session.settings.lesson)} · ${modeName(session.settings.mode)} · ${session.questions.length} câu`
+            : 'Chọn nội dung bạn muốn ôn hôm nay';
+        root.querySelector('#vkcSettingsTitle').textContent = session ? 'Thiết lập lượt mới' : 'Thiết lập lượt kiểm tra';
+        root.querySelector('.vkc-start').innerHTML = `${session ? 'Bắt đầu lượt mới' : 'Bắt đầu kiểm tra'} ${icons.arrow}`;
         if (!session) {
             status.textContent = '';
-            card.innerHTML = '<p>Chọn bài, loại câu và hướng hỏi rồi bấm “Bắt đầu”. Số câu thực tế phụ thuộc bộ lọc; mỗi câu có bốn lựa chọn khác nhau.</p>';
+            root.querySelector('#vkcSettings').open = true;
+            card.innerHTML = `<div class="vkc-empty">
+                <span class="vkc-empty-mark" aria-hidden="true">Aa</span>
+                <h3>Sẵn sàng ôn một chút?</h3>
+                <p>Chọn thiết lập phía trên rồi bấm <strong>Bắt đầu kiểm tra</strong>.</p>
+                <ul><li>4 lựa chọn mỗi câu</li><li>Xem đáp án ngay</li><li>Ôn lại câu sai</li></ul>
+                </div>`;
             return;
         }
         const total = session.questions.length;
         const correct = score();
+        const answeredCount = session.questions.filter(q => q.selected !== null).length;
+        status.innerHTML = `<div class="vkc-progress-heading">
+            <span>${session.index === total ? 'Đã hoàn thành' : `Câu <strong>${session.index + 1}</strong> <span class="vkc-muted">/ ${total}</span>`}</span>
+            <span class="vkc-score"><span aria-hidden="true">✓</span> ${correct} đúng</span>
+            </div><progress class="vkc-progress" value="${answeredCount}" max="${total}" aria-label="Số câu đã trả lời">${answeredCount}/${total}</progress>`;
         if (session.index === total) {
-            status.textContent = `Hoàn thành ${total} câu`;
-            card.innerHTML = `<div class="vkc-finished"><h3>Kết quả: ${correct}/${total} (${Math.round(correct / total * 100)}%)</h3>
-                <p>${total - correct} câu cần ôn lại. Điểm này độc lập với đề tổng hợp 71 câu.</p>
-                <button type="button" id="vkcRetryWrong" ${correct === total ? 'disabled' : ''}>Ôn lại câu sai</button>
-                <button type="button" id="vkcRestart">Làm lượt mới</button></div>`;
+            const percent = Math.round(correct / total * 100);
+            card.innerHTML = `<div class="vkc-finished">
+                <div class="vkc-result-ring" style="--vkc-result:${percent}%"><span><strong>${percent}%</strong>chính xác</span></div>
+                <span class="vkc-eyebrow">HOÀN THÀNH LƯỢT KIỂM TRA</span>
+                <h3 tabindex="-1">${correct === total ? 'Bạn đã làm đúng tất cả!' : 'Thêm một lượt, nhớ thêm một chút.'}</h3>
+                <p>Đúng <strong>${correct}/${total}</strong> câu${correct === total ? '.' : ` · Còn ${total - correct} câu cần ôn lại.`}</p>
+                <div class="vkc-result-actions">
+                    <button type="button" id="vkcRetryWrong" class="vkc-primary" ${correct === total ? 'disabled' : ''}>Ôn lại câu sai ${icons.arrow}</button>
+                    <button type="button" id="vkcRestart" class="vkc-secondary">Làm lượt mới</button>
+                </div>
+                <p class="vkc-result-note">Kết quả này được lưu riêng với đề tổng hợp.</p>
+                </div>`;
             card.querySelector('#vkcRetryWrong').addEventListener('click', () => start(true));
-            card.querySelector('#vkcRestart').addEventListener('click', () => start());
+            card.querySelector('#vkcRestart').addEventListener('click', () => {
+                root.querySelector('#vkcSettings').open = true;
+                root.querySelector('#vkcLesson').focus();
+            });
             return;
         }
         const q = session.questions[session.index];
         const item = byId.get(q.id);
         const f = fields(item, session.settings.direction);
         const answered = q.selected !== null;
-        status.textContent = `Câu ${session.index + 1}/${total} · Đúng ${correct} · ${session.settings.lesson === 'all' ? 'Bài 11–18' : session.settings.lesson}`;
-        card.innerHTML = `<div class="vkc-question-meta"><span>${escape(item.lesson)}</span><span>${f.kanji ? 'Kanji' : 'Từ vựng'}</span></div>
-            <div class="vkc-prompt-label">${escape(f.label)}</div>
-            <div class="vkc-prompt ${f.kanji ? 'is-kanji' : ''}">${escape(f.prompt)}</div>
-            ${f.kanji ? `<p class="vkc-meaning">Nghĩa: ${escape(item.vi)}</p>` : ''}
+        const isCorrect = answered && q.options[q.selected] === f.answer;
+        const instruction = f.kanji
+            ? session.settings.direction === 'forward' ? 'Chọn cách đọc đúng' : 'Chọn từ Kanji tương ứng'
+            : session.settings.direction === 'forward' ? 'Chọn từ có nghĩa sau' : 'Chọn nghĩa đúng của từ';
+        card.innerHTML = `<div class="vkc-question-meta"><span class="vkc-type">${f.kanji ? 'KANJI' : 'TỪ VỰNG'}</span><span>${escape(lessonName(item.lesson))}</span></div>
+            <div class="vkc-question-content">
+            <p class="vkc-prompt-label">${instruction}</p>
+            <h3 tabindex="-1" class="vkc-prompt ${f.kanji ? 'is-kanji' : ''}" ${f.kanji || session.settings.direction === 'reverse' ? 'lang="ja"' : ''}>${escape(f.prompt)}</h3>
+            ${f.kanji ? `<p class="vkc-meaning">${escape(item.vi)}</p>` : ''}
+            </div>
             <div class="vkc-options">${q.options.map((option, index) => {
                 const cls = answered ? (option === f.answer ? ' is-correct' : index === q.selected ? ' is-wrong' : '') : '';
-                return `<button type="button" class="vkc-option${cls}" data-index="${index}" ${answered ? 'disabled' : ''}>${index + 1}. ${escape(option)}</button>`;
+                const mark = answered && option === f.answer ? '✓' : answered && index === q.selected ? '✕' : '';
+                const label = mark === '✓' ? 'Đáp án đúng' : mark === '✕' ? 'Bạn đã chọn · Chưa đúng' : '';
+                return `<button type="button" class="vkc-option${cls}" data-index="${index}" ${answered ? 'disabled' : ''}>
+                    <span class="vkc-option-letter" aria-hidden="true">${'ABCD'[index]}</span>
+                    <span class="vkc-option-copy">${escape(option)}${label ? `<small>${label}</small>` : ''}</span>
+                    ${mark ? `<span class="vkc-option-mark" aria-hidden="true">${mark}</span>` : ''}
+                    </button>`;
             }).join('')}</div>
-            <div class="vkc-feedback" aria-live="polite">${answered
-                ? `${q.options[q.selected] === f.answer ? '✓ Đúng' : '✗ Chưa đúng'} — Đáp án: <strong>${escape(f.answer)}</strong><br>
-                    ${escape(item.kana)} · ${escape(item.vi)} <button type="button" class="vkc-speak" aria-label="Nghe cách đọc đáp án">🔊 Nghe</button>` : ''}</div>
-            <button type="button" class="vkc-next" ${answered ? '' : 'hidden'}>${session.index === total - 1 ? 'Xem kết quả' : 'Câu tiếp theo →'}</button>`;
+            <div class="vkc-feedback ${answered ? isCorrect ? 'is-correct' : 'is-wrong' : ''}" role="status" ${answered ? '' : 'hidden'}>
+                ${answered ? `<div><span class="vkc-feedback-label">${isCorrect ? '✓ Chính xác!' : 'Ôn lại từ này nhé'}</span>
+                    <strong>${escape(f.answer)}</strong><p>${escape(f.answer === item.vi ? item.kana : item.vi)}</p></div>
+                    <button type="button" class="vkc-speak" aria-label="Nghe cách đọc đáp án">${icons.sound} Nghe</button>` : ''}
+            </div>
+            <div class="vkc-question-footer"><span>${answered ? 'Đã lưu câu trả lời' : 'Chọn một đáp án để kiểm tra'}</span>
+            <button type="button" class="vkc-next vkc-primary" ${answered ? '' : 'hidden'}>${session.index === total - 1 ? 'Xem kết quả' : 'Câu tiếp theo'} ${icons.arrow}</button></div>`;
         card.querySelectorAll('.vkc-option').forEach(button => button.addEventListener('click', () => {
             if (q.selected !== null) return;
             q.selected = Number(button.dataset.index);
             save();
             renderQuestion();
+            card.querySelector('.vkc-next').focus({ preventScroll: true });
         }));
         card.querySelector('.vkc-speak')?.addEventListener('click', () => window.speakText?.(item.kana));
         card.querySelector('.vkc-next').addEventListener('click', () => {
@@ -193,6 +263,7 @@
             session.index++;
             save();
             renderQuestion();
+            focusQuestion();
         });
     }
 
@@ -216,23 +287,40 @@
     }
 
     function init() {
-        root.innerHTML = `<div class="vkc-header"><div><span class="vkc-eyebrow">A2.1 · BÀI 11–18</span>
-            <h2>Kiểm tra Từ vựng & Kanji</h2>
-            <p>Từ vựng chỉ A2-11–18 và viết bằng Kana. Phần Kanji chỉ dùng từ ghép có mọi chữ thuộc danh sách Kanji bài 11–18 (kể cả đáp án nhiễu).</p>
-            <p>${DATA.vocab.length} mục từ vựng · ${DATA.kanji.length} mục Kanji hợp lệ · ${DATA.allowedKanji.length} chữ trong danh sách.</p>
-            </div></div><div class="vkc-body">
-            <p>Điểm riêng, không cộng vào đề tổng hợp. Đồng hồ đề tổng hợp tạm dừng khi mở phần này và tiếp tục khi quay lại.</p>
-            <div class="vkc-settings">
-            <label>Bài học<select id="vkcLesson"><option value="all">Tất cả bài 11–18</option>${DATA.lessons.map(l => `<option value="${l}">Bài ${l.slice(3)}</option>`).join('')}</select></label>
-            <label>Loại câu<select id="vkcMode"><option value="mixed">Từ vựng + Kanji</option><option value="vocab">Từ vựng</option><option value="kanji">Kanji</option></select></label>
-            <label>Hướng hỏi<select id="vkcDirection"><option value="forward">Việt → Kana / Kanji → Kana</option><option value="reverse">Kana → Việt / Kana → Kanji</option></select></label>
-            <label>Số câu<select id="vkcCount"><option value="10">10 câu</option><option value="20">20 câu</option><option value="all">Tất cả phù hợp</option></select></label>
-            <button type="button" class="vkc-start">Bắt đầu / Làm lượt mới</button></div>
-            <p id="vkcSaveStatus" role="status"></p><div id="vkcStatus" class="vkc-status"></div><div id="vkcCard" class="vkc-card"></div></div>`;
+        root.innerHTML = `<div class="vkc-header">
+            <div><span class="vkc-eyebrow">LUYỆN NHỚ MỖI NGÀY</span>
+            <h2>Từ vựng <span>&</span> Kanji</h2>
+            <p>Ôn từng chút, nhớ lâu hơn. Chọn đáp án và nhận phản hồi ngay.</p></div>
+            <span class="vkc-scope-badge">A2.1 <span aria-hidden="true">/</span> Bài 11–18</span>
+            </div><div class="vkc-body">
+            <details id="vkcSettings" class="vkc-setup" open>
+            <summary><span class="vkc-settings-icon">${icons.settings}</span><span class="vkc-settings-copy">
+                <strong id="vkcSettingsTitle">Thiết lập lượt kiểm tra</strong><span id="vkcSettingsSummary"></span>
+                </span><span class="vkc-setup-chevron" aria-hidden="true">⌄</span></summary>
+            <div class="vkc-setup-content"><div class="vkc-settings">
+            <label>Bài học<select id="vkcLesson"><option value="all">Bài 11–18</option>${DATA.lessons.map(l => `<option value="${l}">Bài ${l.slice(3)}</option>`).join('')}</select></label>
+            <label>Loại câu<select id="vkcMode"><option value="mixed">Trộn cả hai</option><option value="vocab">Từ vựng</option><option value="kanji">Kanji</option></select></label>
+            <label>Hướng hỏi<select id="vkcDirection"><option value="forward"></option><option value="reverse"></option></select></label>
+            <label>Độ dài lượt<select id="vkcCount"><option value="10">10 câu · Ôn nhanh</option><option value="20">20 câu · Luyện tập</option><option value="all">Toàn bộ câu phù hợp</option></select></label>
+            </div><div class="vkc-setup-actions"><p>Số câu thực tế tùy bộ lọc, không lặp câu hỏi.</p>
+            <button type="button" class="vkc-start vkc-primary">Bắt đầu kiểm tra ${icons.arrow}</button></div></div></details>
+            <div class="vkc-practice"><div id="vkcStatus" class="vkc-status"></div><div id="vkcCard" class="vkc-card"></div>
+            <div class="vkc-session-note"><span>Không tính giờ · Điểm riêng với đề tổng hợp</span><span id="vkcSaveStatus" role="status"></span></div></div>
+            <details class="vkc-about"><summary>Phạm vi nội dung &amp; lưu tiến độ</summary>
+                <div><p><strong>Chỉ Marugoto A2 bài 11–18.</strong> ${DATA.vocab.length} mục từ vựng viết bằng Kana,
+                ${DATA.kanji.length} mục từ ghép Kanji từ danh sách ${DATA.allowedKanji.length} chữ.
+                Mọi chữ trong câu hỏi và đáp án Kanji đều được giới hạn trong danh sách này.</p>
+                <p>Tiến độ tự lưu trên trình duyệt này. Điểm không cộng vào đề 71 câu.
+                Đồng hồ đề tổng hợp tạm dừng khi mở phần này và tiếp tục khi quay lại trong cùng trang.</p></div>
+            </details></div>`;
         restore();
         for (const [id, key] of [['vkcLesson', 'lesson'], ['vkcMode', 'mode'], ['vkcDirection', 'direction'], ['vkcCount', 'count']]) {
             root.querySelector('#' + id).value = String(settings[key]);
         }
+        updateDirectionLabels();
+        root.querySelector('#vkcMode').addEventListener('change', updateDirectionLabels);
+        root.querySelector('#vkcSettings').open = !session;
+        if (session) root.querySelector('#vkcSaveStatus').textContent = 'Đã khôi phục tiến độ';
         root.querySelector('.vkc-start').addEventListener('click', () => start());
         // Reveal the anchor target before the browser performs its native scroll.
         document.querySelector('.exam-start-link')?.addEventListener('click', () => selectPanel(false));

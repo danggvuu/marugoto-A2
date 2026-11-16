@@ -17,7 +17,7 @@ html_content = """<!DOCTYPE html>
     <link rel="stylesheet" href="../assets/css/pages/de_thi_midterm_a2_1.css?v=2">
     <link rel="stylesheet" href="../assets/css/site-theme.css?v=7">
     <link rel="stylesheet" href="../assets/css/full-exam.css?v=2">
-    <link rel="stylesheet" href="../assets/css/vocab-kanji-check-11-18.css?v=1">
+    <link rel="stylesheet" href="../assets/css/vocab-kanji-check-11-18.css?v=3">
     <style>
         .badge-degoc {
             background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
@@ -294,7 +294,7 @@ html_content = """<!DOCTYPE html>
     <script src="../assets/data/de_thi_tong_hop_11_18_data.js?v=1"></script>
     <script src="../assets/data/vocab_kanji_check_11_18_data.js?v=1"></script>
     <script src="../assets/js/pages/de_thi_tong_hop_11_18.js?v=2"></script>
-    <script src="../assets/js/pages/vocab-kanji-check-11-18.js?v=2"></script>
+    <script src="../assets/js/pages/vocab-kanji-check-11-18.js?v=3"></script>
     <script src="../assets/nav.js?v=7" defer></script>
 </body>
 </html>

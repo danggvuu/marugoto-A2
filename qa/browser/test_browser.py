@@ -97,6 +97,8 @@ class StudyFlows(unittest.TestCase):
 
     def start_scoped_check(self, lesson="all", mode="mixed", direction="forward", count="10"):
         self.go(EXAM + "#vocab-kanji-check")
+        if not self.page.locator("#vkcSettings").evaluate("(el) => el.open"):
+            self.page.locator("#vkcSettings > summary").click()
         self.page.locator("#vkcLesson").select_option(lesson)
         self.page.locator("#vkcMode").select_option(mode)
         self.page.locator("#vkcDirection").select_option(direction)
@@ -189,6 +191,80 @@ class StudyFlows(unittest.TestCase):
         self.reload()
         self.assertEqual(self.page.locator(".vkc-option").count(), 0)
         self.assertIn("Bắt đầu", self.page.locator("#vkcCard").inner_text())
+
+    def test_scoped_check_workspace_layout_and_feedback(self):
+        for width in [360, 390, 768, 1440]:
+            with self.subTest(width=width):
+                self.page.set_viewport_size({"width": width, "height": 900})
+                self.start_scoped_check("all", "kanji", "reverse", "all")
+                self.assertFalse(self.page.locator("#vkcSettings").evaluate("(el) => el.open"))
+                self.assertFalse(self.page.locator(".vkc-feedback").is_visible())
+                self.assertFalse(self.page.locator(".vkc-next").is_visible())
+                self.assertEqual(self.page.locator(".vkc-progress").get_attribute("value"), "0")
+                self.assertRegex(self.page.locator(".vkc-question-meta > span").last.inner_text(), r"^Bài 1[1-8]$")
+                self.assertNotIn("A2-", self.page.locator(".vkc-question-meta").inner_text())
+                self.assertEqual(self.page.locator("#vkcCard h3").evaluate(
+                    "(el) => el === document.activeElement"), True)
+                self.assertTrue(self.page.evaluate("""() => {
+                    const root=document.querySelector('#vocabKanjiCheck');
+                    return document.documentElement.scrollWidth === innerWidth &&
+                        [...root.querySelectorAll('.vkc-option, .vkc-card')].every(el => {
+                            const r=el.getBoundingClientRect();
+                            return r.left >= 0 && r.right <= innerWidth && el.scrollWidth <= el.clientWidth;
+                        });
+                }"""))
+                # Pick the correct answer, then verify explicit text, not just color.
+                answer = self.page.evaluate("""() => {
+                    const s=JSON.parse(localStorage.getItem('marugoto_vocab_kanji_check_11_18_v1')).session;
+                    const q=s.questions[0];
+                    const item=VOCAB_KANJI_CHECK_DATA.kanji.find(x=>x.id===q.id);
+                    return q.options.indexOf(item.jp);
+                }""")
+                self.page.locator(f'.vkc-option[data-index="{answer}"]').click()
+                self.assertIn("Chính xác", self.page.locator(".vkc-feedback").inner_text())
+                self.assertEqual(self.page.locator(".vkc-option.is-correct").count(), 1)
+                self.assertEqual(self.page.locator(".vkc-progress").get_attribute("value"), "1")
+                self.assertEqual(self.page.locator(".vkc-option.is-correct").evaluate(
+                    "(el) => getComputedStyle(el).opacity"), "1")
+                self.assertTrue(self.page.locator(".vkc-next").evaluate("(el) => el === document.activeElement"))
+                self.page.locator(".vkc-next").click()
+                self.assertFalse(self.page.locator(".vkc-feedback").is_visible())
+                self.assertEqual(self.page.locator(".vkc-progress").get_attribute("value"), "1")
+                # Editing filters must not mutate the current session.
+                before = self.scoped_snapshot()["session"]
+                self.page.locator("#vkcSettings > summary").click()
+                self.page.locator("#vkcMode").select_option("vocab")
+                self.assertEqual(self.page.locator("#vkcDirection option").first.inner_text(), "Nghĩa Việt → Kana")
+                self.assertEqual(self.scoped_snapshot()["session"], before)
+                if not self.page.locator(".vkc-about").evaluate("(el) => el.open"):
+                    self.page.locator(".vkc-about > summary").click()
+                self.assertIn("64 chữ", self.page.locator(".vkc-about").inner_text())
+                self.page.locator(".vkc-about > summary").click()
+                self.assertFalse(self.page.locator(".vkc-about > div").is_visible())
+                self.page.evaluate("localStorage.removeItem('marugoto_vocab_kanji_check_11_18_v1')")
+
+    def test_scoped_check_perfect_result_and_new_round_controls(self):
+        self.start_scoped_check("A2-11", "kanji", "forward", "all")
+        total = len(self.scoped_snapshot()["session"]["questions"])
+        for _ in range(total):
+            answer = self.page.evaluate("""() => {
+                const s=JSON.parse(localStorage.getItem('marugoto_vocab_kanji_check_11_18_v1')).session;
+                const q=s.questions[s.index];
+                return q.options.indexOf(VOCAB_KANJI_CHECK_DATA.kanji.find(x=>x.id===q.id).kana);
+            }""")
+            self.page.locator(f'.vkc-option[data-index="{answer}"]').click()
+            self.page.locator(".vkc-next").click()
+        self.assertIn("100%", self.page.locator(".vkc-result-ring").inner_text())
+        self.assertTrue(self.page.locator("#vkcRetryWrong").is_disabled())
+        self.reload()
+        self.assertIn("100%", self.page.locator(".vkc-result-ring").inner_text())
+        self.page.locator("#vkcRestart").click()
+        self.assertTrue(self.page.locator("#vkcSettings").evaluate("(el) => el.open"))
+        self.assertEqual(self.page.locator("#vkcLesson").evaluate("(el) => el === document.activeElement"), True)
+        self.page.locator("#vkcCount").select_option("10")
+        self.page.locator(".vkc-start").click()
+        self.assertEqual(self.scoped_snapshot()["session"]["index"], 0)
+        self.assertEqual(self.page.locator(".vkc-score").inner_text(), "✓ 0 đúng")
 
     def test_vocab_test_restore_never_reveals_correct_answer(self):
         self.go(VOCAB)
