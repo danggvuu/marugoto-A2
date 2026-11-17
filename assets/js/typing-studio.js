@@ -6,7 +6,8 @@
 (function (window) {
     'use strict';
 
-    var TYPING_STUDIO_STORAGE_KEY = 'marugoto_typing_studio_v2';
+    var reviewConfig = window.REVIEW_11_18_TYPING_CONFIG;
+    var TYPING_STUDIO_STORAGE_KEY = reviewConfig ? reviewConfig.storageKey : 'marugoto_typing_studio_v2';
 
     if (!window.__MARUGOTO_CP_EXTRA_KEYS__) window.__MARUGOTO_CP_EXTRA_KEYS__ = [];
     if (!window.__MARUGOTO_CP_EXTRA_KEYS__.includes(TYPING_STUDIO_STORAGE_KEY)) {
@@ -123,6 +124,7 @@
     }
 
     function getDataSource(key) {
+        if (reviewConfig) return reviewConfig.data[key] || [];
         if (window.MINI_15_18_DATA && window.MINI_15_18_DATA[key]) {
             return window.MINI_15_18_DATA[key];
         }
@@ -337,6 +339,14 @@
             return h && (h.status === 'err' || h.status === 'reveal');
         }));
         var items = getModeItems(mode);
+        if (reviewConfig) {
+            return [{ key: 'all', label: 'Tất cả bài 11–18 (' + items.length + ')' }]
+                .concat(reviewConfig.lessons.map(function (lesson) {
+                    return { key: lesson, label: lesson.replace('A2-', 'Bài ') + ' (' +
+                        items.filter(function (item) { return item.lesson === lesson; }).length + ')' };
+                }))
+                .concat([{ key: 'wrong', label: '🔁 Sai / cần ôn (' + items.filter(function (item) { return wrongIds.has(item.id); }).length + ')' }]);
+        }
         if (mode === 'sentence') {
             return [
                 { key: 'all', label: 'Tất cả L11-18 (' + items.length + ')' },

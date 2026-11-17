@@ -69,13 +69,25 @@ L1_KANJI_LIST = [
 ]
 
 L1_KANJI_CARDS = [
-    {"char": "紹", "hv": "Thiệu", "strokes": 11, "kun": "ー", "on": "しょう", "ex": "紹介 (しょうかい - giới thiệu)", "mnemonic": "Dùng sợi tơ (糸) kết nối và chiêu (召) mời người mới đến làm quen."},
-    {"char": "介", "hv": "Giới", "strokes": 4, "kun": "ー", "on": "かい", "ex": "自己紹介 (じこしょうかい), 魚介 (ぎょかい)", "mnemonic": "Hình người (人) đứng ở giữa làm cầu nối hai bên."},
-    {"char": "名", "hv": "Danh", "strokes": 6, "kun": "な", "on": "めい、みょう", "ex": "名前 (なまえ), 有名 (ゆうめい), 名刺 (めいし)", "mnemonic": "Buổi tối (夕) không thấy rõ nhau phải dùng miệng (口) gọi TÊN."},
-    {"char": "意", "hv": "Ý", "strokes": 13, "kun": "ー", "on": "い", "ex": "意味 (いみ), 意見 (いけん), 用意 (ようい)", "mnemonic": "Âm thanh (音) phát ra từ trái tim (心) chính là Ý niệm."},
-    {"char": "屋", "hv": "Ốc", "strokes": 9, "kun": "や", "on": "おく", "ex": "部屋 (へや), 本屋 (ほんや), 屋上 (おくじょう)", "mnemonic": "Ngôi nhà có mái che (尸) nơi người ta đến (至) để ở hoặc buôn bán."},
-    {"char": "近", "hv": "Cận", "strokes": 7, "kun": "ちか・い", "on": "きん", "ex": "近い (ちかい), 最近 (さいきん), 近所 (きんじょ)", "mnemonic": "Chiếc rìu (斤) đang đi (辶) tới rất GẦN."},
-    {"char": "番", "hv": "Phiên", "strokes": 12, "kun": "ー", "on": "ばん", "ex": "一番 (いちばん), 番号 (ばんごう), 交番 (こうばん)", "mnemonic": "Phân chia (釆) từng thửa ruộng (田) theo số thứ tự (PHIÊN)."}
+    {"char": "己", "hv": "Kỉ (Kỷ)", "strokes": 3, "kun": "おのれ", "on": "こ、き", "ex": "自己紹介 (じこしょうかい - giới thiệu bản thân), 利己 (りこ - ích kỷ)", "mnemonic": "Hình dáng uốn cong của dải lụa hoặc bản thân con người đang cúi mình tự soi chiếu KỶ niệm."},
+    {"char": "自", "hv": "Tự", "strokes": 6, "kun": "みずか・ら", "on": "じ、し", "ex": "自己紹介 (じこしょうかい), 自分 (じぶん - bản thân), 自由 (じゆう - tự do)", "mnemonic": "Chiếc mũi (Tự) chỉ vào chính bản thân mình (Tự mình)."},
+    {"char": "紹", "hv": "Thiệu", "strokes": 11, "kun": "ー", "on": "しょう", "ex": "紹介 (しょうかい - giới thiệu), 自己紹介 (じこしょうかい)", "mnemonic": "Dùng sợi tơ (糸) kết nối và chiêu (召) mời người mới đến làm quen (Thiệu)."},
+    {"char": "介", "hv": "Giới", "strokes": 4, "kun": "ー", "on": "かい", "ex": "紹介 (しょうかい), 自己紹介 (じこしょうかい), 魚介 (ぎょかい)", "mnemonic": "Hình người (人) đứng ở giữa làm cầu nối hai bên (Giới)."},
+    {"char": "名", "hv": "Danh", "strokes": 6, "kun": "な", "on": "めい、みょう", "ex": "名前 (なまえ - tên), 有名 (ゆうめい - nổi tiếng), 名字 (みょうじ - họ)", "mnemonic": "Buổi tối (夕) không thấy rõ nhau phải dùng miệng (口) gọi TÊN (Danh)."},
+    {"char": "前", "hv": "Tiền", "strokes": 9, "kun": "まえ", "on": "ぜん", "ex": "名前 (なまえ - tên), 前 (まえ - phía trước), 午前 (ごぜん - buổi sáng)", "mnemonic": "Cắt tóc bằng dao (刂) trước trăng (月) sáng hướng về phía TRƯỚC (Tiền)."},
+    {"char": "有", "hv": "Hữu", "strokes": 6, "kun": "あ・る", "on": "ゆう、う", "ex": "有名 (ゆうめい - nổi tiếng), 有料 (ゆうりょう - có phí), 有力 (ゆうりょく)", "mnemonic": "Bàn tay cầm miếng thịt (nguyệt) tức là CÓ (Hữu)."},
+    {"char": "意", "hv": "Ý", "strokes": 13, "kun": "ー", "on": "い", "ex": "意味 (いみ - ý nghĩa), 意見 (いけん - ý kiến), 用意 (ようい - chuẩn bị)", "mnemonic": "Âm thanh (音) phát ra từ trái tim (心) chính là Ý niệm."},
+    {"char": "味", "hv": "Vị", "strokes": 8, "kun": "あじ、あじ・わう", "on": "み", "ex": "意味 (いみ - ý nghĩa), 興味 (きょうみ - hứng thú), 味 (あじ - mùi vị)", "mnemonic": "Cái miệng (口) nếm thử quả trên cây chưa (未) chín là nếm VỊ."},
+    {"char": "部", "hv": "Bộ", "strokes": 11, "kun": "ー", "on": "ぶ", "ex": "部屋 (へや - căn phòng), 全部 (ぜんぶ - toàn bộ), 部長 (ぶちょう - trưởng phòng)", "mnemonic": "Đứng (立) nói (口) tại ấp (阝) phân chia thành từng BỘ phận / căn phòng."},
+    {"char": "屋", "hv": "Ốc", "strokes": 9, "kun": "や", "on": "おく", "ex": "部屋 (へや - căn phòng), 本屋 (ほんや - tiệm sách), 屋上 (おくじょう - sân thượng)", "mnemonic": "Ngôi nhà có mái che (尸) nơi người ta đến (至) để ở hoặc buôn bán (Ốc)."},
+    {"char": "本", "hv": "Bản / Bổn", "strokes": 5, "kun": "もと", "on": "ほん", "ex": "本屋 (ほんや - tiệm sách), 日本 (にほん - Nhật Bản), 本 (ほん - quyển sách)", "mnemonic": "Cây cối (木) có thêm một vạch ở gốc là CĂN BẢN, gỗ làm ra SÁCH."},
+    {"char": "近", "hv": "Cận", "strokes": 7, "kun": "ちか・い", "on": "きん", "ex": "近い (ちかい - gần), 最近 (さいきん - gần đây), 近所 (きんじょ - hàng xóm)", "mnemonic": "Chiếc rìu (斤) đang đi (辶) tới rất GẦN (Cận)."},
+    {"char": "最", "hv": "Tối", "strokes": 12, "kun": "もっと・も", "on": "さい", "ex": "最近 (さいきん - gần đây), 最初 (さいしょ - đầu tiên), 最高 (さいこう - tuyệt nhất)", "mnemonic": "Mặt trời (日) cầm giữ (取) lấy vị trí CAO NHẤT (Tối)."},
+    {"char": "所", "hv": "Sở", "strokes": 8, "kun": "ところ", "on": "しょ", "ex": "近所 (きんじょ - hàng xóm), 住所 (じゅうしょ - địa chỉ), 場所 (ばしょ - địa điểm)", "mnemonic": "Cánh cửa (戶) có chiếc rìu (斤) đánh dấu NƠI CHỐN (Sở)."},
+    {"char": "住", "hv": "Trú", "strokes": 7, "kun": "す・む", "on": "じゅう", "ex": "住みます (すみます - sống), 住所 (じゅうしょ - địa chỉ), 住民 (じゅうみん - cư dân)", "mnemonic": "Người (亻) làm chủ (主) nơi mình SINH SỐNG (Trú)."},
+    {"char": "働", "hv": "Động", "strokes": 13, "kun": "はたら・く", "on": "どう", "ex": "働きます (はたらきます - làm việc), 労働 (ろうどう - lao động)", "mnemonic": "Người (亻) dùng sức lực (力) chuyển động (動) để LÀM VIỆC (Động)."},
+    {"char": "番", "hv": "Phiên", "strokes": 12, "kun": "ー", "on": "ばん", "ex": "一番 (いちばん - nhất, số một), 一番目 (いちばんめ - thứ nhất), 番号 (ばんごう - số hiệu)", "mnemonic": "Phân chia (釆) từng thửa ruộng (田) theo số thứ tự (Phiên)."},
+    {"char": "目", "hv": "Mục", "strokes": 5, "kun": "め", "on": "もく", "ex": "一番目 (いちばんめ - thứ nhất), 目的 (もくてき - mục đích), 目 (め - mắt)", "mnemonic": "Hình vẽ con mắt người (Mục) dùng để nhìn ngắm và chỉ số thứ tự."}
 ]
 
 L1_QUIZ = [
@@ -253,15 +265,20 @@ L2_KANJI_LIST = [
 ]
 
 L2_KANJI_CARDS = [
-    {"char": "兄", "hv": "Huynh", "strokes": 5, "kun": "あに", "on": "きょう、けい", "ex": "兄 (あに), お兄さん (おにいさん), 兄弟 (きょうだい)", "mnemonic": "Đứa trẻ có cái miệng to (口) biết nói điều hay và đôi chân (儿) vững chãi là người Anh."},
-    {"char": "姉", "hv": "Tỷ", "strokes": 8, "kun": "あね", "on": "し", "ex": "姉 (あね), お姉さん (おねえさん), 姉妹 (しまい)", "mnemonic": "Người phụ nữ (女) quản lý việc chợ búa thành thị (市) là Chị gái."},
-    {"char": "弟", "hv": "Đệ", "strokes": 7, "kun": "おとうと", "on": "だい、で", "ex": "弟 (おとうと), 兄弟 (きょうだい), 弟子 (でし)", "mnemonic": "Dây quấn quanh cây cung (弓) của người Em trai."},
-    {"char": "妹", "hv": "Muội", "strokes": 8, "kun": "いもうと", "on": "まい", "ex": "妹 (いもうと), 姉妹 (しまい)", "mnemonic": "Người con gái (女) còn non nớt chưa trưởng thành (未 - vị) là Em gái."},
-    {"char": "族", "hv": "Tộc", "strokes": 11, "kun": "ー", "on": "ぞく", "ex": "家族 (かぞく), 水族館 (すいぞくかん), 民族 (みんぞく)", "mnemonic": "Dưới lá cờ (方) tập hợp những người cầm mũi tên (矢) cùng chung một Gia tộc."},
-    {"char": "長", "hv": "Trường", "strokes": 8, "kun": "なが・い", "on": "ちょう", "ex": "長い (ながい), 成長 (せいちょう), 社長 (しゃちょう)", "mnemonic": "Hình ảnh mái tóc dài phủ xuống và chiếc gậy chống của người lớn tuổi."},
-    {"char": "短", "hv": "Đoản", "strokes": 12, "kun": "みじか・い", "on": "たん", "ex": "短い (みじかい), 短所 (たんしょ), 短期 (たんき)", "mnemonic": "Mũi tên (矢) đem so với chiếc đỗ (豆 - hạt đậu) thấy ngắn ngủi."},
-    {"char": "低", "hv": "Đê", "strokes": 7, "kun": "ひく・い", "on": "てい", "ex": "低い (ひくい), 最低 (さいてい), 低下 (ていか)", "mnemonic": "Người (亻) cúi đầu xuống đến tận đáy (氐) là người Thấp bé hoặc khiêm nhường."},
-    {"char": "歌", "hv": "Ca", "strokes": 14, "kun": "うた、うた・う", "on": "か", "ex": "歌 (うた), 歌手 (かしゅ), 国歌 (こっか)", "mnemonic": "Người ta mở miệng liên hồi (哥) thở ra hơi (欠) để cất tiếng Hát."}
+    {"char": "兄", "hv": "Huynh", "strokes": 5, "kun": "あに", "on": "きょう、けい", "ex": "兄 (あに - anh trai mình), お兄さん (おにいさん - anh trai), 兄弟 (きょうだい - anh em)", "mnemonic": "Đứa trẻ có cái miệng to (口) biết nói điều hay và đôi chân (儿) vững chãi là người Anh."},
+    {"char": "姉", "hv": "Tỷ", "strokes": 8, "kun": "あね", "on": "し", "ex": "姉 (あね - chị gái mình), お姉さん (おねえさん - chị gái), 姉妹 (しまい - chị em gái)", "mnemonic": "Người phụ nữ (女) quản lý việc chợ búa thành thị (市) là Chị gái."},
+    {"char": "弟", "hv": "Đệ", "strokes": 7, "kun": "おとうと", "on": "だい、で", "ex": "弟 (おとうと - em trai), 兄弟 (きょうだい - anh em), 弟子 (でし - đệ tử)", "mnemonic": "Dây quấn quanh cây cung (弓) của người Em trai."},
+    {"char": "妹", "hv": "Muội", "strokes": 8, "kun": "いもうと", "on": "まい", "ex": "妹 (いもうと - em gái), 姉妹 (しまい - chị em gái)", "mnemonic": "Người con gái (女) còn non nớt chưa trưởng thành (未 - vị) là Em gái."},
+    {"char": "家", "hv": "Gia", "strokes": 10, "kun": "いえ、や", "on": "か、け", "ex": "家族 (かぞく - gia đình), 家 (いえ - ngôi nhà), 作家 (さっか - tác giả/nhà văn)", "mnemonic": "Dưới mái nhà (宀) nuôi con lợn (豕) là Gia đình, mái ấm sum vầy."},
+    {"char": "族", "hv": "Tộc", "strokes": 11, "kun": "ー", "on": "ぞく", "ex": "家族 (かぞく - gia đình), 水族館 (すいぞくかん - thủy cung), 民族 (みんぞく - dân tộc)", "mnemonic": "Dưới lá cờ (方) tập hợp những người cầm mũi tên (矢) cùng chung một Gia tộc."},
+    {"char": "水", "hv": "Thủy", "strokes": 4, "kun": "みず", "on": "すい", "ex": "水族館 (すいぞくかん - thủy cung), 水 (みず - nước), 水泳 (すいえい - bơi lội)", "mnemonic": "Dòng nước chảy róc rách uốn lượn qua các khe đá (Thủy)."},
+    {"char": "館", "hv": "Quán", "strokes": 16, "kun": "ー", "on": "かん", "ex": "水族館 (すいぞくかん - thủy cung), 図書館 (としょかん - thư viện), 映画館 (えいがかん - rạp phim)", "mnemonic": "Nơi người ta ăn uống (飠 - thực) và nghỉ ngơi tại quan phủ (官) là Hội quán."},
+    {"char": "長", "hv": "Trường", "strokes": 8, "kun": "なが・い", "on": "ちょう", "ex": "長い (ながい - dài), 成長 (せいちょう - trưởng thành), 社長 (しゃちょう - giám đốc)", "mnemonic": "Hình ảnh mái tóc dài phủ xuống và chiếc gậy chống của người lớn tuổi (Trường)."},
+    {"char": "成", "hv": "Thành", "strokes": 6, "kun": "な・る", "on": "せい、じょう", "ex": "成長 (せいちょう - trưởng thành), 成功 (せいこう - thành công), 完成 (かんせい - hoàn thành)", "mnemonic": "Dùng vũ khí (qua) rèn giũa để Hoàn thành việc lớn (Thành)."},
+    {"char": "短", "hv": "Đoản", "strokes": 12, "kun": "みじか・い", "on": "たん", "ex": "短い (みじかい - ngắn), 短所 (たんしょ - khuyết điểm), 短期 (たんき - ngắn hạn)", "mnemonic": "Mũi tên (矢) đem so với chiếc đĩa hạt đậu (豆) thấy ngắn ngủi (Đoản)."},
+    {"char": "低", "hv": "Đê", "strokes": 7, "kun": "ひく・い", "on": "てい", "ex": "低い (ひくい - thấp), 最低 (さいてい - thấp nhất / tệ nhất), 低下 (ていか - sụt giảm)", "mnemonic": "Người (亻) cúi đầu xuống đến tận đáy (氐) là người Thấp bé hoặc khiêm nhường."},
+    {"char": "歌", "hv": "Ca", "strokes": 14, "kun": "うた、うた・う", "on": "か", "ex": "歌 (うた - bài hát), 歌手 (かしゅ - ca sĩ), 国歌 (こっか - quốc ca)", "mnemonic": "Người ta mở miệng liên hồi (哥) thở ra hơi (欠) để cất tiếng Hát (Ca)."},
+    {"char": "手", "hv": "Thủ", "strokes": 4, "kun": "て", "on": "しゅ", "ex": "歌手 (かしゅ - ca sĩ), 手 (て - bàn tay), 上手 (じょうず - giỏi)", "mnemonic": "Hình vẽ bàn tay người xòe ra các ngón khéo léo (Thủ)."}
 ]
 
 L2_QUIZ = [

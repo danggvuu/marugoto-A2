@@ -285,6 +285,7 @@
         }
         window.AudioEngine?.stop();
     }
+    window.setFullReviewBasePanel = selectPanel;
 
     function init() {
         root.innerHTML = `<div class="vkc-header">

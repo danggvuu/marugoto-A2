@@ -1,4 +1,5 @@
 import os
+from build_review_11_18 import build as build_review
 
 WORKSPACE = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
 
@@ -9,15 +10,17 @@ html_content = """<!DOCTYPE html>
     <meta charset="UTF-8">
     <meta name="referrer" content="no-referrer">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>📑 Đề Ôn Tập Tổng Hợp Marugoto A2.1 (Bài 11 - 18) • Chuẩn Cấu Trúc JLPT A2</title>
+    <title>Tổng ôn Marugoto A2.1 bài 11–18 · Lý thuyết, từ vựng, Kanji &amp; đề thi</title>
     <meta name="description" content="Đề ôn tập tổng hợp toàn diện Marugoto A2.1 (Bài 11–18) bám sát cấu trúc chuẩn 4 phần: Từ vựng, Hán tự Kanji, Ngữ pháp bẫy trợ từ, Đọc hiểu đời sống và Sắp xếp câu tìm dấu sao ★ kèm Audio Tokyo và giải thích chi tiết.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/mini-test-15-18.css?v=8">
     <link rel="stylesheet" href="../assets/css/pages/de_thi_midterm_a2_1.css?v=2">
     <link rel="stylesheet" href="../assets/css/site-theme.css?v=7">
     <link rel="stylesheet" href="../assets/css/full-exam.css?v=3">
     <link rel="stylesheet" href="../assets/css/vocab-kanji-check-11-18.css?v=2">
+    <link rel="stylesheet" href="../assets/css/review-11-18.css?v=1">
     <style>
         .badge-degoc {
             background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
@@ -47,12 +50,12 @@ html_content = """<!DOCTYPE html>
     <div class="main-container">
         <!-- Hero Banner -->
         <header class="hero-banner">
-            <span class="hero-badge">⛩️ JLPT A2.1 • TỔNG ÔN TẬP TOÀN DIỆN</span>
+            <span class="hero-badge">MARUGOTO A2.1 · TỔNG ÔN BÀI 11–18</span>
             <h1>
-                📑 ĐỀ ÔN TẬP TỔNG HỢP MARUGOTO A2.1 <span class="exam-hero-lessons">(BÀI 11 - 18)</span>
+                Cẩm nang &amp; Tổng ôn Marugoto A2.1 <span class="exam-hero-lessons">Bài 11–18</span>
             </h1>
             <p class="hero-desc">
-                Hệ thống 6 bộ đề ôn tập tổng hợp toàn diện Marugoto A2.1 (Bài 11–18) bám sát tài liệu chuẩn: 4 phần khảo sát (Chữ Hán - Từ vựng, 35 mẫu Ngữ pháp cốt lõi, 3 bài Đọc hiểu thực tế đời sống và Dạng bài sắp xếp sao ★), tích hợp Audio giọng chuẩn Tokyo, phân tích bẫy chi tiết và chấm điểm tức thì.
+                Học lý thuyết, tra từ vựng, ôn Kanji, luyện gõ và làm đề trong cùng một trang — như bộ ôn 15–18, mở rộng đủ bài 11–18. Bài tự luyện không quy đổi thành cấp độ JLPT.
             </p>
             <div class="hero-features">
                 <span class="feature-pill">⏱️ Thời gian: 45 Phút</span>
@@ -66,14 +69,20 @@ html_content = """<!DOCTYPE html>
 
         <!-- Segmented Tab Switcher -->
         <nav class="vkc-panels" aria-label="Chọn phần ôn tập">
+            <button type="button" data-review-view="theory" aria-controls="review-theory" aria-pressed="false">📖 Lý thuyết 11–18</button>
+            <button type="button" data-review-view="vocab" aria-controls="review-vocab" aria-pressed="false">🎴 Từ vựng</button>
+            <button type="button" data-review-view="kanji" aria-controls="review-kanji" aria-pressed="false">⛩️ Kanji</button>
             <button type="button" id="showFullExam" aria-controls="fullExamPanel" aria-pressed="true">
                 📝 Đề Tổng Hợp 71 Câu (Có Chấm Điểm &amp; Tính Giờ)
             </button>
             <button type="button" id="showVocabCheck" aria-controls="vocabKanjiCheck" aria-pressed="false">
                 ⚡ Luyện Nhanh Từ Vựng &amp; Kanji 11–18
             </button>
+            <button type="button" data-review-view="typing" aria-controls="review-typing" aria-pressed="false">⌨️ Luyện gõ câu &amp; Kanji</button>
+            <button type="button" data-review-view="cheatsheet" aria-controls="review-cheatsheet" aria-pressed="false">⚡ Cẩm nang bỏ túi</button>
         </nav>
 
+        <!-- REVIEW_STUDY_PANEL -->
         <section class="vocab-kanji-check" id="vocabKanjiCheck" hidden aria-label="Kiểm tra Từ vựng và Kanji bài 11 đến 18">
             <p>Đang tải bộ câu hỏi…</p>
         </section>
@@ -300,6 +309,10 @@ html_content = """<!DOCTYPE html>
     <script src="../assets/data/de_thi_tong_hop_11_18_data.js?v=1"></script>
     <script src="../assets/data/vocab_kanji_check_11_18_data.js?v=1"></script>
     <script src="../assets/js/pages/de_thi_tong_hop_11_18.js?v=2"></script>
+    <script src="../assets/data/review_11_18_data.js?v=1"></script>
+    <script src="../assets/js/pages/review-11-18.js?v=1"></script>
+    <script src="../assets/js/jp-typing-grader.js?v=2"></script>
+    <script src="../assets/js/typing-studio.js?v=9"></script>
     <script src="../assets/js/pages/vocab-kanji-check-11-18.js?v=2"></script>
     <script src="../assets/nav.js?v=7" defer></script>
 </body>
@@ -307,6 +320,7 @@ html_content = """<!DOCTYPE html>
 """
 
 html_path = os.path.join(WORKSPACE, "tests/De_Thi_Tong_Hop_JLPT_A2_11_18.html")
+html_content = html_content.replace("<!-- REVIEW_STUDY_PANEL -->", build_review())
 with open(html_path, "w", encoding="utf-8") as f:
     f.write(html_content)
 

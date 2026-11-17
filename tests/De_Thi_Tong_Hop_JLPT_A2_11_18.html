@@ -4,15 +4,17 @@
     <meta charset="UTF-8">
     <meta name="referrer" content="no-referrer">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>📑 Đề Ôn Tập Tổng Hợp Marugoto A2.1 (Bài 11 - 18) • Chuẩn Cấu Trúc JLPT A2</title>
+    <title>Tổng ôn Marugoto A2.1 bài 11–18 · Lý thuyết, từ vựng, Kanji &amp; đề thi</title>
     <meta name="description" content="Đề ôn tập tổng hợp toàn diện Marugoto A2.1 (Bài 11–18) bám sát cấu trúc chuẩn 4 phần: Từ vựng, Hán tự Kanji, Ngữ pháp bẫy trợ từ, Đọc hiểu đời sống và Sắp xếp câu tìm dấu sao ★ kèm Audio Tokyo và giải thích chi tiết.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/mini-test-15-18.css?v=8">
     <link rel="stylesheet" href="../assets/css/pages/de_thi_midterm_a2_1.css?v=2">
     <link rel="stylesheet" href="../assets/css/site-theme.css?v=7">
     <link rel="stylesheet" href="../assets/css/full-exam.css?v=3">
     <link rel="stylesheet" href="../assets/css/vocab-kanji-check-11-18.css?v=2">
+    <link rel="stylesheet" href="../assets/css/review-11-18.css?v=1">
     <style>
         .badge-degoc {
             background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
@@ -42,12 +44,12 @@
     <div class="main-container">
         <!-- Hero Banner -->
         <header class="hero-banner">
-            <span class="hero-badge">⛩️ JLPT A2.1 • TỔNG ÔN TẬP TOÀN DIỆN</span>
+            <span class="hero-badge">MARUGOTO A2.1 · TỔNG ÔN BÀI 11–18</span>
             <h1>
-                📑 ĐỀ ÔN TẬP TỔNG HỢP MARUGOTO A2.1 <span class="exam-hero-lessons">(BÀI 11 - 18)</span>
+                Cẩm nang &amp; Tổng ôn Marugoto A2.1 <span class="exam-hero-lessons">Bài 11–18</span>
             </h1>
             <p class="hero-desc">
-                Hệ thống 6 bộ đề ôn tập tổng hợp toàn diện Marugoto A2.1 (Bài 11–18) bám sát tài liệu chuẩn: 4 phần khảo sát (Chữ Hán - Từ vựng, 35 mẫu Ngữ pháp cốt lõi, 3 bài Đọc hiểu thực tế đời sống và Dạng bài sắp xếp sao ★), tích hợp Audio giọng chuẩn Tokyo, phân tích bẫy chi tiết và chấm điểm tức thì.
+                Học lý thuyết, tra từ vựng, ôn Kanji, luyện gõ và làm đề trong cùng một trang — như bộ ôn 15–18, mở rộng đủ bài 11–18. Bài tự luyện không quy đổi thành cấp độ JLPT.
             </p>
             <div class="hero-features">
                 <span class="feature-pill">⏱️ Thời gian: 45 Phút</span>
@@ -61,14 +63,753 @@
 
         <!-- Segmented Tab Switcher -->
         <nav class="vkc-panels" aria-label="Chọn phần ôn tập">
+            <button type="button" data-review-view="theory" aria-controls="review-theory" aria-pressed="false">📖 Lý thuyết 11–18</button>
+            <button type="button" data-review-view="vocab" aria-controls="review-vocab" aria-pressed="false">🎴 Từ vựng</button>
+            <button type="button" data-review-view="kanji" aria-controls="review-kanji" aria-pressed="false">⛩️ Kanji</button>
             <button type="button" id="showFullExam" aria-controls="fullExamPanel" aria-pressed="true">
                 📝 Đề Tổng Hợp 71 Câu (Có Chấm Điểm &amp; Tính Giờ)
             </button>
             <button type="button" id="showVocabCheck" aria-controls="vocabKanjiCheck" aria-pressed="false">
                 ⚡ Luyện Nhanh Từ Vựng &amp; Kanji 11–18
             </button>
+            <button type="button" data-review-view="typing" aria-controls="review-typing" aria-pressed="false">⌨️ Luyện gõ câu &amp; Kanji</button>
+            <button type="button" data-review-view="cheatsheet" aria-controls="review-cheatsheet" aria-pressed="false">⚡ Cẩm nang bỏ túi</button>
         </nav>
 
+        
+        <section id="reviewStudyPanel" hidden aria-label="Kho ôn tập bài 11 đến 18">
+            <div class="review-study-heading">
+                <span class="review-eyebrow">MARUGOTO A2.1 · BÀI 11–18</span>
+                <h2 id="reviewPanelTitle">Cẩm nang ôn tập</h2>
+                <p>Lý thuyết, từ vựng, chữ Hán và luyện gõ trong cùng một nơi. Tiến độ riêng với đề thi.</p>
+            </div>
+            <div id="review-theory" class="review-study-view">
+
+        <!-- Quick Jump Bar -->
+        <div class="theory-quicknav">
+            <a href="#grammar-l11" class="quicknav-pill" style="background: var(--primary); color: white; border-color: var(--primary);">🍱 Bài 11: ピクニック (～ましょう／に します)</a>
+            <a href="#grammar-l12" class="quicknav-pill" style="background: var(--primary); color: white; border-color: var(--primary);">🍜 Bài 12: 日本料理 (～そう／～くなる)</a>
+            <a href="#grammar-l13" class="quicknav-pill" style="background: var(--primary); color: white; border-color: var(--primary);">✈️ Bài 13: 出張 (～たことがある／～すぎる)</a>
+            <a href="#grammar-l14" class="quicknav-pill" style="background: var(--primary); color: white; border-color: var(--primary);">💻 Bài 14: 会社で (～てもいい／～かた)</a>
+        </div>
+
+        <!-- BÀI 11 -->
+        <div class="grammar-card" id="grammar-l11">
+            <div class="grammar-header">
+                <div>
+                    <span class="grammar-tag">BÀI 11 (A2-1)</span>
+                    <h2 class="grammar-title">ピクニック (Dã Ngoại • Rủ Rê, Đề Nghị Giúp & Quyết Định Chọn Món)</h2>
+                </div>
+                <span class="section-badge">Trọng điểm A2-1</span>
+            </div>
+            <div class="grammar-body">
+                <div class="formula-box">
+                    1. Rủ rê / Đề xuất: <code>V(bỏ ます) ＋ ましょう</code><br>
+                    2. Đề nghị giúp đỡ đối phương: <code>V(bỏ ます) ＋ ましょうか</code><br>
+                    3. Mang theo đồ đạc / Dẫn ai đi: <code>[Danh từ] を 持って行きます / 連れて行きます</code><br>
+                    4. Đưa ra lựa chọn, quyết định: <code>[Danh từ] に します</code>
+                </div>
+                <p class="grammar-explain">
+                    <strong>Phân tích chi tiết:</strong><br>
+                    • <code>〜ましょう</code>: Lời rủ rê chủ động, quả quyết khi cùng đưa ra đề xuất hành động chung.<br>
+                    • <code>〜ましょうか</code>: Dùng khi ta thấy đối phương đang gặp khó khăn (vác nặng, trời nóng, cần chụp ảnh) và mình chủ động ngỏ lời làm hộ.<br>
+                    • <code>〜に します</code>: Mẫu câu kinh điển dùng trong nhà hàng khi nhân viên hỏi <em>「ご注文は？」</em> hoặc khi ta chốt hạ một lựa chọn.
+                </p>
+                <ul class="example-list">
+                    <li class="example-item">
+                        <div class="ex-jp jp-text">いい てんきですね。いっしょに こうえんへ <span style="color: var(--primary);">行きましょう</span>。</div>
+                        <div class="ex-vi">Thời tiết đẹp quá nhỉ. Chúng mình cùng đi ra công viên nhé!</div>
+                    </li>
+                    <li class="example-item">
+                        <div class="ex-jp jp-text">荷物が 重そうですね。<span style="color: var(--primary);">持ちましょうか</span>。</div>
+                        <div class="ex-vi">Hành lý trông có vẻ nặng quá. Để tôi xách giúp bạn nhé?</div>
+                    </li>
+                    <li class="example-item">
+                        <div class="ex-jp jp-text">バーベキューの とき、肉や やさい<span style="color: var(--primary);">を</span> 持って行きます。</div>
+                        <div class="ex-vi">Khi đi tiệc nướng dã ngoại BBQ, tôi sẽ mang theo thịt và rau xanh.</div>
+                    </li>
+                    <li class="example-item">
+                        <div class="ex-jp jp-text">A: 「何に しますか。」ー B: 「わたしは ラーメン<span style="color: var(--primary);">に します</span>。」</div>
+                        <div class="ex-vi">A: Bạn chọn món gì? - B: Tôi quyết định chọn món mì ramen.</div>
+                    </li>
+                </ul>
+                <div class="trap-box">
+                    <strong>⚠️ Bẫy thi cần chú ý:</strong>
+                    Tránh nhầm lẫn giữa <code>〜ましょう</code> (mình và bạn cùng làm) với <code>〜ましょうか</code> (để một mình tôi làm giúp bạn). Khi người khác đề nghị giúp bằng <code>〜ましょうか</code>, nếu đồng ý hãy đáp: <em>「ありがとうございます。お願いします」</em>, nếu từ chối khéo léo đáp: <em>「いいえ、大丈夫です」</em>.
+                </div>
+            </div>
+        </div>
+
+        <!-- BÀI 12 -->
+        <div class="grammar-card" id="grammar-l12">
+            <div class="grammar-header">
+                <div>
+                    <span class="grammar-tag">BÀI 12 (A2-1)</span>
+                    <h2 class="grammar-title">特別な日の料理 (Ẩm Thực • Phán Đoán Bề Ngoài, Biến Đổi Tính Từ & So Sánh)</h2>
+                </div>
+                <span class="section-badge">Trọng điểm A2-1</span>
+            </div>
+            <div class="grammar-body">
+                <div class="formula-box">
+                    1. Phán đoán diện mạo bề ngoài: <code>Adj-i (bỏ い) / Adj-na (bỏ な) ＋ そうです</code><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;⭐ Ngoại lệ đặc biệt: <code>いい ➔ よさそう</code>, <code>ない ➔ なさそう</code><br>
+                    2. Biến đổi trạng thái: <code>Adj-i (bỏ い) ＋ くなります</code> / <code>Adj-na (bỏ な) ＋ になります</code><br>
+                    3. So sánh trong phạm vi: <code>[Nhóm / Phạm vi] の 中で、[A] が いちばん Adj です</code>
+                </div>
+                <p class="grammar-explain">
+                    <strong>Phân tích chi tiết:</strong><br>
+                    • <code>〜そう</code>: Dùng trực giác, thị giác nhìn bề ngoài để ước lượng tính chất sự vật. Nhìn thấy món ăn bắt mắt thì thốt lên <em>「おいしそう！」</em> chứ chưa nếm thử. Nếu đã ăn rồi thì phải dùng trực tiếp tính từ <em>「おいしいです」</em>.<br>
+                    • <code>〜くなります / になります</code>: Diễn tả sự biến đổi bản chất hay mùi vị theo thời gian hoặc tác động bên ngoài (thêm chanh súp chua đi, lớn lên giỏi giang hơn).<br>
+                    • <code>〜の中で</code>: Luôn nhớ trợ từ <code>で</code> sau danh từ chỉ phạm vi (trong ẩm thực Nhật, trong gia đình, trong 4 mùa).
+                </p>
+                <ul class="example-list">
+                    <li class="example-item">
+                        <div class="ex-jp jp-text">この ケーキは とても <span style="color: var(--primary);">おいしそう</span>ですね。</div>
+                        <div class="ex-vi">Chiếc bánh ngọt này trông có vẻ ngon mắt quá nhỉ.</div>
+                    </li>
+                    <li class="example-item">
+                        <div class="ex-jp jp-text">この 辞書は とても <span style="color: var(--primary);">よさそう</span>です。(いい ➔ よさそう)</div>
+                        <div class="ex-vi">Quyển từ điển này trông có vẻ rất tốt và hữu ích đấy.</div>
+                    </li>
+                    <li class="example-item">
+                        <div class="ex-jp jp-text">レモンを 入れたので、スープが ちょっと <span style="color: var(--primary);">すっぱく なりました</span>。</div>
+                        <div class="ex-vi">Vì cho thêm chanh vào nên bát súp đã trở nên hơi chua một chút.</div>
+                    </li>
+                    <li class="example-item">
+                        <div class="ex-jp jp-text">日本の 料理<span style="color: var(--primary);">の 中で</span>、天ぷらが いちばん 好きです。</div>
+                        <div class="ex-vi">Trong số các món ăn của Nhật Bản, tôi thích nhất là món Tempura.</div>
+                    </li>
+                </ul>
+                <div class="trap-box">
+                    <strong>⚠️ Bẫy thi cần chú ý:</strong>
+                    1. Tuyệt đối KHÔNG giữ lại đuôi <code>い</code>: ❌ <code>おいしいそう</code> (Sai!), chỉ dùng <code>おいしそう</code> (Đúng!).<br>
+                    2. Từ <code>いい</code> biến thành <code>よさそう</code>, không bao giờ có <code>いいそう</code>!<br>
+                    3. Đuôi な bỏ hẳn chữ な: <code>にぎやかそう</code> chứ không phải <code>にぎやかなそう</code>.
+                </div>
+            </div>
+        </div>
+
+        <!-- BÀI 13 -->
+        <div class="grammar-card" id="grammar-l13">
+            <div class="grammar-header">
+                <div>
+                    <span class="grammar-tag">BÀI 13 (A2-2)</span>
+                    <h2 class="grammar-title">出張 (Chuyến Đi Công Tác • Thể Kinh Nghiệm & Mức Độ Quá Đà)</h2>
+                </div>
+                <span class="section-badge">Trọng điểm A2-2</span>
+            </div>
+            <div class="grammar-body">
+                <div class="formula-box">
+                    1. Thể kinh nghiệm: <code>V-た ことが あります</code> (Đã từng...)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;Phủ định tuyệt đối: <code>いいえ、一度も ありません</code> (Chưa từng một lần nào)<br>
+                    2. Mức độ quá đà: <code>V(bỏ ます) / Adj-i(bỏ い) / Adj-na(bỏ な) ＋ すぎます</code><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;Nối câu nguyên nhân: <code>〜すぎて、[kết quả tiêu cực]</code><br>
+                    3. Trợ từ gặp gỡ & công tác: <code>[Người] に 会います</code>, <code>[Địa điểm] へ 出張します</code>
+                </div>
+                <p class="grammar-explain">
+                    <strong>Phân tích chi tiết:</strong><br>
+                    • <code>V-た ことがある</code>: Dùng động từ thể TA để kể về một trải nghiệm đặc biệt đã từng kinh qua trong đời, không dùng cho các thói quen hàng ngày.<br>
+                    • <code>〜すぎる</code>: Mang sắc thái tiêu cực (vượt quá ngưỡng cho phép, gây hậu quả xấu). Ăn nhiều quá đau bụng, vest đắt quá không mua nổi, phòng yên tĩnh quá phát sợ.<br>
+                    • Đi công tác tới đâu dùng trợ từ <code>へ / に</code>, gặp gỡ ai đó bắt buộc dùng trợ từ <code>に</code>.
+                </p>
+                <ul class="example-list">
+                    <li class="example-item">
+                        <div class="ex-jp jp-text">今までに 飛行機に <span style="color: var(--primary);">乗った ことが ありますか</span>。</div>
+                        <div class="ex-vi">Từ trước tới nay bạn đã từng đi máy bay bao giờ chưa?</div>
+                    </li>
+                    <li class="example-item">
+                        <div class="ex-jp jp-text">すしを 食べたことが ありますか。ー いいえ、<span style="color: var(--primary);">一度も ありません</span>。</div>
+                        <div class="ex-vi">Bạn đã từng ăn sushi bao giờ chưa? - Dạ chưa, một lần cũng chưa từng ăn ạ.</div>
+                    </li>
+                    <li class="example-item">
+                        <div class="ex-jp jp-text">きのうの パーティーで ビールを <span style="color: var(--primary);">飲みすぎました</span>。</div>
+                        <div class="ex-vi">Trong bữa tiệc tối hôm qua, tôi đã lỡ uống quá chén (uống quá nhiều bia).</div>
+                    </li>
+                    <li class="example-item">
+                        <div class="ex-jp jp-text">この スーツは <span style="color: var(--primary);">高すぎて</span>、買うことが できません。</div>
+                        <div class="ex-vi">Bộ vest này đắt quá đi, nên tôi không tài nào mua nổi.</div>
+                    </li>
+                    <li class="example-item">
+                        <div class="ex-jp jp-text">この 部屋は <span style="color: var(--primary);">静かすぎて</span>、ちょっと こわいです。</div>
+                        <div class="ex-vi">Căn phòng này yên tĩnh quá mức, thành ra hơi đáng sợ.</div>
+                    </li>
+                </ul>
+                <div class="trap-box">
+                    <strong>⚠️ Bẫy thi cần chú ý:</strong>
+                    1. <code>静かすぎる</code>: Tính từ đuôi な ghép với すぎる tuyệt đối BỎ CHỮ な, KHÔNG THÊM だ (Cấm viết: <code>静かだすぎる</code> ❌, <code>静かなすぎる</code> ❌).<br>
+                    2. Khi trả lời "chưa từng", chọn ngay <code>一度もありません</code>, không chọn <code>まだあります</code> ❌.
+                </div>
+            </div>
+        </div>
+
+        <!-- BÀI 14 -->
+        <div class="grammar-card" id="grammar-l14">
+            <div class="grammar-header">
+                <div>
+                    <span class="grammar-tag">BÀI 14 (A2-2)</span>
+                    <h2 class="grammar-title">職場 (Môi Trường Công Sở • Xin Phép, Cấm Đoán & Cách Sử Dụng)</h2>
+                </div>
+                <span class="section-badge">Trọng điểm A2-2</span>
+            </div>
+            <div class="grammar-body">
+                <div class="formula-box">
+                    1. Xin phép lịch sự: <code>V-て ＋ も いいですか</code> (Tôi làm... có được không?)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;Đồng ý cho phép: <code>ええ、どうぞ</code> / <code>いいですよ</code><br>
+                    2. Cấm đoán quy định: <code>V-て ＋ は いけません</code> (Không được phép làm...)<br>
+                    3. Cách làm (Danh từ hóa): <code>V(bỏ ます) ＋ 方 (かた)</code><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;⭐ Trợ từ chuyển đổi: <code>[N] を V ➔ [N] の V-かた</code><br>
+                    4. Phép tắc mượn đồ: <code>[Người] に [Đồ vật] を 借ります (mượn của ai)</code>
+                </div>
+                <p class="grammar-explain">
+                    <strong>Phân tích chi tiết:</strong><br>
+                    • <code>V-てもいいですか</code>: Cấu trúc hỏi xin ý kiến cấp trên hay đồng nghiệp trước khi dùng đồ cơ quan. Khi được đồng ý, người Nhật thường dùng phó từ <code>どうぞ</code> (xin mời).<br>
+                    • <code>V-てはいけません</code>: Quy tắc bắt buộc, cấm hút thuốc, cấm chụp ảnh, cấm làm ồn nơi công cộng.<br>
+                    • <code>V-かた</code>: Động từ bỏ ます kết hợp với chữ Hán 方 (Phương) để biến thành danh từ chỉ cách thức thao tác. Trợ từ tân ngữ <code>を</code> biến thành <code>の</code>: <em>コピー機<span style="color:red">の</span> 使い方</em>.
+                </p>
+                <ul class="example-list">
+                    <li class="example-item">
+                        <div class="ex-jp jp-text">すみません、この パソコンを <span style="color: var(--primary);">使っても いいですか</span>。</div>
+                        <div class="ex-vi">Xin lỗi, tôi dùng chiếc máy vi tính này có được không ạ?</div>
+                    </li>
+                    <li class="example-item">
+                        <div class="ex-jp jp-text">ここで たばこを 吸っては <span style="color: var(--primary);">いけません</span>。</div>
+                        <div class="ex-vi">Không được phép hút thuốc lá ở khu vực này.</div>
+                    </li>
+                    <li class="example-item">
+                        <div class="ex-jp jp-text">すみません、この コピー機の <span style="color: var(--primary);">使い方</span>を 教えてください。</div>
+                        <div class="ex-vi">Xin lỗi, hãy chỉ giúp tôi cách sử dụng chiếc máy photocopy này với ạ.</div>
+                    </li>
+                    <li class="example-item">
+                        <div class="ex-jp jp-text">ペンを 忘れましたから、同僚に ペンを <span style="color: var(--primary);">借りました</span>。</div>
+                        <div class="ex-vi">Vì để quên bút nên tôi đã mượn bút từ người đồng nghiệp.</div>
+                    </li>
+                </ul>
+                <div class="trap-box">
+                    <strong>⚠️ Bẫy thi cần chú ý:</strong>
+                    Phân biệt rõ: <code>借ります (かります)</code> là mình mượn của người khác (nhận về); còn <code>貸します (かします)</code> là mình đem đồ của mình cho người khác mượn (đưa đi).
+                </div>
+            </div>
+        </div>
+
+    
+            <!-- Quick Jump Bar -->
+            <div class="theory-quicknav">
+                <a href="#grammar-l15" class="quicknav-pill qn-b15">🏥 Bài 15 (～んです／といい／ないで)</a>
+                <a href="#grammar-l16" class="quicknav-pill qn-b16">🏃 Bài 16 (～たり／ために／V thường+N)</a>
+                <a href="#grammar-l17" class="quicknav-pill qn-b17">🎁 Bài 17 (もらう／あげる／とか／んです)</a>
+                <a href="#grammar-l18" class="quicknav-pill qn-b18">💐 Bài 18 (～と思う／と言う／お祝い)</a>
+            </div>
+
+            <!-- BÀI 15 -->
+            <div class="grammar-card" id="grammar-l15">
+                <div class="grammar-header">
+                    <div>
+                        <span class="grammar-tag">BÀI 15 (A2-1 • SỨC KHỎE)</span>
+                        <h2 class="grammar-title">たいそうすると いいですよ (Sức Khỏe & Triệu Chứng • Giải Thích & Lời Khuyên)</h2>
+                    </div>
+                    <span class="section-badge">Chuẩn Giáo Trình</span>
+                </div>
+                <div class="grammar-body">
+                    <div class="formula-box">
+                        1. Hỏi & giải thích triệu chứng, lý do: <code>どうしたんですか。</code> ➔ <code>[Thể thông thường] ＋ んです</code><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;• Động từ / Tính từ い: <code>ねられないんです</code> / <code>頭が いたいんです</code><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;• Tính từ な / Danh từ (<code>だ ➔ な</code>): <code>びょうきなんです</code> / <code>たいへんなんです</code><br>
+                        2. Lời khuyên gợi ý nhẹ nhàng: <code>V(thể từ điển V-る) ＋ と いいですよ</code> (Làm V thì tốt đấy)<br>
+                        3. Đề nghị đừng làm V: <code>V(thể Phủ định ngắn V-ない) ＋ で ください</code> (Xin đừng làm V)
+                    </div>
+                    <p class="grammar-explain">
+                        <strong>Phân tích chi tiết:</strong><br>
+                        • <code>〜んですか / 〜んです</code>: Dùng khi thấy người khác có vẻ mệt mỏi để hỏi thăm tình hình <em>(どうしたんですか)</em> và để người nói giải thích lý do, hoàn cảnh của mình.<br>
+                        • <code>〜と いいですよ</code>: Đưa ra lời khuyên gợi ý nhẹ nhàng tốt cho sức khỏe.<br>
+                        • <code>〜ないで ください</code>: Dặn dò đừng làm hành động quá sức hoặc không tốt cho cơ thể.
+                    </p>
+                    <ul class="example-list">
+                        <li class="example-item">
+                            <div class="ex-jp jp-text">「どうしたんですか。」――「さいきん、ちょっと こしが <span style="color: var(--primary);">いたいんです</span>。」
+                                <button type="button" class="audio-btn" onclick="speakText('どうしたんですか。さいきん、ちょっとこしがいたいんです。')">🔊</button>
+                            </div>
+                            <div class="ex-vi">"Bạn bị làm sao thế?" ―― "Gần đây eo/lưng của tôi hơi bị đau một chút."</div>
+                        </li>
+                        <li class="example-item">
+                            <div class="ex-jp jp-text">ねる まえに、おふろに <span style="color: var(--primary);">入ると いいですよ</span>。
+                                <button type="button" class="audio-btn" onclick="speakText('ねるまえに、おふろにはいるといいですよ。')">🔊</button>
+                            </div>
+                            <div class="ex-vi">Trước khi đi ngủ, bạn nên tắm bồn thì rất tốt đấy!</div>
+                        </li>
+                        <li class="example-item">
+                            <div class="ex-jp jp-text">あまり <span style="color: var(--primary);">無理を しないで ください</span>。お酒を <span style="color: var(--primary);">飲まないで ください</span>。
+                                <button type="button" class="audio-btn" onclick="speakText('あまりむりをしないでください。おさけをのまないでください。')">🔊</button>
+                            </div>
+                            <div class="ex-vi">Xin đừng làm quá sức quá nhé. Đừng uống rượu nhé.</div>
+                        </li>
+                    </ul>
+                    <div class="trap-box">
+                        <strong>⚠️ Bẫy thi cần chú ý:</strong>
+                        Trước <code>といいですよ</code> luôn là <strong>V-る (thể từ điển)</strong>, KHÔNG chia quá khứ V-た. Trước <code>でください</code> là <strong>V-ない</strong>!
+                    </div>
+                </div>
+            </div>
+
+            <!-- BÀI 16 -->
+            <div class="grammar-card" id="grammar-l16">
+                <div class="grammar-header">
+                    <div>
+                        <span class="grammar-tag">BÀI 16 (A2-1 • VẬN ĐỘNG & BỔ NGHĨA)</span>
+                        <h2 class="grammar-title">走ったり、泳いだりしています & Mệnh Đề Bổ Nghĩa V〈ふつうけい〉＋ 人 / N</h2>
+                    </div>
+                    <span class="section-badge">Trọng tâm NPBS 16</span>
+                </div>
+                <div class="grammar-body">
+                    <div class="formula-box">
+                        1. Nêu hành động tiêu biểu: <code>V1-たり、V2-たり します / しています</code> (Có thể nêu 1 hoặc 2 hành động tiêu biểu)<br>
+                        2. Hỏi & nói mục đích: <code>何の ために 〜ていますか</code> ➔ <code>[Danh từ] の ために 〜ています</code><br>
+                        3. <strong>Mệnh đề bổ nghĩa cho danh từ:</strong> <code>V〈ふつうけい (Thể thường)〉＋ 人 / Danh từ (N)</code><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;• <code>Vます ➔ Vる</code> | <code>Vません ➔ Vない</code> | <code>Vました ➔ Vた</code> | <code>Vていません ➔ Vていない</code>
+                    </div>
+                    <p class="grammar-explain">
+                        <strong>Phân tích chi tiết:</strong><br>
+                        • <code>〜たり、〜たり します</code>: Đuôi <code>します</code> ở cuối câu chia linh hoạt theo các ngữ pháp đã học (quá khứ <code>しました</code>, thói quen <code>しています</code>).<br>
+                        • <code>V〈ふつうけい〉＋ 人 / N</code>: Dùng động từ chia thể thông thường đặt <strong>ngay trước danh từ</strong> để bổ nghĩa ("Người mà...", "Cái mà...").
+                    </p>
+                    <ul class="example-list">
+                        <li class="example-item">
+                            <div class="ex-jp jp-text">毎日 さんぽしたり、ヨガを <span style="color: var(--primary);">したり して います</span>。
+                                <button type="button" class="audio-btn" onclick="speakText('まいにちさんぽしたり、ヨガをしたりしています。')">🔊</button>
+                            </div>
+                            <div class="ex-vi">Hằng ngày tôi đi dạo, tập yoga v.v...</div>
+                        </li>
+                        <li class="example-item">
+                            <div class="ex-jp jp-text">よく 本を <span style="color: var(--primary);">読む 人</span>は 頭が いいです。コーヒーを <span style="color: var(--primary);">飲まない 人</span>は 10人です。
+                                <button type="button" class="audio-btn" onclick="speakText('よくほんをよむひとはあたまがいいです。コーヒーをのまないひとはじゅうにんです。')">🔊</button>
+                            </div>
+                            <div class="ex-vi">Người hay đọc sách thì thông minh. Số người không uống cà phê là 10 người.</div>
+                        </li>
+                        <li class="example-item">
+                            <div class="ex-jp jp-text">たばこを <span style="color: var(--primary);">すわない 人</span>は かっこいいです。野菜を <span style="color: var(--primary);">食べない 子ども</span>は あまり 元気じゃないです。
+                                <button type="button" class="audio-btn" onclick="speakText('たばこをすわないひとはかっこいいです。やさいをたべないこどもはあまりげんきじゃないです。')">🔊</button>
+                            </div>
+                            <div class="ex-vi">Người không hút thuốc lá thì thật ngầu. Đứa trẻ không ăn rau thì không khỏe lắm.</div>
+                        </li>
+                    </ul>
+                    <div class="trap-box">
+                        <strong>⚠️ Bẫy thi cần chú ý:</strong>
+                        Trước danh từ <code>人 / N</code> TUYỆT ĐỐI không được dùng đuôi lịch sự <code>ます / ません / ました</code>! Phải chuyển sang thể thông thường (<code>Vる / Vない / Vた / Vている</code>).
+                    </div>
+                </div>
+            </div>
+
+            <!-- BÀI 17 -->
+            <div class="grammar-card" id="grammar-l17">
+                <div class="grammar-header">
+                    <div>
+                        <span class="grammar-tag">BÀI 17 (A2-1 • QUÀ TẶNG & ～んです)</span>
+                        <h2 class="grammar-title">誕生日に かれに もらったんです (Cho-Nhận, とか, V thường+N & Thể thường+んです)</h2>
+                    </div>
+                    <span class="section-badge">Trọng tâm NPBS 17</span>
+                </div>
+                <div class="grammar-body">
+                    <div class="formula-box">
+                        1. Nhận quà: <code>[Người tặng] に [Vật] を もらいました / もらったんです</code><br>
+                        2. Tặng quà: <code>[Người nhận] に [Vật] を あげます / あげました</code><br>
+                        3. Liệt kê đại diện: <code>N1 とか N2 とか</code> | Đồ vật dùng để làm gì: <code>V〈ふつうけい〉＋ もの / N</code><br>
+                        4. Tổng hợp <code>Thể thông thường ＋ んです（だ ➔ な）</code>: Mở đầu nhờ vả <code>～んですが</code>, hỏi thăm <code>どうしたんですか</code>, hỏi lý do <code>どうして～んですか</code>.
+                    </div>
+                    <p class="grammar-explain">
+                        <strong>Phân tích chi tiết:</strong><br>
+                        • <strong>Biến đổi だ ➔ な:</strong> Danh từ & Tính từ đuôi な đổi <code>だ</code> thành <code>な</code> trước <code>んです</code> (<em>きらいなんです, しずかなんです, びょうきなんです, たいへんなんです</em>).<br>
+                        • <strong>Định ngữ bổ nghĩa cho danh từ (V thể thường + N):</strong> <em>きのう 買った 本, 日本で はたらいている 人, 母が 作った 料理, 毎日 使う パソコン, あかちゃんが 着る もの</em>.
+                    </p>
+                    <ul class="example-list">
+                        <li class="example-item">
+                            <div class="ex-jp jp-text">この 時計は そつぎょうの お祝いに <span style="color: var(--primary);">父に もらったんです</span>。
+                                <button type="button" class="audio-btn" onclick="speakText('このとけいはそつぎょうのおいわいに、ちちにもらったんです。')">🔊</button>
+                            </div>
+                            <div class="ex-vi">Chiếc đồng hồ này là tôi nhận được từ bố nhân dịp chúc mừng tốt nghiệp đấy.</div>
+                        </li>
+                        <li class="example-item">
+                            <div class="ex-jp jp-text">日本語が よく <span style="color: var(--primary);">分からないんですが</span>、おしえて くださいませんか。
+                                <button type="button" class="audio-btn" onclick="speakText('にほんごがよくわからないんですが、おしえてくださいませんか。')">🔊</button>
+                            </div>
+                            <div class="ex-vi">Tôi không hiểu tiếng Nhật lắm, bạn có thể chỉ cho tôi được không ạ? (～んですが mở đầu nhờ vả)</div>
+                        </li>
+                        <li class="example-item">
+                            <div class="ex-jp jp-text">「どうして おくれたんですか。」――「道が <span style="color: var(--primary);">じゅうたいなんです</span>。」
+                                <button type="button" class="audio-btn" onclick="speakText('どうしておくれたんですか。みちがじゅうたいなんです。')">🔊</button>
+                            </div>
+                            <div class="ex-vi">"Tại sao bạn đến muộn vậy?" ―― "Vì đường bị tắc nghẽn đấy ạ."</div>
+                        </li>
+                    </ul>
+                    <div class="trap-box">
+                        <strong>⚠️ Bẫy thi cần chú ý:</strong>
+                        Trợ từ đứng trước động từ cho-nhận: <code>もらいます</code> ➔ đứng trước <code>に</code> là NGƯỜI TẶNG. <code>あげます</code> ➔ đứng trước <code>に</code> là NGƯỜI NHẬN!
+                    </div>
+                </div>
+            </div>
+
+            <!-- BÀI 18 -->
+            <div class="grammar-card" id="grammar-l18">
+                <div class="grammar-header">
+                    <div>
+                        <span class="grammar-tag">BÀI 18 (A2-1 • CHÚC MỪNG & Ý KIẾN)</span>
+                        <h2 class="grammar-title">パーティーが いいと 思います (Bày Tỏ Ý Kiến, Trích Dẫn & Chúc Mừng)</h2>
+                    </div>
+                    <span class="section-badge">Chuẩn Giáo Trình</span>
+                </div>
+                <div class="grammar-body">
+                    <div class="formula-box">
+                        1. Bày tỏ suy nghĩ, ý kiến cá nhân: <code>[Thể thông thường (Futsuukei)] ＋ と 思います</code><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;• Động từ / Tính từ đuôi い: <code>よろこぶ と 思います</code> / <code>パーティーが いい と 思います</code><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;• <strong>Danh từ / Tính từ đuôi な (Hiện tại khẳng định):</strong> <code>[N / Na] ＋ だ ＋ と 思います</code><br>
+                        2. Trích dẫn lại lời người khác đã nói: <code>[Thể thông thường] ＋ と 言っていました</code><br>
+                        3. Giao tiếp chúc mừng & cảm ơn quà: <code>ご結婚 おめでとう ございます</code> / <code>おれいを 言います</code> / <code>たいせつに します</code>
+                    </div>
+                    <p class="grammar-explain">
+                        <strong>Phân tích chi tiết:</strong><br>
+                        • <code>〜と 思います</code>: Bày tỏ nhận xét, đề xuất ý kiến của bản thân khi bàn bạc tổ chức lễ chúc mừng hoặc chọn quà tặng.<br>
+                        • <code>〜と 言っていました</code>: Truyền đạt lại lời nói, mong muốn của một người thứ ba (<em>あべさんは みんなと 話したいと 言っていました</em>).
+                    </p>
+                    <ul class="example-list">
+                        <li class="example-item">
+                            <div class="ex-jp jp-text">お祝いは パーティーが <span style="color: var(--primary);">いいと 思います</span>。着物が <span style="color: var(--primary);">きれいだと 思います</span>。
+                                <button type="button" class="audio-btn" onclick="speakText('おいわいはパーティーがいいとおもいます。きものがきれいだとおもいます。')">🔊</button>
+                            </div>
+                            <div class="ex-vi">Tôi nghĩ buổi chúc mừng tổ chức tiệc là hay. Tôi nghĩ bộ Kimono rất đẹp.</div>
+                        </li>
+                        <li class="example-item">
+                            <div class="ex-jp jp-text">あべさんは みんなと <span style="color: var(--primary);">話したいと 言っていました</span>。
+                                <button type="button" class="audio-btn" onclick="speakText('あべさんはみんなとはなしたいといっていました。')">🔊</button>
+                            </div>
+                            <div class="ex-vi">Anh Abe đã nói là muốn trò chuyện với tất cả mọi người.</div>
+                        </li>
+                        <li class="example-item">
+                            <div class="ex-jp jp-text">たなかさんは パーティーが <span style="color: var(--primary);">楽しかったと 言っていました</span>。
+                                <button type="button" class="audio-btn" onclick="speakText('たなかさんはパーティーがたのしかったといっていました。')">🔊</button>
+                            </div>
+                            <div class="ex-vi">Anh Tanaka đã nói là buổi tiệc rất vui.</div>
+                        </li>
+                    </ul>
+                    <div class="trap-box">
+                        <strong>⚠️ Bẫy thi cần chú ý:</strong>
+                        Trước <code>と 思います / と 言っていました</code>, nếu là Tính từ đuôi な hoặc Danh từ ở thì hiện tại khẳng định, BẮT BUỘC phải có <code>だ</code>: <em>「きれい【だ】と 思います」「しあわせ【だ】と 言っていました」</em>. Thiếu <code>だ</code> là sai!
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div id="review-vocab" class="review-study-view" hidden>
+                <div class="review-toolbar">
+                    <label>Bài học<select id="reviewVocabLesson"><option value="all">Tất cả bài 11–18</option>
+                    <option value="A2-11">Bài 11</option><option value="A2-12">Bài 12</option><option value="A2-13">Bài 13</option><option value="A2-14">Bài 14</option><option value="A2-15">Bài 15</option><option value="A2-16">Bài 16</option><option value="A2-17">Bài 17</option><option value="A2-18">Bài 18</option></select></label>
+                    <label class="review-search">Tìm từ<input id="reviewVocabSearch" type="search" placeholder="Kana, Romaji hoặc nghĩa Việt…"></label>
+                    <button type="button" id="reviewHideMeaning">Ẩn nghĩa</button>
+                    <button type="button" id="reviewCopyVocab">Copy Quizlet (Kana ↔ Việt)</button>
+                </div>
+                <p id="reviewVocabCount" role="status"></p>
+                <p class="review-scope-note">Từ vựng hiển thị bằng Kana để không đưa thêm Kanji ngoài danh sách bài 11–18.</p>
+                <div class="review-table-scroll"><table class="review-vocab-table">
+                    <thead><tr><th>Bài</th><th>Từ / cách đọc</th><th>Romaji</th><th>Nghĩa Việt</th><th>Nghe</th></tr></thead>
+                    <tbody id="reviewVocabBody"></tbody>
+                </table></div>
+                <div class="review-pagination" id="reviewVocabPagination"></div>
+            </div>
+            <div id="review-kanji" class="review-study-view" hidden>
+                <div class="review-toolbar">
+                    <label>Bài học<select id="reviewKanjiLesson"><option value="all">Tất cả bài 11–18</option>
+                    <option value="L11">Bài 11</option><option value="L12">Bài 12</option><option value="L13">Bài 13</option><option value="L14">Bài 14</option><option value="L15">Bài 15</option><option value="L16">Bài 16</option><option value="L17">Bài 17</option><option value="L18">Bài 18</option></select></label>
+                    <label class="review-search">Tìm chữ<input id="reviewKanjiSearch" type="search" placeholder="Kanji, âm Hán Việt hoặc nghĩa…"></label>
+                    <button type="button" id="reviewCopyKanji">Copy Quizlet Kanji</button>
+                </div>
+                <p id="reviewKanjiCount" role="status"></p>
+                <p class="review-scope-note">64 chữ bài 11–18 · Từ ghép ví dụ chỉ dùng chữ trong danh sách này.</p>
+                <div id="reviewKanjiGrid" class="review-kanji-grid"></div>
+            </div>
+            <div id="review-typing" class="review-study-view" hidden>
+            <div class="typing-container">
+                <div class="section-header">
+                    <div>
+                        <h2 class="section-title">⌨️ Luyện Gõ Ôn Tập Bài 11–18: Dịch Câu & Đọc Chữ Hán ➔ Hiragana</h2>
+                        <p style="color: var(--gray-600); font-size: 0.92rem; margin-top: 4px;">
+                            Luyện câu bài 11–18, từ vựng Kana và từ ghép chỉ chứa Kanji thuộc danh sách 11–18. Chấm chi tiết <strong>nghĩa + công thức + giải thích vì sao sai</strong> và <strong>tự động lưu checkpoint</strong> từng câu!
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Chọn chế độ luyện gõ -->
+                <div class="tp-mode-switch" role="tablist" aria-label="Chế độ luyện gõ">
+                    <button type="button" class="tp-mode-pill active" id="tpModeBtn_sentence" onclick="switchTypingMode('sentence')">🇻🇳 Câu Tiếng Việt ➔ Gõ Hiragana</button>
+                    <button type="button" class="tp-mode-pill" id="tpModeBtn_kanji" onclick="switchTypingMode('kanji')">⛩️ Chữ Hán (Kanji) ➔ Gõ Hiragana</button>
+                    <button type="button" class="tp-mode-pill" id="tpModeBtn_vocab" onclick="switchTypingMode('vocab')">🗂️ Từ Vựng A2 (253 từ)</button>
+                </div>
+
+                <!-- Bộ lọc bài học + Công cụ -->
+                <div class="tp-toolbar">
+                    <div class="vocab-filter-group" id="typingFilterGroup"></div>
+                    <div class="tp-toggles">
+                        <label id="tpKanjiAllowWrap" title="Nếu quên tắt bộ gõ Kanji vẫn chấp nhận nếu khớp mặt chữ chuẩn">
+                            <input type="checkbox" id="tpAllowKanjiToggle" onchange="toggleTypingOption('allowKanji', this.checked)"> Cho phép kèm Kanji
+                        </label>
+                        <label title="Tắt mặc định để bạn đọc kỹ nghĩa và giải thích trước khi sang câu tiếp theo">
+                            <input type="checkbox" id="tpAutoAdvToggle" onchange="toggleTypingOption('autoAdvance', this.checked)"> Tự nhảy câu khi đúng
+                        </label>
+                        <button type="button" class="vocab-action-btn" onclick="toggleTypingOverview()" id="tpOverviewBtn">📋 Danh Sách Câu</button>
+                        <button type="button" class="vocab-action-btn" onclick="shuffleTypingPool()">🔀 Xáo Trộn</button>
+                    </div>
+                </div>
+
+                <!-- Danh sách câu thu gọn -->
+                <div class="tp-overview-drawer" id="tpOverviewDrawer"></div>
+
+                <!-- Khung thẻ luyện gõ chính -->
+                <div class="typing-card-view">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; gap:8px; flex-wrap:wrap;">
+                        <span style="font-size:0.84rem; font-weight:800; color:var(--primary); background:var(--primary-light); padding:4px 12px; border-radius:var(--radius-full);" id="tpCardBadge">Câu 1 / --</span>
+                        <span class="tp-pattern-badge" id="tpPatternBadge">Mẫu câu</span>
+                        <div class="typing-streak" id="tpStreakBadge" style="margin:0;">🔥 Chuỗi: 0</div>
+                    </div>
+
+                    <div id="tpPromptArea" style="background:linear-gradient(135deg,#f8fafc 0%,#eef2ff 100%); border:1px solid #c7d2fe; border-radius:var(--radius-md); padding:20px 18px; margin:12px 0 18px 0;">
+                        <div style="font-size:0.8rem; font-weight:700; color:var(--gray-500); text-transform:uppercase; letter-spacing:0.04em;" id="tpPromptSubtitle">ĐỀ BÀI TIẾNG VIỆT</div>
+                        <div class="tp-vi-hero" id="tpPromptVi">Đang tải...</div>
+                        <div id="tpHintPreview" style="display:none; margin-top:10px; padding:8px 12px; background:#ffffff; border-radius:8px; font-size:0.88rem; color:var(--primary-dark); border:1px dashed #a5b4fc;"></div>
+                    </div>
+
+                    <div style="font-size:0.88rem; font-weight:700; color:var(--gray-600); margin-bottom:8px;" id="tpInputDirective">
+                        ⬇️ Nhập câu tiếng Nhật bằng <strong>Hiragana</strong> rồi nhấn Enter (hoặc Kiểm Tra):
+                    </div>
+
+                    <div class="typing-input-wrapper">
+                        <textarea class="typing-input-large jp-text" id="tpCardInput" rows="2" style="resize:vertical; min-height:66px; max-width:100%;" placeholder="Nhập câu dịch tiếng Nhật bằng Hiragana rồi nhấn Enter..." autocomplete="off" autocapitalize="off" spellcheck="false"></textarea>
+                    </div>
+
+                    <div class="tp-shortcut-bar" id="tpShortcutBar">
+                        <span class="tp-shortcut-item"><kbd class="tp-kbd">⏎ Enter</kbd> Kiểm Tra / Tiếp</span>
+                        <span class="tp-shortcut-item"><kbd class="tp-kbd">Alt + S</kbd> Bỏ qua (Skip)</span>
+                        <span class="tp-shortcut-item"><kbd class="tp-kbd">Esc</kbd> Gõ lại (Retry)</span>
+                        <span class="tp-shortcut-item"><kbd class="tp-kbd">Alt + H</kbd> Gợi ý</span>
+                    </div>
+
+                    <div class="typing-actions typing-actions-wrapper">
+                        <!-- Primary Action (Large prominent brand red / teal) -->
+                        <div class="tp-action-row-primary">
+                            <button type="button" class="tp-btn-primary is-check" id="tpCardCheckBtn" onclick="handleTypingPrimaryBtn()">
+                                <span class="tp-btn-icon">✨</span>
+                                <span class="tp-btn-label">Kiểm Tra Đáp Án</span>
+                                <kbd class="tp-kbd tp-kbd-light">⏎ Enter</kbd>
+                            </button>
+                        </div>
+                        <!-- Secondary Actions (Skip, Retry, Save, Prev) -->
+                        <div class="tp-action-row-secondary">
+                            <button type="button" class="tp-btn-secondary" id="tpCardPrevBtn" onclick="prevTypingItem()" title="Câu trước">
+                                <span>⬅️ Trước</span>
+                            </button>
+                            <button type="button" class="tp-btn-secondary" id="tpCardSkipBtn" onclick="skipOrPassCurrentTypingWord()" title="Bỏ qua câu này (Alt + S)">
+                                <span>⏭️ Bỏ Qua</span>
+                                <kbd class="tp-kbd">Alt+S</kbd>
+                            </button>
+                            <button type="button" class="tp-btn-secondary is-retry" id="tpCardRetryBtn" style="display:none;" onclick="retryCurrentTypingCard()" title="Gõ lại câu này (Esc)">
+                                <span>🔄 Gõ Lại</span>
+                                <kbd class="tp-kbd">Esc</kbd>
+                            </button>
+                            <button type="button" class="tp-btn-secondary" id="tpCardSaveBtn" onclick="manualSaveTypingProgress()" title="Lưu tiến độ làm bài">
+                                <span>💾 Lưu</span>
+                            </button>
+                        </div>
+                        <!-- Utility Buttons (Audio, Hint, Reveal, Reset) -->
+                        <div class="tp-action-row-utility">
+                            <button type="button" class="tp-btn-utility is-audio" id="tpCardSpeakBtn" onclick="speakCurrentTypingWord(this)" title="Nghe phát âm chuẩn">
+                                <span>🔊 Nghe Mẫu</span>
+                            </button>
+                            <button type="button" class="tp-btn-utility is-hint" id="tpCardHintBtn" onclick="showTypingHint()" title="Xem gợi ý công thức">
+                                <span>💡 Gợi Ý</span>
+                            </button>
+                            <button type="button" class="tp-btn-utility is-reveal" id="tpCardRevealBtn" onclick="revealTypingAnswer()" title="Xem đáp án chuẩn">
+                                <span>👁️ Xem Đáp Án</span>
+                            </button>
+                            <button type="button" class="tp-btn-utility tp-btn-danger-ghost" id="tpCardResetBtn" onclick="resetCurrentTypingMode()" title="Đặt lại toàn bộ tiến độ chế độ này">
+                                <span>🔄 Đặt lại</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Bảng giải thích chi tiết (Nghĩa + So sánh + Vì sao sai) -->
+                    <div id="tpDetailPanel" class="tp-detail-panel"></div>
+
+                    <div style="width:100%; height:10px; background:var(--gray-200); border-radius:10px; overflow:hidden; margin: 22px 0 12px 0;">
+                        <div id="tpProgressBar" style="width:0%; height:100%; background:linear-gradient(90deg, var(--primary), var(--secondary)); transition:width 0.3s;"></div>
+                    </div>
+
+                    <div style="display:flex; justify-content:space-around; flex-wrap:wrap; gap:10px; font-size:0.95rem; font-weight:700; color:var(--gray-700);">
+                        <span>✅ Đã làm đúng: <strong style="color:var(--success);" id="tpStatCorrect">0</strong></span>
+                        <span>❌ Đang sai / cần ôn: <strong style="color:var(--accent);" id="tpStatWrong">0</strong></span>
+                        <span>🎯 Đã chạm / tổng: <strong style="color:var(--primary);" id="tpStatPercent">0%</strong></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div id="review-cheatsheet" class="review-study-view" hidden>
+        <div class="cheatsheet-grid">
+            <div class="cheat-card">
+                <span class="cheat-badge">BẪY 1 • RỦ RÊ VS ĐỀ NGHỊ GIÚP (BÀI 11)</span>
+                <h3 class="cheat-title">ましょう vs ましょうか</h3>
+                <p class="cheat-content">
+                    • <strong>V-ましょう:</strong> Rủ rê cả 2 cùng làm (<em>いっしょに 行きましょう</em> - Chúng mình cùng đi nhé).<br>
+                    • <strong>V-ましょうか:</strong> Đề nghị một mình tôi làm giúp bạn (<em>荷物を 持ちましょうか</em> - Để tôi xách hành lý giúp bạn nhé?).<br>
+                    👉 Thêm chữ <code>か</code> biến thành lời đề nghị giúp đỡ ân cần, đừng nhầm lẫn!
+                </p>
+            </div>
+
+            <div class="cheat-card">
+                <span class="cheat-badge">BẪY 2 • PHÁN ĐOÁN BỀ NGOÀI (BÀI 12)</span>
+                <h3 class="cheat-title">〜そう (Bỏ い, Bỏ な & Ngoại lệ)</h3>
+                <p class="cheat-content">
+                    • <strong>Tính từ đuôi い:</strong> Bỏ hẳn [い] + そう (<em>おいしそう</em>).<br>
+                    • <strong>Tính từ đuôi な:</strong> Bỏ hẳn [な] + そう (<em>にぎやかそう</em>).<br>
+                    • <strong>Ngoại lệ sống còn:</strong> <code>いい</code> ➔ <strong><code>よさそう</code></strong> (CẤM dùng <code>いいそう</code> ❌).<br>
+                    • <code>ない</code> ➔ <strong><code>なさそう</code></strong>.
+                </p>
+            </div>
+
+            <div class="cheat-card">
+                <span class="cheat-badge">BẪY 3 • BIẾN ĐỔI TÍNH TỪ (BÀI 12)</span>
+                <h3 class="cheat-title">〜くなる vs 〜になる</h3>
+                <p class="cheat-content">
+                    • <strong>Tính từ đuôi い:</strong> Bỏ [い] + <strong>くなる</strong> (<em>甘くなります</em> - trở nên ngọt).<br>
+                    • <strong>Tính từ đuôi な:</strong> Bỏ [な] + <strong>になる</strong> (<em>上手になります</em> - trở nên giỏi).<br>
+                    • <strong>Danh từ:</strong> N + <strong>になる</strong> (<em>先生になります</em> - trở thành giáo viên).
+                </p>
+            </div>
+
+            <div class="cheat-card">
+                <span class="cheat-badge">BẪY 4 • SO SÁNH PHẠM VI (BÀI 12)</span>
+                <h3 class="cheat-title">〜の中で (Trong số...)</h3>
+                <p class="cheat-content">
+                    • So sánh nhất trong một nhóm: <code>[Phạm vi] の 中で、[A] が いちばん [Tính từ] です</code>.<br>
+                    • Ví dụ: <em>日本の 料理の <mark>中で</mark>、天ぷらが いちばん 好きです</em>.<br>
+                    👉 Sau chữ 「中」 luôn là trợ từ <code>で</code>, không dùng <code>に</code> hay <code>を</code>.
+                </p>
+            </div>
+
+            <div class="cheat-card">
+                <span class="cheat-badge">BẪY 5 • THỂ KINH NGHIỆM (BÀI 13)</span>
+                <h3 class="cheat-title">V-たことがある & 一度もありません</h3>
+                <p class="cheat-content">
+                    • <strong>Kinh nghiệm:</strong> Bắt buộc dùng <strong>Thể TA</strong> (<em>乗った ことが あります</em>).<br>
+                    • <strong>Phủ định tuyệt đối:</strong> <em>いいえ、一度も ありません</em> (Một lần cũng chưa từng).<br>
+                    👉 Không trả lời: <code>まだ あります</code> ❌.
+                </p>
+            </div>
+
+            <div class="cheat-card">
+                <span class="cheat-badge">BẪY 6 • MỨC ĐỘ QUÁ ĐÀ (BÀI 13)</span>
+                <h3 class="cheat-title">〜すぎる (V-stem, Bỏ い, Bỏ な)</h3>
+                <p class="cheat-content">
+                    • <strong>Động từ:</strong> V(bỏ ます) + すぎる (<em>飲みすぎる</em>).<br>
+                    • <strong>Tính từ đuôi い:</strong> Bỏ [い] + すぎる (<em>高すぎる</em>).<br>
+                    • <strong>Tính từ đuôi な:</strong> Bỏ [な] + すぎる (<em>静かすぎる</em>). Cấm nói <code>静かだすぎる</code> ❌!<br>
+                    • <strong>Dạng nguyên nhân:</strong> <em>高すぎて 買えません</em> (Đắt quá không mua nổi).
+                </p>
+            </div>
+
+            <div class="cheat-card">
+                <span class="cheat-badge">BẪY 7 • XIN PHÉP VS CẤM ĐOÁN (BÀI 14)</span>
+                <h3 class="cheat-title">〜てもいい vs 〜てはいけない</h3>
+                <p class="cheat-content">
+                    • <strong>Xin phép:</strong> <code>V-ても いいですか</code> (<em>使ってもいいですか</em> ➔ Đáp: <em>ええ、どうぞ</em>).<br>
+                    • <strong>Cấm đoán:</strong> <code>V-ては いけません</code> (<em>吸っては いけません</em> - Cấm hút thuốc).<br>
+                    👉 Nhớ câu thần chú: <code>ても</code> = Làm cũng ĐƯỢC; <code>ては</code> = Làm thì KHÔNG ĐƯỢC.
+                </p>
+            </div>
+
+            <div class="cheat-card">
+                <span class="cheat-badge">BẪY 8 • MƯỢN ĐỒ & CÁCH LÀM (BÀI 14)</span>
+                <h3 class="cheat-title">借ります vs 貸します & V-かた</h3>
+                <p class="cheat-content">
+                    • <strong>借ります (かります):</strong> Mình MƯỢN từ ai (nhận về mình: <em>同僚に 借りました</em>).<br>
+                    • <strong>貸します (かします):</strong> Mình CHO MƯỢN (đưa sang cho người khác).<br>
+                    • <strong>V-かた:</strong> Động từ bỏ ます + 方 (<em>使い方, 読み方</em>). Nhớ trợ từ <code>を</code> biến thành <code>の</code> (<em>コピー機<mark>の</mark> 使い方</em>).
+                </p>
+            </div>
+        </div>
+    
+            <div class="content-card">
+                <div class="section-header">
+                    <div>
+                        <h2 class="section-title">⚡ Cẩm Nang Bỏ Túi • Bí Kíp Tránh Bẫy Bài 15 ➔ 18</h2>
+                        <p style="color: var(--gray-600); font-size: 0.92rem; margin-top: 4px;">Tổng hợp đúng 4 bẫy ngữ pháp trọng tâm của Bài 15-18 & Kiến Thức Bổ Sung trên lớp.</p>
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px;">
+                    <!-- Cheatsheet 1 -->
+                    <div style="background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: var(--radius-md); padding: 20px;">
+                        <h3 style="font-size: 1.1rem; font-weight: 800; color: var(--primary); margin-bottom: 10px;">1. Khuyên Nhủ & Bối Cảnh ～んです (Bài 15 & 17)</h3>
+                        <p style="font-size: 0.92rem; color: var(--gray-700); line-height: 1.7;">
+                            • <code>V-る ＋ と いいですよ</code>: Khuyên nhẹ nhàng nên làm gì (luôn dùng thể từ điển V-る!).<br>
+                            • <code>V-ない ＋ で ください</code>: Dặn dò đừng làm gì (dùng thể Phủ định ngắn V-ない!).<br>
+                            • <code>Thể thông thường ＋ んです</code>: Danh từ & Tính từ đuôi な phải đổi <strong>だ ➔ な</strong> (<em>びょうきなんです, しずかなんです, じゅうたいなんです</em>).
+                        </p>
+                    </div>
+
+                    <!-- Cheatsheet 2 -->
+                    <div style="background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: var(--radius-md); padding: 20px;">
+                        <h3 style="font-size: 1.1rem; font-weight: 800; color: var(--primary); margin-bottom: 10px;">2. Mệnh Đề Bổ Nghĩa V〈ふつうけい〉＋ 人 / N (Bài 16 & 17)</h3>
+                        <p style="font-size: 0.92rem; color: var(--gray-700); line-height: 1.7;">
+                            • Động từ bổ nghĩa luôn đặt <strong>TRƯỚC danh từ</strong> và phải chia về thể thông thường:<br>
+                            &nbsp;&nbsp;<code>Vます ➔ Vる</code> | <code>Vません ➔ Vない</code> | <code>Vました ➔ Vた</code> | <code>Vています ➔ Vている</code>.<br>
+                            • Ví dụ chuẩn: <em>よく 本を 読む 人</em>, <em>コーヒーを 飲まない 人</em>, <em>きのう 買った 本</em>, <em>母が 作った 料理</em>.
+                        </p>
+                    </div>
+
+                    <!-- Cheatsheet 3 -->
+                    <div style="background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: var(--radius-md); padding: 20px;">
+                        <h3 style="font-size: 1.1rem; font-weight: 800; color: var(--primary); margin-bottom: 10px;">3. Ma Trận Cho - Nhận Quà Tặng (Bài 17)</h3>
+                        <p style="font-size: 0.92rem; color: var(--gray-700); line-height: 1.7;">
+                            • <code>[Người tặng] に [Vật] を もらいました / もらったんです</code>: Nhận quà từ ai.<br>
+                            • <code>[Người nhận] に [Vật] を あげます / あげました</code>: Tặng quà cho ai.<br>
+                            • <strong>Mẹo phân biệt:</strong> Nhìn động từ cuối câu để biết người đứng trước trợ từ <code>に</code> là người tặng hay người nhận!<br>
+                            • Liệt kê gợi ý quà tặng: <code>N1 とか N2 とか</code> (<em>絵とか 時計とか</em>).
+                        </p>
+                    </div>
+
+                    <!-- Cheatsheet 4 -->
+                    <div style="background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: var(--radius-md); padding: 20px;">
+                        <h3 style="font-size: 1.1rem; font-weight: 800; color: var(--primary); margin-bottom: 10px;">4. Bẫy 「だ」 Trước と思います & と言っていました (Bài 18)</h3>
+                        <p style="font-size: 0.92rem; color: var(--gray-700); line-height: 1.7;">
+                            • Động từ: <code>よろこぶ / 来られない / 楽しかった</code> + <code>と思います / と言っていました</code>.<br>
+                            • Tính từ đuôi い: <code>いい / おもしろい</code> + <code>と思います</code>.<br>
+                            • <strong>BẪY LỚN:</strong> Tính từ đuôi な và Danh từ ở thì hiện tại khẳng định BẮT BUỘC phải thêm <code>だ</code>:<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;➔ <em>きれい<strong>だ</strong>と思います</em> (Không nói: きれいと思います)<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;➔ <em>しあわせ<strong>だ</strong>と言っていました</em>.
+                        </p>
+                    </div>
+
+                    <!-- Cheatsheet 5: PDF L11-L18 Bảng Ôn Nhanh & 6 Điểm Dễ Nhầm -->
+                    <div style="grid-column: 1 / -1; background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%); border: 1px solid #fcd34d; border-radius: var(--radius-md); padding: 20px;">
+                        <h3 style="font-size: 1.12rem; font-weight: 800; color: #b45309; margin-bottom: 10px;">5. Bảng Ôn Nhanh &amp; 6 Điểm Dễ Nhầm Toàn Tập L11–L18 (Theo PDF Cô Gửi)</h3>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 14px; font-size: 0.9rem; color: #78350f; line-height: 1.68;">
+                            <div style="background: rgba(255,255,255,0.82); padding: 12px 14px; border-radius: 10px; border: 1px solid #fde68a;">
+                                <strong style="color:#92400e;">📌 Ôn nhanh nền tảng L11–L14:</strong><br>
+                                • <strong>L11:</strong> <code>Vて いきます / きます</code> (mua mang đi / mang tới); <code>いつでも・どこでも・なんでも いいです</code>; <code>N1と N2と、どちらが いいですか</code>.<br>
+                                • <strong>L12:</strong> Bỏ <code>い/な</code> + <code>そうです</code> (trông có vẻ); <code>いAくて / なAで / Nで</code> (nguyên nhân).<br>
+                                • <strong>L13:</strong> <code>Vた ことが あります</code> (đã từng); <code>すぎます</code> (quá); <code>S1 ですが、S2</code>.<br>
+                                • <strong>L14:</strong> <code>Vて、3年に なります</code> (được 3 năm); <code>Vても いいですか</code> (xin phép) &amp; <code>すみません、ちょっと…</code> (từ chối khéo).
+                            </div>
+                            <div style="background: rgba(255,255,255,0.82); padding: 12px 14px; border-radius: 10px; border: 1px solid #fde68a;">
+                                <strong style="color:#92400e;">🚨 6 Điểm dễ nhầm PDF Trang 19:</strong><br>
+                                1. <strong>Mệnh đề bổ ngữ V + N:</strong> TUYỆT ĐỐI KHÔNG chen <code>の</code> (<s>とったのしゃしん</s> ❌ ➔ <code>とった しゃしん</code> ✅).<br>
+                                2. <strong>Ngoại lệ 「そうです」:</strong> <code>いい</code> ➔ <code>よさそうです</code> ✅ (KHÔNG dùng <s>いいそう</s> ❌).<br>
+                                3. <strong>Chủ ngữ mệnh đề phụ:</strong> Phải dùng <code>が</code> thay <code>は</code> (<code>母<strong>が</strong>作った料理</code> ✅).<br>
+                                4. <strong>ナA / N + と思います / 言っていました:</strong> Phải thêm <code>だ</code> ở hiện tại khẳng định (<code>元気<strong>だ</strong>と思います</code> ✅).<br>
+                                5. <strong>Trước 「まえに」 dù câu quá khứ:</strong> Vẫn chia <code>Vる</code> (<code>日本に 行く まえに、勉強しました</code> ✅).<br>
+                                6. <strong>Khoảng thời gian + まえに:</strong> Không thêm <code>の</code> (<code>3年前に</code> / <code>10分前に</code> ✅; danh từ sự kiện mới thêm <code>の</code>).
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <p id="reviewCopyStatus" role="status" aria-live="polite"></p>
+        </section>
+    
         <section class="vocab-kanji-check" id="vocabKanjiCheck" hidden aria-label="Kiểm tra Từ vựng và Kanji bài 11 đến 18">
             <p>Đang tải bộ câu hỏi…</p>
         </section>
@@ -295,6 +1036,10 @@
     <script src="../assets/data/de_thi_tong_hop_11_18_data.js?v=1"></script>
     <script src="../assets/data/vocab_kanji_check_11_18_data.js?v=1"></script>
     <script src="../assets/js/pages/de_thi_tong_hop_11_18.js?v=2"></script>
+    <script src="../assets/data/review_11_18_data.js?v=1"></script>
+    <script src="../assets/js/pages/review-11-18.js?v=1"></script>
+    <script src="../assets/js/jp-typing-grader.js?v=2"></script>
+    <script src="../assets/js/typing-studio.js?v=9"></script>
     <script src="../assets/js/pages/vocab-kanji-check-11-18.js?v=2"></script>
     <script src="../assets/nav.js?v=7" defer></script>
 </body>
