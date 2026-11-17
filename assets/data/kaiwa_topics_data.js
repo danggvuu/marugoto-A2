@@ -378,7 +378,7 @@ window.KAIWA_TOPICS_DATA = [
         coreQuestions: [
             {
                 id: 1,
-                qJp: "レーさんの 結婚の お祝いパーティー、どうしましょうか。",
+                qJp: "レーさんの 結婚の お祝いパーティー、どうしますか。",
                 qVi: "Tiệc mừng kết hôn của chị Lê, chúng mình tính sao đây?",
                 intent: "Mở đầu thảo luận kế hoạch bằng mẫu rủ rê 「〜ましょうか / 〜ませんか」.",
                 mindmap: [
@@ -440,7 +440,7 @@ window.KAIWA_TOPICS_DATA = [
             },
             {
                 id: 3,
-                qJp: "何人ぐらい 参加しますか。",
+                qJp: "何人 参加しますか。",
                 qVi: "Khoảng bao nhiêu người sẽ tham gia?",
                 intent: "Hỏi số lượng người tham gia (何人 - なんにん) và cách ước lượng khoảng chừng.",
                 mindmap: [
@@ -471,7 +471,7 @@ window.KAIWA_TOPICS_DATA = [
             },
             {
                 id: 4,
-                qJp: "場所は どこで しますか。",
+                qJp: "どこで しますか。",
                 qVi: "Chúng mình tổ chức ở đâu?",
                 intent: "Hỏi và giải thích lý do chọn địa điểm thuận tiện.",
                 mindmap: [
@@ -502,7 +502,7 @@ window.KAIWA_TOPICS_DATA = [
             },
             {
                 id: 5,
-                qJp: "レーさんに もう 言いましたか。",
+                qJp: "レーさんに 言いましたか。",
                 qVi: "Bạn đã nói với chị Lê chưa?",
                 intent: "Kiểm tra thì quá khứ/hiện tại và ứng dụng từ vựng 'Bí mật' (秘密) của A2-2.",
                 mindmap: [
@@ -536,11 +536,11 @@ window.KAIWA_TOPICS_DATA = [
             { speaker: "gakusei", name: "Bạn", jp: "来週の 金曜日の 夜、みんなで レストランで パーティーを しませんか。", vi: "Tối thứ Sáu tuần sau, mọi người cùng tổ chức tiệc ở nhà hàng nhé?" },
             { speaker: "sensei", name: "Tanaka", jp: "いいですね！プレゼントは 何を あげますか。", vi: "Ý kiến hay đấy! Thế mình tặng quà gì bây giờ?" },
             { speaker: "gakusei", name: "Bạn", jp: "時計や お花は どうですか。みんなで お金を 出して 買いましょう。", vi: "Đồng hồ hoặc hoa thì sao? Mọi người cùng góp tiền mua chung nhé." },
-            { speaker: "sensei", name: "Tanaka", jp: "いいですね！何人ぐらい 参加しますか。", vi: "Hay đấy! Khoảng bao nhiêu người sẽ tham gia nhỉ?" },
+            { speaker: "sensei", name: "Tanaka", jp: "いいですね！何人 参加しますか。", vi: "Hay đấy! Khoảng bao nhiêu người sẽ tham gia nhỉ?" },
             { speaker: "gakusei", name: "Bạn", jp: "私たちの チームの みんなで、全部で 8人ぐらいです。", vi: "Cả nhóm chúng ta, tất cả là khoảng 8 người." },
-            { speaker: "sensei", name: "Tanaka", jp: "じゃ、場所は どこが いいですか。", vi: "Vậy địa điểm ở đâu thì tiện nhỉ?" },
+            { speaker: "sensei", name: "Tanaka", jp: "じゃ、どこで しますか。", vi: "Vậy địa điểm ở đâu thì tiện nhỉ?" },
             { speaker: "gakusei", name: "Bạn", jp: "会社の 近くの レストランが いいと 思います。駅から 近いですから、便利です。", vi: "Tôi nghĩ nhà hàng gần công ty là tốt nhất. Vì gần ga nên rất thuận tiện." },
-            { speaker: "sensei", name: "Tanaka", jp: "なるほど！ところで、レーさんに もう 言いましたか。", vi: "Hợp lý quá! Nhân tiện, bạn đã nói với chị Lê chưa?" },
+            { speaker: "sensei", name: "Tanaka", jp: "なるほど！ところで、レーさんに 言いましたか。", vi: "Hợp lý quá! Nhân tiện, bạn đã nói với chị Lê chưa?" },
             { speaker: "gakusei", name: "Bạn", jp: "いいえ、まだです。秘密ですから、まだ 言わないでくださいね。サプライズに しましょう！", vi: "Chưa, vẫn chưa đâu! Là bí mật đấy nên bạn đừng nói vội nhé. Hãy tạo bất ngờ nha!" },
             { speaker: "sensei", name: "Tanaka", jp: "ふふ、分かりました。楽しみに しています！", vi: "Haha, tôi hiểu rồi. Háo hức chờ đến hôm đó quá!" }
         ]
