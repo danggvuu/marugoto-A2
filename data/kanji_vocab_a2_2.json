@@ -1,0 +1,223 @@
+{
+  "lesson_1": [
+    {
+      "stt": 1,
+      "word": "紹介",
+      "kana": "しょうかい",
+      "hv": "THIỆU GIỚI",
+      "mean": "Giới thiệu"
+    },
+    {
+      "stt": 2,
+      "word": "自己紹介",
+      "kana": "じこしょうかい",
+      "hv": "TỰ KỶ THIỆU GIỚI",
+      "mean": "Giới thiệu bản thân"
+    },
+    {
+      "stt": 3,
+      "word": "名前",
+      "kana": "なまえ",
+      "hv": "DANH TIỀN",
+      "mean": "Tên"
+    },
+    {
+      "stt": 4,
+      "word": "有名",
+      "kana": "ゆうめい",
+      "hv": "HỮU DANH",
+      "mean": "Nổi tiếng"
+    },
+    {
+      "stt": 5,
+      "word": "意味",
+      "kana": "いみ",
+      "hv": "Ý VỊ",
+      "mean": "Ý nghĩa"
+    },
+    {
+      "stt": 6,
+      "word": "部屋",
+      "kana": "へや",
+      "hv": "BỘ ỐC",
+      "mean": "Căn phòng"
+    },
+    {
+      "stt": 7,
+      "word": "本屋",
+      "kana": "ほんや",
+      "hv": "BỔN ỐC",
+      "mean": "Tiệm sách"
+    },
+    {
+      "stt": 8,
+      "word": "近い",
+      "kana": "ちかい",
+      "hv": "CẬN",
+      "mean": "Gần"
+    },
+    {
+      "stt": 9,
+      "word": "最近",
+      "kana": "さいきん",
+      "hv": "TỐI CẬN",
+      "mean": "Gần đây"
+    },
+    {
+      "stt": 10,
+      "word": "近所",
+      "kana": "きんじょ",
+      "hv": "CẬN SỞ",
+      "mean": "Hàng xóm, lân cận"
+    },
+    {
+      "stt": 11,
+      "word": "住みます",
+      "kana": "すみます",
+      "hv": "TRÚ",
+      "mean": "Sống"
+    },
+    {
+      "stt": 12,
+      "word": "住所",
+      "kana": "じゅうしょ",
+      "hv": "TRÚ SỞ",
+      "mean": "Địa chỉ"
+    },
+    {
+      "stt": 13,
+      "word": "働きます",
+      "kana": "はたらきます",
+      "hv": "ĐỘNG",
+      "mean": "Làm việc"
+    },
+    {
+      "stt": 14,
+      "word": "一番",
+      "kana": "いちばん",
+      "hv": "NHẤT PHIÊN",
+      "mean": "Nhất, số một"
+    },
+    {
+      "stt": 15,
+      "word": "一番目",
+      "kana": "いちばんめ",
+      "hv": "NHẤT PHIÊN MỤC",
+      "mean": "Thứ nhất"
+    }
+  ],
+  "lesson_2": [
+    {
+      "stt": 1,
+      "word": "兄",
+      "kana": "あに",
+      "hv": "HUYNH",
+      "mean": "Anh trai mình"
+    },
+    {
+      "stt": 2,
+      "word": "お兄さん",
+      "kana": "おにいさん",
+      "hv": "HUYNH",
+      "mean": "Anh trai (người khác)"
+    },
+    {
+      "stt": 3,
+      "word": "姉",
+      "kana": "あね",
+      "hv": "TỶ",
+      "mean": "Chị gái mình"
+    },
+    {
+      "stt": 4,
+      "word": "お姉さん",
+      "kana": "おねえさん",
+      "hv": "TỶ",
+      "mean": "Chị gái (người khác)"
+    },
+    {
+      "stt": 5,
+      "word": "弟",
+      "kana": "おとうと",
+      "hv": "ĐỆ",
+      "mean": "Em trai"
+    },
+    {
+      "stt": 6,
+      "word": "兄弟",
+      "kana": "きょうだい",
+      "hv": "HUYNH ĐỆ",
+      "mean": "Anh em"
+    },
+    {
+      "stt": 7,
+      "word": "妹",
+      "kana": "いもうと",
+      "hv": "MUỘI",
+      "mean": "Em gái"
+    },
+    {
+      "stt": 8,
+      "word": "姉妹",
+      "kana": "しまい",
+      "hv": "TỶ MUỘI",
+      "mean": "Chị em"
+    },
+    {
+      "stt": 9,
+      "word": "家族",
+      "kana": "かぞく",
+      "hv": "GIA TỘC",
+      "mean": "Gia đình"
+    },
+    {
+      "stt": 10,
+      "word": "水族館",
+      "kana": "すいぞくかん",
+      "hv": "THỦY TỘC QUÁN",
+      "mean": "Thủy cung"
+    },
+    {
+      "stt": 11,
+      "word": "長い",
+      "kana": "ながい",
+      "hv": "TRƯỜNG",
+      "mean": "Dài"
+    },
+    {
+      "stt": 12,
+      "word": "成長",
+      "kana": "せいちょう",
+      "hv": "THÀNH TRƯỜNG",
+      "mean": "Trưởng thành, phát triển"
+    },
+    {
+      "stt": 13,
+      "word": "短い",
+      "kana": "みじかい",
+      "hv": "ĐOẢN",
+      "mean": "Ngắn"
+    },
+    {
+      "stt": 14,
+      "word": "低い",
+      "kana": "ひくい",
+      "hv": "ĐÊ",
+      "mean": "Thấp"
+    },
+    {
+      "stt": 15,
+      "word": "歌",
+      "kana": "うた",
+      "hv": "CA",
+      "mean": "Bài hát"
+    },
+    {
+      "stt": 16,
+      "word": "歌手",
+      "kana": "かしゅ",
+      "hv": "CA THỦ",
+      "mean": "Ca sĩ"
+    }
+  ]
+}
