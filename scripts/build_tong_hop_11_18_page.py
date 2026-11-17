@@ -68,27 +68,57 @@ html_content = """<!DOCTYPE html>
             </div>
         </header>
 
-        <!-- Segmented Tab Switcher -->
-        <nav class="vkc-panels" aria-label="Chọn phần ôn tập">
-            <button type="button" data-review-view="theory" aria-controls="review-theory" aria-pressed="false">📖 Lý thuyết 11–18</button>
-            <button type="button" data-review-view="vocab" aria-controls="review-vocab" aria-pressed="false">🎴 Từ vựng</button>
-            <button type="button" data-review-view="kanji" aria-controls="review-kanji" aria-pressed="false">⛩️ Kanji</button>
-            <button type="button" id="showFullExam" aria-controls="fullExamPanel" aria-pressed="true">
-                📝 Đề thi · 71 câu
-            </button>
-            <button type="button" id="showVocabCheck" aria-controls="vocabKanjiCheck" aria-pressed="false">
-                ⚡ Kiểm tra nhanh
-            </button>
-            <button type="button" data-review-view="typing" aria-controls="review-typing" aria-pressed="false">⌨️ Luyện gõ câu &amp; Kanji</button>
-            <button type="button" data-review-view="cheatsheet" aria-controls="review-cheatsheet" aria-pressed="false">⚡ Cẩm nang bỏ túi</button>
-        </nav>
+        <!-- Workspace Layout with macOS-style Left Sidebar -->
+        <div class="exam-workspace-layout">
+            <!-- macOS Style Sidebar -->
+            <aside class="exam-sidebar" aria-label="Thanh điều hướng chuyên mục">
+                <div class="macos-sidebar-box">
+                    <div class="macos-sidebar-header">
+                        <div class="macos-traffic-dots" aria-hidden="true">
+                            <span class="macos-dot macos-dot-red"></span>
+                            <span class="macos-dot macos-dot-yellow"></span>
+                            <span class="macos-dot macos-dot-green"></span>
+                        </div>
+                        <span class="macos-sidebar-title">DANH MỤC ÔN TẬP</span>
+                    </div>
+                    <nav class="vkc-panels" aria-label="Chọn phần ôn tập">
+                        <button type="button" data-review-view="theory" aria-controls="review-theory" aria-pressed="false">
+                            <span class="macos-nav-icon">📖</span><span class="macos-nav-label">Lý thuyết 11–18</span>
+                        </button>
+                        <button type="button" data-review-view="vocab" aria-controls="review-vocab" aria-pressed="false">
+                            <span class="macos-nav-icon">🎴</span><span class="macos-nav-label">Từ vựng</span>
+                        </button>
+                        <button type="button" data-review-view="kanji" aria-controls="review-kanji" aria-pressed="false">
+                            <span class="macos-nav-icon">⛩️</span><span class="macos-nav-label">Kanji</span>
+                        </button>
+                        <button type="button" id="showFullExam" aria-controls="fullExamPanel" aria-pressed="true">
+                            <span class="macos-nav-icon">📝</span><span class="macos-nav-label">Đề thi · 71 câu</span>
+                        </button>
+                        <button type="button" id="showVocabCheck" aria-controls="vocabKanjiCheck" aria-pressed="false">
+                            <span class="macos-nav-icon">⚡</span><span class="macos-nav-label">Kiểm tra nhanh</span>
+                        </button>
+                        <button type="button" data-review-view="typing" aria-controls="review-typing" aria-pressed="false">
+                            <span class="macos-nav-icon">⌨️</span><span class="macos-nav-label">Luyện gõ câu &amp; Kanji</span>
+                        </button>
+                        <button type="button" data-review-view="cheatsheet" aria-controls="review-cheatsheet" aria-pressed="false">
+                            <span class="macos-nav-icon">⚡</span><span class="macos-nav-label">Cẩm nang bỏ túi</span>
+                        </button>
+                    </nav>
+                    <div class="macos-sidebar-footer" aria-hidden="true">
+                        <span class="macos-status-pill"> Marugoto A2.1</span>
+                        <span class="macos-badge-count">7 Mục</span>
+                    </div>
+                </div>
+            </aside>
 
-        <!-- REVIEW_STUDY_PANEL -->
-        <section class="vocab-kanji-check" id="vocabKanjiCheck" hidden aria-label="Kiểm tra Từ vựng và Kanji bài 11 đến 18">
-            <p>Đang tải bộ câu hỏi…</p>
-        </section>
+            <!-- Main Content Area -->
+            <div class="exam-main-content">
+                <!-- REVIEW_STUDY_PANEL -->
+                <section class="vocab-kanji-check" id="vocabKanjiCheck" hidden aria-label="Kiểm tra Từ vựng và Kanji bài 11 đến 18">
+                    <p>Đang tải bộ câu hỏi…</p>
+                </section>
 
-        <div id="fullExamPanel">
+                <div id="fullExamPanel">
             <!-- Whiteboard Specification Card -->
             <div class="wb-spec-card">
                 <div class="wb-spec-left">
@@ -225,6 +255,8 @@ html_content = """<!DOCTYPE html>
                 </div>
             </div>
         </div><!-- /fullExamPanel -->
+        </div><!-- /exam-main-content -->
+    </div><!-- /exam-workspace-layout -->
     </div><!-- /main-container -->
 
     <!-- SCORE RESULT MODAL -->

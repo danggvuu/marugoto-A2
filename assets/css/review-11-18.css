@@ -1,15 +1,204 @@
 .full-exam-page #reviewStudyPanel[hidden],
 .full-exam-page .review-study-view[hidden] { display: none !important; }
-.full-exam-page .vkc-panels {
-    position: sticky; top: 80px; z-index: 80;
-    display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; overflow-x: auto;
-    padding: 8px; background: #fff; border: 1px solid #dbe3ef;
-    border-radius: 14px; box-shadow: 0 4px 12px #0f172a08;
-    width: 100%; max-width: none; margin-left: 0; margin-right: 0;
+
+/* ==========================================================================
+   macOS-Style Left Sidebar Navigation & 2-Column Workspace Layout
+   ========================================================================== */
+
+.full-exam-page .main-container {
+    max-width: 1320px;
 }
-.full-exam-page .vkc-panels button { flex: 0 0 auto; width: auto; white-space: nowrap; min-height: 44px; }
-.full-exam-page .vkc-panels button[aria-pressed="true"] { color: #fff !important; }
-#reviewStudyPanel { margin: 20px 0 40px; color: #1e293b; }
+
+.full-exam-page .exam-workspace-layout {
+    display: grid;
+    grid-template-columns: 260px minmax(0, 1fr);
+    gap: 24px;
+    align-items: start;
+    margin-top: 24px;
+}
+
+.full-exam-page .exam-sidebar {
+    position: sticky;
+    top: 80px;
+    z-index: 70;
+    min-width: 0;
+}
+
+.full-exam-page .macos-sidebar-box {
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(226, 232, 240, 0.95);
+    border-radius: 18px;
+    padding: 14px 10px;
+    box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.05), 0 1px 3px rgba(15, 23, 42, 0.04);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.full-exam-page .macos-sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px 8px 10px 8px;
+    border-bottom: 1px solid rgba(226, 232, 240, 0.85);
+    margin-bottom: 2px;
+}
+
+.full-exam-page .macos-traffic-dots {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.full-exam-page .macos-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), filter 0.18s ease;
+}
+
+.full-exam-page .macos-sidebar-box:hover .macos-dot {
+    filter: brightness(0.92);
+}
+
+.full-exam-page .macos-dot-red {
+    background: #ff5f56;
+    border: 1px solid rgba(224, 68, 62, 0.4);
+}
+
+.full-exam-page .macos-dot-yellow {
+    background: #ffbd2e;
+    border: 1px solid rgba(222, 161, 35, 0.4);
+}
+
+.full-exam-page .macos-dot-green {
+    background: #27c93f;
+    border: 1px solid rgba(26, 171, 42, 0.4);
+}
+
+.full-exam-page .macos-sidebar-title {
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: #64748b;
+    text-transform: uppercase;
+}
+
+/* Sidebar List Buttons */
+.full-exam-page .vkc-panels {
+    position: static;
+    top: auto;
+    z-index: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 5px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    overflow: visible;
+}
+
+.full-exam-page .vkc-panels button {
+    flex: 0 0 auto;
+    width: 100%;
+    min-height: 42px;
+    padding: 9px 12px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.88rem;
+    color: #334155;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+    gap: 10px;
+    cursor: pointer;
+    position: relative;
+    box-sizing: border-box;
+    transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1), transform 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.full-exam-page .vkc-panels button:hover:not([aria-pressed="true"]) {
+    background: rgba(15, 23, 42, 0.05);
+    color: #0f172a;
+    transform: translateX(4px);
+}
+
+.full-exam-page .vkc-panels button:active {
+    transform: scale(0.97) translateX(2px);
+}
+
+.full-exam-page .vkc-panels button[aria-pressed="true"] {
+    background: linear-gradient(135deg, #007aff 0%, #005bb5 100%) !important;
+    color: #ffffff !important;
+    font-weight: 700;
+    box-shadow: 0 4px 14px rgba(0, 122, 255, 0.32) !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+    transform: translateX(4px);
+}
+
+.full-exam-page .macos-nav-icon {
+    font-size: 1.05rem;
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+}
+
+.full-exam-page .macos-nav-label {
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.full-exam-page .macos-sidebar-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 8px 2px 8px;
+    margin-top: 4px;
+    border-top: 1px solid rgba(226, 232, 240, 0.85);
+}
+
+.full-exam-page .macos-status-pill {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #64748b;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.full-exam-page .macos-badge-count {
+    font-size: 0.68rem;
+    font-weight: 800;
+    background: rgba(226, 232, 240, 0.9);
+    color: #475569;
+    padding: 2px 7px;
+    border-radius: 9999px;
+}
+
+/* Right Content Area */
+.full-exam-page .exam-main-content {
+    min-width: 0;
+    width: 100%;
+}
+
+#reviewStudyPanel { margin: 0 0 40px; color: #1e293b; }
 #reviewStudyPanel .review-study-heading { padding: 24px; margin-bottom: 20px; border-radius: 16px; background: #eef2ff; border: 1px solid #dbeafe; }
 #reviewStudyPanel .review-eyebrow { font-size: .7rem; letter-spacing: .08em; font-weight: 800; color: #4338ca; }
 #reviewStudyPanel h2 { margin: 8px 0; color: #172554; }
@@ -48,9 +237,62 @@
 #reviewStudyPanel .typing-card-view { animation: none; opacity: 1; }
 #reviewStudyPanel #review-cheatsheet [style*="minmax(320px"],
 #reviewStudyPanel #review-cheatsheet [style*="minmax(290px"] { grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr)) !important; }
+@media (max-width: 991px) {
+    .full-exam-page .exam-workspace-layout {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        margin-top: 16px;
+    }
+    .full-exam-page .exam-sidebar {
+        position: sticky;
+        top: 70px;
+        z-index: 80;
+        width: 100%;
+    }
+    .full-exam-page .macos-sidebar-box {
+        padding: 6px;
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 4px 14px rgba(15, 23, 42, 0.05);
+        gap: 0;
+    }
+    .full-exam-page .macos-sidebar-header,
+    .full-exam-page .macos-sidebar-footer {
+        display: none;
+    }
+    .full-exam-page .vkc-panels {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-items: center;
+        overflow-x: auto;
+        gap: 6px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding: 2px;
+    }
+    .full-exam-page .vkc-panels::-webkit-scrollbar {
+        display: none;
+    }
+    .full-exam-page .vkc-panels button {
+        flex: 0 0 auto;
+        width: auto;
+        white-space: nowrap;
+        min-height: 40px;
+        padding: 8px 14px;
+        font-size: 0.84rem;
+        transform: none !important;
+    }
+    .full-exam-page .vkc-panels button:hover:not([aria-pressed="true"]) {
+        transform: none !important;
+    }
+    .full-exam-page .vkc-panels button[aria-pressed="true"] {
+        transform: none !important;
+    }
+}
 @media (max-width: 768px) {
-    .full-exam-page .vkc-panels { top: 70px; }
-    .full-exam-page .vkc-panels button { flex: 0 0 auto; font-size: .8rem; }
+    .full-exam-page .vkc-panels button { font-size: .8rem; }
     #reviewStudyPanel .review-study-heading { padding: 18px; }
     #reviewStudyPanel .review-toolbar > label { flex: 1 1 100%; }
     #reviewStudyPanel .review-toolbar :is(input, select) { font-size: 16px; }
