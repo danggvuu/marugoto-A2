@@ -219,6 +219,17 @@
     gap: 4px;
 }
 
+.hub-drop-group-wrap {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.hub-drop-group-title {
+    width: 100%;
+    box-sizing: border-box;
+}
+
 .hub-drop-grid-2col {
     display: grid;
     grid-template-columns: repeat(2, 1fr);

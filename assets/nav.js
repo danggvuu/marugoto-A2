@@ -214,10 +214,23 @@
     const a2_1Html = renderLessonLinks(ALL_LESSONS);
 
     const lessonsDropdownHtml = `
-        <div class="hub-drop-group-title" style="padding: 6px 12px; font-size: 0.78rem; font-weight: 800; color: #6366f1; text-transform: uppercase; letter-spacing: 0.05em; background: #eef2ff; border-radius: 8px; margin: 4px 0 8px 0; border-left: 3px solid #6366f1;">🌸 Marugoto A2-2 (Sơ Cấp 2 Tập 2 - Mới)</div>
-        ${a2_2Html}
-        <div class="hub-drop-group-title" style="padding: 6px 12px; font-size: 0.78rem; font-weight: 800; color: #475569; text-transform: uppercase; letter-spacing: 0.05em; background: #f1f5f9; border-radius: 8px; margin: 12px 0 8px 0; border-left: 3px solid #94a3b8;">📚 Marugoto A2-1 (Trọn Bộ 18 Bài Tập 1)</div>
-        ${a2_1Html}
+        <div class="hub-drop-group-wrap" style="width: 100%; margin-bottom: 10px;">
+            <div class="hub-drop-group-title" style="display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 7px 12px; font-size: 0.8rem; font-weight: 800; color: #4338ca; text-transform: uppercase; letter-spacing: 0.04em; background: #eef2ff; border-radius: 8px; margin: 2px 0 8px 0; border-left: 3px solid #6366f1;">
+                <span>🌸 Marugoto A2-2 (Sơ Cấp 2 Tập 2 - Mới)</span>
+                <span style="font-size: 0.7rem; background: #6366f1; color: #fff; padding: 2px 8px; border-radius: 99px; white-space: nowrap; flex-shrink: 0;">Lịch 17/11</span>
+            </div>
+            <div class="hub-drop-grid-2col">
+                ${a2_2Html}
+            </div>
+        </div>
+        <div class="hub-drop-group-wrap" style="width: 100%;">
+            <div class="hub-drop-group-title" style="padding: 7px 12px; font-size: 0.8rem; font-weight: 800; color: #475569; text-transform: uppercase; letter-spacing: 0.04em; background: #f1f5f9; border-radius: 8px; margin: 4px 0 8px 0; border-left: 3px solid #94a3b8;">
+                📚 Marugoto A2-1 (Trọn Bộ 18 Bài Tập 1)
+            </div>
+            <div class="hub-drop-grid-2col">
+                ${a2_1Html}
+            </div>
+        </div>
     `;
 
     // 6. TỔNG HỢP HTML TOÀN BỘ THANH NAVBAR VÀ BOTTOM SHEET/DROPDOWN
@@ -358,7 +371,7 @@
                 </div>
                 <button type="button" class="hub-drop-close" onclick="window.closeAllHubDropdowns()" aria-label="Đóng">✕</button>
             </div>
-            <div class="hub-drop-body hub-drop-grid-2col">
+            <div class="hub-drop-body">
                 ${lessonsDropdownHtml}
             </div>
         </div>
