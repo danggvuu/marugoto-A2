@@ -16,6 +16,7 @@ html_content = """<!DOCTYPE html>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/mini-test-15-18.css?v=8">
+    <link rel="stylesheet" href="../assets/css/mini-test-11-14.css?v=1">
     <link rel="stylesheet" href="../assets/css/pages/de_thi_midterm_a2_1.css?v=2">
     <link rel="stylesheet" href="../assets/css/site-theme.css?v=7">
     <link rel="stylesheet" href="../assets/css/full-exam.css?v=3">
@@ -73,10 +74,10 @@ html_content = """<!DOCTYPE html>
             <button type="button" data-review-view="vocab" aria-controls="review-vocab" aria-pressed="false">🎴 Từ vựng</button>
             <button type="button" data-review-view="kanji" aria-controls="review-kanji" aria-pressed="false">⛩️ Kanji</button>
             <button type="button" id="showFullExam" aria-controls="fullExamPanel" aria-pressed="true">
-                📝 Đề Tổng Hợp 71 Câu (Có Chấm Điểm &amp; Tính Giờ)
+                📝 Đề thi · 71 câu
             </button>
             <button type="button" id="showVocabCheck" aria-controls="vocabKanjiCheck" aria-pressed="false">
-                ⚡ Luyện Nhanh Từ Vựng &amp; Kanji 11–18
+                ⚡ Kiểm tra nhanh
             </button>
             <button type="button" data-review-view="typing" aria-controls="review-typing" aria-pressed="false">⌨️ Luyện gõ câu &amp; Kanji</button>
             <button type="button" data-review-view="cheatsheet" aria-controls="review-cheatsheet" aria-pressed="false">⚡ Cẩm nang bỏ túi</button>
@@ -313,7 +314,7 @@ html_content = """<!DOCTYPE html>
     <script src="../assets/js/pages/review-11-18.js?v=1"></script>
     <script src="../assets/js/jp-typing-grader.js?v=2"></script>
     <script src="../assets/js/typing-studio.js?v=9"></script>
-    <script src="../assets/js/pages/vocab-kanji-check-11-18.js?v=2"></script>
+    <script src="../assets/js/pages/vocab-kanji-check-11-18.js?v=4"></script>
     <script src="../assets/nav.js?v=7" defer></script>
 </body>
 </html>

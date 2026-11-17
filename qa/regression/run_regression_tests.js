@@ -224,7 +224,7 @@ test('R3.1: checkpoint-sync tracks silentDepth and restoreGlobalsTimer', () => {
 // -----------------------------------------------------------------------------
 console.log('\n--- R4: Typing Studio Reset Registration ---');
 test('R4.1: checkpoint-sync only clears studio history on a mounted studio page', () => {
-    assert.match(CpCode, /if \(typeof window\.resetTypingStudio === 'function'\) \{\s*toRemove\.push\('marugoto_typing_studio_v2'\)/);
+    assert.match(CpCode, /if \(typeof window\.resetTypingStudio === 'function'\) \{\s*toRemove\.push\(window\.REVIEW_11_18_TYPING_CONFIG\?\.storageKey \|\| 'marugoto_typing_studio_v2'\)/);
 });
 
 const TypingCode = fs.readFileSync(path.join(ROOT, 'assets/js/typing-studio.js'), 'utf8');

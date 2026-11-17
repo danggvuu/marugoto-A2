@@ -330,7 +330,7 @@
             }
             // Only reset a studio mounted on this page, never another page's history.
             if (typeof window.resetTypingStudio === 'function') {
-                toRemove.push('marugoto_typing_studio_v2');
+                toRemove.push(window.REVIEW_11_18_TYPING_CONFIG?.storageKey || 'marugoto_typing_studio_v2');
             }
             toRemove.forEach(k => {
                 try { localStorage.removeItem(k); } catch (e) {}

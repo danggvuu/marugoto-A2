@@ -274,6 +274,84 @@ class StudyFlows(unittest.TestCase):
         self.assertEqual(self.page.locator("#labPairSelect").input_value(), "50")
         self.assertIn("'ta'", self.page.locator(".lab-tense-pill.active").get_attribute("onclick"))
 
+    def test_full_review_has_all_study_tabs_and_preserves_exam(self):
+        self.go(EXAM)
+        self.assertEqual(self.page.locator(".vkc-panels button").count(), 7)
+        self.page.evaluate("handleSelectOption(1,0);toggleExamMode()")
+        for view in ["theory", "vocab", "kanji", "typing", "cheatsheet"]:
+            self.page.locator(f'[data-review-view="{view}"]').click()
+            self.page.clock.run_for(400)
+            self.assertTrue(self.page.locator("#review-" + view).is_visible())
+            self.assertFalse(self.page.evaluate("isTimerRunning"))
+            self.assertFalse(self.page.locator("#fullExamPanel").is_visible())
+            for width in [360, 390, 768, 1440]:
+                self.page.set_viewport_size({"width": width, "height": 900})
+                self.page.clock.run_for(100)
+                self.assertLessEqual(self.page.evaluate("document.documentElement.scrollWidth"), width + 1)
+        self.assertEqual(self.page.locator("#review-theory .grammar-card").count(), 8)
+        self.page.locator("#showFullExam").click()
+        self.assertTrue(self.page.evaluate("isTimerRunning"))
+        self.assertEqual(self.page.evaluate("Object.keys(userAnswers)"), ["1"])
+        self.assertEqual(self.page.locator("#examSectionsContainer .q-item-card").count(), 71)
+        self.page.locator("#showVocabCheck").click()
+        self.assertFalse(self.page.evaluate("isTimerRunning"))
+        self.assertTrue(self.page.locator("#vocabKanjiCheck").is_visible())
+
+    def test_full_review_vocab_kanji_filters_audio_copy_and_restore(self):
+        self.go(EXAM + "#review-vocab")
+        self.assertIn("253", self.page.locator("#reviewVocabCount").inner_text())
+        self.page.locator("#reviewVocabLesson").select_option("A2-11")
+        self.assertTrue(self.page.locator("#reviewVocabBody tr").evaluate_all(
+            "(rows)=>rows.every(row=>row.cells[0].textContent==='Bài 11')"))
+        self.page.evaluate("() => {window.__spoken=[];window.speakText=text=>__spoken.push(text);}")
+        expected = self.page.locator("#reviewVocabBody tr").first.locator("td").nth(1).inner_text()
+        self.page.locator("#reviewVocabBody button").first.click()
+        self.assertEqual(self.page.evaluate("__spoken.at(-1)"), expected)
+        self.page.locator("#reviewHideMeaning").click()
+        self.assertGreater(self.page.locator(".review-masked").count(), 0)
+        self.page.evaluate("""() => {
+            window.__copied='';
+            Object.defineProperty(navigator, 'clipboard', {configurable:true,
+                value:{writeText:async text=>{window.__copied=text;}}});
+        }""")
+        self.page.locator("#reviewCopyVocab").click()
+        self.assertIn(expected + "\t", self.page.evaluate("__copied"))
+        self.reload()
+        self.assertEqual(self.page.locator("#reviewVocabLesson").input_value(), "A2-11")
+        self.assertGreater(self.page.locator(".review-masked").count(), 0)
+        self.page.locator("#reviewVocabSearch").fill("zzzzzz")
+        self.assertIn("Không có từ", self.page.locator("#reviewVocabBody").inner_text())
+        self.page.locator('[data-review-view="kanji"]').click()
+        self.assertEqual(self.page.locator("#reviewKanjiGrid .review-kanji-card").count(), 64)
+        self.page.locator("#reviewKanjiLesson").select_option("L11")
+        self.assertEqual(self.page.locator("#reviewKanjiGrid .review-kanji-card").count(), 6)
+        self.assertTrue(self.page.locator("#reviewKanjiGrid").evaluate("""el=>{
+            const allowed=new Set(REVIEW_11_18_DATA.KANJI_DATA.map(item=>item.char));
+            return [...el.querySelectorAll('[data-kana] span')].every(node=>
+                [...node.textContent.replace(/々/g,'').matchAll(/\\p{Script=Han}/gu)].every(m=>allowed.has(m[0])));
+        }"""))
+
+    def test_full_review_typing_modes_scope_restore_and_isolated_reset(self):
+        self.go(EXAM + "#review-typing")
+        self.assertTrue(self.page.locator("#review-typing").is_visible())
+        for mode in ["sentence", "kanji", "vocab"]:
+            self.page.locator("#tpModeBtn_" + mode).click()
+            self.page.locator("#typingFilterGroup button").filter(has_text="Bài 11 (").click()
+            self.assertIn("A2-11" if mode != "kanji" else "Bài 11", self.page.locator("#tpCardBadge").inner_text())
+        self.page.locator("#tpCardInput").fill("test draft")
+        self.page.clock.run_for(500)
+        self.reload()
+        self.assertEqual(self.page.locator("#tpCardInput").input_value(), "test draft")
+        self.assertIsNotNone(self.page.evaluate("localStorage.getItem('marugoto_review_11_18_typing_v1')"))
+        self.assertIsNone(self.page.evaluate("localStorage.getItem('marugoto_typing_studio_v2')"))
+        self.page.evaluate("""() => {
+            localStorage.setItem('marugoto_typing_studio_v2', JSON.stringify({marker:'preserve'}));
+        }""")
+        with self.page.expect_navigation():
+            self.page.evaluate("() => {MarugotoCheckpoint.silentClearPage();}")
+        self.page.clock.run_for(400)
+        self.assertEqual(self.page.evaluate("JSON.parse(localStorage.getItem('marugoto_typing_studio_v2')).marker"), "preserve")
+
     def test_vocab_paginate_search_clear_and_restore(self):
         self.go(VOCAB)
         self.assertEqual(self.page.locator("#vocabTableBody tr").count(), 50)

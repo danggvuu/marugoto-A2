@@ -323,6 +323,10 @@
         root.querySelector('#vkcSettings').open = !session;
         if (session) root.querySelector('#vkcSaveStatus').textContent = 'Đã khôi phục tiến độ';
         root.querySelector('.vkc-start').addEventListener('click', () => start());
+        if (window.REVIEW_11_18_TYPING_CONFIG) {
+            renderQuestion();
+            return; // The full study companion owns navigation and hash handling.
+        }
         // Reveal the anchor target before the browser performs its native scroll.
         document.querySelector('.exam-start-link')?.addEventListener('click', () => selectPanel(false));
         document.getElementById('showFullExam').addEventListener('click', () => {
