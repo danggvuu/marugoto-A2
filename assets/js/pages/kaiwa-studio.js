@@ -370,7 +370,7 @@
                                     <div class="answer-card ${isAdv ? 'is-advanced' : 'is-basic'}">
                                         <div class="answer-header">
                                             <span class="answer-level-badge ${isAdv ? 'badge-advanced' : 'badge-basic'}">
-                                                ${isAdv ? '🟣 Nâng cao / Tự nhiên (A2+)' : '🟢 Chuẩn cơ bản (A2.1)'} • ${escapeHtml(ans.tag)}
+                                                🟢 Mẫu câu đã ôn • ${escapeHtml(ans.tag)}
                                             </span>
                                             <button type="button" class="btn-speak-ans" onclick="window.KaiwaStudio.playAudio('${cleanAns}', this)" title="Nghe mẫu phát âm câu này">
                                                 🔊 Nghe mẫu

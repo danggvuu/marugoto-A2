@@ -89,4 +89,5 @@ if __name__ == "__main__":
     subprocess.run(["node", os.path.join(WORKSPACE, "qa/regression/content_integrity.js")], check=True)
     subprocess.run(["node", os.path.join(WORKSPACE, "qa/regression/vocab_kanji_scope.js")], check=True)
     subprocess.run(["node", os.path.join(WORKSPACE, "qa/regression/a2_2_content.js")], check=True)
+    subprocess.run(["node", os.path.join(WORKSPACE, "qa/regression/kaiwa_scope.js")], check=True)
     print("ALL BUILD & INTEGRITY CHECKS PASSED!")

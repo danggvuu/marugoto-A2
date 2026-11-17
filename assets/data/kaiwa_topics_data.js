@@ -1,8 +1,8 @@
 /**
  * MARUGOTO A2.1 & A2-2 KAIWA INTERVIEW TOPICS DATA
  * Chuẩn bị cho bài thi vấn đáp Kaiwa 5 phút với giáo viên tiếng Nhật.
- * Toàn bộ câu hỏi, câu trả lời mẫu và từ vựng sử dụng 100% từ vựng & ngữ pháp
- * trong giáo trình Marugoto A2.1 (Bài 11-18) và Marugoto A2-2 (Bài 1 & 2 mới học):
+ * Câu mẫu rút gọn theo ngữ pháp A1–A2.1 đến bài 18,
+ * kèm từ vựng A2-2 bài 1–2. Không dùng mẫu nâng cao trong câu học thuộc.
  *  1. Bảo vệ sức khoẻ (Bài 15 & 16)
  *  2. Hỏi han về sức khỏe & Lời khuyên (Bài 15 & 16)
  *  3. Trao đổi về tiệc chúc mừng (Bài 17 & 18)
@@ -18,7 +18,7 @@ window.KAIWA_TOPICS_DATA = [
         badge: "Chủ Đề 1 • Bài 15 & 16",
         lessonRef: "Marugoto A2.1 — Bài 15 & 16 (Sức khỏe & Thói quen)",
         image: "assets/img/kaiwa/topic1_bao_ve_suc_khoe.jpg",
-        desc: "Khảo sát thói quen sinh hoạt lành mạnh, vận động thể thao, giấc ngủ, ăn uống, thói quen uống bia rượu và làm thêm giờ (100% từ vựng Bài 15-16 và A2-2).",
+        desc: "Luyện nói về vận động, giấc ngủ, ăn uống và làm thêm giờ bằng ～ています, Nのために, ～から, thời gian và tần suất.",
         coreQuestions: [
             {
                 id: 1,
@@ -167,7 +167,7 @@ window.KAIWA_TOPICS_DATA = [
                     },
                     {
                         level: "easy",
-                        tag: "Cách 2: Chỉ làm khi công việc bận rộn",
+                        tag: "Cách 2: Thỉnh thoảng làm thêm vì nhiều việc",
                         jp: "はい、ときどき します。仕事が 多いですから。でも、いつも 7時ごろ 帰ります。",
                         vi: "Vâng, thỉnh thoảng tôi làm thêm vì nhiều việc. Nhưng thường tôi về lúc khoảng 7 giờ.",
                         keyPoints: "ときどき (thỉnh thoảng), ～から (vì) và giờ + ごろ (khoảng)."
@@ -373,8 +373,8 @@ window.KAIWA_TOPICS_DATA = [
         titleJp: "お祝いについて 話し合う (結婚・パーティー)",
         badge: "Chủ Đề 3 • Bài 17 & 18",
         lessonRef: "Marugoto A2.1 — Bài 17 & 18 (Kỷ niệm, Chúc mừng & Tặng quà)",
-        image: "assets/img/kaiwa/topic3_chuc_mung.jpg",
-        desc: "Thảo luận kế hoạch tổ chức tiệc chúc mừng kết hôn cho chị Lê: chọn quà tặng, dự tính số người tham gia, chọn địa điểm gần ga và giữ bí mật tạo bất ngờ (100% từ vựng Bài 17-18 và A2-2).",
+        image: "assets/img/kaiwa/topic3_trao_doi_chuc_mung.jpg",
+        desc: "Bàn kế hoạch tiệc cưới, quà tặng, số người và địa điểm bằng ～ませんか, ～ましょう, ～と思います và ～ないでください.",
         coreQuestions: [
             {
                 id: 1,
@@ -551,15 +551,15 @@ window.KAIWA_TOPICS_DATA = [
         title: "Kinh Nghiệm Đi Nhật",
         titleJp: "にほんへの りょこう・けいけん (日本旅行・経験)",
         badge: "Chủ Đề 4 • Slide Cô Giáo",
-        lessonRef: "Marugoto A2.1 — Bài 11-12 & Marugoto A2-2 Bài 1-2",
+        lessonRef: "Marugoto A2.1 — Mong muốn (bài 10), kinh nghiệm (bài 13), liệt kê (bài 16)",
         image: "assets/img/kaiwa/topic4_kinh_nghiem.jpg",
-        desc: "Trò chuyện về kinh nghiệm và mong muốn du lịch Nhật Bản theo đúng 5 câu hỏi từ slide của cô giáo. Dùng 100% từ vựng quen thuộc của A2.1 và A2-2 (一番, 有名, 興味, 優しい, 家族 v.v.).",
+        desc: "Luyện 7 câu hỏi về đi Nhật, địa điểm, món ăn và quà tặng bằng ～たことがあります, ～たいです, ～たり～たり và ～から.",
         coreQuestions: [
             {
                 id: 1,
                 qJp: "日本に 行ったことが ありますか。",
                 qVi: "Bạn đã từng đi Nhật Bản chưa?",
-                intent: "Giáo viên kiểm tra cấu trúc ngữ pháp kinh nghiệm 「V-たことが あります / ありません」 (Bài 11).",
+                intent: "Luyện mẫu kinh nghiệm 「V-たことが あります / ありません」 (bài 13).",
                 mindmap: [
                     "Chưa từng đi: いいえ、まだ行ったことがありません (chưa từng đi), いつか行きたいです (muốn đi một ngày nào đó)",
                     "Đã từng đi: はい、一度行ったことがあります (đã từng đi 1 lần), 2年前に行きました (đi 2 năm trước)"
@@ -581,7 +581,7 @@ window.KAIWA_TOPICS_DATA = [
                     }
                 ],
                 vocab: [
-                    { jp: "行ったことがある (いったことがある)", vi: "Đã từng đi (Bài 11)" },
+                    { jp: "行ったことがある (いったことがある)", vi: "Đã từng đi (Bài 13)" },
                     { jp: "一度 (いちど)", vi: "Một lần" },
                     { jp: "ぜひ", vi: "Nhất định" }
                 ]
@@ -608,7 +608,7 @@ window.KAIWA_TOPICS_DATA = [
                         tag: "Cách 2: Đi Hokkaido ngắm tuyết và ăn ramen",
                         jp: "北海道へ 行きたいです。冬に 雪を 見たり、ラーメンを 食べたり したいです。",
                         vi: "Em muốn đi Hokkaido ạ. Em muốn ngắm tuyết rơi vào mùa đông và ăn mì ramen.",
-                        keyPoints: "Mẫu liệt kê hành động V-たり V-たり します (Bài 11)."
+                        keyPoints: "Liệt kê bằng V-たり V-たり (bài 16); したいです nói mong muốn."
                     }
                 ],
                 vocab: [
@@ -693,22 +693,22 @@ window.KAIWA_TOPICS_DATA = [
                     {
                         level: "basic",
                         tag: "Cách 1: Xem trên ảnh thấy đẹp và có hứng thú với văn hóa",
-                        jp: "写真や テレビで 見て、街が とても 綺麗だったからです。日本の 歴史や 文化に 興味が ありますから。",
-                        vi: "Dạ vì em xem trên ảnh và tivi thấy thành phố rất đẹp ạ. Và vì em có rất nhiều hứng thú với lịch sử, văn hóa Nhật Bản ạ.",
+                        jp: "写真や テレビで 見ました。街が とても きれいですから。日本の 歴史や 文化に 興味が あります。",
+                        vi: "Em đã xem trên ảnh và tivi. Vì thành phố rất đẹp. Em cũng hứng thú với lịch sử và văn hóa Nhật Bản.",
                         keyPoints: "Dùng chữ 興味 (きょうみ - hứng thú: 興味があります - Từ vựng Bài 1 A2-2!)."
                     },
                     {
                         level: "easy",
                         tag: "Cách 2: Muốn gặp người Nhật hiền lành, tốt bụng",
-                        jp: "日本の 人は とても 親切で 優しいと 聞きましたから、直接 会って 話してみたいです。",
-                        vi: "Dạ vì em nghe nói người Nhật rất tốt bụng và hiền lành, nên em muốn được trực tiếp gặp gỡ và trò chuyện ạ.",
-                        keyPoints: "Dùng cấu trúc V-てみたい (muốn thử làm gì) và tính từ 優しい (Bài 1 A2-2)."
+                        jp: "日本の 人は 親切だと 思います。日本の 人と 会って、話したいです。",
+                        vi: "Em nghĩ người Nhật tốt bụng. Em muốn gặp và nói chuyện với người Nhật.",
+                        keyPoints: "Tính từ な + だと思います (bài 18); V bỏ ます + たいです để nói mong muốn."
                     }
                 ],
                 vocab: [
                     { jp: "興味 (きょうみ)", vi: "Hứng thú, quan tâm (Bài 1 A2-2)" },
                     { jp: "優しい (やさしい)", vi: "Tốt bụng, hiền lành (Bài 1 A2-2)" },
-                    { jp: "話してみたい", vi: "Muốn thử nói chuyện" }
+                    { jp: "話したい (はなしたい)", vi: "Muốn nói chuyện" }
                 ]
             },
             {
@@ -722,16 +722,16 @@ window.KAIWA_TOPICS_DATA = [
                 sampleAnswers: [
                     {
                         level: "basic",
-                        tag: "Cách trả lời: Muốn thử ăn ramen và sushi chuẩn vị",
-                        jp: "本場の ラーメンと 寿司を 食べたいです。ベトナムでも 食べられますが、日本の 店で 食べてみたいです。",
-                        vi: "Em muốn ăn món mì ramen và sushi chính hiệu tại Nhật ạ. Ở Việt Nam cũng ăn được nhưng em muốn thử ăn tại quán của Nhật.",
-                        keyPoints: "Dùng chữ 食べてみたい (muốn thử ăn) rất tự nhiên và gần gũi."
+                        tag: "Cách trả lời: Muốn ăn ramen và sushi ở Nhật",
+                        jp: "日本の 店で ラーメンと 寿司を 食べたいです。ベトナムでも ときどき 食べます。とても 好きです。",
+                        vi: "Em muốn ăn ramen và sushi ở quán tại Nhật. Ở Việt Nam em cũng thỉnh thoảng ăn. Em rất thích hai món này.",
+                        keyPoints: "食べます bỏ ます + たいです thành 食べたいです (muốn ăn)."
                     }
                 ],
                 vocab: [
                     { jp: "ラーメン", vi: "Mì ramen" },
                     { jp: "寿司 (すし)", vi: "Món sushi" },
-                    { jp: "食べてみたい", vi: "Muốn thử ăn" }
+                    { jp: "食べたい (たべたい)", vi: "Muốn ăn" }
                 ]
             },
             {
@@ -797,13 +797,13 @@ window.KAIWA_TIPS = [
         phrases: [
             { jp: "ええと… そうですね…", vi: "À thì... để em xem nào..." },
             { jp: "実は… (じつは…)", vi: "Thực ra thì là..." },
-            { jp: "そうですね、私の場合は…", vi: "Vâng, đối với trường hợp của em thì..." }
+            { jp: "そうですね、私は…", vi: "Vâng, em thì..." }
         ]
     },
     {
         title: "3. Công thức trả lời điểm 10 (Tránh cộc lốc)",
         desc: "Không bao giờ trả lời chỉ với 1 từ 'Hai' hoặc 'Iie'. Hãy luôn áp dụng công thức 3 vế:",
-        formula: "[Khẳng định / Phủ định] ➔ [Chi tiết hành động / Tần suất] ➔ [Lý do: 〜から / 〜ので]",
+        formula: "[Khẳng định / Phủ định] ➔ [Chi tiết hành động / Tần suất] ➔ [Lý do: 〜から]",
         example: "VD: 「はい、ときどき 飲みます。でも、健康が 一番 大切ですから、たくさん 飲みません。」"
     },
     {
@@ -811,11 +811,11 @@ window.KAIWA_TIPS = [
         desc: "Nếu lỡ cô giáo nói nhanh hoặc bạn nghe sót từ, đừng đoán mò hay sợ hãi. Hãy mỉm cười và nhờ cô nhắc lại một cách lịch sự:",
         phrases: [
             { jp: "すみません、もう一度 お願いします。", vi: "Xin lỗi cô, cô có thể nhắc lại một lần nữa được không ạ?" },
-            { jp: "すみません、もう少し ゆっくり お願いできますか。", vi: "Xin lỗi cô, cô có thể nói chậm lại một chút giúp em được không ạ?" }
+            { jp: "すみません、もう少し ゆっくり 話してください。", vi: "Xin lỗi cô, xin cô nói chậm hơn một chút ạ." }
         ]
     },
     {
         title: "5. Nụ cười và Ánh mắt (Ngôn ngữ cơ thể)",
-        desc: "Trong bài thi vấn đáp Kaiwa 5 phút, độ tự tin và nụ cười chiếm tới 30% ấn tượng của giám khảo. Luôn nhìn thẳng vào mắt giáo viên (Eye contact), nói to rõ ràng, không nhìn xuống đất hay nhìn lên trần nhà."
+        desc: "Nói đủ nghe, giữ tốc độ vừa phải và nhìn giáo viên khi trò chuyện. Chưa nhớ từ thì dùng câu ngắn hoặc nhờ cô nhắc lại; không cần cố dùng mẫu khó."
     }
 ];
