@@ -25,9 +25,10 @@
 
     <!-- Sticky Section Sub-Nav -->
     <div class="section-nav">
-        <a href="#sec-grammar1" class="sec-link">① Ngữ Pháp 1</a>
-        <a href="#sec-grammar2" class="sec-link">② Ngữ Pháp 2</a>
-        <a href="#sec-grammar3" class="sec-link">③ Ngữ Pháp 3</a>
+        <a href="#sec-grammar1" class="sec-link">① N という意味</a>
+        <a href="#sec-grammar2" class="sec-link">② N1 という N2</a>
+        <a href="#sec-grammar3" class="sec-link">③ 普通形 ＋ N</a>
+        <a href="#sec-grammar4" class="sec-link">④ Mở Rộng Giới Thiệu</a>
         <a href="#sec-verb-lab" class="sec-link">🔬 Biến Thể Động Từ</a>
         <a href="#sec-vocab" class="sec-link">🎴 20 Từ Vựng</a>
         <a href="#sec-typing-practice" class="sec-link">⌨️ Luyện Gõ Từ Vựng</a>
@@ -44,7 +45,7 @@
             <button type="button" class="btn-speak" style="background:rgba(255,255,255,0.2); border-color:#818cf8; color:#fff;" onclick="speakText('いいなまえですね')">🔊</button>
         </div>
         <p class="hero-subtitle">
-            Học cách giới thiệu bản thân chi tiết: giải thích ý nghĩa nguồn gốc tên mình (というのは、という意味です), quê quán nơi sinh ra (で 生まれました) và diễn đạt hứng thú, sở thích cá nhân.
+            Học cách giới thiệu bản thân chi tiết: giải thích ý nghĩa nguồn gốc tên mình (N という意味), gọi tên người/vật chưa biết (N1 という N2), bổ nghĩa cho danh từ (普通形 ＋ N), quê quán (で 生まれました) và bày tỏ hứng thú (に 興味があります).
         </p>
         <div class="hero-stats-row">
             <div class="stat-card">
@@ -52,7 +53,7 @@
                 <div class="stat-label">Từ vựng Flashcard</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number">3</div>
+                <div class="stat-number">4</div>
                 <div class="stat-label">Chuyên đề ngữ pháp</div>
             </div>
             <div class="stat-card">
@@ -73,40 +74,82 @@
     <!-- Grammar Sections -->
     <section class="content-section" id="sec-grammar1">
         <div class="section-header">
-            <h2 class="section-title"><span>💡</span> 1. Giải Thích Tên & Từ Ngữ: ～というのは、～という意味です</h2>
-            <span class="section-tag">Định nghĩa & Ý nghĩa</span>
+            <h2 class="section-title"><span>💡</span> 1. Giải Thích Ý Nghĩa: N という意味 (Có nghĩa là N)</h2>
+            <span class="section-tag">Ý nghĩa & Định nghĩa</span>
         </div>
         <p style="margin-bottom: 16px; color: #334155;">
-            Mẫu câu dùng để giới thiệu ý nghĩa, nguồn gốc của tên người, địa danh hoặc một từ ngữ tiếng Nhật/tiếng nước ngoài.
+            👉 <strong>Có nghĩa là N:</strong> Dùng để giải thích ý nghĩa của một từ, một cái tên hoặc một cách nói trong tiếng Nhật.
         </p>
         <div class="grammar-card">
             <div class="rule-box" style="border-left-color: #4f46e5;">
-                <div class="rule-formula" style="color: #3730a3;">[Từ / Tên] というのは、[Giải thích / Nội dung] という 意味 (いみ) です。</div>
+                <div class="rule-formula" style="color: #3730a3;">
+                    • N ＋ という 意味 (いみ) です。<br>
+                    • [Từ / Tên] というのは、[N] という 意味 (いみ) です。<br>
+                    • N ＋ という 意味 (いみ) は ～ です。
+                </div>
                 <div class="rule-meaning">
-                    "[Từ / Tên] có nghĩa là..." Trợ từ 「というのは」 nêu lên chủ đề cần định nghĩa, và 「という意味です」 đóng khung phần giải thích ý nghĩa.
+                    ⭐ <strong>Ghi nhớ cốt lõi:</strong> <code>N という意味 = Có nghĩa là N</code><br>
+                    Trợ từ 「というのは」 nêu lên chủ đề / từ ngữ cần định nghĩa, và cụm 「という意味です」 đóng khung phần giải thích ý nghĩa.
                 </div>
             </div>
+
+            <!-- Box hỏi nghĩa -->
+            <div style="background: #eef2ff; border: 1.5px dashed #818cf8; border-radius: 12px; padding: 14px 18px; margin-bottom: 18px;">
+                <div style="font-size: 0.82rem; font-weight: 800; color: #4338ca; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px;">
+                    ❓ Khi muốn hỏi nghĩa của một từ hoặc tên gọi:
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 8px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; background: #fff; padding: 10px 14px; border-radius: 8px;">
+                        <div>
+                            <div style="font-weight: 700; color: #1e1b4b; font-size: 0.98rem;">どういう 意味ですか。</div>
+                            <div style="color: #64748b; font-size: 0.85rem;">Có nghĩa là gì?</div>
+                        </div>
+                        <button type="button" class="btn-speak" onclick="speakText('どういう意味ですか')">🔊</button>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; background: #fff; padding: 10px 14px; border-radius: 8px;">
+                        <div>
+                            <div style="font-weight: 700; color: #1e1b4b; font-size: 0.98rem;">「バウムクーヘン」は どういう 意味ですか。</div>
+                            <div style="color: #64748b; font-size: 0.85rem;">“Baumkuchen” có nghĩa là gì?</div>
+                        </div>
+                        <button type="button" class="btn-speak" onclick="speakText('バウムクーヘンはどういう意味ですか')">🔊</button>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; background: #fff; padding: 10px 14px; border-radius: 8px; border-left: 3px solid #10b981;">
+                        <div>
+                            <div style="font-weight: 700; color: #065f46; font-size: 0.98rem;">➔ 「木のケーキ」という意味です。</div>
+                            <div style="color: #047857; font-size: 0.85rem;">Có nghĩa là "bánh cây" (bánh thân cây).</div>
+                        </div>
+                        <button type="button" class="btn-speak" onclick="speakText('木のケーキという意味です')">🔊</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bảng ví dụ tiêu biểu -->
             <table class="comparison-table">
                 <thead>
                     <tr>
-                        <th>Tên / Từ ngữ</th>
-                        <th>Mẫu câu hoàn chỉnh</th>
-                        <th>Ý nghĩa tiếng Việt</th>
+                        <th style="width: 25%;">Từ ngữ / Tên gọi</th>
+                        <th style="width: 45%;">Mẫu câu hoàn chỉnh</th>
+                        <th style="width: 30%;">Ý nghĩa tiếng Việt</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td><strong>ハノイ</strong></td>
+                        <td><strong>1番目の男の子</strong></td>
+                        <td>1番目の男の子という意味です。</td>
+                        <td>Có nghĩa là “cậu bé thứ nhất”.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ハノイ (Hà Nội)</strong></td>
                         <td>「ハノイ」というのは、「川の内側」という意味です。</td>
                         <td>"Hà Nội" có nghĩa là "bên trong những dòng sông".</td>
                     </tr>
                     <tr>
-                        <td><strong>さくら</strong></td>
+                        <td><strong>さくら (Sakura)</strong></td>
                         <td>「さくら」というのは、日本の花の名前という意味です。</td>
                         <td>"Sakura" có nghĩa là tên một loài hoa của Nhật Bản.</td>
                     </tr>
                     <tr>
-                        <td><strong>ひみつ</strong></td>
+                        <td><strong>ひみつ (Bí mật)</strong></td>
                         <td>「ひみつ」というのは、だれにも言わないことという意味です。</td>
                         <td>"Bí mật" có nghĩa là điều không được nói cho bất kỳ ai.</td>
                     </tr>
@@ -116,15 +159,214 @@
     </section>
     <section class="content-section" id="sec-grammar2">
         <div class="section-header">
-            <h2 class="section-title"><span>🏡</span> 2. Nơi Sinh Ra & Quê Quán: ～で 生まれました / 育ちました</h2>
-            <span class="section-tag">Nơi sinh & Lớn lên</span>
+            <h2 class="section-title"><span>🏷️</span> 2. Giới Thiệu Tên Gọi: N1 という N2 (N2 có tên/gọi là N1)</h2>
+            <span class="section-tag">Tên gọi cụ thể</span>
         </div>
         <p style="margin-bottom: 16px; color: #334155;">
-            Khi nói về nơi chốn mình sinh ra hoặc lớn lên, hành động sinh ra/lớn lên là một sự kiện diễn ra tại một địa điểm nên dùng trợ từ <strong>「で」</strong>.
+            👉 <strong>N2 có tên/gọi là N1:</strong> Dùng để giới thiệu tên gọi của người, vật, địa điểm, món ăn, cuốn sách... mà người nghe chưa biết hoặc cần làm rõ chủng loại.
+        </p>
+        <div class="grammar-card">
+            <div class="rule-box" style="border-left-color: #0284c7;">
+                <div class="rule-formula" style="color: #0369a1;">N1 ＋ という ＋ N2</div>
+                <div class="rule-meaning">
+                    • <strong>N1:</strong> Tên riêng / tên gọi cụ thể (người, địa danh, món ăn...).<br>
+                    • <strong>N2:</strong> Danh từ chỉ loại, nhóm mà N1 thuộc về (人 - người, 山 - núi, 料理 - món ăn, 町 - thành phố, おかし - bánh kẹo...).<br>
+                    ⭐ <strong>Ghi nhớ cốt lõi:</strong> <code>N1 という N2 = N2 có tên/gọi là N1</code>
+                </div>
+            </div>
+
+            <!-- Bảng phân tích cấu trúc N1 という N2 -->
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th style="width: 22%;">N1 (Tên riêng)</th>
+                        <th style="width: 13%;">Liên kết</th>
+                        <th style="width: 20%;">N2 (Chủng loại)</th>
+                        <th style="width: 45%;">Ví dụ & Nghĩa tiếng Việt</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>山田さん</strong></td>
+                        <td>という</td>
+                        <td><strong>人</strong> (Người)</td>
+                        <td><strong>山田さんという人です。</strong><br><span style="color:#64748b; font-size:0.85rem;">Là một người tên là Yamada.</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>富士山 (ふじさん)</strong></td>
+                        <td>という</td>
+                        <td><strong>山</strong> (Núi)</td>
+                        <td><strong>富士山という山があります。</strong><br><span style="color:#64748b; font-size:0.85rem;">Có một ngọn núi tên là Phú Sĩ.</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>すし</strong></td>
+                        <td>という</td>
+                        <td><strong>料理</strong> (Món ăn)</td>
+                        <td><strong>すしという料理が好きです。</strong><br><span style="color:#64748b; font-size:0.85rem;">Tôi thích món ăn gọi là sushi.</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>バウムクーヘン</strong></td>
+                        <td>という</td>
+                        <td><strong>おかし</strong> (Bánh kẹo)</td>
+                        <td><strong>「バウムクーヘン」というおかしを食べました。</strong><br><span style="color:#64748b; font-size:0.85rem;">Tôi đã ăn một loại bánh ngọt có tên là Baumkuchen.</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>ダナン</strong></td>
+                        <td>という</td>
+                        <td><strong>町</strong> (Thành phố)</td>
+                        <td><strong>ベトナムの ダナンという町で 生まれました。</strong><br><span style="color:#64748b; font-size:0.85rem;">Tôi sinh ra ở một thành phố tên là Đà Nẵng ở Việt Nam.</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="example-list">
+                <div class="example-item">
+                    <div class="ex-text-wrap">
+                        <div class="ex-jp">山田さんという人です。</div>
+                        <div class="ex-vi">Là một người tên là Yamada.</div>
+                    </div>
+                    <button type="button" class="btn-speak" onclick="speakText('山田さんという人です')">🔊</button>
+                </div>
+                <div class="example-item">
+                    <div class="ex-text-wrap">
+                        <div class="ex-jp">富士山という山があります。</div>
+                        <div class="ex-vi">Có một ngọn núi tên là Phú Sĩ.</div>
+                    </div>
+                    <button type="button" class="btn-speak" onclick="speakText('富士山という山があります')">🔊</button>
+                </div>
+                <div class="example-item">
+                    <div class="ex-text-wrap">
+                        <div class="ex-jp">すしという料理が好きです。</div>
+                        <div class="ex-vi">Tôi thích món ăn gọi là sushi.</div>
+                    </div>
+                    <button type="button" class="btn-speak" onclick="speakText('すしという料理が好きです')">🔊</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="content-section" id="sec-grammar3">
+        <div class="section-header">
+            <h2 class="section-title"><span>🧩</span> 3. Mệnh Đề Bổ Nghĩa Cho Danh Từ: 普通形（ふつうけい）＋ N</h2>
+            <span class="section-tag">Định ngữ danh từ</span>
+        </div>
+        <p style="margin-bottom: 16px; color: #334155;">
+            👉 <strong>Mệnh đề bổ nghĩa cho danh từ:</strong> Dùng để bổ sung thông tin cho danh từ, giúp xác định rõ người/vật/sự việc đang được nói đến.
+        </p>
+        <div class="grammar-card">
+            <div class="rule-box" style="border-left-color: #d97706;">
+                <div class="rule-formula" style="color: #92400e;">
+                    [Thông tin bổ nghĩa (Thể thông thường - 普通形)] ＋ N
+                </div>
+                <div class="rule-meaning">
+                    ⭐ <strong>Ghi nhớ cốt lõi:</strong> <code>[Thông tin bổ nghĩa] + N</code><br>
+                    • Trong tiếng Nhật, mệnh đề bổ nghĩa luôn đặt <strong>TRƯỚC</strong> danh từ chính.<br>
+                    • Động từ và tính từ trong mệnh đề bổ nghĩa bắt buộc đưa về <strong>Thể thông thường (普通形)</strong>, không dùng thể lịch sự (ます / です).<br>
+                    • ⚠️ <strong>Đặc biệt chú ý Tính từ đuôi な:</strong> Giữ nguyên 「な」 khi đứng trước danh từ (đổi <code>だ ➔ な</code>).
+                </div>
+            </div>
+
+            <!-- Bảng quy tắc chia 4 loại từ -->
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th style="width: 25%;">Loại từ</th>
+                        <th style="width: 35%;">Cấu trúc chia (普通形 + N)</th>
+                        <th style="width: 40%;">Ví dụ cụ thể & Ý nghĩa</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Động từ (V)</strong></td>
+                        <td><code>V (Thể thông thường) ＋ N</code><br><span style="font-size:0.8rem; color:#64748b;">(V-る / V-た / V-ない)</span></td>
+                        <td>
+                            • <strong>先週買った本</strong> (cuốn sách đã mua tuần trước)<br>
+                            • <strong>日本で買ったおかし</strong> (bánh kẹo đã mua ở Nhật)<br>
+                            • <strong>住んでいるところ</strong> (nơi đang sinh sống)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tính từ đuôi い (イA)</strong></td>
+                        <td><code>イA (Thể thông thường) ＋ N</code><br><span style="font-size:0.8rem; color:#64748b;">(Giữ nguyên đuôi い)</span></td>
+                        <td>
+                            • <strong>おいしい料理</strong> (món ăn ngon)<br>
+                            • <strong>明るい人</strong> (người tươi vui, hoạt bát)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tính từ đuôi な (ナA)</strong></td>
+                        <td><code>ナA ＋ な ＋ N</code><br><span style="font-size:0.8rem; color:#ef4444; font-weight:700;">※ Chú ý: だ ➔ な</span></td>
+                        <td>
+                            • <strong>有名な店</strong> (cửa hàng nổi tiếng)<br>
+                            • <strong>健康な体</strong> (cơ thể khỏe mạnh)<br>
+                            • <strong>真面目な学生</strong> (học sinh chăm chỉ, nghiêm túc)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Danh từ (N)</strong></td>
+                        <td><code>N1 ＋ の ＋ N2</code></td>
+                        <td>
+                            • <strong>日本の会社</strong> (công ty Nhật / công ty của Nhật)<br>
+                            • <strong>ハノイの近くの村</strong> (ngôi làng ở gần Hà Nội)
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Các ví dụ câu hoàn chỉnh -->
+            <div class="example-list">
+                <div class="example-item">
+                    <div class="ex-text-wrap">
+                        <div class="ex-jp">これは 先週 買った 本です。</div>
+                        <div class="ex-vi">Đây là cuốn sách tôi đã mua tuần trước.</div>
+                    </div>
+                    <button type="button" class="btn-speak" onclick="speakText('これは先週買った本です')">🔊</button>
+                </div>
+                <div class="example-item">
+                    <div class="ex-text-wrap">
+                        <div class="ex-jp">日本で 買った おかしを 食べました。</div>
+                        <div class="ex-vi">Tôi đã ăn bánh kẹo đã mua ở Nhật Bản.</div>
+                    </div>
+                    <button type="button" class="btn-speak" onclick="speakText('日本で買ったおかしを食べました')">🔊</button>
+                </div>
+                <div class="example-item">
+                    <div class="ex-text-wrap">
+                        <div class="ex-jp">駅の 近くに おいしい 料理の 店が あります。</div>
+                        <div class="ex-vi">Gần nhà ga có một quán ăn có món ăn rất ngon.</div>
+                    </div>
+                    <button type="button" class="btn-speak" onclick="speakText('駅の近くにおいしい料理の店があります')">🔊</button>
+                </div>
+                <div class="example-item">
+                    <div class="ex-text-wrap">
+                        <div class="ex-jp">あそこは とても 有名な 店です。</div>
+                        <div class="ex-vi">Đó là một cửa hàng rất nổi tiếng.</div>
+                    </div>
+                    <button type="button" class="btn-speak" onclick="speakText('あそこはとても有名な店です')">🔊</button>
+                </div>
+                <div class="example-item">
+                    <div class="ex-text-wrap">
+                        <div class="ex-jp">兄は 日本の 会社で 働いています。</div>
+                        <div class="ex-vi">Anh trai tôi đang làm việc ở một công ty của Nhật.</div>
+                    </div>
+                    <button type="button" class="btn-speak" onclick="speakText('兄は日本の会社で働いています')">🔊</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="content-section" id="sec-grammar4">
+        <div class="section-header">
+            <h2 class="section-title"><span>🏡</span> 4. Mở Rộng Giới Thiệu Bản Thân: Quê Quán & Hứng Thú</h2>
+            <span class="section-tag">Ứng dụng thực tế</span>
+        </div>
+        <p style="margin-bottom: 16px; color: #334155;">
+            Khi thực hành giới thiệu bản thân (自己紹介), kết hợp các cấu trúc nói về nơi sinh ra, lớn lên và lĩnh vực quan tâm.
         </p>
         <div class="grammar-card">
             <div class="rule-box" style="border-left-color: #059669;">
-                <div class="rule-formula" style="color: #065f46;">[Địa điểm] で 生まれました (Sinh ra ở...)<br>[Địa điểm] で 育ちました (Lớn lên ở...)</div>
+                <div class="rule-formula" style="color: #065f46;">
+                    • [Địa điểm] で 生まれました (Sinh ra ở...) / で 育ちました (Lớn lên ở...)<br>
+                    • [Danh từ] に 興味 (きょうみ) が あります (Có hứng thú với...)<br>
+                    • Tính từ い ➔ ～くて、... / Tính từ な ➔ ～で、... (Nối tính cách)
+                </div>
                 <div class="rule-meaning">
                     ⚠️ <strong>Lưu ý phân biệt trợ từ:</strong><br>
                     • <strong>Địa điểm + で 生まれました:</strong> Sinh ra tại đâu (dùng で).<br>
@@ -147,28 +389,6 @@
                     </div>
                     <button type="button" class="btn-speak" onclick="speakText('ハノイの 近くの 村で 育ちました')">🔊</button>
                 </div>
-            </div>
-        </div>
-    </section>
-    <section class="content-section" id="sec-grammar3">
-        <div class="section-header">
-            <h2 class="section-title"><span>✨</span> 3. Bày Tỏ Hứng Thú & Miêu Tả Tính Cách: ～に 興味があります</h2>
-            <span class="section-tag">Hứng thú & Tính cách</span>
-        </div>
-        <p style="margin-bottom: 16px; color: #334155;">
-            Dùng để chia sẻ sở thích cá nhân, các lĩnh vực bản thân quan tâm và cách nối các tính từ miêu tả tính cách con người.
-        </p>
-        <div class="grammar-card">
-            <div class="rule-box" style="border-left-color: #d97706;">
-                <div class="rule-formula" style="color: #92400e;">[Danh từ] に 興味 (きょうみ) が あります (Có hứng thú với...)<br>Tính từ い ➔ ～くて、... / Tính từ な ➔ ～で、...</div>
-                <div class="rule-meaning">
-                    • <strong>興味がある:</strong> Đối tượng mà bạn hứng thú luôn đi với trợ từ 「に」.<br>
-                    • <strong>Nối tính từ tính cách:</strong><br>
-                    &nbsp;&nbsp;+ 優しい (Hiền lành) ➔ 優しくて、明るいです (Vừa hiền lành vừa vui vẻ tươi sáng).<br>
-                    &nbsp;&nbsp;+ 真面目な (Chăm chỉ, nghiêm túc) ➔ 真面目で、親切です (Nghiêm túc và rất tốt bụng).
-                </div>
-            </div>
-            <div class="example-list">
                 <div class="example-item">
                     <div class="ex-text-wrap">
                         <div class="ex-jp">わたしは 日本の 歴史や 文化に 興味が あります。</div>

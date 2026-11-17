@@ -354,15 +354,15 @@ const QUIZ_DATA = [
   {
     "id": 6,
     "category": "Ngữ pháp",
-    "q": "わたしの 友だちは まじめ [____]、とても 親切です。",
+    "q": "あそこに 山田さん [____] 人が います。新しい 先生ですよ。",
     "options": [
-      "くて",
-      "で",
-      "な",
-      "に"
+      "と",
+      "という",
+      "ので",
+      "ような"
     ],
     "correct": 1,
-    "explain": "Nối hai tính từ, trong đó 「真面目 (まじめ)」 là tính từ đuôi な, khi liên kết đổi thành 「まじめで」."
+    "explain": "Cấu trúc giới thiệu tên gọi của người/vật/địa danh mà người nghe chưa biết: 『N1 という N2』 (N2 có tên/gọi là N1) ➔ 「山田さんという人」 (người tên là Yamada)."
   },
   {
     "id": 7,
@@ -445,15 +445,15 @@ const QUIZ_DATA = [
   {
     "id": 13,
     "category": "Ngữ pháp",
-    "q": "父は 毎日 スポーツジムへ 行って、とても [____] です。",
+    "q": "これは 先週 日本で [____] 本です。とても おもしろいですよ。",
     "options": [
-      "けんこう",
-      "さっか",
-      "しま",
-      "こくさい"
+      "買った",
+      "買いました",
+      "買い",
+      "買いて"
     ],
     "correct": 0,
-    "explain": "Đi tập gym hàng ngày để rèn luyện nên cơ thể rất 'khỏe mạnh': 「健康 (けんこう) です」."
+    "explain": "Mệnh đề bổ nghĩa cho danh từ 『普通形 ＋ N』: Động từ đã hoàn thành trong quá khứ đưa về thể Quá khứ thông thường (thể た): 買いました ➔ 「買った本」 (cuốn sách đã mua)."
   },
   {
     "id": 14,
