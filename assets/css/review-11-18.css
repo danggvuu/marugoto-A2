@@ -1,6 +1,12 @@
 .full-exam-page #reviewStudyPanel[hidden],
 .full-exam-page .review-study-view[hidden] { display: none !important; }
 
+/* Allow sticky positioning while clipping horizontal overflow */
+html,
+body.full-exam-page {
+    overflow-x: clip !important;
+}
+
 /* ==========================================================================
    macOS-Style Right Navigator Sidebar & Balanced Workspace Layout
    ========================================================================== */
@@ -25,11 +31,13 @@
 }
 
 .full-exam-page .exam-sidebar {
+    position: -webkit-sticky;
     position: sticky;
     top: 80px;
     z-index: 70;
     min-width: 0;
     width: 100%;
+    align-self: start;
 }
 
 .full-exam-page .macos-sidebar-box {

@@ -24,7 +24,7 @@ window.KAIWA_TOPICS_DATA = [
                 id: 1,
                 qJp: "けんこうの ために、何を していますか。",
                 qVi: "Để bảo vệ sức khỏe, bạn đang làm những gì?",
-                intent: "Giáo viên muốn đánh giá cấu trúc mục đích 「〜のために」 và thói quen đang duy trì 「〜ています」 hoặc 「〜ように しています」.",
+                intent: "Giáo viên muốn đánh giá cấu trúc mục đích 「〜のために」 và thói quen đang duy trì 「〜ています」.",
                 mindmap: [
                     "Vận động (運動): Chạy bộ (走ります / ジョギング), đi dạo (散歩します), tập thể dục (運動します)",
                     "Giấc ngủ (睡眠): Ngủ sớm (早く寝ます), ngủ 7-8 tiếng (7〜8時間寝ます)",
@@ -34,16 +34,16 @@ window.KAIWA_TOPICS_DATA = [
                     {
                         level: "basic",
                         tag: "Cách 1: Chạy bộ & Ăn nhiều rau (Rất dễ nhớ)",
-                        jp: "毎朝、30分ぐらい 走っています。それから、野菜を たくさん 食べるように しています。",
-                        vi: "Mỗi sáng tôi chạy bộ khoảng 30 phút. Ngoài ra, tôi cố gắng ăn nhiều rau củ.",
-                        keyPoints: "Dùng thể tiếp diễn 「〜ています」 diễn tả thói quen đều đặn và mẫu 「〜ようにしています」 thể hiện sự cố gắng."
+                        jp: "毎朝、30分ぐらい 走っています。それから、野菜を たくさん 食べています。",
+                        vi: "Mỗi sáng em chạy bộ khoảng 30 phút ạ. Ngoài ra, em ăn rất nhiều rau củ.",
+                        keyPoints: "Dùng thể tiếp diễn 「〜ています」 diễn tả thói quen đều đặn hàng ngày (走っています, 食べています)."
                     },
                     {
                         level: "easy",
                         tag: "Cách 2: Ngủ sớm & Đi dạo công viên (Từ quen thuộc)",
-                        jp: "夜は 早く寝るように しています。毎日 7時間ぐらい 寝ます。それから、週末に 公園を 散歩します。",
-                        vi: "Buổi tối tôi cố gắng đi ngủ sớm. Mỗi ngày tôi ngủ khoảng 7 tiếng. Ngoài ra, cuối tuần tôi đi dạo ở công viên.",
-                        keyPoints: "Từ vựng cực kỳ gần gũi: 早く寝る (ngủ sớm), 散歩する (đi dạo), 公園 (công viên)."
+                        jp: "夜は いつも 早く 寝ています。毎日 7時間ぐらい 寝ます。それから、週末に 公園を 散歩します。",
+                        vi: "Buổi tối em luôn đi ngủ sớm. Mỗi ngày em ngủ khoảng 7 tiếng. Ngoài ra, cuối tuần em đi dạo ở công viên.",
+                        keyPoints: "Dùng thể tiếp diễn 「寝ています」 diễn tả thói quen sinh hoạt tốt và từ quen thuộc 「早く」."
                     }
                 ],
                 vocab: [
@@ -74,15 +74,15 @@ window.KAIWA_TOPICS_DATA = [
                     {
                         level: "easy",
                         tag: "Cách 2: Nói thời gian duy trì",
-                        jp: "去年の 4月から 始めて、もう 1年ぐらい 続けています。",
-                        vi: "Tôi bắt đầu từ tháng 4 năm ngoái, và đã duy trì được khoảng 1 năm rồi.",
-                        keyPoints: "Dùng động từ 続けています (đang tiếp tục duy trì) rất tự nhiên và chuẩn sách."
+                        jp: "去年の 4月から 走っています。もう 1年ぐらいに なります。",
+                        vi: "Tôi chạy bộ từ tháng 4 năm ngoái. Đến nay đã khoảng một năm rồi.",
+                        keyPoints: "Mốc thời gian + から; khoảng thời gian + になります (bài 14)."
                     }
                 ],
                 vocab: [
                     { jp: "1週間に (いっしゅうかんに)", vi: "Trong 1 tuần..." },
                     { jp: "〜回 (かい)", vi: "Lần (số lần)" },
-                    { jp: "続けています (つづけています)", vi: "Đang duy trì, tiếp tục" }
+                    { jp: "1年ぐらいに なります", vi: "Đến nay đã khoảng một năm" }
                 ]
             },
             {
@@ -104,10 +104,10 @@ window.KAIWA_TOPICS_DATA = [
                     },
                     {
                         level: "easy",
-                        tag: "Cách 2: Hoàn toàn không uống vì đau đầu",
-                        jp: "いいえ、全然 飲みません。お酒を 飲むと 頭が 痛くなりますから、いつも 水や お茶を 飲みます。",
-                        vi: "Dạ không, tôi hoàn toàn không uống. Cứ uống rượu vào là tôi bị đau đầu, nên tôi luôn uống nước lọc hoặc trà.",
-                        keyPoints: "Dùng từ vựng 頭が痛い (đau đầu - Bài 15) và điều kiện 「〜と」 rất hay."
+                        tag: "Cách 2: Không uống vì không thích rượu",
+                        jp: "いいえ、全然 飲みません。お酒が あまり 好きじゃないですから、水や お茶を 飲みます。",
+                        vi: "Dạ không, tôi hoàn toàn không uống vì không thích rượu lắm. Tôi uống nước hoặc trà.",
+                        keyPoints: "Dùng あまり + phủ định để nói không thích lắm và nối lý do bằng ～ですから."
                     }
                 ],
                 vocab: [
@@ -124,28 +124,28 @@ window.KAIWA_TOPICS_DATA = [
                 intent: "Kiểm tra cách giải thích nguyên nhân bằng mẫu câu 「〜から」(bởi vì...).",
                 mindmap: [
                     "Lý do sức khỏe: 体によくないですから (vì không tốt cho cơ thể), 健康が一番ですから (vì sức khỏe là số 1)",
-                    "Lý do vui vẻ: 友達と話すと楽しいですから (vì nói chuyện với bạn bè rất vui)"
+                    "Lý do vui vẻ: 友達と話します。楽しいですから (nói chuyện với bạn bè, vì rất vui)"
                 ],
                 sampleAnswers: [
                     {
                         level: "basic",
                         tag: "Cách 1: Vì sức khỏe là quan trọng nhất (Dùng từ A2-2)",
-                        jp: "お酒を たくさん 飲むと、体に よくないですから。健康が 一番 大切ですから。",
-                        vi: "Vì uống nhiều rượu thì không tốt cho cơ thể. Sức khỏe là điều quan trọng nhất mà.",
-                        keyPoints: "Ứng dụng ngay chữ 一番 (nhất, số 1 - Bài 1 A2-2) và 大切 (quan trọng)."
+                        jp: "健康が 一番 大切ですから。お酒は あまり 飲みません。",
+                        vi: "Vì sức khỏe là quan trọng nhất. Tôi không uống rượu nhiều.",
+                        keyPoints: "Lý do + ですから. Trả lời bằng hai câu ngắn, không cần câu điều kiện."
                     },
                     {
                         level: "easy",
-                        tag: "Cách 2: Vừa uống vừa nói chuyện với bạn thì vui",
-                        jp: "週末に 友達と 一緒に 話しながら 飲むと、とても 楽しいですから。",
-                        vi: "Vì cuối tuần vừa uống vừa trò chuyện cùng bạn bè thì rất vui vẻ.",
-                        keyPoints: "Mẫu 「V-しながら」(vừa làm A vừa làm B) học ở Bài 13-14."
+                        tag: "Cách 2: Gặp bạn cuối tuần rất vui",
+                        jp: "週末に 友達と 会います。一緒に 飲んだり、話したり します。とても 楽しいですから。",
+                        vi: "Cuối tuần tôi gặp bạn. Chúng tôi uống nước, nói chuyện với nhau. Vì rất vui.",
+                        keyPoints: "Vた + り、Vた + りします để kể hoạt động tiêu biểu (bài 16)."
                     }
                 ],
                 vocab: [
                     { jp: "体によくない (からだによくない)", vi: "Không tốt cho cơ thể" },
                     { jp: "一番 (いちばん)", vi: "Nhất, số 1 (Bài 1 A2-2)" },
-                    { jp: "話しながら (はなしながら)", vi: "Vừa nói chuyện vừa..." }
+                    { jp: "話したり します (はなしたり します)", vi: "Nói chuyện và làm một số hoạt động khác" }
                 ]
             },
             {
@@ -160,17 +160,17 @@ window.KAIWA_TOPICS_DATA = [
                 sampleAnswers: [
                     {
                         level: "basic",
-                        tag: "Cách 1: Ít khi làm thêm, cố gắng về sớm",
-                        jp: "いいえ、あまり しません。健康のために、いつも 早く 帰るように しています。",
-                        vi: "Dạ không, tôi ít khi làm thêm lắm. Để giữ sức khỏe, tôi luôn cố gắng về sớm.",
-                        keyPoints: "Dùng từ cực kỳ quen thuộc: 早く帰る (về sớm) và ようにしています."
+                        tag: "Cách 1: Ít khi làm thêm, luôn về nhà sớm",
+                        jp: "いいえ、あまり しません。健康のために、いつも 早く 帰っています。",
+                        vi: "Dạ không, em ít khi làm thêm lắm ạ. Để giữ sức khỏe, em luôn về nhà sớm.",
+                        keyPoints: "Dùng từ cực kỳ quen thuộc: 早く帰る (về sớm) và thể tiếp diễn 「〜ています」."
                     },
                     {
                         level: "easy",
                         tag: "Cách 2: Chỉ làm khi công việc bận rộn",
-                        jp: "仕事が 忙しい時は 残業しますが、普段は 7時前には 家へ 帰ります。",
-                        vi: "Khi công việc bận rộn thì tôi có làm thêm, nhưng bình thường trước 7 giờ là tôi đã về nhà rồi.",
-                        keyPoints: "Dùng 忙しい (bận rộn) và mốc giờ cụ thể rõ ràng."
+                        jp: "はい、ときどき します。仕事が 多いですから。でも、いつも 7時ごろ 帰ります。",
+                        vi: "Vâng, thỉnh thoảng tôi làm thêm vì nhiều việc. Nhưng thường tôi về lúc khoảng 7 giờ.",
+                        keyPoints: "ときどき (thỉnh thoảng), ～から (vì) và giờ + ごろ (khoảng)."
                     }
                 ],
                 vocab: [
@@ -181,18 +181,18 @@ window.KAIWA_TOPICS_DATA = [
             }
         ],
         fullDialogue: [
-            { speaker: "sensei", name: "Sensei", jp: "こんにちは。今日は『健康』についての お話を 聞かせてくださいね。", vi: "Chào em. Hôm nay em hãy chia sẻ về chủ đề 'Sức khỏe' nhé." },
+            { speaker: "sensei", name: "Sensei", jp: "こんにちは。今日は 健康の 話を しましょう。", vi: "Chào em. Hôm nay chúng ta nói chuyện về sức khỏe nhé." },
             { speaker: "gakusei", name: "Bạn", jp: "はい、先生。よろしくお願いします！", vi: "Dạ vâng thưa cô. Em xin phép bắt đầu ạ!" },
             { speaker: "sensei", name: "Sensei", jp: "まず、けんこうの ために、何を していますか。", vi: "Trước tiên, để giữ sức khỏe, em đang làm những gì?" },
-            { speaker: "gakusei", name: "Bạn", jp: "毎朝、30分ぐらい 走っています。それから、野菜を たくさん 食べるように しています。", vi: "Mỗi sáng em chạy bộ khoảng 30 phút ạ. Ngoài ra, em cố gắng ăn nhiều rau củ." },
+            { speaker: "gakusei", name: "Bạn", jp: "毎朝、30分ぐらい 走っています。それから、野菜を たくさん 食べています。", vi: "Mỗi sáng em chạy bộ khoảng 30 phút ạ. Ngoài ra, em ăn rất nhiều rau củ." },
             { speaker: "sensei", name: "Sensei", jp: "走っているんですね、いいですね！どのぐらい していますか。", vi: "Em chạy bộ à, tốt quá! Em làm việc đó bao lâu rồi / tuần mấy lần?" },
-            { speaker: "gakusei", name: "Bạn", jp: "1週間に 3回ぐらい 走っています。去年の 4月から 続けています。", vi: "Dạ một tuần em chạy khoảng 3 lần ạ. Em đã duy trì từ tháng 4 năm ngoái rồi." },
+            { speaker: "gakusei", name: "Bạn", jp: "1週間に 3回ぐらい 走っています。去年の 4月からです。", vi: "Dạ một tuần em chạy khoảng 3 lần. Em bắt đầu từ tháng 4 năm ngoái ạ." },
             { speaker: "sensei", name: "Sensei", jp: "素晴らしいですね。ところで、ビールや お酒は 飲みますか。", vi: "Tuyệt vời quá. Nhân tiện, em có uống bia hay rượu không?" },
-            { speaker: "gakusei", name: "Bạn", jp: "いいえ、全然 飲みません。お酒を 飲むと 頭が 痛くなりますから。", vi: "Dạ không, em hoàn toàn không uống ạ. Cứ uống rượu vào là em bị đau đầu." },
+            { speaker: "gakusei", name: "Bạn", jp: "いいえ、全然 飲みません。お酒が あまり 好きじゃないですから。", vi: "Dạ không, em hoàn toàn không uống vì không thích rượu lắm ạ." },
             { speaker: "sensei", name: "Sensei", jp: "そうなんですね。普段、よく 残業を しますか。", vi: "Vậy à. Ngày thường em có hay làm thêm giờ không?" },
-            { speaker: "gakusei", name: "Bạn", jp: "いいえ、あまり しません。健康が 一番 大切ですから、仕事が 終わったら 早く 帰るように しています。", vi: "Dạ không, em ít khi làm thêm lắm ạ. Vì sức khỏe là quan trọng nhất nên làm xong là em cố gắng về sớm ngay." },
-            { speaker: "sensei", name: "Sensei", jp: "とても 良い生活習慣ですね！答え方も 上手でした。ありがとうございます。", vi: "Thói quen sinh hoạt rất tốt đấy! Em trả lời cũng rất giỏi. Cảm ơn em nhé." },
-            { speaker: "gakusei", name: "Bạn", jp: "先生、聞いてくださって ありがとうございました！", vi: "Dạ em cảm ơn cô rất nhiều vì đã lắng nghe em ạ!" }
+            { speaker: "gakusei", name: "Bạn", jp: "いいえ、あまり しません。健康が 一番 大切ですから、いつも 早く 帰っています。", vi: "Dạ không, em ít làm thêm. Vì sức khỏe quan trọng nhất nên em thường về sớm ạ." },
+            { speaker: "sensei", name: "Sensei", jp: "いいですね。ありがとうございました。", vi: "Tốt đấy. Cảm ơn em nhé." },
+            { speaker: "gakusei", name: "Bạn", jp: "先生、ありがとうございました。", vi: "Em cảm ơn cô ạ." }
         ]
     },
     {
@@ -225,9 +225,9 @@ window.KAIWA_TOPICS_DATA = [
                     {
                         level: "easy",
                         tag: "Cách 2: Bị cảm cúm, đau họng mỏi mệt",
-                        jp: "風邪を ひいてしまって、喉が 痛いんです。体も 少し だるいです。",
-                        vi: "Tôi bị cảm cúm mất rồi, cổ họng bị đau. Người cũng hơi mệt mỏi nữa.",
-                        keyPoints: "Từ vựng rất chuẩn Bài 15: 風邪をひく (cảm cúm), 喉が痛い (đau họng), 体 (cơ thể)."
+                        jp: "風邪を ひきました。のどが 痛いんです。少し 疲れています。",
+                        vi: "Tôi bị cảm. Cổ họng tôi đau. Tôi cũng hơi mệt.",
+                        keyPoints: "Dùng ～ました để kể việc đã xảy ra và ～んです để giải thích tình trạng (bài 15)."
                     }
                 ],
                 vocab: [
@@ -251,7 +251,7 @@ window.KAIWA_TOPICS_DATA = [
                     {
                         level: "basic",
                         tag: "Cách 1: Đã uống thuốc cảm sau bữa sáng",
-                        jp: "はい、朝 ご飯の あとで 風邪の 薬を 飲みました。",
+                        jp: "はい、朝ご飯の あとで 風邪の 薬を 飲みました。",
                         vi: "Dạ rồi, sau bữa sáng tôi đã uống thuốc cảm rồi.",
                         keyPoints: "Cụm danh từ + のあとで (sau khi...) và 薬を飲む (uống thuốc)."
                     },
@@ -282,9 +282,9 @@ window.KAIWA_TOPICS_DATA = [
                     {
                         level: "basic",
                         tag: "Cách 1: Nhờ photo tài liệu",
-                        jp: "ありがとうございます。じゃ、すみませんが、この コピーを お願いしても いいですか。",
+                        jp: "ありがとうございます。じゃ、この コピーを お願いします。",
                         vi: "Cảm ơn bạn. Vậy xin lỗi, bạn photocopy giúp tôi tài liệu này được không?",
-                        keyPoints: "Mẫu nhờ vả lịch sự quen thuộc: 「〜てもいいですか / お願いします」."
+                        keyPoints: "N + をお願いします: nhờ làm một việc, ngắn gọn và lịch sự."
                     },
                     {
                         level: "easy",
@@ -363,7 +363,7 @@ window.KAIWA_TOPICS_DATA = [
             { speaker: "sensei", name: "Đồng nghiệp", jp: "今日は 無理を しないで、早く 帰ると いいですよ。", vi: "Hôm nay bạn đừng cố làm quá sức, nên về sớm nghỉ ngơi thì tốt hơn đấy." },
             { speaker: "gakusei", name: "Bạn", jp: "はい、そうします。今日は 早く 帰って、ゆっくり 寝ます。", vi: "Vâng, tôi sẽ làm vậy. Hôm nay tôi sẽ về sớm rồi nghỉ ngơi ngủ một giấc." },
             { speaker: "sensei", name: "Đồng nghiệp", jp: "ええ、お大事に してくださいね。", vi: "Ừ, chúc bạn mau chóng khỏe lại nhé." },
-            { speaker: "gakusei", name: "Bạn", jp: "親切に してくれて、本当に ありがとうございました！", vi: "Bạn chu đáo quá, thật lòng cảm ơn bạn rất nhiều!" }
+            { speaker: "gakusei", name: "Bạn", jp: "ありがとうございます。また 明日。", vi: "Cảm ơn bạn. Hẹn gặp lại ngày mai." }
         ]
     },
     {
@@ -419,9 +419,9 @@ window.KAIWA_TOPICS_DATA = [
                     {
                         level: "basic",
                         tag: "Cách 1: Tặng đồng hồ hoặc hoa",
-                        jp: "時計や お花は どうですか。きれいな お花を あげると、きっと 喜びますよ。",
-                        vi: "Đồng hồ hay hoa thì sao? Nếu tặng hoa đẹp, chắc chắn chị ấy sẽ vui lắm đấy.",
-                        keyPoints: "Dùng từ bài 17: 時計, お花 và động từ 喜ぶ (よろこぶ - vui mừng - Bài 18)."
+                        jp: "時計や お花は どうですか。きれいな お花が いいと 思います。きっと 喜びますよ。",
+                        vi: "Đồng hồ hay hoa thì sao? Tôi nghĩ hoa đẹp là lựa chọn tốt. Chắc chị ấy sẽ vui lắm.",
+                        keyPoints: "～はどうですか để gợi ý; ～と思います để nêu ý kiến (bài 18)."
                     },
                     {
                         level: "easy",
@@ -519,8 +519,8 @@ window.KAIWA_TOPICS_DATA = [
                     {
                         level: "easy",
                         tag: "Cách 2: Mới nói giờ tiệc, quà thì giữ bí mật",
-                        jp: "はい、パーティーの 日時だけ 伝えました。プレゼントは 秘密です。",
-                        vi: "Rồi, tôi chỉ mới báo ngày giờ tiệc thôi. Còn quà tặng thì giữ bí mật.",
+                        jp: "はい、金曜日に パーティーを すると 言いました。プレゼントは 秘密です。",
+                        vi: "Rồi, tôi đã nói: 'Tiệc vào thứ Sáu.' Còn quà tặng là bí mật.",
                         keyPoints: "Tiếp tục dùng từ 秘密 (bí mật - A2-2 L1) một cách thông minh."
                     }
                 ],
@@ -532,11 +532,11 @@ window.KAIWA_TOPICS_DATA = [
             }
         ],
         fullDialogue: [
-            { speaker: "sensei", name: "Tanaka", jp: "田中さん、レーさんの 結婚の お祝いパーティー、どうしましょうか。", vi: "Tanaka ơi, tiệc mừng kết hôn của chị Lê, chúng mình tính sao đây?" },
+            { speaker: "sensei", name: "Tanaka", jp: "レーさんの 結婚の お祝いパーティー、どうしましょうか。", vi: "Tiệc mừng kết hôn của chị Lê, chúng mình tính sao đây?" },
             { speaker: "gakusei", name: "Bạn", jp: "来週の 金曜日の 夜、みんなで レストランで パーティーを しませんか。", vi: "Tối thứ Sáu tuần sau, mọi người cùng tổ chức tiệc ở nhà hàng nhé?" },
             { speaker: "sensei", name: "Tanaka", jp: "いいですね！プレゼントは 何を あげますか。", vi: "Ý kiến hay đấy! Thế mình tặng quà gì bây giờ?" },
             { speaker: "gakusei", name: "Bạn", jp: "時計や お花は どうですか。みんなで お金を 出して 買いましょう。", vi: "Đồng hồ hoặc hoa thì sao? Mọi người cùng góp tiền mua chung nhé." },
-            { speaker: "sensei", name: "Tanaka", jp: "大賛成です！何人ぐらい 参加しますか。", vi: "Hoàn toàn nhất trí! Khoảng bao nhiêu người sẽ tham gia nhỉ?" },
+            { speaker: "sensei", name: "Tanaka", jp: "いいですね！何人ぐらい 参加しますか。", vi: "Hay đấy! Khoảng bao nhiêu người sẽ tham gia nhỉ?" },
             { speaker: "gakusei", name: "Bạn", jp: "私たちの チームの みんなで、全部で 8人ぐらいです。", vi: "Cả nhóm chúng ta, tất cả là khoảng 8 người." },
             { speaker: "sensei", name: "Tanaka", jp: "じゃ、場所は どこが いいですか。", vi: "Vậy địa điểm ở đâu thì tiện nhỉ?" },
             { speaker: "gakusei", name: "Bạn", jp: "会社の 近くの レストランが いいと 思います。駅から 近いですから、便利です。", vi: "Tôi nghĩ nhà hàng gần công ty là tốt nhất. Vì gần ga nên rất thuận tiện." },
@@ -760,22 +760,22 @@ window.KAIWA_TOPICS_DATA = [
             }
         ],
         fullDialogue: [
-            { speaker: "sensei", name: "Sensei", jp: "こんにちは。今日は『日本への 旅行や 経験』についての お話を 聞かせてくださいね。", vi: "Chào em. Hôm nay em hãy chia sẻ về chủ đề 'Du lịch và kinh nghiệm trải nghiệm Nhật Bản' nhé." },
+            { speaker: "sensei", name: "Sensei", jp: "こんにちは。今日は 日本の 旅行について 話しましょう。", vi: "Chào em. Hôm nay chúng ta nói về chuyến đi Nhật nhé." },
             { speaker: "gakusei", name: "Bạn", jp: "はい、先生！よろしくお願いします。", vi: "Dạ vâng thưa cô! Em xin phép bắt đầu ạ." },
             { speaker: "sensei", name: "Sensei", jp: "まず、日本に 行ったことが ありますか。", vi: "Trước hết, em đã từng đi Nhật Bản chưa?" },
             { speaker: "gakusei", name: "Bạn", jp: "いいえ、まだ 行ったことが ありません。でも、日本が 大好きですから、いつか ぜひ 行きたいです。", vi: "Dạ chưa, em chưa từng đi Nhật bao giờ ạ. Nhưng vì em rất yêu thích Nhật Bản nên một ngày nào đó nhất định em muốn đến thăm." },
-            { speaker: "sensei", name: "Sensei", jp: "そうなんですね。もし 行くなら、どこに 行きたいですか。", vi: "Vậy à. Nếu được đi, em muốn đi những đâu?" },
-            { speaker: "gakusei", name: "Bạn", jp: "東京と 京都に 行きたいです。東京で 買い物を して、京都で 古い お寺を 見たいです。", vi: "Dạ em muốn đi Tokyo và Kyoto ạ. Em muốn mua sắm ở Tokyo và chiêm ngưỡng các ngôi chùa cổ ở Kyoto." },
+            { speaker: "sensei", name: "Sensei", jp: "そうなんですね。どこに 行きたいですか。", vi: "Vậy à. Em muốn đi những đâu?" },
+            { speaker: "gakusei", name: "Bạn", jp: "東京と 京都に 行きたいです。東京で 買い物を します。京都で 古い お寺を 見たいです。", vi: "Dạ em muốn đi Tokyo và Kyoto. Em sẽ mua sắm ở Tokyo và muốn xem chùa cổ ở Kyoto ạ." },
             { speaker: "sensei", name: "Sensei", jp: "いいですね！では、日本の 何が 一番 好きですか。", vi: "Tuyệt quá! Thế trong những điều của nước Nhật, em thích điều gì nhất?" },
-            { speaker: "gakusei", name: "Bạn", jp: "日本の アニメと 食べ物が 一番 好きです。特に ラーメンと 寿司が 大好きです。", vi: "Dạ em thích nhất anime và các món ăn Nhật Bản ạ. Đặc biệt là em mê mì ramen và sushi." },
+            { speaker: "gakusei", name: "Bạn", jp: "日本の 食べ物が 一番 好きです。ラーメンと 寿司が 大好きです。", vi: "Dạ em thích đồ ăn Nhật nhất. Em rất thích ramen và sushi ạ." },
             { speaker: "sensei", name: "Sensei", jp: "ふふ、ラーメンと 寿司ですか、おいしいですね。では、どこに 一番 行きたいですか。", vi: "Haha, ramen và sushi à, ngon tuyệt đấy. Vậy trong các nơi, em muốn đến nơi nào nhất?" },
             { speaker: "gakusei", name: "Bạn", jp: "京都に 一番 行きたいです。京都は とても 有名で、きれいですから。", vi: "Dạ em muốn đến Kyoto nhất ạ. Bởi vì Kyoto rất nổi tiếng và phong cảnh rất đẹp ạ." },
             { speaker: "sensei", name: "Sensei", jp: "どうして 京都が いいんですか。", vi: "Tại sao em lại muốn đi Kyoto đến vậy?" },
-            { speaker: "gakusei", name: "Bạn", jp: "写真で 見て、街が とても 綺麗だったからです。日本の 歴史や 文化に 興味が ありますから。", vi: "Dạ vì em xem trên ảnh thấy thành phố rất đẹp ạ. Và vì em có rất nhiều hứng thú với lịch sử, văn hóa Nhật Bản ạ." },
+            { speaker: "gakusei", name: "Bạn", jp: "写真で 見ました。街が とても きれいですから。日本の 歴史や 文化に 興味が あります。", vi: "Dạ em đã xem trên ảnh. Vì thành phố rất đẹp. Em cũng hứng thú với lịch sử và văn hóa Nhật Bản ạ." },
             { speaker: "sensei", name: "Sensei", jp: "素晴らしいですね！お土産は 何を 買いたいですか。", vi: "Thật tuyệt vời! Em có muốn mua quà gì về không?" },
             { speaker: "gakusei", name: "Bạn", jp: "家族や 友達に 日本の お菓子と お茶を たくさん 買って 帰りたいです！", vi: "Dạ em muốn mua thật nhiều bánh kẹo và trà Nhật Bản về làm quà cho gia đình và bạn bè ạ!" },
-            { speaker: "sensei", name: "Sensei", jp: "とても 上手に 答えられましたね！発音も きれいです。ぜひ 夢を かなえて 日本へ 行ってくださいね。", vi: "Em trả lời rất giỏi đấy! Phát âm cũng rất rõ ràng. Hãy hiện thực hóa ước mơ và sang Nhật Bản nhé!" },
-            { speaker: "gakusei", name: "Bạn", jp: "はい！先生、聞いてくださって 本当に ありがとうございました！", vi: "Dạ vâng! Em cảm ơn cô rất nhiều vì đã lắng nghe và khích lệ em ạ!" }
+            { speaker: "sensei", name: "Sensei", jp: "とても 上手でした。日本へ 行けると いいですね。", vi: "Em trả lời rất giỏi. Mong em có thể đi Nhật nhé." },
+            { speaker: "gakusei", name: "Bạn", jp: "はい！先生、ありがとうございました。", vi: "Dạ vâng. Em cảm ơn cô ạ." }
         ]
     }
 ];
