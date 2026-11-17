@@ -153,6 +153,127 @@ class StudyFlows(unittest.TestCase):
             self.assertEqual(self.page.evaluate("current121Lesson"), f"A2-2 L{lesson}")
             self.assertEqual(self.page.locator("#table121Body tr").count(), count)
 
+    def test_reset_is_page_scoped_and_tutha_lab_uses_valid_sentences(self):
+        self.go("lessons/Marugoto_A2_2_Lesson_1.html")
+        with self.page.expect_navigation():
+            self.page.evaluate("""() => {
+            localStorage.setItem('marugoto_typing_studio_v2', JSON.stringify({ history: { otherPage: { status: 'ok' } } }));
+            localStorage.setItem('marugoto_cp_v1::lessons/Marugoto_A2_2_Lesson_1.html::typing_practice',
+                JSON.stringify({ t: 1, d: { currentIndex: 2 } }));
+            MarugotoCheckpoint.silentClearPage();
+            }""")
+        self.page.clock.run_for(400)
+        self.assertIsNotNone(self.page.evaluate("localStorage.getItem('marugoto_typing_studio_v2')"))
+        self.assertIsNone(self.page.evaluate(
+            "localStorage.getItem('marugoto_cp_v1::lessons/Marugoto_A2_2_Lesson_1.html::typing_practice')"))
+        self.go("tu_tha_dong_tu.html")
+        expected = {
+            "te_iru": ["ドアが あいています。", "私が ドアを あけています。"],
+            "te_aru": [None, "ドアが あけてあります。"],
+            "ta": ["ドアが あきました。", "私が ドアを あけました。"],
+        }
+        for tense in ["te_iru", "te_aru", "ta"]:
+            self.page.evaluate("(tense) => setLabTense(tense, null)", tense)
+            for index, selector in enumerate(["#labJiCard .lab-sentence-jp", "#labTaCard .lab-sentence-jp"]):
+                text = self.page.locator(selector).inner_text()
+                if expected[tense][index]:
+                    self.assertEqual(text, expected[tense][index])
+        self.page.evaluate("selectQuizAnswer(1,1);gradeQuiz()")
+        with self.page.expect_navigation():
+            self.page.evaluate("() => {MarugotoCheckpoint.silentClearPage();}")
+        self.page.clock.run_for(400)
+        self.assertIsNone(self.page.evaluate("localStorage.getItem('marugoto_tu_tha_checkpoint_v1')"))
+        self.assertEqual(self.page.locator(".quiz-opt-btn.selected").count(), 0)
+        self.go(TYPING)
+        self.page.evaluate("localStorage.setItem('marugoto_typing_studio_v2', '{}')")
+        with self.page.expect_navigation():
+            self.page.evaluate("() => {MarugotoCheckpoint.silentClearPage();}")
+        self.page.clock.run_for(400)
+        saved = self.page.evaluate("JSON.parse(localStorage.getItem('marugoto_typing_studio_v2') || '{}')")
+        self.assertEqual(saved.get("history", {}), {})
+
+    def test_lesson10_and_grammar_survive_blocked_storage(self):
+        self.context.add_init_script("""Storage.prototype.setItem=function(){throw new Error('blocked')};
+            Storage.prototype.getItem=function(){throw new Error('blocked')};""")
+        for page in ["lessons/Marugoto_A2_Lesson_10.html", "Tong_Hop_Ngu_Phap_Marugoto_A1_A2.html"]:
+            with self.subTest(page=page):
+                self.go(page)
+                self.assertEqual(self.errors, [])
+                if "Lesson_10" in page:
+                    self.assertGreater(self.page.locator("#flashcardGrid > *").count(), 0)
+                    self.assertEqual(self.page.locator("#quizContainer > *").count(), 15)
+                else:
+                    self.assertGreater(self.page.locator("[id^='grammarCard_']").count(), 0)
+
+    def test_kaiwa_session_timer_topic_and_single_script(self):
+        self.go("Luyen_Kaiwa_5_Phut.html")
+        self.assertEqual(self.page.locator("script[src*='kaiwa-studio.js']").count(), 1)
+        self.page.evaluate("KaiwaStudio.switchMode('simulator');KaiwaStudio.toggleTimer()")
+        self.page.clock.run_for(30000)
+        remaining = self.page.locator("#kaiwaTimerClock").inner_text()
+        self.assertEqual(remaining, "04:30")
+        self.reload()
+        self.assertEqual(self.page.locator("#kaiwaTimerClock").inner_text(), "04:30")
+        self.page.evaluate("KaiwaStudio.switchTopic('topic2')")
+        self.page.evaluate("location.hash='topic1'")
+        self.page.clock.run_for(100)
+        self.assertIn("Chủ Đề 1:", self.page.locator(".active-banner-title").inner_text())
+        self.page.evaluate("KaiwaStudio.toggleViewOption('answers')")
+        self.assertEqual(self.page.locator("#sampleAnswersWrap").evaluate("(el)=>getComputedStyle(el).display"), "none")
+        self.reload()
+        self.page.evaluate("KaiwaStudio.switchMode('simulator')")
+        self.assertEqual(self.page.locator("#sampleAnswersWrap").evaluate("(el)=>getComputedStyle(el).display"), "none")
+        self.page.evaluate("KaiwaStudio.toggleTimer()")
+        paused = self.page.locator("#kaiwaTimerClock").inner_text()
+        self.page.clock.run_for(10000)
+        self.reload()
+        self.assertEqual(self.page.locator("#kaiwaTimerClock").inner_text(), paused)
+        self.page.evaluate("KaiwaStudio.toggleTimer()")
+        # Jump without interval ticks: the next tick must catch up to real elapsed time.
+        self.page.clock.fast_forward(600000)
+        self.assertEqual(self.page.locator("#kaiwaTimerClock").inner_text(), "00:00")
+        self.reload()
+        self.assertEqual(self.page.locator("#kaiwaTimerClock").inner_text(), "00:00")
+        self.page.evaluate("KaiwaStudio.resetTimer()")
+        self.assertEqual(self.page.locator("#kaiwaTimerClock").inner_text(), "05:00")
+        self.page.evaluate("KaiwaStudio.toggleTimer()")
+        with self.page.expect_navigation():
+            self.page.evaluate("() => {MarugotoCheckpoint.silentClearPage();}")
+        self.page.clock.run_for(400)
+        saved = self.page.evaluate("JSON.parse(localStorage.getItem('marugoto_kaiwa_session_v1'))")
+        self.assertIsNone(saved["deadline"])
+        self.assertEqual(saved["timerRemaining"], 300)
+        self.assertTrue(saved["showAnswers"])
+
+    def test_tutha_all_lab_pairs_and_balanced_quiz(self):
+        self.go("tu_tha_dong_tu.html")
+        result = self.page.evaluate("""() => {
+            const counts=[0,0,0,0];
+            TU_THA_QUIZ_DATA.forEach(q=>counts[q.answer]++);
+            const failures=[];
+            TU_THA_PAIRS_DATA.forEach((pair,index)=>{
+                const frame=TU_THA_LAB_FRAMES[index];
+                openPairInLab(pair.id);
+                for(const tense of ['te_iru','te_aru','ta']){
+                    setLabTense(tense,null);
+                    for(const role of ['ji','ta']){
+                        if(tense==='te_aru' && (role==='ji'||!frame.aru))continue;
+                        const form=tense==='ta'?pair[role].masu.replace('ます','ました')
+                            :pair[role].te+(tense==='te_iru'?'います':'あります');
+                        const expected=(tense==='te_aru'?frame.aru:frame[role])+' '+form+'。';
+                        const selector=role==='ji'?'#labJiCard':'#labTaCard';
+                        const actual=document.querySelector(selector+' .lab-sentence-jp').textContent;
+                        if(actual!==expected)failures.push({id:pair.id,tense,role,actual,expected});
+                    }
+                }
+            });
+            return {counts,failures};
+        }""")
+        self.assertEqual(result, {"counts": [5, 5, 5, 5], "failures": []})
+        self.reload()
+        self.assertEqual(self.page.locator("#labPairSelect").input_value(), "50")
+        self.assertIn("'ta'", self.page.locator(".lab-tense-pill.active").get_attribute("onclick"))
+
     def test_vocab_paginate_search_clear_and_restore(self):
         self.go(VOCAB)
         self.assertEqual(self.page.locator("#vocabTableBody tr").count(), 50)

@@ -223,9 +223,8 @@ test('R3.1: checkpoint-sync tracks silentDepth and restoreGlobalsTimer', () => {
 // R4: Typing Studio Reset on Clear Checkpoint
 // -----------------------------------------------------------------------------
 console.log('\n--- R4: Typing Studio Reset Registration ---');
-test('R4.1: checkpoint-sync cleans up marugoto_typing_studio_v2', () => {
-    assert.ok(CpCode.includes('marugoto_typing_studio_v2'), 'checkpoint-sync.js must purge marugoto_typing_studio_v2');
-    assert.ok(CpCode.includes('resetTypingStudio'), 'checkpoint-sync.js must call window.resetTypingStudio()');
+test('R4.1: checkpoint-sync only clears studio history on a mounted studio page', () => {
+    assert.match(CpCode, /if \(typeof window\.resetTypingStudio === 'function'\) \{\s*toRemove\.push\('marugoto_typing_studio_v2'\)/);
 });
 
 const TypingCode = fs.readFileSync(path.join(ROOT, 'assets/js/typing-studio.js'), 'utf8');

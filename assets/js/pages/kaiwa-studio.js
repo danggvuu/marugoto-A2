@@ -32,6 +32,66 @@
     let showVi = true;
     let showMindmap = true;
     let showAnswers = true;
+    const STORAGE_KEY = 'marugoto_kaiwa_session_v1';
+    let deadline = null;
+    let resetting = false;
+    window.__MARUGOTO_NATIVE_DOM_DISABLED__ = true;
+    window.__MARUGOTO_CP_EXTRA_KEYS__ = [...new Set([...(window.__MARUGOTO_CP_EXTRA_KEYS__ || []), STORAGE_KEY])];
+    window.__MARUGOTO_ON_RESET__ = () => {
+        resetting = true;
+        if (timerInterval) clearInterval(timerInterval);
+        window.AudioEngine?.stop();
+        window.location.reload();
+    };
+
+    function saveSession() {
+        if (resetting) return;
+        try {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify({
+                version: 1, currentTopicId, currentMode, currentQuestionIdx,
+                timerRemaining, deadline, showVi, showMindmap, showAnswers
+            }));
+        } catch (error) { /* Continue without persistence when storage is blocked. */ }
+    }
+
+    function restoreSession() {
+        try {
+            const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null');
+            if (!saved || saved.version !== 1) return;
+            const explicitTopic = location.hash.slice(1);
+            const topic = TOPICS.find(t => t.id === explicitTopic) || TOPICS.find(t => t.id === saved.currentTopicId);
+            if (topic) currentTopicId = topic.id;
+            if (['qalist', 'dialogue', 'simulator', 'tips'].includes(saved.currentMode)) currentMode = saved.currentMode;
+            if (topic && topic.id === saved.currentTopicId && Number.isInteger(saved.currentQuestionIdx) &&
+                saved.currentQuestionIdx >= 0 && saved.currentQuestionIdx < topic.coreQuestions.length) {
+                currentQuestionIdx = saved.currentQuestionIdx;
+            }
+            for (const key of ['showVi', 'showMindmap', 'showAnswers']) {
+                if (typeof saved[key] !== 'boolean') continue;
+                if (key === 'showVi') showVi = saved[key];
+                if (key === 'showMindmap') showMindmap = saved[key];
+                if (key === 'showAnswers') showAnswers = saved[key];
+            }
+            if (Number.isFinite(saved.timerRemaining) && saved.timerRemaining >= 0 && saved.timerRemaining <= timerTotalSeconds) {
+                timerRemaining = Math.ceil(saved.timerRemaining);
+            }
+            if (Number.isFinite(saved.deadline) && saved.deadline > 0 && saved.deadline <= Date.now() + timerTotalSeconds * 1000) {
+                timerRemaining = Math.max(0, Math.ceil((saved.deadline - Date.now()) / 1000));
+                if (timerRemaining > 0) deadline = saved.deadline;
+            }
+        } catch (error) {}
+    }
+
+    function syncTimer() {
+        if (deadline !== null) timerRemaining = Math.max(0, Math.ceil((deadline - Date.now()) / 1000));
+        updateTimerUI();
+        if (isTimerRunning && timerRemaining === 0) {
+            stopTimer();
+            const btn = document.getElementById('btnTimerToggle');
+            if (btn) btn.textContent = 'Đã hết 5 phút';
+            alert('⏰ Hết thời gian 5 phút thi vấn đáp!');
+        }
+    }
 
     function getInitialTopic() {
         const hash = (window.location.hash || '').replace('#', '').trim();
@@ -103,28 +163,26 @@
     }
 
     function startTimer() {
-        if (isTimerRunning) return;
+        if (isTimerRunning || timerRemaining === 0) return;
+        if (deadline === null) deadline = Date.now() + timerRemaining * 1000;
         isTimerRunning = true;
         const btn = document.getElementById('btnTimerToggle');
         if (btn) btn.innerHTML = '⏸️ Tạm Dừng';
 
-        timerInterval = setInterval(() => {
-            if (timerRemaining > 0) {
-                timerRemaining--;
-                updateTimerUI();
-            } else {
-                stopTimer();
-                alert('⏰ Hết thời gian 5 phút thi vấn đáp! Bạn đã hoàn thành lượt luyện tập xuất sắc.');
-            }
-        }, 1000);
+        timerInterval = setInterval(syncTimer, 250);
+        saveSession();
+        syncTimer();
     }
 
     function stopTimer() {
+        if (deadline !== null) timerRemaining = Math.max(0, Math.ceil((deadline - Date.now()) / 1000));
+        deadline = null;
         isTimerRunning = false;
         if (timerInterval) clearInterval(timerInterval);
         timerInterval = null;
         const btn = document.getElementById('btnTimerToggle');
         if (btn) btn.innerHTML = '▶️ Tiếp Tục';
+        saveSession();
     }
 
     function toggleTimer() {
@@ -141,22 +199,26 @@
         updateTimerUI();
         const btn = document.getElementById('btnTimerToggle');
         if (btn) btn.innerHTML = '▶️ Bắt Đầu 5 Phút';
+        saveSession();
     }
 
     // ==========================================================================
     // TOPIC SWITCHING
     // ==========================================================================
-    function switchTopic(topicId) {
+    function switchTopic(topicId, updateHash = true) {
         if (!TOPICS.some(t => t.id === topicId)) return;
+        if (topicId === currentTopicId) return;
+        window.AudioEngine?.stop();
         currentTopicId = topicId;
         currentQuestionIdx = 0;
         try {
-            window.location.hash = topicId;
+            if (updateHash) window.location.hash = topicId;
         } catch (e) {}
 
         renderTopicTabs();
         renderActiveTopicBanner();
         renderCurrentMode();
+        saveSession();
     }
 
     function renderTopicTabs() {
@@ -213,6 +275,7 @@
     // MODE SWITCHING
     // ==========================================================================
     function switchMode(mode) {
+        if (!['qalist', 'dialogue', 'simulator', 'tips'].includes(mode)) return;
         currentMode = mode;
         document.querySelectorAll('.mode-tab-btn').forEach(btn => {
             btn.classList.toggle('active', btn.dataset.mode === mode);
@@ -229,6 +292,7 @@
         if (vTips) vTips.style.display = (mode === 'tips') ? 'block' : 'none';
 
         renderCurrentMode();
+        saveSession();
     }
 
     function renderCurrentMode() {
@@ -470,6 +534,7 @@
         if (idx < 0 || idx >= topic.coreQuestions.length) return;
         currentQuestionIdx = idx;
         renderSimulator();
+        saveSession();
         // Tự động đọc câu hỏi mới nếu đang bật timer
         const q = topic.coreQuestions[currentQuestionIdx];
         if (q && isTimerRunning) {
@@ -519,6 +584,7 @@
         } else if (currentMode === 'simulator') {
             renderSimulator();
         }
+        saveSession();
     }
 
     // ==========================================================================
@@ -588,10 +654,26 @@
     // INITIALIZATION
     // ==========================================================================
     function init() {
+        restoreSession();
         renderTopicTabs();
         renderActiveTopicBanner();
-        renderCurrentMode();
+        switchMode(currentMode);
         updateTimerUI();
+        for (const [id, checked] of [['chkShowVi', showVi], ['chkShowMindmap', showMindmap], ['chkShowAnswers', showAnswers]]) {
+            const input = document.getElementById(id);
+            if (input) input.checked = checked;
+        }
+        if (deadline !== null) startTimer();
+        else if (timerRemaining < timerTotalSeconds) {
+            const btn = document.getElementById('btnTimerToggle');
+            if (btn) btn.textContent = timerRemaining === 0 ? 'Đã hết 5 phút' : '▶️ Tiếp Tục';
+        }
+        window.addEventListener('hashchange', () => {
+            const topic = location.hash.slice(1);
+            switchTopic(TOPICS.some(t => t.id === topic) ? topic : 'topic1', false);
+        });
+        document.addEventListener('visibilitychange', syncTimer);
+        window.addEventListener('pagehide', saveSession);
 
         // Keyboard navigation
         document.addEventListener('keydown', e => {

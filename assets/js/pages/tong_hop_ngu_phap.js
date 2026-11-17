@@ -3,6 +3,7 @@ const GRAMMAR_DATA = [{"id": 1, "level": "A1", "levelName": "Marugoto A1", "less
 const VERB_DATA = [{"id": "taberu", "kanji": "食べる", "kana": "たべる", "group": "Nhóm 2 (Động từ đuôi る)", "vi": "Ăn", "masu": "食べます", "ru": "食べる", "te": "食べて", "ta": "食べた", "nai": "食べない", "tara": "食べたら", "tari": "食べたり", "ex": "日本の りょうりを 食べたことが あります。", "exRuby": "<ruby>日本<rt>にほん</rt></ruby>の りょうりを <ruby>食<rt>た</rt></ruby>べたことが あります。", "exVi": "Tôi đã từng ăn món ăn Nhật Bản."}, {"id": "nomu", "kanji": "飲む", "kana": "のむ", "group": "Nhóm 1 (Đuôi む -> んで / んだ)", "vi": "Uống", "masu": "飲みます", "ru": "飲む", "te": "飲んで", "ta": "飲んだ", "nai": "飲まない", "tara": "飲んだら", "tari": "飲んだり", "ex": "くすりを 飲んだほうが いいですよ。", "exRuby": "くすりを <ruby>飲<rt>の</rt></ruby>んだほうが いいですよ。", "exVi": "Bạn nên uống thuốc đi nhé."}, {"id": "iku", "kanji": "行く", "kana": "いく", "group": "Nhóm 1 (Đặc biệt: く -> って / った)", "vi": "Đi", "masu": "行きます", "ru": "行く", "te": "行って", "ta": "行った", "nai": "行かない", "tara": "行ったら", "tari": "行ったり", "ex": "しゅうまつは かいものに 行ったり、えいがを 見たりします。", "exRuby": "しゅうまつは かいものに <ruby>行<rt>い</rt></ruby>ったり、えいがを <ruby>見<rt>み</rt></ruby>たりします。", "exVi": "Cuối tuần tôi lúc thì đi mua sắm, lúc thì xem phim."}, {"id": "kuru", "kanji": "来る", "kana": "くる", "group": "Nhóm 3 (Bất quy tắc: くる -> きます -> きて -> きた -> こない)", "vi": "Đến", "masu": "来ます (きます)", "ru": "来る (くる)", "te": "来て (きて)", "ta": "来た (きた)", "nai": "来ない (こない)", "tara": "来たら (きたら)", "tari": "来たり (きたり)", "ex": "ともだちが うちに あそびに 来ました。", "exRuby": "ともだちが うちに あそびに <ruby>来<rt>き</rt></ruby>ました。", "exVi": "Bạn tôi đã đến nhà tôi chơi."}, {"id": "suru", "kanji": "する", "kana": "する", "group": "Nhóm 3 (Bất quy tắc: する -> します -> して -> した -> しない)", "vi": "Làm / Chơi", "masu": "します", "ru": "する", "te": "して", "ta": "した", "nai": "しない", "tara": "したら", "tari": "したり", "ex": "ここで しゃしんを とっても いいですか。", "exRuby": "ここで しゃしんを とっても いいですか。", "exVi": "Tôi chụp ảnh ở đây có được không?"}, {"id": "kau", "kanji": "買う", "kana": "かう", "group": "Nhóm 1 (Đuôi う -> って / った)", "vi": "Mua", "masu": "買います", "ru": "買う", "te": "買って", "ta": "買った", "nai": "買わない", "tara": "買ったら", "tari": "買ったり", "ex": "おべんとうを 買って 行きましょう。", "exRuby": "おべんとうを <ruby>買<rt>か</rt></ruby>って <ruby>行<rt>い</rt></ruby>きましょう。", "exVi": "Chúng ta hãy mua cơm hộp mang đi nhé."}, {"id": "matsu", "kanji": "待つ", "kana": "まつ", "group": "Nhóm 1 (Đuôi つ -> って / った)", "vi": "Chờ / Đợi", "masu": "待ちます", "ru": "待つ", "te": "待って", "ta": "待った", "nai": "待たない", "tara": "待ったら", "tari": "待ったり", "ex": "ちょっと まってください。", "exRuby": "ちょっと まってください。", "exVi": "Xin vui lòng đợi một chút."}, {"id": "yomu", "kanji": "読む", "kana": "よむ", "group": "Nhóm 1 (Đuôi む -> んで / んだ)", "vi": "Đọc", "masu": "読みます", "ru": "読む", "te": "読んで", "ta": "読んだ", "nai": "読まない", "tara": "読んだら", "tari": "読んだり", "ex": "ねる まえに、本を 読みます。", "exRuby": "ねる まえに、<ruby>本<rt>ほん</rt></ruby>を <ruby>読<rt>よ</rt></ruby>みます。", "exVi": "Trước khi ngủ, tôi đọc sách."}, {"id": "hanasu", "kanji": "話す", "kana": "はなす", "group": "Nhóm 1 (Đuôi す -> して / した)", "vi": "Nói chuyện", "masu": "話します", "ru": "話す", "te": "話して", "ta": "話した", "nai": "話さない", "tara": "話したら", "tari": "話したり", "ex": "日本語で 話してください。", "exRuby": "<ruby>日本<rt>にほん</rt></ruby><ruby>語<rt>ご</rt></ruby>で <ruby>話<rt>はな</rt></ruby>してください。", "exVi": "Xin hãy nói bằng tiếng Nhật."}, {"id": "miru", "kanji": "見る", "kana": "みる", "group": "Nhóm 2 (Đuôi る trước là âm i)", "vi": "Xem / Nhìn", "masu": "見ます", "ru": "見る", "te": "見て", "ta": "見た", "nai": "見ない", "tara": "見たら", "tari": "見たり", "ex": "テレビを 見ながら、ごはんを 食べます。", "exRuby": "テレビを <ruby>見<rt>み</rt></ruby>ながら、ごはんを <ruby>食<rt>た</rt></ruby>べます。", "exVi": "Vừa xem tivi vừa ăn cơm."}, {"id": "kaeru", "kanji": "帰る", "kana": "かえる", "group": "Nhóm 1 đặc biệt (Đuôi る đổi thành って)", "vi": "Về (nhà, quê)", "masu": "帰ります", "ru": "帰る", "te": "帰って", "ta": "帰った", "nai": "帰らない", "tara": "帰ったら", "tari": "帰ったり", "ex": "いえに 帰ってから、シャワーを あびます。", "exRuby": "いえに <ruby>帰<rt>かえ</rt></ruby>ってから、シャワーを あびます。", "exVi": "Sau khi về nhà thì tôi tắm vòi sen."}, {"id": "au", "kanji": "会う", "kana": "あう", "group": "Nhóm 1 (Đuôi う -> って / った)", "vi": "Gặp gỡ", "masu": "会います", "ru": "会う", "te": "会って", "ta": "会った", "nai": "会わない", "tara": "会ったら", "tari": "会ったり", "ex": "日曜日、ともだちに 会う よていです。", "exRuby": "<ruby>日<rt>にち</rt></ruby><ruby>曜<rt>よう</rt></ruby><ruby>日<rt>び</rt></ruby>、ともだちに <ruby>会<rt>あ</rt></ruby>う よていです。", "exVi": "Chủ nhật, tôi dự định gặp bạn."}, {"id": "tsukuru", "kanji": "作る", "kana": "つくる", "group": "Nhóm 1 (Đuôi る -> って / った)", "vi": "Làm / Nấu chế biến", "masu": "作ります", "ru": "作る", "te": "作って", "ta": "作った", "nai": "作らない", "tara": "作ったら", "tari": "作ったり", "ex": "母が ケーキを つくってくれました。", "exRuby": "<ruby>母<rt>はは</rt></ruby>が ケーキを つくってくれました。", "exVi": "Mẹ đã làm bánh ngọt cho tôi."}, {"id": "neru", "kanji": "寝る", "kana": "ねる", "group": "Nhóm 2 (Đuôi る trước là âm e)", "vi": "Ngủ", "masu": "寝ます", "ru": "寝る", "te": "寝て", "ta": "寝た", "nai": "寝ない", "tara": "寝たら", "tari": "寝たり", "ex": "早く ねたほうが いいですよ。", "exRuby": "<ruby>早<rt>はや</rt></ruby>く ねたほうが いいですよ。", "exVi": "Bạn nên đi ngủ sớm đi nhé."}, {"id": "okiru", "kanji": "起きる", "kana": "おきる", "group": "Nhóm 2 (Đuôi る trước là âm i)", "vi": "Thức dậy", "masu": "起きます", "ru": "起きる", "te": "起きて", "ta": "起きた", "nai": "起きない", "tara": "起きたら", "tari": "起きたり", "ex": "毎朝 6時に 起きています。", "exRuby": "<ruby>毎<rt>まい</rt></ruby><ruby>朝<rt>あさ</rt></ruby> 6<ruby>時<rt>じ</rt></ruby>に <ruby>起<rt>お</rt></ruby>きています。", "exVi": "Mỗi sáng tôi đều thức dậy lúc 6 giờ."}];
 
 const STORAGE_KEY = 'marugoto_grammar_progress_v1';
+window.__MARUGOTO_CP_EXTRA_KEYS__ = [...new Set([...(window.__MARUGOTO_CP_EXTRA_KEYS__ || []), STORAGE_KEY])];
 let learnedSet = new Set();
 
 // Filter states
@@ -16,7 +17,7 @@ function loadProgress() {
         const saved = localStorage.getItem(STORAGE_KEY);
         if (saved) {
             const arr = JSON.parse(saved);
-            learnedSet = new Set(arr);
+            if (Array.isArray(arr)) learnedSet = new Set(arr.filter(id => GRAMMAR_DATA.some(item => item.id === id)));
         }
     } catch(e) {
         console.error(e);
@@ -297,7 +298,8 @@ function resetAllFilters() {
 }
 
 // FURIGANA TOGGLE LOGIC
-let furiganaEnabled = localStorage.getItem('marugoto_furigana_enabled') !== 'false'; // Mặc định BẬT
+let furiganaEnabled = true;
+try { furiganaEnabled = localStorage.getItem('marugoto_furigana_enabled') !== 'false'; } catch (error) {}
 
 function applyFuriganaState() {
     const btn = document.getElementById('btnFuriganaToggle');
@@ -315,7 +317,7 @@ function applyFuriganaState() {
 
 function toggleFurigana() {
     furiganaEnabled = !furiganaEnabled;
-    localStorage.setItem('marugoto_furigana_enabled', furiganaEnabled);
+    try { localStorage.setItem('marugoto_furigana_enabled', furiganaEnabled); } catch (error) {}
     applyFuriganaState();
 }
 

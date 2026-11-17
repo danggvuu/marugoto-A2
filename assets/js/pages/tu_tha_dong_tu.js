@@ -7,6 +7,8 @@
     'use strict';
 
     const STORAGE_KEY = 'marugoto_tu_tha_checkpoint_v1';
+    const CONTENT_VERSION = 2;
+    window.__MARUGOTO_CP_EXTRA_KEYS__ = [...new Set([...(window.__MARUGOTO_CP_EXTRA_KEYS__ || []), STORAGE_KEY])];
     let currentCategory = 'all';
     let currentHideMode = 'none'; // 'none' | 'hide_ji' | 'hide_ta'
     let currentSearchQuery = '';
@@ -136,6 +138,17 @@
                 </option>
             `).join('');
         }
+        if (select) select.value = String(pair.id);
+        document.querySelectorAll('.lab-tense-pill').forEach(btn => {
+            btn.classList.toggle('active', (btn.getAttribute('onclick') || '').includes(`'${selectedLabTense}'`));
+        });
+        // Explicit sentence frames avoid splicing a kana form onto a Kanji stem.
+        const frame = window.TU_THA_LAB_FRAMES[pair.id - 1];
+        const viFor = (role, tense) => tense === 'masu' ? pair[role].exVi
+            : tense === 'ta' ? `Ví dụ dạng quá khứ: ${pair.meaning}.`
+                : tense === 'te_aru' ? 'Trạng thái được chuẩn bị sẵn bằng hành động có chủ ý.'
+                    : role === 'ji' ? 'Hành động hoặc trạng thái của sự vật/chủ thể.'
+                        : 'Hành động của người tác động lên đối tượng.';
 
         // Card Tự động từ
         const jiCard = document.getElementById('labJiCard');
@@ -146,15 +159,15 @@
 
             if (selectedLabTense === 'te_iru') {
                 jiVerbForm = `${pair.ji.te} います`;
-                jiContext = pair.ji.example.replace('ます。', '').replace('ました。', '') + pair.ji.te + ' います。';
-                jiGrammarExplain = "Trạng thái kết quả của sự vật đang diễn ra trước mắt (ai nhìn cũng thấy).";
+                jiContext = `${frame.ji} ${pair.ji.te}います。`;
+                jiGrammarExplain = "Tùy động từ, ～ています diễn tả hành động, thói quen hoặc trạng thái kết quả; không phải mọi tự động từ đều chỉ trạng thái.";
             } else if (selectedLabTense === 'te_aru') {
                 jiVerbForm = `<span style="color:#ef4444; font-size:0.85rem;">⚠️ Tự động từ KHÔNG ĐI với ～てあります!</span>`;
                 jiContext = `❌ Không dùng với Tự động từ. (～てあります chỉ đi với Tha động từ có chủ ý!)`;
                 jiGrammarExplain = "Quy tắc ngữ pháp quan trọng: ～てあります biểu thị hành động có chủ ý của con người nên chỉ đi với THA ĐỘNG TỪ.";
             } else if (selectedLabTense === 'ta') {
                 jiVerbForm = pair.ji.masu.replace('ます', 'ました');
-                jiContext = pair.ji.example.replace('ます。', 'ました。');
+                jiContext = `${frame.ji} ${jiVerbForm}。`;
                 jiGrammarExplain = "Hành động/sự biến đổi đã hoàn thành trong quá khứ.";
             }
 
@@ -175,7 +188,7 @@
                     </div>
                     <div class="lab-sentence-box">
                         <div class="lab-sentence-jp">${escapeHtml(jiContext)}</div>
-                        <div class="lab-sentence-vi">${escapeHtml(pair.ji.exVi)}</div>
+                        <div class="lab-sentence-vi">${escapeHtml(viFor('ji', selectedLabTense))}</div>
                     </div>
                     <div class="lab-explain-box">
                         💡 <strong>Bản chất:</strong> ${jiGrammarExplain}
@@ -193,17 +206,21 @@
 
             if (selectedLabTense === 'te_iru') {
                 taVerbForm = `${pair.ta.te} います`;
-                taContext = `[人が] ` + pair.ta.example.replace('[人が] ', '').replace('ます。', '').replace('ました。', '') + pair.ta.te + ' います。';
+                taContext = `${frame.ta} ${pair.ta.te}います。`;
                 taGrammarExplain = "Hành động của con người đang diễn tiến trong thời điểm nói (ví dụ: đang mở cửa).";
             } else if (selectedLabTense === 'te_aru') {
                 taVerbForm = `${pair.ta.te} あります`;
                 // Đổi trợ từ sang が khi đi với te aru
-                const objPart = pair.ta.example.replace('[人が] ', '').replace('を', 'が').replace('ます。', '').replace('ました。', '');
-                taContext = objPart + pair.ta.te + ' あります。';
+                taContext = `${frame.aru} ${pair.ta.te}あります。`;
                 taGrammarExplain = "Vật đã được ai đó làm sẵn nhằm một mục đích nhất định (vẫn còn lưu lại kết quả).";
+                if (!frame.aru) {
+                    taVerbForm = '<span style="font-size:.85rem;">Không dùng ví dụ ～てある cho cặp này</span>';
+                    taContext = 'Không áp dụng máy móc ～てあります cho cặp này.';
+                    taGrammarExplain = 'Chỉ dùng ～てあります khi hành động có chủ ý và để lại kết quả phù hợp ngữ cảnh. Hãy dùng cặp mở cửa, xếp đĩa hoặc dán tem để luyện mẫu này.';
+                }
             } else if (selectedLabTense === 'ta') {
                 taVerbForm = pair.ta.masu.replace('ます', 'ました');
-                taContext = pair.ta.example.replace('ます。', 'ました。');
+                taContext = `${frame.ta} ${taVerbForm}。`;
                 taGrammarExplain = "Người nào đó đã thực hiện xong hành động trong quá khứ.";
             }
 
@@ -224,7 +241,7 @@
                     </div>
                     <div class="lab-sentence-box">
                         <div class="lab-sentence-jp">${escapeHtml(taContext)}</div>
-                        <div class="lab-sentence-vi">${escapeHtml(pair.ta.exVi)}</div>
+                        <div class="lab-sentence-vi">${escapeHtml(viFor('ta', selectedLabTense))}</div>
                     </div>
                     <div class="lab-explain-box">
                         🎯 <strong>Bản chất:</strong> ${taGrammarExplain}
@@ -365,12 +382,14 @@
         const select = document.getElementById('labPairSelect');
         if (select) select.value = pairId;
         renderLab();
+        saveCheckpoint();
         window.scrollTo({ top: 300, behavior: 'smooth' });
     }
 
     function changeLabPair(selectEl) {
         selectedLabPairId = parseInt(selectEl.value, 10);
         renderLab();
+        saveCheckpoint();
     }
 
     function setLabTense(tense, btn) {
@@ -378,6 +397,7 @@
         document.querySelectorAll('.lab-tense-pill').forEach(b => b.classList.remove('active'));
         if (btn) btn.classList.add('active');
         renderLab();
+        saveCheckpoint();
     }
 
     function playVerb(text, btn) {
@@ -410,6 +430,7 @@
     function saveCheckpoint() {
         try {
             const state = {
+                version: CONTENT_VERSION,
                 userQuizAnswers: userQuizAnswers,
                 isQuizGraded: isQuizGraded,
                 selectedLabPairId: selectedLabPairId,
@@ -424,10 +445,15 @@
             const raw = localStorage.getItem(STORAGE_KEY);
             if (raw) {
                 const parsed = JSON.parse(raw);
-                if (parsed.userQuizAnswers) userQuizAnswers = parsed.userQuizAnswers;
-                if (parsed.isQuizGraded !== undefined) isQuizGraded = parsed.isQuizGraded;
-                if (parsed.selectedLabPairId) selectedLabPairId = parsed.selectedLabPairId;
-                if (parsed.selectedLabTense) selectedLabTense = parsed.selectedLabTense;
+                if (parsed.version === CONTENT_VERSION && parsed.userQuizAnswers && typeof parsed.userQuizAnswers === 'object') {
+                    for (const q of window.TU_THA_QUIZ_DATA) {
+                        const answer = parsed.userQuizAnswers[q.id];
+                        if (Number.isInteger(answer) && answer >= 0 && answer < q.options.length) userQuizAnswers[q.id] = answer;
+                    }
+                    isQuizGraded = parsed.isQuizGraded === true;
+                }
+                if (window.TU_THA_PAIRS_DATA.some(p => p.id === parsed.selectedLabPairId)) selectedLabPairId = parsed.selectedLabPairId;
+                if (['masu', 'te_iru', 'te_aru', 'ta'].includes(parsed.selectedLabTense)) selectedLabTense = parsed.selectedLabTense;
             }
         } catch (e) {}
     }

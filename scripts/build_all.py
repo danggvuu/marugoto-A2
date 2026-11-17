@@ -52,6 +52,11 @@ def verify_html_integrity():
         closes = len(re.findall(r"</script>", s))
         if opens != closes:
             errors.append(f"{rel_html}: unbalanced <script> ({opens} open vs {closes} close)")
+        if len(re.findall(r"</html\s*>", s, re.I)) != 1:
+            errors.append(f"{rel_html}: expected one HTML document")
+        scripts = [url.split("?")[0] for url in re.findall(r'<script\b[^>]*\bsrc=["\']([^"\']+)', s, re.I)]
+        if len(scripts) != len(set(scripts)):
+            errors.append(f"{rel_html}: duplicate script imports")
 
         for attr in ("src", "href"):
             for m in re.finditer(rf'\b{attr}=["\']([^"\']+)["\']', s):

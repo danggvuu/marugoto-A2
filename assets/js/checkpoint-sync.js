@@ -328,8 +328,10 @@
             if (Array.isArray(window.__MARUGOTO_CP_EXTRA_KEYS__)) {
                 window.__MARUGOTO_CP_EXTRA_KEYS__.forEach(k => toRemove.push(k));
             }
-            // Luôn đảm bảo dọn dẹp state của Typing Studio nếu tồn tại
-            toRemove.push('marugoto_typing_studio_v2');
+            // Only reset a studio mounted on this page, never another page's history.
+            if (typeof window.resetTypingStudio === 'function') {
+                toRemove.push('marugoto_typing_studio_v2');
+            }
             toRemove.forEach(k => {
                 try { localStorage.removeItem(k); } catch (e) {}
             });

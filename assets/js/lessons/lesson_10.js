@@ -120,7 +120,12 @@ function updateMorphCards(idx) {
 }
 
 // 5. Flashcards Render & Logic
-let learnedSet = new Set(JSON.parse(localStorage.getItem('mrg_l10_learned') || '[]'));
+let learnedSet = new Set();
+try {
+    const savedLearned = JSON.parse(localStorage.getItem('mrg_l10_learned') || '[]');
+    if (Array.isArray(savedLearned)) learnedSet = new Set(savedLearned.filter(id => VOCAB_DATA.some(item => item.id === id)));
+} catch (error) { /* Storage may be unavailable; keep the lesson usable. */ }
+window.__MARUGOTO_CP_EXTRA_KEYS__ = [...new Set([...(window.__MARUGOTO_CP_EXTRA_KEYS__ || []), 'mrg_l10_learned'])];
 
 function renderFlashcards(filter = 'all') {
     const grid = document.getElementById('flashcardGrid');
@@ -203,7 +208,7 @@ function toggleLearned(id, btn) {
         btn.style.color = '#fff';
         btn.textContent = '✓ Đã thuộc';
     }
-    localStorage.setItem('mrg_l10_learned', JSON.stringify([...learnedSet]));
+    try { localStorage.setItem('mrg_l10_learned', JSON.stringify([...learnedSet])); } catch (error) {}
     updateLearnedCounter();
 }
 

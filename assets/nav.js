@@ -117,7 +117,7 @@
         // Nạp checkpoint-sync.js nếu chưa có
         if (!window.__MARUGOTO_CHECKPOINT_LOADED__ && !document.querySelector('script[src*="checkpoint-sync.js"]')) {
             const cpScript = document.createElement('script');
-            cpScript.src = rootPrefix + 'assets/js/checkpoint-sync.js?v=2';
+            cpScript.src = rootPrefix + 'assets/js/checkpoint-sync.js?v=3';
             cpScript.defer = true;
             document.head.appendChild(cpScript);
         }

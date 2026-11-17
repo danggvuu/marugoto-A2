@@ -707,15 +707,15 @@ window.TU_THA_PAIRS_DATA = [
     "cat": "life",
     "catName": "Sinh hoạt thường nhật",
     "pattern": "-u / -eru",
-    "meaning": "Đứng dậy, mọc lên / Dựng lên, xây nhà",
+    "meaning": "Đứng / Dựng vật đứng lên",
     "ji": {
       "kanji": "立つ",
       "kana": "たつ",
       "masu": "たちます",
       "te": "たって",
       "particle": "が",
-      "example": "高いビルが 立ちました。",
-      "exVi": "Tòa nhà chọc trời đã mọc lên."
+      "example": "人が 立ちました。",
+      "exVi": "Người đó đã đứng dậy."
     },
     "ta": {
       "kanji": "立てる",
@@ -723,8 +723,8 @@ window.TU_THA_PAIRS_DATA = [
       "masu": "たてます",
       "te": "たてて",
       "particle": "を",
-      "example": "新しい家を 建てます。",
-      "exVi": "Xây dựng một ngôi nhà mới."
+      "example": "ろうそくを 立てます。",
+      "exVi": "Dựng cây nến đứng lên."
     },
     "note": "たつ (Tự) vs たてる (Tha)"
   },
@@ -1463,12 +1463,12 @@ window.TU_THA_QUIZ_DATA = [
     "question": "駅前に 新しい ショッピングセンターが ________。",
     "options": [
       "建てました",
-      "立ちました",
+      "建ちました",
       "開けました",
       "止めました"
     ],
     "answer": 1,
-    "explain": "Trung tâm thương mại tự mọc lên/được dựng lên (<strong>センターが</strong>) ➔ Dùng <strong>Tự động từ: 立ちました</strong>."
+    "explain": "Công trình được xây dựng dùng 建つ (たつ), không phải 立つ (đứng). Với センターが dùng tự động từ 建ちました."
   },
   {
     "id": 15,
@@ -1543,3 +1543,66 @@ window.TU_THA_QUIZ_DATA = [
     "explain": "Vì trời lạnh nên yêu cầu đóng cửa (<strong>ドアを</strong>) ➔ Dùng <strong>Tha động từ: 閉めて ください</strong>."
   }
 ];
+
+/* Dedicated frames for each pair; null means no generic purposeful ～てある example. */
+window.TU_THA_LAB_FRAMES = [
+  {ji:"ドアが",ta:"私が ドアを",aru:"ドアが"},
+  {ji:"ドアが",ta:"私が ドアを",aru:"ドアが"},
+  {ji:"電気が",ta:"私が 電気を",aru:"電気が"},
+  {ji:"電気が",ta:"私が 電気を",aru:"電気が"},
+  {ji:"時計が",ta:"弟が 時計を",aru:null},
+  {ji:"皿が",ta:"私が 皿を",aru:null},
+  {ji:"木の枝が",ta:"私が 木の枝を",aru:null},
+  {ji:"紙が",ta:"私が 紙を",aru:null},
+  {ji:"服が",ta:"私が 服を",aru:null},
+  {ji:"財布が",ta:"私が 財布を",aru:null},
+  {ji:"車が",ta:"私が 車を",aru:"車が"},
+  {ji:"カバンに 本が",ta:"私が カバンに 本を",aru:"カバンに 本が"},
+  {ji:"おつりが",ta:"私が 宿題を",aru:"宿題が"},
+  {ji:"授業が",ta:"先生が 授業を",aru:null},
+  {ji:"仕事が",ta:"私が 仕事を",aru:"仕事が"},
+  {ji:"鍵が",ta:"私が 鍵を",aru:null},
+  {ji:"自信が",ta:"私が パスポートを",aru:null},
+  {ji:"季節が",ta:"私が 予定を",aru:"予定が"},
+  {ji:"風邪が",ta:"医者が 病気を",aru:null},
+  {ji:"パソコンが",ta:"技術者が パソコンを",aru:"パソコンが"},
+  {ji:"人口が",ta:"私が 貯金を",aru:null},
+  {ji:"体重が",ta:"私が 無駄遣いを",aru:null},
+  {ji:"人が 広場に",ta:"私が 切手を",aru:"切手が"},
+  {ji:"人が 店の前に",ta:"私が 机の上に 皿を",aru:"机の上に 皿が"},
+  {ji:"機械が",ta:"私が 荷物を",aru:"荷物が"},
+  {ji:"物価が",ta:"私が 手を",aru:null},
+  {ji:"熱が",ta:"店主が 値段を",aru:"値段が"},
+  {ji:"人が",ta:"私が ろうそくを",aru:"ろうそくが"},
+  {ji:"子どもが",ta:"母が 子どもを",aru:null},
+  {ji:"目が",ta:"私が 目を",aru:null},
+  {ji:"ビールが",ta:"私が ビールを",aru:"ビールが"},
+  {ji:"体が",ta:"私が スープを",aru:"スープが"},
+  {ji:"お湯が",ta:"私が お湯を",aru:"お湯が"},
+  {ji:"洗濯物が",ta:"私が 髪を",aru:"洗濯物が"},
+  {ji:"服が",ta:"私が タオルを",aru:"タオルが"},
+  {ji:"荷物が",ta:"郵便屋さんが 荷物を",aru:"荷物が"},
+  {ji:"水が",ta:"私が コーヒーを",aru:null},
+  {ji:"ボタンが",ta:"私が ネクタイを",aru:null},
+  {ji:"電話のベルが",ta:"私が クラクションを",aru:null},
+  {ji:"落ち葉が",ta:"私が 落ち葉を",aru:null},
+  {ji:"川が",ta:"私が 水を",aru:null},
+  {ji:"木が",ta:"私が 木を",aru:null},
+  {ji:"糸が",ta:"私が 紙を",aru:"紙が"},
+  {ji:"服に 汚れが",ta:"私が 封筒に 切手を",aru:"封筒に 切手が"},
+  {ji:"ボタンが",ta:"私が りんごを",aru:null},
+  {ji:"気持ちが",ta:"私が 先生に メッセージを",aru:null},
+  {ji:"車が 道を",ta:"私が 針に 糸を",aru:"針に 糸が"},
+  {ji:"卵と牛乳が",ta:"私が 卵と牛乳を",aru:"卵と牛乳が"},
+  {ji:"地球が",ta:"私が 鍵を",aru:null},
+  {ji:"人が",ta:"私が 人を",aru:null}
+];
+
+// Stable balanced positions (version 2); answers saved against older positions expire.
+window.TU_THA_QUIZ_DATA.forEach((q, i) => {
+  const answer = q.options[q.answer];
+  const options = q.options.filter((_, index) => index !== q.answer);
+  q.answer = (i * 3 + 1) % 4;
+  options.splice(q.answer, 0, answer);
+  q.options = options;
+});
