@@ -60,8 +60,18 @@ def update_kanji_data_js():
     # Filter out any existing A2-2 items to avoid duplicate if rerun
     cleaned_data = [item for item in current_data if not str(item.get("lesson", "")).startswith("A2-2")]
     
-    # Append the 31 new items
-    total_data = cleaned_data + A2_2_KANJI_ITEMS
+    # Read the generated source rather than maintaining a second copy of words.
+    source = json.loads((ROOT / "data/kanji_vocab_a2_2.json").read_text(encoding="utf-8"))
+    groups = {(item["lesson"], item["kanji"]): item["group"] for item in A2_2_KANJI_ITEMS}
+    new_items = []
+    for lesson in (1, 2):
+        label = f"A2-2 L{lesson}"
+        for item in source[f"lesson_{lesson}"]:
+            new_items.append({
+                "lesson": label, "kanji": item["word"], "kana": item["kana"],
+                "vi": item["mean"], "group": groups.get((label, item["word"]), "Từ vựng"),
+            })
+    total_data = cleaned_data + new_items
     
     new_declaration = f"var VOCAB_121_DATA = {json.dumps(total_data, ensure_ascii=False)};"
     updated_content = content[:match.start()] + new_declaration + content[match.end():]

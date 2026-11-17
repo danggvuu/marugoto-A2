@@ -9,7 +9,10 @@ Generator for Marugoto A2-2 Lesson 1 and Lesson 2:
 """
 
 import json
+import hashlib
+from html import escape
 from pathlib import Path
+import random
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -79,7 +82,7 @@ L1_QUIZ = [
     {
         "id": 1,
         "category": "Ngữ pháp",
-        "q": "「ハノイ」というのは、「川の内側」[____] という意味です。",
+        "q": "「ハノイ」というのは、「川の内側」[____] いう意味です。",
         "options": ["と", "で", "に", "を"],
         "correct": 0,
         "explain": "Mẫu câu giải thích định nghĩa, ý nghĩa: 『～というのは、...という意味です』. Chữ 「と」 làm trợ từ trích dẫn nội dung ý nghĩa."
@@ -143,7 +146,7 @@ L1_QUIZ = [
     {
         "id": 9,
         "category": "Từ vựng",
-        "q": "将来、自分ので 日本料理の [____] を やりたいです。",
+        "q": "将来、自分で 日本料理の [____] を やりたいです。",
         "options": ["みせ", "むら", "しま", "とし"],
         "correct": 0,
         "explain": "Kinh doanh, mở quán ăn/nhà hàng dùng cụm từ 「店 (みせ) を やります」."
@@ -212,8 +215,8 @@ L2_VOCAB = [
     {"jp": "ぼうしをかぶります", "kana": "ぼうしを かぶります", "kanji": "ぼうしをかぶります", "romaji": "boushi o kaburimasu", "vi": "Đội mũ", "icon": "🧢"},
     {"jp": "スカートをはきます", "kana": "スカートを はきます", "kanji": "スカートをはきます", "romaji": "suka-to o hakimasu", "vi": "Mặc váy (phần dưới)", "icon": "👗"},
     {"jp": "くつをはきます", "kana": "くつを はきます", "kanji": "くつをはきます", "romaji": "kutsu o hakimasu", "vi": "Đi giày", "icon": "👟"},
-    {"jp": "Pにすわります", "kana": "Pに すわります", "kanji": "Pに座ります", "romaji": "P ni suwarimasu", "vi": "Ngồi ở vị trí P", "icon": "🪑"},
-    {"jp": "Pにたちます", "kana": "Pに たちます", "kanji": "Pに立ちます", "romaji": "P ni tachimasu", "vi": "Đứng ở vị trí P", "icon": "🧍"},
+    {"jp": "座ります", "kana": "すわります", "kanji": "座ります", "romaji": "suwarimasu", "vi": "Ngồi", "icon": "🪑"},
+    {"jp": "立ちます", "kana": "たちます", "kanji": "立ちます", "romaji": "tachimasu", "vi": "Đứng", "icon": "🧍"},
     {"jp": "笑います", "kana": "わらいます", "kanji": "笑います", "romaji": "waraimasu", "vi": "Cười", "icon": "😄"},
     {"jp": "泣きます", "kana": "なきます", "kanji": "泣きます", "romaji": "nakimasu", "vi": "Khóc", "icon": "😢"},
     {"jp": "厳しい", "kana": "きびしい", "kanji": "厳しい", "romaji": "kibishii", "vi": "Nghiêm khắc, khắt khe", "icon": "🧐"},
@@ -290,7 +293,7 @@ L2_QUIZ = [
         "id": 4,
         "category": "Từ vựng",
         "q": "きょうは 寒いですね。あたたかい [____] を 着ましょう。",
-        "options": ["セーター", "ネクタイ", "サリー", "めがね"],
+        "options": ["セーター", "ネクタイ", "くつ", "めがね"],
         "correct": 0,
         "explain": "Trời lạnh thì mặc áo len ấm áp: 「セーター」."
     },
@@ -329,10 +332,10 @@ L2_QUIZ = [
     {
         "id": 9,
         "category": "Từ vựng",
-        "q": "「あの [____] は だれの ご主人ですか。」 ―― 「佐藤さんの夫ですよ。」",
-        "options": ["男の人", "女の子", "歌手", "妹"],
+        "q": "Từ 「ご主人」 dùng để nói về ai trong các lựa chọn sau?",
+        "options": ["Chồng của người khác", "Vợ của người khác", "Em gái của mình", "Anh trai của mình"],
         "correct": 0,
-        "explain": "ご主人 là chồng của người khác (phái nam) ➔ 「男の人 (người đàn ông đó)」."
+        "explain": "ご主人 (ごしゅじん) là cách gọi chồng của người khác. Khi nói về chồng mình thường dùng 夫 (おっと)."
     },
     {
         "id": 10,
@@ -385,21 +388,29 @@ L2_QUIZ = [
 ]
 
 def make_svg(label, icon, color1="#4f46e5", color2="#7c3aed"):
-    safe_label = label[:12]
+    gradient_id = "g_" + hashlib.sha256(label.encode("utf-8")).hexdigest()[:16]
     return f'''<svg viewBox="0 0 240 120" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="g_{abs(hash(label))%10000}" x1="0" y1="0" x2="1" y2="1">
+    <linearGradient id="{gradient_id}" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="{color1}"/>
       <stop offset="100%" stop-color="{color2}"/>
     </linearGradient>
   </defs>
-  <rect width="240" height="120" rx="14" fill="url(#g_{abs(hash(label))%10000})"/>
+  <rect width="240" height="120" rx="14" fill="url(#{gradient_id})"/>
   <circle cx="120" cy="50" r="30" fill="rgba(255,255,255,0.2)"/>
   <text x="120" y="60" text-anchor="middle" font-size="32">{icon}</text>
-  <text x="120" y="105" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="800" font-family="system-ui, -apple-system, sans-serif">{safe_label}</text>
 </svg>'''
 
 def build_js_file(dest_path, vocab_list, verb_list, quiz_list, badge_name):
+    # Stable, balanced answer positions keep saved attempts reproducible.
+    positions = [i % 4 for i in range(len(quiz_list))]
+    random.Random(badge_name).shuffle(positions)
+    processed_quiz = []
+    for q, position in zip(quiz_list, positions):
+        answer = q["options"][q["correct"]]
+        options = [option for i, option in enumerate(q["options"]) if i != q["correct"]]
+        options.insert(position, answer)
+        processed_quiz.append({**q, "options": options, "correct": position})
     # Prepare vocab objects
     processed_vocab = []
     for idx, v in enumerate(vocab_list, 1):
@@ -421,7 +432,12 @@ const VOCAB_DATA = {json.dumps(processed_vocab, ensure_ascii=False, indent=2)};
 
 const VERB_DATA = {json.dumps(verb_list, ensure_ascii=False, indent=2)};
 
-const QUIZ_DATA = {json.dumps(quiz_list, ensure_ascii=False, indent=2)};
+const QUIZ_DATA = {json.dumps(processed_quiz, ensure_ascii=False, indent=2)};
+
+function escapeLessonText(value) {{
+    return String(value).replace(/&/g, '&amp;').replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+}}
 
 // Audio TTS handled globally via assets/js/audio-engine.js
 
@@ -466,18 +482,22 @@ function initFlashcards() {{
     if (!grid) return;
     grid.innerHTML = '';
     VOCAB_DATA.forEach(v => {{
-        const card = document.createElement('div');
+        const card = document.createElement('button');
+        card.type = 'button';
         card.className = 'fc-item';
+        card.setAttribute('aria-label', `Nghe ${{v.jp}}`);
         card.onclick = () => {{
             if (typeof speakText === 'function') speakText(v.kana || v.jp);
         }};
         card.innerHTML = `
-            <div class="fc-svg-wrap">${{v.svg}}</div>
-            <div class="fc-content">
-                <div class="fc-jp">${{v.jp}}</div>
-                <div class="fc-kana">${{v.kana}}</div>
-                <div class="fc-vi">${{v.vi}}</div>
-            </div>
+            <span class="fc-svg-wrap" aria-hidden="true">${{v.svg}}</span>
+            <span class="fc-content">
+                <span class="fc-jp" lang="ja">${{escapeLessonText(v.jp)}}</span>
+                <span class="fc-kana" lang="ja">${{escapeLessonText(v.kana)}}</span>
+                <span class="fc-romaji">${{escapeLessonText(v.romaji)}}</span>
+                <span class="fc-vi">${{escapeLessonText(v.vi)}}</span>
+                <span class="fc-listen">🔊 Nghe phát âm</span>
+            </span>
         `;
         grid.appendChild(card);
     }});
@@ -492,18 +512,19 @@ function initQuiz() {{
         const qBox = document.createElement('div');
         qBox.className = 'quiz-card';
         const optsHtml = q.options.map((opt, oIdx) => `
-            <button type="button" class="quiz-opt" onclick="checkQuizAnswer(this, ${{qIdx}}, ${{oIdx}})">${{opt}}</button>
+            <button type="button" class="quiz-opt" onclick="checkQuizAnswer(this, ${{qIdx}}, ${{oIdx}}, 'a22-reviewed-v2')">${{escapeLessonText(opt)}}</button>
         `).join('');
         qBox.innerHTML = `
-            <div class="quiz-q"><b>Câu ${{qIdx + 1}}:</b> ${{q.q}}</div>
+            <div class="quiz-q"><b>Câu ${{qIdx + 1}}:</b> ${{escapeLessonText(q.q)}}</div>
             <div class="quiz-opts">${{optsHtml}}</div>
-            <div class="quiz-explain" id="explain-${{qIdx}}">💡 ${{q.explain}}</div>
+            <div class="quiz-explain" id="explain-${{qIdx}}">💡 ${{escapeLessonText(q.explain)}}</div>
         `;
         c.appendChild(qBox);
     }});
 }}
 
-function checkQuizAnswer(btn, qIdx, oIdx) {{
+function checkQuizAnswer(btn, qIdx, oIdx, revision) {{
+    if (revision !== 'a22-reviewed-v2' || btn.disabled) return;
     const q = QUIZ_DATA[qIdx];
     const parent = btn.parentElement;
     const allBtns = parent.querySelectorAll('.quiz-opt');
@@ -543,6 +564,7 @@ def build_lesson_html(
     subtitle,
     vocab_count,
     grammar_count,
+    verb_count,
     kanji_count,
     grammar_blocks,
     kanji_cards,
@@ -582,9 +604,10 @@ def build_lesson_html(
     <script src="../assets/js/animate-ui.js" defer></script>
     <script src="../assets/js/audio-engine.js?v=2"></script>
     <link rel="stylesheet" href="../assets/css/lesson-a2-core.css?v=1">
-    <link rel="stylesheet" href="../assets/css/site-theme.css?v=6">
+    <link rel="stylesheet" href="../assets/css/site-theme.css?v=7">
+    <link rel="stylesheet" href="../assets/css/lesson-a2-2.css?v=1">
 </head>
-<body>
+<body class="lesson-a2-2">
 
 <div class="main-container">
     <!-- Global Hub Navigation Placeholder -->
@@ -596,7 +619,7 @@ def build_lesson_html(
         <a href="#sec-grammar2" class="sec-link">② Ngữ Pháp 2</a>
         <a href="#sec-grammar3" class="sec-link">③ Ngữ Pháp 3</a>
         <a href="#sec-verb-lab" class="sec-link">🔬 Biến Thể Động Từ</a>
-        <a href="#sec-vocab" class="sec-link">🎴 {vocab_count} Từ Vựng 3D</a>
+        <a href="#sec-vocab" class="sec-link">🎴 {vocab_count} Từ Vựng</a>
         <a href="#sec-typing-practice" class="sec-link">⌨️ Luyện Gõ Từ Vựng</a>
         <a href="#sec-kanji" class="sec-link">⛩️ {kanji_count} Chữ Hán</a>
         <a href="#sec-quiz" class="sec-link">📝 Mini Test 15 Câu</a>
@@ -623,7 +646,7 @@ def build_lesson_html(
                 <div class="stat-label">Chuyên đề ngữ pháp</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number">5</div>
+                <div class="stat-number">{verb_count}</div>
                 <div class="stat-label">Động từ mẫu Lab</div>
             </div>
             <div class="stat-card">
@@ -665,7 +688,7 @@ def build_lesson_html(
                     <span class="morph-val" id="morphTe">---</span>
                 </div>
                 <div class="morph-cell">
-                    <span class="morph-label">Thể Diễn Tiến (~te imasu)</span>
+                    <span class="morph-label">Dạng ～ています (hành động / trạng thái)</span>
                     <span class="morph-val" id="morphTeIki">---</span>
                 </div>
                 <div class="morph-cell">
@@ -686,8 +709,8 @@ def build_lesson_html(
             <h2 class="section-title"><span>🎴</span> Hệ Thống Flashcard Từ Vựng Trọng Tâm ({vocab_count} Từ)</h2>
             <span class="section-tag">Audio + Visual</span>
         </div>
-        <p style="margin-bottom: 16px; color: #475569;">Bấm vào từng thẻ để nghe phát âm chuẩn giọng bản xứ Tokyo:</p>
-        <div class="fc-grid" id="flashcardGrid"></div>
+        <p style="margin-bottom: 16px; color: #475569;">Bấm thẻ hoặc nhấn Enter để nghe tiếng Nhật. Giọng đọc phụ thuộc dịch vụ và thiết bị.</p>
+        <div class="flashcard-grid" id="flashcardGrid"></div>
     </section>
 
     <!-- Typing Practice Section -->
@@ -716,7 +739,7 @@ def build_lesson_html(
 </div>
 
 <!-- Scripts -->
-<script src="../assets/js/lessons/{js_filename}?v=1"></script>
+<script src="../assets/js/lessons/{js_filename}?v=2"></script>
 <script src="../assets/js/nav-dropdown.js"></script>
 <script src="../assets/nav.js?v=7" defer></script>
 <script src="../assets/js/jp-typing-grader.js?v=1" defer></script>
@@ -1010,6 +1033,7 @@ def main():
         subtitle="Học cách giới thiệu bản thân chi tiết: giải thích ý nghĩa nguồn gốc tên mình (というのは、という意味です), quê quán nơi sinh ra (で 生まれました) và diễn đạt hứng thú, sở thích cá nhân.",
         vocab_count=len(L1_VOCAB),
         grammar_count=3,
+        verb_count=len(L1_VERBS),
         kanji_count=len(L1_KANJI_CARDS),
         grammar_blocks=L1_GRAMMAR_BLOCKS,
         kanji_cards=L1_KANJI_CARDS,
@@ -1024,6 +1048,7 @@ def main():
         subtitle="Làm chủ đại cẩm nang 5 động từ mang mặc trang phục (着る, 履く, 被る, 掛ける, する), mẫu câu miêu tả trạng thái (～を 着ています) và mệnh đề định ngữ nhận diện người trong đám đông (V-ている 人).",
         vocab_count=len(L2_VOCAB),
         grammar_count=3,
+        verb_count=len(L2_VERBS),
         kanji_count=len(L2_KANJI_CARDS),
         grammar_blocks=L2_GRAMMAR_BLOCKS,
         kanji_cards=L2_KANJI_CARDS,

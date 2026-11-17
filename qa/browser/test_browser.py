@@ -73,6 +73,86 @@ class StudyFlows(unittest.TestCase):
         self.page.reload()
         self.page.clock.run_for(400)
 
+    def test_a2_2_lesson_links_and_local_dependencies(self):
+        for entry in ["index.html", "lessons/Marugoto_A2_Lesson_1.html"]:
+            self.go(entry)
+            for lesson in [1, 2]:
+                link = self.page.locator(f'#lessonsDropdownMenu a[href$="Marugoto_A2_2_Lesson_{lesson}.html"]')
+                self.assertEqual(link.count(), 1)
+                self.assertEqual(self.page.request.get(link.evaluate("(el)=>el.href")).status, 200)
+        for lesson in [1, 2]:
+            self.go(f"lessons/Marugoto_A2_2_Lesson_{lesson}.html")
+            self.assertEqual(self.page.locator("#flashcardGrid .fc-item").count(), 20 if lesson == 1 else 17)
+            missing = self.page.evaluate("""async () => {
+                const urls=[...document.querySelectorAll('script[src],link[rel="stylesheet"]')]
+                    .map(el=>el.src || el.href).filter(url=>url.startsWith(location.origin));
+                return (await Promise.all(urls.map(async url=>({url,status:(await fetch(url)).status}))))
+                    .filter(result=>result.status!==200);
+            }""")
+            self.assertEqual(missing, [])
+
+    def test_a2_2_flashcards_audio_typing_and_responsive_layout(self):
+        for lesson in [1, 2]:
+            self.go(f"lessons/Marugoto_A2_2_Lesson_{lesson}.html")
+            self.page.evaluate("() => {window.__spoken=[];window.speakText=text=>__spoken.push(text);}")
+            cards = self.page.locator("#flashcardGrid .fc-item")
+            expected = self.page.evaluate("VOCAB_DATA.map(item=>item.kana)")
+            for i, kana in enumerate(expected):
+                cards.nth(i).focus()
+                self.page.keyboard.press("Enter")
+                self.assertEqual(self.page.evaluate("__spoken.at(-1)"), kana)
+            self.assertEqual(self.page.locator(".fc-romaji").count(), len(expected))
+            for width in [360, 390, 768, 1440]:
+                with self.subTest(lesson=lesson, width=width):
+                    self.page.set_viewport_size({"width": width, "height": 900})
+                    self.assertEqual(self.page.evaluate("document.documentElement.scrollWidth"), width)
+                    self.assertEqual(self.page.locator("#flashcardGrid").evaluate("(el)=>getComputedStyle(el).display"), "grid")
+                    self.assertTrue(cards.evaluate_all("""els=>els.every(card=>{
+                        const svg=card.querySelector('svg').getBoundingClientRect();
+                        const copy=card.querySelector('.fc-content').getBoundingClientRect();
+                        return svg.bottom <= copy.top+1 && card.scrollWidth <= card.clientWidth;
+                    })"""))
+            self.page.locator("#tpCardInput").fill(expected[0])
+            self.page.locator("#tpCardCheckBtn").click()
+            self.assertIn("Chính xác", self.page.locator("#sec-typing-practice").inner_text())
+            self.page.locator("#tpBtnModeTable").click()
+            self.assertTrue(self.page.locator("#tpTableModeView").is_visible())
+            self.reload()
+            self.assertTrue(self.page.locator("#tpTableModeView").is_visible())
+
+    def test_a2_2_quiz_and_verb_lab_restore(self):
+        for lesson in [1, 2]:
+            self.go(f"lessons/Marugoto_A2_2_Lesson_{lesson}.html")
+            verbs = self.page.evaluate("VERB_DATA")
+            for i, verb in enumerate(verbs):
+                self.page.locator(".btn-verb-chip").nth(i).click()
+                for selector, key in [("#morphMasu", "masu"), ("#morphTe", "te"), ("#morphTeIki", "form1"), ("#morphTeKi", "form2"), ("#morphMashou", "form3")]:
+                    self.assertEqual(self.page.locator(selector).inner_text(), verb[key])
+            result = self.page.evaluate("""() => {
+                const boxes=[...document.querySelectorAll('#quizContainer .quiz-card')];
+                QUIZ_DATA.forEach((q,i)=>boxes[i].querySelectorAll('.quiz-opt')[q.correct].click());
+                return {correct:boxes.filter(el=>el.querySelector('.correct')).length,
+                    positions:[...new Set(QUIZ_DATA.map(q=>q.correct))].length};
+            }""")
+            self.assertEqual(result, {"correct": 15, "positions": 4})
+            self.reload()
+            self.assertEqual(self.page.locator("#quizContainer button.correct").count(), 15)
+            self.assertEqual(self.page.locator("#quizContainer button:disabled").count(), 60)
+
+    def test_a2_2_kanji_filters_audio_and_restore(self):
+        self.go("kanji_a2.html")
+        self.page.locator('[onclick="switchTab(\\\'tab-vocab-11-18\\\')"]').click()
+        for lesson, count in [(1, 15), (2, 16)]:
+            self.page.locator(f'.filter-121-btn[onclick*="A2-2 L{lesson}"]').click()
+            self.assertEqual(self.page.locator("#table121Body tr").count(), count)
+            self.page.evaluate("() => {window.__spoken=[];window.speakText=text=>__spoken.push(text);}")
+            expected = self.page.locator("#table121Body tr").first.locator("td").nth(3).inner_text()
+            self.page.locator("#table121Body .btn-sound-small").first.click()
+            self.assertEqual(self.page.evaluate("__spoken.at(-1)"), expected)
+            self.reload()
+            self.assertEqual(self.page.evaluate("current121Lesson"), f"A2-2 L{lesson}")
+            self.assertEqual(self.page.locator("#table121Body tr").count(), count)
+
     def test_vocab_paginate_search_clear_and_restore(self):
         self.go(VOCAB)
         self.assertEqual(self.page.locator("#vocabTableBody tr").count(), 50)
