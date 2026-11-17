@@ -569,6 +569,273 @@ window.KAIWA_TOPICS_DATA = [
             { speaker: "sensei", name: "Sensei", jp: "ふふ、サプライズですね！きっと レーさんも 喜んでくれますよ。楽しみに していますね。", vi: "Haha, một bất ngờ thú vị đấy! Nhất định Lê sẽ vui lắm cho mà xem. Cô cũng rất mong chờ đấy." },
             { speaker: "gakusei", name: "Bạn", jp: "はい！先生も ぜひ 一緒に 楽しんでくださいね。ありがとうございました！", vi: "Dạ vâng! Hôm đó cô cùng tham gia chung vui với chúng em nhé. Em cảm ơn cô ạ!" }
         ]
+    },
+    {
+        id: "topic4",
+        num: 4,
+        title: "Kinh Nghiệm Đi Nhật",
+        titleJp: "にほんへの りょこう・けいけん (日本旅行・経験)",
+        badge: "Chủ Đề 4 • Đề Mới Cô Giáo",
+        lessonRef: "Marugoto A2.1 — Bài 11 & 12 (Kinh nghiệm, Địa điểm & Ẩm thực)",
+        image: "assets/img/kaiwa/topic4_kinh_nghiem.jpg",
+        desc: "Thảo luận về kinh nghiệm du lịch Nhật Bản: Đã từng đi chưa (行ったことがありますか), muốn đi đâu (どこに行きたいですか), thích điều gì nhất ở Nhật Bản (何が一番好きですか) và lý do tại sao (どうしてですか).",
+        coreQuestions: [
+            {
+                id: 1,
+                qJp: "日本に 行ったことが ありますか。",
+                qVi: "Bạn đã từng đi Nhật Bản chưa?",
+                intent: "Giáo viên kiểm tra cấu trúc ngữ pháp kinh nghiệm 「V-たことが あります / ありません」.",
+                mindmap: [
+                    "Chưa từng đi (phổ biến nhất): まだありません (chưa từng), いつかぜひ行きたい (nhất định muốn đi một ngày nào đó)",
+                    "Đã từng đi: はい、あります (vâng, đã từng), 高校生の時に家族と旅行で行きました (hồi cấp 3 đã đi cùng gia đình), とても楽しかったです (rất vui)"
+                ],
+                sampleAnswers: [
+                    {
+                        level: "basic",
+                        tag: "Nếu chưa từng đi (A2.1)",
+                        jp: "いいえ、まだ 行ったことが ありません。でも、日本が 大好きですから、いつか ぜひ 行きたいです。",
+                        vi: "Dạ chưa, em chưa từng đi Nhật Bản. Nhưng vì em rất thích Nhật Bản nên một ngày nào đó nhất định em muốn đi ạ.",
+                        keyPoints: "Dùng cấu trúc 「まだ 〜たことがありません」 và mẫu mong muốn 「ぜひ 〜たいです」."
+                    },
+                    {
+                        level: "advanced",
+                        tag: "Mở rộng tự nhiên (A2+)",
+                        jp: "ええと、まだ 行ったことが ないんですが、子供の時から ずっと 日本に 憧れていました。今 日本語を 勉強していますから、卒業したら ぜひ 一人旅を してみたいです。",
+                        vi: "À, em chưa từng có dịp đến Nhật, nhưng từ thuở nhỏ em đã luôn ngưỡng mộ đất nước Nhật Bản rồi ạ. Bây giờ em đang học tiếng Nhật nên sau khi tốt nghiệp, nhất định em muốn thử đi du lịch một mình sang Nhật.",
+                        keyPoints: "Cụm từ đắt giá: 「ずっと〜に憧れていました (luôn ngưỡng mộ...)」, 「一人旅 (du lịch một mình)」."
+                    },
+                    {
+                        level: "basic",
+                        tag: "Nếu đã từng đi (A2.1)",
+                        jp: "はい、高校生の時に 一度 家族と 旅行で 行ったことが あります。景色が とても きれいでした。",
+                        vi: "Dạ vâng, hồi học cấp 3 em đã từng cùng gia đình đi du lịch Nhật Bản một lần rồi ạ. Phong cảnh ở đó đẹp lắm ạ.",
+                        keyPoints: "Dùng 「〜の時に (hồi...)」, 「一度 (một lần)」."
+                    }
+                ],
+                vocab: [
+                    { jp: "行ったことが あります", vi: "Đã từng đi" },
+                    { jp: "まだ〜ありません", vi: "Vẫn chưa..." },
+                    { jp: "いつか", vi: "Một ngày nào đó" },
+                    { jp: "ぜひ", vi: "Nhất định (thể hiện mong muốn)" }
+                ]
+            },
+            {
+                id: 2,
+                qJp: "どこに 行きましたか／行きたいですか。",
+                qVi: "Bạn đã đi đâu? / Bạn muốn đi đâu?",
+                intent: "Giáo viên kiểm tra trợ từ chỉ điểm đến 「に」 và mẫu mong muốn 「〜に行きたいです」 hoặc đã đi 「〜に行きました」.",
+                mindmap: [
+                    "Tokyo (東京): Thủ đô nhộn nhịp, phố điện tử Akihabara, tháp Tokyo SkyTree",
+                    "Kyoto (京都): Cố đô nghìn năm, chùa Vàng Kinkaku-ji, cổng trời Fushimi Inari",
+                    "Osaka (大阪): Thành phố ẩm thực, lâu đài Osaka, Takoyaki",
+                    "Hokkaido (北海道): Tuyết trắng mùa đông, lễ hội tuyết, hải sản tươi sống"
+                ],
+                sampleAnswers: [
+                    {
+                        level: "basic",
+                        tag: "Cơ bản (A2.1)",
+                        jp: "東京と 京都に 行きたいです。東京で ショッピングを して、京都で 古い お寺を 見たいです。",
+                        vi: "Em muốn đi Tokyo và Kyoto ạ. Em muốn đi mua sắm ở Tokyo và ngắm các ngôi đền chùa cổ ở Kyoto.",
+                        keyPoints: "Nối hành động bằng thể TE: 「〜て、〜たいです」."
+                    },
+                    {
+                        level: "advanced",
+                        tag: "Tự nhiên / Mở rộng (A2+)",
+                        jp: "もし 機会が あれば、冬の 北海道に 行きたいです。雪景色を 見たり、本場の 札幌ラーメンを 食べたり したいからです。それから、伝統的な 京都の 街も 歩いてみたいです。",
+                        vi: "Nếu có cơ hội, em rất muốn đến Hokkaido vào mùa đông ạ. Bởi vì em muốn được ngắm cảnh tuyết rơi và ăn món mì Sapporo Ramen chính gốc. Ngoài ra, em cũng muốn thử tản bộ ở những con phố truyền thống ở Kyoto.",
+                        keyPoints: "Cấu trúc liệt kê hành động tiêu biểu 「〜たり、〜たりしたい」 và giả định 「もし機会があれば」."
+                    }
+                ],
+                vocab: [
+                    { jp: "お寺 (おてら)", vi: "Chùa" },
+                    { jp: "ショッピング", vi: "Mua sắm (Shopping)" },
+                    { jp: "雪景色 (ゆきげしき)", vi: "Cảnh tuyết trắng" },
+                    { jp: "本場の (ほんばの)", vi: "Chính gốc / chuẩn bản xứ" }
+                ]
+            },
+            {
+                id: 3,
+                qJp: "日本の 何が 一番 好きですか。",
+                qVi: "Bạn thích điều gì của Nhật Bản nhất?",
+                intent: "Kiểm tra mẫu so sánh bậc nhất 「[Danh từ] が 一番 好きです」.",
+                mindmap: [
+                    "Ẩm thực (食べ物): ラーメン (Ramen), 寿司 (Sushi), 和菓子 (Bánh ngọt truyền thống)",
+                    "Văn hóa & Nghệ thuật: アニメ (Anime), マンガ (Manga), 着物 (Áo Kimono)",
+                    "Phong cảnh & Thiên nhiên: 桜 (Hoa anh đào), 富士山 (Núi Phú Sĩ), 紅葉 (Lá đỏ)"
+                ],
+                sampleAnswers: [
+                    {
+                        level: "basic",
+                        tag: "Cơ bản (A2.1)",
+                        jp: "日本の 食べ物が 一番 好きです。特に ラーメンと 寿司が 大好きです。",
+                        vi: "Em thích đồ ăn Nhật Bản nhất ạ. Đặc biệt là em mê mì Ramen và món Sushi.",
+                        keyPoints: "Dùng phó từ nhấn mạnh 「特に (đặc biệt là)」."
+                    },
+                    {
+                        level: "advanced",
+                        tag: "Tự nhiên / Mở rộng (A2+)",
+                        jp: "日本の アニメと 伝統的な 文化が 一番 好きです。子供の頃から 宮崎駿監督の アニメを 見て、日本の 美しい 自然や 優しい 人々に 興味を 持ちましたから。",
+                        vi: "Em thích nhất là anime và nét văn hóa truyền thống của Nhật Bản ạ. Từ thuở nhỏ em đã xem phim hoạt hình của đạo diễn Hayao Miyazaki, và từ đó đem lòng yêu mến thiên nhiên tươi đẹp cũng như con người hiền hòa nơi đây.",
+                        keyPoints: "Cụm từ ấn tượng: 「伝統的な文化 (văn hóa truyền thống)」, 「興味を持ちました (đã có niềm hứng thú)」."
+                    }
+                ],
+                vocab: [
+                    { jp: "一番 (いちばん)", vi: "Nhất / số 1" },
+                    { jp: "特に (とくに)", vi: "Đặc biệt là..." },
+                    { jp: "伝統的 (でんとうてき)", vi: "Tính truyền thống" },
+                    { jp: "自然 (しぜん)", vi: "Thiên nhiên" }
+                ]
+            },
+            {
+                id: 4,
+                qJp: "どこに 一番 行きたいですか。",
+                qVi: "Trong các địa điểm đó, bạn muốn đi đâu nhất?",
+                intent: "Giáo viên muốn bạn chọn ra 1 địa điểm duy nhất và diễn đạt lý do trọng tâm.",
+                mindmap: [
+                    "Kyoto (京都): Cố đô - mang đậm bản sắc Nhật Bản nhất",
+                    "Fujisan (富士山): Biểu tượng thiêng liêng của xứ sở mặt trời mọc",
+                    "Akihabara (秋葉原): Thủ phủ anime/manga toàn cầu",
+                    "Hokkaido (北海道): Thiên đường tuyết trắng và suối nước nóng"
+                ],
+                sampleAnswers: [
+                    {
+                        level: "basic",
+                        tag: "Cơ bản (A2.1)",
+                        jp: "京都に 一番 行きたいです。有名な 金閣寺を 自分の 目で 見たいからです。",
+                        vi: "Em muốn đến Kyoto nhất ạ. Bởi vì em muốn được tận mắt nhìn ngắm ngôi Chùa Vàng nổi tiếng.",
+                        keyPoints: "Cụm từ ăn điểm: 「自分の目で見る (nhìn bằng chính mắt mình)」."
+                    },
+                    {
+                        level: "advanced",
+                        tag: "Tự nhiên / Mở rộng (A2+)",
+                        jp: "一番 行きたい 所は 富士山です。湖の 近くの 旅館に 泊まって、きれいな 富士山を 眺めながら 温泉に 入るのが 私の 夢ですから。",
+                        vi: "Nơi em khao khát đến nhất là Núi Phú Sĩ ạ. Được trọ tại một lữ quán ven hồ, vừa ngắm nhìn núi Phú Sĩ hùng vĩ vừa tắm suối nước nóng Onsen chính là ước mơ lớn nhất của em.",
+                        keyPoints: "Cấu trúc vừa làm A vừa làm B 「〜ながら」 và danh từ hóa 「〜のが夢です (ước mơ của em là...)」."
+                    }
+                ],
+                vocab: [
+                    { jp: "金閣寺 (きんかくじ)", vi: "Chùa Vàng (Kyoto)" },
+                    { jp: "富士山 (ふじさん)", vi: "Núi Phú Sĩ" },
+                    { jp: "温泉 (おんせん)", vi: "Suối nước nóng" },
+                    { jp: "夢 (ゆめ)", vi: "Giấc mơ / ước mơ" }
+                ]
+            },
+            {
+                id: 5,
+                qJp: "どうしてですか。",
+                qVi: "Tại sao vậy? (Giải thích lý do cho câu trả lời trên)",
+                intent: "Kiểm tra mẫu giải thích nguyên nhân lý do 「〜からです / 〜ので」.",
+                mindmap: [
+                    "Vì cảnh sắc tuyệt đẹp: 景色が素晴らしいから (vì cảnh sắc tuyệt vời)",
+                    "Vì ở Việt Nam không có tuyết: ベトナムには雪が降らないから (vì ở VN ko có tuyết rơi)",
+                    "Vì muốn trải nghiệm văn hóa: 伝統文化を自分の肌で体験したいから (muốn tự mình trải nghiệm văn hóa)"
+                ],
+                sampleAnswers: [
+                    {
+                        level: "basic",
+                        tag: "Cơ bản (A2.1)",
+                        jp: "写真や テレビで 見て、街が とても 綺麗だったからです。日本の 歴史を 感じたいです。",
+                        vi: "Dạ vì em thấy trên ảnh và tivi phố xá đẹp quá ạ. Em muốn cảm nhận lịch sử lâu đời của Nhật Bản.",
+                        keyPoints: "Đuôi câu chuẩn ngữ pháp: 「〜からです」."
+                    },
+                    {
+                        level: "advanced",
+                        tag: "Tự nhiên / Mở rộng (A2+)",
+                        jp: "ベトナムには 雪が 降りませんから、一度で いいから 本物の 雪に 触ってみたいんです。それに、日本の 人々は とても 親切だと 聞きましたから、現地の人と 交流してみたいです。",
+                        vi: "Dạ vì ở Việt Nam không có tuyết rơi, nên dù chỉ một lần thôi em cũng muốn chạm tay vào tuyết thật ạ. Hơn nữa, em nghe nói người Nhật rất tốt bụng và hiếu khách nên em muốn được giao lưu cùng người dân bản địa.",
+                        keyPoints: "Cụm từ rất tự nhiên: 「一度でいいから (dù chỉ một lần)」, 「現地の人と交流する (giao lưu với người bản địa)」."
+                    }
+                ],
+                vocab: [
+                    { jp: "歴史 (れきし)", vi: "Lịch sử" },
+                    { jp: "雪が降る (ゆきがふる)", vi: "Tuyết rơi" },
+                    { jp: "触る (さわる)", vi: "Chạm / sờ vào" },
+                    { jp: "親切な (しんせつな)", vi: "Tốt bụng / thân thiện" }
+                ]
+            },
+            {
+                id: 6,
+                qJp: "日本で 何を 食べたいですか／食べましたか。",
+                qVi: "Bạn muốn ăn món gì / đã ăn món gì ở Nhật?",
+                intent: "Hỏi mở rộng về ẩm thực Nhật Bản.",
+                mindmap: [
+                    "Sushi (寿司): Cá hồi, cá ngừ tươi ngon (新鮮な魚)",
+                    "Ramen (ラーメン): Nước dùng đậm đà, mì nóng hổi",
+                    "Món ngọt: 抹茶アイス (Kem matcha), たい焼き (Bánh cá Taiyaki)"
+                ],
+                sampleAnswers: [
+                    {
+                        level: "basic",
+                        tag: "Cơ bản (A2.1)",
+                        jp: "本場の ラーメンと 寿司を 食べたいです。ベトナムでも 食べられますが、本場の 味を 試してみたいです。",
+                        vi: "Em muốn ăn mì Ramen và Sushi chính gốc ạ. Dù ở Việt Nam cũng có thể ăn được nhưng em muốn thử hương vị chuẩn bản xứ.",
+                        keyPoints: "Dùng thể khả năng 「食べられます」 và 「〜てみたいです (muốn làm thử)」."
+                    },
+                    {
+                        level: "advanced",
+                        tag: "Tự nhiên / Mở rộng (A2+)",
+                        jp: "新鮮な 海鮮丼や 和牛の すき焼きを 食べてみたいです。それから、京都の 伝統的な お茶屋さんで 本格的な 抹茶と 和菓子も 味わってみたいと 思います。",
+                        vi: "Em muốn thử món cơm hải sản tươi sống Kaisen-don và lẩu bò Wagyu Sukiyaki ạ. Ngoài ra, em cũng ước được thưởng thức trà Matcha và bánh ngọt Wagashi tại một quán trà truyền thống ở Kyoto.",
+                        keyPoints: "Từ vựng ẩm thực phong phú: 「海鮮丼」, 「すき焼き」, 「和菓子」, 「味わう (thưởng thức)」."
+                    }
+                ],
+                vocab: [
+                    { jp: "本場の味 (ほんばのあじ)", vi: "Hương vị chính gốc" },
+                    { jp: "新鮮な (しんせんな)", vi: "Tươi ngon" },
+                    { jp: "海鮮丼 (かいせんどん)", vi: "Cơm hải sản tươi" },
+                    { jp: "味わう (あじわう)", vi: "Thưởng thức hương vị" }
+                ]
+            },
+            {
+                id: 7,
+                qJp: "日本で お土産は 何を 買いたいですか。",
+                qVi: "Bạn muốn mua món quà lưu niệm nào khi đến Nhật?",
+                intent: "Hỏi về quà tặng và phong tục mua Omiyage.",
+                mindmap: [
+                    "Bánh kẹo: 抹茶のお菓子 (Bánh kẹo vị matcha), 東京ばな奈 (Bánh chuối Tokyo)",
+                    "Quà lưu niệm: お守り (Bùa bình an), 扇子 (Quạt giấy truyền thống), マグネット (Nam châm tủ lạnh)"
+                ],
+                sampleAnswers: [
+                    {
+                        level: "basic",
+                        tag: "Cơ bản (A2.1)",
+                        jp: "家族や 友達に 日本の お菓子や、お守りを 買いたいです。",
+                        vi: "Em muốn mua bánh kẹo Nhật và bùa may mắn Omamori cho gia đình và bạn bè ạ.",
+                        keyPoints: "Đơn giản, đủ ý, phát âm tròn vành rõ chữ."
+                    },
+                    {
+                        level: "advanced",
+                        tag: "Tự nhiên / Mở rộng (A2+)",
+                        jp: "家族には 健康の お守りと 伝統的な お茶を、友達には 有名な 抹茶味の お菓子を たくさん 買って 帰りたいです。",
+                        vi: "Em muốn mua bùa cầu sức khỏe và trà truyền thống cho gia đình, còn với bạn bè thì mua thật nhiều bánh kẹo vị matcha nổi tiếng mang về làm quà ạ.",
+                        keyPoints: "Phân nhánh đối tượng: 「家族には〜、友達には〜」 rất thông minh và lưu loát."
+                    }
+                ],
+                vocab: [
+                    { jp: "お土産 (おみやげ)", vi: "Quà lưu niệm" },
+                    { jp: "お守り (おまもり)", vi: "Bùa may mắn / bình an" },
+                    { jp: "買って帰る (かってかえる)", vi: "Mua mang về" }
+                ]
+            }
+        ],
+        fullDialogue: [
+            { speaker: "sensei", name: "Sensei", jp: "こんにちは。今日は『日本への 旅行や 経験』についての お話を 聞かせてくださいね。", vi: "Chào em. Hôm nay em hãy chia sẻ về chủ đề 'Du lịch và kinh nghiệm trải nghiệm Nhật Bản' nhé." },
+            { speaker: "gakusei", name: "Bạn", jp: "はい、先生！よろしくお願いします。", vi: "Dạ vâng thưa cô! Em xin phép bắt đầu ạ." },
+            { speaker: "sensei", name: "Sensei", jp: "まず、日本に 行ったことが ありますか。", vi: "Trước hết, em đã từng đi Nhật Bản chưa?" },
+            { speaker: "gakusei", name: "Bạn", jp: "いいえ、まだ 行ったことが ありません。でも、日本が 大好きですから、いつか ぜひ 行きたいです。", vi: "Dạ chưa, em chưa từng đi Nhật bao giờ ạ. Nhưng vì em rất yêu thích Nhật Bản nên một ngày nào đó nhất định em muốn đến thăm." },
+            { speaker: "sensei", name: "Sensei", jp: "そうなんですね。もし 行くなら、どこに 行きたいですか。", vi: "Vậy à. Nếu được đi, em muốn đi những đâu?" },
+            { speaker: "gakusei", name: "Bạn", jp: "東京と 京都に 行きたいです。東京で ショッピングを して、京都で 古い お寺を 見たいです。", vi: "Dạ em muốn đi Tokyo và Kyoto ạ. Em muốn mua sắm ở Tokyo và chiêm ngưỡng các ngôi chùa cổ ở Kyoto." },
+            { speaker: "sensei", name: "Sensei", jp: "いいですね！では、日本の 何が 一番 好きですか。", vi: "Tuyệt quá! Thế trong những điều của nước Nhật, em thích điều gì nhất?" },
+            { speaker: "gakusei", name: "Bạn", jp: "日本の アニメと 食べ物が 一番 好きです。特に ラーメンと 寿司が 大好きです。", vi: "Dạ em thích nhất anime và các món ăn Nhật Bản ạ. Đặc biệt là em mê mì ramen và sushi." },
+            { speaker: "sensei", name: "Sensei", jp: "ふふ、ラーメンと 寿司ですか、おいしいですね。では、その中で どこに 一番 行きたいですか。", vi: "Haha, ramen và sushi à, ngon tuyệt đấy. Vậy trong các nơi, em khao khát đến nơi nào nhất?" },
+            { speaker: "gakusei", name: "Bạn", jp: "京都に 一番 行きたいです。有名な 金閣寺を 自分の 目で 見たいですから。", vi: "Dạ em muốn đến Kyoto nhất ạ. Bởi vì em muốn tận mắt nhìn ngắm ngôi Chùa Vàng nổi tiếng." },
+            { speaker: "sensei", name: "Sensei", jp: "どうして 金閣寺を 見たいんですか。", vi: "Tại sao em lại muốn ngắm Chùa Vàng đến vậy?" },
+            { speaker: "gakusei", name: "Bạn", jp: "写真で 見て、金色に 輝いていて とても 綺麗だったからです。日本の 歴史と 文化を 肌で 感じたいです。", vi: "Dạ vì em xem trên ảnh thấy chùa tỏa ánh vàng rực rỡ và đẹp lộng lẫy ạ. Em muốn tự mình cảm nhận lịch sử và chiều sâu văn hóa Nhật Bản." },
+            { speaker: "sensei", name: "Sensei", jp: "素晴らしいですね！日本で 何か 食べてみたい 料理や、買いたい お土産は ありますか。", vi: "Thật tuyệt vời! Ở Nhật em có muốn ăn món gì đặc biệt hay mua quà gì về không?" },
+            { speaker: "gakusei", name: "Bạn", jp: "本場の 豚骨ラーメンを 食べたいです！そして 家族には お守り、友達には 抹茶の お菓子を たくさん 買って 帰りたいです。", vi: "Dạ em muốn ăn mì Tonkotsu Ramen chuẩn vị bản xứ ạ! Và em muốn mua bùa may mắn cho gia đình, còn bạn bè thì mua thật nhiều bánh kẹo vị matcha mang về làm quà ạ." },
+            { speaker: "sensei", name: "Sensei", jp: "とても 流暢に、楽しそうに 答えられましたね！発音も 上手です。ぜひ 夢を かなえて 日本へ 行ってくださいね。", vi: "Em trả lời rất trôi chảy, tự nhiên và đầy hứng khởi đấy! Phát âm cũng rất tốt. Hãy hiện thực hóa ước mơ và sang Nhật Bản nhé!" },
+            { speaker: "gakusei", name: "Bạn", jp: "はい！先生、聞いてくださって 本当に ありがとうございました！", vi: "Dạ vâng! Em cảm ơn cô rất nhiều vì đã lắng nghe và khích lệ em ạ!" }
+        ]
     }
 ];
 
