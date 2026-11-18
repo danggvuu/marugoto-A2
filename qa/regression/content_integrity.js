@@ -78,6 +78,7 @@ for (const exam of examsContext.window.DE_THI_TONG_HOP_DATA.filter(exam => /^M11
     const questions = exam.sections.flatMap(section => section.groups.flatMap(group => group.items));
     const text = JSON.stringify(questions);
     assert(!/スプーン|フォーク|ナイフ|ファクス|アレルギー|納豆|富士山|日本で 働いた|経験/.test(text), `${exam.code}: out-of-scope bank item`);
+    assert(!/相談|案内|準備|予約|連絡|習慣|遠慮|複雑|参加|招待|世話|残業|無理/.test(text), `${exam.code}: non-A2-1 L11-18 Kanji bank item`);
     assert(!/ように|ながら|てしま|なければ|ほうがいい|食べられ/.test(text), `${exam.code}: out-of-scope grammar`);
 }
 console.log(`Content checks passed: ${questionsChecked} lesson questions, 21 theory sections, 144 Kanji entries in source/runtime, corrected exam cases.`);

@@ -1190,152 +1190,152 @@ window.DE_THI_TONG_HOP_DATA = [
               {
                 "id": 1,
                 "type": "mc",
-                "prompt": "日本語の <u>発音</u> を 練習します。",
-                "promptVi": "Tôi luyện phát âm tiếng Nhật.",
-                "targetWord": "発音",
+                "prompt": "「お茶」の 読み方は 何ですか。",
+                "promptVi": "お茶 có nghĩa là Trà.",
+                "targetWord": "お茶",
                 "options": [
-                  "はつおん",
-                  "はっおん",
-                  "はついん",
-                  "はちおん"
+                  "おちゃ",
+                  "もちます",
+                  "きもち",
+                  "おねがい"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 発音（はつおん）: phát âm."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• お茶 ➔ おちゃ (Trà — Bài 11)."
               },
               {
                 "id": 2,
                 "type": "mc",
-                "prompt": "友達が <u>結婚</u> しました。",
-                "promptVi": "Bạn tôi đã kết hôn.",
-                "targetWord": "結婚",
+                "prompt": "「持ちます」の 読み方は 何ですか。",
+                "promptVi": "持ちます có nghĩa là Mang, cầm / Có, sở hữu.",
+                "targetWord": "持ちます",
                 "options": [
-                  "けっこん",
-                  "けつこん",
-                  "けっこう",
-                  "けんこん"
+                  "もちます",
+                  "きもち",
+                  "おねがい",
+                  "おねがいします"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 結婚（けっこん）: kết hôn."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 持ちます ➔ もちます (Mang, cầm / Có, sở hữu — Bài 11)."
               },
               {
                 "id": 3,
                 "type": "mc",
-                "prompt": "健康は <u>大切</u> です。",
-                "promptVi": "Sức khỏe rất quan trọng.",
-                "targetWord": "大切",
+                "prompt": "「気持ち」の 読み方は 何ですか。",
+                "promptVi": "気持ち có nghĩa là Cảm xúc.",
+                "targetWord": "気持ち",
                 "options": [
-                  "たいせつ",
-                  "だいせつ",
-                  "たいきり",
-                  "おおせつ"
+                  "きもち",
+                  "おねがい",
+                  "おねがいします",
+                  "りょうり"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 大切（たいせつ）: quan trọng, quý giá."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 気持ち ➔ きもち (Cảm xúc — Bài 11)."
               },
               {
                 "id": 4,
                 "type": "mc",
-                "prompt": "毎日 運動して、<u>健康</u> に なりました。",
-                "promptVi": "Tôi đã khỏe mạnh hơn nhờ tập thể dục mỗi ngày.",
-                "targetWord": "健康",
+                "prompt": "「お願い」の 読み方は 何ですか。",
+                "promptVi": "お願い có nghĩa là Yêu cầu, điều nhờ vả.",
+                "targetWord": "お願い",
                 "options": [
-                  "けんこう",
-                  "けんごう",
-                  "げんこう",
-                  "けんこ"
+                  "おねがい",
+                  "おねがいします",
+                  "りょうり",
+                  "あじ"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 健康（けんこう）: khỏe mạnh, sức khỏe."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• お願い ➔ おねがい (Yêu cầu, điều nhờ vả — Bài 11)."
               },
               {
                 "id": 5,
                 "type": "mc",
-                "prompt": "これは <u>自分</u> で 作りました。",
-                "promptVi": "Tôi tự mình làm việc này.",
-                "targetWord": "自分",
+                "prompt": "「お願いします」の 読み方は 何ですか。",
+                "promptVi": "お願いします có nghĩa là Làm ơn, vui lòng....",
+                "targetWord": "お願いします",
                 "options": [
-                  "じぶん",
-                  "しぶん",
-                  "じほん",
-                  "じもん"
+                  "おねがいします",
+                  "りょうり",
+                  "あじ",
+                  "いろ"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 自分（じぶん）: bản thân, tự mình."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• お願いします ➔ おねがいします (Làm ơn, vui lòng... — Bài 11)."
               },
               {
                 "id": 6,
                 "type": "mc",
-                "prompt": "<u>毎日</u> 日本語を 勉強します。",
-                "promptVi": "Tôi học tiếng Nhật mỗi ngày.",
-                "targetWord": "毎日",
+                "prompt": "「料理」の 読み方は 何ですか。",
+                "promptVi": "料理 có nghĩa là Món ăn.",
+                "targetWord": "料理",
                 "options": [
-                  "まいにち",
-                  "まいひ",
-                  "まいじつ",
-                  "まいび"
+                  "りょうり",
+                  "あじ",
+                  "いろ",
+                  "いろいろ"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 毎日（まいにち）: mỗi ngày."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 料理 ➔ りょうり (Món ăn — Bài 12)."
               },
               {
                 "id": 7,
                 "type": "mc",
-                "prompt": "<u>週末</u> に 友達と 会います。",
-                "promptVi": "Cuối tuần tôi gặp bạn.",
-                "targetWord": "週末",
+                "prompt": "「味」の 読み方は 何ですか。",
+                "promptVi": "味 có nghĩa là Vị.",
+                "targetWord": "味",
                 "options": [
-                  "しゅうまつ",
-                  "しゅまつ",
-                  "しゅうばつ",
-                  "しゅうげつ"
+                  "あじ",
+                  "いろ",
+                  "いろいろ",
+                  "やさい"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 週末（しゅうまつ）: cuối tuần."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 味 ➔ あじ (Vị — Bài 12)."
               },
               {
                 "id": 8,
                 "type": "mc",
-                "prompt": "今日は 私の <u>誕生日</u> です。",
-                "promptVi": "Hôm nay là sinh nhật tôi.",
-                "targetWord": "誕生日",
+                "prompt": "「色」の 読み方は 何ですか。",
+                "promptVi": "色 có nghĩa là Màu sắc.",
+                "targetWord": "色",
                 "options": [
-                  "たんじょうび",
-                  "たんじょび",
-                  "たんせいび",
-                  "たんしょうひ"
+                  "いろ",
+                  "いろいろ",
+                  "やさい",
+                  "あいます"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 誕生日（たんじょうび）: sinh nhật."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 色 ➔ いろ (Màu sắc — Bài 12)."
               },
               {
                 "id": 9,
                 "type": "mc",
-                "prompt": "毎朝 公園を <u>走ります</u>。",
-                "promptVi": "Mỗi sáng tôi chạy trong công viên.",
-                "targetWord": "走ります",
+                "prompt": "「色々」の 読み方は 何ですか。",
+                "promptVi": "色々 có nghĩa là Đa dạng.",
+                "targetWord": "色々",
                 "options": [
-                  "はしります",
-                  "はじります",
-                  "そうります",
-                  "はします"
+                  "いろいろ",
+                  "やさい",
+                  "あいます",
+                  "しゃかい"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 走ります（はしります）: chạy."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 色々 ➔ いろいろ (Đa dạng — Bài 12)."
               },
               {
                 "id": 10,
                 "type": "mc",
-                "prompt": "冬に コートを <u>着ます</u>。",
-                "promptVi": "Mùa đông tôi mặc áo khoác.",
-                "targetWord": "着ます",
+                "prompt": "「野菜」の 読み方は 何ですか。",
+                "promptVi": "野菜 có nghĩa là Rau.",
+                "targetWord": "野菜",
                 "options": [
-                  "きます",
-                  "きります",
-                  "つきます",
-                  "ちゃくます"
+                  "やさい",
+                  "あいます",
+                  "しゃかい",
+                  "ししゃ"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 着ます（きます）: mặc."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 野菜 ➔ やさい (Rau — Bài 12)."
               }
             ]
           },
@@ -2361,152 +2361,152 @@ window.DE_THI_TONG_HOP_DATA = [
               {
                 "id": 1,
                 "type": "mc",
-                "prompt": "健康は <u>大切</u> です。",
-                "promptVi": "Sức khỏe rất quan trọng.",
-                "targetWord": "大切",
+                "prompt": "「気持ち」の 読み方は 何ですか。",
+                "promptVi": "気持ち có nghĩa là Cảm xúc.",
+                "targetWord": "気持ち",
                 "options": [
-                  "たいせつ",
-                  "だいせつ",
-                  "たいきり",
-                  "おおせつ"
+                  "きもち",
+                  "おねがい",
+                  "おねがいします",
+                  "りょうり"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 大切（たいせつ）: quan trọng, quý giá."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 気持ち ➔ きもち (Cảm xúc — Bài 11)."
               },
               {
                 "id": 2,
                 "type": "mc",
-                "prompt": "毎日 運動して、<u>健康</u> に なりました。",
-                "promptVi": "Tôi đã khỏe mạnh hơn nhờ tập thể dục mỗi ngày.",
-                "targetWord": "健康",
+                "prompt": "「お願い」の 読み方は 何ですか。",
+                "promptVi": "お願い có nghĩa là Yêu cầu, điều nhờ vả.",
+                "targetWord": "お願い",
                 "options": [
-                  "けんこう",
-                  "けんごう",
-                  "げんこう",
-                  "けんこ"
+                  "おねがい",
+                  "おねがいします",
+                  "りょうり",
+                  "あじ"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 健康（けんこう）: khỏe mạnh, sức khỏe."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• お願い ➔ おねがい (Yêu cầu, điều nhờ vả — Bài 11)."
               },
               {
                 "id": 3,
                 "type": "mc",
-                "prompt": "これは <u>自分</u> で 作りました。",
-                "promptVi": "Tôi tự mình làm việc này.",
-                "targetWord": "自分",
+                "prompt": "「お願いします」の 読み方は 何ですか。",
+                "promptVi": "お願いします có nghĩa là Làm ơn, vui lòng....",
+                "targetWord": "お願いします",
                 "options": [
-                  "じぶん",
-                  "しぶん",
-                  "じほん",
-                  "じもん"
+                  "おねがいします",
+                  "りょうり",
+                  "あじ",
+                  "いろ"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 自分（じぶん）: bản thân, tự mình."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• お願いします ➔ おねがいします (Làm ơn, vui lòng... — Bài 11)."
               },
               {
                 "id": 4,
                 "type": "mc",
-                "prompt": "<u>毎日</u> 日本語を 勉強します。",
-                "promptVi": "Tôi học tiếng Nhật mỗi ngày.",
-                "targetWord": "毎日",
+                "prompt": "「料理」の 読み方は 何ですか。",
+                "promptVi": "料理 có nghĩa là Món ăn.",
+                "targetWord": "料理",
                 "options": [
-                  "まいにち",
-                  "まいひ",
-                  "まいじつ",
-                  "まいび"
+                  "りょうり",
+                  "あじ",
+                  "いろ",
+                  "いろいろ"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 毎日（まいにち）: mỗi ngày."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 料理 ➔ りょうり (Món ăn — Bài 12)."
               },
               {
                 "id": 5,
                 "type": "mc",
-                "prompt": "<u>週末</u> に 友達と 会います。",
-                "promptVi": "Cuối tuần tôi gặp bạn.",
-                "targetWord": "週末",
+                "prompt": "「味」の 読み方は 何ですか。",
+                "promptVi": "味 có nghĩa là Vị.",
+                "targetWord": "味",
                 "options": [
-                  "しゅうまつ",
-                  "しゅまつ",
-                  "しゅうばつ",
-                  "しゅうげつ"
+                  "あじ",
+                  "いろ",
+                  "いろいろ",
+                  "やさい"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 週末（しゅうまつ）: cuối tuần."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 味 ➔ あじ (Vị — Bài 12)."
               },
               {
                 "id": 6,
                 "type": "mc",
-                "prompt": "今日は 私の <u>誕生日</u> です。",
-                "promptVi": "Hôm nay là sinh nhật tôi.",
-                "targetWord": "誕生日",
+                "prompt": "「色」の 読み方は 何ですか。",
+                "promptVi": "色 có nghĩa là Màu sắc.",
+                "targetWord": "色",
                 "options": [
-                  "たんじょうび",
-                  "たんじょび",
-                  "たんせいび",
-                  "たんしょうひ"
+                  "いろ",
+                  "いろいろ",
+                  "やさい",
+                  "あいます"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 誕生日（たんじょうび）: sinh nhật."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 色 ➔ いろ (Màu sắc — Bài 12)."
               },
               {
                 "id": 7,
                 "type": "mc",
-                "prompt": "毎朝 公園を <u>走ります</u>。",
-                "promptVi": "Mỗi sáng tôi chạy trong công viên.",
-                "targetWord": "走ります",
+                "prompt": "「色々」の 読み方は 何ですか。",
+                "promptVi": "色々 có nghĩa là Đa dạng.",
+                "targetWord": "色々",
                 "options": [
-                  "はしります",
-                  "はじります",
-                  "そうります",
-                  "はします"
+                  "いろいろ",
+                  "やさい",
+                  "あいます",
+                  "しゃかい"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 走ります（はしります）: chạy."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 色々 ➔ いろいろ (Đa dạng — Bài 12)."
               },
               {
                 "id": 8,
                 "type": "mc",
-                "prompt": "冬に コートを <u>着ます</u>。",
-                "promptVi": "Mùa đông tôi mặc áo khoác.",
-                "targetWord": "着ます",
+                "prompt": "「野菜」の 読み方は 何ですか。",
+                "promptVi": "野菜 có nghĩa là Rau.",
+                "targetWord": "野菜",
                 "options": [
-                  "きます",
-                  "きります",
-                  "つきます",
-                  "ちゃくます"
+                  "やさい",
+                  "あいます",
+                  "しゃかい",
+                  "ししゃ"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 着ます（きます）: mặc."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 野菜 ➔ やさい (Rau — Bài 12)."
               },
               {
                 "id": 9,
                 "type": "mc",
-                "prompt": "<u>電車</u> で 会社へ 行きます。",
-                "promptVi": "Tôi đi tàu điện đến công ty.",
-                "targetWord": "電車",
+                "prompt": "「会います」の 読み方は 何ですか。",
+                "promptVi": "会います có nghĩa là Gặp gỡ.",
+                "targetWord": "会います",
                 "options": [
-                  "でんしゃ",
-                  "でんじゃ",
-                  "てんしゃ",
-                  "でんちゃ"
+                  "あいます",
+                  "しゃかい",
+                  "ししゃ",
+                  "きます"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 電車（でんしゃ）: tàu điện."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 会います ➔ あいます (Gặp gỡ — Bài 13)."
               },
               {
                 "id": 10,
                 "type": "mc",
-                "prompt": "母に 写真を <u>送ります</u>。",
-                "promptVi": "Tôi gửi ảnh cho mẹ.",
-                "targetWord": "送ります",
+                "prompt": "「社会」の 読み方は 何ですか。",
+                "promptVi": "社会 có nghĩa là Xã hội.",
+                "targetWord": "社会",
                 "options": [
-                  "おくります",
-                  "おぐります",
-                  "そうります",
-                  "おくれます"
+                  "しゃかい",
+                  "ししゃ",
+                  "きます",
+                  "きもの"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 送ります（おくります）: gửi."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 社会 ➔ しゃかい (Xã hội — Bài 13)."
               }
             ]
           },
@@ -3532,152 +3532,152 @@ window.DE_THI_TONG_HOP_DATA = [
               {
                 "id": 1,
                 "type": "mc",
-                "prompt": "これは <u>自分</u> で 作りました。",
-                "promptVi": "Tôi tự mình làm việc này.",
-                "targetWord": "自分",
+                "prompt": "「お願いします」の 読み方は 何ですか。",
+                "promptVi": "お願いします có nghĩa là Làm ơn, vui lòng....",
+                "targetWord": "お願いします",
                 "options": [
-                  "じぶん",
-                  "しぶん",
-                  "じほん",
-                  "じもん"
+                  "おねがいします",
+                  "りょうり",
+                  "あじ",
+                  "いろ"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 自分（じぶん）: bản thân, tự mình."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• お願いします ➔ おねがいします (Làm ơn, vui lòng... — Bài 11)."
               },
               {
                 "id": 2,
                 "type": "mc",
-                "prompt": "<u>毎日</u> 日本語を 勉強します。",
-                "promptVi": "Tôi học tiếng Nhật mỗi ngày.",
-                "targetWord": "毎日",
+                "prompt": "「料理」の 読み方は 何ですか。",
+                "promptVi": "料理 có nghĩa là Món ăn.",
+                "targetWord": "料理",
                 "options": [
-                  "まいにち",
-                  "まいひ",
-                  "まいじつ",
-                  "まいび"
+                  "りょうり",
+                  "あじ",
+                  "いろ",
+                  "いろいろ"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 毎日（まいにち）: mỗi ngày."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 料理 ➔ りょうり (Món ăn — Bài 12)."
               },
               {
                 "id": 3,
                 "type": "mc",
-                "prompt": "<u>週末</u> に 友達と 会います。",
-                "promptVi": "Cuối tuần tôi gặp bạn.",
-                "targetWord": "週末",
+                "prompt": "「味」の 読み方は 何ですか。",
+                "promptVi": "味 có nghĩa là Vị.",
+                "targetWord": "味",
                 "options": [
-                  "しゅうまつ",
-                  "しゅまつ",
-                  "しゅうばつ",
-                  "しゅうげつ"
+                  "あじ",
+                  "いろ",
+                  "いろいろ",
+                  "やさい"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 週末（しゅうまつ）: cuối tuần."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 味 ➔ あじ (Vị — Bài 12)."
               },
               {
                 "id": 4,
                 "type": "mc",
-                "prompt": "今日は 私の <u>誕生日</u> です。",
-                "promptVi": "Hôm nay là sinh nhật tôi.",
-                "targetWord": "誕生日",
+                "prompt": "「色」の 読み方は 何ですか。",
+                "promptVi": "色 có nghĩa là Màu sắc.",
+                "targetWord": "色",
                 "options": [
-                  "たんじょうび",
-                  "たんじょび",
-                  "たんせいび",
-                  "たんしょうひ"
+                  "いろ",
+                  "いろいろ",
+                  "やさい",
+                  "あいます"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 誕生日（たんじょうび）: sinh nhật."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 色 ➔ いろ (Màu sắc — Bài 12)."
               },
               {
                 "id": 5,
                 "type": "mc",
-                "prompt": "毎朝 公園を <u>走ります</u>。",
-                "promptVi": "Mỗi sáng tôi chạy trong công viên.",
-                "targetWord": "走ります",
+                "prompt": "「色々」の 読み方は 何ですか。",
+                "promptVi": "色々 có nghĩa là Đa dạng.",
+                "targetWord": "色々",
                 "options": [
-                  "はしります",
-                  "はじります",
-                  "そうります",
-                  "はします"
+                  "いろいろ",
+                  "やさい",
+                  "あいます",
+                  "しゃかい"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 走ります（はしります）: chạy."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 色々 ➔ いろいろ (Đa dạng — Bài 12)."
               },
               {
                 "id": 6,
                 "type": "mc",
-                "prompt": "冬に コートを <u>着ます</u>。",
-                "promptVi": "Mùa đông tôi mặc áo khoác.",
-                "targetWord": "着ます",
+                "prompt": "「野菜」の 読み方は 何ですか。",
+                "promptVi": "野菜 có nghĩa là Rau.",
+                "targetWord": "野菜",
                 "options": [
-                  "きます",
-                  "きります",
-                  "つきます",
-                  "ちゃくます"
+                  "やさい",
+                  "あいます",
+                  "しゃかい",
+                  "ししゃ"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 着ます（きます）: mặc."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 野菜 ➔ やさい (Rau — Bài 12)."
               },
               {
                 "id": 7,
                 "type": "mc",
-                "prompt": "<u>電車</u> で 会社へ 行きます。",
-                "promptVi": "Tôi đi tàu điện đến công ty.",
-                "targetWord": "電車",
+                "prompt": "「会います」の 読み方は 何ですか。",
+                "promptVi": "会います có nghĩa là Gặp gỡ.",
+                "targetWord": "会います",
                 "options": [
-                  "でんしゃ",
-                  "でんじゃ",
-                  "てんしゃ",
-                  "でんちゃ"
+                  "あいます",
+                  "しゃかい",
+                  "ししゃ",
+                  "きます"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 電車（でんしゃ）: tàu điện."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 会います ➔ あいます (Gặp gỡ — Bài 13)."
               },
               {
                 "id": 8,
                 "type": "mc",
-                "prompt": "母に 写真を <u>送ります</u>。",
-                "promptVi": "Tôi gửi ảnh cho mẹ.",
-                "targetWord": "送ります",
+                "prompt": "「社会」の 読み方は 何ですか。",
+                "promptVi": "社会 có nghĩa là Xã hội.",
+                "targetWord": "社会",
                 "options": [
-                  "おくります",
-                  "おぐります",
-                  "そうります",
-                  "おくれます"
+                  "しゃかい",
+                  "ししゃ",
+                  "きます",
+                  "きもの"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 送ります（おくります）: gửi."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 社会 ➔ しゃかい (Xã hội — Bài 13)."
               },
               {
                 "id": 9,
                 "type": "mc",
-                "prompt": "大切だと <u>思います</u>。",
-                "promptVi": "Tôi nghĩ là quan trọng.",
-                "targetWord": "思います",
+                "prompt": "「支社」の 読み方は 何ですか。",
+                "promptVi": "支社 có nghĩa là Chi nhánh.",
+                "targetWord": "支社",
                 "options": [
-                  "おもいます",
-                  "おぼいます",
-                  "おもいします",
-                  "しもいます"
+                  "ししゃ",
+                  "きます",
+                  "きもの",
+                  "つきます"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 思います（おもいます）: nghĩ."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 支社 ➔ ししゃ (Chi nhánh — Bài 13)."
               },
               {
                 "id": 10,
                 "type": "mc",
-                "prompt": "来週の 旅行の <u>計画</u> を 立てました。",
-                "promptVi": "Tôi đã lập kế hoạch cho chuyến du lịch tuần tới.",
-                "targetWord": "計画",
+                "prompt": "「着ます」の 読み方は 何ですか。",
+                "promptVi": "着ます có nghĩa là Mặc (áo…).",
+                "targetWord": "着ます",
                 "options": [
-                  "けいかく",
-                  "けいがく",
-                  "けいかん",
-                  "かいかく"
+                  "きます",
+                  "きもの",
+                  "つきます",
+                  "そら"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 計画（けいかく）: kế hoạch."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 着ます ➔ きます (Mặc (áo…) — Bài 13)."
               }
             ]
           },
@@ -4703,152 +4703,152 @@ window.DE_THI_TONG_HOP_DATA = [
               {
                 "id": 1,
                 "type": "mc",
-                "prompt": "<u>週末</u> に 友達と 会います。",
-                "promptVi": "Cuối tuần tôi gặp bạn.",
-                "targetWord": "週末",
+                "prompt": "「味」の 読み方は 何ですか。",
+                "promptVi": "味 có nghĩa là Vị.",
+                "targetWord": "味",
                 "options": [
-                  "しゅうまつ",
-                  "しゅまつ",
-                  "しゅうばつ",
-                  "しゅうげつ"
+                  "あじ",
+                  "いろ",
+                  "いろいろ",
+                  "やさい"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 週末（しゅうまつ）: cuối tuần."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 味 ➔ あじ (Vị — Bài 12)."
               },
               {
                 "id": 2,
                 "type": "mc",
-                "prompt": "今日は 私の <u>誕生日</u> です。",
-                "promptVi": "Hôm nay là sinh nhật tôi.",
-                "targetWord": "誕生日",
+                "prompt": "「色」の 読み方は 何ですか。",
+                "promptVi": "色 có nghĩa là Màu sắc.",
+                "targetWord": "色",
                 "options": [
-                  "たんじょうび",
-                  "たんじょび",
-                  "たんせいび",
-                  "たんしょうひ"
+                  "いろ",
+                  "いろいろ",
+                  "やさい",
+                  "あいます"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 誕生日（たんじょうび）: sinh nhật."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 色 ➔ いろ (Màu sắc — Bài 12)."
               },
               {
                 "id": 3,
                 "type": "mc",
-                "prompt": "毎朝 公園を <u>走ります</u>。",
-                "promptVi": "Mỗi sáng tôi chạy trong công viên.",
-                "targetWord": "走ります",
+                "prompt": "「色々」の 読み方は 何ですか。",
+                "promptVi": "色々 có nghĩa là Đa dạng.",
+                "targetWord": "色々",
                 "options": [
-                  "はしります",
-                  "はじります",
-                  "そうります",
-                  "はします"
+                  "いろいろ",
+                  "やさい",
+                  "あいます",
+                  "しゃかい"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 走ります（はしります）: chạy."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 色々 ➔ いろいろ (Đa dạng — Bài 12)."
               },
               {
                 "id": 4,
                 "type": "mc",
-                "prompt": "冬に コートを <u>着ます</u>。",
-                "promptVi": "Mùa đông tôi mặc áo khoác.",
-                "targetWord": "着ます",
+                "prompt": "「野菜」の 読み方は 何ですか。",
+                "promptVi": "野菜 có nghĩa là Rau.",
+                "targetWord": "野菜",
                 "options": [
-                  "きます",
-                  "きります",
-                  "つきます",
-                  "ちゃくます"
+                  "やさい",
+                  "あいます",
+                  "しゃかい",
+                  "ししゃ"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 着ます（きます）: mặc."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 野菜 ➔ やさい (Rau — Bài 12)."
               },
               {
                 "id": 5,
                 "type": "mc",
-                "prompt": "<u>電車</u> で 会社へ 行きます。",
-                "promptVi": "Tôi đi tàu điện đến công ty.",
-                "targetWord": "電車",
+                "prompt": "「会います」の 読み方は 何ですか。",
+                "promptVi": "会います có nghĩa là Gặp gỡ.",
+                "targetWord": "会います",
                 "options": [
-                  "でんしゃ",
-                  "でんじゃ",
-                  "てんしゃ",
-                  "でんちゃ"
+                  "あいます",
+                  "しゃかい",
+                  "ししゃ",
+                  "きます"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 電車（でんしゃ）: tàu điện."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 会います ➔ あいます (Gặp gỡ — Bài 13)."
               },
               {
                 "id": 6,
                 "type": "mc",
-                "prompt": "母に 写真を <u>送ります</u>。",
-                "promptVi": "Tôi gửi ảnh cho mẹ.",
-                "targetWord": "送ります",
+                "prompt": "「社会」の 読み方は 何ですか。",
+                "promptVi": "社会 có nghĩa là Xã hội.",
+                "targetWord": "社会",
                 "options": [
-                  "おくります",
-                  "おぐります",
-                  "そうります",
-                  "おくれます"
+                  "しゃかい",
+                  "ししゃ",
+                  "きます",
+                  "きもの"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 送ります（おくります）: gửi."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 社会 ➔ しゃかい (Xã hội — Bài 13)."
               },
               {
                 "id": 7,
                 "type": "mc",
-                "prompt": "大切だと <u>思います</u>。",
-                "promptVi": "Tôi nghĩ là quan trọng.",
-                "targetWord": "思います",
+                "prompt": "「支社」の 読み方は 何ですか。",
+                "promptVi": "支社 có nghĩa là Chi nhánh.",
+                "targetWord": "支社",
                 "options": [
-                  "おもいます",
-                  "おぼいます",
-                  "おもいします",
-                  "しもいます"
+                  "ししゃ",
+                  "きます",
+                  "きもの",
+                  "つきます"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 思います（おもいます）: nghĩ."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 支社 ➔ ししゃ (Chi nhánh — Bài 13)."
               },
               {
                 "id": 8,
                 "type": "mc",
-                "prompt": "来週の 旅行の <u>計画</u> を 立てました。",
-                "promptVi": "Tôi đã lập kế hoạch cho chuyến du lịch tuần tới.",
-                "targetWord": "計画",
+                "prompt": "「着ます」の 読み方は 何ですか。",
+                "promptVi": "着ます có nghĩa là Mặc (áo…).",
+                "targetWord": "着ます",
                 "options": [
-                  "けいかく",
-                  "けいがく",
-                  "けいかん",
-                  "かいかく"
+                  "きます",
+                  "きもの",
+                  "つきます",
+                  "そら"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 計画（けいかく）: kế hoạch."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 着ます ➔ きます (Mặc (áo…) — Bài 13)."
               },
               {
                 "id": 9,
                 "type": "mc",
-                "prompt": "日本の <u>料理</u> が 好きです。",
-                "promptVi": "Tôi thích món ăn Nhật.",
-                "targetWord": "料理",
+                "prompt": "「着物」の 読み方は 何ですか。",
+                "promptVi": "着物 có nghĩa là Bộ kimono.",
+                "targetWord": "着物",
                 "options": [
-                  "りょうり",
-                  "りょり",
-                  "りょうい",
-                  "りょくり"
+                  "きもの",
+                  "つきます",
+                  "そら",
+                  "くうき"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 料理（りょうり）: món ăn, nấu ăn."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 着物 ➔ きもの (Bộ kimono — Bài 13)."
               },
               {
                 "id": 10,
                 "type": "mc",
-                "prompt": "日本語の <u>発音</u> を 練習します。",
-                "promptVi": "Tôi luyện phát âm tiếng Nhật.",
-                "targetWord": "発音",
+                "prompt": "「着きます」の 読み方は 何ですか。",
+                "promptVi": "着きます có nghĩa là Đến nơi.",
+                "targetWord": "着きます",
                 "options": [
-                  "はつおん",
-                  "はっおん",
-                  "はついん",
-                  "はちおん"
+                  "つきます",
+                  "そら",
+                  "くうき",
+                  "みなと"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 発音（はつおん）: phát âm."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 着きます ➔ つきます (Đến nơi — Bài 13)."
               }
             ]
           },
@@ -5874,152 +5874,152 @@ window.DE_THI_TONG_HOP_DATA = [
               {
                 "id": 1,
                 "type": "mc",
-                "prompt": "毎朝 公園を <u>走ります</u>。",
-                "promptVi": "Mỗi sáng tôi chạy trong công viên.",
-                "targetWord": "走ります",
+                "prompt": "「色々」の 読み方は 何ですか。",
+                "promptVi": "色々 có nghĩa là Đa dạng.",
+                "targetWord": "色々",
                 "options": [
-                  "はしります",
-                  "はじります",
-                  "そうります",
-                  "はします"
+                  "いろいろ",
+                  "やさい",
+                  "あいます",
+                  "しゃかい"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 走ります（はしります）: chạy."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 色々 ➔ いろいろ (Đa dạng — Bài 12)."
               },
               {
                 "id": 2,
                 "type": "mc",
-                "prompt": "冬に コートを <u>着ます</u>。",
-                "promptVi": "Mùa đông tôi mặc áo khoác.",
-                "targetWord": "着ます",
+                "prompt": "「野菜」の 読み方は 何ですか。",
+                "promptVi": "野菜 có nghĩa là Rau.",
+                "targetWord": "野菜",
                 "options": [
-                  "きます",
-                  "きります",
-                  "つきます",
-                  "ちゃくます"
+                  "やさい",
+                  "あいます",
+                  "しゃかい",
+                  "ししゃ"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 着ます（きます）: mặc."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 野菜 ➔ やさい (Rau — Bài 12)."
               },
               {
                 "id": 3,
                 "type": "mc",
-                "prompt": "<u>電車</u> で 会社へ 行きます。",
-                "promptVi": "Tôi đi tàu điện đến công ty.",
-                "targetWord": "電車",
+                "prompt": "「会います」の 読み方は 何ですか。",
+                "promptVi": "会います có nghĩa là Gặp gỡ.",
+                "targetWord": "会います",
                 "options": [
-                  "でんしゃ",
-                  "でんじゃ",
-                  "てんしゃ",
-                  "でんちゃ"
+                  "あいます",
+                  "しゃかい",
+                  "ししゃ",
+                  "きます"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 電車（でんしゃ）: tàu điện."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 会います ➔ あいます (Gặp gỡ — Bài 13)."
               },
               {
                 "id": 4,
                 "type": "mc",
-                "prompt": "母に 写真を <u>送ります</u>。",
-                "promptVi": "Tôi gửi ảnh cho mẹ.",
-                "targetWord": "送ります",
+                "prompt": "「社会」の 読み方は 何ですか。",
+                "promptVi": "社会 có nghĩa là Xã hội.",
+                "targetWord": "社会",
                 "options": [
-                  "おくります",
-                  "おぐります",
-                  "そうります",
-                  "おくれます"
+                  "しゃかい",
+                  "ししゃ",
+                  "きます",
+                  "きもの"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 送ります（おくります）: gửi."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 社会 ➔ しゃかい (Xã hội — Bài 13)."
               },
               {
                 "id": 5,
                 "type": "mc",
-                "prompt": "大切だと <u>思います</u>。",
-                "promptVi": "Tôi nghĩ là quan trọng.",
-                "targetWord": "思います",
+                "prompt": "「支社」の 読み方は 何ですか。",
+                "promptVi": "支社 có nghĩa là Chi nhánh.",
+                "targetWord": "支社",
                 "options": [
-                  "おもいます",
-                  "おぼいます",
-                  "おもいします",
-                  "しもいます"
+                  "ししゃ",
+                  "きます",
+                  "きもの",
+                  "つきます"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 思います（おもいます）: nghĩ."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 支社 ➔ ししゃ (Chi nhánh — Bài 13)."
               },
               {
                 "id": 6,
                 "type": "mc",
-                "prompt": "来週の 旅行の <u>計画</u> を 立てました。",
-                "promptVi": "Tôi đã lập kế hoạch cho chuyến du lịch tuần tới.",
-                "targetWord": "計画",
+                "prompt": "「着ます」の 読み方は 何ですか。",
+                "promptVi": "着ます có nghĩa là Mặc (áo…).",
+                "targetWord": "着ます",
                 "options": [
-                  "けいかく",
-                  "けいがく",
-                  "けいかん",
-                  "かいかく"
+                  "きます",
+                  "きもの",
+                  "つきます",
+                  "そら"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 計画（けいかく）: kế hoạch."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 着ます ➔ きます (Mặc (áo…) — Bài 13)."
               },
               {
                 "id": 7,
                 "type": "mc",
-                "prompt": "日本の <u>料理</u> が 好きです。",
-                "promptVi": "Tôi thích món ăn Nhật.",
-                "targetWord": "料理",
+                "prompt": "「着物」の 読み方は 何ですか。",
+                "promptVi": "着物 có nghĩa là Bộ kimono.",
+                "targetWord": "着物",
                 "options": [
-                  "りょうり",
-                  "りょり",
-                  "りょうい",
-                  "りょくり"
+                  "きもの",
+                  "つきます",
+                  "そら",
+                  "くうき"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 料理（りょうり）: món ăn, nấu ăn."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 着物 ➔ きもの (Bộ kimono — Bài 13)."
               },
               {
                 "id": 8,
                 "type": "mc",
-                "prompt": "日本語の <u>発音</u> を 練習します。",
-                "promptVi": "Tôi luyện phát âm tiếng Nhật.",
-                "targetWord": "発音",
+                "prompt": "「着きます」の 読み方は 何ですか。",
+                "promptVi": "着きます có nghĩa là Đến nơi.",
+                "targetWord": "着きます",
                 "options": [
-                  "はつおん",
-                  "はっおん",
-                  "はついん",
-                  "はちおん"
+                  "つきます",
+                  "そら",
+                  "くうき",
+                  "みなと"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 発音（はつおん）: phát âm."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 着きます ➔ つきます (Đến nơi — Bài 13)."
               },
               {
                 "id": 9,
                 "type": "mc",
-                "prompt": "友達が <u>結婚</u> しました。",
-                "promptVi": "Bạn tôi đã kết hôn.",
-                "targetWord": "結婚",
+                "prompt": "「空」の 読み方は 何ですか。",
+                "promptVi": "空 có nghĩa là Bầu trời.",
+                "targetWord": "空",
                 "options": [
-                  "けっこん",
-                  "けつこん",
-                  "けっこう",
-                  "けんこん"
+                  "そら",
+                  "くうき",
+                  "みなと",
+                  "くうこう"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 結婚（けっこん）: kết hôn."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 空 ➔ そら (Bầu trời — Bài 13)."
               },
               {
                 "id": 10,
                 "type": "mc",
-                "prompt": "健康は <u>大切</u> です。",
-                "promptVi": "Sức khỏe rất quan trọng.",
-                "targetWord": "大切",
+                "prompt": "「空気」の 読み方は 何ですか。",
+                "promptVi": "空気 có nghĩa là Không khí.",
+                "targetWord": "空気",
                 "options": [
-                  "たいせつ",
-                  "だいせつ",
-                  "たいきり",
-                  "おおせつ"
+                  "くうき",
+                  "みなと",
+                  "くうこう",
+                  "じぶん"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 大切（たいせつ）: quan trọng, quý giá."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 空気 ➔ くうき (Không khí — Bài 13)."
               }
             ]
           },

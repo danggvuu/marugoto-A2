@@ -4,6 +4,43 @@ import re
 
 WORKSPACE = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
 
+with open(os.path.join(WORKSPACE, "data/kanji_vocab_11_18.json"), encoding="utf-8") as _kanji_file:
+    _kanji_vocab_source = json.load(_kanji_file)
+with open(os.path.join(WORKSPACE, "data/kanji_extracted.json"), encoding="utf-8") as _kanji_file:
+    _kanji_character_source = json.load(_kanji_file)
+_allowed_a2_1_kanji = {
+    item["char"] for item in _kanji_character_source
+    if item.get("lesson") in {f"L{number}" for number in range(11, 19)}
+}
+_scoped_kanji_vocab = [
+    item for item in _kanji_vocab_source
+    if 11 <= int(item.get("lesson", 0)) <= 18
+    and set(re.findall(r"[\u3400-\u9fff]", item.get("kanji", ""))).issubset(_allowed_a2_1_kanji)
+]
+
+
+def scoped_kanji_bank():
+    """Use only the project's A2-1 L11-L18 Kanji compound source."""
+    readings = [item["kana"] for item in _scoped_kanji_vocab]
+    bank = []
+    for index, item in enumerate(_scoped_kanji_vocab):
+        wrong = []
+        for offset in range(1, len(readings)):
+            candidate = readings[(index + offset) % len(readings)]
+            if candidate != item["kana"] and candidate not in wrong:
+                wrong.append(candidate)
+            if len(wrong) == 3:
+                break
+        bank.append((
+            item["kanji"],
+            f'「{item["kanji"]}」の 読み方は 何ですか。',
+            0,
+            [item["kana"], *wrong],
+            f'{item["kanji"]} có nghĩa là {item["vi"]}.',
+            f'{item["kanji"]} ➔ {item["kana"]} ({item["vi"]} — Bài {item["lesson"]}).'
+        ))
+    return bank
+
 # Import the base sections we defined for DEGOC
 from generate_11_18_exam import degoc_sections
 
@@ -19,61 +56,9 @@ def create_mock_exam(code, title, tag, desc, seed_offset):
     # We will curate 71 high quality questions per exam
     sections = []
     
-    # KANJI POOL for Lessons 11-18:
-    kanji_items_bank = [
-        # (Kanji, Sentence, Correct, Options, Vi, Explain)
-        ("計画", "来週の 旅行の <u>計画</u> を 立てました。", 0, ["けいかく", "けいかん", "かいかく", "けいがく"], 
-         "Tôi đã lập kế hoạch cho chuyến du lịch tuần tới.", "計画 ➔ けいかく (Kế hoạch - Bài 18)."),
-        ("案内", "友達に 京都の 町を <u>案内</u> しました。", 0, ["あんない", "あない", "あんうち", "あんめい"], 
-         "Tôi đã hướng dẫn (dẫn đường) bạn bè tham quan thành phố Kyoto.", "案内 ➔ あんない (Hướng dẫn/dẫn đường - Bài 13)."),
-        ("連絡", "遅れる ときは、必ず 会社に <u>連絡</u> して ください。", 0, ["れんらく", "れんろく", "れんがく", "ろんらく"], 
-         "Khi đến muộn, nhất định hãy liên lạc cho công ty.", "連絡 ➔ れんらく (Liên lạc - Bài 18)."),
-        ("準備", "パーティーの <u>準備</u> を 手伝って ください。", 0, ["じゅんび", "しゅんび", "じゅんひ", "じゅんぴ"], 
-         "Hãy giúp tôi một tay chuẩn bị cho bữa tiệc.", "準備 ➔ じゅんび (Chuẩn bị - Bài 11/13)."),
-        ("予約", "人気の レストランを <u>予約</u> しました。", 0, ["よやく", "あらかじめやく", "よてい", "ゆうやく"], 
-         "Tôi đã đặt chỗ trước ở nhà hàng được yêu thích.", "予約 ➔ よやく (Đặt trước - Bài 11)."),
-        ("経験", "日本で 働いた <u>経験</u> が あります。", 0, ["けいけん", "けいかん", "きょうけん", "けいげん"], 
-         "Tôi đã có kinh nghiệm làm việc ở Nhật Bản.", "経験 ➔ けいけん (Kinh nghiệm - Bài 12/15)."),
-        ("習慣", "毎朝 水を 一杯 飲む <u>習慣</u> が あります。", 0, ["しゅうかん", "じゅうかん", "しゅかん", "しゅうけん"], 
-         "Tôi có thói quen uống một cốc nước mỗi buổi sáng.", "習慣 ➔ しゅうかん (Thói quen/tập quán - Bài 16)."),
-        ("相談", "体調が 悪いときは、医者に <u>相談</u> します。", 0, ["そうだん", "しょうだん", "そだん", "そうだつ"], 
-         "Khi sức khỏe không tốt, tôi sẽ tham vấn/hỏi ý kiến bác sĩ.", "相談 ➔ そうだん (Thảo luận/tham vấn - Bài 16)."),
-        ("遠慮", "どうぞ <u>遠慮</u> しないで 食べて ください。", 0, ["えんりょ", "おんりょ", "えんろ", "えんりょう"], 
-         "Xin mời cứ tự nhiên dùng bữa, đừng ngại ngùng nhé.", "遠慮 ➔ えんりょ (Khách khí/ngại ngùng - Bài 12)."),
-        ("複雑", "この 機械の 使い方は とても <u>複雑</u> です。", 0, ["ふくざつ", "ふくさつ", "ふくぞう", "ぶくざつ"], 
-         "Cách sử dụng chiếc máy móc này rất phức tạp.", "複雑 ➔ ふくざつ (Phức tạp - Bài 18)."),
-        ("参加", "マラソン大会に <u>参加</u> したいです。", 0, ["さんか", "さんけい", "まいか", "さんしゃ"], 
-         "Tôi muốn tham gia vào đại hội chạy marathon.", "参加 ➔ さんか (Tham gia - Bài 13/16)."),
-        ("招待", "結婚式に <u>招待</u> されました。", 0, ["しょうたい", "じょうたい", "しょうだい", "せいたい"], 
-         "Tôi đã được mời tham dự lễ kết hôn.", "招待 ➔ しょうたい (Chiêu đãi/mời - Bài 13)."),
-        ("世話", "先生には 大変 お<u>世話</u> に なりました。", 0, ["せわ", "よわ", "せいふ", "せいわ"], 
-         "Tôi đã được thầy cô giáo giúp đỡ chăm sóc rất nhiều.", "お世話 ➔ おせわ (Chăm sóc/giúp đỡ - Bài 14/18)."),
-        ("残業", "今夜は 仕事が 多いので <u>残業</u> します。", 0, ["ざんぎょう", "さんぎょう", "ざんごう", "のこりぎょう"], 
-         "Tối nay vì việc nhiều nên tôi sẽ làm thêm giờ.", "残業 ➔ ざんぎょう (Làm thêm giờ/OT - Bài 18)."),
-        ("無理", "体に <u>無理</u> を しないで ください。", 0, ["むり", "ぶり", "むらい", "むりん"], 
-         "Xin đừng quá sức / làm điều quá sức đối với cơ thể.", "無理 ➔ むり (Quá sức/vô lý - Bài 16).")
-    ]
-    
-    # The five generated sets use only the curated L11-L18 study bank below.
+    # The five generated sets use only the project's A2-1 L11-L18 Kanji bank.
     # Keep the source PDF exam separate; it is the original material.
-    kanji_items_bank = [
-        ("計画", "来週の 旅行の <u>計画</u> を 立てました。", 0, ["けいかく", "けいがく", "けいかん", "かいかく"], "Tôi đã lập kế hoạch cho chuyến du lịch tuần tới.", "計画（けいかく）: kế hoạch."),
-        ("料理", "日本の <u>料理</u> が 好きです。", 0, ["りょうり", "りょり", "りょうい", "りょくり"], "Tôi thích món ăn Nhật.", "料理（りょうり）: món ăn, nấu ăn."),
-        ("発音", "日本語の <u>発音</u> を 練習します。", 0, ["はつおん", "はっおん", "はついん", "はちおん"], "Tôi luyện phát âm tiếng Nhật.", "発音（はつおん）: phát âm."),
-        ("結婚", "友達が <u>結婚</u> しました。", 0, ["けっこん", "けつこん", "けっこう", "けんこん"], "Bạn tôi đã kết hôn.", "結婚（けっこん）: kết hôn."),
-        ("大切", "健康は <u>大切</u> です。", 0, ["たいせつ", "だいせつ", "たいきり", "おおせつ"], "Sức khỏe rất quan trọng.", "大切（たいせつ）: quan trọng, quý giá."),
-        ("健康", "毎日 運動して、<u>健康</u> に なりました。", 0, ["けんこう", "けんごう", "げんこう", "けんこ"], "Tôi đã khỏe mạnh hơn nhờ tập thể dục mỗi ngày.", "健康（けんこう）: khỏe mạnh, sức khỏe."),
-        ("自分", "これは <u>自分</u> で 作りました。", 0, ["じぶん", "しぶん", "じほん", "じもん"], "Tôi tự mình làm việc này.", "自分（じぶん）: bản thân, tự mình."),
-        ("毎日", "<u>毎日</u> 日本語を 勉強します。", 0, ["まいにち", "まいひ", "まいじつ", "まいび"], "Tôi học tiếng Nhật mỗi ngày.", "毎日（まいにち）: mỗi ngày."),
-        ("週末", "<u>週末</u> に 友達と 会います。", 0, ["しゅうまつ", "しゅまつ", "しゅうばつ", "しゅうげつ"], "Cuối tuần tôi gặp bạn.", "週末（しゅうまつ）: cuối tuần."),
-        ("誕生日", "今日は 私の <u>誕生日</u> です。", 0, ["たんじょうび", "たんじょび", "たんせいび", "たんしょうひ"], "Hôm nay là sinh nhật tôi.", "誕生日（たんじょうび）: sinh nhật."),
-        ("走ります", "毎朝 公園を <u>走ります</u>。", 0, ["はしります", "はじります", "そうります", "はします"], "Mỗi sáng tôi chạy trong công viên.", "走ります（はしります）: chạy."),
-        ("着ます", "冬に コートを <u>着ます</u>。", 0, ["きます", "きります", "つきます", "ちゃくます"], "Mùa đông tôi mặc áo khoác.", "着ます（きます）: mặc."),
-        ("電車", "<u>電車</u> で 会社へ 行きます。", 0, ["でんしゃ", "でんじゃ", "てんしゃ", "でんちゃ"], "Tôi đi tàu điện đến công ty.", "電車（でんしゃ）: tàu điện."),
-        ("送ります", "母に 写真を <u>送ります</u>。", 0, ["おくります", "おぐります", "そうります", "おくれます"], "Tôi gửi ảnh cho mẹ.", "送ります（おくります）: gửi."),
-        ("思います", "大切だと <u>思います</u>。", 0, ["おもいます", "おぼいます", "おもいします", "しもいます"], "Tôi nghĩ là quan trọng.", "思います（おもいます）: nghĩ."),
-    ]
-
+    kanji_items_bank = scoped_kanji_bank()
     # We select 10 kanji items based on seed_offset
     kanji_items = []
     for i in range(10):
