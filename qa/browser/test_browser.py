@@ -972,7 +972,7 @@ class StudyFlows(unittest.TestCase):
 
     def test_corrected_exam_questions_require_new_attempt(self):
         self.go(EXAM + "#M111")
-        question_id = self.page.evaluate("getExamItems().find(q=>q.contentRevision===2).id")
+        question_id = self.page.evaluate("getExamItems().find(q=>q.contentRevision>=2).id")
         self.page.evaluate("(id)=>handleSelectOption(id,0)", question_id)
         self.reload()
         self.assertTrue(self.page.evaluate("(id)=>!!userAnswers[id]", question_id))
@@ -985,6 +985,34 @@ class StudyFlows(unittest.TestCase):
         }""", question_id)
         self.go(EXAM + "#M111")
         self.assertFalse(self.page.evaluate("(id)=>!!userAnswers[id]", question_id))
+
+    def test_balanced_exam_answers_and_revised_star_restore(self):
+        self.go(EXAM + '#M111')
+        distributions = self.page.evaluate("""() => DE_THI_TONG_HOP_DATA.filter(e=>e.code!=='DEGOC').map(e=>{
+            const counts=[0,0,0,0];
+            getExamItems(e).forEach(q=>counts[q.correct]++);
+            return counts;
+        })""")
+        for counts in distributions:
+            self.assertEqual(sorted(counts), [17, 18, 18, 18])
+        star = self.page.evaluate("getExamItems().find(q=>q.type==='star')")
+        self.page.evaluate("q=>q.correctOrder.forEach(i=>placeStarPart(q.id,i))", star)
+        self.reload()
+        saved = self.page.evaluate("id=>userAnswers[id]", star['id'])
+        self.assertTrue(saved['isCorrect'])
+        self.assertEqual(saved['starOrder'], star['correctOrder'])
+        self.assertEqual(saved['contentRevision'], 3)
+        self.go('index.html')
+        self.page.evaluate("""() => {
+            const key='marugoto_tonghop_11_18_draft_M111';
+            const saved=JSON.parse(localStorage.getItem(key));
+            Object.values(saved.userAnswers).forEach(a=>{a.contentRevision=2;});
+            saved.isExamSubmitted=true;
+            localStorage.setItem(key,JSON.stringify(saved));
+        }""")
+        self.go(EXAM + '#M111')
+        self.assertEqual(self.page.evaluate('Object.keys(userAnswers).length'), 0)
+        self.assertFalse(self.page.evaluate('isExamSubmitted'))
 
 
 if __name__ == "__main__":

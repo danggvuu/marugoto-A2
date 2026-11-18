@@ -1,6 +1,8 @@
 import json
 import os
 import re
+import random
+from html import escape
 
 WORKSPACE = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
 
@@ -405,6 +407,46 @@ mock_104 = create_mock_exam("M114", "Mã Đề M114 (Đọc hiểu & giao tiếp
 mock_105 = create_mock_exam("M115", "Mã Đề M115 (Ôn tập cuối bài 11–18)", "📝 Tự luyện • M115", "Bài tự luyện tổng hợp; điểm không quy đổi thành kết quả thi JLPT chính thức.", 5)
 
 ALL_EXAMS = [degoc_exam, mock_101, mock_102, mock_103, mock_104, mock_105]
+
+def balance_answer_positions(exam):
+    """Deterministic per-set shuffle: change positions, never answer meaning."""
+    rng = random.Random('answer-layout-v3-' + exam['code'])
+    items = [q for s in exam['sections'] for g in s['groups'] for q in g['items']]
+    positions = []
+    # Shuffle each block of four to avoid both answer bias and a 1-2-3-4 cycle.
+    while len(positions) < len(items):
+        block = list(range(4))
+        rng.shuffle(block)
+        positions.extend(block)
+    for item, position in zip(items, positions):
+        old_options = list(item['options'])
+        old_correct = item['correct']
+        permutation = [i for i in range(4) if i != old_correct]
+        rng.shuffle(permutation)
+        permutation.insert(position, old_correct)
+        item['options'] = [old_options[i] for i in permutation]
+        item['correct'] = position
+        item['contentRevision'] = 3
+        assert item['options'][position] == old_options[old_correct]
+        if item['type'] == 'star':
+            sequence = [old_options[i] for i in item['correctOrder']]
+            item['parts'] = list(item['options'])
+            item['correctOrder'] = [permutation.index(i) for i in item['correctOrder']]
+            assert [item['parts'][i] for i in item['correctOrder']] == sequence
+            item['explain'] = 'Thứ tự các cụm: ' + ' → '.join(escape(part) for part in sequence)
+            item['explain'] += f'. Vị trí ★: <strong>{escape(sequence[2])}</strong> (phương án {position + 1}).'
+        else:
+            # Reading explanations refer to old numeric positions; retain the
+            # textual evidence and regenerate only that answer-position phrase.
+            item['explain'] = re.sub(r'Chọn đáp án [1-4]', f'Chọn đáp án {position + 1}', item['explain'])
+    counts = [sum(q['correct'] == i for q in items) for i in range(4)]
+    assert max(counts) - min(counts) <= 1
+    print(f"{exam['code']}: answer positions 1–4 = {counts}")
+
+
+for exam in ALL_EXAMS:
+    if exam['code'] != 'DEGOC':
+        balance_answer_positions(exam)
 
 for exam in ALL_EXAMS:
     counts = [sum(len(group["items"]) for group in section["groups"]) for section in exam["sections"]]

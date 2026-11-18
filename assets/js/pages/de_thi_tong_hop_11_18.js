@@ -102,7 +102,8 @@ function normalizeExamAnswers(raw, exam) {
         if (item.type === 'star' && Array.isArray(old.starOrder)) {
             const parts = item.parts || item.options || [];
             const order = [...new Set(old.starOrder.filter(i => Number.isInteger(i) && i >= 0 && i < parts.length))].slice(0, 4);
-            answers[item.id] = { starOrder: order, checked: order.length === 4 };
+            answers[item.id] = { starOrder: order, checked: order.length === 4,
+                contentRevision: item.contentRevision || 1 };
             if (order.length === 4) {
                 answers[item.id].value = order[2];
                 answers[item.id].isCorrect = order[2] === item.correct;
@@ -233,7 +234,8 @@ function loadExam(code) {
         if (saved && saved.version === 2) {
             userAnswers = normalizeExamAnswers(saved.userAnswers, exam);
             isImmediateMode = saved.isImmediateMode !== false;
-            isExamSubmitted = saved.isExamSubmitted === true;
+            isExamSubmitted = saved.isExamSubmitted === true &&
+                Object.keys(userAnswers).length === Object.keys(saved.userAnswers || {}).length;
             timerSeconds = Number.isFinite(saved.timerSeconds) ? Math.max(0, Math.min(saved.timerSeconds, exam.timeLimit || 2700)) : timerSeconds;
             shouldRun = saved.isTimerRunning === true && !isImmediateMode && !isExamSubmitted;
             if (shouldRun && Number.isFinite(saved.timerDeadline)) {
@@ -556,6 +558,7 @@ function updateStarUI(qId, order) {
     // Save partial or complete star order
     userAnswers[qId] = userAnswers[qId] || {};
     userAnswers[qId].starOrder = order;
+    userAnswers[qId].contentRevision = qItem.contentRevision || 1;
 
     // Check completion
     if (order.length === 4) {

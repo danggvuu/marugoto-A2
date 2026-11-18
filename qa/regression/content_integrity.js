@@ -66,6 +66,19 @@ vm.runInContext(read('assets/data/de_thi_tong_hop_11_18_data.js'), examsContext)
 for (const exam of examsContext.window.DE_THI_TONG_HOP_DATA) {
     if (exam.code === 'DEGOC') continue;
     const questions = exam.sections.flatMap(s => s.groups.flatMap(g => g.items));
+    const counts = [0, 0, 0, 0];
+    questions.forEach(q => {
+        counts[q.correct]++;
+        assert.strictEqual(q.contentRevision, 3);
+        if (q.type === 'star') {
+            assert.strictEqual(q.correctOrder[2], q.correct);
+            assert.deepStrictEqual(Array.from(q.parts), Array.from(q.options));
+        }
+        for (const match of q.explain.matchAll(/Chọn đáp án ([1-4])/g)) {
+            assert.strictEqual(Number(match[1]), q.correct + 1, 'stale answer number in explanation');
+        }
+    });
+    assert(Math.max(...counts) - Math.min(...counts) <= 1, `${exam.code}: biased answer positions`);
     const weather = questions.find(q => q.prompt.includes('明日は 天気が'));
     assert(weather, exam.code + ': missing weather regression case');
     assert.strictEqual(weather.options[weather.correct], 'いい');

@@ -1194,13 +1194,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "お茶 có nghĩa là Trà.",
                 "targetWord": "お茶",
                 "options": [
-                  "おちゃ",
+                  "おねがい",
                   "もちます",
                   "きもち",
-                  "おねがい"
+                  "おちゃ"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• お茶 ➔ おちゃ (Trà — Bài 11)."
+                "correct": 3,
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• お茶 ➔ おちゃ (Trà — Bài 11).",
+                "contentRevision": 3
               },
               {
                 "id": 2,
@@ -1209,13 +1210,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "持ちます có nghĩa là Mang, cầm / Có, sở hữu.",
                 "targetWord": "持ちます",
                 "options": [
-                  "もちます",
                   "きもち",
                   "おねがい",
+                  "もちます",
                   "おねがいします"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 持ちます ➔ もちます (Mang, cầm / Có, sở hữu — Bài 11)."
+                "correct": 2,
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 持ちます ➔ もちます (Mang, cầm / Có, sở hữu — Bài 11).",
+                "contentRevision": 3
               },
               {
                 "id": 3,
@@ -1224,13 +1226,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "気持ち có nghĩa là Cảm xúc.",
                 "targetWord": "気持ち",
                 "options": [
+                  "りょうり",
                   "きもち",
-                  "おねがい",
                   "おねがいします",
-                  "りょうり"
+                  "おねがい"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 気持ち ➔ きもち (Cảm xúc — Bài 11)."
+                "correct": 1,
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 気持ち ➔ きもち (Cảm xúc — Bài 11).",
+                "contentRevision": 3
               },
               {
                 "id": 4,
@@ -1240,12 +1243,13 @@ window.DE_THI_TONG_HOP_DATA = [
                 "targetWord": "お願い",
                 "options": [
                   "おねがい",
-                  "おねがいします",
                   "りょうり",
+                  "おねがいします",
                   "あじ"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• お願い ➔ おねがい (Yêu cầu, điều nhờ vả — Bài 11)."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• お願い ➔ おねがい (Yêu cầu, điều nhờ vả — Bài 11).",
+                "contentRevision": 3
               },
               {
                 "id": 5,
@@ -1254,13 +1258,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "お願いします có nghĩa là Làm ơn, vui lòng....",
                 "targetWord": "お願いします",
                 "options": [
-                  "おねがいします",
                   "りょうり",
+                  "おねがいします",
                   "あじ",
                   "いろ"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• お願いします ➔ おねがいします (Làm ơn, vui lòng... — Bài 11)."
+                "correct": 1,
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• お願いします ➔ おねがいします (Làm ơn, vui lòng... — Bài 11).",
+                "contentRevision": 3
               },
               {
                 "id": 6,
@@ -1269,13 +1274,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "料理 có nghĩa là Món ăn.",
                 "targetWord": "料理",
                 "options": [
-                  "りょうり",
-                  "あじ",
                   "いろ",
-                  "いろいろ"
+                  "いろいろ",
+                  "りょうり",
+                  "あじ"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 料理 ➔ りょうり (Món ăn — Bài 12)."
+                "correct": 2,
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 料理 ➔ りょうり (Món ăn — Bài 12).",
+                "contentRevision": 3
               },
               {
                 "id": 7,
@@ -1284,13 +1290,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "味 có nghĩa là Vị.",
                 "targetWord": "味",
                 "options": [
-                  "あじ",
+                  "やさい",
                   "いろ",
                   "いろいろ",
-                  "やさい"
+                  "あじ"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 味 ➔ あじ (Vị — Bài 12)."
+                "correct": 3,
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 味 ➔ あじ (Vị — Bài 12).",
+                "contentRevision": 3
               },
               {
                 "id": 8,
@@ -1300,12 +1307,13 @@ window.DE_THI_TONG_HOP_DATA = [
                 "targetWord": "色",
                 "options": [
                   "いろ",
-                  "いろいろ",
                   "やさい",
-                  "あいます"
+                  "あいます",
+                  "いろいろ"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 色 ➔ いろ (Màu sắc — Bài 12)."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 色 ➔ いろ (Màu sắc — Bài 12).",
+                "contentRevision": 3
               },
               {
                 "id": 9,
@@ -1315,12 +1323,13 @@ window.DE_THI_TONG_HOP_DATA = [
                 "targetWord": "色々",
                 "options": [
                   "いろいろ",
+                  "しゃかい",
                   "やさい",
-                  "あいます",
-                  "しゃかい"
+                  "あいます"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 色々 ➔ いろいろ (Đa dạng — Bài 12)."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 色々 ➔ いろいろ (Đa dạng — Bài 12).",
+                "contentRevision": 3
               },
               {
                 "id": 10,
@@ -1329,13 +1338,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "野菜 có nghĩa là Rau.",
                 "targetWord": "野菜",
                 "options": [
+                  "ししゃ",
                   "やさい",
                   "あいます",
-                  "しゃかい",
-                  "ししゃ"
+                  "しゃかい"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 野菜 ➔ やさい (Rau — Bài 12)."
+                "correct": 1,
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 野菜 ➔ やさい (Rau — Bài 12).",
+                "contentRevision": 3
               }
             ]
           },
@@ -1349,13 +1359,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "健康のために、(   )を あまり 飲みません。",
                 "promptVi": "Vì sức khỏe nên tôi không uống nhiều rượu.",
                 "options": [
-                  "お酒",
-                  "電車",
                   "週末",
-                  "計画"
+                  "電車",
+                  "計画",
+                  "お酒"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• お酒: rượu, đồ uống có cồn."
+                "correct": 3,
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• お酒: rượu, đồ uống có cồn.",
+                "contentRevision": 3
               },
               {
                 "id": 12,
@@ -1363,13 +1374,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "日本語の (   ) を 練習します。",
                 "promptVi": "Tôi luyện phát âm tiếng Nhật.",
                 "options": [
-                  "発音",
-                  "料理",
                   "結婚",
+                  "料理",
+                  "発音",
                   "計画"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 発音: phát âm."
+                "correct": 2,
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 発音: phát âm.",
+                "contentRevision": 3
               },
               {
                 "id": 13,
@@ -1377,13 +1389,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "友達の 結婚の (   ) を します。",
                 "promptVi": "Tôi chúc mừng đám cưới của bạn.",
                 "options": [
-                  "お祝い",
                   "お酒",
-                  "電車",
-                  "週末"
+                  "週末",
+                  "お祝い",
+                  "電車"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• お祝い: chúc mừng, quà mừng."
+                "correct": 2,
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• お祝い: chúc mừng, quà mừng.",
+                "contentRevision": 3
               },
               {
                 "id": 14,
@@ -1391,13 +1404,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "週末は (   ) と 食事を します。",
                 "promptVi": "Cuối tuần tôi ăn cơm cùng gia đình.",
                 "options": [
-                  "家族",
-                  "計画",
                   "発音",
-                  "料理"
+                  "計画",
+                  "料理",
+                  "家族"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 家族: gia đình."
+                "correct": 3,
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 家族: gia đình.",
+                "contentRevision": 3
               },
               {
                 "id": 15,
@@ -1405,13 +1419,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "毎日 運動して、(   ) に なりたいです。",
                 "promptVi": "Tôi muốn khỏe mạnh nhờ tập thể dục mỗi ngày.",
                 "options": [
+                  "電車",
                   "健康",
                   "結婚",
-                  "電車",
                   "誕生日"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 健康: sức khỏe, khỏe mạnh."
+                "correct": 1,
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 健康: sức khỏe, khỏe mạnh.",
+                "contentRevision": 3
               },
               {
                 "id": 16,
@@ -1420,12 +1435,13 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "Cuối tuần tôi gặp bạn.",
                 "options": [
                   "週末",
-                  "毎日",
                   "誕生日",
+                  "毎日",
                   "料理"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 週末: cuối tuần."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 週末: cuối tuần.",
+                "contentRevision": 3
               },
               {
                 "id": 17,
@@ -1434,12 +1450,13 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "Hôm nay là sinh nhật mẹ.",
                 "options": [
                   "誕生日",
-                  "結婚",
                   "お祝い",
+                  "結婚",
                   "計画"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 誕生日: sinh nhật."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 誕生日: sinh nhật.",
+                "contentRevision": 3
               },
               {
                 "id": 18,
@@ -1447,13 +1464,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "家族は とても (   ) です。",
                 "promptVi": "Gia đình rất quan trọng.",
                 "options": [
-                  "大切",
-                  "健康",
                   "有名",
-                  "週末"
+                  "週末",
+                  "健康",
+                  "大切"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 大切: quan trọng, quý giá."
+                "correct": 3,
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 大切: quan trọng, quý giá.",
+                "contentRevision": 3
               },
               {
                 "id": 19,
@@ -1461,13 +1479,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "(   ) で 会社へ 行きます。",
                 "promptVi": "Tôi đi tàu điện đến công ty.",
                 "options": [
+                  "発音",
                   "電車",
                   "料理",
-                  "お酒",
-                  "発音"
+                  "お酒"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 電車: tàu điện."
+                "correct": 1,
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 電車: tàu điện.",
+                "contentRevision": 3
               },
               {
                 "id": 20,
@@ -1475,13 +1494,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "毎朝 公園を (   )。",
                 "promptVi": "Mỗi sáng tôi chạy trong công viên.",
                 "options": [
-                  "走ります",
                   "送ります",
-                  "思います",
-                  "着ます"
+                  "着ます",
+                  "走ります",
+                  "思います"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 走ります: chạy."
+                "correct": 2,
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 走ります: chạy.",
+                "contentRevision": 3
               },
               {
                 "id": 24,
@@ -1490,12 +1510,13 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "Tôi nghĩ là quan trọng.",
                 "options": [
                   "思います",
-                  "送ります",
                   "走ります",
-                  "着ます"
+                  "着ます",
+                  "送ります"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 思います: nghĩ."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 思います: nghĩ.",
+                "contentRevision": 3
               },
               {
                 "id": 25,
@@ -1503,13 +1524,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "日本の (   ) が 好きです。",
                 "promptVi": "Tôi thích món ăn Nhật.",
                 "options": [
+                  "健康",
                   "料理",
                   "計画",
-                  "健康",
                   "発音"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 料理: món ăn, nấu ăn."
+                "correct": 1,
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 料理: món ăn, nấu ăn.",
+                "contentRevision": 3
               }
             ]
           }
@@ -1532,13 +1554,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "日曜日なら、(   ) 会えますよ。時間がありますから。",
                 "promptVi": "Nếu là Chủ nhật thì lúc nào tôi cũng gặp được, vì tôi có thời gian.",
                 "options": [
-                  "いつでも",
+                  "なんでも",
                   "どこでも",
-                  "だれでも",
-                  "なんでも"
+                  "いつでも",
+                  "だれでも"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• いつでも (Bài 11): Bất cứ lúc nào."
+                "correct": 2,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• いつでも (Bài 11): Bất cứ lúc nào.",
+                "contentRevision": 3
               },
               {
                 "id": 27,
@@ -1546,13 +1569,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "この スープは (   ) そうですね。",
                 "promptVi": "Bát súp này trông có vẻ nóng hổi đấy nhỉ.",
                 "options": [
-                  "あつい",
-                  "あつ",
+                  "あつかった",
                   "あつく",
-                  "あつかった"
+                  "あつい",
+                  "あつ"
                 ],
-                "correct": 1,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Tính từ đuôi い bỏ い + そうです (Bài 12): 熱い ➔ あつそうです."
+                "correct": 3,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Tính từ đuôi い bỏ い + そうです (Bài 12): 熱い ➔ あつそうです.",
+                "contentRevision": 3
               },
               {
                 "id": 28,
@@ -1561,12 +1585,13 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "Căn phòng này vừa sáng sủa lại vừa rộng rãi.",
                 "options": [
                   "くて",
+                  "の",
                   "で",
-                  "に",
-                  "の"
+                  "に"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Nối tính từ đuôi い: 明るい ➔ 明るくて (Bài 12)."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Nối tính từ đuôi い: 明るい ➔ 明るくて (Bài 12).",
+                "contentRevision": 3
               },
               {
                 "id": 29,
@@ -1575,12 +1600,13 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "Đôi giày này không bị nặng và rất dễ đi.",
                 "options": [
                   "ないで",
-                  "なくて",
+                  "ない",
                   "なかった",
-                  "ない"
+                  "なくて"
                 ],
-                "correct": 1,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Nối tính từ phủ định: 重くない ➔ 重くなくて (Bài 12)."
+                "correct": 3,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Nối tính từ phủ định: 重くない ➔ 重くなくて (Bài 12).",
+                "contentRevision": 3
               },
               {
                 "id": 30,
@@ -1588,13 +1614,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "京都の お寺は 静か (   )、きれいです。",
                 "promptVi": "Chùa ở Kyoto vừa yên tĩnh lại vừa đẹp đẽ.",
                 "options": [
-                  "くて",
+                  "の",
                   "で",
-                  "に",
-                  "の"
+                  "くて",
+                  "に"
                 ],
                 "correct": 1,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Nối tính từ đuôi な: 静か ➔ 静かで (Bài 12)."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Nối tính từ đuôi な: 静か ➔ 静かで (Bài 12).",
+                "contentRevision": 3
               },
               {
                 "id": 31,
@@ -1602,13 +1629,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "日本へ 行ったことが (   )。",
                 "promptVi": "Tôi đã từng đi Nhật Bản.",
                 "options": [
-                  "あります",
+                  "なります",
                   "います",
-                  "します",
-                  "なります"
+                  "あります",
+                  "します"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-た ことが あります: nói về kinh nghiệm đã từng (bài 13)."
+                "correct": 2,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-た ことが あります: nói về kinh nghiệm đã từng (bài 13).",
+                "contentRevision": 3
               },
               {
                 "id": 32,
@@ -1616,13 +1644,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "昨日の 夜は お酒を 飲み (   ) ました。",
                 "promptVi": "Tối hôm qua tôi đã uống quá nhiều rượu.",
                 "options": [
-                  "すぎる",
                   "すぎて",
+                  "すぎる",
                   "すぎ",
                   "すぎた"
                 ],
                 "correct": 2,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-bỏ ます + すぎました (Bài 13): 飲みすぎました (uống quá mức)."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-bỏ ます + すぎました (Bài 13): 飲みすぎました (uống quá mức).",
+                "contentRevision": 3
               },
               {
                 "id": 33,
@@ -1630,13 +1659,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "この ズボンは 少し (   ) すぎます。",
                 "promptVi": "Chiếc quần này hơi dài quá.",
                 "options": [
-                  "長い",
-                  "長く",
                   "長",
-                  "長さ"
+                  "長さ",
+                  "長い",
+                  "長く"
                 ],
-                "correct": 2,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Tính từ đuôi い bỏ い + すぎます (Bài 13): 長い ➔ 長すぎます."
+                "correct": 0,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Tính từ đuôi い bỏ い + すぎます (Bài 13): 長い ➔ 長すぎます.",
+                "contentRevision": 3
               },
               {
                 "id": 34,
@@ -1644,13 +1674,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "結婚して ちょうど ５年 (   )。",
                 "promptVi": "Chúng tôi kết hôn tính đến nay vừa tròn 5 năm.",
                 "options": [
-                  "になります",
-                  "があります",
                   "にします",
-                  "をします"
+                  "になります",
+                  "をします",
+                  "があります"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Khoảng thời gian + になります (Bài 13): Đã đạt mốc."
+                "correct": 1,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Khoảng thời gian + になります (Bài 13): Đã đạt mốc.",
+                "contentRevision": 3
               },
               {
                 "id": 35,
@@ -1658,13 +1689,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "ここで 写真を 撮って (   ) ですか。",
                 "promptVi": "Tôi chụp ảnh ở đây có được phép không?",
                 "options": [
-                  "もいい",
-                  "はいけない",
                   "といい",
-                  "ください"
+                  "ください",
+                  "はいけない",
+                  "もいい"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-てもいいですか (Bài 13): Xin phép làm việc gì."
+                "correct": 3,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-てもいいですか (Bài 13): Xin phép làm việc gì.",
+                "contentRevision": 3
               },
               {
                 "id": 36,
@@ -1678,7 +1710,8 @@ window.DE_THI_TONG_HOP_DATA = [
                   "あと"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-る まえに (Bài 14): Trước khi làm V."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-る まえに (Bài 14): Trước khi làm V.",
+                "contentRevision": 3
               },
               {
                 "id": 37,
@@ -1687,12 +1720,13 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "Khi bị đau đầu, bạn nên uống thuốc thì tốt đấy.",
                 "options": [
                   "が",
-                  "と",
                   "を",
+                  "と",
                   "で"
                 ],
-                "correct": 1,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-るといいですよ (Bài 14): Khuyên nhủ nên làm gì."
+                "correct": 2,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-るといいですよ (Bài 14): Khuyên nhủ nên làm gì.",
+                "contentRevision": 3
               },
               {
                 "id": 38,
@@ -1700,13 +1734,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "夜遅く 電話を かけ (   ) ください。",
                 "promptVi": "Xin đừng gọi điện thoại vào lúc đêm muộn.",
                 "options": [
-                  "ないで",
                   "なくて",
+                  "ませんで",
                   "ないと",
-                  "ませんで"
+                  "ないで"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-ないでください (Bài 14): Xin đừng làm V."
+                "correct": 3,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-ないでください (Bài 14): Xin đừng làm V.",
+                "contentRevision": 3
               },
               {
                 "id": 39,
@@ -1714,13 +1749,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "週末は 映画を 見たり 買い物を (   )。",
                 "promptVi": "Cuối tuần tôi khi thì xem phim khi thì đi mua sắm.",
                 "options": [
+                  "したりになります",
                   "したりします",
                   "したりあります",
-                  "したりになります",
                   "したりです"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• ～たり～たりします (Bài 15): Liệt kê hành động."
+                "correct": 1,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• ～たり～たりします (Bài 15): Liệt kê hành động.",
+                "contentRevision": 3
               },
               {
                 "id": 40,
@@ -1729,12 +1765,13 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "Người đang đọc sách đằng kia là anh Tanaka.",
                 "options": [
                   "読んでいる",
-                  "読みたい",
+                  "読みます",
                   "読んで",
-                  "読みます"
+                  "読みたい"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Định ngữ: V-ている + N ➔ 読んでいる人 (Bài 15)."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Định ngữ: V-ている + N ➔ 読んでいる人 (Bài 15).",
+                "contentRevision": 3
               },
               {
                 "id": 41,
@@ -1742,13 +1779,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "どうして 試験を 受けなかった (   ) か。",
                 "promptVi": "Tại sao bạn lại không tham gia kỳ thi vậy?",
                 "options": [
-                  "んです",
+                  "でした",
                   "です",
-                  "ます",
-                  "でした"
+                  "んです",
+                  "ます"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Thể ngắn + んですか (Bài 16): Hỏi giải thích lý do."
+                "correct": 2,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Thể ngắn + んですか (Bài 16): Hỏi giải thích lý do.",
+                "contentRevision": 3
               },
               {
                 "id": 42,
@@ -1756,13 +1794,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "これは 父が (   ) 時計です。",
                 "promptVi": "Đây là chiếc đồng hồ bố tôi đã mua.",
                 "options": [
+                  "買って",
                   "買った",
                   "買います",
-                  "買って",
                   "買うです"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Định ngữ quá khứ: V-た + N ➔ 父が買った時計 (Bài 15)."
+                "correct": 1,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Định ngữ quá khứ: V-た + N ➔ 父が買った時計 (Bài 15).",
+                "contentRevision": 3
               },
               {
                 "id": 43,
@@ -1770,14 +1809,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "明日は 天気が (   ) と 思います。",
                 "promptVi": "Tôi nghĩ rằng ngày mai thời tiết sẽ đẹp.",
                 "options": [
-                  "いい",
+                  "いいな",
                   "いいだ",
                   "よく",
-                  "いいな"
+                  "いい"
                 ],
-                "correct": 0,
+                "correct": 3,
                 "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Tính từ い giữ nguyên trước と思います: いいと思います (Bài 18). Không thêm だ.",
-                "contentRevision": 2
+                "contentRevision": 3
               },
               {
                 "id": 44,
@@ -1785,13 +1824,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "社長は 「来月 出張する」(   )。",
                 "promptVi": "Giám đốc đã nói rằng 'Tháng sau tôi sẽ đi công tác'.",
                 "options": [
-                  "と言いました",
-                  "と思いました",
                   "といいでした",
-                  "んです"
+                  "と思いました",
+                  "んです",
+                  "と言いました"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Trích dẫn: 「...」と言いました (Bài 18)."
+                "correct": 3,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Trích dẫn: 「...」と言いました (Bài 18).",
+                "contentRevision": 3
               },
               {
                 "id": 45,
@@ -1799,13 +1839,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "この 料理は 自分 (   ) 作ったんです。",
                 "promptVi": "Món ăn này là do tự tay tôi nấu đấy.",
                 "options": [
-                  "が",
                   "に",
                   "で",
-                  "と"
+                  "と",
+                  "が"
                 ],
-                "correct": 2,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Phương thức: 自分で (tự mình làm - Bài 14)."
+                "correct": 1,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Phương thức: 自分で (tự mình làm - Bài 14).",
+                "contentRevision": 3
               },
               {
                 "id": 46,
@@ -1819,7 +1860,8 @@ window.DE_THI_TONG_HOP_DATA = [
                   "と"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Cụm cố định: のどがかわく (Bài 11/16)."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Cụm cố định: のどがかわく (Bài 11/16).",
+                "contentRevision": 3
               },
               {
                 "id": 47,
@@ -1827,13 +1869,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "夏 (   ) 冬 (   ) どちらが 過ごしやすいですか。",
                 "promptVi": "Mùa hè và mùa đông, mùa nào dễ chịu hơn?",
                 "options": [
-                  "と・と",
+                  "が・に",
                   "に・が",
-                  "で・で",
-                  "が・に"
+                  "と・と",
+                  "で・で"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• A と B と どちら (Bài 11): So sánh 2 mùa."
+                "correct": 2,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• A と B と どちら (Bài 11): So sánh 2 mùa.",
+                "contentRevision": 3
               },
               {
                 "id": 48,
@@ -1841,13 +1884,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "この 歌手は 若い 人 (   ) 人気 (   ) あります。",
                 "promptVi": "Ca sĩ này rất được giới trẻ yêu mến.",
                 "options": [
-                  "に・が",
-                  "で・に",
+                  "と・に",
                   "が・で",
-                  "と・に"
+                  "で・に",
+                  "に・が"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• ～に 人気がある: Được yêu thích bởi đối tượng nào (Bài 11)."
+                "correct": 3,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• ～に 人気がある: Được yêu thích bởi đối tượng nào (Bài 11).",
+                "contentRevision": 3
               },
               {
                 "id": 49,
@@ -1855,13 +1899,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "冷蔵庫の 中 (   ) 牛乳 (   ) ありますか。",
                 "promptVi": "Trong tủ lạnh có sữa tươi không?",
                 "options": [
-                  "に・が",
-                  "で・に",
                   "が・で",
-                  "と・が"
+                  "に・が",
+                  "と・が",
+                  "で・に"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• [Nơi chốn] に [Vật] が あります (Bài 11)."
+                "correct": 1,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• [Nơi chốn] に [Vật] が あります (Bài 11).",
+                "contentRevision": 3
               },
               {
                 "id": 50,
@@ -1869,13 +1914,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "来月 ハノイ (   ) 引っ越しします。",
                 "promptVi": "Tháng sau tôi chuyển nhà đến Hà Nội.",
                 "options": [
-                  "に",
-                  "で",
                   "が",
-                  "を"
+                  "を",
+                  "に",
+                  "で"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Đích đến di chuyển: ハノイに 引っ越す (Bài 18)."
+                "correct": 2,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Đích đến di chuyển: ハノイに 引っ越す (Bài 18).",
+                "contentRevision": 3
               },
               {
                 "id": 51,
@@ -1884,13 +1930,13 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "Cách đây 3 tháng tôi đã bắt đầu học tiếng Nhật.",
                 "options": [
                   "に・を",
-                  "で・が",
                   "に・で",
+                  "で・が",
                   "が・に"
                 ],
                 "correct": 0,
                 "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• ３か月前に日本語の勉強を始めました. に chỉ thời điểm, を đánh dấu tân ngữ 勉強.",
-                "contentRevision": 2
+                "contentRevision": 3
               },
               {
                 "id": 52,
@@ -1898,13 +1944,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "暑いですね。窓を (   ) も いいですか。",
                 "promptVi": "Trời nóng quá. Tôi mở cửa sổ có được không?",
                 "options": [
-                  "あけて",
                   "あける",
                   "あけた",
+                  "あけて",
                   "あけない"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-てもいいですか: あけてもいいですか (Bài 13)."
+                "correct": 2,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-てもいいですか: あけてもいいですか (Bài 13).",
+                "contentRevision": 3
               },
               {
                 "id": 53,
@@ -1912,13 +1959,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "風邪を ひいたときは、暖かくして (   ) いいですよ。",
                 "promptVi": "Khi bị cảm cúm, bạn nên giữ ấm cơ thể thì tốt đấy.",
                 "options": [
-                  "ねると",
-                  "ねても",
                   "ねたことが",
-                  "ねないで"
+                  "ねると",
+                  "ねないで",
+                  "ねても"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-るといいですよ: ねるといいですよ (Bài 14/16)."
+                "correct": 1,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-るといいですよ: ねるといいですよ (Bài 14/16).",
+                "contentRevision": 3
               },
               {
                 "id": 54,
@@ -1926,13 +1974,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "日曜日は 音楽を (   )、掃除を し (   ) しました。",
                 "promptVi": "Chủ nhật tôi khi thì nghe nhạc, khi thì dọn dẹp nhà cửa.",
                 "options": [
-                  "聴いたり・たり",
                   "聴いて・て",
+                  "聴いた・た",
                   "聴く・く",
-                  "聴いた・た"
+                  "聴いたり・たり"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• ～たり～たりしました (Bài 16)."
+                "correct": 3,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• ～たり～たりしました (Bài 16).",
+                "contentRevision": 3
               },
               {
                 "id": 55,
@@ -1946,7 +1995,8 @@ window.DE_THI_TONG_HOP_DATA = [
                   "と・に"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Phương tiện: スマホで; Trạng thái: 頭が痛い (Bài 16)."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Phương tiện: スマホで; Trạng thái: 頭が痛い (Bài 16).",
+                "contentRevision": 3
               },
               {
                 "id": 56,
@@ -1955,12 +2005,13 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "Khi tốt nghiệp đại học, tôi đã viết thư cho thầy giáo.",
                 "options": [
                   "した・に",
-                  "の・で",
+                  "して・に",
                   "する・が",
-                  "して・に"
+                  "の・で"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Động từ quá khứ 卒業したとき; Viết cho ai: 先生に (Bài 14)."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Động từ quá khứ 卒業したとき; Viết cho ai: 先生に (Bài 14).",
+                "contentRevision": 3
               },
               {
                 "id": 57,
@@ -1968,13 +2019,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "会議 (   ) 日時は 明日 (   ) いいと 思います。",
                 "promptVi": "Thời gian họp thì tôi nghĩ là ngày mai sẽ tiện nhất.",
                 "options": [
-                  "の・が",
                   "が・に",
-                  "に・で",
-                  "で・の"
+                  "の・が",
+                  "で・の",
+                  "に・で"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• 会議の日時; 明日がいいと思います (Bài 18)."
+                "correct": 1,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• 会議の日時; 明日がいいと思います (Bài 18).",
+                "contentRevision": 3
               },
               {
                 "id": 58,
@@ -1982,13 +2034,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "ピクニックに 果物を 切って (   )。",
                 "promptVi": "Tôi cắt sẵn hoa quả mang đi dã ngoại.",
                 "options": [
-                  "いきます",
-                  "きます",
                   "みます",
-                  "います"
+                  "います",
+                  "きます",
+                  "いきます"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-ていきます (Bài 11): Chuẩn bị rồi mang đi theo."
+                "correct": 3,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-ていきます (Bài 11): Chuẩn bị rồi mang đi theo.",
+                "contentRevision": 3
               },
               {
                 "id": 59,
@@ -1996,13 +2049,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "初めて 日本の 料理を (   )。とても おいしかったです。",
                 "promptVi": "Lần đầu tiên tôi thử món ăn Nhật. Rất ngon.",
                 "options": [
-                  "食べてみました",
+                  "食べたことがあります",
                   "食べていました",
-                  "食べすぎました",
-                  "食べたことがあります"
+                  "食べてみました",
+                  "食べすぎました"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-てみる ➔ てみました: đã thử ăn (bài 11)."
+                "correct": 2,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-てみる ➔ てみました: đã thử ăn (bài 11).",
+                "contentRevision": 3
               },
               {
                 "id": 60,
@@ -2012,11 +2066,12 @@ window.DE_THI_TONG_HOP_DATA = [
                 "options": [
                   "どちら",
                   "どこ",
-                  "だれ",
-                  "いつ"
+                  "いつ",
+                  "だれ"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• A と B と どちら (Bài 11): So sánh giữa 2 lựa chọn."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• A と B と どちら (Bài 11): So sánh giữa 2 lựa chọn.",
+                "contentRevision": 3
               }
             ]
           }
@@ -2041,13 +2096,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "1. 雨の日、「私」は 何を しますか。",
                 "promptVi": "Vào những ngày trời mưa, nhân vật 'Tôi' làm gì?",
                 "options": [
+                  "一日中寝ています。",
                   "雨の中でも散歩します。",
                   "家でストレッチや体操をします。",
-                  "一日中寝ています。",
                   "公園まで自転車で行きます。"
                 ],
-                "correct": 1,
-                "explain": "💡 Căn cứ câu: '雨の日は散歩を休んで、家でストレッチや軽い体操をします' ➔ Chọn đáp án 2."
+                "correct": 2,
+                "explain": "💡 Căn cứ câu: '雨の日は散歩を休んで、家でストレッチや軽い体操をします' ➔ Chọn đáp án 3.",
+                "contentRevision": 3
               },
               {
                 "id": 62,
@@ -2055,13 +2111,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "2. 朝ごはんを 食べる 前に、何を しますか。",
                 "promptVi": "Trước khi ăn bữa sáng, nhân vật 'Tôi' làm việc gì?",
                 "options": [
-                  "コップ一杯の水を飲みます。",
                   "薬を飲みます。",
+                  "コップ一杯の水を飲みます。",
                   "散歩を始めます。",
                   "コーヒーを飲みます。"
                 ],
-                "correct": 0,
-                "explain": "💡 Căn cứ câu: '朝ごはんを食べる前に、必ずコップ一杯の水を飲みます' ➔ Chọn đáp án 1."
+                "correct": 1,
+                "explain": "💡 Căn cứ câu: '朝ごはんを食べる前に、必ずコップ一杯の水を飲みます' ➔ Chọn đáp án 2.",
+                "contentRevision": 3
               },
               {
                 "id": 63,
@@ -2069,13 +2126,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "3. 朝ごはんを しっかり 食べて、どう なりましたか。",
                 "promptVi": "Sau khi duy trì ăn sáng đầy đủ thì kết quả thế nào?",
                 "options": [
-                  "体調がとてもよくなりました。",
-                  "体重が増えすぎました。",
+                  "病気になりました。",
                   "朝起きられなくなりました。",
-                  "病気になりました。"
+                  "体重が増えすぎました。",
+                  "体調がとてもよくなりました。"
                 ],
-                "correct": 0,
-                "explain": "💡 Căn cứ câu: '体調がとてもよくなりました' ➔ Chọn đáp án 1."
+                "correct": 3,
+                "explain": "💡 Căn cứ câu: '体調がとてもよくなりました' ➔ Chọn đáp án 4.",
+                "contentRevision": 3
               },
               {
                 "id": 64,
@@ -2085,11 +2143,12 @@ window.DE_THI_TONG_HOP_DATA = [
                 "options": [
                   "自転車で遠い公園へ行きます。",
                   "一日中仕事をします。",
-                  "友だちと買い物をします。",
-                  "家でテレビを見ます。"
+                  "家でテレビを見ます。",
+                  "友だちと買い物をします。"
                 ],
                 "correct": 0,
-                "explain": "💡 Căn cứ câu: '週末は...自転車で少し遠い公園まで行って、景色を楽しんでいます' ➔ Chọn đáp án 1."
+                "explain": "💡 Căn cứ câu: '週末は...自転車で少し遠い公園まで行って、景色を楽しんでいます' ➔ Chọn đáp án 1.",
+                "contentRevision": 3
               }
             ]
           },
@@ -2111,7 +2170,8 @@ window.DE_THI_TONG_HOP_DATA = [
                   "カラオケボックス"
                 ],
                 "correct": 1,
-                "explain": "💡 Căn cứ: '駅前の日本料理の店で食事会をして' ➔ Chọn đáp án 2 (Quán món Nhật trước ga)."
+                "explain": "💡 Căn cứ: '駅前の日本料理の店で食事会をして' ➔ Chọn đáp án 2 (Quán món Nhật trước ga).",
+                "contentRevision": 3
               },
               {
                 "id": 66,
@@ -2119,13 +2179,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "2. みんなは 田中さんに 何を プレゼントしますか。",
                 "promptVi": "Mọi người sẽ tặng món quà gì cho anh Tanaka?",
                 "options": [
+                  "万年筆",
                   "お酒",
-                  "高級な時計",
                   "記念のネクタイ",
-                  "万年筆"
+                  "高級な時計"
                 ],
                 "correct": 2,
-                "explain": "💡 Căn cứ: 'みんなで記念のネクタイをプレゼントすることに決めました' ➔ Chọn đáp án 3 (Cà vạt kỷ niệm)."
+                "explain": "💡 Căn cứ: 'みんなで記念のネクタイをプレゼントすることに決めました' ➔ Chọn đáp án 3 (Cà vạt kỷ niệm).",
+                "contentRevision": 3
               }
             ]
           },
@@ -2141,13 +2202,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "1. 飛行機が 遅れた 理由は 何ですか。",
                 "promptVi": "Lý do máy bay bị chậm khởi hành là gì?",
                 "options": [
-                  "飛行機が故障したから",
-                  "天気が悪かったから",
                   "空港が混んでいたから",
-                  "会議が長引いたから"
+                  "会議が長引いたから",
+                  "飛行機が故障したから",
+                  "天気が悪かったから"
                 ],
-                "correct": 1,
-                "explain": "💡 Căn cứ câu: '天気が悪くて、出発が1時間遅れました' ➔ Chọn đáp án 2 (Do thời tiết xấu)."
+                "correct": 3,
+                "explain": "💡 Căn cứ câu: '天気が悪くて、出発が1時間遅れました' ➔ Chọn đáp án 4 (Do thời tiết xấu).",
+                "contentRevision": 3
               },
               {
                 "id": 68,
@@ -2155,13 +2217,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "2. 会議は どうでしたか。",
                 "promptVi": "Buổi họp diễn ra như thế nào?",
                 "options": [
-                  "時間に遅れて怒られた。",
-                  "中止になった。",
                   "時間に間に合って無事に終わった。",
-                  "取引先が来なかった。"
+                  "時間に遅れて怒られた。",
+                  "取引先が来なかった。",
+                  "中止になった。"
                 ],
-                "correct": 2,
-                "explain": "💡 Căn cứ câu: '時間に間に合って、大事な会議を無事に終えることができました' ➔ Chọn đáp án 3 (Kịp giờ và kết thúc an toàn/suôn sẻ)."
+                "correct": 0,
+                "explain": "💡 Căn cứ câu: '時間に間に合って、大事な会議を無事に終えることができました' ➔ Chọn đáp án 1 (Kịp giờ và kết thúc an toàn/suôn sẻ).",
+                "contentRevision": 3
               }
             ]
           }
@@ -2184,25 +2247,26 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "朝 起きて _________ ________ ____★____ _________。",
                 "promptVi": "Sáng dậy sau khi uống một cốc nước tôi bắt đầu đi bộ.",
                 "parts": [
-                  "散歩を",
-                  "水を",
                   "飲んだあとで",
-                  "始めます"
+                  "散歩を",
+                  "始めます",
+                  "水を"
                 ],
                 "options": [
-                  "散歩を",
-                  "水を",
                   "飲んだあとで",
-                  "始めます"
+                  "散歩を",
+                  "始めます",
+                  "水を"
                 ],
                 "correctOrder": [
-                  1,
-                  2,
+                  3,
                   0,
-                  3
+                  1,
+                  2
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích sắp xếp câu:</strong><br>• Thứ tự: 朝起きて ➔ [2 水を] [3 飲んだあとで] [1 ★散歩を] [4 始めます]。Vị trí ★ là 1. 散歩を."
+                "correct": 1,
+                "explain": "Thứ tự các cụm: 水を → 飲んだあとで → 散歩を → 始めます. Vị trí ★: <strong>散歩を</strong> (phương án 2).",
+                "contentRevision": 3
               },
               {
                 "id": 70,
@@ -2210,94 +2274,16 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "来週は _________ ________ ____★____ _________ と言っていました。",
                 "promptVi": "Giám đốc đã nói rằng tuần sau trời sẽ trở nên lạnh hơn.",
                 "parts": [
-                  "寒く",
                   "天気が",
-                  "なると",
-                  "社長は"
-                ],
-                "options": [
+                  "社長は",
                   "寒く",
+                  "なると"
+                ],
+                "options": [
                   "天気が",
-                  "なると",
-                  "社長は"
-                ],
-                "correctOrder": [
-                  3,
-                  1,
-                  0,
-                  2
-                ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích sắp xếp câu:</strong><br>• Thứ tự: 来週は ➔ [4 社長は] [2 天気が] [1 ★寒く] [3 なると] と言っていました。Vị trí ★ là 1. 寒く."
-              },
-              {
-                "id": 71,
-                "type": "star",
-                "prompt": "この カバンは _________ ________ ____★____ _________ んです。",
-                "promptVi": "Chiếc cặp này là tôi tự tay mua bằng tiền làm thêm đấy.",
-                "parts": [
-                  "アルバイトの",
-                  "自分で",
-                  "お金で",
-                  "買った"
-                ],
-                "options": [
-                  "アルバイトの",
-                  "自分で",
-                  "お金で",
-                  "買った"
-                ],
-                "correctOrder": [
-                  0,
-                  2,
-                  1,
-                  3
-                ],
-                "correct": 1,
-                "explain": "💡 <strong>Giải thích sắp xếp câu:</strong><br>• Thứ tự: このカバンは ➔ [1 アルバイトの] [3 お金で] [2 ★自分で] [4 買った] んです。Vị trí ★ là 2. 自分で."
-              },
-              {
-                "id": 72,
-                "type": "star",
-                "prompt": "京都へ _________ ________ ____★____ _________ ことがあります。",
-                "promptVi": "Tôi đã từng đi du lịch Kyoto cùng gia đình một lần.",
-                "parts": [
-                  "家族と",
-                  "一度",
-                  "旅行した",
-                  "いっしょに"
-                ],
-                "options": [
-                  "家族と",
-                  "一度",
-                  "旅行した",
-                  "いっしょに"
-                ],
-                "correctOrder": [
-                  1,
-                  0,
-                  3,
-                  2
-                ],
-                "correct": 3,
-                "explain": "💡 <strong>Giải thích sắp xếp câu:</strong><br>• Thứ tự: 京都へ ➔ [2 一度] [1 家族と] [4 ★いっしょに] [3 旅行した] ことがあります。Vị trí ★ là 4. いっしょに."
-              },
-              {
-                "id": 73,
-                "type": "star",
-                "prompt": "風邪を _________ ________ ____★____ _________ といいですよ。",
-                "promptVi": "Khi bị cảm cúm thì nên uống nhiều nước ấm rồi nghỉ ngơi thì tốt đấy.",
-                "parts": [
-                  "暖かくして",
-                  "ひいたときは",
-                  "ゆっくり",
-                  "休む"
-                ],
-                "options": [
-                  "暖かくして",
-                  "ひいたときは",
-                  "ゆっくり",
-                  "休む"
+                  "社長は",
+                  "寒く",
+                  "なると"
                 ],
                 "correctOrder": [
                   1,
@@ -2306,7 +2292,89 @@ window.DE_THI_TONG_HOP_DATA = [
                   3
                 ],
                 "correct": 2,
-                "explain": "💡 <strong>Giải thích sắp xếp câu:</strong><br>• Thứ tự: 風邪を ➔ [2 ひいたときは] [1 暖かくして] [3 ★ゆっくり] [4 休む] といいですよ。Vị trí ★ là 3. ゆっくり."
+                "explain": "Thứ tự các cụm: 社長は → 天気が → 寒く → なると. Vị trí ★: <strong>寒く</strong> (phương án 3).",
+                "contentRevision": 3
+              },
+              {
+                "id": 71,
+                "type": "star",
+                "prompt": "この カバンは _________ ________ ____★____ _________ んです。",
+                "promptVi": "Chiếc cặp này là tôi tự tay mua bằng tiền làm thêm đấy.",
+                "parts": [
+                  "お金で",
+                  "アルバイトの",
+                  "買った",
+                  "自分で"
+                ],
+                "options": [
+                  "お金で",
+                  "アルバイトの",
+                  "買った",
+                  "自分で"
+                ],
+                "correctOrder": [
+                  1,
+                  0,
+                  3,
+                  2
+                ],
+                "correct": 3,
+                "explain": "Thứ tự các cụm: アルバイトの → お金で → 自分で → 買った. Vị trí ★: <strong>自分で</strong> (phương án 4).",
+                "contentRevision": 3
+              },
+              {
+                "id": 72,
+                "type": "star",
+                "prompt": "京都へ _________ ________ ____★____ _________ ことがあります。",
+                "promptVi": "Tôi đã từng đi du lịch Kyoto cùng gia đình một lần.",
+                "parts": [
+                  "一度",
+                  "家族と",
+                  "いっしょに",
+                  "旅行した"
+                ],
+                "options": [
+                  "一度",
+                  "家族と",
+                  "いっしょに",
+                  "旅行した"
+                ],
+                "correctOrder": [
+                  0,
+                  1,
+                  2,
+                  3
+                ],
+                "correct": 2,
+                "explain": "Thứ tự các cụm: 一度 → 家族と → いっしょに → 旅行した. Vị trí ★: <strong>いっしょに</strong> (phương án 3).",
+                "contentRevision": 3
+              },
+              {
+                "id": 73,
+                "type": "star",
+                "prompt": "風邪を _________ ________ ____★____ _________ といいですよ。",
+                "promptVi": "Khi bị cảm cúm thì nên uống nhiều nước ấm rồi nghỉ ngơi thì tốt đấy.",
+                "parts": [
+                  "休む",
+                  "ゆっくり",
+                  "ひいたときは",
+                  "暖かくして"
+                ],
+                "options": [
+                  "休む",
+                  "ゆっくり",
+                  "ひいたときは",
+                  "暖かくして"
+                ],
+                "correctOrder": [
+                  2,
+                  3,
+                  1,
+                  0
+                ],
+                "correct": 1,
+                "explain": "Thứ tự các cụm: ひいたときは → 暖かくして → ゆっくり → 休む. Vị trí ★: <strong>ゆっくり</strong> (phương án 2).",
+                "contentRevision": 3
               },
               {
                 "id": 74,
@@ -2315,24 +2383,25 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "Địa điểm của cuộc họp thì tôi nghĩ phòng họp số 2 là tốt nhất.",
                 "parts": [
                   "場所は",
-                  "第2会議室が",
+                  "明日の",
                   "いい",
-                  "明日の"
+                  "第2会議室が"
                 ],
                 "options": [
                   "場所は",
-                  "第2会議室が",
+                  "明日の",
                   "いい",
-                  "明日の"
+                  "第2会議室が"
                 ],
                 "correctOrder": [
-                  3,
-                  0,
                   1,
+                  0,
+                  3,
                   2
                 ],
-                "correct": 1,
-                "explain": "💡 <strong>Giải thích sắp xếp câu:</strong><br>• Thứ tự: 会議の ➔ [4 明日の] [1 場所は] [2 ★第2会議室が] [3 いい] と思います。Vị trí ★ là 2. 第2会議室が."
+                "correct": 3,
+                "explain": "Thứ tự các cụm: 明日の → 場所は → 第2会議室が → いい. Vị trí ★: <strong>第2会議室が</strong> (phương án 4).",
+                "contentRevision": 3
               }
             ]
           }
@@ -2365,13 +2434,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "気持ち có nghĩa là Cảm xúc.",
                 "targetWord": "気持ち",
                 "options": [
-                  "きもち",
-                  "おねがい",
+                  "りょうり",
                   "おねがいします",
-                  "りょうり"
+                  "きもち",
+                  "おねがい"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 気持ち ➔ きもち (Cảm xúc — Bài 11)."
+                "correct": 2,
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 気持ち ➔ きもち (Cảm xúc — Bài 11).",
+                "contentRevision": 3
               },
               {
                 "id": 2,
@@ -2380,13 +2450,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "お願い có nghĩa là Yêu cầu, điều nhờ vả.",
                 "targetWord": "お願い",
                 "options": [
+                  "りょうり",
                   "おねがい",
                   "おねがいします",
-                  "りょうり",
                   "あじ"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• お願い ➔ おねがい (Yêu cầu, điều nhờ vả — Bài 11)."
+                "correct": 1,
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• お願い ➔ おねがい (Yêu cầu, điều nhờ vả — Bài 11).",
+                "contentRevision": 3
               },
               {
                 "id": 3,
@@ -2396,12 +2467,13 @@ window.DE_THI_TONG_HOP_DATA = [
                 "targetWord": "お願いします",
                 "options": [
                   "おねがいします",
-                  "りょうり",
                   "あじ",
-                  "いろ"
+                  "いろ",
+                  "りょうり"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• お願いします ➔ おねがいします (Làm ơn, vui lòng... — Bài 11)."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• お願いします ➔ おねがいします (Làm ơn, vui lòng... — Bài 11).",
+                "contentRevision": 3
               },
               {
                 "id": 4,
@@ -2410,13 +2482,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "料理 có nghĩa là Món ăn.",
                 "targetWord": "料理",
                 "options": [
-                  "りょうり",
-                  "あじ",
+                  "いろいろ",
                   "いろ",
-                  "いろいろ"
+                  "あじ",
+                  "りょうり"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 料理 ➔ りょうり (Món ăn — Bài 12)."
+                "correct": 3,
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 料理 ➔ りょうり (Món ăn — Bài 12).",
+                "contentRevision": 3
               },
               {
                 "id": 5,
@@ -2425,13 +2498,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "味 có nghĩa là Vị.",
                 "targetWord": "味",
                 "options": [
+                  "やさい",
                   "あじ",
-                  "いろ",
                   "いろいろ",
-                  "やさい"
+                  "いろ"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 味 ➔ あじ (Vị — Bài 12)."
+                "correct": 1,
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 味 ➔ あじ (Vị — Bài 12).",
+                "contentRevision": 3
               },
               {
                 "id": 6,
@@ -2441,12 +2515,13 @@ window.DE_THI_TONG_HOP_DATA = [
                 "targetWord": "色",
                 "options": [
                   "いろ",
-                  "いろいろ",
                   "やさい",
-                  "あいます"
+                  "あいます",
+                  "いろいろ"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 色 ➔ いろ (Màu sắc — Bài 12)."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 色 ➔ いろ (Màu sắc — Bài 12).",
+                "contentRevision": 3
               },
               {
                 "id": 7,
@@ -2455,13 +2530,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "色々 có nghĩa là Đa dạng.",
                 "targetWord": "色々",
                 "options": [
-                  "いろいろ",
                   "やさい",
                   "あいます",
+                  "いろいろ",
                   "しゃかい"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 色々 ➔ いろいろ (Đa dạng — Bài 12)."
+                "correct": 2,
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 色々 ➔ いろいろ (Đa dạng — Bài 12).",
+                "contentRevision": 3
               },
               {
                 "id": 8,
@@ -2470,13 +2546,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "野菜 có nghĩa là Rau.",
                 "targetWord": "野菜",
                 "options": [
-                  "やさい",
                   "あいます",
                   "しゃかい",
-                  "ししゃ"
+                  "ししゃ",
+                  "やさい"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 野菜 ➔ やさい (Rau — Bài 12)."
+                "correct": 3,
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 野菜 ➔ やさい (Rau — Bài 12).",
+                "contentRevision": 3
               },
               {
                 "id": 9,
@@ -2485,13 +2562,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "会います có nghĩa là Gặp gỡ.",
                 "targetWord": "会います",
                 "options": [
-                  "あいます",
                   "しゃかい",
                   "ししゃ",
+                  "あいます",
                   "きます"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 会います ➔ あいます (Gặp gỡ — Bài 13)."
+                "correct": 2,
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 会います ➔ あいます (Gặp gỡ — Bài 13).",
+                "contentRevision": 3
               },
               {
                 "id": 10,
@@ -2501,12 +2579,13 @@ window.DE_THI_TONG_HOP_DATA = [
                 "targetWord": "社会",
                 "options": [
                   "しゃかい",
+                  "きもの",
                   "ししゃ",
-                  "きます",
-                  "きもの"
+                  "きます"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 社会 ➔ しゃかい (Xã hội — Bài 13)."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 社会 ➔ しゃかい (Xã hội — Bài 13).",
+                "contentRevision": 3
               }
             ]
           },
@@ -2520,13 +2599,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "日本語の (   ) を 練習します。",
                 "promptVi": "Tôi luyện phát âm tiếng Nhật.",
                 "options": [
-                  "発音",
-                  "料理",
+                  "計画",
                   "結婚",
-                  "計画"
+                  "料理",
+                  "発音"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 発音: phát âm."
+                "correct": 3,
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 発音: phát âm.",
+                "contentRevision": 3
               },
               {
                 "id": 12,
@@ -2534,13 +2614,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "友達の 結婚の (   ) を します。",
                 "promptVi": "Tôi chúc mừng đám cưới của bạn.",
                 "options": [
-                  "お祝い",
-                  "お酒",
                   "電車",
-                  "週末"
+                  "お祝い",
+                  "週末",
+                  "お酒"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• お祝い: chúc mừng, quà mừng."
+                "correct": 1,
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• お祝い: chúc mừng, quà mừng.",
+                "contentRevision": 3
               },
               {
                 "id": 13,
@@ -2548,13 +2629,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "週末は (   ) と 食事を します。",
                 "promptVi": "Cuối tuần tôi ăn cơm cùng gia đình.",
                 "options": [
+                  "料理",
                   "家族",
-                  "計画",
                   "発音",
-                  "料理"
+                  "計画"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 家族: gia đình."
+                "correct": 1,
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 家族: gia đình.",
+                "contentRevision": 3
               },
               {
                 "id": 14,
@@ -2562,13 +2644,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "毎日 運動して、(   ) に なりたいです。",
                 "promptVi": "Tôi muốn khỏe mạnh nhờ tập thể dục mỗi ngày.",
                 "options": [
-                  "健康",
+                  "誕生日",
                   "結婚",
-                  "電車",
-                  "誕生日"
+                  "健康",
+                  "電車"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 健康: sức khỏe, khỏe mạnh."
+                "correct": 2,
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 健康: sức khỏe, khỏe mạnh.",
+                "contentRevision": 3
               },
               {
                 "id": 15,
@@ -2577,12 +2660,13 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "Cuối tuần tôi gặp bạn.",
                 "options": [
                   "週末",
-                  "毎日",
                   "誕生日",
+                  "毎日",
                   "料理"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 週末: cuối tuần."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 週末: cuối tuần.",
+                "contentRevision": 3
               },
               {
                 "id": 16,
@@ -2590,13 +2674,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "今日は 母の (   ) です。",
                 "promptVi": "Hôm nay là sinh nhật mẹ.",
                 "options": [
-                  "誕生日",
-                  "結婚",
+                  "計画",
                   "お祝い",
-                  "計画"
+                  "結婚",
+                  "誕生日"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 誕生日: sinh nhật."
+                "correct": 3,
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 誕生日: sinh nhật.",
+                "contentRevision": 3
               },
               {
                 "id": 17,
@@ -2604,13 +2689,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "家族は とても (   ) です。",
                 "promptVi": "Gia đình rất quan trọng.",
                 "options": [
-                  "大切",
                   "健康",
-                  "有名",
-                  "週末"
+                  "大切",
+                  "週末",
+                  "有名"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 大切: quan trọng, quý giá."
+                "correct": 1,
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 大切: quan trọng, quý giá.",
+                "contentRevision": 3
               },
               {
                 "id": 18,
@@ -2618,13 +2704,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "(   ) で 会社へ 行きます。",
                 "promptVi": "Tôi đi tàu điện đến công ty.",
                 "options": [
-                  "電車",
-                  "料理",
+                  "発音",
                   "お酒",
-                  "発音"
+                  "料理",
+                  "電車"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 電車: tàu điện."
+                "correct": 3,
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 電車: tàu điện.",
+                "contentRevision": 3
               },
               {
                 "id": 19,
@@ -2632,13 +2719,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "毎朝 公園を (   )。",
                 "promptVi": "Mỗi sáng tôi chạy trong công viên.",
                 "options": [
-                  "走ります",
                   "送ります",
                   "思います",
+                  "走ります",
                   "着ます"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 走ります: chạy."
+                "correct": 2,
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 走ります: chạy.",
+                "contentRevision": 3
               },
               {
                 "id": 20,
@@ -2647,12 +2735,13 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "Tôi nghĩ là quan trọng.",
                 "options": [
                   "思います",
-                  "送ります",
+                  "着ます",
                   "走ります",
-                  "着ます"
+                  "送ります"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 思います: nghĩ."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 思います: nghĩ.",
+                "contentRevision": 3
               },
               {
                 "id": 24,
@@ -2660,13 +2749,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "日本の (   ) が 好きです。",
                 "promptVi": "Tôi thích món ăn Nhật.",
                 "options": [
-                  "料理",
-                  "計画",
                   "健康",
-                  "発音"
+                  "料理",
+                  "発音",
+                  "計画"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 料理: món ăn, nấu ăn."
+                "correct": 1,
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 料理: món ăn, nấu ăn.",
+                "contentRevision": 3
               },
               {
                 "id": 25,
@@ -2674,13 +2764,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "健康のために、(   )を あまり 飲みません。",
                 "promptVi": "Vì sức khỏe nên tôi không uống nhiều rượu.",
                 "options": [
-                  "お酒",
                   "電車",
                   "週末",
+                  "お酒",
                   "計画"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• お酒: rượu, đồ uống có cồn."
+                "correct": 2,
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• お酒: rượu, đồ uống có cồn.",
+                "contentRevision": 3
               }
             ]
           }
@@ -2704,12 +2795,13 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "Đôi giày này không bị nặng và rất dễ đi.",
                 "options": [
                   "ないで",
-                  "なくて",
+                  "ない",
                   "なかった",
-                  "ない"
+                  "なくて"
                 ],
-                "correct": 1,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Nối tính từ phủ định: 重くない ➔ 重くなくて (Bài 12)."
+                "correct": 3,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Nối tính từ phủ định: 重くない ➔ 重くなくて (Bài 12).",
+                "contentRevision": 3
               },
               {
                 "id": 27,
@@ -2717,13 +2809,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "京都の お寺は 静か (   )、きれいです。",
                 "promptVi": "Chùa ở Kyoto vừa yên tĩnh lại vừa đẹp đẽ.",
                 "options": [
-                  "くて",
                   "で",
                   "に",
-                  "の"
+                  "の",
+                  "くて"
                 ],
-                "correct": 1,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Nối tính từ đuôi な: 静か ➔ 静かで (Bài 12)."
+                "correct": 0,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Nối tính từ đuôi な: 静か ➔ 静かで (Bài 12).",
+                "contentRevision": 3
               },
               {
                 "id": 28,
@@ -2732,12 +2825,13 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "Tôi đã từng đi Nhật Bản.",
                 "options": [
                   "あります",
-                  "います",
                   "します",
+                  "います",
                   "なります"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-た ことが あります: nói về kinh nghiệm đã từng (bài 13)."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-た ことが あります: nói về kinh nghiệm đã từng (bài 13).",
+                "contentRevision": 3
               },
               {
                 "id": 29,
@@ -2745,13 +2839,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "昨日の 夜は お酒を 飲み (   ) ました。",
                 "promptVi": "Tối hôm qua tôi đã uống quá nhiều rượu.",
                 "options": [
-                  "すぎる",
                   "すぎて",
                   "すぎ",
-                  "すぎた"
+                  "すぎた",
+                  "すぎる"
                 ],
-                "correct": 2,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-bỏ ます + すぎました (Bài 13): 飲みすぎました (uống quá mức)."
+                "correct": 1,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-bỏ ます + すぎました (Bài 13): 飲みすぎました (uống quá mức).",
+                "contentRevision": 3
               },
               {
                 "id": 30,
@@ -2759,13 +2854,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "この ズボンは 少し (   ) すぎます。",
                 "promptVi": "Chiếc quần này hơi dài quá.",
                 "options": [
+                  "長さ",
                   "長い",
-                  "長く",
                   "長",
-                  "長さ"
+                  "長く"
                 ],
                 "correct": 2,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Tính từ đuôi い bỏ い + すぎます (Bài 13): 長い ➔ 長すぎます."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Tính từ đuôi い bỏ い + すぎます (Bài 13): 長い ➔ 長すぎます.",
+                "contentRevision": 3
               },
               {
                 "id": 31,
@@ -2773,13 +2869,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "結婚して ちょうど ５年 (   )。",
                 "promptVi": "Chúng tôi kết hôn tính đến nay vừa tròn 5 năm.",
                 "options": [
-                  "になります",
-                  "があります",
                   "にします",
-                  "をします"
+                  "をします",
+                  "があります",
+                  "になります"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Khoảng thời gian + になります (Bài 13): Đã đạt mốc."
+                "correct": 3,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Khoảng thời gian + になります (Bài 13): Đã đạt mốc.",
+                "contentRevision": 3
               },
               {
                 "id": 32,
@@ -2787,13 +2884,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "ここで 写真を 撮って (   ) ですか。",
                 "promptVi": "Tôi chụp ảnh ở đây có được phép không?",
                 "options": [
-                  "もいい",
                   "はいけない",
                   "といい",
-                  "ください"
+                  "ください",
+                  "もいい"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-てもいいですか (Bài 13): Xin phép làm việc gì."
+                "correct": 3,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-てもいいですか (Bài 13): Xin phép làm việc gì.",
+                "contentRevision": 3
               },
               {
                 "id": 33,
@@ -2801,13 +2899,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "出かける (   )、窓を 閉めて ください。",
                 "promptVi": "Trước khi ra ngoài, xin hãy đóng cửa sổ lại.",
                 "options": [
-                  "まえに",
-                  "あとで",
+                  "あと",
                   "までに",
-                  "あと"
+                  "まえに",
+                  "あとで"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-る まえに (Bài 14): Trước khi làm V."
+                "correct": 2,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-る まえに (Bài 14): Trước khi làm V.",
+                "contentRevision": 3
               },
               {
                 "id": 34,
@@ -2815,13 +2914,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "頭が 痛い ときは、薬を 飲む (   ) いいですよ。",
                 "promptVi": "Khi bị đau đầu, bạn nên uống thuốc thì tốt đấy.",
                 "options": [
-                  "が",
+                  "で",
                   "と",
                   "を",
-                  "で"
+                  "が"
                 ],
                 "correct": 1,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-るといいですよ (Bài 14): Khuyên nhủ nên làm gì."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-るといいですよ (Bài 14): Khuyên nhủ nên làm gì.",
+                "contentRevision": 3
               },
               {
                 "id": 35,
@@ -2830,12 +2930,13 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "Xin đừng gọi điện thoại vào lúc đêm muộn.",
                 "options": [
                   "ないで",
-                  "なくて",
                   "ないと",
-                  "ませんで"
+                  "ませんで",
+                  "なくて"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-ないでください (Bài 14): Xin đừng làm V."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-ないでください (Bài 14): Xin đừng làm V.",
+                "contentRevision": 3
               },
               {
                 "id": 36,
@@ -2843,13 +2944,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "週末は 映画を 見たり 買い物を (   )。",
                 "promptVi": "Cuối tuần tôi khi thì xem phim khi thì đi mua sắm.",
                 "options": [
-                  "したりします",
-                  "したりあります",
                   "したりになります",
-                  "したりです"
+                  "したりあります",
+                  "したりです",
+                  "したりします"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• ～たり～たりします (Bài 15): Liệt kê hành động."
+                "correct": 3,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• ～たり～たりします (Bài 15): Liệt kê hành động.",
+                "contentRevision": 3
               },
               {
                 "id": 37,
@@ -2857,13 +2959,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "あそこで 本を (   ) 人は 田中さんです。",
                 "promptVi": "Người đang đọc sách đằng kia là anh Tanaka.",
                 "options": [
-                  "読んでいる",
-                  "読みたい",
                   "読んで",
-                  "読みます"
+                  "読んでいる",
+                  "読みます",
+                  "読みたい"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Định ngữ: V-ている + N ➔ 読んでいる人 (Bài 15)."
+                "correct": 1,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Định ngữ: V-ている + N ➔ 読んでいる人 (Bài 15).",
+                "contentRevision": 3
               },
               {
                 "id": 38,
@@ -2871,13 +2974,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "どうして 試験を 受けなかった (   ) か。",
                 "promptVi": "Tại sao bạn lại không tham gia kỳ thi vậy?",
                 "options": [
-                  "んです",
                   "です",
-                  "ます",
-                  "でした"
+                  "でした",
+                  "んです",
+                  "ます"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Thể ngắn + んですか (Bài 16): Hỏi giải thích lý do."
+                "correct": 2,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Thể ngắn + んですか (Bài 16): Hỏi giải thích lý do.",
+                "contentRevision": 3
               },
               {
                 "id": 39,
@@ -2886,12 +2990,13 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "Đây là chiếc đồng hồ bố tôi đã mua.",
                 "options": [
                   "買った",
-                  "買います",
+                  "買うです",
                   "買って",
-                  "買うです"
+                  "買います"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Định ngữ quá khứ: V-た + N ➔ 父が買った時計 (Bài 15)."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Định ngữ quá khứ: V-た + N ➔ 父が買った時計 (Bài 15).",
+                "contentRevision": 3
               },
               {
                 "id": 40,
@@ -2900,13 +3005,13 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "Tôi nghĩ rằng ngày mai thời tiết sẽ đẹp.",
                 "options": [
                   "いい",
-                  "いいだ",
+                  "いいな",
                   "よく",
-                  "いいな"
+                  "いいだ"
                 ],
                 "correct": 0,
                 "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Tính từ い giữ nguyên trước と思います: いいと思います (Bài 18). Không thêm だ.",
-                "contentRevision": 2
+                "contentRevision": 3
               },
               {
                 "id": 41,
@@ -2914,13 +3019,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "社長は 「来月 出張する」(   )。",
                 "promptVi": "Giám đốc đã nói rằng 'Tháng sau tôi sẽ đi công tác'.",
                 "options": [
-                  "と言いました",
-                  "と思いました",
                   "といいでした",
-                  "んです"
+                  "と思いました",
+                  "んです",
+                  "と言いました"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Trích dẫn: 「...」と言いました (Bài 18)."
+                "correct": 3,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Trích dẫn: 「...」と言いました (Bài 18).",
+                "contentRevision": 3
               },
               {
                 "id": 42,
@@ -2928,13 +3034,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "この 料理は 自分 (   ) 作ったんです。",
                 "promptVi": "Món ăn này là do tự tay tôi nấu đấy.",
                 "options": [
+                  "と",
                   "が",
-                  "に",
                   "で",
-                  "と"
+                  "に"
                 ],
                 "correct": 2,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Phương thức: 自分で (tự mình làm - Bài 14)."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Phương thức: 自分で (tự mình làm - Bài 14).",
+                "contentRevision": 3
               },
               {
                 "id": 43,
@@ -2942,13 +3049,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "のど (   ) かわきました。お茶を 飲みたいです。",
                 "promptVi": "Tôi khát nước quá. Tôi muốn uống trà.",
                 "options": [
-                  "が",
                   "に",
+                  "が",
                   "で",
                   "と"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Cụm cố định: のどがかわく (Bài 11/16)."
+                "correct": 1,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Cụm cố định: のどがかわく (Bài 11/16).",
+                "contentRevision": 3
               },
               {
                 "id": 44,
@@ -2956,13 +3064,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "夏 (   ) 冬 (   ) どちらが 過ごしやすいですか。",
                 "promptVi": "Mùa hè và mùa đông, mùa nào dễ chịu hơn?",
                 "options": [
-                  "と・と",
                   "に・が",
+                  "が・に",
                   "で・で",
-                  "が・に"
+                  "と・と"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• A と B と どちら (Bài 11): So sánh 2 mùa."
+                "correct": 3,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• A と B と どちら (Bài 11): So sánh 2 mùa.",
+                "contentRevision": 3
               },
               {
                 "id": 45,
@@ -2970,13 +3079,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "この 歌手は 若い 人 (   ) 人気 (   ) あります。",
                 "promptVi": "Ca sĩ này rất được giới trẻ yêu mến.",
                 "options": [
-                  "に・が",
-                  "で・に",
                   "が・で",
+                  "で・に",
+                  "に・が",
                   "と・に"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• ～に 人気がある: Được yêu thích bởi đối tượng nào (Bài 11)."
+                "correct": 2,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• ～に 人気がある: Được yêu thích bởi đối tượng nào (Bài 11).",
+                "contentRevision": 3
               },
               {
                 "id": 46,
@@ -2984,13 +3094,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "冷蔵庫の 中 (   ) 牛乳 (   ) ありますか。",
                 "promptVi": "Trong tủ lạnh có sữa tươi không?",
                 "options": [
+                  "が・で",
                   "に・が",
                   "で・に",
-                  "が・で",
                   "と・が"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• [Nơi chốn] に [Vật] が あります (Bài 11)."
+                "correct": 1,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• [Nơi chốn] に [Vật] が あります (Bài 11).",
+                "contentRevision": 3
               },
               {
                 "id": 47,
@@ -3000,11 +3111,12 @@ window.DE_THI_TONG_HOP_DATA = [
                 "options": [
                   "に",
                   "で",
-                  "が",
-                  "を"
+                  "を",
+                  "が"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Đích đến di chuyển: ハノイに 引っ越す (Bài 18)."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Đích đến di chuyển: ハノイに 引っ越す (Bài 18).",
+                "contentRevision": 3
               },
               {
                 "id": 48,
@@ -3012,14 +3124,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "３か月前 (   ) 日本語の 勉強 (   ) 始めました。",
                 "promptVi": "Cách đây 3 tháng tôi đã bắt đầu học tiếng Nhật.",
                 "options": [
-                  "に・を",
-                  "で・が",
                   "に・で",
-                  "が・に"
+                  "が・に",
+                  "に・を",
+                  "で・が"
                 ],
-                "correct": 0,
+                "correct": 2,
                 "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• ３か月前に日本語の勉強を始めました. に chỉ thời điểm, を đánh dấu tân ngữ 勉強.",
-                "contentRevision": 2
+                "contentRevision": 3
               },
               {
                 "id": 49,
@@ -3027,13 +3139,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "暑いですね。窓を (   ) も いいですか。",
                 "promptVi": "Trời nóng quá. Tôi mở cửa sổ có được không?",
                 "options": [
-                  "あけて",
                   "あける",
+                  "あけて",
                   "あけた",
                   "あけない"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-てもいいですか: あけてもいいですか (Bài 13)."
+                "correct": 1,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-てもいいですか: あけてもいいですか (Bài 13).",
+                "contentRevision": 3
               },
               {
                 "id": 50,
@@ -3042,12 +3155,13 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "Khi bị cảm cúm, bạn nên giữ ấm cơ thể thì tốt đấy.",
                 "options": [
                   "ねると",
-                  "ねても",
                   "ねたことが",
-                  "ねないで"
+                  "ねないで",
+                  "ねても"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-るといいですよ: ねるといいですよ (Bài 14/16)."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-るといいですよ: ねるといいですよ (Bài 14/16).",
+                "contentRevision": 3
               },
               {
                 "id": 51,
@@ -3055,13 +3169,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "日曜日は 音楽を (   )、掃除を し (   ) しました。",
                 "promptVi": "Chủ nhật tôi khi thì nghe nhạc, khi thì dọn dẹp nhà cửa.",
                 "options": [
-                  "聴いたり・たり",
                   "聴いて・て",
                   "聴く・く",
-                  "聴いた・た"
+                  "聴いた・た",
+                  "聴いたり・たり"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• ～たり～たりしました (Bài 16)."
+                "correct": 3,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• ～たり～たりしました (Bài 16).",
+                "contentRevision": 3
               },
               {
                 "id": 52,
@@ -3070,12 +3185,13 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "Ngày nào cũng chơi game bằng điện thoại nên đầu tôi bị đau.",
                 "options": [
                   "で・が",
+                  "と・に",
                   "に・に",
-                  "が・で",
-                  "と・に"
+                  "が・で"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Phương tiện: スマホで; Trạng thái: 頭が痛い (Bài 16)."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Phương tiện: スマホで; Trạng thái: 頭が痛い (Bài 16).",
+                "contentRevision": 3
               },
               {
                 "id": 53,
@@ -3083,13 +3199,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "大学を 卒業 (   ) とき、先生 (   ) 手紙を 書きました。",
                 "promptVi": "Khi tốt nghiệp đại học, tôi đã viết thư cho thầy giáo.",
                 "options": [
+                  "する・が",
                   "した・に",
                   "の・で",
-                  "する・が",
                   "して・に"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Động từ quá khứ 卒業したとき; Viết cho ai: 先生に (Bài 14)."
+                "correct": 1,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Động từ quá khứ 卒業したとき; Viết cho ai: 先生に (Bài 14).",
+                "contentRevision": 3
               },
               {
                 "id": 54,
@@ -3097,13 +3214,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "会議 (   ) 日時は 明日 (   ) いいと 思います。",
                 "promptVi": "Thời gian họp thì tôi nghĩ là ngày mai sẽ tiện nhất.",
                 "options": [
-                  "の・が",
                   "が・に",
                   "に・で",
-                  "で・の"
+                  "で・の",
+                  "の・が"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• 会議の日時; 明日がいいと思います (Bài 18)."
+                "correct": 3,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• 会議の日時; 明日がいいと思います (Bài 18).",
+                "contentRevision": 3
               },
               {
                 "id": 55,
@@ -3111,13 +3229,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "ピクニックに 果物を 切って (   )。",
                 "promptVi": "Tôi cắt sẵn hoa quả mang đi dã ngoại.",
                 "options": [
-                  "いきます",
-                  "きます",
                   "みます",
+                  "きます",
+                  "いきます",
                   "います"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-ていきます (Bài 11): Chuẩn bị rồi mang đi theo."
+                "correct": 2,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-ていきます (Bài 11): Chuẩn bị rồi mang đi theo.",
+                "contentRevision": 3
               },
               {
                 "id": 56,
@@ -3126,12 +3245,13 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "Lần đầu tiên tôi thử món ăn Nhật. Rất ngon.",
                 "options": [
                   "食べてみました",
-                  "食べていました",
                   "食べすぎました",
-                  "食べたことがあります"
+                  "食べたことがあります",
+                  "食べていました"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-てみる ➔ てみました: đã thử ăn (bài 11)."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-てみる ➔ てみました: đã thử ăn (bài 11).",
+                "contentRevision": 3
               },
               {
                 "id": 57,
@@ -3139,13 +3259,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "肉と 魚と (   ) が 好きですか。",
                 "promptVi": "Thịt và cá, bạn thích món nào hơn?",
                 "options": [
-                  "どちら",
                   "どこ",
+                  "どちら",
                   "だれ",
                   "いつ"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• A と B と どちら (Bài 11): So sánh giữa 2 lựa chọn."
+                "correct": 1,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• A と B と どちら (Bài 11): So sánh giữa 2 lựa chọn.",
+                "contentRevision": 3
               },
               {
                 "id": 58,
@@ -3153,13 +3274,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "日曜日なら、(   ) 会えますよ。時間がありますから。",
                 "promptVi": "Nếu là Chủ nhật thì lúc nào tôi cũng gặp được, vì tôi có thời gian.",
                 "options": [
-                  "いつでも",
                   "どこでも",
                   "だれでも",
-                  "なんでも"
+                  "なんでも",
+                  "いつでも"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• いつでも (Bài 11): Bất cứ lúc nào."
+                "correct": 3,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• いつでも (Bài 11): Bất cứ lúc nào.",
+                "contentRevision": 3
               },
               {
                 "id": 59,
@@ -3168,12 +3290,13 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "Bát súp này trông có vẻ nóng hổi đấy nhỉ.",
                 "options": [
                   "あつい",
-                  "あつ",
                   "あつく",
+                  "あつ",
                   "あつかった"
                 ],
-                "correct": 1,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Tính từ đuôi い bỏ い + そうです (Bài 12): 熱い ➔ あつそうです."
+                "correct": 2,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Tính từ đuôi い bỏ い + そうです (Bài 12): 熱い ➔ あつそうです.",
+                "contentRevision": 3
               },
               {
                 "id": 60,
@@ -3182,12 +3305,13 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "Căn phòng này vừa sáng sủa lại vừa rộng rãi.",
                 "options": [
                   "くて",
+                  "の",
                   "で",
-                  "に",
-                  "の"
+                  "に"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Nối tính từ đuôi い: 明るい ➔ 明るくて (Bài 12)."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Nối tính từ đuôi い: 明るい ➔ 明るくて (Bài 12).",
+                "contentRevision": 3
               }
             ]
           }
@@ -3212,13 +3336,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "1. 雨の日、「私」は 何を しますか。",
                 "promptVi": "Vào những ngày trời mưa, nhân vật 'Tôi' làm gì?",
                 "options": [
+                  "公園まで自転車で行きます。",
                   "雨の中でも散歩します。",
                   "家でストレッチや体操をします。",
-                  "一日中寝ています。",
-                  "公園まで自転車で行きます。"
+                  "一日中寝ています。"
                 ],
-                "correct": 1,
-                "explain": "💡 Căn cứ câu: '雨の日は散歩を休んで、家でストレッチや軽い体操をします' ➔ Chọn đáp án 2."
+                "correct": 2,
+                "explain": "💡 Căn cứ câu: '雨の日は散歩を休んで、家でストレッチや軽い体操をします' ➔ Chọn đáp án 3.",
+                "contentRevision": 3
               },
               {
                 "id": 62,
@@ -3226,13 +3351,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "2. 朝ごはんを 食べる 前に、何を しますか。",
                 "promptVi": "Trước khi ăn bữa sáng, nhân vật 'Tôi' làm việc gì?",
                 "options": [
+                  "散歩を始めます。",
                   "コップ一杯の水を飲みます。",
                   "薬を飲みます。",
-                  "散歩を始めます。",
                   "コーヒーを飲みます。"
                 ],
-                "correct": 0,
-                "explain": "💡 Căn cứ câu: '朝ごはんを食べる前に、必ずコップ一杯の水を飲みます' ➔ Chọn đáp án 1."
+                "correct": 1,
+                "explain": "💡 Căn cứ câu: '朝ごはんを食べる前に、必ずコップ一杯の水を飲みます' ➔ Chọn đáp án 2.",
+                "contentRevision": 3
               },
               {
                 "id": 63,
@@ -3240,13 +3366,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "3. 朝ごはんを しっかり 食べて、どう なりましたか。",
                 "promptVi": "Sau khi duy trì ăn sáng đầy đủ thì kết quả thế nào?",
                 "options": [
-                  "体調がとてもよくなりました。",
-                  "体重が増えすぎました。",
                   "朝起きられなくなりました。",
-                  "病気になりました。"
+                  "病気になりました。",
+                  "体重が増えすぎました。",
+                  "体調がとてもよくなりました。"
                 ],
-                "correct": 0,
-                "explain": "💡 Căn cứ câu: '体調がとてもよくなりました' ➔ Chọn đáp án 1."
+                "correct": 3,
+                "explain": "💡 Căn cứ câu: '体調がとてもよくなりました' ➔ Chọn đáp án 4.",
+                "contentRevision": 3
               },
               {
                 "id": 64,
@@ -3254,13 +3381,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "4. 週末、「私」は 何を しますか。",
                 "promptVi": "Vào dịp cuối tuần, nhân vật 'Tôi' làm gì?",
                 "options": [
-                  "自転車で遠い公園へ行きます。",
                   "一日中仕事をします。",
+                  "自転車で遠い公園へ行きます。",
                   "友だちと買い物をします。",
                   "家でテレビを見ます。"
                 ],
-                "correct": 0,
-                "explain": "💡 Căn cứ câu: '週末は...自転車で少し遠い公園まで行って、景色を楽しんでいます' ➔ Chọn đáp án 1."
+                "correct": 1,
+                "explain": "💡 Căn cứ câu: '週末は...自転車で少し遠い公園まで行って、景色を楽しんでいます' ➔ Chọn đáp án 2.",
+                "contentRevision": 3
               }
             ]
           },
@@ -3276,13 +3404,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "1. みんなは 田中さんのために どこへ 行くことに しましたか。",
                 "promptVi": "Mọi người quyết định sẽ đi đâu để mừng anh Tanaka?",
                 "options": [
-                  "駅前の居酒屋",
                   "駅前の日本料理の店",
-                  "田中さんの家",
-                  "カラオケボックス"
+                  "カラオケボックス",
+                  "駅前の居酒屋",
+                  "田中さんの家"
                 ],
-                "correct": 1,
-                "explain": "💡 Căn cứ: '駅前の日本料理の店で食事会をして' ➔ Chọn đáp án 2 (Quán món Nhật trước ga)."
+                "correct": 0,
+                "explain": "💡 Căn cứ: '駅前の日本料理の店で食事会をして' ➔ Chọn đáp án 1 (Quán món Nhật trước ga).",
+                "contentRevision": 3
               },
               {
                 "id": 66,
@@ -3290,13 +3419,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "2. みんなは 田中さんに 何を プレゼントしますか。",
                 "promptVi": "Mọi người sẽ tặng món quà gì cho anh Tanaka?",
                 "options": [
-                  "お酒",
+                  "万年筆",
                   "高級な時計",
-                  "記念のネクタイ",
-                  "万年筆"
+                  "お酒",
+                  "記念のネクタイ"
                 ],
-                "correct": 2,
-                "explain": "💡 Căn cứ: 'みんなで記念のネクタイをプレゼントすることに決めました' ➔ Chọn đáp án 3 (Cà vạt kỷ niệm)."
+                "correct": 3,
+                "explain": "💡 Căn cứ: 'みんなで記念のネクタイをプレゼントすることに決めました' ➔ Chọn đáp án 4 (Cà vạt kỷ niệm).",
+                "contentRevision": 3
               }
             ]
           },
@@ -3312,13 +3442,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "1. 飛行機が 遅れた 理由は 何ですか。",
                 "promptVi": "Lý do máy bay bị chậm khởi hành là gì?",
                 "options": [
-                  "飛行機が故障したから",
-                  "天気が悪かったから",
                   "空港が混んでいたから",
-                  "会議が長引いたから"
+                  "会議が長引いたから",
+                  "天気が悪かったから",
+                  "飛行機が故障したから"
                 ],
-                "correct": 1,
-                "explain": "💡 Căn cứ câu: '天気が悪くて、出発が1時間遅れました' ➔ Chọn đáp án 2 (Do thời tiết xấu)."
+                "correct": 2,
+                "explain": "💡 Căn cứ câu: '天気が悪くて、出発が1時間遅れました' ➔ Chọn đáp án 3 (Do thời tiết xấu).",
+                "contentRevision": 3
               },
               {
                 "id": 68,
@@ -3326,13 +3457,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "2. 会議は どうでしたか。",
                 "promptVi": "Buổi họp diễn ra như thế nào?",
                 "options": [
-                  "時間に遅れて怒られた。",
-                  "中止になった。",
                   "時間に間に合って無事に終わった。",
-                  "取引先が来なかった。"
+                  "取引先が来なかった。",
+                  "時間に遅れて怒られた。",
+                  "中止になった。"
                 ],
-                "correct": 2,
-                "explain": "💡 Căn cứ câu: '時間に間に合って、大事な会議を無事に終えることができました' ➔ Chọn đáp án 3 (Kịp giờ và kết thúc an toàn/suôn sẻ)."
+                "correct": 0,
+                "explain": "💡 Căn cứ câu: '時間に間に合って、大事な会議を無事に終えることができました' ➔ Chọn đáp án 1 (Kịp giờ và kết thúc an toàn/suôn sẻ).",
+                "contentRevision": 3
               }
             ]
           }
@@ -3355,25 +3487,26 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "朝 起きて _________ ________ ____★____ _________。",
                 "promptVi": "Sáng dậy sau khi uống một cốc nước tôi bắt đầu đi bộ.",
                 "parts": [
+                  "始めます",
                   "散歩を",
                   "水を",
-                  "飲んだあとで",
-                  "始めます"
+                  "飲んだあとで"
                 ],
                 "options": [
+                  "始めます",
                   "散歩を",
                   "水を",
-                  "飲んだあとで",
-                  "始めます"
+                  "飲んだあとで"
                 ],
                 "correctOrder": [
-                  1,
                   2,
-                  0,
-                  3
+                  3,
+                  1,
+                  0
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích sắp xếp câu:</strong><br>• Thứ tự: 朝起きて ➔ [2 水を] [3 飲んだあとで] [1 ★散歩を] [4 始めます]。Vị trí ★ là 1. 散歩を."
+                "correct": 1,
+                "explain": "Thứ tự các cụm: 水を → 飲んだあとで → 散歩を → 始めます. Vị trí ★: <strong>散歩を</strong> (phương án 2).",
+                "contentRevision": 3
               },
               {
                 "id": 70,
@@ -3381,25 +3514,26 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "来週は _________ ________ ____★____ _________ と言っていました。",
                 "promptVi": "Giám đốc đã nói rằng tuần sau trời sẽ trở nên lạnh hơn.",
                 "parts": [
-                  "寒く",
-                  "天気が",
+                  "社長は",
                   "なると",
-                  "社長は"
+                  "寒く",
+                  "天気が"
                 ],
                 "options": [
-                  "寒く",
-                  "天気が",
+                  "社長は",
                   "なると",
-                  "社長は"
+                  "寒く",
+                  "天気が"
                 ],
                 "correctOrder": [
-                  3,
-                  1,
                   0,
-                  2
+                  3,
+                  2,
+                  1
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích sắp xếp câu:</strong><br>• Thứ tự: 来週は ➔ [4 社長は] [2 天気が] [1 ★寒く] [3 なると] と言っていました。Vị trí ★ là 1. 寒く."
+                "correct": 2,
+                "explain": "Thứ tự các cụm: 社長は → 天気が → 寒く → なると. Vị trí ★: <strong>寒く</strong> (phương án 3).",
+                "contentRevision": 3
               },
               {
                 "id": 71,
@@ -3407,25 +3541,26 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "この カバンは _________ ________ ____★____ _________ んです。",
                 "promptVi": "Chiếc cặp này là tôi tự tay mua bằng tiền làm thêm đấy.",
                 "parts": [
+                  "買った",
                   "アルバイトの",
-                  "自分で",
                   "お金で",
-                  "買った"
+                  "自分で"
                 ],
                 "options": [
+                  "買った",
                   "アルバイトの",
-                  "自分で",
                   "お金で",
-                  "買った"
+                  "自分で"
                 ],
                 "correctOrder": [
-                  0,
-                  2,
                   1,
-                  3
+                  2,
+                  3,
+                  0
                 ],
-                "correct": 1,
-                "explain": "💡 <strong>Giải thích sắp xếp câu:</strong><br>• Thứ tự: このカバンは ➔ [1 アルバイトの] [3 お金で] [2 ★自分で] [4 買った] んです。Vị trí ★ là 2. 自分で."
+                "correct": 3,
+                "explain": "Thứ tự các cụm: アルバイトの → お金で → 自分で → 買った. Vị trí ★: <strong>自分で</strong> (phương án 4).",
+                "contentRevision": 3
               },
               {
                 "id": 72,
@@ -3434,67 +3569,15 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "Tôi đã từng đi du lịch Kyoto cùng gia đình một lần.",
                 "parts": [
                   "家族と",
-                  "一度",
+                  "いっしょに",
                   "旅行した",
-                  "いっしょに"
+                  "一度"
                 ],
                 "options": [
                   "家族と",
-                  "一度",
+                  "いっしょに",
                   "旅行した",
-                  "いっしょに"
-                ],
-                "correctOrder": [
-                  1,
-                  0,
-                  3,
-                  2
-                ],
-                "correct": 3,
-                "explain": "💡 <strong>Giải thích sắp xếp câu:</strong><br>• Thứ tự: 京都へ ➔ [2 一度] [1 家族と] [4 ★いっしょに] [3 旅行した] ことがあります。Vị trí ★ là 4. いっしょに."
-              },
-              {
-                "id": 73,
-                "type": "star",
-                "prompt": "風邪を _________ ________ ____★____ _________ といいですよ。",
-                "promptVi": "Khi bị cảm cúm thì nên uống nhiều nước ấm rồi nghỉ ngơi thì tốt đấy.",
-                "parts": [
-                  "暖かくして",
-                  "ひいたときは",
-                  "ゆっくり",
-                  "休む"
-                ],
-                "options": [
-                  "暖かくして",
-                  "ひいたときは",
-                  "ゆっくり",
-                  "休む"
-                ],
-                "correctOrder": [
-                  1,
-                  0,
-                  2,
-                  3
-                ],
-                "correct": 2,
-                "explain": "💡 <strong>Giải thích sắp xếp câu:</strong><br>• Thứ tự: 風邪を ➔ [2 ひいたときは] [1 暖かくして] [3 ★ゆっくり] [4 休む] といいですよ。Vị trí ★ là 3. ゆっくり."
-              },
-              {
-                "id": 74,
-                "type": "star",
-                "prompt": "会議の _________ ________ ____★____ _________ と思います。",
-                "promptVi": "Địa điểm của cuộc họp thì tôi nghĩ phòng họp số 2 là tốt nhất.",
-                "parts": [
-                  "場所は",
-                  "第2会議室が",
-                  "いい",
-                  "明日の"
-                ],
-                "options": [
-                  "場所は",
-                  "第2会議室が",
-                  "いい",
-                  "明日の"
+                  "一度"
                 ],
                 "correctOrder": [
                   3,
@@ -3503,7 +3586,62 @@ window.DE_THI_TONG_HOP_DATA = [
                   2
                 ],
                 "correct": 1,
-                "explain": "💡 <strong>Giải thích sắp xếp câu:</strong><br>• Thứ tự: 会議の ➔ [4 明日の] [1 場所は] [2 ★第2会議室が] [3 いい] と思います。Vị trí ★ là 2. 第2会議室が."
+                "explain": "Thứ tự các cụm: 一度 → 家族と → いっしょに → 旅行した. Vị trí ★: <strong>いっしょに</strong> (phương án 2).",
+                "contentRevision": 3
+              },
+              {
+                "id": 73,
+                "type": "star",
+                "prompt": "風邪を _________ ________ ____★____ _________ といいですよ。",
+                "promptVi": "Khi bị cảm cúm thì nên uống nhiều nước ấm rồi nghỉ ngơi thì tốt đấy.",
+                "parts": [
+                  "ゆっくり",
+                  "暖かくして",
+                  "休む",
+                  "ひいたときは"
+                ],
+                "options": [
+                  "ゆっくり",
+                  "暖かくして",
+                  "休む",
+                  "ひいたときは"
+                ],
+                "correctOrder": [
+                  3,
+                  1,
+                  0,
+                  2
+                ],
+                "correct": 0,
+                "explain": "Thứ tự các cụm: ひいたときは → 暖かくして → ゆっくり → 休む. Vị trí ★: <strong>ゆっくり</strong> (phương án 1).",
+                "contentRevision": 3
+              },
+              {
+                "id": 74,
+                "type": "star",
+                "prompt": "会議の _________ ________ ____★____ _________ と思います。",
+                "promptVi": "Địa điểm của cuộc họp thì tôi nghĩ phòng họp số 2 là tốt nhất.",
+                "parts": [
+                  "場所は",
+                  "いい",
+                  "第2会議室が",
+                  "明日の"
+                ],
+                "options": [
+                  "場所は",
+                  "いい",
+                  "第2会議室が",
+                  "明日の"
+                ],
+                "correctOrder": [
+                  3,
+                  0,
+                  2,
+                  1
+                ],
+                "correct": 2,
+                "explain": "Thứ tự các cụm: 明日の → 場所は → 第2会議室が → いい. Vị trí ★: <strong>第2会議室が</strong> (phương án 3).",
+                "contentRevision": 3
               }
             ]
           }
@@ -3537,12 +3675,13 @@ window.DE_THI_TONG_HOP_DATA = [
                 "targetWord": "お願いします",
                 "options": [
                   "おねがいします",
-                  "りょうり",
                   "あじ",
-                  "いろ"
+                  "いろ",
+                  "りょうり"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• お願いします ➔ おねがいします (Làm ơn, vui lòng... — Bài 11)."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• お願いします ➔ おねがいします (Làm ơn, vui lòng... — Bài 11).",
+                "contentRevision": 3
               },
               {
                 "id": 2,
@@ -3551,13 +3690,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "料理 có nghĩa là Món ăn.",
                 "targetWord": "料理",
                 "options": [
-                  "りょうり",
-                  "あじ",
                   "いろ",
-                  "いろいろ"
+                  "いろいろ",
+                  "あじ",
+                  "りょうり"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 料理 ➔ りょうり (Món ăn — Bài 12)."
+                "correct": 3,
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 料理 ➔ りょうり (Món ăn — Bài 12).",
+                "contentRevision": 3
               },
               {
                 "id": 3,
@@ -3566,13 +3706,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "味 có nghĩa là Vị.",
                 "targetWord": "味",
                 "options": [
-                  "あじ",
-                  "いろ",
                   "いろいろ",
-                  "やさい"
+                  "やさい",
+                  "あじ",
+                  "いろ"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 味 ➔ あじ (Vị — Bài 12)."
+                "correct": 2,
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 味 ➔ あじ (Vị — Bài 12).",
+                "contentRevision": 3
               },
               {
                 "id": 4,
@@ -3581,13 +3722,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "色 có nghĩa là Màu sắc.",
                 "targetWord": "色",
                 "options": [
+                  "あいます",
                   "いろ",
-                  "いろいろ",
                   "やさい",
-                  "あいます"
+                  "いろいろ"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 色 ➔ いろ (Màu sắc — Bài 12)."
+                "correct": 1,
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 色 ➔ いろ (Màu sắc — Bài 12).",
+                "contentRevision": 3
               },
               {
                 "id": 5,
@@ -3596,13 +3738,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "色々 có nghĩa là Đa dạng.",
                 "targetWord": "色々",
                 "options": [
-                  "いろいろ",
                   "やさい",
-                  "あいます",
-                  "しゃかい"
+                  "しゃかい",
+                  "いろいろ",
+                  "あいます"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 色々 ➔ いろいろ (Đa dạng — Bài 12)."
+                "correct": 2,
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 色々 ➔ いろいろ (Đa dạng — Bài 12).",
+                "contentRevision": 3
               },
               {
                 "id": 6,
@@ -3612,12 +3755,13 @@ window.DE_THI_TONG_HOP_DATA = [
                 "targetWord": "野菜",
                 "options": [
                   "やさい",
-                  "あいます",
+                  "ししゃ",
                   "しゃかい",
-                  "ししゃ"
+                  "あいます"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 野菜 ➔ やさい (Rau — Bài 12)."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 野菜 ➔ やさい (Rau — Bài 12).",
+                "contentRevision": 3
               },
               {
                 "id": 7,
@@ -3626,13 +3770,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "会います có nghĩa là Gặp gỡ.",
                 "targetWord": "会います",
                 "options": [
-                  "あいます",
-                  "しゃかい",
+                  "きます",
                   "ししゃ",
-                  "きます"
+                  "しゃかい",
+                  "あいます"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 会います ➔ あいます (Gặp gỡ — Bài 13)."
+                "correct": 3,
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 会います ➔ あいます (Gặp gỡ — Bài 13).",
+                "contentRevision": 3
               },
               {
                 "id": 8,
@@ -3641,13 +3786,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "社会 có nghĩa là Xã hội.",
                 "targetWord": "社会",
                 "options": [
+                  "きもの",
                   "しゃかい",
-                  "ししゃ",
                   "きます",
-                  "きもの"
+                  "ししゃ"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 社会 ➔ しゃかい (Xã hội — Bài 13)."
+                "correct": 1,
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 社会 ➔ しゃかい (Xã hội — Bài 13).",
+                "contentRevision": 3
               },
               {
                 "id": 9,
@@ -3656,13 +3802,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "支社 có nghĩa là Chi nhánh.",
                 "targetWord": "支社",
                 "options": [
-                  "ししゃ",
-                  "きます",
                   "きもの",
+                  "きます",
+                  "ししゃ",
                   "つきます"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 支社 ➔ ししゃ (Chi nhánh — Bài 13)."
+                "correct": 2,
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 支社 ➔ ししゃ (Chi nhánh — Bài 13).",
+                "contentRevision": 3
               },
               {
                 "id": 10,
@@ -3671,13 +3818,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "着ます có nghĩa là Mặc (áo…).",
                 "targetWord": "着ます",
                 "options": [
+                  "そら",
                   "きます",
                   "きもの",
-                  "つきます",
-                  "そら"
+                  "つきます"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 着ます ➔ きます (Mặc (áo…) — Bài 13)."
+                "correct": 1,
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 着ます ➔ きます (Mặc (áo…) — Bài 13).",
+                "contentRevision": 3
               }
             ]
           },
@@ -3691,13 +3839,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "友達の 結婚の (   ) を します。",
                 "promptVi": "Tôi chúc mừng đám cưới của bạn.",
                 "options": [
-                  "お祝い",
-                  "お酒",
+                  "週末",
                   "電車",
-                  "週末"
+                  "お酒",
+                  "お祝い"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• お祝い: chúc mừng, quà mừng."
+                "correct": 3,
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• お祝い: chúc mừng, quà mừng.",
+                "contentRevision": 3
               },
               {
                 "id": 12,
@@ -3706,12 +3855,13 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "Cuối tuần tôi ăn cơm cùng gia đình.",
                 "options": [
                   "家族",
+                  "料理",
                   "計画",
-                  "発音",
-                  "料理"
+                  "発音"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 家族: gia đình."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 家族: gia đình.",
+                "contentRevision": 3
               },
               {
                 "id": 13,
@@ -3719,13 +3869,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "毎日 運動して、(   ) に なりたいです。",
                 "promptVi": "Tôi muốn khỏe mạnh nhờ tập thể dục mỗi ngày.",
                 "options": [
-                  "健康",
                   "結婚",
                   "電車",
-                  "誕生日"
+                  "誕生日",
+                  "健康"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 健康: sức khỏe, khỏe mạnh."
+                "correct": 3,
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 健康: sức khỏe, khỏe mạnh.",
+                "contentRevision": 3
               },
               {
                 "id": 14,
@@ -3733,13 +3884,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "(   ) に 友達と 会います。",
                 "promptVi": "Cuối tuần tôi gặp bạn.",
                 "options": [
-                  "週末",
-                  "毎日",
+                  "料理",
                   "誕生日",
-                  "料理"
+                  "週末",
+                  "毎日"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 週末: cuối tuần."
+                "correct": 2,
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 週末: cuối tuần.",
+                "contentRevision": 3
               },
               {
                 "id": 15,
@@ -3749,11 +3901,12 @@ window.DE_THI_TONG_HOP_DATA = [
                 "options": [
                   "誕生日",
                   "結婚",
-                  "お祝い",
-                  "計画"
+                  "計画",
+                  "お祝い"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 誕生日: sinh nhật."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 誕生日: sinh nhật.",
+                "contentRevision": 3
               },
               {
                 "id": 16,
@@ -3761,13 +3914,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "家族は とても (   ) です。",
                 "promptVi": "Gia đình rất quan trọng.",
                 "options": [
+                  "週末",
                   "大切",
-                  "健康",
                   "有名",
-                  "週末"
+                  "健康"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 大切: quan trọng, quý giá."
+                "correct": 1,
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 大切: quan trọng, quý giá.",
+                "contentRevision": 3
               },
               {
                 "id": 17,
@@ -3775,13 +3929,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "(   ) で 会社へ 行きます。",
                 "promptVi": "Tôi đi tàu điện đến công ty.",
                 "options": [
+                  "発音",
                   "電車",
                   "料理",
-                  "お酒",
-                  "発音"
+                  "お酒"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 電車: tàu điện."
+                "correct": 1,
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 電車: tàu điện.",
+                "contentRevision": 3
               },
               {
                 "id": 18,
@@ -3789,13 +3944,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "毎朝 公園を (   )。",
                 "promptVi": "Mỗi sáng tôi chạy trong công viên.",
                 "options": [
-                  "走ります",
                   "送ります",
                   "思います",
-                  "着ます"
+                  "着ます",
+                  "走ります"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 走ります: chạy."
+                "correct": 3,
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 走ります: chạy.",
+                "contentRevision": 3
               },
               {
                 "id": 19,
@@ -3804,12 +3960,13 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "Tôi nghĩ là quan trọng.",
                 "options": [
                   "思います",
+                  "着ます",
                   "送ります",
-                  "走ります",
-                  "着ます"
+                  "走ります"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 思います: nghĩ."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 思います: nghĩ.",
+                "contentRevision": 3
               },
               {
                 "id": 20,
@@ -3817,13 +3974,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "日本の (   ) が 好きです。",
                 "promptVi": "Tôi thích món ăn Nhật.",
                 "options": [
-                  "料理",
-                  "計画",
+                  "発音",
                   "健康",
-                  "発音"
+                  "料理",
+                  "計画"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 料理: món ăn, nấu ăn."
+                "correct": 2,
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 料理: món ăn, nấu ăn.",
+                "contentRevision": 3
               },
               {
                 "id": 24,
@@ -3831,13 +3989,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "健康のために、(   )を あまり 飲みません。",
                 "promptVi": "Vì sức khỏe nên tôi không uống nhiều rượu.",
                 "options": [
-                  "お酒",
-                  "電車",
                   "週末",
-                  "計画"
+                  "計画",
+                  "お酒",
+                  "電車"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• お酒: rượu, đồ uống có cồn."
+                "correct": 2,
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• お酒: rượu, đồ uống có cồn.",
+                "contentRevision": 3
               },
               {
                 "id": 25,
@@ -3845,13 +4004,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "日本語の (   ) を 練習します。",
                 "promptVi": "Tôi luyện phát âm tiếng Nhật.",
                 "options": [
-                  "発音",
-                  "料理",
                   "結婚",
-                  "計画"
+                  "発音",
+                  "計画",
+                  "料理"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 発音: phát âm."
+                "correct": 1,
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 発音: phát âm.",
+                "contentRevision": 3
               }
             ]
           }
@@ -3874,13 +4034,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "昨日の 夜は お酒を 飲み (   ) ました。",
                 "promptVi": "Tối hôm qua tôi đã uống quá nhiều rượu.",
                 "options": [
-                  "すぎる",
-                  "すぎて",
                   "すぎ",
-                  "すぎた"
+                  "すぎた",
+                  "すぎる",
+                  "すぎて"
                 ],
-                "correct": 2,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-bỏ ます + すぎました (Bài 13): 飲みすぎました (uống quá mức)."
+                "correct": 0,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-bỏ ます + すぎました (Bài 13): 飲みすぎました (uống quá mức).",
+                "contentRevision": 3
               },
               {
                 "id": 27,
@@ -3888,13 +4049,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "この ズボンは 少し (   ) すぎます。",
                 "promptVi": "Chiếc quần này hơi dài quá.",
                 "options": [
-                  "長い",
                   "長く",
-                  "長",
-                  "長さ"
+                  "長い",
+                  "長さ",
+                  "長"
                 ],
-                "correct": 2,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Tính từ đuôi い bỏ い + すぎます (Bài 13): 長い ➔ 長すぎます."
+                "correct": 3,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Tính từ đuôi い bỏ い + すぎます (Bài 13): 長い ➔ 長すぎます.",
+                "contentRevision": 3
               },
               {
                 "id": 28,
@@ -3902,13 +4064,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "結婚して ちょうど ５年 (   )。",
                 "promptVi": "Chúng tôi kết hôn tính đến nay vừa tròn 5 năm.",
                 "options": [
-                  "になります",
-                  "があります",
                   "にします",
+                  "があります",
+                  "になります",
                   "をします"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Khoảng thời gian + になります (Bài 13): Đã đạt mốc."
+                "correct": 2,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Khoảng thời gian + になります (Bài 13): Đã đạt mốc.",
+                "contentRevision": 3
               },
               {
                 "id": 29,
@@ -3916,13 +4079,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "ここで 写真を 撮って (   ) ですか。",
                 "promptVi": "Tôi chụp ảnh ở đây có được phép không?",
                 "options": [
-                  "もいい",
                   "はいけない",
                   "といい",
-                  "ください"
+                  "ください",
+                  "もいい"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-てもいいですか (Bài 13): Xin phép làm việc gì."
+                "correct": 3,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-てもいいですか (Bài 13): Xin phép làm việc gì.",
+                "contentRevision": 3
               },
               {
                 "id": 30,
@@ -3930,13 +4094,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "出かける (   )、窓を 閉めて ください。",
                 "promptVi": "Trước khi ra ngoài, xin hãy đóng cửa sổ lại.",
                 "options": [
+                  "あと",
                   "まえに",
-                  "あとで",
                   "までに",
-                  "あと"
+                  "あとで"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-る まえに (Bài 14): Trước khi làm V."
+                "correct": 1,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-る まえに (Bài 14): Trước khi làm V.",
+                "contentRevision": 3
               },
               {
                 "id": 31,
@@ -3944,13 +4109,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "頭が 痛い ときは、薬を 飲む (   ) いいですよ。",
                 "promptVi": "Khi bị đau đầu, bạn nên uống thuốc thì tốt đấy.",
                 "options": [
-                  "が",
                   "と",
+                  "が",
                   "を",
                   "で"
                 ],
-                "correct": 1,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-るといいですよ (Bài 14): Khuyên nhủ nên làm gì."
+                "correct": 0,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-るといいですよ (Bài 14): Khuyên nhủ nên làm gì.",
+                "contentRevision": 3
               },
               {
                 "id": 32,
@@ -3958,13 +4124,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "夜遅く 電話を かけ (   ) ください。",
                 "promptVi": "Xin đừng gọi điện thoại vào lúc đêm muộn.",
                 "options": [
-                  "ないで",
                   "なくて",
-                  "ないと",
-                  "ませんで"
+                  "ませんで",
+                  "ないで",
+                  "ないと"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-ないでください (Bài 14): Xin đừng làm V."
+                "correct": 2,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-ないでください (Bài 14): Xin đừng làm V.",
+                "contentRevision": 3
               },
               {
                 "id": 33,
@@ -3972,13 +4139,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "週末は 映画を 見たり 買い物を (   )。",
                 "promptVi": "Cuối tuần tôi khi thì xem phim khi thì đi mua sắm.",
                 "options": [
+                  "したりになります",
                   "したりします",
                   "したりあります",
-                  "したりになります",
                   "したりです"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• ～たり～たりします (Bài 15): Liệt kê hành động."
+                "correct": 1,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• ～たり～たりします (Bài 15): Liệt kê hành động.",
+                "contentRevision": 3
               },
               {
                 "id": 34,
@@ -3986,13 +4154,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "あそこで 本を (   ) 人は 田中さんです。",
                 "promptVi": "Người đang đọc sách đằng kia là anh Tanaka.",
                 "options": [
-                  "読んでいる",
-                  "読みたい",
                   "読んで",
-                  "読みます"
+                  "読みたい",
+                  "読みます",
+                  "読んでいる"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Định ngữ: V-ている + N ➔ 読んでいる人 (Bài 15)."
+                "correct": 3,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Định ngữ: V-ている + N ➔ 読んでいる人 (Bài 15).",
+                "contentRevision": 3
               },
               {
                 "id": 35,
@@ -4001,12 +4170,13 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "Tại sao bạn lại không tham gia kỳ thi vậy?",
                 "options": [
                   "んです",
-                  "です",
+                  "でした",
                   "ます",
-                  "でした"
+                  "です"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Thể ngắn + んですか (Bài 16): Hỏi giải thích lý do."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Thể ngắn + んですか (Bài 16): Hỏi giải thích lý do.",
+                "contentRevision": 3
               },
               {
                 "id": 36,
@@ -4014,13 +4184,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "これは 父が (   ) 時計です。",
                 "promptVi": "Đây là chiếc đồng hồ bố tôi đã mua.",
                 "options": [
-                  "買った",
                   "買います",
+                  "買うです",
                   "買って",
-                  "買うです"
+                  "買った"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Định ngữ quá khứ: V-た + N ➔ 父が買った時計 (Bài 15)."
+                "correct": 3,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Định ngữ quá khứ: V-た + N ➔ 父が買った時計 (Bài 15).",
+                "contentRevision": 3
               },
               {
                 "id": 37,
@@ -4028,14 +4199,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "明日は 天気が (   ) と 思います。",
                 "promptVi": "Tôi nghĩ rằng ngày mai thời tiết sẽ đẹp.",
                 "options": [
+                  "よく",
                   "いい",
                   "いいだ",
-                  "よく",
                   "いいな"
                 ],
-                "correct": 0,
+                "correct": 1,
                 "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Tính từ い giữ nguyên trước と思います: いいと思います (Bài 18). Không thêm だ.",
-                "contentRevision": 2
+                "contentRevision": 3
               },
               {
                 "id": 38,
@@ -4044,12 +4215,13 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "Giám đốc đã nói rằng 'Tháng sau tôi sẽ đi công tác'.",
                 "options": [
                   "と言いました",
-                  "と思いました",
+                  "んです",
                   "といいでした",
-                  "んです"
+                  "と思いました"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Trích dẫn: 「...」と言いました (Bài 18)."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Trích dẫn: 「...」と言いました (Bài 18).",
+                "contentRevision": 3
               },
               {
                 "id": 39,
@@ -4058,12 +4230,13 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "Món ăn này là do tự tay tôi nấu đấy.",
                 "options": [
                   "が",
-                  "に",
+                  "と",
                   "で",
-                  "と"
+                  "に"
                 ],
                 "correct": 2,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Phương thức: 自分で (tự mình làm - Bài 14)."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Phương thức: 自分で (tự mình làm - Bài 14).",
+                "contentRevision": 3
               },
               {
                 "id": 40,
@@ -4071,13 +4244,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "のど (   ) かわきました。お茶を 飲みたいです。",
                 "promptVi": "Tôi khát nước quá. Tôi muốn uống trà.",
                 "options": [
-                  "が",
-                  "に",
+                  "と",
                   "で",
-                  "と"
+                  "に",
+                  "が"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Cụm cố định: のどがかわく (Bài 11/16)."
+                "correct": 3,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Cụm cố định: のどがかわく (Bài 11/16).",
+                "contentRevision": 3
               },
               {
                 "id": 41,
@@ -4091,7 +4265,8 @@ window.DE_THI_TONG_HOP_DATA = [
                   "が・に"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• A と B と どちら (Bài 11): So sánh 2 mùa."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• A と B と どちら (Bài 11): So sánh 2 mùa.",
+                "contentRevision": 3
               },
               {
                 "id": 42,
@@ -4099,13 +4274,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "この 歌手は 若い 人 (   ) 人気 (   ) あります。",
                 "promptVi": "Ca sĩ này rất được giới trẻ yêu mến.",
                 "options": [
-                  "に・が",
-                  "で・に",
                   "が・で",
+                  "で・に",
+                  "に・が",
                   "と・に"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• ～に 人気がある: Được yêu thích bởi đối tượng nào (Bài 11)."
+                "correct": 2,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• ～に 人気がある: Được yêu thích bởi đối tượng nào (Bài 11).",
+                "contentRevision": 3
               },
               {
                 "id": 43,
@@ -4113,13 +4289,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "冷蔵庫の 中 (   ) 牛乳 (   ) ありますか。",
                 "promptVi": "Trong tủ lạnh có sữa tươi không?",
                 "options": [
-                  "に・が",
                   "で・に",
-                  "が・で",
-                  "と・が"
+                  "に・が",
+                  "と・が",
+                  "が・で"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• [Nơi chốn] に [Vật] が あります (Bài 11)."
+                "correct": 1,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• [Nơi chốn] に [Vật] が あります (Bài 11).",
+                "contentRevision": 3
               },
               {
                 "id": 44,
@@ -4127,13 +4304,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "来月 ハノイ (   ) 引っ越しします。",
                 "promptVi": "Tháng sau tôi chuyển nhà đến Hà Nội.",
                 "options": [
-                  "に",
-                  "で",
                   "が",
-                  "を"
+                  "を",
+                  "で",
+                  "に"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Đích đến di chuyển: ハノイに 引っ越す (Bài 18)."
+                "correct": 3,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Đích đến di chuyển: ハノイに 引っ越す (Bài 18).",
+                "contentRevision": 3
               },
               {
                 "id": 45,
@@ -4141,14 +4319,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "３か月前 (   ) 日本語の 勉強 (   ) 始めました。",
                 "promptVi": "Cách đây 3 tháng tôi đã bắt đầu học tiếng Nhật.",
                 "options": [
-                  "に・を",
-                  "で・が",
+                  "が・に",
                   "に・で",
-                  "が・に"
+                  "に・を",
+                  "で・が"
                 ],
-                "correct": 0,
+                "correct": 2,
                 "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• ３か月前に日本語の勉強を始めました. に chỉ thời điểm, を đánh dấu tân ngữ 勉強.",
-                "contentRevision": 2
+                "contentRevision": 3
               },
               {
                 "id": 46,
@@ -4157,12 +4335,13 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "Trời nóng quá. Tôi mở cửa sổ có được không?",
                 "options": [
                   "あけて",
-                  "あける",
                   "あけた",
+                  "あける",
                   "あけない"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-てもいいですか: あけてもいいですか (Bài 13)."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-てもいいですか: あけてもいいですか (Bài 13).",
+                "contentRevision": 3
               },
               {
                 "id": 47,
@@ -4170,13 +4349,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "風邪を ひいたときは、暖かくして (   ) いいですよ。",
                 "promptVi": "Khi bị cảm cúm, bạn nên giữ ấm cơ thể thì tốt đấy.",
                 "options": [
-                  "ねると",
                   "ねても",
-                  "ねたことが",
-                  "ねないで"
+                  "ねると",
+                  "ねないで",
+                  "ねたことが"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-るといいですよ: ねるといいですよ (Bài 14/16)."
+                "correct": 1,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-るといいですよ: ねるといいですよ (Bài 14/16).",
+                "contentRevision": 3
               },
               {
                 "id": 48,
@@ -4184,13 +4364,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "日曜日は 音楽を (   )、掃除を し (   ) しました。",
                 "promptVi": "Chủ nhật tôi khi thì nghe nhạc, khi thì dọn dẹp nhà cửa.",
                 "options": [
-                  "聴いたり・たり",
-                  "聴いて・て",
                   "聴く・く",
-                  "聴いた・た"
+                  "聴いて・て",
+                  "聴いた・た",
+                  "聴いたり・たり"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• ～たり～たりしました (Bài 16)."
+                "correct": 3,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• ～たり～たりしました (Bài 16).",
+                "contentRevision": 3
               },
               {
                 "id": 49,
@@ -4198,13 +4379,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "毎日 スマホ (   ) ゲームをして、頭 (   ) 痛いです。",
                 "promptVi": "Ngày nào cũng chơi game bằng điện thoại nên đầu tôi bị đau.",
                 "options": [
+                  "が・で",
                   "で・が",
                   "に・に",
-                  "が・で",
                   "と・に"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Phương tiện: スマホで; Trạng thái: 頭が痛い (Bài 16)."
+                "correct": 1,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Phương tiện: スマホで; Trạng thái: 頭が痛い (Bài 16).",
+                "contentRevision": 3
               },
               {
                 "id": 50,
@@ -4218,7 +4400,8 @@ window.DE_THI_TONG_HOP_DATA = [
                   "して・に"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Động từ quá khứ 卒業したとき; Viết cho ai: 先生に (Bài 14)."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Động từ quá khứ 卒業したとき; Viết cho ai: 先生に (Bài 14).",
+                "contentRevision": 3
               },
               {
                 "id": 51,
@@ -4226,13 +4409,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "会議 (   ) 日時は 明日 (   ) いいと 思います。",
                 "promptVi": "Thời gian họp thì tôi nghĩ là ngày mai sẽ tiện nhất.",
                 "options": [
-                  "の・が",
-                  "が・に",
                   "に・で",
+                  "が・に",
+                  "の・が",
                   "で・の"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• 会議の日時; 明日がいいと思います (Bài 18)."
+                "correct": 2,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• 会議の日時; 明日がいいと思います (Bài 18).",
+                "contentRevision": 3
               },
               {
                 "id": 52,
@@ -4240,13 +4424,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "ピクニックに 果物を 切って (   )。",
                 "promptVi": "Tôi cắt sẵn hoa quả mang đi dã ngoại.",
                 "options": [
-                  "いきます",
                   "きます",
                   "みます",
-                  "います"
+                  "います",
+                  "いきます"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-ていきます (Bài 11): Chuẩn bị rồi mang đi theo."
+                "correct": 3,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-ていきます (Bài 11): Chuẩn bị rồi mang đi theo.",
+                "contentRevision": 3
               },
               {
                 "id": 53,
@@ -4254,13 +4439,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "初めて 日本の 料理を (   )。とても おいしかったです。",
                 "promptVi": "Lần đầu tiên tôi thử món ăn Nhật. Rất ngon.",
                 "options": [
+                  "食べたことがあります",
                   "食べてみました",
-                  "食べていました",
                   "食べすぎました",
-                  "食べたことがあります"
+                  "食べていました"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-てみる ➔ てみました: đã thử ăn (bài 11)."
+                "correct": 1,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-てみる ➔ てみました: đã thử ăn (bài 11).",
+                "contentRevision": 3
               },
               {
                 "id": 54,
@@ -4274,7 +4460,8 @@ window.DE_THI_TONG_HOP_DATA = [
                   "いつ"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• A と B と どちら (Bài 11): So sánh giữa 2 lựa chọn."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• A と B と どちら (Bài 11): So sánh giữa 2 lựa chọn.",
+                "contentRevision": 3
               },
               {
                 "id": 55,
@@ -4282,13 +4469,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "日曜日なら、(   ) 会えますよ。時間がありますから。",
                 "promptVi": "Nếu là Chủ nhật thì lúc nào tôi cũng gặp được, vì tôi có thời gian.",
                 "options": [
-                  "いつでも",
-                  "どこでも",
                   "だれでも",
-                  "なんでも"
+                  "なんでも",
+                  "いつでも",
+                  "どこでも"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• いつでも (Bài 11): Bất cứ lúc nào."
+                "correct": 2,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• いつでも (Bài 11): Bất cứ lúc nào.",
+                "contentRevision": 3
               },
               {
                 "id": 56,
@@ -4296,13 +4484,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "この スープは (   ) そうですね。",
                 "promptVi": "Bát súp này trông có vẻ nóng hổi đấy nhỉ.",
                 "options": [
-                  "あつい",
                   "あつ",
+                  "あつい",
                   "あつく",
                   "あつかった"
                 ],
-                "correct": 1,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Tính từ đuôi い bỏ い + そうです (Bài 12): 熱い ➔ あつそうです."
+                "correct": 0,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Tính từ đuôi い bỏ い + そうです (Bài 12): 熱い ➔ あつそうです.",
+                "contentRevision": 3
               },
               {
                 "id": 57,
@@ -4310,13 +4499,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "この 部屋は 明る (   )、広いですね。",
                 "promptVi": "Căn phòng này vừa sáng sủa lại vừa rộng rãi.",
                 "options": [
-                  "くて",
-                  "で",
                   "に",
-                  "の"
+                  "の",
+                  "で",
+                  "くて"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Nối tính từ đuôi い: 明るい ➔ 明るくて (Bài 12)."
+                "correct": 3,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Nối tính từ đuôi い: 明るい ➔ 明るくて (Bài 12).",
+                "contentRevision": 3
               },
               {
                 "id": 58,
@@ -4324,13 +4514,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "この 靴は 重く (   )、歩きやすいです。",
                 "promptVi": "Đôi giày này không bị nặng và rất dễ đi.",
                 "options": [
-                  "ないで",
+                  "ない",
                   "なくて",
                   "なかった",
-                  "ない"
+                  "ないで"
                 ],
                 "correct": 1,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Nối tính từ phủ định: 重くない ➔ 重くなくて (Bài 12)."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Nối tính từ phủ định: 重くない ➔ 重くなくて (Bài 12).",
+                "contentRevision": 3
               },
               {
                 "id": 59,
@@ -4338,13 +4529,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "京都の お寺は 静か (   )、きれいです。",
                 "promptVi": "Chùa ở Kyoto vừa yên tĩnh lại vừa đẹp đẽ.",
                 "options": [
+                  "の",
                   "くて",
                   "で",
-                  "に",
-                  "の"
+                  "に"
                 ],
-                "correct": 1,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Nối tính từ đuôi な: 静か ➔ 静かで (Bài 12)."
+                "correct": 2,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Nối tính từ đuôi な: 静か ➔ 静かで (Bài 12).",
+                "contentRevision": 3
               },
               {
                 "id": 60,
@@ -4352,13 +4544,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "日本へ 行ったことが (   )。",
                 "promptVi": "Tôi đã từng đi Nhật Bản.",
                 "options": [
-                  "あります",
+                  "なります",
                   "います",
-                  "します",
-                  "なります"
+                  "あります",
+                  "します"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-た ことが あります: nói về kinh nghiệm đã từng (bài 13)."
+                "correct": 2,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-た ことが あります: nói về kinh nghiệm đã từng (bài 13).",
+                "contentRevision": 3
               }
             ]
           }
@@ -4383,13 +4576,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "1. 雨の日、「私」は 何を しますか。",
                 "promptVi": "Vào những ngày trời mưa, nhân vật 'Tôi' làm gì?",
                 "options": [
-                  "雨の中でも散歩します。",
-                  "家でストレッチや体操をします。",
                   "一日中寝ています。",
-                  "公園まで自転車で行きます。"
+                  "公園まで自転車で行きます。",
+                  "雨の中でも散歩します。",
+                  "家でストレッチや体操をします。"
                 ],
-                "correct": 1,
-                "explain": "💡 Căn cứ câu: '雨の日は散歩を休んで、家でストレッチや軽い体操をします' ➔ Chọn đáp án 2."
+                "correct": 3,
+                "explain": "💡 Căn cứ câu: '雨の日は散歩を休んで、家でストレッチや軽い体操をします' ➔ Chọn đáp án 4.",
+                "contentRevision": 3
               },
               {
                 "id": 62,
@@ -4397,13 +4591,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "2. 朝ごはんを 食べる 前に、何を しますか。",
                 "promptVi": "Trước khi ăn bữa sáng, nhân vật 'Tôi' làm việc gì?",
                 "options": [
-                  "コップ一杯の水を飲みます。",
                   "薬を飲みます。",
-                  "散歩を始めます。",
-                  "コーヒーを飲みます。"
+                  "コップ一杯の水を飲みます。",
+                  "コーヒーを飲みます。",
+                  "散歩を始めます。"
                 ],
-                "correct": 0,
-                "explain": "💡 Căn cứ câu: '朝ごはんを食べる前に、必ずコップ一杯の水を飲みます' ➔ Chọn đáp án 1."
+                "correct": 1,
+                "explain": "💡 Căn cứ câu: '朝ごはんを食べる前に、必ずコップ一杯の水を飲みます' ➔ Chọn đáp án 2.",
+                "contentRevision": 3
               },
               {
                 "id": 63,
@@ -4412,12 +4607,13 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "Sau khi duy trì ăn sáng đầy đủ thì kết quả thế nào?",
                 "options": [
                   "体調がとてもよくなりました。",
+                  "病気になりました。",
                   "体重が増えすぎました。",
-                  "朝起きられなくなりました。",
-                  "病気になりました。"
+                  "朝起きられなくなりました。"
                 ],
                 "correct": 0,
-                "explain": "💡 Căn cứ câu: '体調がとてもよくなりました' ➔ Chọn đáp án 1."
+                "explain": "💡 Căn cứ câu: '体調がとてもよくなりました' ➔ Chọn đáp án 1.",
+                "contentRevision": 3
               },
               {
                 "id": 64,
@@ -4426,12 +4622,13 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "Vào dịp cuối tuần, nhân vật 'Tôi' làm gì?",
                 "options": [
                   "自転車で遠い公園へ行きます。",
+                  "家でテレビを見ます。",
                   "一日中仕事をします。",
-                  "友だちと買い物をします。",
-                  "家でテレビを見ます。"
+                  "友だちと買い物をします。"
                 ],
                 "correct": 0,
-                "explain": "💡 Căn cứ câu: '週末は...自転車で少し遠い公園まで行って、景色を楽しんでいます' ➔ Chọn đáp án 1."
+                "explain": "💡 Căn cứ câu: '週末は...自転車で少し遠い公園まで行って、景色を楽しんでいます' ➔ Chọn đáp án 1.",
+                "contentRevision": 3
               }
             ]
           },
@@ -4449,11 +4646,12 @@ window.DE_THI_TONG_HOP_DATA = [
                 "options": [
                   "駅前の居酒屋",
                   "駅前の日本料理の店",
-                  "田中さんの家",
-                  "カラオケボックス"
+                  "カラオケボックス",
+                  "田中さんの家"
                 ],
                 "correct": 1,
-                "explain": "💡 Căn cứ: '駅前の日本料理の店で食事会をして' ➔ Chọn đáp án 2 (Quán món Nhật trước ga)."
+                "explain": "💡 Căn cứ: '駅前の日本料理の店で食事会をして' ➔ Chọn đáp án 2 (Quán món Nhật trước ga).",
+                "contentRevision": 3
               },
               {
                 "id": 66,
@@ -4462,12 +4660,13 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "Mọi người sẽ tặng món quà gì cho anh Tanaka?",
                 "options": [
                   "お酒",
+                  "万年筆",
                   "高級な時計",
-                  "記念のネクタイ",
-                  "万年筆"
+                  "記念のネクタイ"
                 ],
-                "correct": 2,
-                "explain": "💡 Căn cứ: 'みんなで記念のネクタイをプレゼントすることに決めました' ➔ Chọn đáp án 3 (Cà vạt kỷ niệm)."
+                "correct": 3,
+                "explain": "💡 Căn cứ: 'みんなで記念のネクタイをプレゼントすることに決めました' ➔ Chọn đáp án 4 (Cà vạt kỷ niệm).",
+                "contentRevision": 3
               }
             ]
           },
@@ -4484,12 +4683,13 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "Lý do máy bay bị chậm khởi hành là gì?",
                 "options": [
                   "飛行機が故障したから",
+                  "会議が長引いたから",
                   "天気が悪かったから",
-                  "空港が混んでいたから",
-                  "会議が長引いたから"
+                  "空港が混んでいたから"
                 ],
-                "correct": 1,
-                "explain": "💡 Căn cứ câu: '天気が悪くて、出発が1時間遅れました' ➔ Chọn đáp án 2 (Do thời tiết xấu)."
+                "correct": 2,
+                "explain": "💡 Căn cứ câu: '天気が悪くて、出発が1時間遅れました' ➔ Chọn đáp án 3 (Do thời tiết xấu).",
+                "contentRevision": 3
               },
               {
                 "id": 68,
@@ -4497,13 +4697,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "2. 会議は どうでしたか。",
                 "promptVi": "Buổi họp diễn ra như thế nào?",
                 "options": [
-                  "時間に遅れて怒られた。",
+                  "取引先が来なかった。",
                   "中止になった。",
-                  "時間に間に合って無事に終わった。",
-                  "取引先が来なかった。"
+                  "時間に遅れて怒られた。",
+                  "時間に間に合って無事に終わった。"
                 ],
-                "correct": 2,
-                "explain": "💡 Căn cứ câu: '時間に間に合って、大事な会議を無事に終えることができました' ➔ Chọn đáp án 3 (Kịp giờ và kết thúc an toàn/suôn sẻ)."
+                "correct": 3,
+                "explain": "💡 Căn cứ câu: '時間に間に合って、大事な会議を無事に終えることができました' ➔ Chọn đáp án 4 (Kịp giờ và kết thúc an toàn/suôn sẻ).",
+                "contentRevision": 3
               }
             ]
           }
@@ -4526,25 +4727,26 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "朝 起きて _________ ________ ____★____ _________。",
                 "promptVi": "Sáng dậy sau khi uống một cốc nước tôi bắt đầu đi bộ.",
                 "parts": [
-                  "散歩を",
                   "水を",
+                  "散歩を",
                   "飲んだあとで",
                   "始めます"
                 ],
                 "options": [
-                  "散歩を",
                   "水を",
+                  "散歩を",
                   "飲んだあとで",
                   "始めます"
                 ],
                 "correctOrder": [
-                  1,
-                  2,
                   0,
+                  2,
+                  1,
                   3
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích sắp xếp câu:</strong><br>• Thứ tự: 朝起きて ➔ [2 水を] [3 飲んだあとで] [1 ★散歩を] [4 始めます]。Vị trí ★ là 1. 散歩を."
+                "correct": 1,
+                "explain": "Thứ tự các cụm: 水を → 飲んだあとで → 散歩を → 始めます. Vị trí ★: <strong>散歩を</strong> (phương án 2).",
+                "contentRevision": 3
               },
               {
                 "id": 70,
@@ -4553,24 +4755,25 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "Giám đốc đã nói rằng tuần sau trời sẽ trở nên lạnh hơn.",
                 "parts": [
                   "寒く",
-                  "天気が",
+                  "社長は",
                   "なると",
-                  "社長は"
+                  "天気が"
                 ],
                 "options": [
                   "寒く",
-                  "天気が",
+                  "社長は",
                   "なると",
-                  "社長は"
+                  "天気が"
                 ],
                 "correctOrder": [
-                  3,
                   1,
+                  3,
                   0,
                   2
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích sắp xếp câu:</strong><br>• Thứ tự: 来週は ➔ [4 社長は] [2 天気が] [1 ★寒く] [3 なると] と言っていました。Vị trí ★ là 1. 寒く."
+                "explain": "Thứ tự các cụm: 社長は → 天気が → 寒く → なると. Vị trí ★: <strong>寒く</strong> (phương án 1).",
+                "contentRevision": 3
               },
               {
                 "id": 71,
@@ -4579,24 +4782,25 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "Chiếc cặp này là tôi tự tay mua bằng tiền làm thêm đấy.",
                 "parts": [
                   "アルバイトの",
-                  "自分で",
                   "お金で",
+                  "自分で",
                   "買った"
                 ],
                 "options": [
                   "アルバイトの",
-                  "自分で",
                   "お金で",
+                  "自分で",
                   "買った"
                 ],
                 "correctOrder": [
                   0,
-                  2,
                   1,
+                  2,
                   3
                 ],
-                "correct": 1,
-                "explain": "💡 <strong>Giải thích sắp xếp câu:</strong><br>• Thứ tự: このカバンは ➔ [1 アルバイトの] [3 お金で] [2 ★自分で] [4 買った] んです。Vị trí ★ là 2. 自分で."
+                "correct": 2,
+                "explain": "Thứ tự các cụm: アルバイトの → お金で → 自分で → 買った. Vị trí ★: <strong>自分で</strong> (phương án 3).",
+                "contentRevision": 3
               },
               {
                 "id": 72,
@@ -4604,25 +4808,26 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "京都へ _________ ________ ____★____ _________ ことがあります。",
                 "promptVi": "Tôi đã từng đi du lịch Kyoto cùng gia đình một lần.",
                 "parts": [
+                  "旅行した",
                   "家族と",
                   "一度",
-                  "旅行した",
                   "いっしょに"
                 ],
                 "options": [
+                  "旅行した",
                   "家族と",
                   "一度",
-                  "旅行した",
                   "いっしょに"
                 ],
                 "correctOrder": [
+                  2,
                   1,
-                  0,
                   3,
-                  2
+                  0
                 ],
                 "correct": 3,
-                "explain": "💡 <strong>Giải thích sắp xếp câu:</strong><br>• Thứ tự: 京都へ ➔ [2 一度] [1 家族と] [4 ★いっしょに] [3 旅行した] ことがあります。Vị trí ★ là 4. いっしょに."
+                "explain": "Thứ tự các cụm: 一度 → 家族と → いっしょに → 旅行した. Vị trí ★: <strong>いっしょに</strong> (phương án 4).",
+                "contentRevision": 3
               },
               {
                 "id": 73,
@@ -4630,25 +4835,26 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "風邪を _________ ________ ____★____ _________ といいですよ。",
                 "promptVi": "Khi bị cảm cúm thì nên uống nhiều nước ấm rồi nghỉ ngơi thì tốt đấy.",
                 "parts": [
-                  "暖かくして",
                   "ひいたときは",
                   "ゆっくり",
-                  "休む"
+                  "休む",
+                  "暖かくして"
                 ],
                 "options": [
-                  "暖かくして",
                   "ひいたときは",
                   "ゆっくり",
-                  "休む"
+                  "休む",
+                  "暖かくして"
                 ],
                 "correctOrder": [
-                  1,
                   0,
-                  2,
-                  3
+                  3,
+                  1,
+                  2
                 ],
-                "correct": 2,
-                "explain": "💡 <strong>Giải thích sắp xếp câu:</strong><br>• Thứ tự: 風邪を ➔ [2 ひいたときは] [1 暖かくして] [3 ★ゆっくり] [4 休む] といいですよ。Vị trí ★ là 3. ゆっくり."
+                "correct": 1,
+                "explain": "Thứ tự các cụm: ひいたときは → 暖かくして → ゆっくり → 休む. Vị trí ★: <strong>ゆっくり</strong> (phương án 2).",
+                "contentRevision": 3
               },
               {
                 "id": 74,
@@ -4656,25 +4862,26 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "会議の _________ ________ ____★____ _________ と思います。",
                 "promptVi": "Địa điểm của cuộc họp thì tôi nghĩ phòng họp số 2 là tốt nhất.",
                 "parts": [
-                  "場所は",
                   "第2会議室が",
+                  "場所は",
                   "いい",
                   "明日の"
                 ],
                 "options": [
-                  "場所は",
                   "第2会議室が",
+                  "場所は",
                   "いい",
                   "明日の"
                 ],
                 "correctOrder": [
                   3,
-                  0,
                   1,
+                  0,
                   2
                 ],
-                "correct": 1,
-                "explain": "💡 <strong>Giải thích sắp xếp câu:</strong><br>• Thứ tự: 会議の ➔ [4 明日の] [1 場所は] [2 ★第2会議室が] [3 いい] と思います。Vị trí ★ là 2. 第2会議室が."
+                "correct": 0,
+                "explain": "Thứ tự các cụm: 明日の → 場所は → 第2会議室が → いい. Vị trí ★: <strong>第2会議室が</strong> (phương án 1).",
+                "contentRevision": 3
               }
             ]
           }
@@ -4707,13 +4914,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "味 có nghĩa là Vị.",
                 "targetWord": "味",
                 "options": [
-                  "あじ",
                   "いろ",
                   "いろいろ",
-                  "やさい"
+                  "やさい",
+                  "あじ"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 味 ➔ あじ (Vị — Bài 12)."
+                "correct": 3,
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 味 ➔ あじ (Vị — Bài 12).",
+                "contentRevision": 3
               },
               {
                 "id": 2,
@@ -4724,11 +4932,12 @@ window.DE_THI_TONG_HOP_DATA = [
                 "options": [
                   "いろ",
                   "いろいろ",
-                  "やさい",
-                  "あいます"
+                  "あいます",
+                  "やさい"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 色 ➔ いろ (Màu sắc — Bài 12)."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 色 ➔ いろ (Màu sắc — Bài 12).",
+                "contentRevision": 3
               },
               {
                 "id": 3,
@@ -4737,13 +4946,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "色々 có nghĩa là Đa dạng.",
                 "targetWord": "色々",
                 "options": [
+                  "あいます",
                   "いろいろ",
                   "やさい",
-                  "あいます",
                   "しゃかい"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 色々 ➔ いろいろ (Đa dạng — Bài 12)."
+                "correct": 1,
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 色々 ➔ いろいろ (Đa dạng — Bài 12).",
+                "contentRevision": 3
               },
               {
                 "id": 4,
@@ -4752,13 +4962,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "野菜 có nghĩa là Rau.",
                 "targetWord": "野菜",
                 "options": [
-                  "やさい",
-                  "あいます",
                   "しゃかい",
+                  "あいます",
+                  "やさい",
                   "ししゃ"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 野菜 ➔ やさい (Rau — Bài 12)."
+                "correct": 2,
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 野菜 ➔ やさい (Rau — Bài 12).",
+                "contentRevision": 3
               },
               {
                 "id": 5,
@@ -4767,13 +4978,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "会います có nghĩa là Gặp gỡ.",
                 "targetWord": "会います",
                 "options": [
-                  "あいます",
                   "しゃかい",
-                  "ししゃ",
-                  "きます"
+                  "あいます",
+                  "きます",
+                  "ししゃ"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 会います ➔ あいます (Gặp gỡ — Bài 13)."
+                "correct": 1,
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 会います ➔ あいます (Gặp gỡ — Bài 13).",
+                "contentRevision": 3
               },
               {
                 "id": 6,
@@ -4788,7 +5000,8 @@ window.DE_THI_TONG_HOP_DATA = [
                   "きもの"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 社会 ➔ しゃかい (Xã hội — Bài 13)."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 社会 ➔ しゃかい (Xã hội — Bài 13).",
+                "contentRevision": 3
               },
               {
                 "id": 7,
@@ -4797,13 +5010,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "支社 có nghĩa là Chi nhánh.",
                 "targetWord": "支社",
                 "options": [
-                  "ししゃ",
+                  "つきます",
                   "きます",
                   "きもの",
-                  "つきます"
+                  "ししゃ"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 支社 ➔ ししゃ (Chi nhánh — Bài 13)."
+                "correct": 3,
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 支社 ➔ ししゃ (Chi nhánh — Bài 13).",
+                "contentRevision": 3
               },
               {
                 "id": 8,
@@ -4812,13 +5026,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "着ます có nghĩa là Mặc (áo…).",
                 "targetWord": "着ます",
                 "options": [
-                  "きます",
-                  "きもの",
+                  "そら",
                   "つきます",
-                  "そら"
+                  "きます",
+                  "きもの"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 着ます ➔ きます (Mặc (áo…) — Bài 13)."
+                "correct": 2,
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 着ます ➔ きます (Mặc (áo…) — Bài 13).",
+                "contentRevision": 3
               },
               {
                 "id": 9,
@@ -4829,11 +5044,12 @@ window.DE_THI_TONG_HOP_DATA = [
                 "options": [
                   "きもの",
                   "つきます",
-                  "そら",
-                  "くうき"
+                  "くうき",
+                  "そら"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 着物 ➔ きもの (Bộ kimono — Bài 13)."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 着物 ➔ きもの (Bộ kimono — Bài 13).",
+                "contentRevision": 3
               },
               {
                 "id": 10,
@@ -4842,13 +5058,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "着きます có nghĩa là Đến nơi.",
                 "targetWord": "着きます",
                 "options": [
-                  "つきます",
                   "そら",
-                  "くうき",
-                  "みなと"
+                  "つきます",
+                  "みなと",
+                  "くうき"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 着きます ➔ つきます (Đến nơi — Bài 13)."
+                "correct": 1,
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 着きます ➔ つきます (Đến nơi — Bài 13).",
+                "contentRevision": 3
               }
             ]
           },
@@ -4862,13 +5079,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "週末は (   ) と 食事を します。",
                 "promptVi": "Cuối tuần tôi ăn cơm cùng gia đình.",
                 "options": [
-                  "家族",
-                  "計画",
                   "発音",
-                  "料理"
+                  "料理",
+                  "家族",
+                  "計画"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 家族: gia đình."
+                "correct": 2,
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 家族: gia đình.",
+                "contentRevision": 3
               },
               {
                 "id": 12,
@@ -4876,13 +5094,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "毎日 運動して、(   ) に なりたいです。",
                 "promptVi": "Tôi muốn khỏe mạnh nhờ tập thể dục mỗi ngày.",
                 "options": [
-                  "健康",
+                  "誕生日",
                   "結婚",
                   "電車",
-                  "誕生日"
+                  "健康"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 健康: sức khỏe, khỏe mạnh."
+                "correct": 3,
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 健康: sức khỏe, khỏe mạnh.",
+                "contentRevision": 3
               },
               {
                 "id": 13,
@@ -4890,13 +5109,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "(   ) に 友達と 会います。",
                 "promptVi": "Cuối tuần tôi gặp bạn.",
                 "options": [
-                  "週末",
                   "毎日",
-                  "誕生日",
-                  "料理"
+                  "週末",
+                  "料理",
+                  "誕生日"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 週末: cuối tuần."
+                "correct": 1,
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 週末: cuối tuần.",
+                "contentRevision": 3
               },
               {
                 "id": 14,
@@ -4905,12 +5125,13 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "Hôm nay là sinh nhật mẹ.",
                 "options": [
                   "誕生日",
+                  "計画",
                   "結婚",
-                  "お祝い",
-                  "計画"
+                  "お祝い"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 誕生日: sinh nhật."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 誕生日: sinh nhật.",
+                "contentRevision": 3
               },
               {
                 "id": 15,
@@ -4918,13 +5139,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "家族は とても (   ) です。",
                 "promptVi": "Gia đình rất quan trọng.",
                 "options": [
-                  "大切",
                   "健康",
+                  "週末",
                   "有名",
-                  "週末"
+                  "大切"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 大切: quan trọng, quý giá."
+                "correct": 3,
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 大切: quan trọng, quý giá.",
+                "contentRevision": 3
               },
               {
                 "id": 16,
@@ -4932,13 +5154,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "(   ) で 会社へ 行きます。",
                 "promptVi": "Tôi đi tàu điện đến công ty.",
                 "options": [
-                  "電車",
-                  "料理",
                   "お酒",
-                  "発音"
+                  "発音",
+                  "電車",
+                  "料理"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 電車: tàu điện."
+                "correct": 2,
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 電車: tàu điện.",
+                "contentRevision": 3
               },
               {
                 "id": 17,
@@ -4946,13 +5169,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "毎朝 公園を (   )。",
                 "promptVi": "Mỗi sáng tôi chạy trong công viên.",
                 "options": [
-                  "走ります",
+                  "着ます",
                   "送ります",
-                  "思います",
-                  "着ます"
+                  "走ります",
+                  "思います"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 走ります: chạy."
+                "correct": 2,
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 走ります: chạy.",
+                "contentRevision": 3
               },
               {
                 "id": 18,
@@ -4961,12 +5185,13 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "Tôi nghĩ là quan trọng.",
                 "options": [
                   "思います",
-                  "送ります",
                   "走ります",
+                  "送ります",
                   "着ます"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 思います: nghĩ."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 思います: nghĩ.",
+                "contentRevision": 3
               },
               {
                 "id": 19,
@@ -4974,13 +5199,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "日本の (   ) が 好きです。",
                 "promptVi": "Tôi thích món ăn Nhật.",
                 "options": [
-                  "料理",
                   "計画",
+                  "発音",
                   "健康",
-                  "発音"
+                  "料理"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 料理: món ăn, nấu ăn."
+                "correct": 3,
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 料理: món ăn, nấu ăn.",
+                "contentRevision": 3
               },
               {
                 "id": 20,
@@ -4988,13 +5214,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "健康のために、(   )を あまり 飲みません。",
                 "promptVi": "Vì sức khỏe nên tôi không uống nhiều rượu.",
                 "options": [
-                  "お酒",
-                  "電車",
                   "週末",
-                  "計画"
+                  "お酒",
+                  "計画",
+                  "電車"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• お酒: rượu, đồ uống có cồn."
+                "correct": 1,
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• お酒: rượu, đồ uống có cồn.",
+                "contentRevision": 3
               },
               {
                 "id": 24,
@@ -5002,13 +5229,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "日本語の (   ) を 練習します。",
                 "promptVi": "Tôi luyện phát âm tiếng Nhật.",
                 "options": [
-                  "発音",
-                  "料理",
                   "結婚",
-                  "計画"
+                  "計画",
+                  "発音",
+                  "料理"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 発音: phát âm."
+                "correct": 2,
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 発音: phát âm.",
+                "contentRevision": 3
               },
               {
                 "id": 25,
@@ -5018,11 +5246,12 @@ window.DE_THI_TONG_HOP_DATA = [
                 "options": [
                   "お祝い",
                   "お酒",
-                  "電車",
-                  "週末"
+                  "週末",
+                  "電車"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• お祝い: chúc mừng, quà mừng."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• お祝い: chúc mừng, quà mừng.",
+                "contentRevision": 3
               }
             ]
           }
@@ -5045,13 +5274,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "ここで 写真を 撮って (   ) ですか。",
                 "promptVi": "Tôi chụp ảnh ở đây có được phép không?",
                 "options": [
-                  "もいい",
-                  "はいけない",
+                  "ください",
                   "といい",
-                  "ください"
+                  "はいけない",
+                  "もいい"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-てもいいですか (Bài 13): Xin phép làm việc gì."
+                "correct": 3,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-てもいいですか (Bài 13): Xin phép làm việc gì.",
+                "contentRevision": 3
               },
               {
                 "id": 27,
@@ -5059,13 +5289,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "出かける (   )、窓を 閉めて ください。",
                 "promptVi": "Trước khi ra ngoài, xin hãy đóng cửa sổ lại.",
                 "options": [
-                  "まえに",
-                  "あとで",
                   "までに",
-                  "あと"
+                  "まえに",
+                  "あと",
+                  "あとで"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-る まえに (Bài 14): Trước khi làm V."
+                "correct": 1,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-る まえに (Bài 14): Trước khi làm V.",
+                "contentRevision": 3
               },
               {
                 "id": 28,
@@ -5073,13 +5304,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "頭が 痛い ときは、薬を 飲む (   ) いいですよ。",
                 "promptVi": "Khi bị đau đầu, bạn nên uống thuốc thì tốt đấy.",
                 "options": [
-                  "が",
-                  "と",
+                  "で",
                   "を",
-                  "で"
+                  "が",
+                  "と"
                 ],
-                "correct": 1,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-るといいですよ (Bài 14): Khuyên nhủ nên làm gì."
+                "correct": 3,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-るといいですよ (Bài 14): Khuyên nhủ nên làm gì.",
+                "contentRevision": 3
               },
               {
                 "id": 29,
@@ -5093,7 +5325,8 @@ window.DE_THI_TONG_HOP_DATA = [
                   "ませんで"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-ないでください (Bài 14): Xin đừng làm V."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-ないでください (Bài 14): Xin đừng làm V.",
+                "contentRevision": 3
               },
               {
                 "id": 30,
@@ -5101,13 +5334,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "週末は 映画を 見たり 買い物を (   )。",
                 "promptVi": "Cuối tuần tôi khi thì xem phim khi thì đi mua sắm.",
                 "options": [
-                  "したりします",
-                  "したりあります",
+                  "したりです",
                   "したりになります",
-                  "したりです"
+                  "したりします",
+                  "したりあります"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• ～たり～たりします (Bài 15): Liệt kê hành động."
+                "correct": 2,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• ～たり～たりします (Bài 15): Liệt kê hành động.",
+                "contentRevision": 3
               },
               {
                 "id": 31,
@@ -5115,13 +5349,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "あそこで 本を (   ) 人は 田中さんです。",
                 "promptVi": "Người đang đọc sách đằng kia là anh Tanaka.",
                 "options": [
-                  "読んでいる",
                   "読みたい",
-                  "読んで",
-                  "読みます"
+                  "読んでいる",
+                  "読みます",
+                  "読んで"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Định ngữ: V-ている + N ➔ 読んでいる人 (Bài 15)."
+                "correct": 1,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Định ngữ: V-ている + N ➔ 読んでいる人 (Bài 15).",
+                "contentRevision": 3
               },
               {
                 "id": 32,
@@ -5129,13 +5364,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "どうして 試験を 受けなかった (   ) か。",
                 "promptVi": "Tại sao bạn lại không tham gia kỳ thi vậy?",
                 "options": [
-                  "んです",
                   "です",
                   "ます",
+                  "んです",
                   "でした"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Thể ngắn + んですか (Bài 16): Hỏi giải thích lý do."
+                "correct": 2,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Thể ngắn + んですか (Bài 16): Hỏi giải thích lý do.",
+                "contentRevision": 3
               },
               {
                 "id": 33,
@@ -5143,13 +5379,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "これは 父が (   ) 時計です。",
                 "promptVi": "Đây là chiếc đồng hồ bố tôi đã mua.",
                 "options": [
-                  "買った",
-                  "買います",
                   "買って",
-                  "買うです"
+                  "買った",
+                  "買うです",
+                  "買います"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Định ngữ quá khứ: V-た + N ➔ 父が買った時計 (Bài 15)."
+                "correct": 1,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Định ngữ quá khứ: V-た + N ➔ 父が買った時計 (Bài 15).",
+                "contentRevision": 3
               },
               {
                 "id": 34,
@@ -5158,13 +5395,13 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "Tôi nghĩ rằng ngày mai thời tiết sẽ đẹp.",
                 "options": [
                   "いい",
+                  "いいな",
                   "いいだ",
-                  "よく",
-                  "いいな"
+                  "よく"
                 ],
                 "correct": 0,
                 "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Tính từ い giữ nguyên trước と思います: いいと思います (Bài 18). Không thêm だ.",
-                "contentRevision": 2
+                "contentRevision": 3
               },
               {
                 "id": 35,
@@ -5172,13 +5409,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "社長は 「来月 出張する」(   )。",
                 "promptVi": "Giám đốc đã nói rằng 'Tháng sau tôi sẽ đi công tác'.",
                 "options": [
-                  "と言いました",
-                  "と思いました",
                   "といいでした",
-                  "んです"
+                  "と思いました",
+                  "んです",
+                  "と言いました"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Trích dẫn: 「...」と言いました (Bài 18)."
+                "correct": 3,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Trích dẫn: 「...」と言いました (Bài 18).",
+                "contentRevision": 3
               },
               {
                 "id": 36,
@@ -5186,13 +5424,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "この 料理は 自分 (   ) 作ったんです。",
                 "promptVi": "Món ăn này là do tự tay tôi nấu đấy.",
                 "options": [
-                  "が",
                   "に",
-                  "で",
-                  "と"
+                  "が",
+                  "と",
+                  "で"
                 ],
-                "correct": 2,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Phương thức: 自分で (tự mình làm - Bài 14)."
+                "correct": 3,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Phương thức: 自分で (tự mình làm - Bài 14).",
+                "contentRevision": 3
               },
               {
                 "id": 37,
@@ -5200,13 +5439,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "のど (   ) かわきました。お茶を 飲みたいです。",
                 "promptVi": "Tôi khát nước quá. Tôi muốn uống trà.",
                 "options": [
-                  "が",
-                  "に",
                   "で",
-                  "と"
+                  "が",
+                  "と",
+                  "に"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Cụm cố định: のどがかわく (Bài 11/16)."
+                "correct": 1,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Cụm cố định: のどがかわく (Bài 11/16).",
+                "contentRevision": 3
               },
               {
                 "id": 38,
@@ -5215,12 +5455,13 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "Mùa hè và mùa đông, mùa nào dễ chịu hơn?",
                 "options": [
                   "と・と",
+                  "が・に",
                   "に・が",
-                  "で・で",
-                  "が・に"
+                  "で・で"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• A と B と どちら (Bài 11): So sánh 2 mùa."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• A と B と どちら (Bài 11): So sánh 2 mùa.",
+                "contentRevision": 3
               },
               {
                 "id": 39,
@@ -5228,13 +5469,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "この 歌手は 若い 人 (   ) 人気 (   ) あります。",
                 "promptVi": "Ca sĩ này rất được giới trẻ yêu mến.",
                 "options": [
-                  "に・が",
+                  "と・に",
                   "で・に",
-                  "が・で",
-                  "と・に"
+                  "に・が",
+                  "が・で"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• ～に 人気がある: Được yêu thích bởi đối tượng nào (Bài 11)."
+                "correct": 2,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• ～に 人気がある: Được yêu thích bởi đối tượng nào (Bài 11).",
+                "contentRevision": 3
               },
               {
                 "id": 40,
@@ -5242,13 +5484,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "冷蔵庫の 中 (   ) 牛乳 (   ) ありますか。",
                 "promptVi": "Trong tủ lạnh có sữa tươi không?",
                 "options": [
-                  "に・が",
                   "で・に",
                   "が・で",
+                  "に・が",
                   "と・が"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• [Nơi chốn] に [Vật] が あります (Bài 11)."
+                "correct": 2,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• [Nơi chốn] に [Vật] が あります (Bài 11).",
+                "contentRevision": 3
               },
               {
                 "id": 41,
@@ -5256,13 +5499,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "来月 ハノイ (   ) 引っ越しします。",
                 "promptVi": "Tháng sau tôi chuyển nhà đến Hà Nội.",
                 "options": [
-                  "に",
                   "で",
+                  "を",
                   "が",
-                  "を"
+                  "に"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Đích đến di chuyển: ハノイに 引っ越す (Bài 18)."
+                "correct": 3,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Đích đến di chuyển: ハノイに 引っ越す (Bài 18).",
+                "contentRevision": 3
               },
               {
                 "id": 42,
@@ -5270,14 +5514,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "３か月前 (   ) 日本語の 勉強 (   ) 始めました。",
                 "promptVi": "Cách đây 3 tháng tôi đã bắt đầu học tiếng Nhật.",
                 "options": [
-                  "に・を",
                   "で・が",
-                  "に・で",
-                  "が・に"
+                  "に・を",
+                  "が・に",
+                  "に・で"
                 ],
-                "correct": 0,
+                "correct": 1,
                 "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• ３か月前に日本語の勉強を始めました. に chỉ thời điểm, を đánh dấu tân ngữ 勉強.",
-                "contentRevision": 2
+                "contentRevision": 3
               },
               {
                 "id": 43,
@@ -5287,11 +5531,12 @@ window.DE_THI_TONG_HOP_DATA = [
                 "options": [
                   "あけて",
                   "あける",
-                  "あけた",
-                  "あけない"
+                  "あけない",
+                  "あけた"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-てもいいですか: あけてもいいですか (Bài 13)."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-てもいいですか: あけてもいいですか (Bài 13).",
+                "contentRevision": 3
               },
               {
                 "id": 44,
@@ -5299,13 +5544,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "風邪を ひいたときは、暖かくして (   ) いいですよ。",
                 "promptVi": "Khi bị cảm cúm, bạn nên giữ ấm cơ thể thì tốt đấy.",
                 "options": [
+                  "ねたことが",
                   "ねると",
                   "ねても",
-                  "ねたことが",
                   "ねないで"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-るといいですよ: ねるといいですよ (Bài 14/16)."
+                "correct": 1,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-るといいですよ: ねるといいですよ (Bài 14/16).",
+                "contentRevision": 3
               },
               {
                 "id": 45,
@@ -5313,13 +5559,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "日曜日は 音楽を (   )、掃除を し (   ) しました。",
                 "promptVi": "Chủ nhật tôi khi thì nghe nhạc, khi thì dọn dẹp nhà cửa.",
                 "options": [
-                  "聴いたり・たり",
-                  "聴いて・て",
+                  "聴いた・た",
                   "聴く・く",
-                  "聴いた・た"
+                  "聴いたり・たり",
+                  "聴いて・て"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• ～たり～たりしました (Bài 16)."
+                "correct": 2,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• ～たり～たりしました (Bài 16).",
+                "contentRevision": 3
               },
               {
                 "id": 46,
@@ -5329,11 +5576,12 @@ window.DE_THI_TONG_HOP_DATA = [
                 "options": [
                   "で・が",
                   "に・に",
-                  "が・で",
-                  "と・に"
+                  "と・に",
+                  "が・で"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Phương tiện: スマホで; Trạng thái: 頭が痛い (Bài 16)."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Phương tiện: スマホで; Trạng thái: 頭が痛い (Bài 16).",
+                "contentRevision": 3
               },
               {
                 "id": 47,
@@ -5341,13 +5589,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "大学を 卒業 (   ) とき、先生 (   ) 手紙を 書きました。",
                 "promptVi": "Khi tốt nghiệp đại học, tôi đã viết thư cho thầy giáo.",
                 "options": [
-                  "した・に",
-                  "の・で",
+                  "して・に",
                   "する・が",
-                  "して・に"
+                  "の・で",
+                  "した・に"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Động từ quá khứ 卒業したとき; Viết cho ai: 先生に (Bài 14)."
+                "correct": 3,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Động từ quá khứ 卒業したとき; Viết cho ai: 先生に (Bài 14).",
+                "contentRevision": 3
               },
               {
                 "id": 48,
@@ -5355,13 +5604,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "会議 (   ) 日時は 明日 (   ) いいと 思います。",
                 "promptVi": "Thời gian họp thì tôi nghĩ là ngày mai sẽ tiện nhất.",
                 "options": [
-                  "の・が",
-                  "が・に",
                   "に・で",
-                  "で・の"
+                  "の・が",
+                  "で・の",
+                  "が・に"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• 会議の日時; 明日がいいと思います (Bài 18)."
+                "correct": 1,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• 会議の日時; 明日がいいと思います (Bài 18).",
+                "contentRevision": 3
               },
               {
                 "id": 49,
@@ -5375,7 +5625,8 @@ window.DE_THI_TONG_HOP_DATA = [
                   "います"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-ていきます (Bài 11): Chuẩn bị rồi mang đi theo."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-ていきます (Bài 11): Chuẩn bị rồi mang đi theo.",
+                "contentRevision": 3
               },
               {
                 "id": 50,
@@ -5383,13 +5634,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "初めて 日本の 料理を (   )。とても おいしかったです。",
                 "promptVi": "Lần đầu tiên tôi thử món ăn Nhật. Rất ngon.",
                 "options": [
-                  "食べてみました",
-                  "食べていました",
                   "食べすぎました",
-                  "食べたことがあります"
+                  "食べていました",
+                  "食べたことがあります",
+                  "食べてみました"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-てみる ➔ てみました: đã thử ăn (bài 11)."
+                "correct": 3,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-てみる ➔ てみました: đã thử ăn (bài 11).",
+                "contentRevision": 3
               },
               {
                 "id": 51,
@@ -5397,13 +5649,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "肉と 魚と (   ) が 好きですか。",
                 "promptVi": "Thịt và cá, bạn thích món nào hơn?",
                 "options": [
-                  "どちら",
-                  "どこ",
                   "だれ",
+                  "どこ",
+                  "どちら",
                   "いつ"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• A と B と どちら (Bài 11): So sánh giữa 2 lựa chọn."
+                "correct": 2,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• A と B と どちら (Bài 11): So sánh giữa 2 lựa chọn.",
+                "contentRevision": 3
               },
               {
                 "id": 52,
@@ -5411,13 +5664,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "日曜日なら、(   ) 会えますよ。時間がありますから。",
                 "promptVi": "Nếu là Chủ nhật thì lúc nào tôi cũng gặp được, vì tôi có thời gian.",
                 "options": [
+                  "なんでも",
                   "いつでも",
-                  "どこでも",
                   "だれでも",
-                  "なんでも"
+                  "どこでも"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• いつでも (Bài 11): Bất cứ lúc nào."
+                "correct": 1,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• いつでも (Bài 11): Bất cứ lúc nào.",
+                "contentRevision": 3
               },
               {
                 "id": 53,
@@ -5425,13 +5679,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "この スープは (   ) そうですね。",
                 "promptVi": "Bát súp này trông có vẻ nóng hổi đấy nhỉ.",
                 "options": [
-                  "あつい",
-                  "あつ",
                   "あつく",
-                  "あつかった"
+                  "あつかった",
+                  "あつ",
+                  "あつい"
                 ],
-                "correct": 1,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Tính từ đuôi い bỏ い + そうです (Bài 12): 熱い ➔ あつそうです."
+                "correct": 2,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Tính từ đuôi い bỏ い + そうです (Bài 12): 熱い ➔ あつそうです.",
+                "contentRevision": 3
               },
               {
                 "id": 54,
@@ -5440,12 +5695,13 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "Căn phòng này vừa sáng sủa lại vừa rộng rãi.",
                 "options": [
                   "くて",
-                  "で",
+                  "の",
                   "に",
-                  "の"
+                  "で"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Nối tính từ đuôi い: 明るい ➔ 明るくて (Bài 12)."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Nối tính từ đuôi い: 明るい ➔ 明るくて (Bài 12).",
+                "contentRevision": 3
               },
               {
                 "id": 55,
@@ -5453,13 +5709,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "この 靴は 重く (   )、歩きやすいです。",
                 "promptVi": "Đôi giày này không bị nặng và rất dễ đi.",
                 "options": [
-                  "ないで",
-                  "なくて",
                   "なかった",
-                  "ない"
+                  "ない",
+                  "ないで",
+                  "なくて"
                 ],
-                "correct": 1,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Nối tính từ phủ định: 重くない ➔ 重くなくて (Bài 12)."
+                "correct": 3,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Nối tính từ phủ định: 重くない ➔ 重くなくて (Bài 12).",
+                "contentRevision": 3
               },
               {
                 "id": 56,
@@ -5467,13 +5724,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "京都の お寺は 静か (   )、きれいです。",
                 "promptVi": "Chùa ở Kyoto vừa yên tĩnh lại vừa đẹp đẽ.",
                 "options": [
+                  "に",
                   "くて",
                   "で",
-                  "に",
                   "の"
                 ],
-                "correct": 1,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Nối tính từ đuôi な: 静か ➔ 静かで (Bài 12)."
+                "correct": 2,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Nối tính từ đuôi な: 静か ➔ 静かで (Bài 12).",
+                "contentRevision": 3
               },
               {
                 "id": 57,
@@ -5481,13 +5739,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "日本へ 行ったことが (   )。",
                 "promptVi": "Tôi đã từng đi Nhật Bản.",
                 "options": [
-                  "あります",
+                  "なります",
                   "います",
                   "します",
-                  "なります"
+                  "あります"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-た ことが あります: nói về kinh nghiệm đã từng (bài 13)."
+                "correct": 3,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-た ことが あります: nói về kinh nghiệm đã từng (bài 13).",
+                "contentRevision": 3
               },
               {
                 "id": 58,
@@ -5495,13 +5754,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "昨日の 夜は お酒を 飲み (   ) ました。",
                 "promptVi": "Tối hôm qua tôi đã uống quá nhiều rượu.",
                 "options": [
-                  "すぎる",
-                  "すぎて",
+                  "すぎた",
                   "すぎ",
-                  "すぎた"
+                  "すぎる",
+                  "すぎて"
                 ],
-                "correct": 2,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-bỏ ます + すぎました (Bài 13): 飲みすぎました (uống quá mức)."
+                "correct": 1,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-bỏ ます + すぎました (Bài 13): 飲みすぎました (uống quá mức).",
+                "contentRevision": 3
               },
               {
                 "id": 59,
@@ -5509,13 +5769,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "この ズボンは 少し (   ) すぎます。",
                 "promptVi": "Chiếc quần này hơi dài quá.",
                 "options": [
-                  "長い",
-                  "長く",
                   "長",
-                  "長さ"
+                  "長く",
+                  "長さ",
+                  "長い"
                 ],
-                "correct": 2,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Tính từ đuôi い bỏ い + すぎます (Bài 13): 長い ➔ 長すぎます."
+                "correct": 0,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Tính từ đuôi い bỏ い + すぎます (Bài 13): 長い ➔ 長すぎます.",
+                "contentRevision": 3
               },
               {
                 "id": 60,
@@ -5524,12 +5785,13 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "Chúng tôi kết hôn tính đến nay vừa tròn 5 năm.",
                 "options": [
                   "になります",
-                  "があります",
                   "にします",
-                  "をします"
+                  "をします",
+                  "があります"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Khoảng thời gian + になります (Bài 13): Đã đạt mốc."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Khoảng thời gian + になります (Bài 13): Đã đạt mốc.",
+                "contentRevision": 3
               }
             ]
           }
@@ -5554,13 +5816,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "1. 雨の日、「私」は 何を しますか。",
                 "promptVi": "Vào những ngày trời mưa, nhân vật 'Tôi' làm gì?",
                 "options": [
-                  "雨の中でも散歩します。",
+                  "公園まで自転車で行きます。",
                   "家でストレッチや体操をします。",
                   "一日中寝ています。",
-                  "公園まで自転車で行きます。"
+                  "雨の中でも散歩します。"
                 ],
                 "correct": 1,
-                "explain": "💡 Căn cứ câu: '雨の日は散歩を休んで、家でストレッチや軽い体操をします' ➔ Chọn đáp án 2."
+                "explain": "💡 Căn cứ câu: '雨の日は散歩を休んで、家でストレッチや軽い体操をします' ➔ Chọn đáp án 2.",
+                "contentRevision": 3
               },
               {
                 "id": 62,
@@ -5568,13 +5831,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "2. 朝ごはんを 食べる 前に、何を しますか。",
                 "promptVi": "Trước khi ăn bữa sáng, nhân vật 'Tôi' làm việc gì?",
                 "options": [
-                  "コップ一杯の水を飲みます。",
-                  "薬を飲みます。",
                   "散歩を始めます。",
+                  "薬を飲みます。",
+                  "コップ一杯の水を飲みます。",
                   "コーヒーを飲みます。"
                 ],
-                "correct": 0,
-                "explain": "💡 Căn cứ câu: '朝ごはんを食べる前に、必ずコップ一杯の水を飲みます' ➔ Chọn đáp án 1."
+                "correct": 2,
+                "explain": "💡 Căn cứ câu: '朝ごはんを食べる前に、必ずコップ一杯の水を飲みます' ➔ Chọn đáp án 3.",
+                "contentRevision": 3
               },
               {
                 "id": 63,
@@ -5582,13 +5846,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "3. 朝ごはんを しっかり 食べて、どう なりましたか。",
                 "promptVi": "Sau khi duy trì ăn sáng đầy đủ thì kết quả thế nào?",
                 "options": [
-                  "体調がとてもよくなりました。",
+                  "病気になりました。",
                   "体重が増えすぎました。",
                   "朝起きられなくなりました。",
-                  "病気になりました。"
+                  "体調がとてもよくなりました。"
                 ],
-                "correct": 0,
-                "explain": "💡 Căn cứ câu: '体調がとてもよくなりました' ➔ Chọn đáp án 1."
+                "correct": 3,
+                "explain": "💡 Căn cứ câu: '体調がとてもよくなりました' ➔ Chọn đáp án 4.",
+                "contentRevision": 3
               },
               {
                 "id": 64,
@@ -5597,12 +5862,13 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "Vào dịp cuối tuần, nhân vật 'Tôi' làm gì?",
                 "options": [
                   "自転車で遠い公園へ行きます。",
-                  "一日中仕事をします。",
                   "友だちと買い物をします。",
-                  "家でテレビを見ます。"
+                  "家でテレビを見ます。",
+                  "一日中仕事をします。"
                 ],
                 "correct": 0,
-                "explain": "💡 Căn cứ câu: '週末は...自転車で少し遠い公園まで行って、景色を楽しんでいます' ➔ Chọn đáp án 1."
+                "explain": "💡 Căn cứ câu: '週末は...自転車で少し遠い公園まで行って、景色を楽しんでいます' ➔ Chọn đáp án 1.",
+                "contentRevision": 3
               }
             ]
           },
@@ -5618,13 +5884,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "1. みんなは 田中さんのために どこへ 行くことに しましたか。",
                 "promptVi": "Mọi người quyết định sẽ đi đâu để mừng anh Tanaka?",
                 "options": [
+                  "田中さんの家",
                   "駅前の居酒屋",
                   "駅前の日本料理の店",
-                  "田中さんの家",
                   "カラオケボックス"
                 ],
-                "correct": 1,
-                "explain": "💡 Căn cứ: '駅前の日本料理の店で食事会をして' ➔ Chọn đáp án 2 (Quán món Nhật trước ga)."
+                "correct": 2,
+                "explain": "💡 Căn cứ: '駅前の日本料理の店で食事会をして' ➔ Chọn đáp án 3 (Quán món Nhật trước ga).",
+                "contentRevision": 3
               },
               {
                 "id": 66,
@@ -5632,13 +5899,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "2. みんなは 田中さんに 何を プレゼントしますか。",
                 "promptVi": "Mọi người sẽ tặng món quà gì cho anh Tanaka?",
                 "options": [
-                  "お酒",
-                  "高級な時計",
+                  "万年筆",
                   "記念のネクタイ",
-                  "万年筆"
+                  "高級な時計",
+                  "お酒"
                 ],
-                "correct": 2,
-                "explain": "💡 Căn cứ: 'みんなで記念のネクタイをプレゼントすることに決めました' ➔ Chọn đáp án 3 (Cà vạt kỷ niệm)."
+                "correct": 1,
+                "explain": "💡 Căn cứ: 'みんなで記念のネクタイをプレゼントすることに決めました' ➔ Chọn đáp án 2 (Cà vạt kỷ niệm).",
+                "contentRevision": 3
               }
             ]
           },
@@ -5654,13 +5922,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "1. 飛行機が 遅れた 理由は 何ですか。",
                 "promptVi": "Lý do máy bay bị chậm khởi hành là gì?",
                 "options": [
-                  "飛行機が故障したから",
-                  "天気が悪かったから",
                   "空港が混んでいたから",
-                  "会議が長引いたから"
+                  "会議が長引いたから",
+                  "飛行機が故障したから",
+                  "天気が悪かったから"
                 ],
-                "correct": 1,
-                "explain": "💡 Căn cứ câu: '天気が悪くて、出発が1時間遅れました' ➔ Chọn đáp án 2 (Do thời tiết xấu)."
+                "correct": 3,
+                "explain": "💡 Căn cứ câu: '天気が悪くて、出発が1時間遅れました' ➔ Chọn đáp án 4 (Do thời tiết xấu).",
+                "contentRevision": 3
               },
               {
                 "id": 68,
@@ -5668,13 +5937,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "2. 会議は どうでしたか。",
                 "promptVi": "Buổi họp diễn ra như thế nào?",
                 "options": [
+                  "取引先が来なかった。",
                   "時間に遅れて怒られた。",
-                  "中止になった。",
                   "時間に間に合って無事に終わった。",
-                  "取引先が来なかった。"
+                  "中止になった。"
                 ],
                 "correct": 2,
-                "explain": "💡 Căn cứ câu: '時間に間に合って、大事な会議を無事に終えることができました' ➔ Chọn đáp án 3 (Kịp giờ và kết thúc an toàn/suôn sẻ)."
+                "explain": "💡 Căn cứ câu: '時間に間に合って、大事な会議を無事に終えることができました' ➔ Chọn đáp án 3 (Kịp giờ và kết thúc an toàn/suôn sẻ).",
+                "contentRevision": 3
               }
             ]
           }
@@ -5698,24 +5968,25 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "Sáng dậy sau khi uống một cốc nước tôi bắt đầu đi bộ.",
                 "parts": [
                   "散歩を",
+                  "始めます",
                   "水を",
-                  "飲んだあとで",
-                  "始めます"
+                  "飲んだあとで"
                 ],
                 "options": [
                   "散歩を",
+                  "始めます",
                   "水を",
-                  "飲んだあとで",
-                  "始めます"
+                  "飲んだあとで"
                 ],
                 "correctOrder": [
-                  1,
                   2,
+                  3,
                   0,
-                  3
+                  1
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích sắp xếp câu:</strong><br>• Thứ tự: 朝起きて ➔ [2 水を] [3 飲んだあとで] [1 ★散歩を] [4 始めます]。Vị trí ★ là 1. 散歩を."
+                "explain": "Thứ tự các cụm: 水を → 飲んだあとで → 散歩を → 始めます. Vị trí ★: <strong>散歩を</strong> (phương án 1).",
+                "contentRevision": 3
               },
               {
                 "id": 70,
@@ -5723,25 +5994,26 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "来週は _________ ________ ____★____ _________ と言っていました。",
                 "promptVi": "Giám đốc đã nói rằng tuần sau trời sẽ trở nên lạnh hơn.",
                 "parts": [
-                  "寒く",
                   "天気が",
+                  "寒く",
                   "なると",
                   "社長は"
                 ],
                 "options": [
-                  "寒く",
                   "天気が",
+                  "寒く",
                   "なると",
                   "社長は"
                 ],
                 "correctOrder": [
                   3,
-                  1,
                   0,
+                  1,
                   2
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích sắp xếp câu:</strong><br>• Thứ tự: 来週は ➔ [4 社長は] [2 天気が] [1 ★寒く] [3 なると] と言っていました。Vị trí ★ là 1. 寒く."
+                "correct": 1,
+                "explain": "Thứ tự các cụm: 社長は → 天気が → 寒く → なると. Vị trí ★: <strong>寒く</strong> (phương án 2).",
+                "contentRevision": 3
               },
               {
                 "id": 71,
@@ -5749,25 +6021,26 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "この カバンは _________ ________ ____★____ _________ んです。",
                 "promptVi": "Chiếc cặp này là tôi tự tay mua bằng tiền làm thêm đấy.",
                 "parts": [
-                  "アルバイトの",
-                  "自分で",
                   "お金で",
-                  "買った"
+                  "買った",
+                  "アルバイトの",
+                  "自分で"
                 ],
                 "options": [
-                  "アルバイトの",
-                  "自分で",
                   "お金で",
-                  "買った"
+                  "買った",
+                  "アルバイトの",
+                  "自分で"
                 ],
                 "correctOrder": [
-                  0,
                   2,
-                  1,
-                  3
+                  0,
+                  3,
+                  1
                 ],
-                "correct": 1,
-                "explain": "💡 <strong>Giải thích sắp xếp câu:</strong><br>• Thứ tự: このカバンは ➔ [1 アルバイトの] [3 お金で] [2 ★自分で] [4 買った] んです。Vị trí ★ là 2. 自分で."
+                "correct": 3,
+                "explain": "Thứ tự các cụm: アルバイトの → お金で → 自分で → 買った. Vị trí ★: <strong>自分で</strong> (phương án 4).",
+                "contentRevision": 3
               },
               {
                 "id": 72,
@@ -5775,25 +6048,26 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "京都へ _________ ________ ____★____ _________ ことがあります。",
                 "promptVi": "Tôi đã từng đi du lịch Kyoto cùng gia đình một lần.",
                 "parts": [
-                  "家族と",
                   "一度",
-                  "旅行した",
-                  "いっしょに"
+                  "家族と",
+                  "いっしょに",
+                  "旅行した"
                 ],
                 "options": [
-                  "家族と",
                   "一度",
-                  "旅行した",
-                  "いっしょに"
+                  "家族と",
+                  "いっしょに",
+                  "旅行した"
                 ],
                 "correctOrder": [
-                  1,
                   0,
-                  3,
-                  2
+                  1,
+                  2,
+                  3
                 ],
-                "correct": 3,
-                "explain": "💡 <strong>Giải thích sắp xếp câu:</strong><br>• Thứ tự: 京都へ ➔ [2 一度] [1 家族と] [4 ★いっしょに] [3 旅行した] ことがあります。Vị trí ★ là 4. いっしょに."
+                "correct": 2,
+                "explain": "Thứ tự các cụm: 一度 → 家族と → いっしょに → 旅行した. Vị trí ★: <strong>いっしょに</strong> (phương án 3).",
+                "contentRevision": 3
               },
               {
                 "id": 73,
@@ -5801,25 +6075,26 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "風邪を _________ ________ ____★____ _________ といいですよ。",
                 "promptVi": "Khi bị cảm cúm thì nên uống nhiều nước ấm rồi nghỉ ngơi thì tốt đấy.",
                 "parts": [
-                  "暖かくして",
-                  "ひいたときは",
                   "ゆっくり",
-                  "休む"
+                  "休む",
+                  "暖かくして",
+                  "ひいたときは"
                 ],
                 "options": [
-                  "暖かくして",
-                  "ひいたときは",
                   "ゆっくり",
-                  "休む"
+                  "休む",
+                  "暖かくして",
+                  "ひいたときは"
                 ],
                 "correctOrder": [
-                  1,
-                  0,
+                  3,
                   2,
-                  3
+                  0,
+                  1
                 ],
-                "correct": 2,
-                "explain": "💡 <strong>Giải thích sắp xếp câu:</strong><br>• Thứ tự: 風邪を ➔ [2 ひいたときは] [1 暖かくして] [3 ★ゆっくり] [4 休む] といいですよ。Vị trí ★ là 3. ゆっくり."
+                "correct": 0,
+                "explain": "Thứ tự các cụm: ひいたときは → 暖かくして → ゆっくり → 休む. Vị trí ★: <strong>ゆっくり</strong> (phương án 1).",
+                "contentRevision": 3
               },
               {
                 "id": 74,
@@ -5827,25 +6102,26 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "会議の _________ ________ ____★____ _________ と思います。",
                 "promptVi": "Địa điểm của cuộc họp thì tôi nghĩ phòng họp số 2 là tốt nhất.",
                 "parts": [
-                  "場所は",
+                  "明日の",
                   "第2会議室が",
                   "いい",
-                  "明日の"
+                  "場所は"
                 ],
                 "options": [
-                  "場所は",
+                  "明日の",
                   "第2会議室が",
                   "いい",
-                  "明日の"
+                  "場所は"
                 ],
                 "correctOrder": [
-                  3,
                   0,
+                  3,
                   1,
                   2
                 ],
                 "correct": 1,
-                "explain": "💡 <strong>Giải thích sắp xếp câu:</strong><br>• Thứ tự: 会議の ➔ [4 明日の] [1 場所は] [2 ★第2会議室が] [3 いい] と思います。Vị trí ★ là 2. 第2会議室が."
+                "explain": "Thứ tự các cụm: 明日の → 場所は → 第2会議室が → いい. Vị trí ★: <strong>第2会議室が</strong> (phương án 2).",
+                "contentRevision": 3
               }
             ]
           }
@@ -5878,13 +6154,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "色々 có nghĩa là Đa dạng.",
                 "targetWord": "色々",
                 "options": [
-                  "いろいろ",
                   "やさい",
                   "あいます",
+                  "いろいろ",
                   "しゃかい"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 色々 ➔ いろいろ (Đa dạng — Bài 12)."
+                "correct": 2,
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 色々 ➔ いろいろ (Đa dạng — Bài 12).",
+                "contentRevision": 3
               },
               {
                 "id": 2,
@@ -5894,12 +6171,13 @@ window.DE_THI_TONG_HOP_DATA = [
                 "targetWord": "野菜",
                 "options": [
                   "やさい",
-                  "あいます",
                   "しゃかい",
+                  "あいます",
                   "ししゃ"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 野菜 ➔ やさい (Rau — Bài 12)."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 野菜 ➔ やさい (Rau — Bài 12).",
+                "contentRevision": 3
               },
               {
                 "id": 3,
@@ -5908,13 +6186,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "会います có nghĩa là Gặp gỡ.",
                 "targetWord": "会います",
                 "options": [
+                  "きます",
                   "あいます",
-                  "しゃかい",
                   "ししゃ",
-                  "きます"
+                  "しゃかい"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 会います ➔ あいます (Gặp gỡ — Bài 13)."
+                "correct": 1,
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 会います ➔ あいます (Gặp gỡ — Bài 13).",
+                "contentRevision": 3
               },
               {
                 "id": 4,
@@ -5923,13 +6202,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "社会 có nghĩa là Xã hội.",
                 "targetWord": "社会",
                 "options": [
-                  "しゃかい",
                   "ししゃ",
+                  "きもの",
                   "きます",
-                  "きもの"
+                  "しゃかい"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 社会 ➔ しゃかい (Xã hội — Bài 13)."
+                "correct": 3,
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 社会 ➔ しゃかい (Xã hội — Bài 13).",
+                "contentRevision": 3
               },
               {
                 "id": 5,
@@ -5938,13 +6218,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "支社 có nghĩa là Chi nhánh.",
                 "targetWord": "支社",
                 "options": [
-                  "ししゃ",
-                  "きます",
                   "きもの",
+                  "きます",
+                  "ししゃ",
                   "つきます"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 支社 ➔ ししゃ (Chi nhánh — Bài 13)."
+                "correct": 2,
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 支社 ➔ ししゃ (Chi nhánh — Bài 13).",
+                "contentRevision": 3
               },
               {
                 "id": 6,
@@ -5953,13 +6234,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "着ます có nghĩa là Mặc (áo…).",
                 "targetWord": "着ます",
                 "options": [
+                  "そら",
                   "きます",
                   "きもの",
-                  "つきます",
-                  "そら"
+                  "つきます"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 着ます ➔ きます (Mặc (áo…) — Bài 13)."
+                "correct": 1,
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 着ます ➔ きます (Mặc (áo…) — Bài 13).",
+                "contentRevision": 3
               },
               {
                 "id": 7,
@@ -5968,13 +6250,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "着物 có nghĩa là Bộ kimono.",
                 "targetWord": "着物",
                 "options": [
-                  "きもの",
                   "つきます",
+                  "くうき",
                   "そら",
-                  "くうき"
+                  "きもの"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 着物 ➔ きもの (Bộ kimono — Bài 13)."
+                "correct": 3,
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 着物 ➔ きもの (Bộ kimono — Bài 13).",
+                "contentRevision": 3
               },
               {
                 "id": 8,
@@ -5985,11 +6268,12 @@ window.DE_THI_TONG_HOP_DATA = [
                 "options": [
                   "つきます",
                   "そら",
-                  "くうき",
-                  "みなと"
+                  "みなと",
+                  "くうき"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 着きます ➔ つきます (Đến nơi — Bài 13)."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 着きます ➔ つきます (Đến nơi — Bài 13).",
+                "contentRevision": 3
               },
               {
                 "id": 9,
@@ -5998,13 +6282,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "空 có nghĩa là Bầu trời.",
                 "targetWord": "空",
                 "options": [
-                  "そら",
+                  "くうこう",
                   "くうき",
-                  "みなと",
-                  "くうこう"
+                  "そら",
+                  "みなと"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 空 ➔ そら (Bầu trời — Bài 13)."
+                "correct": 2,
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 空 ➔ そら (Bầu trời — Bài 13).",
+                "contentRevision": 3
               },
               {
                 "id": 10,
@@ -6013,13 +6298,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "空気 có nghĩa là Không khí.",
                 "targetWord": "空気",
                 "options": [
+                  "くうこう",
                   "くうき",
                   "みなと",
-                  "くうこう",
                   "じぶん"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 空気 ➔ くうき (Không khí — Bài 13)."
+                "correct": 1,
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 空気 ➔ くうき (Không khí — Bài 13).",
+                "contentRevision": 3
               }
             ]
           },
@@ -6034,12 +6320,13 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "Tôi muốn khỏe mạnh nhờ tập thể dục mỗi ngày.",
                 "options": [
                   "健康",
-                  "結婚",
+                  "誕生日",
                   "電車",
-                  "誕生日"
+                  "結婚"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 健康: sức khỏe, khỏe mạnh."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 健康: sức khỏe, khỏe mạnh.",
+                "contentRevision": 3
               },
               {
                 "id": 12,
@@ -6047,13 +6334,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "(   ) に 友達と 会います。",
                 "promptVi": "Cuối tuần tôi gặp bạn.",
                 "options": [
-                  "週末",
-                  "毎日",
+                  "料理",
                   "誕生日",
-                  "料理"
+                  "毎日",
+                  "週末"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 週末: cuối tuần."
+                "correct": 3,
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 週末: cuối tuần.",
+                "contentRevision": 3
               },
               {
                 "id": 13,
@@ -6061,13 +6349,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "今日は 母の (   ) です。",
                 "promptVi": "Hôm nay là sinh nhật mẹ.",
                 "options": [
-                  "誕生日",
-                  "結婚",
                   "お祝い",
-                  "計画"
+                  "誕生日",
+                  "計画",
+                  "結婚"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 誕生日: sinh nhật."
+                "correct": 1,
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 誕生日: sinh nhật.",
+                "contentRevision": 3
               },
               {
                 "id": 14,
@@ -6075,13 +6364,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "家族は とても (   ) です。",
                 "promptVi": "Gia đình rất quan trọng.",
                 "options": [
-                  "大切",
-                  "健康",
                   "有名",
+                  "健康",
+                  "大切",
                   "週末"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 大切: quan trọng, quý giá."
+                "correct": 2,
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 大切: quan trọng, quý giá.",
+                "contentRevision": 3
               },
               {
                 "id": 15,
@@ -6090,12 +6380,13 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "Tôi đi tàu điện đến công ty.",
                 "options": [
                   "電車",
-                  "料理",
+                  "発音",
                   "お酒",
-                  "発音"
+                  "料理"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 電車: tàu điện."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 電車: tàu điện.",
+                "contentRevision": 3
               },
               {
                 "id": 16,
@@ -6103,13 +6394,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "毎朝 公園を (   )。",
                 "promptVi": "Mỗi sáng tôi chạy trong công viên.",
                 "options": [
-                  "走ります",
-                  "送ります",
+                  "着ます",
                   "思います",
-                  "着ます"
+                  "送ります",
+                  "走ります"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 走ります: chạy."
+                "correct": 3,
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 走ります: chạy.",
+                "contentRevision": 3
               },
               {
                 "id": 17,
@@ -6117,13 +6409,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "大切だと (   )。",
                 "promptVi": "Tôi nghĩ là quan trọng.",
                 "options": [
+                  "着ます",
                   "思います",
-                  "送ります",
                   "走ります",
-                  "着ます"
+                  "送ります"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 思います: nghĩ."
+                "correct": 1,
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 思います: nghĩ.",
+                "contentRevision": 3
               },
               {
                 "id": 18,
@@ -6131,13 +6424,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "日本の (   ) が 好きです。",
                 "promptVi": "Tôi thích món ăn Nhật.",
                 "options": [
-                  "料理",
-                  "計画",
                   "健康",
+                  "計画",
+                  "料理",
                   "発音"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 料理: món ăn, nấu ăn."
+                "correct": 2,
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 料理: món ăn, nấu ăn.",
+                "contentRevision": 3
               },
               {
                 "id": 19,
@@ -6145,13 +6439,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "健康のために、(   )を あまり 飲みません。",
                 "promptVi": "Vì sức khỏe nên tôi không uống nhiều rượu.",
                 "options": [
-                  "お酒",
                   "電車",
                   "週末",
-                  "計画"
+                  "計画",
+                  "お酒"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• お酒: rượu, đồ uống có cồn."
+                "correct": 3,
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• お酒: rượu, đồ uống có cồn.",
+                "contentRevision": 3
               },
               {
                 "id": 20,
@@ -6160,12 +6455,13 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "Tôi luyện phát âm tiếng Nhật.",
                 "options": [
                   "発音",
+                  "計画",
                   "料理",
-                  "結婚",
-                  "計画"
+                  "結婚"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 発音: phát âm."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 発音: phát âm.",
+                "contentRevision": 3
               },
               {
                 "id": 24,
@@ -6174,12 +6470,13 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "Tôi chúc mừng đám cưới của bạn.",
                 "options": [
                   "お祝い",
-                  "お酒",
                   "電車",
-                  "週末"
+                  "週末",
+                  "お酒"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• お祝い: chúc mừng, quà mừng."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• お祝い: chúc mừng, quà mừng.",
+                "contentRevision": 3
               },
               {
                 "id": 25,
@@ -6187,13 +6484,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "週末は (   ) と 食事を します。",
                 "promptVi": "Cuối tuần tôi ăn cơm cùng gia đình.",
                 "options": [
-                  "家族",
                   "計画",
-                  "発音",
-                  "料理"
+                  "料理",
+                  "家族",
+                  "発音"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 家族: gia đình."
+                "correct": 2,
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 家族: gia đình.",
+                "contentRevision": 3
               }
             ]
           }
@@ -6216,13 +6514,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "夜遅く 電話を かけ (   ) ください。",
                 "promptVi": "Xin đừng gọi điện thoại vào lúc đêm muộn.",
                 "options": [
-                  "ないで",
-                  "なくて",
+                  "ませんで",
                   "ないと",
-                  "ませんで"
+                  "なくて",
+                  "ないで"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-ないでください (Bài 14): Xin đừng làm V."
+                "correct": 3,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-ないでください (Bài 14): Xin đừng làm V.",
+                "contentRevision": 3
               },
               {
                 "id": 27,
@@ -6230,13 +6529,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "週末は 映画を 見たり 買い物を (   )。",
                 "promptVi": "Cuối tuần tôi khi thì xem phim khi thì đi mua sắm.",
                 "options": [
+                  "したりです",
                   "したりします",
-                  "したりあります",
                   "したりになります",
-                  "したりです"
+                  "したりあります"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• ～たり～たりします (Bài 15): Liệt kê hành động."
+                "correct": 1,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• ～たり～たりします (Bài 15): Liệt kê hành động.",
+                "contentRevision": 3
               },
               {
                 "id": 28,
@@ -6250,7 +6550,8 @@ window.DE_THI_TONG_HOP_DATA = [
                   "読みます"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Định ngữ: V-ている + N ➔ 読んでいる人 (Bài 15)."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Định ngữ: V-ている + N ➔ 読んでいる人 (Bài 15).",
+                "contentRevision": 3
               },
               {
                 "id": 29,
@@ -6258,13 +6559,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "どうして 試験を 受けなかった (   ) か。",
                 "promptVi": "Tại sao bạn lại không tham gia kỳ thi vậy?",
                 "options": [
-                  "んです",
                   "です",
-                  "ます",
-                  "でした"
+                  "でした",
+                  "んです",
+                  "ます"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Thể ngắn + んですか (Bài 16): Hỏi giải thích lý do."
+                "correct": 2,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Thể ngắn + んですか (Bài 16): Hỏi giải thích lý do.",
+                "contentRevision": 3
               },
               {
                 "id": 30,
@@ -6272,13 +6574,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "これは 父が (   ) 時計です。",
                 "promptVi": "Đây là chiếc đồng hồ bố tôi đã mua.",
                 "options": [
-                  "買った",
                   "買います",
+                  "買うです",
                   "買って",
-                  "買うです"
+                  "買った"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Định ngữ quá khứ: V-た + N ➔ 父が買った時計 (Bài 15)."
+                "correct": 3,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Định ngữ quá khứ: V-た + N ➔ 父が買った時計 (Bài 15).",
+                "contentRevision": 3
               },
               {
                 "id": 31,
@@ -6286,14 +6589,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "明日は 天気が (   ) と 思います。",
                 "promptVi": "Tôi nghĩ rằng ngày mai thời tiết sẽ đẹp.",
                 "options": [
+                  "いいな",
                   "いい",
                   "いいだ",
-                  "よく",
-                  "いいな"
+                  "よく"
                 ],
-                "correct": 0,
+                "correct": 1,
                 "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Tính từ い giữ nguyên trước と思います: いいと思います (Bài 18). Không thêm だ.",
-                "contentRevision": 2
+                "contentRevision": 3
               },
               {
                 "id": 32,
@@ -6301,13 +6604,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "社長は 「来月 出張する」(   )。",
                 "promptVi": "Giám đốc đã nói rằng 'Tháng sau tôi sẽ đi công tác'.",
                 "options": [
-                  "と言いました",
-                  "と思いました",
                   "といいでした",
-                  "んです"
+                  "と言いました",
+                  "んです",
+                  "と思いました"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Trích dẫn: 「...」と言いました (Bài 18)."
+                "correct": 1,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Trích dẫn: 「...」と言いました (Bài 18).",
+                "contentRevision": 3
               },
               {
                 "id": 33,
@@ -6316,12 +6620,13 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "Món ăn này là do tự tay tôi nấu đấy.",
                 "options": [
                   "が",
-                  "に",
+                  "と",
                   "で",
-                  "と"
+                  "に"
                 ],
                 "correct": 2,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Phương thức: 自分で (tự mình làm - Bài 14)."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Phương thức: 自分で (tự mình làm - Bài 14).",
+                "contentRevision": 3
               },
               {
                 "id": 34,
@@ -6329,13 +6634,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "のど (   ) かわきました。お茶を 飲みたいです。",
                 "promptVi": "Tôi khát nước quá. Tôi muốn uống trà.",
                 "options": [
-                  "が",
+                  "と",
                   "に",
                   "で",
-                  "と"
+                  "が"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Cụm cố định: のどがかわく (Bài 11/16)."
+                "correct": 3,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Cụm cố định: のどがかわく (Bài 11/16).",
+                "contentRevision": 3
               },
               {
                 "id": 35,
@@ -6349,7 +6655,8 @@ window.DE_THI_TONG_HOP_DATA = [
                   "が・に"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• A と B と どちら (Bài 11): So sánh 2 mùa."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• A と B と どちら (Bài 11): So sánh 2 mùa.",
+                "contentRevision": 3
               },
               {
                 "id": 36,
@@ -6359,11 +6666,12 @@ window.DE_THI_TONG_HOP_DATA = [
                 "options": [
                   "に・が",
                   "で・に",
-                  "が・で",
-                  "と・に"
+                  "と・に",
+                  "が・で"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• ～に 人気がある: Được yêu thích bởi đối tượng nào (Bài 11)."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• ～に 人気がある: Được yêu thích bởi đối tượng nào (Bài 11).",
+                "contentRevision": 3
               },
               {
                 "id": 37,
@@ -6371,13 +6679,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "冷蔵庫の 中 (   ) 牛乳 (   ) ありますか。",
                 "promptVi": "Trong tủ lạnh có sữa tươi không?",
                 "options": [
-                  "に・が",
-                  "で・に",
                   "が・で",
-                  "と・が"
+                  "に・が",
+                  "と・が",
+                  "で・に"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• [Nơi chốn] に [Vật] が あります (Bài 11)."
+                "correct": 1,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• [Nơi chốn] に [Vật] が あります (Bài 11).",
+                "contentRevision": 3
               },
               {
                 "id": 38,
@@ -6385,13 +6694,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "来月 ハノイ (   ) 引っ越しします。",
                 "promptVi": "Tháng sau tôi chuyển nhà đến Hà Nội.",
                 "options": [
-                  "に",
+                  "を",
                   "で",
-                  "が",
-                  "を"
+                  "に",
+                  "が"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Đích đến di chuyển: ハノイに 引っ越す (Bài 18)."
+                "correct": 2,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Đích đến di chuyển: ハノイに 引っ越す (Bài 18).",
+                "contentRevision": 3
               },
               {
                 "id": 39,
@@ -6399,14 +6709,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "３か月前 (   ) 日本語の 勉強 (   ) 始めました。",
                 "promptVi": "Cách đây 3 tháng tôi đã bắt đầu học tiếng Nhật.",
                 "options": [
-                  "に・を",
                   "で・が",
+                  "が・に",
                   "に・で",
-                  "が・に"
+                  "に・を"
                 ],
-                "correct": 0,
+                "correct": 3,
                 "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• ３か月前に日本語の勉強を始めました. に chỉ thời điểm, を đánh dấu tân ngữ 勉強.",
-                "contentRevision": 2
+                "contentRevision": 3
               },
               {
                 "id": 40,
@@ -6414,13 +6724,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "暑いですね。窓を (   ) も いいですか。",
                 "promptVi": "Trời nóng quá. Tôi mở cửa sổ có được không?",
                 "options": [
-                  "あけて",
                   "あける",
+                  "あけて",
                   "あけた",
                   "あけない"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-てもいいですか: あけてもいいですか (Bài 13)."
+                "correct": 1,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-てもいいですか: あけてもいいですか (Bài 13).",
+                "contentRevision": 3
               },
               {
                 "id": 41,
@@ -6429,12 +6740,13 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "Khi bị cảm cúm, bạn nên giữ ấm cơ thể thì tốt đấy.",
                 "options": [
                   "ねると",
-                  "ねても",
                   "ねたことが",
+                  "ねても",
                   "ねないで"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-るといいですよ: ねるといいですよ (Bài 14/16)."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-るといいですよ: ねるといいですよ (Bài 14/16).",
+                "contentRevision": 3
               },
               {
                 "id": 42,
@@ -6442,13 +6754,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "日曜日は 音楽を (   )、掃除を し (   ) しました。",
                 "promptVi": "Chủ nhật tôi khi thì nghe nhạc, khi thì dọn dẹp nhà cửa.",
                 "options": [
-                  "聴いたり・たり",
-                  "聴いて・て",
                   "聴く・く",
-                  "聴いた・た"
+                  "聴いた・た",
+                  "聴いて・て",
+                  "聴いたり・たり"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• ～たり～たりしました (Bài 16)."
+                "correct": 3,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• ～たり～たりしました (Bài 16).",
+                "contentRevision": 3
               },
               {
                 "id": 43,
@@ -6456,13 +6769,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "毎日 スマホ (   ) ゲームをして、頭 (   ) 痛いです。",
                 "promptVi": "Ngày nào cũng chơi game bằng điện thoại nên đầu tôi bị đau.",
                 "options": [
-                  "で・が",
-                  "に・に",
                   "が・で",
+                  "に・に",
+                  "で・が",
                   "と・に"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Phương tiện: スマホで; Trạng thái: 頭が痛い (Bài 16)."
+                "correct": 2,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Phương tiện: スマホで; Trạng thái: 頭が痛い (Bài 16).",
+                "contentRevision": 3
               },
               {
                 "id": 44,
@@ -6471,12 +6785,13 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "Khi tốt nghiệp đại học, tôi đã viết thư cho thầy giáo.",
                 "options": [
                   "した・に",
-                  "の・で",
+                  "して・に",
                   "する・が",
-                  "して・に"
+                  "の・で"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Động từ quá khứ 卒業したとき; Viết cho ai: 先生に (Bài 14)."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Động từ quá khứ 卒業したとき; Viết cho ai: 先生に (Bài 14).",
+                "contentRevision": 3
               },
               {
                 "id": 45,
@@ -6484,13 +6799,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "会議 (   ) 日時は 明日 (   ) いいと 思います。",
                 "promptVi": "Thời gian họp thì tôi nghĩ là ngày mai sẽ tiện nhất.",
                 "options": [
+                  "に・で",
                   "の・が",
                   "が・に",
-                  "に・で",
                   "で・の"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• 会議の日時; 明日がいいと思います (Bài 18)."
+                "correct": 1,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• 会議の日時; 明日がいいと思います (Bài 18).",
+                "contentRevision": 3
               },
               {
                 "id": 46,
@@ -6498,13 +6814,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "ピクニックに 果物を 切って (   )。",
                 "promptVi": "Tôi cắt sẵn hoa quả mang đi dã ngoại.",
                 "options": [
-                  "いきます",
-                  "きます",
                   "みます",
+                  "きます",
+                  "いきます",
                   "います"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-ていきます (Bài 11): Chuẩn bị rồi mang đi theo."
+                "correct": 2,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-ていきます (Bài 11): Chuẩn bị rồi mang đi theo.",
+                "contentRevision": 3
               },
               {
                 "id": 47,
@@ -6512,13 +6829,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "初めて 日本の 料理を (   )。とても おいしかったです。",
                 "promptVi": "Lần đầu tiên tôi thử món ăn Nhật. Rất ngon.",
                 "options": [
-                  "食べてみました",
-                  "食べていました",
                   "食べすぎました",
-                  "食べたことがあります"
+                  "食べたことがあります",
+                  "食べていました",
+                  "食べてみました"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-てみる ➔ てみました: đã thử ăn (bài 11)."
+                "correct": 3,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-てみる ➔ てみました: đã thử ăn (bài 11).",
+                "contentRevision": 3
               },
               {
                 "id": 48,
@@ -6526,13 +6844,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "肉と 魚と (   ) が 好きですか。",
                 "promptVi": "Thịt và cá, bạn thích món nào hơn?",
                 "options": [
+                  "だれ",
                   "どちら",
                   "どこ",
-                  "だれ",
                   "いつ"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• A と B と どちら (Bài 11): So sánh giữa 2 lựa chọn."
+                "correct": 1,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• A と B と どちら (Bài 11): So sánh giữa 2 lựa chọn.",
+                "contentRevision": 3
               },
               {
                 "id": 49,
@@ -6541,12 +6860,13 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "Nếu là Chủ nhật thì lúc nào tôi cũng gặp được, vì tôi có thời gian.",
                 "options": [
                   "いつでも",
-                  "どこでも",
                   "だれでも",
+                  "どこでも",
                   "なんでも"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• いつでも (Bài 11): Bất cứ lúc nào."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• いつでも (Bài 11): Bất cứ lúc nào.",
+                "contentRevision": 3
               },
               {
                 "id": 50,
@@ -6554,13 +6874,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "この スープは (   ) そうですね。",
                 "promptVi": "Bát súp này trông có vẻ nóng hổi đấy nhỉ.",
                 "options": [
-                  "あつい",
-                  "あつ",
+                  "あつかった",
                   "あつく",
-                  "あつかった"
+                  "あつ",
+                  "あつい"
                 ],
-                "correct": 1,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Tính từ đuôi い bỏ い + そうです (Bài 12): 熱い ➔ あつそうです."
+                "correct": 2,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Tính từ đuôi い bỏ い + そうです (Bài 12): 熱い ➔ あつそうです.",
+                "contentRevision": 3
               },
               {
                 "id": 51,
@@ -6568,13 +6889,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "この 部屋は 明る (   )、広いですね。",
                 "promptVi": "Căn phòng này vừa sáng sủa lại vừa rộng rãi.",
                 "options": [
-                  "くて",
                   "で",
                   "に",
-                  "の"
+                  "の",
+                  "くて"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Nối tính từ đuôi い: 明るい ➔ 明るくて (Bài 12)."
+                "correct": 3,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Nối tính từ đuôi い: 明るい ➔ 明るくて (Bài 12).",
+                "contentRevision": 3
               },
               {
                 "id": 52,
@@ -6582,13 +6904,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "この 靴は 重く (   )、歩きやすいです。",
                 "promptVi": "Đôi giày này không bị nặng và rất dễ đi.",
                 "options": [
-                  "ないで",
-                  "なくて",
                   "なかった",
-                  "ない"
+                  "ない",
+                  "ないで",
+                  "なくて"
                 ],
-                "correct": 1,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Nối tính từ phủ định: 重くない ➔ 重くなくて (Bài 12)."
+                "correct": 3,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Nối tính từ phủ định: 重くない ➔ 重くなくて (Bài 12).",
+                "contentRevision": 3
               },
               {
                 "id": 53,
@@ -6596,13 +6919,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "京都の お寺は 静か (   )、きれいです。",
                 "promptVi": "Chùa ở Kyoto vừa yên tĩnh lại vừa đẹp đẽ.",
                 "options": [
-                  "くて",
                   "で",
-                  "に",
-                  "の"
+                  "くて",
+                  "の",
+                  "に"
                 ],
-                "correct": 1,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Nối tính từ đuôi な: 静か ➔ 静かで (Bài 12)."
+                "correct": 0,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Nối tính từ đuôi な: 静か ➔ 静かで (Bài 12).",
+                "contentRevision": 3
               },
               {
                 "id": 54,
@@ -6610,13 +6934,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "日本へ 行ったことが (   )。",
                 "promptVi": "Tôi đã từng đi Nhật Bản.",
                 "options": [
+                  "します",
                   "あります",
                   "います",
-                  "します",
                   "なります"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-た ことが あります: nói về kinh nghiệm đã từng (bài 13)."
+                "correct": 1,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-た ことが あります: nói về kinh nghiệm đã từng (bài 13).",
+                "contentRevision": 3
               },
               {
                 "id": 55,
@@ -6624,13 +6949,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "昨日の 夜は お酒を 飲み (   ) ました。",
                 "promptVi": "Tối hôm qua tôi đã uống quá nhiều rượu.",
                 "options": [
+                  "すぎた",
                   "すぎる",
-                  "すぎて",
                   "すぎ",
-                  "すぎた"
+                  "すぎて"
                 ],
                 "correct": 2,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-bỏ ます + すぎました (Bài 13): 飲みすぎました (uống quá mức)."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-bỏ ます + すぎました (Bài 13): 飲みすぎました (uống quá mức).",
+                "contentRevision": 3
               },
               {
                 "id": 56,
@@ -6638,13 +6964,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "この ズボンは 少し (   ) すぎます。",
                 "promptVi": "Chiếc quần này hơi dài quá.",
                 "options": [
-                  "長い",
-                  "長く",
                   "長",
-                  "長さ"
+                  "長い",
+                  "長さ",
+                  "長く"
                 ],
-                "correct": 2,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Tính từ đuôi い bỏ い + すぎます (Bài 13): 長い ➔ 長すぎます."
+                "correct": 0,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Tính từ đuôi い bỏ い + すぎます (Bài 13): 長い ➔ 長すぎます.",
+                "contentRevision": 3
               },
               {
                 "id": 57,
@@ -6652,13 +6979,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "結婚して ちょうど ５年 (   )。",
                 "promptVi": "Chúng tôi kết hôn tính đến nay vừa tròn 5 năm.",
                 "options": [
-                  "になります",
-                  "があります",
                   "にします",
-                  "をします"
+                  "になります",
+                  "をします",
+                  "があります"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Khoảng thời gian + になります (Bài 13): Đã đạt mốc."
+                "correct": 1,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• Khoảng thời gian + になります (Bài 13): Đã đạt mốc.",
+                "contentRevision": 3
               },
               {
                 "id": 58,
@@ -6666,13 +6994,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "ここで 写真を 撮って (   ) ですか。",
                 "promptVi": "Tôi chụp ảnh ở đây có được phép không?",
                 "options": [
-                  "もいい",
-                  "はいけない",
                   "といい",
-                  "ください"
+                  "ください",
+                  "はいけない",
+                  "もいい"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-てもいいですか (Bài 13): Xin phép làm việc gì."
+                "correct": 3,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-てもいいですか (Bài 13): Xin phép làm việc gì.",
+                "contentRevision": 3
               },
               {
                 "id": 59,
@@ -6680,13 +7009,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "出かける (   )、窓を 閉めて ください。",
                 "promptVi": "Trước khi ra ngoài, xin hãy đóng cửa sổ lại.",
                 "options": [
-                  "まえに",
                   "あとで",
-                  "までに",
-                  "あと"
+                  "あと",
+                  "まえに",
+                  "までに"
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-る まえに (Bài 14): Trước khi làm V."
+                "correct": 2,
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-る まえに (Bài 14): Trước khi làm V.",
+                "contentRevision": 3
               },
               {
                 "id": 60,
@@ -6694,13 +7024,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "頭が 痛い ときは、薬を 飲む (   ) いいですよ。",
                 "promptVi": "Khi bị đau đầu, bạn nên uống thuốc thì tốt đấy.",
                 "options": [
-                  "が",
-                  "と",
                   "を",
+                  "と",
+                  "が",
                   "で"
                 ],
                 "correct": 1,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-るといいですよ (Bài 14): Khuyên nhủ nên làm gì."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-るといいですよ (Bài 14): Khuyên nhủ nên làm gì.",
+                "contentRevision": 3
               }
             ]
           }
@@ -6725,13 +7056,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "1. 雨の日、「私」は 何を しますか。",
                 "promptVi": "Vào những ngày trời mưa, nhân vật 'Tôi' làm gì?",
                 "options": [
+                  "公園まで自転車で行きます。",
                   "雨の中でも散歩します。",
                   "家でストレッチや体操をします。",
-                  "一日中寝ています。",
-                  "公園まで自転車で行きます。"
+                  "一日中寝ています。"
                 ],
-                "correct": 1,
-                "explain": "💡 Căn cứ câu: '雨の日は散歩を休んで、家でストレッチや軽い体操をします' ➔ Chọn đáp án 2."
+                "correct": 2,
+                "explain": "💡 Căn cứ câu: '雨の日は散歩を休んで、家でストレッチや軽い体操をします' ➔ Chọn đáp án 3.",
+                "contentRevision": 3
               },
               {
                 "id": 62,
@@ -6745,7 +7077,8 @@ window.DE_THI_TONG_HOP_DATA = [
                   "コーヒーを飲みます。"
                 ],
                 "correct": 0,
-                "explain": "💡 Căn cứ câu: '朝ごはんを食べる前に、必ずコップ一杯の水を飲みます' ➔ Chọn đáp án 1."
+                "explain": "💡 Căn cứ câu: '朝ごはんを食べる前に、必ずコップ一杯の水を飲みます' ➔ Chọn đáp án 1.",
+                "contentRevision": 3
               },
               {
                 "id": 63,
@@ -6753,13 +7086,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "3. 朝ごはんを しっかり 食べて、どう なりましたか。",
                 "promptVi": "Sau khi duy trì ăn sáng đầy đủ thì kết quả thế nào?",
                 "options": [
-                  "体調がとてもよくなりました。",
-                  "体重が増えすぎました。",
                   "朝起きられなくなりました。",
-                  "病気になりました。"
+                  "病気になりました。",
+                  "体重が増えすぎました。",
+                  "体調がとてもよくなりました。"
                 ],
-                "correct": 0,
-                "explain": "💡 Căn cứ câu: '体調がとてもよくなりました' ➔ Chọn đáp án 1."
+                "correct": 3,
+                "explain": "💡 Căn cứ câu: '体調がとてもよくなりました' ➔ Chọn đáp án 4.",
+                "contentRevision": 3
               },
               {
                 "id": 64,
@@ -6767,13 +7101,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "4. 週末、「私」は 何を しますか。",
                 "promptVi": "Vào dịp cuối tuần, nhân vật 'Tôi' làm gì?",
                 "options": [
-                  "自転車で遠い公園へ行きます。",
-                  "一日中仕事をします。",
                   "友だちと買い物をします。",
-                  "家でテレビを見ます。"
+                  "一日中仕事をします。",
+                  "家でテレビを見ます。",
+                  "自転車で遠い公園へ行きます。"
                 ],
-                "correct": 0,
-                "explain": "💡 Căn cứ câu: '週末は...自転車で少し遠い公園まで行って、景色を楽しんでいます' ➔ Chọn đáp án 1."
+                "correct": 3,
+                "explain": "💡 Căn cứ câu: '週末は...自転車で少し遠い公園まで行って、景色を楽しんでいます' ➔ Chọn đáp án 4.",
+                "contentRevision": 3
               }
             ]
           },
@@ -6790,12 +7125,13 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "Mọi người quyết định sẽ đi đâu để mừng anh Tanaka?",
                 "options": [
                   "駅前の居酒屋",
-                  "駅前の日本料理の店",
                   "田中さんの家",
+                  "駅前の日本料理の店",
                   "カラオケボックス"
                 ],
-                "correct": 1,
-                "explain": "💡 Căn cứ: '駅前の日本料理の店で食事会をして' ➔ Chọn đáp án 2 (Quán món Nhật trước ga)."
+                "correct": 2,
+                "explain": "💡 Căn cứ: '駅前の日本料理の店で食事会をして' ➔ Chọn đáp án 3 (Quán món Nhật trước ga).",
+                "contentRevision": 3
               },
               {
                 "id": 66,
@@ -6803,13 +7139,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "2. みんなは 田中さんに 何を プレゼントしますか。",
                 "promptVi": "Mọi người sẽ tặng món quà gì cho anh Tanaka?",
                 "options": [
-                  "お酒",
-                  "高級な時計",
                   "記念のネクタイ",
-                  "万年筆"
+                  "高級な時計",
+                  "万年筆",
+                  "お酒"
                 ],
-                "correct": 2,
-                "explain": "💡 Căn cứ: 'みんなで記念のネクタイをプレゼントすることに決めました' ➔ Chọn đáp án 3 (Cà vạt kỷ niệm)."
+                "correct": 0,
+                "explain": "💡 Căn cứ: 'みんなで記念のネクタイをプレゼントすることに決めました' ➔ Chọn đáp án 1 (Cà vạt kỷ niệm).",
+                "contentRevision": 3
               }
             ]
           },
@@ -6825,13 +7162,14 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "1. 飛行機が 遅れた 理由は 何ですか。",
                 "promptVi": "Lý do máy bay bị chậm khởi hành là gì?",
                 "options": [
-                  "飛行機が故障したから",
+                  "会議が長引いたから",
                   "天気が悪かったから",
-                  "空港が混んでいたから",
-                  "会議が長引いたから"
+                  "飛行機が故障したから",
+                  "空港が混んでいたから"
                 ],
                 "correct": 1,
-                "explain": "💡 Căn cứ câu: '天気が悪くて、出発が1時間遅れました' ➔ Chọn đáp án 2 (Do thời tiết xấu)."
+                "explain": "💡 Căn cứ câu: '天気が悪くて、出発が1時間遅れました' ➔ Chọn đáp án 2 (Do thời tiết xấu).",
+                "contentRevision": 3
               },
               {
                 "id": 68,
@@ -6840,12 +7178,13 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "Buổi họp diễn ra như thế nào?",
                 "options": [
                   "時間に遅れて怒られた。",
-                  "中止になった。",
                   "時間に間に合って無事に終わった。",
-                  "取引先が来なかった。"
+                  "取引先が来なかった。",
+                  "中止になった。"
                 ],
-                "correct": 2,
-                "explain": "💡 Căn cứ câu: '時間に間に合って、大事な会議を無事に終えることができました' ➔ Chọn đáp án 3 (Kịp giờ và kết thúc an toàn/suôn sẻ)."
+                "correct": 1,
+                "explain": "💡 Căn cứ câu: '時間に間に合って、大事な会議を無事に終えることができました' ➔ Chọn đáp án 2 (Kịp giờ và kết thúc an toàn/suôn sẻ).",
+                "contentRevision": 3
               }
             ]
           }
@@ -6868,25 +7207,26 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "朝 起きて _________ ________ ____★____ _________。",
                 "promptVi": "Sáng dậy sau khi uống một cốc nước tôi bắt đầu đi bộ.",
                 "parts": [
-                  "散歩を",
+                  "始めます",
                   "水を",
                   "飲んだあとで",
-                  "始めます"
+                  "散歩を"
                 ],
                 "options": [
-                  "散歩を",
+                  "始めます",
                   "水を",
                   "飲んだあとで",
-                  "始めます"
+                  "散歩を"
                 ],
                 "correctOrder": [
                   1,
                   2,
-                  0,
-                  3
+                  3,
+                  0
                 ],
-                "correct": 0,
-                "explain": "💡 <strong>Giải thích sắp xếp câu:</strong><br>• Thứ tự: 朝起きて ➔ [2 水を] [3 飲んだあとで] [1 ★散歩を] [4 始めます]。Vị trí ★ là 1. 散歩を."
+                "correct": 3,
+                "explain": "Thứ tự các cụm: 水を → 飲んだあとで → 散歩を → 始めます. Vị trí ★: <strong>散歩を</strong> (phương án 4).",
+                "contentRevision": 3
               },
               {
                 "id": 70,
@@ -6895,24 +7235,25 @@ window.DE_THI_TONG_HOP_DATA = [
                 "promptVi": "Giám đốc đã nói rằng tuần sau trời sẽ trở nên lạnh hơn.",
                 "parts": [
                   "寒く",
-                  "天気が",
                   "なると",
-                  "社長は"
+                  "社長は",
+                  "天気が"
                 ],
                 "options": [
                   "寒く",
-                  "天気が",
                   "なると",
-                  "社長は"
+                  "社長は",
+                  "天気が"
                 ],
                 "correctOrder": [
+                  2,
                   3,
-                  1,
                   0,
-                  2
+                  1
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích sắp xếp câu:</strong><br>• Thứ tự: 来週は ➔ [4 社長は] [2 天気が] [1 ★寒く] [3 なると] と言っていました。Vị trí ★ là 1. 寒く."
+                "explain": "Thứ tự các cụm: 社長は → 天気が → 寒く → なると. Vị trí ★: <strong>寒く</strong> (phương án 1).",
+                "contentRevision": 3
               },
               {
                 "id": 71,
@@ -6920,25 +7261,26 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "この カバンは _________ ________ ____★____ _________ んです。",
                 "promptVi": "Chiếc cặp này là tôi tự tay mua bằng tiền làm thêm đấy.",
                 "parts": [
-                  "アルバイトの",
-                  "自分で",
+                  "買った",
                   "お金で",
-                  "買った"
+                  "自分で",
+                  "アルバイトの"
                 ],
                 "options": [
-                  "アルバイトの",
-                  "自分で",
+                  "買った",
                   "お金で",
-                  "買った"
+                  "自分で",
+                  "アルバイトの"
                 ],
                 "correctOrder": [
-                  0,
-                  2,
+                  3,
                   1,
-                  3
+                  2,
+                  0
                 ],
-                "correct": 1,
-                "explain": "💡 <strong>Giải thích sắp xếp câu:</strong><br>• Thứ tự: このカバンは ➔ [1 アルバイトの] [3 お金で] [2 ★自分で] [4 買った] んです。Vị trí ★ là 2. 自分で."
+                "correct": 2,
+                "explain": "Thứ tự các cụm: アルバイトの → お金で → 自分で → 買った. Vị trí ★: <strong>自分で</strong> (phương án 3).",
+                "contentRevision": 3
               },
               {
                 "id": 72,
@@ -6946,25 +7288,26 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "京都へ _________ ________ ____★____ _________ ことがあります。",
                 "promptVi": "Tôi đã từng đi du lịch Kyoto cùng gia đình một lần.",
                 "parts": [
-                  "家族と",
+                  "いっしょに",
                   "一度",
-                  "旅行した",
-                  "いっしょに"
+                  "家族と",
+                  "旅行した"
                 ],
                 "options": [
-                  "家族と",
+                  "いっしょに",
                   "一度",
-                  "旅行した",
-                  "いっしょに"
+                  "家族と",
+                  "旅行した"
                 ],
                 "correctOrder": [
                   1,
+                  2,
                   0,
-                  3,
-                  2
+                  3
                 ],
-                "correct": 3,
-                "explain": "💡 <strong>Giải thích sắp xếp câu:</strong><br>• Thứ tự: 京都へ ➔ [2 一度] [1 家族と] [4 ★いっしょに] [3 旅行した] ことがあります。Vị trí ★ là 4. いっしょに."
+                "correct": 0,
+                "explain": "Thứ tự các cụm: 一度 → 家族と → いっしょに → 旅行した. Vị trí ★: <strong>いっしょに</strong> (phương án 1).",
+                "contentRevision": 3
               },
               {
                 "id": 73,
@@ -6972,25 +7315,26 @@ window.DE_THI_TONG_HOP_DATA = [
                 "prompt": "風邪を _________ ________ ____★____ _________ といいですよ。",
                 "promptVi": "Khi bị cảm cúm thì nên uống nhiều nước ấm rồi nghỉ ngơi thì tốt đấy.",
                 "parts": [
-                  "暖かくして",
+                  "休む",
                   "ひいたときは",
-                  "ゆっくり",
-                  "休む"
+                  "暖かくして",
+                  "ゆっくり"
                 ],
                 "options": [
-                  "暖かくして",
+                  "休む",
                   "ひいたときは",
-                  "ゆっくり",
-                  "休む"
+                  "暖かくして",
+                  "ゆっくり"
                 ],
                 "correctOrder": [
                   1,
-                  0,
                   2,
-                  3
+                  3,
+                  0
                 ],
-                "correct": 2,
-                "explain": "💡 <strong>Giải thích sắp xếp câu:</strong><br>• Thứ tự: 風邪を ➔ [2 ひいたときは] [1 暖かくして] [3 ★ゆっくり] [4 休む] といいですよ。Vị trí ★ là 3. ゆっくり."
+                "correct": 3,
+                "explain": "Thứ tự các cụm: ひいたときは → 暖かくして → ゆっくり → 休む. Vị trí ★: <strong>ゆっくり</strong> (phương án 4).",
+                "contentRevision": 3
               },
               {
                 "id": 74,
@@ -7000,23 +7344,24 @@ window.DE_THI_TONG_HOP_DATA = [
                 "parts": [
                   "場所は",
                   "第2会議室が",
-                  "いい",
-                  "明日の"
+                  "明日の",
+                  "いい"
                 ],
                 "options": [
                   "場所は",
                   "第2会議室が",
-                  "いい",
-                  "明日の"
+                  "明日の",
+                  "いい"
                 ],
                 "correctOrder": [
-                  3,
+                  2,
                   0,
                   1,
-                  2
+                  3
                 ],
                 "correct": 1,
-                "explain": "💡 <strong>Giải thích sắp xếp câu:</strong><br>• Thứ tự: 会議の ➔ [4 明日の] [1 場所は] [2 ★第2会議室が] [3 いい] と思います。Vị trí ★ là 2. 第2会議室が."
+                "explain": "Thứ tự các cụm: 明日の → 場所は → 第2会議室が → いい. Vị trí ★: <strong>第2会議室が</strong> (phương án 2).",
+                "contentRevision": 3
               }
             ]
           }
