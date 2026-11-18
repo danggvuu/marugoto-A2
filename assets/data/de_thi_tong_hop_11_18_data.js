@@ -1190,152 +1190,152 @@ window.DE_THI_TONG_HOP_DATA = [
               {
                 "id": 1,
                 "type": "mc",
-                "prompt": "遅れる ときは、必ず 会社に <u>連絡</u> して ください。",
-                "promptVi": "Khi đến muộn, nhất định hãy liên lạc cho công ty.",
-                "targetWord": "連絡",
+                "prompt": "日本語の <u>発音</u> を 練習します。",
+                "promptVi": "Tôi luyện phát âm tiếng Nhật.",
+                "targetWord": "発音",
                 "options": [
-                  "れんらく",
-                  "れんろく",
-                  "れんがく",
-                  "ろんらく"
+                  "はつおん",
+                  "はっおん",
+                  "はついん",
+                  "はちおん"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 連絡 ➔ れんらく (Liên lạc - Bài 18)."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 発音（はつおん）: phát âm."
               },
               {
                 "id": 2,
                 "type": "mc",
-                "prompt": "パーティーの <u>準備</u> を 手伝って ください。",
-                "promptVi": "Hãy giúp tôi một tay chuẩn bị cho bữa tiệc.",
-                "targetWord": "準備",
+                "prompt": "友達が <u>結婚</u> しました。",
+                "promptVi": "Bạn tôi đã kết hôn.",
+                "targetWord": "結婚",
                 "options": [
-                  "じゅんび",
-                  "しゅんび",
-                  "じゅんひ",
-                  "じゅんぴ"
+                  "けっこん",
+                  "けつこん",
+                  "けっこう",
+                  "けんこん"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 準備 ➔ じゅんび (Chuẩn bị - Bài 11/13)."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 結婚（けっこん）: kết hôn."
               },
               {
                 "id": 3,
                 "type": "mc",
-                "prompt": "人気の レストランを <u>予約</u> しました。",
-                "promptVi": "Tôi đã đặt chỗ trước ở nhà hàng được yêu thích.",
-                "targetWord": "予約",
+                "prompt": "健康は <u>大切</u> です。",
+                "promptVi": "Sức khỏe rất quan trọng.",
+                "targetWord": "大切",
                 "options": [
-                  "よやく",
-                  "あらかじめやく",
-                  "よてい",
-                  "ゆうやく"
+                  "たいせつ",
+                  "だいせつ",
+                  "たいきり",
+                  "おおせつ"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 予約 ➔ よやく (Đặt trước - Bài 11)."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 大切（たいせつ）: quan trọng, quý giá."
               },
               {
                 "id": 4,
                 "type": "mc",
-                "prompt": "日本で 働いた <u>経験</u> が あります。",
-                "promptVi": "Tôi đã có kinh nghiệm làm việc ở Nhật Bản.",
-                "targetWord": "経験",
+                "prompt": "毎日 運動して、<u>健康</u> に なりました。",
+                "promptVi": "Tôi đã khỏe mạnh hơn nhờ tập thể dục mỗi ngày.",
+                "targetWord": "健康",
                 "options": [
-                  "けいけん",
-                  "けいかん",
-                  "きょうけん",
-                  "けいげん"
+                  "けんこう",
+                  "けんごう",
+                  "げんこう",
+                  "けんこ"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 経験 ➔ けいけん (Kinh nghiệm - Bài 12/15)."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 健康（けんこう）: khỏe mạnh, sức khỏe."
               },
               {
                 "id": 5,
                 "type": "mc",
-                "prompt": "毎朝 水を 一杯 飲む <u>習慣</u> が あります。",
-                "promptVi": "Tôi có thói quen uống một cốc nước mỗi buổi sáng.",
-                "targetWord": "習慣",
+                "prompt": "これは <u>自分</u> で 作りました。",
+                "promptVi": "Tôi tự mình làm việc này.",
+                "targetWord": "自分",
                 "options": [
-                  "しゅうかん",
-                  "じゅうかん",
-                  "しゅかん",
-                  "しゅうけん"
+                  "じぶん",
+                  "しぶん",
+                  "じほん",
+                  "じもん"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 習慣 ➔ しゅうかん (Thói quen/tập quán - Bài 16)."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 自分（じぶん）: bản thân, tự mình."
               },
               {
                 "id": 6,
                 "type": "mc",
-                "prompt": "体調が 悪いときは、医者に <u>相談</u> します。",
-                "promptVi": "Khi sức khỏe không tốt, tôi sẽ tham vấn/hỏi ý kiến bác sĩ.",
-                "targetWord": "相談",
+                "prompt": "<u>毎日</u> 日本語を 勉強します。",
+                "promptVi": "Tôi học tiếng Nhật mỗi ngày.",
+                "targetWord": "毎日",
                 "options": [
-                  "そうだん",
-                  "しょうだん",
-                  "そだん",
-                  "そうだつ"
+                  "まいにち",
+                  "まいひ",
+                  "まいじつ",
+                  "まいび"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 相談 ➔ そうだん (Thảo luận/tham vấn - Bài 16)."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 毎日（まいにち）: mỗi ngày."
               },
               {
                 "id": 7,
                 "type": "mc",
-                "prompt": "どうぞ <u>遠慮</u> しないで 食べて ください。",
-                "promptVi": "Xin mời cứ tự nhiên dùng bữa, đừng ngại ngùng nhé.",
-                "targetWord": "遠慮",
+                "prompt": "<u>週末</u> に 友達と 会います。",
+                "promptVi": "Cuối tuần tôi gặp bạn.",
+                "targetWord": "週末",
                 "options": [
-                  "えんりょ",
-                  "おんりょ",
-                  "えんろ",
-                  "えんりょう"
+                  "しゅうまつ",
+                  "しゅまつ",
+                  "しゅうばつ",
+                  "しゅうげつ"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 遠慮 ➔ えんりょ (Khách khí/ngại ngùng - Bài 12)."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 週末（しゅうまつ）: cuối tuần."
               },
               {
                 "id": 8,
                 "type": "mc",
-                "prompt": "この 機械の 使い方は とても <u>複雑</u> です。",
-                "promptVi": "Cách sử dụng chiếc máy móc này rất phức tạp.",
-                "targetWord": "複雑",
+                "prompt": "今日は 私の <u>誕生日</u> です。",
+                "promptVi": "Hôm nay là sinh nhật tôi.",
+                "targetWord": "誕生日",
                 "options": [
-                  "ふくざつ",
-                  "ふくさつ",
-                  "ふくぞう",
-                  "ぶくざつ"
+                  "たんじょうび",
+                  "たんじょび",
+                  "たんせいび",
+                  "たんしょうひ"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 複雑 ➔ ふくざつ (Phức tạp - Bài 18)."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 誕生日（たんじょうび）: sinh nhật."
               },
               {
                 "id": 9,
                 "type": "mc",
-                "prompt": "マラソン大会に <u>参加</u> したいです。",
-                "promptVi": "Tôi muốn tham gia vào đại hội chạy marathon.",
-                "targetWord": "参加",
+                "prompt": "毎朝 公園を <u>走ります</u>。",
+                "promptVi": "Mỗi sáng tôi chạy trong công viên.",
+                "targetWord": "走ります",
                 "options": [
-                  "さんか",
-                  "さんけい",
-                  "まいか",
-                  "さんしゃ"
+                  "はしります",
+                  "はじります",
+                  "そうります",
+                  "はします"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 参加 ➔ さんか (Tham gia - Bài 13/16)."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 走ります（はしります）: chạy."
               },
               {
                 "id": 10,
                 "type": "mc",
-                "prompt": "結婚式に <u>招待</u> されました。",
-                "promptVi": "Tôi đã được mời tham dự lễ kết hôn.",
-                "targetWord": "招待",
+                "prompt": "冬に コートを <u>着ます</u>。",
+                "promptVi": "Mùa đông tôi mặc áo khoác.",
+                "targetWord": "着ます",
                 "options": [
-                  "しょうたい",
-                  "じょうたい",
-                  "しょうだい",
-                  "せいたい"
+                  "きます",
+                  "きります",
+                  "つきます",
+                  "ちゃくます"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 招待 ➔ しょうたい (Chiêu đãi/mời - Bài 13)."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 着ます（きます）: mặc."
               }
             ]
           },
@@ -1346,170 +1346,170 @@ window.DE_THI_TONG_HOP_DATA = [
               {
                 "id": 11,
                 "type": "mc",
-                "prompt": "この 薬は とても (   ) ですから、飲みにくいです。",
-                "promptVi": "Thuốc này rất đắng nên khó uống.",
+                "prompt": "健康のために、(   )を あまり 飲みません。",
+                "promptVi": "Vì sức khỏe nên tôi không uống nhiều rượu.",
                 "options": [
-                  "にがい",
-                  "あまい",
-                  "すっぱい",
-                  "しょっぱい"
+                  "お酒",
+                  "電車",
+                  "週末",
+                  "計画"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• にがい (苦い): Đắng (vị của thuốc)."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• お酒: rượu, đồ uống có cồn."
               },
               {
                 "id": 12,
                 "type": "mc",
-                "prompt": "新しい 同僚を (   ) します。",
-                "promptVi": "Tôi xin giới thiệu người đồng nghiệp mới.",
+                "prompt": "日本語の (   ) を 練習します。",
+                "promptVi": "Tôi luyện phát âm tiếng Nhật.",
                 "options": [
-                  "紹介",
-                  "案内",
-                  "連絡",
-                  "相談"
+                  "発音",
+                  "料理",
+                  "結婚",
+                  "計画"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 紹介する (しょうかい): Giới thiệu."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 発音: phát âm."
               },
               {
                 "id": 13,
                 "type": "mc",
-                "prompt": "暗いですから、電気を (   ) ください。",
-                "promptVi": "Trời tối rồi nên hãy bật đèn lên nhé.",
+                "prompt": "友達の 結婚の (   ) を します。",
+                "promptVi": "Tôi chúc mừng đám cưới của bạn.",
                 "options": [
-                  "つけて",
-                  "けして",
-                  "あけて",
-                  "しめて"
+                  "お祝い",
+                  "お酒",
+                  "電車",
+                  "週末"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 電気をつける: Bật điện (ngược với 消す: tắt)."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• お祝い: chúc mừng, quà mừng."
               },
               {
                 "id": 14,
                 "type": "mc",
-                "prompt": "その 着物は あなたに とても (   ) いますよ。",
-                "promptVi": "Bộ Kimono đó trông rất hợp với bạn đấy.",
+                "prompt": "週末は (   ) と 食事を します。",
+                "promptVi": "Cuối tuần tôi ăn cơm cùng gia đình.",
                 "options": [
-                  "似合って",
-                  "向かって",
-                  "始まって",
-                  "終わって"
+                  "家族",
+                  "計画",
+                  "発音",
+                  "料理"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 似合う: Hợp thời trang/vóc dáng."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 家族: gia đình."
               },
               {
                 "id": 15,
                 "type": "mc",
-                "prompt": "体の (   ) が 悪いですから、病院へ 行きます。",
-                "promptVi": "Tình trạng cơ thể không ổn nên tôi đi bệnh viện.",
+                "prompt": "毎日 運動して、(   ) に なりたいです。",
+                "promptVi": "Tôi muốn khỏe mạnh nhờ tập thể dục mỗi ngày.",
                 "options": [
-                  "具合",
-                  "体調",
-                  "気分",
-                  "病気"
+                  "健康",
+                  "結婚",
+                  "電車",
+                  "誕生日"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 具合 (ぐあい) が悪い: Tình trạng sức khỏe không tốt."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 健康: sức khỏe, khỏe mạnh."
               },
               {
                 "id": 16,
                 "type": "mc",
-                "prompt": "息を (   ) 吸って、リラックスして ください。",
-                "promptVi": "Hãy hít vào thật sâu và thư giãn nhé.",
+                "prompt": "(   ) に 友達と 会います。",
+                "promptVi": "Cuối tuần tôi gặp bạn.",
                 "options": [
-                  "深く",
-                  "重く",
-                  "高く",
-                  "近く"
+                  "週末",
+                  "毎日",
+                  "誕生日",
+                  "料理"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 深く吸う: Hít sâu."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 週末: cuối tuần."
               },
               {
                 "id": 17,
                 "type": "mc",
-                "prompt": "契約書を (   ) で 送信しました。",
-                "promptVi": "Tôi đã gửi bản hợp đồng qua máy fax.",
+                "prompt": "今日は 母の (   ) です。",
+                "promptVi": "Hôm nay là sinh nhật mẹ.",
                 "options": [
-                  "ファクス",
-                  "コピー",
-                  "ポスト",
-                  "メモ"
+                  "誕生日",
+                  "結婚",
+                  "お祝い",
+                  "計画"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• ファクス (Fax): Máy fax/bản fax văn phòng."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 誕生日: sinh nhật."
               },
               {
                 "id": 18,
                 "type": "mc",
-                "prompt": "友人の 結婚の (   ) に 時計を あげました。",
-                "promptVi": "Tôi tặng đồng hồ làm quà chúc mừng kết hôn của bạn.",
+                "prompt": "家族は とても (   ) です。",
+                "promptVi": "Gia đình rất quan trọng.",
                 "options": [
-                  "お祝い",
-                  "お礼",
-                  "お土産",
-                  "お祭り"
+                  "大切",
+                  "健康",
+                  "有名",
+                  "週末"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• お祝い (おいわい): Quà/lời chúc mừng."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 大切: quan trọng, quý giá."
               },
               {
                 "id": 19,
                 "type": "mc",
-                "prompt": "毎日 ３ (   ) ジョギングを しています。",
-                "promptVi": "Mỗi ngày tôi chạy bộ 3 km.",
+                "prompt": "(   ) で 会社へ 行きます。",
+                "promptVi": "Tôi đi tàu điện đến công ty.",
                 "options": [
-                  "キロ",
-                  "メートル",
-                  "グラム",
-                  "リットル"
+                  "電車",
+                  "料理",
+                  "お酒",
+                  "発音"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• キロ (km): Kilomet chạy bộ."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 電車: tàu điện."
               },
               {
                 "id": 20,
                 "type": "mc",
-                "prompt": "一か月に ４ (   ) 映画を 見ます。",
-                "promptVi": "Một tháng tôi xem phim 4 lần.",
+                "prompt": "毎朝 公園を (   )。",
+                "promptVi": "Mỗi sáng tôi chạy trong công viên.",
                 "options": [
-                  "回",
-                  "分",
-                  "時間",
-                  "人"
+                  "走ります",
+                  "送ります",
+                  "思います",
+                  "着ます"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 回 (かい): Số lần hoạt động."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 走ります: chạy."
               },
               {
                 "id": 24,
                 "type": "mc",
-                "prompt": "私は えびの (   ) が あります。",
-                "promptVi": "Tôi bị dị ứng tôm.",
+                "prompt": "大切だと (   )。",
+                "promptVi": "Tôi nghĩ là quan trọng.",
                 "options": [
-                  "アレルギー",
-                  "エネルギー",
-                  "インフルエンザ",
-                  "ストレス"
+                  "思います",
+                  "送ります",
+                  "走ります",
+                  "着ます"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• アレルギー (Allergy): Dị ứng đồ ăn."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 思います: nghĩ."
               },
               {
                 "id": 25,
                 "type": "mc",
-                "prompt": "カレーを 食べる とき、(   ) を 使います。",
-                "promptVi": "Khi ăn món cà ri, tôi dùng thìa (muỗng).",
+                "prompt": "日本の (   ) が 好きです。",
+                "promptVi": "Tôi thích món ăn Nhật.",
                 "options": [
-                  "スプーン",
-                  "フォーク",
-                  "ナイフ",
-                  "グラス"
+                  "料理",
+                  "計画",
+                  "健康",
+                  "発音"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• スプーン (Spoon): Chiếc thìa ăn cơm/súp."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 料理: món ăn, nấu ăn."
               }
             ]
           }
@@ -1599,8 +1599,8 @@ window.DE_THI_TONG_HOP_DATA = [
               {
                 "id": 31,
                 "type": "mc",
-                "prompt": "富士山に 登ったことが (   )。",
-                "promptVi": "Tôi đã từng leo núi Phú Sĩ.",
+                "prompt": "日本へ 行ったことが (   )。",
+                "promptVi": "Tôi đã từng đi Nhật Bản.",
                 "options": [
                   "あります",
                   "います",
@@ -1608,7 +1608,7 @@ window.DE_THI_TONG_HOP_DATA = [
                   "なります"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-た ことが あります (Bài 12): Nói về kinh nghiệm đã từng."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-た ことが あります: nói về kinh nghiệm đã từng (bài 13)."
               },
               {
                 "id": 32,
@@ -1928,11 +1928,11 @@ window.DE_THI_TONG_HOP_DATA = [
                 "options": [
                   "聴いたり・たり",
                   "聴いて・て",
-                  "聴きながら・ながら",
+                  "聴く・く",
                   "聴いた・た"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• ～たり～たりしました (Bài 15)."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• ～たり～たりしました (Bài 16)."
               },
               {
                 "id": 55,
@@ -1974,7 +1974,7 @@ window.DE_THI_TONG_HOP_DATA = [
                   "で・の"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• 会議の日時 (liên kết danh từ); 明日がいいと思います (đề xuất) (Bài 18)."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• 会議の日時; 明日がいいと思います (Bài 18)."
               },
               {
                 "id": 58,
@@ -1993,8 +1993,8 @@ window.DE_THI_TONG_HOP_DATA = [
               {
                 "id": 59,
                 "type": "mc",
-                "prompt": "初めて 納豆を (   )。思ったより おいしかったです。",
-                "promptVi": "Lần đầu tiên tôi ăn thử món Natto. Ngon hơn tôi tưởng.",
+                "prompt": "初めて 日本の 料理を (   )。とても おいしかったです。",
+                "promptVi": "Lần đầu tiên tôi thử món ăn Nhật. Rất ngon.",
                 "options": [
                   "食べてみました",
                   "食べていました",
@@ -2002,7 +2002,7 @@ window.DE_THI_TONG_HOP_DATA = [
                   "食べたことがあります"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-てみる ➔ てみました (Bài 11): Đã ăn thử nghiệm."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-てみる ➔ てみました: đã thử ăn (bài 11)."
               },
               {
                 "id": 60,
@@ -2066,7 +2066,7 @@ window.DE_THI_TONG_HOP_DATA = [
               {
                 "id": 63,
                 "type": "mc",
-                "prompt": "3. 朝ごはんを しっかり 食べるようになって、どう なりましたか。",
+                "prompt": "3. 朝ごはんを しっかり 食べて、どう なりましたか。",
                 "promptVi": "Sau khi duy trì ăn sáng đầy đủ thì kết quả thế nào?",
                 "options": [
                   "体調がとてもよくなりました。",
@@ -2361,152 +2361,152 @@ window.DE_THI_TONG_HOP_DATA = [
               {
                 "id": 1,
                 "type": "mc",
-                "prompt": "人気の レストランを <u>予約</u> しました。",
-                "promptVi": "Tôi đã đặt chỗ trước ở nhà hàng được yêu thích.",
-                "targetWord": "予約",
+                "prompt": "健康は <u>大切</u> です。",
+                "promptVi": "Sức khỏe rất quan trọng.",
+                "targetWord": "大切",
                 "options": [
-                  "よやく",
-                  "あらかじめやく",
-                  "よてい",
-                  "ゆうやく"
+                  "たいせつ",
+                  "だいせつ",
+                  "たいきり",
+                  "おおせつ"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 予約 ➔ よやく (Đặt trước - Bài 11)."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 大切（たいせつ）: quan trọng, quý giá."
               },
               {
                 "id": 2,
                 "type": "mc",
-                "prompt": "日本で 働いた <u>経験</u> が あります。",
-                "promptVi": "Tôi đã có kinh nghiệm làm việc ở Nhật Bản.",
-                "targetWord": "経験",
+                "prompt": "毎日 運動して、<u>健康</u> に なりました。",
+                "promptVi": "Tôi đã khỏe mạnh hơn nhờ tập thể dục mỗi ngày.",
+                "targetWord": "健康",
                 "options": [
-                  "けいけん",
-                  "けいかん",
-                  "きょうけん",
-                  "けいげん"
+                  "けんこう",
+                  "けんごう",
+                  "げんこう",
+                  "けんこ"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 経験 ➔ けいけん (Kinh nghiệm - Bài 12/15)."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 健康（けんこう）: khỏe mạnh, sức khỏe."
               },
               {
                 "id": 3,
                 "type": "mc",
-                "prompt": "毎朝 水を 一杯 飲む <u>習慣</u> が あります。",
-                "promptVi": "Tôi có thói quen uống một cốc nước mỗi buổi sáng.",
-                "targetWord": "習慣",
+                "prompt": "これは <u>自分</u> で 作りました。",
+                "promptVi": "Tôi tự mình làm việc này.",
+                "targetWord": "自分",
                 "options": [
-                  "しゅうかん",
-                  "じゅうかん",
-                  "しゅかん",
-                  "しゅうけん"
+                  "じぶん",
+                  "しぶん",
+                  "じほん",
+                  "じもん"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 習慣 ➔ しゅうかん (Thói quen/tập quán - Bài 16)."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 自分（じぶん）: bản thân, tự mình."
               },
               {
                 "id": 4,
                 "type": "mc",
-                "prompt": "体調が 悪いときは、医者に <u>相談</u> します。",
-                "promptVi": "Khi sức khỏe không tốt, tôi sẽ tham vấn/hỏi ý kiến bác sĩ.",
-                "targetWord": "相談",
+                "prompt": "<u>毎日</u> 日本語を 勉強します。",
+                "promptVi": "Tôi học tiếng Nhật mỗi ngày.",
+                "targetWord": "毎日",
                 "options": [
-                  "そうだん",
-                  "しょうだん",
-                  "そだん",
-                  "そうだつ"
+                  "まいにち",
+                  "まいひ",
+                  "まいじつ",
+                  "まいび"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 相談 ➔ そうだん (Thảo luận/tham vấn - Bài 16)."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 毎日（まいにち）: mỗi ngày."
               },
               {
                 "id": 5,
                 "type": "mc",
-                "prompt": "どうぞ <u>遠慮</u> しないで 食べて ください。",
-                "promptVi": "Xin mời cứ tự nhiên dùng bữa, đừng ngại ngùng nhé.",
-                "targetWord": "遠慮",
+                "prompt": "<u>週末</u> に 友達と 会います。",
+                "promptVi": "Cuối tuần tôi gặp bạn.",
+                "targetWord": "週末",
                 "options": [
-                  "えんりょ",
-                  "おんりょ",
-                  "えんろ",
-                  "えんりょう"
+                  "しゅうまつ",
+                  "しゅまつ",
+                  "しゅうばつ",
+                  "しゅうげつ"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 遠慮 ➔ えんりょ (Khách khí/ngại ngùng - Bài 12)."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 週末（しゅうまつ）: cuối tuần."
               },
               {
                 "id": 6,
                 "type": "mc",
-                "prompt": "この 機械の 使い方は とても <u>複雑</u> です。",
-                "promptVi": "Cách sử dụng chiếc máy móc này rất phức tạp.",
-                "targetWord": "複雑",
+                "prompt": "今日は 私の <u>誕生日</u> です。",
+                "promptVi": "Hôm nay là sinh nhật tôi.",
+                "targetWord": "誕生日",
                 "options": [
-                  "ふくざつ",
-                  "ふくさつ",
-                  "ふくぞう",
-                  "ぶくざつ"
+                  "たんじょうび",
+                  "たんじょび",
+                  "たんせいび",
+                  "たんしょうひ"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 複雑 ➔ ふくざつ (Phức tạp - Bài 18)."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 誕生日（たんじょうび）: sinh nhật."
               },
               {
                 "id": 7,
                 "type": "mc",
-                "prompt": "マラソン大会に <u>参加</u> したいです。",
-                "promptVi": "Tôi muốn tham gia vào đại hội chạy marathon.",
-                "targetWord": "参加",
+                "prompt": "毎朝 公園を <u>走ります</u>。",
+                "promptVi": "Mỗi sáng tôi chạy trong công viên.",
+                "targetWord": "走ります",
                 "options": [
-                  "さんか",
-                  "さんけい",
-                  "まいか",
-                  "さんしゃ"
+                  "はしります",
+                  "はじります",
+                  "そうります",
+                  "はします"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 参加 ➔ さんか (Tham gia - Bài 13/16)."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 走ります（はしります）: chạy."
               },
               {
                 "id": 8,
                 "type": "mc",
-                "prompt": "結婚式に <u>招待</u> されました。",
-                "promptVi": "Tôi đã được mời tham dự lễ kết hôn.",
-                "targetWord": "招待",
+                "prompt": "冬に コートを <u>着ます</u>。",
+                "promptVi": "Mùa đông tôi mặc áo khoác.",
+                "targetWord": "着ます",
                 "options": [
-                  "しょうたい",
-                  "じょうたい",
-                  "しょうだい",
-                  "せいたい"
+                  "きます",
+                  "きります",
+                  "つきます",
+                  "ちゃくます"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 招待 ➔ しょうたい (Chiêu đãi/mời - Bài 13)."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 着ます（きます）: mặc."
               },
               {
                 "id": 9,
                 "type": "mc",
-                "prompt": "先生には 大変 お<u>世話</u> に なりました。",
-                "promptVi": "Tôi đã được thầy cô giáo giúp đỡ chăm sóc rất nhiều.",
-                "targetWord": "世話",
+                "prompt": "<u>電車</u> で 会社へ 行きます。",
+                "promptVi": "Tôi đi tàu điện đến công ty.",
+                "targetWord": "電車",
                 "options": [
-                  "せわ",
-                  "よわ",
-                  "せいふ",
-                  "せいわ"
+                  "でんしゃ",
+                  "でんじゃ",
+                  "てんしゃ",
+                  "でんちゃ"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• お世話 ➔ おせわ (Chăm sóc/giúp đỡ - Bài 14/18)."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 電車（でんしゃ）: tàu điện."
               },
               {
                 "id": 10,
                 "type": "mc",
-                "prompt": "今夜は 仕事が 多いので <u>残業</u> します。",
-                "promptVi": "Tối nay vì việc nhiều nên tôi sẽ làm thêm giờ.",
-                "targetWord": "残業",
+                "prompt": "母に 写真を <u>送ります</u>。",
+                "promptVi": "Tôi gửi ảnh cho mẹ.",
+                "targetWord": "送ります",
                 "options": [
-                  "ざんぎょう",
-                  "さんぎょう",
-                  "ざんごう",
-                  "のこりぎょう"
+                  "おくります",
+                  "おぐります",
+                  "そうります",
+                  "おくれます"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 残業 ➔ ざんぎょう (Làm thêm giờ/OT - Bài 18)."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 送ります（おくります）: gửi."
               }
             ]
           },
@@ -2517,170 +2517,170 @@ window.DE_THI_TONG_HOP_DATA = [
               {
                 "id": 11,
                 "type": "mc",
-                "prompt": "新しい 同僚を (   ) します。",
-                "promptVi": "Tôi xin giới thiệu người đồng nghiệp mới.",
+                "prompt": "日本語の (   ) を 練習します。",
+                "promptVi": "Tôi luyện phát âm tiếng Nhật.",
                 "options": [
-                  "紹介",
-                  "案内",
-                  "連絡",
-                  "相談"
+                  "発音",
+                  "料理",
+                  "結婚",
+                  "計画"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 紹介する (しょうかい): Giới thiệu."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 発音: phát âm."
               },
               {
                 "id": 12,
                 "type": "mc",
-                "prompt": "暗いですから、電気を (   ) ください。",
-                "promptVi": "Trời tối rồi nên hãy bật đèn lên nhé.",
+                "prompt": "友達の 結婚の (   ) を します。",
+                "promptVi": "Tôi chúc mừng đám cưới của bạn.",
                 "options": [
-                  "つけて",
-                  "けして",
-                  "あけて",
-                  "しめて"
+                  "お祝い",
+                  "お酒",
+                  "電車",
+                  "週末"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 電気をつける: Bật điện (ngược với 消す: tắt)."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• お祝い: chúc mừng, quà mừng."
               },
               {
                 "id": 13,
                 "type": "mc",
-                "prompt": "その 着物は あなたに とても (   ) いますよ。",
-                "promptVi": "Bộ Kimono đó trông rất hợp với bạn đấy.",
+                "prompt": "週末は (   ) と 食事を します。",
+                "promptVi": "Cuối tuần tôi ăn cơm cùng gia đình.",
                 "options": [
-                  "似合って",
-                  "向かって",
-                  "始まって",
-                  "終わって"
+                  "家族",
+                  "計画",
+                  "発音",
+                  "料理"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 似合う: Hợp thời trang/vóc dáng."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 家族: gia đình."
               },
               {
                 "id": 14,
                 "type": "mc",
-                "prompt": "体の (   ) が 悪いですから、病院へ 行きます。",
-                "promptVi": "Tình trạng cơ thể không ổn nên tôi đi bệnh viện.",
+                "prompt": "毎日 運動して、(   ) に なりたいです。",
+                "promptVi": "Tôi muốn khỏe mạnh nhờ tập thể dục mỗi ngày.",
                 "options": [
-                  "具合",
-                  "体調",
-                  "気分",
-                  "病気"
+                  "健康",
+                  "結婚",
+                  "電車",
+                  "誕生日"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 具合 (ぐあい) が悪い: Tình trạng sức khỏe không tốt."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 健康: sức khỏe, khỏe mạnh."
               },
               {
                 "id": 15,
                 "type": "mc",
-                "prompt": "息を (   ) 吸って、リラックスして ください。",
-                "promptVi": "Hãy hít vào thật sâu và thư giãn nhé.",
+                "prompt": "(   ) に 友達と 会います。",
+                "promptVi": "Cuối tuần tôi gặp bạn.",
                 "options": [
-                  "深く",
-                  "重く",
-                  "高く",
-                  "近く"
+                  "週末",
+                  "毎日",
+                  "誕生日",
+                  "料理"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 深く吸う: Hít sâu."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 週末: cuối tuần."
               },
               {
                 "id": 16,
                 "type": "mc",
-                "prompt": "契約書を (   ) で 送信しました。",
-                "promptVi": "Tôi đã gửi bản hợp đồng qua máy fax.",
+                "prompt": "今日は 母の (   ) です。",
+                "promptVi": "Hôm nay là sinh nhật mẹ.",
                 "options": [
-                  "ファクス",
-                  "コピー",
-                  "ポスト",
-                  "メモ"
+                  "誕生日",
+                  "結婚",
+                  "お祝い",
+                  "計画"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• ファクス (Fax): Máy fax/bản fax văn phòng."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 誕生日: sinh nhật."
               },
               {
                 "id": 17,
                 "type": "mc",
-                "prompt": "友人の 結婚の (   ) に 時計を あげました。",
-                "promptVi": "Tôi tặng đồng hồ làm quà chúc mừng kết hôn của bạn.",
+                "prompt": "家族は とても (   ) です。",
+                "promptVi": "Gia đình rất quan trọng.",
                 "options": [
-                  "お祝い",
-                  "お礼",
-                  "お土産",
-                  "お祭り"
+                  "大切",
+                  "健康",
+                  "有名",
+                  "週末"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• お祝い (おいわい): Quà/lời chúc mừng."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 大切: quan trọng, quý giá."
               },
               {
                 "id": 18,
                 "type": "mc",
-                "prompt": "毎日 ３ (   ) ジョギングを しています。",
-                "promptVi": "Mỗi ngày tôi chạy bộ 3 km.",
+                "prompt": "(   ) で 会社へ 行きます。",
+                "promptVi": "Tôi đi tàu điện đến công ty.",
                 "options": [
-                  "キロ",
-                  "メートル",
-                  "グラム",
-                  "リットル"
+                  "電車",
+                  "料理",
+                  "お酒",
+                  "発音"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• キロ (km): Kilomet chạy bộ."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 電車: tàu điện."
               },
               {
                 "id": 19,
                 "type": "mc",
-                "prompt": "一か月に ４ (   ) 映画を 見ます。",
-                "promptVi": "Một tháng tôi xem phim 4 lần.",
+                "prompt": "毎朝 公園を (   )。",
+                "promptVi": "Mỗi sáng tôi chạy trong công viên.",
                 "options": [
-                  "回",
-                  "分",
-                  "時間",
-                  "人"
+                  "走ります",
+                  "送ります",
+                  "思います",
+                  "着ます"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 回 (かい): Số lần hoạt động."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 走ります: chạy."
               },
               {
                 "id": 20,
                 "type": "mc",
-                "prompt": "私は えびの (   ) が あります。",
-                "promptVi": "Tôi bị dị ứng tôm.",
+                "prompt": "大切だと (   )。",
+                "promptVi": "Tôi nghĩ là quan trọng.",
                 "options": [
-                  "アレルギー",
-                  "エネルギー",
-                  "インフルエンザ",
-                  "ストレス"
+                  "思います",
+                  "送ります",
+                  "走ります",
+                  "着ます"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• アレルギー (Allergy): Dị ứng đồ ăn."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 思います: nghĩ."
               },
               {
                 "id": 24,
                 "type": "mc",
-                "prompt": "カレーを 食べる とき、(   ) を 使います。",
-                "promptVi": "Khi ăn món cà ri, tôi dùng thìa (muỗng).",
+                "prompt": "日本の (   ) が 好きです。",
+                "promptVi": "Tôi thích món ăn Nhật.",
                 "options": [
-                  "スプーン",
-                  "フォーク",
-                  "ナイフ",
-                  "グラス"
+                  "料理",
+                  "計画",
+                  "健康",
+                  "発音"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• スプーン (Spoon): Chiếc thìa ăn cơm/súp."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 料理: món ăn, nấu ăn."
               },
               {
                 "id": 25,
                 "type": "mc",
-                "prompt": "この 薬は とても (   ) ですから、飲みにくいです。",
-                "promptVi": "Thuốc này rất đắng nên khó uống.",
+                "prompt": "健康のために、(   )を あまり 飲みません。",
+                "promptVi": "Vì sức khỏe nên tôi không uống nhiều rượu.",
                 "options": [
-                  "にがい",
-                  "あまい",
-                  "すっぱい",
-                  "しょっぱい"
+                  "お酒",
+                  "電車",
+                  "週末",
+                  "計画"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• にがい (苦い): Đắng (vị của thuốc)."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• お酒: rượu, đồ uống có cồn."
               }
             ]
           }
@@ -2728,8 +2728,8 @@ window.DE_THI_TONG_HOP_DATA = [
               {
                 "id": 28,
                 "type": "mc",
-                "prompt": "富士山に 登ったことが (   )。",
-                "promptVi": "Tôi đã từng leo núi Phú Sĩ.",
+                "prompt": "日本へ 行ったことが (   )。",
+                "promptVi": "Tôi đã từng đi Nhật Bản.",
                 "options": [
                   "あります",
                   "います",
@@ -2737,7 +2737,7 @@ window.DE_THI_TONG_HOP_DATA = [
                   "なります"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-た ことが あります (Bài 12): Nói về kinh nghiệm đã từng."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-た ことが あります: nói về kinh nghiệm đã từng (bài 13)."
               },
               {
                 "id": 29,
@@ -3057,11 +3057,11 @@ window.DE_THI_TONG_HOP_DATA = [
                 "options": [
                   "聴いたり・たり",
                   "聴いて・て",
-                  "聴きながら・ながら",
+                  "聴く・く",
                   "聴いた・た"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• ～たり～たりしました (Bài 15)."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• ～たり～たりしました (Bài 16)."
               },
               {
                 "id": 52,
@@ -3103,7 +3103,7 @@ window.DE_THI_TONG_HOP_DATA = [
                   "で・の"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• 会議の日時 (liên kết danh từ); 明日がいいと思います (đề xuất) (Bài 18)."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• 会議の日時; 明日がいいと思います (Bài 18)."
               },
               {
                 "id": 55,
@@ -3122,8 +3122,8 @@ window.DE_THI_TONG_HOP_DATA = [
               {
                 "id": 56,
                 "type": "mc",
-                "prompt": "初めて 納豆を (   )。思ったより おいしかったです。",
-                "promptVi": "Lần đầu tiên tôi ăn thử món Natto. Ngon hơn tôi tưởng.",
+                "prompt": "初めて 日本の 料理を (   )。とても おいしかったです。",
+                "promptVi": "Lần đầu tiên tôi thử món ăn Nhật. Rất ngon.",
                 "options": [
                   "食べてみました",
                   "食べていました",
@@ -3131,7 +3131,7 @@ window.DE_THI_TONG_HOP_DATA = [
                   "食べたことがあります"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-てみる ➔ てみました (Bài 11): Đã ăn thử nghiệm."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-てみる ➔ てみました: đã thử ăn (bài 11)."
               },
               {
                 "id": 57,
@@ -3237,7 +3237,7 @@ window.DE_THI_TONG_HOP_DATA = [
               {
                 "id": 63,
                 "type": "mc",
-                "prompt": "3. 朝ごはんを しっかり 食べるようになって、どう なりましたか。",
+                "prompt": "3. 朝ごはんを しっかり 食べて、どう なりましたか。",
                 "promptVi": "Sau khi duy trì ăn sáng đầy đủ thì kết quả thế nào?",
                 "options": [
                   "体調がとてもよくなりました。",
@@ -3532,137 +3532,137 @@ window.DE_THI_TONG_HOP_DATA = [
               {
                 "id": 1,
                 "type": "mc",
-                "prompt": "毎朝 水を 一杯 飲む <u>習慣</u> が あります。",
-                "promptVi": "Tôi có thói quen uống một cốc nước mỗi buổi sáng.",
-                "targetWord": "習慣",
+                "prompt": "これは <u>自分</u> で 作りました。",
+                "promptVi": "Tôi tự mình làm việc này.",
+                "targetWord": "自分",
                 "options": [
-                  "しゅうかん",
-                  "じゅうかん",
-                  "しゅかん",
-                  "しゅうけん"
+                  "じぶん",
+                  "しぶん",
+                  "じほん",
+                  "じもん"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 習慣 ➔ しゅうかん (Thói quen/tập quán - Bài 16)."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 自分（じぶん）: bản thân, tự mình."
               },
               {
                 "id": 2,
                 "type": "mc",
-                "prompt": "体調が 悪いときは、医者に <u>相談</u> します。",
-                "promptVi": "Khi sức khỏe không tốt, tôi sẽ tham vấn/hỏi ý kiến bác sĩ.",
-                "targetWord": "相談",
+                "prompt": "<u>毎日</u> 日本語を 勉強します。",
+                "promptVi": "Tôi học tiếng Nhật mỗi ngày.",
+                "targetWord": "毎日",
                 "options": [
-                  "そうだん",
-                  "しょうだん",
-                  "そだん",
-                  "そうだつ"
+                  "まいにち",
+                  "まいひ",
+                  "まいじつ",
+                  "まいび"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 相談 ➔ そうだん (Thảo luận/tham vấn - Bài 16)."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 毎日（まいにち）: mỗi ngày."
               },
               {
                 "id": 3,
                 "type": "mc",
-                "prompt": "どうぞ <u>遠慮</u> しないで 食べて ください。",
-                "promptVi": "Xin mời cứ tự nhiên dùng bữa, đừng ngại ngùng nhé.",
-                "targetWord": "遠慮",
+                "prompt": "<u>週末</u> に 友達と 会います。",
+                "promptVi": "Cuối tuần tôi gặp bạn.",
+                "targetWord": "週末",
                 "options": [
-                  "えんりょ",
-                  "おんりょ",
-                  "えんろ",
-                  "えんりょう"
+                  "しゅうまつ",
+                  "しゅまつ",
+                  "しゅうばつ",
+                  "しゅうげつ"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 遠慮 ➔ えんりょ (Khách khí/ngại ngùng - Bài 12)."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 週末（しゅうまつ）: cuối tuần."
               },
               {
                 "id": 4,
                 "type": "mc",
-                "prompt": "この 機械の 使い方は とても <u>複雑</u> です。",
-                "promptVi": "Cách sử dụng chiếc máy móc này rất phức tạp.",
-                "targetWord": "複雑",
+                "prompt": "今日は 私の <u>誕生日</u> です。",
+                "promptVi": "Hôm nay là sinh nhật tôi.",
+                "targetWord": "誕生日",
                 "options": [
-                  "ふくざつ",
-                  "ふくさつ",
-                  "ふくぞう",
-                  "ぶくざつ"
+                  "たんじょうび",
+                  "たんじょび",
+                  "たんせいび",
+                  "たんしょうひ"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 複雑 ➔ ふくざつ (Phức tạp - Bài 18)."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 誕生日（たんじょうび）: sinh nhật."
               },
               {
                 "id": 5,
                 "type": "mc",
-                "prompt": "マラソン大会に <u>参加</u> したいです。",
-                "promptVi": "Tôi muốn tham gia vào đại hội chạy marathon.",
-                "targetWord": "参加",
+                "prompt": "毎朝 公園を <u>走ります</u>。",
+                "promptVi": "Mỗi sáng tôi chạy trong công viên.",
+                "targetWord": "走ります",
                 "options": [
-                  "さんか",
-                  "さんけい",
-                  "まいか",
-                  "さんしゃ"
+                  "はしります",
+                  "はじります",
+                  "そうります",
+                  "はします"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 参加 ➔ さんか (Tham gia - Bài 13/16)."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 走ります（はしります）: chạy."
               },
               {
                 "id": 6,
                 "type": "mc",
-                "prompt": "結婚式に <u>招待</u> されました。",
-                "promptVi": "Tôi đã được mời tham dự lễ kết hôn.",
-                "targetWord": "招待",
+                "prompt": "冬に コートを <u>着ます</u>。",
+                "promptVi": "Mùa đông tôi mặc áo khoác.",
+                "targetWord": "着ます",
                 "options": [
-                  "しょうたい",
-                  "じょうたい",
-                  "しょうだい",
-                  "せいたい"
+                  "きます",
+                  "きります",
+                  "つきます",
+                  "ちゃくます"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 招待 ➔ しょうたい (Chiêu đãi/mời - Bài 13)."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 着ます（きます）: mặc."
               },
               {
                 "id": 7,
                 "type": "mc",
-                "prompt": "先生には 大変 お<u>世話</u> に なりました。",
-                "promptVi": "Tôi đã được thầy cô giáo giúp đỡ chăm sóc rất nhiều.",
-                "targetWord": "世話",
+                "prompt": "<u>電車</u> で 会社へ 行きます。",
+                "promptVi": "Tôi đi tàu điện đến công ty.",
+                "targetWord": "電車",
                 "options": [
-                  "せわ",
-                  "よわ",
-                  "せいふ",
-                  "せいわ"
+                  "でんしゃ",
+                  "でんじゃ",
+                  "てんしゃ",
+                  "でんちゃ"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• お世話 ➔ おせわ (Chăm sóc/giúp đỡ - Bài 14/18)."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 電車（でんしゃ）: tàu điện."
               },
               {
                 "id": 8,
                 "type": "mc",
-                "prompt": "今夜は 仕事が 多いので <u>残業</u> します。",
-                "promptVi": "Tối nay vì việc nhiều nên tôi sẽ làm thêm giờ.",
-                "targetWord": "残業",
+                "prompt": "母に 写真を <u>送ります</u>。",
+                "promptVi": "Tôi gửi ảnh cho mẹ.",
+                "targetWord": "送ります",
                 "options": [
-                  "ざんぎょう",
-                  "さんぎょう",
-                  "ざんごう",
-                  "のこりぎょう"
+                  "おくります",
+                  "おぐります",
+                  "そうります",
+                  "おくれます"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 残業 ➔ ざんぎょう (Làm thêm giờ/OT - Bài 18)."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 送ります（おくります）: gửi."
               },
               {
                 "id": 9,
                 "type": "mc",
-                "prompt": "体に <u>無理</u> を しないで ください。",
-                "promptVi": "Xin đừng quá sức / làm điều quá sức đối với cơ thể.",
-                "targetWord": "無理",
+                "prompt": "大切だと <u>思います</u>。",
+                "promptVi": "Tôi nghĩ là quan trọng.",
+                "targetWord": "思います",
                 "options": [
-                  "むり",
-                  "ぶり",
-                  "むらい",
-                  "むりん"
+                  "おもいます",
+                  "おぼいます",
+                  "おもいします",
+                  "しもいます"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 無理 ➔ むり (Quá sức/vô lý - Bài 16)."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 思います（おもいます）: nghĩ."
               },
               {
                 "id": 10,
@@ -3672,12 +3672,12 @@ window.DE_THI_TONG_HOP_DATA = [
                 "targetWord": "計画",
                 "options": [
                   "けいかく",
+                  "けいがく",
                   "けいかん",
-                  "かいかく",
-                  "けいがく"
+                  "かいかく"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 計画 ➔ けいかく (Kế hoạch - Bài 18)."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 計画（けいかく）: kế hoạch."
               }
             ]
           },
@@ -3688,170 +3688,170 @@ window.DE_THI_TONG_HOP_DATA = [
               {
                 "id": 11,
                 "type": "mc",
-                "prompt": "暗いですから、電気を (   ) ください。",
-                "promptVi": "Trời tối rồi nên hãy bật đèn lên nhé.",
+                "prompt": "友達の 結婚の (   ) を します。",
+                "promptVi": "Tôi chúc mừng đám cưới của bạn.",
                 "options": [
-                  "つけて",
-                  "けして",
-                  "あけて",
-                  "しめて"
+                  "お祝い",
+                  "お酒",
+                  "電車",
+                  "週末"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 電気をつける: Bật điện (ngược với 消す: tắt)."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• お祝い: chúc mừng, quà mừng."
               },
               {
                 "id": 12,
                 "type": "mc",
-                "prompt": "その 着物は あなたに とても (   ) いますよ。",
-                "promptVi": "Bộ Kimono đó trông rất hợp với bạn đấy.",
+                "prompt": "週末は (   ) と 食事を します。",
+                "promptVi": "Cuối tuần tôi ăn cơm cùng gia đình.",
                 "options": [
-                  "似合って",
-                  "向かって",
-                  "始まって",
-                  "終わって"
+                  "家族",
+                  "計画",
+                  "発音",
+                  "料理"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 似合う: Hợp thời trang/vóc dáng."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 家族: gia đình."
               },
               {
                 "id": 13,
                 "type": "mc",
-                "prompt": "体の (   ) が 悪いですから、病院へ 行きます。",
-                "promptVi": "Tình trạng cơ thể không ổn nên tôi đi bệnh viện.",
+                "prompt": "毎日 運動して、(   ) に なりたいです。",
+                "promptVi": "Tôi muốn khỏe mạnh nhờ tập thể dục mỗi ngày.",
                 "options": [
-                  "具合",
-                  "体調",
-                  "気分",
-                  "病気"
+                  "健康",
+                  "結婚",
+                  "電車",
+                  "誕生日"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 具合 (ぐあい) が悪い: Tình trạng sức khỏe không tốt."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 健康: sức khỏe, khỏe mạnh."
               },
               {
                 "id": 14,
                 "type": "mc",
-                "prompt": "息を (   ) 吸って、リラックスして ください。",
-                "promptVi": "Hãy hít vào thật sâu và thư giãn nhé.",
+                "prompt": "(   ) に 友達と 会います。",
+                "promptVi": "Cuối tuần tôi gặp bạn.",
                 "options": [
-                  "深く",
-                  "重く",
-                  "高く",
-                  "近く"
+                  "週末",
+                  "毎日",
+                  "誕生日",
+                  "料理"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 深く吸う: Hít sâu."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 週末: cuối tuần."
               },
               {
                 "id": 15,
                 "type": "mc",
-                "prompt": "契約書を (   ) で 送信しました。",
-                "promptVi": "Tôi đã gửi bản hợp đồng qua máy fax.",
+                "prompt": "今日は 母の (   ) です。",
+                "promptVi": "Hôm nay là sinh nhật mẹ.",
                 "options": [
-                  "ファクス",
-                  "コピー",
-                  "ポスト",
-                  "メモ"
+                  "誕生日",
+                  "結婚",
+                  "お祝い",
+                  "計画"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• ファクス (Fax): Máy fax/bản fax văn phòng."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 誕生日: sinh nhật."
               },
               {
                 "id": 16,
                 "type": "mc",
-                "prompt": "友人の 結婚の (   ) に 時計を あげました。",
-                "promptVi": "Tôi tặng đồng hồ làm quà chúc mừng kết hôn của bạn.",
+                "prompt": "家族は とても (   ) です。",
+                "promptVi": "Gia đình rất quan trọng.",
                 "options": [
-                  "お祝い",
-                  "お礼",
-                  "お土産",
-                  "お祭り"
+                  "大切",
+                  "健康",
+                  "有名",
+                  "週末"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• お祝い (おいわい): Quà/lời chúc mừng."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 大切: quan trọng, quý giá."
               },
               {
                 "id": 17,
                 "type": "mc",
-                "prompt": "毎日 ３ (   ) ジョギングを しています。",
-                "promptVi": "Mỗi ngày tôi chạy bộ 3 km.",
+                "prompt": "(   ) で 会社へ 行きます。",
+                "promptVi": "Tôi đi tàu điện đến công ty.",
                 "options": [
-                  "キロ",
-                  "メートル",
-                  "グラム",
-                  "リットル"
+                  "電車",
+                  "料理",
+                  "お酒",
+                  "発音"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• キロ (km): Kilomet chạy bộ."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 電車: tàu điện."
               },
               {
                 "id": 18,
                 "type": "mc",
-                "prompt": "一か月に ４ (   ) 映画を 見ます。",
-                "promptVi": "Một tháng tôi xem phim 4 lần.",
+                "prompt": "毎朝 公園を (   )。",
+                "promptVi": "Mỗi sáng tôi chạy trong công viên.",
                 "options": [
-                  "回",
-                  "分",
-                  "時間",
-                  "人"
+                  "走ります",
+                  "送ります",
+                  "思います",
+                  "着ます"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 回 (かい): Số lần hoạt động."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 走ります: chạy."
               },
               {
                 "id": 19,
                 "type": "mc",
-                "prompt": "私は えびの (   ) が あります。",
-                "promptVi": "Tôi bị dị ứng tôm.",
+                "prompt": "大切だと (   )。",
+                "promptVi": "Tôi nghĩ là quan trọng.",
                 "options": [
-                  "アレルギー",
-                  "エネルギー",
-                  "インフルエンザ",
-                  "ストレス"
+                  "思います",
+                  "送ります",
+                  "走ります",
+                  "着ます"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• アレルギー (Allergy): Dị ứng đồ ăn."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 思います: nghĩ."
               },
               {
                 "id": 20,
                 "type": "mc",
-                "prompt": "カレーを 食べる とき、(   ) を 使います。",
-                "promptVi": "Khi ăn món cà ri, tôi dùng thìa (muỗng).",
+                "prompt": "日本の (   ) が 好きです。",
+                "promptVi": "Tôi thích món ăn Nhật.",
                 "options": [
-                  "スプーン",
-                  "フォーク",
-                  "ナイフ",
-                  "グラス"
+                  "料理",
+                  "計画",
+                  "健康",
+                  "発音"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• スプーン (Spoon): Chiếc thìa ăn cơm/súp."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 料理: món ăn, nấu ăn."
               },
               {
                 "id": 24,
                 "type": "mc",
-                "prompt": "この 薬は とても (   ) ですから、飲みにくいです。",
-                "promptVi": "Thuốc này rất đắng nên khó uống.",
+                "prompt": "健康のために、(   )を あまり 飲みません。",
+                "promptVi": "Vì sức khỏe nên tôi không uống nhiều rượu.",
                 "options": [
-                  "にがい",
-                  "あまい",
-                  "すっぱい",
-                  "しょっぱい"
+                  "お酒",
+                  "電車",
+                  "週末",
+                  "計画"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• にがい (苦い): Đắng (vị của thuốc)."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• お酒: rượu, đồ uống có cồn."
               },
               {
                 "id": 25,
                 "type": "mc",
-                "prompt": "新しい 同僚を (   ) します。",
-                "promptVi": "Tôi xin giới thiệu người đồng nghiệp mới.",
+                "prompt": "日本語の (   ) を 練習します。",
+                "promptVi": "Tôi luyện phát âm tiếng Nhật.",
                 "options": [
-                  "紹介",
-                  "案内",
-                  "連絡",
-                  "相談"
+                  "発音",
+                  "料理",
+                  "結婚",
+                  "計画"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 紹介する (しょうかい): Giới thiệu."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 発音: phát âm."
               }
             ]
           }
@@ -4186,11 +4186,11 @@ window.DE_THI_TONG_HOP_DATA = [
                 "options": [
                   "聴いたり・たり",
                   "聴いて・て",
-                  "聴きながら・ながら",
+                  "聴く・く",
                   "聴いた・た"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• ～たり～たりしました (Bài 15)."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• ～たり～たりしました (Bài 16)."
               },
               {
                 "id": 49,
@@ -4232,7 +4232,7 @@ window.DE_THI_TONG_HOP_DATA = [
                   "で・の"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• 会議の日時 (liên kết danh từ); 明日がいいと思います (đề xuất) (Bài 18)."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• 会議の日時; 明日がいいと思います (Bài 18)."
               },
               {
                 "id": 52,
@@ -4251,8 +4251,8 @@ window.DE_THI_TONG_HOP_DATA = [
               {
                 "id": 53,
                 "type": "mc",
-                "prompt": "初めて 納豆を (   )。思ったより おいしかったです。",
-                "promptVi": "Lần đầu tiên tôi ăn thử món Natto. Ngon hơn tôi tưởng.",
+                "prompt": "初めて 日本の 料理を (   )。とても おいしかったです。",
+                "promptVi": "Lần đầu tiên tôi thử món ăn Nhật. Rất ngon.",
                 "options": [
                   "食べてみました",
                   "食べていました",
@@ -4260,7 +4260,7 @@ window.DE_THI_TONG_HOP_DATA = [
                   "食べたことがあります"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-てみる ➔ てみました (Bài 11): Đã ăn thử nghiệm."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-てみる ➔ てみました: đã thử ăn (bài 11)."
               },
               {
                 "id": 54,
@@ -4349,8 +4349,8 @@ window.DE_THI_TONG_HOP_DATA = [
               {
                 "id": 60,
                 "type": "mc",
-                "prompt": "富士山に 登ったことが (   )。",
-                "promptVi": "Tôi đã từng leo núi Phú Sĩ.",
+                "prompt": "日本へ 行ったことが (   )。",
+                "promptVi": "Tôi đã từng đi Nhật Bản.",
                 "options": [
                   "あります",
                   "います",
@@ -4358,7 +4358,7 @@ window.DE_THI_TONG_HOP_DATA = [
                   "なります"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-た ことが あります (Bài 12): Nói về kinh nghiệm đã từng."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-た ことが あります: nói về kinh nghiệm đã từng (bài 13)."
               }
             ]
           }
@@ -4408,7 +4408,7 @@ window.DE_THI_TONG_HOP_DATA = [
               {
                 "id": 63,
                 "type": "mc",
-                "prompt": "3. 朝ごはんを しっかり 食べるようになって、どう なりましたか。",
+                "prompt": "3. 朝ごはんを しっかり 食べて、どう なりましたか。",
                 "promptVi": "Sau khi duy trì ăn sáng đầy đủ thì kết quả thế nào?",
                 "options": [
                   "体調がとてもよくなりました。",
@@ -4703,107 +4703,107 @@ window.DE_THI_TONG_HOP_DATA = [
               {
                 "id": 1,
                 "type": "mc",
-                "prompt": "どうぞ <u>遠慮</u> しないで 食べて ください。",
-                "promptVi": "Xin mời cứ tự nhiên dùng bữa, đừng ngại ngùng nhé.",
-                "targetWord": "遠慮",
+                "prompt": "<u>週末</u> に 友達と 会います。",
+                "promptVi": "Cuối tuần tôi gặp bạn.",
+                "targetWord": "週末",
                 "options": [
-                  "えんりょ",
-                  "おんりょ",
-                  "えんろ",
-                  "えんりょう"
+                  "しゅうまつ",
+                  "しゅまつ",
+                  "しゅうばつ",
+                  "しゅうげつ"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 遠慮 ➔ えんりょ (Khách khí/ngại ngùng - Bài 12)."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 週末（しゅうまつ）: cuối tuần."
               },
               {
                 "id": 2,
                 "type": "mc",
-                "prompt": "この 機械の 使い方は とても <u>複雑</u> です。",
-                "promptVi": "Cách sử dụng chiếc máy móc này rất phức tạp.",
-                "targetWord": "複雑",
+                "prompt": "今日は 私の <u>誕生日</u> です。",
+                "promptVi": "Hôm nay là sinh nhật tôi.",
+                "targetWord": "誕生日",
                 "options": [
-                  "ふくざつ",
-                  "ふくさつ",
-                  "ふくぞう",
-                  "ぶくざつ"
+                  "たんじょうび",
+                  "たんじょび",
+                  "たんせいび",
+                  "たんしょうひ"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 複雑 ➔ ふくざつ (Phức tạp - Bài 18)."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 誕生日（たんじょうび）: sinh nhật."
               },
               {
                 "id": 3,
                 "type": "mc",
-                "prompt": "マラソン大会に <u>参加</u> したいです。",
-                "promptVi": "Tôi muốn tham gia vào đại hội chạy marathon.",
-                "targetWord": "参加",
+                "prompt": "毎朝 公園を <u>走ります</u>。",
+                "promptVi": "Mỗi sáng tôi chạy trong công viên.",
+                "targetWord": "走ります",
                 "options": [
-                  "さんか",
-                  "さんけい",
-                  "まいか",
-                  "さんしゃ"
+                  "はしります",
+                  "はじります",
+                  "そうります",
+                  "はします"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 参加 ➔ さんか (Tham gia - Bài 13/16)."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 走ります（はしります）: chạy."
               },
               {
                 "id": 4,
                 "type": "mc",
-                "prompt": "結婚式に <u>招待</u> されました。",
-                "promptVi": "Tôi đã được mời tham dự lễ kết hôn.",
-                "targetWord": "招待",
+                "prompt": "冬に コートを <u>着ます</u>。",
+                "promptVi": "Mùa đông tôi mặc áo khoác.",
+                "targetWord": "着ます",
                 "options": [
-                  "しょうたい",
-                  "じょうたい",
-                  "しょうだい",
-                  "せいたい"
+                  "きます",
+                  "きります",
+                  "つきます",
+                  "ちゃくます"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 招待 ➔ しょうたい (Chiêu đãi/mời - Bài 13)."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 着ます（きます）: mặc."
               },
               {
                 "id": 5,
                 "type": "mc",
-                "prompt": "先生には 大変 お<u>世話</u> に なりました。",
-                "promptVi": "Tôi đã được thầy cô giáo giúp đỡ chăm sóc rất nhiều.",
-                "targetWord": "世話",
+                "prompt": "<u>電車</u> で 会社へ 行きます。",
+                "promptVi": "Tôi đi tàu điện đến công ty.",
+                "targetWord": "電車",
                 "options": [
-                  "せわ",
-                  "よわ",
-                  "せいふ",
-                  "せいわ"
+                  "でんしゃ",
+                  "でんじゃ",
+                  "てんしゃ",
+                  "でんちゃ"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• お世話 ➔ おせわ (Chăm sóc/giúp đỡ - Bài 14/18)."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 電車（でんしゃ）: tàu điện."
               },
               {
                 "id": 6,
                 "type": "mc",
-                "prompt": "今夜は 仕事が 多いので <u>残業</u> します。",
-                "promptVi": "Tối nay vì việc nhiều nên tôi sẽ làm thêm giờ.",
-                "targetWord": "残業",
+                "prompt": "母に 写真を <u>送ります</u>。",
+                "promptVi": "Tôi gửi ảnh cho mẹ.",
+                "targetWord": "送ります",
                 "options": [
-                  "ざんぎょう",
-                  "さんぎょう",
-                  "ざんごう",
-                  "のこりぎょう"
+                  "おくります",
+                  "おぐります",
+                  "そうります",
+                  "おくれます"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 残業 ➔ ざんぎょう (Làm thêm giờ/OT - Bài 18)."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 送ります（おくります）: gửi."
               },
               {
                 "id": 7,
                 "type": "mc",
-                "prompt": "体に <u>無理</u> を しないで ください。",
-                "promptVi": "Xin đừng quá sức / làm điều quá sức đối với cơ thể.",
-                "targetWord": "無理",
+                "prompt": "大切だと <u>思います</u>。",
+                "promptVi": "Tôi nghĩ là quan trọng.",
+                "targetWord": "思います",
                 "options": [
-                  "むり",
-                  "ぶり",
-                  "むらい",
-                  "むりん"
+                  "おもいます",
+                  "おぼいます",
+                  "おもいします",
+                  "しもいます"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 無理 ➔ むり (Quá sức/vô lý - Bài 16)."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 思います（おもいます）: nghĩ."
               },
               {
                 "id": 8,
@@ -4813,42 +4813,42 @@ window.DE_THI_TONG_HOP_DATA = [
                 "targetWord": "計画",
                 "options": [
                   "けいかく",
+                  "けいがく",
                   "けいかん",
-                  "かいかく",
-                  "けいがく"
+                  "かいかく"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 計画 ➔ けいかく (Kế hoạch - Bài 18)."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 計画（けいかく）: kế hoạch."
               },
               {
                 "id": 9,
                 "type": "mc",
-                "prompt": "友達に 京都の 町を <u>案内</u> しました。",
-                "promptVi": "Tôi đã hướng dẫn (dẫn đường) bạn bè tham quan thành phố Kyoto.",
-                "targetWord": "案内",
+                "prompt": "日本の <u>料理</u> が 好きです。",
+                "promptVi": "Tôi thích món ăn Nhật.",
+                "targetWord": "料理",
                 "options": [
-                  "あんない",
-                  "あない",
-                  "あんうち",
-                  "あんめい"
+                  "りょうり",
+                  "りょり",
+                  "りょうい",
+                  "りょくり"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 案内 ➔ あんない (Hướng dẫn/dẫn đường - Bài 13)."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 料理（りょうり）: món ăn, nấu ăn."
               },
               {
                 "id": 10,
                 "type": "mc",
-                "prompt": "遅れる ときは、必ず 会社に <u>連絡</u> して ください。",
-                "promptVi": "Khi đến muộn, nhất định hãy liên lạc cho công ty.",
-                "targetWord": "連絡",
+                "prompt": "日本語の <u>発音</u> を 練習します。",
+                "promptVi": "Tôi luyện phát âm tiếng Nhật.",
+                "targetWord": "発音",
                 "options": [
-                  "れんらく",
-                  "れんろく",
-                  "れんがく",
-                  "ろんらく"
+                  "はつおん",
+                  "はっおん",
+                  "はついん",
+                  "はちおん"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 連絡 ➔ れんらく (Liên lạc - Bài 18)."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 発音（はつおん）: phát âm."
               }
             ]
           },
@@ -4859,170 +4859,170 @@ window.DE_THI_TONG_HOP_DATA = [
               {
                 "id": 11,
                 "type": "mc",
-                "prompt": "その 着物は あなたに とても (   ) いますよ。",
-                "promptVi": "Bộ Kimono đó trông rất hợp với bạn đấy.",
+                "prompt": "週末は (   ) と 食事を します。",
+                "promptVi": "Cuối tuần tôi ăn cơm cùng gia đình.",
                 "options": [
-                  "似合って",
-                  "向かって",
-                  "始まって",
-                  "終わって"
+                  "家族",
+                  "計画",
+                  "発音",
+                  "料理"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 似合う: Hợp thời trang/vóc dáng."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 家族: gia đình."
               },
               {
                 "id": 12,
                 "type": "mc",
-                "prompt": "体の (   ) が 悪いですから、病院へ 行きます。",
-                "promptVi": "Tình trạng cơ thể không ổn nên tôi đi bệnh viện.",
+                "prompt": "毎日 運動して、(   ) に なりたいです。",
+                "promptVi": "Tôi muốn khỏe mạnh nhờ tập thể dục mỗi ngày.",
                 "options": [
-                  "具合",
-                  "体調",
-                  "気分",
-                  "病気"
+                  "健康",
+                  "結婚",
+                  "電車",
+                  "誕生日"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 具合 (ぐあい) が悪い: Tình trạng sức khỏe không tốt."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 健康: sức khỏe, khỏe mạnh."
               },
               {
                 "id": 13,
                 "type": "mc",
-                "prompt": "息を (   ) 吸って、リラックスして ください。",
-                "promptVi": "Hãy hít vào thật sâu và thư giãn nhé.",
+                "prompt": "(   ) に 友達と 会います。",
+                "promptVi": "Cuối tuần tôi gặp bạn.",
                 "options": [
-                  "深く",
-                  "重く",
-                  "高く",
-                  "近く"
+                  "週末",
+                  "毎日",
+                  "誕生日",
+                  "料理"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 深く吸う: Hít sâu."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 週末: cuối tuần."
               },
               {
                 "id": 14,
                 "type": "mc",
-                "prompt": "契約書を (   ) で 送信しました。",
-                "promptVi": "Tôi đã gửi bản hợp đồng qua máy fax.",
+                "prompt": "今日は 母の (   ) です。",
+                "promptVi": "Hôm nay là sinh nhật mẹ.",
                 "options": [
-                  "ファクス",
-                  "コピー",
-                  "ポスト",
-                  "メモ"
+                  "誕生日",
+                  "結婚",
+                  "お祝い",
+                  "計画"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• ファクス (Fax): Máy fax/bản fax văn phòng."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 誕生日: sinh nhật."
               },
               {
                 "id": 15,
                 "type": "mc",
-                "prompt": "友人の 結婚の (   ) に 時計を あげました。",
-                "promptVi": "Tôi tặng đồng hồ làm quà chúc mừng kết hôn của bạn.",
+                "prompt": "家族は とても (   ) です。",
+                "promptVi": "Gia đình rất quan trọng.",
                 "options": [
-                  "お祝い",
-                  "お礼",
-                  "お土産",
-                  "お祭り"
+                  "大切",
+                  "健康",
+                  "有名",
+                  "週末"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• お祝い (おいわい): Quà/lời chúc mừng."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 大切: quan trọng, quý giá."
               },
               {
                 "id": 16,
                 "type": "mc",
-                "prompt": "毎日 ３ (   ) ジョギングを しています。",
-                "promptVi": "Mỗi ngày tôi chạy bộ 3 km.",
+                "prompt": "(   ) で 会社へ 行きます。",
+                "promptVi": "Tôi đi tàu điện đến công ty.",
                 "options": [
-                  "キロ",
-                  "メートル",
-                  "グラム",
-                  "リットル"
+                  "電車",
+                  "料理",
+                  "お酒",
+                  "発音"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• キロ (km): Kilomet chạy bộ."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 電車: tàu điện."
               },
               {
                 "id": 17,
                 "type": "mc",
-                "prompt": "一か月に ４ (   ) 映画を 見ます。",
-                "promptVi": "Một tháng tôi xem phim 4 lần.",
+                "prompt": "毎朝 公園を (   )。",
+                "promptVi": "Mỗi sáng tôi chạy trong công viên.",
                 "options": [
-                  "回",
-                  "分",
-                  "時間",
-                  "人"
+                  "走ります",
+                  "送ります",
+                  "思います",
+                  "着ます"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 回 (かい): Số lần hoạt động."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 走ります: chạy."
               },
               {
                 "id": 18,
                 "type": "mc",
-                "prompt": "私は えびの (   ) が あります。",
-                "promptVi": "Tôi bị dị ứng tôm.",
+                "prompt": "大切だと (   )。",
+                "promptVi": "Tôi nghĩ là quan trọng.",
                 "options": [
-                  "アレルギー",
-                  "エネルギー",
-                  "インフルエンザ",
-                  "ストレス"
+                  "思います",
+                  "送ります",
+                  "走ります",
+                  "着ます"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• アレルギー (Allergy): Dị ứng đồ ăn."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 思います: nghĩ."
               },
               {
                 "id": 19,
                 "type": "mc",
-                "prompt": "カレーを 食べる とき、(   ) を 使います。",
-                "promptVi": "Khi ăn món cà ri, tôi dùng thìa (muỗng).",
+                "prompt": "日本の (   ) が 好きです。",
+                "promptVi": "Tôi thích món ăn Nhật.",
                 "options": [
-                  "スプーン",
-                  "フォーク",
-                  "ナイフ",
-                  "グラス"
+                  "料理",
+                  "計画",
+                  "健康",
+                  "発音"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• スプーン (Spoon): Chiếc thìa ăn cơm/súp."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 料理: món ăn, nấu ăn."
               },
               {
                 "id": 20,
                 "type": "mc",
-                "prompt": "この 薬は とても (   ) ですから、飲みにくいです。",
-                "promptVi": "Thuốc này rất đắng nên khó uống.",
+                "prompt": "健康のために、(   )を あまり 飲みません。",
+                "promptVi": "Vì sức khỏe nên tôi không uống nhiều rượu.",
                 "options": [
-                  "にがい",
-                  "あまい",
-                  "すっぱい",
-                  "しょっぱい"
+                  "お酒",
+                  "電車",
+                  "週末",
+                  "計画"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• にがい (苦い): Đắng (vị của thuốc)."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• お酒: rượu, đồ uống có cồn."
               },
               {
                 "id": 24,
                 "type": "mc",
-                "prompt": "新しい 同僚を (   ) します。",
-                "promptVi": "Tôi xin giới thiệu người đồng nghiệp mới.",
+                "prompt": "日本語の (   ) を 練習します。",
+                "promptVi": "Tôi luyện phát âm tiếng Nhật.",
                 "options": [
-                  "紹介",
-                  "案内",
-                  "連絡",
-                  "相談"
+                  "発音",
+                  "料理",
+                  "結婚",
+                  "計画"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 紹介する (しょうかい): Giới thiệu."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 発音: phát âm."
               },
               {
                 "id": 25,
                 "type": "mc",
-                "prompt": "暗いですから、電気を (   ) ください。",
-                "promptVi": "Trời tối rồi nên hãy bật đèn lên nhé.",
+                "prompt": "友達の 結婚の (   ) を します。",
+                "promptVi": "Tôi chúc mừng đám cưới của bạn.",
                 "options": [
-                  "つけて",
-                  "けして",
-                  "あけて",
-                  "しめて"
+                  "お祝い",
+                  "お酒",
+                  "電車",
+                  "週末"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 電気をつける: Bật điện (ngược với 消す: tắt)."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• お祝い: chúc mừng, quà mừng."
               }
             ]
           }
@@ -5315,11 +5315,11 @@ window.DE_THI_TONG_HOP_DATA = [
                 "options": [
                   "聴いたり・たり",
                   "聴いて・て",
-                  "聴きながら・ながら",
+                  "聴く・く",
                   "聴いた・た"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• ～たり～たりしました (Bài 15)."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• ～たり～たりしました (Bài 16)."
               },
               {
                 "id": 46,
@@ -5361,7 +5361,7 @@ window.DE_THI_TONG_HOP_DATA = [
                   "で・の"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• 会議の日時 (liên kết danh từ); 明日がいいと思います (đề xuất) (Bài 18)."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• 会議の日時; 明日がいいと思います (Bài 18)."
               },
               {
                 "id": 49,
@@ -5380,8 +5380,8 @@ window.DE_THI_TONG_HOP_DATA = [
               {
                 "id": 50,
                 "type": "mc",
-                "prompt": "初めて 納豆を (   )。思ったより おいしかったです。",
-                "promptVi": "Lần đầu tiên tôi ăn thử món Natto. Ngon hơn tôi tưởng.",
+                "prompt": "初めて 日本の 料理を (   )。とても おいしかったです。",
+                "promptVi": "Lần đầu tiên tôi thử món ăn Nhật. Rất ngon.",
                 "options": [
                   "食べてみました",
                   "食べていました",
@@ -5389,7 +5389,7 @@ window.DE_THI_TONG_HOP_DATA = [
                   "食べたことがあります"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-てみる ➔ てみました (Bài 11): Đã ăn thử nghiệm."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-てみる ➔ てみました: đã thử ăn (bài 11)."
               },
               {
                 "id": 51,
@@ -5478,8 +5478,8 @@ window.DE_THI_TONG_HOP_DATA = [
               {
                 "id": 57,
                 "type": "mc",
-                "prompt": "富士山に 登ったことが (   )。",
-                "promptVi": "Tôi đã từng leo núi Phú Sĩ.",
+                "prompt": "日本へ 行ったことが (   )。",
+                "promptVi": "Tôi đã từng đi Nhật Bản.",
                 "options": [
                   "あります",
                   "います",
@@ -5487,7 +5487,7 @@ window.DE_THI_TONG_HOP_DATA = [
                   "なります"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-た ことが あります (Bài 12): Nói về kinh nghiệm đã từng."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-た ことが あります: nói về kinh nghiệm đã từng (bài 13)."
               },
               {
                 "id": 58,
@@ -5579,7 +5579,7 @@ window.DE_THI_TONG_HOP_DATA = [
               {
                 "id": 63,
                 "type": "mc",
-                "prompt": "3. 朝ごはんを しっかり 食べるようになって、どう なりましたか。",
+                "prompt": "3. 朝ごはんを しっかり 食べて、どう なりましたか。",
                 "promptVi": "Sau khi duy trì ăn sáng đầy đủ thì kết quả thế nào?",
                 "options": [
                   "体調がとてもよくなりました。",
@@ -5874,77 +5874,77 @@ window.DE_THI_TONG_HOP_DATA = [
               {
                 "id": 1,
                 "type": "mc",
-                "prompt": "マラソン大会に <u>参加</u> したいです。",
-                "promptVi": "Tôi muốn tham gia vào đại hội chạy marathon.",
-                "targetWord": "参加",
+                "prompt": "毎朝 公園を <u>走ります</u>。",
+                "promptVi": "Mỗi sáng tôi chạy trong công viên.",
+                "targetWord": "走ります",
                 "options": [
-                  "さんか",
-                  "さんけい",
-                  "まいか",
-                  "さんしゃ"
+                  "はしります",
+                  "はじります",
+                  "そうります",
+                  "はします"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 参加 ➔ さんか (Tham gia - Bài 13/16)."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 走ります（はしります）: chạy."
               },
               {
                 "id": 2,
                 "type": "mc",
-                "prompt": "結婚式に <u>招待</u> されました。",
-                "promptVi": "Tôi đã được mời tham dự lễ kết hôn.",
-                "targetWord": "招待",
+                "prompt": "冬に コートを <u>着ます</u>。",
+                "promptVi": "Mùa đông tôi mặc áo khoác.",
+                "targetWord": "着ます",
                 "options": [
-                  "しょうたい",
-                  "じょうたい",
-                  "しょうだい",
-                  "せいたい"
+                  "きます",
+                  "きります",
+                  "つきます",
+                  "ちゃくます"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 招待 ➔ しょうたい (Chiêu đãi/mời - Bài 13)."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 着ます（きます）: mặc."
               },
               {
                 "id": 3,
                 "type": "mc",
-                "prompt": "先生には 大変 お<u>世話</u> に なりました。",
-                "promptVi": "Tôi đã được thầy cô giáo giúp đỡ chăm sóc rất nhiều.",
-                "targetWord": "世話",
+                "prompt": "<u>電車</u> で 会社へ 行きます。",
+                "promptVi": "Tôi đi tàu điện đến công ty.",
+                "targetWord": "電車",
                 "options": [
-                  "せわ",
-                  "よわ",
-                  "せいふ",
-                  "せいわ"
+                  "でんしゃ",
+                  "でんじゃ",
+                  "てんしゃ",
+                  "でんちゃ"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• お世話 ➔ おせわ (Chăm sóc/giúp đỡ - Bài 14/18)."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 電車（でんしゃ）: tàu điện."
               },
               {
                 "id": 4,
                 "type": "mc",
-                "prompt": "今夜は 仕事が 多いので <u>残業</u> します。",
-                "promptVi": "Tối nay vì việc nhiều nên tôi sẽ làm thêm giờ.",
-                "targetWord": "残業",
+                "prompt": "母に 写真を <u>送ります</u>。",
+                "promptVi": "Tôi gửi ảnh cho mẹ.",
+                "targetWord": "送ります",
                 "options": [
-                  "ざんぎょう",
-                  "さんぎょう",
-                  "ざんごう",
-                  "のこりぎょう"
+                  "おくります",
+                  "おぐります",
+                  "そうります",
+                  "おくれます"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 残業 ➔ ざんぎょう (Làm thêm giờ/OT - Bài 18)."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 送ります（おくります）: gửi."
               },
               {
                 "id": 5,
                 "type": "mc",
-                "prompt": "体に <u>無理</u> を しないで ください。",
-                "promptVi": "Xin đừng quá sức / làm điều quá sức đối với cơ thể.",
-                "targetWord": "無理",
+                "prompt": "大切だと <u>思います</u>。",
+                "promptVi": "Tôi nghĩ là quan trọng.",
+                "targetWord": "思います",
                 "options": [
-                  "むり",
-                  "ぶり",
-                  "むらい",
-                  "むりん"
+                  "おもいます",
+                  "おぼいます",
+                  "おもいします",
+                  "しもいます"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 無理 ➔ むり (Quá sức/vô lý - Bài 16)."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 思います（おもいます）: nghĩ."
               },
               {
                 "id": 6,
@@ -5954,72 +5954,72 @@ window.DE_THI_TONG_HOP_DATA = [
                 "targetWord": "計画",
                 "options": [
                   "けいかく",
+                  "けいがく",
                   "けいかん",
-                  "かいかく",
-                  "けいがく"
+                  "かいかく"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 計画 ➔ けいかく (Kế hoạch - Bài 18)."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 計画（けいかく）: kế hoạch."
               },
               {
                 "id": 7,
                 "type": "mc",
-                "prompt": "友達に 京都の 町を <u>案内</u> しました。",
-                "promptVi": "Tôi đã hướng dẫn (dẫn đường) bạn bè tham quan thành phố Kyoto.",
-                "targetWord": "案内",
+                "prompt": "日本の <u>料理</u> が 好きです。",
+                "promptVi": "Tôi thích món ăn Nhật.",
+                "targetWord": "料理",
                 "options": [
-                  "あんない",
-                  "あない",
-                  "あんうち",
-                  "あんめい"
+                  "りょうり",
+                  "りょり",
+                  "りょうい",
+                  "りょくり"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 案内 ➔ あんない (Hướng dẫn/dẫn đường - Bài 13)."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 料理（りょうり）: món ăn, nấu ăn."
               },
               {
                 "id": 8,
                 "type": "mc",
-                "prompt": "遅れる ときは、必ず 会社に <u>連絡</u> して ください。",
-                "promptVi": "Khi đến muộn, nhất định hãy liên lạc cho công ty.",
-                "targetWord": "連絡",
+                "prompt": "日本語の <u>発音</u> を 練習します。",
+                "promptVi": "Tôi luyện phát âm tiếng Nhật.",
+                "targetWord": "発音",
                 "options": [
-                  "れんらく",
-                  "れんろく",
-                  "れんがく",
-                  "ろんらく"
+                  "はつおん",
+                  "はっおん",
+                  "はついん",
+                  "はちおん"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 連絡 ➔ れんらく (Liên lạc - Bài 18)."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 発音（はつおん）: phát âm."
               },
               {
                 "id": 9,
                 "type": "mc",
-                "prompt": "パーティーの <u>準備</u> を 手伝って ください。",
-                "promptVi": "Hãy giúp tôi một tay chuẩn bị cho bữa tiệc.",
-                "targetWord": "準備",
+                "prompt": "友達が <u>結婚</u> しました。",
+                "promptVi": "Bạn tôi đã kết hôn.",
+                "targetWord": "結婚",
                 "options": [
-                  "じゅんび",
-                  "しゅんび",
-                  "じゅんひ",
-                  "じゅんぴ"
+                  "けっこん",
+                  "けつこん",
+                  "けっこう",
+                  "けんこん"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 準備 ➔ じゅんび (Chuẩn bị - Bài 11/13)."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 結婚（けっこん）: kết hôn."
               },
               {
                 "id": 10,
                 "type": "mc",
-                "prompt": "人気の レストランを <u>予約</u> しました。",
-                "promptVi": "Tôi đã đặt chỗ trước ở nhà hàng được yêu thích.",
-                "targetWord": "予約",
+                "prompt": "健康は <u>大切</u> です。",
+                "promptVi": "Sức khỏe rất quan trọng.",
+                "targetWord": "大切",
                 "options": [
-                  "よやく",
-                  "あらかじめやく",
-                  "よてい",
-                  "ゆうやく"
+                  "たいせつ",
+                  "だいせつ",
+                  "たいきり",
+                  "おおせつ"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 予約 ➔ よやく (Đặt trước - Bài 11)."
+                "explain": "💡 <strong>Giải thích chữ Hán:</strong><br>• 大切（たいせつ）: quan trọng, quý giá."
               }
             ]
           },
@@ -6030,170 +6030,170 @@ window.DE_THI_TONG_HOP_DATA = [
               {
                 "id": 11,
                 "type": "mc",
-                "prompt": "体の (   ) が 悪いですから、病院へ 行きます。",
-                "promptVi": "Tình trạng cơ thể không ổn nên tôi đi bệnh viện.",
+                "prompt": "毎日 運動して、(   ) に なりたいです。",
+                "promptVi": "Tôi muốn khỏe mạnh nhờ tập thể dục mỗi ngày.",
                 "options": [
-                  "具合",
-                  "体調",
-                  "気分",
-                  "病気"
+                  "健康",
+                  "結婚",
+                  "電車",
+                  "誕生日"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 具合 (ぐあい) が悪い: Tình trạng sức khỏe không tốt."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 健康: sức khỏe, khỏe mạnh."
               },
               {
                 "id": 12,
                 "type": "mc",
-                "prompt": "息を (   ) 吸って、リラックスして ください。",
-                "promptVi": "Hãy hít vào thật sâu và thư giãn nhé.",
+                "prompt": "(   ) に 友達と 会います。",
+                "promptVi": "Cuối tuần tôi gặp bạn.",
                 "options": [
-                  "深く",
-                  "重く",
-                  "高く",
-                  "近く"
+                  "週末",
+                  "毎日",
+                  "誕生日",
+                  "料理"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 深く吸う: Hít sâu."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 週末: cuối tuần."
               },
               {
                 "id": 13,
                 "type": "mc",
-                "prompt": "契約書を (   ) で 送信しました。",
-                "promptVi": "Tôi đã gửi bản hợp đồng qua máy fax.",
+                "prompt": "今日は 母の (   ) です。",
+                "promptVi": "Hôm nay là sinh nhật mẹ.",
                 "options": [
-                  "ファクス",
-                  "コピー",
-                  "ポスト",
-                  "メモ"
+                  "誕生日",
+                  "結婚",
+                  "お祝い",
+                  "計画"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• ファクス (Fax): Máy fax/bản fax văn phòng."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 誕生日: sinh nhật."
               },
               {
                 "id": 14,
                 "type": "mc",
-                "prompt": "友人の 結婚の (   ) に 時計を あげました。",
-                "promptVi": "Tôi tặng đồng hồ làm quà chúc mừng kết hôn của bạn.",
+                "prompt": "家族は とても (   ) です。",
+                "promptVi": "Gia đình rất quan trọng.",
                 "options": [
-                  "お祝い",
-                  "お礼",
-                  "お土産",
-                  "お祭り"
+                  "大切",
+                  "健康",
+                  "有名",
+                  "週末"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• お祝い (おいわい): Quà/lời chúc mừng."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 大切: quan trọng, quý giá."
               },
               {
                 "id": 15,
                 "type": "mc",
-                "prompt": "毎日 ３ (   ) ジョギングを しています。",
-                "promptVi": "Mỗi ngày tôi chạy bộ 3 km.",
+                "prompt": "(   ) で 会社へ 行きます。",
+                "promptVi": "Tôi đi tàu điện đến công ty.",
                 "options": [
-                  "キロ",
-                  "メートル",
-                  "グラム",
-                  "リットル"
+                  "電車",
+                  "料理",
+                  "お酒",
+                  "発音"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• キロ (km): Kilomet chạy bộ."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 電車: tàu điện."
               },
               {
                 "id": 16,
                 "type": "mc",
-                "prompt": "一か月に ４ (   ) 映画を 見ます。",
-                "promptVi": "Một tháng tôi xem phim 4 lần.",
+                "prompt": "毎朝 公園を (   )。",
+                "promptVi": "Mỗi sáng tôi chạy trong công viên.",
                 "options": [
-                  "回",
-                  "分",
-                  "時間",
-                  "人"
+                  "走ります",
+                  "送ります",
+                  "思います",
+                  "着ます"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 回 (かい): Số lần hoạt động."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 走ります: chạy."
               },
               {
                 "id": 17,
                 "type": "mc",
-                "prompt": "私は えびの (   ) が あります。",
-                "promptVi": "Tôi bị dị ứng tôm.",
+                "prompt": "大切だと (   )。",
+                "promptVi": "Tôi nghĩ là quan trọng.",
                 "options": [
-                  "アレルギー",
-                  "エネルギー",
-                  "インフルエンザ",
-                  "ストレス"
+                  "思います",
+                  "送ります",
+                  "走ります",
+                  "着ます"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• アレルギー (Allergy): Dị ứng đồ ăn."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 思います: nghĩ."
               },
               {
                 "id": 18,
                 "type": "mc",
-                "prompt": "カレーを 食べる とき、(   ) を 使います。",
-                "promptVi": "Khi ăn món cà ri, tôi dùng thìa (muỗng).",
+                "prompt": "日本の (   ) が 好きです。",
+                "promptVi": "Tôi thích món ăn Nhật.",
                 "options": [
-                  "スプーン",
-                  "フォーク",
-                  "ナイフ",
-                  "グラス"
+                  "料理",
+                  "計画",
+                  "健康",
+                  "発音"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• スプーン (Spoon): Chiếc thìa ăn cơm/súp."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 料理: món ăn, nấu ăn."
               },
               {
                 "id": 19,
                 "type": "mc",
-                "prompt": "この 薬は とても (   ) ですから、飲みにくいです。",
-                "promptVi": "Thuốc này rất đắng nên khó uống.",
+                "prompt": "健康のために、(   )を あまり 飲みません。",
+                "promptVi": "Vì sức khỏe nên tôi không uống nhiều rượu.",
                 "options": [
-                  "にがい",
-                  "あまい",
-                  "すっぱい",
-                  "しょっぱい"
+                  "お酒",
+                  "電車",
+                  "週末",
+                  "計画"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• にがい (苦い): Đắng (vị của thuốc)."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• お酒: rượu, đồ uống có cồn."
               },
               {
                 "id": 20,
                 "type": "mc",
-                "prompt": "新しい 同僚を (   ) します。",
-                "promptVi": "Tôi xin giới thiệu người đồng nghiệp mới.",
+                "prompt": "日本語の (   ) を 練習します。",
+                "promptVi": "Tôi luyện phát âm tiếng Nhật.",
                 "options": [
-                  "紹介",
-                  "案内",
-                  "連絡",
-                  "相談"
+                  "発音",
+                  "料理",
+                  "結婚",
+                  "計画"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 紹介する (しょうかい): Giới thiệu."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 発音: phát âm."
               },
               {
                 "id": 24,
                 "type": "mc",
-                "prompt": "暗いですから、電気を (   ) ください。",
-                "promptVi": "Trời tối rồi nên hãy bật đèn lên nhé.",
+                "prompt": "友達の 結婚の (   ) を します。",
+                "promptVi": "Tôi chúc mừng đám cưới của bạn.",
                 "options": [
-                  "つけて",
-                  "けして",
-                  "あけて",
-                  "しめて"
+                  "お祝い",
+                  "お酒",
+                  "電車",
+                  "週末"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 電気をつける: Bật điện (ngược với 消す: tắt)."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• お祝い: chúc mừng, quà mừng."
               },
               {
                 "id": 25,
                 "type": "mc",
-                "prompt": "その 着物は あなたに とても (   ) いますよ。",
-                "promptVi": "Bộ Kimono đó trông rất hợp với bạn đấy.",
+                "prompt": "週末は (   ) と 食事を します。",
+                "promptVi": "Cuối tuần tôi ăn cơm cùng gia đình.",
                 "options": [
-                  "似合って",
-                  "向かって",
-                  "始まって",
-                  "終わって"
+                  "家族",
+                  "計画",
+                  "発音",
+                  "料理"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 似合う: Hợp thời trang/vóc dáng."
+                "explain": "💡 <strong>Giải thích từ vựng:</strong><br>• 家族: gia đình."
               }
             ]
           }
@@ -6444,11 +6444,11 @@ window.DE_THI_TONG_HOP_DATA = [
                 "options": [
                   "聴いたり・たり",
                   "聴いて・て",
-                  "聴きながら・ながら",
+                  "聴く・く",
                   "聴いた・た"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• ～たり～たりしました (Bài 15)."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• ～たり～たりしました (Bài 16)."
               },
               {
                 "id": 43,
@@ -6490,7 +6490,7 @@ window.DE_THI_TONG_HOP_DATA = [
                   "で・の"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• 会議の日時 (liên kết danh từ); 明日がいいと思います (đề xuất) (Bài 18)."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• 会議の日時; 明日がいいと思います (Bài 18)."
               },
               {
                 "id": 46,
@@ -6509,8 +6509,8 @@ window.DE_THI_TONG_HOP_DATA = [
               {
                 "id": 47,
                 "type": "mc",
-                "prompt": "初めて 納豆を (   )。思ったより おいしかったです。",
-                "promptVi": "Lần đầu tiên tôi ăn thử món Natto. Ngon hơn tôi tưởng.",
+                "prompt": "初めて 日本の 料理を (   )。とても おいしかったです。",
+                "promptVi": "Lần đầu tiên tôi thử món ăn Nhật. Rất ngon.",
                 "options": [
                   "食べてみました",
                   "食べていました",
@@ -6518,7 +6518,7 @@ window.DE_THI_TONG_HOP_DATA = [
                   "食べたことがあります"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-てみる ➔ てみました (Bài 11): Đã ăn thử nghiệm."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-てみる ➔ てみました: đã thử ăn (bài 11)."
               },
               {
                 "id": 48,
@@ -6607,8 +6607,8 @@ window.DE_THI_TONG_HOP_DATA = [
               {
                 "id": 54,
                 "type": "mc",
-                "prompt": "富士山に 登ったことが (   )。",
-                "promptVi": "Tôi đã từng leo núi Phú Sĩ.",
+                "prompt": "日本へ 行ったことが (   )。",
+                "promptVi": "Tôi đã từng đi Nhật Bản.",
                 "options": [
                   "あります",
                   "います",
@@ -6616,7 +6616,7 @@ window.DE_THI_TONG_HOP_DATA = [
                   "なります"
                 ],
                 "correct": 0,
-                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-た ことが あります (Bài 12): Nói về kinh nghiệm đã từng."
+                "explain": "💡 <strong>Giải thích ngữ pháp:</strong><br>• V-た ことが あります: nói về kinh nghiệm đã từng (bài 13)."
               },
               {
                 "id": 55,
@@ -6750,7 +6750,7 @@ window.DE_THI_TONG_HOP_DATA = [
               {
                 "id": 63,
                 "type": "mc",
-                "prompt": "3. 朝ごはんを しっかり 食べるようになって、どう なりましたか。",
+                "prompt": "3. 朝ごはんを しっかり 食べて、どう なりましたか。",
                 "promptVi": "Sau khi duy trì ăn sáng đầy đủ thì kết quả thế nào?",
                 "options": [
                   "体調がとてもよくなりました。",

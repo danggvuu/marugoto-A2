@@ -74,4 +74,10 @@ for (const exam of examsContext.window.DE_THI_TONG_HOP_DATA) {
     assert(start);
     assert(!start.prompt.includes('勉強を ('), 'duplicated を in prompt');
 }
+for (const exam of examsContext.window.DE_THI_TONG_HOP_DATA.filter(exam => /^M11[1-5]$/.test(exam.code))) {
+    const questions = exam.sections.flatMap(section => section.groups.flatMap(group => group.items));
+    const text = JSON.stringify(questions);
+    assert(!/スプーン|フォーク|ナイフ|ファクス|アレルギー|納豆|富士山|日本で 働いた|経験/.test(text), `${exam.code}: out-of-scope bank item`);
+    assert(!/ように|ながら|てしま|なければ|ほうがいい|食べられ/.test(text), `${exam.code}: out-of-scope grammar`);
+}
 console.log(`Content checks passed: ${questionsChecked} lesson questions, 21 theory sections, 144 Kanji entries in source/runtime, corrected exam cases.`);
