@@ -28,7 +28,7 @@ console.log('=== RUNNING MARUGOTO REGRESSION TESTS (R1 - R11) ===\n');
 
 console.log('--- Content integrity ---');
 const lessonFiles = fs.readdirSync(path.join(ROOT, 'assets/js/lessons'))
-    .filter(name => /^lesson_(?:\d+|a2_2_0[12])\.js$/.test(name));
+    .filter(name => /^lesson_(?:\d+|a2_2_\d{2})\.js$/.test(name));
 for (const lessonFile of lessonFiles) {
     const content = fs.readFileSync(path.join(ROOT, 'assets/js/lessons', lessonFile), 'utf8');
     test(`${lessonFile}: no placeholder quiz content`, () => {

@@ -55,9 +55,151 @@
     ];
 
     const ALL_LESSONS_A2_2 = [
-        { file: 'Marugoto_A2_2_Lesson_1.html', num: '01', title: 'Bài 1: いいなまえですね', desc: 'Tên hay quá nhỉ • Giới thiệu bản thân & 15 Kanji', icon: '🌸', tag: 'A2-2 Mới' },
-        { file: 'Marugoto_A2_2_Lesson_2.html', num: '02', title: 'Bài 2: めがねをかけている人です', desc: 'Người đeo kính • 5 động từ mang mặc & 16 Kanji', icon: '👓', tag: 'A2-2 Mới' }
-    ];
+        {
+                "file": "Marugoto_A2_2_Lesson_1.html",
+                "num": "01",
+                "title": "Bài 1: いいなまえですね",
+                "desc": "いいなまえですね • Học cách giới thiệu bản thân chi tiết: giải thích ý ngh...",
+                "icon": "🌸",
+                "tag": "A2-2 Mới"
+        },
+        {
+                "file": "Marugoto_A2_2_Lesson_2.html",
+                "num": "02",
+                "title": "Bài 2: めがねをかけている人です",
+                "desc": "めがねを かけて いる人です • Làm chủ đại cẩm nang 5 động từ mang mặc trang phục (着る,...",
+                "icon": "👓",
+                "tag": "A2-2 Mới"
+        },
+        {
+                "file": "Marugoto_A2_2_Lesson_3.html",
+                "num": "03",
+                "title": "Bài 3: おすすめは何ですか",
+                "desc": "おすすめは何ですか • Khám phá thế giới ẩm thực và quán ăn Nhật Bản (居酒屋, 定食)...",
+                "icon": "🍲",
+                "tag": "A2-2 Mới"
+        },
+        {
+                "file": "Marugoto_A2_2_Lesson_4.html",
+                "num": "04",
+                "title": "Bài 4: どうやって食べますか",
+                "desc": "どうやって食べますか • Bí kíp ăn uống chuẩn chỉ khi du lịch Nhật: yêu cầu khôn...",
+                "icon": "🥢",
+                "tag": "A2-2 Mới"
+        },
+        {
+                "file": "Marugoto_A2_2_Lesson_5.html",
+                "num": "05",
+                "title": "Bài 5: ぼうしを持っていったほうがいいです",
+                "desc": "ぼうしを持っていったほうがいいです • Lên kế hoạch và chuẩn bị hành lý cho chuyến du lịch phư...",
+                "icon": "✈️",
+                "tag": "A2-2 Mới"
+        },
+        {
+                "file": "Marugoto_A2_2_Lesson_6.html",
+                "num": "06",
+                "title": "Bài 6: 海で泳いだり、写真を撮ったりしました",
+                "desc": "海で泳いだり、写真を撮ったりしました • Kể lại kỳ nghỉ rực rỡ sắc màu: liệt kê các hoạt động ti...",
+                "icon": "🏖️",
+                "tag": "A2-2 Mới"
+        },
+        {
+                "file": "Marugoto_A2_2_Lesson_7.html",
+                "num": "07",
+                "title": "Bài 7: 雨がふったら、どうしますか",
+                "desc": "雨がふったら、どうしますか • Hòa mình vào không khí sôi động của Lễ hội truyền thống...",
+                "icon": "🏮",
+                "tag": "A2-2 Mới"
+        },
+        {
+                "file": "Marugoto_A2_2_Lesson_8.html",
+                "num": "08",
+                "title": "Bài 8: コンサートはもう始まりましたか",
+                "desc": "コンサートはもう始まりましたか • Nắm bắt tiến độ sự kiện lễ hội: hỏi việc đã diễn ra chư...",
+                "icon": "🎆",
+                "tag": "A2-2 Mới"
+        },
+        {
+                "file": "Marugoto_A2_2_Lesson_9.html",
+                "num": "09",
+                "title": "Bài 9: 来週、お祝いをしましょう",
+                "desc": "来週、お祝いをしましょう • Cẩm nang trao đổi và lên kế hoạch tổ chức tiệc mừng kỷ...",
+                "icon": "🎉",
+                "tag": "A2-2 Mới"
+        },
+        {
+                "file": "Marugoto_A2_2_Lesson_10.html",
+                "num": "10",
+                "title": "Bài 10: どんなケーキがいいですか",
+                "desc": "どんなケーキがいいですか • Lên thực đơn bánh kem và quà tặng cho ngày đặc biệt: hỏ...",
+                "icon": "🎂",
+                "tag": "A2-2 Mới"
+        },
+        {
+                "file": "Marugoto_A2_2_Lesson_11.html",
+                "num": "11",
+                "title": "Bài 11: 掃除機がこわれてしまったんです",
+                "desc": "掃除機がこわれてしまったんです • Xử lý sự cố máy móc gia dụng bị hỏng hóc: diễn tả hoàn...",
+                "icon": "🧹",
+                "tag": "A2-2 Mới"
+        },
+        {
+                "file": "Marugoto_A2_2_Lesson_12.html",
+                "num": "12",
+                "title": "Bài 12: こっちの方が安いです",
+                "desc": "こっちの方が安いです • Nghệ thuật săn sale và mua hàng thông thái qua mạng: so...",
+                "icon": "🏷️",
+                "tag": "A2-2 Mới"
+        },
+        {
+                "file": "Marugoto_A2_2_Lesson_13.html",
+                "num": "13",
+                "title": "Bài 13: どうやって行きますか",
+                "desc": "どうやって行きますか • Chinh phục hệ thống giao thông công cộng Nhật Bản: chỉ...",
+                "icon": "🚇",
+                "tag": "A2-2 Mới"
+        },
+        {
+                "file": "Marugoto_A2_2_Lesson_14.html",
+                "num": "14",
+                "title": "Bài 14: 有名なお寺です",
+                "desc": "有名なお寺です • Khám phá chiều sâu cố đô và di tích lịch sử: mệnh đề đị...",
+                "icon": "🛕",
+                "tag": "A2-2 Mới"
+        },
+        {
+                "file": "Marugoto_A2_2_Lesson_15.html",
+                "num": "15",
+                "title": "Bài 15: ごみはビニール袋に入れます",
+                "desc": "ごみはビニール袋に入れます • Sống văn minh tại xứ sở hoa anh đào: làm chủ quy tắc ph...",
+                "icon": "♻️",
+                "tag": "A2-2 Mới"
+        },
+        {
+                "file": "Marugoto_A2_2_Lesson_16.html",
+                "num": "16",
+                "title": "Bài 16: 毎日、水を使わない日があります",
+                "desc": "毎日、水を使わない日があります • Chiến dịch bảo vệ môi trường và thói quen sống xanh: nỗ...",
+                "icon": "🌱",
+                "tag": "A2-2 Mới"
+        },
+        {
+                "file": "Marugoto_A2_2_Lesson_17.html",
+                "num": "17",
+                "title": "Bài 17: この人、知っていますか",
+                "desc": "この人、知っていますか • Kể chuyện về những con người truyền cảm hứng: tóm tắt t...",
+                "icon": "🏆",
+                "tag": "A2-2 Mới"
+        },
+        {
+                "file": "Marugoto_A2_2_Lesson_18.html",
+                "num": "18",
+                "title": "Bài 18: どんな子どもでしたか",
+                "desc": "どんな子どもでしたか • Hồi tưởng ký ức tuổi thơ 『子どもの頃、よく V-ました』 và hạ quyết t...",
+                "icon": "🚀",
+                "tag": "A2-2 Mới"
+        }
+];
 
     const ALL_LESSONS = [
         { file: 'Marugoto_A2_Lesson_1.html', num: '01', title: 'Bài 1: Nơi ở & Gia đình', icon: '🌸' },

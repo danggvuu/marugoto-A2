@@ -219,5 +219,1003 @@
       "hv": "CA THỦ",
       "mean": "Ca sĩ"
     }
+  ],
+  "lesson_3": [
+    {
+      "stt": 1,
+      "word": "料理",
+      "kana": "りょうり",
+      "hv": "LIỆU LÝ",
+      "mean": "Món ăn, nấu nướng"
+    },
+    {
+      "stt": 2,
+      "word": "味",
+      "kana": "あじ",
+      "hv": "VỊ",
+      "mean": "Mùi vị, hương vị"
+    },
+    {
+      "stt": 3,
+      "word": "意味",
+      "kana": "いみ",
+      "hv": "Ý VỊ",
+      "mean": "Ý nghĩa"
+    },
+    {
+      "stt": 4,
+      "word": "甘い",
+      "kana": "あまい",
+      "hv": "CAM",
+      "mean": "Ngọt"
+    },
+    {
+      "stt": 5,
+      "word": "辛い",
+      "kana": "からい",
+      "hv": "TÂN",
+      "mean": "Cay"
+    },
+    {
+      "stt": 6,
+      "word": "苦い",
+      "kana": "にがい",
+      "hv": "KHỔ",
+      "mean": "Đắng"
+    },
+    {
+      "stt": 7,
+      "word": "店員",
+      "kana": "てんいん",
+      "hv": "ĐIẾM VIÊN",
+      "mean": "Nhân viên cửa hàng"
+    },
+    {
+      "stt": 8,
+      "word": "定食",
+      "kana": "ていしょく",
+      "hv": "ĐỊNH THỰC",
+      "mean": "Cơm phần, suất ăn"
+    },
+    {
+      "stt": 9,
+      "word": "注文",
+      "kana": "ちゅうもん",
+      "hv": "CHÚ VĂN",
+      "mean": "Gọi món, đặt hàng"
+    },
+    {
+      "stt": 10,
+      "word": "人気",
+      "kana": "にんき",
+      "hv": "NHÂN KHÍ",
+      "mean": "Được mến mộ, hút khách"
+    },
+    {
+      "stt": 11,
+      "word": "乾杯",
+      "kana": "かんぱい",
+      "hv": "CAN BÔI",
+      "mean": "Cạn ly"
+    }
+  ],
+  "lesson_4": [
+    {
+      "stt": 1,
+      "word": "豚肉",
+      "kana": "ぶたにく",
+      "hv": "ĐỒN NHỤC",
+      "mean": "Thịt lợn"
+    },
+    {
+      "stt": 2,
+      "word": "牛肉",
+      "kana": "ぎゅうにく",
+      "hv": "NGƯU NHỤC",
+      "mean": "Thịt bò"
+    },
+    {
+      "stt": 3,
+      "word": "鳥肉",
+      "kana": "とりにく",
+      "hv": "ĐIỂU NHỤC",
+      "mean": "Thịt gà"
+    },
+    {
+      "stt": 4,
+      "word": "魚",
+      "kana": "さかな",
+      "hv": "NGƯ",
+      "mean": "Cá"
+    },
+    {
+      "stt": 5,
+      "word": "卵",
+      "kana": "たまご",
+      "hv": "NOÃN",
+      "mean": "Trứng"
+    },
+    {
+      "stt": 6,
+      "word": "野菜",
+      "kana": "やさい",
+      "hv": "DÃ THÁI",
+      "mean": "Rau xanh"
+    },
+    {
+      "stt": 7,
+      "word": "焼き鳥",
+      "kana": "やきとり",
+      "hv": "THIÊU ĐIỂU",
+      "mean": "Gà nướng xiên"
+    },
+    {
+      "stt": 8,
+      "word": "お願い",
+      "kana": "おねがい",
+      "hv": "NGUYỆN",
+      "mean": "Yêu cầu, nhờ cậy"
+    },
+    {
+      "stt": 9,
+      "word": "残します",
+      "kana": "のこします",
+      "hv": "TÀN",
+      "mean": "Để lại, chừa lại"
+    }
+  ],
+  "lesson_5": [
+    {
+      "stt": 1,
+      "word": "旅行",
+      "kana": "りょこう",
+      "hv": "LỮ HÀNH",
+      "mean": "Du lịch"
+    },
+    {
+      "stt": 2,
+      "word": "旅館",
+      "kana": "りょかん",
+      "hv": "LỮ QUÁN",
+      "mean": "Quán trọ kiểu Nhật"
+    },
+    {
+      "stt": 3,
+      "word": "予約",
+      "kana": "よやく",
+      "hv": "DỰ ƯỚC",
+      "mean": "Đặt trước"
+    },
+    {
+      "stt": 4,
+      "word": "予定",
+      "kana": "よてい",
+      "hv": "DỰ ĐỊNH",
+      "mean": "Dự định"
+    },
+    {
+      "stt": 5,
+      "word": "空港",
+      "kana": "くうこう",
+      "hv": "KHÔNG CẢNG",
+      "mean": "Sân bay"
+    },
+    {
+      "stt": 6,
+      "word": "空気",
+      "kana": "くうき",
+      "hv": "KHÔNG KHÍ",
+      "mean": "Không khí"
+    },
+    {
+      "stt": 7,
+      "word": "港",
+      "kana": "みなと",
+      "hv": "CẢNG",
+      "mean": "Bến cảng"
+    },
+    {
+      "stt": 8,
+      "word": "暑い",
+      "kana": "あつい",
+      "hv": "THỬ",
+      "mean": "Nóng bức (thời tiết)"
+    },
+    {
+      "stt": 9,
+      "word": "涼しい",
+      "kana": "すずしい",
+      "hv": "LƯƠNG",
+      "mean": "Mát mẻ"
+    },
+    {
+      "stt": 10,
+      "word": "忘れ物",
+      "kana": "わすれもの",
+      "hv": "VONG VẬT",
+      "mean": "Đồ bỏ quên"
+    }
+  ],
+  "lesson_6": [
+    {
+      "stt": 1,
+      "word": "海",
+      "kana": "うみ",
+      "hv": "HẢI",
+      "mean": "Biển"
+    },
+    {
+      "stt": 2,
+      "word": "海外",
+      "kana": "かいがい",
+      "hv": "HẢI NGOẠI",
+      "mean": "Nước ngoài"
+    },
+    {
+      "stt": 3,
+      "word": "写真",
+      "kana": "しゃしん",
+      "hv": "TẢ CHÂN",
+      "mean": "Bức ảnh"
+    },
+    {
+      "stt": 4,
+      "word": "真ん中",
+      "kana": "まんなか",
+      "hv": "CHÂN TRUNG",
+      "mean": "Chính giữa"
+    },
+    {
+      "stt": 5,
+      "word": "撮ります",
+      "kana": "とります",
+      "hv": "TOÁT",
+      "mean": "Chụp (ảnh)"
+    },
+    {
+      "stt": 6,
+      "word": "泳ぎます",
+      "kana": "およぎます",
+      "hv": "VỊNH",
+      "mean": "Bơi lội"
+    },
+    {
+      "stt": 7,
+      "word": "体験",
+      "kana": "たいけん",
+      "hv": "THỂ NGHIỆM",
+      "mean": "Trải nghiệm"
+    },
+    {
+      "stt": 8,
+      "word": "楽しい",
+      "kana": "たのしい",
+      "hv": "LẠC / NHẠC",
+      "mean": "Vui vẻ"
+    },
+    {
+      "stt": 9,
+      "word": "思い出",
+      "kana": "おもいで",
+      "hv": "TƯ XUẤT",
+      "mean": "Kỷ niệm"
+    }
+  ],
+  "lesson_7": [
+    {
+      "stt": 1,
+      "word": "祭り",
+      "kana": "まつり",
+      "hv": "TẾ",
+      "mean": "Lễ hội"
+    },
+    {
+      "stt": 2,
+      "word": "雨",
+      "kana": "あめ",
+      "hv": "VŨ",
+      "mean": "Mưa"
+    },
+    {
+      "stt": 3,
+      "word": "花火",
+      "kana": "はなび",
+      "hv": "HOA HỎA",
+      "mean": "Pháo hoa"
+    },
+    {
+      "stt": 4,
+      "word": "中止",
+      "kana": "ちゅうし",
+      "hv": "TRUNG CHỈ",
+      "mean": "Hủy bỏ"
+    },
+    {
+      "stt": 5,
+      "word": "集合",
+      "kana": "しゅうごう",
+      "hv": "TẬP HỢP",
+      "mean": "Tập trung lại"
+    },
+    {
+      "stt": 6,
+      "word": "場所",
+      "kana": "ばしょ",
+      "hv": "TRƯỜNG SỞ",
+      "mean": "Địa điểm, nơi chốn"
+    },
+    {
+      "stt": 7,
+      "word": "始まる",
+      "kana": "はじまる",
+      "hv": "THỦY",
+      "mean": "Bắt đầu"
+    },
+    {
+      "stt": 8,
+      "word": "終わる",
+      "kana": "おわる",
+      "hv": "CHUNG",
+      "mean": "Kết thúc"
+    },
+    {
+      "stt": 9,
+      "word": "時間",
+      "kana": "じかん",
+      "hv": "THỜI GIAN",
+      "mean": "Thời gian"
+    }
+  ],
+  "lesson_8": [
+    {
+      "stt": 1,
+      "word": "夜",
+      "kana": "よる",
+      "hv": "DẠ",
+      "mean": "Ban đêm"
+    },
+    {
+      "stt": 2,
+      "word": "今夜",
+      "kana": "こんや",
+      "hv": "KIM DẠ",
+      "mean": "Tối nay"
+    },
+    {
+      "stt": 3,
+      "word": "音",
+      "kana": "おと",
+      "hv": "ÂM",
+      "mean": "Âm thanh"
+    },
+    {
+      "stt": 4,
+      "word": "音楽",
+      "kana": "おんがく",
+      "hv": "ÂM NHẠC",
+      "mean": "Âm nhạc"
+    },
+    {
+      "stt": 5,
+      "word": "並びます",
+      "kana": "ならびます",
+      "hv": "TỊNH",
+      "mean": "Xếp hàng"
+    },
+    {
+      "stt": 6,
+      "word": "金魚",
+      "kana": "きんぎょ",
+      "hv": "KIM NGƯ",
+      "mean": "Cá vàng"
+    },
+    {
+      "stt": 7,
+      "word": "疲れます",
+      "kana": "つかれます",
+      "hv": "BÌ",
+      "mean": "Mệt mỏi"
+    },
+    {
+      "stt": 8,
+      "word": "屋台",
+      "kana": "やたい",
+      "hv": "ỐC ĐÀI",
+      "mean": "Quầy hàng ăn"
+    }
+  ],
+  "lesson_9": [
+    {
+      "stt": 1,
+      "word": "お祝い",
+      "kana": "おいわい",
+      "hv": "CHÚC",
+      "mean": "Lời chúc mừng, quà mừng"
+    },
+    {
+      "stt": 2,
+      "word": "結婚",
+      "kana": "けっこん",
+      "hv": "KẾT HÔN",
+      "mean": "Kết hôn"
+    },
+    {
+      "stt": 3,
+      "word": "誕生日",
+      "kana": "たんじょうび",
+      "hv": "ĐẢN SINH NHẬT",
+      "mean": "Sinh nhật"
+    },
+    {
+      "stt": 4,
+      "word": "出産",
+      "kana": "しゅっさん",
+      "hv": "XUẤT SẢN",
+      "mean": "Sinh đẻ"
+    },
+    {
+      "stt": 5,
+      "word": "卒業",
+      "kana": "そつぎょう",
+      "hv": "TỐT NGHIỆP",
+      "mean": "Tốt nghiệp"
+    },
+    {
+      "stt": 6,
+      "word": "時計",
+      "kana": "とけい",
+      "hv": "THỜI KẾ",
+      "mean": "Đồng hồ"
+    },
+    {
+      "stt": 7,
+      "word": "参加",
+      "kana": "さんか",
+      "hv": "THAM GIA",
+      "mean": "Tham gia"
+    },
+    {
+      "stt": 8,
+      "word": "相談",
+      "kana": "そうだん",
+      "hv": "TƯƠNG ĐÀM",
+      "mean": "Bàn bạc, thảo luận"
+    },
+    {
+      "stt": 9,
+      "word": "花束",
+      "kana": "はなたば",
+      "hv": "HOA THÚC",
+      "mean": "Bó hoa"
+    }
+  ],
+  "lesson_10": [
+    {
+      "stt": 1,
+      "word": "手紙",
+      "kana": "てがみ",
+      "hv": "THỦ CHỈ",
+      "mean": "Lá thư"
+    },
+    {
+      "stt": 2,
+      "word": "お礼",
+      "kana": "おれい",
+      "hv": "LỄ",
+      "mean": "Lời cảm ơn, quà cảm ơn"
+    },
+    {
+      "stt": 3,
+      "word": "感謝",
+      "kana": "かんしゃ",
+      "hv": "CẢM TẠ",
+      "mean": "Biết ơn, cảm tạ"
+    },
+    {
+      "stt": 4,
+      "word": "配達",
+      "kana": "はいたつ",
+      "hv": "PHỐI ĐẠT",
+      "mean": "Giao hàng"
+    },
+    {
+      "stt": 5,
+      "word": "人数",
+      "kana": "にんずう",
+      "hv": "NHÂN SỐ",
+      "mean": "Số người"
+    },
+    {
+      "stt": 6,
+      "word": "笑顔",
+      "kana": "えがお",
+      "hv": "TIẾU NHAN",
+      "mean": "Khuôn mặt cười"
+    },
+    {
+      "stt": 7,
+      "word": "決めます",
+      "kana": "きめます",
+      "hv": "QUYẾT",
+      "mean": "Quyết định"
+    }
+  ],
+  "lesson_11": [
+    {
+      "stt": 1,
+      "word": "掃除機",
+      "kana": "そうじき",
+      "hv": "TẢO TRỪ CƠ",
+      "mean": "Máy hút bụi"
+    },
+    {
+      "stt": 2,
+      "word": "洗濯機",
+      "kana": "せんたくき",
+      "hv": "TIỂM TRẠC CƠ",
+      "mean": "Máy giặt"
+    },
+    {
+      "stt": 3,
+      "word": "冷蔵庫",
+      "kana": "れいぞうこ",
+      "hv": "LÃNH TÀNG KHỐ",
+      "mean": "Tủ lạnh"
+    },
+    {
+      "stt": 4,
+      "word": "故障",
+      "kana": "こしょう",
+      "hv": "CỐ CHƯỚNG",
+      "mean": "Hỏng hóc, sự cố"
+    },
+    {
+      "stt": 5,
+      "word": "修理",
+      "kana": "しゅうり",
+      "hv": "TU LÝ",
+      "mean": "Sửa chữa"
+    },
+    {
+      "stt": 6,
+      "word": "交換",
+      "kana": "こうかん",
+      "hv": "GIAO HOÁN",
+      "mean": "Đổi hàng, hoán đổi"
+    },
+    {
+      "stt": 7,
+      "word": "不便",
+      "kana": "ふべん",
+      "hv": "BẤT TIỆN",
+      "mean": "Bất tiện"
+    },
+    {
+      "stt": 8,
+      "word": "壊れます",
+      "kana": "こわれます",
+      "hv": "HOẠI",
+      "mean": "Bị hỏng"
+    }
+  ],
+  "lesson_12": [
+    {
+      "stt": 1,
+      "word": "値段",
+      "kana": "ねだん",
+      "hv": "TRỊ ĐOẠN",
+      "mean": "Mức giá, giá tiền"
+    },
+    {
+      "stt": 2,
+      "word": "比べる",
+      "kana": "くらべる",
+      "hv": "TỈ",
+      "mean": "So sánh"
+    },
+    {
+      "stt": 3,
+      "word": "便利",
+      "kana": "べんり",
+      "hv": "TIỆN LỢI",
+      "mean": "Tiện lợi"
+    },
+    {
+      "stt": 4,
+      "word": "軽い",
+      "kana": "かるい",
+      "hv": "KHINH",
+      "mean": "Nhẹ"
+    },
+    {
+      "stt": 5,
+      "word": "重い",
+      "kana": "おもい",
+      "hv": "TRỌNG",
+      "mean": "Nặng"
+    },
+    {
+      "stt": 6,
+      "word": "安い",
+      "kana": "やすい",
+      "hv": "AN",
+      "mean": "Rẻ"
+    },
+    {
+      "stt": 7,
+      "word": "高い",
+      "kana": "たかい",
+      "hv": "CAO",
+      "mean": "Đắt, cao"
+    },
+    {
+      "stt": 8,
+      "word": "割引",
+      "kana": "わりびき",
+      "hv": "CÁT DẪN",
+      "mean": "Giảm giá"
+    },
+    {
+      "stt": 9,
+      "word": "無料",
+      "kana": "むりょう",
+      "hv": "VÔ LIỆU",
+      "mean": "Miễn phí"
+    }
+  ],
+  "lesson_13": [
+    {
+      "stt": 1,
+      "word": "地下鉄",
+      "kana": "ちかてつ",
+      "hv": "ĐỊA HẠ THIẾT",
+      "mean": "Tàu điện ngầm"
+    },
+    {
+      "stt": 2,
+      "word": "切符",
+      "kana": "きっぷ",
+      "hv": "THIẾT PHÙ",
+      "mean": "Vé tàu xe"
+    },
+    {
+      "stt": 3,
+      "word": "改札口",
+      "kana": "かいさつぐち",
+      "hv": "CẢI TRÁT KHẨU",
+      "mean": "Cổng soát vé"
+    },
+    {
+      "stt": 4,
+      "word": "乗ります",
+      "kana": "のります",
+      "hv": "THỪA",
+      "mean": "Lên xe tàu"
+    },
+    {
+      "stt": 5,
+      "word": "降ります",
+      "kana": "おります",
+      "hv": "GIÁNG",
+      "mean": "Xuống xe tàu"
+    },
+    {
+      "stt": 6,
+      "word": "乗り換え",
+      "kana": "のりかえ",
+      "hv": "THỪA HOÁN",
+      "mean": "Đổi tuyến xe"
+    },
+    {
+      "stt": 7,
+      "word": "出発",
+      "kana": "しゅっぱつ",
+      "hv": "XUẤT PHÁT",
+      "mean": "Xuất phát"
+    },
+    {
+      "stt": 8,
+      "word": "到着",
+      "kana": "とうちゃく",
+      "hv": "ĐÁO TRƯỚC",
+      "mean": "Đến nơi"
+    },
+    {
+      "stt": 9,
+      "word": "遠い",
+      "kana": "とおい",
+      "hv": "VIỄN",
+      "mean": "Xa"
+    }
+  ],
+  "lesson_14": [
+    {
+      "stt": 1,
+      "word": "お寺",
+      "kana": "おてら",
+      "hv": "TỰ",
+      "mean": "Chùa"
+    },
+    {
+      "stt": 2,
+      "word": "神社",
+      "kana": "じんじゃ",
+      "hv": "THẦN XÃ",
+      "mean": "Đền thần đạo"
+    },
+    {
+      "stt": 3,
+      "word": "城",
+      "kana": "しろ",
+      "hv": "THÀNH",
+      "mean": "Thành, lâu đài"
+    },
+    {
+      "stt": 4,
+      "word": "歴史",
+      "kana": "れきし",
+      "hv": "LỊCH SỬ",
+      "mean": "Lịch sử"
+    },
+    {
+      "stt": 5,
+      "word": "伝統",
+      "kana": "でんとう",
+      "hv": "TRUYỀN THỐNG",
+      "mean": "Truyền thống"
+    },
+    {
+      "stt": 6,
+      "word": "建物",
+      "kana": "たてもの",
+      "hv": "KIẾN VẬT",
+      "mean": "Tòa nhà"
+    },
+    {
+      "stt": 7,
+      "word": "昔",
+      "kana": "むかし",
+      "hv": "TÍCH",
+      "mean": "Thời xưa"
+    },
+    {
+      "stt": 8,
+      "word": "時代",
+      "kana": "じだい",
+      "hv": "THỜI ĐẠI",
+      "mean": "Thời đại"
+    }
+  ],
+  "lesson_15": [
+    {
+      "stt": 1,
+      "word": "分別",
+      "kana": "ぶんべつ",
+      "hv": "PHÂN BIỆT",
+      "mean": "Phân loại"
+    },
+    {
+      "stt": 2,
+      "word": "燃える",
+      "kana": "もえる",
+      "hv": "NHIÊN",
+      "mean": "Cháy được"
+    },
+    {
+      "stt": 3,
+      "word": "資源",
+      "kana": "しげん",
+      "hv": "TƯ NGUYÊN",
+      "mean": "Tài nguyên"
+    },
+    {
+      "stt": 4,
+      "word": "捨てます",
+      "kana": "すてます",
+      "hv": "XẢ",
+      "mean": "Vứt đi"
+    },
+    {
+      "stt": 5,
+      "word": "袋",
+      "kana": "ふくろ",
+      "hv": "ĐẠI",
+      "mean": "Túi, bao"
+    },
+    {
+      "stt": 6,
+      "word": "曜日",
+      "kana": "ようび",
+      "hv": "DIỆU NHẬT",
+      "mean": "Thứ trong tuần"
+    },
+    {
+      "stt": 7,
+      "word": "守ります",
+      "kana": "まもります",
+      "hv": "THỦ",
+      "mean": "Bảo vệ, tuân thủ"
+    },
+    {
+      "stt": 8,
+      "word": "出します",
+      "kana": "だします",
+      "hv": "XUẤT",
+      "mean": "Đem ra, nộp"
+    }
+  ],
+  "lesson_16": [
+    {
+      "stt": 1,
+      "word": "節約",
+      "kana": "せつやく",
+      "hv": "TIẾT ƯỚC",
+      "mean": "Tiết kiệm"
+    },
+    {
+      "stt": 2,
+      "word": "水道",
+      "kana": "すいどう",
+      "hv": "THỦY ĐẠO",
+      "mean": "Nước máy"
+    },
+    {
+      "stt": 3,
+      "word": "環境",
+      "kana": "かんきょう",
+      "hv": "HOÀN CẢNH",
+      "mean": "Môi trường"
+    },
+    {
+      "stt": 4,
+      "word": "自然",
+      "kana": "しぜん",
+      "hv": "TỰ NHIÊN",
+      "mean": "Thiên nhiên"
+    },
+    {
+      "stt": 5,
+      "word": "地球",
+      "kana": "ちきゅう",
+      "hv": "ĐỊA CẦU",
+      "mean": "Trái đất"
+    },
+    {
+      "stt": 6,
+      "word": "習慣",
+      "kana": "しゅうかん",
+      "hv": "TẬP QUÁN",
+      "mean": "Thói quen"
+    },
+    {
+      "stt": 7,
+      "word": "大切",
+      "kana": "たいせつ",
+      "hv": "ĐẠI THIẾT",
+      "mean": "Quan trọng"
+    },
+    {
+      "stt": 8,
+      "word": "階段",
+      "kana": "かいだん",
+      "hv": "GIAI ĐOẠN",
+      "mean": "Cầu thang bộ"
+    }
+  ],
+  "lesson_17": [
+    {
+      "stt": 1,
+      "word": "人生",
+      "kana": "じんせい",
+      "hv": "NHÂN SINH",
+      "mean": "Cuộc đời"
+    },
+    {
+      "stt": 2,
+      "word": "育ちます",
+      "kana": "そだちます",
+      "hv": "DỤC",
+      "mean": "Lớn lên"
+    },
+    {
+      "stt": 3,
+      "word": "成功",
+      "kana": "せいこう",
+      "hv": "THÀNH CÔNG",
+      "mean": "Thành công"
+    },
+    {
+      "stt": 4,
+      "word": "努力",
+      "kana": "どりょく",
+      "hv": "NỖ LỰC",
+      "mean": "Nỗ lực, cố gắng"
+    },
+    {
+      "stt": 5,
+      "word": "夢",
+      "kana": "ゆめ",
+      "hv": "MỘNG",
+      "mean": "Ước mơ"
+    },
+    {
+      "stt": 6,
+      "word": "科学者",
+      "kana": "かがくしゃ",
+      "hv": "KHOA HỌC GIẢ",
+      "mean": "Nhà khoa học"
+    },
+    {
+      "stt": 7,
+      "word": "作品",
+      "kana": "さくひん",
+      "hv": "TÁC PHẨM",
+      "mean": "Tác phẩm"
+    },
+    {
+      "stt": 8,
+      "word": "世界",
+      "kana": "せかい",
+      "hv": "THẾ GIỚI",
+      "mean": "Thế giới"
+    }
+  ],
+  "lesson_18": [
+    {
+      "stt": 1,
+      "word": "性格",
+      "kana": "せいかく",
+      "hv": "TÍNH CÁCH",
+      "mean": "Tính cách"
+    },
+    {
+      "stt": 2,
+      "word": "活発",
+      "kana": "かっぱつ",
+      "hv": "HOẠT BÁT",
+      "mean": "Hoạt bát, năng động"
+    },
+    {
+      "stt": 3,
+      "word": "将来",
+      "kana": "しょうらい",
+      "hv": "TƯƠNG LAI",
+      "mean": "Tương lai"
+    },
+    {
+      "stt": 4,
+      "word": "目標",
+      "kana": "もくひょう",
+      "hv": "MỤC TIÊU",
+      "mean": "Mục tiêu"
+    },
+    {
+      "stt": 5,
+      "word": "覚えます",
+      "kana": "おぼえます",
+      "hv": "GIÁC",
+      "mean": "Ghi nhớ"
+    },
+    {
+      "stt": 6,
+      "word": "思い出します",
+      "kana": "おもいだします",
+      "hv": "TƯ XUẤT",
+      "mean": "Nhớ lại"
+    },
+    {
+      "stt": 7,
+      "word": "勉強",
+      "kana": "べんきょう",
+      "hv": "MIỄN CƯỠNG",
+      "mean": "Học tập"
+    },
+    {
+      "stt": 8,
+      "word": "働きます",
+      "kana": "はたらきます",
+      "hv": "ĐỘNG",
+      "mean": "Làm việc"
+    }
   ]
 }

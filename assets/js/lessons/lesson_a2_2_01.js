@@ -488,8 +488,6 @@ function escapeLessonText(value) {
         .replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
 }
 
-// Audio TTS handled globally via assets/js/audio-engine.js
-
 // Render Verb Lab
 function initVerbLab() {
     const row = document.getElementById('verbSelectorRow');
@@ -511,18 +509,20 @@ function selectVerb(idx) {
     chips.forEach((c, i) => c.classList.toggle('active', i === idx));
     const v = VERB_DATA[idx];
     if (!v) return;
+
     const elMasu = document.getElementById('morphMasu');
     const elVi = document.getElementById('morphVi');
     const elTe = document.getElementById('morphTe');
     const elForm1 = document.getElementById('morphTeIki');
     const elForm2 = document.getElementById('morphTeKi');
     const elForm3 = document.getElementById('morphMashou');
-    if (elMasu) elMasu.textContent = v.masu;
-    if (elVi) elVi.textContent = v.vi;
-    if (elTe) elTe.textContent = v.te;
-    if (elForm1) elForm1.textContent = v.form1;
-    if (elForm2) elForm2.textContent = v.form2;
-    if (elForm3) elForm3.textContent = v.form3;
+
+    if (elMasu) elMasu.textContent = v.masu || '---';
+    if (elVi) elVi.textContent = v.vi || '---';
+    if (elTe) elTe.textContent = v.te || '---';
+    if (elForm1) elForm1.textContent = v.form1 || '---';
+    if (elForm2) elForm2.textContent = v.form2 || '---';
+    if (elForm3) elForm3.textContent = v.form3 || '---';
 }
 
 // Render Flashcards

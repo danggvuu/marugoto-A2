@@ -43,7 +43,16 @@ function onSearch121Change() {
 function apply121Filter(opts) {
     const q = (document.getElementById('search121Input')?.value || '').trim().toLowerCase();
     current121Filtered = VOCAB_121_DATA.filter(item => {
-        const matchLesson = (current121Lesson === 'ALL' || item.lesson == current121Lesson);
+        let matchLesson = false;
+        if (current121Lesson === 'ALL') {
+            matchLesson = true;
+        } else if (current121Lesson === 'A2_1') {
+            matchLesson = !String(item.lesson).startsWith('A2-2');
+        } else if (current121Lesson === 'A2_2') {
+            matchLesson = String(item.lesson).startsWith('A2-2');
+        } else {
+            matchLesson = (item.lesson == current121Lesson);
+        }
         const matchQuery = !q || item.kanji.toLowerCase().includes(q) || item.kana.toLowerCase().includes(q) || item.vi.toLowerCase().includes(q);
         return matchLesson && matchQuery;
     });
