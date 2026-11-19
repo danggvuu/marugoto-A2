@@ -331,6 +331,35 @@ test('R12.3: site-theme.css does not override generic .formula-box with white ba
     assert.ok(!SiteThemeCss.match(/\.rule-box,\s*\.formula-box\s*,\s*\.grammar-explain/), 'site-theme.css must not have bare .formula-box grouped with .rule-box');
 });
 
+// -----------------------------------------------------------------------------
+// R13: Floating macOS Section Sidebar Rail
+// -----------------------------------------------------------------------------
+console.log('\n--- R13: Floating macOS Section Sidebar Rail ---');
+const RailCssPath = path.join(ROOT, 'assets/css/lesson-sidebar-rail.css');
+const RailJsPath = path.join(ROOT, 'assets/js/lesson-sidebar-rail.js');
+
+test('R13.1: lesson-sidebar-rail.css exists with macOS styling & sticky floating specs', () => {
+    assert.ok(fs.existsSync(RailCssPath), 'lesson-sidebar-rail.css must exist');
+    const css = fs.readFileSync(RailCssPath, 'utf8');
+    assert.ok(css.includes('.lesson-sidebar-rail'), 'Must define .lesson-sidebar-rail');
+    assert.ok(css.includes('.macos-sidebar-box'), 'Must define .macos-sidebar-box');
+    assert.ok(css.includes('.macos-traffic-dots'), 'Must define .macos-traffic-dots');
+    assert.ok(css.includes('position: fixed'), 'Must use position: fixed for floating rail');
+});
+
+test('R13.2: lesson-sidebar-rail.js exists with ScrollSpy & collapse toggle', () => {
+    assert.ok(fs.existsSync(RailJsPath), 'lesson-sidebar-rail.js must exist');
+    const js = fs.readFileSync(RailJsPath, 'utf8');
+    assert.ok(js.includes('initLessonSidebarRail'), 'Must define initLessonSidebarRail');
+    assert.ok(js.includes('updateScrollSpy'), 'Must include ScrollSpy scroll listener');
+    assert.ok(js.includes('marugoto_rail_collapsed'), 'Must store collapse state in localStorage');
+});
+
+test('R13.3: nav.js and site-theme.css automatically bundle floating rail for lessons', () => {
+    assert.ok(NavCode.includes('lesson-sidebar-rail.js'), 'nav.js must load lesson-sidebar-rail.js');
+    assert.ok(SiteThemeCss.includes('lesson-sidebar-rail.css'), 'site-theme.css must import lesson-sidebar-rail.css');
+});
+
 console.log(`\n========================================`);
 console.log(`SUMMARY: ${passed} PASSED, ${failed} FAILED`);
 console.log(`========================================`);

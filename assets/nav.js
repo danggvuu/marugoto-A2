@@ -236,6 +236,18 @@
             outlineScript.src = rootPrefix + 'assets/js/lesson-outline.js?v=1';
             document.head.appendChild(outlineScript);
         }
+
+        // Tự động nạp thanh điều hướng nổi macOS (lesson-sidebar-rail) cho tất cả bài học
+        if ((isLessons || document.querySelector('.section-nav')) && !document.querySelector('script[src*="lesson-sidebar-rail.js"]')) {
+            const railCss = document.createElement('link');
+            railCss.rel = 'stylesheet';
+            railCss.href = rootPrefix + 'assets/css/lesson-sidebar-rail.css?v=1';
+            document.head.appendChild(railCss);
+            const railScript = document.createElement('script');
+            railScript.src = rootPrefix + 'assets/js/lesson-sidebar-rail.js?v=1';
+            railScript.defer = true;
+            document.head.appendChild(railScript);
+        }
     })();
 
     // 4. TÍNH TOÁN TRẠNG THÁI ACTIVE
