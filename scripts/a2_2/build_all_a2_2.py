@@ -325,6 +325,28 @@ LESSONS_CONFIG = [
 ]
 
 
+SHORT_TITLES = {
+    1: "Tên gọi & Giới thiệu",
+    2: "Trang phục & Miêu tả người",
+    3: "Quán ăn & Món gợi ý",
+    4: "Cách ăn & Bỏ nguyên liệu",
+    5: "Du lịch & Chuẩn bị hành lý",
+    6: "Tắm biển & Trải nghiệm",
+    7: "Lễ hội & Rủ rê tham gia",
+    8: "Hòa nhạc & Quầy hàng Yatai",
+    9: "Tiệc mừng & Tặng quà",
+    10: "Bánh sinh nhật & Cảm ơn",
+    11: "Đồ gia dụng bị hỏng",
+    12: "So sánh & Mua sắm online",
+    13: "Chỉ đường & Đi tàu xe",
+    14: "Thăm đền chùa & Di tích",
+    15: "Quy tắc phân loại rác",
+    16: "Thói quen tiết kiệm Eco",
+    17: "Cuộc đời & Danh nhân",
+    18: "Kỷ niệm & Tương lai"
+}
+
+
 def update_nav_js():
     nav_path = ROOT / "assets/nav.js"
     content = nav_path.read_text(encoding="utf-8")
@@ -333,16 +355,14 @@ def update_nav_js():
     icons = ["🌸", "👓", "🍲", "🥢", "✈️", "🏖️", "🏮", "🎆", "🎉", "🎂", "🧹", "🏷️", "🚇", "🛕", "♻️", "🌱", "🏆", "🚀"]
 
     for cfg in LESSONS_CONFIG:
-        num_str = f"{cfg['num']:02d}"
-        icon = icons[cfg["num"] - 1]
-        desc_short = cfg["subtitle"][:55].rstrip() + "..."
+        num = cfg["num"]
+        num_str = f"{num:02d}"
+        icon = icons[num - 1]
         all_a2_2_items.append({
-            "file": f"Marugoto_A2_2_Lesson_{cfg['num']}.html",
+            "file": f"Marugoto_A2_2_Lesson_{num}.html",
             "num": num_str,
-            "title": f"Bài {cfg['num']}: {cfg['title']}",
-            "desc": f"{cfg['quote']} • {desc_short}",
-            "icon": icon,
-            "tag": "A2-2 Mới"
+            "title": f"Bài {num}: {SHORT_TITLES[num]}",
+            "icon": icon
         })
 
     # Find ALL_LESSONS_A2_2 in nav.js
@@ -350,7 +370,7 @@ def update_nav_js():
     new_decl = f"const ALL_LESSONS_A2_2 = {json.dumps(all_a2_2_items, ensure_ascii=False, indent=8)};"
     updated = re.sub(pattern, new_decl, content)
     nav_path.write_text(updated, encoding="utf-8")
-    print(f"Updated {nav_path} with all 18 lessons in ALL_LESSONS_A2_2!")
+    print(f"Updated {nav_path} with all 18 lessons in ALL_LESSONS_A2_2 (clean short titles, zero long descriptions)!")
 
 
 def sync_kanji_data():
