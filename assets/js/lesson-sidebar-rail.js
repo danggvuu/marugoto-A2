@@ -1,26 +1,27 @@
 /**
  * MACOS-STYLE COMPACT FLOATING SECTION RAIL (assets/js/lesson-sidebar-rail.js)
- * Tự động chuyển đổi thanh điều hướng bài học thành thanh sidebar nổi nhỏ gọn kiểu macOS
- * Cố định bên cạnh, tự động bám theo cuộn trang (ScrollSpy), hỗ trợ thu gọn/mở rộng.
+ * Tự động chuyển đổi cấu trúc bài học thành giao diện 2 cột cân đối (Balanced Workspace Layout)
+ * Cố định bên cạnh, tự động bám theo cuộn trang (Sticky ScrollSpy), hỗ trợ thu gọn/mở rộng.
  */
 (function () {
     'use strict';
 
     function initLessonSidebarRail() {
-        // Tránh khởi tạo lặp lại
         if (document.getElementById('lessonSidebarRail')) return;
 
-        const sectionNav = document.querySelector('.section-nav');
+        const mainContainer = document.querySelector('.main-container');
+        if (!mainContainer) return;
+
+        const sectionNav = mainContainer.querySelector('.section-nav');
         if (!sectionNav) return;
 
         const originalLinks = Array.from(sectionNav.querySelectorAll('a[href^="#sec-"]'));
         if (originalLinks.length < 2) return;
 
-        // Đánh dấu body
         document.body.classList.add('has-lesson-rail');
 
-        // Phân tích các mục điều hướng
-        const railItems = originalLinks.map((link, idx) => {
+        // 1. Phân tích các mục điều hướng
+        const railItems = originalLinks.map(link => {
             const href = link.getAttribute('href');
             const rawText = link.textContent.trim();
             const targetEl = document.querySelector(href);
@@ -28,7 +29,6 @@
             let icon = '●';
             let label = rawText;
 
-            // Tách biểu tượng (emoji, biểu tượng số tròn, hoặc ký tự đầu)
             const iconRegex = /^([①-⑳0-9\.\-\u{1F000}-\u{1FAFF}\u{2300}-\u{27BF}\u{FE00}-\u{FE0F}]+)\s*(.*)$/u;
             const match = rawText.match(iconRegex);
             if (match && match[1].trim()) {
@@ -36,7 +36,6 @@
                 label = match[2].trim();
             }
 
-            // Rút gọn các nhãn dài để vừa vặn khung nhỏ gọn
             label = label
                 .replace(/^Biến Thể Động Từ.*$/i, 'Biến Thể ĐT')
                 .replace(/^Luyện Gõ.*$/i, 'Luyện Gõ')
@@ -45,24 +44,45 @@
                 .replace(/^Mini Test.*$/i, 'Mini Test')
                 .replace(/^Máy Luyện Chia Thể.*$/i, 'Luyện Chia Thể');
 
-            return {
-                href,
-                targetEl,
-                icon,
-                label,
-                fullTitle: rawText
-            };
+            return { href, targetEl, icon, label, fullTitle: rawText };
         }).filter(item => item.targetEl !== null);
 
         if (railItems.length === 0) return;
 
-        // Tạo phần tử Aside thanh bên macOS
+        // 2. Tạo bố cục Workspace 2 cột chuẩn tỉ lệ
+        const heroBanner = mainContainer.querySelector('.hero-banner');
+        if (!heroBanner) return;
+
+        let workspace = mainContainer.querySelector('.lesson-workspace-layout');
+        let mainContent = mainContainer.querySelector('.lesson-main-content');
+
+        if (!workspace) {
+            workspace = document.createElement('div');
+            workspace.className = 'lesson-workspace-layout';
+
+            mainContent = document.createElement('div');
+            mainContent.className = 'lesson-main-content';
+
+            // Thu thập toàn bộ nội dung từ heroBanner trở đi
+            let current = heroBanner;
+            const nodesToMove = [];
+            while (current) {
+                const next = current.nextElementSibling;
+                nodesToMove.push(current);
+                current = next;
+            }
+
+            heroBanner.parentNode.insertBefore(workspace, heroBanner);
+            nodesToMove.forEach(node => mainContent.appendChild(node));
+            workspace.appendChild(mainContent);
+        }
+
+        // 3. Tạo thanh sidebar macOS đặt bên cạnh mainContent
         const rail = document.createElement('aside');
         rail.id = 'lessonSidebarRail';
         rail.className = 'lesson-sidebar-rail';
-        rail.setAttribute('aria-label', 'Thanh mục lục bài học');
+        rail.setAttribute('aria-label', 'Mục lục bài học');
 
-        // Tạo cấu trúc HTML chuẩn macOS
         rail.innerHTML = `
             <div class="macos-sidebar-box">
                 <div class="macos-sidebar-header">
@@ -93,22 +113,22 @@
             </div>
         `;
 
-        document.body.appendChild(rail);
+        workspace.appendChild(rail);
 
-        // Khôi phục trạng thái thu gọn đã lưu
+        // Khôi phục trạng thái thu gọn
         const isCollapsedSaved = localStorage.getItem('marugoto_rail_collapsed') === 'true';
         if (isCollapsedSaved) {
             rail.classList.add('is-collapsed');
-            document.body.classList.add('rail-collapsed');
+            workspace.classList.add('rail-collapsed');
         }
 
-        // Bắt sự kiện nút thu gọn
+        // Sự kiện nút thu gọn
         const toggleBtn = rail.querySelector('#btnToggleSidebarRail');
         if (toggleBtn) {
             toggleBtn.addEventListener('click', (e) => {
                 e.preventDefault();
                 const isCollapsed = rail.classList.toggle('is-collapsed');
-                document.body.classList.toggle('rail-collapsed', isCollapsed);
+                workspace.classList.toggle('rail-collapsed', isCollapsed);
                 localStorage.setItem('marugoto_rail_collapsed', String(isCollapsed));
             });
         }
@@ -127,9 +147,7 @@
                         top: Math.max(0, topPos),
                         behavior: 'smooth'
                     });
-                    try {
-                        history.replaceState(null, '', href);
-                    } catch (err) {}
+                    try { history.replaceState(null, '', href); } catch (err) {}
                     setActive(href);
                 }
             });
@@ -141,13 +159,10 @@
             scrollTopBtn.addEventListener('click', (e) => {
                 e.preventDefault();
                 window.scrollTo({ top: 0, behavior: 'smooth' });
-                try {
-                    history.replaceState(null, '', window.location.pathname);
-                } catch (err) {}
+                try { history.replaceState(null, '', window.location.pathname); } catch (err) {}
             });
         }
 
-        // Đặt active cho link
         function setActive(activeHref) {
             railLinks.forEach(l => {
                 if (l.getAttribute('data-href') === activeHref) {
@@ -158,28 +173,25 @@
             });
         }
 
-        // ScrollSpy thông minh tự động nhận diện phần đang đọc
+        // ScrollSpy thông minh
         let isTicking = false;
         function updateScrollSpy() {
             const scrollPos = window.scrollY + 120;
             const docHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
             const winHeight = window.innerHeight;
 
-            // Nếu chạm sát đáy trang -> active mục cuối cùng (thường là Mini Test)
             if (window.scrollY + winHeight >= docHeight - 60) {
                 const lastItem = railItems[railItems.length - 1];
                 if (lastItem) setActive(lastItem.href);
                 return;
             }
 
-            // Nếu đang ở đầu trang
             if (window.scrollY < 180) {
                 const firstItem = railItems[0];
                 if (firstItem) setActive(firstItem.href);
                 return;
             }
 
-            // Tìm section đang nằm trong tầm nhìn
             let currentHref = railItems[0].href;
             for (let i = 0; i < railItems.length; i++) {
                 const sec = railItems[i].targetEl;
@@ -207,7 +219,6 @@
             }
         }, { passive: true });
 
-        // Cập nhật khi mới load xong
         setTimeout(updateScrollSpy, 150);
 
         // Hỗ trợ cả các link trong top nav cũ khi click
@@ -220,6 +231,8 @@
             });
         });
     }
+
+    window.initLessonSidebarRail = initLessonSidebarRail;
 
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', initLessonSidebarRail);

@@ -4,26 +4,56 @@
    Chuẩn thiết kế macOS Glassmorphism đồng bộ với De_Thi_Tong_Hop_JLPT_A2_11_18
    ========================================================================== */
 
-/* 1. Base Container */
-.lesson-sidebar-rail {
-    position: fixed;
-    right: 20px;
-    top: 110px;
-    width: 175px;
-    z-index: 850;
-    max-height: calc(100vh - 130px);
-    display: flex;
-    flex-direction: column;
-    pointer-events: none;
-    transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-                right 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-                opacity 0.2s ease,
-                transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+/* Cho phép sticky hoạt động hoàn hảo mà vẫn chống tràn thanh cuộn ngang */
+html,
+body {
+    overflow-x: clip !important;
+}
+
+/* 1. Balanced Workspace 2-Column Grid (Desktop) */
+@media (min-width: 1025px) {
+    .lesson-workspace-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 195px;
+        gap: 24px;
+        align-items: start;
+        width: 100%;
+        margin-top: 10px;
+        transition: grid-template-columns 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .lesson-workspace-layout.rail-collapsed {
+        grid-template-columns: minmax(0, 1fr) 46px;
+    }
+
+    .lesson-main-content {
+        min-width: 0;
+        width: 100%;
+    }
+
+    .lesson-sidebar-rail {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 80px;
+        z-index: 70;
+        min-width: 0;
+        width: 195px;
+        align-self: start;
+        transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .lesson-sidebar-rail.is-collapsed {
+        width: 46px;
+    }
+
+    /* Hide the old static top bar on desktop since sidebar rail is active */
+    .section-nav {
+        display: none !important;
+    }
 }
 
 /* 2. Glassmorphic macOS Box */
 .lesson-sidebar-rail .macos-sidebar-box {
-    pointer-events: auto;
     background: rgba(255, 255, 255, 0.88);
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
@@ -34,7 +64,7 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
-    max-height: calc(100vh - 130px);
+    max-height: calc(100vh - 110px);
     overflow: hidden;
     user-select: none;
     box-sizing: border-box;
@@ -219,7 +249,7 @@
 
 /* 6. Collapsed State (Ultra Slim Icon Strip) */
 .lesson-sidebar-rail.is-collapsed {
-    width: 44px;
+    width: 46px;
 }
 
 .lesson-sidebar-rail.is-collapsed .macos-sidebar-box {
@@ -247,12 +277,12 @@
 .lesson-sidebar-rail.is-collapsed .lesson-rail-link {
     justify-content: center;
     padding: 6px 0;
-    width: 32px;
+    width: 34px;
 }
 
 .lesson-sidebar-rail.is-collapsed .rail-btn-top {
     padding: 5px 0;
-    width: 32px;
+    width: 34px;
 }
 
 /* 7. Scroll Offset Anchor Support */
@@ -260,37 +290,16 @@
     scroll-margin-top: 85px;
 }
 
-/* 8. Positioning & Responsive Layout */
-@media (min-width: 1100px) {
-    /* Hide the old static top bar on desktop since floating rail is active */
-    .section-nav {
-        display: none !important;
-    }
-    
-    /* Make sure content doesn't get covered by rail on screens under 1560px */
-    @media (max-width: 1560px) {
-        body.has-lesson-rail .main-container {
-            padding-right: 195px !important;
-        }
-        body.has-lesson-rail.rail-collapsed .main-container {
-            padding-right: 60px !important;
-        }
+/* 8. Mobile & Tablet (< 1025px) */
+@media (max-width: 1024px) {
+    .lesson-workspace-layout {
+        display: block !important;
     }
 
-    /* On ultra-wide screens, keep rail parked next to main-container */
-    @media (min-width: 1561px) {
-        .lesson-sidebar-rail {
-            right: max(24px, calc((100vw - 1200px) / 2 - 195px));
-        }
-    }
-}
-
-/* 9. Mobile & Tablet (< 1100px) */
-@media (max-width: 1099px) {
     .lesson-sidebar-rail {
         display: none !important;
     }
-    
+
     /* Keep horizontal swipeable sticky bar at top on mobile */
     .section-nav {
         display: flex !important;

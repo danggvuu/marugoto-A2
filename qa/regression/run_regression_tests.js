@@ -344,7 +344,7 @@ test('R13.1: lesson-sidebar-rail.css exists with macOS styling & sticky floating
     assert.ok(css.includes('.lesson-sidebar-rail'), 'Must define .lesson-sidebar-rail');
     assert.ok(css.includes('.macos-sidebar-box'), 'Must define .macos-sidebar-box');
     assert.ok(css.includes('.macos-traffic-dots'), 'Must define .macos-traffic-dots');
-    assert.ok(css.includes('position: fixed'), 'Must use position: fixed for floating rail');
+    assert.ok(css.includes('position: sticky'), 'Must use position: sticky for workspace floating rail');
 });
 
 test('R13.2: lesson-sidebar-rail.js exists with ScrollSpy & collapse toggle', () => {
