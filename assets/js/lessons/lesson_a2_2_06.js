@@ -289,28 +289,30 @@ const QUIZ_DATA = [
   {
     "id": 1,
     "category": "Ngữ pháp",
-    "q": "沖縄の 海で [____]、写真を 撮ったりしました。",
+    "q": "おしろの中が [____]。",
     "options": [
-      "泳いだり",
-      "泳いで",
-      "泳ぐ",
-      "泳ぎ"
+      "見られます",
+      "見たり",
+      "見ること",
+      "見たし"
     ],
     "correct": 0,
-    "explain": "Cấu trúc liệt kê hành động tiêu biểu: 『V1-たり、V2-たりしました』: 泳ぎました ➔ 「泳いだり」."
+    "explain": "見られます là thể khả năng của 見る.",
+    "grammarScope": "official"
   },
   {
     "id": 2,
     "category": "Ngữ pháp",
-    "q": "琉球ガラスの 工房で、きれいな コップを [____] ことが できます。",
+    "q": "今日のツアーはおどりも見た [____]、音楽も聞いたし、楽しめました。",
     "options": [
-      "作って",
-      "作った",
-      "作る",
-      "作り"
+      "たり",
+      "ので",
+      "し",
+      "なら"
     ],
     "correct": 2,
-    "explain": "Cấu trúc chỉ khả năng 『V-ることが できます』: động từ đứng trước phải ở thể từ điển ➔ 「作る」."
+    "explain": "～し liệt kê nhiều lý do/đặc điểm; mỗi vế dùng し.",
+    "grammarScope": "official"
   },
   {
     "id": 3,
@@ -328,28 +330,30 @@ const QUIZ_DATA = [
   {
     "id": 4,
     "category": "Chữ Hán",
-    "q": "Chữ Hán 「写真」 gồm 2 chữ nào ghép lại?",
+    "q": "Từ Kanji 「観光地」 có cách đọc nào?",
     "options": [
-      "HỌA + CHÂN",
-      "TẢ + THẦN",
-      "TẢ + CHÂN",
-      "QUANG + CHÂN"
+      "じょせい",
+      "だんせい",
+      "かんこうち",
+      "どうぶつ"
     ],
     "correct": 2,
-    "explain": "写真 gồm chữ TẢ (写) và CHÂN (真) ➔ miêu tả lại chân thật hình ảnh (bức ảnh)."
+    "explain": "観光地 đọc là 「かんこうち」 theo danh sách Kanji chính thức của bài học này.",
+    "scopeKanji": "観光地"
   },
   {
     "id": 5,
     "category": "Ngữ pháp",
-    "q": "週末は 買い物に [____]、部屋を 掃除したりしました。",
+    "q": "ここではイルカのショーを [____]。",
     "options": [
-      "行って",
-      "行ったり",
-      "行った",
-      "行く"
+      "見ますこと",
+      "見られます",
+      "見たり",
+      "見て"
     ],
     "correct": 1,
-    "explain": "Đi mua sắm: 行きました ➔ thể たり là 「行ったり」."
+    "explain": "見られます diễn tả có thể xem.",
+    "grammarScope": "official"
   },
   {
     "id": 6,
@@ -367,28 +371,30 @@ const QUIZ_DATA = [
   {
     "id": 7,
     "category": "Chữ Hán",
-    "q": "Động từ 「撮る (とる)」 dùng với danh từ nào?",
+    "q": "Từ Kanji 「女性」 có nghĩa là gì?",
     "options": [
-      "海 (うみ)",
-      "お土産 (おみやげ)",
-      "コップ",
-      "写真 (しゃしん)"
+      "Nam giới",
+      "Động vật",
+      "Không khí",
+      "Phụ nữ"
     ],
     "correct": 3,
-    "explain": "写真を撮る (chụp ảnh)."
+    "explain": "女性 nghĩa là Phụ nữ.",
+    "scopeKanji": "女性"
   },
   {
     "id": 8,
     "category": "Chữ Hán",
-    "q": "Từ 「体験」 có cách đọc chuẩn là gì?",
+    "q": "Từ Kanji 「男性」 có cách đọc nào?",
     "options": [
-      "たいげん",
-      "たいけん",
-      "からだけん",
-      "しけん"
+      "どうぶつ",
+      "だんせい",
+      "くうき",
+      "りょうきん"
     ],
     "correct": 1,
-    "explain": "体験 đọc là 「たいけん」 (THỂ NGHIỆM - trải nghiệm thực tế)."
+    "explain": "男性 đọc là 「だんせい」 theo danh sách Kanji chính thức của bài học này.",
+    "scopeKanji": "男性"
   },
   {
     "id": 9,
@@ -406,28 +412,30 @@ const QUIZ_DATA = [
   {
     "id": 10,
     "category": "Chữ Hán",
-    "q": "Từ 「海」 có âm On là gì trong từ 「海外 (nước ngoài)」?",
+    "q": "Từ Kanji 「動物」 có cách đọc nào?",
     "options": [
-      "うみ",
-      "かい",
-      "まい",
-      "し"
+      "くうき",
+      "どうぶつ",
+      "りょうきん",
+      "むりょう"
     ],
     "correct": 1,
-    "explain": "海 trong 海外 (かいがい) đọc âm On là 「かい」."
+    "explain": "動物 đọc là 「どうぶつ」 theo danh sách Kanji chính thức của bài học này.",
+    "scopeKanji": "動物"
   },
   {
     "id": 11,
-    "category": "Hội thoại",
-    "q": "「沖縄旅行は どうでしたか。」 ―― 「海が 青くて、とても [____] です。」",
+    "category": "Ngữ pháp",
+    "q": "沖縄旅行はどうでしたか。海が青くて、とても [____]。",
     "options": [
-      "きれいだった",
-      "きれいくない",
-      "きれいに",
-      "きれい"
+      "きれいでした",
+      "きれいだったです",
+      "きれいですた",
+      "きれいだでした"
     ],
     "correct": 0,
-    "explain": "Khen phong cảnh biển trong chuyến đi đã qua: tính từ đuôi な ở quá khứ là 「きれいだった」."
+    "explain": "な形容詞 きれい quá khứ lịch sự là きれいでした.",
+    "grammarScope": "official"
   },
   {
     "id": 12,
@@ -445,28 +453,30 @@ const QUIZ_DATA = [
   {
     "id": 13,
     "category": "Chữ Hán",
-    "q": "Chữ Hán 「楽しい」 có nghĩa là gì?",
+    "q": "Từ Kanji 「空気」 có nghĩa là gì?",
     "options": [
-      "Khó khăn",
-      "Vui vẻ",
-      "Bận rộn",
-      "Yên tĩnh"
+      "Giá, phí",
+      "Không khí",
+      "Miễn phí",
+      "Sáng"
     ],
     "correct": 1,
-    "explain": "楽しい (たのしい - LẠC) có nghĩa là vui vẻ."
+    "explain": "空気 nghĩa là Không khí.",
+    "scopeKanji": "空気"
   },
   {
     "id": 14,
     "category": "Ngữ pháp",
-    "q": "巨大な ジンベエザメ（cá mập voi）を 近くで [____] ことが できました。",
+    "q": "この水族館では、イルカのショーが [____]。",
     "options": [
-      "見て",
-      "見た",
-      "見る",
-      "見"
+      "見たり",
+      "見るし",
+      "見られます",
+      "見て"
     ],
     "correct": 2,
-    "explain": "Có thể nhìn thấy tận mắt: V-る ことが できました ➔ 「見ることが できました」."
+    "explain": "Thể khả năng của 見る là 見られる／見られます.",
+    "grammarScope": "official"
   },
   {
     "id": 15,

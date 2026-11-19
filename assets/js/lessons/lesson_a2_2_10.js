@@ -289,41 +289,44 @@ const QUIZ_DATA = [
   {
     "id": 1,
     "category": "Ngữ pháp",
-    "q": "パーティーに [____] くれて、本当に ありがとうございました。",
+    "q": "若い人が楽しめる [____]、イベントがあります。",
     "options": [
-      "行きて",
-      "来て",
-      "来たら",
-      "来る"
+      "ので",
+      "ように",
+      "なら",
+      "まで"
     ],
     "correct": 1,
-    "explain": "Cảm ơn vì đã đến tham gia: 来ます ➔ thể TE là 「来て (きて)」 ＋ くれてありがとう."
+    "explain": "V khả năng + ように nêu mục đích/kết quả mong muốn.",
+    "grammarScope": "official"
   },
   {
     "id": 2,
     "category": "Ngữ pháp",
-    "q": "いろいろ 準備を [____] くれて ありがとう。とても 助かったよ。",
+    "q": "七夕のとき、願い事を書いたり [____]、楽しみます。",
     "options": [
-      "手伝う",
-      "手伝った",
-      "手伝い",
-      "手伝って"
+      "する",
+      "した",
+      "しない",
+      "して"
     ],
     "correct": 3,
-    "explain": "Cảm ơn vì đã giúp đỡ: 手伝います ➔ thể TE là 「手伝って」."
+    "explain": "Liệt kê ví dụ: Vたりして楽しみます.",
+    "grammarScope": "official"
   },
   {
     "id": 3,
     "category": "Ngữ pháp",
-    "q": "ケーキの 種類は いちごの ショートケーキ [____] します。",
+    "q": "いいことがある [____] 願います。",
     "options": [
-      "を",
-      "で",
-      "に",
-      "が"
+      "ので",
+      "しか",
+      "ように",
+      "まで"
     ],
     "correct": 2,
-    "explain": "Mẫu câu quyết định lựa chọn: 『N に します』."
+    "explain": "Vるように願う diễn tả điều mong ước.",
+    "grammarScope": "official"
   },
   {
     "id": 4,
@@ -341,15 +344,16 @@ const QUIZ_DATA = [
   {
     "id": 5,
     "category": "Chữ Hán",
-    "q": "Chữ Hán 「手紙」 có nghĩa là gì?",
+    "q": "Từ Kanji 「幸せ」 có nghĩa là gì?",
     "options": [
-      "Tờ giấy",
-      "Bàn tay",
-      "Bức thư",
-      "Quyển sách"
+      "Sự trưởng thành, phát triển",
+      "Sống lâu",
+      "Hạnh phúc",
+      "Điều ước"
     ],
     "correct": 2,
-    "explain": "手紙 (てがみ - THỦ CHỈ) có nghĩa là bức thư."
+    "explain": "幸せ nghĩa là Hạnh phúc.",
+    "scopeKanji": "幸せ"
   },
   {
     "id": 6,
@@ -367,15 +371,16 @@ const QUIZ_DATA = [
   {
     "id": 7,
     "category": "Chữ Hán",
-    "q": "Từ 「配達」 có âm Hán Việt là gì?",
+    "q": "Từ Kanji 「成長」 có nghĩa là gì?",
     "options": [
-      "PHỐI HỢP",
-      "XUẤT ĐẠT",
-      "THÔNG ĐẠT",
-      "PHỐI ĐẠT"
+      "Sống lâu",
+      "Điều ước",
+      "Thi đỗ",
+      "Sự trưởng thành, phát triển"
     ],
     "correct": 3,
-    "explain": "配達 có âm Hán Việt là PHỐI ĐẠT (giao hàng tận nơi)."
+    "explain": "成長 nghĩa là Sự trưởng thành, phát triển.",
+    "scopeKanji": "成長"
   },
   {
     "id": 8,
@@ -393,15 +398,16 @@ const QUIZ_DATA = [
   {
     "id": 9,
     "category": "Chữ Hán",
-    "q": "Chữ Hán 「お礼」 đọc là gì?",
+    "q": "Từ Kanji 「長生き」 có nghĩa là gì?",
     "options": [
-      "おらい",
-      "おさつ",
-      "おれい",
-      "おぎ"
+      "Điều ước",
+      "Thi đỗ",
+      "Sống lâu",
+      "Kỳ thi"
     ],
     "correct": 2,
-    "explain": "お礼 đọc là 「おれい」 (lời cảm ơn / quà đáp lễ)."
+    "explain": "長生き nghĩa là Sống lâu.",
+    "scopeKanji": "長生き"
   },
   {
     "id": 10,
@@ -432,15 +438,16 @@ const QUIZ_DATA = [
   {
     "id": 12,
     "category": "Chữ Hán",
-    "q": "Từ 「感謝」 gồm 2 chữ nào ghép lại?",
+    "q": "Từ Kanji 「願い事」 có cách đọc nào?",
     "options": [
-      "CẢM + TÌNH",
-      "CẢM + TẠ",
-      "CẢM + TÂM",
-      "ÁI + TẠ"
+      "ごうかく",
+      "ねがいごと",
+      "しけん",
+      "おとな"
     ],
     "correct": 1,
-    "explain": "感謝 gồm CẢM (感) và TẠ (謝) ➔ cảm tạ, lòng biết ơn."
+    "explain": "願い事 đọc là 「ねがいごと」 theo danh sách Kanji chính thức của bài học này.",
+    "scopeKanji": "願い事"
   },
   {
     "id": 13,
@@ -458,28 +465,30 @@ const QUIZ_DATA = [
   {
     "id": 14,
     "category": "Ngữ pháp",
-    "q": "すてきな プレゼントを [____] くれて、本当に うれしいです。",
+    "q": "パーティーの時間におくれない [____]、早く行きましょう。",
     "options": [
-      "えらんで",
-      "えらんだ",
-      "えらぶ",
-      "えらび"
+      "ように",
+      "ので",
+      "なら",
+      "まで"
     ],
     "correct": 0,
-    "explain": "Đã cất công chọn quà tặng mình: 選んでくれて (thể TE ＋ くれて)."
+    "explain": "Vないように nêu điều cần tránh để đạt mục đích.",
+    "grammarScope": "official"
   },
   {
     "id": 15,
     "category": "Chữ Hán",
-    "q": "Chữ Hán 「人数」 đọc là gì?",
+    "q": "Từ Kanji 「合格」 có nghĩa là gì?",
     "options": [
-      "ひとすう",
-      "にんずう",
-      "じんずう",
-      "にんすう"
+      "Kỳ thi",
+      "Thi đỗ",
+      "Người lớn",
+      "Lễ ～ (lễ trưởng thành)"
     ],
     "correct": 1,
-    "explain": "人数 đọc là 「にんずう」."
+    "explain": "合格 nghĩa là Thi đỗ.",
+    "scopeKanji": "合格"
   }
 ];
 

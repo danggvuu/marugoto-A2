@@ -28,6 +28,7 @@ import scripts.a2_2.topic_06 as t6
 import scripts.a2_2.topic_07 as t7
 import scripts.a2_2.topic_08 as t8
 import scripts.a2_2.topic_09 as t9
+from scripts.a2_2.official_curriculum import apply_official_curriculum
 
 
 LESSONS_CONFIG = [
@@ -324,24 +325,27 @@ LESSONS_CONFIG = [
     }
 ]
 
+# Use the JF course grammar and kanji lesson order as the canonical scope.
+apply_official_curriculum(LESSONS_CONFIG, ROOT)
+
 
 SHORT_TITLES = {
-    1: "Tên gọi & Giới thiệu",
-    2: "Trang phục & Miêu tả người",
-    3: "Quán ăn & Món gợi ý",
-    4: "Cách ăn & Bỏ nguyên liệu",
-    5: "Du lịch & Chuẩn bị hành lý",
-    6: "Tắm biển & Trải nghiệm",
-    7: "Lễ hội & Rủ rê tham gia",
-    8: "Hòa nhạc & Quầy hàng Yatai",
-    9: "Tiệc mừng & Tặng quà",
-    10: "Bánh sinh nhật & Cảm ơn",
+    1: "Tên gọi",
+    2: "Miêu tả người",
+    3: "Món ăn gợi ý",
+    4: "Cách ăn",
+    5: "Lời khuyên du lịch",
+    6: "Xem biểu diễn cá heo",
+    7: "Nếu trời mưa",
+    8: "Hòa nhạc đã bắt đầu chưa",
+    9: "Kỳ nghỉ Tết",
+    10: "Cầu mong điều tốt",
     11: "Đồ gia dụng bị hỏng",
     12: "So sánh & Mua sắm online",
-    13: "Chỉ đường & Đi tàu xe",
-    14: "Thăm đền chùa & Di tích",
-    15: "Quy tắc phân loại rác",
-    16: "Thói quen tiết kiệm Eco",
+    13: "Lịch sử Kyoto",
+    14: "Nghe kể về tranh",
+    15: "Đèn vẫn bật",
+    16: "Quần áo không mặc vừa",
     17: "Cuộc đời & Danh nhân",
     18: "Kỷ niệm & Tương lai"
 }
@@ -413,6 +417,27 @@ def sync_kanji_data():
     js_path.write_text(updated_content, encoding="utf-8")
     print(f"Updated {js_path} with total {len(total_data)} Kanji entries!")
 
+    update_kanji_html(len(total_data), len(new_items))
+
+
+def update_kanji_html(total_count, a2_2_count):
+    html_path = ROOT / "kanji_a2.html"
+    content = html_path.read_text(encoding="utf-8")
+    content = re.sub(r">🎴 \d+ Mục Từ Kanji · A2-1 &amp; A2-2<", f">🎴 {total_count} Mục Từ Kanji · A2-1 &amp; A2-2<", content)
+    content = re.sub(r"121 mục A2-1 bài 11–18 và \d+ mục A2-2 bài 1–2\.", f"121 mục A2-1 bài 11–18 và {a2_2_count} mục Kanji A2-2 bài 1–18.", content)
+    content = re.sub(r"Tất Cả \(\d+\)", f"Tất Cả ({total_count})", content)
+    content = re.sub(r"Trọn Bộ A2-2 \(\d+\)", f"Trọn Bộ A2-2 ({a2_2_count})", content)
+
+    lesson_buttons = "\n".join(
+        f'''                <button type="button" class="filter-121-btn" style="padding: 2px 8px; font-size: 0.78rem;" onclick="filter121Vocab('A2-2 L{cfg['num']}', this)">Bài {cfg['num']} ({len(cfg['kanji_list'])})</button>'''
+        for cfg in LESSONS_CONFIG
+    )
+    pattern = r"(<!-- Quick Filter by A2-2 Specific Lesson -->\s*<div[^>]*>).*?(\n\s*</div>)"
+    content, count = re.subn(pattern, lambda match: match.group(1) + "\n                <span style=\"font-size: 0.82rem; font-weight: 700; color: #6b21a8;\">Lọc A2-2:</span>\n" + lesson_buttons + match.group(2), content, count=1, flags=re.S)
+    if count != 1:
+        raise ValueError("Could not find the A2-2 Kanji lesson filter in kanji_a2.html")
+    html_path.write_text(content, encoding="utf-8")
+
 
 def main():
     print(f"=== BUILDING ALL 18 LESSONS OF MARUGOTO A2-2 ===")
@@ -442,7 +467,7 @@ def main():
             vocab_count=len(cfg["vocab"]),
             grammar_count=len(cfg["grammar"]),
             verb_count=len(cfg["verbs"]),
-            kanji_count=len(cfg["kanji_cards"]),
+            kanji_count=len(cfg["kanji_list"]),
             grammar_blocks=cfg["grammar"],
             kanji_cards=cfg["kanji_cards"],
             js_filename=js_file,

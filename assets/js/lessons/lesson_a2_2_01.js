@@ -297,33 +297,36 @@ const QUIZ_DATA = [
       "を"
     ],
     "correct": 1,
-    "explain": "Mẫu câu giải thích định nghĩa, ý nghĩa: 『～というのは、...という意味です』. Chữ 「と」 làm trợ từ trích dẫn nội dung ý nghĩa."
+    "explain": "Mẫu câu giải thích định nghĩa, ý nghĩa: 『～というのは、...という意味です』. Chữ 「と」 làm trợ từ trích dẫn nội dung ý nghĩa.",
+    "grammarScope": "official"
   },
   {
     "id": 2,
     "category": "Ngữ pháp",
-    "q": "わたしは ベトナムの ダナン [____] うまれました。",
+    "q": "さいたま [____] ところに住んでいます。",
     "options": [
-      "で",
-      "に",
-      "を",
-      "へ"
+      "という",
+      "ので",
+      "しか",
+      "まで"
     ],
     "correct": 0,
-    "explain": "Nơi diễn ra hành động/sự kiện sinh ra 『生まれます』 dùng trợ từ 「で」 (ở tại đâu). Khác với nơi cư trú lâu dài 『住んでいます』 dùng 「に」."
+    "explain": "N1 というところ giới thiệu tên địa điểm: さいたまというところ.",
+    "grammarScope": "official"
   },
   {
     "id": 3,
     "category": "Ngữ pháp",
-    "q": "日本の 歴史や 文学 [____] きょうみが あります。",
+    "q": "私は山田さんという [____] を知っています。",
     "options": [
-      "で",
-      "を",
-      "に",
-      "が"
+      "意味",
+      "ところ",
+      "人",
+      "ため"
     ],
     "correct": 2,
-    "explain": "Cấu trúc có hứng thú với điều gì: 『[Danh từ] に 興味 (きょうみ) が あります』. Trợ từ đi kèm đối tượng hứng thú là 「に」."
+    "explain": "N1というN2 giới thiệu người/vật có tên là N1.",
+    "grammarScope": "official"
   },
   {
     "id": 4,
@@ -362,7 +365,8 @@ const QUIZ_DATA = [
       "ような"
     ],
     "correct": 1,
-    "explain": "Cấu trúc giới thiệu tên gọi của người/vật/địa danh mà người nghe chưa biết: 『N1 という N2』 (N2 có tên/gọi là N1) ➔ 「山田さんという人」 (người tên là Yamada)."
+    "explain": "Cấu trúc giới thiệu tên gọi của người/vật/địa danh mà người nghe chưa biết: 『N1 という N2』 (N2 có tên/gọi là N1) ➔ 「山田さんという人」 (người tên là Yamada).",
+    "grammarScope": "official"
   },
   {
     "id": 7,
@@ -406,41 +410,44 @@ const QUIZ_DATA = [
   {
     "id": 10,
     "category": "Chữ Hán",
-    "q": "Chữ Hán 「紹介」 có cách đọc chuẩn là gì?",
+    "q": "Từ Kanji 「自己紹介」 có cách đọc nào?",
     "options": [
-      "じこかい",
-      "しょうかい",
-      "そくかい",
-      "しょうけい"
+      "なまえ",
+      "じこしょうかい",
+      "いみ",
+      "ほんや"
     ],
     "correct": 1,
-    "explain": "紹介 đọc là 「しょうかい」 (THIỆU GIỚI - Giới thiệu)."
+    "explain": "自己紹介 đọc là 「じこしょうかい」 theo danh sách Kanji chính thức của bài học này.",
+    "scopeKanji": "自己紹介"
   },
   {
     "id": 11,
     "category": "Chữ Hán",
-    "q": "Từ 「有名」 (HỮU DANH) có nghĩa là gì?",
+    "q": "Từ Kanji 「名前」 có nghĩa là gì?",
     "options": [
-      "Tên tuổi",
       "Ý nghĩa",
-      "Nổi tiếng",
-      "Hàng xóm"
+      "Hiệu sách",
+      "Tên",
+      "Gần, gần đây"
     ],
     "correct": 2,
-    "explain": "有名 (ゆうめい) nghĩa là nổi tiếng, có tiếng tăm."
+    "explain": "名前 nghĩa là Tên.",
+    "scopeKanji": "名前"
   },
   {
     "id": 12,
     "category": "Chữ Hán",
-    "q": "Cách đọc của chữ Hán 「近所」 là gì?",
+    "q": "Từ Kanji 「意味」 có cách đọc nào?",
     "options": [
-      "きんじょ",
-      "ちかじょ",
-      "きんしょ",
-      "ちかところ"
+      "いみ",
+      "ほんや",
+      "ちかく",
+      "すみます"
     ],
     "correct": 0,
-    "explain": "近所 đọc là 「きんじょ」 (CẬN SỞ - Hàng xóm, khu vực lân cận)."
+    "explain": "意味 đọc là 「いみ」 theo danh sách Kanji chính thức của bài học này.",
+    "scopeKanji": "意味"
   },
   {
     "id": 13,
@@ -453,20 +460,22 @@ const QUIZ_DATA = [
       "買いて"
     ],
     "correct": 0,
-    "explain": "Mệnh đề bổ nghĩa cho danh từ 『普通形 ＋ N』: Động từ đã hoàn thành trong quá khứ đưa về thể Quá khứ thông thường (thể た): 買いました ➔ 「買った本」 (cuốn sách đã mua)."
+    "explain": "Mệnh đề bổ nghĩa cho danh từ 『普通形 ＋ N』: Động từ đã hoàn thành trong quá khứ đưa về thể Quá khứ thông thường (thể た): 買いました ➔ 「買った本」 (cuốn sách đã mua).",
+    "grammarScope": "official"
   },
   {
     "id": 14,
     "category": "Chữ Hán",
-    "q": "Chữ Hán 「屋」 trong từ 「本屋 (ほんや)」 có âm Hán Việt là gì?",
+    "q": "Từ Kanji 「本屋」 có cách đọc nào?",
     "options": [
-      "Phòng",
-      "Ốc",
-      "Điếm",
-      "Thất"
+      "ちかく",
+      "ほんや",
+      "すみます",
+      "はたらきます"
     ],
     "correct": 1,
-    "explain": "屋 có âm Hán Việt là ỐC (căn nhà, tiệm). 本屋 là Bổn Ốc (tiệm sách)."
+    "explain": "本屋 đọc là 「ほんや」 theo danh sách Kanji chính thức của bài học này.",
+    "scopeKanji": "本屋"
   },
   {
     "id": 15,

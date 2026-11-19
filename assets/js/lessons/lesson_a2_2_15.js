@@ -289,28 +289,30 @@ const QUIZ_DATA = [
   {
     "id": 1,
     "category": "Ngữ pháp",
-    "q": "ごみは ルールに 従って、きちんと 分別 [____] なりません。",
+    "q": "会議室の電気が [____] ままです。",
     "options": [
-      "しないで",
-      "しなければ",
-      "したら",
-      "しては"
+      "つけて",
+      "ついた",
+      "つく",
+      "ついて"
     ],
     "correct": 1,
-    "explain": "Bắt buộc phải làm: V-なければなりません ➔ しません ➔ 「しなければ」."
+    "explain": "Vたまま diễn tả trạng thái tiếp tục giữ nguyên.",
+    "grammarScope": "official"
   },
   {
     "id": 2,
     "category": "Ngữ pháp",
-    "q": "この日は 瓶（びん）の 日ですから、缶は [____] いいです。",
+    "q": "私は自分のはしを使う [____] しています。",
     "options": [
-      "出さなくても",
-      "出さなければ",
-      "出さないで",
-      "出して"
+      "ように",
+      "ために",
+      "ので",
+      "まで"
     ],
     "correct": 0,
-    "explain": "Không cần làm cũng được: V-なくてもいいです ➔ 「出さなくても」."
+    "explain": "Vるようにしています nói về thói quen mình cố gắng duy trì.",
+    "grammarScope": "official"
   },
   {
     "id": 3,
@@ -328,15 +330,16 @@ const QUIZ_DATA = [
   {
     "id": 4,
     "category": "Chữ Hán",
-    "q": "Chữ Hán 「分別」 có cách đọc chuẩn là gì?",
+    "q": "Từ Kanji 「油」 có cách đọc nào?",
     "options": [
-      "ふんべつ",
-      "ぶんべつ",
-      "わけべつ",
-      "ぶんわけ"
+      "かみ",
+      "あぶら",
+      "おんど",
+      "かつどう"
     ],
     "correct": 1,
-    "explain": "分別 đọc là 「ぶんべつ」 (PHÂN BIỆT - phân loại rác)."
+    "explain": "油 đọc là 「あぶら」 theo danh sách Kanji chính thức của bài học này.",
+    "scopeKanji": "油"
   },
   {
     "id": 5,
@@ -354,15 +357,16 @@ const QUIZ_DATA = [
   {
     "id": 6,
     "category": "Chữ Hán",
-    "q": "Từ 「捨てます (すてます)」 có nghĩa là gì?",
+    "q": "Từ Kanji 「紙」 có cách đọc nào?",
     "options": [
-      "Nhặt rác lên",
-      "Mua đồ",
-      "Vứt rác đi",
-      "Đổi hàng"
+      "おんど",
+      "かつどう",
+      "かみ",
+      "かいぎしつ"
     ],
     "correct": 2,
-    "explain": "捨てる (すてる - XẢ) có nghĩa là vứt bỏ."
+    "explain": "紙 đọc là 「かみ」 theo danh sách Kanji chính thức của bài học này.",
+    "scopeKanji": "紙"
   },
   {
     "id": 7,
@@ -380,15 +384,16 @@ const QUIZ_DATA = [
   {
     "id": 8,
     "category": "Chữ Hán",
-    "q": "Từ 「資源」 có âm Hán Việt là gì?",
+    "q": "Từ Kanji 「温度」 có cách đọc nào?",
     "options": [
-      "TƯ LIỆU",
-      "TƯ NGUYÊN",
-      "TỰ NGUYÊN",
-      "TƯ BẢN"
+      "かつどう",
+      "おんど",
+      "かいぎしつ",
+      "さむい"
     ],
     "correct": 1,
-    "explain": "資源 có âm Hán Việt là TƯ NGUYÊN (tài nguyên)."
+    "explain": "温度 đọc là 「おんど」 theo danh sách Kanji chính thức của bài học này.",
+    "scopeKanji": "温度"
   },
   {
     "id": 9,
@@ -406,41 +411,44 @@ const QUIZ_DATA = [
   {
     "id": 10,
     "category": "Chữ Hán",
-    "q": "Chữ Hán 「守る」 đọc là gì?",
+    "q": "Từ Kanji 「活動」 có cách đọc nào?",
     "options": [
-      "まもる",
-      "すてる",
-      "わける",
-      "へらす"
+      "かつどう",
+      "かいぎしつ",
+      "さむい",
+      "だします"
     ],
     "correct": 0,
-    "explain": "守る đọc là 「まもる」 (THỦ - tuân thủ quy tắc)."
+    "explain": "活動 đọc là 「かつどう」 theo danh sách Kanji chính thức của bài học này.",
+    "scopeKanji": "活動"
   },
   {
     "id": 11,
     "category": "Ngữ pháp",
-    "q": "ペットボトルを 捨てるときは、キャップを [____] から 捨ててください。",
+    "q": "会議室の電気を消す [____] しています。",
     "options": [
-      "はずす",
-      "はずした",
-      "はずし",
-      "はずして"
+      "ために",
+      "ので",
+      "まで",
+      "ように"
     ],
     "correct": 3,
-    "explain": "Trình tự: tháo nắp ra xong rồi mới vứt ➔ V-てから: 「はずして」."
+    "explain": "Vるようにしています diễn tả thói quen được duy trì.",
+    "grammarScope": "official"
   },
   {
     "id": 12,
     "category": "Chữ Hán",
-    "q": "Chữ Hán 「袋」 trong 「ビニール袋」 có nghĩa là gì?",
+    "q": "Từ Kanji 「会議室」 có cách đọc nào?",
     "options": [
-      "Cái chai",
-      "Cái hộp",
-      "Cái túi",
-      "Tờ giấy"
+      "さむい",
+      "だします",
+      "かいぎしつ",
+      "～ど（にじゅうはちど）"
     ],
     "correct": 2,
-    "explain": "袋 (ふくろ - ĐẠI) nghĩa là cái bao, cái túi."
+    "explain": "会議室 đọc là 「かいぎしつ」 theo danh sách Kanji chính thức của bài học này.",
+    "scopeKanji": "会議室"
   },
   {
     "id": 13,
@@ -457,29 +465,31 @@ const QUIZ_DATA = [
   },
   {
     "id": 14,
-    "category": "Hội thoại",
-    "q": "「ごみは どこに [____] いいですか。」 ―― 「あそこの 集積場ですよ。」",
+    "category": "Ngữ pháp",
+    "q": "自分のはしは、ごみをへらす [____] いいです。",
     "options": [
-      "出せば",
-      "出したらば",
-      "出したら",
-      "出すなら"
+      "ので",
+      "なら",
+      "のに",
+      "まで"
     ],
     "correct": 2,
-    "explain": "Nên đem rác ra đâu thì tốt: V-たらいいですか ➔ 「出したらいいですか」."
+    "explain": "Vるのにいい nêu công dụng phù hợp.",
+    "grammarScope": "official"
   },
   {
     "id": 15,
     "category": "Chữ Hán",
-    "q": "Chữ Hán 「燃える」 có âm Hán Việt là gì?",
+    "q": "Từ Kanji 「寒い」 có nghĩa là gì?",
     "options": [
-      "HỎA",
-      "TIÊU",
-      "THIÊU",
-      "NHIÊN"
+      "Đưa ra, lấy ra",
+      "～ độ (28 độ)",
+      "～ điểm (100 điểm)",
+      "Lạnh (thời tiết)"
     ],
     "correct": 3,
-    "explain": "燃える có âm Hán Việt là NHIÊN (bùng cháy)."
+    "explain": "寒い nghĩa là Lạnh (thời tiết).",
+    "scopeKanji": "寒い"
   }
 ];
 

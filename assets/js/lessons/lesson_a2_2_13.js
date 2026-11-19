@@ -289,41 +289,44 @@ const QUIZ_DATA = [
   {
     "id": 1,
     "category": "Ngữ pháp",
-    "q": "ここから バス [____] 乗って、市役所前で 降りてください。",
+    "q": "京都はいつ来て [____]、楽しめます。",
     "options": [
-      "を",
-      "で",
-      "に",
-      "が"
+      "は",
+      "か",
+      "も",
+      "まで"
     ],
     "correct": 2,
-    "explain": "Lên xe buýt dùng trợ từ に: 『バスに 乗る』."
+    "explain": "いつVても diễn tả dù đến lúc nào thì kết quả vẫn vậy.",
+    "grammarScope": "official"
   },
   {
     "id": 2,
     "category": "Ngữ pháp",
-    "q": "次の 駅で 地下鉄 [____] 乗り換えます。",
+    "q": "妹と [____] 京都に来ました。",
     "options": [
-      "を",
-      "へ",
-      "で",
-      "に"
+      "二人を",
+      "二人に",
+      "二人が",
+      "二人で"
     ],
     "correct": 3,
-    "explain": "Đổi sang phương tiện mới dùng trợ từ に: 『地下鉄に 乗り換える』."
+    "explain": "で đánh dấu nhóm người cùng thực hiện hành động.",
+    "grammarScope": "official"
   },
   {
     "id": 3,
-    "category": "Hội thoại",
-    "q": "「お寺まで どのくらい [____] か。」 ―― 「歩いて 15分です。」",
+    "category": "Ngữ pháp",
+    "q": "京都は8世紀の終わりに天皇によって [____]。",
     "options": [
-      "します",
-      "いきます",
-      "かかります",
-      "のります"
+      "つくりました",
+      "つくって",
+      "つくられました",
+      "つくる"
     ],
     "correct": 2,
-    "explain": "Hỏi mất bao lâu: 「どのくらい かかりますか」."
+    "explain": "つくられました là thể bị động: được xây dựng.",
+    "grammarScope": "official"
   },
   {
     "id": 4,
@@ -341,15 +344,16 @@ const QUIZ_DATA = [
   {
     "id": 5,
     "category": "Chữ Hán",
-    "q": "Chữ Hán 「切符」 có cách đọc chuẩn là gì?",
+    "q": "Từ Kanji 「京都」 có nghĩa là gì?",
     "options": [
-      "きりふ",
-      "きっぷ",
-      "せっぷ",
-      "きっふ"
+      "Đền Thần đạo",
+      "Kyoto",
+      "Chùa",
+      "Phật giáo"
     ],
     "correct": 1,
-    "explain": "切符 đọc là 「きっぷ」 (vé tàu xe)."
+    "explain": "京都 nghĩa là Kyoto.",
+    "scopeKanji": "京都"
   },
   {
     "id": 6,
@@ -367,15 +371,16 @@ const QUIZ_DATA = [
   {
     "id": 7,
     "category": "Chữ Hán",
-    "q": "Từ 「降ります」 đối nghĩa với từ nào?",
+    "q": "Từ Kanji 「神社」 có nghĩa là gì?",
     "options": [
-      "行きます",
-      "来ます",
-      "乗ります (のります)",
-      "帰ります"
+      "Chùa",
+      "Phật giáo",
+      "Đền Thần đạo",
+      "Lịch sử"
     ],
     "correct": 2,
-    "explain": "降ります (xuống xe) đối nghĩa với 乗ります (lên xe)."
+    "explain": "神社 nghĩa là Đền Thần đạo.",
+    "scopeKanji": "神社"
   },
   {
     "id": 8,
@@ -393,15 +398,16 @@ const QUIZ_DATA = [
   {
     "id": 9,
     "category": "Chữ Hán",
-    "q": "Chữ Hán 「遠い」 đọc là gì?",
+    "q": "Từ Kanji 「お寺」 có nghĩa là gì?",
     "options": [
-      "ちかい",
-      "とおい",
-      "おそい",
-      "はやい"
+      "Phật giáo",
+      "Chùa",
+      "Lịch sử",
+      "Thế giới"
     ],
     "correct": 1,
-    "explain": "遠い đọc là 「とおい」 (VIỄN - xa xôi)."
+    "explain": "お寺 nghĩa là Chùa.",
+    "scopeKanji": "お寺"
   },
   {
     "id": 10,
@@ -419,28 +425,30 @@ const QUIZ_DATA = [
   {
     "id": 11,
     "category": "Ngữ pháp",
-    "q": "電車を [____] とき、足元に 気をつけて ください。",
+    "q": "この金閣寺は足利義満によって [____]。",
     "options": [
-      "降りた",
-      "降りる",
-      "降りて",
-      "降ります"
+      "建てました",
+      "建てられました",
+      "建てて",
+      "建てる"
     ],
     "correct": 1,
-    "explain": "Khi xuống khỏi tàu: 『[V thể từ điển] + とき』 ➔ 「降りるとき」."
+    "explain": "建てられました là thể bị động: được xây dựng.",
+    "grammarScope": "official"
   },
   {
     "id": 12,
     "category": "Chữ Hán",
-    "q": "Chữ Hán 「出発」 có âm Hán Việt là gì?",
+    "q": "Từ Kanji 「仏教」 có cách đọc nào?",
     "options": [
-      "XUẤT PHÁP",
-      "XUẤT HÀNH",
-      "NHẬP PHÁT",
-      "XUẤT PHÁT"
+      "れきし",
+      "せかい",
+      "ちゅうしん",
+      "ぶっきょう"
     ],
     "correct": 3,
-    "explain": "出発 có âm Hán Việt là XUẤT PHÁT (khởi hành)."
+    "explain": "仏教 đọc là 「ぶっきょう」 theo danh sách Kanji chính thức của bài học này.",
+    "scopeKanji": "仏教"
   },
   {
     "id": 13,
@@ -457,29 +465,31 @@ const QUIZ_DATA = [
   },
   {
     "id": 14,
-    "category": "Hội thoại",
-    "q": "駅員に 「すみません、京都寺へは [____] 行きますか」 と 尋ねました。",
+    "category": "Ngữ pháp",
+    "q": "京都はいつ来ても [____]。",
     "options": [
-      "だれと",
-      "どうやって",
-      "何時に",
-      "なぜ"
+      "楽しみます",
+      "楽しめます",
+      "楽しんで",
+      "楽しむ"
     ],
     "correct": 1,
-    "explain": "Hỏi cách đi tới địa điểm: 「どうやって 行きますか」."
+    "explain": "いつ来ても楽しめます diễn tả Kyoto luôn thú vị dù đến lúc nào.",
+    "grammarScope": "official"
   },
   {
     "id": 15,
     "category": "Chữ Hán",
-    "q": "Chữ Hán 「乗」 trong 「乗車」 có âm On là gì?",
+    "q": "Từ Kanji 「歴史」 có nghĩa là gì?",
     "options": [
-      "じょう",
-      "とう",
-      "のり",
-      "しょう"
+      "Lịch sử",
+      "Thế giới",
+      "Trung tâm",
+      "Thế kỷ ～ (thế kỷ 8)"
     ],
     "correct": 0,
-    "explain": "乗 có âm On là 「じょう」 (trong 乗車 - じょうしゃ, 乗客 - じょうきゃく)."
+    "explain": "歴史 nghĩa là Lịch sử.",
+    "scopeKanji": "歴史"
   }
 ];
 

@@ -58,61 +58,61 @@
         {
                 "file": "Marugoto_A2_2_Lesson_1.html",
                 "num": "01",
-                "title": "Bài 1: Tên gọi & Giới thiệu",
+                "title": "Bài 1: Tên gọi",
                 "icon": "🌸"
         },
         {
                 "file": "Marugoto_A2_2_Lesson_2.html",
                 "num": "02",
-                "title": "Bài 2: Trang phục & Miêu tả người",
+                "title": "Bài 2: Miêu tả người",
                 "icon": "👓"
         },
         {
                 "file": "Marugoto_A2_2_Lesson_3.html",
                 "num": "03",
-                "title": "Bài 3: Quán ăn & Món gợi ý",
+                "title": "Bài 3: Món ăn gợi ý",
                 "icon": "🍲"
         },
         {
                 "file": "Marugoto_A2_2_Lesson_4.html",
                 "num": "04",
-                "title": "Bài 4: Cách ăn & Bỏ nguyên liệu",
+                "title": "Bài 4: Cách ăn",
                 "icon": "🥢"
         },
         {
                 "file": "Marugoto_A2_2_Lesson_5.html",
                 "num": "05",
-                "title": "Bài 5: Du lịch & Chuẩn bị hành lý",
+                "title": "Bài 5: Lời khuyên du lịch",
                 "icon": "✈️"
         },
         {
                 "file": "Marugoto_A2_2_Lesson_6.html",
                 "num": "06",
-                "title": "Bài 6: Tắm biển & Trải nghiệm",
+                "title": "Bài 6: Xem biểu diễn cá heo",
                 "icon": "🏖️"
         },
         {
                 "file": "Marugoto_A2_2_Lesson_7.html",
                 "num": "07",
-                "title": "Bài 7: Lễ hội & Rủ rê tham gia",
+                "title": "Bài 7: Nếu trời mưa",
                 "icon": "🏮"
         },
         {
                 "file": "Marugoto_A2_2_Lesson_8.html",
                 "num": "08",
-                "title": "Bài 8: Hòa nhạc & Quầy hàng Yatai",
+                "title": "Bài 8: Hòa nhạc đã bắt đầu chưa",
                 "icon": "🎆"
         },
         {
                 "file": "Marugoto_A2_2_Lesson_9.html",
                 "num": "09",
-                "title": "Bài 9: Tiệc mừng & Tặng quà",
+                "title": "Bài 9: Kỳ nghỉ Tết",
                 "icon": "🎉"
         },
         {
                 "file": "Marugoto_A2_2_Lesson_10.html",
                 "num": "10",
-                "title": "Bài 10: Bánh sinh nhật & Cảm ơn",
+                "title": "Bài 10: Cầu mong điều tốt",
                 "icon": "🎂"
         },
         {
@@ -130,25 +130,25 @@
         {
                 "file": "Marugoto_A2_2_Lesson_13.html",
                 "num": "13",
-                "title": "Bài 13: Chỉ đường & Đi tàu xe",
+                "title": "Bài 13: Lịch sử Kyoto",
                 "icon": "🚇"
         },
         {
                 "file": "Marugoto_A2_2_Lesson_14.html",
                 "num": "14",
-                "title": "Bài 14: Thăm đền chùa & Di tích",
+                "title": "Bài 14: Nghe kể về tranh",
                 "icon": "🛕"
         },
         {
                 "file": "Marugoto_A2_2_Lesson_15.html",
                 "num": "15",
-                "title": "Bài 15: Quy tắc phân loại rác",
+                "title": "Bài 15: Đèn vẫn bật",
                 "icon": "♻️"
         },
         {
                 "file": "Marugoto_A2_2_Lesson_16.html",
                 "num": "16",
-                "title": "Bài 16: Thói quen tiết kiệm Eco",
+                "title": "Bài 16: Quần áo không mặc vừa",
                 "icon": "🌱"
         },
         {

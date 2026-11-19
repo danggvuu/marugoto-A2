@@ -216,18 +216,24 @@ def build_lesson_html(
 
     kanji_cards_html = []
     for k in kanji_cards:
-        kanji_cards_html.append(f'''        <div class="kanji-detail-card">
-            <div class="kanji-big-char">{k["char"]}</div>
+        if "word" in k:
+            kanji_cards_html.append(f'''        <div class="kanji-detail-card">
+            <div class="kanji-big-char" lang="ja">{k["word"]}</div>
             <div class="kanji-info">
-                <div class="kanji-hv-title">{k["hv"]} <span class="kanji-strokes-badge">{k["strokes"]} nét</span></div>
-                <div class="kanji-readings">
-                    <strong>Kun:</strong> {k["kun"]}<br>
-                    <strong>On:</strong> {k["on"]}<br>
-                    <strong>Từ ví dụ:</strong> {k["ex"]}
-                </div>
-                <div class="kanji-mnemonic">💡 Mẹo nhớ: {k["mnemonic"]}</div>
+                <div class="kanji-hv-title" lang="ja">{k["kana"]}</div>
+                <div class="kanji-readings">{k["mean"]}</div>
             </div>
         </div>''')
+        else:
+            kanji_cards_html.append(f'''        <div class="kanji-detail-card">
+                <div class="kanji-big-char">{k["char"]}</div>
+                <div class="kanji-info">
+                    <div class="kanji-hv-title">{k["hv"]} <span class="kanji-strokes-badge">{k["strokes"]} nét</span></div>
+                    <div class="kanji-readings"><strong>Kun:</strong> {k["kun"]}<br>
+                        <strong>On:</strong> {k["on"]}<br><strong>Từ ví dụ:</strong> {k["ex"]}</div>
+                    <div class="kanji-mnemonic">💡 Mẹo nhớ: {k["mnemonic"]}</div>
+                </div>
+            </div>''')
     kanji_html = "\n".join(kanji_cards_html)
 
     if section_links:
@@ -273,9 +279,9 @@ def build_lesson_html(
     <div class="section-nav">
         {sec_links_html}
         <a href="#sec-verb-lab" class="sec-link">🔬 Biến Thể Động Từ</a>
-        <a href="#sec-vocab" class="sec-link">🎴 {vocab_count} Từ Vựng</a>
+        <a href="#sec-vocab" class="sec-link">🎴 {vocab_count} Flashcard</a>
         <a href="#sec-typing-practice" class="sec-link">⌨️ Luyện Gõ Từ Vựng</a>
-        <a href="#sec-kanji" class="sec-link">⛩️ {kanji_count} Chữ Hán</a>
+        <a href="#sec-kanji" class="sec-link">⛩️ {kanji_count} Từ Kanji</a>
         <a href="#sec-quiz" class="sec-link">📝 Mini Test 15 Câu</a>
     </div>
 
@@ -305,7 +311,7 @@ def build_lesson_html(
             </div>
             <div class="stat-card">
                 <div class="stat-number">{kanji_count}</div>
-                <div class="stat-label">Chữ Hán Kanji</div>
+                <div class="stat-label">Từ Kanji trong bài</div>
             </div>
             <div class="stat-card">
                 <div class="stat-number">15</div>
@@ -323,7 +329,7 @@ def build_lesson_html(
             <h2 class="section-title"><span>🔬</span> Phòng Thí Nghiệm Biến Thể Động Từ</h2>
             <span class="section-tag">Interactive Verb Morph</span>
         </div>
-        <p style="margin-bottom: 16px; color: #475569;">Chọn động từ bên dưới để quan sát tức thì cách biến đổi sang các thể giao tiếp quan trọng:</p>
+        <p style="margin-bottom: 16px; color: #475569;">Bảng chia thể là phần luyện tập bổ trợ; các mục ngữ pháp chính thức của bài nằm ở phần trên.</p>
         
         <div class="verb-selector-row" id="verbSelectorRow"></div>
 
@@ -360,10 +366,10 @@ def build_lesson_html(
     <!-- Vocab 3D Flashcard Section -->
     <section class="content-section" id="sec-vocab">
         <div class="section-header">
-            <h2 class="section-title"><span>🎴</span> Hệ Thống Flashcard Từ Vựng Trọng Tâm ({vocab_count} Từ)</h2>
-            <span class="section-tag">Audio + Visual</span>
+            <h2 class="section-title"><span>🎴</span> Flashcard từ vựng theo chủ đề ({vocab_count} mục)</h2>
+            <span class="section-tag">Có từ mở rộng để luyện thêm</span>
         </div>
-        <p style="margin-bottom: 16px; color: #475569;">Bấm thẻ hoặc nhấn Enter để nghe tiếng Nhật. Giọng đọc phụ thuộc dịch vụ và thiết bị.</p>
+        <p style="margin-bottom: 16px; color: #475569;">Bộ thẻ gồm từ theo chủ đề và một số từ mở rộng; không thay thế danh sách từ vựng đầy đủ trong sách. Bấm thẻ để nghe cách đọc.</p>
         <div class="flashcard-grid" id="flashcardGrid"></div>
     </section>
 
@@ -373,8 +379,8 @@ def build_lesson_html(
     <!-- Kanji Section -->
     <section class="content-section" id="sec-kanji">
         <div class="section-header">
-            <h2 class="section-title"><span>⛩️</span> Trọn Bộ Chữ Hán Cốt Lõi Bài {lesson_num} ({kanji_count} Chữ)</h2>
-            <span class="section-tag">Kanji N4-N3</span>
+            <h2 class="section-title"><span>⛩️</span> Từ Kanji trong Rikai Bài {lesson_num} ({kanji_count} mục)</h2>
+            <span class="section-tag">Danh sách Japan Foundation</span>
         </div>
         <div class="kanji-grid">
 {kanji_html}

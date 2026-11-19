@@ -289,28 +289,30 @@ const QUIZ_DATA = [
   {
     "id": 1,
     "category": "Ngữ pháp",
-    "q": "この 日本酒（おさけ）は 初めてですから、すこし [____] みます。",
+    "q": "この店はおいしい [____]、よく来ます。",
     "options": [
-      "のんだ",
-      "のむ",
-      "のみ",
-      "のんで"
+      "のは",
+      "なら",
+      "ずつ",
+      "ので"
     ],
     "correct": 3,
-    "explain": "Cấu trúc 'thử làm gì' là V-てみます. 飲みます chuyển sang thể TE là 「のんで」."
+    "explain": "ので nối lý do với kết quả: ngon nên thường đến.",
+    "grammarScope": "official"
   },
   {
     "id": 2,
     "category": "Ngữ pháp",
-    "q": "「馬刺し（ばさし）を [____] ことがありますか。」 ―― 「いいえ、ありません。」",
+    "q": "私が好きな [____]、ステーキです。",
     "options": [
-      "食べて",
-      "食べる",
-      "食べた",
-      "食べ"
+      "ので",
+      "なら",
+      "のは",
+      "ずつ"
     ],
     "correct": 2,
-    "explain": "Hỏi về kinh nghiệm trong đời dùng cấu trúc 『V-たことがありますか』: 食べました ➔ 食べた."
+    "explain": "のは danh từ hóa mệnh đề làm chủ đề câu.",
+    "grammarScope": "official"
   },
   {
     "id": 3,
@@ -327,16 +329,17 @@ const QUIZ_DATA = [
   },
   {
     "id": 4,
-    "category": "Hội thoại",
-    "q": "初めての 居酒屋で、何を 頼むか 迷ったときは 店員に 「[____]」 と 聞きます。",
+    "category": "Ngữ pháp",
+    "q": "野菜 [____]、このサラダがいいですよ。",
     "options": [
-      "おすすめは 何ですか",
-      "会計を お願いします",
-      "席は どこですか",
-      "乾杯しましょう"
+      "なら",
+      "ので",
+      "のは",
+      "ずつ"
     ],
     "correct": 0,
-    "explain": "Khi muốn hỏi quán có món gì ngon/đặc sắc, ta hỏi: 「おすすめは 何ですか」."
+    "explain": "なら nêu gợi ý theo chủ đề được nhắc tới.",
+    "grammarScope": "official"
   },
   {
     "id": 5,
@@ -354,15 +357,16 @@ const QUIZ_DATA = [
   {
     "id": 6,
     "category": "Chữ Hán",
-    "q": "Chữ Hán 「料理」 có âm Hán Việt là gì?",
+    "q": "Từ Kanji 「客」 có cách đọc nào?",
     "options": [
-      "LIỆU LÝ",
-      "KHOA HỌC",
-      "VẬT LÝ",
-      "ĐỊNH THỰC"
+      "きゃく",
+      "ちゅうもん",
+      "ようしょく",
+      "わしょく"
     ],
     "correct": 0,
-    "explain": "料理 có âm Hán Việt là LIỆU LÝ (món ăn, nấu nướng)."
+    "explain": "客 đọc là 「きゃく」 theo danh sách Kanji chính thức của bài học này.",
+    "scopeKanji": "客"
   },
   {
     "id": 7,
@@ -380,41 +384,44 @@ const QUIZ_DATA = [
   {
     "id": 8,
     "category": "Chữ Hán",
-    "q": "Từ 「定食」 đọc là gì?",
+    "q": "Từ Kanji 「注文」 có cách đọc nào?",
     "options": [
-      "じょうしょく",
-      "だいしょく",
-      "ていじき",
-      "ていしょく"
+      "ようしょく",
+      "わしょく",
+      "ぎゅうにく",
+      "ちゅうもん"
     ],
     "correct": 3,
-    "explain": "定食 đọc là 「ていしょく」 (ĐỊNH THỰC - suất cơm phần theo set)."
+    "explain": "注文 đọc là 「ちゅうもん」 theo danh sách Kanji chính thức của bài học này.",
+    "scopeKanji": "注文"
   },
   {
     "id": 9,
     "category": "Ngữ pháp",
-    "q": "京都の お寺で 抹茶（まっちゃ）を [____] みました。すこし 苦かったです。",
+    "q": "コーヒーを二つ [____] お願いします。",
     "options": [
-      "のむ",
-      "のんだ",
-      "のみ",
-      "のんで"
+      "ので",
+      "なら",
+      "のは",
+      "ずつ"
     ],
     "correct": 3,
-    "explain": "Thử uống nước trà: 飲んでみます, quá khứ là 飲んでみました (thể TE + みました)."
+    "explain": "ずつ diễn tả phân chia theo từng đơn vị.",
+    "grammarScope": "official"
   },
   {
     "id": 10,
     "category": "Chữ Hán",
-    "q": "Chữ Hán 「味」 trong 「意味」 có cách đọc Onyomi là gì?",
+    "q": "Từ Kanji 「洋食」 có cách đọc nào?",
     "options": [
-      "み",
-      "あじ",
-      "まい",
-      "び"
+      "ようしょく",
+      "わしょく",
+      "ぎゅうにく",
+      "ちほう"
     ],
     "correct": 0,
-    "explain": "味 có âm On là 「み」 (trong 意味 - いみ, 興味 - きょうみ)."
+    "explain": "洋食 đọc là 「ようしょく」 theo danh sách Kanji chính thức của bài học này.",
+    "scopeKanji": "洋食"
   },
   {
     "id": 11,
@@ -445,15 +452,16 @@ const QUIZ_DATA = [
   {
     "id": 13,
     "category": "Chữ Hán",
-    "q": "Từ trái nghĩa với 「甘い (あまい - ngọt)」 khi nói về vị cay nóng là chữ nào?",
+    "q": "Từ Kanji 「和食」 có nghĩa là gì?",
     "options": [
-      "苦い (にがい)",
-      "辛い (からい)",
-      "酸っぱい (すっぱい)",
-      "塩辛い (しおからい)"
+      "Thịt bò",
+      "Món ăn Nhật",
+      "Vùng, miền",
+      "Nổi tiếng"
     ],
     "correct": 1,
-    "explain": "甘い (ngọt) thường được đặt đối lập với 辛い (cay / mặn nồng trong ẩm thực)."
+    "explain": "和食 nghĩa là Món ăn Nhật.",
+    "scopeKanji": "和食"
   },
   {
     "id": 14,
@@ -471,15 +479,16 @@ const QUIZ_DATA = [
   {
     "id": 15,
     "category": "Ngữ pháp",
-    "q": "富士山に [____] ことがありますか。一度 登ってみたいです。",
+    "q": "一つ [____] お願いします。",
     "options": [
-      "登って",
-      "登る",
-      "登った",
-      "登り"
+      "ので",
+      "なら",
+      "ずつ",
+      "のは"
     ],
     "correct": 2,
-    "explain": "Đã từng leo núi Phú Sĩ: 登りました (のぼりました) ➔ Thể TA: 「登った」 ＋ ことがありますか."
+    "explain": "ずつ diễn tả phân chia theo từng đơn vị.",
+    "grammarScope": "official"
   }
 ];
 

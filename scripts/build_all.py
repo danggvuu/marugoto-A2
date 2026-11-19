@@ -16,8 +16,7 @@ import sys
 WORKSPACE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BUILDERS = [
     "scripts/build_lesson_content.py",
-    "scripts/build_a2_2_lessons.py",
-    "scripts/append_a2_2_kanji.py",
+    "scripts/a2_2/build_all_a2_2.py",
     "scripts/build_mini_test_15_18.py",
     "scripts/build_mini_test_11_14.py",
     "scripts/build_cram_kanji_11_18.py",

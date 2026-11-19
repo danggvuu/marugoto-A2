@@ -297,7 +297,8 @@ const QUIZ_DATA = [
       "持っていった"
     ],
     "correct": 3,
-    "explain": "Đưa ra lời khuyên nên làm gì: V-たほうがいい ➔ 「持っていったほうがいい」."
+    "explain": "Đưa ra lời khuyên nên làm gì: V-たほうがいい ➔ 「持っていったほうがいい」.",
+    "grammarScope": "official"
   },
   {
     "id": 2,
@@ -310,7 +311,8 @@ const QUIZ_DATA = [
       "予約しない"
     ],
     "correct": 0,
-    "explain": "Nên đặt phòng sớm: 予約しました ➔ thể TA: 「予約した」 ＋ ほうがいい."
+    "explain": "Nên đặt phòng sớm: 予約しました ➔ thể TA: 「予約した」 ＋ ほうがいい.",
+    "grammarScope": "official"
   },
   {
     "id": 3,
@@ -328,15 +330,16 @@ const QUIZ_DATA = [
   {
     "id": 4,
     "category": "Ngữ pháp",
-    "q": "沖縄へ 旅行に 行くんですが、何を 着て [____] いいですか。",
+    "q": "沖縄に [____] とき、船で行きました。",
     "options": [
-      "行けば",
-      "行ったら",
-      "行くと",
-      "行くなら"
+      "行った",
+      "行く",
+      "行って",
+      "行かない"
     ],
     "correct": 1,
-    "explain": "Xin lời khuyên nên mặc gì đi: V-たらいいですか ➔ 「行ったらいいですか」."
+    "explain": "Vるとき nêu thời điểm đi Okinawa.",
+    "grammarScope": "official"
   },
   {
     "id": 5,
@@ -354,15 +357,16 @@ const QUIZ_DATA = [
   {
     "id": 6,
     "category": "Chữ Hán",
-    "q": "Chữ Hán 「旅行」 có âm Hán Việt là gì?",
+    "q": "Từ Kanji 「木」 có cách đọc nào?",
     "options": [
-      "LỮ HÀNH",
-      "LỮ QUÁN",
-      "HÀNH LÝ",
-      "DỰ ĐỊNH"
+      "き",
+      "もり",
+      "しま",
+      "しぜん"
     ],
     "correct": 0,
-    "explain": "旅行 có âm Hán Việt là LỮ HÀNH (du lịch)."
+    "explain": "木 đọc là 「き」 theo danh sách Kanji chính thức của bài học này.",
+    "scopeKanji": "木"
   },
   {
     "id": 7,
@@ -380,15 +384,16 @@ const QUIZ_DATA = [
   {
     "id": 8,
     "category": "Chữ Hán",
-    "q": "Từ 「予約」 đọc là gì?",
+    "q": "Từ Kanji 「森」 có cách đọc nào?",
     "options": [
-      "よてい",
-      "やくそく",
-      "よやく",
-      "よき"
+      "しま",
+      "しぜん",
+      "もり",
+      "ふね"
     ],
     "correct": 2,
-    "explain": "予約 đọc là 「よやく」 (DỰ ƯỚC - Đặt chỗ trước)."
+    "explain": "森 đọc là 「もり」 theo danh sách Kanji chính thức của bài học này.",
+    "scopeKanji": "森"
   },
   {
     "id": 9,
@@ -401,20 +406,22 @@ const QUIZ_DATA = [
       "する"
     ],
     "correct": 2,
-    "explain": "Khuyên không nên làm gì: V-ないほうがいい ➔ 「しないほうがいい」."
+    "explain": "Khuyên không nên làm gì: V-ないほうがいい ➔ 「しないほうがいい」.",
+    "grammarScope": "official"
   },
   {
     "id": 10,
     "category": "Chữ Hán",
-    "q": "Chữ Hán 「暑い」 dùng để miêu tả cái gì nóng?",
+    "q": "Từ Kanji 「島」 có cách đọc nào?",
     "options": [
-      "Nước trà nóng",
-      "Thời tiết, khí hậu nóng nực",
-      "Đồ vật nóng bỏng",
-      "Đồ ăn cay nóng"
+      "しぜん",
+      "しま",
+      "ふね",
+      "あつい"
     ],
     "correct": 1,
-    "explain": "暑い (THỬ) chuyên dùng chỉ thời tiết khí hậu nóng nực (khác với 熱い dùng cho vật chất/nước nóng)."
+    "explain": "島 đọc là 「しま」 theo danh sách Kanji chính thức của bài học này.",
+    "scopeKanji": "島"
   },
   {
     "id": 11,
@@ -432,15 +439,16 @@ const QUIZ_DATA = [
   {
     "id": 12,
     "category": "Chữ Hán",
-    "q": "Chữ Hán 「涼しい」 đọc là gì?",
+    "q": "Từ Kanji 「自然」 có cách đọc nào?",
     "options": [
-      "あたたかい",
-      "さむい",
+      "ふね",
       "あつい",
-      "すずしい"
+      "かえります",
+      "しぜん"
     ],
     "correct": 3,
-    "explain": "涼しい đọc là 「すずしい」 (LƯƠNG - Mát mẻ)."
+    "explain": "自然 đọc là 「しぜん」 theo danh sách Kanji chính thức của bài học này.",
+    "scopeKanji": "自然"
   },
   {
     "id": 13,
@@ -458,15 +466,16 @@ const QUIZ_DATA = [
   {
     "id": 14,
     "category": "Chữ Hán",
-    "q": "Từ 「忘れ物」 nghĩa là gì?",
+    "q": "Từ Kanji 「船」 có cách đọc nào?",
     "options": [
-      "Đồ bị để quên",
-      "Hành lý mang theo",
-      "Quà lưu niệm",
-      "Sách hướng dẫn"
+      "ふね",
+      "あつい",
+      "かえります",
+      "よやくします"
     ],
     "correct": 0,
-    "explain": "忘れ物 (わすれもの) là đồ bỏ quên."
+    "explain": "船 đọc là 「ふね」 theo danh sách Kanji chính thức của bài học này.",
+    "scopeKanji": "船"
   },
   {
     "id": 15,

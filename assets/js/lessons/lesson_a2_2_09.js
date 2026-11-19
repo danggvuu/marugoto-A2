@@ -289,67 +289,72 @@ const QUIZ_DATA = [
   {
     "id": 1,
     "category": "Ngữ pháp",
-    "q": "レーさんの 結婚の [____] に、みんなで 花束を あげました。",
+    "q": "休みはメキシコに [____]。",
     "options": [
-      "おみやげ",
-      "おれい",
-      "お祝い",
-      "おねがい"
+      "帰りました",
+      "帰って",
+      "帰っていました",
+      "帰ります"
     ],
     "correct": 2,
-    "explain": "Tặng quà chúc mừng nhân dịp đám cưới: 「お祝い (おいわい)」."
+    "explain": "Vていました diễn tả việc đã ở/đang làm trong một khoảng thời gian đã qua.",
+    "grammarScope": "official"
   },
   {
     "id": 2,
     "category": "Ngữ pháp",
-    "q": "私は 田中さんの 誕生日に ネクタイを [____]。",
+    "q": "親に [____]、よかったです。",
     "options": [
-      "あげました",
-      "くれました",
-      "いただきました",
-      "くださった"
+      "会えて",
+      "会って",
+      "会う",
+      "会った"
     ],
     "correct": 0,
-    "explain": "Tôi tặng cho người khác: 『私 ➔ 他人: あげます』 ➔ 「あげました」."
+    "explain": "会える là thể khả năng; 会えてよかった diễn tả vui vì gặp được.",
+    "grammarScope": "official"
   },
   {
     "id": 3,
     "category": "Ngữ pháp",
-    "q": "誕生日に 先生が すてきな 辞書を [____]。",
+    "q": "友だちに [____]、残念でした。",
     "options": [
-      "くれました",
-      "あげました",
-      "やりました",
-      "もらいました"
+      "会えなくて",
+      "会わないで",
+      "会って",
+      "会うので"
     ],
     "correct": 0,
-    "explain": "Người khác tặng cho tôi dùng 『くれます』: 先生が私に ➔ 「くれました」."
+    "explain": "会えなくて残念 diễn tả tiếc vì không gặp được.",
+    "grammarScope": "official"
   },
   {
     "id": 4,
-    "category": "Hội thoại",
-    "q": "「パーティーには 何人 [____] か。」 ―― 「全部で 8人です。」",
+    "category": "Ngữ pháp",
+    "q": "私の休みは3日間 [____] でした。",
     "options": [
-      "案内します",
-      "参加します",
-      "見学します",
-      "練習します"
+      "しか",
+      "だけ",
+      "でも",
+      "ので"
     ],
     "correct": 1,
-    "explain": "Có bao nhiêu người tham gia tiệc: 「参加します (さんかします)」."
+    "explain": "だけ đi với vị ngữ khẳng định để nói chỉ có.",
+    "grammarScope": "official"
   },
   {
     "id": 5,
     "category": "Chữ Hán",
-    "q": "Chữ Hán 「結婚」 có cách đọc chuẩn là gì?",
+    "q": "Từ Kanji 「正月」 có nghĩa là gì?",
     "options": [
-      "けつこん",
-      "けつほん",
-      "けっこお",
-      "けっこん"
+      "Cuối năm",
+      "Đầu năm",
+      "Cha mẹ",
+      "Tết, dịp đầu năm mới"
     ],
     "correct": 3,
-    "explain": "結婚 đọc là 「けっこん」 (KẾT HÔN)."
+    "explain": "正月 nghĩa là Tết, dịp đầu năm mới.",
+    "scopeKanji": "正月"
   },
   {
     "id": 6,
@@ -367,15 +372,16 @@ const QUIZ_DATA = [
   {
     "id": 7,
     "category": "Chữ Hán",
-    "q": "Chữ Hán 「祝」 trong 「お祝い」 đọc Kunyomi là gì?",
+    "q": "Từ Kanji 「年末」 có nghĩa là gì?",
     "options": [
-      "しゅくい",
-      "のろい",
-      "いわい",
-      "ことほぎ"
+      "Đầu năm",
+      "Cha mẹ",
+      "Cuối năm",
+      "Bận rộn"
     ],
     "correct": 2,
-    "explain": "祝 có âm Kun là いわ・う, danh từ là 「お祝い (おいわい)」."
+    "explain": "年末 nghĩa là Cuối năm.",
+    "scopeKanji": "年末"
   },
   {
     "id": 8,
@@ -393,15 +399,16 @@ const QUIZ_DATA = [
   {
     "id": 9,
     "category": "Chữ Hán",
-    "q": "Từ 「卒業」 có nghĩa là gì?",
+    "q": "Từ Kanji 「年始」 có nghĩa là gì?",
     "options": [
-      "Nhập học",
-      "Tốt nghiệp ra trường",
-      "Đi làm việc",
-      "Nghỉ hưu"
+      "Cha mẹ",
+      "Đầu năm",
+      "Bận rộn",
+      "Đặc biệt"
     ],
     "correct": 1,
-    "explain": "卒業 (そつぎょう - TỐT NGHIỆP) nghĩa là hoàn thành khóa học, ra trường."
+    "explain": "年始 nghĩa là Đầu năm.",
+    "scopeKanji": "年始"
   },
   {
     "id": 10,
@@ -419,28 +426,30 @@ const QUIZ_DATA = [
   {
     "id": 11,
     "category": "Ngữ pháp",
-    "q": "私は 母に きれいな スカーフを [____]。(Tôi nhận được từ mẹ)",
+    "q": "今年は休みが3日 [____] ありませんでした。",
     "options": [
-      "あげました",
-      "やりました",
-      "貸しました",
-      "もらいました"
+      "だけ",
+      "でも",
+      "ので",
+      "しか"
     ],
     "correct": 3,
-    "explain": "Tôi nhận được quà từ mẹ: 『[Người tặng] に/から もらいました』."
+    "explain": "しか đi cùng vị ngữ phủ định để nói chỉ có.",
+    "grammarScope": "official"
   },
   {
     "id": 12,
     "category": "Chữ Hán",
-    "q": "Chữ Hán 「時計」 gồm 2 chữ nào?",
+    "q": "Từ Kanji 「親」 có cách đọc nào?",
     "options": [
-      "THỜI + KẾ",
-      "THỜI + KIM",
-      "THỜI + ĐỘ",
-      "ĐỒNG + KẾ"
+      "おや",
+      "いそがしい",
+      "とくべつ",
+      "きこく"
     ],
     "correct": 0,
-    "explain": "時計 gồm THỜI (時) và KẾ (計) ➔ dụng cụ đo đếm thời gian (đồng hồ)."
+    "explain": "親 đọc là 「おや」 theo danh sách Kanji chính thức của bài học này.",
+    "scopeKanji": "親"
   },
   {
     "id": 13,
@@ -471,15 +480,16 @@ const QUIZ_DATA = [
   {
     "id": 15,
     "category": "Chữ Hán",
-    "q": "Chữ Hán 「誕」 trong 「誕生日」 có âm Hán Việt là gì?",
+    "q": "Từ Kanji 「忙しい」 có nghĩa là gì?",
     "options": [
-      "ĐẢN",
-      "DIÊN",
-      "SINH",
-      "ĐẠI"
+      "Bận rộn",
+      "Đặc biệt",
+      "Về nước",
+      "Vui mừng"
     ],
     "correct": 0,
-    "explain": "誕 có âm Hán Việt là ĐẢN (chào đời, sinh nở)."
+    "explain": "忙しい nghĩa là Bận rộn.",
+    "scopeKanji": "忙しい"
   }
 ];
 

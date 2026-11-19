@@ -289,28 +289,30 @@ const QUIZ_DATA = [
   {
     "id": 1,
     "category": "Ngữ pháp",
-    "q": "将来、日本で 自分の 会社を [____] と 思っています。",
+    "q": "私は母に [____]。",
     "options": [
-      "作ろう",
-      "作る",
-      "作った",
-      "作り"
+      "しかられました",
+      "しからせました",
+      "しかりました",
+      "しかって"
     ],
     "correct": 0,
-    "explain": "Cấu trúc dự định thể ý chí: 『V thể Ý chí + と思っています』: 作ります ➔ 「作ろう」."
+    "explain": "しかられました là thể bị động: bị mẹ mắng.",
+    "grammarScope": "official"
   },
   {
     "id": 2,
     "category": "Ngữ pháp",
-    "q": "子どもの [____] は、いつも 外で 元気に 走っていました。",
+    "q": "朝早く起きるように [____]。",
     "options": [
-      "まえ",
-      "ころ",
-      "あと",
-      "あいだ"
+      "しました",
+      "なりました",
+      "あります",
+      "いました"
     ],
     "correct": 1,
-    "explain": "Thời bé, hồi nhỏ: 『子どもの頃 (ころ)』."
+    "explain": "Vるようになりました diễn tả thói quen mới hình thành.",
+    "grammarScope": "official"
   },
   {
     "id": 3,
@@ -328,28 +330,30 @@ const QUIZ_DATA = [
   {
     "id": 4,
     "category": "Chữ Hán",
-    "q": "Chữ Hán 「性格」 có cách đọc chuẩn là gì?",
+    "q": "Từ Kanji 「思い出」 có cách đọc nào?",
     "options": [
-      "せいかく",
-      "しょうかく",
-      "せいこう",
-      "せいぎ"
+      "おもいで",
+      "せいかつ",
+      "えいが",
+      "おっと"
     ],
     "correct": 0,
-    "explain": "性格 đọc là 「せいかく」 (TÍNH CÁCH)."
+    "explain": "思い出 đọc là 「おもいで」 theo danh sách Kanji chính thức của bài học này.",
+    "scopeKanji": "思い出"
   },
   {
     "id": 5,
     "category": "Ngữ pháp",
-    "q": "これからも 毎日 日本語を [____] と 思います。",
+    "q": "夜テレビを見 [____] なりました。",
     "options": [
-      "勉強する",
-      "勉強して",
-      "勉強しよう",
-      "勉強した"
+      "ないで",
+      "なくて",
+      "なく",
+      "ない"
     ],
     "correct": 2,
-    "explain": "Dự định tương lai: 勉強します ➔ thể ý chí là 「勉強しよう」."
+    "explain": "Vなくなりました diễn tả một việc không còn xảy ra.",
+    "grammarScope": "official"
   },
   {
     "id": 6,
@@ -367,15 +371,16 @@ const QUIZ_DATA = [
   {
     "id": 7,
     "category": "Chữ Hán",
-    "q": "Từ 「将来」 có nghĩa là gì?",
+    "q": "Từ Kanji 「生活」 có nghĩa là gì?",
     "options": [
-      "Quá khứ đã qua",
-      "Hiện tại bây giờ",
-      "Thời xưa",
-      "Tương lai phía trước"
+      "Phim",
+      "Chồng (của mình)",
+      "Vợ (của mình)",
+      "Cuộc sống, sinh hoạt"
     ],
     "correct": 3,
-    "explain": "将来 (しょうらい - TƯƠNG LAI) nghĩa là tương lai, mai sau."
+    "explain": "生活 nghĩa là Cuộc sống, sinh hoạt.",
+    "scopeKanji": "生活"
   },
   {
     "id": 8,
@@ -393,15 +398,16 @@ const QUIZ_DATA = [
   {
     "id": 9,
     "category": "Chữ Hán",
-    "q": "Chữ Hán 「目標」 gồm 2 chữ nào?",
+    "q": "Từ Kanji 「映画」 có nghĩa là gì?",
     "options": [
-      "NHÃN + TIÊU",
-      "MỤC + ĐÍCH",
-      "MỤC + TIÊU",
-      "ĐẦU + TIÊU"
+      "Chồng (của mình)",
+      "Vợ (của mình)",
+      "Phim",
+      "Cha mẹ"
     ],
     "correct": 2,
-    "explain": "目標 gồm MỤC (目) và TIÊU (標) ➔ mục tiêu phấn đấu."
+    "explain": "映画 nghĩa là Phim.",
+    "scopeKanji": "映画"
   },
   {
     "id": 10,
@@ -419,15 +425,16 @@ const QUIZ_DATA = [
   {
     "id": 11,
     "category": "Chữ Hán",
-    "q": "Chữ Hán 「覚える」 đọc là gì?",
+    "q": "Từ Kanji 「夫」 có nghĩa là gì?",
     "options": [
-      "かんがえる",
-      "おもえる",
-      "さとる",
-      "おぼえる"
+      "Vợ (của mình)",
+      "Cha mẹ",
+      "Bất tiện",
+      "Chồng (của mình)"
     ],
     "correct": 3,
-    "explain": "覚える đọc là 「おぼえる」 (GIÁC - ghi nhớ)."
+    "explain": "夫 nghĩa là Chồng (của mình).",
+    "scopeKanji": "夫"
   },
   {
     "id": 12,
@@ -440,7 +447,8 @@ const QUIZ_DATA = [
       "しています"
     ],
     "correct": 2,
-    "explain": "Biến đổi trạng thái theo thời gian: 『V-る / られる ように なりました』 (đã có thể ăn được)."
+    "explain": "Biến đổi trạng thái theo thời gian: 『V-る / られる ように なりました』 (đã có thể ăn được).",
+    "grammarScope": "official"
   },
   {
     "id": 13,
@@ -458,15 +466,16 @@ const QUIZ_DATA = [
   {
     "id": 14,
     "category": "Chữ Hán",
-    "q": "Từ 「勉強」 có âm Hán Việt là gì?",
+    "q": "Từ Kanji 「妻」 có cách đọc nào?",
     "options": [
-      "MIỄN CƯỠNG",
-      "MIỄN LỰC",
-      "CƯỠNG LỰC",
-      "HỌC TẬP"
+      "つま",
+      "りょうしん",
+      "ふべん",
+      "えらびます"
     ],
     "correct": 0,
-    "explain": "勉強 có âm Hán Việt là MIỄN CƯỠNG (nghĩa gốc là gắng sức nỗ lực học tập)."
+    "explain": "妻 đọc là 「つま」 theo danh sách Kanji chính thức của bài học này.",
+    "scopeKanji": "妻"
   },
   {
     "id": 15,

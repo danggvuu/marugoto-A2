@@ -1321,4 +1321,5 @@ def main():
     print("Created data/kanji_vocab_a2_2.json with 31 Kanji compound words!")
 
 if __name__ == "__main__":
-    main()
+    from scripts.a2_2.build_all_a2_2 import main as build_all_a2_2
+    build_all_a2_2()

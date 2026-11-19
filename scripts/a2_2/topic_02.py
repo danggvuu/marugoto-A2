@@ -335,7 +335,7 @@ L4_VERBS = [
 L4_KANJI_LIST = [
     {"stt": 1, "word": "豚肉", "kana": "ぶたにく", "hv": "ĐỒN NHỤC", "mean": "Thịt lợn"},
     {"stt": 2, "word": "牛肉", "kana": "ぎゅうにく", "hv": "NGƯU NHỤC", "mean": "Thịt bò"},
-    {"stt": 3, "word": "鳥肉", "kana": "とりにく", "hv": "ĐIỂU NHỤC", "mean": "Thịt gà"},
+    {"stt": 3, "word": "鶏肉", "kana": "とりにく", "hv": "KÊ NHỤC", "mean": "Thịt gà"},
     {"stt": 4, "word": "魚", "kana": "さかな", "hv": "NGƯ", "mean": "Cá"},
     {"stt": 5, "word": "卵", "kana": "たまご", "hv": "NOÃN", "mean": "Trứng"},
     {"stt": 6, "word": "野菜", "kana": "やさい", "hv": "DÃ THÁI", "mean": "Rau xanh"},

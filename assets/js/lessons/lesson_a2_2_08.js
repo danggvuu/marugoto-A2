@@ -297,7 +297,8 @@ const QUIZ_DATA = [
       "始まった"
     ],
     "correct": 2,
-    "explain": "Đã bắt đầu chưa: もう ＋ V-ましたか ➔ 「始まりましたか」."
+    "explain": "Đã bắt đầu chưa: もう ＋ V-ましたか ➔ 「始まりましたか」.",
+    "grammarScope": "official"
   },
   {
     "id": 2,
@@ -310,20 +311,22 @@ const QUIZ_DATA = [
       "食べた"
     ],
     "correct": 0,
-    "explain": "Trả lời 'vẫn chưa': 『いいえ、まだ V-ていません』 ➔ 「食べていません」."
+    "explain": "Trả lời 'vẫn chưa': 『いいえ、まだ V-ていません』 ➔ 「食べていません」.",
+    "grammarScope": "official"
   },
   {
     "id": 3,
     "category": "Ngữ pháp",
-    "q": "チケットを [____] から、会場に 入ってください。",
+    "q": "コンサートが何時に始まる [____]、知っていますか。",
     "options": [
-      "買ったら",
-      "買って",
-      "買い",
-      "買う"
+      "と",
+      "か",
+      "ので",
+      "まで"
     ],
     "correct": 1,
-    "explain": "Trình tự sau khi làm V1: V-てから ➔ 買います chuyển sang thể TE là 「買って」."
+    "explain": "Câu hỏi gián tiếp dùng mệnh đề thường + か.",
+    "grammarScope": "official"
   },
   {
     "id": 4,
@@ -341,15 +344,16 @@ const QUIZ_DATA = [
   {
     "id": 5,
     "category": "Chữ Hán",
-    "q": "Chữ Hán 「夜」 trong 「今夜」 đọc là gì?",
+    "q": "Từ Kanji 「祭」 có nghĩa là gì?",
     "options": [
-      "よる",
-      "ゆう",
-      "や",
-      "ばん"
+      "Lễ hội Nhật Bản",
+      "Địa điểm tổ chức",
+      "Lễ hội",
+      "Phí vào cửa"
     ],
     "correct": 2,
-    "explain": "今夜 đọc là 「こんや」 (KIM DẠ - Tối nay)."
+    "explain": "祭 nghĩa là Lễ hội.",
+    "scopeKanji": "祭"
   },
   {
     "id": 6,
@@ -367,15 +371,16 @@ const QUIZ_DATA = [
   {
     "id": 7,
     "category": "Chữ Hán",
-    "q": "Chữ Hán 「並ぶ」 có cách đọc Kunyomi là gì?",
+    "q": "Từ Kanji 「日本祭」 có nghĩa là gì?",
     "options": [
-      "ならぶ",
-      "はらぶ",
-      "えらぶ",
-      "よらぶ"
+      "Lễ hội Nhật Bản",
+      "Địa điểm tổ chức",
+      "Phí vào cửa",
+      "Người tham gia"
     ],
     "correct": 0,
-    "explain": "並ぶ đọc là 「ならぶ」 (TỊNH - Xếp hàng)."
+    "explain": "日本祭 nghĩa là Lễ hội Nhật Bản.",
+    "scopeKanji": "日本祭"
   },
   {
     "id": 8,
@@ -393,15 +398,16 @@ const QUIZ_DATA = [
   {
     "id": 9,
     "category": "Chữ Hán",
-    "q": "Từ 「音楽」 gồm 2 chữ nào?",
+    "q": "Từ Kanji 「会場」 có nghĩa là gì?",
     "options": [
-      "Ý + NHẠC",
-      "ÂM + KHẢ",
-      "HOA + NHẠC",
-      "ÂM + NHẠC"
+      "Phí vào cửa",
+      "Người tham gia",
+      "Vội, gấp",
+      "Địa điểm tổ chức"
     ],
     "correct": 3,
-    "explain": "音楽 gồm ÂM (音) và NHẠC/LẠC (楽) ➔ âm nhạc."
+    "explain": "会場 nghĩa là Địa điểm tổ chức.",
+    "scopeKanji": "会場"
   },
   {
     "id": 10,
@@ -419,28 +425,30 @@ const QUIZ_DATA = [
   {
     "id": 11,
     "category": "Chữ Hán",
-    "q": "Chữ Hán 「金魚」 đọc là gì?",
+    "q": "Từ Kanji 「入場料」 có nghĩa là gì?",
     "options": [
-      "きんさかな",
-      "かねうお",
-      "きんぎょ",
-      "こんぎょ"
+      "Người tham gia",
+      "Vội, gấp",
+      "Phí vào cửa",
+      "Quyết định"
     ],
     "correct": 2,
-    "explain": "金魚 đọc là 「きんぎょ」 (cá vàng)."
+    "explain": "入場料 nghĩa là Phí vào cửa.",
+    "scopeKanji": "入場料"
   },
   {
     "id": 12,
     "category": "Ngữ pháp",
-    "q": "太鼓の 演奏が [____] から、帰ることに しました。",
+    "q": "準備は [____] 終わりましたか。",
     "options": [
-      "終わる",
-      "終わった",
-      "終わって",
-      "終わりに"
+      "まだ",
+      "まで",
+      "もう",
+      "しか"
     ],
     "correct": 2,
-    "explain": "Sau khi buổi diễn kết thúc: V-てから ➔ 終わります ➔ 「終わって」."
+    "explain": "もう hỏi xem việc đã hoàn tất hay chưa.",
+    "grammarScope": "official"
   },
   {
     "id": 13,
@@ -471,15 +479,16 @@ const QUIZ_DATA = [
   {
     "id": 15,
     "category": "Chữ Hán",
-    "q": "Chữ Hán 「疲」 có âm Hán Việt là gì?",
+    "q": "Từ Kanji 「参加者」 có nghĩa là gì?",
     "options": [
-      "BÌ",
-      "PHÁ",
-      "BI",
-      "THIỀM"
+      "Người tham gia",
+      "Vội, gấp",
+      "Quyết định",
+      "Biết"
     ],
     "correct": 0,
-    "explain": "疲 có âm Hán Việt là BÌ (mệt mỏi, bì quyện)."
+    "explain": "参加者 nghĩa là Người tham gia.",
+    "scopeKanji": "参加者"
   }
 ];
 

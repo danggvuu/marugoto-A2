@@ -297,20 +297,22 @@ const QUIZ_DATA = [
       "こわる"
     ],
     "correct": 0,
-    "explain": "Tự động từ bị hỏng: こわれます ➔ thể TE: 「こわれて」 ＋ しまいました."
+    "explain": "Tự động từ bị hỏng: こわれます ➔ thể TE: 「こわれて」 ＋ しまいました.",
+    "grammarScope": "official"
   },
   {
     "id": 2,
     "category": "Ngữ pháp",
-    "q": "スイッチを 押しても、まったく [____] んです。どうしたら いいですか。",
+    "q": "ネットショッピングは時間を気に [____] 買い物できます。",
     "options": [
-      "動いた",
-      "動いて",
-      "動く",
-      "動かない"
+      "しなくて",
+      "しない",
+      "しなかった",
+      "しないで"
     ],
     "correct": 3,
-    "explain": "Bấm nút máy vẫn không chạy (thể phủ định thông thường + んです): 「動かないんです」."
+    "explain": "Vないで買い物できます: có thể mua sắm mà không bận tâm thời gian.",
+    "grammarScope": "official"
   },
   {
     "id": 3,
@@ -328,28 +330,30 @@ const QUIZ_DATA = [
   {
     "id": 4,
     "category": "Chữ Hán",
-    "q": "Chữ Hán 「故障」 có âm Hán Việt là gì?",
+    "q": "Từ Kanji 「商品」 có cách đọc nào?",
     "options": [
-      "CỐ HƯƠNG",
-      "CỐ CHƯỚNG",
-      "CỐ ĐỊNH",
-      "CHƯỚNG NGẠI"
+      "でんきせいひん",
+      "しょうひん",
+      "でんしレンジ",
+      "～き"
     ],
     "correct": 1,
-    "explain": "故障 có âm Hán Việt là CỐ CHƯỚNG (sự cố, hỏng hóc kỹ thuật)."
+    "explain": "商品 đọc là 「しょうひん」 theo danh sách Kanji chính thức của bài học này.",
+    "scopeKanji": "商品"
   },
   {
     "id": 5,
-    "category": "Từ vựng",
-    "q": "冷たい 飲み物や 食べ物を 腐らせないように 保存する 家電は [____] です。",
+    "category": "Ngữ pháp",
+    "q": "せんぷう機が [____] なりました。",
     "options": [
-      "れいぞうこ",
-      "そうじき",
-      "パソコン",
-      "せんたくき"
+      "動かなく",
+      "動かないで",
+      "動いて",
+      "動くまで"
     ],
     "correct": 0,
-    "explain": "Tủ lạnh bảo quản đồ ăn là 「冷蔵庫 (れいぞうこ)」."
+    "explain": "Vなくなる diễn tả trạng thái không còn hoạt động.",
+    "grammarScope": "official"
   },
   {
     "id": 6,
@@ -367,15 +371,16 @@ const QUIZ_DATA = [
   {
     "id": 7,
     "category": "Chữ Hán",
-    "q": "Từ 「修理」 có cách đọc là gì?",
+    "q": "Từ Kanji 「電気製品」 có nghĩa là gì?",
     "options": [
-      "しゅうじ",
-      "しゅうれい",
-      "すうり",
-      "しゅうり"
+      "Lò vi sóng",
+      "Máy ～ (máy hút bụi)",
+      "Nhân viên cửa hàng",
+      "Đồ điện, thiết bị điện"
     ],
     "correct": 3,
-    "explain": "修理 đọc là 「しゅうり」 (TU LÝ - sửa chữa)."
+    "explain": "電気製品 nghĩa là Đồ điện, thiết bị điện.",
+    "scopeKanji": "電気製品"
   },
   {
     "id": 8,
@@ -393,28 +398,30 @@ const QUIZ_DATA = [
   {
     "id": 9,
     "category": "Ngữ pháp",
-    "q": "インターネットで 注文した 商品が まだ [____] のですが、確認して もらえますか。",
+    "q": "電子レンジがとどく [____]、1週間かかりました。",
     "options": [
-      "届いた",
-      "届いて",
-      "届く",
-      "届かない"
+      "しか",
+      "そう",
+      "なら",
+      "まで"
     ],
     "correct": 3,
-    "explain": "Hàng vẫn chưa tới (giải thích hoàn cảnh): 「届かないのですが」."
+    "explain": "まで nêu mốc thời gian cho đến khi hàng được giao.",
+    "grammarScope": "official"
   },
   {
     "id": 10,
     "category": "Chữ Hán",
-    "q": "Chữ Hán 「不便」 đối nghĩa với từ nào?",
+    "q": "Từ Kanji 「電子レンジ」 có cách đọc nào?",
     "options": [
-      "便利 (べんり)",
-      "大切 (たいせつ)",
-      "静か (しずか)",
-      "簡単 (かんたん)"
+      "でんしレンジ",
+      "～き",
+      "てんいん",
+      "ちょうし"
     ],
     "correct": 0,
-    "explain": "不便 (bất tiện) đối nghĩa với 便利 (tiện lợi)."
+    "explain": "電子レンジ đọc là 「でんしレンジ」 theo danh sách Kanji chính thức của bài học này.",
+    "scopeKanji": "電子レンジ"
   },
   {
     "id": 11,
@@ -432,15 +439,16 @@ const QUIZ_DATA = [
   {
     "id": 12,
     "category": "Chữ Hán",
-    "q": "Chữ Hán 「庫」 trong 「冷蔵庫」 có âm Hán Việt là gì?",
+    "q": "Từ Kanji 「～機（そうじ機）」 có cách đọc nào?",
     "options": [
-      "QUÁN",
-      "CẢNG",
-      "KHỐ",
-      "SỞ"
+      "てんいん",
+      "ちょうし",
+      "～き",
+      "わるい"
     ],
     "correct": 2,
-    "explain": "庫 có âm Hán Việt là KHỐ (kho chứa)."
+    "explain": "～機（そうじ機） đọc là 「～き」 theo danh sách Kanji chính thức của bài học này.",
+    "scopeKanji": "～機（そうじ機）"
   },
   {
     "id": 13,
@@ -471,15 +479,16 @@ const QUIZ_DATA = [
   {
     "id": 15,
     "category": "Chữ Hán",
-    "q": "Chữ Hán 「洗」 trong 「洗濯機」 đọc Kunyomi là gì?",
+    "q": "Từ Kanji 「店員」 có nghĩa là gì?",
     "options": [
-      "あらわす",
-      "あらう",
-      "そそぐ",
-      "ぬぐう"
+      "Tình trạng",
+      "Nhân viên cửa hàng",
+      "Xấu, không tốt",
+      "Hoạt động, chạy (máy móc)"
     ],
     "correct": 1,
-    "explain": "洗 có âm Kunyomi là 「あらう (洗う - rửa, giặt)」."
+    "explain": "店員 nghĩa là Nhân viên cửa hàng.",
+    "scopeKanji": "店員"
   }
 ];
 

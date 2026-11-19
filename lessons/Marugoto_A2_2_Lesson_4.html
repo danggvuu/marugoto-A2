@@ -25,12 +25,14 @@
 
     <!-- Sticky Section Sub-Nav -->
     <div class="section-nav">
-        <a href="#sec-grammar1" class="sec-link">① Bỏ nguyên liệu: V-ないで / N-抜きで</a>
-        <a href="#sec-grammar2" class="sec-link">② Cách ăn: どうやって食べますか</a>
+        <a href="#sec-grammar1" class="sec-link">1. ～てはいけません</a>
+        <a href="#sec-grammar2" class="sec-link">2. ～てから</a>
+        <a href="#sec-grammar3" class="sec-link">3. ～ないで</a>
+        <a href="#sec-grammar4" class="sec-link">4. ～と</a>
         <a href="#sec-verb-lab" class="sec-link">🔬 Biến Thể Động Từ</a>
-        <a href="#sec-vocab" class="sec-link">🎴 20 Từ Vựng</a>
+        <a href="#sec-vocab" class="sec-link">🎴 20 Flashcard</a>
         <a href="#sec-typing-practice" class="sec-link">⌨️ Luyện Gõ Từ Vựng</a>
-        <a href="#sec-kanji" class="sec-link">⛩️ 9 Chữ Hán</a>
+        <a href="#sec-kanji" class="sec-link">⛩️ 8 Từ Kanji</a>
         <a href="#sec-quiz" class="sec-link">📝 Mini Test 15 Câu</a>
     </div>
 
@@ -43,7 +45,7 @@
             <button type="button" class="btn-speak" style="background:rgba(255,255,255,0.2); border-color:#818cf8; color:#fff;" onclick="speakText('どうやって食べますか')">🔊</button>
         </div>
         <p class="hero-subtitle">
-            Bí kíp ăn uống chuẩn chỉ khi du lịch Nhật: yêu cầu không lấy nguyên liệu do dị ứng hoặc khẩu vị 『V-ないでください』 & 『N-抜きで』, cùng cẩm nang thưởng thức đúng điệu 『どうやって食べますか (chấm つける vs rưới かける)』.
+            Nói điều cấm với ～てはいけません, trình tự với ～てから, cách làm không kèm hành động với ～ないで và kết quả với ～と.
         </p>
         <div class="hero-stats-row">
             <div class="stat-card">
@@ -51,7 +53,7 @@
                 <div class="stat-label">Từ vựng Flashcard</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number">2</div>
+                <div class="stat-number">4</div>
                 <div class="stat-label">Chuyên đề ngữ pháp</div>
             </div>
             <div class="stat-card">
@@ -59,8 +61,8 @@
                 <div class="stat-label">Động từ mẫu Lab</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number">9</div>
-                <div class="stat-label">Chữ Hán Kanji</div>
+                <div class="stat-number">8</div>
+                <div class="stat-label">Từ Kanji trong bài</div>
             </div>
             <div class="stat-card">
                 <div class="stat-number">15</div>
@@ -70,82 +72,65 @@
     </div>
 
     <!-- Grammar Sections -->
-    <section class="content-section" id="sec-grammar1">
+<section class="content-section" id="sec-grammar1">
         <div class="section-header">
-            <h2 class="section-title"><span>🚫</span> 1. Yêu Cầu Đừng Cho Nguyên Liệu: V-ないで ください & N-抜きで</h2>
-            <span class="section-tag">Dị ứng & Khẩu vị</span>
+            <h2 class="section-title"><span>📘</span> 1. Cấm/không được: ～てはいけません</h2>
+            <span class="section-tag">Ngữ pháp Marugoto</span>
         </div>
-        <p style="margin-bottom: 16px; color: #334155;">
-            Khi ăn ở quán Nhật, nếu bạn bị dị ứng hoặc không ăn được nguyên liệu nào (thịt lợn, hành, wasabi), hãy dùng 2 mẫu câu chuẩn sau:
-        </p>
-        <div class="grammar-card">
-            <div class="rule-box" style="border-left-color: #ef4444;">
-                <div class="rule-formula" style="color: #991b1b;">
-                    • [Động từ thể NAI] ＋ で ください (Xin đừng...)<br>
-                    • [Danh từ nguyên liệu] ＋ 抜きで お願いします (Làm ơn bỏ N ra / Không lấy N)
-                </div>
-                <div class="rule-meaning">
-                    • <strong>豚肉（ぶたにく）抜きで お願いします:</strong> Xin đừng cho thịt lợn.<br>
-                    • <strong>わさびを 入れないで ください:</strong> Xin đừng cho mù tạt vào.<br>
-                    • <strong>ネギ抜きで お願いします:</strong> Cho tôi một bát không hành.
-                </div>
-            </div>
-            <div class="example-list">
-                <div class="example-item">
-                    <div class="ex-text-wrap">
-                        <div class="ex-jp">豚肉のアレルギーが ありますから、豚肉抜きで お願いします。</div>
-                        <div class="ex-vi">Tôi bị dị ứng thịt lợn, xin làm ơn làm món không có thịt lợn.</div>
-                    </div>
-                    <button type="button" class="btn-speak" onclick="speakText('豚肉のアレルギーがありますから、豚肉抜きでお願いします')">🔊</button>
-                </div>
-                <div class="example-item">
-                    <div class="ex-text-wrap">
-                        <div class="ex-jp">辛いのが 苦手なので、唐辛子（とうがらし）を 入れないでください。</div>
-                        <div class="ex-vi">Tôi ăn cay kém nên xin vui lòng đừng cho ớt vào.</div>
-                    </div>
-                    <button type="button" class="btn-speak" onclick="speakText('辛いのが苦手なので、唐辛子を入れないでください')">🔊</button>
-                </div>
-            </div>
-        </div>
+        <p style="margin-bottom:16px;color:#334155">Nêu quy định hoặc điều không được phép làm.</p>
+        <div class="grammar-card"><div class="rule-box" style="border-left-color:#4f46e5">
+            <div class="rule-formula" style="color:#3730a3">Vて ＋ はいけません／だめです</div>
+        </div><div class="example-list"><div class="example-item"><div class="ex-text-wrap">
+            <div class="ex-jp">ここで食べてはいけません。</div>
+            <div class="ex-vi">Không được ăn ở đây.</div>
+        </div></div>
+<div class="example-item"><div class="ex-text-wrap">
+            <div class="ex-jp">飲んじゃだめです。</div>
+            <div class="ex-vi">Không được uống.</div>
+        </div></div></div></div>
     </section>
-    <section class="content-section" id="sec-grammar2">
+<section class="content-section" id="sec-grammar2">
         <div class="section-header">
-            <h2 class="section-title"><span>🥢</span> 2. Hỏi Và Hướng Dẫn Cách Ăn: どうやって 食べますか</h2>
-            <span class="section-tag">Hướng dẫn thưởng thức</span>
+            <h2 class="section-title"><span>📘</span> 2. Trình tự: ～てから</h2>
+            <span class="section-tag">Ngữ pháp Marugoto</span>
         </div>
-        <p style="margin-bottom: 16px; color: #334155;">
-            Nhiều món ăn Nhật Bản (như mì Soba, Sushi, Lẩu Sukiyaki) có quy trình thưởng thức riêng biệt. Dùng câu này để hỏi người phục vụ hoặc bạn bè.
-        </p>
-        <div class="grammar-card">
-            <div class="rule-box" style="border-left-color: #0284c7;">
-                <div class="rule-formula" style="color: #0369a1;">
-                    • これは どうやって 食べますか。<br>
-                    • [Nước sốt / Gia vị] に つけて 食べます。(Chấm vào... rồi ăn)<br>
-                    • [Sốt] を かけて 食べます。(Rưới sốt lên rồi ăn)
-                </div>
-                <div class="rule-meaning">
-                    ⭐ <strong>Phân biệt つける vs かける:</strong><br>
-                    - <strong>つける (Chấm):</strong> Nhúng món ăn vào bát nước chấm nhỏ (như chấm sushi vào xì dầu).<br>
-                    - <strong>かける (Rưới / chan):</strong> Đổ nước sốt trực tiếp phủ lên bề mặt món ăn.
-                </div>
-            </div>
-            <div class="example-list">
-                <div class="example-item">
-                    <div class="ex-text-wrap">
-                        <div class="ex-jp">この 天ぷらは、こちらの つゆに つけて 食べてください。</div>
-                        <div class="ex-vi">Món tempura này, xin hãy chấm vào nước chấm ở đây rồi ăn nhé.</div>
-                    </div>
-                    <button type="button" class="btn-speak" onclick="speakText('この天ぷらは、こちらのつゆにつけて食べてください')">🔊</button>
-                </div>
-                <div class="example-item">
-                    <div class="ex-text-wrap">
-                        <div class="ex-jp">お肉を 生卵（なまたまご）に つけて 食べると、とても おいしいですよ。</div>
-                        <div class="ex-vi">Thịt mà chấm vào trứng sống rồi ăn thì ngon tuyệt hảo đấy.</div>
-                    </div>
-                    <button type="button" class="btn-speak" onclick="speakText('お肉を生卵につけて食べると、とてもおいしいですよ')">🔊</button>
-                </div>
-            </div>
+        <p style="margin-bottom:16px;color:#334155">Hành động sau bắt đầu sau khi hành động trước hoàn tất.</p>
+        <div class="grammar-card"><div class="rule-box" style="border-left-color:#4f46e5">
+            <div class="rule-formula" style="color:#3730a3">Vて ＋ から</div>
+        </div><div class="example-list"><div class="example-item"><div class="ex-text-wrap">
+            <div class="ex-jp">乾杯してから、飲みましょう。</div>
+            <div class="ex-vi">Sau khi cụng ly, chúng ta hãy uống.</div>
+        </div></div></div></div>
+    </section>
+<section class="content-section" id="sec-grammar3">
+        <div class="section-header">
+            <h2 class="section-title"><span>📘</span> 3. Không làm V: ～ないで</h2>
+            <span class="section-tag">Ngữ pháp Marugoto</span>
         </div>
+        <p style="margin-bottom:16px;color:#334155">Diễn tả làm việc khác mà không thực hiện hành động V.</p>
+        <div class="grammar-card"><div class="rule-box" style="border-left-color:#4f46e5">
+            <div class="rule-formula" style="color:#3730a3">Vない ＋ で</div>
+        </div><div class="example-list"><div class="example-item"><div class="ex-text-wrap">
+            <div class="ex-jp">何もつけないで食べます。</div>
+            <div class="ex-vi">Tôi ăn mà không chấm gì.</div>
+        </div></div>
+<div class="example-item"><div class="ex-text-wrap">
+            <div class="ex-jp">箸を使わないで食べます。</div>
+            <div class="ex-vi">Tôi ăn mà không dùng đũa.</div>
+        </div></div></div></div>
+    </section>
+<section class="content-section" id="sec-grammar4">
+        <div class="section-header">
+            <h2 class="section-title"><span>📘</span> 4. Điều kiện/kết quả: ～と</h2>
+            <span class="section-tag">Ngữ pháp Marugoto</span>
+        </div>
+        <p style="margin-bottom:16px;color:#334155">Nêu kết quả thường xảy ra khi thực hiện hành động trước.</p>
+        <div class="grammar-card"><div class="rule-box" style="border-left-color:#4f46e5">
+            <div class="rule-formula" style="color:#3730a3">Vる ＋ と</div>
+        </div><div class="example-list"><div class="example-item"><div class="ex-text-wrap">
+            <div class="ex-jp">マヨネーズをつけて食べると、おいしいです。</div>
+            <div class="ex-vi">Chấm mayonnaise vào ăn thì ngon.</div>
+        </div></div></div></div>
     </section>
 
     <!-- Verb Lab Section -->
@@ -154,7 +139,7 @@
             <h2 class="section-title"><span>🔬</span> Phòng Thí Nghiệm Biến Thể Động Từ</h2>
             <span class="section-tag">Interactive Verb Morph</span>
         </div>
-        <p style="margin-bottom: 16px; color: #475569;">Chọn động từ bên dưới để quan sát tức thì cách biến đổi sang các thể giao tiếp quan trọng:</p>
+        <p style="margin-bottom: 16px; color: #475569;">Bảng chia thể là phần luyện tập bổ trợ; các mục ngữ pháp chính thức của bài nằm ở phần trên.</p>
         
         <div class="verb-selector-row" id="verbSelectorRow"></div>
 
@@ -173,15 +158,15 @@
                     <span class="morph-val" id="morphTe">---</span>
                 </div>
                 <div class="morph-cell">
-                    <span class="morph-label">Dạng V-ないで (xin đừng)</span>
+                    <span class="morph-label">Ví dụ chia thể (bổ trợ)</span>
                     <span class="morph-val" id="morphTeIki">---</span>
                 </div>
                 <div class="morph-cell">
-                    <span class="morph-label">Thể Quá Khứ Ngắn (~ta)</span>
+                    <span class="morph-label">Thể quá khứ ngắn</span>
                     <span class="morph-val" id="morphTeKi">---</span>
                 </div>
                 <div class="morph-cell">
-                    <span class="morph-label">Thể Từ Điển (~ru / jisho)</span>
+                    <span class="morph-label">Thể từ điển</span>
                     <span class="morph-val" id="morphMashou">---</span>
                 </div>
             </div>
@@ -191,10 +176,10 @@
     <!-- Vocab 3D Flashcard Section -->
     <section class="content-section" id="sec-vocab">
         <div class="section-header">
-            <h2 class="section-title"><span>🎴</span> Hệ Thống Flashcard Từ Vựng Trọng Tâm (20 Từ)</h2>
-            <span class="section-tag">Audio + Visual</span>
+            <h2 class="section-title"><span>🎴</span> Flashcard từ vựng theo chủ đề (20 mục)</h2>
+            <span class="section-tag">Có từ mở rộng để luyện thêm</span>
         </div>
-        <p style="margin-bottom: 16px; color: #475569;">Bấm thẻ hoặc nhấn Enter để nghe tiếng Nhật. Giọng đọc phụ thuộc dịch vụ và thiết bị.</p>
+        <p style="margin-bottom: 16px; color: #475569;">Bộ thẻ gồm từ theo chủ đề và một số từ mở rộng; không thay thế danh sách từ vựng đầy đủ trong sách. Bấm thẻ để nghe cách đọc.</p>
         <div class="flashcard-grid" id="flashcardGrid"></div>
     </section>
 
@@ -204,116 +189,64 @@
     <!-- Kanji Section -->
     <section class="content-section" id="sec-kanji">
         <div class="section-header">
-            <h2 class="section-title"><span>⛩️</span> Trọn Bộ Chữ Hán Cốt Lõi Bài 4 (9 Chữ)</h2>
-            <span class="section-tag">Kanji N4-N3</span>
+            <h2 class="section-title"><span>⛩️</span> Từ Kanji trong Rikai Bài 4 (8 mục)</h2>
+            <span class="section-tag">Danh sách Japan Foundation</span>
         </div>
         <div class="kanji-grid">
         <div class="kanji-detail-card">
-            <div class="kanji-big-char">肉</div>
+            <div class="kanji-big-char" lang="ja">ご飯</div>
             <div class="kanji-info">
-                <div class="kanji-hv-title">Nhục <span class="kanji-strokes-badge">6 nét</span></div>
-                <div class="kanji-readings">
-                    <strong>Kun:</strong> ー<br>
-                    <strong>On:</strong> にく<br>
-                    <strong>Từ ví dụ:</strong> 豚肉 (ぶたにく - thịt heo), 牛肉 (ぎゅうにく - thịt bò), 肉屋 (にくや - tiệm bán thịt)
-                </div>
-                <div class="kanji-mnemonic">💡 Mẹo nhớ: Hình miếng thịt với các đường thớ gân mỡ đan chéo bên trong (Nhục).</div>
+                <div class="kanji-hv-title" lang="ja">ごはん</div>
+                <div class="kanji-readings">Cơm, bữa ăn</div>
             </div>
         </div>
         <div class="kanji-detail-card">
-            <div class="kanji-big-char">豚</div>
+            <div class="kanji-big-char" lang="ja">塩</div>
             <div class="kanji-info">
-                <div class="kanji-hv-title">Đồn <span class="kanji-strokes-badge">11 nét</span></div>
-                <div class="kanji-readings">
-                    <strong>Kun:</strong> ぶた<br>
-                    <strong>On:</strong> とん<br>
-                    <strong>Từ ví dụ:</strong> 豚肉 (ぶたにく - thịt lợn), 豚骨 (とんこつ - xương heo), 子豚 (こぶた - lợn con)
-                </div>
-                <div class="kanji-mnemonic">💡 Mẹo nhớ: Con vật ăn nhiều thịt mỡ (月 - nhục) mang hình hài loài lợn (豕 - thỉ) là Con lợn (Đồn).</div>
+                <div class="kanji-hv-title" lang="ja">しお</div>
+                <div class="kanji-readings">Muối</div>
             </div>
         </div>
         <div class="kanji-detail-card">
-            <div class="kanji-big-char">牛</div>
+            <div class="kanji-big-char" lang="ja">全部</div>
             <div class="kanji-info">
-                <div class="kanji-hv-title">Ngưu <span class="kanji-strokes-badge">4 nét</span></div>
-                <div class="kanji-readings">
-                    <strong>Kun:</strong> うし<br>
-                    <strong>On:</strong> ぎゅう<br>
-                    <strong>Từ ví dụ:</strong> 牛肉 (ぎゅうにく - thịt bò), 牛乳 (ぎゅうにゅう - sữa bò), 子牛 (こうし - con bê)
-                </div>
-                <div class="kanji-mnemonic">💡 Mẹo nhớ: Hình ảnh đầu con bò với hai cái sừng cong vểnh lên (Ngưu).</div>
+                <div class="kanji-hv-title" lang="ja">ぜんぶ</div>
+                <div class="kanji-readings">Tất cả</div>
             </div>
         </div>
         <div class="kanji-detail-card">
-            <div class="kanji-big-char">鳥</div>
+            <div class="kanji-big-char" lang="ja">～方</div>
             <div class="kanji-info">
-                <div class="kanji-hv-title">Điểu <span class="kanji-strokes-badge">11 nét</span></div>
-                <div class="kanji-readings">
-                    <strong>Kun:</strong> とり<br>
-                    <strong>On:</strong> ちょう<br>
-                    <strong>Từ ví dụ:</strong> 鳥肉 (とりにく - thịt gà/thịt chim), 焼き鳥 (やきとり - gà nướng), 小鳥 (ことり - chim nhỏ)
-                </div>
-                <div class="kanji-mnemonic">💡 Mẹo nhớ: Hình ảnh chú chim đậu trên cành có mỏ, mắt, cánh và 4 đốm lông đuôi (Điểu).</div>
+                <div class="kanji-hv-title" lang="ja">～かた</div>
+                <div class="kanji-readings">Cách ～</div>
             </div>
         </div>
         <div class="kanji-detail-card">
-            <div class="kanji-big-char">魚</div>
+            <div class="kanji-big-char" lang="ja">食べ方</div>
             <div class="kanji-info">
-                <div class="kanji-hv-title">Ngư <span class="kanji-strokes-badge">11 nét</span></div>
-                <div class="kanji-readings">
-                    <strong>Kun:</strong> さかな、うお<br>
-                    <strong>On:</strong> ぎょ<br>
-                    <strong>Từ ví dụ:</strong> 魚 (さかな - con cá), 魚屋 (さかなや - tiệm cá), 金魚 (きんぎょ - cá vàng)
-                </div>
-                <div class="kanji-mnemonic">💡 Mẹo nhớ: Hình ảnh con cá có đầu nhọn, thân vảy và chiếc đuôi vẫy dưới nước (Ngư).</div>
+                <div class="kanji-hv-title" lang="ja">たべかた</div>
+                <div class="kanji-readings">Cách ăn</div>
             </div>
         </div>
         <div class="kanji-detail-card">
-            <div class="kanji-big-char">卵</div>
+            <div class="kanji-big-char" lang="ja">熱い</div>
             <div class="kanji-info">
-                <div class="kanji-hv-title">Noãn <span class="kanji-strokes-badge">7 nét</span></div>
-                <div class="kanji-readings">
-                    <strong>Kun:</strong> たまご<br>
-                    <strong>On:</strong> らん<br>
-                    <strong>Từ ví dụ:</strong> 卵 (たまご - quả trứng), 産卵 (さんらん - đẻ trứng)
-                </div>
-                <div class="kanji-mnemonic">💡 Mẹo nhớ: Hai mảnh vỏ trứng đối xứng ôm lấy phôi noãn ở giữa (Noãn = trứng).</div>
+                <div class="kanji-hv-title" lang="ja">あつい</div>
+                <div class="kanji-readings">Nóng (đồ vật, thức ăn)</div>
             </div>
         </div>
         <div class="kanji-detail-card">
-            <div class="kanji-big-char">野</div>
+            <div class="kanji-big-char" lang="ja">苦手</div>
             <div class="kanji-info">
-                <div class="kanji-hv-title">Dã <span class="kanji-strokes-badge">11 nét</span></div>
-                <div class="kanji-readings">
-                    <strong>Kun:</strong> の<br>
-                    <strong>On:</strong> や<br>
-                    <strong>Từ ví dụ:</strong> 野菜 (やさい - rau xanh), 野球 (やきゅう - bóng chày), 分野 (ぶんや - lĩnh vực)
-                </div>
-                <div class="kanji-mnemonic">💡 Mẹo nhớ: Khu đất hoang ở thôn quê (里) nơi có thể phóng tầm mắt quan sát (予) là Đồng dã.</div>
+                <div class="kanji-hv-title" lang="ja">にがて</div>
+                <div class="kanji-readings">Không giỏi, không thích</div>
             </div>
         </div>
         <div class="kanji-detail-card">
-            <div class="kanji-big-char">菜</div>
+            <div class="kanji-big-char" lang="ja">入れます</div>
             <div class="kanji-info">
-                <div class="kanji-hv-title">Thái <span class="kanji-strokes-badge">11 nét</span></div>
-                <div class="kanji-readings">
-                    <strong>Kun:</strong> ー<br>
-                    <strong>On:</strong> さい<br>
-                    <strong>Từ ví dụ:</strong> 野菜 (やさい - rau), 白菜 (はくさい - cải thảo), 総菜 (そうざい - món ăn kèm)
-                </div>
-                <div class="kanji-mnemonic">💡 Mẹo nhớ: Cây cỏ (艹) hái bằng bàn tay (爪) từ trên cây (木) là Rau cỏ (Thái).</div>
-            </div>
-        </div>
-        <div class="kanji-detail-card">
-            <div class="kanji-big-char">焼</div>
-            <div class="kanji-info">
-                <div class="kanji-hv-title">Thiêu <span class="kanji-strokes-badge">12 nét</span></div>
-                <div class="kanji-readings">
-                    <strong>Kun:</strong> や・く、や・ける<br>
-                    <strong>On:</strong> しょう<br>
-                    <strong>Từ ví dụ:</strong> 焼く (やく - nướng), 焼き鳥 (やきとり - gà nướng), 夕焼け (ゆうやけ - ráng chiều đỏ rực)
-                </div>
-                <div class="kanji-mnemonic">💡 Mẹo nhớ: Dùng ngọn lửa (火) nung đốt đất đai trên gò cao (尧) là Nướng, Thiêu đốt.</div>
+                <div class="kanji-hv-title" lang="ja">いれます</div>
+                <div class="kanji-readings">Cho vào</div>
             </div>
         </div>
         </div>

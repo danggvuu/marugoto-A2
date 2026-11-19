@@ -251,7 +251,7 @@ L16_VOCAB = [
     {"jp": "温暖化", "kana": "おんだんか", "kanji": "温暖化", "romaji": "ondanka", "vi": "Hiện tượng ấm lên toàn cầu", "icon": "🌡️"},
     {"jp": "マイボトル", "kana": "マイボトル", "kanji": "マイボトル", "romaji": "mai botoru", "vi": "Bình nước cá nhân mang theo", "icon": "🍶"},
     {"jp": "階段", "kana": "かいだん", "kanji": "階段", "romaji": "kaidan", "vi": "Cầu thang bộ", "icon": "🪜"},
-    {"jp": "残食", "kana": "ざんしょく", "kanji": "残食", "romaji": "zanshoku", "vi": "Thức ăn thừa", "icon": "🍱"},
+    {"jp": "食べ残し", "kana": "たべのこし", "kanji": "食べ残し", "romaji": "tabenokoshi", "vi": "Thức ăn thừa", "icon": "🍱"},
     {"jp": "むだ", "kana": "むだ", "kanji": "無駄", "romaji": "muda", "vi": "Sự lãng phí vô ích", "icon": "🚫"},
     {"jp": "大切（な）", "kana": "たいせつ（な）", "kanji": "大切（な）", "romaji": "taisetsu(na)", "vi": "Quan trọng, quý giá", "icon": "💎"},
     {"jp": "続ける", "kana": "つづける", "kanji": "続ける", "romaji": "tsuzukeru", "vi": "Duy trì, kiên trì tiếp tục", "icon": "🏃‍♂️"},
@@ -445,7 +445,7 @@ L16_QUIZ = [
     {
         "id": 14,
         "category": "Hội thoại",
-        "q": "食べ残し（ざんしょく）を 出さないように、食べられる 分だけ [____] ように しています。",
+        "q": "食べ残し（たべのこし）を 出さないように、食べられる 分だけ [____] ように しています。",
         "options": ["注文する", "注文しない", "注文して", "注文した"],
         "correct": 0,
         "explain": "Cố gắng chỉ gọi đủ phần ăn: 「注文するようにしています」."

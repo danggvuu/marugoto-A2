@@ -289,28 +289,30 @@ const QUIZ_DATA = [
   {
     "id": 1,
     "category": "Ngữ pháp",
-    "q": "これは 400年前に [____] 古い お城です。",
+    "q": "この絵は日本で一番古いマンガだ [____]。",
     "options": [
-      "建てた",
-      "建てる",
-      "建てられた",
-      "建ち"
+      "ようです",
+      "ためです",
+      "そうです",
+      "あります"
     ],
     "correct": 2,
-    "explain": "Được xây dựng từ 400 năm trước (thể bị động bổ nghĩa danh từ): 「建てられたお城」."
+    "explain": "Danh từ + だそうです dẫn lại thông tin nghe được.",
+    "grammarScope": "official"
   },
   {
     "id": 2,
     "category": "Ngữ pháp",
-    "q": "京都には、昔の 伝統が たくさん [____] 町が あります。",
+    "q": "イベントを知らせる [____]、カレンダーを作ります。",
     "options": [
-      "残っている",
-      "残った",
-      "残る",
-      "残して"
+      "ために",
+      "ように",
+      "ので",
+      "まで"
     ],
     "correct": 0,
-    "explain": "Thành phố đang còn lưu giữ lại nhiều truyền thống: 「残っている町」."
+    "explain": "Vるために nêu mục đích của hành động.",
+    "grammarScope": "official"
   },
   {
     "id": 3,
@@ -328,15 +330,16 @@ const QUIZ_DATA = [
   {
     "id": 4,
     "category": "Chữ Hán",
-    "q": "Chữ Hán 「歴史」 có cách đọc là gì?",
+    "q": "Từ Kanji 「飲食」 có cách đọc nào?",
     "options": [
-      "れきじ",
-      "りきし",
-      "れっし",
-      "れきし"
+      "きんし",
+      "せつめい",
+      "どうぐ",
+      "いんしょく"
     ],
     "correct": 3,
-    "explain": "歴史 đọc là 「れきし」 (LỊCH SỬ)."
+    "explain": "飲食 đọc là 「いんしょく」 theo danh sách Kanji chính thức của bài học này.",
+    "scopeKanji": "飲食"
   },
   {
     "id": 5,
@@ -354,15 +357,16 @@ const QUIZ_DATA = [
   {
     "id": 6,
     "category": "Chữ Hán",
-    "q": "Chữ Hán 「お寺」 có âm Hán Việt là gì?",
+    "q": "Từ Kanji 「禁止」 có cách đọc nào?",
     "options": [
-      "TỰ",
-      "XÃ",
-      "THÀNH",
-      "ĐÌNH"
+      "きんし",
+      "せつめい",
+      "どうぐ",
+      "はくぶつかん"
     ],
     "correct": 0,
-    "explain": "お寺 có âm Hán Việt là TỰ (chùa chiền)."
+    "explain": "禁止 đọc là 「きんし」 theo danh sách Kanji chính thức của bài học này.",
+    "scopeKanji": "禁止"
   },
   {
     "id": 7,
@@ -380,15 +384,16 @@ const QUIZ_DATA = [
   {
     "id": 8,
     "category": "Chữ Hán",
-    "q": "Từ 「建物」 gồm 2 chữ nào ghép lại?",
+    "q": "Từ Kanji 「説明」 có cách đọc nào?",
     "options": [
-      "THIẾT + VẬT",
-      "KIẾN + VẬT",
-      "TẠO + VẬT",
-      "KIẾN + THÀNH"
+      "どうぐ",
+      "せつめい",
+      "はくぶつかん",
+      "ひつよう"
     ],
     "correct": 1,
-    "explain": "建物 gồm KIẾN (建) và VẬT (物) ➔ công trình xây dựng, tòa nhà."
+    "explain": "説明 đọc là 「せつめい」 theo danh sách Kanji chính thức của bài học này.",
+    "scopeKanji": "説明"
   },
   {
     "id": 9,
@@ -406,41 +411,44 @@ const QUIZ_DATA = [
   {
     "id": 10,
     "category": "Chữ Hán",
-    "q": "Chữ Hán 「城」 đọc là gì?",
+    "q": "Từ Kanji 「道具」 có cách đọc nào?",
     "options": [
-      "しろ",
-      "まち",
-      "むら",
-      "いえ"
+      "どうぐ",
+      "はくぶつかん",
+      "ひつよう",
+      "～かい"
     ],
     "correct": 0,
-    "explain": "城 đọc là 「しろ」 (hoặc âm On là じょう trong 大阪城)."
+    "explain": "道具 đọc là 「どうぐ」 theo danh sách Kanji chính thức của bài học này.",
+    "scopeKanji": "道具"
   },
   {
     "id": 11,
     "category": "Ngữ pháp",
-    "q": "この 神社は 平安時代に [____] と 言われています。",
+    "q": "受付にイベントカレンダーがおいて [____]。",
     "options": [
-      "できる",
-      "できた",
-      "できて",
-      "できたら"
+      "います",
+      "あります",
+      "します",
+      "なります"
     ],
     "correct": 1,
-    "explain": "Tương truyền rằng đã được tạo dựng: 『V-た と言われています』 ➔ 「できたと言われています」."
+    "explain": "Vてあります diễn tả vật được chuẩn bị/đặt sẵn và trạng thái còn đó.",
+    "grammarScope": "official"
   },
   {
     "id": 12,
     "category": "Chữ Hán",
-    "q": "Từ 「伝統」 có âm Hán Việt là gì?",
+    "q": "Từ Kanji 「博物館」 có cách đọc nào?",
     "options": [
-      "TRUYỀN TỔNG",
-      "TRUYỀN THỐNG",
-      "TRUYỀN HỆ",
-      "QUAN TRUYỀN"
+      "ひつよう",
+      "はくぶつかん",
+      "～かい",
+      "いんしょく"
     ],
     "correct": 1,
-    "explain": "伝統 có âm Hán Việt là TRUYỀN THỐNG."
+    "explain": "博物館 đọc là 「はくぶつかん」 theo danh sách Kanji chính thức của bài học này.",
+    "scopeKanji": "博物館"
   },
   {
     "id": 13,
@@ -458,15 +466,16 @@ const QUIZ_DATA = [
   {
     "id": 14,
     "category": "Chữ Hán",
-    "q": "Chữ Hán 「昔」 đọc là gì?",
+    "q": "Từ Kanji 「必要」 có cách đọc nào?",
     "options": [
-      "いま",
-      "まえ",
-      "むかし",
-      "あした"
+      "～かい",
+      "いんしょく",
+      "ひつよう",
+      "きんし"
     ],
     "correct": 2,
-    "explain": "昔 đọc là 「むかし」 (TÍCH - ngày xưa)."
+    "explain": "必要 đọc là 「ひつよう」 theo danh sách Kanji chính thức của bài học này.",
+    "scopeKanji": "必要"
   },
   {
     "id": 15,

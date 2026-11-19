@@ -173,10 +173,10 @@ const VOCAB_DATA = [
     "cat": "vocab",
     "catName": "Từ Vựng",
     "badge": "Bài 16 (A2-2)",
-    "jp": "残食",
-    "kana": "ざんしょく",
-    "kanji": "残食",
-    "romaji": "zanshoku",
+    "jp": "食べ残し",
+    "kana": "たべのこし",
+    "kanji": "食べ残し",
+    "romaji": "tabenokoshi",
     "vi": "Thức ăn thừa",
     "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_67336e4f4758d409\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#7c3aed\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_67336e4f4758d409)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"32\">🍱</text>\n</svg>"
   },
@@ -289,54 +289,58 @@ const QUIZ_DATA = [
   {
     "id": 1,
     "category": "Ngữ pháp",
-    "q": "部屋を 出るときは、必ず 電気を [____] ように しています。",
+    "q": "服が着られなく [____]。",
     "options": [
-      "消して",
-      "消した",
-      "消し",
-      "消す"
+      "しました",
+      "あります",
+      "いました",
+      "なりました"
     ],
     "correct": 3,
-    "explain": "Cố gắng duy trì thói quen làm gì: 『V thể từ điển + ようにしています』 ➔ 「消す」."
+    "explain": "Thể khả năng phủ định + なる: không còn mặc được nữa.",
+    "grammarScope": "official"
   },
   {
     "id": 2,
     "category": "Ngữ pháp",
-    "q": "健康と 節電の ために、エレベーターを [____] で 階段を 使っています。",
+    "q": "服が着られなくなった [____]、どうしますか。",
     "options": [
-      "使った",
-      "使う",
-      "使わない",
-      "使って"
+      "ので",
+      "まで",
+      "ら",
+      "そう"
     ],
     "correct": 2,
-    "explain": "Không dùng thang máy: 『使わないで』 (thể NAI + で)."
+    "explain": "Vたら nêu điều kiện: nếu không mặc được nữa thì làm gì?",
+    "grammarScope": "official"
   },
   {
     "id": 3,
-    "category": "Từ vựng",
-    "q": "電気や 水を むだに 使わないで 大切に 使うことを [____] と 言います。",
+    "category": "Ngữ pháp",
+    "q": "ゆうこさんはネクタイをバッグ [____] しました。",
     "options": [
-      "せつやく",
-      "しゅうかん",
-      "かんきょう",
-      "しぜん"
+      "に",
+      "で",
+      "を",
+      "が"
     ],
     "correct": 0,
-    "explain": "Tiết kiệm năng lượng: 「節約 (せつやく)」."
+    "explain": "NをNにする diễn tả biến vật này thành vật khác.",
+    "grammarScope": "official"
   },
   {
     "id": 4,
     "category": "Chữ Hán",
-    "q": "Chữ Hán 「環境」 có âm Hán Việt là gì?",
+    "q": "Từ Kanji 「服」 có cách đọc nào?",
     "options": [
-      "HOÀN THÀNH",
-      "HOÀN CẢNH",
-      "ĐỊA CẢNH",
-      "HOÀN ĐỊA"
+      "じてんしゃ",
+      "ふく",
+      "じどうしゃ",
+      "うります"
     ],
     "correct": 1,
-    "explain": "環境 có âm Hán Việt là HOÀN CẢNH (môi trường)."
+    "explain": "服 đọc là 「ふく」 theo danh sách Kanji chính thức của bài học này.",
+    "scopeKanji": "服"
   },
   {
     "id": 5,
@@ -354,15 +358,16 @@ const QUIZ_DATA = [
   {
     "id": 6,
     "category": "Chữ Hán",
-    "q": "Từ 「自然」 có cách đọc chuẩn là gì?",
+    "q": "Từ Kanji 「自転車」 có cách đọc nào?",
     "options": [
-      "じぜん",
-      "しぜん",
-      "しねん",
-      "じねん"
+      "じどうしゃ",
+      "じてんしゃ",
+      "うります",
+      "かします"
     ],
     "correct": 1,
-    "explain": "自然 đọc là 「しぜん」 (TỰ NHIÊN)."
+    "explain": "自転車 đọc là 「じてんしゃ」 theo danh sách Kanji chính thức của bài học này.",
+    "scopeKanji": "自転車"
   },
   {
     "id": 7,
@@ -380,15 +385,16 @@ const QUIZ_DATA = [
   {
     "id": 8,
     "category": "Chữ Hán",
-    "q": "Chữ Hán 「水道」 gồm 2 chữ nào?",
+    "q": "Từ Kanji 「自動車」 có cách đọc nào?",
     "options": [
-      "THỦY + ĐƯỜNG",
-      "HẢI + ĐẠO",
-      "THỦY + THIỆN",
-      "THỦY + ĐẠO"
+      "うります",
+      "かします",
+      "かえします",
+      "じどうしゃ"
     ],
     "correct": 3,
-    "explain": "水道 gồm THỦY (水) và ĐẠO (道) ➔ hệ thống nước máy."
+    "explain": "自動車 đọc là 「じどうしゃ」 theo danh sách Kanji chính thức của bài học này.",
+    "scopeKanji": "自動車"
   },
   {
     "id": 9,
@@ -406,41 +412,44 @@ const QUIZ_DATA = [
   {
     "id": 10,
     "category": "Chữ Hán",
-    "q": "Chữ Hán 「階段」 đọc là gì?",
+    "q": "Từ Kanji 「売ります」 có cách đọc nào?",
     "options": [
-      "かいだん",
-      "かいどう",
-      "はしご",
-      "けいだん"
+      "うります",
+      "かします",
+      "かえします",
+      "かわります"
     ],
     "correct": 0,
-    "explain": "階段 đọc là 「かいだん」 (GIAI ĐOẠN - cầu thang)."
+    "explain": "売ります đọc là 「うります」 theo danh sách Kanji chính thức của bài học này.",
+    "scopeKanji": "売ります"
   },
   {
     "id": 11,
     "category": "Ngữ pháp",
-    "q": "歯を みがいている 間は、水道の 水を [____] ください。",
+    "q": "服が着られなくなった [____]、フリーマーケットで売ります。",
     "options": [
-      "止めてから",
-      "止めたら",
-      "止めて",
-      "止める"
+      "ので",
+      "まで",
+      "ら",
+      "そう"
     ],
     "correct": 2,
-    "explain": "Hãy khóa vòi nước: 止めます ➔ thể TE: 「止めてください」."
+    "explain": "Vたら nêu điều kiện: nếu không mặc được nữa thì bán.",
+    "grammarScope": "official"
   },
   {
     "id": 12,
     "category": "Chữ Hán",
-    "q": "Chữ Hán 「大切」 có nghĩa là gì?",
+    "q": "Từ Kanji 「貸します」 có cách đọc nào?",
     "options": [
-      "Rất to lớn",
-      "Quan trọng, trân quý",
-      "Rất nguy hiểm",
-      "Cắt rời ra"
+      "かえします",
+      "かします",
+      "かわります",
+      "～よう"
     ],
     "correct": 1,
-    "explain": "大切 (たいせつ) nghĩa là quan trọng, trân quý."
+    "explain": "貸します đọc là 「かします」 theo danh sách Kanji chính thức của bài học này.",
+    "scopeKanji": "貸します"
   },
   {
     "id": 13,
@@ -458,7 +467,7 @@ const QUIZ_DATA = [
   {
     "id": 14,
     "category": "Hội thoại",
-    "q": "食べ残し（ざんしょく）を 出さないように、食べられる 分だけ [____] ように しています。",
+    "q": "食べ残し（たべのこし）を 出さないように、食べられる 分だけ [____] ように しています。",
     "options": [
       "注文する",
       "注文しない",
@@ -471,15 +480,16 @@ const QUIZ_DATA = [
   {
     "id": 15,
     "category": "Chữ Hán",
-    "q": "Chữ Hán 「節」 trong 「節約」 có âm Hán Việt là gì?",
+    "q": "Từ Kanji 「返します」 có nghĩa là gì?",
     "options": [
-      "TRÚC",
-      "TỨC",
-      "KẾT",
-      "TIẾT"
+      "Thay đổi",
+      "Dành cho ～, dùng cho ～",
+      "Dành cho trẻ em",
+      "Trả lại"
     ],
     "correct": 3,
-    "explain": "節 có âm Hán Việt là TIẾT (tiết chế, tiết kiệm)."
+    "explain": "返します nghĩa là Trả lại.",
+    "scopeKanji": "返します"
   }
 ];
 

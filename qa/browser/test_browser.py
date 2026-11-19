@@ -142,8 +142,9 @@ class StudyFlows(unittest.TestCase):
     def test_a2_2_kanji_filters_audio_and_restore(self):
         self.go("kanji_a2.html")
         self.page.locator('[onclick="switchTab(\\\'tab-vocab-11-18\\\')"]').click()
-        for lesson, count in [(1, 15), (2, 16)]:
-            self.page.locator(f'.filter-121-btn[onclick*="A2-2 L{lesson}"]').click()
+        official_counts = [8, 13, 9, 8, 11, 11, 9, 8, 8, 9, 11, 10, 11, 7, 9, 9, 10, 9]
+        for lesson, count in enumerate(official_counts, 1):
+            self.page.locator(f'.filter-121-btn[onclick="filter121Vocab(\'A2-2 L{lesson}\', this)"]').click()
             self.assertEqual(self.page.locator("#table121Body tr").count(), count)
             self.page.evaluate("() => {window.__spoken=[];window.speakText=text=>__spoken.push(text);}")
             expected = self.page.locator("#table121Body tr").first.locator("td").nth(3).inner_text()

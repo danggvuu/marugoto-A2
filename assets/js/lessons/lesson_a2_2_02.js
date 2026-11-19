@@ -269,7 +269,8 @@ const QUIZ_DATA = [
       "かけて"
     ],
     "correct": 3,
-    "explain": "Động từ đi với kính mắt 「めがね」 là 「掛けます (かけます)」. Khi bổ nghĩa miêu tả trạng thái: 「めがねをかけている人」 (người đang đeo kính)."
+    "explain": "Động từ đi với kính mắt 「めがね」 là 「掛けます (かけます)」. Khi bổ nghĩa miêu tả trạng thái: 「めがねをかけている人」 (người đang đeo kính).",
+    "grammarScope": "official"
   },
   {
     "id": 2,
@@ -282,7 +283,8 @@ const QUIZ_DATA = [
       "被って"
     ],
     "correct": 1,
-    "explain": "Bộ vest 「スーツ」 là trang phục mặc ở phần thân trên, dùng động từ 「着ます (きます)」 ➔ 「着ています」."
+    "explain": "Bộ vest 「スーツ」 là trang phục mặc ở phần thân trên, dùng động từ 「着ます (きます)」 ➔ 「着ています」.",
+    "grammarScope": "official"
   },
   {
     "id": 3,
@@ -295,7 +297,8 @@ const QUIZ_DATA = [
       "かぶって"
     ],
     "correct": 3,
-    "explain": "Mũ 「ぼうし」 là vật đội lên đầu, dùng động từ 「被ります (かぶります)」 ➔ 「被っている (かぶっている)」."
+    "explain": "Mũ 「ぼうし」 là vật đội lên đầu, dùng động từ 「被ります (かぶります)」 ➔ 「被っている (かぶっている)」.",
+    "grammarScope": "official"
   },
   {
     "id": 4,
@@ -321,7 +324,8 @@ const QUIZ_DATA = [
       "かけて"
     ],
     "correct": 1,
-    "explain": "Giày dép 「くつ」 mặc/xỏ từ thắt lưng trở xuống, dùng động từ 「履きます (はきます)」."
+    "explain": "Giày dép 「くつ」 mặc/xỏ từ thắt lưng trở xuống, dùng động từ 「履きます (はきます)」.",
+    "grammarScope": "official"
   },
   {
     "id": 6,
@@ -334,7 +338,8 @@ const QUIZ_DATA = [
       "かぶります"
     ],
     "correct": 1,
-    "explain": "Cà vạt 「ネクタイ」 thuộc nhóm phụ kiện thắt/đeo, động từ chuẩn là 「します」 (hoặc 締めます)."
+    "explain": "Cà vạt 「ネクタイ」 thuộc nhóm phụ kiện thắt/đeo, động từ chuẩn là 「します」 (hoặc 締めます).",
+    "grammarScope": "official"
   },
   {
     "id": 7,
@@ -351,16 +356,17 @@ const QUIZ_DATA = [
   },
   {
     "id": 8,
-    "category": "Từ vựng",
-    "q": "あの 先生は いつも 真面目で、とても [____] です。",
+    "category": "Ngữ pháp",
+    "q": "あの人は元気 [____] です。",
     "options": [
-      "ひくい",
-      "みじかい",
-      "きびしい",
-      "ながい"
+      "よう",
+      "ため",
+      "そう",
+      "しか"
     ],
     "correct": 2,
-    "explain": "Thầy giáo luôn nghiêm túc và 'nghiêm khắc': 「厳しい (きびしい)」."
+    "explain": "N／な形容詞 + そう diễn tả ấn tượng: 元気そうです.",
+    "grammarScope": "official"
   },
   {
     "id": 9,
@@ -391,54 +397,58 @@ const QUIZ_DATA = [
   {
     "id": 11,
     "category": "Chữ Hán",
-    "q": "Chữ Hán 「兄弟」 có cách đọc chuẩn là gì?",
+    "q": "Từ Kanji 「兄」 có nghĩa là gì?",
     "options": [
-      "あにてい",
-      "けいてい",
-      "きょうだい",
-      "おとうとあに"
+      "Anh trai (của người khác)",
+      "Chị gái (của mình)",
+      "Anh trai (của mình)",
+      "Chị gái (của người khác)"
     ],
     "correct": 2,
-    "explain": "兄弟 đọc là 「きょうだい」 (HUYNH ĐỆ - Anh em)."
+    "explain": "兄 nghĩa là Anh trai (của mình).",
+    "scopeKanji": "兄"
   },
   {
     "id": 12,
     "category": "Chữ Hán",
-    "q": "Từ 「水族館」 có nghĩa là gì?",
+    "q": "Từ Kanji 「お兄さん」 có cách đọc nào?",
     "options": [
-      "Hồ bơi",
-      "Thủy cung (viện hải dương)",
-      "Công viên nước",
-      "Bến thuyền"
+      "あね",
+      "おにいさん",
+      "おねえさん",
+      "おとうと"
     ],
     "correct": 1,
-    "explain": "水族館 (すいぞくかん) là viện bảo tàng/thủy cung trưng bày sinh vật dưới nước."
+    "explain": "お兄さん đọc là 「おにいさん」 theo danh sách Kanji chính thức của bài học này.",
+    "scopeKanji": "お兄さん"
   },
   {
     "id": 13,
     "category": "Chữ Hán",
-    "q": "Từ trái nghĩa với 「長い (ながい)」 là từ nào?",
+    "q": "Từ Kanji 「姉」 có nghĩa là gì?",
     "options": [
-      "短い (みじかい)",
-      "低い (ひくい)",
-      "高い (たかい)",
-      "近い (ちかい)"
+      "Chị gái (của mình)",
+      "Chị gái (của người khác)",
+      "Em trai",
+      "Em gái"
     ],
     "correct": 0,
-    "explain": "長い (dài) đối nghĩa với 短い (ngắn)."
+    "explain": "姉 nghĩa là Chị gái (của mình).",
+    "scopeKanji": "姉"
   },
   {
     "id": 14,
-    "category": "Chữ Hán",
-    "q": "Chữ Hán 「歌手」 gồm hai chữ nào ghép lại?",
+    "category": "Ngữ pháp",
+    "q": "りんごを [____] 切ります。",
     "options": [
-      "CA + THỦ",
-      "HOA + THỦ",
-      "CA + NHÂN",
-      "HOA + NHÂN"
+      "小さく",
+      "小さい",
+      "小さな",
+      "小さくて"
     ],
     "correct": 0,
-    "explain": "歌手 gồm chữ 歌 (CA - bài hát) và 手 (THỦ - bàn tay / người chuyên làm việc gì) ➔ ca sĩ."
+    "explain": "い形容詞 chuyển sang trạng từ bằng cách đổi い thành く: 小さく切ります.",
+    "grammarScope": "official"
   },
   {
     "id": 15,
@@ -451,7 +461,8 @@ const QUIZ_DATA = [
       "かぶって"
     ],
     "correct": 2,
-    "explain": "Đi với ghế sofa 「ソファーに」 là hành động ngồi: 「座っている (すわっている)」."
+    "explain": "Đi với ghế sofa 「ソファーに」 là hành động ngồi: 「座っている (すわっている)」.",
+    "grammarScope": "official"
   }
 ];
 

@@ -297,20 +297,22 @@ const QUIZ_DATA = [
       "ふって"
     ],
     "correct": 2,
-    "explain": "Câu điều kiện nếu trời mưa: ふりました ➔ thể TA là 「ふったら」."
+    "explain": "Câu điều kiện nếu trời mưa: ふりました ➔ thể TA là 「ふったら」.",
+    "grammarScope": "official"
   },
   {
     "id": 2,
     "category": "Ngữ pháp",
-    "q": "「土曜日の 花火大会、一緒に [____]。」 ―― 「ええ、ぜひ！」",
+    "q": "日本語が [____] 人と話しました。",
     "options": [
-      "行きましょう",
-      "行った",
-      "行かない",
-      "行きませんか"
+      "話したら",
+      "話して",
+      "話すと",
+      "話せる"
     ],
     "correct": 3,
-    "explain": "Mời rủ lịch sự: V-ませんか ➔ 「行きませんか」."
+    "explain": "話す có thể dạng khả năng là 話せる.",
+    "grammarScope": "official"
   },
   {
     "id": 3,
@@ -336,20 +338,22 @@ const QUIZ_DATA = [
       "つく"
     ],
     "correct": 1,
-    "explain": "Sau khi đến nơi (V-たら): 着きました ➔ 「着いたら (ついたら)」."
+    "explain": "Sau khi đến nơi (V-たら): 着きました ➔ 「着いたら (ついたら)」.",
+    "grammarScope": "official"
   },
   {
     "id": 5,
     "category": "Chữ Hán",
-    "q": "Chữ Hán 「祭り」 có âm Hán Việt là gì?",
+    "q": "Từ Kanji 「受付」 có nghĩa là gì?",
     "options": [
-      "SÁI",
-      "TẾ",
-      "HỢP",
-      "TRƯỜNG"
+      "Quảng trường",
+      "Quầy lễ tân, tiếp tân",
+      "Vấn đề",
+      "Giống nhau"
     ],
     "correct": 1,
-    "explain": "祭り có âm Hán Việt là TẾ (lễ hội tế thần)."
+    "explain": "受付 nghĩa là Quầy lễ tân, tiếp tân.",
+    "scopeKanji": "受付"
   },
   {
     "id": 6,
@@ -380,15 +384,16 @@ const QUIZ_DATA = [
   {
     "id": 8,
     "category": "Chữ Hán",
-    "q": "Từ 「中止」 có nghĩa là gì?",
+    "q": "Từ Kanji 「広場」 có cách đọc nào?",
     "options": [
-      "Hủy bỏ sự kiện",
-      "Tạm dừng nghỉ ngơi",
-      "Bắt đầu làm",
-      "Thay đổi địa điểm"
+      "ひろば",
+      "もんだい",
+      "おなじ",
+      "あつまります"
     ],
     "correct": 0,
-    "explain": "中止 (ちゅうし - TRUNG CHỈ) nghĩa là hủy bỏ."
+    "explain": "広場 đọc là 「ひろば」 theo danh sách Kanji chính thức của bài học này.",
+    "scopeKanji": "広場"
   },
   {
     "id": 9,
@@ -406,15 +411,16 @@ const QUIZ_DATA = [
   {
     "id": 10,
     "category": "Chữ Hán",
-    "q": "Chữ Hán 「集合」 đọc là gì?",
+    "q": "Từ Kanji 「問題」 có cách đọc nào?",
     "options": [
-      "しゅうごう",
-      "じゅうごう",
-      "しゅうあい",
-      "しゅうかい"
+      "もんだい",
+      "おなじ",
+      "あつまります",
+      "はじまります"
     ],
     "correct": 0,
-    "explain": "集合 đọc là 「しゅうごう」 (TẬP HỢP - tập trung lại một chỗ)."
+    "explain": "問題 đọc là 「もんだい」 theo danh sách Kanji chính thức của bài học này.",
+    "scopeKanji": "問題"
   },
   {
     "id": 11,
@@ -432,15 +438,16 @@ const QUIZ_DATA = [
   {
     "id": 12,
     "category": "Chữ Hán",
-    "q": "Chữ Hán 「場所」 gồm 2 chữ nào?",
+    "q": "Từ Kanji 「同じ」 có cách đọc nào?",
     "options": [
-      "TRƯỜNG + SỞ",
-      "ĐỊA + SỞ",
-      "TRƯỜNG + ĐỊA",
-      "THỊ + SỞ"
+      "おなじ",
+      "あつまります",
+      "はじまります",
+      "おわります"
     ],
     "correct": 0,
-    "explain": "場所 gồm chữ TRƯỜNG (場) và SỞ (所) ➔ nơi chốn, vị trí."
+    "explain": "同じ đọc là 「おなじ」 theo danh sách Kanji chính thức của bài học này.",
+    "scopeKanji": "同じ"
   },
   {
     "id": 13,
@@ -453,20 +460,22 @@ const QUIZ_DATA = [
       "あったら"
     ],
     "correct": 3,
-    "explain": "Nếu có thời gian: あります ➔ thể TA là 「あったら」."
+    "explain": "Nếu có thời gian: あります ➔ thể TA là 「あったら」.",
+    "grammarScope": "official"
   },
   {
     "id": 14,
     "category": "Chữ Hán",
-    "q": "Chữ Hán 「始まる」 có âm Hán Việt là gì?",
+    "q": "Từ Kanji 「集まります」 có cách đọc nào?",
     "options": [
-      "CHUNG",
-      "KAI",
-      "THỦY",
-      "NGUYÊN"
+      "はじまります",
+      "おわります",
+      "あつまります",
+      "ちゅうしします"
     ],
     "correct": 2,
-    "explain": "始まる có âm Hán Việt là THỦY (khởi đầu, bắt đầu)."
+    "explain": "集まります đọc là 「あつまります」 theo danh sách Kanji chính thức của bài học này.",
+    "scopeKanji": "集まります"
   },
   {
     "id": 15,

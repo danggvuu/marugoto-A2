@@ -289,41 +289,44 @@ const QUIZ_DATA = [
   {
     "id": 1,
     "category": "Ngữ pháp",
-    "q": "私は 辛いものが だめですから、わさびを [____] ください。",
+    "q": "ここで写真を [____] いけません。",
     "options": [
-      "入れて",
-      "入れないで",
-      "入れた",
-      "入る"
+      "撮らないで",
+      "撮っては",
+      "撮ってから",
+      "撮ると"
     ],
     "correct": 1,
-    "explain": "Yêu cầu đừng cho thêm nguyên liệu vào: V-ないでください ➔ 「入れないで」."
+    "explain": "Vてはいけません diễn tả điều bị cấm.",
+    "grammarScope": "official"
   },
   {
     "id": 2,
     "category": "Ngữ pháp",
-    "q": "すみません、ラーメンを ネギ [____] で お願いできますか。",
+    "q": "飲み物は乾杯 [____]、飲みましょう。",
     "options": [
-      "だけ",
-      "ぬき",
-      "から",
-      "まで"
+      "しないで",
+      "してから",
+      "しては",
+      "すると"
     ],
     "correct": 1,
-    "explain": "Mẫu câu yêu cầu không lấy một nguyên liệu: 『N-抜きで (ぬきで)』 ➔ ネギ抜き (không hành)."
+    "explain": "Vてから nối hai hành động theo thứ tự.",
+    "grammarScope": "official"
   },
   {
     "id": 3,
-    "category": "Hội thoại",
-    "q": "初めて 食べる 日本料理について、食べ方の 手順を 尋ねるとき 「[____]」 と 聞きます。",
+    "category": "Ngữ pháp",
+    "q": "何も [____] 食べます。",
     "options": [
-      "だれと 食べますか",
-      "いつ 食べますか",
-      "どこで 食べますか",
-      "どうやって 食べますか"
+      "つけては",
+      "つけると",
+      "つけてから",
+      "つけないで"
     ],
     "correct": 3,
-    "explain": "Hỏi cách thức ăn một món mới: 「どうやって 食べますか」."
+    "explain": "Vないで diễn tả làm việc khác mà không thực hiện hành động V.",
+    "grammarScope": "official"
   },
   {
     "id": 4,
@@ -349,20 +352,22 @@ const QUIZ_DATA = [
       "のせて"
     ],
     "correct": 0,
-    "explain": "Chấm sashimi vào nước tương xì dầu dùng động từ 「つける」 ➔ thể TE là 「つけて」."
+    "explain": "Chấm sashimi vào nước tương xì dầu dùng động từ 「つける」 ➔ thể TE là 「つけて」.",
+    "grammarScope": "official"
   },
   {
     "id": 6,
     "category": "Chữ Hán",
-    "q": "Chữ Hán 「牛肉」 đọc là gì?",
+    "q": "Từ Kanji 「ご飯」 có cách đọc nào?",
     "options": [
-      "うしにく",
-      "うまにく",
-      "ぎゅうにく",
-      "とりにく"
+      "しお",
+      "ぜんぶ",
+      "ごはん",
+      "～かた"
     ],
     "correct": 2,
-    "explain": "牛肉 đọc là 「ぎゅうにく」 (thịt bò)."
+    "explain": "ご飯 đọc là 「ごはん」 theo danh sách Kanji chính thức của bài học này.",
+    "scopeKanji": "ご飯"
   },
   {
     "id": 7,
@@ -393,28 +398,30 @@ const QUIZ_DATA = [
   {
     "id": 9,
     "category": "Chữ Hán",
-    "q": "Từ 「野菜」 có âm Hán Việt là gì?",
+    "q": "Từ Kanji 「塩」 có nghĩa là gì?",
     "options": [
-      "DÃ THÁI",
-      "DÃ NGUYÊN",
-      "ĐIỀN THÁI",
-      "DÃ THỦY"
+      "Muối",
+      "Tất cả",
+      "Cách ～",
+      "Cách ăn"
     ],
     "correct": 0,
-    "explain": "野菜 có âm Hán Việt là DÃ THÁI (rau củ)."
+    "explain": "塩 nghĩa là Muối.",
+    "scopeKanji": "塩"
   },
   {
     "id": 10,
     "category": "Chữ Hán",
-    "q": "Chữ Hán 「鳥」 trong 「焼き鳥」 đọc là gì?",
+    "q": "Từ Kanji 「全部」 có cách đọc nào?",
     "options": [
-      "からす",
-      "うお",
-      "とり",
-      "ねこ"
+      "～かた",
+      "たべかた",
+      "ぜんぶ",
+      "あつい"
     ],
     "correct": 2,
-    "explain": "鳥 đọc là 「とり」 trong 焼き鳥 (やきとり)."
+    "explain": "全部 đọc là 「ぜんぶ」 theo danh sách Kanji chính thức của bài học này.",
+    "scopeKanji": "全部"
   },
   {
     "id": 11,
@@ -432,28 +439,30 @@ const QUIZ_DATA = [
   {
     "id": 12,
     "category": "Ngữ pháp",
-    "q": "ごはんを [____] で、全部 きれいに 食べてくださいね。",
+    "q": "ここでは魚を [____] はいけません。",
     "options": [
-      "残さない",
-      "残した",
-      "残す",
-      "残して"
+      "食べて",
+      "食べないで",
+      "食べると",
+      "食べてから"
     ],
     "correct": 0,
-    "explain": "Xin đừng để thừa đồ ăn: 残しません ➔ thể NAI là 「残さない」 ＋ で."
+    "explain": "食べてはいけません nghĩa là không được ăn.",
+    "grammarScope": "official"
   },
   {
     "id": 13,
     "category": "Chữ Hán",
-    "q": "Chữ Hán 「卵」 có nghĩa là gì?",
+    "q": "Từ Kanji 「～方」 có nghĩa là gì?",
     "options": [
-      "Con gà",
-      "Thịt lợn",
-      "Hạt đậu",
-      "Quả trứng"
+      "Cách ăn",
+      "Nóng (đồ vật, thức ăn)",
+      "Không giỏi, không thích",
+      "Cách ～"
     ],
     "correct": 3,
-    "explain": "卵 (tamago - NOÃN) có nghĩa là quả trứng."
+    "explain": "～方 nghĩa là Cách ～.",
+    "scopeKanji": "～方"
   },
   {
     "id": 14,
@@ -471,15 +480,16 @@ const QUIZ_DATA = [
   {
     "id": 15,
     "category": "Ngữ pháp",
-    "q": "ソースは 上から [____] 食べても いいですか。",
+    "q": "しょうゆをつけて食べる [____]、おいしいです。",
     "options": [
-      "かって",
-      "かけて",
-      "かつて",
-      "かきて"
+      "まで",
+      "と",
+      "しか",
+      "ので"
     ],
     "correct": 1,
-    "explain": "Rưới nước sốt từ trên xuống: かけます ➔ thể TE là 「かけて」."
+    "explain": "Vると nêu kết quả thường xảy ra.",
+    "grammarScope": "official"
   }
 ];
 

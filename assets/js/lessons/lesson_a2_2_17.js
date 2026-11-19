@@ -289,54 +289,58 @@ const QUIZ_DATA = [
   {
     "id": 1,
     "category": "Ngữ pháp",
-    "q": "宮崎駿監督の 映画は、世界中で たくさんの 人に [____] います。",
+    "q": "この歌手は2回目の結婚をする [____] です。",
     "options": [
-      "愛して",
-      "愛した",
-      "愛されて",
-      "愛する"
+      "よう",
+      "まで",
+      "そう",
+      "しか"
     ],
     "correct": 2,
-    "explain": "Được mọi người yêu mến (thể bị động): 愛します ➔ 「愛されて」 います."
+    "explain": "普通形 + そうです dẫn lại thông tin nghe được.",
+    "grammarScope": "official"
   },
   {
     "id": 2,
     "category": "Ngữ pháp",
-    "q": "高校を 卒業 [____] あとで、日本へ 留学しました。",
+    "q": "この人は画家になって [____]、フランスに行きました。",
     "options": [
-      "した",
-      "して",
-      "する",
-      "したら"
+      "から",
+      "まで",
+      "そう",
+      "しか"
     ],
     "correct": 0,
-    "explain": "Sau khi làm gì: 『V thể TA + あとで』 ➔ 「卒業したあとで」."
+    "explain": "Vてから nêu hành động xảy ra sau khi trở thành họa sĩ.",
+    "grammarScope": "official"
   },
   {
     "id": 3,
-    "category": "Từ vựng",
-    "q": "ドラえもんなどの 漫画を 描く 職業の 人は [____] です。",
+    "category": "Ngữ pháp",
+    "q": "画家はなくなる [____]、フランスで絵をかきました。",
     "options": [
-      "かがくしゃ",
-      "さっか",
-      "かしゅ",
-      "まんがか"
+      "から",
+      "そう",
+      "しか",
+      "まで"
     ],
     "correct": 3,
-    "explain": "Họa sĩ vẽ truyện tranh là 「漫画家 (まんがか)」."
+    "explain": "まで nêu mốc cuối cùng của hành động.",
+    "grammarScope": "official"
   },
   {
     "id": 4,
-    "category": "Chữ Hán",
-    "q": "Chữ Hán 「成功」 có cách đọc là gì?",
+    "category": "Ngữ pháp",
+    "q": "この画家は一番有名 [____] しれません。",
     "options": [
-      "じょうこう",
-      "せいごう",
-      "しょうこう",
-      "せいこう"
+      "ので",
+      "まで",
+      "しか",
+      "かも"
     ],
     "correct": 3,
-    "explain": "成功 đọc là 「せいこう」 (THÀNH CÔNG)."
+    "explain": "かもしれません diễn tả phỏng đoán chưa chắc chắn.",
+    "grammarScope": "official"
   },
   {
     "id": 5,
@@ -354,15 +358,16 @@ const QUIZ_DATA = [
   {
     "id": 6,
     "category": "Chữ Hán",
-    "q": "Từ 「人生」 có âm Hán Việt là gì?",
+    "q": "Từ Kanji 「人生」 có cách đọc nào?",
     "options": [
-      "NHÂN THỜI",
-      "NHÂN SINH",
-      "NHÂN ĐẠI",
-      "DÂN SINH"
+      "かしゅ",
+      "じんせい",
+      "せんしゅ",
+      "がか"
     ],
     "correct": 1,
-    "explain": "人生 có âm Hán Việt là NHÂN SINH (cuộc đời con người)."
+    "explain": "人生 đọc là 「じんせい」 theo danh sách Kanji chính thức của bài học này.",
+    "scopeKanji": "人生"
   },
   {
     "id": 7,
@@ -380,15 +385,16 @@ const QUIZ_DATA = [
   {
     "id": 8,
     "category": "Chữ Hán",
-    "q": "Chữ Hán 「育つ」 đọc là gì?",
+    "q": "Từ Kanji 「歌手」 có cách đọc nào?",
     "options": [
-      "たつ",
-      "そだつ",
-      "かつ",
-      "うつ"
+      "せんしゅ",
+      "かしゅ",
+      "がか",
+      "さっか"
     ],
     "correct": 1,
-    "explain": "育つ đọc là 「そだつ」 (DỤC - lớn lên, khôn lớn)."
+    "explain": "歌手 đọc là 「かしゅ」 theo danh sách Kanji chính thức của bài học này.",
+    "scopeKanji": "歌手"
   },
   {
     "id": 9,
@@ -406,19 +412,20 @@ const QUIZ_DATA = [
   {
     "id": 10,
     "category": "Chữ Hán",
-    "q": "Chữ Hán 「世界」 gồm 2 chữ nào?",
+    "q": "Từ Kanji 「選手」 có cách đọc nào?",
     "options": [
-      "THẾ + GIỚI",
-      "THỜI + GIỚI",
-      "THẾ + ĐỊA",
-      "THẾ + QUỐC"
+      "せんしゅ",
+      "がか",
+      "さっか",
+      "にゅうがく"
     ],
     "correct": 0,
-    "explain": "世界 gồm THẾ (世) và GIỚI (界) ➔ thế giới toàn cầu."
+    "explain": "選手 đọc là 「せんしゅ」 theo danh sách Kanji chính thức của bài học này.",
+    "scopeKanji": "選手"
   },
   {
     "id": 11,
-    "category": "Ngữ pháp",
+    "category": "Từ vựng",
     "q": "田中さんは 東京で [____]、京都で 育ちました。",
     "options": [
       "生まれる",
@@ -427,20 +434,22 @@ const QUIZ_DATA = [
       "生まれて"
     ],
     "correct": 1,
-    "explain": "Liên kết câu dạng văn viết trang trọng: 生まれます ➔ bỏ ます thành 「生まれ」."
+    "explain": "Liên kết câu dạng văn viết trang trọng: 生まれます ➔ bỏ ます thành 「生まれ」.",
+    "grammarScope": "official"
   },
   {
     "id": 12,
     "category": "Chữ Hán",
-    "q": "Từ 「作品」 có nghĩa là gì?",
+    "q": "Từ Kanji 「画家」 có cách đọc nào?",
     "options": [
-      "Sản phẩm công nghiệp",
-      "Nguyên liệu",
-      "Tác phẩm nghệ thuật/sách",
-      "Vật phẩm đắt tiền"
+      "さっか",
+      "にゅうがく",
+      "がか",
+      "そつぎょう"
     ],
     "correct": 2,
-    "explain": "作品 (さくひん - TÁC PHẨM) là tác phẩm nghệ thuật, văn học, hội họa."
+    "explain": "画家 đọc là 「がか」 theo danh sách Kanji chính thức của bài học này.",
+    "scopeKanji": "画家"
   },
   {
     "id": 13,
@@ -471,15 +480,16 @@ const QUIZ_DATA = [
   {
     "id": 15,
     "category": "Chữ Hán",
-    "q": "Chữ Hán 「努力」 gồm 2 chữ nào ghép lại?",
+    "q": "Từ Kanji 「作家」 có nghĩa là gì?",
     "options": [
-      "NỖ + ĐỘ",
-      "NỖ + LỰC",
-      "MIỄN + LỰC",
-      "DỤC + LỰC"
+      "Nhập học",
+      "Nhà văn, tác giả",
+      "Tốt nghiệp",
+      "Bệnh, ốm"
     ],
     "correct": 1,
-    "explain": "努力 gồm NỖ (努) và LỰC (力) ➔ nỗ lực hết mình."
+    "explain": "作家 nghĩa là Nhà văn, tác giả.",
+    "scopeKanji": "作家"
   }
 ];
 

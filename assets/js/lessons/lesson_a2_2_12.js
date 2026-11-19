@@ -297,7 +297,8 @@ const QUIZ_DATA = [
       "だけ"
     ],
     "correct": 2,
-    "explain": "Cấu trúc so sánh hơn: 『N1 の ほうが N2 より A』 ➔ 「ほう」."
+    "explain": "Cấu trúc so sánh hơn: 『N1 の ほうが N2 より A』 ➔ 「ほう」.",
+    "grammarScope": "official"
   },
   {
     "id": 2,
@@ -310,7 +311,8 @@ const QUIZ_DATA = [
       "いつ"
     ],
     "correct": 2,
-    "explain": "Hỏi so sánh giữa 2 đối tượng dùng từ để hỏi: 『どちら (どっち)』."
+    "explain": "Hỏi so sánh giữa 2 đối tượng dùng từ để hỏi: 『どちら (どっち)』.",
+    "grammarScope": "official"
   },
   {
     "id": 3,
@@ -327,16 +329,17 @@ const QUIZ_DATA = [
   },
   {
     "id": 4,
-    "category": "Chữ Hán",
-    "q": "Chữ Hán 「比べる」 đọc là gì?",
+    "category": "Ngữ pháp",
+    "q": "このアイロンは重 [____]、使いにくいです。",
     "options": [
-      "ならべる",
-      "えらべる",
-      "しらべる",
-      "くらべる"
+      "やすくて",
+      "にくくて",
+      "すぎる",
+      "すぎて"
     ],
     "correct": 3,
-    "explain": "比べる đọc là 「くらべる」 (TỈ - so sánh đối chiếu)."
+    "explain": "い形容詞 bỏ い + すぎて: 重すぎて.",
+    "grammarScope": "official"
   },
   {
     "id": 5,
@@ -354,15 +357,16 @@ const QUIZ_DATA = [
   {
     "id": 6,
     "category": "Chữ Hán",
-    "q": "Từ trái nghĩa với 「重い (おもい - nặng)」 là từ nào?",
+    "q": "Từ Kanji 「機能」 có cách đọc nào?",
     "options": [
-      "軽い (かるい)",
-      "安い (やすい)",
-      "低い (ひくい)",
-      "薄い (うすい)"
+      "きのう",
+      "しょうエネ",
+      "にほんせい",
+      "おもい"
     ],
     "correct": 0,
-    "explain": "重い (nặng) đối nghĩa với 軽い (nhẹ)."
+    "explain": "機能 đọc là 「きのう」 theo danh sách Kanji chính thức của bài học này.",
+    "scopeKanji": "機能"
   },
   {
     "id": 7,
@@ -379,16 +383,17 @@ const QUIZ_DATA = [
   },
   {
     "id": 8,
-    "category": "Chữ Hán",
-    "q": "Chữ Hán 「便利」 có âm Hán Việt là gì?",
+    "category": "Ngữ pháp",
+    "q": "このアイロンは軽くて、[____] やすいです。",
     "options": [
-      "TIỆN ĐỒ",
-      "CÁT LỢI",
-      "LỢI DỤNG",
-      "TIỆN LỢI"
+      "使って",
+      "使う",
+      "使った",
+      "使い"
     ],
     "correct": 3,
-    "explain": "便利 có âm Hán Việt là TIỆN LỢI."
+    "explain": "Vます bỏ ます + やすい: 使いやすい.",
+    "grammarScope": "official"
   },
   {
     "id": 9,
@@ -401,20 +406,22 @@ const QUIZ_DATA = [
       "まで"
     ],
     "correct": 1,
-    "explain": "Tàu điện thì đúng giờ hơn xe buýt: 電車のほうが."
+    "explain": "Tàu điện thì đúng giờ hơn xe buýt: 電車のほうが.",
+    "grammarScope": "official"
   },
   {
     "id": 10,
     "category": "Chữ Hán",
-    "q": "Chữ Hán 「値段」 đọc là gì?",
+    "q": "Từ Kanji 「省エネ」 có cách đọc nào?",
     "options": [
-      "ちくだん",
-      "ねたん",
-      "ねだん",
-      "ばいだん"
+      "にほんせい",
+      "おもい",
+      "しょうエネ",
+      "かるい"
     ],
     "correct": 2,
-    "explain": "値段 đọc là 「ねだん」 (TRỊ ĐOẠN - giá tiền)."
+    "explain": "省エネ đọc là 「しょうエネ」 theo danh sách Kanji chính thức của bài học này.",
+    "scopeKanji": "省エネ"
   },
   {
     "id": 11,
@@ -445,15 +452,16 @@ const QUIZ_DATA = [
   {
     "id": 13,
     "category": "Chữ Hán",
-    "q": "Chữ Hán 「無料」 gồm 2 chữ nào?",
+    "q": "Từ Kanji 「日本製」 có nghĩa là gì?",
     "options": [
-      "VÔ + LÝ",
-      "HỮU + LIỆU",
-      "VÔ + LƯỢNG",
-      "VÔ + LIỆU"
+      "Nặng",
+      "Nhẹ",
+      "Yên tĩnh, êm",
+      "Sản xuất tại Nhật"
     ],
     "correct": 3,
-    "explain": "無料 gồm VÔ (無) và LIỆU (料) ➔ không mất tiền, miễn phí."
+    "explain": "日本製 nghĩa là Sản xuất tại Nhật.",
+    "scopeKanji": "日本製"
   },
   {
     "id": 14,
@@ -471,15 +479,16 @@ const QUIZ_DATA = [
   {
     "id": 15,
     "category": "Chữ Hán",
-    "q": "Chữ Hán 「割引」 gồm 2 chữ nào?",
+    "q": "Từ Kanji 「重い」 có nghĩa là gì?",
     "options": [
-      "CÁT + DẪN",
-      "LỢI + DẪN",
-      "CÁT + DỤNG",
-      "CHI + DẪN"
+      "Nặng",
+      "Nhẹ",
+      "Yên tĩnh, êm",
+      "Nhanh, sớm"
     ],
     "correct": 0,
-    "explain": "割引 gồm chữ CÁT (割 - chia cắt) và DẪN (引 - kéo/bớt lại) ➔ giảm giá chiết khấu."
+    "explain": "重い nghĩa là Nặng.",
+    "scopeKanji": "重い"
   }
 ];
 
