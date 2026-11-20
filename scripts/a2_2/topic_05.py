@@ -9,26 +9,190 @@ Topic 5: とくべつな日 (Special Days / Những ngày đặc biệt)
 # LESSON 9 DATA
 # =============================================================================
 L9_VOCAB = [
-    {"jp": "お祝い", "kana": "おいわい", "kanji": "お祝い", "romaji": "oiwai", "vi": "Lời chúc mừng, quà mừng, tiệc mừng", "icon": "🎉"},
-    {"jp": "結婚", "kana": "けっこん", "kanji": "結婚", "romaji": "kekkon", "vi": "Kết hôn, cưới hỏi", "icon": "💍"},
-    {"jp": "婚約", "kana": "こんやく", "kanji": "婚約", "romaji": "konyaku", "vi": "Đính hôn", "icon": "🕊️"},
-    {"jp": "出産", "kana": "しゅっさん", "kanji": "出産", "romaji": "shussan", "vi": "Sinh nở, sinh em bé", "icon": "👶"},
-    {"jp": "昇進", "kana": "しょうしん", "kanji": "昇進", "romaji": "shoushin", "vi": "Thăng chức, thăng tiến", "icon": "📈"},
-    {"jp": "卒業", "kana": "そつぎょう", "kanji": "卒業", "romaji": "sotsugyou", "vi": "Tốt nghiệp ra trường", "icon": "🎓"},
-    {"jp": "誕生日", "kana": "たんじょうび", "kanji": "誕生日", "romaji": "tanjoubi", "vi": "Ngày sinh nhật", "icon": "🎂"},
-    {"jp": "プレゼント", "kana": "プレゼント", "kanji": "プレゼント", "romaji": "purezento", "vi": "Món quà tặng", "icon": "🎁"},
-    {"jp": "花束", "kana": "はなたば", "kanji": "花束", "romaji": "hanataba", "vi": "Bó hoa tươi", "icon": "💐"},
-    {"jp": "ネクタイ", "kana": "ネクタイ", "kanji": "ネクタイ", "romaji": "nekutai", "vi": "Cà vạt", "icon": "👔"},
-    {"jp": "時計", "kana": "とけい", "kanji": "時計", "romaji": "tokei", "vi": "Đồng hồ", "icon": "⌚"},
-    {"jp": "選ぶ", "kana": "えらぶ", "kanji": "選ぶ", "romaji": "erabu", "vi": "Lựa chọn, tuyển chọn", "icon": "✨"},
-    {"jp": "あげる", "kana": "あげる", "kanji": "あげる", "romaji": "ageru", "vi": "Tặng, biếu (cho người khác)", "icon": "🤲"},
-    {"jp": "もらう", "kana": "もらう", "kanji": "もらう", "romaji": "morau", "vi": "Nhận được từ ai", "icon": "🤝"},
-    {"jp": "くれる", "kana": "くれる", "kanji": "くれる", "romaji": "kureru", "vi": "(Ai đó) tặng/cho mình", "icon": "💖"},
-    {"jp": "喜ぶ", "kana": "よろこぶ", "kanji": "喜ぶ", "romaji": "yorokobu", "vi": "Vui mừng, sung sướng", "icon": "😊"},
-    {"jp": "相談する", "kana": "そうだんする", "kanji": "相談する", "romaji": "soudansuru", "vi": "Thảo luận, trao đổi ý kiến", "icon": "🗣️"},
-    {"jp": "参加する", "kana": "さんかする", "kanji": "参加する", "romaji": "sankasuru", "vi": "Tham gia (bữa tiệc)", "icon": "🙋‍♂️"},
-    {"jp": "招待する", "kana": "しょうたいする", "kanji": "招待する", "romaji": "shoutaisuru", "vi": "Mời mọc, chiêu đãi", "icon": "💌"},
-    {"jp": "乾杯する", "kana": "かんぱいする", "kanji": "乾杯する", "romaji": "kanpaisuru", "vi": "Cạn ly chúc mừng", "icon": "🥂"}
+    {
+        "jp": "お正月",
+        "kana": "おしょうがつ",
+        "kanji": "お正月",
+        "romaji": "oshougatsu",
+        "vi": "Tết / Năm mới Nhật Bản (1/1 Dương lịch)",
+        "icon": "🎍"
+    },
+    {
+        "jp": "大晦日",
+        "kana": "おおみそか",
+        "kanji": "大晦日",
+        "romaji": "oomisoka",
+        "vi": "Đêm giao thừa (đêm 31/12)",
+        "icon": "🔔"
+    },
+    {
+        "jp": "元日",
+        "kana": "がんじつ",
+        "kanji": "元日",
+        "romaji": "ganjitsu",
+        "vi": "Ngày mùng 1 Tết (1/1 Dương lịch)",
+        "icon": "🌅"
+    },
+    {
+        "jp": "かるた",
+        "kana": "かるた",
+        "kanji": "かるた",
+        "romaji": "karuta",
+        "vi": "Bài lá truyền thống Nhật",
+        "icon": "🎴"
+    },
+    {
+        "jp": "挨拶",
+        "kana": "あいさつ",
+        "kanji": "挨拶",
+        "romaji": "aisatsu",
+        "vi": "Chào hỏi",
+        "icon": "🙇"
+    },
+    {
+        "jp": "ごちそう",
+        "kana": "ごちそう",
+        "kanji": "ごちそう",
+        "romaji": "gochisou",
+        "vi": "Món ăn ngon đãi khách",
+        "icon": "🍲"
+    },
+    {
+        "jp": "おせち料理",
+        "kana": "おせちりょうり",
+        "kanji": "おせち料理",
+        "romaji": "osechiryouri",
+        "vi": "Món ăn ngày Tết của Nhật",
+        "icon": "🍱"
+    },
+    {
+        "jp": "お年玉",
+        "kana": "おとしだま",
+        "kanji": "お年玉",
+        "romaji": "otoshidama",
+        "vi": "Tiền lì xì, mừng tuổi",
+        "icon": "🧧"
+    },
+    {
+        "jp": "年賀状",
+        "kana": "ねんがじょう",
+        "kanji": "年賀状",
+        "romaji": "nengajou",
+        "vi": "Thiệp chúc mừng năm mới",
+        "icon": "✉️"
+    },
+    {
+        "jp": "大掃除",
+        "kana": "おおそうじ",
+        "kanji": "大掃除",
+        "romaji": "oosouji",
+        "vi": "Tổng vệ sinh cuối năm",
+        "icon": "🧹"
+    },
+    {
+        "jp": "初詣",
+        "kana": "はつもうで",
+        "kanji": "初詣",
+        "romaji": "hatsumoude",
+        "vi": "Đi lễ chùa đầu năm",
+        "icon": "⛩️"
+    },
+    {
+        "jp": "親",
+        "kana": "おや",
+        "kanji": "親",
+        "romaji": "oya",
+        "vi": "Bố mẹ",
+        "icon": "👨‍👩‍👦"
+    },
+    {
+        "jp": "親戚",
+        "kana": "しんせき",
+        "kanji": "親戚",
+        "romaji": "shinseki",
+        "vi": "Họ hàng, bà con",
+        "icon": "👥"
+    },
+    {
+        "jp": "飾ります",
+        "kana": "かざります",
+        "kanji": "飾ります",
+        "romaji": "kazarimasu",
+        "vi": "Trang trí",
+        "icon": "🎋"
+    },
+    {
+        "jp": "ごろごろします",
+        "kana": "ごろごろします",
+        "kanji": "ごろごろします",
+        "romaji": "gorogoro shimasu",
+        "vi": "Nằm lười, thư giãn",
+        "icon": "🛋️"
+    },
+    {
+        "jp": "過ごします",
+        "kana": "すごします",
+        "kanji": "過ごします",
+        "romaji": "sugoshimasu",
+        "vi": "Trải qua (thời gian)",
+        "icon": "⏳"
+    },
+    {
+        "jp": "つまらない",
+        "kana": "つまらない",
+        "kanji": "つまらない",
+        "romaji": "tsumaranai",
+        "vi": "Nhàm chán (nội dung)",
+        "icon": "🥱"
+    },
+    {
+        "jp": "退屈（な）",
+        "kana": "たいくつ（な）",
+        "kanji": "退屈（な）",
+        "romaji": "taikutsu(na)",
+        "vi": "Buồn chán (tâm trạng)",
+        "icon": "😑"
+    },
+    {
+        "jp": "特別（な）",
+        "kana": "とくべつ（な）",
+        "kanji": "特別（な）",
+        "romaji": "tokubetsu(na)",
+        "vi": "Đặc biệt",
+        "icon": "⭐"
+    },
+    {
+        "jp": "面倒（な）",
+        "kana": "めんどう（な）",
+        "kanji": "面倒（な）",
+        "romaji": "mendou(na)",
+        "vi": "Phiền toái, phiền phức",
+        "icon": "😓"
+    },
+    {
+        "jp": "明けましておめでとうございます",
+        "kana": "あけましておめでとうございます",
+        "kanji": "明けましておめでとうございます",
+        "romaji": "akemashite omedetou gozaimasu",
+        "vi": "Chúc mừng năm mới!",
+        "icon": "🎉"
+    },
+    {
+        "jp": "久しぶり",
+        "kana": "ひさしぶり",
+        "kanji": "久しぶり",
+        "romaji": "hisashiburi",
+        "vi": "Lâu lắm không gặp",
+        "icon": "👋"
+    },
+    {
+        "jp": "戻ります",
+        "kana": "もどります",
+        "kanji": "戻ります",
+        "romaji": "modorimasu",
+        "vi": "Quay trở lại",
+        "icon": "🔙"
+    }
 ]
 
 L9_VERBS = [
@@ -262,26 +426,182 @@ L9_QUIZ = [
 # LESSON 10 DATA
 # =============================================================================
 L10_VOCAB = [
-    {"jp": "ケーキ", "kana": "ケーキ", "kanji": "ケーキ", "romaji": "keeki", "vi": "Bánh gato, bánh kem sinh nhật", "icon": "🎂"},
-    {"jp": "チョコレート", "kana": "チョコレート", "kanji": "チョコレート", "romaji": "chokoreeto", "vi": "Sô-cô-la", "icon": "🍫"},
-    {"jp": "フルーツ", "kana": "フルーツ", "kanji": "フルーツ", "romaji": "furuutsu", "vi": "Trái cây hoa quả", "icon": "🍓"},
-    {"jp": "いちご", "kana": "いちご", "kanji": "いちご", "romaji": "ichigo", "vi": "Quả dâu tây", "icon": "🍓"},
-    {"jp": "クリーム", "kana": "クリーム", "kanji": "クリーム", "romaji": "kuriimu", "vi": "Kem tươi", "icon": "🧁"},
-    {"jp": "メッセージ", "kana": "メッセージ", "kanji": "メッセージ", "romaji": "messeoji", "vi": "Lời nhắn chúc mừng", "icon": "💌"},
-    {"jp": "キャンドル", "kana": "キャンドル", "kanji": "キャンドル", "romaji": "kyandoru", "vi": "Cây nến sinh nhật", "icon": "🕯️"},
-    {"jp": "人数", "kana": "にんずう", "kanji": "人数", "romaji": "ninzuu", "vi": "Số lượng người", "icon": "👨‍👩‍👧‍👦"},
-    {"jp": "大きさ", "kana": "おおきさ", "kanji": "大きさ", "romaji": "ookisa", "vi": "Kích cỡ, độ lớn", "icon": "📏"},
-    {"jp": "配達", "kana": "はいたつ", "kanji": "配達", "romaji": "haitatsu", "vi": "Giao hàng tận nơi", "icon": "🚚"},
-    {"jp": "感謝", "kana": "かんしゃ", "kanji": "感謝", "romaji": "kansha", "vi": "Biết ơn, lòng cảm tạ", "icon": "🙏"},
-    {"jp": "お礼", "kana": "おれい", "kanji": "お礼", "romaji": "orei", "vi": "Lời cảm ơn, quà đáp lễ", "icon": "🙇"},
-    {"jp": "手紙", "kana": "てがみ", "kanji": "手紙", "romaji": "tegami", "vi": "Bức thư", "icon": "✉️"},
-    {"jp": "サプライズ", "kana": "サプライズ", "kanji": "サプライズ", "romaji": "sapuraizu", "vi": "Bất ngờ (bữa tiệc bí mật)", "icon": "🎉"},
-    {"jp": "びっくりする", "kana": "びっくりする", "kanji": "びっくりする", "romaji": "bikkurisuru", "vi": "Giật mình ngạc nhiên", "icon": "😲"},
-    {"jp": "笑顔", "kana": "えがお", "kanji": "笑顔", "romaji": "egao", "vi": "Nụ cười rạng rỡ", "icon": "😄"},
-    {"jp": "迎える", "kana": "むかえる", "kanji": "迎える", "romaji": "mukaeru", "vi": "Đón nhận, chào đón", "icon": "🤗"},
-    {"jp": "決める", "kana": "きめる", "kanji": "決める", "romaji": "kimeru", "vi": "Quyết định chọn", "icon": "✔️"},
-    {"jp": "届ける", "kana": "とどける", "kanji": "届ける", "romaji": "todokeru", "vi": "Giao tới, chuyển đến", "icon": "📦"},
-    {"jp": "喜ぶ", "kana": "よろこぶ", "kanji": "喜ぶ", "romaji": "yorokobu", "vi": "Hân hoan đón mừng", "icon": "✨"}
+    {
+        "jp": "秋祭り",
+        "kana": "あきまつり",
+        "kanji": "秋祭り",
+        "romaji": "akimatsuri",
+        "vi": "Lễ hội mùa thu",
+        "icon": "🍂"
+    },
+    {
+        "jp": "行事",
+        "kana": "ぎょうじ",
+        "kanji": "行事",
+        "romaji": "gyouji",
+        "vi": "Sự kiện, ngày lễ",
+        "icon": "🎏"
+    },
+    {
+        "jp": "豆まき",
+        "kana": "まめまき",
+        "kanji": "豆まき",
+        "romaji": "mamemaki",
+        "vi": "Tục ném đậu đuổi quỷ",
+        "icon": "👹"
+    },
+    {
+        "jp": "ひな祭り",
+        "kana": "ひなまつり",
+        "kanji": "ひな祭り",
+        "romaji": "hinamatsuri",
+        "vi": "Lễ hội búp bê cho bé gái",
+        "icon": "🎎"
+    },
+    {
+        "jp": "こいのぼり",
+        "kana": "こいのぼり",
+        "kanji": "こいのぼり",
+        "romaji": "koinobori",
+        "vi": "Cờ cá chép",
+        "icon": "🎏"
+    },
+    {
+        "jp": "七夕飾り",
+        "kana": "たなばたかざり",
+        "kanji": "七夕飾り",
+        "romaji": "tanabata kazari",
+        "vi": "Đồ trang trí Thất tịch",
+        "icon": "🎋"
+    },
+    {
+        "jp": "千歳飴",
+        "kana": "ちとせあめ",
+        "kanji": "千歳飴",
+        "romaji": "chitoseame",
+        "vi": "Kẹo nghìn năm Shichi-Go-San",
+        "icon": "🍬"
+    },
+    {
+        "jp": "飴",
+        "kana": "あめ",
+        "kanji": "飴",
+        "romaji": "ame",
+        "vi": "Kẹo",
+        "icon": "🍭"
+    },
+    {
+        "jp": "豆",
+        "kana": "まめ",
+        "kanji": "豆",
+        "romaji": "mame",
+        "vi": "Hạt đậu",
+        "icon": "🫘"
+    },
+    {
+        "jp": "星",
+        "kana": "ほし",
+        "kanji": "星",
+        "romaji": "hoshi",
+        "vi": "Ngôi sao",
+        "icon": "⭐"
+    },
+    {
+        "jp": "鬼",
+        "kana": "おに",
+        "kanji": "鬼",
+        "romaji": "oni",
+        "vi": "Con quỷ",
+        "icon": "👺"
+    },
+    {
+        "jp": "豊作",
+        "kana": "ほうさく",
+        "kanji": "豊作",
+        "romaji": "housaku",
+        "vi": "Mùa màng bội thu",
+        "icon": "🌾"
+    },
+    {
+        "jp": "長生き",
+        "kana": "ながいき",
+        "kanji": "長生き",
+        "romaji": "nagaiki",
+        "vi": "Sống lâu, trường thọ",
+        "icon": "🐢"
+    },
+    {
+        "jp": "幸せ",
+        "kana": "しあわせ",
+        "kanji": "幸せ",
+        "romaji": "shiawase",
+        "vi": "Hạnh phúc",
+        "icon": "🍀"
+    },
+    {
+        "jp": "願い事",
+        "kana": "ねがいごと",
+        "kanji": "願い事",
+        "romaji": "negaigoto",
+        "vi": "Điều mong ước, điều ước",
+        "icon": "🌟"
+    },
+    {
+        "jp": "投げます",
+        "kana": "なげます",
+        "kanji": "投げます",
+        "romaji": "nagemasu",
+        "vi": "Ném",
+        "icon": "⚾"
+    },
+    {
+        "jp": "祈ります",
+        "kana": "いのります",
+        "kanji": "祈ります",
+        "romaji": "inorimasu",
+        "vi": "Cầu nguyện",
+        "icon": "🙏"
+    },
+    {
+        "jp": "祝います",
+        "kana": "いわいます",
+        "kanji": "祝います",
+        "romaji": "iwaimasu",
+        "vi": "Chúc mừng",
+        "icon": "🎉"
+    },
+    {
+        "jp": "成長します",
+        "kana": "せいちょうします",
+        "kanji": "成長します",
+        "romaji": "seichou shimasu",
+        "vi": "Trưởng thành, lớn lên",
+        "icon": "🌱"
+    },
+    {
+        "jp": "感謝します",
+        "kana": "かんしゃします",
+        "kanji": "感謝します",
+        "romaji": "kansha shimasu",
+        "vi": "Cảm ơn, biết ơn",
+        "icon": "💐"
+    },
+    {
+        "jp": "収穫します",
+        "kana": "しゅうかくします",
+        "kanji": "収穫します",
+        "romaji": "shuukaku shimasu",
+        "vi": "Thu hoạch mùa màng",
+        "icon": "🍎"
+    },
+    {
+        "jp": "試験に合格します",
+        "kana": "しけんにごうかくします",
+        "kanji": "試験に合格します",
+        "romaji": "shiken ni goukaku shimasu",
+        "vi": "Thi đỗ kỳ thi",
+        "icon": "💮"
+    }
 ]
 
 L10_VERBS = [

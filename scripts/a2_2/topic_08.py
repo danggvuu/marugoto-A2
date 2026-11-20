@@ -9,26 +9,158 @@ Topic 8: せいかつとエコ (Life and Eco-friendly Activities)
 # LESSON 15 DATA
 # =============================================================================
 L15_VOCAB = [
-    {"jp": "ごみ", "kana": "ごみ", "kanji": "ごみ", "romaji": "gomi", "vi": "Rác thải", "icon": "🗑️"},
-    {"jp": "分別", "kana": "ぶんべつ", "kanji": "分別", "romaji": "bunbetsu", "vi": "Sự phân loại rác", "icon": "♻️"},
-    {"jp": "燃えるごみ", "kana": "もえるごみ", "kanji": "燃えるごみ", "romaji": "moeru gomi", "vi": "Rác cháy được (rác hữu cơ, giấy)", "icon": "🔥"},
-    {"jp": "燃えないごみ", "kana": "もえないごみ", "kanji": "燃えないごみ", "romaji": "moenai gomi", "vi": "Rác không cháy được (kim loại, thủy tinh)", "icon": "🚫"},
-    {"jp": "資源ごみ", "kana": "しげんごみ", "kanji": "資源ごみ", "romaji": "shigen gomi", "vi": "Rác tái chế (giấy báo, vỏ lon)", "icon": "📦"},
-    {"jp": "ペットボトル", "kana": "ペットボトル", "kanji": "ペットボトル", "romaji": "petto botoru", "vi": "Chai nhựa PET", "icon": "🧴"},
-    {"jp": "缶", "kana": "かん", "kanji": "缶", "romaji": "kan", "vi": "Vỏ lon kim loại", "icon": "🥫"},
-    {"jp": "瓶", "kana": "びん", "kanji": "瓶", "romaji": "bin", "vi": "Chai lọ thủy tinh", "icon": "🍾"},
-    {"jp": "ビニール袋", "kana": "ビニールぶくろ", "kanji": "ビニール袋", "romaji": "biniiru bukuro", "vi": "Túi nilon", "icon": "🛍️"},
-    {"jp": "捨てる", "kana": "すてる", "kanji": "捨てる", "romaji": "suteru", "vi": "Vứt rác", "icon": "🚮"},
-    {"jp": "回収する", "kana": "かいしゅうする", "kanji": "回収する", "romaji": "kaishuusuru", "vi": "Thu gom rác", "icon": "🚛"},
-    {"jp": "曜日", "kana": "ようび", "kanji": "曜日", "romaji": "youbi", "vi": "Thứ trong tuần (lịch thu rác)", "icon": "📅"},
-    {"jp": "ルール", "kana": "ルール", "kanji": "ルール", "romaji": "ruuru", "vi": "Quy tắc, luật lệ", "icon": "📜"},
-    {"jp": "守る", "kana": "まもる", "kanji": "守る", "romaji": "mamoru", "vi": "Tuân thủ quy định", "icon": "✅"},
-    {"jp": "リサイクル", "kana": "リサイクル", "kanji": "リサイクル", "romaji": "risaikuru", "vi": "Tái chế", "icon": "🔄"},
-    {"jp": "もったいない", "kana": "もったいない", "kanji": "もったいない", "romaji": "mottainai", "vi": "Lãng phí quá, tiếc của", "icon": "😢"},
-    {"jp": "減らす", "kana": "へらす", "kanji": "減らす", "romaji": "herasu", "vi": "Cắt giảm (lượng rác)", "icon": "📉"},
-    {"jp": "エコバッグ", "kana": "エコバッグ", "kanji": "エコバッグ", "romaji": "ekobaggu", "vi": "Túi vải dùng nhiều lần", "icon": "👜"},
-    {"jp": "分ける", "kana": "わける", "kanji": "分ける", "romaji": "wakeru", "vi": "Chia ra, phân loại", "icon": "🔀"},
-    {"jp": "出す", "kana": "だす", "kanji": "出す", "romaji": "dasu", "vi": "Đem rác ra nơi tập kết", "icon": "🚪"}
+    {
+        "jp": "環境",
+        "kana": "かんきょう",
+        "kanji": "環境",
+        "romaji": "kankyou",
+        "vi": "Môi trường",
+        "icon": "🌍"
+    },
+    {
+        "jp": "エコ活動",
+        "kana": "エコかつどう",
+        "kanji": "エコ活動",
+        "romaji": "eko katsudou",
+        "vi": "Hoạt động bảo vệ môi trường",
+        "icon": "🌱"
+    },
+    {
+        "jp": "省エネ",
+        "kana": "しょうエネ",
+        "kanji": "省エネ",
+        "romaji": "shouene",
+        "vi": "Tiết kiệm năng lượng",
+        "icon": "💡"
+    },
+    {
+        "jp": "温度を上げます",
+        "kana": "おんどをあげます",
+        "kanji": "温度を上げます",
+        "romaji": "ondo o agemasu",
+        "vi": "Tăng nhiệt độ",
+        "icon": "🌡️"
+    },
+    {
+        "jp": "温度を下げます",
+        "kana": "おんどをさげます",
+        "kanji": "温度を下げます",
+        "romaji": "ondo o sagemasu",
+        "vi": "Giảm nhiệt độ",
+        "icon": "❄️"
+    },
+    {
+        "jp": "むだにします",
+        "kana": "むだにします",
+        "kanji": "むだにします",
+        "romaji": "muda ni shimasu",
+        "vi": "Làm lãng phí",
+        "icon": "⚠️"
+    },
+    {
+        "jp": "リサイクル",
+        "kana": "リサイクル",
+        "kanji": "リサイクル",
+        "romaji": "risaikuru",
+        "vi": "Tái chế",
+        "icon": "♻️"
+    },
+    {
+        "jp": "ごみを分けます",
+        "kana": "ごみをわけます",
+        "kanji": "ごみを分けます",
+        "romaji": "gomi o wakemasu",
+        "vi": "Phân loại rác",
+        "icon": "🗂️"
+    },
+    {
+        "jp": "ごみを減らします",
+        "kana": "ごみをへらします",
+        "kanji": "ごみを減らします",
+        "romaji": "gomi o herashimasu",
+        "vi": "Giảm bớt rác thải",
+        "icon": "📉"
+    },
+    {
+        "jp": "空気を汚します",
+        "kana": "くうきをよごします",
+        "kanji": "空気を汚します",
+        "romaji": "kuuki o yogoshimasu",
+        "vi": "Làm bẩn, ô nhiễm không khí",
+        "icon": "🏭"
+    },
+    {
+        "jp": "油を流します",
+        "kana": "あぶらをながします",
+        "kanji": "油を流します",
+        "romaji": "abura o nagashimasu",
+        "vi": "Xả dầu mỡ xuống cống",
+        "icon": "🛢️"
+    },
+    {
+        "jp": "空気をきれいにします",
+        "kana": "くうきをきれいにします",
+        "kanji": "空気をきれいにします",
+        "romaji": "kuuki o kirei ni shimasu",
+        "vi": "Làm sạch không khí",
+        "icon": "🍃"
+    },
+    {
+        "jp": "役に立ちます",
+        "kana": "やくにたちます",
+        "kanji": "役に立ちます",
+        "romaji": "yaku ni tachimasu",
+        "vi": "Có ích, hữu ích",
+        "icon": "👍"
+    },
+    {
+        "jp": "料理を残します",
+        "kana": "りょうりをのこします",
+        "kanji": "料理を残します",
+        "romaji": "ryouri o nokoshimasu",
+        "vi": "Bỏ lại, chừa lại thức ăn",
+        "icon": "🍱"
+    },
+    {
+        "jp": "ごみを捨てます",
+        "kana": "ごみをすてます",
+        "kanji": "ごみを捨てます",
+        "romaji": "gomi o sutemasu",
+        "vi": "Vứt rác",
+        "icon": "🗑️"
+    },
+    {
+        "jp": "ごみ箱",
+        "kana": "ごみばこ",
+        "kanji": "ごみ箱",
+        "romaji": "gomibako",
+        "vi": "Thùng rác",
+        "icon": "🪣"
+    },
+    {
+        "jp": "もったいない",
+        "kana": "もったいない",
+        "kanji": "もったいない",
+        "romaji": "mottainai",
+        "vi": "Lãng phí quá!",
+        "icon": "😣"
+    },
+    {
+        "jp": "新聞紙",
+        "kana": "しんぶんし",
+        "kanji": "新聞紙",
+        "romaji": "shinbunshi",
+        "vi": "Giấy báo cũ",
+        "icon": "📰"
+    },
+    {
+        "jp": "紙",
+        "kana": "かみ",
+        "kanji": "紙",
+        "romaji": "kami",
+        "vi": "Giấy",
+        "icon": "📄"
+    }
 ]
 
 L15_VERBS = [
@@ -237,26 +369,150 @@ L15_QUIZ = [
 # LESSON 16 DATA
 # =============================================================================
 L16_VOCAB = [
-    {"jp": "節約する", "kana": "せつやくする", "kanji": "節約する", "romaji": "setsuyakusuru", "vi": "Tiết kiệm (điện, nước, tiền bạc)", "icon": "💡"},
-    {"jp": "電気", "kana": "でんき", "kanji": "電気", "romaji": "denki", "vi": "Điện năng, ánh sáng đèn", "icon": "⚡"},
-    {"jp": "水道", "kana": "すいどう", "kanji": "水道", "romaji": "suidou", "vi": "Nước máy sinh hoạt", "icon": "🚰"},
-    {"jp": "ガス", "kana": "ガス", "kanji": "ガス", "romaji": "gasu", "vi": "Khí gas đun nấu", "icon": "🔥"},
-    {"jp": "止める", "kana": "とめる", "kanji": "止める", "romaji": "tomeru", "vi": "Tắt nước, dừng lại", "icon": "🛑"},
-    {"jp": "消す", "kana": "けす", "kanji": "消す", "romaji": "kesu", "vi": "Tắt điện, dập lửa", "icon": "📴"},
-    {"jp": "習慣", "kana": "しゅうかん", "kanji": "習慣", "romaji": "shuukan", "vi": "Thói quen tốt", "icon": "🔄"},
-    {"jp": "気をつける", "kana": "きをつける", "kanji": "気をつける", "romaji": "ki o tsukeru", "vi": "Để ý, chú tâm", "icon": "👀"},
-    {"jp": "環境", "kana": "かんきょう", "kanji": "環境", "romaji": "kankyou", "vi": "Môi trường sống", "icon": "🌍"},
-    {"jp": "自然", "kana": "しぜん", "kanji": "自然", "romaji": "shizen", "vi": "Tự nhiên, thiên nhiên", "icon": "🌲"},
-    {"jp": "地球", "kana": "ちきゅう", "kanji": "地球", "romaji": "chikyuu", "vi": "Trái đất", "icon": "🌏"},
-    {"jp": "温暖化", "kana": "おんだんか", "kanji": "温暖化", "romaji": "ondanka", "vi": "Hiện tượng ấm lên toàn cầu", "icon": "🌡️"},
-    {"jp": "マイボトル", "kana": "マイボトル", "kanji": "マイボトル", "romaji": "mai botoru", "vi": "Bình nước cá nhân mang theo", "icon": "🍶"},
-    {"jp": "階段", "kana": "かいだん", "kanji": "階段", "romaji": "kaidan", "vi": "Cầu thang bộ", "icon": "🪜"},
-    {"jp": "食べ残し", "kana": "たべのこし", "kanji": "食べ残し", "romaji": "tabenokoshi", "vi": "Thức ăn thừa", "icon": "🍱"},
-    {"jp": "むだ", "kana": "むだ", "kanji": "無駄", "romaji": "muda", "vi": "Sự lãng phí vô ích", "icon": "🚫"},
-    {"jp": "大切（な）", "kana": "たいせつ（な）", "kanji": "大切（な）", "romaji": "taisetsu(na)", "vi": "Quan trọng, quý giá", "icon": "💎"},
-    {"jp": "続ける", "kana": "つづける", "kanji": "続ける", "romaji": "tsuzukeru", "vi": "Duy trì, kiên trì tiếp tục", "icon": "🏃‍♂️"},
-    {"jp": "工夫する", "kana": "くふうする", "kanji": "工夫する", "romaji": "kufuusuru", "vi": "Tìm tòi sáng kiến, cải tiến cách làm", "icon": "💡"},
-    {"jp": "毎日", "kana": "まいにち", "kanji": "毎日", "romaji": "mainichi", "vi": "Mỗi ngày, hàng ngày", "icon": "📅"}
+    {
+        "jp": "フリーマーケット",
+        "kana": "フリーマーケット",
+        "kanji": "フリーマーケット",
+        "romaji": "furi-ma-ketto",
+        "vi": "Hội chợ (đồ cũ), chợ trời",
+        "icon": "🎪"
+    },
+    {
+        "jp": "レンタルショップ",
+        "kana": "レンタルショップ",
+        "kanji": "レンタルショップ",
+        "romaji": "rentaru shoppu",
+        "vi": "Cửa hàng cho thuê đồ",
+        "icon": "🏬"
+    },
+    {
+        "jp": "クッション",
+        "kana": "クッション",
+        "kanji": "クッション",
+        "romaji": "kusshon",
+        "vi": "Gối tựa, đệm sofa",
+        "icon": "🛋️"
+    },
+    {
+        "jp": "布団",
+        "kana": "ふとん",
+        "kanji": "布団",
+        "romaji": "futon",
+        "vi": "Chăn, nệm",
+        "icon": "🛏️"
+    },
+    {
+        "jp": "エコバッグ",
+        "kana": "エコバッグ",
+        "kanji": "エコバッグ",
+        "romaji": "ekobaggu",
+        "vi": "Túi thân thiện môi trường",
+        "icon": "🛍️"
+    },
+    {
+        "jp": "ベビーベッド",
+        "kana": "ベビーベッド",
+        "kanji": "ベビーベッド",
+        "romaji": "bebi-beddo",
+        "vi": "Giường em bé, nôi",
+        "icon": "👶"
+    },
+    {
+        "jp": "ベビーカー",
+        "kana": "ベビーカー",
+        "kanji": "ベビーカー",
+        "romaji": "bebi-ka-",
+        "vi": "Xe đẩy em bé",
+        "icon": "🚼"
+    },
+    {
+        "jp": "飽きます",
+        "kana": "あきます",
+        "kanji": "飽きます",
+        "romaji": "akimasu",
+        "vi": "Chán ngấy",
+        "icon": "🥱"
+    },
+    {
+        "jp": "サイズが変わります",
+        "kana": "サイズがかわります",
+        "kanji": "サイズが変わります",
+        "romaji": "saizu ga kawarimasu",
+        "vi": "Thay đổi kích cỡ",
+        "icon": "📏"
+    },
+    {
+        "jp": "要ります",
+        "kana": "いります",
+        "kanji": "要ります",
+        "romaji": "irimasu",
+        "vi": "Cần thiết",
+        "icon": "✅"
+    },
+    {
+        "jp": "要りません",
+        "kana": "いりません",
+        "kanji": "要りません",
+        "romaji": "irimasen",
+        "vi": "Không cần thiết",
+        "icon": "❌"
+    },
+    {
+        "jp": "要らないものを売ります",
+        "kana": "いらないものをうります",
+        "kanji": "要らないものを売ります",
+        "romaji": "iranai mono o urimasu",
+        "vi": "Bán đồ không cần thiết",
+        "icon": "🏷️"
+    },
+    {
+        "jp": "増えます",
+        "kana": "ふえます",
+        "kanji": "増えます",
+        "romaji": "fuemasu",
+        "vi": "Tăng lên",
+        "icon": "📈"
+    },
+    {
+        "jp": "破れます",
+        "kana": "やぶれます",
+        "kanji": "破れます",
+        "romaji": "yaburemasu",
+        "vi": "Bị rách",
+        "icon": "💥"
+    },
+    {
+        "jp": "汚れます",
+        "kana": "よごれます",
+        "kanji": "汚れます",
+        "romaji": "yogoremasu",
+        "vi": "Bị bẩn",
+        "icon": "🧼"
+    },
+    {
+        "jp": "修理します",
+        "kana": "しゅうりします",
+        "kanji": "修理します",
+        "romaji": "shuuri shimasu",
+        "vi": "Sửa chữa",
+        "icon": "🔨"
+    },
+    {
+        "jp": "穴が開きます",
+        "kana": "あながあきます",
+        "kanji": "穴が開きます",
+        "romaji": "ana ga akimasu",
+        "vi": "Thủng lỗ",
+        "icon": "🕳️"
+    },
+    {
+        "jp": "ごみを拾います",
+        "kana": "ごみをひろいます",
+        "kanji": "ごみを拾います",
+        "romaji": "gomi o hiroimasu",
+        "vi": "Nhặt rác",
+        "icon": "🧹"
+    }
 ]
 
 L16_VERBS = [

@@ -9,26 +9,182 @@ Topic 9: じんせい (People's Lives / Cuộc đời & Kế hoạch tương lai
 # LESSON 17 DATA
 # =============================================================================
 L17_VOCAB = [
-    {"jp": "人生", "kana": "じんせい", "kanji": "人生", "romaji": "jinsei", "vi": "Cuộc đời, nhân sinh", "icon": "🌱"},
-    {"jp": "生涯", "kana": "しょうがい", "kanji": "生涯", "romaji": "shougai", "vi": "Cả cuộc đời, suốt đời", "icon": "📜"},
-    {"jp": "生まれる", "kana": "うまれる", "kanji": "生まれる", "romaji": "umareru", "vi": "Sinh ra", "icon": "👶"},
-    {"jp": "育つ", "kana": "そだつ", "kanji": "育つ", "romaji": "sodatsu", "vi": "Lớn lên, trưởng thành", "icon": "🪴"},
-    {"jp": "時代", "kana": "じだい", "kanji": "時代", "romaji": "jidai", "vi": "Thời đại, thế hệ", "icon": "⏳"},
-    {"jp": "成功する", "kana": "せいこうする", "kanji": "成功する", "romaji": "seikousuru", "vi": "Thành công", "icon": "🏆"},
-    {"jp": "失敗する", "kana": "しっぱいする", "kanji": "失敗する", "romaji": "shippaisuru", "vi": "Thất bại", "icon": "🌧️"},
-    {"jp": "努力する", "kana": "どりょくする", "kanji": "努力する", "romaji": "doryokusuru", "vi": "Nỗ lực, cố gắng hết mình", "icon": "💪"},
-    {"jp": "夢", "kana": "ゆめ", "kanji": "夢", "romaji": "yume", "vi": "Ước mơ, hoài bão", "icon": "⭐"},
-    {"jp": "作家", "kana": "さっか", "kanji": "作家", "romaji": "sakka", "vi": "Nhà văn, tác giả", "icon": "🖋️"},
-    {"jp": "漫画家", "kana": "まんがか", "kanji": "漫画家", "romaji": "mangaka", "vi": "Họa sĩ truyện tranh", "icon": "🎨"},
-    {"jp": "科学者", "kana": "かがくしゃ", "kanji": "科学者", "romaji": "kagakusha", "vi": "Nhà khoa học", "icon": "🔬"},
-    {"jp": "作品", "kana": "さくひん", "kanji": "作品", "romaji": "sakuhin", "vi": "Tác phẩm nghệ thuật", "icon": "🖼️"},
-    {"jp": "有名（な）", "kana": "ゆうめい（な）", "kanji": "有名（な）", "romaji": "yuumei(na)", "vi": "Nổi tiếng khắp nơi", "icon": "🌟"},
-    {"jp": "世界的（な）", "kana": "せかいてき（な）", "kanji": "世界的（な）", "romaji": "sekaiteki(na)", "vi": "Tầm cỡ thế giới", "icon": "🌐"},
-    {"jp": "影響", "kana": "えいきょう", "kanji": "影響", "romaji": "eikyou", "vi": "Ảnh hưởng, tác động", "icon": "🌊"},
-    {"jp": "受ける", "kana": "うける", "kanji": "受ける", "romaji": "ukeru", "vi": "Nhận được (ảnh hưởng/giải thưởng)", "icon": "🤲"},
-    {"jp": "賞", "kana": "しょう", "kanji": "賞", "romaji": "shou", "vi": "Giải thưởng danh giá", "icon": "🥇"},
-    {"jp": "活躍する", "kana": "かつやくする", "kanji": "活躍する", "romaji": "katsuyakusuru", "vi": "Hoạt động sôi nổi, gặt hái thành tựu", "icon": "🚀"},
-    {"jp": "亡くなる", "kana": "なくなる", "kanji": "亡くなる", "romaji": "nakunaru", "vi": "Qua đời, mất", "icon": "🕊️"}
+    {
+        "jp": "人生",
+        "kana": "じんせい",
+        "kanji": "人生",
+        "romaji": "jinsei",
+        "vi": "Cuộc đời, đời người",
+        "icon": "🌱"
+    },
+    {
+        "jp": "俳優",
+        "kana": "はいゆう",
+        "kanji": "俳優",
+        "romaji": "haiyuu",
+        "vi": "Diễn viên nam",
+        "icon": "🎭"
+    },
+    {
+        "jp": "女優",
+        "kana": "じょゆう",
+        "kanji": "女優",
+        "romaji": "joyuu",
+        "vi": "Diễn viên nữ",
+        "icon": "🎬"
+    },
+    {
+        "jp": "音楽家",
+        "kana": "おんがくか",
+        "kanji": "音楽家",
+        "romaji": "ongakuka",
+        "vi": "Nhạc sĩ",
+        "icon": "🎼"
+    },
+    {
+        "jp": "画家",
+        "kana": "がか",
+        "kanji": "画家",
+        "romaji": "gaka",
+        "vi": "Họa sĩ",
+        "icon": "🎨"
+    },
+    {
+        "jp": "作家",
+        "kana": "さっか",
+        "kanji": "作家",
+        "romaji": "sakka",
+        "vi": "Nhà văn",
+        "icon": "🖋️"
+    },
+    {
+        "jp": "小説家",
+        "kana": "しょうせつか",
+        "kanji": "小説家",
+        "romaji": "shousetsuka",
+        "vi": "Tiểu thuyết gia",
+        "icon": "📚"
+    },
+    {
+        "jp": "スポーツ選手",
+        "kana": "スポーツせんしゅ",
+        "kanji": "スポーツ選手",
+        "romaji": "supo-tsu senshu",
+        "vi": "Tuyển thủ thể thao",
+        "icon": "⚽"
+    },
+    {
+        "jp": "柔道家",
+        "kana": "じゅうどうか",
+        "kanji": "柔道家",
+        "romaji": "juudouka",
+        "vi": "Võ sĩ Judo",
+        "icon": "🥋"
+    },
+    {
+        "jp": "映画監督",
+        "kana": "えいがかんとく",
+        "kanji": "映画監督",
+        "romaji": "eiga kantoku",
+        "vi": "Đạo diễn phim",
+        "icon": "🎥"
+    },
+    {
+        "jp": "科学者",
+        "kana": "かがくしゃ",
+        "kanji": "科学者",
+        "romaji": "kagakusha",
+        "vi": "Nhà khoa học",
+        "icon": "🔬"
+    },
+    {
+        "jp": "教育者",
+        "kana": "きょういくしゃ",
+        "kanji": "教育者",
+        "romaji": "kyouikusha",
+        "vi": "Nhà giáo dục",
+        "icon": "👨‍🏫"
+    },
+    {
+        "jp": "バイオリニスト",
+        "kana": "バイオリニスト",
+        "kanji": "バイオリニスト",
+        "romaji": "baiorinisuto",
+        "vi": "Nghệ sĩ vĩ cầm (violin)",
+        "icon": "🎻"
+    },
+    {
+        "jp": "金メダル",
+        "kana": "きんメダル",
+        "kanji": "金メダル",
+        "romaji": "kin medaru",
+        "vi": "Huy chương vàng",
+        "icon": "🥇"
+    },
+    {
+        "jp": "～賞",
+        "kana": "～しょう",
+        "kanji": "～賞",
+        "romaji": "~shou",
+        "vi": "Giải thưởng (như Nobel...)",
+        "icon": "🏆"
+    },
+    {
+        "jp": "翻訳（します）",
+        "kana": "ほんやく（します）",
+        "kanji": "翻訳（します）",
+        "romaji": "honyaku(shimasu)",
+        "vi": "Biên dịch",
+        "icon": "📝"
+    },
+    {
+        "jp": "活躍（します）",
+        "kana": "かつやく（します）",
+        "kanji": "活躍（します）",
+        "romaji": "katsuyaku(shimasu)",
+        "vi": "Thành công, hoạt động sôi nổi",
+        "icon": "🌟"
+    },
+    {
+        "jp": "亡くなります",
+        "kana": "なくなります",
+        "kanji": "亡くなります",
+        "romaji": "nakunarimasu",
+        "vi": "Qua đời, mất",
+        "icon": "🕊️"
+    },
+    {
+        "jp": "作品",
+        "kana": "さくひん",
+        "kanji": "作品",
+        "romaji": "sakuhin",
+        "vi": "Tác phẩm nghệ thuật",
+        "icon": "🖼️"
+    },
+    {
+        "jp": "ずっと",
+        "kana": "ずっと",
+        "kanji": "ずっと",
+        "romaji": "zutto",
+        "vi": "Suốt, mãi, liên tục",
+        "icon": "⏳"
+    },
+    {
+        "jp": "離婚します",
+        "kana": "りこんします",
+        "kanji": "離婚します",
+        "romaji": "rikon shimasu",
+        "vi": "Ly hôn",
+        "icon": "💔"
+    },
+    {
+        "jp": "苦労します",
+        "kana": "くろうします",
+        "kanji": "苦労します",
+        "romaji": "kurou shimasu",
+        "vi": "Gặp khó khăn, vất vả",
+        "icon": "🧗"
+    }
 ]
 
 L17_VERBS = [
@@ -240,26 +396,182 @@ L17_QUIZ = [
 # LESSON 18 DATA
 # =============================================================================
 L18_VOCAB = [
-    {"jp": "子ども", "kana": "こども", "kanji": "子ども", "romaji": "kodomo", "vi": "Trẻ con, đứa trẻ", "icon": "🧒"},
-    {"jp": "昔", "kana": "むかし", "kanji": "昔", "romaji": "mukashi", "vi": "Ngày xưa", "icon": "⏳"},
-    {"jp": "頃", "kana": "ころ", "kanji": "頃", "romaji": "koro", "vi": "Hồi, lúc (thời gian trước)", "icon": "🕰️"},
-    {"jp": "性格", "kana": "せいかく", "kanji": "性格", "romaji": "seikaku", "vi": "Tính cách", "icon": "🧠"},
-    {"jp": "おとなしい", "kana": "おとなしい", "kanji": "おとなしい", "romaji": "otonashii", "vi": "Hiền lành, trầm tính, ngoan ngoãn", "icon": "😌"},
-    {"jp": "元気（な）", "kana": "げんき（な）", "kanji": "元気（な）", "romaji": "genki(na)", "vi": "Khỏe mạnh, hoạt bát", "icon": "⚡"},
-    {"jp": "活発（な）", "kana": "かっぱつ（な）", "kanji": "活発（な）", "romaji": "kappatsu(na)", "vi": "Năng động, sôi nổi", "icon": "🏃‍♂️"},
-    {"jp": "いたずら（な）", "kana": "いたずら（な）", "kanji": "いたずら（な）", "romaji": "itazura(na)", "vi": "Nghịch ngợm, quậy phá", "icon": "😜"},
-    {"jp": "将来", "kana": "しょうらい", "kanji": "将来", "romaji": "shourai", "vi": "Tương lai", "icon": "🔭"},
-    {"jp": "変わる", "kana": "かわる", "kanji": "変わる", "romaji": "kawaru", "vi": "Thay đổi, biến đổi", "icon": "🔄"},
-    {"jp": "思い出す", "kana": "おもいだす", "kanji": "思い出す", "romaji": "omoidasu", "vi": "Nhớ lại, hồi tưởng", "icon": "💭"},
-    {"jp": "覚える", "kana": "おぼえる", "kanji": "覚える", "romaji": "oboeru", "vi": "Ghi nhớ", "icon": "🧠"},
-    {"jp": "家族", "kana": "かぞく", "kanji": "家族", "romaji": "kazoku", "vi": "Gia đình", "icon": "👨‍👩‍👧‍👦"},
-    {"jp": "目標", "kana": "もくひょう", "kanji": "目標", "romaji": "mokuhyou", "vi": "Mục tiêu phấn đấu", "icon": "🎯"},
-    {"jp": "頑張る", "kana": "がんばる", "kanji": "頑張る", "romaji": "ganbaru", "vi": "Cố gắng, nỗ lực hết sức", "icon": "🔥"},
-    {"jp": "勉強する", "kana": "べんきょうする", "kanji": "勉強する", "romaji": "benkyousuru", "vi": "Học tập", "icon": "📚"},
-    {"jp": "成長する", "kana": "せいちょうする", "kanji": "成長する", "romaji": "seichousuru", "vi": "Trưởng thành, lớn lên", "icon": "📈"},
-    {"jp": "これから", "kana": "これから", "kanji": "これから", "romaji": "korekara", "vi": "Từ nay về sau", "icon": "➡️"},
-    {"jp": "ずっと", "kana": "ずっと", "kanji": "ずっと", "romaji": "zutto", "vi": "Suốt, mãi mãi", "icon": "♾️"},
-    {"jp": "働く", "kana": "はたらく", "kanji": "働く", "romaji": "hataraku", "vi": "Làm việc", "icon": "💼"}
+    {
+        "jp": "けんかします",
+        "kana": "けんかします",
+        "kanji": "けんかします",
+        "romaji": "kenka shimasu",
+        "vi": "Cãi cọ, đánh nhau",
+        "icon": "🥊"
+    },
+    {
+        "jp": "褒めます",
+        "kana": "ほめます",
+        "kanji": "褒めます",
+        "romaji": "homemasu",
+        "vi": "Khen ngợi",
+        "icon": "👏"
+    },
+    {
+        "jp": "叱ります",
+        "kana": "しかります",
+        "kanji": "叱ります",
+        "romaji": "shikarimasu",
+        "vi": "Mắng, quở trách",
+        "icon": "😠"
+    },
+    {
+        "jp": "おしゃれします",
+        "kana": "おしゃれします",
+        "kanji": "おしゃれします",
+        "romaji": "oshare shimasu",
+        "vi": "Làm đỏm, diện đồ đẹp",
+        "icon": "👗"
+    },
+    {
+        "jp": "誘います",
+        "kana": "さそいます",
+        "kanji": "誘います",
+        "romaji": "sasoimasu",
+        "vi": "Rủ bạn bè, mời",
+        "icon": "🤝"
+    },
+    {
+        "jp": "就職します",
+        "kana": "しゅうしょくします",
+        "kanji": "就職します",
+        "romaji": "shuushoku shimasu",
+        "vi": "Vào làm tại công ty",
+        "icon": "💼"
+    },
+    {
+        "jp": "デートします",
+        "kana": "デートします",
+        "kanji": "デートします",
+        "romaji": "de-to shimasu",
+        "vi": "Hẹn hò với người yêu",
+        "icon": "💑"
+    },
+    {
+        "jp": "転勤します",
+        "kana": "てんきんします",
+        "kanji": "転勤します",
+        "romaji": "tenkin shimasu",
+        "vi": "Chuyển công tác",
+        "icon": "✈️"
+    },
+    {
+        "jp": "退職します",
+        "kana": "たいしょくします",
+        "kanji": "退職します",
+        "romaji": "taishoku shimasu",
+        "vi": "Nghỉ việc, về hưu",
+        "icon": "🏖️"
+    },
+    {
+        "jp": "ひどい",
+        "kana": "ひどい",
+        "kanji": "ひどい",
+        "romaji": "hidoi",
+        "vi": "Tồi tệ, quá đáng",
+        "icon": "😣"
+    },
+    {
+        "jp": "悲しい",
+        "kana": "かなしい",
+        "kanji": "悲しい",
+        "romaji": "kanashii",
+        "vi": "Buồn rầu, đau lòng",
+        "icon": "😢"
+    },
+    {
+        "jp": "甘えます",
+        "kana": "あまえます",
+        "kanji": "甘えます",
+        "romaji": "amaemasu",
+        "vi": "Nũng nịu, nhõng nhẽo",
+        "icon": "🥰"
+    },
+    {
+        "jp": "大人しい",
+        "kana": "おとなしい",
+        "kanji": "大人しい",
+        "romaji": "otonashii",
+        "vi": "Điềm đạm, dễ bảo, ngoan",
+        "icon": "😌"
+    },
+    {
+        "jp": "成績",
+        "kana": "せいせき",
+        "kanji": "成績",
+        "romaji": "seiseki",
+        "vi": "Thành tích, kết quả học tập",
+        "icon": "📊"
+    },
+    {
+        "jp": "恥ずかしい",
+        "kana": "はずかしい",
+        "kanji": "恥ずかしい",
+        "romaji": "hazukashii",
+        "vi": "Xấu hổ, ngượng ngùng",
+        "icon": "😳"
+    },
+    {
+        "jp": "きっかけ",
+        "kana": "きっかけ",
+        "kanji": "きっかけ",
+        "romaji": "kikkake",
+        "vi": "Cơ duyên, duyên cớ",
+        "icon": "🔑"
+    },
+    {
+        "jp": "夕食",
+        "kana": "ゆうしょく",
+        "kanji": "夕食",
+        "romaji": "yuushoku",
+        "vi": "Bữa cơm tối",
+        "icon": "🍲"
+    },
+    {
+        "jp": "仲がいい",
+        "kana": "なかがいい",
+        "kanji": "仲がいい",
+        "romaji": "naka ga ii",
+        "vi": "Thân thiết, mối quan hệ tốt",
+        "icon": "👫"
+    },
+    {
+        "jp": "勧めます",
+        "kana": "すすめます",
+        "kanji": "勧めます",
+        "romaji": "susumemasu",
+        "vi": "Đề xuất, gợi ý",
+        "icon": "💡"
+    },
+    {
+        "jp": "社会人",
+        "kana": "しゃかいじん",
+        "kanji": "社会人",
+        "romaji": "shakaijin",
+        "vi": "Người đi làm, người ngoài xã hội",
+        "icon": "👔"
+    },
+    {
+        "jp": "やっと",
+        "kana": "やっと",
+        "kanji": "やっと",
+        "romaji": "yatto",
+        "vi": "Cuối cùng thì (kết quả tốt)",
+        "icon": "🎉"
+    },
+    {
+        "jp": "心配します",
+        "kana": "しんぱいします",
+        "kanji": "心配します",
+        "romaji": "shinpai shimasu",
+        "vi": "Lo lắng, bận tâm",
+        "icon": "😟"
+    }
 ]
 
 L18_VERBS = [

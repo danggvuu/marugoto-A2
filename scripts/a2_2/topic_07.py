@@ -9,26 +9,174 @@ Topic 7: れきしと文化の町 (A Town Rich in History and Culture)
 # LESSON 13 DATA
 # =============================================================================
 L13_VOCAB = [
-    {"jp": "地下鉄", "kana": "ちかてつ", "kanji": "地下鉄", "romaji": "chikatetsu", "vi": "Tàu điện ngầm", "icon": "🚇"},
-    {"jp": "バス", "kana": "バス", "kanji": "バス", "romaji": "basu", "vi": "Xe buýt", "icon": "🚌"},
-    {"jp": "電車", "kana": "でんしゃ", "kanji": "電車", "romaji": "densha", "vi": "Tàu điện", "icon": "🚃"},
-    {"jp": "新幹線", "kana": "しんかんせん", "kanji": "新幹線", "romaji": "shinkansen", "vi": "Tàu siêu tốc Shinkansen", "icon": "🚅"},
-    {"jp": "切符", "kana": "きっぷ", "kanji": "切符", "romaji": "kippu", "vi": "Vé tàu, vé xe", "icon": "🎫"},
-    {"jp": "ICカード", "kana": "アイシーカード", "kanji": "ICカード", "romaji": "aishiikaado", "vi": "Thẻ giao thông thông minh (Suica/Pasmo)", "icon": "💳"},
-    {"jp": "改札口", "kana": "かいさつぐち", "kanji": "改札口", "romaji": "kaisatsuguchi", "vi": "Cổng soát vé tự động", "icon": "🚪"},
-    {"jp": "乗り換え", "kana": "のりかえ", "kanji": "乗り換え", "romaji": "norikae", "vi": "Sự chuyển tuyến, đổi tàu xe", "icon": "🔀"},
-    {"jp": "乗る", "kana": "のる", "kanji": "乗る", "romaji": "noru", "vi": "Lên xe, đi tàu", "icon": "🚶‍♂️"},
-    {"jp": "降りる", "kana": "おりる", "kanji": "降りる", "romaji": "oriru", "vi": "Xuống tàu xe", "icon": "🏃"},
-    {"jp": "徒歩", "kana": "とほ", "kanji": "徒歩", "romaji": "toho", "vi": "Đi bộ", "icon": "🚶"},
-    {"jp": "路線図", "kana": "ろせんず", "kanji": "路線図", "romaji": "rosenzu", "vi": "Bản đồ tuyến đường tàu xe", "icon": "🗺️"},
-    {"jp": "案内所", "kana": "あんないじょ", "kanji": "案内所", "romaji": "annaijo", "vi": "Quầy hướng dẫn thông tin", "icon": "ℹ️"},
-    {"jp": "迷う", "kana": "まよう", "kanji": "迷う", "romaji": "mayou", "vi": "Lạc đường", "icon": "🧭"},
-    {"jp": "到着する", "kana": "とうちゃくする", "kanji": "到着する", "romaji": "touchakusuru", "vi": "Đến nơi, cập bến", "icon": "🏁"},
-    {"jp": "出発する", "kana": "しゅっぱつする", "kanji": "出発する", "romaji": "shuppatsusuru", "vi": "Xuất phát, khởi hành", "icon": "🛫"},
-    {"jp": "遠い", "kana": "とおい", "kanji": "遠い", "romaji": "tooi", "vi": "Xa xôi", "icon": "🗾"},
-    {"jp": "近い", "kana": "ちかい", "kanji": "近い", "romaji": "chikai", "vi": "Gần", "icon": "📍"},
-    {"jp": "運賃", "kana": "うんちん", "kanji": "運賃", "romaji": "unchin", "vi": "Cước phí đi lại, tiền vé xe tàu", "icon": "💴"},
-    {"jp": "どのくらい", "kana": "どのくらい", "kanji": "どのくらい", "romaji": "dono kurai", "vi": "Khoảng bao lâu / chừng nào", "icon": "⏱️"}
+    {
+        "jp": "歴史",
+        "kana": "れきし",
+        "kanji": "歴史",
+        "romaji": "rekishi",
+        "vi": "Lịch sử",
+        "icon": "📜"
+    },
+    {
+        "jp": "文化",
+        "kana": "ぶんか",
+        "kanji": "文化",
+        "romaji": "bunka",
+        "vi": "Văn hóa",
+        "icon": "🎎"
+    },
+    {
+        "jp": "天皇",
+        "kana": "てんのう",
+        "kanji": "天皇",
+        "romaji": "tennou",
+        "vi": "Thiên hoàng Nhật Bản",
+        "icon": "👑"
+    },
+    {
+        "jp": "将軍",
+        "kana": "しょうぐん",
+        "kanji": "将軍",
+        "romaji": "shougun",
+        "vi": "Tướng quân (Shogun)",
+        "icon": "⚔️"
+    },
+    {
+        "jp": "城／～城",
+        "kana": "しろ／～じょう",
+        "kanji": "城／～城",
+        "romaji": "shiro / ~jou",
+        "vi": "Thành, lâu đài",
+        "icon": "🏯"
+    },
+    {
+        "jp": "舞妓さん",
+        "kana": "まいこさん",
+        "kanji": "舞妓さん",
+        "romaji": "maikosan",
+        "vi": "Thiếu nữ Maiko (vũ kỹ tập sự)",
+        "icon": "👘"
+    },
+    {
+        "jp": "約～年前",
+        "kana": "やく～ねんまえ",
+        "kanji": "約～年前",
+        "romaji": "yaku ~nen mae",
+        "vi": "Khoảng ... năm trước",
+        "icon": "⏳"
+    },
+    {
+        "jp": "世紀",
+        "kana": "せいき",
+        "kanji": "世紀",
+        "romaji": "seiki",
+        "vi": "Thế kỷ",
+        "icon": "🏛️"
+    },
+    {
+        "jp": "時代",
+        "kana": "じだい",
+        "kanji": "時代",
+        "romaji": "jidai",
+        "vi": "Thời đại, triều đại",
+        "icon": "🕰️"
+    },
+    {
+        "jp": "茶道",
+        "kana": "さどう",
+        "kanji": "茶道",
+        "romaji": "sadou",
+        "vi": "Trà đạo",
+        "icon": "🍵"
+    },
+    {
+        "jp": "華道",
+        "kana": "かどう",
+        "kanji": "華道",
+        "romaji": "kadou",
+        "vi": "Nghệ thuật cắm hoa Kado",
+        "icon": "💐"
+    },
+    {
+        "jp": "建てます",
+        "kana": "たてます",
+        "kanji": "建てます",
+        "romaji": "tatemasu",
+        "vi": "Xây dựng",
+        "icon": "🏗️"
+    },
+    {
+        "jp": "石",
+        "kana": "いし",
+        "kanji": "石",
+        "romaji": "ishi",
+        "vi": "Đá, sỏi",
+        "icon": "🪨"
+    },
+    {
+        "jp": "仏教",
+        "kana": "ぶっきょう",
+        "kanji": "仏教",
+        "romaji": "bukkyou",
+        "vi": "Phật giáo",
+        "icon": "☸️"
+    },
+    {
+        "jp": "観光客",
+        "kana": "かんこうきゃく",
+        "kanji": "観光客",
+        "romaji": "kankoukyaku",
+        "vi": "Khách du lịch",
+        "icon": "🧳"
+    },
+    {
+        "jp": "本物",
+        "kana": "ほんもの",
+        "kanji": "本物",
+        "romaji": "honmono",
+        "vi": "Đồ thật, hàng thật",
+        "icon": "💎"
+    },
+    {
+        "jp": "偽物",
+        "kana": "にせもの",
+        "kanji": "偽物",
+        "romaji": "nisemono",
+        "vi": "Đồ giả, hàng nhái",
+        "icon": "🚫"
+    },
+    {
+        "jp": "舞台",
+        "kana": "ぶたい",
+        "kanji": "舞台",
+        "romaji": "butai",
+        "vi": "Sân khấu",
+        "icon": "🎭"
+    },
+    {
+        "jp": "柱",
+        "kana": "はしら",
+        "kanji": "柱",
+        "romaji": "hashira",
+        "vi": "Cột trụ",
+        "icon": "🏛️"
+    },
+    {
+        "jp": "立派（な）",
+        "kana": "りっぱ（な）",
+        "kanji": "立派（な）",
+        "romaji": "rippa(na)",
+        "vi": "Nguy nga, tráng lệ, tuyệt vời",
+        "icon": "🏰"
+    },
+    {
+        "jp": "中心",
+        "kana": "ちゅうしん",
+        "kanji": "中心",
+        "romaji": "chuushin",
+        "vi": "Trung tâm",
+        "icon": "🎯"
+    }
 ]
 
 L13_VERBS = [
@@ -250,26 +398,182 @@ L13_QUIZ = [
 # LESSON 14 DATA
 # =============================================================================
 L14_VOCAB = [
-    {"jp": "お寺", "kana": "おてら", "kanji": "お寺", "romaji": "otera", "vi": "Chùa chiền Phật giáo", "icon": "🛕"},
-    {"jp": "神社", "kana": "じんじゃ", "kanji": "神社", "romaji": "jinja", "vi": "Đền thần đạo Shinto", "icon": "⛩️"},
-    {"jp": "城", "kana": "しろ", "kanji": "城", "romaji": "shiro", "vi": "Lâu đài, thành cổ", "icon": "🏯"},
-    {"jp": "歴史", "kana": "れきし", "kanji": "歴史", "romaji": "rekishi", "vi": "Lịch sử", "icon": "📜"},
-    {"jp": "伝統", "kana": "でんとう", "kanji": "伝統", "romaji": "dentou", "vi": "Truyền thống", "icon": "🎎"},
-    {"jp": "建物", "kana": "たてもの", "kanji": "建物", "romaji": "tatemono", "vi": "Tòa nhà, công trình kiến trúc", "icon": "🏛️"},
-    {"jp": "国宝", "kana": "こくほう", "kanji": "国宝", "romaji": "kokuhou", "vi": "Bảo vật quốc gia", "icon": "👑"},
-    {"jp": "庭園", "kana": "ていえん", "kanji": "庭園", "romaji": "teien", "vi": "Khu vườn cảnh kiểu Nhật", "icon": "🌳"},
-    {"jp": "桜", "kana": "さくら", "kanji": "桜", "romaji": "sakura", "vi": "Hoa anh đào", "icon": "🌸"},
-    {"jp": "紅葉", "kana": "こうよう", "kanji": "紅葉", "romaji": "kouyou", "vi": "Lá đỏ mùa thu (momiji)", "icon": "🍁"},
-    {"jp": "観光客", "kana": "かんこうきゃく", "kanji": "観光客", "romaji": "kankoukyaku", "vi": "Khách du lịch", "icon": "🎒"},
-    {"jp": "ガイド", "kana": "ガイド", "kanji": "ガイド", "romaji": "gaido", "vi": "Hướng dẫn viên du lịch", "icon": "🚩"},
-    {"jp": "昔", "kana": "むかし", "kanji": "昔", "romaji": "mukashi", "vi": "Ngày xưa, thời xưa", "icon": "⏳"},
-    {"jp": "時代", "kana": "じだい", "kanji": "時代", "romaji": "jidai", "vi": "Thời đại, triều đại", "icon": "🗡️"},
-    {"jp": "建てる", "kana": "たてる", "kanji": "建てる", "romaji": "tateru", "vi": "Xây dựng", "icon": "🏗️"},
-    {"jp": "残る", "kana": "のこる", "kanji": "残る", "romaji": "nokoru", "vi": "Còn sót lại, lưu giữ đến nay", "icon": "🛡️"},
-    {"jp": "訪れる", "kana": "おとずれる", "kanji": "訪れる", "romaji": "otozureru", "vi": "Ghé thăm, viếng thăm", "icon": "🚶‍♂️"},
-    {"jp": "素晴らしい", "kana": "すばらしい", "kanji": "素晴らしい", "romaji": "subarashii", "vi": "Tuyệt vời, tráng lệ", "icon": "🌟"},
-    {"jp": "静か（な）", "kana": "しずか（な）", "kanji": "静か（な）", "romaji": "shizuka(na)", "vi": "Thanh tịnh, yên bình", "icon": "🕊️"},
-    {"jp": "案内する", "kana": "あんないする", "kanji": "案内する", "romaji": "annaisuru", "vi": "Dẫn đường, thuyết minh", "icon": "🗣️"}
+    {
+        "jp": "文化財",
+        "kana": "ぶんかざい",
+        "kanji": "文化財",
+        "romaji": "bunkazai",
+        "vi": "Di sản văn hóa",
+        "icon": "🏛️"
+    },
+    {
+        "jp": "国宝",
+        "kana": "こくほう",
+        "kanji": "国宝",
+        "romaji": "kokuhou",
+        "vi": "Quốc bảo",
+        "icon": "🏆"
+    },
+    {
+        "jp": "織物",
+        "kana": "おりもの",
+        "kanji": "織物",
+        "romaji": "orimono",
+        "vi": "Vải dệt, đồ dệt thủ công",
+        "icon": "🧵"
+    },
+    {
+        "jp": "道具",
+        "kana": "どうぐ",
+        "kanji": "道具",
+        "romaji": "dougu",
+        "vi": "Dụng cụ, công cụ",
+        "icon": "🛠️"
+    },
+    {
+        "jp": "刀",
+        "kana": "かたな",
+        "kanji": "刀",
+        "romaji": "katana",
+        "vi": "Thanh đao, kiếm Nhật",
+        "icon": "🗡️"
+    },
+    {
+        "jp": "焼き物",
+        "kana": "やきもの",
+        "kanji": "焼き物",
+        "romaji": "yakimono",
+        "vi": "Đồ gốm sứ",
+        "icon": "🏺"
+    },
+    {
+        "jp": "昔",
+        "kana": "むかし",
+        "kanji": "昔",
+        "romaji": "mukashi",
+        "vi": "Ngày xưa",
+        "icon": "🕰️"
+    },
+    {
+        "jp": "書",
+        "kana": "しょ",
+        "kanji": "書",
+        "romaji": "sho",
+        "vi": "Sách (văn tự cổ), thư pháp",
+        "icon": "📜"
+    },
+    {
+        "jp": "字",
+        "kana": "じ",
+        "kanji": "字",
+        "romaji": "ji",
+        "vi": "Chữ viết",
+        "icon": "✍️"
+    },
+    {
+        "jp": "土の人形",
+        "kana": "つちのにんぎょう",
+        "kanji": "土の人形",
+        "romaji": "tsuchi no ningyou",
+        "vi": "Búp bê bằng đất sét",
+        "icon": "🎎"
+    },
+    {
+        "jp": "楽器",
+        "kana": "がっき",
+        "kanji": "楽器",
+        "romaji": "gakki",
+        "vi": "Nhạc cụ",
+        "icon": "🎻"
+    },
+    {
+        "jp": "やっぱり",
+        "kana": "やっぱり",
+        "kanji": "やっぱり",
+        "romaji": "yappari",
+        "vi": "Quả nhiên là...",
+        "icon": "💡"
+    },
+    {
+        "jp": "墓",
+        "kana": "はか",
+        "kanji": "墓",
+        "romaji": "haka",
+        "vi": "Phần mộ, lăng mộ",
+        "icon": "🪦"
+    },
+    {
+        "jp": "詩",
+        "kana": "うた",
+        "kanji": "詩",
+        "romaji": "uta",
+        "vi": "Bài thơ",
+        "icon": "📝"
+    },
+    {
+        "jp": "恋の詩",
+        "kana": "こいのうた",
+        "kanji": "恋の詩",
+        "romaji": "koi no uta",
+        "vi": "Thơ tình yêu",
+        "icon": "💌"
+    },
+    {
+        "jp": "輸出（します）",
+        "kana": "ゆしゅつ（します）",
+        "kanji": "輸出（します）",
+        "romaji": "yushutsu(shimasu)",
+        "vi": "Xuất khẩu",
+        "icon": "🚢"
+    },
+    {
+        "jp": "輸入（します）",
+        "kana": "ゆにゅう（します）",
+        "kanji": "輸入（します）",
+        "romaji": "yunyuu(shimasu)",
+        "vi": "Nhập khẩu",
+        "icon": "📦"
+    },
+    {
+        "jp": "じゅうたん",
+        "kana": "じゅうたん",
+        "kanji": "じゅうたん",
+        "romaji": "juutan",
+        "vi": "Tấm thảm",
+        "icon": "🧶"
+    },
+    {
+        "jp": "戦争",
+        "kana": "せんそう",
+        "kanji": "戦争",
+        "romaji": "sensou",
+        "vi": "Chiến tranh",
+        "icon": "⚔️"
+    },
+    {
+        "jp": "運びます",
+        "kana": "はこびます",
+        "kanji": "運びます",
+        "romaji": "hakobimasu",
+        "vi": "Vận chuyển, mang vác",
+        "icon": "🚚"
+    },
+    {
+        "jp": "使用（します）",
+        "kana": "しよう（します）",
+        "kanji": "使用（します）",
+        "romaji": "shiyou(shimasu)",
+        "vi": "Sử dụng",
+        "icon": "🔧"
+    },
+    {
+        "jp": "触ります",
+        "kana": "さわります",
+        "kanji": "触ります",
+        "romaji": "sawarimasu",
+        "vi": "Chạm, sờ vào",
+        "icon": "✋"
+    }
 ]
 
 L14_VERBS = [

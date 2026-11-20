@@ -1,0 +1,476 @@
+# -*- coding: utf-8 -*-
+"""
+Generate official Marugoto A2-2 vocabulary dataset from authentic PDF curriculum
+and sync all topic files (topic_02.py through topic_09.py).
+"""
+
+import json
+from pathlib import Path
+import re
+
+ROOT = Path(__file__).resolve().parents[2]
+
+OFFICIAL_VOCAB = {
+    1: [
+        {"jp": "自己紹介", "kana": "じこしょうかい", "kanji": "自己紹介", "romaji": "jikoshoukai", "vi": "Giới thiệu bản thân", "icon": "🤝"},
+        {"jp": "秘密", "kana": "ひみつ", "kanji": "秘密", "romaji": "himitsu", "vi": "Bí mật", "icon": "🤫"},
+        {"jp": "国際交流", "kana": "こくさいこうりゅう", "kanji": "国際交流", "romaji": "kokusaikouryuu", "vi": "Giao lưu quốc tế", "icon": "🌐"},
+        {"jp": "電気店", "kana": "でんきてん", "kanji": "電気店", "romaji": "denkiten", "vi": "Cửa hàng điện", "icon": "💡"},
+        {"jp": "電気製品", "kana": "でんきせいひん", "kanji": "電気製品", "romaji": "denkiseihin", "vi": "Sản phẩm điện tử", "icon": "📱"},
+        {"jp": "読書", "kana": "どくしょ", "kanji": "読書", "romaji": "dokusho", "vi": "Đọc sách", "icon": "📚"},
+        {"jp": "店をやります", "kana": "みせを やります", "kanji": "店をやります", "romaji": "mise o yarimasu", "vi": "Làm, mở nhà hàng / cửa tiệm", "icon": "🏪"},
+        {"jp": "翻訳をします", "kana": "ほんやくを します", "kanji": "翻訳をします", "romaji": "honyaku o shimasu", "vi": "Biên dịch (dịch viết)", "icon": "📝"},
+        {"jp": "興味", "kana": "きょうみ", "kanji": "興味", "romaji": "kyoumi", "vi": "Hứng thú", "icon": "✨"},
+        {"jp": "村", "kana": "むら", "kanji": "村", "romaji": "mura", "vi": "Làng", "icon": "🏡"},
+        {"jp": "島", "kana": "しま", "kanji": "島", "romaji": "shima", "vi": "Đảo", "icon": "🏝️"},
+        {"jp": "年", "kana": "とし", "kanji": "年", "romaji": "toshi", "vi": "Tuổi", "icon": "🎂"},
+        {"jp": "生まれます", "kana": "うまれます", "kanji": "生まれます", "romaji": "umaremasu", "vi": "Được sinh ra", "icon": "👶"},
+        {"jp": "優しい", "kana": "やさしい", "kanji": "優しい", "romaji": "yasashii", "vi": "Hiền lành, tốt bụng", "icon": "😊"},
+        {"jp": "健康（な）", "kana": "けんこう（な）", "kanji": "健康（な）", "romaji": "kenkou(na)", "vi": "Khỏe mạnh, lành mạnh", "icon": "💪"},
+        {"jp": "真面目（な）", "kana": "まじめ（な）", "kanji": "真面目（な）", "romaji": "majime(na)", "vi": "Nghiêm túc, chăm chỉ", "icon": "👔"},
+        {"jp": "明るい", "kana": "あかるい", "kanji": "明るい", "romaji": "akarui", "vi": "Sáng sủa, tươi vui", "icon": "☀️"},
+        {"jp": "意味", "kana": "いみ", "kanji": "意味", "romaji": "imi", "vi": "Ý nghĩa", "icon": "💡"},
+        {"jp": "作家", "kana": "さっか", "kanji": "作家", "romaji": "sakka", "vi": "Nhà văn, tác giả", "icon": "🖋️"},
+        {"jp": "住んでいるところ", "kana": "すんでいるところ", "kanji": "住んでいるところ", "romaji": "sunde iru tokoro", "vi": "Nơi đang sinh sống", "icon": "🏘️"}
+    ],
+    2: [
+        {"jp": "ホームパーティー", "kana": "ホームパーティー", "kanji": "ホームパーティー", "romaji": "ho-mupa-ti-", "vi": "Tiệc gia đình, tiệc tại gia", "icon": "🎉"},
+        {"jp": "スーツ", "kana": "スーツ", "kanji": "スーツ", "romaji": "su-tsu", "vi": "Bộ vest, âu phục", "icon": "🤵"},
+        {"jp": "サリー", "kana": "サリー", "kanji": "サリー", "romaji": "sari-", "vi": "Sari (trang phục truyền thống Ấn Độ)", "icon": "🥻"},
+        {"jp": "セーター", "kana": "セーター", "kanji": "セーター", "romaji": "se-ta-", "vi": "Áo len", "icon": "🧶"},
+        {"jp": "ネクタイをします", "kana": "ネクタイを します", "kanji": "ネクタイをします", "romaji": "nekutai o shimasu", "vi": "Thắt cà vạt", "icon": "👔"},
+        {"jp": "スーツを着ます", "kana": "スーツを きます", "kanji": "スーツを着ます", "romaji": "su-tsu o kimasu", "vi": "Mặc vest (áo, thân trên)", "icon": "🧥"},
+        {"jp": "めがねをかけます", "kana": "めがねを かけます", "kanji": "めがねをかけます", "romaji": "megane o kakemasu", "vi": "Đeo kính", "icon": "👓"},
+        {"jp": "ぼうしをかぶります", "kana": "ぼうしを かぶります", "kanji": "ぼうしをかぶります", "romaji": "boushi o kaburimasu", "vi": "Đội mũ", "icon": "🧢"},
+        {"jp": "スカートをはきます", "kana": "スカートを はきます", "kanji": "スカートをはきます", "romaji": "suka-to o hakimasu", "vi": "Mặc váy (phần dưới)", "icon": "👗"},
+        {"jp": "くつをはきます", "kana": "くつを はきます", "kanji": "くつをはきます", "romaji": "kutsu o hakimasu", "vi": "Đi giày", "icon": "👟"},
+        {"jp": "座ります", "kana": "すわります", "kanji": "座ります", "romaji": "suwarimasu", "vi": "Ngồi", "icon": "🪑"},
+        {"jp": "立ちます", "kana": "たちます", "kanji": "立ちます", "romaji": "tachimasu", "vi": "Đứng", "icon": "🧍"},
+        {"jp": "笑います", "kana": "わらいます", "kanji": "笑います", "romaji": "waraimasu", "vi": "Cười", "icon": "😄"},
+        {"jp": "泣きます", "kana": "なきます", "kanji": "泣きます", "romaji": "nakimasu", "vi": "Khóc", "icon": "😢"},
+        {"jp": "厳しい", "kana": "きびしい", "kanji": "厳しい", "romaji": "kibishii", "vi": "Nghiêm khắc, khắt khe", "icon": "🧐"},
+        {"jp": "ご主人", "kana": "ごしゅじん", "kanji": "ご主人", "romaji": "goshujin", "vi": "Chồng (người khác)", "icon": "👨"},
+        {"jp": "頭がいい", "kana": "あたまが いい", "kanji": "頭がいい", "romaji": "atama ga ii", "vi": "Thông minh, sáng dạ", "icon": "🧠"}
+    ],
+    3: [
+        {"jp": "カウンター", "kana": "カウンター", "kanji": "カウンター", "romaji": "kaunta-", "vi": "Chỗ ngồi quầy, quầy bar", "icon": "🍸"},
+        {"jp": "テーブル", "kana": "テーブル", "kanji": "テーブル", "romaji": "te-buru", "vi": "Bàn (ngồi cùng ghế)", "icon": "🪑"},
+        {"jp": "ざしき", "kana": "ざしき", "kanji": "座敷", "romaji": "zashiki", "vi": "Chỗ ngồi bệt (chiếu tatami)", "icon": "🎎"},
+        {"jp": "きつえんせき", "kana": "きつえんせき", "kanji": "喫煙席", "romaji": "kitsuenseki", "vi": "Ghế/khu vực hút thuốc", "icon": "🚬"},
+        {"jp": "きんえんせき", "kana": "きんえんせき", "kanji": "禁煙席", "romaji": "kin'enseki", "vi": "Ghế/khu vực cấm hút thuốc", "icon": "🚭"},
+        {"jp": "よやくする", "kana": "よやくする", "kanji": "予約する", "romaji": "yoyaku suru", "vi": "Đặt trước, hẹn lịch", "icon": "📅"},
+        {"jp": "ちゅうもんする", "kana": "ちゅうもんする", "kanji": "注文する", "romaji": "chuumon suru", "vi": "Đặt món, gọi món", "icon": "📋"},
+        {"jp": "よせなべ", "kana": "よせなべ", "kanji": "寄せ鍋", "romaji": "yosenabe", "vi": "Lẩu hải sản thập cẩm", "icon": "🍲"},
+        {"jp": "わしょく", "kana": "わしょく", "kanji": "和食", "romaji": "washoku", "vi": "Món ăn kiểu Nhật", "icon": "🍱"},
+        {"jp": "すきやき", "kana": "すきやき", "kanji": "すき焼き", "romaji": "sukiyaki", "vi": "Món lẩu bò Sukiyaki", "icon": "🥩"},
+        {"jp": "えいよう", "kana": "えいよう", "kanji": "栄養", "romaji": "eiyou", "vi": "Dinh dưỡng", "icon": "🥗"},
+        {"jp": "ベジタリアン", "kana": "ベジタリアン", "kanji": "ベジタリアン", "romaji": "bejitarian", "vi": "Người ăn chay, món chay", "icon": "🥬"},
+        {"jp": "かに", "kana": "かに", "kanji": "蟹", "romaji": "kani", "vi": "Cua", "icon": "🦀"},
+        {"jp": "えび", "kana": "えび", "kanji": "海老", "romaji": "ebi", "vi": "Tôm", "icon": "🦐"},
+        {"jp": "ソフトドリンク", "kana": "ソフトドリンク", "kanji": "ソフトドリンク", "romaji": "sofuto dorinku", "vi": "Đồ uống nhẹ, nước ngọt", "icon": "🥤"},
+        {"jp": "ウーロンちゃ", "kana": "ウーロンちゃ", "kanji": "烏龍茶", "romaji": "u-roncha", "vi": "Trà Ô long", "icon": "🍵"},
+        {"jp": "しんせん（な）", "kana": "しんせん（な）", "kanji": "新鮮（な）", "romaji": "shinsen(na)", "vi": "Tươi, tươi sống", "icon": "🐟"},
+        {"jp": "おすすめ", "kana": "おすすめ", "kanji": "おすすめ", "romaji": "osusume", "vi": "Gợi ý, món khuyên dùng", "icon": "👍"},
+        {"jp": "なんめいさまですか", "kana": "なんめいさまですか", "kanji": "何名様ですか", "romaji": "nanmeisama desu ka", "vi": "Mấy vị (người) vậy ạ?", "icon": "👥"},
+        {"jp": "おきまりですか", "kana": "おきまりですか", "kanji": "お決まりですか", "romaji": "okimari desu ka", "vi": "Quý khách quyết định món chưa ạ?", "icon": "🛎️"},
+        {"jp": "にがて（な）", "kana": "にがて（な）", "kanji": "苦手（な）", "romaji": "nigate(na)", "vi": "Kém, không thích, sợ ăn...", "icon": "😣"}
+    ],
+    4: [
+        {"jp": "かけます", "kana": "かけます", "kanji": "かけます", "romaji": "kakemasu", "vi": "Rưới, chan (nước sốt)", "icon": "🥣"},
+        {"jp": "つけます", "kana": "つけます", "kanji": "つけます", "romaji": "tsukemasu", "vi": "Chấm (nước chấm)", "icon": "🥢"},
+        {"jp": "いれます", "kana": "いれます", "kanji": "入れます", "romaji": "iremasu", "vi": "Thêm vào, cho vào", "icon": "🫗"},
+        {"jp": "ぬります", "kana": "ぬります", "kanji": "塗ります", "romaji": "nurimasu", "vi": "Bôi, quết, phết", "icon": "🧈"},
+        {"jp": "やきます", "kana": "やきます", "kanji": "焼きます", "romaji": "yakimasu", "vi": "Nướng", "icon": "🍳"},
+        {"jp": "いいにおい", "kana": "いいにおい", "kanji": "いいにおい", "romaji": "ii nioi", "vi": "Mùi thơm ngon", "icon": "👃"},
+        {"jp": "ふた", "kana": "ふた", "kanji": "蓋", "romaji": "futa", "vi": "Nắp, vung", "icon": "🍲"},
+        {"jp": "さら", "kana": "さら", "kanji": "皿", "romaji": "sara", "vi": "Đĩa", "icon": "🍽️"},
+        {"jp": "ちゃわん", "kana": "ちゃわん", "kanji": "茶碗", "romaji": "chawan", "vi": "Bát, chén", "icon": "🍚"},
+        {"jp": "たれ／ソース", "kana": "たれ／ソース", "kanji": "たれ／ソース", "romaji": "tare / so-su", "vi": "Nước sốt, nước chấm", "icon": "🫙"},
+        {"jp": "しょうゆ", "kana": "しょうゆ", "kanji": "醤油", "romaji": "shouyu", "vi": "Xì dầu, nước tương", "icon": "🍶"},
+        {"jp": "とうがらし", "kana": "とうがらし", "kanji": "唐辛子", "romaji": "tougarashi", "vi": "Ớt", "icon": "🌶️"},
+        {"jp": "こしょう", "kana": "こしょう", "kanji": "胡椒", "romaji": "koshou", "vi": "Hạt tiêu", "icon": "🧂"},
+        {"jp": "バター", "kana": "バター", "kanji": "バター", "romaji": "bata-", "vi": "Bơ", "icon": "🧈"},
+        {"jp": "おなかがすきました", "kana": "おなかがすきました", "kanji": "お腹が空きました", "romaji": "onaka ga sukimashita", "vi": "Đói bụng", "icon": "🤤"},
+        {"jp": "のどがかわきました", "kana": "のどがかわきました", "kanji": "喉が渇きました", "romaji": "nodo ga kawakimashita", "vi": "Khát nước", "icon": "🥤"},
+        {"jp": "かんぱい", "kana": "かんぱい", "kanji": "乾杯", "romaji": "kanpai", "vi": "Cạn ly!", "icon": "🍻"},
+        {"jp": "いろがかわります", "kana": "いろがかわります", "kanji": "色が変わります", "romaji": "iro ga kawarimasu", "vi": "Đổi màu", "icon": "🎨"},
+        {"jp": "がまんする", "kana": "がまんする", "kanji": "我慢する", "romaji": "gaman suru", "vi": "Chịu đựng, nhẫn nại", "icon": "😣"},
+        {"jp": "りょうりをのこします", "kana": "りょうりをのこします", "kanji": "料理を残します", "romaji": "ryouri o nokoshimasu", "vi": "Bỏ thừa đồ ăn", "icon": "🍱"},
+        {"jp": "おとをたてます", "kana": "おとをたてます", "kanji": "音を立てます", "romaji": "oto o tatemasu", "vi": "Tạo ra âm thanh, tiếng động", "icon": "🔊"},
+        {"jp": "かゆい", "kana": "かゆい", "kanji": "痒い", "romaji": "kayui", "vi": "Ngứa", "icon": "😖"},
+        {"jp": "あせがでます", "kana": "あせがでます", "kanji": "汗が出ます", "romaji": "ase ga demasu", "vi": "Toát mồ hôi", "icon": "💦"}
+    ],
+    5: [
+        {"jp": "かんこうシーズン", "kana": "かんこうシーズン", "kanji": "観光シーズン", "romaji": "kankou shi-zun", "vi": "Mùa du lịch", "icon": "🏖️"},
+        {"jp": "たいふうシーズン", "kana": "たいふうシーズン", "kanji": "台風シーズン", "romaji": "taifuu shi-zun", "vi": "Mùa bão", "icon": "🌀"},
+        {"jp": "しぜん", "kana": "しぜん", "kanji": "自然", "romaji": "shizen", "vi": "Thiên nhiên", "icon": "🌿"},
+        {"jp": "しま", "kana": "しま", "kanji": "島", "romaji": "shima", "vi": "Đảo", "icon": "🏝️"},
+        {"jp": "グルメ", "kana": "グルメ", "kanji": "グルメ", "romaji": "gurume", "vi": "Ẩm thực, món ngon", "icon": "🍴"},
+        {"jp": "ダイビングのどうぐ", "kana": "ダイビングのどうぐ", "kanji": "ダイビングの道具", "romaji": "daibingu no dougu", "vi": "Dụng cụ lặn", "icon": "🤿"},
+        {"jp": "サングラス", "kana": "サングラス", "kanji": "サングラス", "romaji": "sangurasu", "vi": "Kính râm", "icon": "🕶️"},
+        {"jp": "コート", "kana": "コート", "kanji": "コート", "romaji": "ko-to", "vi": "Áo choàng", "icon": "🧥"},
+        {"jp": "ジャケット", "kana": "ジャケット", "kanji": "ジャケット", "romaji": "jaketto", "vi": "Áo khoác jacket", "icon": "👔"},
+        {"jp": "りょうきん", "kana": "りょうきん", "kanji": "料金", "romaji": "ryoukin", "vi": "Chi phí, giá vé", "icon": "💰"},
+        {"jp": "ゆたか（な）", "kana": "ゆたか（な）", "kanji": "豊か（な）", "romaji": "yutaka(na)", "vi": "Phong phú, trù phú", "icon": "🌾"},
+        {"jp": "うつくしい", "kana": "うつくしい", "kanji": "美しい", "romaji": "utsukushii", "vi": "Tuyệt đẹp, xinh đẹp", "icon": "✨"},
+        {"jp": "ドライブします", "kana": "ドライブします", "kanji": "ドライブします", "romaji": "doraibu shimasu", "vi": "Lái xe ngắm cảnh", "icon": "🚗"},
+        {"jp": "レンタルします", "kana": "レンタルします", "kanji": "レンタルします", "romaji": "rentaru shimasu", "vi": "Thuê", "icon": "🔑"},
+        {"jp": "よやくします", "kana": "よやくします", "kanji": "予約します", "romaji": "yoyaku shimasu", "vi": "Hẹn, đặt trước", "icon": "📅"},
+        {"jp": "こみます", "kana": "こみます", "kanji": "込みます", "romaji": "komimasu", "vi": "Đông đúc", "icon": "👥"},
+        {"jp": "ゆれます", "kana": "ゆれます", "kanji": "揺れます", "romaji": "yuremasu", "vi": "Rung, lắc", "icon": "⛵"},
+        {"jp": "ほっとします", "kana": "ほっとします", "kanji": "ほっとします", "romaji": "hotto shimasu", "vi": "An tâm, thở phào", "icon": "😌"},
+        {"jp": "けしき", "kana": "けしき", "kanji": "景色", "romaji": "keshiki", "vi": "Phong cảnh", "icon": "🌄"},
+        {"jp": "すきます", "kana": "すきます", "kanji": "空きます", "romaji": "sukimasu", "vi": "Vắng vẻ", "icon": "🪑"},
+        {"jp": "かいがん", "kana": "かいがん", "kanji": "海岸", "romaji": "kaigan", "vi": "Bờ biển", "icon": "🌊"},
+        {"jp": "もっていきます", "kana": "もっていきます", "kanji": "持っていきます", "romaji": "motte ikimasu", "vi": "Mang theo đi", "icon": "🎒"},
+        {"jp": "ダイビング（します）", "kana": "ダイビング（します）", "kanji": "ダイビング（します）", "romaji": "daibingu(shimasu)", "vi": "Lặn biển", "icon": "🤿"},
+        {"jp": "アドバイス", "kana": "アドバイス", "kanji": "アドバイス", "romaji": "adobaisu", "vi": "Lời khuyên", "icon": "💡"}
+    ],
+    6: [
+        {"jp": "ツアー", "kana": "ツアー", "kanji": "ツアー", "romaji": "tsua-", "vi": "Tour du lịch", "icon": "🚩"},
+        {"jp": "ショー", "kana": "ショー", "kanji": "ショー", "romaji": "sho-", "vi": "Show, buổi trình diễn", "icon": "🎭"},
+        {"jp": "おどりのショー", "kana": "おどりのショー", "kanji": "踊りのショー", "romaji": "odori no sho-", "vi": "Show biểu diễn múa", "icon": "💃"},
+        {"jp": "イルカ", "kana": "イルカ", "kanji": "イルカ", "romaji": "iruka", "vi": "Cá heo", "icon": "🐬"},
+        {"jp": "イルカのショー", "kana": "イルカのショー", "kanji": "イルカのショー", "romaji": "iruka no sho-", "vi": "Show xiếc cá heo", "icon": "🐬"},
+        {"jp": "すいぞくかん", "kana": "すいぞくかん", "kanji": "水族館", "romaji": "suizokukan", "vi": "Thủy cung", "icon": "🐠"},
+        {"jp": "パンフレット", "kana": "パンフレット", "kanji": "パンフレット", "romaji": "panfuretto", "vi": "Tờ giới thiệu, quảng cáo", "icon": "📄"},
+        {"jp": "もり", "kana": "もり", "kanji": "森", "romaji": "mori", "vi": "Rừng", "icon": "🌲"},
+        {"jp": "つり", "kana": "つり", "kanji": "釣り", "romaji": "tsuri", "vi": "Câu cá", "icon": "🎣"},
+        {"jp": "ガラス", "kana": "ガラス", "kanji": "ガラス", "romaji": "garasu", "vi": "Thủy tinh", "icon": "🪟"},
+        {"jp": "おもいで", "kana": "おもいで", "kanji": "思い出", "romaji": "omoide", "vi": "Kỷ niệm", "icon": "📸"},
+        {"jp": "おもいだします", "kana": "おもいだします", "kanji": "思い出します", "romaji": "omoidashimasu", "vi": "Nhớ lại, hồi tưởng", "icon": "💭"},
+        {"jp": "めずらしいどうぶつ", "kana": "めずらしいどうぶつ", "kanji": "珍しい動物", "romaji": "mezurashii doubutsu", "vi": "Động vật quý hiếm", "icon": "🦒"},
+        {"jp": "にんきがあります", "kana": "にんきがあります", "kanji": "人気があります", "romaji": "ninki ga arimasu", "vi": "Được yêu thích, ưa chuộng", "icon": "⭐"},
+        {"jp": "たのしみます", "kana": "たのしみます", "kanji": "楽しみます", "romaji": "tanoshimimasu", "vi": "Tận hưởng niềm vui", "icon": "🎉"},
+        {"jp": "じょせい", "kana": "じょせい", "kanji": "女性", "romaji": "josei", "vi": "Phụ nữ, nữ giới", "icon": "👩"},
+        {"jp": "だんせい", "kana": "だんせい", "kanji": "男性", "romaji": "dansei", "vi": "Đàn ông, nam giới", "icon": "👨"},
+        {"jp": "アンケート", "kana": "アンケート", "kanji": "アンケート", "romaji": "anke-to", "vi": "Bảng khảo sát ý kiến", "icon": "📋"},
+        {"jp": "さんかします", "kana": "さんかします", "kanji": "参加します", "romaji": "sanka shimasu", "vi": "Tham gia", "icon": "🙋"}
+    ],
+    7: [
+        {"jp": "ボランティア", "kana": "ボランティア", "kanji": "ボランティア", "romaji": "borantia", "vi": "Tình nguyện", "icon": "🤝"},
+        {"jp": "スタッフ", "kana": "スタッフ", "kanji": "スタッフ", "romaji": "sutaffu", "vi": "Nhân viên, staff", "icon": "🧑‍💼"},
+        {"jp": "ボランティアスタッフ", "kana": "ボランティアスタッフ", "kanji": "ボランティアスタッフ", "romaji": "borantia sutaffu", "vi": "Tình nguyện viên", "icon": "🙋‍♂️"},
+        {"jp": "まつり", "kana": "まつり", "kanji": "祭り", "romaji": "matsuri", "vi": "Lễ hội", "icon": "🏮"},
+        {"jp": "イベント", "kana": "イベント", "kanji": "イベント", "romaji": "ibento", "vi": "Sự kiện", "icon": "🎪"},
+        {"jp": "かいじょう", "kana": "かいじょう", "kanji": "会場", "romaji": "kaijou", "vi": "Hội trường, địa điểm tổ chức", "icon": "🏛️"},
+        {"jp": "ホール", "kana": "ホール", "kanji": "ホール", "romaji": "ho-ru", "vi": "Hội trường (hall)", "icon": "🏢"},
+        {"jp": "ひろば", "kana": "ひろば", "kanji": "広場", "romaji": "hiroba", "vi": "Quảng trường", "icon": "🏞️"},
+        {"jp": "ロビー", "kana": "ロビー", "kanji": "ロビー", "romaji": "robi-", "vi": "Đại sảnh", "icon": "🛋️"},
+        {"jp": "おどり／おどります", "kana": "おどり／おどります", "kanji": "踊り／踊ります", "romaji": "odori / odorimasu", "vi": "Điệu nhảy / Nhảy múa", "icon": "💃"},
+        {"jp": "じゅんび（します）", "kana": "じゅんび（します）", "kanji": "準備（します）", "romaji": "junbi(shimasu)", "vi": "Chuẩn bị", "icon": "📦"},
+        {"jp": "かたづけ", "kana": "かたづけ", "kanji": "片づけ", "romaji": "katazuke", "vi": "Sắp xếp, dọn dẹp", "icon": "🧹"},
+        {"jp": "あんない（します）", "kana": "あんない（します）", "kanji": "案内（します）", "romaji": "annai(shimasu)", "vi": "Hướng dẫn", "icon": "💁"},
+        {"jp": "さつえい（します）", "kana": "さつえい（します）", "kanji": "撮影（します）", "romaji": "satsuei(shimasu)", "vi": "Quay phim, chụp ảnh", "icon": "📷"},
+        {"jp": "うけつけ", "kana": "うけつけ", "kanji": "受付", "romaji": "uketsuke", "vi": "Quầy lễ tân", "icon": "🛎️"},
+        {"jp": "つうやく", "kana": "つうやく", "kanji": "通訳", "romaji": "tsuuyaku", "vi": "Phiên dịch, thông dịch", "icon": "🗣️"},
+        {"jp": "しかい", "kana": "しかい", "kanji": "司会", "romaji": "shikai", "vi": "MC, người dẫn chương trình", "icon": "🎤"},
+        {"jp": "れんらく（します）", "kana": "れんらく（します）", "kanji": "連絡（します）", "romaji": "renraku(shimasu)", "vi": "Liên lạc", "icon": "📞"},
+        {"jp": "れんらくさき", "kana": "れんらくさき", "kanji": "連絡先", "romaji": "renrakusaki", "vi": "Địa chỉ liên lạc", "icon": "📝"},
+        {"jp": "たんとう（します）", "kana": "たんとう（します）", "kanji": "担当（します）", "romaji": "tantou(shimasu)", "vi": "Đảm nhận, phụ trách", "icon": "💼"},
+        {"jp": "ちゅうし（します）", "kana": "ちゅうし（します）", "kanji": "中止（します）", "romaji": "chuushi(shimasu)", "vi": "Hủy, dừng lại", "icon": "🛑"},
+        {"jp": "あつまります", "kana": "あつまります", "kanji": "集まります", "romaji": "atsumarimasu", "vi": "Tập trung, tụ họp", "icon": "👥"}
+    ],
+    8: [
+        {"jp": "にちじ", "kana": "にちじ", "kanji": "日時", "romaji": "nichiji", "vi": "Ngày giờ", "icon": "🕒"},
+        {"jp": "かいじょう", "kana": "かいじょう", "kanji": "会場", "romaji": "kaijou", "vi": "Hội trường, địa điểm tổ chức", "icon": "🏛️"},
+        {"jp": "にゅうじょうりょう", "kana": "にゅうじょうりょう", "kanji": "入場料", "romaji": "nyuujouryou", "vi": "Phí vào cửa", "icon": "🎟️"},
+        {"jp": "にゅうじょうむりょう", "kana": "にゅうじょうむりょう", "kanji": "入場無料", "romaji": "nyuujoumuryou", "vi": "Vào cửa miễn phí", "icon": "🆓"},
+        {"jp": "さんかひ", "kana": "さんかひ", "kanji": "参加費", "romaji": "sankahi", "vi": "Phí tham gia", "icon": "💵"},
+        {"jp": "はじまります", "kana": "はじまります", "kanji": "始まります", "romaji": "hajimarimasu", "vi": "Bắt đầu (tự động từ)", "icon": "▶️"},
+        {"jp": "はじめます", "kana": "はじめます", "kanji": "始めます", "romaji": "hajimemasu", "vi": "Bắt đầu (tha động từ)", "icon": "🎬"},
+        {"jp": "おわります", "kana": "おわります", "kanji": "終わります", "romaji": "owarimasu", "vi": "Kết thúc", "icon": "🏁"},
+        {"jp": "やります", "kana": "やります", "kanji": "やります", "romaji": "yarimasu", "vi": "Tổ chức, diễn ra", "icon": "🎪"},
+        {"jp": "プログラム", "kana": "プログラム", "kanji": "プログラム", "romaji": "puroguramu", "vi": "Chương trình, lịch trình", "icon": "📜"},
+        {"jp": "うちわ", "kana": "うちわ", "kanji": "団扇", "romaji": "uchiwa", "vi": "Quạt giấy tròn", "icon": "🪭"},
+        {"jp": "ひろば", "kana": "ひろば", "kanji": "広場", "romaji": "hiroba", "vi": "Quảng trường", "icon": "🏞️"},
+        {"jp": "ホール", "kana": "ホール", "kanji": "ホール", "romaji": "ho-ru", "vi": "Hội trường (hall)", "icon": "🏢"},
+        {"jp": "デモンストレーション", "kana": "デモンストレーション", "kanji": "デモンストレーション", "romaji": "demonsutore-shon", "vi": "Biểu diễn mẫu", "icon": "🥋"},
+        {"jp": "おねがい", "kana": "おねがい", "kanji": "お願い", "romaji": "onegai", "vi": "Yêu cầu, lời nhờ cậy", "icon": "🙏"},
+        {"jp": "いんしょく", "kana": "いんしょく", "kanji": "飲食", "romaji": "inshoku", "vi": "Việc ăn uống", "icon": "🍔"},
+        {"jp": "ごえんりょください", "kana": "ごえんりょください", "kanji": "ご遠慮ください", "romaji": "goenryo kudasai", "vi": "Xin vui lòng tránh / không làm", "icon": "🚫"},
+        {"jp": "おとな", "kana": "おとな", "kanji": "大人", "romaji": "otona", "vi": "Người lớn", "icon": "🧑"},
+        {"jp": "れんらくさき", "kana": "れんらくさき", "kanji": "連絡先", "romaji": "renrakusaki", "vi": "Thông tin liên lạc", "icon": "📱"},
+        {"jp": "ほんじつ", "kana": "ほんじつ", "kanji": "本日", "romaji": "honjitsu", "vi": "Hôm nay (trang trọng)", "icon": "📅"}
+    ],
+    9: [
+        {"jp": "お正月", "kana": "おしょうがつ", "kanji": "お正月", "romaji": "oshougatsu", "vi": "Tết / Năm mới Nhật Bản (1/1 Dương lịch)", "icon": "🎍"},
+        {"jp": "大晦日", "kana": "おおみそか", "kanji": "大晦日", "romaji": "oomisoka", "vi": "Đêm giao thừa (đêm 31/12)", "icon": "🔔"},
+        {"jp": "元日", "kana": "がんじつ", "kanji": "元日", "romaji": "ganjitsu", "vi": "Ngày mùng 1 Tết (1/1 Dương lịch)", "icon": "🌅"},
+        {"jp": "かるた", "kana": "かるた", "kanji": "かるた", "romaji": "karuta", "vi": "Bài lá truyền thống Nhật", "icon": "🎴"},
+        {"jp": "挨拶", "kana": "あいさつ", "kanji": "挨拶", "romaji": "aisatsu", "vi": "Chào hỏi", "icon": "🙇"},
+        {"jp": "ごちそう", "kana": "ごちそう", "kanji": "ごちそう", "romaji": "gochisou", "vi": "Món ăn ngon đãi khách", "icon": "🍲"},
+        {"jp": "おせち料理", "kana": "おせちりょうり", "kanji": "おせち料理", "romaji": "osechiryouri", "vi": "Món ăn ngày Tết của Nhật", "icon": "🍱"},
+        {"jp": "お年玉", "kana": "おとしだま", "kanji": "お年玉", "romaji": "otoshidama", "vi": "Tiền lì xì, mừng tuổi", "icon": "🧧"},
+        {"jp": "年賀状", "kana": "ねんがじょう", "kanji": "年賀状", "romaji": "nengajou", "vi": "Thiệp chúc mừng năm mới", "icon": "✉️"},
+        {"jp": "大掃除", "kana": "おおそうじ", "kanji": "大掃除", "romaji": "oosouji", "vi": "Tổng vệ sinh cuối năm", "icon": "🧹"},
+        {"jp": "初詣", "kana": "はつもうで", "kanji": "初詣", "romaji": "hatsumoude", "vi": "Đi lễ chùa đầu năm", "icon": "⛩️"},
+        {"jp": "親", "kana": "おや", "kanji": "親", "romaji": "oya", "vi": "Bố mẹ", "icon": "👨‍👩‍👦"},
+        {"jp": "親戚", "kana": "しんせき", "kanji": "親戚", "romaji": "shinseki", "vi": "Họ hàng, bà con", "icon": "👥"},
+        {"jp": "飾ります", "kana": "かざります", "kanji": "飾ります", "romaji": "kazarimasu", "vi": "Trang trí", "icon": "🎋"},
+        {"jp": "ごろごろします", "kana": "ごろごろします", "kanji": "ごろごろします", "romaji": "gorogoro shimasu", "vi": "Nằm lười, thư giãn", "icon": "🛋️"},
+        {"jp": "過ごします", "kana": "すごします", "kanji": "過ごします", "romaji": "sugoshimasu", "vi": "Trải qua (thời gian)", "icon": "⏳"},
+        {"jp": "つまらない", "kana": "つまらない", "kanji": "つまらない", "romaji": "tsumaranai", "vi": "Nhàm chán (nội dung)", "icon": "🥱"},
+        {"jp": "退屈（な）", "kana": "たいくつ（な）", "kanji": "退屈（な）", "romaji": "taikutsu(na)", "vi": "Buồn chán (tâm trạng)", "icon": "😑"},
+        {"jp": "特別（な）", "kana": "とくべつ（な）", "kanji": "特別（な）", "romaji": "tokubetsu(na)", "vi": "Đặc biệt", "icon": "⭐"},
+        {"jp": "面倒（な）", "kana": "めんどう（な）", "kanji": "面倒（な）", "romaji": "mendou(na)", "vi": "Phiền toái, phiền phức", "icon": "😓"},
+        {"jp": "明けましておめでとうございます", "kana": "あけましておめでとうございます", "kanji": "明けましておめでとうございます", "romaji": "akemashite omedetou gozaimasu", "vi": "Chúc mừng năm mới!", "icon": "🎉"},
+        {"jp": "久しぶり", "kana": "ひさしぶり", "kanji": "久しぶり", "romaji": "hisashiburi", "vi": "Lâu lắm không gặp", "icon": "👋"},
+        {"jp": "戻ります", "kana": "もどります", "kanji": "戻ります", "romaji": "modorimasu", "vi": "Quay trở lại", "icon": "🔙"}
+    ],
+    10: [
+        {"jp": "秋祭り", "kana": "あきまつり", "kanji": "秋祭り", "romaji": "akimatsuri", "vi": "Lễ hội mùa thu", "icon": "🍂"},
+        {"jp": "行事", "kana": "ぎょうじ", "kanji": "行事", "romaji": "gyouji", "vi": "Sự kiện, ngày lễ", "icon": "🎏"},
+        {"jp": "豆まき", "kana": "まめまき", "kanji": "豆まき", "romaji": "mamemaki", "vi": "Tục ném đậu đuổi quỷ", "icon": "👹"},
+        {"jp": "ひな祭り", "kana": "ひなまつり", "kanji": "ひな祭り", "romaji": "hinamatsuri", "vi": "Lễ hội búp bê cho bé gái", "icon": "🎎"},
+        {"jp": "こいのぼり", "kana": "こいのぼり", "kanji": "こいのぼり", "romaji": "koinobori", "vi": "Cờ cá chép", "icon": "🎏"},
+        {"jp": "七夕飾り", "kana": "たなばたかざり", "kanji": "七夕飾り", "romaji": "tanabata kazari", "vi": "Đồ trang trí Thất tịch", "icon": "🎋"},
+        {"jp": "千歳飴", "kana": "ちとせあめ", "kanji": "千歳飴", "romaji": "chitoseame", "vi": "Kẹo nghìn năm Shichi-Go-San", "icon": "🍬"},
+        {"jp": "飴", "kana": "あめ", "kanji": "飴", "romaji": "ame", "vi": "Kẹo", "icon": "🍭"},
+        {"jp": "豆", "kana": "まめ", "kanji": "豆", "romaji": "mame", "vi": "Hạt đậu", "icon": "🫘"},
+        {"jp": "星", "kana": "ほし", "kanji": "星", "romaji": "hoshi", "vi": "Ngôi sao", "icon": "⭐"},
+        {"jp": "鬼", "kana": "おに", "kanji": "鬼", "romaji": "oni", "vi": "Con quỷ", "icon": "👺"},
+        {"jp": "豊作", "kana": "ほうさく", "kanji": "豊作", "romaji": "housaku", "vi": "Mùa màng bội thu", "icon": "🌾"},
+        {"jp": "長生き", "kana": "ながいき", "kanji": "長生き", "romaji": "nagaiki", "vi": "Sống lâu, trường thọ", "icon": "🐢"},
+        {"jp": "幸せ", "kana": "しあわせ", "kanji": "幸せ", "romaji": "shiawase", "vi": "Hạnh phúc", "icon": "🍀"},
+        {"jp": "願い事", "kana": "ねがいごと", "kanji": "願い事", "romaji": "negaigoto", "vi": "Điều mong ước, điều ước", "icon": "🌟"},
+        {"jp": "投げます", "kana": "なげます", "kanji": "投げます", "romaji": "nagemasu", "vi": "Ném", "icon": "⚾"},
+        {"jp": "祈ります", "kana": "いのります", "kanji": "祈ります", "romaji": "inorimasu", "vi": "Cầu nguyện", "icon": "🙏"},
+        {"jp": "祝います", "kana": "いわいます", "kanji": "祝います", "romaji": "iwaimasu", "vi": "Chúc mừng", "icon": "🎉"},
+        {"jp": "成長します", "kana": "せいちょうします", "kanji": "成長します", "romaji": "seichou shimasu", "vi": "Trưởng thành, lớn lên", "icon": "🌱"},
+        {"jp": "感謝します", "kana": "かんしゃします", "kanji": "感謝します", "romaji": "kansha shimasu", "vi": "Cảm ơn, biết ơn", "icon": "💐"},
+        {"jp": "収穫します", "kana": "しゅうかくします", "kanji": "収穫します", "romaji": "shuukaku shimasu", "vi": "Thu hoạch mùa màng", "icon": "🍎"},
+        {"jp": "試験に合格します", "kana": "しけんにごうかくします", "kanji": "試験に合格します", "romaji": "shiken ni goukaku shimasu", "vi": "Thi đỗ kỳ thi", "icon": "💮"}
+    ],
+    11: [
+        {"jp": "商品", "kana": "しょうひん", "kanji": "商品", "romaji": "shouhin", "vi": "Sản phẩm, hàng hóa", "icon": "📦"},
+        {"jp": "電気製品", "kana": "でんきせいひん", "kanji": "電気製品", "romaji": "denkiseihin", "vi": "Đồ điện gia dụng", "icon": "🔌"},
+        {"jp": "掃除機", "kana": "そうじき", "kanji": "掃除機", "romaji": "soujiki", "vi": "Máy hút bụi", "icon": "🧹"},
+        {"jp": "冷蔵庫", "kana": "れいぞうこ", "kanji": "冷蔵庫", "romaji": "reizouko", "vi": "Tủ lạnh", "icon": "🧊"},
+        {"jp": "洗濯機", "kana": "せんたくき", "kanji": "洗濯機", "romaji": "sentakuki", "vi": "Máy giặt", "icon": "🧺"},
+        {"jp": "音楽プレーヤー", "kana": "おんがくプレーヤー", "kanji": "音楽プレーヤー", "romaji": "ongaku pure-ya-", "vi": "Máy phát nhạc", "icon": "🎵"},
+        {"jp": "扇風機", "kana": "せんぷうき", "kanji": "扇風機", "romaji": "senpuuki", "vi": "Quạt máy", "icon": "🌀"},
+        {"jp": "アイロン", "kana": "アイロン", "kanji": "アイロン", "romaji": "airon", "vi": "Bàn là, bàn ủi", "icon": "👔"},
+        {"jp": "電子レンジ", "kana": "でんしレンジ", "kanji": "電子レンジ", "romaji": "denshi renji", "vi": "Lò vi sóng", "icon": "🍲"},
+        {"jp": "炊飯器", "kana": "すいはんき", "kanji": "炊飯器", "romaji": "suihanki", "vi": "Nồi cơm điện", "icon": "🍚"},
+        {"jp": "壊れます", "kana": "こわれます", "kanji": "壊れます", "romaji": "kowaremasu", "vi": "Bị hỏng, hư hại", "icon": "⚙️"},
+        {"jp": "音が出ません", "kana": "おとがでません", "kanji": "音が出ません", "romaji": "oto ga demasen", "vi": "Không phát ra âm thanh", "icon": "🔇"},
+        {"jp": "動きません", "kana": "うごきません", "kanji": "動きません", "romaji": "ugokimasen", "vi": "Không hoạt động, không chạy", "icon": "🛑"},
+        {"jp": "調子が悪い", "kana": "ちょうしがわるい", "kanji": "調子が悪い", "romaji": "choushi ga warui", "vi": "Tình trạng trục trặc", "icon": "⚠️"},
+        {"jp": "気にしません", "kana": "きにしません", "kanji": "気にしません", "romaji": "ki ni shimasen", "vi": "Không để ý, không bận tâm", "icon": "😌"},
+        {"jp": "探します", "kana": "さがします", "kanji": "探します", "romaji": "sagashimasu", "vi": "Tìm kiếm", "icon": "🔍"},
+        {"jp": "落とします", "kana": "おとします", "kanji": "落とします", "romaji": "otoshimasu", "vi": "Đánh rơi, làm rớt", "icon": "⬇️"},
+        {"jp": "困ります", "kana": "こまります", "kanji": "困ります", "romaji": "komarimasu", "vi": "Gặp khó khăn, rắc rối", "icon": "😰"},
+        {"jp": "調べます", "kana": "しらべます", "kanji": "調べます", "romaji": "shirabemasu", "vi": "Tìm hiểu, điều tra", "icon": "🔎"},
+        {"jp": "比べます", "kana": "くらべます", "kanji": "比べます", "romaji": "kurabemasu", "vi": "So sánh", "icon": "⚖️"},
+        {"jp": "届きます", "kana": "とどきます", "kanji": "届きます", "romaji": "todokimasu", "vi": "Được chuyển đến nơi", "icon": "🚚"},
+        {"jp": "決めます", "kana": "きめます", "kanji": "決めます", "romaji": "kimemasu", "vi": "Quyết định", "icon": "✅"},
+        {"jp": "注文します", "kana": "ちゅうもんします", "kanji": "注文します", "romaji": "chuumon shimasu", "vi": "Đặt hàng, gọi món", "icon": "📋"},
+        {"jp": "考えます", "kana": "かんがえます", "kanji": "考えます", "romaji": "kangaemasu", "vi": "Suy nghĩ, cân nhắc", "icon": "🤔"}
+    ],
+    12: [
+        {"jp": "モデル", "kana": "モデル", "kanji": "モデル", "romaji": "moderu", "vi": "Mẫu mã, kiểu loại", "icon": "📱"},
+        {"jp": "重さ", "kana": "おもさ", "kanji": "重さ", "romaji": "omosa", "vi": "Cân nặng, khối lượng", "icon": "⚖️"},
+        {"jp": "大きさ", "kana": "おおきさ", "kanji": "大きさ", "romaji": "ookisa", "vi": "Độ lớn, kích thước", "icon": "📐"},
+        {"jp": "機能", "kana": "きのう", "kanji": "機能", "romaji": "kinou", "vi": "Chức năng, tính năng", "icon": "⚙️"},
+        {"jp": "値段", "kana": "ねだん", "kanji": "値段", "romaji": "nedan", "vi": "Giá cả", "icon": "🏷️"},
+        {"jp": "税込", "kana": "ぜいこみ", "kanji": "税込", "romaji": "zeikomi", "vi": "Đã bao gồm thuế", "icon": "🧾"},
+        {"jp": "翌日", "kana": "よくじつ", "kanji": "翌日", "romaji": "yokujitsu", "vi": "Ngày hôm sau", "icon": "📆"},
+        {"jp": "送料無料", "kana": "そうりょうむりょう", "kanji": "送料無料", "romaji": "souryou muryou", "vi": "Miễn phí vận chuyển", "icon": "🚚"},
+        {"jp": "届きます", "kana": "とどきます", "kanji": "届きます", "romaji": "todokimasu", "vi": "Được giao đến", "icon": "📦"},
+        {"jp": "省エネ", "kana": "しょうエネ", "kanji": "省エネ", "romaji": "shouene", "vi": "Tiết kiệm năng lượng", "icon": "🌱"},
+        {"jp": "デザイン", "kana": "デザイン", "kanji": "デザイン", "romaji": "dezain", "vi": "Thiết kế, kiểu dáng", "icon": "🎨"},
+        {"jp": "カラー", "kana": "カラー", "kanji": "カラー", "romaji": "kara-", "vi": "Màu sắc", "icon": "🌈"},
+        {"jp": "レビュー", "kana": "レビュー", "kanji": "レビュー", "romaji": "rebyu-", "vi": "Đánh giá, nhận xét (review)", "icon": "⭐"},
+        {"jp": "重い", "kana": "おもい", "kanji": "重い", "romaji": "omoi", "vi": "Nặng", "icon": "🏋️"},
+        {"jp": "軽い", "kana": "かるい", "kanji": "軽い", "romaji": "karui", "vi": "Nhẹ", "icon": "🪶"},
+        {"jp": "複雑（な）", "kana": "ふくざつ（な）", "kanji": "複雑（な）", "romaji": "fukuzatsu(na)", "vi": "Phức tạp", "icon": "🧩"},
+        {"jp": "気に入ります", "kana": "きにいります", "kanji": "気に入ります", "romaji": "ki ni irimasu", "vi": "Yêu thích, ưng ý", "icon": "💖"},
+        {"jp": "満足（します）", "kana": "まんぞく（します）", "kanji": "満足（します）", "romaji": "manzoku(shimasu)", "vi": "Hài lòng, thỏa mãn", "icon": "😊"},
+        {"jp": "ごみを捨てます", "kana": "ごみをすてます", "kanji": "ごみを捨てます", "romaji": "gomi o sutemasu", "vi": "Vứt rác", "icon": "🗑️"},
+        {"jp": "びっくり（します）", "kana": "びっくり（します）", "kanji": "びっくり（します）", "romaji": "bikkuri(shimasu)", "vi": "Bất ngờ, kinh ngạc", "icon": "😲"},
+        {"jp": "ユーザー", "kana": "ユーザー", "kanji": "ユーザー", "romaji": "yu-za-", "vi": "Người dùng, khách hàng", "icon": "👤"},
+        {"jp": "モード", "kana": "モード", "kanji": "モード", "romaji": "mo-do", "vi": "Chế độ (hoạt động)", "icon": "🔄"},
+        {"jp": "うるさい", "kana": "うるさい", "kanji": "うるさい", "romaji": "urusai", "vi": "Ồn ào", "icon": "📢"}
+    ],
+    13: [
+        {"jp": "歴史", "kana": "れきし", "kanji": "歴史", "romaji": "rekishi", "vi": "Lịch sử", "icon": "📜"},
+        {"jp": "文化", "kana": "ぶんか", "kanji": "文化", "romaji": "bunka", "vi": "Văn hóa", "icon": "🎎"},
+        {"jp": "天皇", "kana": "てんのう", "kanji": "天皇", "romaji": "tennou", "vi": "Thiên hoàng Nhật Bản", "icon": "👑"},
+        {"jp": "将軍", "kana": "しょうぐん", "kanji": "将軍", "romaji": "shougun", "vi": "Tướng quân (Shogun)", "icon": "⚔️"},
+        {"jp": "城／～城", "kana": "しろ／～じょう", "kanji": "城／～城", "romaji": "shiro / ~jou", "vi": "Thành, lâu đài", "icon": "🏯"},
+        {"jp": "舞妓さん", "kana": "まいこさん", "kanji": "舞妓さん", "romaji": "maikosan", "vi": "Thiếu nữ Maiko (vũ kỹ tập sự)", "icon": "👘"},
+        {"jp": "約～年前", "kana": "やく～ねんまえ", "kanji": "約～年前", "romaji": "yaku ~nen mae", "vi": "Khoảng ... năm trước", "icon": "⏳"},
+        {"jp": "世紀", "kana": "せいき", "kanji": "世紀", "romaji": "seiki", "vi": "Thế kỷ", "icon": "🏛️"},
+        {"jp": "時代", "kana": "じだい", "kanji": "時代", "romaji": "jidai", "vi": "Thời đại, triều đại", "icon": "🕰️"},
+        {"jp": "茶道", "kana": "さどう", "kanji": "茶道", "romaji": "sadou", "vi": "Trà đạo", "icon": "🍵"},
+        {"jp": "華道", "kana": "かどう", "kanji": "華道", "romaji": "kadou", "vi": "Nghệ thuật cắm hoa Kado", "icon": "💐"},
+        {"jp": "建てます", "kana": "たてます", "kanji": "建てます", "romaji": "tatemasu", "vi": "Xây dựng", "icon": "🏗️"},
+        {"jp": "石", "kana": "いし", "kanji": "石", "romaji": "ishi", "vi": "Đá, sỏi", "icon": "🪨"},
+        {"jp": "仏教", "kana": "ぶっきょう", "kanji": "仏教", "romaji": "bukkyou", "vi": "Phật giáo", "icon": "☸️"},
+        {"jp": "観光客", "kana": "かんこうきゃく", "kanji": "観光客", "romaji": "kankoukyaku", "vi": "Khách du lịch", "icon": "🧳"},
+        {"jp": "本物", "kana": "ほんもの", "kanji": "本物", "romaji": "honmono", "vi": "Đồ thật, hàng thật", "icon": "💎"},
+        {"jp": "偽物", "kana": "にせもの", "kanji": "偽物", "romaji": "nisemono", "vi": "Đồ giả, hàng nhái", "icon": "🚫"},
+        {"jp": "舞台", "kana": "ぶたい", "kanji": "舞台", "romaji": "butai", "vi": "Sân khấu", "icon": "🎭"},
+        {"jp": "柱", "kana": "はしら", "kanji": "柱", "romaji": "hashira", "vi": "Cột trụ", "icon": "🏛️"},
+        {"jp": "立派（な）", "kana": "りっぱ（な）", "kanji": "立派（な）", "romaji": "rippa(na)", "vi": "Nguy nga, tráng lệ, tuyệt vời", "icon": "🏰"},
+        {"jp": "中心", "kana": "ちゅうしん", "kanji": "中心", "romaji": "chuushin", "vi": "Trung tâm", "icon": "🎯"}
+    ],
+    14: [
+        {"jp": "文化財", "kana": "ぶんかざい", "kanji": "文化財", "romaji": "bunkazai", "vi": "Di sản văn hóa", "icon": "🏛️"},
+        {"jp": "国宝", "kana": "こくほう", "kanji": "国宝", "romaji": "kokuhou", "vi": "Quốc bảo", "icon": "🏆"},
+        {"jp": "織物", "kana": "おりもの", "kanji": "織物", "romaji": "orimono", "vi": "Vải dệt, đồ dệt thủ công", "icon": "🧵"},
+        {"jp": "道具", "kana": "どうぐ", "kanji": "道具", "romaji": "dougu", "vi": "Dụng cụ, công cụ", "icon": "🛠️"},
+        {"jp": "刀", "kana": "かたな", "kanji": "刀", "romaji": "katana", "vi": "Thanh đao, kiếm Nhật", "icon": "🗡️"},
+        {"jp": "焼き物", "kana": "やきもの", "kanji": "焼き物", "romaji": "yakimono", "vi": "Đồ gốm sứ", "icon": "🏺"},
+        {"jp": "昔", "kana": "むかし", "kanji": "昔", "romaji": "mukashi", "vi": "Ngày xưa", "icon": "🕰️"},
+        {"jp": "書", "kana": "しょ", "kanji": "書", "romaji": "sho", "vi": "Sách (văn tự cổ), thư pháp", "icon": "📜"},
+        {"jp": "字", "kana": "じ", "kanji": "字", "romaji": "ji", "vi": "Chữ viết", "icon": "✍️"},
+        {"jp": "土の人形", "kana": "つちのにんぎょう", "kanji": "土の人形", "romaji": "tsuchi no ningyou", "vi": "Búp bê bằng đất sét", "icon": "🎎"},
+        {"jp": "楽器", "kana": "がっき", "kanji": "楽器", "romaji": "gakki", "vi": "Nhạc cụ", "icon": "🎻"},
+        {"jp": "やっぱり", "kana": "やっぱり", "kanji": "やっぱり", "romaji": "yappari", "vi": "Quả nhiên là...", "icon": "💡"},
+        {"jp": "墓", "kana": "はか", "kanji": "墓", "romaji": "haka", "vi": "Phần mộ, lăng mộ", "icon": "🪦"},
+        {"jp": "詩", "kana": "うた", "kanji": "詩", "romaji": "uta", "vi": "Bài thơ", "icon": "📝"},
+        {"jp": "恋の詩", "kana": "こいのうた", "kanji": "恋の詩", "romaji": "koi no uta", "vi": "Thơ tình yêu", "icon": "💌"},
+        {"jp": "輸出（します）", "kana": "ゆしゅつ（します）", "kanji": "輸出（します）", "romaji": "yushutsu(shimasu)", "vi": "Xuất khẩu", "icon": "🚢"},
+        {"jp": "輸入（します）", "kana": "ゆにゅう（します）", "kanji": "輸入（します）", "romaji": "yunyuu(shimasu)", "vi": "Nhập khẩu", "icon": "📦"},
+        {"jp": "じゅうたん", "kana": "じゅうたん", "kanji": "じゅうたん", "romaji": "juutan", "vi": "Tấm thảm", "icon": "🧶"},
+        {"jp": "戦争", "kana": "せんそう", "kanji": "戦争", "romaji": "sensou", "vi": "Chiến tranh", "icon": "⚔️"},
+        {"jp": "運びます", "kana": "はこびます", "kanji": "運びます", "romaji": "hakobimasu", "vi": "Vận chuyển, mang vác", "icon": "🚚"},
+        {"jp": "使用（します）", "kana": "しよう（します）", "kanji": "使用（します）", "romaji": "shiyou(shimasu)", "vi": "Sử dụng", "icon": "🔧"},
+        {"jp": "触ります", "kana": "さわります", "kanji": "触ります", "romaji": "sawarimasu", "vi": "Chạm, sờ vào", "icon": "✋"}
+    ],
+    15: [
+        {"jp": "環境", "kana": "かんきょう", "kanji": "環境", "romaji": "kankyou", "vi": "Môi trường", "icon": "🌍"},
+        {"jp": "エコ活動", "kana": "エコかつどう", "kanji": "エコ活動", "romaji": "eko katsudou", "vi": "Hoạt động bảo vệ môi trường", "icon": "🌱"},
+        {"jp": "省エネ", "kana": "しょうエネ", "kanji": "省エネ", "romaji": "shouene", "vi": "Tiết kiệm năng lượng", "icon": "💡"},
+        {"jp": "温度を上げます", "kana": "おんどをあげます", "kanji": "温度を上げます", "romaji": "ondo o agemasu", "vi": "Tăng nhiệt độ", "icon": "🌡️"},
+        {"jp": "温度を下げます", "kana": "おんどをさげます", "kanji": "温度を下げます", "romaji": "ondo o sagemasu", "vi": "Giảm nhiệt độ", "icon": "❄️"},
+        {"jp": "むだにします", "kana": "むだにします", "kanji": "むだにします", "romaji": "muda ni shimasu", "vi": "Làm lãng phí", "icon": "⚠️"},
+        {"jp": "リサイクル", "kana": "リサイクル", "kanji": "リサイクル", "romaji": "risaikuru", "vi": "Tái chế", "icon": "♻️"},
+        {"jp": "ごみを分けます", "kana": "ごみをわけます", "kanji": "ごみを分けます", "romaji": "gomi o wakemasu", "vi": "Phân loại rác", "icon": "🗂️"},
+        {"jp": "ごみを減らします", "kana": "ごみをへらします", "kanji": "ごみを減らします", "romaji": "gomi o herashimasu", "vi": "Giảm bớt rác thải", "icon": "📉"},
+        {"jp": "空気を汚します", "kana": "くうきをよごします", "kanji": "空気を汚します", "romaji": "kuuki o yogoshimasu", "vi": "Làm bẩn, ô nhiễm không khí", "icon": "🏭"},
+        {"jp": "油を流します", "kana": "あぶらをながします", "kanji": "油を流します", "romaji": "abura o nagashimasu", "vi": "Xả dầu mỡ xuống cống", "icon": "🛢️"},
+        {"jp": "空気をきれいにします", "kana": "くうきをきれいにします", "kanji": "空気をきれいにします", "romaji": "kuuki o kirei ni shimasu", "vi": "Làm sạch không khí", "icon": "🍃"},
+        {"jp": "役に立ちます", "kana": "やくにたちます", "kanji": "役に立ちます", "romaji": "yaku ni tachimasu", "vi": "Có ích, hữu ích", "icon": "👍"},
+        {"jp": "料理を残します", "kana": "りょうりをのこします", "kanji": "料理を残します", "romaji": "ryouri o nokoshimasu", "vi": "Bỏ lại, chừa lại thức ăn", "icon": "🍱"},
+        {"jp": "ごみを捨てます", "kana": "ごみをすてます", "kanji": "ごみを捨てます", "romaji": "gomi o sutemasu", "vi": "Vứt rác", "icon": "🗑️"},
+        {"jp": "ごみ箱", "kana": "ごみばこ", "kanji": "ごみ箱", "romaji": "gomibako", "vi": "Thùng rác", "icon": "🪣"},
+        {"jp": "もったいない", "kana": "もったいない", "kanji": "もったいない", "romaji": "mottainai", "vi": "Lãng phí quá!", "icon": "😣"},
+        {"jp": "新聞紙", "kana": "しんぶんし", "kanji": "新聞紙", "romaji": "shinbunshi", "vi": "Giấy báo cũ", "icon": "📰"},
+        {"jp": "紙", "kana": "かみ", "kanji": "紙", "romaji": "kami", "vi": "Giấy", "icon": "📄"}
+    ],
+    16: [
+        {"jp": "フリーマーケット", "kana": "フリーマーケット", "kanji": "フリーマーケット", "romaji": "furi-ma-ketto", "vi": "Hội chợ (đồ cũ), chợ trời", "icon": "🎪"},
+        {"jp": "レンタルショップ", "kana": "レンタルショップ", "kanji": "レンタルショップ", "romaji": "rentaru shoppu", "vi": "Cửa hàng cho thuê đồ", "icon": "🏬"},
+        {"jp": "クッション", "kana": "クッション", "kanji": "クッション", "romaji": "kusshon", "vi": "Gối tựa, đệm sofa", "icon": "🛋️"},
+        {"jp": "布団", "kana": "ふとん", "kanji": "布団", "romaji": "futon", "vi": "Chăn, nệm", "icon": "🛏️"},
+        {"jp": "エコバッグ", "kana": "エコバッグ", "kanji": "エコバッグ", "romaji": "ekobaggu", "vi": "Túi thân thiện môi trường", "icon": "🛍️"},
+        {"jp": "ベビーベッド", "kana": "ベビーベッド", "kanji": "ベビーベッド", "romaji": "bebi-beddo", "vi": "Giường em bé, nôi", "icon": "👶"},
+        {"jp": "ベビーカー", "kana": "ベビーカー", "kanji": "ベビーカー", "romaji": "bebi-ka-", "vi": "Xe đẩy em bé", "icon": "🚼"},
+        {"jp": "飽きます", "kana": "あきます", "kanji": "飽きます", "romaji": "akimasu", "vi": "Chán ngấy", "icon": "🥱"},
+        {"jp": "サイズが変わります", "kana": "サイズがかわります", "kanji": "サイズが変わります", "romaji": "saizu ga kawarimasu", "vi": "Thay đổi kích cỡ", "icon": "📏"},
+        {"jp": "要ります", "kana": "いります", "kanji": "要ります", "romaji": "irimasu", "vi": "Cần thiết", "icon": "✅"},
+        {"jp": "要りません", "kana": "いりません", "kanji": "要りません", "romaji": "irimasen", "vi": "Không cần thiết", "icon": "❌"},
+        {"jp": "要らないものを売ります", "kana": "いらないものをうります", "kanji": "要らないものを売ります", "romaji": "iranai mono o urimasu", "vi": "Bán đồ không cần thiết", "icon": "🏷️"},
+        {"jp": "増えます", "kana": "ふえます", "kanji": "増えます", "romaji": "fuemasu", "vi": "Tăng lên", "icon": "📈"},
+        {"jp": "破れます", "kana": "やぶれます", "kanji": "破れます", "romaji": "yaburemasu", "vi": "Bị rách", "icon": "💥"},
+        {"jp": "汚れます", "kana": "よごれます", "kanji": "汚れます", "romaji": "yogoremasu", "vi": "Bị bẩn", "icon": "🧼"},
+        {"jp": "修理します", "kana": "しゅうりします", "kanji": "修理します", "romaji": "shuuri shimasu", "vi": "Sửa chữa", "icon": "🔨"},
+        {"jp": "穴が開きます", "kana": "あながあきます", "kanji": "穴が開きます", "romaji": "ana ga akimasu", "vi": "Thủng lỗ", "icon": "🕳️"},
+        {"jp": "ごみを拾います", "kana": "ごみをひろいます", "kanji": "ごみを拾います", "romaji": "gomi o hiroimasu", "vi": "Nhặt rác", "icon": "🧹"}
+    ],
+    17: [
+        {"jp": "人生", "kana": "じんせい", "kanji": "人生", "romaji": "jinsei", "vi": "Cuộc đời, đời người", "icon": "🌱"},
+        {"jp": "俳優", "kana": "はいゆう", "kanji": "俳優", "romaji": "haiyuu", "vi": "Diễn viên nam", "icon": "🎭"},
+        {"jp": "女優", "kana": "じょゆう", "kanji": "女優", "romaji": "joyuu", "vi": "Diễn viên nữ", "icon": "🎬"},
+        {"jp": "音楽家", "kana": "おんがくか", "kanji": "音楽家", "romaji": "ongakuka", "vi": "Nhạc sĩ", "icon": "🎼"},
+        {"jp": "画家", "kana": "がか", "kanji": "画家", "romaji": "gaka", "vi": "Họa sĩ", "icon": "🎨"},
+        {"jp": "作家", "kana": "さっか", "kanji": "作家", "romaji": "sakka", "vi": "Nhà văn", "icon": "🖋️"},
+        {"jp": "小説家", "kana": "しょうせつか", "kanji": "小説家", "romaji": "shousetsuka", "vi": "Tiểu thuyết gia", "icon": "📚"},
+        {"jp": "スポーツ選手", "kana": "スポーツせんしゅ", "kanji": "スポーツ選手", "romaji": "supo-tsu senshu", "vi": "Tuyển thủ thể thao", "icon": "⚽"},
+        {"jp": "柔道家", "kana": "じゅうどうか", "kanji": "柔道家", "romaji": "juudouka", "vi": "Võ sĩ Judo", "icon": "🥋"},
+        {"jp": "映画監督", "kana": "えいがかんとく", "kanji": "映画監督", "romaji": "eiga kantoku", "vi": "Đạo diễn phim", "icon": "🎥"},
+        {"jp": "科学者", "kana": "かがくしゃ", "kanji": "科学者", "romaji": "kagakusha", "vi": "Nhà khoa học", "icon": "🔬"},
+        {"jp": "教育者", "kana": "きょういくしゃ", "kanji": "教育者", "romaji": "kyouikusha", "vi": "Nhà giáo dục", "icon": "👨‍🏫"},
+        {"jp": "バイオリニスト", "kana": "バイオリニスト", "kanji": "バイオリニスト", "romaji": "baiorinisuto", "vi": "Nghệ sĩ vĩ cầm (violin)", "icon": "🎻"},
+        {"jp": "金メダル", "kana": "きんメダル", "kanji": "金メダル", "romaji": "kin medaru", "vi": "Huy chương vàng", "icon": "🥇"},
+        {"jp": "～賞", "kana": "～しょう", "kanji": "～賞", "romaji": "~shou", "vi": "Giải thưởng (như Nobel...)", "icon": "🏆"},
+        {"jp": "翻訳（します）", "kana": "ほんやく（します）", "kanji": "翻訳（します）", "romaji": "honyaku(shimasu)", "vi": "Biên dịch", "icon": "📝"},
+        {"jp": "活躍（します）", "kana": "かつやく（します）", "kanji": "活躍（します）", "romaji": "katsuyaku(shimasu)", "vi": "Thành công, hoạt động sôi nổi", "icon": "🌟"},
+        {"jp": "亡くなります", "kana": "なくなります", "kanji": "亡くなります", "romaji": "nakunarimasu", "vi": "Qua đời, mất", "icon": "🕊️"},
+        {"jp": "作品", "kana": "さくひん", "kanji": "作品", "romaji": "sakuhin", "vi": "Tác phẩm nghệ thuật", "icon": "🖼️"},
+        {"jp": "ずっと", "kana": "ずっと", "kanji": "ずっと", "romaji": "zutto", "vi": "Suốt, mãi, liên tục", "icon": "⏳"},
+        {"jp": "離婚します", "kana": "りこんします", "kanji": "離婚します", "romaji": "rikon shimasu", "vi": "Ly hôn", "icon": "💔"},
+        {"jp": "苦労します", "kana": "くろうします", "kanji": "苦労します", "romaji": "kurou shimasu", "vi": "Gặp khó khăn, vất vả", "icon": "🧗"}
+    ],
+    18: [
+        {"jp": "けんかします", "kana": "けんかします", "kanji": "けんかします", "romaji": "kenka shimasu", "vi": "Cãi cọ, đánh nhau", "icon": "🥊"},
+        {"jp": "褒めます", "kana": "ほめます", "kanji": "褒めます", "romaji": "homemasu", "vi": "Khen ngợi", "icon": "👏"},
+        {"jp": "叱ります", "kana": "しかります", "kanji": "叱ります", "romaji": "shikarimasu", "vi": "Mắng, quở trách", "icon": "😠"},
+        {"jp": "おしゃれします", "kana": "おしゃれします", "kanji": "おしゃれします", "romaji": "oshare shimasu", "vi": "Làm đỏm, diện đồ đẹp", "icon": "👗"},
+        {"jp": "誘います", "kana": "さそいます", "kanji": "誘います", "romaji": "sasoimasu", "vi": "Rủ bạn bè, mời", "icon": "🤝"},
+        {"jp": "就職します", "kana": "しゅうしょくします", "kanji": "就職します", "romaji": "shuushoku shimasu", "vi": "Vào làm tại công ty", "icon": "💼"},
+        {"jp": "デートします", "kana": "デートします", "kanji": "デートします", "romaji": "de-to shimasu", "vi": "Hẹn hò với người yêu", "icon": "💑"},
+        {"jp": "転勤します", "kana": "てんきんします", "kanji": "転勤します", "romaji": "tenkin shimasu", "vi": "Chuyển công tác", "icon": "✈️"},
+        {"jp": "退職します", "kana": "たいしょくします", "kanji": "退職します", "romaji": "taishoku shimasu", "vi": "Nghỉ việc, về hưu", "icon": "🏖️"},
+        {"jp": "ひどい", "kana": "ひどい", "kanji": "ひどい", "romaji": "hidoi", "vi": "Tồi tệ, quá đáng", "icon": "😣"},
+        {"jp": "悲しい", "kana": "かなしい", "kanji": "悲しい", "romaji": "kanashii", "vi": "Buồn rầu, đau lòng", "icon": "😢"},
+        {"jp": "甘えます", "kana": "あまえます", "kanji": "甘えます", "romaji": "amaemasu", "vi": "Nũng nịu, nhõng nhẽo", "icon": "🥰"},
+        {"jp": "大人しい", "kana": "おとなしい", "kanji": "大人しい", "romaji": "otonashii", "vi": "Điềm đạm, dễ bảo, ngoan", "icon": "😌"},
+        {"jp": "成績", "kana": "せいせき", "kanji": "成績", "romaji": "seiseki", "vi": "Thành tích, kết quả học tập", "icon": "📊"},
+        {"jp": "恥ずかしい", "kana": "はずかしい", "kanji": "恥ずかしい", "romaji": "hazukashii", "vi": "Xấu hổ, ngượng ngùng", "icon": "😳"},
+        {"jp": "きっかけ", "kana": "きっかけ", "kanji": "きっかけ", "romaji": "kikkake", "vi": "Cơ duyên, duyên cớ", "icon": "🔑"},
+        {"jp": "夕食", "kana": "ゆうしょく", "kanji": "夕食", "romaji": "yuushoku", "vi": "Bữa cơm tối", "icon": "🍲"},
+        {"jp": "仲がいい", "kana": "なかがいい", "kanji": "仲がいい", "romaji": "naka ga ii", "vi": "Thân thiết, mối quan hệ tốt", "icon": "👫"},
+        {"jp": "勧めます", "kana": "すすめます", "kanji": "勧めます", "romaji": "susumemasu", "vi": "Đề xuất, gợi ý", "icon": "💡"},
+        {"jp": "社会人", "kana": "しゃかいじん", "kanji": "社会人", "romaji": "shakaijin", "vi": "Người đi làm, người ngoài xã hội", "icon": "👔"},
+        {"jp": "やっと", "kana": "やっと", "kanji": "やっと", "romaji": "yatto", "vi": "Cuối cùng thì (kết quả tốt)", "icon": "🎉"},
+        {"jp": "心配します", "kana": "しんぱいします", "kanji": "心配します", "romaji": "shinpai shimasu", "vi": "Lo lắng, bận tâm", "icon": "😟"}
+    ]
+}
+
+
+def sync_to_data_file():
+    data_path = ROOT / "data/vocab_a2_2_official.json"
+    formatted = {f"lesson_{num}": items for num, items in OFFICIAL_VOCAB.items()}
+    data_path.write_text(json.dumps(formatted, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print(f"Saved {data_path} with all 18 lessons!")
+
+
+def replace_vocab_in_topic(topic_num):
+    topic_file = ROOT / f"scripts/a2_2/topic_{topic_num:02d}.py"
+    if not topic_file.exists():
+        print(f"Skip {topic_file} (not found)")
+        return
+
+    content = topic_file.read_text(encoding="utf-8")
+    la = topic_num * 2 - 1
+    lb = topic_num * 2
+
+    # Replace L{la}_VOCAB = [ ... ]
+    vocab_a_code = f"L{la}_VOCAB = " + json.dumps(OFFICIAL_VOCAB[la], ensure_ascii=False, indent=4)
+    pattern_a = rf"L{la}_VOCAB\s*=\s*\[.*?\]\n"
+    content, count_a = re.subn(pattern_a, vocab_a_code + "\n", content, flags=re.S)
+
+    # Replace L{lb}_VOCAB = [ ... ]
+    vocab_b_code = f"L{lb}_VOCAB = " + json.dumps(OFFICIAL_VOCAB[lb], ensure_ascii=False, indent=4)
+    pattern_b = rf"L{lb}_VOCAB\s*=\s*\[.*?\]\n"
+    content, count_b = re.subn(pattern_b, vocab_b_code + "\n", content, flags=re.S)
+
+    if count_a == 1 and count_b == 1:
+        topic_file.write_text(content, encoding="utf-8")
+        print(f"Updated {topic_file.name}: L{la} ({len(OFFICIAL_VOCAB[la])} items), L{lb} ({len(OFFICIAL_VOCAB[lb])} items)")
+    else:
+        print(f"Warning: count_a={count_a}, count_b={count_b} for {topic_file.name}")
+
+
+def main():
+    sync_to_data_file()
+    for t in range(2, 10):
+        replace_vocab_in_topic(t)
+
+
+if __name__ == "__main__":
+    main()

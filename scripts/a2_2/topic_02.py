@@ -9,26 +9,174 @@ Topic 2: 店で食べる (Dining Out / Ở quán ăn)
 # LESSON 3 DATA
 # =============================================================================
 L3_VOCAB = [
-    {"jp": "おすすめ", "kana": "おすすめ", "kanji": "おすすめ", "romaji": "osusume", "vi": "Món gợi ý, khuyến cử", "icon": "👍"},
-    {"jp": "味", "kana": "あじ", "kanji": "味", "romaji": "aji", "vi": "Mùi vị, hương vị", "icon": "👅"},
-    {"jp": "甘い", "kana": "あまい", "kanji": "甘い", "romaji": "amai", "vi": "Ngọt", "icon": "🍰"},
-    {"jp": "辛い", "kana": "からい", "kanji": "辛い", "romaji": "karai", "vi": "Cay", "icon": "🌶️"},
-    {"jp": "苦い", "kana": "にがい", "kanji": "苦い", "romaji": "nigai", "vi": "Đắng", "icon": "☕"},
-    {"jp": "酸っぱい", "kana": "すっぱい", "kanji": "酸っぱい", "romaji": "suppai", "vi": "Chua", "icon": "🍋"},
-    {"jp": "しょっぱい", "kana": "しょっぱい", "kanji": "しょっぱい", "romaji": "shoppai", "vi": "Mặn (vị muối)", "icon": "🧂"},
-    {"jp": "さっぱりした", "kana": "さっぱりした", "kanji": "さっぱりした", "romaji": "sappari shita", "vi": "Thanh đạm, mát lành, không ngấy", "icon": "🥗"},
-    {"jp": "居酒屋", "kana": "いざかや", "kanji": "居酒屋", "romaji": "izakaya", "vi": "Quán nhậu kiểu Nhật", "icon": "🏮"},
-    {"jp": "定食", "kana": "ていしょく", "kanji": "定食", "romaji": "teishoku", "vi": "Cơm phần, suất ăn trọn gói", "icon": "🍱"},
-    {"jp": "注文", "kana": "ちゅうもん", "kanji": "注文", "romaji": "chuumon", "vi": "Sự gọi món, đặt hàng", "icon": "📋"},
-    {"jp": "刺身", "kana": "さしみ", "kanji": "刺身", "romaji": "sashimi", "vi": "Gỏi cá sống sashimi", "icon": "🐟"},
-    {"jp": "乾杯", "kana": "かんぱい", "kanji": "乾杯", "romaji": "kanpai", "vi": "Cạn ly! Nâng ly chúc mừng", "icon": "🍻"},
-    {"jp": "デザート", "kana": "デザート", "kanji": "デザート", "romaji": "dezaato", "vi": "Món tráng miệng", "icon": "🍨"},
-    {"jp": "メニュー", "kana": "メニュー", "kanji": "メニュー", "romaji": "menyuu", "vi": "Thực đơn", "icon": "📜"},
-    {"jp": "店員", "kana": "てんいん", "kanji": "店員", "romaji": "ten'in", "vi": "Nhân viên quán, phục vụ", "icon": "🧑‍🍳"},
-    {"jp": "席", "kana": "せき", "kanji": "席", "romaji": "seki", "vi": "Chỗ ngồi, bàn ăn", "icon": "🪑"},
-    {"jp": "会計", "kana": "かいけい", "kanji": "会計", "romaji": "kaikei", "vi": "Tính tiền, thanh toán", "icon": "💳"},
-    {"jp": "人気", "kana": "にんき", "kanji": "人気", "romaji": "ninki", "vi": "Được yêu thích, phổ biến", "icon": "⭐"},
-    {"jp": "料理", "kana": "りょうり", "kanji": "料理", "romaji": "ryouri", "vi": "Món ăn, nấu nướng", "icon": "🍲"}
+    {
+        "jp": "カウンター",
+        "kana": "カウンター",
+        "kanji": "カウンター",
+        "romaji": "kaunta-",
+        "vi": "Chỗ ngồi quầy, quầy bar",
+        "icon": "🍸"
+    },
+    {
+        "jp": "テーブル",
+        "kana": "テーブル",
+        "kanji": "テーブル",
+        "romaji": "te-buru",
+        "vi": "Bàn (ngồi cùng ghế)",
+        "icon": "🪑"
+    },
+    {
+        "jp": "ざしき",
+        "kana": "ざしき",
+        "kanji": "座敷",
+        "romaji": "zashiki",
+        "vi": "Chỗ ngồi bệt (chiếu tatami)",
+        "icon": "🎎"
+    },
+    {
+        "jp": "きつえんせき",
+        "kana": "きつえんせき",
+        "kanji": "喫煙席",
+        "romaji": "kitsuenseki",
+        "vi": "Ghế/khu vực hút thuốc",
+        "icon": "🚬"
+    },
+    {
+        "jp": "きんえんせき",
+        "kana": "きんえんせき",
+        "kanji": "禁煙席",
+        "romaji": "kin'enseki",
+        "vi": "Ghế/khu vực cấm hút thuốc",
+        "icon": "🚭"
+    },
+    {
+        "jp": "よやくする",
+        "kana": "よやくする",
+        "kanji": "予約する",
+        "romaji": "yoyaku suru",
+        "vi": "Đặt trước, hẹn lịch",
+        "icon": "📅"
+    },
+    {
+        "jp": "ちゅうもんする",
+        "kana": "ちゅうもんする",
+        "kanji": "注文する",
+        "romaji": "chuumon suru",
+        "vi": "Đặt món, gọi món",
+        "icon": "📋"
+    },
+    {
+        "jp": "よせなべ",
+        "kana": "よせなべ",
+        "kanji": "寄せ鍋",
+        "romaji": "yosenabe",
+        "vi": "Lẩu hải sản thập cẩm",
+        "icon": "🍲"
+    },
+    {
+        "jp": "わしょく",
+        "kana": "わしょく",
+        "kanji": "和食",
+        "romaji": "washoku",
+        "vi": "Món ăn kiểu Nhật",
+        "icon": "🍱"
+    },
+    {
+        "jp": "すきやき",
+        "kana": "すきやき",
+        "kanji": "すき焼き",
+        "romaji": "sukiyaki",
+        "vi": "Món lẩu bò Sukiyaki",
+        "icon": "🥩"
+    },
+    {
+        "jp": "えいよう",
+        "kana": "えいよう",
+        "kanji": "栄養",
+        "romaji": "eiyou",
+        "vi": "Dinh dưỡng",
+        "icon": "🥗"
+    },
+    {
+        "jp": "ベジタリアン",
+        "kana": "ベジタリアン",
+        "kanji": "ベジタリアン",
+        "romaji": "bejitarian",
+        "vi": "Người ăn chay, món chay",
+        "icon": "🥬"
+    },
+    {
+        "jp": "かに",
+        "kana": "かに",
+        "kanji": "蟹",
+        "romaji": "kani",
+        "vi": "Cua",
+        "icon": "🦀"
+    },
+    {
+        "jp": "えび",
+        "kana": "えび",
+        "kanji": "海老",
+        "romaji": "ebi",
+        "vi": "Tôm",
+        "icon": "🦐"
+    },
+    {
+        "jp": "ソフトドリンク",
+        "kana": "ソフトドリンク",
+        "kanji": "ソフトドリンク",
+        "romaji": "sofuto dorinku",
+        "vi": "Đồ uống nhẹ, nước ngọt",
+        "icon": "🥤"
+    },
+    {
+        "jp": "ウーロンちゃ",
+        "kana": "ウーロンちゃ",
+        "kanji": "烏龍茶",
+        "romaji": "u-roncha",
+        "vi": "Trà Ô long",
+        "icon": "🍵"
+    },
+    {
+        "jp": "しんせん（な）",
+        "kana": "しんせん（な）",
+        "kanji": "新鮮（な）",
+        "romaji": "shinsen(na)",
+        "vi": "Tươi, tươi sống",
+        "icon": "🐟"
+    },
+    {
+        "jp": "おすすめ",
+        "kana": "おすすめ",
+        "kanji": "おすすめ",
+        "romaji": "osusume",
+        "vi": "Gợi ý, món khuyên dùng",
+        "icon": "👍"
+    },
+    {
+        "jp": "なんめいさまですか",
+        "kana": "なんめいさまですか",
+        "kanji": "何名様ですか",
+        "romaji": "nanmeisama desu ka",
+        "vi": "Mấy vị (người) vậy ạ?",
+        "icon": "👥"
+    },
+    {
+        "jp": "おきまりですか",
+        "kana": "おきまりですか",
+        "kanji": "お決まりですか",
+        "romaji": "okimari desu ka",
+        "vi": "Quý khách quyết định món chưa ạ?",
+        "icon": "🛎️"
+    },
+    {
+        "jp": "にがて（な）",
+        "kana": "にがて（な）",
+        "kanji": "苦手（な）",
+        "romaji": "nigate(na)",
+        "vi": "Kém, không thích, sợ ăn...",
+        "icon": "😣"
+    }
 ]
 
 L3_VERBS = [
@@ -302,26 +450,190 @@ L3_QUIZ = [
 # LESSON 4 DATA
 # =============================================================================
 L4_VOCAB = [
-    {"jp": "豚肉", "kana": "ぶたにく", "kanji": "豚肉", "romaji": "butaniku", "vi": "Thịt lợn (heo)", "icon": "🥩"},
-    {"jp": "牛肉", "kana": "ぎゅうにく", "kanji": "牛肉", "romaji": "gyuuniku", "vi": "Thịt bò", "icon": "🥩"},
-    {"jp": "鶏肉", "kana": "とりにく", "kanji": "鶏肉", "romaji": "toriniku", "vi": "Thịt gà", "icon": "🍗"},
-    {"jp": "卵", "kana": "たまご", "kanji": "卵", "romaji": "tamago", "vi": "Trứng", "icon": "🥚"},
-    {"jp": "野菜", "kana": "やさい", "kanji": "野菜", "romaji": "yasai", "vi": "Rau củ", "icon": "🥬"},
-    {"jp": "ネギ", "kana": "ネギ", "kanji": "ネギ", "romaji": "negi", "vi": "Hành lá", "icon": "🧅"},
-    {"jp": "わさび", "kana": "わさび", "kanji": "わさび", "romaji": "wasabi", "vi": "Mù tạt wasabi", "icon": "🌿"},
-    {"jp": "アレルギー", "kana": "アレルギー", "kanji": "アレルギー", "romaji": "arerugii", "vi": "Dị ứng", "icon": "⚠️"},
-    {"jp": "豚肉抜き", "kana": "ぶたにくぬき", "kanji": "豚肉抜き", "romaji": "butaniku nuki", "vi": "Không lấy thịt lợn, bỏ thịt lợn ra", "icon": "🚫"},
-    {"jp": "スープ", "kana": "スープ", "kanji": "スープ", "romaji": "suupu", "vi": "Nước súp, nước dùng", "icon": "🥣"},
-    {"jp": "たれ", "kana": "たれ", "kanji": "たれ", "romaji": "tare", "vi": "Nước chấm sốt tare", "icon": "🍶"},
-    {"jp": "スプーン", "kana": "スプーン", "kanji": "スプーン", "romaji": "supuun", "vi": "Cái thìa / muỗng", "icon": "🥄"},
-    {"jp": "はし", "kana": "はし", "kanji": "はし", "romaji": "hashi", "vi": "Đôi đũa", "icon": "🥢"},
-    {"jp": "おかわり", "kana": "おかわり", "kanji": "おかわり", "romaji": "okawari", "vi": "Bát nữa / thêm một phần cơm hoặc canh", "icon": "🍚"},
-    {"jp": "お腹がいっぱい", "kana": "おなかが いっぱい", "kanji": "お腹がいっぱい", "romaji": "onaka ga ippai", "vi": "No bụng, no căng", "icon": "😋"},
-    {"jp": "残す", "kana": "のこす", "kanji": "残す", "romaji": "nokosu", "vi": "Để lại, ăn thừa", "icon": "🍽️"},
-    {"jp": "焼く", "kana": "やく", "kanji": "焼く", "romaji": "yaku", "vi": "Nướng, xào rán", "icon": "🍳"},
-    {"jp": "煮る", "kana": "にる", "kanji": "煮る", "romaji": "niru", "vi": "Ninh, hầm, kho", "icon": "🍲"},
-    {"jp": "つける", "kana": "つける", "kanji": "つける", "romaji": "tsukeru", "vi": "Chấm (nước sốt)", "icon": "🥢"},
-    {"jp": "かける", "kana": "かける", "kanji": "かける", "romaji": "kakeru", "vi": "Rưới, chan (nước sốt lên món)", "icon": "🫗"}
+    {
+        "jp": "かけます",
+        "kana": "かけます",
+        "kanji": "かけます",
+        "romaji": "kakemasu",
+        "vi": "Rưới, chan (nước sốt)",
+        "icon": "🥣"
+    },
+    {
+        "jp": "つけます",
+        "kana": "つけます",
+        "kanji": "つけます",
+        "romaji": "tsukemasu",
+        "vi": "Chấm (nước chấm)",
+        "icon": "🥢"
+    },
+    {
+        "jp": "いれます",
+        "kana": "いれます",
+        "kanji": "入れます",
+        "romaji": "iremasu",
+        "vi": "Thêm vào, cho vào",
+        "icon": "🫗"
+    },
+    {
+        "jp": "ぬります",
+        "kana": "ぬります",
+        "kanji": "塗ります",
+        "romaji": "nurimasu",
+        "vi": "Bôi, quết, phết",
+        "icon": "🧈"
+    },
+    {
+        "jp": "やきます",
+        "kana": "やきます",
+        "kanji": "焼きます",
+        "romaji": "yakimasu",
+        "vi": "Nướng",
+        "icon": "🍳"
+    },
+    {
+        "jp": "いいにおい",
+        "kana": "いいにおい",
+        "kanji": "いいにおい",
+        "romaji": "ii nioi",
+        "vi": "Mùi thơm ngon",
+        "icon": "👃"
+    },
+    {
+        "jp": "ふた",
+        "kana": "ふた",
+        "kanji": "蓋",
+        "romaji": "futa",
+        "vi": "Nắp, vung",
+        "icon": "🍲"
+    },
+    {
+        "jp": "さら",
+        "kana": "さら",
+        "kanji": "皿",
+        "romaji": "sara",
+        "vi": "Đĩa",
+        "icon": "🍽️"
+    },
+    {
+        "jp": "ちゃわん",
+        "kana": "ちゃわん",
+        "kanji": "茶碗",
+        "romaji": "chawan",
+        "vi": "Bát, chén",
+        "icon": "🍚"
+    },
+    {
+        "jp": "たれ／ソース",
+        "kana": "たれ／ソース",
+        "kanji": "たれ／ソース",
+        "romaji": "tare / so-su",
+        "vi": "Nước sốt, nước chấm",
+        "icon": "🫙"
+    },
+    {
+        "jp": "しょうゆ",
+        "kana": "しょうゆ",
+        "kanji": "醤油",
+        "romaji": "shouyu",
+        "vi": "Xì dầu, nước tương",
+        "icon": "🍶"
+    },
+    {
+        "jp": "とうがらし",
+        "kana": "とうがらし",
+        "kanji": "唐辛子",
+        "romaji": "tougarashi",
+        "vi": "Ớt",
+        "icon": "🌶️"
+    },
+    {
+        "jp": "こしょう",
+        "kana": "こしょう",
+        "kanji": "胡椒",
+        "romaji": "koshou",
+        "vi": "Hạt tiêu",
+        "icon": "🧂"
+    },
+    {
+        "jp": "バター",
+        "kana": "バター",
+        "kanji": "バター",
+        "romaji": "bata-",
+        "vi": "Bơ",
+        "icon": "🧈"
+    },
+    {
+        "jp": "おなかがすきました",
+        "kana": "おなかがすきました",
+        "kanji": "お腹が空きました",
+        "romaji": "onaka ga sukimashita",
+        "vi": "Đói bụng",
+        "icon": "🤤"
+    },
+    {
+        "jp": "のどがかわきました",
+        "kana": "のどがかわきました",
+        "kanji": "喉が渇きました",
+        "romaji": "nodo ga kawakimashita",
+        "vi": "Khát nước",
+        "icon": "🥤"
+    },
+    {
+        "jp": "かんぱい",
+        "kana": "かんぱい",
+        "kanji": "乾杯",
+        "romaji": "kanpai",
+        "vi": "Cạn ly!",
+        "icon": "🍻"
+    },
+    {
+        "jp": "いろがかわります",
+        "kana": "いろがかわります",
+        "kanji": "色が変わります",
+        "romaji": "iro ga kawarimasu",
+        "vi": "Đổi màu",
+        "icon": "🎨"
+    },
+    {
+        "jp": "がまんする",
+        "kana": "がまんする",
+        "kanji": "我慢する",
+        "romaji": "gaman suru",
+        "vi": "Chịu đựng, nhẫn nại",
+        "icon": "😣"
+    },
+    {
+        "jp": "りょうりをのこします",
+        "kana": "りょうりをのこします",
+        "kanji": "料理を残します",
+        "romaji": "ryouri o nokoshimasu",
+        "vi": "Bỏ thừa đồ ăn",
+        "icon": "🍱"
+    },
+    {
+        "jp": "おとをたてます",
+        "kana": "おとをたてます",
+        "kanji": "音を立てます",
+        "romaji": "oto o tatemasu",
+        "vi": "Tạo ra âm thanh, tiếng động",
+        "icon": "🔊"
+    },
+    {
+        "jp": "かゆい",
+        "kana": "かゆい",
+        "kanji": "痒い",
+        "romaji": "kayui",
+        "vi": "Ngứa",
+        "icon": "😖"
+    },
+    {
+        "jp": "あせがでます",
+        "kana": "あせがでます",
+        "kanji": "汗が出ます",
+        "romaji": "ase ga demasu",
+        "vi": "Toát mồ hôi",
+        "icon": "💦"
+    }
 ]
 
 L4_VERBS = [

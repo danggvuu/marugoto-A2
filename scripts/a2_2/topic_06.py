@@ -9,26 +9,198 @@ Topic 6: ネットショッピング (Online Shopping / Mua sắm trực tuyến
 # LESSON 11 DATA
 # =============================================================================
 L11_VOCAB = [
-    {"jp": "掃除機", "kana": "そうじき", "kanji": "掃除機", "romaji": "soujiki", "vi": "Máy hút bụi", "icon": "🧹"},
-    {"jp": "洗濯機", "kana": "せんたくき", "kanji": "洗濯機", "romaji": "sentakuki", "vi": "Máy giặt", "icon": "🧺"},
-    {"jp": "冷蔵庫", "kana": "れいぞうこ", "kanji": "冷蔵庫", "romaji": "reizouko", "vi": "Tủ lạnh", "icon": "🧊"},
-    {"jp": "電子レンジ", "kana": "でんしレンジ", "kanji": "電子レンジ", "romaji": "denshirenji", "vi": "Lò vi sóng", "icon": "📻"},
-    {"jp": "パソコン", "kana": "パソコン", "kanji": "パソコン", "romaji": "pasokon", "vi": "Máy vi tính", "icon": "💻"},
-    {"jp": "壊れる", "kana": "こわれる", "kanji": "壊れる", "romaji": "kowareru", "vi": "Bị hỏng (tự động từ)", "icon": "💥"},
-    {"jp": "動く", "kana": "うごく", "kanji": "動く", "romaji": "ugoku", "vi": "Hoạt động, chạy máy", "icon": "⚙️"},
-    {"jp": "調子", "kana": "ちょうし", "kanji": "調子", "romaji": "choushi", "vi": "Tình trạng máy móc / sức khỏe", "icon": "📊"},
-    {"jp": "故障", "kana": "こしょう", "kanji": "故障", "romaji": "koshou", "vi": "Sự cố, hỏng hóc", "icon": "⚠️"},
-    {"jp": "修理", "kana": "しゅうり", "kanji": "修理", "romaji": "shuuri", "vi": "Sửa chữa", "icon": "🔧"},
-    {"jp": "保証書", "kana": "ほしょうしょ", "kanji": "保証書", "romaji": "hoshousho", "vi": "Giấy bảo hành", "icon": "📜"},
-    {"jp": "ネット通販", "kana": "ネットつうはん", "kanji": "ネット通販", "romaji": "netto tsuuhan", "vi": "Mua hàng online / thương mại điện tử", "icon": "🛒"},
-    {"jp": "注文する", "kana": "ちゅうもんする", "kanji": "注文する", "romaji": "chuumonsuru", "vi": "Đặt hàng", "icon": "📦"},
-    {"jp": "届く", "kana": "とどく", "kanji": "届く", "romaji": "todoku", "vi": "Được giao tới nơi", "icon": "🚚"},
-    {"jp": "返品", "kana": "へんぴん", "kanji": "返品", "romaji": "henpin", "vi": "Trả lại hàng", "icon": "↩️"},
-    {"jp": "交換", "kana": "こうかん", "kanji": "交換", "romaji": "koukan", "vi": "Đổi hàng khác", "icon": "🔄"},
-    {"jp": "不便（な）", "kana": "ふべん（な）", "kanji": "不便（な）", "romaji": "fuben(na)", "vi": "Bất tiện", "icon": "😣"},
-    {"jp": "困る", "kana": "こまる", "kanji": "困る", "romaji": "komaru", "vi": "Khó xử, gặp rắc rối", "icon": "😰"},
-    {"jp": "問い合わせ", "kana": "といあわせ", "kanji": "問い合わせ", "romaji": "toiawase", "vi": "Liên hệ hỗ trợ, thắc mắc", "icon": "📞"},
-    {"jp": "変な音", "kana": "へんなおと", "kanji": "変な音", "romaji": "hen na oto", "vi": "Tiếng kêu lạ, âm thanh bất thường", "icon": "🔊"}
+    {
+        "jp": "商品",
+        "kana": "しょうひん",
+        "kanji": "商品",
+        "romaji": "shouhin",
+        "vi": "Sản phẩm, hàng hóa",
+        "icon": "📦"
+    },
+    {
+        "jp": "電気製品",
+        "kana": "でんきせいひん",
+        "kanji": "電気製品",
+        "romaji": "denkiseihin",
+        "vi": "Đồ điện gia dụng",
+        "icon": "🔌"
+    },
+    {
+        "jp": "掃除機",
+        "kana": "そうじき",
+        "kanji": "掃除機",
+        "romaji": "soujiki",
+        "vi": "Máy hút bụi",
+        "icon": "🧹"
+    },
+    {
+        "jp": "冷蔵庫",
+        "kana": "れいぞうこ",
+        "kanji": "冷蔵庫",
+        "romaji": "reizouko",
+        "vi": "Tủ lạnh",
+        "icon": "🧊"
+    },
+    {
+        "jp": "洗濯機",
+        "kana": "せんたくき",
+        "kanji": "洗濯機",
+        "romaji": "sentakuki",
+        "vi": "Máy giặt",
+        "icon": "🧺"
+    },
+    {
+        "jp": "音楽プレーヤー",
+        "kana": "おんがくプレーヤー",
+        "kanji": "音楽プレーヤー",
+        "romaji": "ongaku pure-ya-",
+        "vi": "Máy phát nhạc",
+        "icon": "🎵"
+    },
+    {
+        "jp": "扇風機",
+        "kana": "せんぷうき",
+        "kanji": "扇風機",
+        "romaji": "senpuuki",
+        "vi": "Quạt máy",
+        "icon": "🌀"
+    },
+    {
+        "jp": "アイロン",
+        "kana": "アイロン",
+        "kanji": "アイロン",
+        "romaji": "airon",
+        "vi": "Bàn là, bàn ủi",
+        "icon": "👔"
+    },
+    {
+        "jp": "電子レンジ",
+        "kana": "でんしレンジ",
+        "kanji": "電子レンジ",
+        "romaji": "denshi renji",
+        "vi": "Lò vi sóng",
+        "icon": "🍲"
+    },
+    {
+        "jp": "炊飯器",
+        "kana": "すいはんき",
+        "kanji": "炊飯器",
+        "romaji": "suihanki",
+        "vi": "Nồi cơm điện",
+        "icon": "🍚"
+    },
+    {
+        "jp": "壊れます",
+        "kana": "こわれます",
+        "kanji": "壊れます",
+        "romaji": "kowaremasu",
+        "vi": "Bị hỏng, hư hại",
+        "icon": "⚙️"
+    },
+    {
+        "jp": "音が出ません",
+        "kana": "おとがでません",
+        "kanji": "音が出ません",
+        "romaji": "oto ga demasen",
+        "vi": "Không phát ra âm thanh",
+        "icon": "🔇"
+    },
+    {
+        "jp": "動きません",
+        "kana": "うごきません",
+        "kanji": "動きません",
+        "romaji": "ugokimasen",
+        "vi": "Không hoạt động, không chạy",
+        "icon": "🛑"
+    },
+    {
+        "jp": "調子が悪い",
+        "kana": "ちょうしがわるい",
+        "kanji": "調子が悪い",
+        "romaji": "choushi ga warui",
+        "vi": "Tình trạng trục trặc",
+        "icon": "⚠️"
+    },
+    {
+        "jp": "気にしません",
+        "kana": "きにしません",
+        "kanji": "気にしません",
+        "romaji": "ki ni shimasen",
+        "vi": "Không để ý, không bận tâm",
+        "icon": "😌"
+    },
+    {
+        "jp": "探します",
+        "kana": "さがします",
+        "kanji": "探します",
+        "romaji": "sagashimasu",
+        "vi": "Tìm kiếm",
+        "icon": "🔍"
+    },
+    {
+        "jp": "落とします",
+        "kana": "おとします",
+        "kanji": "落とします",
+        "romaji": "otoshimasu",
+        "vi": "Đánh rơi, làm rớt",
+        "icon": "⬇️"
+    },
+    {
+        "jp": "困ります",
+        "kana": "こまります",
+        "kanji": "困ります",
+        "romaji": "komarimasu",
+        "vi": "Gặp khó khăn, rắc rối",
+        "icon": "😰"
+    },
+    {
+        "jp": "調べます",
+        "kana": "しらべます",
+        "kanji": "調べます",
+        "romaji": "shirabemasu",
+        "vi": "Tìm hiểu, điều tra",
+        "icon": "🔎"
+    },
+    {
+        "jp": "比べます",
+        "kana": "くらべます",
+        "kanji": "比べます",
+        "romaji": "kurabemasu",
+        "vi": "So sánh",
+        "icon": "⚖️"
+    },
+    {
+        "jp": "届きます",
+        "kana": "とどきます",
+        "kanji": "届きます",
+        "romaji": "todokimasu",
+        "vi": "Được chuyển đến nơi",
+        "icon": "🚚"
+    },
+    {
+        "jp": "決めます",
+        "kana": "きめます",
+        "kanji": "決めます",
+        "romaji": "kimemasu",
+        "vi": "Quyết định",
+        "icon": "✅"
+    },
+    {
+        "jp": "注文します",
+        "kana": "ちゅうもんします",
+        "kanji": "注文します",
+        "romaji": "chuumon shimasu",
+        "vi": "Đặt hàng, gọi món",
+        "icon": "📋"
+    },
+    {
+        "jp": "考えます",
+        "kana": "かんがえます",
+        "kanji": "考えます",
+        "romaji": "kangaemasu",
+        "vi": "Suy nghĩ, cân nhắc",
+        "icon": "🤔"
+    }
 ]
 
 L11_VERBS = [
@@ -242,26 +414,190 @@ L11_QUIZ = [
 # LESSON 12 DATA
 # =============================================================================
 L12_VOCAB = [
-    {"jp": "値段", "kana": "ねだん", "kanji": "値段", "romaji": "nedan", "vi": "Giá cả, mức giá", "icon": "🏷️"},
-    {"jp": "性能", "kana": "せいのう", "kanji": "性能", "romaji": "seinou", "vi": "Tính năng, hiệu suất máy", "icon": "⚡"},
-    {"jp": "サイズ", "kana": "サイズ", "kanji": "サイズ", "romaji": "saizu", "vi": "Kích cỡ size", "icon": "📐"},
-    {"jp": "重さ", "kana": "おもさ", "kanji": "重さ", "romaji": "omosa", "vi": "Trọng lượng, độ nặng", "icon": "⚖️"},
-    {"jp": "軽い", "kana": "かるい", "kanji": "軽い", "romaji": "karui", "vi": "Nhẹ", "icon": "🪶"},
-    {"jp": "重い", "kana": "おもい", "kanji": "重い", "romaji": "omoi", "vi": "Nặng", "icon": "🪨"},
-    {"jp": "安い", "kana": "やすい", "kanji": "安い", "romaji": "yasui", "vi": "Rẻ", "icon": "💰"},
-    {"jp": "高い", "kana": "たかい", "kanji": "高い", "romaji": "takai", "vi": "Đắt, giá cao", "icon": "💎"},
-    {"jp": "便利（な）", "kana": "べんり（な）", "kanji": "便利（な）", "romaji": "benri(na)", "vi": "Tiện lợi", "icon": "👍"},
-    {"jp": "静か（な）", "kana": "しずか（な）", "kanji": "静か（な）", "romaji": "shizuka(na)", "vi": "Yên tĩnh, chạy êm", "icon": "🤫"},
-    {"jp": "レビュー", "kana": "レビュー", "kanji": "レビュー", "romaji": "rebyuu", "vi": "Đánh giá, review sản phẩm", "icon": "⭐"},
-    {"jp": "口コミ", "kana": "くちこみ", "kanji": "口コミ", "romaji": "kuchikomi", "vi": "Nhận xét truyền miệng, đánh giá của khách", "icon": "💬"},
-    {"jp": "星", "kana": "ほし", "kanji": "星", "romaji": "hoshi", "vi": "Ngôi sao xếp hạng (rating)", "icon": "🌟"},
-    {"jp": "評価", "kana": "ひょうか", "kanji": "評価", "romaji": "hyouka", "vi": "Sự đánh giá, xếp hạng", "icon": "📊"},
-    {"jp": "送料無料", "kana": "そうりょうむりょう", "kanji": "送料無料", "romaji": "souryou muryou", "vi": "Miễn phí vận chuyển (Freeship)", "icon": "🚚"},
-    {"jp": "配達日", "kana": "はいたつび", "kanji": "配達日", "romaji": "haitatsubi", "vi": "Ngày giao hàng", "icon": "📆"},
-    {"jp": "割引", "kana": "わりびき", "kanji": "割引", "romaji": "waribiki", "vi": "Giảm giá, chiết khấu", "icon": "🏷️"},
-    {"jp": "ポイント", "kana": "ポイント", "kanji": "ポイント", "romaji": "pointo", "vi": "Điểm tích lũy mua sắm", "icon": "🪙"},
-    {"jp": "比べる", "kana": "くらべる", "kanji": "比べる", "romaji": "kuraberu", "vi": "So sánh", "icon": "🔍"},
-    {"jp": "迷う", "kana": "まよう", "kanji": "迷う", "romaji": "mayou", "vi": "Phân vân, đắn đo", "icon": "🤔"}
+    {
+        "jp": "モデル",
+        "kana": "モデル",
+        "kanji": "モデル",
+        "romaji": "moderu",
+        "vi": "Mẫu mã, kiểu loại",
+        "icon": "📱"
+    },
+    {
+        "jp": "重さ",
+        "kana": "おもさ",
+        "kanji": "重さ",
+        "romaji": "omosa",
+        "vi": "Cân nặng, khối lượng",
+        "icon": "⚖️"
+    },
+    {
+        "jp": "大きさ",
+        "kana": "おおきさ",
+        "kanji": "大きさ",
+        "romaji": "ookisa",
+        "vi": "Độ lớn, kích thước",
+        "icon": "📐"
+    },
+    {
+        "jp": "機能",
+        "kana": "きのう",
+        "kanji": "機能",
+        "romaji": "kinou",
+        "vi": "Chức năng, tính năng",
+        "icon": "⚙️"
+    },
+    {
+        "jp": "値段",
+        "kana": "ねだん",
+        "kanji": "値段",
+        "romaji": "nedan",
+        "vi": "Giá cả",
+        "icon": "🏷️"
+    },
+    {
+        "jp": "税込",
+        "kana": "ぜいこみ",
+        "kanji": "税込",
+        "romaji": "zeikomi",
+        "vi": "Đã bao gồm thuế",
+        "icon": "🧾"
+    },
+    {
+        "jp": "翌日",
+        "kana": "よくじつ",
+        "kanji": "翌日",
+        "romaji": "yokujitsu",
+        "vi": "Ngày hôm sau",
+        "icon": "📆"
+    },
+    {
+        "jp": "送料無料",
+        "kana": "そうりょうむりょう",
+        "kanji": "送料無料",
+        "romaji": "souryou muryou",
+        "vi": "Miễn phí vận chuyển",
+        "icon": "🚚"
+    },
+    {
+        "jp": "届きます",
+        "kana": "とどきます",
+        "kanji": "届きます",
+        "romaji": "todokimasu",
+        "vi": "Được giao đến",
+        "icon": "📦"
+    },
+    {
+        "jp": "省エネ",
+        "kana": "しょうエネ",
+        "kanji": "省エネ",
+        "romaji": "shouene",
+        "vi": "Tiết kiệm năng lượng",
+        "icon": "🌱"
+    },
+    {
+        "jp": "デザイン",
+        "kana": "デザイン",
+        "kanji": "デザイン",
+        "romaji": "dezain",
+        "vi": "Thiết kế, kiểu dáng",
+        "icon": "🎨"
+    },
+    {
+        "jp": "カラー",
+        "kana": "カラー",
+        "kanji": "カラー",
+        "romaji": "kara-",
+        "vi": "Màu sắc",
+        "icon": "🌈"
+    },
+    {
+        "jp": "レビュー",
+        "kana": "レビュー",
+        "kanji": "レビュー",
+        "romaji": "rebyu-",
+        "vi": "Đánh giá, nhận xét (review)",
+        "icon": "⭐"
+    },
+    {
+        "jp": "重い",
+        "kana": "おもい",
+        "kanji": "重い",
+        "romaji": "omoi",
+        "vi": "Nặng",
+        "icon": "🏋️"
+    },
+    {
+        "jp": "軽い",
+        "kana": "かるい",
+        "kanji": "軽い",
+        "romaji": "karui",
+        "vi": "Nhẹ",
+        "icon": "🪶"
+    },
+    {
+        "jp": "複雑（な）",
+        "kana": "ふくざつ（な）",
+        "kanji": "複雑（な）",
+        "romaji": "fukuzatsu(na)",
+        "vi": "Phức tạp",
+        "icon": "🧩"
+    },
+    {
+        "jp": "気に入ります",
+        "kana": "きにいります",
+        "kanji": "気に入ります",
+        "romaji": "ki ni irimasu",
+        "vi": "Yêu thích, ưng ý",
+        "icon": "💖"
+    },
+    {
+        "jp": "満足（します）",
+        "kana": "まんぞく（します）",
+        "kanji": "満足（します）",
+        "romaji": "manzoku(shimasu)",
+        "vi": "Hài lòng, thỏa mãn",
+        "icon": "😊"
+    },
+    {
+        "jp": "ごみを捨てます",
+        "kana": "ごみをすてます",
+        "kanji": "ごみを捨てます",
+        "romaji": "gomi o sutemasu",
+        "vi": "Vứt rác",
+        "icon": "🗑️"
+    },
+    {
+        "jp": "びっくり（します）",
+        "kana": "びっくり（します）",
+        "kanji": "びっくり（します）",
+        "romaji": "bikkuri(shimasu)",
+        "vi": "Bất ngờ, kinh ngạc",
+        "icon": "😲"
+    },
+    {
+        "jp": "ユーザー",
+        "kana": "ユーザー",
+        "kanji": "ユーザー",
+        "romaji": "yu-za-",
+        "vi": "Người dùng, khách hàng",
+        "icon": "👤"
+    },
+    {
+        "jp": "モード",
+        "kana": "モード",
+        "kanji": "モード",
+        "romaji": "mo-do",
+        "vi": "Chế độ (hoạt động)",
+        "icon": "🔄"
+    },
+    {
+        "jp": "うるさい",
+        "kana": "うるさい",
+        "kanji": "うるさい",
+        "romaji": "urusai",
+        "vi": "Ồn ào",
+        "icon": "📢"
+    }
 ]
 
 L12_VERBS = [
