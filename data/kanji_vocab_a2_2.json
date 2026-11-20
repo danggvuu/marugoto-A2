@@ -110,34 +110,59 @@
   ],
   "lesson_3": [
     {
-      "word": "客",
-      "kana": "きゃく",
-      "mean": "Khách"
+      "word": "お客さん",
+      "kana": "おきゃくさん",
+      "mean": "Khách hàng"
     },
     {
       "word": "注文",
       "kana": "ちゅうもん",
-      "mean": "Gọi món, đặt hàng"
+      "mean": "Order, gọi món, đặt hàng"
+    },
+    {
+      "word": "注意",
+      "kana": "ちゅうい",
+      "mean": "Chú ý, nhắc nhở"
     },
     {
       "word": "洋食",
       "kana": "ようしょく",
-      "mean": "Món ăn phương Tây"
+      "mean": "Đồ ăn kiểu Tây"
+    },
+    {
+      "word": "洋服",
+      "kana": "ようふく",
+      "mean": "Quần áo kiểu Tây"
     },
     {
       "word": "和食",
       "kana": "わしょく",
-      "mean": "Món ăn Nhật"
+      "mean": "Đồ ăn kiểu Nhật"
     },
     {
-      "word": "牛肉",
-      "kana": "ぎゅうにく",
-      "mean": "Thịt bò"
+      "word": "和服",
+      "kana": "わふく",
+      "mean": "Quần áo kiểu Nhật"
+    },
+    {
+      "word": "和室",
+      "kana": "わしつ",
+      "mean": "Phòng kiểu Nhật"
+    },
+    {
+      "word": "方",
+      "kana": "かた",
+      "mean": "Vị, cách làm~"
     },
     {
       "word": "地方",
       "kana": "ちほう",
-      "mean": "Vùng, miền"
+      "mean": "Địa phương"
+    },
+    {
+      "word": "方法",
+      "kana": "ほうほう",
+      "mean": "Phương pháp, cách thức"
     },
     {
       "word": "有名",
@@ -145,21 +170,41 @@
       "mean": "Nổi tiếng"
     },
     {
-      "word": "生",
-      "kana": "なま",
-      "mean": "Sống, tươi"
+      "word": "有料",
+      "kana": "ゆうりょう",
+      "mean": "Có phí, mất phí"
+    },
+    {
+      "word": "牛肉",
+      "kana": "ぎゅうにく",
+      "mean": "Thịt bò"
+    },
+    {
+      "word": "牛乳",
+      "kana": "ぎゅうにゅう",
+      "mean": "Sữa bò"
     },
     {
       "word": "冷たい",
       "kana": "つめたい",
-      "mean": "Lạnh"
+      "mean": "Lạnh (cảm giác)"
+    },
+    {
+      "word": "冷える",
+      "kana": "ひえる",
+      "mean": "Lạnh, cóng"
+    },
+    {
+      "word": "冷やす",
+      "kana": "ひやす",
+      "mean": "Làm lạnh"
     }
   ],
   "lesson_4": [
     {
       "word": "ご飯",
       "kana": "ごはん",
-      "mean": "Cơm, bữa ăn"
+      "mean": "Cơm, bữa cơm"
     },
     {
       "word": "塩",
@@ -167,34 +212,44 @@
       "mean": "Muối"
     },
     {
+      "word": "全て",
+      "kana": "すべて",
+      "mean": "Tất cả (lịch sự)"
+    },
+    {
+      "word": "全然",
+      "kana": "ぜんぜん",
+      "mean": "Hoàn toàn (không)"
+    },
+    {
       "word": "全部",
       "kana": "ぜんぶ",
-      "mean": "Tất cả"
+      "mean": "Tất cả, toàn bộ"
     },
     {
-      "word": "～方",
-      "kana": "～かた",
-      "mean": "Cách ～"
-    },
-    {
-      "word": "食べ方",
-      "kana": "たべかた",
-      "mean": "Cách ăn"
+      "word": "安全",
+      "kana": "あんぜん",
+      "mean": "An toàn"
     },
     {
       "word": "熱い",
       "kana": "あつい",
-      "mean": "Nóng (đồ vật, thức ăn)"
+      "mean": "Nóng"
+    },
+    {
+      "word": "苦い",
+      "kana": "にがい",
+      "mean": "Đắng"
+    },
+    {
+      "word": "苦しい",
+      "kana": "くるしい",
+      "mean": "Đau khổ, khó khăn"
     },
     {
       "word": "苦手",
       "kana": "にがて",
-      "mean": "Không giỏi, không thích"
-    },
-    {
-      "word": "入れます",
-      "kana": "いれます",
-      "mean": "Cho vào"
+      "mean": "Kém, yếu, không hợp, sợ"
     }
   ],
   "lesson_5": [

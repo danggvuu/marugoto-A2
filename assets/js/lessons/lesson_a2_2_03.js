@@ -369,16 +369,16 @@ const QUIZ_DATA = [
   {
     "id": 6,
     "category": "Chữ Hán",
-    "q": "Từ Kanji 「客」 có cách đọc nào?",
+    "q": "Từ Kanji 「お客さん」 có cách đọc nào?",
     "options": [
-      "きゃく",
+      "おきゃくさん",
       "ちゅうもん",
       "ようしょく",
       "わしょく"
     ],
     "correct": 0,
-    "explain": "客 đọc là 「きゃく」 theo danh sách Kanji chính thức của bài học này.",
-    "scopeKanji": "客"
+    "explain": "お客さん đọc là 「おきゃくさん」 mang nghĩa Khách hàng.",
+    "scopeKanji": "お客さん"
   },
   {
     "id": 7,
@@ -467,12 +467,12 @@ const QUIZ_DATA = [
     "q": "Từ Kanji 「和食」 có nghĩa là gì?",
     "options": [
       "Thịt bò",
-      "Món ăn Nhật",
-      "Vùng, miền",
+      "Đồ ăn kiểu Nhật",
+      "Địa phương",
       "Nổi tiếng"
     ],
     "correct": 1,
-    "explain": "和食 nghĩa là Món ăn Nhật.",
+    "explain": "和食 nghĩa là Đồ ăn kiểu Nhật.",
     "scopeKanji": "和食"
   },
   {

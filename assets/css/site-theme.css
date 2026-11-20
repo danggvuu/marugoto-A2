@@ -1904,20 +1904,25 @@ details .details-body, details .details-content, details > *:not(summary), .acco
 }
 
 .kanji-big-char {
-    font-size: 2.8rem;
+    font-size: 2.3rem;
     font-weight: 900;
     line-height: 1;
     color: var(--dark);
     background: var(--accent-bg);
     border: 1.5px solid var(--accent-border);
     border-radius: var(--radius-md);
-    padding: 14px 18px;
+    padding: 10px 14px;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-width: 72px;
-    min-height: 72px;
+    min-width: 64px;
+    min-height: 64px;
     flex-shrink: 0;
+}
+
+.kanji-big-char.char-long {
+    font-size: 1.55rem;
+    padding: 8px 10px;
 }
 
 .kanji-info {

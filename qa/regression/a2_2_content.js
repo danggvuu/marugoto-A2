@@ -111,5 +111,5 @@ for (let lesson = 1; lesson <= 18; lesson++) {
     totalKanji += rows.length;
 }
 
-assert.strictEqual(totalKanji, 170, 'Official A2-2 Kanji word list should contain 170 entries');
+assert.strictEqual(totalKanji, 181, 'Official A2-2 Kanji word list should contain 181 entries');
 console.log(`✅ A2-2 curriculum checked: ${totalVocab} vocabulary cards, ${totalQuiz} quiz questions and ${totalKanji} official Kanji words across all 18 lessons.`);

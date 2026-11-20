@@ -399,7 +399,7 @@ const QUIZ_DATA = [
       "しお",
       "ぜんぶ",
       "ごはん",
-      "～かた"
+      "あんぜん"
     ],
     "correct": 2,
     "explain": "ご飯 đọc là 「ごはん」 theo danh sách Kanji chính thức của bài học này.",
@@ -437,9 +437,9 @@ const QUIZ_DATA = [
     "q": "Từ Kanji 「塩」 có nghĩa là gì?",
     "options": [
       "Muối",
-      "Tất cả",
-      "Cách ～",
-      "Cách ăn"
+      "Tất cả, toàn bộ",
+      "An toàn",
+      "Nóng"
     ],
     "correct": 0,
     "explain": "塩 nghĩa là Muối.",
@@ -450,8 +450,8 @@ const QUIZ_DATA = [
     "category": "Chữ Hán",
     "q": "Từ Kanji 「全部」 có cách đọc nào?",
     "options": [
-      "～かた",
-      "たべかた",
+      "すべて",
+      "ぜんぜん",
       "ぜんぶ",
       "あつい"
     ],
@@ -489,16 +489,16 @@ const QUIZ_DATA = [
   {
     "id": 13,
     "category": "Chữ Hán",
-    "q": "Từ Kanji 「～方」 có nghĩa là gì?",
+    "q": "Từ Kanji 「苦手」 có nghĩa là gì?",
     "options": [
-      "Cách ăn",
-      "Nóng (đồ vật, thức ăn)",
-      "Không giỏi, không thích",
-      "Cách ～"
+      "Muối",
+      "An toàn",
+      "Nóng",
+      "Kém, yếu, không hợp, sợ"
     ],
     "correct": 3,
-    "explain": "～方 nghĩa là Cách ～.",
-    "scopeKanji": "～方"
+    "explain": "苦手 nghĩa là Kém, yếu, không hợp, sợ.",
+    "scopeKanji": "苦手"
   },
   {
     "id": 14,
