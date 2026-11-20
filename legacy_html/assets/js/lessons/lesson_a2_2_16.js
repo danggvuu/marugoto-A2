@@ -1,0 +1,589 @@
+/* Marugoto A2-2 Bài 16 (A2-2) - Extracted Data & Logic */
+const VOCAB_DATA = [
+  {
+    "id": 1,
+    "cat": "vocab",
+    "catName": "Từ Vựng",
+    "badge": "Bài 16 (A2-2)",
+    "jp": "フリーマーケット",
+    "kana": "フリーマーケット",
+    "kanji": "フリーマーケット",
+    "romaji": "furi-ma-ketto",
+    "vi": "Hội chợ (đồ cũ), chợ trời",
+    "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_5cbdf59462c3ba49\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#7c3aed\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_5cbdf59462c3ba49)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"32\">🎪</text>\n</svg>"
+  },
+  {
+    "id": 2,
+    "cat": "vocab",
+    "catName": "Từ Vựng",
+    "badge": "Bài 16 (A2-2)",
+    "jp": "レンタルショップ",
+    "kana": "レンタルショップ",
+    "kanji": "レンタルショップ",
+    "romaji": "rentaru shoppu",
+    "vi": "Cửa hàng cho thuê đồ",
+    "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_2580b11a17a2adef\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#7c3aed\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_2580b11a17a2adef)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"32\">🏬</text>\n</svg>"
+  },
+  {
+    "id": 3,
+    "cat": "vocab",
+    "catName": "Từ Vựng",
+    "badge": "Bài 16 (A2-2)",
+    "jp": "クッション",
+    "kana": "クッション",
+    "kanji": "クッション",
+    "romaji": "kusshon",
+    "vi": "Gối tựa, đệm sofa",
+    "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_a1eb23aa62f002a5\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#7c3aed\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_a1eb23aa62f002a5)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"32\">🛋️</text>\n</svg>"
+  },
+  {
+    "id": 4,
+    "cat": "vocab",
+    "catName": "Từ Vựng",
+    "badge": "Bài 16 (A2-2)",
+    "jp": "布団",
+    "kana": "ふとん",
+    "kanji": "布団",
+    "romaji": "futon",
+    "vi": "Chăn, nệm",
+    "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_c1fb72b996d2bcb4\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#7c3aed\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_c1fb72b996d2bcb4)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"32\">🛏️</text>\n</svg>"
+  },
+  {
+    "id": 5,
+    "cat": "vocab",
+    "catName": "Từ Vựng",
+    "badge": "Bài 16 (A2-2)",
+    "jp": "エコバッグ",
+    "kana": "エコバッグ",
+    "kanji": "エコバッグ",
+    "romaji": "ekobaggu",
+    "vi": "Túi thân thiện môi trường",
+    "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_eab7cda53911c994\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#7c3aed\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_eab7cda53911c994)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"32\">🛍️</text>\n</svg>"
+  },
+  {
+    "id": 6,
+    "cat": "vocab",
+    "catName": "Từ Vựng",
+    "badge": "Bài 16 (A2-2)",
+    "jp": "ベビーベッド",
+    "kana": "ベビーベッド",
+    "kanji": "ベビーベッド",
+    "romaji": "bebi-beddo",
+    "vi": "Giường em bé, nôi",
+    "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_29416dcd9dbffc25\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#7c3aed\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_29416dcd9dbffc25)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"32\">👶</text>\n</svg>"
+  },
+  {
+    "id": 7,
+    "cat": "vocab",
+    "catName": "Từ Vựng",
+    "badge": "Bài 16 (A2-2)",
+    "jp": "ベビーカー",
+    "kana": "ベビーカー",
+    "kanji": "ベビーカー",
+    "romaji": "bebi-ka-",
+    "vi": "Xe đẩy em bé",
+    "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_639208922811e5dd\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#7c3aed\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_639208922811e5dd)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"32\">🚼</text>\n</svg>"
+  },
+  {
+    "id": 8,
+    "cat": "vocab",
+    "catName": "Từ Vựng",
+    "badge": "Bài 16 (A2-2)",
+    "jp": "飽きます",
+    "kana": "あきます",
+    "kanji": "飽きます",
+    "romaji": "akimasu",
+    "vi": "Chán ngấy",
+    "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_d5c4cc05c9a352d4\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#7c3aed\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_d5c4cc05c9a352d4)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"32\">🥱</text>\n</svg>"
+  },
+  {
+    "id": 9,
+    "cat": "vocab",
+    "catName": "Từ Vựng",
+    "badge": "Bài 16 (A2-2)",
+    "jp": "サイズが変わります",
+    "kana": "サイズがかわります",
+    "kanji": "サイズが変わります",
+    "romaji": "saizu ga kawarimasu",
+    "vi": "Thay đổi kích cỡ",
+    "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_ad6ec187bb5b3dd9\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#7c3aed\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_ad6ec187bb5b3dd9)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"32\">📏</text>\n</svg>"
+  },
+  {
+    "id": 10,
+    "cat": "vocab",
+    "catName": "Từ Vựng",
+    "badge": "Bài 16 (A2-2)",
+    "jp": "要ります",
+    "kana": "いります",
+    "kanji": "要ります",
+    "romaji": "irimasu",
+    "vi": "Cần thiết",
+    "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_252345f1d0d45995\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#7c3aed\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_252345f1d0d45995)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"32\">✅</text>\n</svg>"
+  },
+  {
+    "id": 11,
+    "cat": "vocab",
+    "catName": "Từ Vựng",
+    "badge": "Bài 16 (A2-2)",
+    "jp": "要りません",
+    "kana": "いりません",
+    "kanji": "要りません",
+    "romaji": "irimasen",
+    "vi": "Không cần thiết",
+    "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_890a3d9ac1409870\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#7c3aed\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_890a3d9ac1409870)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"32\">❌</text>\n</svg>"
+  },
+  {
+    "id": 12,
+    "cat": "vocab",
+    "catName": "Từ Vựng",
+    "badge": "Bài 16 (A2-2)",
+    "jp": "要らないものを売ります",
+    "kana": "いらないものをうります",
+    "kanji": "要らないものを売ります",
+    "romaji": "iranai mono o urimasu",
+    "vi": "Bán đồ không cần thiết",
+    "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_994d7b73e1ad8e6e\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#7c3aed\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_994d7b73e1ad8e6e)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"32\">🏷️</text>\n</svg>"
+  },
+  {
+    "id": 13,
+    "cat": "vocab",
+    "catName": "Từ Vựng",
+    "badge": "Bài 16 (A2-2)",
+    "jp": "増えます",
+    "kana": "ふえます",
+    "kanji": "増えます",
+    "romaji": "fuemasu",
+    "vi": "Tăng lên",
+    "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_a29e7da8f642e3d5\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#7c3aed\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_a29e7da8f642e3d5)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"32\">📈</text>\n</svg>"
+  },
+  {
+    "id": 14,
+    "cat": "vocab",
+    "catName": "Từ Vựng",
+    "badge": "Bài 16 (A2-2)",
+    "jp": "破れます",
+    "kana": "やぶれます",
+    "kanji": "破れます",
+    "romaji": "yaburemasu",
+    "vi": "Bị rách",
+    "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_a124ada976a460f8\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#7c3aed\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_a124ada976a460f8)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"32\">💥</text>\n</svg>"
+  },
+  {
+    "id": 15,
+    "cat": "vocab",
+    "catName": "Từ Vựng",
+    "badge": "Bài 16 (A2-2)",
+    "jp": "汚れます",
+    "kana": "よごれます",
+    "kanji": "汚れます",
+    "romaji": "yogoremasu",
+    "vi": "Bị bẩn",
+    "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_cdf71eb8db077c80\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#7c3aed\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_cdf71eb8db077c80)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"32\">🧼</text>\n</svg>"
+  },
+  {
+    "id": 16,
+    "cat": "vocab",
+    "catName": "Từ Vựng",
+    "badge": "Bài 16 (A2-2)",
+    "jp": "修理します",
+    "kana": "しゅうりします",
+    "kanji": "修理します",
+    "romaji": "shuuri shimasu",
+    "vi": "Sửa chữa",
+    "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_b7bf84fe7a7d65c6\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#7c3aed\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_b7bf84fe7a7d65c6)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"32\">🔨</text>\n</svg>"
+  },
+  {
+    "id": 17,
+    "cat": "vocab",
+    "catName": "Từ Vựng",
+    "badge": "Bài 16 (A2-2)",
+    "jp": "穴が開きます",
+    "kana": "あながあきます",
+    "kanji": "穴が開きます",
+    "romaji": "ana ga akimasu",
+    "vi": "Thủng lỗ",
+    "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_55284dbf395711d9\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#7c3aed\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_55284dbf395711d9)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"32\">🕳️</text>\n</svg>"
+  },
+  {
+    "id": 18,
+    "cat": "vocab",
+    "catName": "Từ Vựng",
+    "badge": "Bài 16 (A2-2)",
+    "jp": "ごみを拾います",
+    "kana": "ごみをひろいます",
+    "kanji": "ごみを拾います",
+    "romaji": "gomi o hiroimasu",
+    "vi": "Nhặt rác",
+    "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_490794dcebde9454\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#7c3aed\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_490794dcebde9454)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"32\">🧹</text>\n</svg>"
+  }
+];
+
+const VERB_DATA = [
+  {
+    "masu": "せつやくします",
+    "vi": "Tiết kiệm",
+    "te": "せつやくして",
+    "form1": "せつやくするようにしています (cố gắng tiết kiệm)",
+    "form2": "せつやくした",
+    "form3": "せつやくする"
+  },
+  {
+    "masu": "けします",
+    "vi": "Tắt điện",
+    "te": "けして",
+    "form1": "けすようにしています (luôn nhớ tắt)",
+    "form2": "けした",
+    "form3": "けす"
+  },
+  {
+    "masu": "とめます",
+    "vi": "Khóa vòi nước",
+    "te": "とめて",
+    "form1": "こまめにとめましょう",
+    "form2": "とめた",
+    "form3": "とめる"
+  },
+  {
+    "masu": "つづけます",
+    "vi": "Tiếp tục duy trì",
+    "te": "つづけて",
+    "form1": "まいにちつづける (duy trì mỗi ngày)",
+    "form2": "つづけた",
+    "form3": "つづける"
+  },
+  {
+    "masu": "つかいます",
+    "vi": "Dùng",
+    "te": "つかって",
+    "form1": "つかわない日 (ngày không dùng)",
+    "form2": "つかった",
+    "form3": "つかう"
+  }
+];
+
+const QUIZ_DATA = [
+  {
+    "id": 1,
+    "category": "Ngữ pháp",
+    "q": "服が着られなく [____]。",
+    "options": [
+      "しました",
+      "あります",
+      "いました",
+      "なりました"
+    ],
+    "correct": 3,
+    "explain": "Thể khả năng phủ định + なる: không còn mặc được nữa.",
+    "grammarScope": "official"
+  },
+  {
+    "id": 2,
+    "category": "Ngữ pháp",
+    "q": "服が着られなくなった [____]、どうしますか。",
+    "options": [
+      "ので",
+      "まで",
+      "ら",
+      "そう"
+    ],
+    "correct": 2,
+    "explain": "Vたら nêu điều kiện: nếu không mặc được nữa thì làm gì?",
+    "grammarScope": "official"
+  },
+  {
+    "id": 3,
+    "category": "Ngữ pháp",
+    "q": "ゆうこさんはネクタイをバッグ [____] しました。",
+    "options": [
+      "に",
+      "で",
+      "を",
+      "が"
+    ],
+    "correct": 0,
+    "explain": "NをNにする diễn tả biến vật này thành vật khác.",
+    "grammarScope": "official"
+  },
+  {
+    "id": 4,
+    "category": "Chữ Hán",
+    "q": "Từ Kanji 「服」 có cách đọc nào?",
+    "options": [
+      "じてんしゃ",
+      "ふく",
+      "じどうしゃ",
+      "うります"
+    ],
+    "correct": 1,
+    "explain": "服 đọc là 「ふく」 theo danh sách Kanji chính thức của bài học này.",
+    "scopeKanji": "服"
+  },
+  {
+    "id": 5,
+    "category": "Từ vựng",
+    "q": "私たちが 住んでいる 青い 星は [____] です。",
+    "options": [
+      "かいだん",
+      "すいどう",
+      "ちきゅう",
+      "ガス"
+    ],
+    "correct": 2,
+    "explain": "Trái đất hành tinh xanh là 「地球 (ちきゅう)」."
+  },
+  {
+    "id": 6,
+    "category": "Chữ Hán",
+    "q": "Từ Kanji 「自転車」 có cách đọc nào?",
+    "options": [
+      "じどうしゃ",
+      "じてんしゃ",
+      "うります",
+      "かします"
+    ],
+    "correct": 1,
+    "explain": "自転車 đọc là 「じてんしゃ」 theo danh sách Kanji chính thức của bài học này.",
+    "scopeKanji": "自転車"
+  },
+  {
+    "id": 7,
+    "category": "Hội thoại",
+    "q": "「マイボトルを 持ち歩くのは なぜですか。」 ―― 「プラスチックごみを [____] ためです。」",
+    "options": [
+      "増やす",
+      "残す",
+      "減らす",
+      "買う"
+    ],
+    "correct": 2,
+    "explain": "Để cắt giảm rác thải: 「減らす (へらす) ためです」."
+  },
+  {
+    "id": 8,
+    "category": "Chữ Hán",
+    "q": "Từ Kanji 「自動車」 có cách đọc nào?",
+    "options": [
+      "うります",
+      "かします",
+      "かえします",
+      "じどうしゃ"
+    ],
+    "correct": 3,
+    "explain": "自動車 đọc là 「じどうしゃ」 theo danh sách Kanji chính thức của bài học này.",
+    "scopeKanji": "自動車"
+  },
+  {
+    "id": 9,
+    "category": "Từ vựng",
+    "q": "地球全体の 気温が 徐々に 上がってしまう 環境問題は 地球[____] です。",
+    "options": [
+      "しゅうかん",
+      "おんだんか",
+      "せつやく",
+      "かいだん"
+    ],
+    "correct": 1,
+    "explain": "Ấm lên toàn cầu: 「地球温暖化 (ちきゅうおんだんか)」."
+  },
+  {
+    "id": 10,
+    "category": "Chữ Hán",
+    "q": "Từ Kanji 「売ります」 có cách đọc nào?",
+    "options": [
+      "うります",
+      "かします",
+      "かえします",
+      "かわります"
+    ],
+    "correct": 0,
+    "explain": "売ります đọc là 「うります」 theo danh sách Kanji chính thức của bài học này.",
+    "scopeKanji": "売ります"
+  },
+  {
+    "id": 11,
+    "category": "Ngữ pháp",
+    "q": "服が着られなくなった [____]、フリーマーケットで売ります。",
+    "options": [
+      "ので",
+      "まで",
+      "ら",
+      "そう"
+    ],
+    "correct": 2,
+    "explain": "Vたら nêu điều kiện: nếu không mặc được nữa thì bán.",
+    "grammarScope": "official"
+  },
+  {
+    "id": 12,
+    "category": "Chữ Hán",
+    "q": "Từ Kanji 「貸します」 có cách đọc nào?",
+    "options": [
+      "かえします",
+      "かします",
+      "かわります",
+      "～よう"
+    ],
+    "correct": 1,
+    "explain": "貸します đọc là 「かします」 theo danh sách Kanji chính thức của bài học này.",
+    "scopeKanji": "貸します"
+  },
+  {
+    "id": 13,
+    "category": "Từ vựng",
+    "q": "毎日 繰り返し 行う 行動の 決まりを [____] と 呼びます。",
+    "options": [
+      "しゅうかん",
+      "ちきゅう",
+      "おんだんか",
+      "ざんしょく"
+    ],
+    "correct": 0,
+    "explain": "Thói quen hàng ngày là 「習慣 (しゅうかん)」."
+  },
+  {
+    "id": 14,
+    "category": "Hội thoại",
+    "q": "食べ残し（たべのこし）を 出さないように、食べられる 分だけ [____] ように しています。",
+    "options": [
+      "注文する",
+      "注文しない",
+      "注文して",
+      "注文した"
+    ],
+    "correct": 0,
+    "explain": "Cố gắng chỉ gọi đủ phần ăn: 「注文するようにしています」."
+  },
+  {
+    "id": 15,
+    "category": "Chữ Hán",
+    "q": "Từ Kanji 「返します」 có nghĩa là gì?",
+    "options": [
+      "Thay đổi",
+      "Dành cho ～, dùng cho ～",
+      "Dành cho trẻ em",
+      "Trả lại"
+    ],
+    "correct": 3,
+    "explain": "返します nghĩa là Trả lại.",
+    "scopeKanji": "返します"
+  }
+];
+
+function escapeLessonText(value) {
+    return String(value).replace(/&/g, '&amp;').replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+}
+
+// Render Verb Lab
+function initVerbLab() {
+    const row = document.getElementById('verbSelectorRow');
+    if (!row || !VERB_DATA.length) return;
+    row.innerHTML = '';
+    VERB_DATA.forEach((v, idx) => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = `btn-verb-chip ${idx === 0 ? 'active' : ''}`;
+        btn.textContent = `${v.masu} (${v.vi})`;
+        btn.onclick = () => selectVerb(idx);
+        row.appendChild(btn);
+    });
+    selectVerb(0);
+}
+
+function selectVerb(idx) {
+    const chips = document.querySelectorAll('.btn-verb-chip');
+    chips.forEach((c, i) => c.classList.toggle('active', i === idx));
+    const v = VERB_DATA[idx];
+    if (!v) return;
+
+    const elMasu = document.getElementById('morphMasu');
+    const elVi = document.getElementById('morphVi');
+    const elTe = document.getElementById('morphTe');
+    const elForm1 = document.getElementById('morphTeIki');
+    const elForm2 = document.getElementById('morphTeKi');
+    const elForm3 = document.getElementById('morphMashou');
+
+    if (elMasu) elMasu.textContent = v.masu || '---';
+    if (elVi) elVi.textContent = v.vi || '---';
+    if (elTe) elTe.textContent = v.te || '---';
+    if (elForm1) elForm1.textContent = v.form1 || '---';
+    if (elForm2) elForm2.textContent = v.form2 || '---';
+    if (elForm3) elForm3.textContent = v.form3 || '---';
+}
+
+// Render Flashcards
+function initFlashcards() {
+    const grid = document.getElementById('flashcardGrid');
+    if (!grid) return;
+    grid.innerHTML = '';
+    VOCAB_DATA.forEach(v => {
+        const card = document.createElement('button');
+        card.type = 'button';
+        card.className = 'fc-item';
+        card.setAttribute('aria-label', `Nghe ${v.jp}`);
+        card.onclick = () => {
+            if (typeof speakText === 'function') speakText(v.kana || v.jp);
+        };
+        card.innerHTML = `
+            <span class="fc-svg-wrap" aria-hidden="true">${v.svg}</span>
+            <span class="fc-content">
+                <span class="fc-jp" lang="ja">${escapeLessonText(v.jp)}</span>
+                <span class="fc-kana" lang="ja">${escapeLessonText(v.kana)}</span>
+                <span class="fc-romaji">${escapeLessonText(v.romaji)}</span>
+                <span class="fc-vi">${escapeLessonText(v.vi)}</span>
+                <span class="fc-listen">🔊 Nghe phát âm</span>
+            </span>
+        `;
+        grid.appendChild(card);
+    });
+}
+
+// Render Quiz
+function initQuiz() {
+    const c = document.getElementById('quizContainer');
+    if (!c) return;
+    c.innerHTML = '';
+    QUIZ_DATA.forEach((q, qIdx) => {
+        const qBox = document.createElement('div');
+        qBox.className = 'quiz-card';
+        const optsHtml = q.options.map((opt, oIdx) => `
+            <button type="button" class="quiz-opt" onclick="checkQuizAnswer(this, ${qIdx}, ${oIdx}, 'a22-reviewed-v2')">${escapeLessonText(opt)}</button>
+        `).join('');
+        qBox.innerHTML = `
+            <div class="quiz-q"><b>Câu ${qIdx + 1}:</b> ${escapeLessonText(q.q)}</div>
+            <div class="quiz-opts">${optsHtml}</div>
+            <div class="quiz-explain" id="explain-${qIdx}">💡 ${escapeLessonText(q.explain)}</div>
+        `;
+        c.appendChild(qBox);
+    });
+}
+
+function checkQuizAnswer(btn, qIdx, oIdx, revision) {
+    if (revision !== 'a22-reviewed-v2' || btn.disabled) return;
+    const q = QUIZ_DATA[qIdx];
+    const parent = btn.parentElement;
+    const allBtns = parent.querySelectorAll('.quiz-opt');
+    allBtns.forEach(b => b.disabled = true);
+    if (oIdx === q.correct) {
+        btn.classList.add('correct');
+    } else {
+        btn.classList.add('wrong');
+        allBtns[q.correct].classList.add('correct');
+    }
+    const exp = document.getElementById(`explain-${qIdx}`);
+    if (exp) exp.style.display = 'block';
+}
+
+function initLessonInteractive() {
+    initVerbLab();
+    initFlashcards();
+    initQuiz();
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initLessonInteractive);
+} else {
+    initLessonInteractive();
+}
+
+if (typeof VOCAB_DATA !== "undefined") window.VOCAB_DATA = VOCAB_DATA;

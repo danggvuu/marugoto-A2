@@ -1,0 +1,18 @@
+import { Badge } from '@astryxdesign/core/Badge';
+import { Card } from '@astryxdesign/core/Card';
+import { AudioButton } from '../common/AudioButton';
+import { Check, PenLine } from 'lucide-react';
+import { useState } from 'react';
+import type { KanjiCharacter, KanjiEntry } from '../../types/study';
+import * as stylex from '@stylexjs/stylex';
+const s = stylex.create({ grid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fill,minmax(260px,1fr))', gap: 14 }, card: { display: 'grid', gap: 12, padding: 18 }, word: { fontSize: 28, fontWeight: 750, letterSpacing: '.04em' }, readings: { display: 'grid', gap: 5, color: 'var(--color-text-secondary)', fontSize: 13 }, character: { display: 'grid', gridTemplateColumns: '70px 1fr', gap: 14, borderTopWidth: 1, borderTopStyle: 'solid', borderTopColor: 'rgba(127,127,127,.18)', paddingTop: 12 }, glyph: { fontSize: 48, fontWeight: 700, lineHeight: 1 }, actions: { display: 'flex', justifyContent: 'space-between', alignItems: 'center' }, canvasWrap: { display: 'grid', justifyItems: 'start', gap: 8 }, canvas: { borderWidth: 1, borderStyle: 'dashed', borderColor: 'var(--color-text-secondary)', borderRadius: 10, touchAction: 'none', backgroundColor: 'var(--color-background-surface)' } });
+function StrokeCanvas({ label }: { label: string }) {
+ const [drawing,setDrawing]=useState(false);
+ const draw=(event: React.PointerEvent<HTMLCanvasElement>)=>{const canvas=event.currentTarget,rect=canvas.getBoundingClientRect(),ctx=canvas.getContext('2d');if(!ctx)return;const x=event.clientX-rect.left,y=event.clientY-rect.top;if(event.type==='pointerdown'){canvas.setPointerCapture(event.pointerId);ctx.beginPath();ctx.moveTo(x,y);setDrawing(true);return;}if(event.type==='pointerup'||event.type==='pointerleave'){setDrawing(false);return;}if(!drawing)return;ctx.lineWidth=5;ctx.lineCap='round';ctx.strokeStyle='#ec4899';ctx.lineTo(x,y);ctx.stroke();};
+ const clear=(event:React.MouseEvent<HTMLButtonElement>)=>{const canvas=event.currentTarget.parentElement?.querySelector('canvas');canvas?.getContext('2d')?.clearRect(0,0,canvas.width,canvas.height);};
+ return <div {...stylex.props(s.canvasWrap)}><small>Luyện viết thử: {label}</small><canvas {...stylex.props(s.canvas)} width={160} height={120} onPointerDown={draw} onPointerMove={draw} onPointerUp={draw} onPointerLeave={draw} aria-label={`Bảng tập viết chữ ${label}`} /><button onClick={clear} type="button">Xóa nét</button></div>;
+}
+export function KanjiCard({ entry,onLearned }: { entry: KanjiEntry; onLearned?: (id:string)=>void }) {
+ return <Card {...stylex.props(s.card)}><div {...stylex.props(s.actions)}><Badge label={`${entry.level} · Bài ${entry.lesson}`} /><AudioButton text={entry.kana} label={`Nghe ${entry.word}`} /></div><div {...stylex.props(s.word)}>{entry.word}</div><div {...stylex.props(s.readings)}><span>{entry.kana}</span><span>{entry.meaning}</span></div>{entry.characters.map(character=><KanjiDetail key={character.character} detail={character} />)}<div {...stylex.props(s.actions)}><button type="button" onClick={()=>onLearned?.(entry.id)}><Check size={16} /> Đã thuộc</button><span><PenLine size={16} /> Tập nét</span></div></Card>;
+}
+function KanjiDetail({detail}:{detail:KanjiCharacter}) { return <details {...stylex.props(s.character)}><summary {...stylex.props(s.glyph)}>{detail.character}</summary><div {...stylex.props(s.readings)}><b>{detail.vietnamese||detail.meaning}</b><span>On: {detail.on||'—'} · Kun: {detail.kun||'—'}</span><span>{detail.strokes||'?'} nét</span>{detail.mnemonic&&<span>{detail.mnemonic}</span>}{detail.formula&&<span>{detail.formula}</span>}<StrokeCanvas label={detail.character}/></div></details>; }

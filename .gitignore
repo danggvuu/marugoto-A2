@@ -25,6 +25,11 @@ docs/pdf/*.pdf
 .codegraph/
 
 # Local verification & scratch
+node_modules/
+dist/
+playwright-report/
+test-results/
+*.tsbuildinfo
 artifacts/
 data/extracted/
 .venv/

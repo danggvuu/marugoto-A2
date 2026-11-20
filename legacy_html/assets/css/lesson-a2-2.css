@@ -1,0 +1,42 @@
+/* Keep the A2-2 lesson cards independent of shared theme overrides. */
+.lesson-a2-2 #flashcardGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+    gap: 16px;
+}
+.lesson-a2-2 .fc-item {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    padding: 0;
+    text-align: left;
+    font: inherit;
+    color: #0f172a;
+    background: #fff;
+}
+.lesson-a2-2 .fc-item:focus-visible { outline: 3px solid #2563eb; outline-offset: 3px; }
+.lesson-a2-2 .fc-svg-wrap { display: block; height: 120px; overflow: hidden; }
+.lesson-a2-2 .fc-svg-wrap svg { display: block; width: 100%; height: 100%; }
+.lesson-a2-2 .fc-content { display: grid; gap: 6px; padding: 16px; overflow-wrap: anywhere; }
+.lesson-a2-2 .fc-content > span { display: block; margin: 0; }
+.lesson-a2-2 .fc-jp { font-size: 1.1rem; line-height: 1.6; }
+.lesson-a2-2 .fc-kana { color: #4338ca; line-height: 1.6; }
+.lesson-a2-2 .fc-romaji { font-size: .8rem; color: #64748b; }
+.lesson-a2-2 .fc-listen { font-size: .75rem; color: #1d4ed8; padding-top: 8px; }
+.lesson-a2-2 .morph-cell {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 16px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    overflow-wrap: anywhere;
+}
+.lesson-a2-2 .morph-label { font-size: .78rem; color: #475569; line-height: 1.6; }
+.lesson-a2-2 :is(.kanji-info, .quiz-opt) { min-width: 0; overflow-wrap: anywhere; }
+.lesson-a2-2 .quiz-opt:disabled { opacity: 1; }
+.lesson-a2-2 .content-section { scroll-margin-top: 140px; }
+@media (max-width: 600px) {
+    .lesson-a2-2 .quiz-opts { grid-template-columns: minmax(0, 1fr); }
+}

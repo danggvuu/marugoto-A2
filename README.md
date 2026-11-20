@@ -1,210 +1,102 @@
-# Marugoto A1–A2 Study Hub
+# Marugoto Astryx V2
 
-Website tự học tiếng Nhật bằng tiếng Việt, gồm bài học Marugoto, tra cứu từ vựng, Kanji, ngữ pháp, luyện gõ và đề ôn tập.
+Ứng dụng học tiếng Nhật bằng tiếng Việt đang được chuyển sang **React 19, TypeScript, Vite, Meta Astryx và StyleX** trên nhánh `feat/astryx-v2`. `index.html` ở thư mục gốc là entry của SPA. Bộ HTML cũ được lưu riêng tại `legacy_html/`, không phải các trang bọc SPA.
 
-Ứng dụng chạy bằng **HTML, CSS và JavaScript thuần**, không cần backend hay tài khoản. Tiến độ được lưu trên trình duyệt bằng `localStorage`.
+> Nội dung và đề trong dự án phục vụ tự luyện, không phải đề thi hoặc chứng nhận JLPT chính thức. Kiểm tra kỹ thuật không chứng minh mọi nội dung tiếng Nhật hoặc đáp án đều đúng.
 
-> Các đề trong dự án phục vụ tự luyện Marugoto A2.1, **không phải đề thi hoặc chứng nhận JLPT chính thức**.
+## Chạy ứng dụng
 
-## Chạy nhanh
-
-Cần **Python 3** và trình duyệt hiện đại. Mở terminal tại thư mục dự án:
+Cần Node.js tương thích với Vite 8 và npm. Cài dependencies, rồi chạy từ thư mục dự án:
 
 ```sh
-python3 -m http.server 8000 --bind 127.0.0.1
+npm install
+npm run dev
 ```
 
-Truy cập **http://localhost:8000/**.
+Mở địa chỉ Vite in trong terminal. Các route được khai báo trong `src/App.tsx`:
 
-Không cần cài thư viện để học. Nên dùng server local thay vì mở trực tiếp bằng `file://`, vì một số chức năng phụ thuộc chính sách bảo mật của trình duyệt.
+- `/`: dashboard.
+- `/lessons/a2-1/1` hoặc `/lessons/a2-2/1`: bài học; thay số cuối bằng bài 1–18.
+- `/kanji`: trung tâm Kanji.
+- `/tests`: luyện thi.
+- `/kaiwa`: luyện hội thoại.
+- `/legacy_html/index.html`: kho HTML gốc, gồm A1 và các chuyên đề cũ.
 
-## Có gì trong ứng dụng?
+Build và xem bản production:
 
-| Chức năng | Nội dung |
-| --- | --- |
-| Bài học | 18 bài Marugoto A2-1, có mục lục và chế độ học từng phần |
-| Từ vựng | Kho A1 bài 3–18 và A2-1 bài 1–18; tìm kiếm, chọn bài, phân trang, flashcard và quiz |
-| Kanji | Tra nghĩa, cách đọc, thứ tự nét SVG và tập viết trực tiếp |
-| Ngữ pháp | Tổng hợp mẫu câu, bài tập chia động từ và Verb Lab |
-| Typing Studio | Luyện dịch câu, đọc Kanji, gõ từ vựng và ôn lại mục cần luyện |
-| Đề ôn tập | Mini test, Midterm và bộ tổng hợp bài 11–18 có chấm điểm, lời giải và lịch sử |
-| 3D Lab | Không gian văn hóa Nhật tương tác bằng Three.js |
+```sh
+npm run build
+npm run preview
+```
 
-### Vào thẳng các phần chính
+Triển khai **toàn bộ `dist/`**, bao gồm `dist/legacy_html/`. Với hosting tĩnh, cấu hình fallback về `index.html` cho route SPA, nhưng phải ưu tiên file tĩnh có thật, đặc biệt `/legacy_html/**`. Dự án hiện sử dụng URL từ gốc website, không được kiểm chứng cho triển khai dưới một subpath.
 
-- [Trang chủ](index.html)
-- [Bài học đầu tiên](lessons/Marugoto_A2_Lesson_1.html)
-- [Kho từ vựng](Tu_Vung_Marugoto_A1_16_A2_1_10.html)
-- [Kanji & luyện viết](kanji_a2.html)
-- [Ngữ pháp](Tong_Hop_Ngu_Phap_Marugoto_A1_A2.html)
-- [Luyện gõ câu và Kanji](tests/On_Tap_Mini_Test_A2_15_18.html#typing)
-- [Đề tổng hợp Marugoto A2.1 bài 11–18](tests/De_Thi_Tong_Hop_JLPT_A2_11_18.html)
-- [Kiểm tra Từ vựng & Kanji A2 bài 11–18](tests/De_Thi_Tong_Hop_JLPT_A2_11_18.html#vocab-kanji-check)
-- [3D Lab](demo_3d.html)
+## Kho HTML cũ
 
-## Tiến độ và phiên thi
+Kho gồm **59 trang HTML**: 12 trang ở gốc kho, 36 bài học và 11 trang đề/ôn tập. Các bản HTML cũ đã được gỡ khỏi gốc dự án, `lessons/` và `tests/`; `index.html` gốc dành cho SPA. Kho giữ nguyên tên file và cấu trúc thư mục con, kèm **126 tệp assets** và **5 PDF được HTML liên kết**.
 
-- Lưu trên **trình duyệt, thiết bị và origin hiện tại**; chưa có đồng bộ tài khoản hay nhiều thiết bị.
-- Dùng cùng địa chỉ khi quay lại học. `localhost`, `127.0.0.1` và cổng khác nhau có vùng lưu riêng.
-- Xóa dữ liệu website, dùng cửa sổ riêng tư hoặc chặn storage có thể làm tiến độ không được giữ.
-- Trong đề tổng hợp 11–18, mỗi mã đề có phiên riêng: đáp án, mảnh xếp câu, chế độ, thời gian và trạng thái nộp.
-- Đồng hồ thi tổng hợp tiếp tục tính khi rời trang, **trừ khi đã bấm tạm dừng**.
-- Chế độ ôn luyện có phản hồi ngay; chế độ thi tổng hợp mở lời giải sau khi nộp.
-- “Làm lại” và xóa checkpoint có ảnh hưởng tới dữ liệu đã lưu; đọc phạm vi và xác nhận trước khi xóa.
+Các đường dẫn đại diện khi server chạy:
 
-### Kết nối mạng
+- `/legacy_html/index.html`
+- `/legacy_html/lessons/Marugoto_A2_Lesson_1.html`
+- `/legacy_html/lessons/Marugoto_A2_2_Lesson_1.html`
+- `/legacy_html/tests/De_Thi_Tong_Hop_JLPT_A2_11_18.html`
+- `/legacy_html/Tu_Vung_Marugoto_A1_16_A2_1_10.html`
+- `/legacy_html/kanji_a2.html`
+- `/legacy_html/Tong_Hop_Ngu_Phap_Marugoto_A1_A2.html`
+- `/legacy_html/demo_3d.html`
 
-Nội dung và bài tập được phục vụ từ file local. Font, phát âm qua dịch vụ ngoài và dữ liệu nét Kanji có thể cần mạng. Phát âm còn phụ thuộc giọng tiếng Nhật được hỗ trợ trên máy; khi không tải được SVG, giao diện có chữ tĩnh và tùy chọn thử lại. Không nên coi đây là ứng dụng offline hoàn toàn.
+`scripts/legacyArchive.ts` cung cấp hai plugin đã được nối vào Vite: `legacyArchive()` phục vụ trực tiếp file gốc trong dev, `legacyArchiveBuild()` sao chép nguyên kho vào output build. HTML không được xử lý như entry React. Các import `?raw` của Vite vẫn đi qua cơ chế nạp dữ liệu bình thường.
 
-### Kiểm tra riêng Từ vựng & Kanji 11–18
+`assets/` ở gốc vẫn được giữ vì bộ nạp dữ liệu SPA sử dụng một phần JavaScript nguồn. Bản sao `legacy_html/assets/` dành riêng cho trang lưu trữ. Nếu cập nhật nội dung cũ, chủ động đồng bộ tài nguyên tương ứng và kiểm tra lại kho. Không chạy các generator cũ như một phần build SPA: một số script trước đây ghi HTML vào vị trí gốc/`lessons/`/`tests/` và chưa được chuyển toàn bộ sang vị trí archive.
 
-Trong trang tổng hợp 11–18, chọn **“Kiểm tra Từ vựng & Kanji 11–18”**:
+## Kiểm tra kho lưu trữ
 
-- Chọn tất cả hoặc một bài 11–18; chỉ từ vựng, chỉ Kanji hoặc trộn hai loại.
-- Hỏi hai chiều, 10/20 câu hoặc toàn bộ mục đủ điều kiện; báo đúng/sai ngay và ôn lại câu sai.
-- Từ vựng hiển thị bằng Kana. Kanji lấy từ danh sách bài 11–18 và kiểm tra **mọi chữ** trong từ ghép,
-  kể cả đáp án nhiễu. Từ chứa chữ ngoài danh sách bị loại; dấu lặp `々` không phải một chữ Kanji mới.
-- Hiện có 253 mục từ vựng và 62 mục từ ghép Kanji đạt điều kiện; một lượt có thể ít câu hơn
-  số đã chọn sau khi lọc bài, loại trùng và loại câu không đủ ba đáp án nhiễu.
-- Phiên kiểm tra được lưu riêng; điểm không cộng vào đề 71 câu. Mở tab này tạm dừng đồng hồ
-  đề tổng hợp đang chạy; quay lại trong cùng trang sẽ tiếp tục đồng hồ.
+```sh
+# Đếm trang, kiểm tra tất cả liên kết/tài nguyên local khai báo trong HTML
+node scripts/check_legacy_archive.mjs
 
-Dữ liệu được sinh bởi `scripts/build_vocab_kanji_check_11_18.py`. Chạy
-`node qa/regression/vocab_kanji_scope.js` để kiểm tra giới hạn bài và tập chữ.
+# Kiểm tra thêm toàn bộ 190 tệp HTTP, so sánh từng byte với bản gốc
+# Dùng địa chỉ và cổng server thực tế đang chạy
+node scripts/check_legacy_archive.mjs http://127.0.0.1:5173
 
-## Cấu trúc thư mục
+# Sau npm run build, chạy npm run preview rồi kiểm tra cổng preview
+node scripts/check_legacy_archive.mjs http://127.0.0.1:4173
+```
+
+### Trạng thái đã kiểm chứng ngày 2026-11-20
+
+- `npm run build` hoàn tất: TypeScript và Vite build thành công. Build còn cảnh báo bundle JavaScript lớn, chưa phải xác nhận tối ưu hiệu năng.
+- Kiểm tra tĩnh kho: đủ 59 HTML, **161 đường dẫn local khác nhau**, không thiếu file được tham chiếu trong thuộc tính HTML được kiểm tra.
+- Kiểm tra HTTP ở Vite dev và production preview: **190/190 tệp** trả HTTP 200 và nội dung trùng từng byte với kho nguồn. Điều này phát hiện trường hợp fallback SPA trả HTTP 200 nhưng sai nội dung.
+- Kiểm tra trên không xác nhận mọi tương tác của 59 trang, fragment `#...`, tài nguyên từ dịch vụ ngoài, hay tính đúng đắn học thuật. Chưa coi toàn bộ regression/browser test cũ là đã chạy cho V2.
+
+## Cấu trúc chính
 
 ```text
 .
-├── index.html                 # Trang chủ
-├── *.html                     # Các trang tra cứu/ngữ pháp/3D chính
-├── lessons/                   # 18 trang bài học
-├── tests/                     # Trang đề ôn tập cho người học, không phải test tự động
-├── assets/
-│   ├── nav.js                 # Điều hướng chung
-│   ├── css/                   # CSS dùng chung, theo module và pages/
-│   ├── data/                  # Dữ liệu JS được trình duyệt nạp
-│   └── js/
-│       ├── lessons/           # Controller và dữ liệu từng bài
-│       ├── pages/             # Controller từng trang
-│       └── vendor/            # Thư viện bên thứ ba
-├── data/                      # JSON nguồn phục vụ xây dựng dữ liệu
-│   └── extracted/             # Bản trích xuất tạm, không đưa vào Git
-├── scripts/                   # Generator Python và kiểm tra build
-├── qa/                        # Kiểm thử tự động, tách khỏi trang đề thi
-│   ├── regression/            # Kiểm tra logic và quy tắc chống tái phát lỗi
-│   ├── browser/               # Kiểm thử thao tác bằng Playwright
-│   └── requirements-browser.txt
-├── docs/
-│   ├── pdf/                   # Tài liệu học và PDF nguồn của đề
-│   ├── reviews/               # Báo cáo rà soát code/UX
-│   ├── Ke_Hoach_10_Ngay/      # Lộ trình ôn tập
-│   └── kanjiupdate/           # Ảnh tư liệu Kanji
-└── artifacts/                 # Screenshot/kết quả thử local, không đưa vào Git
-    └── screenshots/
+├── index.html                  # Entry SPA
+├── src/                        # React pages, components, services, styles
+├── data/                       # JSON nguồn cho bộ nạp SPA
+├── assets/                     # JavaScript/dữ liệu cũ còn được import
+├── legacy_html/                # 59 HTML gốc
+│   ├── assets/                 # CSS, JavaScript và dữ liệu cho kho
+│   ├── docs/pdf/               # 5 PDF được HTML liên kết
+│   ├── lessons/                # 36 trang bài học
+│   └── tests/                  # 11 trang đề/ôn tập
+├── scripts/legacyArchive.ts    # Vite static archive plugins
+├── scripts/check_legacy_archive.mjs
+├── qa/                         # Kiểm tra cũ, không mặc định chứng minh V2
+└── docs/                       # Tài liệu và tư liệu nguồn
 ```
 
-Giữ nguyên tên/đường dẫn HTML đang chạy để không làm hỏng bookmark, link và khóa checkpoint cũ. Chỉ đổi vị trí file khi cập nhật đầy đủ nơi tham chiếu.
+## Dữ liệu trình duyệt và kết nối mạng
 
-## Build và kiểm tra
+Tiến độ được lưu trong `localStorage` của origin hiện tại. Cổng hoặc hostname khác có vùng lưu khác; xóa dữ liệu website có thể làm mất tiến độ. Không có đồng bộ tài khoản. Việc giữ HTML trong kho không tự chứng minh tương thích toàn bộ checkpoint giữa giao diện cũ và SPA mới.
 
-### 1. Build dữ liệu và trang được sinh
+Font ngoài, dữ liệu nét Kanji và phát âm có thể phụ thuộc mạng hoặc giọng đọc được cài trên thiết bị. Không coi SPA hoặc kho HTML là ứng dụng offline hoàn toàn.
 
-Cần Python 3 và **Node.js** trong `PATH`:
+## Tài liệu nguồn
 
-```sh
-python3 scripts/build_all.py
-```
-
-Lệnh này:
-
-1. Sinh lại mini test 11–14, mini test 15–18, ôn Kanji cấp tốc và đề tổng hợp 11–18.
-2. Kiểm tra tham chiếu file local và cặp thẻ `script` trong các trang ứng dụng.
-3. Chạy `node --check` cho JavaScript trong `assets/`.
-
-**Build có ghi lại các file được sinh.** Sau khi chạy, xem `git diff` để chắc chắn thay đổi đúng dự kiến. Kiểm tra link/cú pháp không thay thế kiểm tra thao tác thực tế.
-
-### 2. Regression checks
-
-```sh
-node qa/regression/run_regression_tests.js
-node qa/regression/content_integrity.js
-```
-
-Bao gồm kiểm tra bộ chấm, chuẩn hóa Unicode, chia động từ và một số kiểm tra cấu trúc source. Những kiểm tra dò source không chứng minh toàn bộ hành vi đúng trên trình duyệt.
-
-### 3. Browser tests
-
-Khuyến nghị dùng môi trường Python riêng:
-
-```sh
-python3 -m venv .venv
-```
-
-Kích hoạt môi trường:
-
-```sh
-# macOS / Linux
-source .venv/bin/activate
-```
-
-```powershell
-# Windows PowerShell
-.\.venv\Scripts\Activate.ps1
-```
-
-Cài và chạy:
-
-```sh
-python -m pip install -r qa/requirements-browser.txt
-python -m playwright install chromium
-python qa/browser/test_browser.py
-```
-
-Test tự mở HTTP server và browser context tạm, không dùng tiến độ học trong profile trình duyệt của bạn. Có thể dùng Google Chrome đã cài nếu Chromium của Playwright chưa có.
-
-Các luồng được kiểm tra gồm phân trang, lọc, checkpoint cũ, xếp câu, đổi mã đề, timer, khóa lời giải và smoke test các trang. Các trang đại diện còn được kiểm tra ở chiều rộng 360, 390, 768 và 1440px.
-
-Tùy chọn:
-
-| Biến môi trường | Ý nghĩa |
-| --- | --- |
-| `CHROME_PATH` | Đường dẫn binary Chrome/Chromium tùy chỉnh |
-| `MARUGOTO_SCREENSHOTS_DIR` | Thư mục lưu ảnh responsive |
-
-Ví dụ trên macOS/Linux:
-
-```sh
-MARUGOTO_SCREENSHOTS_DIR=artifacts/screenshots/latest python qa/browser/test_browser.py
-```
-
-## Chỉnh sửa đúng nguồn
-
-- **Controller/giao diện:** sửa file tương ứng trong `assets/js/`, `assets/css/` và HTML.
-- **Trang do generator sinh:** sửa template trong `scripts/` trước, rồi build lại. Không chỉ sửa HTML đầu ra vì lần build tiếp theo sẽ ghi đè.
-- **Đề tổng hợp 11–18:**
-  - `generate_11_18_exam.py`: dữ liệu đề chuyển từ PDF.
-  - `build_full_exam_11_18_system.py`: dữ liệu bộ đề bổ sung và kiểm tra cấu trúc.
-  - `build_tong_hop_11_18_page.py`: template HTML.
-  - `assets/js/pages/de_thi_tong_hop_11_18.js`: controller chuẩn, chỉnh trực tiếp.
-  - `build_tong_hop_11_18_js.py`: chỉ xác nhận cú pháp controller, không sinh đè JS.
-- **Dữ liệu tiến độ:** giữ ID câu và có migration nếu đổi cấu trúc checkpoint.
-- **Nội dung đã biên tập Bài 3–18:** các ghi đè lý thuyết/quiz nằm trong `scripts/lesson_content_review.py`;
-  `scripts/build_lesson_content.py` cập nhật vào trang hiện tại và được gọi bởi `build_all.py`.
-  Câu hỏi là bài tự luyện theo chủ điểm, không phải đề chính thức. Chi tiết phạm vi đã đối chiếu:
-  [báo cáo chất lượng nội dung](docs/reviews/CONTENT_QUALITY_2026_11.md).
-- **Tài nguyên local:** để PDF trong `docs/pdf/`, báo cáo trong `docs/reviews/`, ảnh thử nghiệm trong `artifacts/screenshots/`.
-
-## Trước khi gửi thay đổi
-
-- Chạy build, regression checks và browser tests.
-- Kiểm tra desktop/mobile, menu, tab, tìm kiếm và điều hướng bằng bàn phím.
-- Thử nhập tiếng Nhật bằng IME, chấm bài, reload và làm lại.
-- Đảm bảo dữ liệu mới không làm mất checkpoint cũ.
-- Đối chiếu nội dung/đáp án với tài liệu học. Test kỹ thuật không xác nhận mọi câu tiếng Nhật hoặc tính tương đương với đề thi chính thức.
-
-## Tài liệu kỹ thuật
-
-- [Quy ước cấu trúc dự án](docs/PROJECT_STRUCTURE.md)
-- [Rà soát code ban đầu](docs/reviews/CODE_REVIEW.md)
-- [Kiểm tra lại và kết quả sửa](docs/reviews/RECHECK_CURRENT.md)
+- `PROMPT_ASTRYX_V2.md`: yêu cầu tái cấu trúc V2.
+- `docs/PROJECT_STRUCTURE.md` và `docs/reviews/`: tài liệu/báo cáo của cấu trúc cũ; kiểm tra lại phạm vi trước khi áp dụng vào SPA.

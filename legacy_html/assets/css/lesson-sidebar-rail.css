@@ -1,0 +1,325 @@
+/* ==========================================================================
+   MACOS-INSPIRED COMPACT FLOATING SECTION RAIL (lesson-sidebar-rail.css)
+   Thanh điều hướng nổi nhỏ gọn (be bé), cố định bên cạnh, đi theo khi cuộn trang
+   Chuẩn thiết kế macOS Glassmorphism đồng bộ với De_Thi_Tong_Hop_JLPT_A2_11_18
+   ========================================================================== */
+
+/* Cho phép sticky hoạt động hoàn hảo mà vẫn chống tràn thanh cuộn ngang */
+html,
+body {
+    overflow-x: clip !important;
+}
+
+/* 1. Balanced Workspace 2-Column Grid (Desktop) */
+@media (min-width: 1025px) {
+    .lesson-workspace-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 195px;
+        gap: 24px;
+        align-items: start;
+        width: 100%;
+        margin-top: 10px;
+        transition: grid-template-columns 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .lesson-workspace-layout.rail-collapsed {
+        grid-template-columns: minmax(0, 1fr) 46px;
+    }
+
+    .lesson-main-content {
+        min-width: 0;
+        width: 100%;
+    }
+
+    .lesson-sidebar-rail {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 80px;
+        z-index: 70;
+        min-width: 0;
+        width: 195px;
+        align-self: start;
+        transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .lesson-sidebar-rail.is-collapsed {
+        width: 46px;
+    }
+
+    /* Hide the old static top bar on desktop since sidebar rail is active */
+    .section-nav {
+        display: none !important;
+    }
+}
+
+/* 2. Glassmorphic macOS Box */
+.lesson-sidebar-rail .macos-sidebar-box {
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(226, 232, 240, 0.95);
+    border-radius: 16px;
+    padding: 10px 8px;
+    box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 2px 6px rgba(15, 23, 42, 0.04);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: calc(100vh - 110px);
+    overflow: hidden;
+    user-select: none;
+    box-sizing: border-box;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lesson-sidebar-rail:hover .macos-sidebar-box {
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 15px 30px -5px rgba(15, 23, 42, 0.12), 0 4px 10px rgba(15, 23, 42, 0.06);
+    border-color: rgba(203, 213, 225, 0.95);
+}
+
+/* 3. Header & macOS Traffic Dots */
+.lesson-sidebar-rail .macos-sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2px 4px 6px 4px;
+    border-bottom: 1px solid rgba(226, 232, 240, 0.85);
+    flex-shrink: 0;
+}
+
+.lesson-sidebar-rail .macos-traffic-dots {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.lesson-sidebar-rail .macos-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    transition: transform 0.18s ease;
+}
+
+.lesson-sidebar-rail .macos-dot-red {
+    background: #ff5f56;
+    border: 1px solid rgba(224, 68, 62, 0.4);
+}
+
+.lesson-sidebar-rail .macos-dot-yellow {
+    background: #ffbd2e;
+    border: 1px solid rgba(222, 161, 35, 0.4);
+}
+
+.lesson-sidebar-rail .macos-dot-green {
+    background: #27c93f;
+    border: 1px solid rgba(26, 171, 42, 0.4);
+}
+
+.lesson-sidebar-rail .macos-sidebar-title {
+    font-size: 0.64rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: #64748b;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.lesson-sidebar-rail .macos-sidebar-toggle {
+    background: transparent;
+    border: none;
+    color: #94a3b8;
+    cursor: pointer;
+    padding: 2px 5px;
+    font-size: 0.85rem;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: color 0.15s ease, background 0.15s ease;
+}
+
+.lesson-sidebar-rail .macos-sidebar-toggle:hover {
+    color: #334155;
+    background: rgba(148, 163, 184, 0.15);
+}
+
+/* 4. Navigation Links List */
+.lesson-sidebar-rail .lesson-rail-links {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 2px;
+    margin: 0;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(203, 213, 225, 0.6) transparent;
+}
+
+.lesson-sidebar-rail .lesson-rail-links::-webkit-scrollbar {
+    width: 3px;
+}
+.lesson-sidebar-rail .lesson-rail-links::-webkit-scrollbar-thumb {
+    background: rgba(203, 213, 225, 0.6);
+    border-radius: 3px;
+}
+
+.lesson-sidebar-rail .lesson-rail-link {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 6px 8px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #475569;
+    font-size: 0.76rem;
+    font-weight: 600;
+    line-height: 1.25;
+    border: 1px solid transparent;
+    transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+    white-space: nowrap;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.lesson-sidebar-rail .lesson-rail-link:hover:not(.active) {
+    background: #eef2ff;
+    color: #4338ca;
+    padding-left: 10px;
+    border-color: rgba(199, 210, 254, 0.6);
+}
+
+.lesson-sidebar-rail .lesson-rail-link.active {
+    background: linear-gradient(135deg, #4f46e5 0%, #4338ca 100%);
+    color: #ffffff !important;
+    font-weight: 700;
+    box-shadow: 0 4px 10px rgba(79, 70, 229, 0.28);
+    border-color: #4338ca;
+}
+
+.lesson-sidebar-rail .rail-icon {
+    flex-shrink: 0;
+    font-size: 0.85rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    text-align: center;
+}
+
+.lesson-sidebar-rail .rail-label {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* 5. Footer Back to Top */
+.lesson-sidebar-rail .macos-sidebar-footer {
+    padding-top: 6px;
+    border-top: 1px solid rgba(226, 232, 240, 0.85);
+    flex-shrink: 0;
+}
+
+.lesson-sidebar-rail .rail-btn-top {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 5px 8px;
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    border-radius: 8px;
+    background: #f8fafc;
+    color: #64748b;
+    font-size: 0.7rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: all 0.18s ease;
+}
+
+.lesson-sidebar-rail .rail-btn-top:hover {
+    background: #eef2ff;
+    color: #4338ca;
+    border-color: #c7d2fe;
+}
+
+/* 6. Collapsed State (Ultra Slim Icon Strip) */
+.lesson-sidebar-rail.is-collapsed {
+    width: 46px;
+}
+
+.lesson-sidebar-rail.is-collapsed .macos-sidebar-box {
+    padding: 8px 4px;
+    align-items: center;
+}
+
+.lesson-sidebar-rail.is-collapsed .macos-traffic-dots,
+.lesson-sidebar-rail.is-collapsed .macos-sidebar-title,
+.lesson-sidebar-rail.is-collapsed .rail-label,
+.lesson-sidebar-rail.is-collapsed .rail-btn-top .top-text {
+    display: none !important;
+}
+
+.lesson-sidebar-rail.is-collapsed .macos-sidebar-header {
+    justify-content: center;
+    width: 100%;
+    padding: 0 0 4px 0;
+}
+
+.lesson-sidebar-rail.is-collapsed .macos-sidebar-toggle .macos-toggle-arrow {
+    transform: rotate(180deg);
+}
+
+.lesson-sidebar-rail.is-collapsed .lesson-rail-link {
+    justify-content: center;
+    padding: 6px 0;
+    width: 34px;
+}
+
+.lesson-sidebar-rail.is-collapsed .rail-btn-top {
+    padding: 5px 0;
+    width: 34px;
+}
+
+/* 7. Scroll Offset Anchor Support */
+[id^="sec-"] {
+    scroll-margin-top: 85px;
+}
+
+/* 8. Mobile & Tablet (< 1025px) */
+@media (max-width: 1024px) {
+    .lesson-workspace-layout {
+        display: block !important;
+    }
+
+    .lesson-sidebar-rail {
+        display: none !important;
+    }
+
+    /* Keep horizontal swipeable sticky bar at top on mobile */
+    .section-nav {
+        display: flex !important;
+        position: sticky !important;
+        top: 8px !important;
+        z-index: 80 !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        white-space: nowrap !important;
+        -webkit-overflow-scrolling: touch !important;
+        scrollbar-width: none !important;
+        gap: 6px !important;
+        padding: 6px 8px 10px 8px !important;
+        background: rgba(248, 250, 252, 0.95) !important;
+        backdrop-filter: blur(8px) !important;
+        -webkit-backdrop-filter: blur(8px) !important;
+        border-radius: 12px !important;
+        margin-bottom: 16px !important;
+    }
+    .section-nav::-webkit-scrollbar {
+        display: none !important;
+    }
+}

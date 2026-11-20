@@ -1,0 +1,490 @@
+/**
+ * Animate UI (Ultra-High Performance 120fps CSS)
+ * Handcrafted Micro-Interactions, Spring Physics & Tactile Feedback
+ * Built specifically for Japanese Language Learning Platform
+ * Optimized for Zero-Jank, Battery Efficiency & Fluid Touch Screens
+ */
+
+:root {
+  /* Snappy & Silky Micro-Interaction Curves */
+  --aui-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --aui-ease-spring: cubic-bezier(0.34, 1.4, 0.64, 1);
+  --aui-ease-flip: cubic-bezier(0.4, 0.2, 0.2, 1);
+  --aui-ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Precise Tactile Metric Scales */
+  --aui-scale-press: 0.985;
+  --aui-press-y: 1px;
+  --aui-scale-hover: 1.02;
+
+  /* Durations */
+  --aui-dur-fast: 0.12s;
+  --aui-dur-normal: 0.2s;
+  --aui-dur-flip: 0.42s;
+}
+
+/* ==========================================================================
+   0. Scroll, Anchors & Sleek Custom Scrollbars
+   ========================================================================== */
+
+html {
+  scroll-padding-top: 28px;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+[id] {
+  scroll-margin-top: 28px;
+}
+
+table th,
+.table-sticky-th {
+  top: 0;
+}
+
+/* Sleek Minimalist Custom Scrollbar (Desktop & Tablet) */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 transparent;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1;
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+  transition: background-color 0.15s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #94a3b8;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* Subtle Glowing Accents on Focus Ring */
+:focus-visible {
+  outline: 2px solid #e11d48 !important;
+  outline-offset: 2px !important;
+}
+
+/* Form Input & Search Focus Glow */
+input:focus,
+textarea:focus,
+select:focus,
+.aui-input-glow:focus,
+.tp-input:focus,
+.tp-table-input:focus,
+.search-box input:focus,
+#searchInput:focus {
+  border-color: #e11d48 !important;
+  box-shadow: 0 0 0 3.5px rgba(225, 29, 72, 0.18), 0 2px 10px -2px rgba(225, 29, 72, 0.12) !important;
+  outline: none !important;
+}
+
+/* ==========================================================================
+   1. Tactile Interactive Elements (Buttons, Pills, Tabs, Chips)
+   ========================================================================== */
+
+button,
+.btn,
+.btn-action,
+.btn-ta-action,
+.btn-quizlet,
+.hub-nav-item,
+.fc-speaker-btn,
+.table-speaker-btn,
+.fc-audio-btn,
+.sound-btn,
+.tab-btn,
+.nav-tab-btn,
+.mode-btn,
+.preset-pill,
+.lesson-chip,
+.quiz-opt,
+.sec-link,
+.filter-btn,
+.filter-pill,
+.quicknav-pill,
+.tp-mode-btn,
+.tp-btn-check,
+.tp-btn-sub,
+a[class*="btn"] {
+  transition: transform var(--aui-dur-fast) var(--aui-ease-out),
+              box-shadow var(--aui-dur-fast) var(--aui-ease-out),
+              background-color var(--aui-dur-fast) ease,
+              border-color var(--aui-dur-fast) ease,
+              color var(--aui-dur-fast) ease;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  backface-visibility: hidden;
+  will-change: transform;
+}
+
+/* Elegant & Subtle Hover Lift & Soft Radiant Glow */
+button:hover:not(:disabled),
+.btn:hover:not(:disabled),
+.btn-action:hover:not(:disabled),
+.btn-ta-action:hover:not(:disabled),
+.fc-speaker-btn:hover,
+.table-speaker-btn:hover,
+.fc-audio-btn:hover,
+.sound-btn:hover,
+.hub-nav-item:hover,
+.tab-btn:hover,
+.nav-tab-btn:hover,
+.mode-btn:hover,
+.preset-pill:hover,
+.sec-link:hover,
+.quicknav-pill:hover,
+.filter-pill:hover,
+.tp-mode-btn:hover {
+  transform: translateY(-1.5px);
+  box-shadow: 0 4px 12px -2px rgba(15, 23, 42, 0.08);
+}
+
+.btn-primary:hover:not(:disabled),
+.tp-btn-check:hover:not(:disabled) {
+  box-shadow: 0 6px 18px rgba(225, 29, 72, 0.32), 0 0 0 1px rgba(225, 29, 72, 0.15) inset !important;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  box-shadow: 0 6px 18px rgba(2, 132, 199, 0.32), 0 0 0 1px rgba(2, 132, 199, 0.15) inset !important;
+}
+
+/* Handcrafted Tactile Button Press (Natural 1px downward click) */
+button:active:not(:disabled),
+.btn:active:not(:disabled),
+.btn-action:active:not(:disabled),
+.btn-ta-action:active:not(:disabled),
+.btn-quizlet:active,
+.fc-speaker-btn:active,
+.table-speaker-btn:active,
+.fc-audio-btn:active,
+.sound-btn:active,
+.hub-nav-item:active,
+.tab-btn:active,
+.nav-tab-btn:active,
+.mode-btn:active,
+.preset-pill:active,
+.lesson-chip:active,
+.quiz-opt:active,
+.sec-link:active,
+.quicknav-pill:active,
+.filter-pill:active,
+.tp-mode-btn:active,
+.tp-btn-check:active,
+.tp-btn-sub:active,
+a[class*="btn"]:active {
+  transform: translateY(var(--aui-press-y)) scale(var(--aui-scale-press)) !important;
+  transition: transform 0.05s ease !important;
+}
+
+/* ==========================================================================
+   2. Cards & Grammar Boxes (Card Lift Micro-Interactions: -3px + Soft Colored Shadow)
+   ========================================================================== */
+
+.card,
+.fc-card,
+.grammar-box,
+.summary-box,
+.test-card,
+.lesson-card,
+.vocab-card,
+.table-card,
+.kanji-card,
+.content-section,
+.content-card,
+.kanji-detail-card,
+.grammar-card,
+.rule-box,
+.card-lift,
+.aui-lift,
+.card-interactive {
+  transition: box-shadow var(--aui-dur-normal) var(--aui-ease-out),
+              border-color var(--aui-dur-fast) ease,
+              transform var(--aui-dur-normal) var(--aui-ease-out);
+  will-change: transform, box-shadow;
+}
+
+/* Card Lift Micro-Interaction (-3px + Layered Soft Colored Shadow) */
+.card:hover,
+.test-card:hover,
+.lesson-card:hover,
+.vocab-card:hover,
+.kanji-card:hover,
+.kanji-detail-card:hover,
+.grammar-card:hover,
+.content-card:hover,
+.content-section:hover,
+.card-lift:hover,
+.aui-lift:hover,
+.card-interactive:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 14px 28px -4px rgba(15, 23, 42, 0.09),
+              0 6px 14px -2px rgba(225, 29, 72, 0.05) !important;
+  border-color: rgba(225, 29, 72, 0.22) !important;
+}
+
+/* Tactile Active Press State */
+.card:active,
+.test-card:active,
+.lesson-card:active,
+.vocab-card:active,
+.kanji-card:active,
+.kanji-detail-card:active,
+.grammar-card:active,
+.content-card:active,
+.card-lift:active,
+.aui-lift:active {
+  transform: translateY(-1px) scale(0.995) !important;
+  transition: transform 0.06s ease !important;
+}
+
+/* ==========================================================================
+   3. 3D Flashcard Spring Flip
+   ========================================================================== */
+
+.flashcard-scene,
+.fc-card,
+.card-flip-wrap {
+  perspective: 1200px;
+}
+
+.flashcard-inner,
+.fc-inner,
+.card-flip-inner {
+  transition: transform var(--aui-dur-flip) var(--aui-ease-flip) !important;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* ==========================================================================
+   4. Audio Playing Ripple Pulse & Equalizer Wave Animation
+   ========================================================================== */
+
+.aui-audio-playing,
+.audio-playing,
+.sound-btn.playing,
+.btn-speak.playing,
+.fc-speaker-btn.playing,
+.table-speaker-btn.playing,
+.fc-audio-btn.playing,
+[data-playing="true"],
+.is-playing {
+  animation: aui-audio-ripple 1.4s cubic-bezier(0.25, 1, 0.5, 1) infinite !important;
+  background: #e11d48 !important;
+  color: #ffffff !important;
+  border-color: #e11d48 !important;
+}
+
+@keyframes aui-audio-ripple {
+  0% {
+    transform: scale(1.06);
+    box-shadow: 0 0 0 0 rgba(225, 29, 72, 0.6),
+                0 0 0 0 rgba(225, 29, 72, 0.35),
+                0 4px 14px rgba(225, 29, 72, 0.35);
+  }
+  40% {
+    box-shadow: 0 0 0 6px rgba(225, 29, 72, 0.28),
+                0 0 0 12px rgba(225, 29, 72, 0.15),
+                0 6px 18px rgba(225, 29, 72, 0.3);
+  }
+  70% {
+    transform: scale(1.02);
+    box-shadow: 0 0 0 10px rgba(225, 29, 72, 0.08),
+                0 0 0 18px rgba(225, 29, 72, 0.02),
+                0 4px 12px rgba(225, 29, 72, 0.2);
+  }
+  100% {
+    transform: scale(1.06);
+    box-shadow: 0 0 0 14px rgba(225, 29, 72, 0),
+                0 0 0 24px rgba(225, 29, 72, 0),
+                0 4px 14px rgba(225, 29, 72, 0.35);
+  }
+}
+
+/* Sound Wave Bar & Equalizer Animation Utility */
+.audio-wave-container {
+  display: inline-flex;
+  align-items: center;
+  gap: 2.5px;
+  height: 16px;
+  vertical-align: middle;
+}
+
+.audio-wave-bar {
+  display: inline-block;
+  width: 3px;
+  height: 12px;
+  background: currentColor;
+  border-radius: 2px;
+  animation: auiWave 0.8s infinite ease-in-out alternate;
+}
+
+.audio-wave-bar:nth-child(2) { animation-delay: 0.18s; }
+.audio-wave-bar:nth-child(3) { animation-delay: 0.36s; }
+.audio-wave-bar:nth-child(4) { animation-delay: 0.54s; }
+
+@keyframes auiWave {
+  0% { height: 4px; }
+  100% { height: 16px; }
+}
+
+/* ==========================================================================
+   5. Quiz & Exercise Micro-Interactions (Pop & Shake)
+   ========================================================================== */
+
+.quiz-opt:hover {
+  transform: translateX(4px);
+}
+
+.aui-check-pop,
+.is-correct-anim {
+  animation: aui-pop-anim 0.32s var(--aui-ease-spring) forwards !important;
+}
+
+@keyframes aui-pop-anim {
+  0% { transform: scale(0.96); }
+  50% { transform: scale(1.035); }
+  100% { transform: scale(1); }
+}
+
+.aui-shake,
+.is-wrong-anim {
+  animation: aui-shake-anim 0.35s cubic-bezier(0.36, 0.07, 0.19, 0.97) forwards !important;
+}
+
+@keyframes aui-shake-anim {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-5px); }
+  40% { transform: translateX(5px); }
+  60% { transform: translateX(-3px); }
+  80% { transform: translateX(3px); }
+}
+
+/* ==========================================================================
+   6. UI Entrance Animations & Smooth Accordion / Details Transitions
+   ========================================================================== */
+
+.aui-fade-in {
+  animation: auiFadeIn 0.25s var(--aui-ease-out) forwards;
+}
+
+@keyframes auiFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.aui-fade-up {
+  animation: auiFadeUp 0.3s var(--aui-ease-out) forwards;
+}
+
+@keyframes auiFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Smooth Accordion & Details Transitions */
+details,
+.aui-accordion-item {
+  transition: border-color var(--aui-dur-normal) ease,
+              box-shadow var(--aui-dur-normal) ease,
+              transform var(--aui-dur-normal) var(--aui-ease-out);
+}
+
+details summary,
+.aui-accordion-header {
+  cursor: pointer;
+  user-select: none;
+  list-style: none;
+  transition: background-color var(--aui-dur-fast) ease, color var(--aui-dur-fast) ease;
+}
+
+details summary::-webkit-details-marker,
+details summary::marker {
+  display: none;
+}
+
+.aui-chevron {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 0.25s var(--aui-ease-out);
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+details[open] .aui-chevron,
+.aui-accordion-item.open .aui-chevron {
+  transform: rotate(-135deg);
+}
+
+details[open] > *:not(summary),
+.aui-accordion-body {
+  animation: auiAccordionSlide 0.24s var(--aui-ease-out) forwards;
+}
+
+@keyframes auiAccordionSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Subtle Shimmer for Skeleton States */
+.aui-shimmer {
+  background: linear-gradient(90deg, #f1f5f9 0%, #ffffff 50%, #f1f5f9 100%);
+  background-size: 200% 100%;
+  animation: auiShimmer 1.8s infinite ease-in-out;
+}
+
+@keyframes auiShimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* ==========================================================================
+   7. Accessibility (Reduced Motion)
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  button:hover,
+  .btn:hover,
+  .quiz-opt:hover,
+  .card-interactive:hover {
+    transform: none !important;
+  }
+}
