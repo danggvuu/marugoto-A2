@@ -6,25 +6,24 @@ import { BookOpen, GraduationCap, Home, Menu, Moon, Search, Sun, Target, X } fro
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom';
 import * as stylex from '@stylexjs/stylex';
 import { lessonCatalog } from '../services/lessonCatalog';
-import { common } from '../styles/tokens.stylex';
 
 const s = stylex.create({
- root: { minHeight: '100vh' },
- header: { position: 'sticky', top: 0, zIndex: 50, display: 'flex', alignItems: 'center', gap: 18, minHeight: 68, paddingInline: 24, borderBottomWidth: 1, borderBottomStyle: 'solid', borderBottomColor: 'var(--color-border)', backgroundColor: 'var(--color-background-surface)', '@media (max-width: 820px)': { paddingInline: 12, gap: 10, flexWrap: 'wrap', paddingBlock: 10 } },
- brand: { display: 'flex', alignItems: 'center', gap: 10, fontWeight: 800 },
- brandText: { '@media (max-width: 430px)': { fontSize: 13 } },
- logo: { width: 36, height: 36, borderRadius: 12, display: 'grid', placeItems: 'center', backgroundColor: 'var(--color-accent-muted)', fontSize: 18 },
- search: { height: 40, flex: 1, minWidth: 150, maxWidth: 520, display: 'flex', alignItems: 'center', gap: 10, paddingInline: 12, borderRadius: 12, borderWidth: 1, borderStyle: 'solid', borderColor: 'var(--color-border)', color: 'var(--color-text-secondary)', '@media (max-width: 820px)': { order: 4, flexBasis: '100%', maxWidth: '100%' } },
+ root: { minHeight: '100vh', backgroundColor: 'var(--color-background-body)' },
+ header: { position: 'sticky', top: 0, zIndex: 50, display: 'flex', alignItems: 'center', gap: 18, minHeight: 68, paddingInline: 24, borderBottomWidth: 1, borderBottomStyle: 'solid', borderBottomColor: 'var(--color-border)', backgroundColor: 'var(--color-background-surface)', backdropFilter: 'blur(12px)', '@media (max-width: 820px)': { paddingInline: 12, gap: 10, flexWrap: 'wrap', paddingBlock: 10 } },
+ brand: { display: 'flex', alignItems: 'center', gap: 10, fontWeight: 800, textDecoration: 'none' },
+ brandText: { fontSize: 16, fontWeight: 800, color: 'var(--color-text-primary)', '@media (max-width: 430px)': { fontSize: 13 } },
+ logo: { width: 36, height: 36, borderRadius: 10, display: 'grid', placeItems: 'center', backgroundColor: '#e11d48', backgroundImage: 'linear-gradient(135deg, #e11d48 0%, #4f46e5 100%)', color: '#ffffff', fontWeight: 850, fontSize: 18, boxShadow: '0 4px 12px rgba(225, 29, 72, 0.25)' },
+ search: { height: 40, flex: 1, minWidth: 150, maxWidth: 520, display: 'flex', alignItems: 'center', gap: 10, paddingInline: 12, borderRadius: 12, borderWidth: 1.5, borderStyle: 'solid', borderColor: 'var(--color-border)', color: 'var(--color-text-secondary)', backgroundColor: 'var(--color-background-body)', '@media (max-width: 820px)': { order: 4, flexBasis: '100%', maxWidth: '100%' } },
  input: { flex: 1, minWidth: 0, borderWidth: 0, backgroundColor: 'transparent', color: 'var(--color-text-primary)' },
  headerRight: { marginInlineStart: 'auto' },
  menu: { display: 'none', '@media (max-width: 820px)': { display: 'block' } },
- layout: { display: 'grid', gridTemplateColumns: '248px minmax(0,1fr)', '@media (max-width: 820px)': { gridTemplateColumns: 'minmax(0,1fr)' } },
- rail: { position: 'sticky', top: 68, height: 'calc(100dvh - 68px)', overflowY: 'auto', padding: 18, borderInlineEndWidth: 1, borderInlineEndStyle: 'solid', borderInlineEndColor: 'var(--color-border)', backgroundColor: 'var(--color-background-surface)', '@media (max-width: 820px)': { display: 'none' } },
+ layout: { display: 'grid', gridTemplateColumns: '254px minmax(0,1fr)', '@media (max-width: 820px)': { gridTemplateColumns: 'minmax(0,1fr)' } },
+ rail: { position: 'sticky', top: 68, height: 'calc(100dvh - 68px)', overflowY: 'auto', padding: '18px 14px', borderInlineEndWidth: 1, borderInlineEndStyle: 'solid', borderInlineEndColor: 'var(--color-border)', backgroundColor: 'var(--color-background-surface)', '@media (max-width: 820px)': { display: 'none' } },
  railOpen: { '@media (max-width: 820px)': { display: 'block', position: 'fixed', top: 118, bottom: 0, left: 0, width: 'min(320px, 90vw)', height: 'calc(100dvh - 118px)', zIndex: 40, boxShadow: '8px 0 24px rgba(0,0,0,.18)' } },
- railSection: { display: 'grid', gap: 5, marginBlockEnd: 22 },
- railTitle: { padding: '8px 10px', fontSize: 11, fontWeight: 800, color: 'var(--color-text-secondary)', letterSpacing: '.1em', textTransform: 'uppercase' },
- navLink: { display: 'flex', alignItems: 'center', gap: 10, borderRadius: 10, padding: '9px 10px', color: 'var(--color-text-secondary)', fontSize: 14 },
- navActive: { backgroundColor: 'var(--color-neutral)', color: 'var(--color-text-primary)', fontWeight: 700 },
+ railSection: { display: 'grid', gap: 4, marginBlockEnd: 22 },
+ railTitle: { padding: '6px 10px', fontSize: 11, fontWeight: 800, color: 'var(--color-text-secondary)', letterSpacing: '.08em', textTransform: 'uppercase' },
+ navLink: { display: 'flex', alignItems: 'center', gap: 10, borderRadius: 10, padding: '8px 12px', color: 'var(--color-text-secondary)', fontSize: 13.5, fontWeight: 600, transition: 'all 0.15s ease', borderLeftWidth: 3, borderLeftStyle: 'solid', borderLeftColor: 'transparent' },
+ navActive: { backgroundColor: '#eef2ff', color: '#4338ca', fontWeight: 750, borderLeftColor: '#6366f1' },
  main: { minWidth: 0 },
  footer: { maxWidth: 1320, marginInline: 'auto', padding: '24px 24px 34px', color: 'var(--color-text-secondary)', fontSize: 12 },
 });
@@ -50,16 +49,16 @@ export function AppShell() {
   <a className="skip-link" href="#main-content">Đến nội dung chính</a>
   <header {...stylex.props(s.header)}>
    <div {...stylex.props(s.menu)}><Button label={menuOpen ? 'Đóng điều hướng' : 'Mở điều hướng'} variant="ghost" size="sm" isIconOnly icon={menuOpen ? <X size={19}/> : <Menu size={19}/>} onClick={() => setMenuOpen(v => !v)} aria-expanded={menuOpen} aria-controls="study-navigation"/></div>
-   <Link to="/" {...stylex.props(s.brand)}><span {...stylex.props(s.logo)}>日</span><span {...stylex.props(s.brandText)}>Marugoto <span {...stylex.props(common.muted)}>Study Hub</span></span></Link>
-   <div {...stylex.props(s.search)}><Search size={17}/><input id="quick-search" {...stylex.props(s.input)} value={query} onChange={e => { setQuery(e.target.value); if(e.target.value) setMenuOpen(true); }} placeholder="Tìm bài học tiếng Nhật hoặc tiếng Việt…" aria-label="Tìm kiếm nhanh"/><kbd>/</kbd></div>
+   <Link to="/" {...stylex.props(s.brand)}><span {...stylex.props(s.logo)}>日</span><span {...stylex.props(s.brandText)}>Marugoto <span style={{ color: '#e11d48' }}>Study Hub</span></span></Link>
+   <div {...stylex.props(s.search)}><Search size={17}/><input id="quick-search" {...stylex.props(s.input)} value={query} onChange={e => { setQuery(e.target.value); if(e.target.value) setMenuOpen(true); }} placeholder="Tìm bài học tiếng Nhật hoặc tiếng Việt…" aria-label="Tìm kiếm nhanh"/><kbd style={{ fontSize: 11, background: 'rgba(127,127,127,0.15)', padding: '2px 6px', borderRadius: 4 }}>/</kbd></div>
    <div {...stylex.props(s.headerRight)}><Button label={mode === 'light' ? 'Bật chế độ tối' : 'Bật chế độ sáng'} variant="ghost" size="sm" isIconOnly icon={mode === 'light' ? <Moon size={17}/> : <Sun size={17}/>} onClick={() => setMode(v => v === 'light' ? 'dark' : 'light')}/></div>
   </header>
   <div {...stylex.props(s.layout)}>
    <aside id="study-navigation" {...stylex.props(s.rail, menuOpen && s.railOpen)}><nav aria-label="Điều hướng chính">
     <div {...stylex.props(s.railSection)}><span {...stylex.props(s.railTitle)}>Không gian học</span><ShellNav to="/" icon={<Home size={17}/>} label="Dashboard"/><ShellNav to="/kanji" icon={<GraduationCap size={17}/>} label="Trung tâm Kanji"/><ShellNav to="/tests" icon={<Target size={17}/>} label="Phòng thi & Mini test"/><ShellNav to="/kaiwa" icon={<BookOpen size={17}/>} label="Kaiwa 5 phút"/></div>
     {(['A2-1', 'A2-2'] as const).map(level => <div key={level} {...stylex.props(s.railSection)}><span {...stylex.props(s.railTitle)}>Marugoto {level}</span>{filtered.filter(item => item.level === level).map(item => <ShellNav key={`${level}-${item.number}`} to={`/lessons/${level.toLowerCase()}/${item.number}`} icon={<span>{item.icon}</span>} label={`${item.number}. ${item.title}`}/>)}</div>)}
-    {!filtered.length && <p role="status">Không có bài phù hợp.</p>}
-    <a href="/legacy_html/index.html" {...stylex.props(s.navLink)}>Kho tài liệu cũ (A1 và chuyên đề)</a>
+    {!filtered.length && <p role="status" style={{ padding: 12, color: 'var(--color-text-secondary)', fontSize: 13 }}>Không có bài phù hợp.</p>}
+    <a href="/legacy_html/index.html" {...stylex.props(s.navLink)}>📚 Kho tài liệu cũ (A1 và chuyên đề)</a>
    </nav></aside>
    <main id="main-content" tabIndex={-1} {...stylex.props(s.main)}><Outlet/><footer {...stylex.props(s.footer)}>Nội dung học tập Marugoto · Tiến độ lưu trong trình duyệt · Các bộ đề là tài liệu tự luyện, không phải đề JLPT chính thức.</footer></main>
   </div>

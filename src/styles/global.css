@@ -3,21 +3,120 @@
 @import '@astryxdesign/theme-neutral/theme.css';
 
 @layer product {
-  :root { font-family: 'Figtree', 'Noto Sans JP', system-ui, sans-serif; font-synthesis: none; text-rendering: optimizeLegibility; }
-  body { min-width: 320px; margin: 0; background: var(--color-background-body); color: var(--color-text-primary); }
+  :root,
+  [data-astryx-theme="neutral"] {
+    font-family: 'Plus Jakarta Sans', 'Noto Sans JP', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+
+    /* ====================================================================
+       MARUGOTO JAPANESE EDITORIAL PALETTE (Crimson & Indigo)
+       Overriding Astryx neutral theme monochrome values
+       ==================================================================== */
+    --color-accent: #e11d48;
+    --color-accent-muted: #ffe4e6;
+    --color-text-accent: #e11d48;
+    --color-on-accent: #ffffff;
+    --color-background-body: #f8fafc;
+    --color-background-surface: #ffffff;
+    --color-background-card: #ffffff;
+    --color-text-primary: #0f172a;
+    --color-text-secondary: #475569;
+    --color-border: #e2e8f0;
+    --color-neutral: #f1f5f9;
+    --color-success: #059669;
+    --color-success-muted: #ecfdf5;
+    --color-error: #e11d48;
+    --color-error-muted: #fff1f2;
+    --color-warning: #d97706;
+    --color-warning-muted: #fffbeb;
+    --color-info: #0284c7;
+    --color-info-muted: #f0f9ff;
+  }
+
+  [data-astryx-theme="neutral"][data-astryx-mode="dark"],
+  [data-astryx-mode="dark"],
+  [data-mode="dark"],
+  .dark {
+    --color-accent: #f43f5e;
+    --color-accent-muted: rgba(244, 63, 94, 0.2);
+    --color-text-accent: #f43f5e;
+    --color-on-accent: #ffffff;
+    --color-background-body: #0b0f19;
+    --color-background-surface: #111827;
+    --color-background-card: #1f2937;
+    --color-text-primary: #f8fafc;
+    --color-text-secondary: #94a3b8;
+    --color-border: #374151;
+    --color-neutral: #1f2937;
+    --color-success: #10b981;
+    --color-success-muted: rgba(16, 185, 129, 0.15);
+    --color-error: #fb7185;
+    --color-error-muted: rgba(251, 113, 133, 0.15);
+    --color-warning: #f59e0b;
+    --color-warning-muted: rgba(245, 158, 11, 0.15);
+    --color-info: #38bdf8;
+    --color-info-muted: rgba(56, 189, 248, 0.15);
+  }
+
+  body {
+    min-width: 320px;
+    margin: 0;
+    background: var(--color-background-body);
+    color: var(--color-text-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
   * { box-sizing: border-box; }
   main { overflow-wrap: anywhere; }
-  .skip-link { position: fixed; top: -100px; left: 12px; z-index: 100; padding: 12px; background: var(--color-background-surface); }
+
+  .skip-link {
+    position: fixed;
+    top: -100px;
+    left: 12px;
+    z-index: 100;
+    padding: 12px;
+    background: var(--color-background-surface);
+  }
   .skip-link:focus { top: 8px; }
-  :focus-visible { outline: 2px solid var(--color-accent); outline-offset: 3px; }
-  main > div { padding-inline: clamp(16px, 3vw, 36px); }
-  @media (max-width: 430px) { main > div > section { max-width: 100%; } }
-  @media (prefers-reduced-motion: reduce) { .flashcard-surface { transition: none; } }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+
+  main > div {
+    padding-inline: clamp(16px, 3vw, 36px);
+  }
+
+  @media (max-width: 430px) {
+    main > div > section { max-width: 100%; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .flashcard-surface { transition: none; }
+  }
+
   button, input, select, textarea { font: inherit; }
   button { cursor: pointer; }
   a { color: inherit; text-decoration: none; }
-  ::selection { background: #c7d2fe; color: #1f2937; }
-  .flashcard-surface { position: relative; display: grid; place-items: center; width: 100%; min-height: 245px; padding: 28px; transition: transform .45s cubic-bezier(.2,.75,.25,1); transform-style: preserve-3d; }
+  ::selection { background: #fecdd3; color: #9f1239; }
+
+  .flashcard-surface {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 100%;
+    min-height: 245px;
+    padding: 28px;
+    transition: transform .45s cubic-bezier(.2,.75,.25,1);
+    transform-style: preserve-3d;
+    border-radius: 20px;
+    background: var(--color-background-card);
+    border: 1.5px solid var(--color-border);
+    box-shadow: 0 12px 30px -8px rgba(15, 23, 42, 0.08);
+  }
   .flashcard-surface.is-flipped { transform: rotateY(180deg); }
   .flashcard-face { display: grid; gap: 10px; justify-items: center; backface-visibility: hidden; }
   .flashcard-back { position: absolute; inset: 0; align-content: center; transform: rotateY(180deg); }
