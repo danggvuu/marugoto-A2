@@ -23,14 +23,14 @@ L13_VOCAB = [
         "kanji": "文化",
         "romaji": "bunka",
         "vi": "Văn hóa",
-        "icon": "🎎"
+        "icon": "🏛️"
     },
     {
         "jp": "天皇",
         "kana": "てんのう",
         "kanji": "天皇",
         "romaji": "tennou",
-        "vi": "Thiên hoàng Nhật Bản",
+        "vi": "Thiên hoàng",
         "icon": "👑"
     },
     {
@@ -38,22 +38,22 @@ L13_VOCAB = [
         "kana": "しょうぐん",
         "kanji": "将軍",
         "romaji": "shougun",
-        "vi": "Tướng quân (Shogun)",
-        "icon": "⚔️"
+        "vi": "Tướng quân",
+        "icon": "🏯"
     },
     {
         "jp": "城／～城",
         "kana": "しろ／～じょう",
         "kanji": "城／～城",
         "romaji": "shiro / ~jou",
-        "vi": "Thành, lâu đài",
+        "vi": "Thành",
         "icon": "🏯"
     },
     {
         "jp": "舞妓さん",
         "kana": "まいこさん",
         "kanji": "舞妓さん",
-        "romaji": "maikosan",
+        "romaji": "maiko-san",
         "vi": "Thiếu nữ Maiko (vũ kỹ tập sự)",
         "icon": "👘"
     },
@@ -61,8 +61,8 @@ L13_VOCAB = [
         "jp": "約～年前",
         "kana": "やく～ねんまえ",
         "kanji": "約～年前",
-        "romaji": "yaku ~nen mae",
-        "vi": "Khoảng ... năm trước",
+        "romaji": "yaku ~nenmae",
+        "vi": "Khoảng... năm trước",
         "icon": "⏳"
     },
     {
@@ -71,15 +71,15 @@ L13_VOCAB = [
         "kanji": "世紀",
         "romaji": "seiki",
         "vi": "Thế kỷ",
-        "icon": "🏛️"
+        "icon": "⏳"
     },
     {
         "jp": "時代",
         "kana": "じだい",
         "kanji": "時代",
         "romaji": "jidai",
-        "vi": "Thời đại, triều đại",
-        "icon": "🕰️"
+        "vi": "Thời đại",
+        "icon": "📜"
     },
     {
         "jp": "茶道",
@@ -94,8 +94,8 @@ L13_VOCAB = [
         "kana": "かどう",
         "kanji": "華道",
         "romaji": "kadou",
-        "vi": "Nghệ thuật cắm hoa Kado",
-        "icon": "💐"
+        "vi": "Nghệ thuật cắm hoa truyền thống",
+        "icon": "🌸"
     },
     {
         "jp": "建てます",
@@ -110,7 +110,7 @@ L13_VOCAB = [
         "kana": "いし",
         "kanji": "石",
         "romaji": "ishi",
-        "vi": "Đá, sỏi",
+        "vi": "Đá",
         "icon": "🪨"
     },
     {
@@ -119,14 +119,14 @@ L13_VOCAB = [
         "kanji": "仏教",
         "romaji": "bukkyou",
         "vi": "Phật giáo",
-        "icon": "☸️"
+        "icon": "🪷"
     },
     {
         "jp": "観光客",
         "kana": "かんこうきゃく",
         "kanji": "観光客",
         "romaji": "kankoukyaku",
-        "vi": "Khách du lịch",
+        "vi": "Khách du lịch, tham quan",
         "icon": "🧳"
     },
     {
@@ -134,16 +134,8 @@ L13_VOCAB = [
         "kana": "ほんもの",
         "kanji": "本物",
         "romaji": "honmono",
-        "vi": "Đồ thật, hàng thật",
+        "vi": "Đồ thật",
         "icon": "💎"
-    },
-    {
-        "jp": "偽物",
-        "kana": "にせもの",
-        "kanji": "偽物",
-        "romaji": "nisemono",
-        "vi": "Đồ giả, hàng nhái",
-        "icon": "🚫"
     },
     {
         "jp": "舞台",
@@ -158,16 +150,24 @@ L13_VOCAB = [
         "kana": "はしら",
         "kanji": "柱",
         "romaji": "hashira",
-        "vi": "Cột trụ",
+        "vi": "Cột",
         "icon": "🏛️"
     },
     {
-        "jp": "立派（な）",
-        "kana": "りっぱ（な）",
-        "kanji": "立派（な）",
-        "romaji": "rippa(na)",
-        "vi": "Nguy nga, tráng lệ, tuyệt vời",
+        "jp": "立派",
+        "kana": "りっぱ",
+        "kanji": "立派",
+        "romaji": "rippa",
+        "vi": "Tuyệt vời, tráng lệ",
         "icon": "🏰"
+    },
+    {
+        "jp": "～以上",
+        "kana": "～いじょう",
+        "kanji": "～以上",
+        "romaji": "~ijou",
+        "vi": "Trên... hơn...",
+        "icon": "📈"
     },
     {
         "jp": "中心",
@@ -404,7 +404,7 @@ L14_VOCAB = [
         "kanji": "文化財",
         "romaji": "bunkazai",
         "vi": "Di sản văn hóa",
-        "icon": "🏛️"
+        "icon": "🏯"
     },
     {
         "jp": "国宝",
@@ -412,38 +412,38 @@ L14_VOCAB = [
         "kanji": "国宝",
         "romaji": "kokuhou",
         "vi": "Quốc bảo",
-        "icon": "🏆"
+        "icon": "👑"
     },
     {
         "jp": "織物",
         "kana": "おりもの",
         "kanji": "織物",
         "romaji": "orimono",
-        "vi": "Vải dệt, đồ dệt thủ công",
-        "icon": "🧵"
+        "vi": "Vải dệt, đồ dệt",
+        "icon": "🧶"
     },
     {
         "jp": "道具",
         "kana": "どうぐ",
         "kanji": "道具",
         "romaji": "dougu",
-        "vi": "Dụng cụ, công cụ",
-        "icon": "🛠️"
+        "vi": "Dụng cụ",
+        "icon": "🧰"
     },
     {
         "jp": "刀",
         "kana": "かたな",
         "kanji": "刀",
         "romaji": "katana",
-        "vi": "Thanh đao, kiếm Nhật",
-        "icon": "🗡️"
+        "vi": "Thanh đao",
+        "icon": "⚔️"
     },
     {
         "jp": "焼き物",
         "kana": "やきもの",
         "kanji": "焼き物",
         "romaji": "yakimono",
-        "vi": "Đồ gốm sứ",
+        "vi": "Đồ gốm",
         "icon": "🏺"
     },
     {
@@ -459,7 +459,7 @@ L14_VOCAB = [
         "kana": "しょ",
         "kanji": "書",
         "romaji": "sho",
-        "vi": "Sách (văn tự cổ), thư pháp",
+        "vi": "Sách (văn tự)",
         "icon": "📜"
     },
     {
@@ -475,7 +475,7 @@ L14_VOCAB = [
         "kana": "つちのにんぎょう",
         "kanji": "土の人形",
         "romaji": "tsuchi no ningyou",
-        "vi": "Búp bê bằng đất sét",
+        "vi": "Búp bê đất",
         "icon": "🎎"
     },
     {
@@ -484,7 +484,7 @@ L14_VOCAB = [
         "kanji": "楽器",
         "romaji": "gakki",
         "vi": "Nhạc cụ",
-        "icon": "🎻"
+        "icon": "🎸"
     },
     {
         "jp": "やっぱり",
@@ -499,7 +499,7 @@ L14_VOCAB = [
         "kana": "はか",
         "kanji": "墓",
         "romaji": "haka",
-        "vi": "Phần mộ, lăng mộ",
+        "vi": "Mộ",
         "icon": "🪦"
     },
     {
@@ -507,37 +507,45 @@ L14_VOCAB = [
         "kana": "うた",
         "kanji": "詩",
         "romaji": "uta",
-        "vi": "Bài thơ",
-        "icon": "📝"
+        "vi": "Thơ",
+        "icon": "📜"
     },
     {
-        "jp": "恋の詩",
-        "kana": "こいのうた",
-        "kanji": "恋の詩",
-        "romaji": "koi no uta",
-        "vi": "Thơ tình yêu",
-        "icon": "💌"
+        "jp": "恋",
+        "kana": "こい",
+        "kanji": "恋",
+        "romaji": "koi",
+        "vi": "Tình yêu",
+        "icon": "❤️"
     },
     {
-        "jp": "輸出（します）",
-        "kana": "ゆしゅつ（します）",
-        "kanji": "輸出（します）",
-        "romaji": "yushutsu(shimasu)",
+        "jp": "ヨーロッパ",
+        "kana": "ヨーロッパ",
+        "kanji": "ヨーロッパ",
+        "romaji": "yo-roppa",
+        "vi": "Châu Âu",
+        "icon": "🌍"
+    },
+    {
+        "jp": "輸出",
+        "kana": "ゆしゅつ",
+        "kanji": "輸出",
+        "romaji": "yushutsu",
         "vi": "Xuất khẩu",
         "icon": "🚢"
     },
     {
-        "jp": "輸入（します）",
-        "kana": "ゆにゅう（します）",
-        "kanji": "輸入（します）",
-        "romaji": "yunyuu(shimasu)",
-        "vi": "Nhập khẩu",
-        "icon": "📦"
+        "jp": "ペルシャ",
+        "kana": "ペルシャ",
+        "kanji": "ペルシャ",
+        "romaji": "perusha",
+        "vi": "Ba Tư",
+        "icon": "🕌"
     },
     {
         "jp": "じゅうたん",
         "kana": "じゅうたん",
-        "kanji": "じゅうたん",
+        "kanji": "絨毯",
         "romaji": "juutan",
         "vi": "Tấm thảm",
         "icon": "🧶"
@@ -548,14 +556,14 @@ L14_VOCAB = [
         "kanji": "戦争",
         "romaji": "sensou",
         "vi": "Chiến tranh",
-        "icon": "⚔️"
+        "icon": "🛡️"
     },
     {
         "jp": "運びます",
         "kana": "はこびます",
         "kanji": "運びます",
         "romaji": "hakobimasu",
-        "vi": "Vận chuyển, mang vác",
+        "vi": "Vận chuyển",
         "icon": "🚚"
     },
     {
@@ -564,15 +572,79 @@ L14_VOCAB = [
         "kanji": "使用（します）",
         "romaji": "shiyou(shimasu)",
         "vi": "Sử dụng",
-        "icon": "🔧"
+        "icon": "⚙️"
     },
     {
         "jp": "触ります",
         "kana": "さわります",
         "kanji": "触ります",
         "romaji": "sawarimasu",
-        "vi": "Chạm, sờ vào",
+        "vi": "Chạm, sờ",
         "icon": "✋"
+    },
+    {
+        "jp": "ルール／規則",
+        "kana": "ルール／きそく",
+        "kanji": "ルール／規則",
+        "romaji": "ru-ru / kisoku",
+        "vi": "Quy tắc",
+        "icon": "📜"
+    },
+    {
+        "jp": "置きます",
+        "kana": "おきます",
+        "kanji": "置きます",
+        "romaji": "okimasu",
+        "vi": "Đặt, để",
+        "icon": "📦"
+    },
+    {
+        "jp": "貼ります",
+        "kana": "はります",
+        "kanji": "貼ります",
+        "romaji": "harimasu",
+        "vi": "Dán",
+        "icon": "🏷️"
+    },
+    {
+        "jp": "知らせます",
+        "kana": "しらせます",
+        "kanji": "知らせます",
+        "romaji": "shirasemasu",
+        "vi": "Thông báo",
+        "icon": "📢"
+    },
+    {
+        "jp": "ポスター",
+        "kana": "ポスター",
+        "kanji": "ポスター",
+        "romaji": "posuta-",
+        "vi": "Poster, áp phích",
+        "icon": "📰"
+    },
+    {
+        "jp": "調べます",
+        "kana": "しらべます",
+        "kanji": "調べます",
+        "romaji": "shirabemasu",
+        "vi": "Tìm hiểu, tra cứu",
+        "icon": "🔍"
+    },
+    {
+        "jp": "ロッカー",
+        "kana": "ロッカー",
+        "kanji": "ロッカー",
+        "romaji": "rokka-",
+        "vi": "Tủ locker",
+        "icon": "🗄️"
+    },
+    {
+        "jp": "カレンダー",
+        "kana": "カレンダー",
+        "kanji": "カレンダー",
+        "romaji": "karenda-",
+        "vi": "Lịch",
+        "icon": "📅"
     }
 ]
 

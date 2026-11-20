@@ -217,8 +217,9 @@ def build_lesson_html(
     kanji_cards_html = []
     for k in kanji_cards:
         if "word" in k:
+            long_class = " char-long" if len(k["word"]) >= 4 else ""
             kanji_cards_html.append(f'''        <div class="kanji-detail-card">
-            <div class="kanji-big-char" lang="ja">{k["word"]}</div>
+            <div class="kanji-big-char{long_class}" lang="ja">{k["word"]}</div>
             <div class="kanji-info">
                 <div class="kanji-hv-title" lang="ja">{k["kana"]}</div>
                 <div class="kanji-readings">{k["mean"]}</div>

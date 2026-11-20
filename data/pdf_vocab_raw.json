@@ -1,0 +1,3005 @@
+{
+  "1": [
+    {
+      "no": 1,
+      "word": "じこしょうかい",
+      "meaning": "Giới thiệu bản thân",
+      "sub_items": []
+    },
+    {
+      "no": 2,
+      "word": "ひみつ",
+      "meaning": "Bí mật",
+      "sub_items": []
+    },
+    {
+      "no": 3,
+      "word": "こくさいこうりゅう",
+      "meaning": "Giao lưu quốc tế",
+      "sub_items": []
+    },
+    {
+      "no": 4,
+      "word": "でんきてん",
+      "meaning": "Cửa hàng điện",
+      "sub_items": []
+    },
+    {
+      "no": 5,
+      "word": "でんきせいひん",
+      "meaning": "Sản phẩm điện tử",
+      "sub_items": []
+    },
+    {
+      "no": 6,
+      "word": "どくしょ",
+      "meaning": "Đọc sách",
+      "sub_items": []
+    },
+    {
+      "no": 7,
+      "word": "みせを やります",
+      "meaning": "Làm, mở nhà hàng",
+      "sub_items": []
+    },
+    {
+      "no": 8,
+      "word": "ほんやくを します",
+      "meaning": "Biên dịch (dịch viết)",
+      "sub_items": []
+    },
+    {
+      "no": 9,
+      "word": "きょうみ",
+      "meaning": "Hứng thú",
+      "sub_items": []
+    },
+    {
+      "no": 10,
+      "word": "むら",
+      "meaning": "Làng",
+      "sub_items": []
+    },
+    {
+      "no": 11,
+      "word": "しま",
+      "meaning": "Đảo",
+      "sub_items": []
+    },
+    {
+      "no": 12,
+      "word": "とし",
+      "meaning": "Tuổi",
+      "sub_items": []
+    },
+    {
+      "no": 13,
+      "word": "うまれます",
+      "meaning": "Được sinh ra",
+      "sub_items": []
+    },
+    {
+      "no": 14,
+      "word": "やさしい",
+      "meaning": "Hiền lành, tốt bụng",
+      "sub_items": []
+    },
+    {
+      "no": 15,
+      "word": "けんこう（な）",
+      "meaning": "Khỏe mạnh, lành mạnh",
+      "sub_items": []
+    },
+    {
+      "no": 16,
+      "word": "まじめ（な）",
+      "meaning": "Nghiêm túc, chăm chỉ",
+      "sub_items": []
+    },
+    {
+      "no": 17,
+      "word": "あかるい",
+      "meaning": "Sáng sủa, tươi vui",
+      "sub_items": []
+    },
+    {
+      "no": 18,
+      "word": "いみ",
+      "meaning": "Ý nghĩa",
+      "sub_items": []
+    },
+    {
+      "no": 19,
+      "word": "さっか",
+      "meaning": "Nhà văn, tác giả",
+      "sub_items": []
+    },
+    {
+      "no": 20,
+      "word": "すんで いる ところ",
+      "meaning": "Nơi đang sinh sống",
+      "sub_items": []
+    }
+  ],
+  "2": [
+    {
+      "no": 1,
+      "word": "ホームパーティー",
+      "meaning": "Tiệc gia đình",
+      "sub_items": []
+    },
+    {
+      "no": 2,
+      "word": "スーツ",
+      "meaning": "Vest",
+      "sub_items": []
+    },
+    {
+      "no": 3,
+      "word": "サリー",
+      "meaning": "Sari (trang phục truyền thống\ncủa Ấn Độ",
+      "sub_items": []
+    },
+    {
+      "no": 4,
+      "word": "セーター",
+      "meaning": "Áo len",
+      "sub_items": []
+    },
+    {
+      "no": 5,
+      "word": "ネクタイを します",
+      "meaning": "Thắt cà vạt",
+      "sub_items": []
+    },
+    {
+      "no": 6,
+      "word": "スーツを きます",
+      "meaning": "Mặc vest",
+      "sub_items": []
+    },
+    {
+      "no": 7,
+      "word": "めがねを かけます",
+      "meaning": "Đeo kính",
+      "sub_items": []
+    },
+    {
+      "no": 8,
+      "word": "ぼうしを かぶります",
+      "meaning": "Đội mũ",
+      "sub_items": []
+    },
+    {
+      "no": 9,
+      "word": "スカートを はきます",
+      "meaning": "Mặc váy",
+      "sub_items": []
+    },
+    {
+      "no": 10,
+      "word": "くつを はきます",
+      "meaning": "Đi giày",
+      "sub_items": []
+    },
+    {
+      "no": 11,
+      "word": "P に すわります",
+      "meaning": "Ngồi",
+      "sub_items": []
+    },
+    {
+      "no": 12,
+      "word": "P に たちます",
+      "meaning": "Đứng",
+      "sub_items": []
+    },
+    {
+      "no": 13,
+      "word": "わらいます",
+      "meaning": "Cười",
+      "sub_items": []
+    },
+    {
+      "no": 14,
+      "word": "なきます",
+      "meaning": "Khóc",
+      "sub_items": []
+    },
+    {
+      "no": 15,
+      "word": "きびしい",
+      "meaning": "Nghiêm khắc",
+      "sub_items": []
+    },
+    {
+      "no": 16,
+      "word": "ごしゅじん",
+      "meaning": "Chồng (người khác)",
+      "sub_items": []
+    },
+    {
+      "no": 17,
+      "word": "あたまが いい",
+      "meaning": "Thông minh",
+      "sub_items": []
+    }
+  ],
+  "3": [
+    {
+      "no": 1,
+      "word": "カウンター",
+      "meaning": "Chỗ ngồi quầy",
+      "sub_items": []
+    },
+    {
+      "no": 2,
+      "word": "テーブル",
+      "meaning": "Bàn (ngồi cùng ghế)",
+      "sub_items": []
+    },
+    {
+      "no": 3,
+      "word": "ざしき",
+      "meaning": "Bàn (ngồi bệt)",
+      "sub_items": []
+    },
+    {
+      "no": 4,
+      "word": "きつえんせき",
+      "meaning": "Ghế hút thuốc",
+      "sub_items": []
+    },
+    {
+      "no": 5,
+      "word": "きんえんせき",
+      "meaning": "Ghế cấm hút thuốc",
+      "sub_items": []
+    },
+    {
+      "no": 6,
+      "word": "よやくする",
+      "meaning": "Đặt trước, hẹn lịch",
+      "sub_items": []
+    },
+    {
+      "no": 7,
+      "word": "ちゅうもんする",
+      "meaning": "Đặt món, gọi món",
+      "sub_items": []
+    },
+    {
+      "no": 8,
+      "word": "よせなべ",
+      "meaning": "Lẩu hải sản",
+      "sub_items": []
+    },
+    {
+      "no": 9,
+      "word": "わしょく",
+      "meaning": "Món ăn kiểu Nhật",
+      "sub_items": []
+    },
+    {
+      "no": 10,
+      "word": "すきやき",
+      "meaning": "Món lẩu kiểu Nhật",
+      "sub_items": []
+    },
+    {
+      "no": 11,
+      "word": "えいよう",
+      "meaning": "Dinh dưỡng",
+      "sub_items": []
+    },
+    {
+      "no": 12,
+      "word": "ベジタリアン",
+      "meaning": "Ăn chay",
+      "sub_items": []
+    },
+    {
+      "no": 13,
+      "word": "かに",
+      "meaning": "Cua",
+      "sub_items": []
+    },
+    {
+      "no": 14,
+      "word": "えび",
+      "meaning": "Tôm",
+      "sub_items": []
+    },
+    {
+      "no": 15,
+      "word": "ソフトドリンク",
+      "meaning": "Đồ uống nhẹ, nước ngọt",
+      "sub_items": []
+    },
+    {
+      "no": 16,
+      "word": "ウーロンちゃ",
+      "meaning": "Trà Ô long",
+      "sub_items": []
+    },
+    {
+      "no": 17,
+      "word": "しんせん（な）",
+      "meaning": "Tươi",
+      "sub_items": []
+    },
+    {
+      "no": 18,
+      "word": "おすすめ（の N）",
+      "meaning": "Gợi ý, khuyến khích",
+      "sub_items": []
+    },
+    {
+      "no": 19,
+      "word": "なんめいさまですか",
+      "meaning": "Mấy vị (người) vậy ạ?",
+      "sub_items": []
+    },
+    {
+      "no": 20,
+      "word": "おきまりですか",
+      "meaning": "Quý vị quyết định chưa ạ?",
+      "sub_items": []
+    },
+    {
+      "no": 21,
+      "word": "にがて（な）",
+      "meaning": "Kém, sợ...",
+      "sub_items": []
+    }
+  ],
+  "4": [
+    {
+      "no": 1,
+      "word": "かけます",
+      "meaning": "Rưới, chan",
+      "sub_items": []
+    },
+    {
+      "no": 2,
+      "word": "つけます",
+      "meaning": "Chấm",
+      "sub_items": []
+    },
+    {
+      "no": 3,
+      "word": "いれます",
+      "meaning": "Thêm vào, cho vào",
+      "sub_items": []
+    },
+    {
+      "no": 4,
+      "word": "ぬります",
+      "meaning": "Bôi, sơn, phết",
+      "sub_items": []
+    },
+    {
+      "no": 5,
+      "word": "やきます",
+      "meaning": "Nướng",
+      "sub_items": []
+    },
+    {
+      "no": 6,
+      "word": "いい におい",
+      "meaning": "Mùi thơm",
+      "sub_items": []
+    },
+    {
+      "no": 7,
+      "word": "ふた",
+      "meaning": "Nắp, vung",
+      "sub_items": []
+    },
+    {
+      "no": 8,
+      "word": "さら",
+      "meaning": "Đĩa",
+      "sub_items": []
+    },
+    {
+      "no": 9,
+      "word": "ちゃわん",
+      "meaning": "Bát",
+      "sub_items": []
+    },
+    {
+      "no": 10,
+      "word": "たれ／ソース",
+      "meaning": "Nước sốt",
+      "sub_items": []
+    },
+    {
+      "no": 11,
+      "word": "しょうゆ",
+      "meaning": "Xì dầu",
+      "sub_items": []
+    },
+    {
+      "no": 12,
+      "word": "とうがらし",
+      "meaning": "Ớt",
+      "sub_items": []
+    },
+    {
+      "no": 13,
+      "word": "こしょう",
+      "meaning": "Hạt tiêu",
+      "sub_items": []
+    },
+    {
+      "no": 14,
+      "word": "バター",
+      "meaning": "Bơ",
+      "sub_items": []
+    },
+    {
+      "no": 15,
+      "word": "おなかが すきました",
+      "meaning": "Đói",
+      "sub_items": []
+    },
+    {
+      "no": 16,
+      "word": "のどが かわきました",
+      "meaning": "Khát",
+      "sub_items": []
+    },
+    {
+      "no": 17,
+      "word": "かんぱい",
+      "meaning": "Cạn ly",
+      "sub_items": []
+    },
+    {
+      "no": 18,
+      "word": "いろが かわります",
+      "meaning": "Màu thay đổi",
+      "sub_items": []
+    },
+    {
+      "no": 19,
+      "word": "がまんする",
+      "meaning": "Chịu đựng",
+      "sub_items": []
+    },
+    {
+      "no": 20,
+      "word": "料理を のこします",
+      "meaning": "Bỏ thừa đồ ăn",
+      "sub_items": []
+    },
+    {
+      "no": 21,
+      "word": "おとを たてます",
+      "meaning": "Tạo ra âm thanh, tiếng",
+      "sub_items": []
+    },
+    {
+      "no": 22,
+      "word": "かゆい",
+      "meaning": "Ngứa",
+      "sub_items": []
+    },
+    {
+      "no": 23,
+      "word": "あせが でます",
+      "meaning": "Toát mồ hôi",
+      "sub_items": []
+    }
+  ],
+  "5": [
+    {
+      "no": 1,
+      "word": "かんこうシーズン\n観光シーズン",
+      "meaning": "Mùa du lịch",
+      "sub_items": []
+    },
+    {
+      "no": 2,
+      "word": "たいふうシーズン\n台風シーズン",
+      "meaning": "Mùa bão",
+      "sub_items": []
+    },
+    {
+      "no": 3,
+      "word": "しぜん\n自然",
+      "meaning": "Thiên nhiên",
+      "sub_items": []
+    },
+    {
+      "no": 4,
+      "word": "しま\n島",
+      "meaning": "Đảo",
+      "sub_items": []
+    },
+    {
+      "no": 5,
+      "word": "グルメ",
+      "meaning": "Ăn uống",
+      "sub_items": []
+    },
+    {
+      "no": 6,
+      "word": "ダイビングの どうぐ\nダイビングの 道具",
+      "meaning": "Đồ lặn",
+      "sub_items": []
+    },
+    {
+      "no": 7,
+      "word": "サングラス",
+      "meaning": "Kính râm",
+      "sub_items": []
+    },
+    {
+      "no": 8,
+      "word": "コート",
+      "meaning": "Áo choàng",
+      "sub_items": []
+    },
+    {
+      "no": 9,
+      "word": "ジャケット",
+      "meaning": "Áo khoác",
+      "sub_items": []
+    },
+    {
+      "no": 10,
+      "word": "りょうきん\n料金",
+      "meaning": "Chi phí",
+      "sub_items": []
+    },
+    {
+      "no": 11,
+      "word": "ゆたか（な）\n豊か（な）",
+      "meaning": "Phong phú",
+      "sub_items": []
+    },
+    {
+      "no": 12,
+      "word": "うつくしい\n美しい",
+      "meaning": "Đẹp",
+      "sub_items": []
+    },
+    {
+      "no": 13,
+      "word": "ドライブします",
+      "meaning": "Lái xe",
+      "sub_items": []
+    },
+    {
+      "no": 14,
+      "word": "レンタルします",
+      "meaning": "Thuê",
+      "sub_items": []
+    },
+    {
+      "no": 15,
+      "word": "よやくします\n予約します",
+      "meaning": "Hẹn, đặt trước",
+      "sub_items": []
+    },
+    {
+      "no": 16,
+      "word": "こみます\n込みます",
+      "meaning": "Đông",
+      "sub_items": []
+    },
+    {
+      "no": 17,
+      "word": "ゆれます\n揺れます",
+      "meaning": "Rung, lắc",
+      "sub_items": []
+    },
+    {
+      "no": 18,
+      "word": "ほっとします",
+      "meaning": "An tâm",
+      "sub_items": []
+    },
+    {
+      "no": 19,
+      "word": "おすすめの コース",
+      "meaning": "Khóa được khuyến khích",
+      "sub_items": []
+    },
+    {
+      "no": 20,
+      "word": "もっていきます",
+      "meaning": "Mang đi",
+      "sub_items": []
+    },
+    {
+      "no": 21,
+      "word": "しぜん",
+      "meaning": "Thiên nhiên",
+      "sub_items": []
+    },
+    {
+      "no": 22,
+      "word": "けしき",
+      "meaning": "Phong cảnh",
+      "sub_items": []
+    },
+    {
+      "no": 23,
+      "word": "ゆたか（な）",
+      "meaning": "Phong phú, đa dạng",
+      "sub_items": [
+        [
+          "➡ しぜんがゆたかです",
+          "Thiên nhiên phong phú"
+        ]
+      ]
+    },
+    {
+      "no": 24,
+      "word": "しま",
+      "meaning": "Đảo",
+      "sub_items": []
+    },
+    {
+      "no": 25,
+      "word": "しまをドライブします",
+      "meaning": "Lái xe dạo quanh đảo",
+      "sub_items": []
+    },
+    {
+      "no": 26,
+      "word": "うつくしい",
+      "meaning": "Tuyệt đẹp, hùng vĩ",
+      "sub_items": []
+    },
+    {
+      "no": 27,
+      "word": "おすすめ",
+      "meaning": "Đề xuất",
+      "sub_items": [
+        [
+          "Ｎ が おすすめです。 ➡ ダイ\nビングがおすすめです。",
+          "Đề xuất N"
+        ],
+        [
+          "Ｎに おすすめです。\nしまを ドライブしたい人に お\nすすめです。",
+          "Đề xuất cho đối tượng, việc N"
+        ],
+        [
+          "➡ ベトナム の料理が（を） 食べ\nたい人に おすすです。",
+          "Đề xuất cho người muốn ăn\nmón ăn Việt Nam"
+        ]
+      ]
+    },
+    {
+      "no": 28,
+      "word": "Ｎをよやくします",
+      "meaning": "Đặt trước, book",
+      "sub_items": []
+    },
+    {
+      "no": 29,
+      "word": "ダイビング（します）",
+      "meaning": "Lặn",
+      "sub_items": []
+    },
+    {
+      "no": 30,
+      "word": "どうぐ",
+      "meaning": "Dụng cụ",
+      "sub_items": [
+        [
+          "➡ ダイビング の どうぐ",
+          "Dụng cụ lặn"
+        ],
+        [
+          "Đề xuất cho người muốn ăn"
+        ],
+        [
+          "món ăn Việt Nam"
+        ]
+      ]
+    },
+    {
+      "no": 31,
+      "word": "りょうきん（料金）",
+      "meaning": "Phí, tiền phải trả…",
+      "sub_items": [
+        [
+          "➡ ダイビング の りょうきん",
+          "Phí lặn"
+        ]
+      ]
+    },
+    {
+      "no": 32,
+      "word": "レンタル（します）",
+      "meaning": "Thuê",
+      "sub_items": [
+        [
+          "➡ レンタル の りょうきん",
+          "Phí thuê"
+        ],
+        [
+          "➡ 車を レンタル します",
+          "Thuê xe ô tô"
+        ]
+      ]
+    },
+    {
+      "no": 33,
+      "word": "Ｎ が こみます ➡ こんで いま\nす",
+      "meaning": "Đông",
+      "sub_items": [
+        [
+          "➡ バスが こみます／こんでい\nます",
+          "Xe bus đông"
+        ]
+      ]
+    },
+    {
+      "no": 34,
+      "word": "すきます ➡ すいて います",
+      "meaning": "Vắng",
+      "sub_items": [
+        [
+          "➡ 電車が すきます ➡ すい\nて います",
+          "Tàu điện vắng"
+        ]
+      ]
+    },
+    {
+      "no": 35,
+      "word": "サングラス（をかけます）",
+      "meaning": "Kính râm",
+      "sub_items": []
+    },
+    {
+      "no": 36,
+      "word": "すばらしい",
+      "meaning": "Tuyệt vời, rất tốt",
+      "sub_items": []
+    },
+    {
+      "no": 37,
+      "word": "Ｎ が ゆれます ➡ いえが ゆれ\nます／ふねが ゆれます",
+      "meaning": "Rung, lắc",
+      "sub_items": [
+        [
+          "➡ じしん（ 地震）",
+          "Động đất"
+        ]
+      ]
+    },
+    {
+      "no": 38,
+      "word": "かんこうシーズン",
+      "meaning": "Mùa du lịch",
+      "sub_items": []
+    },
+    {
+      "no": 39,
+      "word": "しんせつ（な）",
+      "meaning": "Tốt bụng, thân thiện",
+      "sub_items": []
+    },
+    {
+      "no": 40,
+      "word": "アドバイス",
+      "meaning": "Lời khuyên",
+      "sub_items": []
+    },
+    {
+      "no": 41,
+      "word": "ほっとします",
+      "meaning": "Nhẹ nhõm, thở phào",
+      "sub_items": []
+    },
+    {
+      "no": 42,
+      "word": "できれば、～",
+      "meaning": "Nếu có thể thì...",
+      "sub_items": []
+    },
+    {
+      "no": 43,
+      "word": "かいがん",
+      "meaning": "Bờ biển",
+      "sub_items": []
+    }
+  ],
+  "6": [
+    {
+      "no": 1,
+      "word": "ツアー",
+      "meaning": "Tour",
+      "sub_items": []
+    },
+    {
+      "no": 2,
+      "word": "ショー",
+      "meaning": "Show, buổi trình diễn",
+      "sub_items": [
+        [
+          "➡ おどりの ショー",
+          "Show múa"
+        ]
+      ]
+    },
+    {
+      "no": 3,
+      "word": "イルカ",
+      "meaning": "Cá heo",
+      "sub_items": [
+        [
+          "➡ イルカ のショー",
+          "Show cá heo"
+        ]
+      ]
+    },
+    {
+      "no": 4,
+      "word": "すいぞくかん",
+      "meaning": "Thủy cung",
+      "sub_items": []
+    },
+    {
+      "no": 5,
+      "word": "パンフレット",
+      "meaning": "Tờ giới thiệu, quảng cáo",
+      "sub_items": []
+    },
+    {
+      "no": 6,
+      "word": "もり（森）",
+      "meaning": "Rừng",
+      "sub_items": []
+    },
+    {
+      "no": 7,
+      "word": "つり",
+      "meaning": "Câu cá",
+      "sub_items": []
+    },
+    {
+      "no": 8,
+      "word": "ガラス",
+      "meaning": "Thủy tinh",
+      "sub_items": []
+    },
+    {
+      "no": 9,
+      "word": "おもいで（思い出）",
+      "meaning": "Kỷ niệm",
+      "sub_items": [
+        [
+          "➡ おもいでを 作ります",
+          "Tạo ra kỉ niệm"
+        ],
+        [
+          "➡ いいおもいで に なります",
+          "Trở thành kỉ niệm tốt (đẹp)"
+        ],
+        [
+          "※N を 思い出します（おもいだ\nします）\n家族を 思い出します、学生のと\nきを 思い出します",
+          "Nhớ lại, hồi tưởng lại..."
+        ]
+      ]
+    },
+    {
+      "no": 10,
+      "word": "めずらしい どうぶつ",
+      "meaning": "Động vật hiếm",
+      "sub_items": []
+    },
+    {
+      "no": 11,
+      "word": "人気があります／人気です。（にん\nき）",
+      "meaning": "Được yêu thích, ưa chuộng",
+      "sub_items": [
+        [
+          "➡ N に 人気があります／ 人\n気です。",
+          "Được yêu thích bởi N"
+        ]
+      ]
+    },
+    {
+      "no": 12,
+      "word": "N を 楽しみます（たのしみます）",
+      "meaning": "Tận hưởng niềm vui",
+      "sub_items": []
+    },
+    {
+      "no": 13,
+      "word": "女性（じょせい）",
+      "meaning": "Nữ giới",
+      "sub_items": []
+    },
+    {
+      "no": 14,
+      "word": "男性（だんせい）",
+      "meaning": "Nam giới",
+      "sub_items": []
+    },
+    {
+      "no": 15,
+      "word": "アンケート",
+      "meaning": "Bảo khảo sát",
+      "sub_items": []
+    },
+    {
+      "no": 16,
+      "word": "（ N に）さんか（します）",
+      "meaning": "Tham gia",
+      "sub_items": [
+        [
+          "します）"
+        ],
+        [
+          "家族を 思い出します、学生のと"
+        ]
+      ]
+    }
+  ],
+  "7": [
+    {
+      "no": 1,
+      "word": "ボランティア",
+      "meaning": "Tình nguyện",
+      "sub_items": []
+    },
+    {
+      "no": 2,
+      "word": "スタッフ",
+      "meaning": "Staff",
+      "sub_items": []
+    },
+    {
+      "no": 3,
+      "word": "ボランティア（の）スタッフ",
+      "meaning": "Tình nguyện viên",
+      "sub_items": []
+    },
+    {
+      "no": 4,
+      "word": "まつり",
+      "meaning": "Lễ hội",
+      "sub_items": []
+    },
+    {
+      "no": 5,
+      "word": "イベント",
+      "meaning": "Sự kiện",
+      "sub_items": []
+    },
+    {
+      "no": 6,
+      "word": "かいじょう（会場）",
+      "meaning": "Hội trường, địa điểm tổ chức",
+      "sub_items": []
+    },
+    {
+      "no": 7,
+      "word": "ホール",
+      "meaning": "Hội trường (Hall)",
+      "sub_items": []
+    },
+    {
+      "no": 8,
+      "word": "ひろば",
+      "meaning": "Quảng trường",
+      "sub_items": []
+    },
+    {
+      "no": 9,
+      "word": "ロビー",
+      "meaning": "Đại sảnh",
+      "sub_items": []
+    },
+    {
+      "no": 10,
+      "word": "おどり／おどります",
+      "meaning": "Nhảy múa",
+      "sub_items": [
+        [
+          "➡ みんなで ひろばで おどり\nます",
+          "Mọi người cùng nhảy múa ở\nquảng trường"
+        ]
+      ]
+    },
+    {
+      "no": 11,
+      "word": "じゅんび（します）",
+      "meaning": "Chuẩn bị",
+      "sub_items": [
+        [
+          "➡ かいじょうの じゅんび",
+          "Chuẩn bị hội trường"
+        ]
+      ]
+    },
+    {
+      "no": 12,
+      "word": "かたづけ",
+      "meaning": "Sắp xếp, dọn dẹp",
+      "sub_items": [
+        [
+          "➡ かいじょうの かたづけ",
+          "Dọn dẹp hội trường"
+        ]
+      ]
+    },
+    {
+      "no": 13,
+      "word": "あんない（します）",
+      "meaning": "Hướng dẫn",
+      "sub_items": []
+    },
+    {
+      "no": 14,
+      "word": "さつえい（します）",
+      "meaning": "Quay chụp",
+      "sub_items": []
+    },
+    {
+      "no": 15,
+      "word": "うけつけ（受付）",
+      "meaning": "Lễ tân",
+      "sub_items": [
+        [
+          "Mọi người cùng nhảy múa ở"
+        ],
+        [
+          "quảng trường"
+        ]
+      ]
+    },
+    {
+      "no": 16,
+      "word": "つうやく",
+      "meaning": "Phiên, thông dịch",
+      "sub_items": []
+    },
+    {
+      "no": 17,
+      "word": "しかい",
+      "meaning": "MC",
+      "sub_items": []
+    },
+    {
+      "no": 18,
+      "word": "れんらく（します） ➡ 人にれんら\nくします",
+      "meaning": "Liên lạc",
+      "sub_items": []
+    },
+    {
+      "no": 19,
+      "word": "連絡先（れんらくさき）",
+      "meaning": "Địa chỉ liên lạc",
+      "sub_items": []
+    },
+    {
+      "no": 20,
+      "word": "たんとう（します）",
+      "meaning": "Đảm nhận, phụ trách",
+      "sub_items": [
+        [
+          "➡ たんとうしゃ",
+          "Người đảm nhận, phụ trách"
+        ]
+      ]
+    },
+    {
+      "no": 21,
+      "word": "N をさがします",
+      "meaning": "Tìm kiếm",
+      "sub_items": []
+    },
+    {
+      "no": 22,
+      "word": "N が はじまります／ N をはじめま\nす",
+      "meaning": "Bắt đầu",
+      "sub_items": []
+    },
+    {
+      "no": 23,
+      "word": "ちゅうし（します）中止",
+      "meaning": "Hủy, dừng lại",
+      "sub_items": []
+    },
+    {
+      "no": 24,
+      "word": "あつまります",
+      "meaning": "Tập trung, tụ họp",
+      "sub_items": []
+    },
+    {
+      "no": 25,
+      "word": "スピーチコンテスト",
+      "meaning": "Cuộc thi hùng biện",
+      "sub_items": []
+    },
+    {
+      "no": 26,
+      "word": "N を たのみます",
+      "meaning": "Nhờ vả",
+      "sub_items": []
+    },
+    {
+      "no": 27,
+      "word": "ならいます",
+      "meaning": "Học (có người dạy, năng\nkhiếu...)",
+      "sub_items": [
+        [
+          "➡ マンガ きょうしつで えの\nかきかたを ならいます",
+          "Học cách vẽ tranh tại lớp học\ntruyện tranh"
+        ],
+        [
+          "Học cách vẽ tranh tại lớp học"
+        ],
+        [
+          "truyện tranh"
+        ]
+      ]
+    },
+    {
+      "no": 28,
+      "word": "N を ならべます",
+      "meaning": "Sắp xếp, xếp thành hàng",
+      "sub_items": []
+    },
+    {
+      "no": 29,
+      "word": "つごうが いい",
+      "meaning": "Thời gian thuận tiện, phù hợp,\ntiện lợi",
+      "sub_items": [
+        [
+          "➡ つごうが わるい",
+          "Thời gian không thuận tiện,\nkhông phù hợp, bất tiện"
+        ]
+      ]
+    },
+    {
+      "no": 30,
+      "word": "じしん（自信）",
+      "meaning": "Tự tin",
+      "sub_items": [
+        [
+          "自信が あります",
+          "Có tự tin"
+        ]
+      ]
+    }
+  ],
+  "8": [
+    {
+      "no": 1,
+      "word": "にちじ（にちじ）",
+      "meaning": "Ngày giờ",
+      "sub_items": []
+    },
+    {
+      "no": 2,
+      "word": "かいじょう（会場）",
+      "meaning": "Hội trường, địa điểm tổ chức",
+      "sub_items": []
+    },
+    {
+      "no": 3,
+      "word": "にゅうじょうりょう（入場料）",
+      "meaning": "Phí vào cửa",
+      "sub_items": []
+    },
+    {
+      "no": 4,
+      "word": "にゅうじょうむりょう（入場無料）",
+      "meaning": "Miễn phí vào",
+      "sub_items": []
+    },
+    {
+      "no": 5,
+      "word": "さんかひ",
+      "meaning": "Phí tham gia",
+      "sub_items": []
+    },
+    {
+      "no": 6,
+      "word": "N をはじめます／ N がはじまります",
+      "meaning": "Bắt đầu",
+      "sub_items": []
+    },
+    {
+      "no": 7,
+      "word": "N を／が おわります",
+      "meaning": "Kết thúc",
+      "sub_items": []
+    },
+    {
+      "no": 8,
+      "word": "やります",
+      "meaning": "Tổ chức, diễn ra",
+      "sub_items": []
+    },
+    {
+      "no": 9,
+      "word": "プログラム",
+      "meaning": "Lịch trình chương trình",
+      "sub_items": []
+    },
+    {
+      "no": 10,
+      "word": "うちわ",
+      "meaning": "Quạt giấy",
+      "sub_items": []
+    },
+    {
+      "no": 11,
+      "word": "ひろば",
+      "meaning": "Quảng trường",
+      "sub_items": []
+    },
+    {
+      "no": 12,
+      "word": "ホール",
+      "meaning": "Hội trường",
+      "sub_items": []
+    },
+    {
+      "no": 13,
+      "word": "デモンストレーション",
+      "meaning": "Biểu diễn mẫu",
+      "sub_items": []
+    },
+    {
+      "no": 14,
+      "word": "おねがい",
+      "meaning": "Yêu cầu, lời nhờ vả",
+      "sub_items": [
+        [
+          "はじめに みなさんに おねがいが\nあります。",
+          "Đầu tiên, tôi có việc muốn nhờ\ncác bạn"
+        ]
+      ]
+    },
+    {
+      "no": 15,
+      "word": "いんしょく（飲食）",
+      "meaning": "Việc ăn uống",
+      "sub_items": []
+    },
+    {
+      "no": 16,
+      "word": "N は ごえんりょください",
+      "meaning": "Xin vui lòng không N",
+      "sub_items": [
+        [
+          "VD: 飲食は ごえんりょくださ\nい",
+          "Xin vui lòng không ăn uống"
+        ]
+      ]
+    },
+    {
+      "no": 17,
+      "word": "大人（おとな）",
+      "meaning": "Người lớn",
+      "sub_items": []
+    },
+    {
+      "no": 18,
+      "word": "連絡先（れんらくさき）",
+      "meaning": "Thông tin liên lạc (SĐT, mail…)",
+      "sub_items": []
+    },
+    {
+      "no": 19,
+      "word": "じょうほう",
+      "meaning": "Thông tin",
+      "sub_items": []
+    },
+    {
+      "no": 20,
+      "word": "ほんじつ（本日）＝今日",
+      "meaning": "Hôm nay (trang trọng)",
+      "sub_items": []
+    },
+    {
+      "no": 21,
+      "word": "おいそがしい中",
+      "meaning": "Trong lúc các bạn bận rộn",
+      "sub_items": []
+    },
+    {
+      "no": 22,
+      "word": "・〈イベント〉においでくださっ\nて、ありがとうございます。\n＝〈イベント〉に来てくれて、あり\nがとうございます。",
+      "meaning": "Cảm ơn các bạn đã đến sự\nkiện",
+      "sub_items": [
+        [
+          "Đầu tiên, tôi có việc muốn nhờ"
+        ],
+        [
+          "các bạn"
+        ],
+        [
+          "て、ありがとうございます。"
+        ],
+        [
+          "＝〈イベント〉に来てくれて、あり"
+        ],
+        [
+          "がとうございます。"
+        ],
+        [
+          "Cảm ơn các bạn đã đến sự"
+        ],
+        [
+          "kiện"
+        ]
+      ]
+    }
+  ],
+  "9": [
+    {
+      "no": 1,
+      "word": "おしょうがつ",
+      "meaning": "Tết Nguyên Đán",
+      "sub_items": []
+    },
+    {
+      "no": 2,
+      "word": "おおみそか",
+      "meaning": "Đêm giao thừa",
+      "sub_items": []
+    },
+    {
+      "no": 3,
+      "word": "がんじつ",
+      "meaning": "Ngày mùng 1 Tết, ngày đầu\nnăm mới",
+      "sub_items": []
+    },
+    {
+      "no": 4,
+      "word": "かるた",
+      "meaning": "Bài lá truyền thống của Nhật",
+      "sub_items": []
+    },
+    {
+      "no": 5,
+      "word": "あいさつ",
+      "meaning": "Chào hỏi",
+      "sub_items": []
+    },
+    {
+      "no": 6,
+      "word": "ごちそう",
+      "meaning": "Món ăn ngon đãi khách",
+      "sub_items": []
+    },
+    {
+      "no": 7,
+      "word": "おせちりょうり",
+      "meaning": "Món ăn ngày Tết của người\nNhật",
+      "sub_items": []
+    },
+    {
+      "no": 8,
+      "word": "おとしだま",
+      "meaning": "Tiền lì xì, tiền mừng tuổi",
+      "sub_items": []
+    },
+    {
+      "no": 9,
+      "word": "ねんがじょう",
+      "meaning": "Thiệp chúc mừng năm mới",
+      "sub_items": []
+    },
+    {
+      "no": 10,
+      "word": "おおそうじ",
+      "meaning": "Tổng vệ sinh",
+      "sub_items": []
+    },
+    {
+      "no": 11,
+      "word": "はつもうで",
+      "meaning": "Đi lễ chùa đầu năm",
+      "sub_items": []
+    },
+    {
+      "no": 12,
+      "word": "おや",
+      "meaning": "Bố mẹ",
+      "sub_items": []
+    },
+    {
+      "no": 13,
+      "word": "しんせき",
+      "meaning": "Họ hàng",
+      "sub_items": []
+    },
+    {
+      "no": 14,
+      "word": "かざります",
+      "meaning": "Trang trí",
+      "sub_items": []
+    },
+    {
+      "no": 15,
+      "word": "ごろごろします",
+      "meaning": "Nằm lười, thư giãn không làm\ngì cả",
+      "sub_items": []
+    },
+    {
+      "no": 16,
+      "word": "すごします",
+      "meaning": "Trải qua",
+      "sub_items": []
+    },
+    {
+      "no": 17,
+      "word": "つまらない",
+      "meaning": "Nhàm chán (nội dung)",
+      "sub_items": []
+    },
+    {
+      "no": 18,
+      "word": "たいくつ（な）",
+      "meaning": "Buồn chán (cảm giác)",
+      "sub_items": []
+    },
+    {
+      "no": 19,
+      "word": "とくべつ（な）",
+      "meaning": "Đặc biệt",
+      "sub_items": []
+    },
+    {
+      "no": 20,
+      "word": "めんどう（な）",
+      "meaning": "Phiền toái, phiền phức",
+      "sub_items": []
+    },
+    {
+      "no": 21,
+      "word": "あけましておめでとうございます",
+      "meaning": "Chúc mừng năm mới",
+      "sub_items": []
+    },
+    {
+      "no": 22,
+      "word": "ひさしぶり",
+      "meaning": "Lâu lắm không gặp",
+      "sub_items": []
+    },
+    {
+      "no": 23,
+      "word": "もどります",
+      "meaning": "Quay trở lại",
+      "sub_items": []
+    }
+  ],
+  "10": [
+    {
+      "no": 1,
+      "word": "あきまつり",
+      "meaning": "Lễ hội mùa thu",
+      "sub_items": []
+    },
+    {
+      "no": 2,
+      "word": "ぎょうじ",
+      "meaning": "Sự kiện, hội",
+      "sub_items": []
+    },
+    {
+      "no": 3,
+      "word": "まめまき（します）",
+      "meaning": "Lễ hội ném đậu",
+      "sub_items": []
+    },
+    {
+      "no": 4,
+      "word": "ひなまつり",
+      "meaning": "Lễ hội dành cho bé gái ở Nhật\nBản",
+      "sub_items": []
+    },
+    {
+      "no": 5,
+      "word": "こいのぼり",
+      "meaning": "Cờ cá chép",
+      "sub_items": []
+    },
+    {
+      "no": 6,
+      "word": "たなばたかざり",
+      "meaning": "Ngày lễ Thất tịch",
+      "sub_items": []
+    },
+    {
+      "no": 7,
+      "word": "ちとせあめ",
+      "meaning": "Kẹo dùng trong lễ hội Shichi-\nGo-San cho trẻ em",
+      "sub_items": []
+    },
+    {
+      "no": 8,
+      "word": "あめ",
+      "meaning": "Kẹo",
+      "sub_items": []
+    },
+    {
+      "no": 9,
+      "word": "まめ",
+      "meaning": "Đậu",
+      "sub_items": []
+    },
+    {
+      "no": 10,
+      "word": "ほし",
+      "meaning": "Sao",
+      "sub_items": []
+    },
+    {
+      "no": 11,
+      "word": "おに",
+      "meaning": "Quỷ",
+      "sub_items": []
+    },
+    {
+      "no": 12,
+      "word": "ほうさく",
+      "meaning": "Mùa màng bội thu",
+      "sub_items": []
+    },
+    {
+      "no": 13,
+      "word": "ながいき",
+      "meaning": "Sống lâu",
+      "sub_items": []
+    },
+    {
+      "no": 14,
+      "word": "しあわせ",
+      "meaning": "Hạnh phúc",
+      "sub_items": []
+    },
+    {
+      "no": 15,
+      "word": "ねがいごと",
+      "meaning": "Điều mong muốn, mong ước,\nđiều ước",
+      "sub_items": []
+    },
+    {
+      "no": 16,
+      "word": "けが（をします）",
+      "meaning": "Vết thương (Bị thương)",
+      "sub_items": []
+    },
+    {
+      "no": 17,
+      "word": "なげます",
+      "meaning": "Ném",
+      "sub_items": []
+    },
+    {
+      "no": 18,
+      "word": "いのります",
+      "meaning": "Chúc, cầu nguyện",
+      "sub_items": []
+    },
+    {
+      "no": 19,
+      "word": "いわいます",
+      "meaning": "Chúc mừng",
+      "sub_items": []
+    },
+    {
+      "no": 20,
+      "word": "せいちょうします",
+      "meaning": "Trưởng thành",
+      "sub_items": []
+    },
+    {
+      "no": 21,
+      "word": "かんしゃします",
+      "meaning": "Cảm ơn",
+      "sub_items": []
+    },
+    {
+      "no": 22,
+      "word": "しゅうかくします",
+      "meaning": "Thu hoạch",
+      "sub_items": []
+    },
+    {
+      "no": 23,
+      "word": "うまく いきます",
+      "meaning": "Thuận lợi, suôn sẻ",
+      "sub_items": []
+    },
+    {
+      "no": 24,
+      "word": "N がおこります",
+      "meaning": "N xảy ra",
+      "sub_items": []
+    },
+    {
+      "no": 25,
+      "word": "出会います",
+      "meaning": "Gặp gỡ (tình cờ, định mệnh)",
+      "sub_items": []
+    },
+    {
+      "no": 26,
+      "word": "こまります",
+      "meaning": "Gặp khó khăn, vất vả, khó xử...",
+      "sub_items": []
+    },
+    {
+      "no": 27,
+      "word": "しけんに ごうかくします",
+      "meaning": "Thi đỗ kỳ thi",
+      "sub_items": []
+    },
+    {
+      "no": 28,
+      "word": "しけんに おちます",
+      "meaning": "Thi trượt",
+      "sub_items": []
+    },
+    {
+      "no": 29,
+      "word": "きゅうりょう",
+      "meaning": "Lương",
+      "sub_items": []
+    }
+  ],
+  "11": [
+    {
+      "no": 1,
+      "word": "しょうひん\n商品",
+      "meaning": "Sản phẩm",
+      "sub_items": []
+    },
+    {
+      "no": 2,
+      "word": "でんきせいひん\n電気製品",
+      "meaning": "Đồ điện",
+      "sub_items": []
+    },
+    {
+      "no": 3,
+      "word": "そうじき\n掃除機",
+      "meaning": "Máy hút bụi",
+      "sub_items": []
+    },
+    {
+      "no": 4,
+      "word": "れいぞうこ\n冷蔵庫",
+      "meaning": "Tủ lạnh",
+      "sub_items": []
+    },
+    {
+      "no": 5,
+      "word": "せんたくき\n洗濯機",
+      "meaning": "Máy giặt",
+      "sub_items": []
+    },
+    {
+      "no": 6,
+      "word": "おんがくプレーヤー\n音楽プレーヤー",
+      "meaning": "Máy phát nhạc",
+      "sub_items": []
+    },
+    {
+      "no": 7,
+      "word": "せんぷうき\n扇風機",
+      "meaning": "Quạt",
+      "sub_items": []
+    },
+    {
+      "no": 8,
+      "word": "アイロン",
+      "meaning": "Bàn là",
+      "sub_items": []
+    },
+    {
+      "no": 9,
+      "word": "でんしレンジ\n電子レンジ",
+      "meaning": "Lò vi sóng",
+      "sub_items": []
+    },
+    {
+      "no": 10,
+      "word": "すいはんき\n炊飯器",
+      "meaning": "Nồi cơm",
+      "sub_items": []
+    },
+    {
+      "no": 11,
+      "word": "こわれます\n壊れます",
+      "meaning": "Hỏng",
+      "sub_items": []
+    },
+    {
+      "no": 12,
+      "word": "おとが でません\n音が出ません",
+      "meaning": "Không phát âm thanh",
+      "sub_items": []
+    },
+    {
+      "no": 13,
+      "word": "うごきません\n動きません",
+      "meaning": "Không cử động",
+      "sub_items": []
+    },
+    {
+      "no": 14,
+      "word": "ちょうしが わるい\n調子が 悪い",
+      "meaning": "Tình trạng không tốt, trục trặc",
+      "sub_items": []
+    },
+    {
+      "no": 15,
+      "word": "N を きに しません\n気に しません",
+      "meaning": "Không để ý, bận tâm đến N",
+      "sub_items": []
+    },
+    {
+      "no": 16,
+      "word": "さがします\n探します",
+      "meaning": "Tìm kiếm",
+      "sub_items": []
+    },
+    {
+      "no": 17,
+      "word": "おとします\n落とします",
+      "meaning": "Đánh rơi",
+      "sub_items": []
+    },
+    {
+      "no": 18,
+      "word": "こまります\n困ります",
+      "meaning": "Khó khăn, rắc rối",
+      "sub_items": []
+    },
+    {
+      "no": 19,
+      "word": "しらべます\n調べます",
+      "meaning": "Tìm hiểu, điều tra",
+      "sub_items": []
+    },
+    {
+      "no": 20,
+      "word": "くらべます\n比べます",
+      "meaning": "So sánh",
+      "sub_items": []
+    },
+    {
+      "no": 21,
+      "word": "とどきます\n届きます",
+      "meaning": "Được giao đến, chuyển đến",
+      "sub_items": []
+    },
+    {
+      "no": 22,
+      "word": "きめます\n決めます",
+      "meaning": "Quyết định",
+      "sub_items": []
+    },
+    {
+      "no": 23,
+      "word": "ちゅうもんします\n注文します",
+      "meaning": "Order, đặt hàng",
+      "sub_items": []
+    },
+    {
+      "no": 24,
+      "word": "かんがえます\n考えます",
+      "meaning": "Suy nghĩ",
+      "sub_items": []
+    }
+  ],
+  "12": [
+    {
+      "no": 1,
+      "word": "モデル",
+      "meaning": "Mẫu, kiểu",
+      "sub_items": []
+    },
+    {
+      "no": 2,
+      "word": "おもさ",
+      "meaning": "Cân nặng",
+      "sub_items": []
+    },
+    {
+      "no": 3,
+      "word": "おおきさ",
+      "meaning": "Độ lớn",
+      "sub_items": []
+    },
+    {
+      "no": 4,
+      "word": "きのう",
+      "meaning": "Chức năng",
+      "sub_items": []
+    },
+    {
+      "no": 5,
+      "word": "ねだん",
+      "meaning": "Giá cả",
+      "sub_items": []
+    },
+    {
+      "no": 6,
+      "word": "ぜいこみ",
+      "meaning": "Bao gồm thuế",
+      "sub_items": []
+    },
+    {
+      "no": 7,
+      "word": "よくじつ",
+      "meaning": "Ngày hôm sau",
+      "sub_items": []
+    },
+    {
+      "no": 8,
+      "word": "そうりょうむりょう",
+      "meaning": "Miễn phí vận chuyển",
+      "sub_items": []
+    },
+    {
+      "no": 9,
+      "word": "（ N が）とどきます",
+      "meaning": "Được giao đến",
+      "sub_items": []
+    },
+    {
+      "no": 10,
+      "word": "しょうエネ",
+      "meaning": "Tiết kiệm năng lượng",
+      "sub_items": []
+    },
+    {
+      "no": 11,
+      "word": "デザイン",
+      "meaning": "Thiết kế",
+      "sub_items": []
+    },
+    {
+      "no": 12,
+      "word": "カラー",
+      "meaning": "Màu sắc",
+      "sub_items": []
+    },
+    {
+      "no": 13,
+      "word": "レビュー",
+      "meaning": "Review, đánh giá",
+      "sub_items": []
+    },
+    {
+      "no": 14,
+      "word": "おもい",
+      "meaning": "Nặng",
+      "sub_items": []
+    },
+    {
+      "no": 15,
+      "word": "かるい",
+      "meaning": "Nhẹ",
+      "sub_items": []
+    },
+    {
+      "no": 16,
+      "word": "ふくざつ（な）",
+      "meaning": "Phức tạp",
+      "sub_items": []
+    },
+    {
+      "no": 17,
+      "word": "きに いります",
+      "meaning": "Thích, ưa thích",
+      "sub_items": []
+    },
+    {
+      "no": 18,
+      "word": "まんぞく（します）",
+      "meaning": "Hài lòng",
+      "sub_items": []
+    },
+    {
+      "no": 19,
+      "word": "ごみを すてます",
+      "meaning": "Vứt rác",
+      "sub_items": []
+    },
+    {
+      "no": 20,
+      "word": "びっくり（します）",
+      "meaning": "Bất ngờ",
+      "sub_items": []
+    },
+    {
+      "no": 21,
+      "word": "ユーザー",
+      "meaning": "Người dùng",
+      "sub_items": []
+    },
+    {
+      "no": 22,
+      "word": "モード",
+      "meaning": "Chế độ",
+      "sub_items": []
+    },
+    {
+      "no": 23,
+      "word": "うるさい",
+      "meaning": "Ồn ào",
+      "sub_items": []
+    }
+  ],
+  "13": [
+    {
+      "no": 1,
+      "word": "れきし",
+      "meaning": "Lịch sử",
+      "sub_items": []
+    },
+    {
+      "no": 2,
+      "word": "ぶんか",
+      "meaning": "Văn hóa",
+      "sub_items": [
+        [
+          "➡ れきしと ぶんかの 町（ ま\nち）",
+          "Thành phố của lịch sử và văn\nhóa"
+        ]
+      ]
+    },
+    {
+      "no": 3,
+      "word": "てんのう",
+      "meaning": "Thiên hoàng",
+      "sub_items": []
+    },
+    {
+      "no": 4,
+      "word": "しょうぐん",
+      "meaning": "Tướng quân",
+      "sub_items": [
+        [
+          "Thành phố của lịch sử và văn"
+        ],
+        [
+          "hóa"
+        ]
+      ]
+    },
+    {
+      "no": 5,
+      "word": "しろ／～じょう",
+      "meaning": "Thành",
+      "sub_items": [
+        [
+          "➡ おおさかじょう",
+          "Thành Osaka"
+        ],
+        [
+          "なごやじょう",
+          "Thành Nagoya"
+        ]
+      ]
+    },
+    {
+      "no": 6,
+      "word": "まいこさん",
+      "meaning": "Thiếu nữ Maiko (vũ kỹ tập sự)",
+      "sub_items": [
+        [
+          "➡ 京都で まいこさんに 会っ\nた。",
+          "Tôi đã gặp thiếu nữ Maiko ở\nKyoto"
+        ]
+      ]
+    },
+    {
+      "no": 7,
+      "word": "約（やく）～年前（ねんまえ）",
+      "meaning": "Khoảng... năm trước",
+      "sub_items": []
+    },
+    {
+      "no": 8,
+      "word": "せいき（世紀）",
+      "meaning": "Thế kỷ",
+      "sub_items": [
+        [
+          "➡ １９せいきの はじめ",
+          "Đầu thế kỉ 19"
+        ],
+        [
+          "➡ １９せいきの なか",
+          "Giữa thế kỉ 19"
+        ],
+        [
+          "➡ １９せいきの おわり",
+          "Cuối thế kỉ 19"
+        ]
+      ]
+    },
+    {
+      "no": 9,
+      "word": "じだい ➡ だいがくせいのじだい\n（大学生の時代）",
+      "meaning": "Thời đại",
+      "sub_items": []
+    },
+    {
+      "no": 10,
+      "word": "さどう（茶道）",
+      "meaning": "Trà đạo",
+      "sub_items": []
+    },
+    {
+      "no": 11,
+      "word": "かどう（華道）",
+      "meaning": "Nghệ thuật cắm hoa truyền\nthống",
+      "sub_items": []
+    },
+    {
+      "no": 12,
+      "word": "たてます",
+      "meaning": "Xây dựng",
+      "sub_items": []
+    },
+    {
+      "no": 13,
+      "word": "いし",
+      "meaning": "Đá",
+      "sub_items": [
+        [
+          "➡ いしの にわ",
+          "Sân vườn bằng đá"
+        ]
+      ]
+    },
+    {
+      "no": 14,
+      "word": "ぶっきょう（仏教）",
+      "meaning": "Phật giáo",
+      "sub_items": []
+    },
+    {
+      "no": 15,
+      "word": "かんこうきゃく（観光客）",
+      "meaning": "Khách du lịch, tham quan",
+      "sub_items": [
+        [
+          "Tôi đã gặp thiếu nữ Maiko ở"
+        ],
+        [
+          "Kyoto"
+        ]
+      ]
+    },
+    {
+      "no": 16,
+      "word": "ほんもの",
+      "meaning": "Đồ thật",
+      "sub_items": [
+        [
+          "＞＜ にせもの",
+          "Đồ giả"
+        ]
+      ]
+    },
+    {
+      "no": 17,
+      "word": "ぶたい＝ステージ",
+      "meaning": "Sân khấu",
+      "sub_items": []
+    },
+    {
+      "no": 18,
+      "word": "はしら",
+      "meaning": "Cột",
+      "sub_items": []
+    },
+    {
+      "no": 19,
+      "word": "りっぱ",
+      "meaning": "Tuyệt vời, tráng lệ",
+      "sub_items": []
+    },
+    {
+      "no": 20,
+      "word": "～いじょう（以上）",
+      "meaning": "Trên... hơn...",
+      "sub_items": []
+    },
+    {
+      "no": 21,
+      "word": "ちゅうしん",
+      "meaning": "Trung tâm",
+      "sub_items": []
+    }
+  ],
+  "14": [
+    {
+      "no": 1,
+      "word": "ぶんかざい",
+      "meaning": "Di sản văn hóa",
+      "sub_items": []
+    },
+    {
+      "no": 2,
+      "word": "こくほう",
+      "meaning": "Quốc bảo",
+      "sub_items": []
+    },
+    {
+      "no": 3,
+      "word": "おりもの",
+      "meaning": "Vải dệt, đồ dệt",
+      "sub_items": []
+    },
+    {
+      "no": 4,
+      "word": "どうぐ",
+      "meaning": "Dụng cụ",
+      "sub_items": []
+    },
+    {
+      "no": 5,
+      "word": "かたな",
+      "meaning": "Thanh đao",
+      "sub_items": []
+    },
+    {
+      "no": 6,
+      "word": "やきもの",
+      "meaning": "Đồ gốm",
+      "sub_items": []
+    },
+    {
+      "no": 7,
+      "word": "むかし",
+      "meaning": "Ngày xưa",
+      "sub_items": []
+    },
+    {
+      "no": 8,
+      "word": "書（しょ）",
+      "meaning": "Sách (văn tự)",
+      "sub_items": []
+    },
+    {
+      "no": 9,
+      "word": "字（じ）",
+      "meaning": "Chữ viết",
+      "sub_items": []
+    },
+    {
+      "no": 10,
+      "word": "つちの にんぎょう",
+      "meaning": "Búp bê đất",
+      "sub_items": []
+    },
+    {
+      "no": 11,
+      "word": "がっき",
+      "meaning": "Nhạc cụ",
+      "sub_items": []
+    },
+    {
+      "no": 12,
+      "word": "やっぱり",
+      "meaning": "Quả nhiên là...",
+      "sub_items": []
+    },
+    {
+      "no": 13,
+      "word": "はか",
+      "meaning": "Mộ",
+      "sub_items": []
+    },
+    {
+      "no": 14,
+      "word": "詩（うた）",
+      "meaning": "Thơ",
+      "sub_items": []
+    },
+    {
+      "no": 15,
+      "word": "恋（こい）",
+      "meaning": "Tình yêu",
+      "sub_items": [
+        [
+          "➡ 恋の詩（ こいのうた）",
+          "Thơ tình"
+        ]
+      ]
+    },
+    {
+      "no": 16,
+      "word": "ヨーロッパ",
+      "meaning": "Châu Âu",
+      "sub_items": []
+    },
+    {
+      "no": 17,
+      "word": "ゆしゅつ（輸出）",
+      "meaning": "Xuất khẩu",
+      "sub_items": [
+        [
+          "＞＜ ゆにゅう（輸入）",
+          "Nhập khẩu"
+        ],
+        [
+          "ヨーロッパに ゆしゅつする",
+          "Xuất khẩu sang Châu Âu"
+        ]
+      ]
+    },
+    {
+      "no": 18,
+      "word": "ペルシャ",
+      "meaning": "Ba Tư",
+      "sub_items": []
+    },
+    {
+      "no": 19,
+      "word": "じゅうたん",
+      "meaning": "Tấm thảm",
+      "sub_items": []
+    },
+    {
+      "no": 20,
+      "word": "せんそう",
+      "meaning": "Chiến tranh",
+      "sub_items": []
+    },
+    {
+      "no": 21,
+      "word": "はこびます",
+      "meaning": "Vận chuyển",
+      "sub_items": []
+    },
+    {
+      "no": 22,
+      "word": "しよう（します）使用",
+      "meaning": "Sử dụng",
+      "sub_items": []
+    },
+    {
+      "no": 23,
+      "word": "さわります",
+      "meaning": "Chạm, sờ",
+      "sub_items": []
+    },
+    {
+      "no": 24,
+      "word": "ルール、きそく",
+      "meaning": "Quy tắc",
+      "sub_items": []
+    },
+    {
+      "no": 25,
+      "word": "置きます（おきます）",
+      "meaning": "Đặt, để",
+      "sub_items": []
+    },
+    {
+      "no": 26,
+      "word": "はります",
+      "meaning": "Dán",
+      "sub_items": []
+    },
+    {
+      "no": 27,
+      "word": "しらせます",
+      "meaning": "Thông báo",
+      "sub_items": []
+    },
+    {
+      "no": 28,
+      "word": "ポスター",
+      "meaning": "Poster, áp phích",
+      "sub_items": []
+    },
+    {
+      "no": 29,
+      "word": "しらべます",
+      "meaning": "Tìm hiểu, tra cứu",
+      "sub_items": []
+    },
+    {
+      "no": 30,
+      "word": "ロッカー",
+      "meaning": "Tủ locker",
+      "sub_items": []
+    },
+    {
+      "no": 31,
+      "word": "カレンダー",
+      "meaning": "Lịch",
+      "sub_items": []
+    }
+  ],
+  "15": [
+    {
+      "no": 1,
+      "word": "かんきょう",
+      "meaning": "Môi trường",
+      "sub_items": []
+    },
+    {
+      "no": 2,
+      "word": "エコかつどう（エコ活動）",
+      "meaning": "Hoạt động thân thiện với môi\ntrường",
+      "sub_items": []
+    },
+    {
+      "no": 3,
+      "word": "しょうエネ（省エネ）",
+      "meaning": "Tiết kiệm năng lượng",
+      "sub_items": []
+    },
+    {
+      "no": 4,
+      "word": "おんどを あげます",
+      "meaning": "Tăng nhiệt độ",
+      "sub_items": []
+    },
+    {
+      "no": 5,
+      "word": "おんどを さげます",
+      "meaning": "Giảm nhiệt độ",
+      "sub_items": []
+    },
+    {
+      "no": 6,
+      "word": "むだに します",
+      "meaning": "Làm lãng phí",
+      "sub_items": [
+        [
+          "➡ かみを むだに します",
+          "Làm lãng phí giấy"
+        ]
+      ]
+    },
+    {
+      "no": 7,
+      "word": "リサイクル",
+      "meaning": "Tái chế",
+      "sub_items": []
+    },
+    {
+      "no": 8,
+      "word": "ごみを わけます",
+      "meaning": "Phân loại rác",
+      "sub_items": []
+    },
+    {
+      "no": 9,
+      "word": "ごみを へらします",
+      "meaning": "Giảm bớt rác thải",
+      "sub_items": []
+    },
+    {
+      "no": 10,
+      "word": "くうきを よごします",
+      "meaning": "Làm bẩn không khí",
+      "sub_items": []
+    },
+    {
+      "no": 11,
+      "word": "台所（だいどころ）から あぶらを\nながします",
+      "meaning": "Xả dầu ăn từ nhà bếp",
+      "sub_items": [
+        [
+          "➡ あぶら",
+          "Dầu"
+        ]
+      ]
+    },
+    {
+      "no": 12,
+      "word": "空気を きれいに します",
+      "meaning": "Làm sạch không khí",
+      "sub_items": []
+    },
+    {
+      "no": 13,
+      "word": "N に やくに たちます",
+      "meaning": "Có ích cho N",
+      "sub_items": []
+    },
+    {
+      "no": 14,
+      "word": "料理を のこします",
+      "meaning": "Bỏ lại, chừa lại thức ăn",
+      "sub_items": []
+    },
+    {
+      "no": 15,
+      "word": "ごみを すてます",
+      "meaning": "Vứt rác",
+      "sub_items": []
+    },
+    {
+      "no": 16,
+      "word": "ごみばこ",
+      "meaning": "Thùng rác",
+      "sub_items": []
+    },
+    {
+      "no": 17,
+      "word": "もったいない",
+      "meaning": "Lãng phí",
+      "sub_items": []
+    },
+    {
+      "no": 18,
+      "word": "しんぶんし",
+      "meaning": "Giấy báo",
+      "sub_items": []
+    },
+    {
+      "no": 19,
+      "word": "かみ（紙）",
+      "meaning": "Giấy",
+      "sub_items": []
+    }
+  ],
+  "16": [
+    {
+      "no": 1,
+      "word": "フリーマーケット",
+      "meaning": "Hội chợ (đồ cũ)",
+      "sub_items": []
+    },
+    {
+      "no": 2,
+      "word": "レンタルショップ",
+      "meaning": "Cửa hàng đồ cho thuê",
+      "sub_items": []
+    },
+    {
+      "no": 3,
+      "word": "クッション",
+      "meaning": "Gối",
+      "sub_items": []
+    },
+    {
+      "no": 4,
+      "word": "ふとん",
+      "meaning": "Chăn, nệm",
+      "sub_items": []
+    },
+    {
+      "no": 5,
+      "word": "エコバッグ",
+      "meaning": "Túi thân thiện môi trường",
+      "sub_items": []
+    },
+    {
+      "no": 6,
+      "word": "ベビーベッド",
+      "meaning": "Giường em bé",
+      "sub_items": []
+    },
+    {
+      "no": 7,
+      "word": "ベビーカー",
+      "meaning": "Xe đẩy em bé",
+      "sub_items": []
+    },
+    {
+      "no": 8,
+      "word": "あきます",
+      "meaning": "Chán (ngấy)",
+      "sub_items": [
+        [
+          "家事（かじ）に あきます",
+          "Chán ngấy việc nhà"
+        ]
+      ]
+    },
+    {
+      "no": 9,
+      "word": "N が かわります",
+      "meaning": "(N) Thay đổi",
+      "sub_items": [
+        [
+          "➡ サイズが かわって、ふくが\n着られません",
+          "Thay đổi kích cỡ nên không\nmặc được quần áo"
+        ]
+      ]
+    },
+    {
+      "no": 10,
+      "word": "要ります（いります）／必要（な）\nひつよう",
+      "meaning": "Cần thiết (V)",
+      "sub_items": [
+        [
+          "➡ いるもの／ 必要なもの",
+          "Đồ cần thiết"
+        ]
+      ]
+    },
+    {
+      "no": 11,
+      "word": "要りません",
+      "meaning": "Không cần thiết (V)",
+      "sub_items": [
+        [
+          "➡ 要らないもの",
+          "Đồ không cần thiết"
+        ],
+        [
+          "➡ フリーマーケット で 要らな\nいものを うります",
+          "Bán đồ không cần thiết ở hội\nchợ"
+        ]
+      ]
+    },
+    {
+      "no": 12,
+      "word": "レンタルショップで スーツケース\nを かります",
+      "meaning": "Mượn vali ở cửa hàng thuê đồ",
+      "sub_items": []
+    },
+    {
+      "no": 13,
+      "word": "N が ふえます",
+      "meaning": "N tăng lên",
+      "sub_items": [
+        [
+          "➡ いらないものが ふえます",
+          "Đồ không cần thiết tăng lên"
+        ]
+      ]
+    },
+    {
+      "no": 14,
+      "word": "N が やぶれます ＞＜ N を や\nぶります",
+      "meaning": "Rách",
+      "sub_items": []
+    },
+    {
+      "no": 15,
+      "word": "N が よごれます ＞＜ Ｎを よ\nごします",
+      "meaning": "Bị bẩn",
+      "sub_items": []
+    },
+    {
+      "no": 16,
+      "word": "Ｎを しゅうりします ＝ Ｎを\nなおします",
+      "meaning": "Sửa chữa N",
+      "sub_items": []
+    },
+    {
+      "no": 17,
+      "word": "あなが あきます",
+      "meaning": "Thủng lỗ",
+      "sub_items": []
+    },
+    {
+      "no": 18,
+      "word": "ごみを ひろいます",
+      "meaning": "Nhặt rác",
+      "sub_items": [
+        [
+          "Thay đổi kích cỡ nên không"
+        ],
+        [
+          "mặc được quần áo"
+        ],
+        [
+          "Bán đồ không cần thiết ở hội"
+        ],
+        [
+          "chợ"
+        ]
+      ]
+    }
+  ],
+  "17": [
+    {
+      "no": 1,
+      "word": "人生（じんせい）",
+      "meaning": "Cuộc đời, đời người",
+      "sub_items": []
+    },
+    {
+      "no": 2,
+      "word": "はいゆう",
+      "meaning": "Diễn viên nam",
+      "sub_items": []
+    },
+    {
+      "no": 3,
+      "word": "じょゆう",
+      "meaning": "Diễn viên nữ",
+      "sub_items": []
+    },
+    {
+      "no": 4,
+      "word": "おんがくか（音楽家）",
+      "meaning": "Nhạc sĩ",
+      "sub_items": []
+    },
+    {
+      "no": 5,
+      "word": "がか（画家）",
+      "meaning": "Họa sĩ",
+      "sub_items": []
+    },
+    {
+      "no": 6,
+      "word": "さっか（作家）",
+      "meaning": "Nhà văn",
+      "sub_items": []
+    },
+    {
+      "no": 7,
+      "word": "しょうせつか（小説家）",
+      "meaning": "Tiểu thuyết gia",
+      "sub_items": []
+    },
+    {
+      "no": 8,
+      "word": "スポーツせんしゅ",
+      "meaning": "Tuyển thủ thể thao",
+      "sub_items": []
+    },
+    {
+      "no": 9,
+      "word": "じゅうどうか",
+      "meaning": "Võ sĩ judo",
+      "sub_items": []
+    },
+    {
+      "no": 10,
+      "word": "えいがかんとく",
+      "meaning": "Đạo diễn phim",
+      "sub_items": []
+    },
+    {
+      "no": 11,
+      "word": "かがくしゃ（科学者）",
+      "meaning": "Nhà khoa học",
+      "sub_items": []
+    },
+    {
+      "no": 12,
+      "word": "きょういくしゃ（教育者）",
+      "meaning": "Nhà giáo dục học",
+      "sub_items": []
+    },
+    {
+      "no": 13,
+      "word": "バイオリニスト",
+      "meaning": "Nghệ sĩ Violin",
+      "sub_items": []
+    },
+    {
+      "no": 14,
+      "word": "ファン ➡ 大（ だい） ファン",
+      "meaning": "Fan bự",
+      "sub_items": []
+    },
+    {
+      "no": 15,
+      "word": "金（きん）メダル",
+      "meaning": "Huy chương vàng",
+      "sub_items": [
+        [
+          "オリンピックで 金メダルを と\nります",
+          "Đạt huy chương vàng tại\nOlympic"
+        ],
+        [
+          "Đạt huy chương vàng tại"
+        ],
+        [
+          "Olympic"
+        ]
+      ]
+    },
+    {
+      "no": 16,
+      "word": "～しょう",
+      "meaning": "Giải thưởng",
+      "sub_items": [
+        [
+          "ノーベルしょうを もらいます",
+          "Nhận giải thưởng Nobel"
+        ]
+      ]
+    },
+    {
+      "no": 17,
+      "word": "ほんやく（します）",
+      "meaning": "Biên dịch",
+      "sub_items": []
+    },
+    {
+      "no": 18,
+      "word": "かつやく（します）",
+      "meaning": "Thành công, hoạt động sôi nổi",
+      "sub_items": [
+        [
+          "世界（せかい）で かつやくしま\nす",
+          "Hoạt động sôi nổi trên thế giới"
+        ]
+      ]
+    },
+    {
+      "no": 19,
+      "word": "なくなります",
+      "meaning": "Qua đời",
+      "sub_items": []
+    },
+    {
+      "no": 20,
+      "word": "さくひん（作品）",
+      "meaning": "Tác phẩm",
+      "sub_items": []
+    },
+    {
+      "no": 21,
+      "word": "たいよう",
+      "meaning": "Mặt trời",
+      "sub_items": []
+    },
+    {
+      "no": 22,
+      "word": "よびます",
+      "meaning": "Gọi",
+      "sub_items": []
+    },
+    {
+      "no": 23,
+      "word": "ずっと",
+      "meaning": "Suốt, mãi",
+      "sub_items": []
+    },
+    {
+      "no": 24,
+      "word": "N を やめます",
+      "meaning": "Bỏ N, Từ bỏ N",
+      "sub_items": []
+    },
+    {
+      "no": 25,
+      "word": "りこんします",
+      "meaning": "Ly hôn",
+      "sub_items": []
+    },
+    {
+      "no": 26,
+      "word": "びっくりました",
+      "meaning": "Bất ngờ",
+      "sub_items": []
+    },
+    {
+      "no": 27,
+      "word": "まずしい",
+      "meaning": "Nghèo, thiếu thốn",
+      "sub_items": []
+    },
+    {
+      "no": 28,
+      "word": "くろうします",
+      "meaning": "Gặp khó khăn, vất vả",
+      "sub_items": []
+    },
+    {
+      "no": 29,
+      "word": "しゅしょう",
+      "meaning": "Thủ tướng",
+      "sub_items": []
+    },
+    {
+      "no": 30,
+      "word": "だいとうりょう",
+      "meaning": "Tổng thống",
+      "sub_items": []
+    },
+    {
+      "no": 31,
+      "word": "せいじか",
+      "meaning": "Chính trị gia",
+      "sub_items": []
+    },
+    {
+      "no": 32,
+      "word": "じつぎょうか",
+      "meaning": "Doanh nhân, nhà kinh doanh",
+      "sub_items": []
+    }
+  ],
+  "18": [
+    {
+      "no": 1,
+      "word": "いもうと と けんかします",
+      "meaning": "Cãi cọ với em gái",
+      "sub_items": []
+    },
+    {
+      "no": 2,
+      "word": "先生が ほめます",
+      "meaning": "Giáo viên khen",
+      "sub_items": []
+    },
+    {
+      "no": 3,
+      "word": "母が しかります",
+      "meaning": "Mẹ mắng",
+      "sub_items": []
+    },
+    {
+      "no": 4,
+      "word": "おしゃれします",
+      "meaning": "Làm đỏm, làm điệu",
+      "sub_items": []
+    },
+    {
+      "no": 5,
+      "word": "友達を さそいます",
+      "meaning": "Rủ bạn bè",
+      "sub_items": []
+    },
+    {
+      "no": 6,
+      "word": "大きい 会社に しゅうしょくしま\nす",
+      "meaning": "Bắt đầu công việc tại công ty\nlớn",
+      "sub_items": []
+    },
+    {
+      "no": 7,
+      "word": "こいびとと デートします",
+      "meaning": "Hẹn hò với người yêu",
+      "sub_items": []
+    },
+    {
+      "no": 8,
+      "word": "フランスに てんきんします",
+      "meaning": "Chuyển công tác đến Pháp",
+      "sub_items": []
+    },
+    {
+      "no": 9,
+      "word": "６０さいの とき、たいしょくしま\nす",
+      "meaning": "Khi 60 tuổi, tôi sẽ nghỉ việc",
+      "sub_items": []
+    },
+    {
+      "no": 10,
+      "word": "ひどい",
+      "meaning": "Tệ",
+      "sub_items": []
+    },
+    {
+      "no": 11,
+      "word": "かなしい",
+      "meaning": "Buồn rầu",
+      "sub_items": []
+    },
+    {
+      "no": 12,
+      "word": "あまえる",
+      "meaning": "Nuông chiều",
+      "sub_items": []
+    },
+    {
+      "no": 13,
+      "word": "おとなしい",
+      "meaning": "Điềm đạm, dễ bảo",
+      "sub_items": []
+    },
+    {
+      "no": 14,
+      "word": "せいせき",
+      "meaning": "Thành tích",
+      "sub_items": []
+    },
+    {
+      "no": 15,
+      "word": "はずかしい",
+      "meaning": "Xấu hổ",
+      "sub_items": []
+    },
+    {
+      "no": 16,
+      "word": "きっかけ",
+      "meaning": "Cơ duyên",
+      "sub_items": []
+    },
+    {
+      "no": 17,
+      "word": "ゆうしょく（夕食）",
+      "meaning": "Bữa tối",
+      "sub_items": []
+    },
+    {
+      "no": 18,
+      "word": "なかがいい（仲がいい）",
+      "meaning": "Thân thiết, mối quan quan hệ\ntốt",
+      "sub_items": [
+        [
+          "Bắt đầu công việc tại công ty"
+        ],
+        [
+          "lớn"
+        ]
+      ]
+    },
+    {
+      "no": 19,
+      "word": "まえ（前）",
+      "meaning": "Trước đây",
+      "sub_items": [
+        [
+          "➡ 前より",
+          "Hơn so với trước đây"
+        ]
+      ]
+    },
+    {
+      "no": 20,
+      "word": "すすめます",
+      "meaning": "Đề xuất, gợi ý",
+      "sub_items": [
+        [
+          "➡ すすめられます",
+          "Được đề xuất, gợi ý"
+        ]
+      ]
+    },
+    {
+      "no": 21,
+      "word": "きょうみがあります／きょうみをも\nちます",
+      "meaning": "Có hứng thú",
+      "sub_items": []
+    },
+    {
+      "no": 22,
+      "word": "社会人（しゃかいじん）",
+      "meaning": "Người trưởng thành, người xã\nhội",
+      "sub_items": []
+    },
+    {
+      "no": 23,
+      "word": "やっと",
+      "meaning": "Cuối cùng thì (kết quả tốt)",
+      "sub_items": []
+    },
+    {
+      "no": 24,
+      "word": "町のサイン",
+      "meaning": "biển báo trên phố",
+      "sub_items": []
+    },
+    {
+      "no": 25,
+      "word": "たのみます",
+      "meaning": "Nhờ vả",
+      "sub_items": []
+    },
+    {
+      "no": 26,
+      "word": "しんぱいします",
+      "meaning": "Lo lắng",
+      "sub_items": []
+    },
+    {
+      "no": 27,
+      "word": "こわい",
+      "meaning": "Sợ",
+      "sub_items": []
+    }
+  ]
+}

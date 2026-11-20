@@ -78,7 +78,7 @@ L17_VOCAB = [
         "kana": "じゅうどうか",
         "kanji": "柔道家",
         "romaji": "juudouka",
-        "vi": "Võ sĩ Judo",
+        "vi": "Võ sĩ judo",
         "icon": "🥋"
     },
     {
@@ -102,7 +102,7 @@ L17_VOCAB = [
         "kana": "きょういくしゃ",
         "kanji": "教育者",
         "romaji": "kyouikusha",
-        "vi": "Nhà giáo dục",
+        "vi": "Nhà giáo dục học",
         "icon": "👨‍🏫"
     },
     {
@@ -110,8 +110,16 @@ L17_VOCAB = [
         "kana": "バイオリニスト",
         "kanji": "バイオリニスト",
         "romaji": "baiorinisuto",
-        "vi": "Nghệ sĩ vĩ cầm (violin)",
+        "vi": "Nghệ sĩ Violin",
         "icon": "🎻"
+    },
+    {
+        "jp": "大ファン",
+        "kana": "だいファン",
+        "kanji": "大ファン",
+        "romaji": "dai fan",
+        "vi": "Fan bự",
+        "icon": "🤩"
     },
     {
         "jp": "金メダル",
@@ -126,7 +134,7 @@ L17_VOCAB = [
         "kana": "～しょう",
         "kanji": "～賞",
         "romaji": "~shou",
-        "vi": "Giải thưởng (như Nobel...)",
+        "vi": "Giải thưởng",
         "icon": "🏆"
     },
     {
@@ -150,7 +158,7 @@ L17_VOCAB = [
         "kana": "なくなります",
         "kanji": "亡くなります",
         "romaji": "nakunarimasu",
-        "vi": "Qua đời, mất",
+        "vi": "Qua đời",
         "icon": "🕊️"
     },
     {
@@ -158,16 +166,40 @@ L17_VOCAB = [
         "kana": "さくひん",
         "kanji": "作品",
         "romaji": "sakuhin",
-        "vi": "Tác phẩm nghệ thuật",
+        "vi": "Tác phẩm",
         "icon": "🖼️"
+    },
+    {
+        "jp": "太陽",
+        "kana": "たいよう",
+        "kanji": "太陽",
+        "romaji": "taiyou",
+        "vi": "Mặt trời",
+        "icon": "☀️"
+    },
+    {
+        "jp": "呼びます",
+        "kana": "よびます",
+        "kanji": "呼びます",
+        "romaji": "yobimasu",
+        "vi": "Gọi",
+        "icon": "🗣️"
     },
     {
         "jp": "ずっと",
         "kana": "ずっと",
         "kanji": "ずっと",
         "romaji": "zutto",
-        "vi": "Suốt, mãi, liên tục",
+        "vi": "Suốt, mãi",
         "icon": "⏳"
+    },
+    {
+        "jp": "辞めます／やめます",
+        "kana": "やめます",
+        "kanji": "辞めます",
+        "romaji": "yamemasu",
+        "vi": "Bỏ N, Từ bỏ N",
+        "icon": "🛑"
     },
     {
         "jp": "離婚します",
@@ -178,12 +210,60 @@ L17_VOCAB = [
         "icon": "💔"
     },
     {
+        "jp": "びっくりしました",
+        "kana": "びっくりしました",
+        "kanji": "びっくりしました",
+        "romaji": "bikkuri shimashita",
+        "vi": "Bất ngờ",
+        "icon": "😲"
+    },
+    {
+        "jp": "貧しい",
+        "kana": "まずしい",
+        "kanji": "貧しい",
+        "romaji": "mazushii",
+        "vi": "Nghèo, thiếu thốn",
+        "icon": "🏚️"
+    },
+    {
         "jp": "苦労します",
         "kana": "くろうします",
         "kanji": "苦労します",
         "romaji": "kurou shimasu",
         "vi": "Gặp khó khăn, vất vả",
         "icon": "🧗"
+    },
+    {
+        "jp": "首相",
+        "kana": "しゅしょう",
+        "kanji": "首相",
+        "romaji": "shushou",
+        "vi": "Thủ tướng",
+        "icon": "🏛️"
+    },
+    {
+        "jp": "大統領",
+        "kana": "だいとうりょう",
+        "kanji": "大統領",
+        "romaji": "daitouryou",
+        "vi": "Tổng thống",
+        "icon": "🇺🇸"
+    },
+    {
+        "jp": "政治家",
+        "kana": "せいじか",
+        "kanji": "政治家",
+        "romaji": "seijika",
+        "vi": "Chính trị gia",
+        "icon": "👔"
+    },
+    {
+        "jp": "実業家",
+        "kana": "じつぎょうか",
+        "kanji": "実業家",
+        "romaji": "jitsugyouka",
+        "vi": "Doanh nhân, nhà kinh doanh",
+        "icon": "💼"
     }
 ]
 
@@ -397,27 +477,27 @@ L17_QUIZ = [
 # =============================================================================
 L18_VOCAB = [
     {
-        "jp": "けんかします",
-        "kana": "けんかします",
-        "kanji": "けんかします",
-        "romaji": "kenka shimasu",
-        "vi": "Cãi cọ, đánh nhau",
+        "jp": "妹とけんかします",
+        "kana": "いもうととけんかします",
+        "kanji": "妹とけんかします",
+        "romaji": "imouto to kenka shimasu",
+        "vi": "Cãi cọ với em gái",
         "icon": "🥊"
     },
     {
-        "jp": "褒めます",
-        "kana": "ほめます",
-        "kanji": "褒めます",
-        "romaji": "homemasu",
-        "vi": "Khen ngợi",
+        "jp": "先生が褒めます",
+        "kana": "せんせいがほめます",
+        "kanji": "先生が褒めます",
+        "romaji": "sensei ga homemasu",
+        "vi": "Giáo viên khen",
         "icon": "👏"
     },
     {
-        "jp": "叱ります",
-        "kana": "しかります",
-        "kanji": "叱ります",
-        "romaji": "shikarimasu",
-        "vi": "Mắng, quở trách",
+        "jp": "母が叱ります",
+        "kana": "ははがしかります",
+        "kanji": "母が叱ります",
+        "romaji": "haha ga shikarimasu",
+        "vi": "Mẹ mắng",
         "icon": "😠"
     },
     {
@@ -425,15 +505,15 @@ L18_VOCAB = [
         "kana": "おしゃれします",
         "kanji": "おしゃれします",
         "romaji": "oshare shimasu",
-        "vi": "Làm đỏm, diện đồ đẹp",
+        "vi": "Làm đỏm, làm điệu",
         "icon": "👗"
     },
     {
-        "jp": "誘います",
-        "kana": "さそいます",
-        "kanji": "誘います",
-        "romaji": "sasoimasu",
-        "vi": "Rủ bạn bè, mời",
+        "jp": "友達を誘います",
+        "kana": "ともだちをさそいます",
+        "kanji": "友達を誘います",
+        "romaji": "tomodachi o sasoimasu",
+        "vi": "Rủ bạn bè",
         "icon": "🤝"
     },
     {
@@ -441,14 +521,14 @@ L18_VOCAB = [
         "kana": "しゅうしょくします",
         "kanji": "就職します",
         "romaji": "shuushoku shimasu",
-        "vi": "Vào làm tại công ty",
+        "vi": "Bắt đầu công việc tại công ty lớn",
         "icon": "💼"
     },
     {
-        "jp": "デートします",
-        "kana": "デートします",
-        "kanji": "デートします",
-        "romaji": "de-to shimasu",
+        "jp": "恋人とデートします",
+        "kana": "こいびととデートします",
+        "kanji": "恋人とデートします",
+        "romaji": "koibito to de-to shimasu",
         "vi": "Hẹn hò với người yêu",
         "icon": "💑"
     },
@@ -457,7 +537,7 @@ L18_VOCAB = [
         "kana": "てんきんします",
         "kanji": "転勤します",
         "romaji": "tenkin shimasu",
-        "vi": "Chuyển công tác",
+        "vi": "Chuyển công tác đến Pháp",
         "icon": "✈️"
     },
     {
@@ -465,15 +545,15 @@ L18_VOCAB = [
         "kana": "たいしょくします",
         "kanji": "退職します",
         "romaji": "taishoku shimasu",
-        "vi": "Nghỉ việc, về hưu",
+        "vi": "Khi 60 tuổi, tôi sẽ nghỉ việc",
         "icon": "🏖️"
     },
     {
         "jp": "ひどい",
         "kana": "ひどい",
-        "kanji": "ひどい",
+        "kanji": "酷い",
         "romaji": "hidoi",
-        "vi": "Tồi tệ, quá đáng",
+        "vi": "Tệ",
         "icon": "😣"
     },
     {
@@ -481,7 +561,7 @@ L18_VOCAB = [
         "kana": "かなしい",
         "kanji": "悲しい",
         "romaji": "kanashii",
-        "vi": "Buồn rầu, đau lòng",
+        "vi": "Buồn rầu",
         "icon": "😢"
     },
     {
@@ -489,7 +569,7 @@ L18_VOCAB = [
         "kana": "あまえます",
         "kanji": "甘えます",
         "romaji": "amaemasu",
-        "vi": "Nũng nịu, nhõng nhẽo",
+        "vi": "Nuông chiều",
         "icon": "🥰"
     },
     {
@@ -497,7 +577,7 @@ L18_VOCAB = [
         "kana": "おとなしい",
         "kanji": "大人しい",
         "romaji": "otonashii",
-        "vi": "Điềm đạm, dễ bảo, ngoan",
+        "vi": "Điềm đạm, dễ bảo",
         "icon": "😌"
     },
     {
@@ -505,7 +585,7 @@ L18_VOCAB = [
         "kana": "せいせき",
         "kanji": "成績",
         "romaji": "seiseki",
-        "vi": "Thành tích, kết quả học tập",
+        "vi": "Thành tích",
         "icon": "📊"
     },
     {
@@ -513,7 +593,7 @@ L18_VOCAB = [
         "kana": "はずかしい",
         "kanji": "恥ずかしい",
         "romaji": "hazukashii",
-        "vi": "Xấu hổ, ngượng ngùng",
+        "vi": "Xấu hổ",
         "icon": "😳"
     },
     {
@@ -521,7 +601,7 @@ L18_VOCAB = [
         "kana": "きっかけ",
         "kanji": "きっかけ",
         "romaji": "kikkake",
-        "vi": "Cơ duyên, duyên cớ",
+        "vi": "Cơ duyên",
         "icon": "🔑"
     },
     {
@@ -529,7 +609,7 @@ L18_VOCAB = [
         "kana": "ゆうしょく",
         "kanji": "夕食",
         "romaji": "yuushoku",
-        "vi": "Bữa cơm tối",
+        "vi": "Bữa tối",
         "icon": "🍲"
     },
     {
@@ -537,8 +617,16 @@ L18_VOCAB = [
         "kana": "なかがいい",
         "kanji": "仲がいい",
         "romaji": "naka ga ii",
-        "vi": "Thân thiết, mối quan hệ tốt",
+        "vi": "Thân thiết, mối quan quan hệ tốt",
         "icon": "👫"
+    },
+    {
+        "jp": "前",
+        "kana": "まえ",
+        "kanji": "前",
+        "romaji": "mae",
+        "vi": "Trước đây",
+        "icon": "🕰️"
     },
     {
         "jp": "勧めます",
@@ -549,11 +637,19 @@ L18_VOCAB = [
         "icon": "💡"
     },
     {
+        "jp": "興味があります",
+        "kana": "きょうみがあります",
+        "kanji": "興味があります",
+        "romaji": "kyoumi ga arimasu",
+        "vi": "Có hứng thú",
+        "icon": "✨"
+    },
+    {
         "jp": "社会人",
         "kana": "しゃかいじん",
         "kanji": "社会人",
         "romaji": "shakaijin",
-        "vi": "Người đi làm, người ngoài xã hội",
+        "vi": "Người trưởng thành, người xã hội",
         "icon": "👔"
     },
     {
@@ -565,12 +661,36 @@ L18_VOCAB = [
         "icon": "🎉"
     },
     {
+        "jp": "町のサイン",
+        "kana": "まちのサイン",
+        "kanji": "町のサイン",
+        "romaji": "machi no sain",
+        "vi": "biển báo trên phố",
+        "icon": "🪧"
+    },
+    {
+        "jp": "頼みます",
+        "kana": "たのみます",
+        "kanji": "頼みます",
+        "romaji": "tanomimasu",
+        "vi": "Nhờ vả",
+        "icon": "🙇"
+    },
+    {
         "jp": "心配します",
         "kana": "しんぱいします",
         "kanji": "心配します",
         "romaji": "shinpai shimasu",
-        "vi": "Lo lắng, bận tâm",
+        "vi": "Lo lắng",
         "icon": "😟"
+    },
+    {
+        "jp": "怖い",
+        "kana": "こわい",
+        "kanji": "怖い",
+        "romaji": "kowai",
+        "vi": "Sợ",
+        "icon": "😨"
     }
 ]
 

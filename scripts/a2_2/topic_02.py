@@ -14,7 +14,7 @@ L3_VOCAB = [
         "kana": "カウンター",
         "kanji": "カウンター",
         "romaji": "kaunta-",
-        "vi": "Chỗ ngồi quầy, quầy bar",
+        "vi": "Chỗ ngồi quầy",
         "icon": "🍸"
     },
     {
@@ -30,7 +30,7 @@ L3_VOCAB = [
         "kana": "ざしき",
         "kanji": "座敷",
         "romaji": "zashiki",
-        "vi": "Chỗ ngồi bệt (chiếu tatami)",
+        "vi": "Bàn (ngồi bệt)",
         "icon": "🎎"
     },
     {
@@ -38,7 +38,7 @@ L3_VOCAB = [
         "kana": "きつえんせき",
         "kanji": "喫煙席",
         "romaji": "kitsuenseki",
-        "vi": "Ghế/khu vực hút thuốc",
+        "vi": "Ghế hút thuốc",
         "icon": "🚬"
     },
     {
@@ -46,11 +46,11 @@ L3_VOCAB = [
         "kana": "きんえんせき",
         "kanji": "禁煙席",
         "romaji": "kin'enseki",
-        "vi": "Ghế/khu vực cấm hút thuốc",
+        "vi": "Ghế cấm hút thuốc",
         "icon": "🚭"
     },
     {
-        "jp": "よやくする",
+        "jp": "予約する",
         "kana": "よやくする",
         "kanji": "予約する",
         "romaji": "yoyaku suru",
@@ -58,23 +58,23 @@ L3_VOCAB = [
         "icon": "📅"
     },
     {
-        "jp": "ちゅうもんする",
+        "jp": "注文する",
         "kana": "ちゅうもんする",
         "kanji": "注文する",
         "romaji": "chuumon suru",
         "vi": "Đặt món, gọi món",
-        "icon": "📋"
+        "icon": "📝"
     },
     {
-        "jp": "よせなべ",
+        "jp": "寄せ鍋",
         "kana": "よせなべ",
         "kanji": "寄せ鍋",
         "romaji": "yosenabe",
-        "vi": "Lẩu hải sản thập cẩm",
+        "vi": "Lẩu hải sản",
         "icon": "🍲"
     },
     {
-        "jp": "わしょく",
+        "jp": "和食",
         "kana": "わしょく",
         "kanji": "和食",
         "romaji": "washoku",
@@ -82,15 +82,15 @@ L3_VOCAB = [
         "icon": "🍱"
     },
     {
-        "jp": "すきやき",
+        "jp": "すき焼き",
         "kana": "すきやき",
         "kanji": "すき焼き",
         "romaji": "sukiyaki",
-        "vi": "Món lẩu bò Sukiyaki",
+        "vi": "Món lẩu kiểu Nhật",
         "icon": "🥩"
     },
     {
-        "jp": "えいよう",
+        "jp": "栄養",
         "kana": "えいよう",
         "kanji": "栄養",
         "romaji": "eiyou",
@@ -102,8 +102,8 @@ L3_VOCAB = [
         "kana": "ベジタリアン",
         "kanji": "ベジタリアン",
         "romaji": "bejitarian",
-        "vi": "Người ăn chay, món chay",
-        "icon": "🥬"
+        "vi": "Ăn chay",
+        "icon": "🥦"
     },
     {
         "jp": "かに",
@@ -130,52 +130,52 @@ L3_VOCAB = [
         "icon": "🥤"
     },
     {
-        "jp": "ウーロンちゃ",
+        "jp": "ウーロン茶",
         "kana": "ウーロンちゃ",
-        "kanji": "烏龍茶",
+        "kanji": "ウーロン茶",
         "romaji": "u-roncha",
         "vi": "Trà Ô long",
         "icon": "🍵"
     },
     {
-        "jp": "しんせん（な）",
+        "jp": "新鮮（な）",
         "kana": "しんせん（な）",
         "kanji": "新鮮（な）",
         "romaji": "shinsen(na)",
-        "vi": "Tươi, tươi sống",
+        "vi": "Tươi",
         "icon": "🐟"
     },
     {
-        "jp": "おすすめ",
+        "jp": "おすすめ（の N）",
         "kana": "おすすめ",
-        "kanji": "おすすめ",
-        "romaji": "osusume",
-        "vi": "Gợi ý, món khuyên dùng",
+        "kanji": "おすすめ（の N）",
+        "romaji": "osusume (no N)",
+        "vi": "Gợi ý, khuyến khích",
         "icon": "👍"
     },
     {
-        "jp": "なんめいさまですか",
+        "jp": "何名様ですか",
         "kana": "なんめいさまですか",
         "kanji": "何名様ですか",
-        "romaji": "nanmeisama desu ka",
+        "romaji": "nanmei-sama desu ka",
         "vi": "Mấy vị (người) vậy ạ?",
         "icon": "👥"
     },
     {
-        "jp": "おきまりですか",
+        "jp": "お決まりですか",
         "kana": "おきまりですか",
         "kanji": "お決まりですか",
         "romaji": "okimari desu ka",
-        "vi": "Quý khách quyết định món chưa ạ?",
+        "vi": "Quý vị quyết định chưa ạ?",
         "icon": "🛎️"
     },
     {
-        "jp": "にがて（な）",
+        "jp": "苦手（な）",
         "kana": "にがて（な）",
         "kanji": "苦手（な）",
         "romaji": "nigate(na)",
-        "vi": "Kém, không thích, sợ ăn...",
-        "icon": "😣"
+        "vi": "Kém, sợ...",
+        "icon": "🙅"
     }
 ]
 
@@ -455,7 +455,7 @@ L4_VOCAB = [
         "kana": "かけます",
         "kanji": "かけます",
         "romaji": "kakemasu",
-        "vi": "Rưới, chan (nước sốt)",
+        "vi": "Rưới, chan",
         "icon": "🥣"
     },
     {
@@ -463,7 +463,7 @@ L4_VOCAB = [
         "kana": "つけます",
         "kanji": "つけます",
         "romaji": "tsukemasu",
-        "vi": "Chấm (nước chấm)",
+        "vi": "Chấm",
         "icon": "🥢"
     },
     {
@@ -479,7 +479,7 @@ L4_VOCAB = [
         "kana": "ぬります",
         "kanji": "塗ります",
         "romaji": "nurimasu",
-        "vi": "Bôi, quết, phết",
+        "vi": "Bôi, sơn, phết",
         "icon": "🧈"
     },
     {
@@ -495,7 +495,7 @@ L4_VOCAB = [
         "kana": "いいにおい",
         "kanji": "いいにおい",
         "romaji": "ii nioi",
-        "vi": "Mùi thơm ngon",
+        "vi": "Mùi thơm",
         "icon": "👃"
     },
     {
@@ -519,7 +519,7 @@ L4_VOCAB = [
         "kana": "ちゃわん",
         "kanji": "茶碗",
         "romaji": "chawan",
-        "vi": "Bát, chén",
+        "vi": "Bát",
         "icon": "🍚"
     },
     {
@@ -527,7 +527,7 @@ L4_VOCAB = [
         "kana": "たれ／ソース",
         "kanji": "たれ／ソース",
         "romaji": "tare / so-su",
-        "vi": "Nước sốt, nước chấm",
+        "vi": "Nước sốt",
         "icon": "🫙"
     },
     {
@@ -535,7 +535,7 @@ L4_VOCAB = [
         "kana": "しょうゆ",
         "kanji": "醤油",
         "romaji": "shouyu",
-        "vi": "Xì dầu, nước tương",
+        "vi": "Xì dầu",
         "icon": "🍶"
     },
     {
@@ -567,7 +567,7 @@ L4_VOCAB = [
         "kana": "おなかがすきました",
         "kanji": "お腹が空きました",
         "romaji": "onaka ga sukimashita",
-        "vi": "Đói bụng",
+        "vi": "Đói",
         "icon": "🤤"
     },
     {
@@ -575,7 +575,7 @@ L4_VOCAB = [
         "kana": "のどがかわきました",
         "kanji": "喉が渇きました",
         "romaji": "nodo ga kawakimashita",
-        "vi": "Khát nước",
+        "vi": "Khát",
         "icon": "🥤"
     },
     {
@@ -583,7 +583,7 @@ L4_VOCAB = [
         "kana": "かんぱい",
         "kanji": "乾杯",
         "romaji": "kanpai",
-        "vi": "Cạn ly!",
+        "vi": "Cạn ly",
         "icon": "🍻"
     },
     {
@@ -591,7 +591,7 @@ L4_VOCAB = [
         "kana": "いろがかわります",
         "kanji": "色が変わります",
         "romaji": "iro ga kawarimasu",
-        "vi": "Đổi màu",
+        "vi": "Màu thay đổi",
         "icon": "🎨"
     },
     {
@@ -599,11 +599,11 @@ L4_VOCAB = [
         "kana": "がまんする",
         "kanji": "我慢する",
         "romaji": "gaman suru",
-        "vi": "Chịu đựng, nhẫn nại",
+        "vi": "Chịu đựng",
         "icon": "😣"
     },
     {
-        "jp": "りょうりをのこします",
+        "jp": "料理を残します",
         "kana": "りょうりをのこします",
         "kanji": "料理を残します",
         "romaji": "ryouri o nokoshimasu",
@@ -611,11 +611,11 @@ L4_VOCAB = [
         "icon": "🍱"
     },
     {
-        "jp": "おとをたてます",
+        "jp": "音を立てます",
         "kana": "おとをたてます",
         "kanji": "音を立てます",
         "romaji": "oto o tatemasu",
-        "vi": "Tạo ra âm thanh, tiếng động",
+        "vi": "Tạo ra âm thanh, tiếng",
         "icon": "🔊"
     },
     {
@@ -627,7 +627,7 @@ L4_VOCAB = [
         "icon": "😖"
     },
     {
-        "jp": "あせがでます",
+        "jp": "汗が出ます",
         "kana": "あせがでます",
         "kanji": "汗が出ます",
         "romaji": "ase ga demasu",

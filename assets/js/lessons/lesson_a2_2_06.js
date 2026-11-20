@@ -9,8 +9,8 @@ const VOCAB_DATA = [
     "kana": "ツアー",
     "kanji": "ツアー",
     "romaji": "tsua-",
-    "vi": "Tour du lịch",
-    "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_f9d7276be9ae5536\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#7c3aed\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_f9d7276be9ae5536)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"32\">🚩</text>\n</svg>"
+    "vi": "Tour",
+    "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_c0323ea228dc7712\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#7c3aed\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_c0323ea228dc7712)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"32\">🧳</text>\n</svg>"
   },
   {
     "id": 2,
@@ -29,18 +29,6 @@ const VOCAB_DATA = [
     "cat": "vocab",
     "catName": "Từ Vựng",
     "badge": "Bài 6 (A2-2)",
-    "jp": "おどりのショー",
-    "kana": "おどりのショー",
-    "kanji": "踊りのショー",
-    "romaji": "odori no sho-",
-    "vi": "Show biểu diễn múa",
-    "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_f5f7e013dbfddd2e\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#7c3aed\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_f5f7e013dbfddd2e)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"32\">💃</text>\n</svg>"
-  },
-  {
-    "id": 4,
-    "cat": "vocab",
-    "catName": "Từ Vựng",
-    "badge": "Bài 6 (A2-2)",
     "jp": "イルカ",
     "kana": "イルカ",
     "kanji": "イルカ",
@@ -49,23 +37,11 @@ const VOCAB_DATA = [
     "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_953cf3fcff82dc61\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#7c3aed\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_953cf3fcff82dc61)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"32\">🐬</text>\n</svg>"
   },
   {
-    "id": 5,
+    "id": 4,
     "cat": "vocab",
     "catName": "Từ Vựng",
     "badge": "Bài 6 (A2-2)",
-    "jp": "イルカのショー",
-    "kana": "イルカのショー",
-    "kanji": "イルカのショー",
-    "romaji": "iruka no sho-",
-    "vi": "Show xiếc cá heo",
-    "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_89c1c4e154422559\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#7c3aed\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_89c1c4e154422559)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"32\">🐬</text>\n</svg>"
-  },
-  {
-    "id": 6,
-    "cat": "vocab",
-    "catName": "Từ Vựng",
-    "badge": "Bài 6 (A2-2)",
-    "jp": "すいぞくかん",
+    "jp": "水族館",
     "kana": "すいぞくかん",
     "kanji": "水族館",
     "romaji": "suizokukan",
@@ -73,7 +49,7 @@ const VOCAB_DATA = [
     "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_f4606ef470d731e6\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#7c3aed\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_f4606ef470d731e6)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"32\">🐠</text>\n</svg>"
   },
   {
-    "id": 7,
+    "id": 5,
     "cat": "vocab",
     "catName": "Từ Vựng",
     "badge": "Bài 6 (A2-2)",
@@ -85,11 +61,11 @@ const VOCAB_DATA = [
     "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_3327bb9abc2879bc\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#7c3aed\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_3327bb9abc2879bc)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"32\">📄</text>\n</svg>"
   },
   {
-    "id": 8,
+    "id": 6,
     "cat": "vocab",
     "catName": "Từ Vựng",
     "badge": "Bài 6 (A2-2)",
-    "jp": "もり",
+    "jp": "森",
     "kana": "もり",
     "kanji": "森",
     "romaji": "mori",
@@ -97,11 +73,11 @@ const VOCAB_DATA = [
     "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_1103afce6036c87d\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#7c3aed\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_1103afce6036c87d)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"32\">🌲</text>\n</svg>"
   },
   {
-    "id": 9,
+    "id": 7,
     "cat": "vocab",
     "catName": "Từ Vựng",
     "badge": "Bài 6 (A2-2)",
-    "jp": "つり",
+    "jp": "釣り",
     "kana": "つり",
     "kanji": "釣り",
     "romaji": "tsuri",
@@ -109,7 +85,7 @@ const VOCAB_DATA = [
     "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_6ede786e82d8b979\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#7c3aed\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_6ede786e82d8b979)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"32\">🎣</text>\n</svg>"
   },
   {
-    "id": 10,
+    "id": 8,
     "cat": "vocab",
     "catName": "Từ Vựng",
     "badge": "Bài 6 (A2-2)",
@@ -121,11 +97,11 @@ const VOCAB_DATA = [
     "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_6526372146168741\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#7c3aed\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_6526372146168741)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"32\">🪟</text>\n</svg>"
   },
   {
-    "id": 11,
+    "id": 9,
     "cat": "vocab",
     "catName": "Từ Vựng",
     "badge": "Bài 6 (A2-2)",
-    "jp": "おもいで",
+    "jp": "思い出",
     "kana": "おもいで",
     "kanji": "思い出",
     "romaji": "omoide",
@@ -133,79 +109,67 @@ const VOCAB_DATA = [
     "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_e3e1138600900207\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#7c3aed\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_e3e1138600900207)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"32\">📸</text>\n</svg>"
   },
   {
+    "id": 10,
+    "cat": "vocab",
+    "catName": "Từ Vựng",
+    "badge": "Bài 6 (A2-2)",
+    "jp": "珍しい動物",
+    "kana": "めずらしいどうぶつ",
+    "kanji": "珍しい動物",
+    "romaji": "mezurashii doubutsu",
+    "vi": "Động vật hiếm",
+    "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_ef46c28649be9937\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#7c3aed\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_ef46c28649be9937)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"32\">🐼</text>\n</svg>"
+  },
+  {
+    "id": 11,
+    "cat": "vocab",
+    "catName": "Từ Vựng",
+    "badge": "Bài 6 (A2-2)",
+    "jp": "人気があります",
+    "kana": "にんきがあります",
+    "kanji": "人気があります",
+    "romaji": "ninki ga arimasu",
+    "vi": "Được yêu thích, ưa chuộng",
+    "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_66eebabfb6a764d4\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#7c3aed\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_66eebabfb6a764d4)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"32\">🌟</text>\n</svg>"
+  },
+  {
     "id": 12,
     "cat": "vocab",
     "catName": "Từ Vựng",
     "badge": "Bài 6 (A2-2)",
-    "jp": "おもいだします",
-    "kana": "おもいだします",
-    "kanji": "思い出します",
-    "romaji": "omoidashimasu",
-    "vi": "Nhớ lại, hồi tưởng",
-    "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_3eba1cdbcbd263c3\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#7c3aed\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_3eba1cdbcbd263c3)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"32\">💭</text>\n</svg>"
+    "jp": "楽しみます",
+    "kana": "たのしみます",
+    "kanji": "楽しみます",
+    "romaji": "tanoshimimasu",
+    "vi": "Tận hưởng niềm vui (Nを楽しむ)",
+    "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_b631f206c9b0455f\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#7c3aed\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_b631f206c9b0455f)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"32\">🎉</text>\n</svg>"
   },
   {
     "id": 13,
     "cat": "vocab",
     "catName": "Từ Vựng",
     "badge": "Bài 6 (A2-2)",
-    "jp": "めずらしいどうぶつ",
-    "kana": "めずらしいどうぶつ",
-    "kanji": "珍しい動物",
-    "romaji": "mezurashii doubutsu",
-    "vi": "Động vật quý hiếm",
-    "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_d2594fbeefbbfba2\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#7c3aed\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_d2594fbeefbbfba2)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"32\">🦒</text>\n</svg>"
+    "jp": "女性",
+    "kana": "じょせい",
+    "kanji": "女性",
+    "romaji": "josei",
+    "vi": "Nữ giới",
+    "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_a0d4d743e86ee111\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#7c3aed\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_a0d4d743e86ee111)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"32\">👩</text>\n</svg>"
   },
   {
     "id": 14,
     "cat": "vocab",
     "catName": "Từ Vựng",
     "badge": "Bài 6 (A2-2)",
-    "jp": "にんきがあります",
-    "kana": "にんきがあります",
-    "kanji": "人気があります",
-    "romaji": "ninki ga arimasu",
-    "vi": "Được yêu thích, ưa chuộng",
-    "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_66eebabfb6a764d4\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#7c3aed\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_66eebabfb6a764d4)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"32\">⭐</text>\n</svg>"
-  },
-  {
-    "id": 15,
-    "cat": "vocab",
-    "catName": "Từ Vựng",
-    "badge": "Bài 6 (A2-2)",
-    "jp": "たのしみます",
-    "kana": "たのしみます",
-    "kanji": "楽しみます",
-    "romaji": "tanoshimimasu",
-    "vi": "Tận hưởng niềm vui",
-    "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_057d67058b0a246d\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#7c3aed\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_057d67058b0a246d)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"32\">🎉</text>\n</svg>"
-  },
-  {
-    "id": 16,
-    "cat": "vocab",
-    "catName": "Từ Vựng",
-    "badge": "Bài 6 (A2-2)",
-    "jp": "じょせい",
-    "kana": "じょせい",
-    "kanji": "女性",
-    "romaji": "josei",
-    "vi": "Phụ nữ, nữ giới",
-    "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_b7b7fb540106b552\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#7c3aed\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_b7b7fb540106b552)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"32\">👩</text>\n</svg>"
-  },
-  {
-    "id": 17,
-    "cat": "vocab",
-    "catName": "Từ Vựng",
-    "badge": "Bài 6 (A2-2)",
-    "jp": "だんせい",
+    "jp": "男性",
     "kana": "だんせい",
     "kanji": "男性",
     "romaji": "dansei",
-    "vi": "Đàn ông, nam giới",
-    "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_ca4a0444ae4fa6f1\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#7c3aed\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_ca4a0444ae4fa6f1)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"32\">👨</text>\n</svg>"
+    "vi": "Nam giới",
+    "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_e5f74544da65e9ef\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#7c3aed\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_e5f74544da65e9ef)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"32\">👨</text>\n</svg>"
   },
   {
-    "id": 18,
+    "id": 15,
     "cat": "vocab",
     "catName": "Từ Vựng",
     "badge": "Bài 6 (A2-2)",
@@ -213,20 +177,20 @@ const VOCAB_DATA = [
     "kana": "アンケート",
     "kanji": "アンケート",
     "romaji": "anke-to",
-    "vi": "Bảng khảo sát ý kiến",
-    "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_70ac1dbad1a5c6de\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#7c3aed\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_70ac1dbad1a5c6de)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"32\">📋</text>\n</svg>"
+    "vi": "Bảng khảo sát",
+    "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_bb22939c90f650db\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#7c3aed\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_bb22939c90f650db)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"32\">📋</text>\n</svg>"
   },
   {
-    "id": 19,
+    "id": 16,
     "cat": "vocab",
     "catName": "Từ Vựng",
     "badge": "Bài 6 (A2-2)",
-    "jp": "さんかします",
+    "jp": "参加します",
     "kana": "さんかします",
     "kanji": "参加します",
     "romaji": "sanka shimasu",
-    "vi": "Tham gia",
-    "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_b1bedfb57640aa9e\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#7c3aed\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_b1bedfb57640aa9e)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"32\">🙋</text>\n</svg>"
+    "vi": "Tham gia (Nに参加します)",
+    "svg": "<svg viewBox=\"0 0 240 120\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <linearGradient id=\"g_42c0968fea412786\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0%\" stop-color=\"#4f46e5\"/>\n      <stop offset=\"100%\" stop-color=\"#7c3aed\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"240\" height=\"120\" rx=\"14\" fill=\"url(#g_42c0968fea412786)\"/>\n  <circle cx=\"120\" cy=\"50\" r=\"30\" fill=\"rgba(255,255,255,0.2)\"/>\n  <text x=\"120\" y=\"60\" text-anchor=\"middle\" font-size=\"32\">🙋</text>\n</svg>"
   }
 ];
 

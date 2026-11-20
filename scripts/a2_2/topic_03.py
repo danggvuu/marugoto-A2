@@ -10,15 +10,15 @@ Topic 3: 沖縄旅行 (Okinawa Trip / Chuyến du lịch Okinawa)
 # =============================================================================
 L5_VOCAB = [
     {
-        "jp": "かんこうシーズン",
+        "jp": "観光シーズン",
         "kana": "かんこうシーズン",
         "kanji": "観光シーズン",
         "romaji": "kankou shi-zun",
         "vi": "Mùa du lịch",
-        "icon": "🏖️"
+        "icon": "✈️"
     },
     {
-        "jp": "たいふうシーズン",
+        "jp": "台風シーズン",
         "kana": "たいふうシーズン",
         "kanji": "台風シーズン",
         "romaji": "taifuu shi-zun",
@@ -26,7 +26,7 @@ L5_VOCAB = [
         "icon": "🌀"
     },
     {
-        "jp": "しぜん",
+        "jp": "自然",
         "kana": "しぜん",
         "kanji": "自然",
         "romaji": "shizen",
@@ -34,7 +34,7 @@ L5_VOCAB = [
         "icon": "🌿"
     },
     {
-        "jp": "しま",
+        "jp": "島",
         "kana": "しま",
         "kanji": "島",
         "romaji": "shima",
@@ -46,15 +46,15 @@ L5_VOCAB = [
         "kana": "グルメ",
         "kanji": "グルメ",
         "romaji": "gurume",
-        "vi": "Ẩm thực, món ngon",
-        "icon": "🍴"
+        "vi": "Ăn uống",
+        "icon": "🍽️"
     },
     {
-        "jp": "ダイビングのどうぐ",
+        "jp": "ダイビングの道具",
         "kana": "ダイビングのどうぐ",
         "kanji": "ダイビングの道具",
         "romaji": "daibingu no dougu",
-        "vi": "Dụng cụ lặn",
+        "vi": "Đồ lặn",
         "icon": "🤿"
     },
     {
@@ -78,31 +78,31 @@ L5_VOCAB = [
         "kana": "ジャケット",
         "kanji": "ジャケット",
         "romaji": "jaketto",
-        "vi": "Áo khoác jacket",
-        "icon": "👔"
+        "vi": "Áo khoác",
+        "icon": "🧥"
     },
     {
-        "jp": "りょうきん",
+        "jp": "料金",
         "kana": "りょうきん",
         "kanji": "料金",
         "romaji": "ryoukin",
-        "vi": "Chi phí, giá vé",
+        "vi": "Chi phí",
         "icon": "💰"
     },
     {
-        "jp": "ゆたか（な）",
+        "jp": "豊か（な）",
         "kana": "ゆたか（な）",
         "kanji": "豊か（な）",
         "romaji": "yutaka(na)",
-        "vi": "Phong phú, trù phú",
+        "vi": "Phong phú",
         "icon": "🌾"
     },
     {
-        "jp": "うつくしい",
+        "jp": "美しい",
         "kana": "うつくしい",
         "kanji": "美しい",
         "romaji": "utsukushii",
-        "vi": "Tuyệt đẹp, xinh đẹp",
+        "vi": "Đẹp",
         "icon": "✨"
     },
     {
@@ -110,7 +110,7 @@ L5_VOCAB = [
         "kana": "ドライブします",
         "kanji": "ドライブします",
         "romaji": "doraibu shimasu",
-        "vi": "Lái xe ngắm cảnh",
+        "vi": "Lái xe",
         "icon": "🚗"
     },
     {
@@ -122,7 +122,7 @@ L5_VOCAB = [
         "icon": "🔑"
     },
     {
-        "jp": "よやくします",
+        "jp": "予約します",
         "kana": "よやくします",
         "kanji": "予約します",
         "romaji": "yoyaku shimasu",
@@ -130,31 +130,55 @@ L5_VOCAB = [
         "icon": "📅"
     },
     {
-        "jp": "こみます",
+        "jp": "込みます",
         "kana": "こみます",
         "kanji": "込みます",
         "romaji": "komimasu",
-        "vi": "Đông đúc",
+        "vi": "Đông",
         "icon": "👥"
     },
     {
-        "jp": "ゆれます",
+        "jp": "揺れます",
         "kana": "ゆれます",
         "kanji": "揺れます",
         "romaji": "yuremasu",
         "vi": "Rung, lắc",
-        "icon": "⛵"
+        "icon": "🌊"
     },
     {
         "jp": "ほっとします",
         "kana": "ほっとします",
         "kanji": "ほっとします",
         "romaji": "hotto shimasu",
-        "vi": "An tâm, thở phào",
-        "icon": "😌"
+        "vi": "An tâm",
+        "icon": "🍵"
     },
     {
-        "jp": "けしき",
+        "jp": "おすすめのコース",
+        "kana": "おすすめのコース",
+        "kanji": "おすすめのコース",
+        "romaji": "osusume no ko-su",
+        "vi": "Khóa được khuyến khích",
+        "icon": "🗺️"
+    },
+    {
+        "jp": "持っていきます",
+        "kana": "もっていきます",
+        "kanji": "持っていきます",
+        "romaji": "motte ikimasu",
+        "vi": "Mang đi",
+        "icon": "🎒"
+    },
+    {
+        "jp": "自然",
+        "kana": "しぜん",
+        "kanji": "自然",
+        "romaji": "shizen",
+        "vi": "Thiên nhiên",
+        "icon": "🌿"
+    },
+    {
+        "jp": "景色",
         "kana": "けしき",
         "kanji": "景色",
         "romaji": "keshiki",
@@ -162,36 +186,140 @@ L5_VOCAB = [
         "icon": "🌄"
     },
     {
-        "jp": "すきます",
-        "kana": "すきます",
-        "kanji": "空きます",
-        "romaji": "sukimasu",
-        "vi": "Vắng vẻ",
-        "icon": "🪑"
+        "jp": "豊か（な）",
+        "kana": "ゆたか（な）",
+        "kanji": "豊か（な）",
+        "romaji": "yutaka(na)",
+        "vi": "Phong phú, đa dạng",
+        "icon": "🌾"
     },
     {
-        "jp": "かいがん",
-        "kana": "かいがん",
-        "kanji": "海岸",
-        "romaji": "kaigan",
-        "vi": "Bờ biển",
-        "icon": "🌊"
+        "jp": "島",
+        "kana": "しま",
+        "kanji": "島",
+        "romaji": "shima",
+        "vi": "Đảo",
+        "icon": "🏝️"
     },
     {
-        "jp": "もっていきます",
-        "kana": "もっていきます",
-        "kanji": "持っていきます",
-        "romaji": "motte ikimasu",
-        "vi": "Mang theo đi",
-        "icon": "🎒"
+        "jp": "島をドライブします",
+        "kana": "しまをドライブします",
+        "kanji": "島をドライブします",
+        "romaji": "shima o doraibu shimasu",
+        "vi": "Lái xe dạo quanh đảo",
+        "icon": "🚗"
+    },
+    {
+        "jp": "美しい",
+        "kana": "うつくしい",
+        "kanji": "美しい",
+        "romaji": "utsukushii",
+        "vi": "Tuyệt đẹp, hùng vĩ",
+        "icon": "✨"
+    },
+    {
+        "jp": "おすすめ",
+        "kana": "おすすめ",
+        "kanji": "おすすめ",
+        "romaji": "osusume",
+        "vi": "Đề xuất",
+        "icon": "👍"
+    },
+    {
+        "jp": "予約します",
+        "kana": "よやくします",
+        "kanji": "予約します",
+        "romaji": "yoyaku shimasu",
+        "vi": "Đặt trước, book (Ｎを予約します)",
+        "icon": "📅"
     },
     {
         "jp": "ダイビング（します）",
         "kana": "ダイビング（します）",
         "kanji": "ダイビング（します）",
         "romaji": "daibingu(shimasu)",
-        "vi": "Lặn biển",
+        "vi": "Lặn",
         "icon": "🤿"
+    },
+    {
+        "jp": "道具",
+        "kana": "どうぐ",
+        "kanji": "道具",
+        "romaji": "dougu",
+        "vi": "Dụng cụ",
+        "icon": "🧰"
+    },
+    {
+        "jp": "料金",
+        "kana": "りょうきん",
+        "kanji": "料金",
+        "romaji": "ryoukin",
+        "vi": "Phí, tiền phải trả…",
+        "icon": "💰"
+    },
+    {
+        "jp": "レンタル（します）",
+        "kana": "レンタル（します）",
+        "kanji": "レンタル（します）",
+        "romaji": "rentaru(shimasu)",
+        "vi": "Thuê",
+        "icon": "🔑"
+    },
+    {
+        "jp": "込みます",
+        "kana": "こみます",
+        "kanji": "込みます",
+        "romaji": "komimasu",
+        "vi": "Đông (混んでいます)",
+        "icon": "👥"
+    },
+    {
+        "jp": "空きます",
+        "kana": "すきます",
+        "kanji": "空きます",
+        "romaji": "sukimasu",
+        "vi": "Vắng (空いています)",
+        "icon": "🍃"
+    },
+    {
+        "jp": "サングラス（をかけます）",
+        "kana": "サングラス（をかけます）",
+        "kanji": "サングラス（をかけます）",
+        "romaji": "sangurasu(o kakemasu)",
+        "vi": "Kính râm",
+        "icon": "🕶️"
+    },
+    {
+        "jp": "素晴らしい",
+        "kana": "すばらしい",
+        "kanji": "素晴らしい",
+        "romaji": "subarashii",
+        "vi": "Tuyệt vời, rất tốt",
+        "icon": "🌟"
+    },
+    {
+        "jp": "揺れます",
+        "kana": "ゆれます",
+        "kanji": "揺れます",
+        "romaji": "yuremasu",
+        "vi": "Rung, lắc (nhà/thuyền)",
+        "icon": "🌊"
+    },
+    {
+        "jp": "観光シーズン",
+        "kana": "かんこうシーズン",
+        "kanji": "観光シーズン",
+        "romaji": "kankou shi-zun",
+        "vi": "Mùa du lịch",
+        "icon": "✈️"
+    },
+    {
+        "jp": "親切（な）",
+        "kana": "しんせつ（な）",
+        "kanji": "親切（な）",
+        "romaji": "shinsetsu(na)",
+        "vi": "Tốt bụng, thân thiện",
+        "icon": "🤝"
     },
     {
         "jp": "アドバイス",
@@ -200,6 +328,30 @@ L5_VOCAB = [
         "romaji": "adobaisu",
         "vi": "Lời khuyên",
         "icon": "💡"
+    },
+    {
+        "jp": "ほっとします",
+        "kana": "ほっとします",
+        "kanji": "ほっとします",
+        "romaji": "hotto shimasu",
+        "vi": "Nhẹ nhõm, thở phào",
+        "icon": "🍵"
+    },
+    {
+        "jp": "できれば、～",
+        "kana": "できれば、～",
+        "kanji": "できれば、～",
+        "romaji": "dekireba, ~",
+        "vi": "Nếu có thể thì...",
+        "icon": "🙏"
+    },
+    {
+        "jp": "海岸",
+        "kana": "かいがん",
+        "kanji": "海岸",
+        "romaji": "kaigan",
+        "vi": "Bờ biển",
+        "icon": "🏖️"
     }
 ]
 
@@ -436,8 +588,8 @@ L6_VOCAB = [
         "kana": "ツアー",
         "kanji": "ツアー",
         "romaji": "tsua-",
-        "vi": "Tour du lịch",
-        "icon": "🚩"
+        "vi": "Tour",
+        "icon": "🧳"
     },
     {
         "jp": "ショー",
@@ -448,14 +600,6 @@ L6_VOCAB = [
         "icon": "🎭"
     },
     {
-        "jp": "おどりのショー",
-        "kana": "おどりのショー",
-        "kanji": "踊りのショー",
-        "romaji": "odori no sho-",
-        "vi": "Show biểu diễn múa",
-        "icon": "💃"
-    },
-    {
         "jp": "イルカ",
         "kana": "イルカ",
         "kanji": "イルカ",
@@ -464,15 +608,7 @@ L6_VOCAB = [
         "icon": "🐬"
     },
     {
-        "jp": "イルカのショー",
-        "kana": "イルカのショー",
-        "kanji": "イルカのショー",
-        "romaji": "iruka no sho-",
-        "vi": "Show xiếc cá heo",
-        "icon": "🐬"
-    },
-    {
-        "jp": "すいぞくかん",
+        "jp": "水族館",
         "kana": "すいぞくかん",
         "kanji": "水族館",
         "romaji": "suizokukan",
@@ -488,7 +624,7 @@ L6_VOCAB = [
         "icon": "📄"
     },
     {
-        "jp": "もり",
+        "jp": "森",
         "kana": "もり",
         "kanji": "森",
         "romaji": "mori",
@@ -496,7 +632,7 @@ L6_VOCAB = [
         "icon": "🌲"
     },
     {
-        "jp": "つり",
+        "jp": "釣り",
         "kana": "つり",
         "kanji": "釣り",
         "romaji": "tsuri",
@@ -512,7 +648,7 @@ L6_VOCAB = [
         "icon": "🪟"
     },
     {
-        "jp": "おもいで",
+        "jp": "思い出",
         "kana": "おもいで",
         "kanji": "思い出",
         "romaji": "omoide",
@@ -520,51 +656,43 @@ L6_VOCAB = [
         "icon": "📸"
     },
     {
-        "jp": "おもいだします",
-        "kana": "おもいだします",
-        "kanji": "思い出します",
-        "romaji": "omoidashimasu",
-        "vi": "Nhớ lại, hồi tưởng",
-        "icon": "💭"
-    },
-    {
-        "jp": "めずらしいどうぶつ",
+        "jp": "珍しい動物",
         "kana": "めずらしいどうぶつ",
         "kanji": "珍しい動物",
         "romaji": "mezurashii doubutsu",
-        "vi": "Động vật quý hiếm",
-        "icon": "🦒"
+        "vi": "Động vật hiếm",
+        "icon": "🐼"
     },
     {
-        "jp": "にんきがあります",
+        "jp": "人気があります",
         "kana": "にんきがあります",
         "kanji": "人気があります",
         "romaji": "ninki ga arimasu",
         "vi": "Được yêu thích, ưa chuộng",
-        "icon": "⭐"
+        "icon": "🌟"
     },
     {
-        "jp": "たのしみます",
+        "jp": "楽しみます",
         "kana": "たのしみます",
         "kanji": "楽しみます",
         "romaji": "tanoshimimasu",
-        "vi": "Tận hưởng niềm vui",
+        "vi": "Tận hưởng niềm vui (Nを楽しむ)",
         "icon": "🎉"
     },
     {
-        "jp": "じょせい",
+        "jp": "女性",
         "kana": "じょせい",
         "kanji": "女性",
         "romaji": "josei",
-        "vi": "Phụ nữ, nữ giới",
+        "vi": "Nữ giới",
         "icon": "👩"
     },
     {
-        "jp": "だんせい",
+        "jp": "男性",
         "kana": "だんせい",
         "kanji": "男性",
         "romaji": "dansei",
-        "vi": "Đàn ông, nam giới",
+        "vi": "Nam giới",
         "icon": "👨"
     },
     {
@@ -572,15 +700,15 @@ L6_VOCAB = [
         "kana": "アンケート",
         "kanji": "アンケート",
         "romaji": "anke-to",
-        "vi": "Bảng khảo sát ý kiến",
+        "vi": "Bảng khảo sát",
         "icon": "📋"
     },
     {
-        "jp": "さんかします",
+        "jp": "参加します",
         "kana": "さんかします",
         "kanji": "参加します",
         "romaji": "sanka shimasu",
-        "vi": "Tham gia",
+        "vi": "Tham gia (Nに参加します)",
         "icon": "🙋"
     }
 ]

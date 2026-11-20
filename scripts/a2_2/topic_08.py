@@ -22,7 +22,7 @@ L15_VOCAB = [
         "kana": "エコかつどう",
         "kanji": "エコ活動",
         "romaji": "eko katsudou",
-        "vi": "Hoạt động bảo vệ môi trường",
+        "vi": "Hoạt động thân thiện với môi trường",
         "icon": "🌱"
     },
     {
@@ -50,9 +50,9 @@ L15_VOCAB = [
         "icon": "❄️"
     },
     {
-        "jp": "むだにします",
+        "jp": "無駄にします",
         "kana": "むだにします",
-        "kanji": "むだにします",
+        "kanji": "無駄にします",
         "romaji": "muda ni shimasu",
         "vi": "Làm lãng phí",
         "icon": "⚠️"
@@ -86,7 +86,7 @@ L15_VOCAB = [
         "kana": "くうきをよごします",
         "kanji": "空気を汚します",
         "romaji": "kuuki o yogoshimasu",
-        "vi": "Làm bẩn, ô nhiễm không khí",
+        "vi": "Làm bẩn không khí",
         "icon": "🏭"
     },
     {
@@ -94,7 +94,7 @@ L15_VOCAB = [
         "kana": "あぶらをながします",
         "kanji": "油を流します",
         "romaji": "abura o nagashimasu",
-        "vi": "Xả dầu mỡ xuống cống",
+        "vi": "Xả dầu ăn từ nhà bếp",
         "icon": "🛢️"
     },
     {
@@ -110,7 +110,7 @@ L15_VOCAB = [
         "kana": "やくにたちます",
         "kanji": "役に立ちます",
         "romaji": "yaku ni tachimasu",
-        "vi": "Có ích, hữu ích",
+        "vi": "Có ích cho N (Nに役に立ちます)",
         "icon": "👍"
     },
     {
@@ -142,7 +142,7 @@ L15_VOCAB = [
         "kana": "もったいない",
         "kanji": "もったいない",
         "romaji": "mottainai",
-        "vi": "Lãng phí quá!",
+        "vi": "Lãng phí",
         "icon": "😣"
     },
     {
@@ -150,7 +150,7 @@ L15_VOCAB = [
         "kana": "しんぶんし",
         "kanji": "新聞紙",
         "romaji": "shinbunshi",
-        "vi": "Giấy báo cũ",
+        "vi": "Giấy báo",
         "icon": "📰"
     },
     {
@@ -374,7 +374,7 @@ L16_VOCAB = [
         "kana": "フリーマーケット",
         "kanji": "フリーマーケット",
         "romaji": "furi-ma-ketto",
-        "vi": "Hội chợ (đồ cũ), chợ trời",
+        "vi": "Hội chợ (đồ cũ)",
         "icon": "🎪"
     },
     {
@@ -382,7 +382,7 @@ L16_VOCAB = [
         "kana": "レンタルショップ",
         "kanji": "レンタルショップ",
         "romaji": "rentaru shoppu",
-        "vi": "Cửa hàng cho thuê đồ",
+        "vi": "Cửa hàng đồ cho thuê",
         "icon": "🏬"
     },
     {
@@ -390,11 +390,11 @@ L16_VOCAB = [
         "kana": "クッション",
         "kanji": "クッション",
         "romaji": "kusshon",
-        "vi": "Gối tựa, đệm sofa",
+        "vi": "Gối",
         "icon": "🛋️"
     },
     {
-        "jp": "布団",
+        "jp": "ふとん",
         "kana": "ふとん",
         "kanji": "布団",
         "romaji": "futon",
@@ -414,7 +414,7 @@ L16_VOCAB = [
         "kana": "ベビーベッド",
         "kanji": "ベビーベッド",
         "romaji": "bebi-beddo",
-        "vi": "Giường em bé, nôi",
+        "vi": "Giường em bé",
         "icon": "👶"
     },
     {
@@ -423,30 +423,30 @@ L16_VOCAB = [
         "kanji": "ベビーカー",
         "romaji": "bebi-ka-",
         "vi": "Xe đẩy em bé",
-        "icon": "🚼"
+        "icon": "🛒"
     },
     {
         "jp": "飽きます",
         "kana": "あきます",
         "kanji": "飽きます",
         "romaji": "akimasu",
-        "vi": "Chán ngấy",
+        "vi": "Chán (ngấy)",
         "icon": "🥱"
     },
     {
-        "jp": "サイズが変わります",
-        "kana": "サイズがかわります",
-        "kanji": "サイズが変わります",
-        "romaji": "saizu ga kawarimasu",
-        "vi": "Thay đổi kích cỡ",
-        "icon": "📏"
+        "jp": "変わります",
+        "kana": "かわります",
+        "kanji": "変わります",
+        "romaji": "kawarimasu",
+        "vi": "(N) Thay đổi (Nが変わります)",
+        "icon": "🔄"
     },
     {
-        "jp": "要ります",
-        "kana": "いります",
-        "kanji": "要ります",
-        "romaji": "irimasu",
-        "vi": "Cần thiết",
+        "jp": "要ります／必要（な）",
+        "kana": "いります／ひつよう（な）",
+        "kanji": "要ります／必要（な）",
+        "romaji": "irimasu / hitsuyou(na)",
+        "vi": "Cần thiết (V)",
         "icon": "✅"
     },
     {
@@ -454,48 +454,48 @@ L16_VOCAB = [
         "kana": "いりません",
         "kanji": "要りません",
         "romaji": "irimasen",
-        "vi": "Không cần thiết",
+        "vi": "Không cần thiết (V)",
         "icon": "❌"
     },
     {
-        "jp": "要らないものを売ります",
-        "kana": "いらないものをうります",
-        "kanji": "要らないものを売ります",
-        "romaji": "iranai mono o urimasu",
-        "vi": "Bán đồ không cần thiết",
-        "icon": "🏷️"
+        "jp": "スーツケースを借ります",
+        "kana": "スーツケースをかります",
+        "kanji": "スーツケースを借ります",
+        "romaji": "su-tsuke-su o karimasu",
+        "vi": "Mượn vali ở cửa hàng thuê đồ",
+        "icon": "🧳"
     },
     {
         "jp": "増えます",
         "kana": "ふえます",
         "kanji": "増えます",
         "romaji": "fuemasu",
-        "vi": "Tăng lên",
+        "vi": "N tăng lên (Nが増えます)",
         "icon": "📈"
     },
     {
-        "jp": "破れます",
-        "kana": "やぶれます",
-        "kanji": "破れます",
-        "romaji": "yaburemasu",
-        "vi": "Bị rách",
-        "icon": "💥"
+        "jp": "破れます／破ります",
+        "kana": "やぶれます／やぶります",
+        "kanji": "破れます／破ります",
+        "romaji": "yaburemasu / yaburimasu",
+        "vi": "Rách",
+        "icon": "📃"
     },
     {
-        "jp": "汚れます",
-        "kana": "よごれます",
-        "kanji": "汚れます",
-        "romaji": "yogoremasu",
+        "jp": "汚れます／汚します",
+        "kana": "よごれます／よごします",
+        "kanji": "汚れます／汚します",
+        "romaji": "yogoremasu / yogoshimasu",
         "vi": "Bị bẩn",
         "icon": "🧼"
     },
     {
-        "jp": "修理します",
-        "kana": "しゅうりします",
-        "kanji": "修理します",
-        "romaji": "shuuri shimasu",
-        "vi": "Sửa chữa",
-        "icon": "🔨"
+        "jp": "修理します／直します",
+        "kana": "しゅうりします／なおします",
+        "kanji": "修理します／直します",
+        "romaji": "shuuri shimasu / naoshimasu",
+        "vi": "Sửa chữa N",
+        "icon": "🔧"
     },
     {
         "jp": "穴が開きます",

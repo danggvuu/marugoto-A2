@@ -37,7 +37,7 @@ for (let lesson = 1; lesson <= 18; lesson++) {
     const vocab = array('VOCAB_DATA');
     const quiz = array('QUIZ_DATA');
 
-    assert(vocab.length >= 17 && vocab.length <= 25, `Lesson ${lesson} vocab count ${vocab.length} out of range`);
+    assert(vocab.length >= 16 && vocab.length <= 50, `Lesson ${lesson} vocab count ${vocab.length} out of range`);
     assert.strictEqual(quiz.length, 15, `Lesson ${lesson} quiz must have exactly 15 questions`);
     assert(vocab.every(item => item.jp && item.kana && item.romaji && item.vi), `Missing fields in Lesson ${lesson} vocab`);
     assert(vocab.every(item => !/[A-Za-z]/.test(item.kana)), `Kana must not include template placeholders in Lesson ${lesson}`);
@@ -111,5 +111,6 @@ for (let lesson = 1; lesson <= 18; lesson++) {
     totalKanji += rows.length;
 }
 
+assert.strictEqual(totalVocab, 439, 'Official A2-2 vocabulary should contain 439 entries');
 assert.strictEqual(totalKanji, 181, 'Official A2-2 Kanji word list should contain 181 entries');
 console.log(`✅ A2-2 curriculum checked: ${totalVocab} vocabulary cards, ${totalQuiz} quiz questions and ${totalKanji} official Kanji words across all 18 lessons.`);

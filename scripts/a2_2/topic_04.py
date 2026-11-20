@@ -22,8 +22,8 @@ L7_VOCAB = [
         "kana": "スタッフ",
         "kanji": "スタッフ",
         "romaji": "sutaffu",
-        "vi": "Nhân viên, staff",
-        "icon": "🧑‍💼"
+        "vi": "Staff",
+        "icon": "👔"
     },
     {
         "jp": "ボランティアスタッフ",
@@ -31,10 +31,10 @@ L7_VOCAB = [
         "kanji": "ボランティアスタッフ",
         "romaji": "borantia sutaffu",
         "vi": "Tình nguyện viên",
-        "icon": "🙋‍♂️"
+        "icon": "🤝"
     },
     {
-        "jp": "まつり",
+        "jp": "祭り",
         "kana": "まつり",
         "kanji": "祭り",
         "romaji": "matsuri",
@@ -50,7 +50,7 @@ L7_VOCAB = [
         "icon": "🎪"
     },
     {
-        "jp": "かいじょう",
+        "jp": "会場",
         "kana": "かいじょう",
         "kanji": "会場",
         "romaji": "kaijou",
@@ -62,16 +62,16 @@ L7_VOCAB = [
         "kana": "ホール",
         "kanji": "ホール",
         "romaji": "ho-ru",
-        "vi": "Hội trường (hall)",
-        "icon": "🏢"
+        "vi": "Hội trường (Hall)",
+        "icon": "🎭"
     },
     {
-        "jp": "ひろば",
+        "jp": "広場",
         "kana": "ひろば",
         "kanji": "広場",
         "romaji": "hiroba",
         "vi": "Quảng trường",
-        "icon": "🏞️"
+        "icon": "🏟️"
     },
     {
         "jp": "ロビー",
@@ -79,18 +79,18 @@ L7_VOCAB = [
         "kanji": "ロビー",
         "romaji": "robi-",
         "vi": "Đại sảnh",
-        "icon": "🛋️"
+        "icon": "🏨"
     },
     {
-        "jp": "おどり／おどります",
+        "jp": "踊り／踊ります",
         "kana": "おどり／おどります",
         "kanji": "踊り／踊ります",
         "romaji": "odori / odorimasu",
-        "vi": "Điệu nhảy / Nhảy múa",
+        "vi": "Nhảy múa",
         "icon": "💃"
     },
     {
-        "jp": "じゅんび（します）",
+        "jp": "準備（します）",
         "kana": "じゅんび（します）",
         "kanji": "準備（します）",
         "romaji": "junbi(shimasu)",
@@ -98,15 +98,15 @@ L7_VOCAB = [
         "icon": "📦"
     },
     {
-        "jp": "かたづけ",
+        "jp": "片付け",
         "kana": "かたづけ",
-        "kanji": "片づけ",
-        "romaji": "katazuke",
+        "kanji": "片付け",
+        "romaji": "katadzuke",
         "vi": "Sắp xếp, dọn dẹp",
         "icon": "🧹"
     },
     {
-        "jp": "あんない（します）",
+        "jp": "案内（します）",
         "kana": "あんない（します）",
         "kanji": "案内（します）",
         "romaji": "annai(shimasu)",
@@ -114,63 +114,79 @@ L7_VOCAB = [
         "icon": "💁"
     },
     {
-        "jp": "さつえい（します）",
+        "jp": "撮影（します）",
         "kana": "さつえい（します）",
         "kanji": "撮影（します）",
         "romaji": "satsuei(shimasu)",
-        "vi": "Quay phim, chụp ảnh",
-        "icon": "📷"
+        "vi": "Quay chụp",
+        "icon": "📸"
     },
     {
-        "jp": "うけつけ",
+        "jp": "受付",
         "kana": "うけつけ",
         "kanji": "受付",
         "romaji": "uketsuke",
-        "vi": "Quầy lễ tân",
+        "vi": "Lễ tân",
         "icon": "🛎️"
     },
     {
-        "jp": "つうやく",
+        "jp": "通訳",
         "kana": "つうやく",
         "kanji": "通訳",
         "romaji": "tsuuyaku",
-        "vi": "Phiên dịch, thông dịch",
+        "vi": "Phiên, thông dịch",
         "icon": "🗣️"
     },
     {
-        "jp": "しかい",
+        "jp": "司会",
         "kana": "しかい",
         "kanji": "司会",
         "romaji": "shikai",
-        "vi": "MC, người dẫn chương trình",
+        "vi": "MC",
         "icon": "🎤"
     },
     {
-        "jp": "れんらく（します）",
-        "kana": "れんらく（します）",
-        "kanji": "連絡（します）",
-        "romaji": "renraku(shimasu)",
-        "vi": "Liên lạc",
+        "jp": "連絡します",
+        "kana": "れんらくします",
+        "kanji": "連絡します",
+        "romaji": "renraku shimasu",
+        "vi": "Liên lạc (người)",
         "icon": "📞"
     },
     {
-        "jp": "れんらくさき",
+        "jp": "連絡先",
         "kana": "れんらくさき",
         "kanji": "連絡先",
         "romaji": "renrakusaki",
         "vi": "Địa chỉ liên lạc",
-        "icon": "📝"
+        "icon": "📋"
     },
     {
-        "jp": "たんとう（します）",
+        "jp": "担当（します）",
         "kana": "たんとう（します）",
         "kanji": "担当（します）",
         "romaji": "tantou(shimasu)",
         "vi": "Đảm nhận, phụ trách",
-        "icon": "💼"
+        "icon": "👔"
     },
     {
-        "jp": "ちゅうし（します）",
+        "jp": "探します",
+        "kana": "さがします",
+        "kanji": "探します",
+        "romaji": "sagashimasu",
+        "vi": "Tìm kiếm (Nを探します)",
+        "icon": "🔍"
+    },
+    {
+        "jp": "始まります／始めます",
+        "kana": "はじまります／はじめます",
+        "kanji": "始まります／始めます",
+        "romaji": "hajimarimasu / hajimemasu",
+        "vi": "Bắt đầu",
+        "icon": "🚀"
+    },
+    {
+        "jp": "中止（します）",
         "kana": "ちゅうし（します）",
         "kanji": "中止（します）",
         "romaji": "chuushi(shimasu)",
@@ -178,12 +194,60 @@ L7_VOCAB = [
         "icon": "🛑"
     },
     {
-        "jp": "あつまります",
+        "jp": "集まります",
         "kana": "あつまります",
         "kanji": "集まります",
         "romaji": "atsumarimasu",
         "vi": "Tập trung, tụ họp",
         "icon": "👥"
+    },
+    {
+        "jp": "スピーチコンテスト",
+        "kana": "スピーチコンテスト",
+        "kanji": "スピーチコンテスト",
+        "romaji": "supi-chi kontesuto",
+        "vi": "Cuộc thi hùng biện",
+        "icon": "🎙️"
+    },
+    {
+        "jp": "頼みます",
+        "kana": "たのみます",
+        "kanji": "頼みます",
+        "romaji": "tanomimasu",
+        "vi": "Nhờ vả (Nを頼みます)",
+        "icon": "🙇"
+    },
+    {
+        "jp": "習います",
+        "kana": "ならいます",
+        "kanji": "習います",
+        "romaji": "naraimasu",
+        "vi": "Học (có người dạy, năng khiếu...)",
+        "icon": "📖"
+    },
+    {
+        "jp": "並べます",
+        "kana": "ならべます",
+        "kanji": "並べます",
+        "romaji": "narabemasu",
+        "vi": "Sắp xếp, xếp thành hàng",
+        "icon": "🧱"
+    },
+    {
+        "jp": "都合がいい",
+        "kana": "つごうがいい",
+        "kanji": "都合がいい",
+        "romaji": "tsugou ga ii",
+        "vi": "Thời gian thuận tiện, phù hợp, tiện lợi",
+        "icon": "📆"
+    },
+    {
+        "jp": "自信",
+        "kana": "じしん",
+        "kanji": "自信",
+        "romaji": "jishin",
+        "vi": "Tự tin",
+        "icon": "💪"
     }
 ]
 
@@ -414,7 +478,7 @@ L7_QUIZ = [
 # =============================================================================
 L8_VOCAB = [
     {
-        "jp": "にちじ",
+        "jp": "日時",
         "kana": "にちじ",
         "kanji": "日時",
         "romaji": "nichiji",
@@ -422,7 +486,7 @@ L8_VOCAB = [
         "icon": "🕒"
     },
     {
-        "jp": "かいじょう",
+        "jp": "会場",
         "kana": "かいじょう",
         "kanji": "会場",
         "romaji": "kaijou",
@@ -430,7 +494,7 @@ L8_VOCAB = [
         "icon": "🏛️"
     },
     {
-        "jp": "にゅうじょうりょう",
+        "jp": "入場料",
         "kana": "にゅうじょうりょう",
         "kanji": "入場料",
         "romaji": "nyuujouryou",
@@ -438,15 +502,15 @@ L8_VOCAB = [
         "icon": "🎟️"
     },
     {
-        "jp": "にゅうじょうむりょう",
+        "jp": "入場無料",
         "kana": "にゅうじょうむりょう",
         "kanji": "入場無料",
-        "romaji": "nyuujoumuryou",
-        "vi": "Vào cửa miễn phí",
+        "romaji": "nyuujou muryou",
+        "vi": "Miễn phí vào",
         "icon": "🆓"
     },
     {
-        "jp": "さんかひ",
+        "jp": "参加費",
         "kana": "さんかひ",
         "kanji": "参加費",
         "romaji": "sankahi",
@@ -454,23 +518,15 @@ L8_VOCAB = [
         "icon": "💵"
     },
     {
-        "jp": "はじまります",
-        "kana": "はじまります",
-        "kanji": "始まります",
-        "romaji": "hajimarimasu",
-        "vi": "Bắt đầu (tự động từ)",
-        "icon": "▶️"
+        "jp": "始めます／始まります",
+        "kana": "はじめます／はじまります",
+        "kanji": "始めます／始まります",
+        "romaji": "hajimemasu / hajimarimasu",
+        "vi": "Bắt đầu",
+        "icon": "🚀"
     },
     {
-        "jp": "はじめます",
-        "kana": "はじめます",
-        "kanji": "始めます",
-        "romaji": "hajimemasu",
-        "vi": "Bắt đầu (tha động từ)",
-        "icon": "🎬"
-    },
-    {
-        "jp": "おわります",
+        "jp": "終わります",
         "kana": "おわります",
         "kanji": "終わります",
         "romaji": "owarimasu",
@@ -490,32 +546,32 @@ L8_VOCAB = [
         "kana": "プログラム",
         "kanji": "プログラム",
         "romaji": "puroguramu",
-        "vi": "Chương trình, lịch trình",
-        "icon": "📜"
+        "vi": "Lịch trình chương trình",
+        "icon": "📑"
     },
     {
         "jp": "うちわ",
         "kana": "うちわ",
         "kanji": "団扇",
         "romaji": "uchiwa",
-        "vi": "Quạt giấy tròn",
+        "vi": "Quạt giấy",
         "icon": "🪭"
     },
     {
-        "jp": "ひろば",
+        "jp": "広場",
         "kana": "ひろば",
         "kanji": "広場",
         "romaji": "hiroba",
         "vi": "Quảng trường",
-        "icon": "🏞️"
+        "icon": "🏟️"
     },
     {
         "jp": "ホール",
         "kana": "ホール",
         "kanji": "ホール",
         "romaji": "ho-ru",
-        "vi": "Hội trường (hall)",
-        "icon": "🏢"
+        "vi": "Hội trường",
+        "icon": "🎭"
     },
     {
         "jp": "デモンストレーション",
@@ -526,31 +582,31 @@ L8_VOCAB = [
         "icon": "🥋"
     },
     {
-        "jp": "おねがい",
+        "jp": "お願い",
         "kana": "おねがい",
         "kanji": "お願い",
         "romaji": "onegai",
-        "vi": "Yêu cầu, lời nhờ cậy",
+        "vi": "Yêu cầu, lời nhờ vả",
         "icon": "🙏"
     },
     {
-        "jp": "いんしょく",
+        "jp": "飲食",
         "kana": "いんしょく",
         "kanji": "飲食",
         "romaji": "inshoku",
         "vi": "Việc ăn uống",
-        "icon": "🍔"
+        "icon": "🍱"
     },
     {
-        "jp": "ごえんりょください",
+        "jp": "ご遠慮ください",
         "kana": "ごえんりょください",
         "kanji": "ご遠慮ください",
-        "romaji": "goenryo kudasai",
-        "vi": "Xin vui lòng tránh / không làm",
-        "icon": "🚫"
+        "romaji": "go-enryo kudasai",
+        "vi": "Xin vui lòng không N",
+        "icon": "⛔"
     },
     {
-        "jp": "おとな",
+        "jp": "大人",
         "kana": "おとな",
         "kanji": "大人",
         "romaji": "otona",
@@ -558,20 +614,44 @@ L8_VOCAB = [
         "icon": "🧑"
     },
     {
-        "jp": "れんらくさき",
+        "jp": "連絡先",
         "kana": "れんらくさき",
         "kanji": "連絡先",
         "romaji": "renrakusaki",
-        "vi": "Thông tin liên lạc",
-        "icon": "📱"
+        "vi": "Thông tin liên lạc (SĐT, mail…)",
+        "icon": "📋"
     },
     {
-        "jp": "ほんじつ",
+        "jp": "情報",
+        "kana": "じょうほう",
+        "kanji": "情報",
+        "romaji": "jouhou",
+        "vi": "Thông tin",
+        "icon": "ℹ️"
+    },
+    {
+        "jp": "本日",
         "kana": "ほんじつ",
         "kanji": "本日",
         "romaji": "honjitsu",
         "vi": "Hôm nay (trang trọng)",
-        "icon": "📅"
+        "icon": "☀️"
+    },
+    {
+        "jp": "お忙しい中",
+        "kana": "おいそがしいなか",
+        "kanji": "お忙しい中",
+        "romaji": "oisogashii naka",
+        "vi": "Trong lúc các bạn bận rộn",
+        "icon": "⌛"
+    },
+    {
+        "jp": "おいでくださって、ありがとうございます",
+        "kana": "おいでくださって、ありがとうございます",
+        "kanji": "おいでくださって、ありがとうございます",
+        "romaji": "oide kudasatte arigatou gozaimasu",
+        "vi": "Cảm ơn các bạn đã đến sự kiện",
+        "icon": "🙇"
     }
 ]
 
