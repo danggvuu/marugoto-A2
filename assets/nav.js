@@ -241,14 +241,24 @@
         if ((isLessons || document.querySelector('.section-nav')) && !document.querySelector('script[src*="lesson-sidebar-rail.js"]')) {
             const railCss = document.createElement('link');
             railCss.rel = 'stylesheet';
-            railCss.href = rootPrefix + 'assets/css/lesson-sidebar-rail.css?v=1';
+            railCss.href = rootPrefix + 'assets/css/lesson-sidebar-rail.css?v=2';
             document.head.appendChild(railCss);
             const railScript = document.createElement('script');
-            railScript.src = rootPrefix + 'assets/js/lesson-sidebar-rail.js?v=1';
+            railScript.src = rootPrefix + 'assets/js/lesson-sidebar-rail.js?v=2';
             railScript.defer = true;
             document.head.appendChild(railScript);
         }
     })();
+
+    // Xuất danh mục bài học đầy đủ cho các module tương tác học tập và chuyển bài
+    window.MARUGOTO_LESSON_CATALOG = {
+        a2_1: ALL_LESSONS,
+        a2_2: ALL_LESSONS_A2_2,
+        all: [
+            ...ALL_LESSONS.map(l => ({ ...l, level: 'A2-1' })),
+            ...ALL_LESSONS_A2_2.map(l => ({ ...l, level: 'A2-2' }))
+        ]
+    };
 
     // 4. TÍNH TOÁN TRẠNG THÁI ACTIVE
     const isHomeActive = (!isLessons && !isTests && (currentFileName === '' || currentFileName === 'index.html'));
