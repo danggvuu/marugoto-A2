@@ -1,7 +1,11 @@
 /**
- * MACOS-STYLE COMPACT FLOATING SECTION RAIL (assets/js/lesson-sidebar-rail.js)
- * Tự động chuyển đổi cấu trúc bài học thành giao diện 2 cột cân đối (Balanced Workspace Layout)
- * Cố định bên cạnh, tự động bám theo cuộn trang (Sticky ScrollSpy), hỗ trợ thu gọn/mở rộng.
+ * MACOS-STYLE COMPACT FLOATING SECTION RAIL & SCROLLSPY SYNC
+ * (assets/js/lesson-sidebar-rail.js)
+ * 
+ * 1. Bố cục bài học CĂN GIỮA HOÀN HẢO 100% - Không di dời DOM gây lệch trang
+ * 2. Cố định nổi bên cạnh (position: fixed), tự động bám theo cuộn trang (Sticky ScrollSpy)
+ * 3. Đồng bộ trạng thái active hai chiều giữa thanh capsule trên và thanh rail bên cạnh
+ * 4. Hỗ trợ thu gọn/mở rộng, ghi nhớ trạng thái bằng localStorage
  */
 (function () {
     'use strict';
@@ -20,8 +24,8 @@
 
         document.body.classList.add('has-lesson-rail');
 
-        // 1. Phân tích các mục điều hướng
-        const railItems = originalLinks.map(link => {
+        // 1. Phân tích các mục điều hướng với nhãn ngắn gọn, đẹp mắt
+        const railItems = originalLinks.map((link, idx) => {
             const href = link.getAttribute('href');
             const rawText = link.textContent.trim();
             const targetEl = document.querySelector(href);
@@ -29,55 +33,63 @@
             let icon = '●';
             let label = rawText;
 
-            const iconRegex = /^([①-⑳0-9\.\-\u{1F000}-\u{1FAFF}\u{2300}-\u{27BF}\u{FE00}-\u{FE0F}]+)\s*(.*)$/u;
-            const match = rawText.match(iconRegex);
-            if (match && match[1].trim()) {
-                icon = match[1].trim();
-                label = match[2].trim();
+            // Nhận diện chuẩn hóa nhãn theo ngữ cảnh học tập
+            if (href === '#sec-grammar1') {
+                icon = '①';
+                label = 'Ngữ Pháp 1';
+            } else if (href === '#sec-grammar2') {
+                icon = '②';
+                label = 'Ngữ Pháp 2';
+            } else if (href === '#sec-grammar3') {
+                icon = '③';
+                label = 'Ngữ Pháp 3';
+            } else if (href === '#sec-grammar4') {
+                icon = '④';
+                label = 'Ngữ Pháp 4';
+            } else if (href === '#sec-grammar5') {
+                icon = '⑤';
+                label = 'Ngữ Pháp 5';
+            } else if (href === '#sec-verb-lab') {
+                icon = '🔬';
+                label = 'Biến Thể ĐT';
+            } else if (href === '#sec-vocab') {
+                icon = '🎴';
+                label = 'Từ Vựng 3D';
+            } else if (href === '#sec-typing-practice') {
+                icon = '⌨️';
+                label = 'Luyện Gõ';
+            } else if (href === '#sec-kanji') {
+                icon = '⛩️';
+                label = 'Chữ Hán';
+            } else if (href === '#sec-quiz') {
+                icon = '📝';
+                label = 'Mini Test';
+            } else if (href === '#sec-dialogue') {
+                icon = '💬';
+                label = 'Hội Thoại';
+            } else {
+                const iconRegex = /^([①-⑳0-9\.\-\u{1F000}-\u{1FAFF}\u{2300}-\u{27BF}\u{FE00}-\u{FE0F}]+)\s*(.*)$/u;
+                const match = rawText.match(iconRegex);
+                if (match && match[1].trim()) {
+                    icon = match[1].trim();
+                    label = match[2].trim();
+                }
+                label = label
+                    .replace(/^Biến Thể Động Từ.*$/i, 'Biến Thể ĐT')
+                    .replace(/^Luyện Gõ.*$/i, 'Luyện Gõ')
+                    .replace(/^\d+\s*Từ Vựng.*$/i, 'Từ Vựng 3D')
+                    .replace(/^\d+\s*Flashcard.*$/i, 'Từ Vựng 3D')
+                    .replace(/^\d+\s*Chữ Hán.*$/i, 'Chữ Hán')
+                    .replace(/^\d+\s*Từ Kanji.*$/i, 'Chữ Hán')
+                    .replace(/^Mini Test.*$/i, 'Mini Test');
             }
-
-            label = label
-                .replace(/^Biến Thể Động Từ.*$/i, 'Biến Thể ĐT')
-                .replace(/^Luyện Gõ.*$/i, 'Luyện Gõ')
-                .replace(/^\d+\s*Từ Vựng.*$/i, 'Từ Vựng')
-                .replace(/^\d+\s*Chữ Hán.*$/i, 'Chữ Hán')
-                .replace(/^Mini Test.*$/i, 'Mini Test')
-                .replace(/^Máy Luyện Chia Thể.*$/i, 'Luyện Chia Thể');
 
             return { href, targetEl, icon, label, fullTitle: rawText };
         }).filter(item => item.targetEl !== null);
 
         if (railItems.length === 0) return;
 
-        // 2. Tạo bố cục Workspace 2 cột chuẩn tỉ lệ
-        const heroBanner = mainContainer.querySelector('.hero-banner');
-        if (!heroBanner) return;
-
-        let workspace = mainContainer.querySelector('.lesson-workspace-layout');
-        let mainContent = mainContainer.querySelector('.lesson-main-content');
-
-        if (!workspace) {
-            workspace = document.createElement('div');
-            workspace.className = 'lesson-workspace-layout';
-
-            mainContent = document.createElement('div');
-            mainContent.className = 'lesson-main-content';
-
-            // Thu thập toàn bộ nội dung từ heroBanner trở đi
-            let current = heroBanner;
-            const nodesToMove = [];
-            while (current) {
-                const next = current.nextElementSibling;
-                nodesToMove.push(current);
-                current = next;
-            }
-
-            heroBanner.parentNode.insertBefore(workspace, heroBanner);
-            nodesToMove.forEach(node => mainContent.appendChild(node));
-            workspace.appendChild(mainContent);
-        }
-
-        // 3. Tạo thanh sidebar macOS đặt bên cạnh mainContent
+        // 2. Tạo thanh sidebar macOS nổi fixed bên cạnh (KHÔNG di chuyển mainContainer để giữ căn giữa)
         const rail = document.createElement('aside');
         rail.id = 'lessonSidebarRail';
         rail.className = 'lesson-sidebar-rail';
@@ -98,7 +110,7 @@
                 </div>
                 <nav class="lesson-rail-links" aria-label="Các phần trong bài">
                     ${railItems.map((item, idx) => `
-                        <a href="${item.href}" class="lesson-rail-link ${idx === 0 ? 'active' : ''}" data-href="${item.href}" title="${item.fullTitle}">
+                        <a href="${item.href}" class="lesson-rail-link ${idx === 0 ? 'active' : ''}" data-href="${item.href}" title="${item.fullTitle} (${item.label})">
                             <span class="rail-icon">${item.icon}</span>
                             <span class="rail-label">${item.label}</span>
                         </a>
@@ -113,27 +125,37 @@
             </div>
         `;
 
-        workspace.appendChild(rail);
+        document.body.appendChild(rail);
 
-        // Khôi phục trạng thái thu gọn
+        // 3. Khôi phục trạng thái thu gọn từ localStorage
         const isCollapsedSaved = localStorage.getItem('marugoto_rail_collapsed') === 'true';
         if (isCollapsedSaved) {
             rail.classList.add('is-collapsed');
-            workspace.classList.add('rail-collapsed');
+            document.body.classList.add('rail-collapsed');
         }
 
-        // Sự kiện nút thu gọn
+        // Sự kiện nút thu gọn / mở rộng
         const toggleBtn = rail.querySelector('#btnToggleSidebarRail');
         if (toggleBtn) {
             toggleBtn.addEventListener('click', (e) => {
                 e.preventDefault();
                 const isCollapsed = rail.classList.toggle('is-collapsed');
-                workspace.classList.toggle('rail-collapsed', isCollapsed);
+                document.body.classList.toggle('rail-collapsed', isCollapsed);
                 localStorage.setItem('marugoto_rail_collapsed', String(isCollapsed));
             });
         }
 
-        // Bắt sự kiện cuộn mượt khi click vào từng link
+        // Tự động mở rộng khi hover trên laptop nếu đang thu gọn
+        rail.addEventListener('mouseenter', () => {
+            if (rail.classList.contains('is-collapsed')) {
+                rail.classList.add('is-expanded');
+            }
+        });
+        rail.addEventListener('mouseleave', () => {
+            rail.classList.remove('is-expanded');
+        });
+
+        // 4. Đồng bộ click cuộn mượt và highlight
         const railLinks = Array.from(rail.querySelectorAll('.lesson-rail-link'));
         railLinks.forEach(link => {
             link.addEventListener('click', (e) => {
@@ -141,7 +163,7 @@
                 const href = link.getAttribute('data-href');
                 const target = document.querySelector(href);
                 if (target) {
-                    const offset = 80;
+                    const offset = 75;
                     const topPos = target.getBoundingClientRect().top + window.pageYOffset - offset;
                     window.scrollTo({
                         top: Math.max(0, topPos),
@@ -160,9 +182,12 @@
                 e.preventDefault();
                 window.scrollTo({ top: 0, behavior: 'smooth' });
                 try { history.replaceState(null, '', window.location.pathname); } catch (err) {}
+                const firstHref = railItems[0]?.href;
+                if (firstHref) setActive(firstHref);
             });
         }
 
+        // Hàm cập nhật trạng thái active cho cả 2 nơi (Top Capsule Nav + Side Rail)
         function setActive(activeHref) {
             railLinks.forEach(l => {
                 if (l.getAttribute('data-href') === activeHref) {
@@ -171,22 +196,33 @@
                     l.classList.remove('active');
                 }
             });
+
+            originalLinks.forEach(origLink => {
+                const href = origLink.getAttribute('href');
+                if (href === activeHref) {
+                    origLink.classList.add('active');
+                } else {
+                    origLink.classList.remove('active');
+                }
+            });
         }
 
-        // ScrollSpy thông minh
+        // 5. ScrollSpy thông minh theo vị trí cuộn trang
         let isTicking = false;
         function updateScrollSpy() {
-            const scrollPos = window.scrollY + 120;
+            const scrollPos = window.scrollY + 110;
             const docHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
             const winHeight = window.innerHeight;
 
+            // Ở đáy trang thì kích hoạt mục cuối
             if (window.scrollY + winHeight >= docHeight - 60) {
                 const lastItem = railItems[railItems.length - 1];
                 if (lastItem) setActive(lastItem.href);
                 return;
             }
 
-            if (window.scrollY < 180) {
+            // Ở đỉnh trang thì kích hoạt mục đầu tiên
+            if (window.scrollY < 160) {
                 const firstItem = railItems[0];
                 if (firstItem) setActive(firstItem.href);
                 return;
@@ -221,7 +257,7 @@
 
         setTimeout(updateScrollSpy, 150);
 
-        // Hỗ trợ cả các link trong top nav cũ khi click
+        // Hỗ trợ cả khi click các pill ở thanh section-nav
         originalLinks.forEach(origLink => {
             origLink.addEventListener('click', (e) => {
                 const href = origLink.getAttribute('href');
