@@ -48,7 +48,7 @@ Các đường dẫn đại diện khi server chạy:
 
 `scripts/legacyArchive.ts` cung cấp hai plugin đã được nối vào Vite: `legacyArchive()` phục vụ trực tiếp file gốc trong dev, `legacyArchiveBuild()` sao chép nguyên kho vào output build. HTML không được xử lý như entry React. Các import `?raw` của Vite vẫn đi qua cơ chế nạp dữ liệu bình thường.
 
-`assets/` ở gốc vẫn được giữ vì bộ nạp dữ liệu SPA sử dụng một phần JavaScript nguồn. Bản sao `legacy_html/assets/` dành riêng cho trang lưu trữ. Nếu cập nhật nội dung cũ, chủ động đồng bộ tài nguyên tương ứng và kiểm tra lại kho. Không chạy các generator cũ như một phần build SPA: một số script trước đây ghi HTML vào vị trí gốc/`lessons/`/`tests/` và chưa được chuyển toàn bộ sang vị trí archive.
+`assets/` ở gốc được giữ làm nguồn tái tạo dữ liệu. SPA đọc JSON bài học, ngữ pháp và Mini Test đã trích xuất, không nạp nguyên HTML hay thực thi mã JavaScript bài học cũ. `npm run extract-data` tái tạo các JSON này từ nguồn trong repository. Bản sao `legacy_html/assets/` dành riêng cho trang lưu trữ. Nếu cập nhật nội dung cũ, chủ động đồng bộ tài nguyên tương ứng và kiểm tra lại kho. Không chạy các generator cũ như một phần build SPA: một số script trước đây ghi HTML vào vị trí gốc/`lessons/`/`tests/` và chưa được chuyển toàn bộ sang vị trí archive.
 
 ## Kiểm tra kho lưu trữ
 
@@ -66,7 +66,12 @@ node scripts/check_legacy_archive.mjs http://127.0.0.1:4173
 
 ### Trạng thái đã kiểm chứng ngày 2026-11-20
 
-- `npm run build` hoàn tất: TypeScript và Vite build thành công. Build còn cảnh báo bundle JavaScript lớn, chưa phải xác nhận tối ưu hiệu năng.
+- `npm run build` hoàn tất: TypeScript và Vite build thành công. Route được tách bằng lazy import; chunk dữ liệu dùng chung vẫn lớn và còn cảnh báo Vite, chưa phải xác nhận tối ưu hiệu năng.
+- React 19 + Astryx Neutral + StyleX, chuyển sáng/tối thay đổi màu thực tế và được lưu. React Router 7 được dùng thay 6 để tránh các cảnh báo bảo mật từ dependency audit.
+- 36 route bài học có từ vựng, ngữ pháp và 15 câu quiz mỗi bài. Dữ liệu A2-2 giữ direct JSON imports: 382 từ và 170 mục Kanji. Kanji Hub có tổng 291 mục, với 121 mục A2-1 thuộc nguồn Bài 11–18, không tự thêm Kanji cho Bài 1–10.
+- Phòng thi gồm các mã đề tổng hợp cùng Mini Test 11–14 và năm mã Mini Test 15–18. Điểm phần trăm chỉ tính câu chọn có đáp án hợp lệ. Phần tự luận/ghép hội thoại cho nhập câu trả lời và tự đối chiếu, không giả lập chấm tự động.
+- `npm run test:e2e`: **12/12 bài kiểm thử Chrome đạt**, gồm kiểm tra bất biến dữ liệu 36 bài học, Mini Test, chấm điểm đúng 100% theo đáp án nguồn và mô phỏng hết giờ. Các route chính cũng được mở trực tiếp trên production preview, không ghi nhận lỗi JavaScript runtime.
+- `npm audit --audit-level=moderate`: không phát hiện lỗ hổng trong dependency đã cài ở lần kiểm tra này.
 - Kiểm tra tĩnh kho: đủ 59 HTML, **161 đường dẫn local khác nhau**, không thiếu file được tham chiếu trong thuộc tính HTML được kiểm tra.
 - Kiểm tra HTTP ở Vite dev và production preview: **190/190 tệp** trả HTTP 200 và nội dung trùng từng byte với kho nguồn. Điều này phát hiện trường hợp fallback SPA trả HTTP 200 nhưng sai nội dung.
 - Kiểm tra trên không xác nhận mọi tương tác của 59 trang, fragment `#...`, tài nguyên từ dịch vụ ngoài, hay tính đúng đắn học thuật. Chưa coi toàn bộ regression/browser test cũ là đã chạy cho V2.
@@ -89,6 +94,17 @@ node scripts/check_legacy_archive.mjs http://127.0.0.1:4173
 ├── qa/                         # Kiểm tra cũ, không mặc định chứng minh V2
 └── docs/                       # Tài liệu và tư liệu nguồn
 ```
+
+## Kiểm thử SPA
+
+```sh
+npm run typecheck
+npm run test:e2e
+npm run test:archive
+npm audit --audit-level=moderate
+```
+
+Bộ Playwright dùng Chrome đã cài trên máy (`channel: 'chrome'`), chạy Vite dev tại cổng 5178 nếu chưa có server. Có thể cài Chrome cho Playwright bằng `npx playwright install chrome` nếu máy chưa có. Các bài kiểm tra bao phủ dashboard, màu theme, 36 deep links, flip/autoplay, yêu cầu Speech API `ja-JP`, quiz chấm tức thì và lưu tiến độ, typing, Kanji canvas/bộ lọc, Kaiwa, điều hướng mobile, dữ liệu lưu lỗi, chấm điểm đề và tự nộp theo thời gian. Kiểm thử phát âm xác nhận lời gọi API, không xác nhận âm thanh nghe được hay chất lượng giọng đọc.
 
 ## Dữ liệu trình duyệt và kết nối mạng
 

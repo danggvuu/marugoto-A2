@@ -382,5 +382,231 @@
     }
   ],
   "verbs": [],
-  "quiz": []
+  "quiz": [
+    {
+      "id": 1,
+      "category": "Ngữ pháp: V-ていきます (Làm rồi mang đi)",
+      "q": "バーベキューの にくと やさいは、わたしが [____] 行きます。",
+      "options": [
+        "かいて",
+        "かって",
+        "かいます",
+        "かう"
+      ],
+      "correct": 1,
+      "explain": "Động từ 「かいます」 (nhóm 1) chia sang thể Te là 「かって」 ➔ 「買って行きます」 (Tôi sẽ mua thịt và rau rồi mang đi đến buổi BBQ).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 2,
+      "category": "Ngữ pháp: V-てきます (Đi làm rồi quay lại)",
+      "q": "くるまから ゴミぶくろを [____] きますから、ちょっと まってください。",
+      "options": [
+        "まち",
+        "もつ",
+        "もった",
+        "もって"
+      ],
+      "correct": 3,
+      "explain": "Cấu trúc đi lấy đồ gì đó rồi quay lại vị trí hiện tại: 「V-て ＋ きます」. 「もちます」 chia sang thể Te là 「もって」 ➔ 「持ってきます」 (Tôi đi lấy túi rác đem lại đây).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 3,
+      "category": "Ngữ pháp: Nghi vấn từ + でも (Bất cứ cái gì cũng được)",
+      "q": "A: 「のみものは なにが いいですか。」 ―― B: 「[____] いいですよ。」",
+      "options": [
+        "だれでも",
+        "どこでも",
+        "いつでも",
+        "なんでも"
+      ],
+      "correct": 3,
+      "explain": "A hỏi về đồ uống (なに). Để trả lời 'Cái gì cũng được / Đồ gì cũng ổn', ta dùng 「なんでも いいです」.",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 4,
+      "category": "Ngữ pháp & giao tiếp",
+      "q": "土曜日と 日曜日、どちらが いいですか。— [____] いいです。（ngày nào trong hai ngày cũng được）",
+      "options": [
+        "どこでも",
+        "だれでも",
+        "いくつでも",
+        "どちらでも"
+      ],
+      "correct": 3,
+      "explain": "どちらでも chỉ cả hai phương án được đưa ra đều được.",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 5,
+      "category": "Ngữ pháp & giao tiếp",
+      "q": "おにぎりと サンドイッチ、どちらが いいですか。— おにぎり [____] いいです。（chọn món mình thích）",
+      "options": [
+        "が",
+        "を",
+        "へ",
+        "と"
+      ],
+      "correct": 0,
+      "explain": "がいいです nêu lựa chọn mong muốn. でいいです cũng có thể dùng với sắc thái chấp nhận, nên không đặt で làm đáp án sai.",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 6,
+      "category": "Ngữ pháp: V-ましょうか (Đề nghị giúp đỡ)",
+      "q": "にもつが おもそうですね。わたしが [____] ましょうか。",
+      "options": [
+        "もって",
+        "もつ",
+        "もち",
+        "もった"
+      ],
+      "correct": 2,
+      "explain": "Cấu trúc đề nghị làm gì giúp ai đó: 「V-ます (bỏ ます) ＋ ましょうか」. 「もちます」 bỏ ます thành 「もち」 ➔ 「持ちましょうか」 (Để tôi xách giúp đồ nhé?).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 7,
+      "category": "Từ vựng: Vật dụng dã ngoại",
+      "q": "しばふ（bãi cỏ）の うえに すわる ために、[____] を もって 行きます。",
+      "options": [
+        "ゴミぶくろ",
+        "わりばし",
+        "メニュー",
+        "レジャーシート"
+      ],
+      "correct": 3,
+      "explain": "Tấm bạt lớn trải trên bãi cỏ để ngồi dã ngoại gọi là 「レジャーシート」 (Leisure sheet).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 8,
+      "category": "Từ vựng: Môi trường & Rác thải",
+      "q": "ピクニックの あと、ゴミを あつめる ために [____] が ひつようです。",
+      "options": [
+        "かみコップ",
+        "おべんとう",
+        "ゴミぶくろ",
+        "くだもの"
+      ],
+      "correct": 2,
+      "explain": "Túi dùng để thu gom rác sau buổi dã ngoại là 「ゴミぶくろ」 (ゴミ袋 - Túi đựng rác).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 9,
+      "category": "Từ vựng: Đồ dùng ăn uống picnic",
+      "q": "ジュースを のむ ために [____] を かって 行きましょう。",
+      "options": [
+        "かみコップ",
+        "わりばし",
+        "レジャーシート",
+        "かみざら"
+      ],
+      "correct": 0,
+      "explain": "Cốc giấy dùng để uống nước giải khát là 「かみコップ」 (紙コップ).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 10,
+      "category": "Chữ Hán Bài 11: 酒 (Tửu)",
+      "q": "Chữ Hán của từ 「おさけ」 (Rượu, đồ uống có cồn) là chữ nào?",
+      "options": [
+        "お茶",
+        "お物",
+        "お酒",
+        "お作"
+      ],
+      "correct": 2,
+      "explain": "Chữ Hán của 「おさけ」 là 「お酒」 (âm Hán Việt là Tửu - 10 nét, bộ Thủy 氵 + bộ Dậu 酉).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 11,
+      "category": "Chữ Hán Bài 11: 作 (Tác)",
+      "q": "Chữ Hán của từ 「つくります」 (Làm ra, nấu ăn, chế tạo) là:",
+      "options": [
+        "持ちます",
+        "飲みます",
+        "作ります",
+        "行きます"
+      ],
+      "correct": 2,
+      "explain": "Động từ 「つくります」 viết bằng chữ Hán là 「作ります」 (Tác - 7 nét, bộ Nhân đứng 亻 + chữ Sạ 乍).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 12,
+      "category": "Chữ Hán Bài 11: 物 (Vật)",
+      "q": "Từ 「のみもの」 (Đồ uống) được viết bằng chữ Hán là:",
+      "options": [
+        "飲み物",
+        "飲み茶",
+        "飲み酒",
+        "飲ん事"
+      ],
+      "correct": 0,
+      "explain": "「のみもの」 viết Hán tự là 「飲み物」 (Ẩm Vật - 8 nét chữ Vật 物).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 13,
+      "category": "Chữ Hán Bài 11: 茶 (Trà)",
+      "q": "Từ 「きっさてん」 (Quán giải khát, cà phê) chứa chữ Hán nào?",
+      "options": [
+        "喫酒館",
+        "喫茶店",
+        "喫物屋",
+        "喫作処"
+      ],
+      "correct": 1,
+      "explain": "「きっさてん」 viết chữ Hán là 「喫茶店」 (Khiết Trà Điếm - chứa chữ Trà 茶 - 9 nét).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 14,
+      "category": "Chữ Hán Bài 11: 持 (Trì)",
+      "q": "「わたしは レジャーシートを [____] 行きます。」 (もちます chia thể Te):",
+      "options": [
+        "持って",
+        "作って",
+        "買って",
+        "待って"
+      ],
+      "correct": 0,
+      "explain": "「もちます」 (cầm/mang) có chữ Hán là 「持ちます」, chia thể Te thành 「持って」 (chữ Trì 持 - 9 nét).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 15,
+      "category": "Ngữ pháp & giao tiếp",
+      "q": "Điền một chữ Kanji: お[____]いします。",
+      "options": [
+        "酒",
+        "願",
+        "茶",
+        "物"
+      ],
+      "correct": 1,
+      "explain": "お + 願 + いします = お願いします. Nếu điền 願い sẽ lặp chữ い.",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    }
+  ]
 }

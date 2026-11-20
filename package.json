@@ -1,1 +1,43 @@
-{"name":"marugoto-astryx-v2","private":true,"version":"2.0.0","type":"module","scripts":{"extract-data":"node scripts/extract-lesson-data.mjs","dev":"vite --host 127.0.0.1","build":"tsc -b && vite build","preview":"vite preview --host 127.0.0.1"},"dependencies":{"@astryxdesign/core":"0.7.16","@astryxdesign/theme-neutral":"0.7.16","@stylexjs/stylex":"^0.19.2","canvas-confetti":"^1.9.4","lucide-react":"^1.66.0","react":"^19.2.0","react-dom":"^19.2.0","react-router-dom":"^7.18.6"},"devDependencies":{"@astryxdesign/build":"0.7.16","@babel/core":"^7.28.5","@playwright/test":"^1.65.1","@stylexjs/babel-plugin":"^0.19.2","@stylexjs/unplugin":"^0.19.2","@types/canvas-confetti":"^1.9.0","@types/node":"^26.6.6","@types/react":"^19.2.0","@types/react-dom":"^19.2.0","@vitejs/plugin-react":"^5.1.1","typescript":"~5.9.3","vite":"^8.3.8"}}
+{
+  "name": "marugoto-astryx-v2",
+  "private": true,
+  "version": "2.0.0",
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "extract-data": "node scripts/extract-lesson-data.mjs && node scripts/extract-kaiwa.mjs && node scripts/extract-grammar.mjs && node scripts/extract-mini-tests.mjs",
+    "dev": "vite --host 127.0.0.1",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "test:e2e": "playwright test",
+    "test:archive": "node scripts/check_legacy_archive.mjs",
+    "typecheck": "tsc -b"
+  },
+  "dependencies": {
+    "@astryxdesign/core": "0.7.16",
+    "@astryxdesign/theme-neutral": "0.7.16",
+    "@stylexjs/stylex": "^0.19.2",
+    "canvas-confetti": "^1.9.4",
+    "lucide-react": "^1.66.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-router-dom": "^7.18.6"
+  },
+  "devDependencies": {
+    "@astryxdesign/build": "0.7.16",
+    "@babel/core": "^7.28.5",
+    "@playwright/test": "^1.65.1",
+    "@stylexjs/babel-plugin": "^0.19.2",
+    "@stylexjs/unplugin": "^0.19.2",
+    "@types/canvas-confetti": "^1.9.0",
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@vitejs/plugin-react": "^5.1.1",
+    "linkedom": "^0.18.15",
+    "typescript": "~5.9.3",
+    "vite": "^8.3.8"
+  }
+}

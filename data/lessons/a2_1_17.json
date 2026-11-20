@@ -410,5 +410,231 @@
     }
   ],
   "verbs": [],
-  "quiz": []
+  "quiz": [
+    {
+      "id": 1,
+      "category": "Ngữ pháp: もらいました",
+      "q": "誕生日に 彼 [____] 素敵な ネックレスを もらいました。",
+      "options": [
+        "を",
+        "で",
+        "が",
+        "に"
+      ],
+      "correct": 3,
+      "explain": "Nhận cái gì từ ai: [Người tặng] + に もらいました (Nhận từ bạn trai).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 2,
+      "category": "Ngữ pháp: あげます",
+      "q": "母の日に お母さん [____] きれいな 花を あげます。",
+      "options": [
+        "に",
+        "を",
+        "と",
+        "から"
+      ],
+      "correct": 0,
+      "explain": "Tặng quà cho ai: [Người nhận] + に あげます (Tặng cho mẹ).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 3,
+      "category": "Ngữ pháp & giao tiếp",
+      "q": "「Chiếc đồng hồ này tôi đã được bố tặng」: この時計は父に [____] んです。",
+      "options": [
+        "もらう",
+        "もらって",
+        "もらった",
+        "あげた"
+      ],
+      "correct": 2,
+      "explain": "Chủ thể nhận là người nói: 私は父に時計をもらいました. Đổi góc nhìn: 父が私に時計をくれました.",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 4,
+      "category": "Ngữ pháp & giao tiếp",
+      "q": "「Tặng những thứ như tranh hoặc đồng hồ」: 絵 [____] 時計 [____] あげます。",
+      "options": [
+        "ても / を",
+        "たり / を",
+        "に / が",
+        "とか / を"
+      ],
+      "correct": 3,
+      "explain": "絵とか時計をあげます. とか liệt kê ví dụ; を đánh dấu tân ngữ.",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 5,
+      "category": "Ngữ pháp & giao tiếp",
+      "q": "Chọn thể từ điển để nói đồ sẽ trang trí: 部屋に [____] ものをプレゼントしたいです。",
+      "options": [
+        "飾って",
+        "飾ります",
+        "飾る",
+        "飾り"
+      ],
+      "correct": 2,
+      "explain": "飾るもの = đồ để trang trí. 飾ったもの cũng có nghĩa hợp lệ (đồ đã trang trí) nhưng không thuộc yêu cầu ở đây.",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 6,
+      "category": "Từ vựng: Lễ hội & Kỷ niệm",
+      "q": "12月25日の お祝いは [____] です。",
+      "options": [
+        "バレンタイン・デー",
+        "クリスマス",
+        "母の日",
+        "父の日"
+      ],
+      "correct": 1,
+      "explain": "Ngày lễ 25 tháng 12 là Giáng sinh: 「クリスマス」 (Christmas).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 7,
+      "category": "Từ vựng: Lễ hội",
+      "q": "2月14日に チョコレートを あげる 日は [____] です。",
+      "options": [
+        "クリスマス",
+        "誕生日",
+        "バレンタイン・デー",
+        "入学"
+      ],
+      "correct": 2,
+      "explain": "Ngày 14 tháng 2 tặng sô-cô-la là Valentine: 「バレンタイン・デー」.",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 8,
+      "category": "Từ vựng: Sự kiện",
+      "q": "学校の 勉強を 全部 終えて 出る ことを [____] と 言います。",
+      "options": [
+        "卒業 (そつぎょう)",
+        "入学 (にゅうがく)",
+        "就職 (しゅうしょく)",
+        "結婚 (けっこん)"
+      ],
+      "correct": 0,
+      "explain": "Hoàn thành việc học và ra trường là 「卒業」 (そつぎょう - Tốt nghiệp).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 9,
+      "category": "Từ vựng: Quà tặng",
+      "q": "時間を 知る ための 道具は [____] です。",
+      "options": [
+        "写真 (しゃしん)",
+        "絵 (え)",
+        "おもちゃ",
+        "時計 (とけい)"
+      ],
+      "correct": 3,
+      "explain": "Dụng cụ để xem giờ là đồng hồ: 「時計」 (とけい).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 10,
+      "category": "Từ vựng: Sự kiện",
+      "q": "赤ちゃんが 生まれる ことを [____] と 言います。",
+      "options": [
+        "就職",
+        "引越し",
+        "出産 (しゅっさん)",
+        "入学"
+      ],
+      "correct": 2,
+      "explain": "Sinh em bé là 「出産」 (しゅっさん - Xuất sản).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 11,
+      "category": "Chữ Hán Bài 17: 祝 (Chúc)",
+      "q": "Chữ Hán 「祝」 trong 「お祝い (おいわい)」 có âm Hán Việt là:",
+      "options": [
+        "ĐẢN",
+        "KẾT",
+        "HÔN",
+        "CHÚC"
+      ],
+      "correct": 3,
+      "explain": "Chữ 祝 có âm Hán Việt là CHÚC (9 nét, bộ Kỳ 礻 + chữ Huynh 兄).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 12,
+      "category": "Chữ Hán Bài 17: 誕 (Đản)",
+      "q": "Từ 「たんじょうび」 (Sinh nhật) có chữ Hán đầu tiên là:",
+      "options": [
+        "誕",
+        "祝",
+        "結",
+        "計"
+      ],
+      "correct": 0,
+      "explain": "「たんじょうび」 viết là 「誕生日」 (ĐẢN SINH NHẬT - chữ 誕 có 15 nét).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 13,
+      "category": "Chữ Hán Bài 17: 結婚",
+      "q": "Từ 「けっこん」 (Kết hôn) được viết bằng cặp chữ Hán nào?",
+      "options": [
+        "結絵",
+        "結婚",
+        "婚誕",
+        "祝婚"
+      ],
+      "correct": 1,
+      "explain": "「けっこん」 viết là 「結婚」 (KẾT HÔN - chữ 結 12 nét, chữ 婚 11 nét).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 14,
+      "category": "Chữ Hán Bài 17: 写真",
+      "q": "Từ 「しゃしん」 (Bức ảnh) gồm 2 chữ Hán nào?",
+      "options": [
+        "画真",
+        "写真",
+        "絵真",
+        "写計"
+      ],
+      "correct": 1,
+      "explain": "「しゃしん」 là 「写真」 (TẢ CHÂN - chữ 写 5 nét, chữ 真 10 nét).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 15,
+      "category": "Chữ Hán Bài 17: 時計",
+      "q": "Từ 「とけい」 (Đồng hồ) viết bằng chữ Hán là:",
+      "options": [
+        "時計",
+        "時真",
+        "時写",
+        "時結"
+      ],
+      "correct": 0,
+      "explain": "「とけい」 viết là 「時計」 (THỜI KẾ - chữ 時 10 nét, chữ 計 9 nét).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    }
+  ]
 }

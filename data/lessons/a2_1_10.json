@@ -409,5 +409,231 @@
     }
   ],
   "verbs": [],
-  "quiz": []
+  "quiz": [
+    {
+      "id": 1,
+      "category": "Ngữ pháp & giao tiếp",
+      "q": "「Tôi muốn đi Nhật Bản」: 日本に [____] です。",
+      "options": [
+        "行きたくない",
+        "行って",
+        "行きたい",
+        "行きます"
+      ],
+      "correct": 2,
+      "explain": "行きます bỏ ます + たいです: 行きたいです. Dịch nghĩa xác định mong muốn khẳng định.",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 2,
+      "category": "Ngữ pháp & giao tiếp",
+      "q": "「Hôm nay tôi không muốn học」: 今日は 勉強 [____] です。",
+      "options": [
+        "したくない",
+        "したい",
+        "しないで",
+        "して"
+      ],
+      "correct": 0,
+      "explain": "します → したい → したくないです.",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 3,
+      "category": "Trợ từ: を vs が với V-たい",
+      "q": "のどが かわきましたから、冷たい 水 [____] 飲みたいです。",
+      "options": [
+        "に",
+        "で",
+        "へ",
+        "が"
+      ],
+      "correct": 3,
+      "explain": "水が飲みたいです và 水を飲みたいです đều dùng được. Trong các lựa chọn ở đây, が tạo câu đúng; không coi を là sai trong mẫu ～たい.",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 4,
+      "category": "Ngữ pháp: Tần suất trong tuần (週に～回)",
+      "q": "わたしは 週 [____] 2回 ジムへ 行きます。",
+      "options": [
+        "で",
+        "に",
+        "を",
+        "から"
+      ],
+      "correct": 1,
+      "explain": "週に二回 = hai lần mỗi tuần. に biểu thị tần suất trong mẫu đang học; trong hội thoại cũng có thể nói 週二回.",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 5,
+      "category": "Cách đếm số lần: Biến âm 1 lần (一回)",
+      "q": "「この レストランに 何回 来ましたか。」ー「[____] 来ました。(1回)」",
+      "options": [
+        "いちかい",
+        "いっかげつ",
+        "いっかい",
+        "ひとつ"
+      ],
+      "correct": 2,
+      "explain": "Số 1 kết hợp với lượng từ 回 (かい) có biến âm ngắt: 1回 đọc chuẩn là 「いっかい」 (viết là 一回), tuyệt đối không đọc là 「いちかい」.",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 6,
+      "category": "Từ để hỏi tần suất: 何回 (なんかい)",
+      "q": "「1年間に [____] ベトナムへ 帰りますか。」ー「2回です。」",
+      "options": [
+        "なんにん",
+        "なんじ",
+        "なんかい",
+        "いくつ"
+      ],
+      "correct": 2,
+      "explain": "Từ để hỏi về số lần làm một việc trong khoảng thời gian là 「何回 (なんかい - mấy lần)」.",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 7,
+      "category": "Ngữ pháp: V-てみます (Thử làm gì đó)",
+      "q": "この 日本の おかしは おいしそうですから、[____] みます。(たべます)",
+      "options": [
+        "たべて",
+        "たべ",
+        "たべる",
+        "たべた"
+      ],
+      "correct": 0,
+      "explain": "Cấu trúc thử làm một việc để trải nghiệm / biết kết quả: 「V-て ＋ みます」. Động từ 「たべます」 nhóm 2 chuyển sang thể Te là 「たべて」 ➔ 「食べてみます」 (Tôi sẽ ăn thử).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 8,
+      "category": "Ngữ pháp kết hợp: V-てみたいです (Muốn thử làm)",
+      "q": "日本の 会社で [____] みたいです。(はたらきます)",
+      "options": [
+        "はたらき",
+        "はたらく",
+        "はたらいた",
+        "はたらいて"
+      ],
+      "correct": 3,
+      "explain": "Vてみる (thử làm) + たい (muốn): 働いてみたいです = muốn thử làm việc.",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 9,
+      "category": "Ngữ pháp & giao tiếp",
+      "q": "Chọn lời mời uống trà phù hợp với thầy cô trong các câu sau.",
+      "options": [
+        "お茶を飲みましたか。",
+        "お茶を飲みませんか。",
+        "お茶を飲んでいます。",
+        "お茶を飲みませんでした。"
+      ],
+      "correct": 1,
+      "explain": "ませんか là một cách mời lịch sự. ～たいですか không sai ngữ pháp trong mọi tình huống; khi mời người trên, nên chọn cách nói phù hợp quan hệ và ngữ cảnh.",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 10,
+      "category": "Từ vựng: Biên dịch vs Phiên dịch",
+      "q": "しょうらい、ほんを ベトナム語に [____] しごとを したいです。",
+      "options": [
+        "ほんやくする",
+        "つうやくする",
+        "おしえる",
+        "ならう"
+      ],
+      "correct": 0,
+      "explain": "Dịch sách, văn bản, tài liệu trên giấy/máy tính (dịch viết) gọi là 「翻訳 (ほんやく)」. Còn dịch nói trực tiếp trong cuộc họp hay hội thảo mới dùng 「通訳 (つうやく)」.",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 11,
+      "category": "Từ vựng: 日本に きょうみが あります",
+      "q": "わたしは 日本の アニメや ぶんかに [____] が あります。",
+      "options": [
+        "せいかつ",
+        "きょうみ",
+        "しょうらい",
+        "ことば"
+      ],
+      "correct": 1,
+      "explain": "Cụm thành ngữ cố định Bài 10: 「[Danh từ] に きょうみが あります」 nghĩa là có niềm yêu thích, hứng thú với điều gì đó.",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 12,
+      "category": "Ngữ pháp: Ước lượng tần suất (～回ぐらい)",
+      "q": "月に 3回 [____] えいがを 見に 行きます。(khoảng 3 lần)",
+      "options": [
+        "ごろ",
+        "まで",
+        "ぐらい",
+        "から"
+      ],
+      "correct": 2,
+      "explain": "Hậu tố 「ぐらい」 đi sau số lượng / số lần để chỉ ước lượng (\"khoảng\"): 「3回ぐらい」 (khoảng 3 lần). Còn 「ごろ」 chỉ dùng cho mốc thời điểm (ví dụ: 3時ごろ = khoảng 3 giờ).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 13,
+      "category": "Cách đếm số lần: Biến âm 8 lần & 6 lần",
+      "q": "Trong các cách đọc sau, từ nào có ÂM NGẮT (っ)?",
+      "options": [
+        "2回 (にかい)",
+        "8回 (はっかい)",
+        "3回 (さんかい)",
+        "5回 (ごかい)"
+      ],
+      "correct": 1,
+      "explain": "Quy tắc vàng biến âm đếm số lần: Các số có âm ngắt là 1回 (いっかい), 6回 (ろっかい), 8回 (はっかい), 10回 (じゅっかい). Số 2 (にかい), 3 (さんかい), 5 (ごかい) đọc trơn không có âm ngắt.",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 14,
+      "category": "Ngữ pháp: V-てみます (Trải nghiệm giao tiếp)",
+      "q": "今度、日本人と 日本語で [____] みます。(はなします)",
+      "options": [
+        "はなして",
+        "はなし",
+        "はなす",
+        "はなした"
+      ],
+      "correct": 0,
+      "explain": "Động từ 「はなします」 (nhóm 1) kết thúc bằng し, chia sang thể Te là 「はなして」 ➔ 「話してみます」 (Tôi sẽ thử nói chuyện xem sao).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 15,
+      "category": "Từ vựng: Nghề nghiệp trong ngành du lịch",
+      "q": "がいこくじんの かんこうきゃくを あんないする [____] の しごとを したいです。",
+      "options": [
+        "サイト",
+        "ダンス",
+        "きっぷ",
+        "ガイド"
+      ],
+      "correct": 3,
+      "explain": "Người hướng dẫn du khách tham quan gọi là 「ガイド」 (Tour Guide - Hướng dẫn viên du lịch).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    }
+  ]
 }

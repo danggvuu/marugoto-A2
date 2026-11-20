@@ -354,5 +354,231 @@
     }
   ],
   "verbs": [],
-  "quiz": []
+  "quiz": [
+    {
+      "id": 1,
+      "category": "Ngữ pháp: V-てもいいですか",
+      "q": "この コンピューター、[____] も いいですか。",
+      "options": [
+        "<ruby>使<rt>つか</rt></ruby>いた",
+        "<ruby>使<rt>つか</rt></ruby>います",
+        "<ruby>使<rt>つか</rt></ruby>う",
+        "<ruby>使<rt>つか</rt></ruby>って"
+      ],
+      "correct": 3,
+      "explain": "Cấu trúc xin phép lịch sự: V-て + もいいですか ➔ 「<ruby>使<rt>つか</rt></ruby>ってもいいですか」 (Tôi dùng có được không?).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 2,
+      "category": "Ngữ pháp: V-てもいいですか",
+      "q": "ペンを [____] も いいですか (<ruby>借<rt>か</rt></ruby>りる)。",
+      "options": [
+        "<ruby>借<rt>か</rt></ruby>って",
+        "<ruby>借<rt>か</rt></ruby>りた",
+        "<ruby>借<rt>か</rt></ruby>る",
+        "<ruby>借<rt>か</rt></ruby>りて"
+      ],
+      "correct": 3,
+      "explain": "Động từ nhóm 2: <ruby>借<rt>か</rt></ruby>ります ➔ chia thể Te là 「<ruby>借<rt>か</rt></ruby>りて」 + もいいですか.",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 3,
+      "category": "Ngữ pháp: Phản hồi xin phép",
+      "q": "「<ruby>使<rt>つか</rt></ruby>ってもいいですか。」――「[____]、どうぞ。」",
+      "options": [
+        "はい",
+        "いいえ",
+        "だめ",
+        "ごめん"
+      ],
+      "correct": 0,
+      "explain": "Khi đồng ý cho phép ai đó sử dụng đồ vật: 「はい、どうぞ」 (Vâng, xin mời).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 4,
+      "category": "Ngữ pháp: Từ chối khéo",
+      "q": "Khi đang bận dùng đồ mà người khác muốn mượn, cách từ chối khéo léo nhất là:",
+      "options": [
+        "<ruby>絶対<rt>ぜったい</rt></ruby>に だめです",
+        "<ruby>嫌<rt>いや</rt></ruby>です",
+        "すみません、<ruby>今<rt>いま</rt></ruby> <ruby>使<rt>つか</rt></ruby>っているんです",
+        "<ruby>使<rt>つか</rt></ruby>わないでください"
+      ],
+      "correct": 2,
+      "explain": "Cách từ chối lịch sự trong văn hóa Nhật: 「すみません、<ruby>今<rt>いま</rt></ruby> <ruby>使<rt>つか</rt></ruby>っているんです」 (Xin lỗi, hiện tại tôi đang dùng mất rồi).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 5,
+      "category": "Ngữ pháp: V-てはいけません",
+      "q": "ここで <ruby>写真<rt>しゃしん</rt></ruby>を [____] は いけません。",
+      "options": [
+        "<ruby>撮<rt>と</rt></ruby>り",
+        "<ruby>撮<rt>と</rt></ruby>る",
+        "<ruby>撮<rt>と</rt></ruby>って",
+        "<ruby>撮<rt>と</rt></ruby>った"
+      ],
+      "correct": 2,
+      "explain": "Mẫu câu cấm đoán: V-て + はいけません ➔ 「<ruby>撮<rt>と</rt></ruby>っては いけません」 (Không được chụp ảnh).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 6,
+      "category": "Từ vựng: Thiết bị văn phòng",
+      "q": "<ruby>書類<rt>しょるい</rt></ruby>を たくさん <ruby>紙<rt>かみ</rt></ruby>に コピーする <ruby>機械<rt>きかい</rt></ruby>は [____] です。",
+      "options": [
+        "エアコン",
+        "キャビネット",
+        "テレビ",
+        "コピー<ruby>機<rt>き</rt></ruby>"
+      ],
+      "correct": 3,
+      "explain": "Máy in và sao chép tài liệu là 「コピー<ruby>機<rt>き</rt></ruby>」 (コピーき - Máy photocopy).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 7,
+      "category": "Từ vựng: Văn phòng",
+      "q": "パソコンを <ruby>開<rt>ひら</rt></ruby>く ときに <ruby>入力<rt>にゅうりょく</rt></ruby>する <ruby>秘密<rt>ひみつ</rt></ruby>の <ruby>文字<rt>もじ</rt></ruby>は [____] です。",
+      "options": [
+        "チケット",
+        "パスワード",
+        "スケジュール",
+        "フライト"
+      ],
+      "correct": 1,
+      "explain": "Mật khẩu máy tính là 「パスワード」 (Password).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 8,
+      "category": "Từ vựng: Nhân sự",
+      "q": "<ruby>社長<rt>しゃちょう</rt></ruby>の <ruby>身<rt>み</rt></ruby>の<ruby>回<rt>まわ</rt></ruby>りの <ruby>仕事<rt>しごと</rt></ruby>を <ruby>手伝<rt>てつだ</rt></ruby>う <ruby>人<rt>ひと</rt></ruby>は [____] です。",
+      "options": [
+        "ドライバー",
+        "<ruby>受付<rt>うけつけ</rt></ruby>",
+        "<ruby>秘書<rt>ひしょ</rt></ruby>",
+        "<ruby>学生<rt>がくせい</rt></ruby>"
+      ],
+      "correct": 2,
+      "explain": "Người làm trợ lý, thư ký hỗ trợ giám đốc là 「<ruby>秘書<rt>ひしょ</rt></ruby>」 (ひしょ).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 9,
+      "category": "Giao tiếp: Kết thúc công tác",
+      "q": "Khi chào tạm biệt chi nhánh sau chuyến công tác, câu nói cảm ơn chuẩn là:",
+      "options": [
+        "ごちそうさまでした",
+        "いただきます",
+        "<ruby>大変<rt>たいへん</rt></ruby> お<ruby>世話<rt>せわ</rt></ruby>になりました",
+        "お<ruby>大事<rt>だいじ</rt></ruby>に"
+      ],
+      "correct": 2,
+      "explain": "「<ruby>大変<rt>たいへん</rt></ruby> お<ruby>世話<rt>せわ</rt></ruby>になりました」 (Cảm ơn anh chị đã hết lòng giúp đỡ tôi).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 10,
+      "category": "Giao tiếp: Nhờ chuyển lời",
+      "q": "「<ruby>本社<rt>ほんしゃ</rt></ruby>の <ruby>皆<rt>みな</rt></ruby>さんに よろしく [____] ください。」",
+      "options": [
+        "<ruby>言<rt>い</rt></ruby>って",
+        "お<ruby>伝<rt>つた</rt></ruby>え",
+        "<ruby>話<rt>はな</rt></ruby>して",
+        "<ruby>書<rt>か</rt></ruby>いて"
+      ],
+      "correct": 1,
+      "explain": "Nhờ chuyển lời thăm hỏi lịch sự: 「よろしくお<ruby>伝<rt>つた</rt></ruby>えください」 (おつたえください).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 11,
+      "category": "Chữ Hán Bài 14: 自 & 分",
+      "q": "Từ 「じぶん」 (Bản thân mình) viết Hán tự là:",
+      "options": [
+        "白分",
+        "自刀",
+        "目分",
+        "自分"
+      ],
+      "correct": 3,
+      "explain": "「じぶん」 viết chữ Hán là 「自分」 (TỰ PHÂN: <ruby>自<rt>じ</rt></ruby><ruby>分<rt>ぶん</rt></ruby>).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 12,
+      "category": "Chữ Hán Bài 14: 電 & 話",
+      "q": "Từ 「でんわ」 (Điện thoại) gồm 2 chữ Hán nào?",
+      "options": [
+        "電話",
+        "電気",
+        "電車",
+        "電送"
+      ],
+      "correct": 0,
+      "explain": "「でんわ」 là 「電話」 (<ruby>電<rt>でん</rt></ruby><ruby>話<rt>わ</rt></ruby> - cả 2 chữ đều có 13 nét).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 13,
+      "category": "Chữ Hán Bài 14: 使 (Sử)",
+      "q": "Động từ 「つかいます」 (Sử dụng) có chữ Hán là:",
+      "options": [
+        "借ります",
+        "使います",
+        "送ります",
+        "作ります"
+      ],
+      "correct": 1,
+      "explain": "「つかいます」 là 「使います」 (<ruby>使<rt>つか</rt></ruby>います - SỬ, 8 nét).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 14,
+      "category": "Chữ Hán Bài 14: 借 (Tá)",
+      "q": "Động từ 「かります」 (Vay mượn) có chữ Hán là:",
+      "options": [
+        "借ります",
+        "使います",
+        "送ります",
+        "働きます"
+      ],
+      "correct": 0,
+      "explain": "「かります」 là 「借ります」 (<ruby>借<rt>か</rt></ruby>ります - TÁ, 10 nét, bộ Nhân đứng 亻 + chữ Tích 昔).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 15,
+      "category": "Chữ Hán Bài 14: 送 (Tống)",
+      "q": "Động từ 「おくります」 trong 「メールを 送ります」 có chữ Hán là:",
+      "options": [
+        "通ります",
+        "送ります",
+        "連ります",
+        "返ります"
+      ],
+      "correct": 1,
+      "explain": "「おくります」 viết chữ Hán là 「送ります」 (<ruby>送<rt>おく</rt></ruby>ります - TỐNG, 9 nét).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    }
+  ]
 }

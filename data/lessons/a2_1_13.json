@@ -494,5 +494,231 @@
     }
   ],
   "verbs": [],
-  "quiz": []
+  "quiz": [
+    {
+      "id": 1,
+      "category": "Ngữ pháp & giao tiếp",
+      "q": "Dùng mẫu trải nghiệm Vたことがあります: 私は田中さんに [____] ことがあります。",
+      "options": [
+        "会い",
+        "会いて",
+        "会います",
+        "会った"
+      ],
+      "correct": 3,
+      "explain": "会う → 会った. 会うことがあります có thể nghĩa là đôi khi gặp, khác mẫu trải nghiệm được yêu cầu.",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 2,
+      "category": "Ngữ pháp & giao tiếp",
+      "q": "Dùng mẫu đã từng đi: 日本へ出張に [____] ことがあります。",
+      "options": [
+        "行きます",
+        "行き",
+        "行くて",
+        "行った"
+      ],
+      "correct": 3,
+      "explain": "行く → 行った là dạng quá khứ dùng trong mẫu trải nghiệm.",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 3,
+      "category": "Ngữ pháp: Lịch trình",
+      "q": "飛行機は 午後3時に 空港 [____] 着きます。",
+      "options": [
+        "で",
+        "に",
+        "を",
+        "から"
+      ],
+      "correct": 1,
+      "explain": "Địa điểm đến nơi đi với trợ từ に: 「空港に着きます」 (Hạ cánh tại sân bay).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 4,
+      "category": "Từ vựng: Công tác",
+      "q": "仕事で よその 土地へ 行く ことを [____] と 言います。",
+      "options": [
+        "出張 (しゅっちょう)",
+        "旅行 (りょこう)",
+        "留学 (りゅうがく)",
+        "引越し (ひっこし)"
+      ],
+      "correct": 0,
+      "explain": "Chuyến đi làm việc tại nơi khác gọi là công tác: 「出張」 (しゅっちょう).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 5,
+      "category": "Từ vựng: Công ty",
+      "q": "会社で 一番 中心に なる 建物は [____] です。",
+      "options": [
+        "支社 (ししゃ)",
+        "本社 (ほんしゃ)",
+        "空港 (くうこう)",
+        "ホテル"
+      ],
+      "correct": 1,
+      "explain": "Trụ sở chính đầu não của công ty là 「本社」 (ほんしゃ).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 6,
+      "category": "Từ vựng: Sân bay",
+      "q": "飛行機が 飛び立つ 場所は [____] です。",
+      "options": [
+        "駅 (えき)",
+        "空港 (くうこう)",
+        "港 (みなと)",
+        "バス停"
+      ],
+      "correct": 1,
+      "explain": "Nơi máy bay cất cánh là sân bay: 「空港」 (くうこう).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 7,
+      "category": "Giao tiếp: Đón khách",
+      "q": "Khi đón đối tác từ phương xa đến, câu chào hỏi lịch sự là:",
+      "options": [
+        "いってらっしゃい！",
+        "お疲れ様でした。ようこそ！",
+        "ごちそうさまでした！",
+        "お大事に！"
+      ],
+      "correct": 1,
+      "explain": "「お疲れ様でした。ようこそ！」 (Anh đã vất vả rồi, chào mừng anh đã tới!).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 8,
+      "category": "Giao tiếp: Hỏi thăm",
+      "q": "Để hỏi thăm đối tác chuyến bay có thuận lợi không, ta nói:",
+      "options": [
+        "お元気ですか",
+        "何時に起きましたか",
+        "どこへ行きますか",
+        "フライトは いかがでしたか"
+      ],
+      "correct": 3,
+      "explain": "「フライトは いかがでしたか」 (Chuyến bay của anh thế nào ạ?).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 9,
+      "category": "Từ vựng: Đưa đón",
+      "q": "空港まで 友達を [____] 行きます (Đi đón).",
+      "options": [
+        "むかえに",
+        "おくりに",
+        "かえりに",
+        "あいに"
+      ],
+      "correct": 0,
+      "explain": "Đi đón ai đó là 「迎えに行きます」 (むかえにいきます).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 10,
+      "category": "Từ vựng: Xuất phát & Đến",
+      "q": "「しゅっぱつ」 có nghĩa đối lập với từ nào?",
+      "options": [
+        "しゅっちょう (出張)",
+        "よてい (予定)",
+        "とうちゃく (到着)",
+        "フライト"
+      ],
+      "correct": 2,
+      "explain": "「出発」 (Khởi hành) đối lập với 「到着」 (Đến nơi).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 11,
+      "category": "Chữ Hán Bài 13: 会 & 社",
+      "q": "Từ 「かいしゃ」 (Công ty) gồm 2 chữ Hán nào?",
+      "options": [
+        "本社",
+        "支社",
+        "社会",
+        "会社"
+      ],
+      "correct": 3,
+      "explain": "「かいしゃ」 viết chữ Hán là 「会社」 (HỘI XÃ).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 12,
+      "category": "Chữ Hán Bài 13: 支社",
+      "q": "Từ 「ししゃ」 (Chi nhánh công ty) gồm chữ Hán nào?",
+      "options": [
+        "本社",
+        "張社",
+        "支社",
+        "発社"
+      ],
+      "correct": 2,
+      "explain": "Chi nhánh là 「支社」 (CHI XÃ - 4 nét chữ 支).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 13,
+      "category": "Chữ Hán Bài 13: 出張",
+      "q": "Từ 「しゅっちょう」 (Chuyến công tác) viết bằng chữ Hán là:",
+      "options": [
+        "出張",
+        "出長",
+        "発張",
+        "着張"
+      ],
+      "correct": 0,
+      "explain": "Công tác viết chữ Hán là 「出張」 (XUẤT TRƯƠNG).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 14,
+      "category": "Chữ Hán Bài 13: 空港",
+      "q": "Từ 「くうこう」 (Sân bay) viết Hán tự là:",
+      "options": [
+        "海港",
+        "発港",
+        "空港",
+        "着港"
+      ],
+      "correct": 2,
+      "explain": "Sân bay là 「空港」 (KHÔNG CẢNG - gồm chữ 空 và 港).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 15,
+      "category": "Chữ Hán Bài 13: 午前 & 午後",
+      "q": "Chữ Hán 「午」 trong 「午前 / 午後」 mang ý nghĩa gì?",
+      "options": [
+        "Buổi sáng",
+        "Buổi tối",
+        "Giờ ngọ (12 giờ trưa)",
+        "Nửa đêm"
+      ],
+      "correct": 2,
+      "explain": "午 gắn với buổi trưa/giờ Ngọ; 午前 là trước trưa, 午後 là sau trưa. 午後 cũng dùng cho giờ tối, như 午後八時 = 8 giờ tối.",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    }
+  ]
 }

@@ -1,0 +1,2128 @@
+{
+  "A2-1/1": [
+    {
+      "id": 100,
+      "level": "A2-1",
+      "lesson": 1,
+      "lessonTitle": "",
+      "title": "🏠 1. Nơi cư trú & Nơi làm việc: ～に 住んでいます / ～で 働いています",
+      "formula": "[Địa điểm] に 住んでいます (Sinh sống tại...)[Công ty/Cơ quan] で 働いています (Làm việc tại...)",
+      "meaning": "Đang sống ở... / Đang làm việc ở... Trợ từ 「に」 đi với nơi ở, trợ từ 「で」 đi với nơi làm việc.",
+      "examples": [
+        {
+          "jp": "あねは ちゅうごくの ペキンに すんでいます。",
+          "vi": "Chị gái tôi đang sinh sống ở Bắc Kinh, Trung Quốc."
+        },
+        {
+          "jp": "父は ぎんこうで はたらいています。",
+          "vi": "Bố tôi đang làm việc tại một ngân hàng."
+        },
+        {
+          "jp": "わたしは ハノイの 大学に かよっています。",
+          "vi": "Tôi đang theo học tại một trường đại học ở Hà Nội."
+        }
+      ]
+    },
+    {
+      "id": 101,
+      "level": "A2-1",
+      "lesson": 1,
+      "lessonTitle": "",
+      "title": "💍 2. Trạng thái tiếp diễn & hôn nhân: V-ています",
+      "formula": "けっこんして います (Đã kết hôn / Lập gia đình)どくしんです (Độc thân / Chưa kết hôn)",
+      "meaning": "Đã lập gia đình / Còn độc thân. Chú ý: đã kết hôn luôn chia thể tiếp diễn 「結婚しています」.",
+      "examples": [
+        {
+          "jp": "兄は 去年 けっこんしました。いま、大阪に すんでいます。",
+          "vi": "Anh trai tôi đã kết hôn năm ngoái. Hiện đang sống ở Osaka."
+        },
+        {
+          "jp": "まだ どくしんです。",
+          "vi": "Tôi vẫn còn độc thân ạ."
+        }
+      ]
+    },
+    {
+      "id": 102,
+      "level": "A2-1",
+      "lesson": 1,
+      "lessonTitle": "",
+      "title": "✨ 3. Miêu tả ngoại hình & Tính cách: A-くて / Na-で",
+      "formula": "Tính từ đuôi い (bỏ い) + くて (A-くて)Tính từ đuôi な (bỏ な) + で (Na-で)",
+      "meaning": "Vừa ... lại vừa ... (Nối tính từ cùng chiều tính chất).",
+      "examples": [
+        {
+          "jp": "あねは 背が 高くて、髪が 長いです。",
+          "vi": "Chị gái tôi dáng người cao và có mái tóc dài."
+        },
+        {
+          "jp": "母は とても やさしくて、明るい人です。",
+          "vi": "Mẹ tôi là một người rất hiền lành và vui vẻ."
+        }
+      ]
+    }
+  ],
+  "A2-1/2": [
+    {
+      "id": 200,
+      "level": "A2-1",
+      "lesson": 2,
+      "lessonTitle": "",
+      "title": "🎨 1. Danh từ hóa nói sở thích: 趣味は V-る ことです",
+      "formula": "しゅみは [Động từ thể V-る] ことですV-る ことが 好きです (Thích làm...)",
+      "meaning": "Sở thích của tôi là... / Việc làm... rất thú vị.",
+      "examples": [
+        {
+          "jp": "わたしの しゅみは えいがを 見ることです。",
+          "vi": "Sở thích của tôi là xem phim."
+        },
+        {
+          "jp": "休みの日は、本を 読むことが 好きです。",
+          "vi": "Ngày nghỉ tôi thích đọc sách."
+        }
+      ]
+    },
+    {
+      "id": 201,
+      "level": "A2-1",
+      "lesson": 2,
+      "lessonTitle": "",
+      "title": "⏰ 2. Mệnh đề thời điểm: ～のとき / V-るとき / V-たとき",
+      "formula": "[Danh từ] のとき (Khi còn là...)[V-る / V-た] とき (Khi làm V / Khi đã làm V)",
+      "meaning": "Khi... / Lúc...",
+      "examples": [
+        {
+          "jp": "高校生のとき、よく 友達と サッカーを しました。",
+          "vi": "Khi còn là học sinh cấp 3, tôi hay đá bóng cùng bạn bè."
+        },
+        {
+          "jp": "ひまなとき、カフェで コーヒーを 飲みます。",
+          "vi": "Khi rảnh rỗi, tôi uống cà phê ở quán."
+        }
+      ]
+    },
+    {
+      "id": 202,
+      "level": "A2-1",
+      "lesson": 2,
+      "lessonTitle": "",
+      "title": "🗣️ 3. Khả năng ngôn ngữ: ～が できます / 上手 / 下手",
+      "formula": "[Ngoại ngữ] が 少し できます (Có thể nói được chút ít...)N は [V-る] のが 下手です (Tôi kém việc...)",
+      "meaning": "Có thể... / Giỏi... / Kém khoản...",
+      "examples": [
+        {
+          "jp": "ベトナム語と えいごが できます。",
+          "vi": "Tôi có thể nói tiếng Việt và tiếng Anh."
+        },
+        {
+          "jp": "日本語は 漢字を 書くのが 難しいです。",
+          "vi": "Tiếng Nhật thì việc viết chữ Hán rất khó."
+        }
+      ]
+    }
+  ],
+  "A2-1/3": [
+    {
+      "id": 300,
+      "level": "A2-1",
+      "lesson": 3,
+      "lessonTitle": "",
+      "title": "1. Nói về sự thay đổi: ～になります",
+      "formula": "N / tính từ な + に なります; tính từ い bỏ い + く なります",
+      "meaning": "春になります; きれいになります; 暖かくなります. Không nói 暖かいになります.",
+      "examples": [
+        {
+          "jp": "三月ごろ、だんだん 暖かく なります。",
+          "vi": "Khoảng tháng ba, trời dần ấm lên."
+        }
+      ]
+    },
+    {
+      "id": 301,
+      "level": "A2-1",
+      "lesson": 3,
+      "lessonTitle": "",
+      "title": "2. Mùa yêu thích và cảm giác: ～が好きです",
+      "formula": "N が 好きです / tính từ い + の が 好きです",
+      "meaning": "夏が好きです nói về mùa hè; 暑いのが好きです nói về cảm giác nóng. Hai ý không hoàn toàn giống nhau.",
+      "examples": [
+        {
+          "jp": "私は 秋が 好きです。涼しいのが 好きです。",
+          "vi": "Tôi thích mùa thu. Tôi thích thời tiết mát mẻ."
+        }
+      ]
+    },
+    {
+      "id": 302,
+      "level": "A2-1",
+      "lesson": 3,
+      "lessonTitle": "",
+      "title": "3. Giải thích sở thích bằng ～から",
+      "formula": "Lý do + から、kết quả / N が いちばん 好きです",
+      "meaning": "Có thể trả lời lý do ở câu sau: 夏が好きです。夏休みがありますから。Không đảo lẫn lý do và kết quả.",
+      "examples": [
+        {
+          "jp": "夏休みが ありますから、夏が いちばん 好きです。",
+          "vi": "Vì có kỳ nghỉ hè nên tôi thích mùa hè nhất."
+        }
+      ]
+    }
+  ],
+  "A2-1/4": [
+    {
+      "id": 400,
+      "level": "A2-1",
+      "lesson": 4,
+      "lessonTitle": "",
+      "title": "1. Kể thời tiết đã qua",
+      "formula": "Tính từ い: ～かったです; N / tính từ な: ～でした",
+      "meaning": "寒い → 寒かったです, không phải 寒いでした. 雨です → 雨でした.",
+      "examples": [
+        {
+          "jp": "昨日は 寒かったです。今日は いい 天気です。",
+          "vi": "Hôm qua trời lạnh. Hôm nay thời tiết đẹp."
+        }
+      ]
+    },
+    {
+      "id": 401,
+      "level": "A2-1",
+      "lesson": 4,
+      "lessonTitle": "",
+      "title": "2. Thời tiết đang diễn ra",
+      "formula": "雨 / 雪 が 降っています",
+      "meaning": "Trợ từ が đánh dấu 雨/雪. Không dùng 雨を降っています. Các động từ khác có thể dùng ています để chỉ trạng thái.",
+      "examples": [
+        {
+          "jp": "今、雪が 降っています。",
+          "vi": "Bây giờ tuyết đang rơi."
+        }
+      ]
+    },
+    {
+      "id": 402,
+      "level": "A2-1",
+      "lesson": 4,
+      "lessonTitle": "",
+      "title": "3. Bắt chuyện bằng thời tiết",
+      "formula": "いい 天気ですね / そちらは どうですか",
+      "meaning": "こちら/そちら là cách nói lịch sự; こっち/そっち thân mật hơn. Chọn cách nói theo quan hệ giao tiếp.",
+      "examples": [
+        {
+          "jp": "こちらは 今、雨です。そちらは どうですか。",
+          "vi": "Ở đây hiện đang mưa. Chỗ bạn thì thế nào?"
+        }
+      ]
+    }
+  ],
+  "A2-1/5": [
+    {
+      "id": 500,
+      "level": "A2-1",
+      "lesson": 5,
+      "lessonTitle": "",
+      "title": "1. Nối đặc điểm cùng chiều",
+      "formula": "Tính từ い bỏ い + くて; tính từ な / N + で",
+      "meaning": "安い → 安くて; 静か → 静かで; きれい → きれいで. Không nói きれくて.",
+      "examples": [
+        {
+          "jp": "この 公園は 広くて、きれいです。",
+          "vi": "Công viên này rộng và đẹp."
+        }
+      ]
+    },
+    {
+      "id": 501,
+      "level": "A2-1",
+      "lesson": 5,
+      "lessonTitle": "",
+      "title": "2. Nói hai mặt đối lập bằng けど",
+      "formula": "Tính từ い + けど; tính từ な / N + だけど",
+      "meaning": "高いけど, không phải 高いだけど. Không bỏ だ sau tính từ な trong mẫu thường: 不便だけど.",
+      "examples": [
+        {
+          "jp": "この 町は 少し 不便だけど、楽しいです。",
+          "vi": "Thị trấn này hơi bất tiện nhưng thú vị."
+        }
+      ]
+    },
+    {
+      "id": 502,
+      "level": "A2-1",
+      "lesson": 5,
+      "lessonTitle": "",
+      "title": "3. Kể các địa điểm có trong khu vực",
+      "formula": "Nơi chốn に N1 や N2 が あります",
+      "meaning": "に chỉ vị trí tồn tại; で thường chỉ nơi diễn ra hành động. Với người/con vật đang tồn tại, dùng います.",
+      "examples": [
+        {
+          "jp": "この あたりに 店や ホテルが あります。",
+          "vi": "Khu vực này có các cửa hàng, khách sạn và những nơi khác."
+        }
+      ]
+    }
+  ],
+  "A2-1/6": [
+    {
+      "id": 600,
+      "level": "A2-1",
+      "lesson": 6,
+      "lessonTitle": "",
+      "title": "1. Chỉ đường bằng thể て",
+      "formula": "V-て ください / V1-て、V2-て ください",
+      "meaning": "右/左に曲がります chỉ hướng rẽ; 角を曲がります chỉ chỗ rẽ. Hai trợ từ có vai trò khác nhau.",
+      "examples": [
+        {
+          "jp": "まっすぐ 行って、右に 曲がって ください。",
+          "vi": "Hãy đi thẳng rồi rẽ phải."
+        }
+      ]
+    },
+    {
+      "id": 601,
+      "level": "A2-1",
+      "lesson": 6,
+      "lessonTitle": "",
+      "title": "2. Mô tả tòa nhà để nhận diện",
+      "formula": "Tính từ い + くて + tính từ + N",
+      "meaning": "Đứng trước N dùng 白いビル, không dùng 白いですビル. 日本的 là tính từ な: 日本的な建物.",
+      "examples": [
+        {
+          "jp": "あの 大きくて 白い ビルです。",
+          "vi": "Là tòa nhà lớn và màu trắng kia."
+        }
+      ]
+    },
+    {
+      "id": 602,
+      "level": "A2-1",
+      "lesson": 6,
+      "lessonTitle": "",
+      "title": "3. Sửa thông tin nghe nhầm",
+      "formula": "N1 じゃなくて、N2 です",
+      "meaning": "Phân biệt 左 và 右; 目 sau số đếm chỉ thứ tự. Không dùng じゃないで để thay mẫu sửa thông tin này.",
+      "examples": [
+        {
+          "jp": "一つ目じゃなくて、二つ目の 角です。",
+          "vi": "Không phải góc thứ nhất mà là góc thứ hai."
+        }
+      ]
+    }
+  ],
+  "A2-1/7": [
+    {
+      "id": 700,
+      "level": "A2-1",
+      "lesson": 7,
+      "lessonTitle": "",
+      "title": "1. Thương lượng giờ và nơi hẹn",
+      "formula": "N でも いいですか / N は どうですか",
+      "meaning": "十一時でもいいですか hỏi chấp nhận một phương án, không khẳng định mọi thời điểm đều được.",
+      "examples": [
+        {
+          "jp": "十時は 難しいです。十一時でも いいですか。",
+          "vi": "Mười giờ thì khó. Mười một giờ có được không?"
+        }
+      ]
+    },
+    {
+      "id": 701,
+      "level": "A2-1",
+      "lesson": 7,
+      "lessonTitle": "",
+      "title": "2. Nói lý do đến muộn",
+      "formula": "N + で、遅れます / V-て、遅れます",
+      "meaning": "Đừng nhầm 渋滞で (vì tắc đường) với 駅で (ở nhà ga). 道に迷って遅れます = đến muộn vì lạc đường.",
+      "examples": [
+        {
+          "jp": "渋滞で、少し 遅れます。",
+          "vi": "Vì tắc đường nên tôi sẽ đến muộn một chút."
+        }
+      ]
+    },
+    {
+      "id": 702,
+      "level": "A2-1",
+      "lesson": 7,
+      "lessonTitle": "",
+      "title": "3. Xin lỗi khi đến muộn",
+      "formula": "遅くなって すみません / V-て、すみません",
+      "meaning": "待ってください là nhờ người khác đợi; 待ちます là nói mình sẽ đợi. Không đổi vai người làm hành động.",
+      "examples": [
+        {
+          "jp": "遅くなって すみません。道に 迷いました。",
+          "vi": "Xin lỗi vì tôi đến muộn. Tôi đã bị lạc đường."
+        }
+      ]
+    }
+  ],
+  "A2-1/8": [
+    {
+      "id": 800,
+      "level": "A2-1",
+      "lesson": 8,
+      "lessonTitle": "",
+      "title": "1. Hỏi đã làm việc gì chưa",
+      "formula": "もう V-ましたか → はい、もう V-ました / いいえ、まだです",
+      "meaning": "まだです không đồng nghĩa もう行きません (sẽ không đi nữa). Trải nghiệm nói chung còn có mẫu V-たことがあります.",
+      "examples": [
+        {
+          "jp": "もう 美術館に 行きましたか。いいえ、まだです。",
+          "vi": "Bạn đã đến bảo tàng mỹ thuật chưa? Chưa."
+        }
+      ]
+    },
+    {
+      "id": 801,
+      "level": "A2-1",
+      "lesson": 8,
+      "lessonTitle": "",
+      "title": "2. Đi để làm gì",
+      "formula": "V bỏ ます + に 行きます / N hoạt động + に 行きます",
+      "meaning": "見ます → 見に行きます, không phải 見るに行きます. ませんか là lời mời trong ngữ cảnh này.",
+      "examples": [
+        {
+          "jp": "夜景を 見に 行きませんか。",
+          "vi": "Bạn có muốn cùng đi ngắm cảnh đêm không?"
+        }
+      ]
+    },
+    {
+      "id": 802,
+      "level": "A2-1",
+      "lesson": 8,
+      "lessonTitle": "",
+      "title": "3. Trước và sau một hoạt động",
+      "formula": "N の 前に / N の 後で",
+      "meaning": "Không suy rộng thành mọi động từ đều thêm の: trước động từ dùng Vる前に; sau động từ dùng Vた後で.",
+      "examples": [
+        {
+          "jp": "食事の 後で、店に 行きましょう。",
+          "vi": "Sau bữa ăn, chúng ta đi cửa hàng nhé."
+        }
+      ]
+    }
+  ],
+  "A2-1/9": [
+    {
+      "id": 900,
+      "level": "A2-1",
+      "lesson": 9,
+      "lessonTitle": "",
+      "title": "1. Nêu đặc điểm của một ngôn ngữ",
+      "formula": "N1 は N2 が tính từ です",
+      "meaning": "Đây là nhận xét của người nói, không phải kết luận mọi người đều thấy tiếng Nhật dễ.",
+      "examples": [
+        {
+          "jp": "日本語は 発音が 簡単です。",
+          "vi": "Với tiếng Nhật, phát âm thì đơn giản."
+        }
+      ]
+    },
+    {
+      "id": 901,
+      "level": "A2-1",
+      "lesson": 9,
+      "lessonTitle": "",
+      "title": "2. Nhận xét một hoạt động học",
+      "formula": "V thể từ điển + の が tính từ です",
+      "meaning": "Trong nhiều câu nhận xét, こと cũng có thể danh từ hóa. Bài tập yêu cầu mẫu の không có nghĩa こと luôn sai.",
+      "examples": [
+        {
+          "jp": "外国語を 話すのが おもしろいです。",
+          "vi": "Nói ngoại ngữ rất thú vị."
+        }
+      ]
+    },
+    {
+      "id": 902,
+      "level": "A2-1",
+      "lesson": 9,
+      "lessonTitle": "",
+      "title": "3. Nhờ giải thích và hỏi cách đọc",
+      "formula": "V-て くださいませんか / V bỏ ます + 方",
+      "meaning": "読みます → 読み方, không phải 読む方 khi muốn nói cách đọc. くださいませんか mang ý nhờ, không phải phủ định yêu cầu.",
+      "examples": [
+        {
+          "jp": "この 漢字の 読み方を 教えて くださいませんか。",
+          "vi": "Bạn có thể chỉ cho tôi cách đọc chữ Kanji này không?"
+        }
+      ]
+    }
+  ],
+  "A2-1/10": [
+    {
+      "id": 1000,
+      "level": "A2-1",
+      "lesson": 10,
+      "lessonTitle": "",
+      "title": "1. Mẫu Câu Bày Tỏ Nguyện Vọng: V-たいです / V-たくないです",
+      "formula": "",
+      "meaning": "",
+      "examples": []
+    },
+    {
+      "id": 1001,
+      "level": "A2-1",
+      "lesson": 10,
+      "lessonTitle": "",
+      "title": "2. Mẫu Câu Nói Tần Suất: 週 / 月 / 年 に ～回 (ぐらい)",
+      "formula": "",
+      "meaning": "⚠️ Chú ý các số có viền hồng là ÂM NGẮT (っ) hay ra trong đề thi!",
+      "examples": []
+    },
+    {
+      "id": 1002,
+      "level": "A2-1",
+      "lesson": 10,
+      "lessonTitle": "",
+      "title": "3. Mẫu Câu Thử Làm Gì Đó: V-てみます",
+      "formula": "",
+      "meaning": "",
+      "examples": []
+    }
+  ],
+  "A2-1/11": [
+    {
+      "id": 1100,
+      "level": "A2-1",
+      "lesson": 11,
+      "lessonTitle": "",
+      "title": "🍖 1. Mẫu Câu Hành Động Rồi Mang Đi / Mang Lại: V-ていきます & V-てきます",
+      "formula": "Món đồ / Đồ vật ＋ は ＋ [Người] が ＋ V-て（thể Te） ＋ 行きます / きます",
+      "meaning": "👉 ～ていきます: Làm việc gì ở đây/trên đường rồi mang đi tới điểm đến.\n                        👉 ～てきます: Rời khỏi đây làm gì rồi mang lại / quay trở lại vị trí này.",
+      "examples": [
+        {
+          "jp": "私は おすしを 作って行きます。",
+          "vi": "Tôi sẽ tự tay làm món sushi rồi mang đến buổi picnic."
+        },
+        {
+          "jp": "大きな レジャーシートを 持って行きましょうか。",
+          "vi": "Để tôi mang theo tấm bạt trải dã ngoại cỡ lớn đi nhé?"
+        },
+        {
+          "jp": "ちょっと 自販機で 飲み物を 買ってきます。",
+          "vi": "Tôi đi ra máy bán hàng tự động mua chút nước rồi về lại ngay."
+        }
+      ]
+    },
+    {
+      "id": 1101,
+      "level": "A2-1",
+      "lesson": 11,
+      "lessonTitle": "",
+      "title": "🌟 2. Mẫu Câu Biểu Thị Tự Do Lựa Chọn: Nghi Vấn Từ ＋ でもいいです",
+      "formula": "Nghi vấn từ (なん / いつ / どこ / だれ / いくつ) ＋ でも ＋ いいです",
+      "meaning": "👉 Dùng để diễn tả: Cái gì cũng được / Lúc nào cũng được / Ở đâu cũng được / Ai cũng được / Bao nhiêu cũng được.",
+      "examples": [
+        {
+          "jp": "A: 飲み物は 何が いいですか。B: 私は なんでも いいですよ。",
+          "vi": "A: Bạn muốn uống gì nào?B: Mình thì uống món gì cũng được cả!"
+        },
+        {
+          "jp": "A: ピクニックは どこが いいですか。B: 近い 公園なら、どこでも いいです。",
+          "vi": "A: Đi dã ngoại ở đâu thì đẹp nhỉ?B: Miễn là công viên gần đây thì ở đâu cũng ổn hết."
+        }
+      ]
+    },
+    {
+      "id": 1102,
+      "level": "A2-1",
+      "lesson": 11,
+      "lessonTitle": "",
+      "title": "⚖️ 3. Mẫu Câu Hỏi Ý Kiến & So Sánh Chọn Lựa: どちらが いいですか",
+      "formula": "N1 と N2（と）、どちらが いいですか。 ➔ N1 が いいです。",
+      "meaning": "👉 Hỏi: Giữa N1 và N2 thì bạn thấy cái nào tốt hơn / thích cái nào hơn?\n                        👉 Trả lời: N1 thì tốt hơn / Tôi chọn N1.\n                        👉 Chốt quyết định: じゃ、N1 に します (Vậy thì chốt chọn N1 nhé!)",
+      "examples": [
+        {
+          "jp": "おにぎりと サンドイッチ、どちらが いいですか。―― おにぎりが いいです。",
+          "vi": "Cơm nắm hay bánh mì sandwich, bạn thích món nào hơn? ―― Cơm nắm thì tốt hơn ạ."
+        },
+        {
+          "jp": "ビールと お茶、どちらが いいですか。―― お茶に します。",
+          "vi": "Bia hay trà xanh, bạn muốn uống loại nào hơn? ―― Tôi quyết định chọn trà xanh."
+        },
+        {
+          "jp": "土曜日と 日曜日、どちらが いいですか。―― 私は 日曜日のほうが いいです。",
+          "vi": "Thứ Bảy hay Chủ Nhật thì tiện cho bạn hơn? ―― Tôi thì Chủ Nhật tốt hơn."
+        }
+      ]
+    }
+  ],
+  "A2-1/12": [
+    {
+      "id": 1200,
+      "level": "A2-1",
+      "lesson": 12,
+      "lessonTitle": "",
+      "title": "🍜 1. Phán đoán qua thị giác: ～そう (Trông có vẻ...)",
+      "formula": "Tính từ đuôi い (Bỏ い) + そうですTính từ đuôi な (Bỏ な) + そうですĐộng từ thể ます (Bỏ ます) + そうです",
+      "meaning": "Trông có vẻ... / Dường như sắp... (Đặc biệt: いい ➔ よさそう). Khi khen ngợi món ăn người khác mang tới: 「おいしそうですね！」 (Trông ngon quá nhỉ!).",
+      "examples": [
+        {
+          "jp": "そのケーキ、とても おいしそうですね。",
+          "vi": "Chiếc bánh ngọt đó trông ngon lành quá nhỉ!"
+        },
+        {
+          "jp": "赤いですから、ちょっと からそうですね。",
+          "vi": "Vì màu đỏ nên trông có vẻ hơi cay đấy nhỉ."
+        },
+        {
+          "jp": "このスープは あつそうだから、気をつけてください。",
+          "vi": "Món canh súp này trông nóng lắm, bạn cẩn thận nhé."
+        }
+      ]
+    },
+    {
+      "id": 1201,
+      "level": "A2-1",
+      "lesson": 12,
+      "lessonTitle": "",
+      "title": "🌶️ 2. Nối tính từ miêu tả món ăn: A-くて / Na-で",
+      "formula": "Tính từ đuôi い ➔ Bỏ い + くてTính từ đuôi な ➔ Bỏ な + で",
+      "meaning": "Vừa... vừa... / ... và... (ví dụ: vừa cay vừa ngon, vừa rẻ vừa bổ dưỡng).",
+      "examples": [
+        {
+          "jp": "このサラダ、ちょっと からくて おいしいですね。",
+          "vi": "Món salad này hơi cay một chút mà ngon thật đấy."
+        },
+        {
+          "jp": "日本の うどんは あたたかくて、おいしいです。",
+          "vi": "Mì Udon của Nhật ấm nóng và rất ngon."
+        },
+        {
+          "jp": "このフルーツは つめたくて、あまいです。",
+          "vi": "Trái cây này mát lạnh và ngọt ngào."
+        }
+      ]
+    },
+    {
+      "id": 1202,
+      "level": "A2-1",
+      "lesson": 12,
+      "lessonTitle": "",
+      "title": "🍱 3. So sánh & Mời ăn: ～と 似ています / よかったらどうぞ",
+      "formula": "N1 は N2 と 似ています (Món 1 giống món 2)N1 は N2 と 違います (Món 1 khác món 2)よかったら、どうぞ (Nếu được xin mời bạn dùng thử)いただきます (Tôi xin phép dùng bữa)",
+      "meaning": "Dùng để giới thiệu món ăn quê hương, giúp đối phương dễ hình dung hương vị, đồng thời thể hiện sự hiếu khách, văn minh trên bàn tiệc.",
+      "examples": [
+        {
+          "jp": "これは 韓国のキンパと 似ていますね。",
+          "vi": "Món này trông khá giống với món Kimbap của Hàn Quốc nhỉ."
+        },
+        {
+          "jp": "見た目は 似ていますが、味は ちょっと 違います。",
+          "vi": "Bề ngoài thì giống nhau nhưng mùi vị thì hơi khác một chút."
+        },
+        {
+          "jp": "よかったら、サラダを どうぞ。―― ありがとうございます。いただきます。",
+          "vi": "Nếu được thì xin mời bạn dùng món salad nhé. ―― Cảm ơn bạn, tôi xin phép dùng thử ạ."
+        }
+      ]
+    }
+  ],
+  "A2-1/13": [
+    {
+      "id": 1300,
+      "level": "A2-1",
+      "lesson": 13,
+      "lessonTitle": "",
+      "title": "✈️ 1. Nói về kinh nghiệm, trải nghiệm: V-たことがあります",
+      "formula": "Động từ thể Quá khứ (V-た) + ことがあります (Đã từng)Động từ thể Quá khứ (V-た) + ことがありません (Chưa từng)Động từ thể Quá khứ (V-た) + ことがありますか (Đã từng... chưa?)",
+      "meaning": "Đã từng làm gì... / Chưa từng làm gì... Trong công việc: giới thiệu đã từng gặp đối tác, đã từng đến trụ sở chính hay chưa.",
+      "examples": [
+        {
+          "jp": "私は 田中さんに 会ったことが あります。",
+          "vi": "Tôi đã từng gặp anh Tanaka trước đây rồi."
+        },
+        {
+          "jp": "日本へ 出張に 行ったことが ありません。",
+          "vi": "Tôi chưa từng đi công tác Nhật Bản bao giờ."
+        },
+        {
+          "jp": "そのホテルに 泊まったことが ありますか。―― はい、一度あります。",
+          "vi": "Bạn đã từng ở khách sạn đó bao giờ chưa? ―― Vâng, tôi đã ở một lần rồi."
+        }
+      ]
+    },
+    {
+      "id": 1301,
+      "level": "A2-1",
+      "lesson": 13,
+      "lessonTitle": "",
+      "title": "⏰ 2. Báo cáo lịch trình & Giờ giấc: ～時に 着きます / 出発します",
+      "formula": "[Thời gian] に [Địa điểm] に 着きます (Đến nơi lúc mấy giờ)[Thời gian] に [Địa điểm] を 出発します (Khởi hành lúc mấy giờ)",
+      "meaning": "Đến lúc... / Khởi hành lúc... Giúp hai bên công ty sắp xếp xe cộ đón tiễn chu đáo.",
+      "examples": [
+        {
+          "jp": "飛行機は 午後3時に 成田空港に 着きます。",
+          "vi": "Máy bay sẽ hạ cánh xuống sân bay Narita vào lúc 3 giờ chiều."
+        },
+        {
+          "jp": "田中さんは 12日の 朝8時に ベトナムを 出発します。",
+          "vi": "Anh Tanaka sẽ khởi hành từ Việt Nam vào lúc 8 giờ sáng ngày 12."
+        },
+        {
+          "jp": "何時に 空港へ 迎えに 行きますか。―― 2時半に 行きます。",
+          "vi": "Mấy giờ bạn sẽ đi ra sân bay đón? ―― 2 giờ rưỡi tôi sẽ đi."
+        }
+      ]
+    },
+    {
+      "id": 1302,
+      "level": "A2-1",
+      "lesson": 13,
+      "lessonTitle": "",
+      "title": "🤝 3. Nghi thức đón khách tại sân bay: ようこそ / フライトはいかがでしたか",
+      "formula": "お疲れ様でした。ようこそ [Địa điểm] へ！フライトは いかがでしたか。お疲れでは ありませんか。",
+      "meaning": "Chào mừng anh đã đến... Chuyến bay của anh thế nào? Anh có mệt mỏi lắm không?",
+      "examples": [
+        {
+          "jp": "田中さん、お疲れ様でした。ようこそ、ハノイへ！",
+          "vi": "Anh Tanaka, anh đã vất vả rồi. Chào mừng anh đến với Hà Nội!"
+        },
+        {
+          "jp": "フライトは いかがでしたか。―― 少し疲れましたが、大丈夫です。",
+          "vi": "Chuyến bay của anh thế nào ạ? ―― Có hơi mệt một chút nhưng tôi vẫn ổn ạ."
+        },
+        {
+          "jp": "ホテルまで 車で お送りします。",
+          "vi": "Chúng tôi sẽ đưa anh về khách sạn bằng ô tô."
+        }
+      ]
+    }
+  ],
+  "A2-1/14": [
+    {
+      "id": 1400,
+      "level": "A2-1",
+      "lesson": 14,
+      "lessonTitle": "",
+      "title": "💻 1. Mẫu câu xin phép lịch sự: V-てもいいですか",
+      "formula": "（？）V ても いいですか。\n                        ☺ Trả lời đồng ý: 「はい、いいですよ。」 ／ 「はい、どうぞ。」\n                        ☹ Từ chối khéo: 「すみません…〈Lý do: 今 使っています / 壊れています〉」\n                        ☆ Dạng cho phép (trần thuật): V ても いいです。 ➡ Được phép làm V; Làm V cũng được",
+      "meaning": "🌸 Ý nghĩa: Dùng khi xin phép làm một việc nào đó một cách lịch sự, nhã nhặn. Mẫu câu Vてもいいです diễn tả sự cho phép hoặc quy định được phép làm gì.",
+      "examples": [
+        {
+          "jp": "すみません。ペンを 借かりても いいですか。―― はい、どうぞ。",
+          "vi": "Xin lỗi. Tớ có thể mượn bút được không? ―― Vâng, xin mời bạn cứ lấy."
+        },
+        {
+          "jp": "先生せんせい、テストの とき、辞書じしょを 使つかっても いいですか。",
+          "vi": "Sensei ơi, trong khi kiểm tra, em có thể sử dụng từ điển được không ạ?"
+        },
+        {
+          "jp": "この コンピューター、使つかっても いいですか。―― はい、いいですよ。",
+          "vi": "Tôi dùng chiếc máy tính này có được không? ―― Vâng, được chứ ạ."
+        },
+        {
+          "jp": "ボールペンを 借かりても いいですか。―― すみません、今いま 使つかっているんです。",
+          "vi": "Tôi mượn chiếc bút bi có được không? ―― Xin lỗi anh, tôi hiện đang dùng mất rồi."
+        }
+      ]
+    },
+    {
+      "id": 1401,
+      "level": "A2-1",
+      "lesson": 14,
+      "lessonTitle": "",
+      "title": "🚫 2. Cấm đoán & Quy tắc văn phòng: V-てはいけません",
+      "formula": "Động từ thể Te (V-て) + はいけません",
+      "meaning": "Không được làm... / Cấm làm... (Thường dùng trong quy chế văn phòng hoặc người hướng dẫn căn dặn).",
+      "examples": [
+        {
+          "jp": "ここで 写真しゃしんを 撮とっては いけません。",
+          "vi": "Không được chụp ảnh tại khu vực này."
+        },
+        {
+          "jp": "この パソコンの パスワードを 教おしえては いけません。",
+          "vi": "Không được tiết lộ mật khẩu của máy tính này cho người ngoài."
+        },
+        {
+          "jp": "大事だいじな 書類しょるいを 外そとへ 持もって 行いっては いけません。",
+          "vi": "Không được mang tài liệu quan trọng ra bên ngoài văn phòng."
+        }
+      ]
+    },
+    {
+      "id": 1402,
+      "level": "A2-1",
+      "lesson": 14,
+      "lessonTitle": "",
+      "title": "🙏 3. Chào tạm biệt & Gửi lời hỏi thăm: お世話せわになりました",
+      "formula": "大変たいへん お世話せわになりました。[Ai đó] に よろしく お伝つたえください。どうぞ お気きをつけて お帰かえりください。",
+      "meaning": "Cảm ơn anh/chị đã hết lòng giúp đỡ tôi trong suốt thời gian qua. Cho tôi gửi lời hỏi thăm tới mọi người ở trụ sở chính nhé.",
+      "examples": [
+        {
+          "jp": "3日間にちかん、大変たいへん お世話せわになりました。",
+          "vi": "Trong 3 ngày qua, cảm ơn mọi người đã hết lòng giúp đỡ tôi."
+        },
+        {
+          "jp": "本社ほんしゃの 皆みなさんに よろしく お伝つたえください。",
+          "vi": "Xin vui lòng cho tôi gửi lời chào hỏi thăm tới tất cả mọi người ở trụ sở chính nhé."
+        },
+        {
+          "jp": "また 会議かいぎで お会あいしましょう。",
+          "vi": "Hẹn sớm gặp lại anh trong cuộc họp lần tới nhé."
+        }
+      ]
+    }
+  ],
+  "A2-1/15": [
+    {
+      "id": 1500,
+      "level": "A2-1",
+      "lesson": 15,
+      "lessonTitle": "",
+      "title": "🏥 1. Trình bày triệu chứng & Giải thích lý do: ～んです",
+      "formula": "① ～んですか。 ➡ Câu hỏi: Mong muốn đối phương giải thích kỹ lý do, hoàn cảnh...\n                        ② ～んです。 ➡ Giải thích kỹ tình hình, lý do, hoàn cảnh... của mình cho đối phương",
+      "meaning": "Động từ / Tính từ thể ngắn + んです (Tính từ な / Danh từ + なんです). Nhấn mạnh tình trạng thực tế để người nghe thấu hiểu và đồng cảm.",
+      "examples": [
+        {
+          "jp": "どうしたんですか。―― さいきん、ちょっと こしが いたいんです。",
+          "vi": "Bạn bị làm sao thế? ―― Dạo gần đây, tôi hơi bị đau lưng một chút đấy ạ."
+        },
+        {
+          "jp": "どうしたんですか。―― ちょっと 頭が 痛いんです。",
+          "vi": "Bạn bị làm sao thế? ―― Tôi bị đau đầu một chút."
+        },
+        {
+          "jp": "昨日から 熱が あって、喉も 痛いんです。",
+          "vi": "Từ hôm qua tôi đã bị sốt, cổ họng cũng đau nữa."
+        },
+        {
+          "jp": "昨夜 あまり 眠れなかったんです。",
+          "vi": "Đêm qua tôi hầu như không ngủ được."
+        }
+      ]
+    },
+    {
+      "id": 1501,
+      "level": "A2-1",
+      "lesson": 15,
+      "lessonTitle": "",
+      "title": "💊 2. Đưa ra lời khuyên hữu ích cho sức khỏe: V-るといいですよ",
+      "formula": "Động từ thể Từ điển (V-る) + といいですよ",
+      "meaning": "Làm ... thì tốt đấy nhé! (Lời khuyên thân thiện, không mang tính ép buộc).",
+      "examples": [
+        {
+          "jp": "ねる前に、おふろに 入ると いいですよ。",
+          "vi": "Trước khi đi ngủ, bạn nên tắm bồn (thì tốt)."
+        },
+        {
+          "jp": "おなかが いたいとき、この くすりを のむと いいですよ。",
+          "vi": "Khi đau bụng/đau người, bạn nên uống thuốc này thì tốt."
+        },
+        {
+          "jp": "寝る前に、この 薬を 飲むと いいですよ。",
+          "vi": "Trước khi đi ngủ, bạn uống viên thuốc này thì tốt đấy nhé."
+        },
+        {
+          "jp": "こうやって 肩を ゆっくり 回すと いいですよ。",
+          "vi": "Cứ làm như thế này, xoay vai từ từ thì sẽ dễ chịu đấy."
+        },
+        {
+          "jp": "熱が あるときは、早く 休むと いいですよ。",
+          "vi": "Khi bị sốt thì bạn nên nghỉ ngơi sớm thì tốt hơn đấy."
+        }
+      ]
+    },
+    {
+      "id": 1502,
+      "level": "A2-1",
+      "lesson": 15,
+      "lessonTitle": "",
+      "title": "⚠️ 3. Khuyên can, dặn dò đừng làm quá sức: V-ないでください",
+      "formula": "Động từ thể Phủ định ngắn (V-ない) + でください",
+      "meaning": "Xin đừng... nhé! Câu quen thuộc nơi công sở: 「あまり無理をしないでください」 (Đừng cố quá sức nhé).",
+      "examples": [
+        {
+          "jp": "肉を あまり 食べないで ください。",
+          "vi": "Đừng ăn nhiều thịt (hãy ăn thêm rau xanh để tốt cho sức khỏe)."
+        },
+        {
+          "jp": "お酒を 飲まないで ください。",
+          "vi": "Đừng uống rượu (trong khi đang điều trị bệnh)."
+        },
+        {
+          "jp": "まだ 熱が ありますから、あまり 無理を しないでくださいね。",
+          "vi": "Vẫn còn sốt nên bạn đừng làm việc quá sức nhé."
+        },
+        {
+          "jp": "おなかが 痛いときは、冷たいものを 飲まないでください。",
+          "vi": "Khi bị đau bụng thì xin đừng uống đồ uống lạnh nhé."
+        },
+        {
+          "jp": "今日は 残業しないで、早く 帰ってください。",
+          "vi": "Hôm nay đừng làm thêm giờ nữa, hãy về nhà sớm đi."
+        }
+      ]
+    }
+  ],
+  "A2-1/16": [
+    {
+      "id": 1600,
+      "level": "A2-1",
+      "lesson": 16,
+      "lessonTitle": "",
+      "title": "🏃 1. Liệt kê hành động tiêu biểu: V1-たり、V2-たりします",
+      "formula": "Động từ thể Quá khứ (V-た) + り、V-た + り します / しています",
+      "meaning": "Lúc thì làm V1, lúc thì làm V2... (ví dụ: ngày nghỉ tôi lúc thì chạy bộ, lúc thì bơi lội).",
+      "examples": [
+        {
+          "jp": "あした へやを そうじしたり、せんたくしたり します。",
+          "vi": "Ngày mai tôi sẽ dọn dẹp phòng, giặt giũ quần áo v.v..."
+        },
+        {
+          "jp": "きのう ともだちと えいがを みたり しました。",
+          "vi": "Hôm qua tôi đã đi xem phim với bạn bè (nêu 1 hành động tiêu biểu, thì quá khứ しました)."
+        },
+        {
+          "jp": "毎日 さんぽしたり、ヨガを したり して います。",
+          "vi": "Hằng ngày tôi đi dạo, tập yoga v.v... (thói quen duy trì: しています)."
+        },
+        {
+          "jp": "週末は 公園を 走ったり、プールで 泳いだり しています。",
+          "vi": "Cuối tuần tôi lúc thì chạy bộ ở công viên, lúc thì đi bơi ở hồ bơi."
+        }
+      ]
+    },
+    {
+      "id": 1601,
+      "level": "A2-1",
+      "lesson": 16,
+      "lessonTitle": "",
+      "title": "👤 2. Người mà...: V〈ふつうけい (Thể thường)〉＋ 人 / N",
+      "formula": "V〈ふつうけい (Thể thông thường)〉＋ 人 (hoặc Danh từ N)\n                        ➡ Bổ nghĩa cho danh từ: \"Người mà...\", \"Cái mà...\"",
+      "meaning": "Dùng để bổ sung thêm thông tin chi tiết về một người nào đó (Người mà làm V / Người không làm V...). Trong tiếng Nhật, mệnh đề bổ nghĩa luôn đứng ngay trước danh từ được bổ nghĩa.",
+      "examples": [
+        {
+          "jp": "朝ごはんを 食べる 人 は 20人です。",
+          "vi": "Số người ăn bữa sáng là 20 người."
+        },
+        {
+          "jp": "コーヒーを 飲まない 人 は 10人です。",
+          "vi": "Số người không uống cà phê là 10 người."
+        }
+      ]
+    },
+    {
+      "id": 1602,
+      "level": "A2-1",
+      "lesson": 16,
+      "lessonTitle": "",
+      "title": "🎯 2. Biểu đạt mục đích: N の ために (Để... / Vì...)",
+      "formula": "[Danh từ] の ために [Hành động / Câu hỏi]",
+      "meaning": "Vì... / Để phục vụ cho... (ví dụ: Vì sức khỏe, Vì gia đình, Vì kỳ thi).",
+      "examples": [
+        {
+          "jp": "健康の ために 何か していますか。",
+          "vi": "Để duy trì sức khỏe, bạn có làm hoạt động gì không?"
+        },
+        {
+          "jp": "健康の ために、毎朝 ヨーグルトを 食べて います。",
+          "vi": "Vì sức khỏe, mỗi sáng tôi đều ăn sữa chua."
+        },
+        {
+          "jp": "家族の ために 一生懸命 働いています。",
+          "vi": "Tôi làm việc chăm chỉ hết mình vì gia đình."
+        }
+      ]
+    },
+    {
+      "id": 1603,
+      "level": "A2-1",
+      "lesson": 16,
+      "lessonTitle": "",
+      "title": "💡 3. Mở rộng: lời khuyên V-たほうがいい / V-ないほうがいい",
+      "formula": "V-た + ほうがいいです (Nên làm)V-ない + ほうがいいです (Không nên làm)",
+      "meaning": "Nên... thì tốt hơn / Không nên... thì tốt hơn (so sánh giữa hai sự lựa chọn).",
+      "examples": [
+        {
+          "jp": "毎日 野菜を たくさん 食べた ほうが いいですよ。",
+          "vi": "Mỗi ngày bạn nên ăn nhiều rau xanh thì tốt hơn đấy."
+        },
+        {
+          "jp": "夜遅くまで 起きていないで、早く 寝た ほうが いいです。",
+          "vi": "Đừng thức quá khuya, bạn nên đi ngủ sớm thì tốt hơn."
+        },
+        {
+          "jp": "お酒を 飲みすぎない ほうが いいですよ。",
+          "vi": "Bạn không nên uống rượu bia quá nhiều đâu nhé."
+        }
+      ]
+    }
+  ],
+  "A2-1/17": [
+    {
+      "id": 1700,
+      "level": "A2-1",
+      "lesson": 17,
+      "lessonTitle": "",
+      "title": "🎁 1. Nhận quà từ ai đó: N(người) に N(vật) を もらいました",
+      "formula": "Watashi wa [Người tặng] に [Món quà] を もらいました / もらったんです",
+      "meaning": "Tôi đã nhận được món quà này từ... (khi được khen ngợi đồ đạc, dùng もらったんです để giải thích nguồn gốc).",
+      "examples": [
+        {
+          "jp": "その ネックレス、とても 素敵ですね。―― 誕生日に 彼に もらったんです。",
+          "vi": "Sợi dây chuyền đó đẹp quá nhỉ! ―― Tôi được bạn trai tặng vào ngày sinh nhật đấy."
+        },
+        {
+          "jp": "卒業の お祝いに、両親に 時計を もらいました。",
+          "vi": "Vào dịp mừng tốt nghiệp, tôi được bố mẹ tặng cho một chiếc đồng hồ."
+        },
+        {
+          "jp": "この 本は 日本の 先生に もらった 大切な 本です。",
+          "vi": "Cuốn sách này là cuốn sách quý tôi được một giáo viên Nhật Bản tặng."
+        }
+      ]
+    },
+    {
+      "id": 1701,
+      "level": "A2-1",
+      "lesson": 17,
+      "lessonTitle": "",
+      "title": "💐 2. Tặng quà cho ai đó: N(người) に N(vật) を あげます",
+      "formula": "Watashi wa [Người nhận] に [Món quà] を あげます / あげました",
+      "meaning": "Tôi tặng... cho ai đó.",
+      "examples": [
+        {
+          "jp": "結婚の お祝いに 何を あげますか。",
+          "vi": "Vào dịp mừng đám cưới bạn sẽ tặng quà gì?"
+        },
+        {
+          "jp": "父の日に ネクタイを あげました。",
+          "vi": "Vào Ngày của Cha tôi đã tặng cà vạt cho bố."
+        },
+        {
+          "jp": "子どもたちの 入学祝いに 新しい かばんを あげます。",
+          "vi": "Tôi tặng cặp sách mới làm quà mừng các con vào năm học mới."
+        }
+      ]
+    },
+    {
+      "id": 1702,
+      "level": "A2-1",
+      "lesson": 17,
+      "lessonTitle": "",
+      "title": "🖼️ 3. Liệt kê đại diện とか & Định ngữ: V-る + もの",
+      "formula": "N1 とか N2 とか (như là... hay là...)[Động từ thể Từ điển] + もの (đồ để làm gì đó)",
+      "meaning": "Tặng những thứ như tranh hay đồng hồ; những đồ vật trang trí trong phòng.",
+      "examples": [
+        {
+          "jp": "日本では 結婚の お祝いに 絵とか 時計を あげます。",
+          "vi": "Ở Nhật Bản vào dịp đám cưới người ta thường tặng những thứ như tranh hoặc đồng hồ."
+        },
+        {
+          "jp": "部屋に 飾る ものが いいと 思いますよ。",
+          "vi": "Tôi nghĩ đồ dùng để trang trí trong phòng thì sẽ rất hay đấy."
+        },
+        {
+          "jp": "料理のときに 使う ものを プレゼントしました。",
+          "vi": "Tôi đã tặng những món đồ dùng khi nấu nướng."
+        }
+      ]
+    },
+    {
+      "id": 1703,
+      "level": "A2-1",
+      "lesson": 17,
+      "lessonTitle": "",
+      "title": "✨ 4. Thể thông thường + んです & Mệnh đề bổ nghĩa V(thể thường) + N",
+      "formula": "① Thể thông thường + んです（だ ➔ な）",
+      "meaning": "🌸 Bản chất: Dùng thể thông thường (thể ngắn) để chia đuôi câu, kết hợp với んです để giải thích bối cảnh, nhấn mạnh lý do hoặc làm mềm câu giao tiếp.\n                        🌸 Biến đổi đặc biệt (だ ➔ な): Danh từ & Tính từ đuôi な đổi だ thành な trước んです.",
+      "examples": [
+        {
+          "jp": "日本語が よく 分からないんですが、教えて くださいませんか。",
+          "vi": "Tôi không hiểu tiếng Nhật cho lắm, bạn có thể chỉ/dạy cho tôi được không ạ?"
+        },
+        {
+          "jp": "パソコンを 買いたいんですが、どれが いいですか。",
+          "vi": "Tôi muốn mua máy tính, loại nào thì tốt ạ? (Xin lời khuyên)"
+        },
+        {
+          "jp": "ちょっと お願いが あるんですが…",
+          "vi": "Tôi có chút chuyện muốn làm phiền / nhờ vả bạn một chút..."
+        },
+        {
+          "jp": "どうしたんですか。",
+          "vi": "Bạn bị sao thế? / Có chuyện gì xảy ra vậy? (Hỏi han ân cần khi thấy người khác có dấu hiệu khác lạ)"
+        },
+        {
+          "jp": "元気がないですね。疲れているんですか。",
+          "vi": "Trông bạn có vẻ mệt mỏi/không khỏe nhỉ. Bạn đang mệt à?"
+        },
+        {
+          "jp": "かわいい時計ですね。どこで 買ったんですか。 ―― 卒業の お祝いに 父に もらったんです。",
+          "vi": "Chiếc đồng hồ dễ thương quá! Bạn mua ở đâu thế? ―― Bố tặng tôi nhân dịp chúc mừng tốt nghiệp đấy. (Dùng んです để giải thích hoàn cảnh nhận được món quà)"
+        },
+        {
+          "jp": "どうして 日本語を 勉強しているんですか。 ―― 日本で 働きたいんです。",
+          "vi": "Tại sao bạn lại đang học tiếng Nhật vậy? ―― Vì tôi muốn làm việc tại Nhật Bản."
+        },
+        {
+          "jp": "どうして 遅れたんですか。 ―― 道が 渋滞なんです。",
+          "vi": "Tại sao bạn lại đến muộn vậy? ―― Dạ vì trên đường bị kẹt xe/tắc đường ạ. (渋滞だ ➔ 渋滞なんです)"
+        },
+        {
+          "jp": "昨日 買った 本",
+          "vi": "Cuốn sách tôi đã mua ngày hôm qua. (Vた + N: hành động đã xảy ra trong quá khứ)"
+        },
+        {
+          "jp": "日本で 働いている 人",
+          "vi": "Người đang làm việc tại Nhật Bản. (Vている + N: trạng thái, hành động đang diễn ra)"
+        },
+        {
+          "jp": "母が 作った 料理",
+          "vi": "Món ăn do mẹ nấu. (Chủ ngữ trong mệnh đề định ngữ dùng trợ từ が thay vì は)"
+        },
+        {
+          "jp": "毎日 使う パソコン",
+          "vi": "Chiếc máy tính tôi sử dụng mỗi ngày. (Vる + N: hành động thói quen thường xuyên)"
+        }
+      ]
+    }
+  ],
+  "A2-1/18": [
+    {
+      "id": 1800,
+      "level": "A2-1",
+      "lesson": 18,
+      "lessonTitle": "",
+      "title": "💭 1. Bày tỏ suy nghĩ & Quan điểm cá nhân: ～と 思います",
+      "formula": "[Thể thông thường (Futsuukei)] + と 思いますDanh từ / Tính từ đuôi な (Hiện tại khẳng định): N/Na + だ + と 思います",
+      "meaning": "Tôi nghĩ rằng... / Tôi cho là... (ví dụ: Tôi nghĩ tổ chức tiệc sẽ rất vui).",
+      "examples": [
+        {
+          "jp": "阿部さんの お祝いは パーティーが いいと 思います。",
+          "vi": "Mừng cho anh Abe thì tôi nghĩ tổ chức một bữa tiệc là tuyệt nhất."
+        },
+        {
+          "jp": "この プレゼントを あげたら、きっと 喜ぶと 思いますよ。",
+          "vi": "Tôi nghĩ nếu tặng món quà này chắc chắn cô ấy sẽ rất vui đấy."
+        },
+        {
+          "jp": "日本の 着物は とても 素晴らしいと 思います。",
+          "vi": "Tôi nghĩ trang phục Kimono của Nhật Bản thực sự rất tuyệt vời."
+        }
+      ]
+    },
+    {
+      "id": 1801,
+      "level": "A2-1",
+      "lesson": 18,
+      "lessonTitle": "",
+      "title": "🗣️ 2. Trích dẫn lời người khác đã nói: ～と 言っていました",
+      "formula": "[Thể thông thường (Futsuukei)] + と 言っていました",
+      "meaning": "Ai đó đã nói rằng... (ví dụ: Anh Abe nói rằng muốn trò chuyện cùng mọi người).",
+      "examples": [
+        {
+          "jp": "阿部さんは みんなと 話したいと 言っていました。",
+          "vi": "Anh Abe đã nói là muốn được trò chuyện cùng với tất cả mọi người."
+        },
+        {
+          "jp": "田中さんは 明日の パーティーに 来られないと 言っていました。",
+          "vi": "Anh Tanaka nói là ngày mai không thể đến dự tiệc được."
+        },
+        {
+          "jp": "先生も とても 楽しみに していると 言っていましたよ。",
+          "vi": "Thầy giáo cũng nói là đang rất hào hứng mong chờ buổi tiệc đấy."
+        }
+      ]
+    },
+    {
+      "id": 1802,
+      "level": "A2-1",
+      "lesson": 18,
+      "lessonTitle": "",
+      "title": "👘 3. Động từ mặc trang phục thể V-ています: Phân loại chuẩn xác",
+      "formula": "Thân trên / Toàn thân: 着ます ➔ 着ています (Áo, váy, comple, kimono)Thân dưới / Chân: 履きます ➔ 履いています (Quần, váy ngắn, tất, giày)Đầu: 被ります ➔ 被っています (Mũ, nón)Mắt / Phụ kiện: 掛けます ➔ 掛けています (Kính mắt)",
+      "meaning": "Đang mặc / Đang đi / Đang đội / Đang đeo...",
+      "examples": [
+        {
+          "jp": "田中さんは 素敵な 着物を 着ていますね。",
+          "vi": "Cô Tanaka đang mặc một bộ Kimono thật lộng lẫy nhỉ."
+        },
+        {
+          "jp": "黒い スーツを 着て、眼鏡を 掛けている 人は 社長です。",
+          "vi": "Người đang mặc bộ comple đen và đeo kính mắt là giám đốc đấy."
+        },
+        {
+          "jp": "白い 帽子を 被って、スニーカーを 履いています。",
+          "vi": "Anh ấy đang đội mũ trắng và đi giày thể thao."
+        }
+      ]
+    }
+  ],
+  "A2-2/1": [
+    {
+      "id": 100,
+      "level": "A2-2",
+      "lesson": 1,
+      "lessonTitle": "",
+      "title": "📘 1. N という意味 / N というところ",
+      "formula": "N1 という意味です。／N1 というところに住んでいます。",
+      "meaning": "Giải thích ý nghĩa và nêu tên một địa điểm.",
+      "examples": [
+        {
+          "jp": "「あきこ」は「明るい子」という意味です。",
+          "vi": "Akiko có nghĩa là “đứa trẻ tươi sáng”."
+        },
+        {
+          "jp": "さいたまというところに住んでいます。",
+          "vi": "Tôi sống ở một nơi tên là Saitama."
+        }
+      ]
+    },
+    {
+      "id": 101,
+      "level": "A2-2",
+      "lesson": 1,
+      "lessonTitle": "",
+      "title": "📘 2. Thể thông thường + danh từ",
+      "formula": "V thể thông thường ＋ N",
+      "meaning": "Mệnh đề thể thông thường đứng trước danh từ để bổ nghĩa cho danh từ đó.",
+      "examples": [
+        {
+          "jp": "先週買った本です。",
+          "vi": "Đây là quyển sách tôi mua tuần trước."
+        },
+        {
+          "jp": "私が好きなスポーツはテニスです。",
+          "vi": "Môn thể thao tôi thích là quần vợt."
+        }
+      ]
+    }
+  ],
+  "A2-2/2": [
+    {
+      "id": 200,
+      "level": "A2-2",
+      "lesson": 2,
+      "lessonTitle": "",
+      "title": "📘 1. Tính chất + danh từ / Vている + danh từ",
+      "formula": "かみが長い人／歌を歌っている人",
+      "meaning": "Dùng mệnh đề trước danh từ để mô tả và nhận diện người.",
+      "examples": [
+        {
+          "jp": "かみが長い人です。",
+          "vi": "Đó là người có mái tóc dài."
+        },
+        {
+          "jp": "歌を歌っている人です。",
+          "vi": "Đó là người đang hát."
+        }
+      ]
+    },
+    {
+      "id": 201,
+      "level": "A2-2",
+      "lesson": 2,
+      "lessonTitle": "",
+      "title": "📘 2. ～そうです／～そうな N",
+      "formula": "い形容詞 bỏ い ＋ そう／な形容詞 ＋ そう",
+      "meaning": "そう diễn tả ấn tượng nhìn thấy; tính từ な bỏ な trước そう.",
+      "examples": [
+        {
+          "jp": "やさしそうな人です。",
+          "vi": "Trông có vẻ là người hiền."
+        },
+        {
+          "jp": "上手そうです。",
+          "vi": "Trông có vẻ giỏi."
+        }
+      ]
+    },
+    {
+      "id": 202,
+      "level": "A2-2",
+      "lesson": 2,
+      "lessonTitle": "",
+      "title": "📘 3. Tính từ làm trạng từ: ～く／～に",
+      "formula": "い形容詞: ～く／な形容詞: ～に",
+      "meaning": "Dùng dạng trạng từ để mô tả cách thực hiện hành động.",
+      "examples": [
+        {
+          "jp": "短く切ります。",
+          "vi": "Cắt ngắn."
+        },
+        {
+          "jp": "おいしそうに食べています。",
+          "vi": "Đang ăn trông ngon lành."
+        }
+      ]
+    }
+  ],
+  "A2-2/3": [
+    {
+      "id": 300,
+      "level": "A2-2",
+      "lesson": 3,
+      "lessonTitle": "",
+      "title": "📘 1. Lý do: ～ので",
+      "formula": "普通形 ＋ ので",
+      "meaning": "Nêu nguyên nhân một cách mềm mại.",
+      "examples": [
+        {
+          "jp": "この店はおいしいので、よく来ます。",
+          "vi": "Vì quán này ngon nên tôi thường đến."
+        },
+        {
+          "jp": "人気があるので、予約しました。",
+          "vi": "Vì nổi tiếng nên tôi đã đặt chỗ."
+        }
+      ]
+    },
+    {
+      "id": 301,
+      "level": "A2-2",
+      "lesson": 3,
+      "lessonTitle": "",
+      "title": "📘 2. Danh từ hóa: ～のは",
+      "formula": "普通形 ＋ のは ＋ N です",
+      "meaning": "Dùng の để biến mệnh đề thành chủ đề/danh từ.",
+      "examples": [
+        {
+          "jp": "私が好きなのは、ステーキです。",
+          "vi": "Món tôi thích là bít tết."
+        }
+      ]
+    },
+    {
+      "id": 302,
+      "level": "A2-2",
+      "lesson": 3,
+      "lessonTitle": "",
+      "title": "📘 3. Chủ đề/điều kiện: ～なら",
+      "formula": "N ＋ なら",
+      "meaning": "Nêu lựa chọn phù hợp với chủ đề được nhắc đến.",
+      "examples": [
+        {
+          "jp": "野菜なら、このサラダがいいですよ。",
+          "vi": "Nếu chọn rau thì món salad này ngon đấy."
+        }
+      ]
+    },
+    {
+      "id": 303,
+      "level": "A2-2",
+      "lesson": 3,
+      "lessonTitle": "",
+      "title": "📘 4. Phân phối: ～ずつ",
+      "formula": "Số lượng ＋ ずつ",
+      "meaning": "Chỉ chia đều theo số lượng hoặc từng lượt.",
+      "examples": [
+        {
+          "jp": "一つずつください。",
+          "vi": "Cho tôi mỗi thứ một phần."
+        },
+        {
+          "jp": "二人ずつ座ってください。",
+          "vi": "Xin hãy ngồi mỗi nhóm hai người."
+        }
+      ]
+    }
+  ],
+  "A2-2/4": [
+    {
+      "id": 400,
+      "level": "A2-2",
+      "lesson": 4,
+      "lessonTitle": "",
+      "title": "📘 1. Cấm/không được: ～てはいけません",
+      "formula": "Vて ＋ はいけません／だめです",
+      "meaning": "Nêu quy định hoặc điều không được phép làm.",
+      "examples": [
+        {
+          "jp": "ここで食べてはいけません。",
+          "vi": "Không được ăn ở đây."
+        },
+        {
+          "jp": "飲んじゃだめです。",
+          "vi": "Không được uống."
+        }
+      ]
+    },
+    {
+      "id": 401,
+      "level": "A2-2",
+      "lesson": 4,
+      "lessonTitle": "",
+      "title": "📘 2. Trình tự: ～てから",
+      "formula": "Vて ＋ から",
+      "meaning": "Hành động sau bắt đầu sau khi hành động trước hoàn tất.",
+      "examples": [
+        {
+          "jp": "乾杯してから、飲みましょう。",
+          "vi": "Sau khi cụng ly, chúng ta hãy uống."
+        }
+      ]
+    },
+    {
+      "id": 402,
+      "level": "A2-2",
+      "lesson": 4,
+      "lessonTitle": "",
+      "title": "📘 3. Không làm V: ～ないで",
+      "formula": "Vない ＋ で",
+      "meaning": "Diễn tả làm việc khác mà không thực hiện hành động V.",
+      "examples": [
+        {
+          "jp": "何もつけないで食べます。",
+          "vi": "Tôi ăn mà không chấm gì."
+        },
+        {
+          "jp": "箸を使わないで食べます。",
+          "vi": "Tôi ăn mà không dùng đũa."
+        }
+      ]
+    },
+    {
+      "id": 403,
+      "level": "A2-2",
+      "lesson": 4,
+      "lessonTitle": "",
+      "title": "📘 4. Điều kiện/kết quả: ～と",
+      "formula": "Vる ＋ と",
+      "meaning": "Nêu kết quả thường xảy ra khi thực hiện hành động trước.",
+      "examples": [
+        {
+          "jp": "マヨネーズをつけて食べると、おいしいです。",
+          "vi": "Chấm mayonnaise vào ăn thì ngon."
+        }
+      ]
+    }
+  ],
+  "A2-2/5": [
+    {
+      "id": 500,
+      "level": "A2-2",
+      "lesson": 5,
+      "lessonTitle": "",
+      "title": "📘 1. Đưa lời khuyên: ～ほうがいい",
+      "formula": "Vた ＋ ほうがいい／Vない ＋ ほうがいい",
+      "meaning": "Dùng thể た để khuyên nên làm và thể ない để khuyên không nên làm.",
+      "examples": [
+        {
+          "jp": "ぼうしを持っていったほうがいいと思います。",
+          "vi": "Tôi nghĩ bạn nên mang theo mũ."
+        },
+        {
+          "jp": "9月は行かないほうがいいですよ。",
+          "vi": "Tháng 9 thì bạn không nên đi."
+        }
+      ]
+    },
+    {
+      "id": 501,
+      "level": "A2-2",
+      "lesson": 5,
+      "lessonTitle": "",
+      "title": "📘 2. Thời điểm: ～とき",
+      "formula": "Vる／Vた ＋ とき",
+      "meaning": "Mô tả việc xảy ra vào lúc làm hành động khác.",
+      "examples": [
+        {
+          "jp": "沖縄に行くとき、船で行きました。",
+          "vi": "Khi đi Okinawa, tôi đã đi bằng tàu."
+        },
+        {
+          "jp": "旅行に行ったとき、写真を撮りました。",
+          "vi": "Khi đi du lịch, tôi đã chụp ảnh."
+        }
+      ]
+    }
+  ],
+  "A2-2/6": [
+    {
+      "id": 600,
+      "level": "A2-2",
+      "lesson": 6,
+      "lessonTitle": "",
+      "title": "📘 1. Thể khả năng",
+      "formula": "Nhóm 1: u → eる／Nhóm 2: る → られる／する → できる",
+      "meaning": "Diễn tả năng lực hoặc điều kiện cho phép thực hiện hành động.",
+      "examples": [
+        {
+          "jp": "おしろの中が見られます。",
+          "vi": "Có thể tham quan bên trong lâu đài."
+        },
+        {
+          "jp": "ここでイルカのショーが見られます。",
+          "vi": "Ở đây có thể xem biểu diễn cá heo."
+        }
+      ]
+    },
+    {
+      "id": 601,
+      "level": "A2-2",
+      "lesson": 6,
+      "lessonTitle": "",
+      "title": "📘 2. Liệt kê lý do/đặc điểm: ～し",
+      "formula": "普通形 ＋ し、普通形 ＋ し",
+      "meaning": "Nêu nhiều lý do hoặc đặc điểm, thường dẫn đến kết luận.",
+      "examples": [
+        {
+          "jp": "おどりも見たし、音楽も聞いたし、楽しめました。",
+          "vi": "Tôi vừa xem múa vừa nghe nhạc nên đã rất vui."
+        },
+        {
+          "jp": "海もきれいだし、食べ物もおいしいです。",
+          "vi": "Biển đẹp mà đồ ăn cũng ngon."
+        }
+      ]
+    }
+  ],
+  "A2-2/7": [
+    {
+      "id": 700,
+      "level": "A2-2",
+      "lesson": 7,
+      "lessonTitle": "",
+      "title": "📘 1. Thể khả năng",
+      "formula": "話す → 話せる／する → できる",
+      "meaning": "Nói về khả năng hoặc điều có thể thực hiện.",
+      "examples": [
+        {
+          "jp": "パウロさんは日本語が話せます。",
+          "vi": "Paulo nói được tiếng Nhật."
+        },
+        {
+          "jp": "日本語が話せる人です。",
+          "vi": "Đó là người nói được tiếng Nhật."
+        }
+      ]
+    },
+    {
+      "id": 701,
+      "level": "A2-2",
+      "lesson": 7,
+      "lessonTitle": "",
+      "title": "📘 2. Điều kiện: ～たら",
+      "formula": "Vた ＋ ら",
+      "meaning": "Nêu tình huống giả định hoặc việc xảy ra sau khi hoàn tất hành động.",
+      "examples": [
+        {
+          "jp": "雨がふったら、ホールでぼんおどりをします。",
+          "vi": "Nếu trời mưa, chúng ta sẽ tổ chức múa Bon trong hội trường."
+        },
+        {
+          "jp": "時間があったら、行きましょう。",
+          "vi": "Nếu có thời gian thì cùng đi nhé."
+        }
+      ]
+    }
+  ],
+  "A2-2/8": [
+    {
+      "id": 800,
+      "level": "A2-2",
+      "lesson": 8,
+      "lessonTitle": "",
+      "title": "📘 1. Tiến độ: もう／まだ",
+      "formula": "もう ＋ Vましたか／まだ ＋ Vていません",
+      "meaning": "もう hỏi việc đã xảy ra chưa; まだ dùng trong câu phủ định để nói vẫn chưa.",
+      "examples": [
+        {
+          "jp": "準備はもう終わりましたか。",
+          "vi": "Việc chuẩn bị xong chưa?"
+        },
+        {
+          "jp": "いいえ、まだ終わっていません。",
+          "vi": "Chưa, vẫn chưa xong."
+        }
+      ]
+    },
+    {
+      "id": 801,
+      "level": "A2-2",
+      "lesson": 8,
+      "lessonTitle": "",
+      "title": "📘 2. Câu hỏi gián tiếp: ～か",
+      "formula": "疑問詞 ＋ 普通形 ＋ か",
+      "meaning": "Đặt câu hỏi dạng mệnh đề trước 知っていますか／分かりますか.",
+      "examples": [
+        {
+          "jp": "コンサートが何時に始まるか、知っていますか。",
+          "vi": "Bạn có biết hòa nhạc bắt đầu lúc mấy giờ không?"
+        },
+        {
+          "jp": "店がどこにあるか、分かりますか。",
+          "vi": "Bạn có biết cửa hàng ở đâu không?"
+        }
+      ]
+    }
+  ],
+  "A2-2/9": [
+    {
+      "id": 900,
+      "level": "A2-2",
+      "lesson": 9,
+      "lessonTitle": "",
+      "title": "📘 1. Trạng thái kéo dài trong quá khứ: ～ていました",
+      "formula": "Vていました",
+      "meaning": "Diễn tả trạng thái hoặc hoạt động kéo dài trong một khoảng thời gian đã qua.",
+      "examples": [
+        {
+          "jp": "休みはメキシコに帰っていました。",
+          "vi": "Trong kỳ nghỉ tôi đã về Mexico."
+        },
+        {
+          "jp": "休みの間、家族と過ごしていました。",
+          "vi": "Trong kỳ nghỉ tôi ở bên gia đình."
+        }
+      ]
+    },
+    {
+      "id": 901,
+      "level": "A2-2",
+      "lesson": 9,
+      "lessonTitle": "",
+      "title": "📘 2. Khả năng + cảm xúc",
+      "formula": "V khả năng て／なくて ＋ よかった／残念でした",
+      "meaning": "Dùng thể khả năng để nói vui vì làm được hoặc tiếc vì không làm được.",
+      "examples": [
+        {
+          "jp": "親に会えて、よかったです。",
+          "vi": "Tôi vui vì đã gặp được cha mẹ."
+        },
+        {
+          "jp": "友だちに会えなくて、残念でした。",
+          "vi": "Tôi tiếc vì không gặp được bạn."
+        }
+      ]
+    },
+    {
+      "id": 902,
+      "level": "A2-2",
+      "lesson": 9,
+      "lessonTitle": "",
+      "title": "📘 3. Giới hạn: しか／だけ",
+      "formula": "N ＋ しか ＋ phủ định／N ＋ だけ",
+      "meaning": "しか đi với vị ngữ phủ định; だけ đi với vị ngữ khẳng định.",
+      "examples": [
+        {
+          "jp": "休みは3日しかありませんでした。",
+          "vi": "Kỳ nghỉ chỉ có 3 ngày."
+        },
+        {
+          "jp": "休みは3日間だけでした。",
+          "vi": "Kỳ nghỉ chỉ kéo dài 3 ngày."
+        }
+      ]
+    }
+  ],
+  "A2-2/10": [
+    {
+      "id": 1000,
+      "level": "A2-2",
+      "lesson": 10,
+      "lessonTitle": "",
+      "title": "📘 1. Mục đích/kết quả mong muốn: ～ように",
+      "formula": "V khả năng／Vない ＋ ように",
+      "meaning": "Nêu điều mong muốn đạt được hoặc tránh xảy ra.",
+      "examples": [
+        {
+          "jp": "わかい人が楽しめるように、イベントがあります。",
+          "vi": "Có các sự kiện để người trẻ có thể vui chơi."
+        },
+        {
+          "jp": "おくれないように、早く行きましょう。",
+          "vi": "Cùng đi sớm để không bị muộn."
+        }
+      ]
+    },
+    {
+      "id": 1001,
+      "level": "A2-2",
+      "lesson": 10,
+      "lessonTitle": "",
+      "title": "📘 2. Liệt kê ví dụ: ～たり",
+      "formula": "Vた ＋ り、Vた ＋ り します",
+      "meaning": "Nêu một vài hành động tiêu biểu, không hàm ý liệt kê hết.",
+      "examples": [
+        {
+          "jp": "願い事を書いたりして、楽しみます。",
+          "vi": "Mọi người viết điều ước và làm những việc khác để vui chơi."
+        }
+      ]
+    },
+    {
+      "id": 1002,
+      "level": "A2-2",
+      "lesson": 10,
+      "lessonTitle": "",
+      "title": "📘 3. Ước mong: ～ように願います",
+      "formula": "Vる／Vない ＋ ように願います",
+      "meaning": "Nói điều mình cầu mong sẽ xảy ra hoặc không xảy ra.",
+      "examples": [
+        {
+          "jp": "いいことがあるように願います。",
+          "vi": "Tôi cầu mong có chuyện tốt xảy ra."
+        },
+        {
+          "jp": "悪いことが起こらないように祈りました。",
+          "vi": "Tôi đã cầu nguyện để chuyện xấu không xảy ra."
+        }
+      ]
+    }
+  ],
+  "A2-2/11": [
+    {
+      "id": 1100,
+      "level": "A2-2",
+      "lesson": 11,
+      "lessonTitle": "",
+      "title": "📘 1. Thay đổi: ～なくなります",
+      "formula": "Vない: bỏ い, đổi thành く ＋ なります",
+      "meaning": "Nói một trạng thái hoặc khả năng không còn như trước.",
+      "examples": [
+        {
+          "jp": "せんぷう機が動かなくなりました。",
+          "vi": "Quạt đã không chạy nữa."
+        },
+        {
+          "jp": "使えなくなりました。",
+          "vi": "Đã trở nên không dùng được."
+        }
+      ]
+    },
+    {
+      "id": 1101,
+      "level": "A2-2",
+      "lesson": 11,
+      "lessonTitle": "",
+      "title": "📘 2. Sự cố/tiếc nuối: ～てしまう",
+      "formula": "Vて ＋ しまいました／しまったんです",
+      "meaning": "Diễn tả việc đã lỡ xảy ra hoặc kết thúc ngoài ý muốn.",
+      "examples": [
+        {
+          "jp": "せんぷう機が動かなくなってしまいました。",
+          "vi": "Quạt đã bị hỏng mất rồi."
+        },
+        {
+          "jp": "電子レンジがこわれてしまったんです。",
+          "vi": "Lò vi sóng bị hỏng mất rồi."
+        }
+      ]
+    },
+    {
+      "id": 1102,
+      "level": "A2-2",
+      "lesson": 11,
+      "lessonTitle": "",
+      "title": "📘 3. Không làm V: ～ないで／～まで",
+      "formula": "Vない ＋ で／Vる ＋ まで",
+      "meaning": "～ないで diễn tả không thực hiện hành động; ～まで nêu mốc thời gian đến khi.",
+      "examples": [
+        {
+          "jp": "時間を気にしないで買い物できます。",
+          "vi": "Có thể mua sắm mà không phải bận tâm về thời gian."
+        },
+        {
+          "jp": "電子レンジが届くまで、1週間かかりました。",
+          "vi": "Mất một tuần cho đến khi lò vi sóng được giao tới."
+        }
+      ]
+    }
+  ],
+  "A2-2/12": [
+    {
+      "id": 1200,
+      "level": "A2-2",
+      "lesson": 12,
+      "lessonTitle": "",
+      "title": "📘 1. Mức độ quá mức: ～すぎる",
+      "formula": "い形容詞 bỏ い／な形容詞 bỏ な／Vます bỏ ます ＋ すぎる",
+      "meaning": "Diễn tả quá nhiều/quá mức.",
+      "examples": [
+        {
+          "jp": "このアイロンは重すぎます。",
+          "vi": "Bàn ủi này nặng quá."
+        },
+        {
+          "jp": "高すぎて、買えません。",
+          "vi": "Đắt quá nên tôi không mua được."
+        }
+      ]
+    },
+    {
+      "id": 1201,
+      "level": "A2-2",
+      "lesson": 12,
+      "lessonTitle": "",
+      "title": "📘 2. Dễ/khó làm: ～やすい／にくい",
+      "formula": "Vます bỏ ます ＋ やすい／にくい",
+      "meaning": "Gắn sau gốc masu để nói việc gì dễ hoặc khó thực hiện.",
+      "examples": [
+        {
+          "jp": "軽くて、使いやすいです。",
+          "vi": "Nhẹ và dễ sử dụng."
+        },
+        {
+          "jp": "重くて、使いにくいです。",
+          "vi": "Nặng và khó sử dụng."
+        }
+      ]
+    },
+    {
+      "id": 1202,
+      "level": "A2-2",
+      "lesson": 12,
+      "lessonTitle": "",
+      "title": "📘 3. So sánh hai lựa chọn",
+      "formula": "AとBと、どちらが～ですか。／Aの方が～です。",
+      "meaning": "Dùng どちら để hỏi; の方が nêu lựa chọn có đặc điểm hơn.",
+      "examples": [
+        {
+          "jp": "AモデルとBモデルと、どちらが安いですか。",
+          "vi": "Giữa mẫu A và mẫu B, mẫu nào rẻ hơn?"
+        },
+        {
+          "jp": "Bの方が安いです。",
+          "vi": "Mẫu B rẻ hơn."
+        }
+      ]
+    }
+  ],
+  "A2-2/13": [
+    {
+      "id": 1300,
+      "level": "A2-2",
+      "lesson": 13,
+      "lessonTitle": "",
+      "title": "📘 1. Dù lúc nào: いつ～ても",
+      "formula": "いつ ＋ Vても",
+      "meaning": "Diễn tả kết quả không đổi dù thời điểm thay đổi.",
+      "examples": [
+        {
+          "jp": "京都はいつ来ても、楽しめます。",
+          "vi": "Đến Kyoto lúc nào cũng vui."
+        },
+        {
+          "jp": "いつ見ても、きれいです。",
+          "vi": "Lúc nào nhìn cũng đẹp."
+        }
+      ]
+    },
+    {
+      "id": 1301,
+      "level": "A2-2",
+      "lesson": 13,
+      "lessonTitle": "",
+      "title": "📘 2. Cùng nhau: ～と二人で",
+      "formula": "Người ＋ と ＋ số người ＋ で",
+      "meaning": "で chỉ nhóm người cùng thực hiện hành động.",
+      "examples": [
+        {
+          "jp": "妹と二人で京都に来ました。",
+          "vi": "Tôi đã đến Kyoto cùng em gái, hai chị em."
+        },
+        {
+          "jp": "友だちと二人で見学しました。",
+          "vi": "Tôi đã tham quan cùng một người bạn."
+        }
+      ]
+    },
+    {
+      "id": 1302,
+      "level": "A2-2",
+      "lesson": 13,
+      "lessonTitle": "",
+      "title": "📘 3. Thể bị động",
+      "formula": "Vる → Vられる／Vう → Vわれる",
+      "meaning": "Dùng thể bị động để nói chủ thể chịu tác động hoặc công trình được xây dựng bởi ai.",
+      "examples": [
+        {
+          "jp": "京都は8世紀の終わりに天皇によってつくられました。",
+          "vi": "Kyoto được xây dựng vào cuối thế kỷ thứ 8 bởi Thiên hoàng."
+        },
+        {
+          "jp": "この寺は14世紀に建てられました。",
+          "vi": "Ngôi chùa này được xây vào thế kỷ 14."
+        }
+      ]
+    }
+  ],
+  "A2-2/14": [
+    {
+      "id": 1400,
+      "level": "A2-2",
+      "lesson": 14,
+      "lessonTitle": "",
+      "title": "📘 1. Nghe nói: ～そうです",
+      "formula": "普通形 ＋ そうです",
+      "meaning": "Dẫn lại thông tin nghe được; với danh từ/tính từ な dùng だそうです.",
+      "examples": [
+        {
+          "jp": "この絵は日本で一番古いマンガだそうです。",
+          "vi": "Nghe nói bức tranh này là truyện tranh cổ nhất Nhật Bản."
+        },
+        {
+          "jp": "このお寺は有名だそうです。",
+          "vi": "Nghe nói ngôi chùa này nổi tiếng."
+        }
+      ]
+    },
+    {
+      "id": 1401,
+      "level": "A2-2",
+      "lesson": 14,
+      "lessonTitle": "",
+      "title": "📘 2. Mục đích: ～ために",
+      "formula": "Vる／Nの ＋ ために",
+      "meaning": "Nêu mục đích của hành động hoặc đối tượng được phục vụ.",
+      "examples": [
+        {
+          "jp": "イベントを知らせるために、カレンダーを作ります。",
+          "vi": "Tôi làm lịch để thông báo sự kiện."
+        },
+        {
+          "jp": "おみやげを買いたい人のために、店があります。",
+          "vi": "Có cửa hàng dành cho người muốn mua quà lưu niệm."
+        }
+      ]
+    },
+    {
+      "id": 1402,
+      "level": "A2-2",
+      "lesson": 14,
+      "lessonTitle": "",
+      "title": "📘 3. Trạng thái chuẩn bị sẵn: ～てあります",
+      "formula": "Vて ＋ あります",
+      "meaning": "Diễn tả kết quả của hành động có chủ ý và trạng thái vẫn còn.",
+      "examples": [
+        {
+          "jp": "受付にイベントカレンダーがおいてあります。",
+          "vi": "Lịch sự kiện đã được đặt sẵn ở quầy tiếp tân."
+        }
+      ]
+    }
+  ],
+  "A2-2/15": [
+    {
+      "id": 1500,
+      "level": "A2-2",
+      "lesson": 15,
+      "lessonTitle": "",
+      "title": "📘 1. Trạng thái giữ nguyên: ～たまま",
+      "formula": "Vた ＋ まま",
+      "meaning": "Trạng thái sau một hành động vẫn tiếp tục không đổi.",
+      "examples": [
+        {
+          "jp": "会議室の電気がついたままです。",
+          "vi": "Đèn phòng họp vẫn đang bật."
+        },
+        {
+          "jp": "ドアが開いたままです。",
+          "vi": "Cửa vẫn đang mở."
+        }
+      ]
+    },
+    {
+      "id": 1501,
+      "level": "A2-2",
+      "lesson": 15,
+      "lessonTitle": "",
+      "title": "📘 2. Duy trì thói quen: ～ようにしています",
+      "formula": "Vる／Vない ＋ ようにしています",
+      "meaning": "Nói về điều mình chủ động cố gắng duy trì thường xuyên.",
+      "examples": [
+        {
+          "jp": "自分のはしを使うようにしています。",
+          "vi": "Tôi cố gắng dùng đũa của mình."
+        },
+        {
+          "jp": "わりばしを使わないようにしています。",
+          "vi": "Tôi cố gắng không dùng đũa dùng một lần."
+        }
+      ]
+    },
+    {
+      "id": 1502,
+      "level": "A2-2",
+      "lesson": 15,
+      "lessonTitle": "",
+      "title": "📘 3. Công dụng phù hợp: ～のにいい",
+      "formula": "Vる ＋ のにいいです",
+      "meaning": "Nêu việc gì hữu ích/thích hợp để đạt mục đích.",
+      "examples": [
+        {
+          "jp": "自分のはしは、ごみをへらすのにいいです。",
+          "vi": "Đũa cá nhân hữu ích để giảm rác."
+        }
+      ]
+    }
+  ],
+  "A2-2/16": [
+    {
+      "id": 1600,
+      "level": "A2-2",
+      "lesson": 16,
+      "lessonTitle": "",
+      "title": "📘 1. Không còn làm được: ～なくなりました",
+      "formula": "V khả năng phủ định ＋ なりました",
+      "meaning": "Dùng thể khả năng phủ định để nói vật không còn dùng/mặc được nữa.",
+      "examples": [
+        {
+          "jp": "服が着られなくなりました。",
+          "vi": "Tôi không mặc vừa quần áo đó nữa."
+        },
+        {
+          "jp": "バッグが使えなくなりました。",
+          "vi": "Cái túi không dùng được nữa."
+        }
+      ]
+    },
+    {
+      "id": 1601,
+      "level": "A2-2",
+      "lesson": 16,
+      "lessonTitle": "",
+      "title": "📘 2. Điều kiện: ～たら",
+      "formula": "Vた ＋ ら",
+      "meaning": "Nêu việc sẽ làm khi điều kiện được đáp ứng.",
+      "examples": [
+        {
+          "jp": "服が着られなくなったら、どうしますか。",
+          "vi": "Nếu không mặc vừa quần áo nữa thì bạn sẽ làm gì?"
+        },
+        {
+          "jp": "使わなくなったら、売ります。",
+          "vi": "Nếu không dùng nữa thì tôi sẽ bán."
+        }
+      ]
+    },
+    {
+      "id": 1602,
+      "level": "A2-2",
+      "lesson": 16,
+      "lessonTitle": "",
+      "title": "📘 3. Chuyển thành: NをNにする",
+      "formula": "N1 を N2 にします",
+      "meaning": "Diễn tả biến đổi một vật thành vật/công dụng khác.",
+      "examples": [
+        {
+          "jp": "ネクタイをバッグにしました。",
+          "vi": "Tôi đã biến chiếc cà vạt thành túi."
+        },
+        {
+          "jp": "ペットボトルをふくにしました。",
+          "vi": "Họ đã biến chai nhựa thành quần áo."
+        }
+      ]
+    }
+  ],
+  "A2-2/17": [
+    {
+      "id": 1700,
+      "level": "A2-2",
+      "lesson": 17,
+      "lessonTitle": "",
+      "title": "📘 1. Nghe nói: ～そうです",
+      "formula": "普通形 ＋ そうです",
+      "meaning": "Dẫn lại thông tin được nghe về một người/sự việc.",
+      "examples": [
+        {
+          "jp": "この歌手は2回目の結婚をするそうです。",
+          "vi": "Nghe nói ca sĩ này sẽ kết hôn lần thứ hai."
+        },
+        {
+          "jp": "この人は有名だそうです。",
+          "vi": "Nghe nói người này nổi tiếng."
+        }
+      ]
+    },
+    {
+      "id": 1701,
+      "level": "A2-2",
+      "lesson": 17,
+      "lessonTitle": "",
+      "title": "📘 2. Trình tự: ～てから／mốc đến: ～まで",
+      "formula": "Vて ＋ から／Vる ＋ まで",
+      "meaning": "Nêu việc xảy ra sau một mốc hoặc tiếp diễn đến một mốc cuối.",
+      "examples": [
+        {
+          "jp": "画家になってから、フランスに行きました。",
+          "vi": "Sau khi trở thành họa sĩ, ông ấy đã đến Pháp."
+        },
+        {
+          "jp": "なくなるまで、フランスで絵をかきました。",
+          "vi": "Ông ấy vẽ tranh ở Pháp cho đến khi qua đời."
+        }
+      ]
+    },
+    {
+      "id": 1702,
+      "level": "A2-2",
+      "lesson": 17,
+      "lessonTitle": "",
+      "title": "📘 3. Phỏng đoán: ～かもしれません",
+      "formula": "普通形 ＋ かもしれません",
+      "meaning": "Nói khả năng có thể đúng nhưng chưa chắc chắn.",
+      "examples": [
+        {
+          "jp": "この画家は一番有名かもしれません。",
+          "vi": "Họa sĩ này có lẽ là nổi tiếng nhất."
+        }
+      ]
+    }
+  ],
+  "A2-2/18": [
+    {
+      "id": 1800,
+      "level": "A2-2",
+      "lesson": 18,
+      "lessonTitle": "",
+      "title": "📘 1. Thể bị động",
+      "formula": "Vる → Vられる／Vう → Vわれる",
+      "meaning": "Dùng khi chủ thể nhận tác động từ người khác.",
+      "examples": [
+        {
+          "jp": "私は母にしかられました。",
+          "vi": "Tôi bị mẹ mắng."
+        },
+        {
+          "jp": "私は先生に絵をほめられました。",
+          "vi": "Tôi được giáo viên khen tranh."
+        }
+      ]
+    },
+    {
+      "id": 1801,
+      "level": "A2-2",
+      "lesson": 18,
+      "lessonTitle": "",
+      "title": "📘 2. Thay đổi: ～ようになりました／～なくなりました",
+      "formula": "Vる ＋ ようになりました／Vなく ＋ なりました",
+      "meaning": "Diễn tả thói quen hoặc trạng thái thay đổi theo thời gian.",
+      "examples": [
+        {
+          "jp": "朝早く起きるようになりました。",
+          "vi": "Tôi đã bắt đầu dậy sớm."
+        },
+        {
+          "jp": "夜テレビを見なくなりました。",
+          "vi": "Tôi đã không còn xem TV vào buổi tối."
+        }
+      ]
+    },
+    {
+      "id": 1802,
+      "level": "A2-2",
+      "lesson": 18,
+      "lessonTitle": "",
+      "title": "📘 3. Thay đổi khả năng: ～ようになりました／～なくなりました",
+      "formula": "V thể khả năng ＋ ようになりました／V khả năng phủ định ＋ なりました",
+      "meaning": "Dùng thể khả năng để nói nay làm được hoặc không còn làm được việc gì.",
+      "examples": [
+        {
+          "jp": "病気がよくなって、何でも食べられるようになりました。",
+          "vi": "Bệnh đã đỡ nên tôi đã có thể ăn mọi thứ."
+        },
+        {
+          "jp": "しゅうしょくしてから、友だちにあまり会えなくなりました。",
+          "vi": "Sau khi đi làm, tôi không còn gặp bạn bè thường xuyên được nữa."
+        }
+      ]
+    }
+  ]
+}

@@ -270,5 +270,231 @@
     }
   ],
   "verbs": [],
-  "quiz": []
+  "quiz": [
+    {
+      "id": 1,
+      "category": "Ngữ pháp: ～と思います",
+      "q": "お祝いは パーティーが [____] と 思います。",
+      "options": [
+        "よく",
+        "いいだ",
+        "よかったに",
+        "いい"
+      ],
+      "correct": 3,
+      "explain": "Tính từ い giữ nguyên trước と思います: いいと思います = tôi nghĩ là tốt/phù hợp; tự nó không có nghĩa so sánh nhất.",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 2,
+      "category": "Ngữ pháp: ～と思います",
+      "q": "プレゼントを あげたら、きっと [____] と 思います。",
+      "options": [
+        "喜ぶ",
+        "喜び",
+        "喜んで",
+        "喜ばないで"
+      ],
+      "correct": 0,
+      "explain": "Động từ thể Từ điển (Thể thông thường) + と思います ➔ 「喜ぶと思います」 (Tôi nghĩ bạn ấy sẽ vui).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 3,
+      "category": "Ngữ pháp & giao tiếp",
+      "q": "「Anh Abe nói muốn trò chuyện với mọi người」: 阿部さんはみんなと [____] と言っていました。",
+      "options": [
+        "話します",
+        "話して",
+        "話したい",
+        "話したかったに"
+      ],
+      "correct": 2,
+      "explain": "話したい = muốn nói chuyện. Trích dẫn thông thường dùng 話したいと言っていました; không coi mọi trích dẫn thể lịch sự là sai.",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 4,
+      "category": "Từ vựng: Động từ mặc trang phục",
+      "q": "田中さんは きれいな 着物を [____] います。",
+      "options": [
+        "着て (きて)",
+        "履いて (はいて)",
+        "被って (かぶって)",
+        "掛けて (かけて)"
+      ],
+      "correct": 0,
+      "explain": "Kimono mặc trên thân người dùng động từ 「着ます」 ➔ 「着ています」.",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 5,
+      "category": "Từ vựng: Động từ đi giày/quần",
+      "q": "新しい スニーカーを [____] います。",
+      "options": [
+        "着て (きて)",
+        "被って (かぶって)",
+        "掛けて (かけて)",
+        "履いて (はいて)"
+      ],
+      "correct": 3,
+      "explain": "Giày dép, quần tất ở phần thân dưới dùng động từ 「履きます」 ➔ 「履いています」.",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 6,
+      "category": "Từ vựng: Đội mũ",
+      "q": "白い 帽子を [____] います。",
+      "options": [
+        "着て (きて)",
+        "被って (かぶって)",
+        "履いて (はいて)",
+        "掛けて (かけて)"
+      ],
+      "correct": 1,
+      "explain": "Mũ nón trên đầu dùng động từ 「被ります」 (かぶります) ➔ 「被っています」.",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 7,
+      "category": "Từ vựng: Đeo kính",
+      "q": "黒い 眼鏡を [____] います。",
+      "options": [
+        "着て (きて)",
+        "掛けて (かけて)",
+        "履いて (はいて)",
+        "被って (かぶって)"
+      ],
+      "correct": 1,
+      "explain": "Kính mắt dùng động từ 「掛けます」 (かけます) ➔ 「掛けています」.",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 8,
+      "category": "Giao tiếp: Chúc mừng đám cưới",
+      "q": "Lời chúc mừng đám cưới trang trọng nhất trong tiếng Nhật là:",
+      "options": [
+        "お大事に！",
+        "いってらっしゃい！",
+        "ごちそうさまでした！",
+        "ご結婚、おめでとうございます！"
+      ],
+      "correct": 3,
+      "explain": "「ご結婚、おめでとうございます！」 nghĩa là Xin chúc mừng đám cưới của bạn!",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 9,
+      "category": "Từ vựng: Thời gian",
+      "q": "「きょねん」 (Năm ngoái) được viết bằng cặp chữ Hán nào?",
+      "options": [
+        "今年",
+        "去年",
+        "来年",
+        "先年"
+      ],
+      "correct": 1,
+      "explain": "Năm ngoái là 「去年」 (KHỨ NIÊN).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 10,
+      "category": "Từ vựng: Thời gian",
+      "q": "「らいねん」 (Năm sau) được viết bằng cặp chữ Hán nào?",
+      "options": [
+        "今年",
+        "去年",
+        "来年",
+        "先年"
+      ],
+      "correct": 2,
+      "explain": "Năm sau là 「来年」 (LAI NIÊN).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 11,
+      "category": "Chữ Hán Bài 18: 思 (Tư)",
+      "q": "Động từ 「おもいます」 (Suy nghĩ, cho là) có chữ Hán là:",
+      "options": [
+        "言います",
+        "行きます",
+        "思います",
+        "話します"
+      ],
+      "correct": 2,
+      "explain": "「おもいます」 viết là 「思います」 (chữ TƯ - 9 nét, bộ Điền 田 + bộ Tâm 心).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 12,
+      "category": "Chữ Hán Bài 18: 先 (Tiên)",
+      "q": "Từ 「せんしゅう」 (Tuần trước) có chữ Hán đầu tiên là:",
+      "options": [
+        "先",
+        "今",
+        "来",
+        "去"
+      ],
+      "correct": 0,
+      "explain": "「せんしゅう」 là 「先週」 (TIÊN CHU - chữ 先 có 6 nét).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 13,
+      "category": "Chữ Hán Bài 18: 今 (Kim)",
+      "q": "Từ 「ことし」 (Năm nay) có chữ Hán đầu tiên là:",
+      "options": [
+        "先",
+        "今",
+        "来",
+        "去"
+      ],
+      "correct": 1,
+      "explain": "「ことし」 viết là 「今年」 (KIM NIÊN - chữ 今 có 4 nét).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 14,
+      "category": "Chữ Hán Bài 18: 家 (Gia)",
+      "q": "Từ 「かぞく」 (Gia đình) có chữ Hán đầu tiên là:",
+      "options": [
+        "思",
+        "先",
+        "家",
+        "来"
+      ],
+      "correct": 2,
+      "explain": "「かぞく」 viết là 「家族」 (GIA TỘC - chữ 家 có 10 nét).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 15,
+      "category": "Chữ Hán Bài 18: 着 (Trước)",
+      "q": "Từ 「きもの」 (Trang phục truyền thống Kimono) viết chữ Hán là:",
+      "options": [
+        "履物",
+        "被物",
+        "掛物",
+        "着物"
+      ],
+      "correct": 3,
+      "explain": "Kimono viết chữ Hán là 「着物」 (TRƯỚC VẬT - chữ 着 12 nét và chữ 物 8 nét).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    }
+  ]
 }

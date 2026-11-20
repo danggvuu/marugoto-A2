@@ -438,5 +438,231 @@
     }
   ],
   "verbs": [],
-  "quiz": []
+  "quiz": [
+    {
+      "id": 1,
+      "category": "Ngữ pháp & giao tiếp",
+      "q": "Nhìn bát ramen và đoán có vẻ ngon: このラーメンは [____] ですね。",
+      "options": [
+        "おいしそう",
+        "おいしくそう",
+        "おいしいだそう",
+        "おいしなそう"
+      ],
+      "correct": 0,
+      "explain": "Dạng vẻ ngoài: おいしい bỏ い + そう. おいしいそうです là mẫu truyền đạt nghe nói khác, không phải lỗi chia của mẫu này.",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 2,
+      "category": "Ngữ pháp: ～そう",
+      "q": "スープが 赤いですから、ちょっと [____] ですね。",
+      "options": [
+        "からいそう",
+        "からくそう",
+        "からだそう",
+        "からそう"
+      ],
+      "correct": 3,
+      "explain": "からい ➔ bỏ い thêm そう thành 「からそう」 (Trông có vẻ cay).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 3,
+      "category": "Ngữ pháp & giao tiếp",
+      "q": "Nối hai tính từ bằng thể て: このサラダは ちょっと [____]、おいしいです。（からい）",
+      "options": [
+        "からいで",
+        "からなで",
+        "からくて",
+        "からいくて"
+      ],
+      "correct": 2,
+      "explain": "からい → からくて. からいから và からくても tạo nghĩa khác nhưng không phải sai ngữ pháp nói chung.",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 4,
+      "category": "Từ vựng: Vị giác",
+      "q": "レモンは どんな 味ですか。―― とても [____] です。",
+      "options": [
+        "あまい",
+        "すっぱい",
+        "にがい",
+        "しょっぱい"
+      ],
+      "correct": 1,
+      "explain": "Quả chanh (レモン) thì có vị chua là 「すっぱい」.",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 5,
+      "category": "Từ vựng: Vị giác",
+      "q": "ケーキや チョコレートは [____] です。",
+      "options": [
+        "からい",
+        "すっぱい",
+        "あまい",
+        "まずい"
+      ],
+      "correct": 2,
+      "explain": "Bánh ngọt và sô-cô-la có vị ngọt là 「あまい」.",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 6,
+      "category": "Từ vựng: Vị giác",
+      "q": "しおが たくさん 入っていますから、とても [____] です。",
+      "options": [
+        "すっぱい",
+        "にがい",
+        "あまい",
+        "しょっぱい"
+      ],
+      "correct": 3,
+      "explain": "Cho nhiều muối (しお) thì món ăn sẽ bị mặn muối là 「しょっぱい」.",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 7,
+      "category": "Ngữ pháp & giao tiếp",
+      "q": "日本のすしは 韓国のキンパ [____] 似ています。",
+      "options": [
+        "と",
+        "を",
+        "で",
+        "へ"
+      ],
+      "correct": 0,
+      "explain": "Nと似ています có trong chủ điểm giao tiếp của bài. Nに似ています cũng đúng; không dùng に làm phương án sai.",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 8,
+      "category": "Ngữ pháp: Mẫu câu kinh nghiệm",
+      "q": "あなたは 納豆を [____] ことがありますか。",
+      "options": [
+        "食べる",
+        "食べた",
+        "食べ",
+        "食べて"
+      ],
+      "correct": 1,
+      "explain": "Cấu trúc hỏi trải nghiệm kinh nghiệm trong quá khứ là: V-た ことがありますか ➔ 「食べたことがありますか」.",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 9,
+      "category": "Giao tiếp: Mời ăn",
+      "q": "Khi muốn lịch sự mời bạn bè dùng thử món ăn của mình, ta nói:",
+      "options": [
+        "ごちそうさまでした",
+        "よかったら、どうぞ",
+        "お邪魔します",
+        "失礼します"
+      ],
+      "correct": 1,
+      "explain": "「よかったら、どうぞ」 nghĩa là 'Nếu được xin mời bạn cứ tự nhiên dùng'.",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 10,
+      "category": "Giao tiếp: Đáp lại lời mời",
+      "q": "Khi nhận món ăn người khác mời, câu chào trước khi ăn là:",
+      "options": [
+        "ごちそうさま",
+        "お疲れ様",
+        "いただきます",
+        "どういたしまして"
+      ],
+      "correct": 2,
+      "explain": "いただきます là lời thường nói trước bữa ăn để bày tỏ sự trân trọng, không phải quy định bắt buộc trong mọi tình huống.",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 11,
+      "category": "Chữ Hán Bài 12: 料 (Liệu)",
+      "q": "Chữ Hán 「料」 trong từ 「料理 (りょうり)」 có âm Hán Việt là:",
+      "options": [
+        "LIỆU",
+        "LÝ",
+        "KHOA",
+        "VỊ"
+      ],
+      "correct": 0,
+      "explain": "Chữ 料 có âm Hán Việt là LIỆU (10 nét), mang nghĩa nguyên liệu, vật liệu.",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 12,
+      "category": "Chữ Hán Bài 12: 理 (Lý)",
+      "q": "Chữ Hán nào kết hợp với 「料」 để tạo thành từ 「りょうり」 (Món ăn)?",
+      "options": [
+        "野",
+        "菜",
+        "味",
+        "理"
+      ],
+      "correct": 3,
+      "explain": "「料理」 gồm chữ LIỆU (料) và chữ LÝ (理 - 11 nét).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 13,
+      "category": "Chữ Hán Bài 12: 味 (Vị)",
+      "q": "Từ 「あじ」 (Mùi vị) được viết bằng chữ Hán là:",
+      "options": [
+        "味",
+        "色",
+        "少",
+        "菜"
+      ],
+      "correct": 0,
+      "explain": "「あじ」 viết bằng chữ Hán là 「味」 (VỊ - 8 nét, gồm bộ Khẩu 口 và chữ Mùi 未).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 14,
+      "category": "Chữ Hán Bài 12: 野 & 菜",
+      "q": "Từ 「やさい」 (Rau xanh, rau củ) được viết bằng cặp chữ Hán nào?",
+      "options": [
+        "料理",
+        "風味",
+        "少色",
+        "野菜"
+      ],
+      "correct": 3,
+      "explain": "「やさい」 viết Hán tự là 「野菜」 (DÃ THÁI).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 15,
+      "category": "Chữ Hán Bài 12: 少 (Thiểu)",
+      "q": "Từ 「すこし」 (Một chút, một ít) có chữ Hán là:",
+      "options": [
+        "多し",
+        "少し",
+        "小さし",
+        "高し"
+      ],
+      "correct": 1,
+      "explain": "「すこし」 viết chữ Hán là 「少し」 (chữ THIỂU - 4 nét).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    }
+  ]
 }

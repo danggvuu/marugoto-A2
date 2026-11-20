@@ -21,7 +21,7 @@ for (const file of (await readdir(sourceDir)).filter(name => /^lesson_(?:a2_2_)?
     level, lesson,
     vocab: extractArray(source, 'VOCAB_DATA'),
     verbs: extractArray(source, 'VERB_DATA'),
-    quiz: extractArray(source, 'QUIZ_DATA'),
+    quiz: extractArray(source, /(?:const|let|var) QUIZ_DATA\s*=/.test(source) ? 'QUIZ_DATA' : 'QUIZ_QUESTIONS'),
   };
   await writeFile(path.join(outputDir, `${level.toLowerCase().replace('-', '_')}_${String(lesson).padStart(2, '0')}.json`), `${JSON.stringify(data, null, 2)}\n`);
 }

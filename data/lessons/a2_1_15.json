@@ -802,5 +802,231 @@
     }
   ],
   "verbs": [],
-  "quiz": []
+  "quiz": [
+    {
+      "id": 1,
+      "category": "Ngữ pháp & giao tiếp",
+      "q": "Giải thích triệu chứng bằng ～んです: 頭が [____]。",
+      "options": [
+        "痛いだんです",
+        "痛いんです",
+        "痛くなんです",
+        "痛いなんです"
+      ],
+      "correct": 1,
+      "explain": "Tính từ い giữ nguyên trước んです. 痛いです cũng là câu đúng; chỉ khác cách trình bày.",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 2,
+      "category": "Ngữ pháp: V-るといいですよ",
+      "q": "寝る 前に、この 薬を [____] と いいですよ。",
+      "options": [
+        "飲んだ",
+        "飲む",
+        "飲んで",
+        "飲み"
+      ],
+      "correct": 1,
+      "explain": "Mẫu câu khuyên bảo nhẹ nhàng: V-る (thể từ điển) + といいですよ ➔ 「飲むといいですよ」.",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 3,
+      "category": "Ngữ pháp: V-ないでください",
+      "q": "熱が ありますから、あまり 無理を [____] ください。",
+      "options": [
+        "しないで",
+        "しなくて",
+        "するな",
+        "しまないで"
+      ],
+      "correct": 0,
+      "explain": "Mẫu câu dặn dò đừng làm gì: V-ない + でください: します ➔ 「しないでください」 (Đừng làm quá sức nhé).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 4,
+      "category": "Từ vựng: Cơ thể",
+      "q": "物や 人を 見る ための 身体の 部分は [____] です。",
+      "options": [
+        "目 (め)",
+        "耳 (みみ)",
+        "口 (くち)",
+        "鼻 (はな)"
+      ],
+      "correct": 0,
+      "explain": "Bộ phận để nhìn là con mắt: 「目」 (め).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 5,
+      "category": "Từ vựng: Cơ thể",
+      "q": "音や 音楽を 聞く ための 身体の 部分は [____] です。",
+      "options": [
+        "目 (め)",
+        "手 (て)",
+        "足 (あし)",
+        "耳 (みみ)"
+      ],
+      "correct": 3,
+      "explain": "Bộ phận để nghe là cái tai: 「耳」 (みみ).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 6,
+      "category": "Ngữ pháp & giao tiếp",
+      "q": "「熱がある」 diễn tả điều gì?",
+      "options": [
+        "Bị say xe.",
+        "Bị đau chân.",
+        "Bị sốt.",
+        "Buồn ngủ."
+      ],
+      "correct": 2,
+      "explain": "熱がある = bị sốt. Đây là bài từ vựng, không dùng một ngưỡng nhiệt độ để thay cho đánh giá y khoa.",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 7,
+      "category": "Từ vựng: Khó chịu",
+      "q": "車に 酔って 吐き気が するときは 「[____]」 と 言います。",
+      "options": [
+        "気持ちが いい",
+        "頭が いい",
+        "気持ちが 悪い",
+        "足が 速い"
+      ],
+      "correct": 2,
+      "explain": "Buồn nôn, khó chịu nôn nao trong người là 「気持ちが悪い」 (きもちがわるい).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 8,
+      "category": "Giao tiếp: Chúc bình phục",
+      "q": "Khi nghe người khác bị ốm hoặc mệt, câu chúc mau khỏi bệnh quen thuộc là:",
+      "options": [
+        "ごちそうさまでした",
+        "お邪魔します",
+        "お大事に (おだいじに)",
+        "失礼します"
+      ],
+      "correct": 2,
+      "explain": "Câu chúc mau khỏi bệnh: 「お大事に」 (Chúc bạn mau khỏe lại nhé!).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 9,
+      "category": "Từ vựng: Khám bệnh",
+      "q": "かぜを ひいたので [____] へ 行って 薬を もらいます。",
+      "options": [
+        "美容院 (びよういん)",
+        "郵便局",
+        "空港",
+        "病院 (びょういん)"
+      ],
+      "correct": 3,
+      "explain": "Bị cảm cúm thì đi bệnh viện khám lấy thuốc: 「病院」 (びょういん).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 10,
+      "category": "Từ vựng: Cơ thể",
+      "q": "手を 上に あげるときに 動く 部分は [____] です。",
+      "options": [
+        "肩 (かた)",
+        "腰 (こし)",
+        "足 (あし)",
+        "お腹 (おなか)"
+      ],
+      "correct": 0,
+      "explain": "Bờ vai là 「肩」 (かた).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 11,
+      "category": "Chữ Hán Bài 15: 体 (Thể)",
+      "q": "Chữ Hán 「体」 trong 「からだ」 có bao nhiêu nét viết?",
+      "options": [
+        "5 nét",
+        "6 nét",
+        "7 nét",
+        "8 nét"
+      ],
+      "correct": 2,
+      "explain": "Chữ 体 (THỂ) có 7 nét, gồm bộ Nhân đứng 亻 (2 nét) và chữ Bổn 本 (5 nét).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 12,
+      "category": "Chữ Hán Bài 15: 頭 (Đầu)",
+      "q": "Chữ Hán của từ 「あたま」 (Cái đầu) là:",
+      "options": [
+        "頭",
+        "顔",
+        "首",
+        "体"
+      ],
+      "correct": 0,
+      "explain": "「あたま」 có chữ Hán là 「頭」 (ĐẦU - 16 nét).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 13,
+      "category": "Chữ Hán Bài 15: 目 & 口",
+      "q": "Hai chữ Hán 「目」 và 「口」 lần lượt có số nét là:",
+      "options": [
+        "4 nét và 3 nét",
+        "5 nét và 4 nét",
+        "6 nét và 3 nét",
+        "5 nét và 3 nét"
+      ],
+      "correct": 3,
+      "explain": "Chữ 目 (MỤC) có 5 nét; chữ 口 (KHẨU) có 3 nét.",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 14,
+      "category": "Chữ Hán Bài 15: 手 & 足",
+      "q": "Cặp từ 「て」 (Bàn tay) và 「あし」 (Bàn chân) được viết là:",
+      "options": [
+        "毛 và 是",
+        "耳 và 目",
+        "上 và 下",
+        "手 và 足"
+      ],
+      "correct": 3,
+      "explain": "Bàn tay là 「手」 (THỦ - 4 nét), bàn chân là 「足」 (TÚC - 7 nét).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    },
+    {
+      "id": 15,
+      "category": "Chữ Hán Bài 15: 上 & 下",
+      "q": "Hai chữ Hán đối lập vị trí 「うえ」 và 「した」 là:",
+      "options": [
+        "左 và 右",
+        "上 và 下",
+        "前 và 後",
+        "大 và 小"
+      ],
+      "correct": 1,
+      "explain": "Bên trên là 「上」 (THƯỢNG - 3 nét); bên dưới là 「下」 (HẠ - 3 nét).",
+      "reviewVersion": "content-2026-11-16",
+      "origin": "project-authored"
+    }
+  ]
 }
