@@ -189,6 +189,30 @@
 
         document.body.appendChild(rail);
 
+        // Tạo phần tử morphing glider lướt mượt mà giữa Top Capsule và Right Dock
+        let glider = document.getElementById('lessonMorphGlider');
+        if (!glider) {
+            glider = document.createElement('div');
+            glider.id = 'lessonMorphGlider';
+            glider.className = 'lesson-morph-glider';
+            glider.setAttribute('aria-hidden', 'true');
+            document.body.appendChild(glider);
+        }
+
+        const macosBox = rail.querySelector('.macos-sidebar-box');
+        const railLinks = Array.from(rail.querySelectorAll('.lesson-rail-link'));
+
+        // Cài đặt độ trễ xuất hiện tầng bậc (stagger) cho các mục trên thanh dock
+        railLinks.forEach((link, idx) => {
+            link.style.transitionDelay = `${0.06 + idx * 0.035}s`;
+        });
+        const headerDots = rail.querySelector('.macos-sidebar-header');
+        if (headerDots) headerDots.style.transitionDelay = '0.02s';
+        const progressWrap = rail.querySelector('.dock-progress-wrapper');
+        if (progressWrap) progressWrap.style.transitionDelay = '0.04s';
+        const footerBtn = rail.querySelector('.macos-sidebar-footer');
+        if (footerBtn) footerBtn.style.transitionDelay = `${0.06 + railLinks.length * 0.035}s`;
+
         // 3. Khôi phục trạng thái thu gọn từ localStorage
         const isCollapsedSaved = localStorage.getItem('marugoto_rail_collapsed') === 'true';
         if (isCollapsedSaved) {
@@ -196,9 +220,10 @@
             document.body.classList.add('rail-collapsed');
         }
 
-        // Sự kiện nút thu gọn / mở rộng
-        const toggleBtn = rail.querySelector('#btnToggleSidebarRail');
+        // Sự kiện nút thu gọn / mở rộng (nút riêng hoặc chấm đỏ macOS)
+        const toggleBtn = rail.querySelector('#btnToggleSidebarRail') || rail.querySelector('.macos-dot-red');
         if (toggleBtn) {
+            toggleBtn.style.cursor = 'pointer';
             toggleBtn.addEventListener('click', (e) => {
                 e.preventDefault();
                 const isCollapsed = rail.classList.toggle('is-collapsed');
@@ -233,7 +258,6 @@
         }
 
         // 4. Đồng bộ click cuộn mượt và highlight
-        const railLinks = Array.from(rail.querySelectorAll('.lesson-rail-link'));
         railLinks.forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -285,20 +309,167 @@
             });
         }
 
-        // 5. ScrollSpy thông minh theo vị trí cuộn trang & Morphing Dock
+        // 5. CƠ CHẾ BIẾN ĐỔI CHUYỂN ĐỘNG LIÊN TỤC (1MS Taekwondo FLIP Spring Morphing)
+        // Thông số vật lý Framer Motion thu được từ phân tích kỹ nghệ đảo ngược:
+        // Spring: stiffness = 170, damping = 24, mass = 1 (zeta = 0.9204, settling ~650ms)
+        const SPRING_LINEAR_EASE = 'linear(0.0000, 0.0290, 0.0991, 0.1908, 0.2911, 0.3911, 0.4858, 0.5719, 0.6483, 0.7144, 0.7706, 0.8177, 0.8567, 0.8885, 0.9141, 0.9346, 0.9508, 0.9635, 0.9733, 0.9808, 0.9864, 0.9907, 0.9938, 0.9961, 0.9977, 0.9988, 0.9996, 1.0001, 1.0004, 1.0005, 1.0006)';
+        const SPRING_BEZIER_FALLBACK = 'cubic-bezier(0.16, 1, 0.3, 1)';
+
+        let activeSpringEase = SPRING_BEZIER_FALLBACK;
+        try {
+            const testEl = document.createElement('div');
+            const testAnim = testEl.animate([], { easing: SPRING_LINEAR_EASE });
+            if (testAnim) activeSpringEase = SPRING_LINEAR_EASE;
+        } catch (e) {
+            activeSpringEase = SPRING_BEZIER_FALLBACK;
+        }
+
+        let activeAnimation = null;
+        let isDockedState = false;
+        let isInitialized = false;
+
+        function triggerMorph(toDock, immediate) {
+            if (immediate) {
+                if (activeAnimation) {
+                    activeAnimation.cancel();
+                    activeAnimation = null;
+                }
+                document.body.classList.remove('is-morphing-dock', 'is-morphing-top');
+                glider.classList.remove('is-active');
+                glider.style.transform = 'none';
+                if (toDock) {
+                    document.body.classList.add('is-scrolled-dock');
+                } else {
+                    document.body.classList.remove('is-scrolled-dock');
+                }
+                return;
+            }
+
+            const isDesktop = window.innerWidth >= 1100;
+            if (!isDesktop) return;
+
+            const navRect = sectionNav.getBoundingClientRect();
+            const dockRect = macosBox.getBoundingClientRect();
+
+            let fromRect, targetRect, fromRadius, targetRadius;
+
+            if (toDock) {
+                // Top Capsule -> Right Dock
+                if (activeAnimation) {
+                    fromRect = glider.getBoundingClientRect();
+                    fromRadius = getComputedStyle(glider).borderRadius || '9999px';
+                    activeAnimation.cancel();
+                    activeAnimation = null;
+                } else {
+                    fromRect = navRect;
+                    fromRadius = '9999px';
+                }
+                targetRect = dockRect;
+                targetRadius = '28px';
+
+                document.body.classList.add('is-scrolled-dock');
+                document.body.classList.add('is-morphing-dock');
+                document.body.classList.remove('is-morphing-top');
+            } else {
+                // Right Dock -> Top Capsule
+                if (activeAnimation) {
+                    fromRect = glider.getBoundingClientRect();
+                    fromRadius = getComputedStyle(glider).borderRadius || '28px';
+                    activeAnimation.cancel();
+                    activeAnimation = null;
+                } else {
+                    fromRect = dockRect;
+                    fromRadius = '28px';
+                }
+                targetRect = navRect;
+                targetRadius = '9999px';
+
+                document.body.classList.remove('is-scrolled-dock');
+                document.body.classList.add('is-morphing-top');
+                document.body.classList.remove('is-morphing-dock');
+            }
+
+            // Thiết lập vị trí ban đầu của phần tử morphing glider
+            glider.style.left = fromRect.left + 'px';
+            glider.style.top = fromRect.top + 'px';
+            glider.style.width = fromRect.width + 'px';
+            glider.style.height = fromRect.height + 'px';
+            glider.style.borderRadius = fromRadius;
+            glider.style.transform = 'translate3d(0, 0, 0)';
+            glider.classList.add('is-active');
+
+            const deltaX = targetRect.left - fromRect.left;
+            const deltaY = targetRect.top - fromRect.top;
+
+            const keyframes = [
+                {
+                    transform: 'translate3d(0, 0, 0)',
+                    width: `${fromRect.width}px`,
+                    height: `${fromRect.height}px`,
+                    borderRadius: fromRadius,
+                    opacity: 1
+                },
+                {
+                    transform: `translate3d(${deltaX}px, ${deltaY}px, 0)`,
+                    width: `${targetRect.width}px`,
+                    height: `${targetRect.height}px`,
+                    borderRadius: targetRadius,
+                    opacity: 1
+                }
+            ];
+
+            try {
+                activeAnimation = glider.animate(keyframes, {
+                    duration: 650,
+                    easing: activeSpringEase,
+                    fill: 'forwards'
+                });
+
+                activeAnimation.onfinish = () => {
+                    activeAnimation = null;
+                    document.body.classList.remove('is-morphing-dock', 'is-morphing-top');
+                    glider.classList.remove('is-active');
+                    glider.style.transform = 'none';
+                };
+            } catch (err) {
+                activeAnimation = null;
+                document.body.classList.remove('is-morphing-dock', 'is-morphing-top');
+                glider.classList.remove('is-active');
+                glider.style.transform = 'none';
+            }
+        }
+
+        // 6. ScrollSpy thông minh theo vị trí cuộn trang & Morphing Dock
+        const DOCK_THRESHOLD = 140;
+        const UNDOCK_THRESHOLD = 100;
         let isTicking = false;
+
         function updateScrollSpy() {
             const scrollPos = window.scrollY + 110;
             const docHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
             const winHeight = window.innerHeight;
-
-            // Cập nhật trạng thái chuyển đổi giữa Top Island và Right Dock (1MS Taekwondo Morphing)
-            const isScrolled = window.scrollY > 140;
             const isDesktop = window.innerWidth >= 1100;
-            if (isScrolled && isDesktop) {
-                document.body.classList.add('is-scrolled-dock');
+
+            // Xử lý chuyển đổi giữa Top Capsule và Right Dock với ngưỡng trễ (Hysteresis)
+            if (isDesktop) {
+                if (!isInitialized) {
+                    isInitialized = true;
+                    isDockedState = window.scrollY > DOCK_THRESHOLD;
+                    triggerMorph(isDockedState, true);
+                } else {
+                    if (!isDockedState && window.scrollY > DOCK_THRESHOLD) {
+                        isDockedState = true;
+                        triggerMorph(true);
+                    } else if (isDockedState && window.scrollY < UNDOCK_THRESHOLD) {
+                        isDockedState = false;
+                        triggerMorph(false);
+                    }
+                }
             } else {
-                document.body.classList.remove('is-scrolled-dock');
+                if (isDockedState || document.body.classList.contains('is-scrolled-dock')) {
+                    isDockedState = false;
+                    triggerMorph(false, true);
+                }
             }
 
             // Cập nhật vòng tròn tiến độ cuộn (Circular Scroll Progress)
@@ -347,6 +518,14 @@
             setActive(currentHref);
             savePosition(currentHref);
         }
+
+        window.addEventListener('resize', () => {
+            const isDesktop = window.innerWidth >= 1100;
+            if (!isDesktop && isDockedState) {
+                isDockedState = false;
+                triggerMorph(false, true);
+            }
+        }, { passive: true });
 
         function savePosition(href) {
             if (!href || !href.startsWith('#sec-')) return;

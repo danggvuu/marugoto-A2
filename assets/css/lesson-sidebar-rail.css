@@ -51,21 +51,56 @@ body {
     overflow-x: auto !important;
     scrollbar-width: none !important;
     white-space: nowrap !important;
-    transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    transition: opacity 0.28s cubic-bezier(0.22, 1, 0.36, 1) !important;
 }
 
 .section-nav::-webkit-scrollbar {
     display: none !important;
 }
 
-/* Khi cuộn xuống trên desktop (>= 1100px): Top capsule lướt nhẹ lên và nhường chỗ cho Right Dock */
+/* Khi cuộn xuống trên desktop (>= 1100px) hoặc khi đang biến đổi morphing: Top capsule mờ dần nhường chỗ cho glider */
 @media (min-width: 1100px) {
-    body.is-scrolled-dock .section-nav {
+    body.is-scrolled-dock .section-nav,
+    body.is-morphing-dock .section-nav,
+    body.is-morphing-top .section-nav {
         opacity: 0 !important;
         pointer-events: none !important;
-        transform: translateY(-20px) scale(0.95) !important;
     }
+}
+
+/* 2b. Phần tử biến đổi chuyển động liên tục (Morphing Glider Capsule kiểu 1MS Taekwondo) */
+.lesson-morph-glider {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    z-index: 925 !important;
+    pointer-events: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    background: rgba(255, 255, 255, 0.85) !important;
+    backdrop-filter: blur(24px) saturate(190%) !important;
+    -webkit-backdrop-filter: blur(24px) saturate(190%) !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.95) !important;
+    border-radius: 9999px !important;
+    box-shadow: 0 16px 40px -8px rgba(15, 23, 42, 0.12),
+                0 4px 12px rgba(15, 23, 42, 0.05) !important;
+    box-sizing: border-box !important;
+    transform-origin: top left !important;
+    will-change: transform, width, height, border-radius, opacity !important;
+}
+
+.lesson-morph-glider::before {
+    content: '' !important;
+    position: absolute !important;
+    inset: 0 !important;
+    border-radius: inherit !important;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.08) 100%) !important;
+    pointer-events: none !important;
+}
+
+.lesson-morph-glider.is-active {
+    opacity: 1 !important;
+    visibility: visible !important;
 }
 
 .sec-link {
@@ -108,24 +143,46 @@ body {
     pointer-events: none !important;
     opacity: 0 !important;
     visibility: hidden !important;
-    transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-                visibility 0.35s ease !important;
+    transition: opacity 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+                visibility 0.28s ease !important;
 }
 
 @media (min-width: 1100px) {
-    body.is-scrolled-dock .lesson-sidebar-rail {
+    body.is-scrolled-dock:not(.is-morphing-dock):not(.is-morphing-top) .lesson-sidebar-rail {
         opacity: 1 !important;
         pointer-events: auto !important;
         visibility: visible !important;
-        transform: translateY(-50%) scale(1) !important;
+        transform: translateY(-50%) !important;
     }
 
-    body:not(.is-scrolled-dock) .lesson-sidebar-rail {
+    body:not(.is-scrolled-dock) .lesson-sidebar-rail,
+    body.is-morphing-dock .lesson-sidebar-rail,
+    body.is-morphing-top .lesson-sidebar-rail {
         opacity: 0 !important;
         pointer-events: none !important;
         visibility: hidden !important;
-        transform: translateY(calc(-50% - 24px)) scale(0.92) !important;
+        transform: translateY(-50%) !important;
+    }
+
+    /* Hiệu ứng xuất hiện tầng bậc (stagger) tinh tế của các icon dock khi cập bến */
+    .lesson-sidebar-rail .macos-sidebar-header,
+    .lesson-sidebar-rail .dock-progress-wrapper,
+    .lesson-sidebar-rail .lesson-rail-link,
+    .lesson-sidebar-rail .macos-sidebar-footer {
+        transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                    opacity 0.28s cubic-bezier(0.22, 1, 0.36, 1) !important;
+    }
+
+    body:not(.is-scrolled-dock) .lesson-sidebar-rail .lesson-rail-link,
+    body.is-morphing-dock .lesson-sidebar-rail .lesson-rail-link,
+    body.is-morphing-top .lesson-sidebar-rail .lesson-rail-link {
+        transform: scale(0.88) translateX(10px) !important;
+        opacity: 0 !important;
+    }
+
+    body.is-scrolled-dock:not(.is-morphing-dock):not(.is-morphing-top) .lesson-sidebar-rail .lesson-rail-link {
+        transform: scale(1) translateX(0) !important;
+        opacity: 1 !important;
     }
 }
 
