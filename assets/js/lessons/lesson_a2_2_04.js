@@ -397,9 +397,9 @@ const QUIZ_DATA = [
     "q": "Từ Kanji 「ご飯」 có cách đọc nào?",
     "options": [
       "しお",
-      "ぜんぶ",
+      "すべて",
       "ごはん",
-      "あんぜん"
+      "ぜんぜん"
     ],
     "correct": 2,
     "explain": "ご飯 đọc là 「ごはん」 theo danh sách Kanji chính thức của bài học này.",
@@ -437,9 +437,9 @@ const QUIZ_DATA = [
     "q": "Từ Kanji 「塩」 có nghĩa là gì?",
     "options": [
       "Muối",
-      "Tất cả, toàn bộ",
-      "An toàn",
-      "Nóng"
+      "Tất cả (lịch sự)",
+      "Hoàn toàn (không)",
+      "Tất cả, toàn bộ"
     ],
     "correct": 0,
     "explain": "塩 nghĩa là Muối.",
@@ -448,16 +448,16 @@ const QUIZ_DATA = [
   {
     "id": 10,
     "category": "Chữ Hán",
-    "q": "Từ Kanji 「全部」 có cách đọc nào?",
+    "q": "Từ Kanji 「全て」 có cách đọc nào?",
     "options": [
-      "すべて",
       "ぜんぜん",
       "ぜんぶ",
-      "あつい"
+      "すべて",
+      "あんぜん"
     ],
     "correct": 2,
-    "explain": "全部 đọc là 「ぜんぶ」 theo danh sách Kanji chính thức của bài học này.",
-    "scopeKanji": "全部"
+    "explain": "全て đọc là 「すべて」 theo danh sách Kanji chính thức của bài học này.",
+    "scopeKanji": "全て"
   },
   {
     "id": 11,
@@ -489,16 +489,16 @@ const QUIZ_DATA = [
   {
     "id": 13,
     "category": "Chữ Hán",
-    "q": "Từ Kanji 「苦手」 có nghĩa là gì?",
+    "q": "Từ Kanji 「全然」 có nghĩa là gì?",
     "options": [
-      "Muối",
+      "Tất cả, toàn bộ",
       "An toàn",
       "Nóng",
-      "Kém, yếu, không hợp, sợ"
+      "Hoàn toàn (không)"
     ],
     "correct": 3,
-    "explain": "苦手 nghĩa là Kém, yếu, không hợp, sợ.",
-    "scopeKanji": "苦手"
+    "explain": "全然 nghĩa là Hoàn toàn (không).",
+    "scopeKanji": "全然"
   },
   {
     "id": 14,

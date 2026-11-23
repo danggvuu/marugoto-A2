@@ -373,11 +373,11 @@ const QUIZ_DATA = [
     "options": [
       "おきゃくさん",
       "ちゅうもん",
-      "ようしょく",
-      "わしょく"
+      "ちゅうい",
+      "ようしょく"
     ],
     "correct": 0,
-    "explain": "お客さん đọc là 「おきゃくさん」 mang nghĩa Khách hàng.",
+    "explain": "お客さん đọc là 「おきゃくさん」 theo danh sách Kanji chính thức của bài học này.",
     "scopeKanji": "お客さん"
   },
   {
@@ -398,9 +398,9 @@ const QUIZ_DATA = [
     "category": "Chữ Hán",
     "q": "Từ Kanji 「注文」 có cách đọc nào?",
     "options": [
+      "ちゅうい",
       "ようしょく",
-      "わしょく",
-      "ぎゅうにく",
+      "ようふく",
       "ちゅうもん"
     ],
     "correct": 3,
@@ -424,16 +424,16 @@ const QUIZ_DATA = [
   {
     "id": 10,
     "category": "Chữ Hán",
-    "q": "Từ Kanji 「洋食」 có cách đọc nào?",
+    "q": "Từ Kanji 「注意」 có cách đọc nào?",
     "options": [
+      "ちゅうい",
       "ようしょく",
-      "わしょく",
-      "ぎゅうにく",
-      "ちほう"
+      "ようふく",
+      "わしょく"
     ],
     "correct": 0,
-    "explain": "洋食 đọc là 「ようしょく」 theo danh sách Kanji chính thức của bài học này.",
-    "scopeKanji": "洋食"
+    "explain": "注意 đọc là 「ちゅうい」 theo danh sách Kanji chính thức của bài học này.",
+    "scopeKanji": "注意"
   },
   {
     "id": 11,
@@ -464,16 +464,16 @@ const QUIZ_DATA = [
   {
     "id": 13,
     "category": "Chữ Hán",
-    "q": "Từ Kanji 「和食」 có nghĩa là gì?",
+    "q": "Từ Kanji 「洋食」 có nghĩa là gì?",
     "options": [
-      "Thịt bò",
+      "Quần áo kiểu Tây",
+      "Đồ ăn kiểu Tây",
       "Đồ ăn kiểu Nhật",
-      "Địa phương",
-      "Nổi tiếng"
+      "Quần áo kiểu Nhật"
     ],
     "correct": 1,
-    "explain": "和食 nghĩa là Đồ ăn kiểu Nhật.",
-    "scopeKanji": "和食"
+    "explain": "洋食 nghĩa là Đồ ăn kiểu Tây.",
+    "scopeKanji": "洋食"
   },
   {
     "id": 14,

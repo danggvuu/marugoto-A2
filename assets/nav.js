@@ -40,6 +40,7 @@
     ];
 
     const ALL_TESTS = [
+        { file: 'On_Tap_Mini_Test_A2_2_1_4.html', title: '🎯 Ôn Tập A2.2 Bài 1-4 (Mini Test)', desc: 'Chuyên đề 4 bài đầu A2.2: Ngữ pháp Nという意味, bổ nghĩa N, 〜そう, 〜ので, 〜てはいけません, 81 từ vựng, 49 Kanji', tag: 'A2.2 MỚI' },
         { file: 'Luyen_Kaiwa_5_Phut.html', title: '🎙️ Luyện Kaiwa Phỏng Vấn 5 Phút (4 Chủ Đề Cô Giáo)', desc: 'Mô phỏng thi vấn đáp: Sức khỏe, Thăm hỏi, Tiệc mừng & Đi Nhật', tag: 'HOT', isRootFile: true },
         { file: 'De_Thi_Tong_Hop_JLPT_A2_11_18.html', title: '🎯 Tổng Ôn Tập & Đề Thi Thử Bài 11 - 18 (Đề Gốc PDF & 5 Mã Đề)', desc: 'Chuẩn 100% De_on_tap_JLPT_A2_Bai_11-18.pdf + 5 mã đề thực chiến 71 câu', tag: 'Đề 11-18' },
         { file: 'De_Thi_Midterm_A2_1.html', title: '🎯 Bộ 5 Đề Thi Giữa Kỳ Midterm (M101 - M105)', desc: 'Bộ 5 đề thi chuẩn điểm 100 có tính giờ & chấm điểm', tag: 'Midterm' },

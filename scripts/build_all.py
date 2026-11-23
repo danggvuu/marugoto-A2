@@ -17,6 +17,7 @@ WORKSPACE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BUILDERS = [
     "scripts/build_lesson_content.py",
     "scripts/a2_2/build_all_a2_2.py",
+    "scripts/build_mini_test_a2_2_1_4.py",
     "scripts/build_mini_test_15_18.py",
     "scripts/build_mini_test_11_14.py",
     "scripts/build_cram_kanji_11_18.py",
