@@ -11,12 +11,18 @@ let isMeaningHidden = false;
 let userAnswers = {};
 
 // Switch Main Tabs
-function switchMainTab(tabId) {
+function switchMainTab(tabId, btn) {
     document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
 
-    document.getElementById(tabId).classList.add('active');
-    event.currentTarget.classList.add('active');
+    const panel = document.getElementById(tabId);
+    if (panel) panel.classList.add('active');
+    if (btn) {
+        btn.classList.add('active');
+    } else {
+        const found = document.querySelector(`.tab-btn[onclick*="${tabId}"]`);
+        if (found) found.classList.add('active');
+    }
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 

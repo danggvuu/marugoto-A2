@@ -790,9 +790,16 @@ function renderVocab(list) {
 
 function filterVocab(lesson, btn) {
     currentVocabFilter = lesson;
+    const allBtns = document.querySelectorAll('#vocabFilterGroup .filter-btn');
+    allBtns.forEach(b => b.classList.remove('active'));
     if (btn) {
-        btn.parentElement.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
+    } else {
+        const found = Array.from(allBtns).find(b => {
+            const oc = b.getAttribute('onclick') || '';
+            return oc.includes(`'${lesson}'`) || oc.includes(`"${lesson}"`);
+        });
+        if (found) found.classList.add('active');
     }
     applyVocabFilter();
     saveMiniCheckpoint();
@@ -974,9 +981,16 @@ function renderKanji(list) {
 
 function filterKanji(lesson, btn) {
     currentKanjiFilter = lesson;
+    const allBtns = document.querySelectorAll('#kanjiFilterGroup .filter-btn');
+    allBtns.forEach(b => b.classList.remove('active'));
     if (btn) {
-        btn.parentElement.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
+    } else {
+        const found = Array.from(allBtns).find(b => {
+            const oc = b.getAttribute('onclick') || '';
+            return oc.includes(`'${lesson}'`) || oc.includes(`"${lesson}"`);
+        });
+        if (found) found.classList.add('active');
     }
     applyKanjiFilter();
     saveMiniCheckpoint();
@@ -1001,6 +1015,8 @@ function applyKanjiFilter() {
         );
     }
     currentFilteredKanji = filtered;
+    const countEl = document.getElementById('quizletKanjiCount');
+    if (countEl) countEl.innerText = filtered.length;
     renderKanji(filtered);
 }
 
@@ -1105,6 +1121,12 @@ function restoreMiniCheckpoint() {
             isTimerRunning = data.isTimerRunning;
             const btn = document.getElementById('timerToggleBtn');
             if (btn) btn.innerHTML = isTimerRunning ? '⏸️ Tạm dừng' : '▶️ Tiếp tục';
+        }
+        if (data.currentVocabFilter) {
+            filterVocab(data.currentVocabFilter);
+        }
+        if (data.currentKanjiFilter) {
+            filterKanji(data.currentKanjiFilter);
         }
 
         // Restore Part 1

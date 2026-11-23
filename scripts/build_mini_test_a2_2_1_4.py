@@ -906,50 +906,40 @@ HTML_CONTENT = """<!DOCTYPE html>
     <!-- TAB 2: TỪ VỰNG (81 TỪ)                                          -->
     <!-- ============================================================== -->
     <div id="tab-vocab" class="tab-panel">
-        <div class="content-card">
-            <div class="section-header">
-                <div>
-                    <span class="section-badge">MARUGOTO A2.2 • BÀI 1 ➔ 4</span>
-                    <h2 class="section-title">🎴 81 Từ Vựng Chuẩn Kèm Copy Quizlet & Ẩn Nghĩa</h2>
-                </div>
+        <div class="toolbar-card">
+            <div class="filter-row" id="vocabFilterGroup">
+                <span style="font-size: 0.85rem; font-weight: 800; color: var(--gray-600); margin-right: 4px;">CHỌN BÀI:</span>
+                <button type="button" class="filter-btn active" onclick="filterVocab('ALL', this)">🌟 Tất Cả (81 từ)</button>
+                <button type="button" class="filter-btn" onclick="filterVocab('L1', this)">Bài 1 (20 từ)</button>
+                <button type="button" class="filter-btn" onclick="filterVocab('L2', this)">Bài 2 (17 từ)</button>
+                <button type="button" class="filter-btn" onclick="filterVocab('L3', this)">Bài 3 (21 từ)</button>
+                <button type="button" class="filter-btn" onclick="filterVocab('L4', this)">Bài 4 (23 từ)</button>
             </div>
-
-            <!-- Quizlet Export Toolbar -->
-            <div class="quizlet-box">
-                <div style="font-weight: 800; color: #1e1b4b; font-size: 1.05rem; margin-bottom: 8px;">
-                    📋 Nút Sao Chép Từ Vựng Chuẩn Quizlet (Đang lọc: <span id="quizletVocabCount" style="color:var(--primary); font-weight:900;">81</span> từ)
+            <div class="action-row">
+                <div class="search-input-box">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="vocabSearchInput" placeholder="Tìm kiếm từ vựng (Kanji, Kana, Romaji, tiếng Việt)..." oninput="handleVocabSearch()">
                 </div>
-                <p style="font-size: 0.88rem; color: var(--gray-600); margin-bottom: 12px;">
-                    Dữ liệu được làm sạch 100% không dính ký tự rác, có thể dán trực tiếp vào Quizlet, Anki hoặc Excel:
-                </p>
-                <div class="quizlet-btn-group">
-                    <button class="btn-quizlet" onclick="copyVocabQuizletFormat()">📋 Copy Kana [Tab] Nghĩa (Quizlet Chuẩn)</button>
-                    <button class="btn-quizlet" onclick="copyVocabColonFormat()">📋 Copy Kana : Nghĩa (Dấu hai chấm)</button>
-                    <button class="btn-quizlet" onclick="copyVocabCombinedFormat()">📋 Copy Kanji [Tab] [Kana] Nghĩa</button>
-                    <button class="btn-quizlet" onclick="copyVocabKanjiOnlyFormat()">📋 Copy Kanji [Tab] Nghĩa</button>
-                    <button class="btn-quizlet" onclick="copyFullVocabAllFormat()">⚡ Copy Toàn Bộ 81 Từ (Tab)</button>
-                </div>
-            </div>
-
-            <!-- Controls: Search & Lesson Filter -->
-            <div class="vocab-controls">
-                <div class="search-box">
-                    <input type="text" id="vocabSearchInput" class="search-input" placeholder="🔍 Tìm kiếm theo Kanji, Kana, Romaji hoặc tiếng Việt..." oninput="handleVocabSearch()">
-                </div>
-                <div class="filter-group" id="vocabFilterGroup">
-                    <button class="filter-btn active" onclick="filterVocab('ALL', this)">Tất Cả (81)</button>
-                    <button class="filter-btn" onclick="filterVocab('L1', this)">Bài 1 (20)</button>
-                    <button class="filter-btn" onclick="filterVocab('L2', this)">Bài 2 (17)</button>
-                    <button class="filter-btn" onclick="filterVocab('L3', this)">Bài 3 (21)</button>
-                    <button class="filter-btn" onclick="filterVocab('L4', this)">Bài 4 (23)</button>
-                </div>
-                <button class="filter-btn" id="hideMeaningBtn" onclick="toggleHideMeaning()" style="background:#fef3c7; color:#92400e; border-color:#fde68a; font-weight:700;">
+                <button type="button" class="tool-toggle-btn" id="hideMeaningBtn" onclick="toggleHideMeaning()">
                     👁️ Ẩn nghĩa tiếng Việt (Tự dò)
                 </button>
+                <button type="button" class="btn-quizlet" id="btnQuizletCopy" onclick="copyVocabQuizletFormat()" title="Định dạng Tab sạch 100%, gõ siêu mượt trên Quizlet: かな [Tab] Nghĩa">
+                    📋 Copy Gõ Kana (<span id="quizletVocabCount">81</span> từ)
+                </button>
+                <button type="button" class="btn-quizlet" onclick="copyVocabColonFormat()" style="background: linear-gradient(135deg, #059669, #10b981);" title="Định dạng dấu hai chấm: かな：Nghĩa">
+                    📋 Copy Dấu (：)
+                </button>
+                <button type="button" class="btn-quizlet" onclick="copyVocabCombinedFormat()" style="background: linear-gradient(135deg, #7c3aed, #9333ea);" title="Dạng chuẩn Quizlet: Kanji [Tab] [Kana] Nghĩa">
+                    🎴 Copy Kèm Kanji (Tab)
+                </button>
+                <button type="button" class="btn-quizlet" onclick="copyFullVocabAllFormat()" style="background: #1e1b4b;" title="Sao chép toàn bộ 81 từ">
+                    ⚡ Copy Toàn Bộ (81 Từ)
+                </button>
             </div>
+        </div>
 
-            <!-- Vocab Grid Container -->
-            <div id="vocabContainer" class="vocab-grid"></div>
+        <div class="vocab-grid" id="vocabContainer">
+            <!-- Render via JS -->
         </div>
     </div>
 
@@ -957,41 +947,31 @@ HTML_CONTENT = """<!DOCTYPE html>
     <!-- TAB 3: KANJI (49 CHỮ HÁN)                                      -->
     <!-- ============================================================== -->
     <div id="tab-kanji" class="tab-panel">
-        <div class="content-card">
-            <div class="section-header">
-                <div>
-                    <span class="section-badge">MARUGOTO A2.2 • BÀI 1 ➔ 4</span>
-                    <h2 class="section-title">⛩️ 49 Chữ Hán Kanji Trọng Tâm (Chiết Tự, Mẹo Nhớ & Từ Ghép)</h2>
-                </div>
+        <div class="toolbar-card">
+            <div class="filter-row" id="kanjiFilterGroup">
+                <span style="font-size: 0.85rem; font-weight: 800; color: var(--gray-600); margin-right: 4px;">CHỌN BÀI:</span>
+                <button type="button" class="filter-btn active" onclick="filterKanji('ALL', this)">⛩️ Tất Cả (49 Kanji Bài 1-4)</button>
+                <button type="button" class="filter-btn" onclick="filterKanji('L1', this)">Bài 1 (8 chữ)</button>
+                <button type="button" class="filter-btn" onclick="filterKanji('L2', this)">Bài 2 (13 chữ)</button>
+                <button type="button" class="filter-btn" onclick="filterKanji('L3', this)">Bài 3 (18 chữ)</button>
+                <button type="button" class="filter-btn" onclick="filterKanji('L4', this)">Bài 4 (10 chữ)</button>
             </div>
-
-            <!-- Kanji Quizlet Export Toolbar -->
-            <div class="quizlet-box">
-                <div style="font-weight: 800; color: #1e1b4b; font-size: 1.05rem; margin-bottom: 8px;">
-                    📋 Nút Sao Chép Chữ Hán Chuẩn Quizlet
+            <div class="action-row">
+                <div class="search-input-box">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="kanjiSearchInput" placeholder="Tìm kiếm chữ Hán, Hán Việt, cách đọc hoặc ý nghĩa..." oninput="handleKanjiSearch()">
                 </div>
-                <div class="quizlet-btn-group">
-                    <button class="btn-quizlet" onclick="copyKanjiColonFormat()">📋 Copy Chữ Hán, Nghĩa, HÁN VIỆT : Cách Đọc</button>
-                    <button class="btn-quizlet" onclick="copyKanjiQuizletTabFormat()">📋 Copy Chuẩn Quizlet (Tab)</button>
-                </div>
+                <button type="button" class="btn-quizlet" onclick="copyKanjiQuizletTabFormat()" title="Định dạng Tab sạch chuẩn Quizlet">
+                    📋 Copy Kanji Tab (<span id="quizletKanjiCount">49</span> chữ)
+                </button>
+                <button type="button" class="btn-quizlet" onclick="copyKanjiColonFormat()" style="background: linear-gradient(135deg, #059669, #10b981);" title="Chữ Hán, Nghĩa, HÁN VIỆT : Cách Đọc">
+                    📋 Copy Kanji Dấu (：)
+                </button>
             </div>
+        </div>
 
-            <!-- Kanji Controls -->
-            <div class="vocab-controls">
-                <div class="search-box">
-                    <input type="text" id="kanjiSearchInput" class="search-input" placeholder="🔍 Tìm kiếm chữ Hán, Hán Việt, cách đọc hoặc ý nghĩa..." oninput="handleKanjiSearch()">
-                </div>
-                <div class="filter-group" id="kanjiFilterGroup">
-                    <button class="filter-btn active" onclick="filterKanji('ALL', this)">Tất Cả (49)</button>
-                    <button class="filter-btn" onclick="filterKanji('L1', this)">Bài 1 (8)</button>
-                    <button class="filter-btn" onclick="filterKanji('L2', this)">Bài 2 (13)</button>
-                    <button class="filter-btn" onclick="filterKanji('L3', this)">Bài 3 (18)</button>
-                    <button class="filter-btn" onclick="filterKanji('L4', this)">Bài 4 (10)</button>
-                </div>
-            </div>
-
-            <!-- Kanji Grid Container -->
-            <div id="kanjiContainer" class="kanji-grid"></div>
+        <div class="kanji-grid" id="kanjiContainer">
+            <!-- Render via JS -->
         </div>
     </div>
 

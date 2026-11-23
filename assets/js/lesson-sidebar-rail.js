@@ -143,7 +143,7 @@
 
         if (railItems.length === 0) return;
 
-        // 2. Tạo thanh sidebar macOS nổi fixed bên cạnh
+        // 2. Tạo thanh sidebar macOS nổi fixed bên cạnh (Right Dock kiểu 1MS Taekwondo)
         const rail = document.createElement('aside');
         rail.id = 'lessonSidebarRail';
         rail.className = 'lesson-sidebar-rail';
@@ -157,11 +157,19 @@
                         <span class="macos-dot macos-dot-yellow"></span>
                         <span class="macos-dot macos-dot-green"></span>
                     </div>
-                    <span class="macos-sidebar-title">MỤC LỤC</span>
-                    <button type="button" class="macos-sidebar-toggle" id="btnToggleSidebarRail" title="Thu gọn / Mở rộng" aria-label="Thu gọn hoặc mở rộng mục lục">
-                        <span class="macos-toggle-arrow">›</span>
+                </div>
+
+                <!-- Nút cuộn về đầu trang tròn kèm vòng tròn tiến độ cuộn SVG -->
+                <div class="dock-progress-wrapper" title="Cuộn lên đầu trang">
+                    <svg class="dock-progress-svg" viewBox="0 0 48 48">
+                        <circle class="dock-progress-bg" cx="24" cy="24" r="20"></circle>
+                        <circle class="dock-progress-bar" id="dockProgressBar" cx="24" cy="24" r="20"></circle>
+                    </svg>
+                    <button type="button" class="dock-btn-top" id="railBtnScrollTop" aria-label="Cuộn lên đầu trang">
+                        <span>↑</span>
                     </button>
                 </div>
+
                 <nav class="lesson-rail-links" aria-label="Các phần trong bài">
                     ${railItems.map((item, idx) => `
                         <a href="${item.href}" class="lesson-rail-link ${idx === 0 ? 'active' : ''}" data-href="${item.href}" title="${item.fullTitle} (${item.label})">
@@ -170,14 +178,10 @@
                         </a>
                     `).join('')}
                 </nav>
+
                 <div class="macos-sidebar-footer">
-                    <button type="button" class="rail-btn-top" id="railBtnShortcuts" title="Xem bảng phím tắt học thần tốc (phím ?)">
-                        <span class="top-icon">⌨️</span>
-                        <span class="top-text">Phím tắt</span>
-                    </button>
-                    <button type="button" class="rail-btn-top" id="railBtnScrollTop" title="Cuộn lên đầu trang" style="margin-top: 4px;">
-                        <span class="top-icon">⬆️</span>
-                        <span class="top-text">Lên đầu trang</span>
+                    <button type="button" class="dock-btn-shortcut" id="railBtnShortcuts" title="Xem bảng phím tắt học thần tốc (phím ?)">
+                        <span>⌨️</span>
                     </button>
                 </div>
             </div>
@@ -281,12 +285,30 @@
             });
         }
 
-        // 5. ScrollSpy thông minh theo vị trí cuộn trang
+        // 5. ScrollSpy thông minh theo vị trí cuộn trang & Morphing Dock
         let isTicking = false;
         function updateScrollSpy() {
             const scrollPos = window.scrollY + 110;
             const docHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
             const winHeight = window.innerHeight;
+
+            // Cập nhật trạng thái chuyển đổi giữa Top Island và Right Dock (1MS Taekwondo Morphing)
+            const isScrolled = window.scrollY > 140;
+            const isDesktop = window.innerWidth >= 1100;
+            if (isScrolled && isDesktop) {
+                document.body.classList.add('is-scrolled-dock');
+            } else {
+                document.body.classList.remove('is-scrolled-dock');
+            }
+
+            // Cập nhật vòng tròn tiến độ cuộn (Circular Scroll Progress)
+            const maxScroll = docHeight - winHeight;
+            const scrollFraction = maxScroll > 0 ? Math.min(1, Math.max(0, window.scrollY / maxScroll)) : 0;
+            const progressBar = document.getElementById('dockProgressBar');
+            if (progressBar) {
+                const circumference = 125.66;
+                progressBar.style.strokeDashoffset = circumference * (1 - scrollFraction);
+            }
 
             // Ở đáy trang thì kích hoạt mục cuối
             if (window.scrollY + winHeight >= docHeight - 60) {
