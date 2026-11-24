@@ -58,13 +58,14 @@ body {
     display: none !important;
 }
 
-/* Khi cuộn xuống trên desktop (>= 1100px) hoặc khi đang biến đổi morphing: Top capsule mờ dần nhường chỗ cho glider */
+/* Khi cuộn xuống trên desktop (>= 1100px) hoặc khi đang biến đổi morphing: Top capsule nhường chỗ cho glider */
 @media (min-width: 1100px) {
     body.is-scrolled-dock .section-nav,
     body.is-morphing-dock .section-nav,
     body.is-morphing-top .section-nav {
         opacity: 0 !important;
         pointer-events: none !important;
+        visibility: hidden !important;
     }
 }
 
@@ -77,14 +78,15 @@ body {
     pointer-events: none !important;
     opacity: 0 !important;
     visibility: hidden !important;
-    background: rgba(255, 255, 255, 0.85) !important;
+    background: rgba(255, 255, 255, 0.88) !important;
     backdrop-filter: blur(24px) saturate(190%) !important;
     -webkit-backdrop-filter: blur(24px) saturate(190%) !important;
     border: 1.5px solid rgba(255, 255, 255, 0.95) !important;
     border-radius: 9999px !important;
-    box-shadow: 0 16px 40px -8px rgba(15, 23, 42, 0.12),
-                0 4px 12px rgba(15, 23, 42, 0.05) !important;
+    box-shadow: 0 16px 40px -8px rgba(15, 23, 42, 0.14),
+                0 4px 12px rgba(15, 23, 42, 0.06) !important;
     box-sizing: border-box !important;
+    overflow: hidden !important;
     transform-origin: top left !important;
     will-change: transform, width, height, border-radius, opacity !important;
 }
@@ -96,11 +98,60 @@ body {
     border-radius: inherit !important;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.08) 100%) !important;
     pointer-events: none !important;
+    z-index: 0 !important;
 }
 
 .lesson-morph-glider.is-active {
     opacity: 1 !important;
     visibility: visible !important;
+}
+
+/* Nội dung capsule nằm ngang trong lúc bay (Top capsule layer) */
+.lesson-morph-glider .glider-content-top {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    white-space: nowrap !important;
+    pointer-events: none !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 0 16px !important;
+    z-index: 1 !important;
+    transform-origin: center center !important;
+    will-change: opacity, transform !important;
+}
+
+/* Nội dung dock đứng trong lúc bay (Right dock layer) */
+.lesson-morph-glider .glider-content-dock {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    padding: 10px 8px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 6px !important;
+    box-sizing: border-box !important;
+    pointer-events: none !important;
+    z-index: 2 !important;
+    transform-origin: center center !important;
+    will-change: opacity, transform !important;
+}
+
+.lesson-morph-glider .glider-content-dock .macos-sidebar-box {
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
 }
 
 .sec-link {

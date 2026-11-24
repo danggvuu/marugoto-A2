@@ -425,96 +425,118 @@
     <div id="tab-quiz" class="tab-panel active">
         
         <!-- Score Bar & Timer -->
-        <div class="score-sticky-bar">
-            <div class="score-live-box">
-                <span style="font-size: 1.1rem;">🏆</span>
-                <span>Điểm Hiện Tại: <strong id="totalScoreDisplay" style="color:var(--primary); font-size:1.3rem;">0</strong> / 100 Điểm</span>
-            </div>
-            
-            <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
-                <div class="timer-box" id="timerBox">
-                    <span>⏱️ Còn lại:</span>
-                    <span class="timer-display" id="timerDisplay">45:00</span>
+        <div class="quiz-stats-card">
+            <div class="quiz-score-box">
+                <div class="score-circle">
+                    <span class="score-num" id="totalScoreDisplay">0</span>
+                    <span class="score-max">/100 ĐIỂM</span>
                 </div>
-                <button class="btn-ctrl" onclick="toggleTimer()" id="timerToggleBtn">⏸️ Tạm dừng</button>
-                <button class="btn-ctrl" onclick="submitAndGradeExam()" style="background:var(--success); color:white; border-color:var(--success); font-weight:800;">
-                    🎯 Nộp Bài & Chấm Điểm
-                </button>
-                <button class="btn-ctrl" onclick="resetExamSuite()" style="background:#fee2e2; color:#991b1b; border-color:#fecaca;">
-                    🔄 Làm Lại Từ Đầu
-                </button>
+                <div class="score-info">
+                    <h4 id="quizStatusTitle">Đề Khảo Sát Năng Lực Toàn Diện Bài 1 – 4</h4>
+                    <p id="quizProgressText">Hoàn thành: 0/32 câu • Tổng điểm hiện tại: 0 / 100đ</p>
+                </div>
+            </div>
+            <div class="quiz-action-btns">
+                <div class="timer-badge">
+                    ⏱️ <span id="timerDisplay">45:00</span>
+                </div>
+                <button type="button" class="quiz-btn" onclick="toggleTimer()" id="timerToggleBtn">⏸️ Tạm Dừng</button>
+                <button type="button" class="quiz-btn primary" onclick="submitAndGradeExam()">🎯 Nộp Bài & Chấm Điểm</button>
+                <button type="button" class="quiz-btn" onclick="resetExamSuite()" style="background:#fee2e2; color:#991b1b; border-color:#fecaca;">🔄 Làm Lại Đề Thi</button>
             </div>
         </div>
 
+        <!-- Quick Jump Bar Between 6 Parts -->
+        <div class="theory-quicknav" style="margin-bottom: 25px;">
+            <a href="#sec-part1" class="quicknav-pill" style="background: #eef2ff; color: #4338ca; border-color: #c7d2fe;">I. Trắc Nghiệm (10 Câu • 25đ)</a>
+            <a href="#sec-part2" class="quicknav-pill" style="background: #fef3c7; color: #b45309; border-color: #fde68a;">II. Sắp Xếp Câu ★ (5 Câu • 15đ)</a>
+            <a href="#sec-part3" class="quicknav-pill" style="background: #d1fae5; color: #047857; border-color: #a7f3d0;">III. Chia Dạng Đúng (5 Câu • 15đ)</a>
+            <a href="#sec-part4" class="quicknav-pill" style="background: #ede9fe; color: #6d28d9; border-color: #ddd6fe;">IV. Nối Thẻ Hội Thoại (4 Câu • 10đ)</a>
+            <a href="#sec-part5" class="quicknav-pill" style="background: #e0f2fe; color: #0369a1; border-color: #bae6fd;">V. Đọc Hiểu Đoạn Văn (4 Câu • 20đ)</a>
+            <a href="#sec-part6" class="quicknav-pill" style="background: #fee2e2; color: #b91c1c; border-color: #fecaca;">VI. Luyện Dịch Câu (4 Câu • 15đ)</a>
+        </div>
+
         <!-- PHẦN I: TRẮC NGHIỆM -->
-        <div class="content-card">
-            <div class="part-header">
-                <div>
-                    <h3 class="part-title">PHẦN I: Trắc Nghiệm Tổng Hợp Ngữ Pháp & Trợ Từ</h3>
-                    <p class="part-subtitle">Chọn một phương án đúng nhất (A, B, C hoặc D) điền vào chỗ trống [____]. Chấm điểm tức thì kèm giải thích chi tiết.</p>
+        <div id="sec-part1">
+            <div class="exam-part-header" style="background: linear-gradient(135deg, #4f46e5 0%, #3730a3 100%);">
+                <div class="exam-part-title">
+                    <span>📌 PHẦN I: TRẮC NGHIỆM TỔNG HỢP NGỮ PHÁP & TRỢ TỪ</span>
                 </div>
-                <span class="part-badge">10 Câu • 25 Điểm</span>
+                <span class="part-badge-tag">10 Câu • 25 Điểm (2.5đ/câu)</span>
             </div>
+            <p style="margin-bottom: 16px; color: var(--gray-600); font-size: 0.95rem;">
+                👉 <strong>Hướng dẫn:</strong> Chọn 1 phương án đúng nhất (A, B, C hoặc D) điền vào chỗ trống [____]. Chấm điểm tức thì kèm giải thích chi tiết.
+            </p>
             <div id="part1Container"></div>
         </div>
 
         <!-- PHẦN II: SẮP XẾP TỪ -->
-        <div class="content-card">
-            <div class="part-header">
-                <div>
-                    <h3 class="part-title">PHẦN II: Sắp Xếp Từ Thành Câu Hoàn Chỉnh ★</h3>
-                    <p class="part-subtitle">Bấm vào các thẻ từ theo đúng thứ tự để tạo thành câu hoàn chỉnh và xác định từ nằm ở vị trí ngôi sao [ ★ ].</p>
+        <div id="sec-part2">
+            <div class="exam-part-header" style="background: linear-gradient(135deg, #b45309 0%, #78350f 100%);">
+                <div class="exam-part-title">
+                    <span>⭐ PHẦN II: SẮP XẾP TỪ THÀNH CÂU HOÀN CHỈNH (並べ替え)</span>
                 </div>
-                <span class="part-badge">5 Câu • 15 Điểm</span>
+                <span class="part-badge-tag">5 Câu • 15 Điểm (3đ/câu)</span>
             </div>
+            <p style="margin-bottom: 16px; color: var(--gray-600); font-size: 0.95rem;">
+                👉 <strong>Hướng dẫn:</strong> Bấm vào các thẻ từ (Chips) theo thứ tự đúng để ghép vào câu, sau đó kiểm tra từ ở vị trí ngôi sao <strong>[ ★ ]</strong>.
+            </p>
             <div id="part2Container"></div>
         </div>
 
         <!-- PHẦN III: CHIA DẠNG ĐÚNG -->
-        <div class="content-card">
-            <div class="part-header">
-                <div>
-                    <h3 class="part-title">PHẦN III: Chia Dạng Đúng Của Từ Trong Ngoặc</h3>
-                    <p class="part-subtitle">Gõ dạng chia chuẩn xác (Kanji, Hiragana hoặc Romaji) của từ trong ngoặc đơn vào ô trống.</p>
+        <div id="sec-part3">
+            <div class="exam-part-header" style="background: linear-gradient(135deg, #047857 0%, #064e3b 100%);">
+                <div class="exam-part-title">
+                    <span>✍️ PHẦN III: CHIA DẠNG ĐÚNG CỦA TỪ TRONG NGOẶC (活用形・穴埋め)</span>
                 </div>
-                <span class="part-badge">5 Câu • 15 Điểm</span>
+                <span class="part-badge-tag">5 Câu • 15 Điểm (3đ/câu)</span>
             </div>
+            <p style="margin-bottom: 16px; color: var(--gray-600); font-size: 0.95rem;">
+                👉 <strong>Hướng dẫn:</strong> Điền dạng biến đổi thích hợp của từ trong ngoặc đơn vào ô trống, sau đó bấm <strong>[Kiểm Tra]</strong> hoặc phím <strong>Enter</strong>.
+            </p>
             <div id="part3Container"></div>
         </div>
 
         <!-- PHẦN IV: NỐI CỘT TÌNH HUỐNG -->
-        <div class="content-card">
-            <div class="part-header">
-                <div>
-                    <h3 class="part-title">PHẦN IV: Nối Cột Tình Huống & Phản Xạ Đời Sống</h3>
-                    <p class="part-subtitle">Chọn câu đáp lại phù hợp và lịch sự nhất trong các tình huống giao tiếp thường ngày tại Nhật Bản.</p>
+        <div id="sec-part4">
+            <div class="exam-part-header" style="background: linear-gradient(135deg, #6d28d9 0%, #4c1d95 100%);">
+                <div class="exam-part-title">
+                    <span>🔄 PHẦN IV: NỐI CỘT TÌNH HUỐNG & PHẢN XẠ ĐỜI SỐNG (マッチング)</span>
                 </div>
-                <span class="part-badge">4 Câu • 10 Điểm</span>
+                <span class="part-badge-tag">4 Câu • 10 Điểm (2.5đ/câu)</span>
             </div>
+            <p style="margin-bottom: 16px; color: var(--gray-600); font-size: 0.95rem;">
+                👉 <strong>Hướng dẫn:</strong> Chọn câu đáp lại phù hợp và lịch sự nhất trong các tình huống giao tiếp thường ngày tại Nhật Bản.
+            </p>
             <div id="part4Container"></div>
         </div>
 
         <!-- PHẦN V: ĐỌC HIỂU -->
-        <div class="content-card">
-            <div class="part-header">
-                <div>
-                    <h3 class="part-title">PHẦN V: Đọc Hiểu Đoạn Văn Thực Tế</h3>
-                    <p class="part-subtitle">Đọc kỹ các đoạn văn ngắn về cuộc sống, tiệc tùng và quy tắc nhà hàng Nhật Bản, sau đó trả lời các câu hỏi.</p>
+        <div id="sec-part5">
+            <div class="exam-part-header" style="background: linear-gradient(135deg, #0284c7 0%, #0c4a6e 100%);">
+                <div class="exam-part-title">
+                    <span>📖 PHẦN V: ĐỌC HIỂU ĐOẠN VĂN THỰC TẾ (読解)</span>
                 </div>
-                <span class="part-badge">4 Câu / 2 Bài Đọc • 20 Điểm</span>
+                <span class="part-badge-tag">4 Câu / 2 Bài Đọc • 20 Điểm (5đ/câu)</span>
             </div>
+            <p style="margin-bottom: 16px; color: var(--gray-600); font-size: 0.95rem;">
+                👉 <strong>Hướng dẫn:</strong> Đọc kỹ các đoạn văn ngắn về cuộc sống, tiệc tùng và quy tắc nhà hàng Nhật Bản, sau đó trả lời các câu hỏi trắc nghiệm.
+            </p>
             <div id="part5Container"></div>
         </div>
 
         <!-- PHẦN VI: LUYỆN DỊCH CÂU -->
-        <div class="content-card">
-            <div class="part-header">
-                <div>
-                    <h3 class="part-title">PHẦN VI: Luyện Dịch Câu Thực Chiến 2 Chiều</h3>
-                    <p class="part-subtitle">Thử sức tự gõ câu dịch tiếng Nhật vào ô trống, sau đó bấm xem đáp án mẫu, từ khóa và đối chiếu tự chấm điểm.</p>
+        <div id="sec-part6">
+            <div class="exam-part-header" style="background: linear-gradient(135deg, #b91c1c 0%, #7f1d1d 100%);">
+                <div class="exam-part-title">
+                    <span>✍️ PHẦN VI: LUYỆN DỊCH CÂU THỰC CHIẾN 2 CHIỀU</span>
                 </div>
-                <span class="part-badge">4 Câu • 15 Điểm</span>
+                <span class="part-badge-tag">4 Câu • 15 Điểm (3.75đ/câu)</span>
             </div>
+            <p style="margin-bottom: 16px; color: var(--gray-600); font-size: 0.95rem;">
+                👉 <strong>Hướng dẫn:</strong> Thử sức tự gõ câu dịch tiếng Nhật vào ô trống, sau đó bấm xem đáp án mẫu, từ khóa và đối chiếu tự chấm điểm.
+            </p>
             <div id="part6Container"></div>
         </div>
 

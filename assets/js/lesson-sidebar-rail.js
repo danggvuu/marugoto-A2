@@ -189,7 +189,7 @@
 
         document.body.appendChild(rail);
 
-        // Tạo phần tử morphing glider lướt mượt mà giữa Top Capsule và Right Dock
+        // Tạo phần tử morphing glider lướt mượt mà giữa Top Capsule và Right Dock (chuẩn 1MS Taekwondo)
         let glider = document.getElementById('lessonMorphGlider');
         if (!glider) {
             glider = document.createElement('div');
@@ -201,6 +201,23 @@
 
         const macosBox = rail.querySelector('.macos-sidebar-box');
         const railLinks = Array.from(rail.querySelectorAll('.lesson-rail-link'));
+
+        // Tạo 2 lớp nội dung bên trong Glider để cross-fade siêu êm khi bay
+        let gliderTopContent = glider.querySelector('.glider-content-top');
+        if (!gliderTopContent) {
+            gliderTopContent = document.createElement('div');
+            gliderTopContent.className = 'glider-content-top';
+            glider.appendChild(gliderTopContent);
+        }
+        gliderTopContent.innerHTML = sectionNav.innerHTML;
+
+        let gliderDockContent = glider.querySelector('.glider-content-dock');
+        if (!gliderDockContent) {
+            gliderDockContent = document.createElement('div');
+            gliderDockContent.className = 'glider-content-dock';
+            glider.appendChild(gliderDockContent);
+        }
+        gliderDockContent.innerHTML = macosBox ? macosBox.innerHTML : '';
 
         // Cài đặt độ trễ xuất hiện tầng bậc (stagger) cho các mục trên thanh dock
         railLinks.forEach((link, idx) => {
@@ -325,6 +342,8 @@
         }
 
         let activeAnimation = null;
+        let activeTopAnim = null;
+        let activeDockAnim = null;
         let isDockedState = false;
         let isInitialized = false;
 
@@ -333,6 +352,14 @@
                 if (activeAnimation) {
                     activeAnimation.cancel();
                     activeAnimation = null;
+                }
+                if (activeTopAnim) {
+                    activeTopAnim.cancel();
+                    activeTopAnim = null;
+                }
+                if (activeDockAnim) {
+                    activeDockAnim.cancel();
+                    activeDockAnim = null;
                 }
                 document.body.classList.remove('is-morphing-dock', 'is-morphing-top');
                 glider.classList.remove('is-active');
@@ -389,6 +416,15 @@
                 document.body.classList.remove('is-morphing-dock');
             }
 
+            if (activeTopAnim) {
+                activeTopAnim.cancel();
+                activeTopAnim = null;
+            }
+            if (activeDockAnim) {
+                activeDockAnim.cancel();
+                activeDockAnim = null;
+            }
+
             // Thiết lập vị trí ban đầu của phần tử morphing glider
             glider.style.left = fromRect.left + 'px';
             glider.style.top = fromRect.top + 'px';
@@ -418,7 +454,48 @@
                 }
             ];
 
+            // Animate 2 lớp nội dung bên trong: Top capsule cross-fades với Right dock
             try {
+                if (toDock) {
+                    activeTopAnim = gliderTopContent.animate([
+                        { opacity: 1, transform: 'translate(-50%, -50%) scale(1)' },
+                        { opacity: 0, transform: 'translate(-50%, -50%) scale(0.85)' }
+                    ], {
+                        duration: 260,
+                        easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
+                        fill: 'forwards'
+                    });
+
+                    activeDockAnim = gliderDockContent.animate([
+                        { opacity: 0, transform: 'scale(0.85) translateY(12px)' },
+                        { opacity: 1, transform: 'scale(1) translateY(0)' }
+                    ], {
+                        duration: 360,
+                        delay: 100,
+                        easing: 'cubic-bezier(0.16, 1, 0.3, 1)',
+                        fill: 'forwards'
+                    });
+                } else {
+                    activeDockAnim = gliderDockContent.animate([
+                        { opacity: 1, transform: 'scale(1) translateY(0)' },
+                        { opacity: 0, transform: 'scale(0.85) translateY(12px)' }
+                    ], {
+                        duration: 240,
+                        easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
+                        fill: 'forwards'
+                    });
+
+                    activeTopAnim = gliderTopContent.animate([
+                        { opacity: 0, transform: 'translate(-50%, -50%) scale(0.85)' },
+                        { opacity: 1, transform: 'translate(-50%, -50%) scale(1)' }
+                    ], {
+                        duration: 340,
+                        delay: 100,
+                        easing: 'cubic-bezier(0.16, 1, 0.3, 1)',
+                        fill: 'forwards'
+                    });
+                }
+
                 activeAnimation = glider.animate(keyframes, {
                     duration: 650,
                     easing: activeSpringEase,
@@ -427,6 +504,8 @@
 
                 activeAnimation.onfinish = () => {
                     activeAnimation = null;
+                    activeTopAnim = null;
+                    activeDockAnim = null;
                     document.body.classList.remove('is-morphing-dock', 'is-morphing-top');
                     glider.classList.remove('is-active');
                     glider.style.transform = 'none';

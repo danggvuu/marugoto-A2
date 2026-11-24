@@ -103,8 +103,10 @@ function updateTimerDisplay() {
     const mins = Math.floor(totalSeconds / 60);
     const secs = totalSeconds % 60;
     const str = `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
-    const el = document.getElementById('timerDisplay');
-    if (el) el.innerText = str;
+    const el1 = document.getElementById('timerDisplay');
+    if (el1) el1.innerText = str;
+    const el2 = document.getElementById('timerText');
+    if (el2) el2.innerText = str;
 }
 
 function toggleTimer() {
@@ -157,7 +159,7 @@ function renderPart1() {
                     </button>
                 `).join('')}
             </div>
-            <div class="explain-box" id="p1_exp_${item.id}">
+            <div class="q-explain" id="p1_exp_${item.id}">
                 💡 <strong>Giải thích chi tiết:</strong> ${item.explain}
             </div>
         </div>
@@ -214,7 +216,7 @@ function renderPart2() {
                 <span>${item.post}</span>
             </div>
 
-            <div class="chips-pool" id="p2_pool_${item.id}">
+            <div class="chips-container" id="p2_pool_${item.id}">
                 ${item.chips.map((chip, cIdx) => `
                     <button class="word-chip jp-text" id="p2_chip_${item.id}_${cIdx}" onclick="handlePart2ChipClick(${item.id}, ${cIdx})">
                         ${chip}
@@ -222,13 +224,12 @@ function renderPart2() {
                 `).join('')}
             </div>
 
-            <div style="display: flex; gap: 10px; align-items: center; margin-top: 10px;">
-                <button class="btn-ctrl" onclick="resetPart2Question(${item.id})" style="font-size: 0.82rem; padding: 6px 14px;">
-                    ↩️ Chọn Lại Câu Này
-                </button>
+            <div class="arrange-ctrl-row">
+                <button class="btn-check-arrange" onclick="checkPart2Explicit(${item.id})">🎯 Kiểm Tra Thứ Tự</button>
+                <button class="btn-reset-arrange" onclick="resetPart2Question(${item.id})">↩️ Chọn Lại Câu Này</button>
             </div>
 
-            <div class="explain-box" id="p2_exp_${item.id}">
+            <div class="q-explain" id="p2_exp_${item.id}">
                 🎯 <strong>Câu hoàn chỉnh:</strong> <span class="jp-text" style="font-weight: 700; color: #166534;">${item.fullSentence}</span><br>
                 ⭐ <strong>Từ tại vị trí ngôi sao [★]:</strong> <span class="jp-text" style="font-weight: 800; color: #92400e;">${item.starChip}</span><br>
                 💡 <strong>Giải thích:</strong> ${item.explain}
@@ -323,6 +324,17 @@ function checkPart2Complete(qId) {
     }
 }
 
+function checkPart2Explicit(qId) {
+    const chosen = p2Selected[qId] || [];
+    if (chosen.length < 4) {
+        alert("Vui lòng chọn đủ 4 từ khóa vào các ô trống trước khi kiểm tra!");
+        return;
+    }
+    checkPart2Complete(qId);
+    calculateTotalScore();
+    saveMiniCheckpoint();
+}
+
 function resetPart2Question(qId) {
     p2Selected[qId] = [];
     delete p2Graded[qId];
@@ -352,11 +364,11 @@ function renderPart3() {
             </div>
 
             <div class="conjugate-input-wrap">
-                <input type="text" id="p3_input_${item.id}" class="conjugate-input jp-text" placeholder="Nhập đáp án..." oninput="handlePart3Input(${item.id})">
+                <input type="text" id="p3_input_${item.id}" class="conjugate-input jp-text" placeholder="Nhập đáp án..." oninput="handlePart3Input(${item.id})" onkeydown="if(event.key==='Enter') gradePart3Question(${item.id})">
                 <button class="btn-check-answer" id="p3_btn_${item.id}" onclick="gradePart3Question(${item.id})">Kiểm Tra</button>
             </div>
 
-            <div class="explain-box" id="p3_exp_${item.id}">
+            <div class="q-explain" id="p3_exp_${item.id}">
                 🎯 <strong>Đáp án chuẩn:</strong> <span class="jp-text" style="font-weight:800; color: #166534;">${item.displayAnswer}</span><br>
                 💡 <strong>Giải thích:</strong> ${item.explain}
             </div>
@@ -437,7 +449,7 @@ function renderPart4() {
                 </div>
             </div>
 
-            <div class="explain-box" id="p4_exp_${item.id}">
+            <div class="q-explain" id="p4_exp_${item.id}">
                 💡 <strong>Giải thích tình huống:</strong> ${item.explain}
             </div>
         </div>
@@ -479,9 +491,9 @@ function renderPart5() {
     const container = document.getElementById('part5Container');
     container.innerHTML = part5Data.map(pass => `
         <div style="margin-bottom: 24px;">
-            <div class="reading-box">
-                <div class="reading-title">${pass.title}</div>
-                <div class="reading-text jp-text">${pass.text}</div>
+            <div class="reading-box passage-card">
+                <div class="reading-title passage-title">${pass.title}</div>
+                <div class="reading-text passage-text jp-text">${pass.text}</div>
             </div>
 
             ${pass.questions.map(q => `
@@ -507,7 +519,7 @@ function renderPart5() {
                         `).join('')}
                     </div>
 
-                    <div class="explain-box" id="p5_exp_${q.id}">
+                    <div class="q-explain" id="p5_exp_${q.id}">
                         💡 <strong>Căn cứ đoạn văn:</strong> ${q.explain}
                     </div>
                 </div>
@@ -572,15 +584,15 @@ function renderPart6() {
             <textarea id="trans_input_${item.id}" class="trans-textarea jp-text" placeholder="Gõ câu dịch tiếng Nhật của bạn vào đây..." oninput="handleTransInput(${item.id})"></textarea>
 
             <div style="margin-top: 10px; display: flex; gap: 10px; flex-wrap: wrap; align-items: center;">
-                <button class="btn-ctrl" onclick="toggleModelAnswer(${item.id})" style="background: #e0e7ff; color: #3730a3; border-color: #c7d2fe; font-weight:700;">
+                <button class="btn-check-arrange" onclick="toggleModelAnswer(${item.id})" style="background: #e0e7ff; color: #3730a3; border-color: #c7d2fe; font-weight:700;">
                     👁️ Hiện / Ẩn Đáp Án Mẫu & Phân Tích
                 </button>
                 <div style="font-size: 0.85rem; color: var(--gray-600);">Sau khi so sánh, tự chọn mức điểm đạt được:</div>
                 <div style="display: flex; gap: 6px;">
-                    <button class="btn-ctrl" id="p6_score_0_${item.id}" onclick="setPart6Score(${item.id}, 0)" style="font-size:0.8rem; padding:4px 10px;">0đ</button>
-                    <button class="btn-ctrl" id="p6_score_15_${item.id}" onclick="setPart6Score(${item.id}, 1.5)" style="font-size:0.8rem; padding:4px 10px;">1.5đ</button>
-                    <button class="btn-ctrl" id="p6_score_25_${item.id}" onclick="setPart6Score(${item.id}, 2.5)" style="font-size:0.8rem; padding:4px 10px;">2.5đ</button>
-                    <button class="btn-ctrl" id="p6_score_375_${item.id}" onclick="setPart6Score(${item.id}, 3.75)" style="font-size:0.8rem; padding:4px 10px;">3.75đ</button>
+                    <button class="word-chip" id="p6_score_0_${item.id}" onclick="setPart6Score(${item.id}, 0)" style="font-size:0.85rem; padding:4px 12px;">0đ</button>
+                    <button class="word-chip" id="p6_score_15_${item.id}" onclick="setPart6Score(${item.id}, 1.5)" style="font-size:0.85rem; padding:4px 12px;">1.5đ</button>
+                    <button class="word-chip" id="p6_score_25_${item.id}" onclick="setPart6Score(${item.id}, 2.5)" style="font-size:0.85rem; padding:4px 12px;">2.5đ</button>
+                    <button class="word-chip" id="p6_score_375_${item.id}" onclick="setPart6Score(${item.id}, 3.75)" style="font-size:0.85rem; padding:4px 12px;">3.75đ</button>
                 </div>
             </div>
 
@@ -693,6 +705,19 @@ function calculateTotalScore() {
     const totalRounded = Math.round(score * 10) / 10;
     const scoreDisplay = document.getElementById('totalScoreDisplay');
     if (scoreDisplay) scoreDisplay.innerText = totalRounded;
+
+    const p1Count = Object.keys(p1Answers).length;
+    const p2Count = Object.keys(p2Graded).length;
+    const p3Count = Object.keys(p3Graded).length;
+    const p4Count = Object.keys(p4Selected).length;
+    const p5Count = Object.keys(p5Answers).length;
+    const p6Count = Object.keys(p6SelfScores).length;
+    const answeredTotal = p1Count + p2Count + p3Count + p4Count + p5Count + p6Count;
+    const progEl = document.getElementById('quizProgressText');
+    if (progEl) {
+        progEl.innerText = `Hoàn thành: ${answeredTotal}/32 câu • Tổng điểm hiện tại: ${totalRounded} / 100đ`;
+    }
+
     return totalRounded;
 }
 
@@ -755,6 +780,8 @@ function resetExamSuite() {
 
     const scoreDisplay = document.getElementById('totalScoreDisplay');
     if (scoreDisplay) scoreDisplay.innerText = '0';
+    const progEl = document.getElementById('quizProgressText');
+    if (progEl) progEl.innerText = 'Hoàn thành: 0/32 câu • Tổng điểm hiện tại: 0 / 100đ';
 
     try { localStorage.removeItem(MINI_A2_2_1_4_CP_KEY); } catch (e) {}
     showToast("Đã làm mới toàn bộ bài thi!");

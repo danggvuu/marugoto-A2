@@ -911,45 +911,58 @@ body {
     font-weight: 700;
     color: var(--gray-900);
     margin-bottom: 16px;
-    line-height: 1.4;
+    line-height: 1.5;
 }
 .options-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 10px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+@media (max-width: 640px) {
+    .options-list {
+        grid-template-columns: 1fr;
+    }
 }
 .opt-btn {
     background: var(--gray-50);
     border: 1.5px solid var(--gray-200);
     border-radius: var(--radius-sm);
     padding: 12px 16px;
-    font-size: 0.95rem;
+    font-size: 0.98rem;
     font-weight: 600;
     color: var(--gray-800);
     cursor: pointer;
     text-align: left;
-    transition: all 0.15s;
+    transition: all 0.15s ease;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
+    min-height: 48px;
 }
 .opt-btn:hover:not(:disabled) {
     border-color: var(--primary);
     background: #fafcfe;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.08);
+}
+.opt-btn.selected {
+    border-color: var(--primary);
+    background: #eef2ff;
 }
 .opt-key {
-    width: 24px;
-    height: 24px;
+    width: 26px;
+    height: 26px;
     border-radius: var(--radius-full);
     background: var(--white);
-    border: 1px solid var(--gray-300);
+    border: 1.5px solid var(--gray-300);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.78rem;
-    font-weight: 700;
+    font-size: 0.8rem;
+    font-weight: 800;
     color: var(--gray-600);
     flex-shrink: 0;
+    transition: all 0.15s;
 }
 .opt-btn.correct {
     background: #ecfdf5 !important;
@@ -971,16 +984,96 @@ body {
     color: white;
     border-color: #f43f5e;
 }
-.q-explain {
+.q-explain,
+.explain-box {
     margin-top: 14px;
-    padding: 12px 16px;
+    padding: 14px 18px;
     background: #f0f9ff;
     border-left: 4px solid var(--secondary);
     border-radius: var(--radius-sm);
-    font-size: 0.9rem;
+    font-size: 0.92rem;
     color: #0369a1;
+    line-height: 1.6;
     display: none;
     animation: fadeIn 0.2s ease;
+}
+
+/* Matching Container */
+.matching-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 12px;
+}
+@media (max-width: 768px) {
+    .matching-container {
+        grid-template-columns: 1fr;
+    }
+}
+.matching-box {
+    background: #f8fafc;
+    border: 1.5px solid var(--gray-200);
+    border-radius: var(--radius-md);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.matching-label {
+    font-size: 0.78rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--primary);
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+}
+
+/* Translation & Breakdown */
+.trans-viet-box {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #1e1b4b;
+    margin-bottom: 6px;
+    padding: 10px 14px;
+    background: #f8fafc;
+    border-left: 4px solid #ef4444;
+    border-radius: 4px;
+}
+.trans-textarea {
+    width: 100%;
+    min-height: 75px;
+    padding: 12px 16px;
+    border: 1.5px solid var(--gray-300);
+    border-radius: var(--radius-sm);
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-top: 10px;
+    outline: none;
+    resize: vertical;
+    font-family: inherit;
+}
+.trans-textarea:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+}
+.breakdown-list {
+    list-style: none;
+    padding: 0;
+    margin: 8px 0 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.breakdown-item {
+    font-size: 0.88rem;
+    color: var(--gray-700);
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+}
+.breakdown-part {
+    font-weight: 800;
+    color: #1e1b4b;
 }
 
 /* Part II: Word Ordering Chips Styles */
