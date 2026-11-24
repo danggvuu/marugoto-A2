@@ -85,65 +85,59 @@
             const targetEl = document.querySelector(href);
 
             let icon = '●';
-            let label = rawText;
+            let shortLabel = 'Mục ' + (idx + 1);
 
             // Nhận diện chuẩn hóa nhãn theo ngữ cảnh học tập
             if (href === '#sec-grammar1') {
                 icon = '①';
-                label = 'Ngữ Pháp 1';
+                shortLabel = 'NP 1';
             } else if (href === '#sec-grammar2') {
                 icon = '②';
-                label = 'Ngữ Pháp 2';
+                shortLabel = 'NP 2';
             } else if (href === '#sec-grammar3') {
                 icon = '③';
-                label = 'Ngữ Pháp 3';
+                shortLabel = 'NP 3';
             } else if (href === '#sec-grammar4') {
                 icon = '④';
-                label = 'Ngữ Pháp 4';
+                shortLabel = 'NP 4';
             } else if (href === '#sec-grammar5') {
                 icon = '⑤';
-                label = 'Ngữ Pháp 5';
+                shortLabel = 'NP 5';
             } else if (href === '#sec-verb-lab') {
                 icon = '🔬';
-                label = 'Biến Thể ĐT';
+                shortLabel = 'Động từ';
             } else if (href === '#sec-vocab') {
                 icon = '🎴';
-                label = 'Từ Vựng 3D';
+                shortLabel = 'Từ vựng';
             } else if (href === '#sec-typing-practice') {
                 icon = '⌨️';
-                label = 'Luyện Gõ';
+                shortLabel = 'Luyện gõ';
             } else if (href === '#sec-kanji') {
                 icon = '⛩️';
-                label = 'Chữ Hán';
+                shortLabel = 'Kanji';
             } else if (href === '#sec-quiz') {
                 icon = '📝';
-                label = 'Mini Test';
+                shortLabel = 'Đề thi';
             } else if (href === '#sec-dialogue') {
                 icon = '💬';
-                label = 'Hội Thoại';
+                shortLabel = 'Hội thoại';
             } else {
                 const iconRegex = /^([①-⑳0-9\.\-\u{1F000}-\u{1FAFF}\u{2300}-\u{27BF}\u{FE00}-\u{FE0F}]+)\s*(.*)$/u;
                 const match = rawText.match(iconRegex);
                 if (match && match[1].trim()) {
                     icon = match[1].trim();
-                    label = match[2].trim();
+                    shortLabel = match[2].trim().slice(0, 8);
+                } else {
+                    shortLabel = rawText.slice(0, 8);
                 }
-                label = label
-                    .replace(/^Biến Thể Động Từ.*$/i, 'Biến Thể ĐT')
-                    .replace(/^Luyện Gõ.*$/i, 'Luyện Gõ')
-                    .replace(/^\d+\s*Từ Vựng.*$/i, 'Từ Vựng 3D')
-                    .replace(/^\d+\s*Flashcard.*$/i, 'Từ Vựng 3D')
-                    .replace(/^\d+\s*Chữ Hán.*$/i, 'Chữ Hán')
-                    .replace(/^\d+\s*Từ Kanji.*$/i, 'Chữ Hán')
-                    .replace(/^Mini Test.*$/i, 'Mini Test');
             }
 
-            return { href, targetEl, icon, label, fullTitle: rawText };
+            return { href, targetEl, icon, shortLabel, fullTitle: rawText };
         }).filter(item => item.targetEl !== null);
 
         if (railItems.length === 0) return;
 
-        // 2. Tạo thanh sidebar macOS nổi fixed bên cạnh (Right Dock kiểu 1MS Taekwondo)
+        // 2. Tạo thanh sidebar macOS nổi fixed bên cạnh (Right Dock Glassmorphism)
         const rail = document.createElement('aside');
         rail.id = 'lessonSidebarRail';
         rail.className = 'lesson-sidebar-rail';
@@ -152,8 +146,8 @@
         rail.innerHTML = `
             <div class="macos-sidebar-box">
                 <div class="macos-sidebar-header">
-                    <div class="macos-traffic-dots" aria-hidden="true">
-                        <span class="macos-dot macos-dot-red"></span>
+                    <div class="macos-traffic-dots" aria-hidden="true" title="Thu gọn / Mở rộng dock">
+                        <span class="macos-dot macos-dot-red" id="railDotCollapse" title="Thu gọn dock"></span>
                         <span class="macos-dot macos-dot-yellow"></span>
                         <span class="macos-dot macos-dot-green"></span>
                     </div>
@@ -165,16 +159,19 @@
                         <circle class="dock-progress-bg" cx="24" cy="24" r="20"></circle>
                         <circle class="dock-progress-bar" id="dockProgressBar" cx="24" cy="24" r="20"></circle>
                     </svg>
-                    <button type="button" class="dock-btn-top" id="railBtnScrollTop" aria-label="Cuộn lên đầu trang">
+                    <button type="button" class="dock-btn-top" id="railBtnScrollTop" aria-label="Cuộn lên đầu trang" title="Lên đầu trang">
                         <span>↑</span>
                     </button>
                 </div>
 
-                <nav class="lesson-rail-links" aria-label="Các phần trong bài">
+                <nav class="lesson-rail-links" id="lessonRailLinks" aria-label="Các phần trong bài">
+                    <!-- Thanh trượt Active Indicator mượt mà kiểu macOS -->
+                    <div class="rail-active-pill" id="railActivePill" aria-hidden="true"></div>
                     ${railItems.map((item, idx) => `
-                        <a href="${item.href}" class="lesson-rail-link ${idx === 0 ? 'active' : ''}" data-href="${item.href}" title="${item.fullTitle} (${item.label})">
+                        <a href="${item.href}" class="lesson-rail-link ${idx === 0 ? 'active' : ''}" data-href="${item.href}" aria-label="${item.fullTitle}">
                             <span class="rail-icon">${item.icon}</span>
-                            <span class="rail-label">${item.label}</span>
+                            <span class="rail-label">${item.shortLabel}</span>
+                            <span class="rail-tooltip">${item.fullTitle}</span>
                         </a>
                     `).join('')}
                 </nav>
@@ -189,46 +186,10 @@
 
         document.body.appendChild(rail);
 
-        // Tạo phần tử morphing glider lướt mượt mà giữa Top Capsule và Right Dock (chuẩn 1MS Taekwondo)
-        let glider = document.getElementById('lessonMorphGlider');
-        if (!glider) {
-            glider = document.createElement('div');
-            glider.id = 'lessonMorphGlider';
-            glider.className = 'lesson-morph-glider';
-            glider.setAttribute('aria-hidden', 'true');
-            document.body.appendChild(glider);
-        }
-
         const macosBox = rail.querySelector('.macos-sidebar-box');
         const railLinks = Array.from(rail.querySelectorAll('.lesson-rail-link'));
-
-        // Tạo 2 lớp nội dung bên trong Glider để cross-fade siêu êm khi bay
-        let gliderTopContent = glider.querySelector('.glider-content-top');
-        if (!gliderTopContent) {
-            gliderTopContent = document.createElement('div');
-            gliderTopContent.className = 'glider-content-top';
-            glider.appendChild(gliderTopContent);
-        }
-        gliderTopContent.innerHTML = sectionNav.innerHTML;
-
-        let gliderDockContent = glider.querySelector('.glider-content-dock');
-        if (!gliderDockContent) {
-            gliderDockContent = document.createElement('div');
-            gliderDockContent.className = 'glider-content-dock';
-            glider.appendChild(gliderDockContent);
-        }
-        gliderDockContent.innerHTML = macosBox ? macosBox.innerHTML : '';
-
-        // Cài đặt độ trễ xuất hiện tầng bậc (stagger) cho các mục trên thanh dock
-        railLinks.forEach((link, idx) => {
-            link.style.transitionDelay = `${0.06 + idx * 0.035}s`;
-        });
-        const headerDots = rail.querySelector('.macos-sidebar-header');
-        if (headerDots) headerDots.style.transitionDelay = '0.02s';
-        const progressWrap = rail.querySelector('.dock-progress-wrapper');
-        if (progressWrap) progressWrap.style.transitionDelay = '0.04s';
-        const footerBtn = rail.querySelector('.macos-sidebar-footer');
-        if (footerBtn) footerBtn.style.transitionDelay = `${0.06 + railLinks.length * 0.035}s`;
+        const activePill = rail.querySelector('#railActivePill');
+        const linksContainer = rail.querySelector('#lessonRailLinks');
 
         // 3. Khôi phục trạng thái thu gọn từ localStorage
         const isCollapsedSaved = localStorage.getItem('marugoto_rail_collapsed') === 'true';
@@ -238,18 +199,19 @@
         }
 
         // Sự kiện nút thu gọn / mở rộng (nút riêng hoặc chấm đỏ macOS)
-        const toggleBtn = rail.querySelector('#btnToggleSidebarRail') || rail.querySelector('.macos-dot-red');
+        const toggleBtn = rail.querySelector('#railDotCollapse') || rail.querySelector('.macos-dot-red');
         if (toggleBtn) {
             toggleBtn.style.cursor = 'pointer';
             toggleBtn.addEventListener('click', (e) => {
                 e.preventDefault();
+                e.stopPropagation();
                 const isCollapsed = rail.classList.toggle('is-collapsed');
                 document.body.classList.toggle('rail-collapsed', isCollapsed);
                 localStorage.setItem('marugoto_rail_collapsed', String(isCollapsed));
             });
         }
 
-        // Tự động mở rộng khi hover trên laptop nếu đang thu gọn
+        // Tự động mở rộng khi hover nếu đang thu gọn
         rail.addEventListener('mouseenter', () => {
             if (rail.classList.contains('is-collapsed')) {
                 rail.classList.add('is-expanded');
@@ -304,13 +266,15 @@
             });
         }
 
-        // Hàm cập nhật trạng thái active cho cả 2 nơi (Top Capsule Nav + Side Rail)
+        // 5. Cập nhật trạng thái active & trượt thanh pill mượt mà (macOS glide)
         let currentActiveHref = railItems[0].href;
         function setActive(activeHref) {
             currentActiveHref = activeHref;
+            let targetLink = null;
             railLinks.forEach(l => {
                 if (l.getAttribute('data-href') === activeHref) {
                     l.classList.add('active');
+                    targetLink = l;
                 } else {
                     l.classList.remove('active');
                 }
@@ -324,231 +288,40 @@
                     origLink.classList.remove('active');
                 }
             });
-        }
 
-        // 5. CƠ CHẾ BIẾN ĐỔI CHUYỂN ĐỘNG LIÊN TỤC (1MS Taekwondo FLIP Spring Morphing)
-        // Thông số vật lý Framer Motion thu được từ phân tích kỹ nghệ đảo ngược:
-        // Spring: stiffness = 170, damping = 24, mass = 1 (zeta = 0.9204, settling ~650ms)
-        const SPRING_LINEAR_EASE = 'linear(0.0000, 0.0290, 0.0991, 0.1908, 0.2911, 0.3911, 0.4858, 0.5719, 0.6483, 0.7144, 0.7706, 0.8177, 0.8567, 0.8885, 0.9141, 0.9346, 0.9508, 0.9635, 0.9733, 0.9808, 0.9864, 0.9907, 0.9938, 0.9961, 0.9977, 0.9988, 0.9996, 1.0001, 1.0004, 1.0005, 1.0006)';
-        const SPRING_BEZIER_FALLBACK = 'cubic-bezier(0.16, 1, 0.3, 1)';
-
-        let activeSpringEase = SPRING_BEZIER_FALLBACK;
-        try {
-            const testEl = document.createElement('div');
-            const testAnim = testEl.animate([], { easing: SPRING_LINEAR_EASE });
-            if (testAnim) activeSpringEase = SPRING_LINEAR_EASE;
-        } catch (e) {
-            activeSpringEase = SPRING_BEZIER_FALLBACK;
-        }
-
-        let activeAnimation = null;
-        let activeTopAnim = null;
-        let activeDockAnim = null;
-        let isDockedState = false;
-        let isInitialized = false;
-
-        function triggerMorph(toDock, immediate) {
-            if (immediate) {
-                if (activeAnimation) {
-                    activeAnimation.cancel();
-                    activeAnimation = null;
-                }
-                if (activeTopAnim) {
-                    activeTopAnim.cancel();
-                    activeTopAnim = null;
-                }
-                if (activeDockAnim) {
-                    activeDockAnim.cancel();
-                    activeDockAnim = null;
-                }
-                document.body.classList.remove('is-morphing-dock', 'is-morphing-top');
-                glider.classList.remove('is-active');
-                glider.style.transform = 'none';
-                if (toDock) {
-                    document.body.classList.add('is-scrolled-dock');
-                } else {
-                    document.body.classList.remove('is-scrolled-dock');
-                }
-                return;
-            }
-
-            const isDesktop = window.innerWidth >= 1100;
-            if (!isDesktop) return;
-
-            const navRect = sectionNav.getBoundingClientRect();
-            const dockRect = macosBox.getBoundingClientRect();
-
-            let fromRect, targetRect, fromRadius, targetRadius;
-
-            if (toDock) {
-                // Top Capsule -> Right Dock
-                if (activeAnimation) {
-                    fromRect = glider.getBoundingClientRect();
-                    fromRadius = getComputedStyle(glider).borderRadius || '9999px';
-                    activeAnimation.cancel();
-                    activeAnimation = null;
-                } else {
-                    fromRect = navRect;
-                    fromRadius = '9999px';
-                }
-                targetRect = dockRect;
-                targetRadius = '28px';
-
-                document.body.classList.add('is-scrolled-dock');
-                document.body.classList.add('is-morphing-dock');
-                document.body.classList.remove('is-morphing-top');
-            } else {
-                // Right Dock -> Top Capsule
-                if (activeAnimation) {
-                    fromRect = glider.getBoundingClientRect();
-                    fromRadius = getComputedStyle(glider).borderRadius || '28px';
-                    activeAnimation.cancel();
-                    activeAnimation = null;
-                } else {
-                    fromRect = dockRect;
-                    fromRadius = '28px';
-                }
-                targetRect = navRect;
-                targetRadius = '9999px';
-
-                document.body.classList.remove('is-scrolled-dock');
-                document.body.classList.add('is-morphing-top');
-                document.body.classList.remove('is-morphing-dock');
-            }
-
-            if (activeTopAnim) {
-                activeTopAnim.cancel();
-                activeTopAnim = null;
-            }
-            if (activeDockAnim) {
-                activeDockAnim.cancel();
-                activeDockAnim = null;
-            }
-
-            // Thiết lập vị trí ban đầu của phần tử morphing glider
-            glider.style.left = fromRect.left + 'px';
-            glider.style.top = fromRect.top + 'px';
-            glider.style.width = fromRect.width + 'px';
-            glider.style.height = fromRect.height + 'px';
-            glider.style.borderRadius = fromRadius;
-            glider.style.transform = 'translate3d(0, 0, 0)';
-            glider.classList.add('is-active');
-
-            const deltaX = targetRect.left - fromRect.left;
-            const deltaY = targetRect.top - fromRect.top;
-
-            const keyframes = [
-                {
-                    transform: 'translate3d(0, 0, 0)',
-                    width: `${fromRect.width}px`,
-                    height: `${fromRect.height}px`,
-                    borderRadius: fromRadius,
-                    opacity: 1
-                },
-                {
-                    transform: `translate3d(${deltaX}px, ${deltaY}px, 0)`,
-                    width: `${targetRect.width}px`,
-                    height: `${targetRect.height}px`,
-                    borderRadius: targetRadius,
-                    opacity: 1
-                }
-            ];
-
-            // Animate 2 lớp nội dung bên trong: Top capsule cross-fades với Right dock
-            try {
-                if (toDock) {
-                    activeTopAnim = gliderTopContent.animate([
-                        { opacity: 1, transform: 'translate(-50%, -50%) scale(1)' },
-                        { opacity: 0, transform: 'translate(-50%, -50%) scale(0.85)' }
-                    ], {
-                        duration: 260,
-                        easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
-                        fill: 'forwards'
-                    });
-
-                    activeDockAnim = gliderDockContent.animate([
-                        { opacity: 0, transform: 'scale(0.85) translateY(12px)' },
-                        { opacity: 1, transform: 'scale(1) translateY(0)' }
-                    ], {
-                        duration: 360,
-                        delay: 100,
-                        easing: 'cubic-bezier(0.16, 1, 0.3, 1)',
-                        fill: 'forwards'
-                    });
-                } else {
-                    activeDockAnim = gliderDockContent.animate([
-                        { opacity: 1, transform: 'scale(1) translateY(0)' },
-                        { opacity: 0, transform: 'scale(0.85) translateY(12px)' }
-                    ], {
-                        duration: 240,
-                        easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
-                        fill: 'forwards'
-                    });
-
-                    activeTopAnim = gliderTopContent.animate([
-                        { opacity: 0, transform: 'translate(-50%, -50%) scale(0.85)' },
-                        { opacity: 1, transform: 'translate(-50%, -50%) scale(1)' }
-                    ], {
-                        duration: 340,
-                        delay: 100,
-                        easing: 'cubic-bezier(0.16, 1, 0.3, 1)',
-                        fill: 'forwards'
-                    });
-                }
-
-                activeAnimation = glider.animate(keyframes, {
-                    duration: 650,
-                    easing: activeSpringEase,
-                    fill: 'forwards'
-                });
-
-                activeAnimation.onfinish = () => {
-                    activeAnimation = null;
-                    activeTopAnim = null;
-                    activeDockAnim = null;
-                    document.body.classList.remove('is-morphing-dock', 'is-morphing-top');
-                    glider.classList.remove('is-active');
-                    glider.style.transform = 'none';
-                };
-            } catch (err) {
-                activeAnimation = null;
-                document.body.classList.remove('is-morphing-dock', 'is-morphing-top');
-                glider.classList.remove('is-active');
-                glider.style.transform = 'none';
+            // Hiệu ứng trượt thanh active indicator pill mượt mà như macOS
+            if (targetLink && activePill && linksContainer) {
+                const cRect = linksContainer.getBoundingClientRect();
+                const lRect = targetLink.getBoundingClientRect();
+                const top = lRect.top - cRect.top + linksContainer.scrollTop;
+                activePill.style.transform = `translate3d(0, ${top}px, 0)`;
+                activePill.style.height = `${lRect.height}px`;
+                activePill.style.opacity = '1';
             }
         }
 
-        // 6. ScrollSpy thông minh theo vị trí cuộn trang & Morphing Dock
-        const DOCK_THRESHOLD = 140;
-        const UNDOCK_THRESHOLD = 100;
+        // Đặt vị trí active pill ban đầu
+        setTimeout(() => {
+            setActive(currentActiveHref);
+        }, 60);
+
+        // 6. ScrollSpy thông minh theo vị trí cuộn trang
         let isTicking = false;
 
         function updateScrollSpy() {
             const scrollPos = window.scrollY + 110;
             const docHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
             const winHeight = window.innerHeight;
-            const isDesktop = window.innerWidth >= 1100;
+            const isDesktop = window.innerWidth >= 1025;
 
-            // Xử lý chuyển đổi giữa Top Capsule và Right Dock với ngưỡng trễ (Hysteresis)
             if (isDesktop) {
-                if (!isInitialized) {
-                    isInitialized = true;
-                    isDockedState = window.scrollY > DOCK_THRESHOLD;
-                    triggerMorph(isDockedState, true);
+                if (window.scrollY > 120) {
+                    document.body.classList.add('is-scrolled-dock');
                 } else {
-                    if (!isDockedState && window.scrollY > DOCK_THRESHOLD) {
-                        isDockedState = true;
-                        triggerMorph(true);
-                    } else if (isDockedState && window.scrollY < UNDOCK_THRESHOLD) {
-                        isDockedState = false;
-                        triggerMorph(false);
-                    }
+                    document.body.classList.remove('is-scrolled-dock');
                 }
             } else {
-                if (isDockedState || document.body.classList.contains('is-scrolled-dock')) {
-                    isDockedState = false;
-                    triggerMorph(false, true);
-                }
+                document.body.classList.remove('is-scrolled-dock');
             }
 
             // Cập nhật vòng tròn tiến độ cuộn (Circular Scroll Progress)
@@ -599,11 +372,7 @@
         }
 
         window.addEventListener('resize', () => {
-            const isDesktop = window.innerWidth >= 1100;
-            if (!isDesktop && isDockedState) {
-                isDockedState = false;
-                triggerMorph(false, true);
-            }
+            updateScrollSpy();
         }, { passive: true });
 
         function savePosition(href) {

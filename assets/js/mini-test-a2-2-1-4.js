@@ -964,14 +964,40 @@ function renderKanji(list) {
         return;
     }
 
-    container.innerHTML = list.map(item => `
+    container.innerHTML = list.map(item => {
+        const rawChar = item.char || '';
+        const charLen = rawChar.length;
+        let lenClass = 'char-len-1';
+        let charBoxHtml = rawChar;
+
+        if (rawChar.includes('（') && rawChar.includes('）')) {
+            lenClass = 'char-len-long';
+            const parts = rawChar.split('（');
+            const mainWord = parts[0];
+            const subWord = parts[1].replace('）', '');
+            charBoxHtml = `<span class="char-main">${mainWord}</span><span class="char-sub">（${subWord}）</span>`;
+        } else if (charLen >= 4) {
+            lenClass = 'char-len-4';
+        } else if (charLen === 3) {
+            lenClass = 'char-len-3';
+        } else if (charLen === 2) {
+            lenClass = 'char-len-2';
+        }
+
+        const safeChar = rawChar.replace(/'/g, "\\'");
+        const hiraganaText = item.hiragana || '';
+
+        return `
         <div class="kanji-card">
             <div class="kanji-header">
-                <div class="kanji-char-box jp-text">${item.char}</div>
+                <div class="kanji-char-box jp-text ${lenClass}">${charBoxHtml}</div>
                 <div class="kanji-meta">
-                    <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 8px;">
-                        <div class="kanji-hv">${item.hv} <span style="font-size: 0.92rem; font-weight: 700; color: #166534;">(${item.hiragana || ''})</span></div>
-                        <button type="button" class="sound-btn" onclick="copySingleKanji('${item.char}')" title="Sao chép chữ Hán này" style="width: auto; height: 26px; padding: 0 10px; border-radius: 6px; font-size: 0.76rem; font-weight: 700; background: #e0f2fe; color: #0369a1;">
+                    <div class="kanji-title-row">
+                        <div class="kanji-hv">
+                            <span class="hv-name">${item.hv}</span>
+                            ${hiraganaText ? `<span class="kanji-reading-pill jp-text">(${hiraganaText})</span>` : ''}
+                        </div>
+                        <button type="button" class="kanji-copy-btn sound-btn" onclick="copySingleKanji('${safeChar}')" title="Sao chép chữ Hán này">
                             📋 Copy
                         </button>
                     </div>
@@ -979,7 +1005,7 @@ function renderKanji(list) {
                     <div class="kanji-sub-row">
                         <span class="kanji-tag">${item.lessonName}</span>
                         <span class="kanji-tag">${item.strokes} nét</span>
-                        <span class="kanji-tag" style="background:#fef3c7; color:#92400e; font-weight:800;">Đọc: ${item.hiragana}</span>
+                        <span class="kanji-tag kanji-tag-reading">Đọc: ${hiraganaText}</span>
                     </div>
                 </div>
             </div>
@@ -1003,7 +1029,8 @@ function renderKanji(list) {
                 `).join('')}
             </ul>
         </div>
-    `).join('');
+        `;
+    }).join('');
 }
 
 function filterKanji(lesson, btn) {

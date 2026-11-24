@@ -860,88 +860,13 @@
             });
         }
 
-        let hubGlider = document.getElementById('globalHubGlider');
-        if (!hubGlider) {
-            hubGlider = document.createElement('div');
-            hubGlider.id = 'globalHubGlider';
-            hubGlider.className = 'lesson-morph-glider global-hub-glider';
-            hubGlider.setAttribute('aria-hidden', 'true');
-            document.body.appendChild(hubGlider);
-        }
-
-        const macosBox = dock.querySelector('.macos-sidebar-box');
-        let hubGliderTop = document.createElement('div');
-        hubGliderTop.className = 'glider-content-top';
-        hubGliderTop.innerHTML = hubNav.innerHTML;
-
-        let hubGliderDock = document.createElement('div');
-        hubGliderDock.className = 'glider-content-dock';
-        hubGliderDock.innerHTML = macosBox ? macosBox.innerHTML : '';
-
-        hubGlider.appendChild(hubGliderTop);
-        hubGlider.appendChild(hubGliderDock);
-
-        const SPRING_LINEAR_EASE = 'linear(0.0000, 0.0290, 0.0991, 0.1908, 0.2911, 0.3911, 0.4858, 0.5719, 0.6483, 0.7144, 0.7706, 0.8177, 0.8567, 0.8885, 0.9141, 0.9346, 0.9508, 0.9635, 0.9733, 0.9808, 0.9864, 0.9907, 0.9938, 0.9961, 0.9977, 0.9988, 0.9996, 1.0001, 1.0004, 1.0005, 1.0006)';
-        let activeAnim = null;
         let isDocked = false;
 
-        function triggerHubMorph(toDock, immediate) {
-            if (immediate) {
-                if (activeAnim) { activeAnim.cancel(); activeAnim = null; }
-                hubGlider.classList.remove('is-active');
-                if (toDock) {
-                    document.body.classList.add('is-hub-docked');
-                } else {
-                    document.body.classList.remove('is-hub-docked');
-                }
-                return;
-            }
-
-            if (window.innerWidth < 1100) return;
-
-            const fromRect = toDock ? hubNav.getBoundingClientRect() : macosBox.getBoundingClientRect();
-            const targetRect = toDock ? macosBox.getBoundingClientRect() : hubNav.getBoundingClientRect();
-            const fromRadius = toDock ? '9999px' : '28px';
-            const targetRadius = toDock ? '28px' : '9999px';
-
+        function triggerHubMorph(toDock) {
             if (toDock) {
                 document.body.classList.add('is-hub-docked');
             } else {
                 document.body.classList.remove('is-hub-docked');
-            }
-
-            hubGlider.style.left = fromRect.left + 'px';
-            hubGlider.style.top = fromRect.top + 'px';
-            hubGlider.style.width = fromRect.width + 'px';
-            hubGlider.style.height = fromRect.height + 'px';
-            hubGlider.style.borderRadius = fromRadius;
-            hubGlider.style.transform = 'translate3d(0,0,0)';
-            hubGlider.classList.add('is-active');
-
-            const deltaX = targetRect.left - fromRect.left;
-            const deltaY = targetRect.top - fromRect.top;
-
-            if (toDock) {
-                hubGliderTop.animate([{ opacity: 1, transform: 'translate(-50%, -50%) scale(1)' }, { opacity: 0, transform: 'translate(-50%, -50%) scale(0.85)' }], { duration: 240, easing: 'cubic-bezier(0.22, 1, 0.36, 1)', fill: 'forwards' });
-                hubGliderDock.animate([{ opacity: 0, transform: 'scale(0.85)' }, { opacity: 1, transform: 'scale(1)' }], { duration: 340, delay: 100, easing: 'cubic-bezier(0.16, 1, 0.3, 1)', fill: 'forwards' });
-            } else {
-                hubGliderDock.animate([{ opacity: 1, transform: 'scale(1)' }, { opacity: 0, transform: 'scale(0.85)' }], { duration: 240, easing: 'cubic-bezier(0.22, 1, 0.36, 1)', fill: 'forwards' });
-                hubGliderTop.animate([{ opacity: 0, transform: 'translate(-50%, -50%) scale(0.85)' }, { opacity: 1, transform: 'translate(-50%, -50%) scale(1)' }], { duration: 340, delay: 100, easing: 'cubic-bezier(0.16, 1, 0.3, 1)', fill: 'forwards' });
-            }
-
-            try {
-                activeAnim = hubGlider.animate([
-                    { transform: 'translate3d(0, 0, 0)', width: `${fromRect.width}px`, height: `${fromRect.height}px`, borderRadius: fromRadius },
-                    { transform: `translate3d(${deltaX}px, ${deltaY}px, 0)`, width: `${targetRect.width}px`, height: `${targetRect.height}px`, borderRadius: targetRadius }
-                ], { duration: 650, easing: SPRING_LINEAR_EASE, fill: 'forwards' });
-
-                activeAnim.onfinish = () => {
-                    activeAnim = null;
-                    hubGlider.classList.remove('is-active');
-                    hubGlider.style.transform = 'none';
-                };
-            } catch (err) {
-                hubGlider.classList.remove('is-active');
             }
         }
 
