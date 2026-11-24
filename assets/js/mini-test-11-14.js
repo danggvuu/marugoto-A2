@@ -997,7 +997,7 @@ function renderKanji(list) {
                             <span class="hv-name">${item.hv}</span>
                             ${hiraganaText ? `<span class="kanji-reading-pill jp-text">(${hiraganaText})</span>` : ''}
                         </div>
-                        <button type="button" class="kanji-copy-btn sound-btn" onclick="copySingleKanji('${safeChar}')" title="Copy: ${safeChar}、${item.shortMeaning || item.meaning.split(',')[0]}, ${item.hv.toUpperCase()}: ${hiraganaText}">
+                        <button type="button" class="kanji-copy-btn" onclick="copySingleKanji('${safeChar}')" title="Copy: ${safeChar}、${item.shortMeaning || item.meaning.split(',')[0]}, ${item.hv.toUpperCase()}: ${hiraganaText}">
                             📋 Copy
                         </button>
                     </div>

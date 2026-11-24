@@ -997,7 +997,7 @@ function renderKanji(list) {
                             <span class="hv-name">${item.hv}</span>
                             ${hiraganaText ? `<span class="kanji-reading-pill jp-text">(${hiraganaText})</span>` : ''}
                         </div>
-                        <button type="button" class="kanji-copy-btn sound-btn" onclick="copySingleKanji('${safeChar}')" title="Sao chép chữ Hán này">
+                        <button type="button" class="kanji-copy-btn" onclick="copySingleKanji('${safeChar}')" title="Sao chép chữ Hán này">
                             📋 Copy
                         </button>
                     </div>
