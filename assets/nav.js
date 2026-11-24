@@ -510,6 +510,21 @@
     function positionDesktopMenu(btn, menu) {
         if (!btn || !menu) return;
         if (window.innerWidth > 768) {
+            if (btn.closest && btn.closest('.global-hub-dock')) {
+                const btnRect = btn.getBoundingClientRect();
+                const menuHeight = menu.offsetHeight || 380;
+                menu.classList.add('dock-open');
+                menu.style.position = 'fixed';
+                menu.style.right = (window.innerWidth - btnRect.left + 16) + 'px';
+                menu.style.left = 'auto';
+                const targetTop = Math.max(20, Math.min(window.innerHeight - menuHeight - 20, btnRect.top - 60));
+                menu.style.top = targetTop + 'px';
+                menu.style.transform = 'none';
+                return;
+            }
+
+            menu.classList.remove('dock-open');
+            menu.style.right = '';
             const wrapper = menu.closest('.global-hub-nav-wrapper') || btn.parentElement;
             const btnRect = btn.getBoundingClientRect();
             const wrapperRect = wrapper.getBoundingClientRect();
@@ -528,6 +543,8 @@
             menu.style.left = clampedCenter + 'px';
             menu.style.transform = 'translateX(-50%)';
         } else {
+            menu.style.position = '';
+            menu.style.right = '';
             menu.style.top = '';
             menu.style.left = '';
             menu.style.transform = '';
@@ -557,7 +574,10 @@
     function closeAllHubDropdowns(restoreFocus = true) {
         ALL_MENU_IDS.forEach(id => {
             const m = document.getElementById(id);
-            if (m) m.classList.remove('show');
+            if (m) {
+                m.classList.remove('show');
+                m.classList.remove('dock-open');
+            }
         });
         ALL_BTN_IDS.forEach(id => {
             const b = document.getElementById(id);
@@ -600,11 +620,15 @@
             }
         });
 
+        const clickedBtn = (e && e.target) ? e.target.closest('button, a') : null;
+        const targetBtn = (clickedBtn && clickedBtn.closest('.global-hub-dock')) ? clickedBtn : btn;
+
         if (willOpen) {
-            lastFocusedBtn = btn;
-            positionDesktopMenu(btn, menu);
+            lastFocusedBtn = targetBtn;
+            positionDesktopMenu(targetBtn, menu);
             menu.classList.add('show');
             if (btn) btn.setAttribute('aria-expanded', 'true');
+            if (targetBtn && targetBtn !== btn) targetBtn.setAttribute('aria-expanded', 'true');
             if (bd) bd.classList.add('show');
             if (window.innerWidth <= 768) {
                 document.body.classList.add('hub-menu-open');

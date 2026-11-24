@@ -335,6 +335,23 @@ rt {
     animation: hubDropDesktopIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
+.hub-dropdown-menu.dock-open {
+    position: fixed !important;
+    animation: hubDropDockIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    z-index: 10000000 !important;
+}
+
+@keyframes hubDropDockIn {
+    from {
+        opacity: 0;
+        transform: translateX(12px) scale(0.97);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
 @keyframes hubDropDesktopIn {
     from {
         opacity: 0;
