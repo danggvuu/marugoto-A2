@@ -674,6 +674,9 @@ function resetAllExam() {
     totalSeconds = 45 * 60;
     isTimerRunning = true;
     updateTimerDisplay();
+    startTimer();
+    const timerBtn = document.querySelector('button[onclick*="toggleTimer("]');
+    if (timerBtn) timerBtn.innerText = "⏸️ Tạm Dừng";
 
     renderPart1();
     renderPart2();
@@ -686,7 +689,7 @@ function resetAllExam() {
     document.getElementById('quizStatusTitle').innerText = 'Đề Khảo Sát Năng Lực Toàn Diện Bài 11 - 14';
     document.getElementById('quizProgressText').innerText = 'Hoàn thành: 0/32 câu • Tổng điểm hiện tại: 0 / 100đ';
 
-    localStorage.removeItem(MINI11_14_CP_KEY);
+    try { localStorage.removeItem(MINI11_14_CP_KEY); } catch (e) {}
     window.scrollTo({ top: document.getElementById('tab-quiz').offsetTop - 60, behavior: 'smooth' });
 }
 

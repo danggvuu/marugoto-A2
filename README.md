@@ -80,22 +80,18 @@ Pipeline hiện tại:
 
 1. Cập nhật nội dung A2.1 bài 3–18; sinh 18 bài A2.2 cùng JS bài học, đồng bộ Kanji và điều hướng A2.2.
 2. Sinh mini test A2.2 bài 1–4, mini test A2.1 bài 11–14/15–18, ôn Kanji cấp tốc, kiểm tra Từ vựng & Kanji và đề tổng hợp 11–18.
-3. Kiểm tra tham chiếu local, cấu trúc HTML và `script` tại root, `lessons/`, `tests/`; chạy `node --check` cho JS trong `assets/`.
-4. Chạy các kiểm tra nội dung, phạm vi Từ vựng & Kanji 11–18, A2.2 và Kaiwa.
+3. Kiểm tra tham chiếu local, cấu trúc HTML và `script` tại root, `lessons/`, `tests/` và lộ trình 10 ngày; chạy `node --check` cho JS trong `assets/`.
+4. Chạy toàn bộ regression về nội dung, checkpoint, phiên thi, timer, Kanji, vòng đời 3D và các script build phụ.
 
 **Build ghi lại các file đầu ra**, gồm cả một số file dùng chung. Xem `git diff` sau khi chạy. Không phải mọi script trong `scripts/` đều được gọi bởi pipeline này.
 
 ### 2. Regression checks không sinh lại trang
 
 ```sh
-node qa/regression/run_regression_tests.js
-node qa/regression/content_integrity.js
-node qa/regression/vocab_kanji_scope.js
-node qa/regression/a2_2_content.js
-node qa/regression/kaiwa_scope.js
+python3 scripts/build_all.py --check-only
 ```
 
-Bao gồm kiểm tra chấm bài, Unicode, chia động từ, checkpoint, nội dung và giới hạn dữ liệu. Một số kiểm tra dò source, không thay thế kiểm tra hành vi trên trình duyệt hay đối chiếu nội dung tiếng Nhật.
+Lệnh này không chạy generator hoặc ghi lại trang/dữ liệu. Nó kiểm tra HTML/JS, chạy các regression cũ và mới, xác nhận đầu ra A2.2 khớp nguồn; test script phụ chỉ ghi vào workspace tạm. Có thể chạy riêng từng file trong `qa/regression/` khi debug. Các test gồm hành vi controller và một số kiểm tra dò source, không thay thế kiểm tra trên trình duyệt hay đối chiếu nội dung tiếng Nhật.
 
 ### 3. Browser tests
 
@@ -122,10 +118,12 @@ Cài và chạy:
 ```sh
 python -m pip install -r qa/requirements-browser.txt
 python -m playwright install chromium
-python qa/browser/test_browser.py
+python -m unittest discover -s qa/browser -p 'test_*.py' -v
 ```
 
-Test tự mở HTTP server và browser context tạm, không dùng tiến độ trong profile cá nhân. Nếu thiếu Chromium của Playwright, test thử dùng Google Chrome đã cài. Bộ test gồm điều hướng A2.2, flashcard, quiz/Verb Lab, Kanji, lọc/phân trang, checkpoint, xếp câu, timer và khóa lời giải; các trang đại diện được kiểm tra ở 360, 390, 768 và 1440px.
+Test tự mở HTTP server và browser context tạm, không dùng tiến độ trong profile cá nhân. Nếu thiếu Chromium của Playwright, test thử dùng Google Chrome đã cài. Bộ test gồm điều hướng A2.2, flashcard, quiz/Verb Lab, Kanji, lọc/phân trang, checkpoint, xếp câu, timer và khóa lời giải. Smoke test mở toàn bộ 69 trang ở 360 và 1440px, phát hiện lỗi JS, HTTP local và tràn ngang; trang đại diện còn được kiểm tra ở 390 và 768px.
+
+`test_review_visual_flows.py` kiểm tra filter/paging Kanji, response SVG đảo thứ tự và mở/đóng 3D bằng renderer Three.js thật. Nếu browser không hỗ trợ WebGL, test 3D báo **skip**, không coi là đã kiểm chứng GPU. Chạy suite bằng lệnh discovery phía trên để không bỏ sót file test này.
 
 | Biến môi trường | Ý nghĩa |
 | --- | --- |
@@ -135,7 +133,7 @@ Test tự mở HTTP server và browser context tạm, không dùng tiến độ 
 Ví dụ macOS/Linux:
 
 ```sh
-MARUGOTO_SCREENSHOTS_DIR=artifacts/screenshots/latest python qa/browser/test_browser.py
+MARUGOTO_SCREENSHOTS_DIR=artifacts/screenshots/latest python -m unittest discover -s qa/browser -p 'test_*.py' -v
 ```
 
 ## Chỉnh sửa và đóng góp
@@ -151,5 +149,6 @@ MARUGOTO_SCREENSHOTS_DIR=artifacts/screenshots/latest python qa/browser/test_bro
 - [Rà soát code ban đầu](docs/reviews/CODE_REVIEW.md)
 - [Kiểm tra lại và kết quả sửa](docs/reviews/RECHECK_CURRENT.md)
 - [Đối chiếu chất lượng nội dung A2.1](docs/reviews/CONTENT_QUALITY_2026_11.md)
+- [Các lỗi đã sửa và kiểm chứng ngày 25/11/2026](docs/reviews/FIXES_2026_11_25.md)
 
 Các báo cáo rà soát phản ánh thời điểm viết, không thay thế mô tả cấu trúc hiện tại.

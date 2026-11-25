@@ -64,9 +64,10 @@ function switchMainTab(tabId, opts) {
         panel.classList.toggle('active', panel.id === tabId);
     });
     if (tabId === 'tab-typing' && typeof initTypingPractice === 'function') {
+        // Restore the shared studio checkpoint before switching modes saves it.
+        initTypingPractice();
         if (window.tpState) window.tpState.mode = 'kanji';
         if (typeof switchTypingMode === 'function') switchTypingMode('kanji');
-        initTypingPractice();
     }
     if (!(opts && opts.skipScroll)) {
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -92,7 +93,7 @@ function renderVocab(list) {
                     <button type="button" class="btn-card-action" onclick="audioEngine.speak('${item.kana}')" title="Phát âm">🔊</button>
                 </div>
                 <div class="vc-kana jp-text">${item.kana}</div>
-                <div class="vc-vi ${isMeaningHidden ? 'style="filter: blur(5px); transition: filter 0.2s;" onclick="this.style.filter=\'none\'"' : ''}">${item.vi}</div>
+                <div class="vc-vi" ${isMeaningHidden ? 'style="filter: blur(5px); transition: filter 0.2s;" onclick="this.style.filter=\'none\'"' : ''}>${item.vi}</div>
             </div>
             <div class="vc-footer">
                 <div style="display:flex; gap:6px;">
@@ -531,9 +532,8 @@ function restoreCramCheckpoint() {
             currentLessonFilter = saved.currentLessonFilter;
             document.querySelectorAll('button[onclick*="filterVocabByLesson"]').forEach(btn => {
                 const oc = btn.getAttribute('onclick') || '';
-                const isAll = currentLessonFilter === 'ALL' && oc.includes("'ALL'");
-                const isNum = currentLessonFilter !== 'ALL' && new RegExp(`filterVocabByLesson\(['"]?${currentLessonFilter}['"]?`).test(oc);
-                btn.classList.toggle('active', isAll || isNum);
+                const lessonMatch = oc.match(/filterVocabByLesson\(\s*(['"]?)(ALL|\d+)\1\s*[,)]/);
+                btn.classList.toggle('active', Boolean(lessonMatch && lessonMatch[2] === String(currentLessonFilter)));
             });
         }
 

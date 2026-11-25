@@ -7,6 +7,7 @@ One-command build & integrity verification for the Marugoto A1-A2 Review Hub.
    and `node --check` syntax across all JavaScript files.
 """
 
+import argparse
 import glob
 import os
 import re
@@ -26,13 +27,25 @@ BUILDERS = [
     "scripts/build_tong_hop_11_18_page.py",
     "scripts/build_tong_hop_11_18_js.py",
 ]
+REGRESSION_CHECKS = [
+    ("Runtime regressions", ["node", "qa/regression/run_regression_tests.js"]),
+    ("Content integrity", ["node", "qa/regression/content_integrity.js"]),
+    ("Vocabulary Kanji scope", ["node", "qa/regression/vocab_kanji_scope.js"]),
+    ("A2-2 content", ["node", "qa/regression/a2_2_content.js"]),
+    ("Kaiwa scope", ["node", "qa/regression/kaiwa_scope.js"]),
+    ("Review state recovery", ["node", "qa/regression/review_state_recovery.js"]),
+    ("Review exam recovery", ["node", "qa/regression/review_exam_recovery.js"]),
+    ("Review lesson fixes", ["node", "qa/regression/review_lesson_fixes.js", "--check-generated"]),
+    ("Review 3D build lifecycle", ["node", "qa/regression/review_build_3d.js"]),
+    ("Build helper regressions", [sys.executable, "-B", "qa/regression/test_build_helpers.py"]),
+]
 
 
 def run_builders():
     for rel in BUILDERS:
         full = os.path.join(WORKSPACE, rel)
         print(f"Running {rel}...")
-        subprocess.run([sys.executable, "-W", "error", full], check=True)
+        subprocess.run([sys.executable, "-B", "-W", "error", full], check=True, cwd=WORKSPACE)
 
 
 def verify_html_integrity():
@@ -40,6 +53,7 @@ def verify_html_integrity():
         glob.glob(os.path.join(WORKSPACE, "*.html"))
         + glob.glob(os.path.join(WORKSPACE, "lessons/*.html"))
         + glob.glob(os.path.join(WORKSPACE, "tests/*.html"))
+        + glob.glob(os.path.join(WORKSPACE, "docs/Ke_Hoach_10_Ngay/**/*.html"), recursive=True)
     )
     errors = []
     for path in html_files:
@@ -82,12 +96,33 @@ def verify_all_js():
     print(f"Node JS syntax check OK across {len(js_files)} JS files.")
 
 
-if __name__ == "__main__":
-    run_builders()
+def run_regression_checks():
+    for name, command in REGRESSION_CHECKS:
+        print(f"Running {name}...", flush=True)
+        subprocess.run(command, check=True, cwd=WORKSPACE)
+
+
+def main():
+    parser = argparse.ArgumentParser(
+        description="Build the site and run its integrity and regression checks."
+    )
+    parser.add_argument(
+        "--check-only",
+        action="store_true",
+        help="run read-only integrity and regression checks without running generators",
+    )
+    args = parser.parse_args()
+
+    if not args.check_only:
+        run_builders()
     verify_html_integrity()
     verify_all_js()
-    subprocess.run(["node", os.path.join(WORKSPACE, "qa/regression/content_integrity.js")], check=True)
-    subprocess.run(["node", os.path.join(WORKSPACE, "qa/regression/vocab_kanji_scope.js")], check=True)
-    subprocess.run(["node", os.path.join(WORKSPACE, "qa/regression/a2_2_content.js")], check=True)
-    subprocess.run(["node", os.path.join(WORKSPACE, "qa/regression/kaiwa_scope.js")], check=True)
-    print("ALL BUILD & INTEGRITY CHECKS PASSED!")
+    run_regression_checks()
+    if args.check_only:
+        print("ALL READ-ONLY QA CHECKS PASSED!")
+    else:
+        print("ALL BUILD & INTEGRITY CHECKS PASSED!")
+
+
+if __name__ == "__main__":
+    main()

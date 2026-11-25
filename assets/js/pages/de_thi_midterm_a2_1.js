@@ -27,12 +27,30 @@ let currentExamCode = getInitialExamCode();
 let userAnswers = {}; // { [qId]: { value, starOrder, isCorrect, checked } }
 let timerSeconds = 45 * 60;
 let timerInterval = null;
+let timerDeadline = null;
 let isTimerRunning = false;
 let isImmediateMode = false;
 let isExamSubmitted = false;
+let isResettingCheckpoint = false;
 
 const STORAGE_KEY_PREFIX = "marugoto_midterm_draft_";
 const HISTORY_STORAGE_KEY = "marugoto_midterm_history_v1";
+
+// Native drafts are per exam code; generic DOM snapshots must not cross codes.
+window.__MARUGOTO_NATIVE_DOM_DISABLED__ = true;
+function registerMidtermCheckpoint() {
+    window.__MARUGOTO_CP_EXTRA_KEYS__ = [
+        ...(window.__MARUGOTO_CP_EXTRA_KEYS__ || []).filter(key => !key.startsWith(STORAGE_KEY_PREFIX)),
+        STORAGE_KEY_PREFIX + currentExamCode
+    ];
+}
+registerMidtermCheckpoint();
+window.__MARUGOTO_ON_RESET__ = function () {
+    isResettingCheckpoint = true;
+    stopTimer();
+    clearDraft(currentExamCode);
+    window.location.reload();
+};
 
 // 1. Initialize
 document.addEventListener("DOMContentLoaded", () => {
@@ -40,6 +58,11 @@ document.addEventListener("DOMContentLoaded", () => {
     initExamTabs();
     loadExam(currentExamCode);
     updateHistoryBadge();
+});
+
+window.addEventListener('pagehide', saveDraft);
+document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'hidden') saveDraft();
 });
 
 window.addEventListener("hashchange", () => {
@@ -71,6 +94,7 @@ function switchExam(code) {
             return;
         }
     }
+    saveDraft();
     currentExamCode = code;
     try {
         localStorage.setItem(ACTIVE_EXAM_STORAGE_KEY, code);
@@ -81,29 +105,43 @@ function switchExam(code) {
 }
 
 // 3. Timer Engine
+function refreshRemainingTime() {
+    if (isTimerRunning && timerDeadline !== null) {
+        timerSeconds = Math.max(0, Math.ceil((timerDeadline - Date.now()) / 1000));
+    }
+}
+
 function startTimer() {
     stopTimer();
+    if (isExamSubmitted) return;
+    if (timerSeconds <= 0) {
+        submitExam(true);
+        return;
+    }
     isTimerRunning = true;
+    timerDeadline = Date.now() + timerSeconds * 1000;
     const btn = document.getElementById("btnToggleTimer");
     if (btn) btn.textContent = "⏸️";
     timerInterval = setInterval(() => {
-        if (timerSeconds > 0) {
-            timerSeconds--;
-            updateTimerDisplay();
-            if (timerSeconds % 10 === 0) {
-                saveDraft();
-            }
-        } else {
+        refreshRemainingTime();
+        updateTimerDisplay();
+        if (timerSeconds <= 0) {
             stopTimer();
             alert("⏰ Hết giờ làm bài! Hệ thống đang tự động nộp bài thi của bạn.");
             submitExam(true);
+        } else if (timerSeconds % 10 === 0) {
+            saveDraft();
         }
     }, 1000);
+    saveDraft();
 }
 
 function stopTimer() {
+    refreshRemainingTime();
     isTimerRunning = false;
     if (timerInterval) clearInterval(timerInterval);
+    timerInterval = null;
+    timerDeadline = null;
     const btn = document.getElementById("btnToggleTimer");
     if (btn) btn.textContent = "▶️";
 }
@@ -117,6 +155,7 @@ function toggleTimer() {
         startTimer();
         showToast("▶️ Tiếp tục tính giờ");
     }
+    saveDraft();
 }
 
 function resetTimer() {
@@ -125,6 +164,7 @@ function resetTimer() {
     const limit = exam.timeLimit || (45 * 60);
     const mins = Math.floor(limit / 60);
     if (confirm(`Bạn có muốn đặt lại đồng hồ đếm ngược về ${mins}:00 không?`)) {
+        stopTimer();
         timerSeconds = limit;
         updateTimerDisplay();
         startTimer();
@@ -161,8 +201,10 @@ function updateTimerDisplay() {
 
 // 4. Load & Render Exam
 function loadExam(code) {
+    stopTimer();
     const exam = EXAMS_DATA.find(e => e.code === code) || EXAMS_DATA[0];
     currentExamCode = exam.code;
+    registerMidtermCheckpoint();
     try {
         localStorage.setItem(ACTIVE_EXAM_STORAGE_KEY, currentExamCode);
         if (window.location.hash !== "#" + currentExamCode) {
@@ -171,14 +213,24 @@ function loadExam(code) {
     } catch (e) {}
     document.body.classList.remove("review-mode");
     isExamSubmitted = false;
+    isImmediateMode = false;
+    isGlobalViShown = false;
+    let shouldRun = true;
 
     // Restore draft if exists
-    const draft = loadDraft(code);
+    const draft = loadDraft(currentExamCode);
     if (draft) {
         userAnswers = draft.userAnswers || {};
-        let sec = (typeof draft.timerSeconds === "number") ? draft.timerSeconds : exam.timeLimit;
-        if (sec <= 0) sec = exam.timeLimit;
-        timerSeconds = sec;
+        timerSeconds = Number.isFinite(draft.timerSeconds)
+            ? Math.max(0, Math.min(draft.timerSeconds, exam.timeLimit)) : exam.timeLimit;
+        isExamSubmitted = draft.isExamSubmitted === true;
+        isImmediateMode = draft.isImmediateMode === true;
+        isGlobalViShown = draft.isGlobalViShown === true;
+        // Older drafts only stored answers and remaining seconds; resume those.
+        shouldRun = draft.isTimerRunning !== false && !isExamSubmitted;
+        if (shouldRun && Number.isFinite(draft.timerDeadline)) {
+            timerSeconds = Math.max(0, Math.min(exam.timeLimit, Math.ceil((draft.timerDeadline - Date.now()) / 1000)));
+        }
         showToast(`💾 Đã khôi phục bài làm nháp đề [${code}]!`);
     } else {
         userAnswers = {};
@@ -189,7 +241,22 @@ function loadExam(code) {
     renderPalette(exam);
     updateProgress();
     updateTimerDisplay();
-    startTimer();
+    document.body.classList.toggle("immediate-mode", isImmediateMode);
+    document.body.classList.toggle("show-all-vi", isGlobalViShown);
+    const immediateToggle = document.getElementById("immediateCheckToggle");
+    if (immediateToggle) immediateToggle.checked = isImmediateMode;
+    const viToggle = document.getElementById("toggleViGlobal");
+    if (viToggle) viToggle.checked = isGlobalViShown;
+    if (isExamSubmitted) enterReviewMode();
+    else if (timerSeconds === 0) submitExam(true);
+    else if (shouldRun) startTimer();
+    updateExamLock();
+}
+
+function updateExamLock() {
+    document.querySelectorAll('#examContentContainer input, #examContentContainer textarea, #examContentContainer .star-pill, #examContentContainer .btn-reset-star, #examContentContainer [onclick^="checkTranslationSingle("], #examContentContainer [onclick^="overrideTransCorrect("], #btnToggleTimer, #btnResetTimer, .btn-submit').forEach(control => {
+        control.disabled = isExamSubmitted;
+    });
 }
 
 function renderExamDOM(exam) {
@@ -713,16 +780,24 @@ function handleSelectStarRadio(itemId, partId, doSave = true) {
 
 // Translation Handlers
 function handleTransInput(itemId, val) {
-    userAnswers[itemId] = {
-        ...(userAnswers[itemId] || {}),
-        value: val
-    };
+    if (isExamSubmitted) return;
+    const state = userAnswers[itemId] || {};
+    if (state.value !== val) {
+        delete state.isCorrect;
+        delete state.checked;
+        delete state.selfApproved;
+        const explanation = document.getElementById(`explain_${itemId}`);
+        if (explanation) explanation.classList.remove("show", "correct", "wrong");
+    }
+    state.value = val;
+    userAnswers[itemId] = state;
     updatePaletteBubble(itemId);
     updateProgress();
     saveDraft();
 }
 
 function checkTranslationSingle(itemId) {
+    if (isExamSubmitted) return;
     const exam = EXAMS_DATA.find(e => e.code === currentExamCode);
     const item = getAllItems(exam).find(it => it.id === itemId);
     if (!item) return;
@@ -736,8 +811,10 @@ function checkTranslationSingle(itemId) {
     const isMatch = evaluateTranslation(item, val);
     userAnswers[itemId].isCorrect = isMatch;
     userAnswers[itemId].checked = true;
+    delete userAnswers[itemId].selfApproved;
 
     showItemExplanation(itemId);
+    saveDraft();
 }
 
 function evaluateTranslation(item, userStr) {
@@ -890,6 +967,7 @@ function evaluateTranslation(item, userStr) {
 
 // Essay Handlers
 function handleEssayInput(itemId, val) {
+    if (isExamSubmitted) return;
     userAnswers[itemId] = {
         ...(userAnswers[itemId] || {}),
         value: val
@@ -945,7 +1023,7 @@ function showItemExplanation(itemId) {
         const partObj = (item.parts || []).find(p => p.id === correctOpt);
         rightAnsText = partObj ? `Ngôi sao (★) là phương án [${correctOpt}]: ${partObj.text}` : `Phương án [${correctOpt}]`;
     } else if (item.type === "trans") {
-        isCorrect = (state.isCorrect !== undefined) ? state.isCorrect : evaluateTranslation(item, state.value || "");
+        isCorrect = state.selfApproved === true || evaluateTranslation(item, state.value || "");
         rightAnsText = item.standard || item.reference || "";
     } else if (item.type === "essay") {
         const text = (state.value || "").trim();
@@ -995,9 +1073,11 @@ function showItemExplanation(itemId) {
 }
 
 function overrideTransCorrect(itemId) {
+    if (isExamSubmitted) return;
     userAnswers[itemId] = userAnswers[itemId] || {};
     userAnswers[itemId].isCorrect = true;
     userAnswers[itemId].checked = true;
+    userAnswers[itemId].selfApproved = true;
     showToast("🎯 Đã ghi nhận bản dịch của bạn là ĐÚNG (+điểm)!");
     showItemExplanation(itemId);
     updatePaletteBubble(itemId);
@@ -1085,6 +1165,7 @@ function speakQuestionAudio(itemId) {
 
 // 10. Exam Submission & Scoring Engine
 function submitExam(isAuto = false) {
+    if (isExamSubmitted) return;
     const exam = EXAMS_DATA.find(e => e.code === currentExamCode);
     const allItems = getAllItems(exam);
 
@@ -1135,7 +1216,7 @@ function submitExam(isAuto = false) {
             const correctOpt = item.correctOption !== undefined ? item.correctOption : ((typeof item.correct === 'number') ? item.correct + 1 : 3);
             isCorrect = (st.value === correctOpt);
         } else if (item.type === "trans") {
-            isCorrect = (st.isCorrect !== undefined) ? st.isCorrect : evaluateTranslation(item, st.value || "");
+            isCorrect = st.selfApproved === true || evaluateTranslation(item, st.value || "");
         } else if (item.type === "essay") {
             const text = (st.value || "").trim();
             isCorrect = (text.length >= 50);
@@ -1168,6 +1249,9 @@ function submitExam(isAuto = false) {
     const m = Math.floor(timeSpentSec / 60);
     const s = timeSpentSec % 60;
     const timeSpentStr = `${m}m ${s}s`;
+
+    saveDraft();
+    updateExamLock();
 
     // Save to History
     const record = {
@@ -1276,6 +1360,8 @@ function enterReviewMode() {
         }
     });
 
+    updateExamLock();
+
     // Scroll smoothly to top
     window.scrollTo({ top: 0, behavior: 'smooth' });
     showToast("🔍 Đang ở Chế độ Xem Lại Chi Tiết (Review Mode)");
@@ -1291,14 +1377,24 @@ function confirmResetExam() {
 
 // 11. Storage Helpers
 function saveDraft() {
+    if (isResettingCheckpoint) return;
+    refreshRemainingTime();
     try {
         const data = {
             userAnswers,
             timerSeconds,
+            isTimerRunning,
+            timerDeadline,
+            isExamSubmitted,
+            isImmediateMode,
+            isGlobalViShown,
             updatedAt: Date.now()
         };
         localStorage.setItem(STORAGE_KEY_PREFIX + currentExamCode, JSON.stringify(data));
-    } catch (e) {}
+        window.MarugotoCheckpoint?.notifySaved();
+    } catch (e) {
+        window.MarugotoCheckpoint?.notifyError();
+    }
 }
 
 function loadDraft(code) {

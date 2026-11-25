@@ -142,7 +142,7 @@ function renderFlashcards(filter = 'all') {
                             <span class="fc-badge">${v.badge}</span>
                             <button class="sound-btn" onclick="event.stopPropagation(); speakText('${v.kana || v.jp}')" title="Nghe cách đọc">🔊</button>
                         </div>
-                        <div class="fc-3d-stage" onclick="event.stopPropagation(); openVocab3D(VOCAB_DATA.indexOf(v))" title="Bấm để mở Mô Hình 3D 360° tương tác">
+                        <div class="fc-3d-stage" onclick="event.stopPropagation(); openVocab3D(${VOCAB_DATA.indexOf(v)})" title="Bấm để mở Mô Hình 3D 360° tương tác">
                         <div class="fc-3d-model-wrapper">
                             <div class="fc-3d-floating-obj">
                                 ${v.svg}

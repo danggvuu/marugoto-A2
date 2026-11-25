@@ -381,7 +381,8 @@ const VERB_DATA = [
     "te": "たてて",
     "form1": "たてられた (được xây dựng)",
     "form2": "たてた (đã xây)",
-    "form3": "たてる"
+    "form3": "たてる",
+    "form2Label": "Thể quá khứ ngắn: Vた"
   },
   {
     "masu": "のこります",
@@ -389,7 +390,8 @@ const VERB_DATA = [
     "te": "のこって",
     "form1": "のこっている (đang còn lưu lại)",
     "form2": "のこった",
-    "form3": "のこる"
+    "form3": "のこる",
+    "form2Label": "Thể quá khứ ngắn: Vた"
   },
   {
     "masu": "おとずれます",
@@ -397,7 +399,8 @@ const VERB_DATA = [
     "te": "おとずれて",
     "form1": "おとずれるひと (người ghé thăm)",
     "form2": "おとずれた",
-    "form3": "おとずれる"
+    "form3": "おとずれる",
+    "form2Label": "Thể quá khứ ngắn: Vた"
   },
   {
     "masu": "まもります",
@@ -405,7 +408,8 @@ const VERB_DATA = [
     "te": "まもって",
     "form1": "まもられている (được bảo tồn)",
     "form2": "まもった",
-    "form3": "まもる"
+    "form3": "まもる",
+    "form2Label": "Thể quá khứ ngắn: Vた"
   },
   {
     "masu": "つたえます",
@@ -413,7 +417,8 @@ const VERB_DATA = [
     "te": "つたえて",
     "form1": "つたえられている (được tương truyền)",
     "form2": "つたえた",
-    "form3": "つたえる"
+    "form3": "つたえる",
+    "form2Label": "Thể quá khứ ngắn: Vた"
   }
 ];
 
@@ -503,7 +508,7 @@ const QUIZ_DATA = [
   {
     "id": 7,
     "category": "Hội thoại",
-    "q": "「京都の 街は どうでしたか。」 ―― 「古い 建物が たくさん あって、とても [____] でした。」",
+    "q": "Chọn dạng quá khứ của すばらしい: 「京都の 街は どうでしたか。」 ―― 「古い 建物が たくさん あって、とても [____] です。」",
     "options": [
       "すばらしい",
       "すばらしくない",
@@ -511,7 +516,8 @@ const QUIZ_DATA = [
       "すばらしく"
     ],
     "correct": 2,
-    "explain": "Khen chuyến đi trong quá khứ: tính từ đuôi い ở quá khứ là 「すばらしかった」."
+    "explain": "Tính từ い đổi い thành かった rồi thêm です: すばらしい → すばらしかったです. Không thêm でした sau かった.",
+    "reviewVersion": "a22-l14-q7-past-v3"
   },
   {
     "id": 8,
@@ -656,6 +662,7 @@ function selectVerb(idx) {
     const elTe = document.getElementById('morphTe');
     const elForm1 = document.getElementById('morphTeIki');
     const elForm2 = document.getElementById('morphTeKi');
+    const elForm2Label = document.getElementById('morphForm2Label');
     const elForm3 = document.getElementById('morphMashou');
 
     if (elMasu) elMasu.textContent = v.masu || '---';
@@ -663,6 +670,7 @@ function selectVerb(idx) {
     if (elTe) elTe.textContent = v.te || '---';
     if (elForm1) elForm1.textContent = v.form1 || '---';
     if (elForm2) elForm2.textContent = v.form2 || '---';
+    if (elForm2Label) elForm2Label.textContent = v.form2Label || 'Ví dụ chia thể (bổ trợ)';
     if (elForm3) elForm3.textContent = v.form3 || '---';
 }
 
@@ -701,8 +709,9 @@ function initQuiz() {
     QUIZ_DATA.forEach((q, qIdx) => {
         const qBox = document.createElement('div');
         qBox.className = 'quiz-card';
+        const revision = q.reviewVersion || 'a22-reviewed-v2';
         const optsHtml = q.options.map((opt, oIdx) => `
-            <button type="button" class="quiz-opt" onclick="checkQuizAnswer(this, ${qIdx}, ${oIdx}, 'a22-reviewed-v2')">${escapeLessonText(opt)}</button>
+            <button type="button" class="quiz-opt" onclick="checkQuizAnswer(this, ${qIdx}, ${oIdx}, '${revision}')">${escapeLessonText(opt)}</button>
         `).join('');
         qBox.innerHTML = `
             <div class="quiz-q"><b>Câu ${qIdx + 1}:</b> ${escapeLessonText(q.q)}</div>
@@ -714,8 +723,8 @@ function initQuiz() {
 }
 
 function checkQuizAnswer(btn, qIdx, oIdx, revision) {
-    if (revision !== 'a22-reviewed-v2' || btn.disabled) return;
     const q = QUIZ_DATA[qIdx];
+    if (!q || revision !== (q.reviewVersion || 'a22-reviewed-v2') || btn.disabled) return;
     const parent = btn.parentElement;
     const allBtns = parent.querySelectorAll('.quiz-opt');
     allBtns.forEach(b => b.disabled = true);

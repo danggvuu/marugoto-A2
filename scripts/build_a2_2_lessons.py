@@ -1,11 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-Generator for Marugoto A2-2 Lesson 1 and Lesson 2:
-- lessons/Marugoto_A2_2_Lesson_1.html
-- lessons/Marugoto_A2_2_Lesson_2.html
-- assets/js/lessons/lesson_a2_2_01.js
-- assets/js/lessons/lesson_a2_2_02.js
-- data/kanji_vocab_a2_2.json
+Lesson 1/2 source data and legacy generation helpers for Marugoto A2-2.
+The entry point delegates to the canonical all-18-lesson builder.
 """
 
 import json
@@ -13,6 +9,7 @@ import hashlib
 from html import escape
 from pathlib import Path
 import random
+import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -1250,76 +1247,11 @@ L2_GRAMMAR_BLOCKS = [
 
 
 def main():
-    # 1. Build JS files
-    build_js_file(
-        ROOT / "assets/js/lessons/lesson_a2_2_01.js",
-        L1_VOCAB,
-        L1_VERBS,
-        L1_QUIZ,
-        "Bài 1 (A2-2)"
-    )
-
-    build_js_file(
-        ROOT / "assets/js/lessons/lesson_a2_2_02.js",
-        L2_VOCAB,
-        L2_VERBS,
-        L2_QUIZ,
-        "Bài 2 (A2-2)"
-    )
-
-    # 2. Build HTML files
-    build_lesson_html(
-        dest_path=ROOT / "lessons/Marugoto_A2_2_Lesson_1.html",
-        lesson_num=1,
-        lesson_title="いいなまえですね",
-        quote="いいなまえですね",
-        subtitle="Học cách giới thiệu bản thân chi tiết: giải thích ý nghĩa nguồn gốc tên mình (N という意味), gọi tên người/vật chưa biết (N1 という N2), bổ nghĩa cho danh từ (普通形 ＋ N), quê quán (で 生まれました) và bày tỏ hứng thú (に 興味があります).",
-        vocab_count=len(L1_VOCAB),
-        grammar_count=4,
-        verb_count=len(L1_VERBS),
-        kanji_count=len(L1_KANJI_CARDS),
-        grammar_blocks=L1_GRAMMAR_BLOCKS,
-        kanji_cards=L1_KANJI_CARDS,
-        js_filename="lesson_a2_2_01.js",
-        section_links=[
-            '<a href="#sec-grammar1" class="sec-link">① N という意味</a>',
-            '<a href="#sec-grammar2" class="sec-link">② N1 という N2</a>',
-            '<a href="#sec-grammar3" class="sec-link">③ 普通形 ＋ N</a>',
-            '<a href="#sec-grammar4" class="sec-link">④ Mở Rộng Giới Thiệu</a>',
-        ]
-    )
-
-    build_lesson_html(
-        dest_path=ROOT / "lessons/Marugoto_A2_2_Lesson_2.html",
-        lesson_num=2,
-        lesson_title="めがねをかけている人です",
-        quote="めがねを かけて いる人です",
-        subtitle="Làm chủ đại cẩm nang 5 động từ mang mặc trang phục (着る, 履く, 被る, 掛ける, する), mẫu câu miêu tả trạng thái (～を 着ています) và mệnh đề định ngữ nhận diện người trong đám đông (V-ている 人).",
-        vocab_count=len(L2_VOCAB),
-        grammar_count=3,
-        verb_count=len(L2_VERBS),
-        kanji_count=len(L2_KANJI_CARDS),
-        grammar_blocks=L2_GRAMMAR_BLOCKS,
-        kanji_cards=L2_KANJI_CARDS,
-        js_filename="lesson_a2_2_02.js",
-        section_links=[
-            '<a href="#sec-grammar1" class="sec-link">① 5 Động Từ Mặc</a>',
-            '<a href="#sec-grammar2" class="sec-link">② V-ています Trạng Thái</a>',
-            '<a href="#sec-grammar3" class="sec-link">③ Mệnh Đề Định Ngữ</a>',
-        ]
-    )
-
-    # 3. Build data/kanji_vocab_a2_2.json for 31 Kanji words
-    all_kanji_vocab = {
-        "lesson_1": L1_KANJI_LIST,
-        "lesson_2": L2_KANJI_LIST
-    }
-    (ROOT / "data/kanji_vocab_a2_2.json").write_text(
-        json.dumps(all_kanji_vocab, ensure_ascii=False, indent=2) + "\n",
-        encoding="utf-8"
-    )
-    print("Created data/kanji_vocab_a2_2.json with 31 Kanji compound words!")
-
-if __name__ == "__main__":
+    # Direct script execution puts scripts/, not the repository root, on sys.path.
+    if str(ROOT) not in sys.path:
+        sys.path.insert(0, str(ROOT))
     from scripts.a2_2.build_all_a2_2 import main as build_all_a2_2
     build_all_a2_2()
+
+if __name__ == "__main__":
+    main()

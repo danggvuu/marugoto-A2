@@ -784,10 +784,11 @@ L14_QUIZ = [
     {
         "id": 7,
         "category": "Hội thoại",
-        "q": "「京都の 街は どうでしたか。」 ―― 「古い 建物が たくさん あって、とても [____] でした。」",
+        "q": "Chọn dạng quá khứ của すばらしい: 「京都の 街は どうでしたか。」 ―― 「古い 建物が たくさん あって、とても [____] です。」",
         "options": ["すばらしかった", "すばらしい", "すばらしくない", "すばらしく"],
         "correct": 0,
-        "explain": "Khen chuyến đi trong quá khứ: tính từ đuôi い ở quá khứ là 「すばらしかった」."
+        "explain": "Tính từ い đổi い thành かった rồi thêm です: すばらしい → すばらしかったです. Không thêm でした sau かった.",
+        "reviewVersion": "a22-l14-q7-past-v3"
     },
     {
         "id": 8,

@@ -378,7 +378,9 @@
             restoreGlobalsTimer = null;
         }
 
-        if (silentDepth === 0) {
+        // Consecutive restores can run before the delayed unmute. Keep the
+        // original snapshot until then instead of capturing the muted stubs.
+        if (!trueGlobals) {
             trueGlobals = {
                 synthSpeak: window.speechSynthesis ? window.speechSynthesis.speak.bind(window.speechSynthesis) : null,
                 speakText: typeof window.speakText === 'function' ? window.speakText : null,
@@ -408,6 +410,7 @@
             silentDepth = Math.max(0, silentDepth - 1);
             if (silentDepth === 0) {
                 restoreGlobalsTimer = setTimeout(() => {
+                    restoreGlobalsTimer = null;
                     if (silentDepth === 0 && trueGlobals) {
                         window.isRestoringCheckpoint = false;
                         if (window.speechSynthesis && trueGlobals.synthSpeak) window.speechSynthesis.speak = trueGlobals.synthSpeak;

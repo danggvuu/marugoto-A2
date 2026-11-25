@@ -17,6 +17,8 @@ ROOT = Path(__file__).resolve().parents[2]
 EXAM = "tests/De_Thi_Tong_Hop_JLPT_A2_11_18.html"
 VOCAB = "Tu_Vung_Marugoto_A1_16_A2_1_10.html"
 TYPING = "tests/On_Tap_Mini_Test_A2_15_18.html#typing"
+MIDTERM = "tests/De_Thi_Midterm_A2_1.html#M101"
+CRAM = "tests/On_Tap_Cap_Toc_Kanji_11_18_NPBS14.html"
 
 
 class QuietHandler(http.server.SimpleHTTPRequestHandler):
@@ -966,11 +968,20 @@ class StudyFlows(unittest.TestCase):
         self.assertEqual(self.page.evaluate("userAnswers[69].starOrder"), [0])
 
     def test_smoke_all_pages_and_responsive_views(self):
-        files = sorted([*ROOT.glob("*.html"), *ROOT.glob("lessons/*.html"), *ROOT.glob("tests/*.html")])
-        for file in files:
-            with self.subTest(page=file.name):
-                self.go(file.relative_to(ROOT).as_posix())
-                self.assertEqual(self.errors, [])
+        files = sorted([*ROOT.glob('*.html'), *ROOT.glob('lessons/*.html'),
+                        *ROOT.glob('tests/*.html'), *ROOT.glob('docs/Ke_Hoach_10_Ngay/**/*.html')])
+        local_failures = []
+        self.page.on('response', lambda response: local_failures.append(
+            f'{response.status} {response.url}')
+            if response.url.startswith(self.base) and response.status >= 400 else None)
+        for width in (360, 1440):
+            self.page.set_viewport_size({'width': width, 'height': 900})
+            for file in files:
+                with self.subTest(width=width, page=file.relative_to(ROOT).as_posix()):
+                    self.go(file.relative_to(ROOT).as_posix())
+                    self.assertEqual(self.errors, [])
+                    self.assertEqual(local_failures, [], 'Failed local page or asset requests')
+                    self.assertLessEqual(self.page.evaluate('document.documentElement.scrollWidth'), width + 1)
         sample = ["index.html", VOCAB, "kanji_a2.html", EXAM, "lessons/Marugoto_A2_Lesson_15.html"]
         directory = os.environ.get("MARUGOTO_SCREENSHOTS_DIR")
         for width, height in [(360, 800), (390, 844), (768, 1024), (1440, 900)]:
@@ -1061,6 +1072,231 @@ class StudyFlows(unittest.TestCase):
         self.go(EXAM + '#M111')
         self.assertEqual(self.page.evaluate('Object.keys(userAnswers).length'), 0)
         self.assertFalse(self.page.evaluate('isExamSubmitted'))
+
+    def test_cram_typing_tab_preserves_existing_studio_history(self):
+        self.go(TYPING)
+        saved = self.page.evaluate("""() => {
+            switchTypingMode('kanji');
+            const item=getFilteredTypingPool()[0];
+            tpState.history[item.id]={status:'ok',lastInput:item.hira,whyWrong:[]};
+            tpState.drafts[item.id]=item.hira;
+            manualSaveTypingProgress();
+            return JSON.parse(localStorage.getItem('marugoto_typing_studio_v2'));
+        }""")
+        self.assertTrue(saved["history"])
+        self.go(CRAM)
+        self.page.locator(".tab-nav [onclick=\"switchMainTab('tab-typing')\"]").click()
+        restored = self.page.evaluate("JSON.parse(localStorage.getItem('marugoto_typing_studio_v2'))")
+        self.assertEqual(restored["history"], saved["history"])
+        self.assertEqual(restored["drafts"], saved["drafts"])
+        self.reload()
+        self.assertEqual(self.page.evaluate("tpState.history"), saved["history"])
+        self.go(TYPING)
+        self.assertEqual(self.page.evaluate("tpState.history"), saved["history"])
+
+    def test_cram_hidden_meanings_can_be_revealed_and_restore_on_reload(self):
+        self.go(CRAM)
+        meanings = self.page.locator('#vocabContainer .vc-vi')
+        self.assertGreater(meanings.count(), 1)
+        self.page.locator('#btnHideMeaning').click()
+        self.assertEqual(meanings.first.evaluate('el=>getComputedStyle(el).filter'), 'blur(5px)')
+        self.assertEqual(meanings.nth(1).evaluate('el=>getComputedStyle(el).filter'), 'blur(5px)')
+        meanings.first.click()
+        self.assertEqual(meanings.first.evaluate('el=>el.style.filter'), 'none')
+        self.assertEqual(meanings.nth(1).evaluate('el=>el.style.filter'), 'blur(5px)')
+        self.reload()
+        self.assertTrue(self.page.evaluate('isMeaningHidden'))
+        self.assertEqual(meanings.first.evaluate('el=>getComputedStyle(el).filter'), 'blur(5px)')
+        self.page.locator('#btnHideMeaning').click()
+        self.assertEqual(meanings.first.evaluate('el=>getComputedStyle(el).filter'), 'none')
+
+    def test_cram_filtered_checkpoint_restores_card_tab_and_answers(self):
+        self.go(CRAM)
+        self.page.locator('[onclick="filterVocabByLesson(11, this)"]').click()
+        before = self.page.evaluate("""() => {
+            nextCramCard();nextCramCard();nextCramCard();
+            const question=NPBS_CHALLENGES[0];
+            answerNpbsChallenge(question.id,question.correct);
+            switchMainTab('tab-cram');
+            return {lesson:currentLessonFilter,index:cramIndex,answers:npbsUserAnswers,tab:currentTab};
+        }""")
+        self.reload()
+        after = self.page.evaluate("""() => ({
+            lesson:currentLessonFilter,index:cramIndex,answers:npbsUserAnswers,tab:currentTab
+        })""")
+        self.assertEqual(after, before)
+        self.assertTrue(self.page.locator('[onclick="filterVocabByLesson(11, this)"]').evaluate(
+            "el=>el.classList.contains('active')"))
+        self.assertTrue(self.page.locator('#tab-cram').is_visible())
+
+    def test_checkpoint_repeated_restore_preserves_scroll_globals(self):
+        self.go('the_ru.html')
+        original = self.page.evaluate('String(Element.prototype.scrollIntoView)')
+        self.page.locator('[onclick="gradeAll()"]').click()
+        self.page.locator("[onclick=\"switchTab('tab-theory')\"]").click()
+        self.reload()
+        self.page.clock.run_for(1200)
+        self.assertTrue(self.page.locator('#tab-theory').is_visible())
+        self.assertEqual(self.page.evaluate('String(Element.prototype.scrollIntoView)'), original)
+
+    def test_midterm_regrades_edited_translations_on_submission(self):
+        self.go(MIDTERM)
+        reference = self.page.evaluate("""() => getAllItems(EXAMS_DATA.find(e=>e.code===currentExamCode))
+            .find(q=>q.id===31).reference""")
+        for initial, edited, expected in [('。', reference, True), (reference, '。', False)]:
+            with self.subTest(correct=expected):
+                self.page.evaluate("closeResultModal();clearDraft('M101');loadExam('M101')")
+                self.page.locator('#trans_input_31').fill(initial)
+                self.page.evaluate('checkTranslationSingle(31)')
+                self.page.locator('#trans_input_31').fill(edited)
+                self.page.evaluate('submitExam(true)')
+                self.assertEqual(self.page.evaluate('userAnswers[31].isCorrect'), expected)
+                self.assertEqual(self.page.locator('#modalScoreBig').inner_text(),
+                                 '2.5 / 100' if expected else '0 / 100')
+
+    def test_midterm_submission_and_pause_survive_reload(self):
+        self.go(MIDTERM)
+        self.page.evaluate('handleSelectOption(1,2);submitExam(true)')
+        self.reload()
+        self.assertTrue(self.page.evaluate('isExamSubmitted'))
+        self.assertFalse(self.page.evaluate('isTimerRunning'))
+        self.page.evaluate('handleSelectOption(1,0)')
+        self.assertEqual(self.page.evaluate('userAnswers[1].value'), 2)
+        self.page.evaluate('resetCurrentExam()')
+        self.page.clock.run_for(2000)
+        self.page.evaluate('toggleTimer()')
+        paused = self.page.evaluate('timerSeconds')
+        self.page.clock.run_for(5000)
+        self.reload()
+        self.assertFalse(self.page.evaluate('isExamSubmitted'))
+        self.assertFalse(self.page.evaluate('isTimerRunning'))
+        self.assertEqual(self.page.evaluate('timerSeconds'), paused)
+
+    def test_midterm_timeout_stays_submitted_after_reload(self):
+        self.go(MIDTERM)
+        self.page.evaluate('stopTimer();timerSeconds=1;startTimer()')
+        self.page.clock.run_for(2500)
+        self.assertTrue(self.page.evaluate('isExamSubmitted'))
+        self.reload()
+        self.assertTrue(self.page.evaluate('isExamSubmitted'))
+        self.assertFalse(self.page.evaluate('isTimerRunning'))
+        self.assertEqual(self.page.evaluate('timerSeconds'), 0)
+
+    def test_midterm_checkpoint_clear_removes_draft_not_other_page_history(self):
+        self.go(MIDTERM)
+        self.page.evaluate("""() => {
+            handleSelectOption(1,2);
+            localStorage.setItem('marugoto_typing_studio_v2',JSON.stringify({marker:'keep'}));
+            localStorage.setItem('marugoto_midterm_history_v1',JSON.stringify([{marker:'keep'}]));
+        }""")
+        with self.page.expect_navigation():
+            self.page.evaluate('MarugotoCheckpoint.silentClearPage()')
+        self.page.clock.run_for(400)
+        self.assertEqual(self.page.evaluate('Object.keys(userAnswers)'), [])
+        self.assertEqual(self.page.evaluate("""() => {
+            const draft=JSON.parse(localStorage.getItem('marugoto_midterm_draft_M101')||'{}');
+            return draft.userAnswers||{};
+        }"""), {})
+        self.assertEqual(self.page.evaluate("JSON.parse(localStorage.getItem('marugoto_typing_studio_v2')).marker"), 'keep')
+        self.assertEqual(self.page.evaluate("JSON.parse(localStorage.getItem('marugoto_midterm_history_v1'))[0].marker"), 'keep')
+
+    def test_midterm_legacy_draft_still_restores_answers(self):
+        self.go('index.html')
+        self.page.evaluate("""() => localStorage.setItem('marugoto_midterm_draft_M101',JSON.stringify({
+            userAnswers:{1:{value:2}},timerSeconds:1234,updatedAt:Date.now()
+        }))""")
+        self.go(MIDTERM)
+        self.assertEqual(self.page.evaluate('userAnswers[1].value'), 2)
+        self.assertFalse(self.page.evaluate('isExamSubmitted'))
+        self.page.evaluate('handleSelectOption(1,0)')
+        self.assertEqual(self.page.evaluate('userAnswers[1].value'), 0)
+
+    def test_timed_mini_tests_restart_timer_after_expiry(self):
+        for path, reset in [
+            ('tests/On_Tap_Mini_Test_A2_11_14.html', 'resetAllExam'),
+            ('tests/On_Tap_Mini_Test_A2_2_1_4.html', 'resetExamSuite'),
+        ]:
+            with self.subTest(page=path):
+                self.go(path)
+                self.page.evaluate('totalSeconds=1;isTimerRunning=true')
+                self.page.clock.run_for(2500)
+                self.page.evaluate(reset+'()')
+                self.assertEqual(self.page.evaluate('totalSeconds'), 2700)
+                self.page.clock.run_for(5000)
+                self.assertEqual(self.page.evaluate('totalSeconds'), 2695)
+
+    def test_all_kanji_entries_remain_visible_in_all_lessons_filter(self):
+        self.go('kanji_a2.html')
+        result = self.page.evaluate("""() => {
+            selectPreset('ALL');
+            return {total:kanjiData.length,visible:filteredKanji.length,
+                invalid:kanjiData.filter(item=>!KANJI_LESSON_ORDER.includes(item.lesson))};
+        }""")
+        self.assertEqual(result, {'total': 144, 'visible': 144, 'invalid': []})
+
+    def test_kanji_late_svg_response_cannot_replace_new_character(self):
+        self.go('kanji_a2.html')
+        applied = self.page.evaluate("""async () => {
+            const pending=[];const applied=[];
+            fetchKanjiSvg=char=>new Promise(resolve=>pending.push({char,resolve}));
+            setupSvgPlayer=(index,svg)=>applied.push({index,svg});
+            const oldItem=kanjiData[0];
+            const newItem=kanjiData.find(item=>item.char!==oldItem.char);
+            kanjiViewMode='cards';kanjiCurrentPage=1;
+            filteredKanji=[oldItem];renderCards(filteredKanji);initKanjiPlayer(oldItem,0);
+            filteredKanji=[newItem];renderCards(filteredKanji);initKanjiPlayer(newItem,0);
+            pending[1].resolve('<svg id="moon"></svg>');await Promise.resolve();
+            pending[0].resolve('<svg id="day"></svg>');await Promise.resolve();
+            return applied;
+        }""")
+        self.assertEqual(applied, [{'index': 0, 'svg': '<svg id="moon"></svg>'}])
+
+    def test_lesson_3d_buttons_bind_current_vocab_indices(self):
+        for lesson in range(10, 19):
+            with self.subTest(lesson=lesson):
+                self.go(f'lessons/Marugoto_A2_Lesson_{lesson}.html')
+                result = self.page.evaluate("""() => {
+                    const opened=[];window.openVocab3D=index=>opened.push(index);
+                    const cards=[...document.querySelectorAll('#flashcardGrid .fc-3d-stage, #flashcardsGrid .fc-3d-stage')];
+                    cards.forEach(card=>card.click());
+                    return {opened,total:VOCAB_DATA.length};
+                }""")
+                self.assertGreater(result['total'], 0)
+                self.assertEqual(result['opened'], list(range(result['total'])))
+
+    def test_a2_2_adjective_question_and_verb_lab_labels(self):
+        self.go('lessons/Marugoto_A2_2_Lesson_14.html')
+        sentence = self.page.evaluate("""() => {
+            const question=QUIZ_DATA.find(q=>q.id===7);
+            return question.q.replace('[____]',question.options[question.correct]).replace(/\\s+/g,'');
+        }""")
+        self.assertIn('すばらしかったです', sentence)
+        self.assertNotIn('すばらしかったでした', sentence)
+        for lesson in [5, 6]:
+            with self.subTest(lesson=lesson):
+                self.go(f'lessons/Marugoto_A2_2_Lesson_{lesson}.html')
+                label = self.page.locator('#morphTeKi').evaluate(
+                    "el=>el.parentElement.querySelector('.morph-label').textContent")
+                self.assertNotIn('quá khứ', label.lower())
+
+    def test_a2_2_revised_question_drops_only_its_stale_checkpoint(self):
+        self.go('index.html')
+        self.page.evaluate("""() => {
+            localStorage.setItem('marugoto_cp_v1::lessons/Marugoto_A2_2_Lesson_14.html::clicks',
+                JSON.stringify({t:1,d:[
+                    "oc::checkQuizAnswer(this,0,0,'a22-reviewed-v2')",
+                    "oc::checkQuizAnswer(this,6,0,'a22-reviewed-v2')"
+                ]}));
+        }""")
+        self.go('lessons/Marugoto_A2_2_Lesson_14.html')
+        cards = self.page.locator('#quizContainer .quiz-card')
+        self.assertEqual(cards.nth(0).locator('button:disabled').count(), 4)
+        self.assertEqual(cards.nth(6).locator('button:disabled').count(), 0)
+        correct = self.page.evaluate('QUIZ_DATA[6].correct')
+        cards.nth(6).locator('.quiz-opt').nth(correct).click()
+        self.reload()
+        self.assertEqual(cards.nth(0).locator('button:disabled').count(), 4)
+        self.assertEqual(cards.nth(6).locator('button.correct').count(), 1)
 
 
 if __name__ == "__main__":

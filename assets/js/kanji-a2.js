@@ -845,7 +845,7 @@ function initKanjiPlayer(item, index) {
         clearTimeout(kanjiPlayers[index].timer);
     }
 
-    kanjiPlayers[index] = {
+    const player = {
         char: item.char,
         totalStrokes: item.strokes,
         currentStroke: item.strokes,
@@ -856,8 +856,14 @@ function initKanjiPlayer(item, index) {
         numbersGroup: null,
         timer: null
     };
+    kanjiPlayers[index] = player;
+    const container = document.getElementById(`kanji-svg-container-${index}`);
 
     fetchKanjiSvg(item.char).then(svgText => {
+        // Filters reuse indices and lazy rendering can replace a card before
+        // its next player is initialized. Check both player and DOM ownership.
+        if (kanjiPlayers[index] !== player || !container ||
+            document.getElementById(`kanji-svg-container-${index}`) !== container) return;
         if (svgText) {
             setupSvgPlayer(index, svgText);
         } else {

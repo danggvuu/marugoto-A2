@@ -333,7 +333,8 @@ const VERB_DATA = [
     "te": "おもいだして",
     "form1": "おもいだすと (mỗi khi nhớ lại)",
     "form2": "おもいだした (đã nhớ ra)",
-    "form3": "おもいだす"
+    "form3": "おもいだす",
+    "form2Label": "Thể quá khứ ngắn: Vた"
   },
   {
     "masu": "がんばります",
@@ -341,7 +342,8 @@ const VERB_DATA = [
     "te": "がんばって",
     "form1": "がんばろうと思っています (đang dự định sẽ cố gắng)",
     "form2": "がんばった",
-    "form3": "がんばる"
+    "form3": "がんばる",
+    "form2Label": "Thể quá khứ ngắn: Vた"
   },
   {
     "masu": "かわります",
@@ -349,7 +351,8 @@ const VERB_DATA = [
     "te": "かわって",
     "form1": "かわりました (đã đổi thay)",
     "form2": "かわったこと",
-    "form3": "かわる"
+    "form3": "かわる",
+    "form2Label": "Điều đã xảy ra: Vた + こと"
   },
   {
     "masu": "はたらきます",
@@ -357,7 +360,8 @@ const VERB_DATA = [
     "te": "はたらいて",
     "form1": "はたらこうと思っています (tính sẽ làm việc)",
     "form2": "はたらいた",
-    "form3": "はたらく"
+    "form3": "はたらく",
+    "form2Label": "Thể quá khứ ngắn: Vた"
   },
   {
     "masu": "つづけます",
@@ -365,7 +369,8 @@ const VERB_DATA = [
     "te": "つづけて",
     "form1": "つづけようと思います",
     "form2": "つづけた",
-    "form3": "つづける"
+    "form3": "つづける",
+    "form2Label": "Thể quá khứ ngắn: Vた"
   }
 ];
 
@@ -608,6 +613,7 @@ function selectVerb(idx) {
     const elTe = document.getElementById('morphTe');
     const elForm1 = document.getElementById('morphTeIki');
     const elForm2 = document.getElementById('morphTeKi');
+    const elForm2Label = document.getElementById('morphForm2Label');
     const elForm3 = document.getElementById('morphMashou');
 
     if (elMasu) elMasu.textContent = v.masu || '---';
@@ -615,6 +621,7 @@ function selectVerb(idx) {
     if (elTe) elTe.textContent = v.te || '---';
     if (elForm1) elForm1.textContent = v.form1 || '---';
     if (elForm2) elForm2.textContent = v.form2 || '---';
+    if (elForm2Label) elForm2Label.textContent = v.form2Label || 'Ví dụ chia thể (bổ trợ)';
     if (elForm3) elForm3.textContent = v.form3 || '---';
 }
 
@@ -653,8 +660,9 @@ function initQuiz() {
     QUIZ_DATA.forEach((q, qIdx) => {
         const qBox = document.createElement('div');
         qBox.className = 'quiz-card';
+        const revision = q.reviewVersion || 'a22-reviewed-v2';
         const optsHtml = q.options.map((opt, oIdx) => `
-            <button type="button" class="quiz-opt" onclick="checkQuizAnswer(this, ${qIdx}, ${oIdx}, 'a22-reviewed-v2')">${escapeLessonText(opt)}</button>
+            <button type="button" class="quiz-opt" onclick="checkQuizAnswer(this, ${qIdx}, ${oIdx}, '${revision}')">${escapeLessonText(opt)}</button>
         `).join('');
         qBox.innerHTML = `
             <div class="quiz-q"><b>Câu ${qIdx + 1}:</b> ${escapeLessonText(q.q)}</div>
@@ -666,8 +674,8 @@ function initQuiz() {
 }
 
 function checkQuizAnswer(btn, qIdx, oIdx, revision) {
-    if (revision !== 'a22-reviewed-v2' || btn.disabled) return;
     const q = QUIZ_DATA[qIdx];
+    if (!q || revision !== (q.reviewVersion || 'a22-reviewed-v2') || btn.disabled) return;
     const parent = btn.parentElement;
     const allBtns = parent.querySelectorAll('.quiz-opt');
     allBtns.forEach(b => b.disabled = true);

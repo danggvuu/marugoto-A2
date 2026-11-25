@@ -16,6 +16,9 @@
     let scene, camera, renderer, controls;
     let currentModelGroup = null;
     let animFrameId = null;
+    let clock = null;
+    let isLoopRunning = false;
+    let previousBodyOverflow = null;
     let isAutoRotating = true;
     let animMode = 'float'; // 'float', 'spin', 'pulse', 'wireframe'
     let currentVocabList = [];
@@ -1078,10 +1081,10 @@ universalPrism: (word) => {
         `;
 
         document.body.insertAdjacentHTML('beforeend', modalHtml);
-        initThreeJsViewport();
     }
 
     function initThreeJsViewport() {
+        if (isInitialized) return;
         const container = document.getElementById('v3dViewport');
         const canvas = document.getElementById('v3dCanvas');
         if (!container || !canvas || typeof THREE === 'undefined') return;
@@ -1130,96 +1133,95 @@ universalPrism: (word) => {
             controls.autoRotateSpeed = 2.2;
         }
 
-        // Render Loop
-        let clock = new THREE.Clock();
-        let isLoopRunning = false;
-
-        function startAnimateLoop() {
-            if (isLoopRunning) return;
-            isLoopRunning = true;
-            clock.start();
-            animate();
-        }
-
-        function stopAnimateLoop() {
-            isLoopRunning = false;
-            if (animFrameId) {
-                cancelAnimationFrame(animFrameId);
-                animFrameId = null;
-            }
-            clock.stop();
-        }
-
-        function animate() {
-            if (!isLoopRunning) return;
-            animFrameId = requestAnimationFrame(animate);
-            const delta = clock.getDelta();
-            const time = clock.getElapsedTime();
-
-            if (controls) controls.update();
-
-            // Custom Motion Animation on the active 3D model
-            if (currentModelGroup) {
-                if (animMode === 'float') {
-                    currentModelGroup.position.y = Math.sin(time * 2.2) * 0.12;
-                    currentModelGroup.rotation.y += 0.005;
-                } else if (animMode === 'spin') {
-                    currentModelGroup.rotation.y += 0.05;
-                    currentModelGroup.position.y = Math.sin(time * 4) * 0.18;
-                } else if (animMode === 'pulse') {
-                    const s = 1.0 + Math.sin(time * 5) * 0.08;
-                    currentModelGroup.scale.set(s, s, s);
-                }
-            }
-
-            renderer.render(scene, camera);
-        }
-
-        document.addEventListener('visibilitychange', () => {
-            if (document.hidden) {
-                stopAnimateLoop();
-            } else {
-                const modal = document.getElementById('vocab3DModal');
-                if (modal && modal.classList.contains('show')) {
-                    startAnimateLoop();
-                }
-            }
-        });
-
-        // Responsive Resize
-        window.addEventListener('resize', () => {
-            if (!container || !renderer || !camera) return;
-            const w = container.clientWidth;
-            const h = container.clientHeight;
-            if (w === 0 || h === 0) return;
-            camera.aspect = w / h;
-            camera.updateProjectionMatrix();
-            renderer.setSize(w, h);
-        });
-
+        clock = new THREE.Clock(false);
         isInitialized = true;
     }
 
+    function startAnimateLoop() {
+        const modal = document.getElementById('vocab3DModal');
+        if (isLoopRunning || !isInitialized || document.hidden || !modal?.classList.contains('show')) return;
+        isLoopRunning = true;
+        if (controls) controls.enabled = true;
+        clock.start();
+        animate();
+    }
+
+    function stopAnimateLoop() {
+        isLoopRunning = false;
+        if (animFrameId !== null) {
+            cancelAnimationFrame(animFrameId);
+            animFrameId = null;
+        }
+        if (clock) clock.stop();
+        if (controls) controls.enabled = false;
+    }
+
+    function animate() {
+        if (!isLoopRunning) return;
+        animFrameId = requestAnimationFrame(animate);
+        const time = clock.getElapsedTime();
+
+        if (controls) controls.update();
+
+        // Custom Motion Animation on the active 3D model
+        if (currentModelGroup) {
+            if (animMode === 'float') {
+                currentModelGroup.position.y = Math.sin(time * 2.2) * 0.12;
+                currentModelGroup.rotation.y += 0.005;
+            } else if (animMode === 'spin') {
+                currentModelGroup.rotation.y += 0.05;
+                currentModelGroup.position.y = Math.sin(time * 4) * 0.18;
+            } else if (animMode === 'pulse') {
+                const s = 1.0 + Math.sin(time * 5) * 0.08;
+                currentModelGroup.scale.set(s, s, s);
+            }
+        }
+
+        renderer.render(scene, camera);
+    }
+
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) stopAnimateLoop();
+        else startAnimateLoop();
+    });
+
+    function resizeThreeJsViewport() {
+        const container = document.getElementById('v3dViewport');
+        if (!container || !renderer || !camera) return;
+        const w = container.clientWidth;
+        const h = container.clientHeight;
+        if (w === 0 || h === 0) return;
+        camera.aspect = w / h;
+        camera.updateProjectionMatrix();
+        renderer.setSize(w, h);
+    }
+
+    window.addEventListener('resize', resizeThreeJsViewport);
+
     function disposeHierarchy(obj) {
         if (!obj) return;
+        const disposed = new Set();
+        function dispose(resource) {
+            if (!resource || disposed.has(resource)) return;
+            disposed.add(resource);
+            try { resource.dispose(); } catch (e) {}
+        }
         obj.traverse((child) => {
-            if (child.geometry) {
-                try { child.geometry.dispose(); } catch (e) {}
-            }
-            if (child.material) {
-                try {
-                    if (Array.isArray(child.material)) {
-                        child.material.forEach(m => {
-                            if (m.map) m.map.dispose();
-                            m.dispose();
-                        });
-                    } else {
-                        if (child.material.map) child.material.map.dispose();
-                        child.material.dispose();
-                    }
-                } catch (e) {}
-            }
+            dispose(child.geometry);
+            const materials = Array.isArray(child.material) ? child.material : [child.material];
+            materials.forEach(material => {
+                if (!material) return;
+                dispose(material.map);
+                dispose(material);
+            });
         });
+    }
+
+    function clearCurrentModel() {
+        if (!currentModelGroup) return;
+        scene.remove(currentModelGroup);
+        disposeHierarchy(currentModelGroup);
+        currentModelGroup = null;
     }
 
     // Load active 3D model in studio
@@ -1228,11 +1230,7 @@ universalPrism: (word) => {
         currentVocabIndex = index;
 
         // Clear previous 3D model and dispose resources
-        if (currentModelGroup) {
-            scene.remove(currentModelGroup);
-            disposeHierarchy(currentModelGroup);
-            currentModelGroup = null;
-        }
+        clearCurrentModel();
 
         // Generate procedural 3D model
         currentModelGroup = resolveModelForVocab(v);
@@ -1264,44 +1262,42 @@ universalPrism: (word) => {
 
     // --- 3. PUBLIC API & CONTROLS ---
     window.openVocab3D = function (index) {
-        initStudioModal();
         currentVocabList = window.VOCAB_DATA || [];
         if (!currentVocabList || currentVocabList.length === 0) return;
+        initStudioModal();
+        initThreeJsViewport();
+        if (!isInitialized) return;
 
+        if (!Number.isInteger(index)) index = 0;
         if (index < 0) index = 0;
         if (index >= currentVocabList.length) index = currentVocabList.length - 1;
 
         const modal = document.getElementById('vocab3DModal');
         if (modal) {
+            if (previousBodyOverflow === null) previousBodyOverflow = document.body.style.overflow;
             modal.classList.add('show');
             document.body.style.overflow = 'hidden';
         }
 
-        if (typeof startAnimateLoop === 'function') {
-            startAnimateLoop();
-        }
-
-        // Trigger resize calculation
-        setTimeout(() => {
-            const container = document.getElementById('v3dViewport');
-            if (container && renderer && camera) {
-                const w = container.clientWidth;
-                const h = container.clientHeight;
-                camera.aspect = w / h;
-                camera.updateProjectionMatrix();
-                renderer.setSize(w, h);
-            }
-            displayVocabIn3D(currentVocabList[index], index);
-        }, 60);
+        // Showing the modal makes its layout measurable without a delayed callback
+        // that could outlive close/reopen or overwrite a newer vocabulary selection.
+        resizeThreeJsViewport();
+        displayVocabIn3D(currentVocabList[index], index);
+        startAnimateLoop();
     };
 
     window.closeVocab3DModal = function () {
         const modal = document.getElementById('vocab3DModal');
         if (modal) modal.classList.remove('show');
-        document.body.style.overflow = '';
-        if (typeof stopAnimateLoop === 'function') {
-            stopAnimateLoop();
+        if (previousBodyOverflow !== null) {
+            document.body.style.overflow = previousBodyOverflow;
+            previousBodyOverflow = null;
         }
+        stopAnimateLoop();
+        clearCurrentModel();
+        // Keep one renderer/controls pair for reuse; release the closed model's
+        // render-list references as well as its geometry/material GPU resources.
+        if (renderer) renderer.renderLists.dispose();
     };
 
     window.prev3DVocab = function () {

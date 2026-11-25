@@ -391,6 +391,38 @@ def _official_kanji_question(question_id: int, items: list[dict], index: int) ->
     return question, options, explain
 
 
+def _verb_form2_label(value: str) -> str:
+    """Label the reviewed supplementary form, including mixed-form lessons."""
+    form = value.split("(", 1)[0].strip()
+    patterns = (
+        ("ことがある", "Trải nghiệm: Vたことがある"),
+        ("ないほうがいい", "Khuyên không nên: Vないほうがいい"),
+        ("ことができる", "Khả năng: Vることができる"),
+        ("ましょう", "Rủ rê: Vましょう"),
+        ("ませんか", "Lời mời: Vませんか"),
+        (("てください", "でください"), "Yêu cầu: Vてください"),
+        (("ていません", "でいません"), "Vẫn chưa: まだVていません"),
+        (("てから", "でから"), "Trình tự: Vてから"),
+        ("んです", "Giải thích: thể thông thường + んです"),
+        ("にくい", "Khó làm: gốc ます + にくい"),
+        (("てはいけない", "ではいけない"), "Cấm: Vてはいけない"),
+        ("なければならない", "Bắt buộc: Vなければならない"),
+        ("なくてもいい", "Không cần: Vなくてもいい"),
+        (("たあとで", "だあとで"), "Sau khi: Vたあとで"),
+        (("たところ", "だところ"), "Địa điểm: Vた + ところ"),
+        ("るまで", "Mốc kết thúc: Vるまで"),
+        (("たこと", "だこと"), "Điều đã xảy ra: Vた + こと"),
+        ("ました", "Quá khứ lịch sự: Vました"),
+        ("ない", "Thể phủ định ngắn: Vない"),
+    )
+    for suffix, label in patterns:
+        if form.endswith(suffix):
+            return label
+    if form.endswith(("た", "だ")):
+        return "Thể quá khứ ngắn: Vた"
+    raise ValueError(f"Missing Verb Lab label for form2: {value}")
+
+
 def apply_official_curriculum(lessons: list[dict], root: Path) -> None:
     official_kanji = json.loads((root / "data/kanji_vocab_a2_2_official.json").read_text(encoding="utf-8"))
     for cfg in lessons:
@@ -406,9 +438,15 @@ def apply_official_curriculum(lessons: list[dict], root: Path) -> None:
         ]
         cfg["kanji_list"] = official_kanji[f"lesson_{number}"]
         cfg["kanji_cards"] = cfg["kanji_list"]
+        # Some lessons mix advice, requests, ability and past forms in this cell.
+        # Keep their authored values; change the label with the selected verb.
+        cfg["verbs"] = [
+            {**verb, "form2Label": _verb_form2_label(verb["form2"])}
+            for verb in cfg["verbs"]
+        ]
         cfg["morph_labels"] = {
             "form1": "Ví dụ chia thể (bổ trợ)",
-            "form2": "Thể quá khứ ngắn",
+            "form2": cfg["verbs"][0]["form2Label"],
             "form3": "Thể từ điển",
         }
         kanji_question_index = 0

@@ -24,6 +24,19 @@ def fix_kanji_entries(entries):
             item.update(READINGS[item["char"]])
 
 
+def correct_runtime_kanji_readings(source):
+    """Update reading fields without matching the `on` suffix in `lesson`."""
+    for char, fields in READINGS.items():
+        pattern = rf'(\bchar:\s*"{re.escape(char)}".*?)(?=\bexamples:)'
+        def correct(match):
+            block = match[0]
+            for field, value in fields.items():
+                block = re.sub(rf'(\b{re.escape(field)}:\s*)"[^"]*"', lambda m: m[1] + json.dumps(value, ensure_ascii=False), block)
+            return block
+        source = re.sub(pattern, correct, source, flags=re.S)
+    return source
+
+
 def build_kanji_corrections():
     path = ROOT / "data/kanji_extracted.json"
     entries = json.loads(path.read_text(encoding="utf-8"))
@@ -31,15 +44,7 @@ def build_kanji_corrections():
     path.write_text(json.dumps(entries, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     # Preserve the separately maintained mnemonics and examples in the runtime file.
     path = ROOT / "assets/data/kanji_a2_data.js"
-    source = path.read_text(encoding="utf-8")
-    for char, fields in READINGS.items():
-        pattern = rf'(char:\s*"{char}".*?)(?=examples:)'
-        def correct(match):
-            block = match[0]
-            for field, value in fields.items():
-                block = re.sub(rf'({field}:\s*)"[^"]*"', lambda m: m[1] + json.dumps(value, ensure_ascii=False), block)
-            return block
-        source = re.sub(pattern, correct, source, flags=re.S)
+    source = correct_runtime_kanji_readings(path.read_text(encoding="utf-8"))
     path.write_text(source, encoding="utf-8")
 
 

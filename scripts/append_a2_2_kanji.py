@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Append A2-2 Lesson 1 and Lesson 2 Kanji compound words to assets/data/kanji_a2_data.js
+Sync all 18 A2-2 lessons' Kanji compound words to assets/data/kanji_a2_data.js
 and update kanji_a2.html filter buttons.
 """
 
@@ -63,43 +63,45 @@ def update_kanji_data_js():
     # Read the generated source rather than maintaining a second copy of words.
     source = json.loads((ROOT / "data/kanji_vocab_a2_2.json").read_text(encoding="utf-8"))
     groups = {(item["lesson"], item["kanji"]): item["group"] for item in A2_2_KANJI_ITEMS}
+    groups.update({(item["lesson"], item["kanji"]): item["group"]
+                   for item in current_data if item.get("group")})
     new_items = []
-    for lesson in (1, 2):
+    # Require the complete source before replacing anything in the runtime file.
+    for lesson in range(1, 19):
         label = f"A2-2 L{lesson}"
         for item in source[f"lesson_{lesson}"]:
             new_items.append({
                 "lesson": label, "kanji": item["word"], "kana": item["kana"],
-                "vi": item["mean"], "group": groups.get((label, item["word"]), "Từ vựng"),
+                "vi": item["mean"], "group": groups.get((label, item["word"]), "A2-2 Trọng tâm"),
             })
     total_data = cleaned_data + new_items
     
     new_declaration = f"var VOCAB_121_DATA = {json.dumps(total_data, ensure_ascii=False)};"
     updated_content = content[:match.start()] + new_declaration + content[match.end():]
     js_path.write_text(updated_content, encoding="utf-8")
-    print(f"Updated {js_path} with total {len(total_data)} items (121 original + 31 A2-2)!")
+    print(f"Updated {js_path} with {len(total_data)} items ({len(new_items)} A2-2, all 18 lessons)!")
 
 def update_kanji_html():
     html_path = ROOT / "kanji_a2.html"
     content = html_path.read_text(encoding="utf-8")
     
-    old_buttons = '''            <!-- Filter by Lesson Bar -->
-            <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px;">
-                <button type="button" class="filter-121-btn active" onclick="filter121Vocab('ALL', this)">🌟 Tất Cả (121)</button>
-                <button type="button" class="filter-121-btn" onclick="filter121Vocab(11, this)">Bài 11 (15)</button>'''
-                
-    new_buttons = '''            <!-- Filter by Lesson Bar -->
-            <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px;">
-                <button type="button" class="filter-121-btn active" onclick="filter121Vocab('ALL', this)">🌟 Tất Cả (152)</button>
-                <button type="button" class="filter-121-btn" style="background: #eef2ff; color: #4338ca; border-color: #818cf8; font-weight: 700;" onclick="filter121Vocab('A2-2 L1', this)">🌸 A2-2 Bài 1 (15)</button>
-                <button type="button" class="filter-121-btn" style="background: #fdf2f8; color: #be185d; border-color: #f472b6; font-weight: 700;" onclick="filter121Vocab('A2-2 L2', this)">👓 A2-2 Bài 2 (16)</button>
-                <button type="button" class="filter-121-btn" onclick="filter121Vocab(11, this)">Bài 11 (15)</button>'''
-
-    if old_buttons in content:
-        content = content.replace(old_buttons, new_buttons)
-        html_path.write_text(content, encoding="utf-8")
-        print(f"Updated {html_path} with A2-2 filter buttons!")
-    else:
-        print("Buttons already updated or pattern not found in kanji_a2.html")
+    source = json.loads((ROOT / "data/kanji_vocab_a2_2.json").read_text(encoding="utf-8"))
+    counts = {lesson: len(source[f"lesson_{lesson}"]) for lesson in range(1, 19)}
+    runtime = (ROOT / "assets/data/kanji_a2_data.js").read_text(encoding="utf-8")
+    items = json.loads(re.search(r"var VOCAB_121_DATA = (\[.*?\]);", runtime)[1])
+    total_count = len(items)
+    a2_2_count = sum(counts.values())
+    content = re.sub(r">🎴 \d+ Mục Từ Kanji · A2-1 &amp; A2-2<",
+                     f">🎴 {total_count} Mục Từ Kanji · A2-1 &amp; A2-2<", content)
+    content = re.sub(r"\d+ mục (?:Kanji )?A2-2 bài \d+–\d+\.",
+                     f"{a2_2_count} mục Kanji A2-2 bài 1–18.", content)
+    content = re.sub(r"Tất Cả \(\d+\)", f"Tất Cả ({total_count})", content)
+    content = re.sub(r"Trọn Bộ A2-2 \(\d+\)", f"Trọn Bộ A2-2 ({a2_2_count})", content)
+    for lesson, count in counts.items():
+        pattern = rf"(onclick=\"filter121Vocab\('A2-2 L{lesson}', this\)\">Bài {lesson} )\(\d+\)"
+        content = re.sub(pattern, lambda match: match[1] + f"({count})", content)
+    html_path.write_text(content, encoding="utf-8")
+    print(f"Updated {html_path} with counts for all 18 A2-2 lessons!")
 
 if __name__ == "__main__":
     update_kanji_data_js()

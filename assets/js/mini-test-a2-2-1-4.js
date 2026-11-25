@@ -769,6 +769,9 @@ function resetExamSuite() {
     totalSeconds = 45 * 60;
     isTimerRunning = true;
     updateTimerDisplay();
+    startTimer();
+    const timerBtn = document.getElementById('timerToggleBtn');
+    if (timerBtn) timerBtn.innerHTML = '⏸️ Tạm dừng';
 
     // Reset UI
     renderPart1();
