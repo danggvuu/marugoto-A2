@@ -1,30 +1,46 @@
+# macOS / Windows metadata
 .DS_Store
+._*
+Thumbs.db
+Desktop.ini
+
+# Python caches and environments
 __pycache__/
-*.pyc
-
-# Local binaries and scratch
-ocr_bin
-
-# Documents
-docs/pdf/*.pdf
-!docs/pdf/MarugotoA2-1Wordbook_eng.pdf
-!docs/pdf/MarugotoA2-2Wordbook_eng.pdf
-!docs/pdf/K_contents_eng.pdf
-!docs/pdf/R_contents_eng.pdf
-!docs/pdf/N5_MARUGOTO_T__V_NG__A1_Lesson_3____A2_1_Lesson_18.pdf
-!docs/pdf/Kanji_Lesson_11-14.pdf
-!docs/pdf/Kanji_Lesson_15-18.pdf
-!docs/pdf/*L11~L18_A2.1.pdf
-!docs/pdf/De_on_tap_JLPT_A2_Bai_11-18.pdf
-
-# Data files
-!data/master_vocab_official.json
-!data/master_vocab_enriched.json
-
-# Code intelligence
-.codegraph/
-
-# Local verification & scratch
-artifacts/
-data/extracted/
+*.py[cod]
 .venv/
+venv/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Local dependencies and generated reports
+node_modules/
+playwright-report/
+test-results/
+artifacts/
+
+# Local credentials (never commit real secrets)
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Editor, code intelligence and AI scaffolding
+.idea/
+.vscode/
+.codegraph/
+.agents/
+.specify/
+
+# Scratch files and extraction intermediates
+*.log
+*.tmp
+*.bak
+*~
+ocr_bin
+data/extracted/
+
+# Extra reference PDFs kept only on this machine.
+# PDFs already tracked by Git remain part of the project.
+/docs/pdf/*.pdf
