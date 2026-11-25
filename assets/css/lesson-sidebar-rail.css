@@ -969,3 +969,34 @@ kbd.key-cap {
     background: #e0e7ff !important;
     border-color: #4f46e5 !important;
 }
+
+/* This component uses important transition rules and WAAPI morphs, so the
+   shared reduced-motion stylesheet needs equally specific local overrides. */
+@media (prefers-reduced-motion: reduce) {
+    .section-nav,
+    .section-nav *,
+    .lesson-morph-glider,
+    .lesson-morph-glider *,
+    .lesson-sidebar-rail,
+    .lesson-sidebar-rail .macos-sidebar-box,
+    .lesson-sidebar-rail .macos-dot,
+    .lesson-sidebar-rail .dock-progress-bar,
+    .lesson-sidebar-rail .dock-btn-top,
+    .lesson-sidebar-rail .lesson-rail-link,
+    .lesson-sidebar-rail .rail-active-pill,
+    .lesson-sidebar-rail .rail-tooltip,
+    .lesson-sidebar-rail .dock-btn-shortcut,
+    .lesson-bottom-nav,
+    .lesson-bottom-nav *,
+    .vocab-quick-toolbar,
+    .vocab-quick-toolbar *,
+    .lesson-resume-toast,
+    .lesson-resume-toast *,
+    .lesson-shortcuts-modal,
+    .lesson-shortcuts-modal * {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+    }
+}

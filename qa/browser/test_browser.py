@@ -142,7 +142,7 @@ class StudyFlows(unittest.TestCase):
     def test_a2_2_kanji_filters_audio_and_restore(self):
         self.go("kanji_a2.html")
         self.page.locator('[onclick="switchTab(\\\'tab-vocab-11-18\\\')"]').click()
-        official_counts = [8, 13, 9, 8, 11, 11, 9, 8, 8, 9, 11, 10, 11, 7, 9, 9, 10, 9]
+        official_counts = [8, 13, 18, 10, 11, 11, 9, 8, 8, 9, 11, 10, 11, 7, 9, 9, 10, 9]
         for lesson, count in enumerate(official_counts, 1):
             self.page.locator(f'.filter-121-btn[onclick="filter121Vocab(\'A2-2 L{lesson}\', this)"]').click()
             self.assertEqual(self.page.locator("#table121Body tr").count(), count)
@@ -153,6 +153,53 @@ class StudyFlows(unittest.TestCase):
             self.reload()
             self.assertEqual(self.page.evaluate("current121Lesson"), f"A2-2 L{lesson}")
             self.assertEqual(self.page.locator("#table121Body tr").count(), count)
+
+    def test_lesson_morph_respects_reduced_motion(self):
+        self.page.set_viewport_size({"width": 1440, "height": 900})
+        self.page.emulate_media(reduced_motion="reduce")
+        self.go("lessons/Marugoto_A2_Lesson_1.html")
+        self.page.evaluate("window.scrollTo(0, 300); window.dispatchEvent(new Event('scroll'))")
+        self.page.clock.run_for(50)
+        state = self.page.evaluate("""() => ({
+            docked: document.body.classList.contains('is-scrolled-dock'),
+            morphing: document.body.classList.contains('is-morphing-to-dock') ||
+                document.body.classList.contains('is-morphing-to-top'),
+            cssTransitionsReduced: [
+                document.querySelector('.section-nav'),
+                document.querySelector('.lesson-sidebar-rail .macos-sidebar-box')
+            ].every(element => parseFloat(getComputedStyle(element).transitionDuration) <= 0.00001),
+            activeMorphAnimations: document.getAnimations().filter(animation => {
+                const element = animation.effect && animation.effect.target;
+                return element && (element.classList.contains('lesson-morph-glider') ||
+                    element.classList.contains('glider-layer-top') ||
+                    element.classList.contains('glider-layer-dock')) && animation.playState === 'running';
+            }).length
+        })""")
+        self.assertTrue(state["docked"])
+        self.assertFalse(state["morphing"])
+        self.assertTrue(state["cssTransitionsReduced"])
+        self.assertEqual(state["activeMorphAnimations"], 0)
+
+    def test_shortcuts_dialog_traps_and_restores_focus(self):
+        self.go("lessons/Marugoto_A2_Lesson_1.html")
+        self.page.evaluate("""() => {
+            const trigger = document.createElement('button');
+            trigger.id = 'testShortcutsTrigger';
+            document.body.appendChild(trigger);
+            trigger.focus();
+            window.toggleShortcutsModal(true);
+        }""")
+        self.page.clock.run_for(20)
+        modal = self.page.locator(".lesson-shortcuts-modal")
+        self.assertEqual(self.page.evaluate("document.activeElement.id"), "btnCloseShortcuts")
+        self.assertEqual(modal.get_attribute("aria-hidden"), "false")
+        self.assertFalse(modal.evaluate("el => el.inert"))
+        self.page.keyboard.press("Tab")
+        self.assertEqual(self.page.evaluate("document.activeElement.id"), "btnCloseShortcuts")
+        self.page.keyboard.press("Escape")
+        self.assertEqual(modal.get_attribute("aria-hidden"), "true")
+        self.assertTrue(modal.evaluate("el => el.inert"))
+        self.assertEqual(self.page.evaluate("document.activeElement.id"), "testShortcutsTrigger")
 
     def test_reset_is_page_scoped_and_tutha_lab_uses_valid_sentences(self):
         self.go("lessons/Marugoto_A2_2_Lesson_1.html")

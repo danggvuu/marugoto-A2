@@ -236,12 +236,32 @@
         let activeDockAnim = null;
         let isDockedState = false;
         let isInitialized = false;
+        const motionQuery = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
+
+        function prefersReducedMotion() {
+            return Boolean(motionQuery && motionQuery.matches);
+        }
+
+        function cancelMorphAnimations() {
+            if (activeGliderAnim) { activeGliderAnim.cancel(); activeGliderAnim = null; }
+            if (activeTopAnim) { activeTopAnim.cancel(); activeTopAnim = null; }
+            if (activeDockAnim) { activeDockAnim.cancel(); activeDockAnim = null; }
+        }
+
+        if (motionQuery) {
+            const onMotionPreferenceChange = (event) => {
+                if (event.matches) triggerMorph(isDockedState, true);
+            };
+            if (typeof motionQuery.addEventListener === 'function') {
+                motionQuery.addEventListener('change', onMotionPreferenceChange);
+            } else if (typeof motionQuery.addListener === 'function') {
+                motionQuery.addListener(onMotionPreferenceChange);
+            }
+        }
 
         function triggerMorph(toDock, immediate) {
-            if (immediate) {
-                if (activeGliderAnim) { activeGliderAnim.cancel(); activeGliderAnim = null; }
-                if (activeTopAnim) { activeTopAnim.cancel(); activeTopAnim = null; }
-                if (activeDockAnim) { activeDockAnim.cancel(); activeDockAnim = null; }
+            if (immediate || prefersReducedMotion()) {
+                cancelMorphAnimations();
                 document.body.classList.remove('is-morphing-to-dock', 'is-morphing-to-top');
                 glider.classList.remove('is-active');
                 if (toDock) {
@@ -249,6 +269,7 @@
                 } else {
                     document.body.classList.remove('is-scrolled-dock');
                 }
+                setActive(currentActiveHref);
                 return;
             }
 
@@ -264,9 +285,7 @@
                 return;
             }
 
-            if (activeGliderAnim) { activeGliderAnim.cancel(); activeGliderAnim = null; }
-            if (activeTopAnim) { activeTopAnim.cancel(); activeTopAnim = null; }
-            if (activeDockAnim) { activeDockAnim.cancel(); activeDockAnim = null; }
+            cancelMorphAnimations();
 
             const duration = 400;
             const easeCurve = 'cubic-bezier(0.16, 1, 0.3, 1)';
@@ -390,7 +409,7 @@
                 const topPos = target.getBoundingClientRect().top + window.pageYOffset - offset;
                 window.scrollTo({
                     top: Math.max(0, topPos),
-                    behavior: 'smooth'
+                    behavior: prefersReducedMotion() ? 'auto' : 'smooth'
                 });
                 try { history.replaceState(null, '', targetHref); } catch (err) {}
                 setActive(targetHref);
@@ -411,7 +430,7 @@
         if (scrollTopBtn) {
             scrollTopBtn.addEventListener('click', (e) => {
                 e.preventDefault();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+                window.scrollTo({ top: 0, behavior: prefersReducedMotion() ? 'auto' : 'smooth' });
                 try { history.replaceState(null, '', window.location.pathname); } catch (err) {}
                 const firstHref = railItems[0]?.href;
                 if (firstHref) setActive(firstHref);
@@ -809,7 +828,11 @@
         function activateCard(cardEl) {
             if (!cardEl) return;
             cardEl.focus();
-            cardEl.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            cardEl.scrollIntoView({
+                behavior: prefersReducedMotion() ? 'auto' : 'smooth',
+                block: 'nearest',
+                inline: 'center'
+            });
             cardEl.click();
         }
     }
@@ -837,7 +860,7 @@
                 document.body.appendChild(toast);
 
                 toast.querySelector('#btnResumeTop')?.addEventListener('click', () => {
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    window.scrollTo({ top: 0, behavior: prefersReducedMotion() ? 'auto' : 'smooth' });
                     toast.classList.add('is-hiding');
                     setTimeout(() => toast.remove(), 350);
                 });
@@ -898,13 +921,16 @@
 
     // 12. BẢNG HƯỚNG DẪN PHÍM TẮT MODAL
     let shortcutsModal = null;
+    let shortcutsReturnFocus = null;
     function initShortcutsModal() {
         if (shortcutsModal) return;
 
         shortcutsModal = document.createElement('div');
         shortcutsModal.className = 'lesson-shortcuts-modal';
+        shortcutsModal.setAttribute('aria-hidden', 'true');
+        shortcutsModal.inert = true;
         shortcutsModal.innerHTML = `
-            <div class="shortcuts-modal-card" role="dialog" aria-modal="true" aria-label="Bảng phím tắt học tiếng Nhật">
+            <div class="shortcuts-modal-card" role="dialog" aria-modal="true" aria-label="Bảng phím tắt học tiếng Nhật" tabindex="-1">
                 <div class="shortcuts-modal-header">
                     <div class="shortcuts-modal-title">⌨️ Phím tắt học thần tốc</div>
                     <button type="button" class="shortcuts-modal-close" id="btnCloseShortcuts" aria-label="Đóng">✕</button>
@@ -957,6 +983,27 @@
             toggleShortcutsModal(false);
         });
 
+        shortcutsModal.addEventListener('keydown', (event) => {
+            if (event.key !== 'Tab') return;
+            const focusables = Array.from(shortcutsModal.querySelectorAll(
+                'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+            )).filter(el => !el.disabled && el.offsetParent !== null);
+            if (!focusables.length) {
+                event.preventDefault();
+                shortcutsModal.querySelector('.shortcuts-modal-card')?.focus();
+                return;
+            }
+            const first = focusables[0];
+            const last = focusables[focusables.length - 1];
+            if (event.shiftKey && document.activeElement === first) {
+                event.preventDefault();
+                last.focus();
+            } else if (!event.shiftKey && document.activeElement === last) {
+                event.preventDefault();
+                first.focus();
+            }
+        });
+
         shortcutsModal.addEventListener('click', (e) => {
             if (e.target === shortcutsModal) {
                 toggleShortcutsModal(false);
@@ -969,9 +1016,21 @@
         const isOpen = shortcutsModal.classList.contains('is-open');
         const nextState = typeof forceState === 'boolean' ? forceState : !isOpen;
         if (nextState) {
+            if (!isOpen && document.activeElement && !shortcutsModal.contains(document.activeElement)) {
+                shortcutsReturnFocus = document.activeElement;
+            }
             shortcutsModal.classList.add('is-open');
+            shortcutsModal.setAttribute('aria-hidden', 'false');
+            shortcutsModal.inert = false;
+            requestAnimationFrame(() => shortcutsModal.querySelector('#btnCloseShortcuts')?.focus());
         } else {
             shortcutsModal.classList.remove('is-open');
+            shortcutsModal.setAttribute('aria-hidden', 'true');
+            shortcutsModal.inert = true;
+            if (shortcutsReturnFocus?.isConnected && typeof shortcutsReturnFocus.focus === 'function') {
+                shortcutsReturnFocus.focus();
+            }
+            shortcutsReturnFocus = null;
         }
     }
 

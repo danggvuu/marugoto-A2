@@ -291,7 +291,7 @@ const VERB_DATA = [
     "masu": "やきます",
     "vi": "Nướng",
     "te": "やいて",
-    "form1": "やかないで (đừng nướng quá chín)",
+    "form1": "やかないで (đừng nướng)",
     "form2": "やいた (đã nướng)",
     "form3": "やく"
   },

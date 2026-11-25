@@ -41,6 +41,10 @@ for (let lesson = 1; lesson <= 18; lesson++) {
     assert.strictEqual(quiz.length, 15, `Lesson ${lesson} quiz must have exactly 15 questions`);
     assert(vocab.every(item => item.jp && item.kana && item.romaji && item.vi), `Missing fields in Lesson ${lesson} vocab`);
     assert(vocab.every(item => !/[A-Za-z]/.test(item.kana)), `Kana must not include template placeholders in Lesson ${lesson}`);
+    if (lesson === 4) {
+        const grill = array('VERB_DATA').find(item => item.masu === 'やきます');
+        assert.strictEqual(grill?.form1, 'やかないで (đừng nướng)', 'Lesson 4 negative verb gloss must match やかないで');
+    }
 
     const counts = [0, 0, 0, 0];
     quiz.forEach((q, qIdx) => {
@@ -113,4 +117,14 @@ for (let lesson = 1; lesson <= 18; lesson++) {
 
 assert.strictEqual(totalVocab, 439, 'Official A2-2 vocabulary should contain 439 entries');
 assert.strictEqual(totalKanji, 181, 'Official A2-2 Kanji word list should contain 181 entries');
+
+const curriculumSource = read('scripts/a2_2/official_curriculum.py');
+for (const name of ['QUIZ_OVERRIDES', 'GRAMMAR_OVERRIDE_IDS']) {
+    const match = curriculumSource.match(new RegExp(`${name}\\s*=\\s*\\{([\\s\\S]*?)\\n\\}`));
+    assert(match, `Missing ${name} declaration`);
+    const keys = [...match[1].matchAll(/\((\d+),\s*(\d+)\)\s*(?=[:,])/g)]
+        .map(([, lesson, question]) => `${lesson}:${question}`);
+    assert.strictEqual(new Set(keys).size, keys.length, `${name} contains duplicate lesson/question keys`);
+}
+
 console.log(`✅ A2-2 curriculum checked: ${totalVocab} vocabulary cards, ${totalQuiz} quiz questions and ${totalKanji} official Kanji words across all 18 lessons.`);

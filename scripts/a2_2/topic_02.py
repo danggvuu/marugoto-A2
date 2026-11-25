@@ -638,7 +638,7 @@ L4_VOCAB = [
 
 L4_VERBS = [
     {"masu": "つけます", "vi": "Chấm (nước sốt)", "te": "つけて", "form1": "つけないで (xin đừng chấm)", "form2": "つけた (đã chấm)", "form3": "つける (thể từ điển)"},
-    {"masu": "やきます", "vi": "Nướng", "te": "やいて", "form1": "やかないで (đừng nướng quá chín)", "form2": "やいた (đã nướng)", "form3": "やく"},
+    {"masu": "やきます", "vi": "Nướng", "te": "やいて", "form1": "やかないで (đừng nướng)", "form2": "やいた (đã nướng)", "form3": "やく"},
     {"masu": "にます", "vi": "Ninh / hầm", "te": "にて", "form1": "にないで", "form2": "にた", "form3": "にる"},
     {"masu": "かけます", "vi": "Rưới lên", "te": "かけて", "form1": "かけないで (đừng rưới lên)", "form2": "かけた", "form3": "かける"},
     {"masu": "のこします", "vi": "Để thừa", "te": "のこして", "form1": "のこさないで (xin đừng để thừa)", "form2": "のこした", "form3": "のこす"}
