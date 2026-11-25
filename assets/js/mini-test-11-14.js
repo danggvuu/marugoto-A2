@@ -39,7 +39,8 @@ let p6SelfScores = {};
 // Timer Variables (45:00)
 let totalSeconds = 45 * 60;
 let timerInterval = null;
-let isTimerRunning = true;
+let isTimerRunning = false;
+let timerStarted = false;
 
 function saveMini11_14Checkpoint() {
     if (isRestoringMini11_14) return;
@@ -75,7 +76,8 @@ function saveMini11_14Checkpoint() {
             p6Drafts,
             p6ModelsOpen,
             totalSeconds,
-            isTimerRunning
+            isTimerRunning,
+            timerStarted
         };
         localStorage.setItem(MINI11_14_CP_KEY, JSON.stringify(payload));
         if (window.MarugotoCheckpoint && typeof window.MarugotoCheckpoint.notifySaved === 'function') {
@@ -84,8 +86,22 @@ function saveMini11_14Checkpoint() {
     } catch (e) {}
 }
 
+function isQuizTabActive() {
+    const activePanel = document.querySelector('.tab-panel.active');
+    return activePanel ? activePanel.id === 'tab-quiz' : currentTab === 'tab-quiz';
+}
+
+function updateTimerButton() {
+    const button = document.querySelector('button[onclick*="toggleTimer("]');
+    if (button) {
+        button.innerText = isTimerRunning ? '⏸️ Tạm Dừng' : (timerStarted ? '▶️ Tiếp Tục' : '▶️ Bắt Đầu');
+    }
+}
+
 function startTimer() {
     if (timerInterval) clearInterval(timerInterval);
+    timerInterval = null;
+    if (!timerStarted || !isTimerRunning || !isQuizTabActive()) return;
     timerInterval = setInterval(() => {
         if (isTimerRunning && totalSeconds > 0) {
             totalSeconds--;
@@ -93,6 +109,9 @@ function startTimer() {
             if (totalSeconds % 5 === 0) saveMini11_14Checkpoint();
         } else if (totalSeconds <= 0) {
             clearInterval(timerInterval);
+            timerInterval = null;
+            isTimerRunning = false;
+            updateTimerButton();
             saveMini11_14Checkpoint();
             alert("⏱️ Hết thời gian 45 phút làm bài! Hãy xem lại kết quả tổng điểm của bạn.");
         }
@@ -109,11 +128,14 @@ function updateTimerDisplay() {
 }
 
 function toggleTimer() {
-    isTimerRunning = !isTimerRunning;
-    const btn = (typeof event !== 'undefined' && event && event.target) ? event.target : null;
-    if (btn) {
-        btn.innerText = isTimerRunning ? "⏸️ Tạm Dừng" : "▶️ Tiếp Tục";
+    if (isTimerRunning) {
+        isTimerRunning = false;
+    } else {
+        timerStarted = true;
+        isTimerRunning = true;
     }
+    updateTimerButton();
+    startTimer();
     saveMini11_14Checkpoint();
 }
 
@@ -129,6 +151,13 @@ function switchMainTab(tabId, opts) {
 
     const targetPanel = document.getElementById(tabId);
     if (targetPanel) targetPanel.classList.add('active');
+    if (tabId === 'tab-quiz' && timerStarted && isTimerRunning) startTimer();
+    else if (tabId !== 'tab-quiz') {
+        if (timerInterval) clearInterval(timerInterval);
+        timerInterval = null;
+        if (timerStarted && isTimerRunning) isTimerRunning = false;
+    }
+    updateTimerButton();
     if (!(opts && opts.skipScroll)) {
         window.scrollTo({ top: 180, behavior: 'smooth' });
     }
@@ -672,8 +701,10 @@ function resetAllExam() {
     p6SelfScores = {};
 
     totalSeconds = 45 * 60;
+    timerStarted = true;
     isTimerRunning = true;
     updateTimerDisplay();
+    updateTimerButton();
     startTimer();
     const timerBtn = document.querySelector('button[onclick*="toggleTimer("]');
     if (timerBtn) timerBtn.innerText = "⏸️ Tạm Dừng";
@@ -1116,15 +1147,21 @@ function restoreMini11_14Checkpoint() {
         if (saved.p4Graded && typeof saved.p4Graded === 'object') p4Graded = saved.p4Graded;
         if (saved.p5Answers && typeof saved.p5Answers === 'object') p5Answers = saved.p5Answers;
         if (saved.p6SelfScores && typeof saved.p6SelfScores === 'object') p6SelfScores = saved.p6SelfScores;
-        if (Number.isFinite(saved.totalSeconds)) {
-            totalSeconds = saved.totalSeconds;
-            updateTimerDisplay();
+        if (saved.timerStarted === true) {
+            if (Number.isFinite(saved.totalSeconds)) totalSeconds = Math.max(0, Math.min(saved.totalSeconds, 45 * 60));
+            timerStarted = true;
+            isTimerRunning = saved.isTimerRunning === true;
+        } else {
+            // Legacy checkpoints were timed automatically before the learner started the test.
+            totalSeconds = saved.timerStarted === true && Number.isFinite(saved.totalSeconds)
+                ? Math.max(0, Math.min(saved.totalSeconds, 45 * 60))
+                : 45 * 60;
+            timerStarted = false;
+            isTimerRunning = false;
         }
-        if (typeof saved.isTimerRunning === 'boolean') {
-            isTimerRunning = saved.isTimerRunning;
-            const tBtn = document.querySelector('button[onclick*="toggleTimer("]');
-            if (tBtn) tBtn.innerText = isTimerRunning ? "⏸️ Tạm Dừng" : "▶️ Tiếp Tục";
-        }
+        updateTimerDisplay();
+        if (timerStarted && isTimerRunning && !isQuizTabActive()) isTimerRunning = false;
+        updateTimerButton();
 
         applyVocabFilter();
         applyKanjiFilter();
@@ -1276,5 +1313,6 @@ document.addEventListener('DOMContentLoaded', () => {
         renderPart5();
         renderPart6();
     }
-    startTimer();
+    updateTimerButton();
+    if (timerStarted && isTimerRunning && isQuizTabActive()) startTimer();
 });

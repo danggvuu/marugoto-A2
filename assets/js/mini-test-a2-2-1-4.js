@@ -39,7 +39,8 @@ let p6SelfScores = {};   // qId -> numeric score (up to 3.75)
 // Timer Variables (45:00)
 let totalSeconds = 45 * 60;
 let timerInterval = null;
-let isTimerRunning = true;
+let isTimerRunning = false;
+let timerStarted = false;
 
 function saveMiniCheckpoint() {
     if (isRestoringMini) return;
@@ -75,7 +76,8 @@ function saveMiniCheckpoint() {
             p6Drafts,
             p6ModelsOpen,
             totalSeconds,
-            isTimerRunning
+            isTimerRunning,
+            timerStarted
         };
         localStorage.setItem(MINI_A2_2_1_4_CP_KEY, JSON.stringify(payload));
         if (window.MarugotoCheckpoint && typeof window.MarugotoCheckpoint.notifySaved === 'function') {
@@ -84,8 +86,22 @@ function saveMiniCheckpoint() {
     } catch (e) {}
 }
 
+function isQuizTabActive() {
+    const activePanel = document.querySelector('.tab-panel.active');
+    return activePanel ? activePanel.id === 'tab-quiz' : currentTab === 'tab-quiz';
+}
+
+function updateTimerButton() {
+    const button = document.getElementById('timerToggleBtn');
+    if (button) {
+        button.innerHTML = isTimerRunning ? '⏸️ Tạm dừng' : (timerStarted ? '▶️ Tiếp tục' : '▶️ Bắt đầu');
+    }
+}
+
 function startTimer() {
     if (timerInterval) clearInterval(timerInterval);
+    timerInterval = null;
+    if (!timerStarted || !isTimerRunning || !isQuizTabActive()) return;
     timerInterval = setInterval(() => {
         if (isTimerRunning && totalSeconds > 0) {
             totalSeconds--;
@@ -93,6 +109,9 @@ function startTimer() {
             if (totalSeconds % 5 === 0) saveMiniCheckpoint();
         } else if (totalSeconds <= 0) {
             clearInterval(timerInterval);
+            timerInterval = null;
+            isTimerRunning = false;
+            updateTimerButton();
             saveMiniCheckpoint();
             alert("⏱️ Đã hết thời gian 45 phút làm bài! Hãy bấm 'Nộp Bài & Chấm Điểm' để xem kết quả.");
         }
@@ -110,11 +129,14 @@ function updateTimerDisplay() {
 }
 
 function toggleTimer() {
-    isTimerRunning = !isTimerRunning;
-    const btn = document.getElementById('timerToggleBtn');
-    if (btn) {
-        btn.innerHTML = isTimerRunning ? '⏸️ Tạm dừng' : '▶️ Tiếp tục';
+    if (isTimerRunning) {
+        isTimerRunning = false;
+    } else {
+        timerStarted = true;
+        isTimerRunning = true;
     }
+    updateTimerButton();
+    startTimer();
     saveMiniCheckpoint();
 }
 
@@ -125,6 +147,14 @@ function switchTab(tabId, btn) {
 
     const target = document.getElementById(tabId);
     if (target) target.classList.add('active');
+
+    if (tabId === 'tab-quiz' && timerStarted && isTimerRunning) startTimer();
+    else if (tabId !== 'tab-quiz') {
+        if (timerInterval) clearInterval(timerInterval);
+        timerInterval = null;
+        if (timerStarted && isTimerRunning) isTimerRunning = false;
+    }
+    updateTimerButton();
 
     if (btn) {
         btn.classList.add('active');
@@ -767,8 +797,10 @@ function resetExamSuite() {
     p5Answers = {};
     p6SelfScores = {};
     totalSeconds = 45 * 60;
+    timerStarted = true;
     isTimerRunning = true;
     updateTimerDisplay();
+    updateTimerButton();
     startTimer();
     const timerBtn = document.getElementById('timerToggleBtn');
     if (timerBtn) timerBtn.innerHTML = '⏸️ Tạm dừng';
@@ -1170,15 +1202,21 @@ function restoreMiniCheckpoint() {
             isMeaningHidden = !data.isMeaningHidden;
             toggleHideMeaning();
         }
-        if (data.totalSeconds !== undefined) {
-            totalSeconds = data.totalSeconds;
-            updateTimerDisplay();
+        if (data.timerStarted === true) {
+            if (Number.isFinite(data.totalSeconds)) totalSeconds = Math.max(0, Math.min(data.totalSeconds, 45 * 60));
+            timerStarted = true;
+            isTimerRunning = data.isTimerRunning === true;
+        } else {
+            // Legacy checkpoints were timed automatically before the learner started the test.
+            totalSeconds = data.timerStarted === true && Number.isFinite(data.totalSeconds)
+                ? Math.max(0, Math.min(data.totalSeconds, 45 * 60))
+                : 45 * 60;
+            timerStarted = false;
+            isTimerRunning = false;
         }
-        if (data.isTimerRunning !== undefined) {
-            isTimerRunning = data.isTimerRunning;
-            const btn = document.getElementById('timerToggleBtn');
-            if (btn) btn.innerHTML = isTimerRunning ? '⏸️ Tạm dừng' : '▶️ Tiếp tục';
-        }
+        updateTimerDisplay();
+        if (timerStarted && isTimerRunning && !isQuizTabActive()) isTimerRunning = false;
+        updateTimerButton();
         if (data.currentVocabFilter) {
             filterVocab(data.currentVocabFilter);
         }
@@ -1273,4 +1311,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     startTimer();
     restoreMiniCheckpoint();
+    updateTimerButton();
+    if (timerStarted && isTimerRunning && isQuizTabActive()) startTimer();
 });

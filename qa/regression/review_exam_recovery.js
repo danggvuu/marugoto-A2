@@ -277,8 +277,9 @@ for (const [name, file, data, reset, key] of [
 ]) {
     test(`Mini ${name} restarts after expiry, pause and repeated resets`, () => {
         const h = harness(file, { data: [data] });
+        h.run(name === '11–14' ? "switchMainTab('tab-quiz')" : "switchTab('tab-quiz')");
         h.storage.set('other-exam', 'preserve');
-        h.run('totalSeconds = 1');
+        h.run('timerStarted = true; isTimerRunning = true; totalSeconds = 1');
         h.advance(2000);
         assert.strictEqual(h.intervals.size, 0);
         h.run(`${reset}()`);
@@ -298,7 +299,7 @@ for (const [name, file, data, reset, key] of [
 
     test(`Mini ${name} reset still restarts when storage removal/writes fail`, () => {
         const h = harness(file, { data: [data] });
-        h.run('totalSeconds = 1');
+        h.run(name === '11–14' ? "switchMainTab('tab-quiz'); timerStarted = true; isTimerRunning = true; totalSeconds = 1" : "switchTab('tab-quiz'); timerStarted = true; isTimerRunning = true; totalSeconds = 1");
         h.advance(2000);
         h.blocked.remove = h.blocked.write = true;
         h.run(`${reset}()`);

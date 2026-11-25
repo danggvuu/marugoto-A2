@@ -1211,6 +1211,36 @@ class StudyFlows(unittest.TestCase):
         self.page.evaluate('handleSelectOption(1,0)')
         self.assertEqual(self.page.evaluate('userAnswers[1].value'), 0)
 
+    def test_mini_test_timers_start_on_demand_and_pause_away_from_quiz(self):
+        for path, study_tab, quiz_tab in [
+            ('tests/On_Tap_Mini_Test_A2_11_14.html', 'tab-theory', 'tab-quiz'),
+            ('tests/On_Tap_Mini_Test_A2_2_1_4.html', 'tab-theory', 'tab-quiz'),
+        ]:
+            with self.subTest(page=path):
+                self.go(path)
+                self.assertFalse(self.page.evaluate('timerStarted'))
+                self.assertFalse(self.page.evaluate('isTimerRunning'))
+                self.page.clock.run_for(10000)
+                self.assertEqual(self.page.evaluate('totalSeconds'), 2700)
+
+                self.page.evaluate(f"switch{'MainTab' if '11_14' in path else 'Tab'}('{quiz_tab}')")
+                self.page.evaluate('toggleTimer()')
+                self.assertTrue(self.page.evaluate('timerStarted'))
+                self.page.clock.run_for(3000)
+                remaining = self.page.evaluate('totalSeconds')
+                self.assertEqual(remaining, 2697)
+
+                self.page.evaluate(f"switch{'MainTab' if '11_14' in path else 'Tab'}('{study_tab}')")
+                self.assertFalse(self.page.evaluate('isTimerRunning'))
+                self.page.clock.run_for(5000)
+                self.assertEqual(self.page.evaluate('totalSeconds'), remaining)
+
+                self.page.evaluate(f"switch{'MainTab' if '11_14' in path else 'Tab'}('{quiz_tab}')")
+                self.assertFalse(self.page.evaluate('isTimerRunning'))
+                self.page.evaluate('toggleTimer()')
+                self.page.clock.run_for(2000)
+                self.assertEqual(self.page.evaluate('totalSeconds'), remaining - 2)
+
     def test_timed_mini_tests_restart_timer_after_expiry(self):
         for path, reset in [
             ('tests/On_Tap_Mini_Test_A2_11_14.html', 'resetAllExam'),
@@ -1218,7 +1248,9 @@ class StudyFlows(unittest.TestCase):
         ]:
             with self.subTest(page=path):
                 self.go(path)
-                self.page.evaluate('totalSeconds=1;isTimerRunning=true')
+                if '11_14' in path:
+                    self.page.evaluate("switchMainTab('tab-quiz')")
+                self.page.evaluate('toggleTimer();totalSeconds=1')
                 self.page.clock.run_for(2500)
                 self.page.evaluate(reset+'()')
                 self.assertEqual(self.page.evaluate('totalSeconds'), 2700)
