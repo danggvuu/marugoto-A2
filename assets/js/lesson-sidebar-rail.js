@@ -191,6 +191,167 @@
         const activePill = rail.querySelector('#railActivePill');
         const linksContainer = rail.querySelector('#lessonRailLinks');
 
+        // 2b. Tạo Glider biến hình mượt mà kiểu Dynamic Island / macOS (Morphing Glider)
+        let glider = document.getElementById('lessonMorphGlider');
+        if (!glider) {
+            glider = document.createElement('div');
+            glider.id = 'lessonMorphGlider';
+            glider.className = 'lesson-morph-glider';
+            glider.setAttribute('aria-hidden', 'true');
+            document.body.appendChild(glider);
+        }
+
+        glider.innerHTML = `
+            <div class="glider-layer glider-layer-top">
+                ${sectionNav.innerHTML}
+            </div>
+            <div class="glider-layer glider-layer-dock">
+                <div class="macos-sidebar-header">
+                    <div class="macos-traffic-dots">
+                        <span class="macos-dot macos-dot-red"></span>
+                        <span class="macos-dot macos-dot-yellow"></span>
+                        <span class="macos-dot macos-dot-green"></span>
+                    </div>
+                </div>
+                <div class="dock-progress-wrapper">
+                    <div class="dock-btn-top"><span>↑</span></div>
+                </div>
+                <div class="lesson-rail-links">
+                    ${railItems.map(item => `
+                        <div class="lesson-rail-link">
+                            <span class="rail-icon">${item.icon}</span>
+                            <span class="rail-label">${item.shortLabel}</span>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+        `;
+
+        const gliderTopLayer = glider.querySelector('.glider-layer-top');
+        const gliderDockLayer = glider.querySelector('.glider-layer-dock');
+
+        // Hàm morphing chuyển đổi liên tục giữa Top Capsule và Right Dock
+        let activeGliderAnim = null;
+        let activeTopAnim = null;
+        let activeDockAnim = null;
+        let isDockedState = false;
+        let isInitialized = false;
+
+        function triggerMorph(toDock, immediate) {
+            if (immediate) {
+                if (activeGliderAnim) { activeGliderAnim.cancel(); activeGliderAnim = null; }
+                if (activeTopAnim) { activeTopAnim.cancel(); activeTopAnim = null; }
+                if (activeDockAnim) { activeDockAnim.cancel(); activeDockAnim = null; }
+                document.body.classList.remove('is-morphing-to-dock', 'is-morphing-to-top');
+                glider.classList.remove('is-active');
+                if (toDock) {
+                    document.body.classList.add('is-scrolled-dock');
+                } else {
+                    document.body.classList.remove('is-scrolled-dock');
+                }
+                return;
+            }
+
+            const isDesktop = window.innerWidth >= 1025;
+            if (!isDesktop) return;
+
+            const navRect = sectionNav.getBoundingClientRect();
+            const dockRect = macosBox.getBoundingClientRect();
+
+            if (navRect.width === 0 || dockRect.width === 0) {
+                if (toDock) document.body.classList.add('is-scrolled-dock');
+                else document.body.classList.remove('is-scrolled-dock');
+                return;
+            }
+
+            if (activeGliderAnim) { activeGliderAnim.cancel(); activeGliderAnim = null; }
+            if (activeTopAnim) { activeTopAnim.cancel(); activeTopAnim = null; }
+            if (activeDockAnim) { activeDockAnim.cancel(); activeDockAnim = null; }
+
+            const duration = 400;
+            const easeCurve = 'cubic-bezier(0.16, 1, 0.3, 1)';
+
+            if (toDock) {
+                // Top Capsule -> Right Dock
+                document.body.classList.add('is-morphing-to-dock');
+                document.body.classList.remove('is-morphing-to-top');
+
+                glider.style.left = navRect.left + 'px';
+                glider.style.top = navRect.top + 'px';
+                glider.style.width = navRect.width + 'px';
+                glider.style.height = navRect.height + 'px';
+                glider.style.borderRadius = '9999px';
+                glider.style.transform = 'translate3d(0, 0, 0)';
+                glider.classList.add('is-active');
+
+                const deltaX = dockRect.left - navRect.left;
+                const deltaY = dockRect.top - navRect.top;
+
+                activeTopAnim = gliderTopLayer.animate([
+                    { opacity: 1, transform: 'scale(1)' },
+                    { opacity: 0, transform: 'scale(0.92)' }
+                ], { duration: 150, easing: 'cubic-bezier(0.25, 1, 0.5, 1)', fill: 'forwards' });
+
+                activeDockAnim = gliderDockLayer.animate([
+                    { opacity: 0, transform: 'translateX(-50%) scale(0.9) translateY(8px)' },
+                    { opacity: 1, transform: 'translateX(-50%) scale(1) translateY(0)' }
+                ], { duration: 240, delay: 150, easing: easeCurve, fill: 'forwards' });
+
+                activeGliderAnim = glider.animate([
+                    { transform: 'translate3d(0, 0, 0)', width: `${navRect.width}px`, height: `${navRect.height}px`, borderRadius: '9999px' },
+                    { transform: `translate3d(${deltaX}px, ${deltaY}px, 0)`, width: `${dockRect.width}px`, height: `${dockRect.height}px`, borderRadius: '26px' }
+                ], { duration: duration, easing: easeCurve, fill: 'forwards' });
+
+                activeGliderAnim.onfinish = () => {
+                    activeGliderAnim = null;
+                    document.body.classList.remove('is-morphing-to-dock');
+                    document.body.classList.add('is-scrolled-dock');
+                    glider.classList.remove('is-active');
+                    glider.style.transform = 'none';
+                    setActive(currentActiveHref);
+                };
+            } else {
+                // Right Dock -> Top Capsule
+                document.body.classList.add('is-morphing-to-top');
+                document.body.classList.remove('is-morphing-to-dock');
+
+                glider.style.left = dockRect.left + 'px';
+                glider.style.top = dockRect.top + 'px';
+                glider.style.width = dockRect.width + 'px';
+                glider.style.height = dockRect.height + 'px';
+                glider.style.borderRadius = '26px';
+                glider.style.transform = 'translate3d(0, 0, 0)';
+                glider.classList.add('is-active');
+
+                const deltaX = navRect.left - dockRect.left;
+                const deltaY = navRect.top - dockRect.top;
+
+                activeDockAnim = gliderDockLayer.animate([
+                    { opacity: 1, transform: 'translateX(-50%) scale(1) translateY(0)' },
+                    { opacity: 0, transform: 'translateX(-50%) scale(0.9) translateY(8px)' }
+                ], { duration: 140, easing: 'cubic-bezier(0.25, 1, 0.5, 1)', fill: 'forwards' });
+
+                activeTopAnim = gliderTopLayer.animate([
+                    { opacity: 0, transform: 'scale(0.92)' },
+                    { opacity: 1, transform: 'scale(1)' }
+                ], { duration: 240, delay: 150, easing: easeCurve, fill: 'forwards' });
+
+                activeGliderAnim = glider.animate([
+                    { transform: 'translate3d(0, 0, 0)', width: `${dockRect.width}px`, height: `${dockRect.height}px`, borderRadius: '26px' },
+                    { transform: `translate3d(${deltaX}px, ${deltaY}px, 0)`, width: `${navRect.width}px`, height: `${navRect.height}px`, borderRadius: '9999px' }
+                ], { duration: duration, easing: easeCurve, fill: 'forwards' });
+
+                activeGliderAnim.onfinish = () => {
+                    activeGliderAnim = null;
+                    document.body.classList.remove('is-morphing-to-top');
+                    document.body.classList.remove('is-scrolled-dock');
+                    glider.classList.remove('is-active');
+                    glider.style.transform = 'none';
+                    setActive(currentActiveHref);
+                };
+            }
+        }
+
         // 3. Khôi phục trạng thái thu gọn từ localStorage
         const isCollapsedSaved = localStorage.getItem('marugoto_rail_collapsed') === 'true';
         if (isCollapsedSaved) {
@@ -305,7 +466,9 @@
             setActive(currentActiveHref);
         }, 60);
 
-        // 6. ScrollSpy thông minh theo vị trí cuộn trang
+        // 6. ScrollSpy thông minh theo vị trí cuộn trang & Morphing Dock
+        const DOCK_THRESHOLD = 130;
+        const UNDOCK_THRESHOLD = 80;
         let isTicking = false;
 
         function updateScrollSpy() {
@@ -314,14 +477,26 @@
             const winHeight = window.innerHeight;
             const isDesktop = window.innerWidth >= 1025;
 
+            // Xử lý chuyển đổi Morphing mượt mà giữa Top Capsule và Right Dock với trễ chống rung
             if (isDesktop) {
-                if (window.scrollY > 120) {
-                    document.body.classList.add('is-scrolled-dock');
+                if (!isInitialized) {
+                    isInitialized = true;
+                    isDockedState = window.scrollY > DOCK_THRESHOLD;
+                    triggerMorph(isDockedState, true);
                 } else {
-                    document.body.classList.remove('is-scrolled-dock');
+                    if (!isDockedState && window.scrollY > DOCK_THRESHOLD) {
+                        isDockedState = true;
+                        triggerMorph(true);
+                    } else if (isDockedState && window.scrollY < UNDOCK_THRESHOLD) {
+                        isDockedState = false;
+                        triggerMorph(false);
+                    }
                 }
             } else {
-                document.body.classList.remove('is-scrolled-dock');
+                if (isDockedState || document.body.classList.contains('is-scrolled-dock')) {
+                    isDockedState = false;
+                    triggerMorph(false, true);
+                }
             }
 
             // Cập nhật vòng tròn tiến độ cuộn (Circular Scroll Progress)
@@ -372,6 +547,11 @@
         }
 
         window.addEventListener('resize', () => {
+            const isDesktop = window.innerWidth >= 1025;
+            if (!isDesktop && isDockedState) {
+                isDockedState = false;
+                triggerMorph(false, true);
+            }
             updateScrollSpy();
         }, { passive: true });
 

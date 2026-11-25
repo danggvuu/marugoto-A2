@@ -58,14 +58,77 @@ body {
     display: none !important;
 }
 
-/* Khi cuộn xuống trên desktop (>= 1025px): Top capsule mờ dần nhường không gian cho nội dung đọc */
-@media (min-width: 1025px) {
-    body.is-scrolled-dock .section-nav {
-        opacity: 0 !important;
-        pointer-events: none !important;
-        visibility: hidden !important;
-        transform: translateY(-8px) scale(0.98) !important;
-    }
+/* 2b. Phần tử biến đổi chuyển động siêu êm kiểu Dynamic Island / macOS (Morphing Glider) */
+.lesson-morph-glider {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    z-index: 935 !important;
+    pointer-events: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    background: rgba(255, 255, 255, 0.88) !important;
+    backdrop-filter: blur(28px) saturate(190%) !important;
+    -webkit-backdrop-filter: blur(28px) saturate(190%) !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.95) !important;
+    border-radius: 9999px !important;
+    box-shadow: 0 20px 48px -10px rgba(15, 23, 42, 0.16),
+                0 4px 14px rgba(15, 23, 42, 0.05) !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    transform-origin: top left !important;
+    will-change: transform, width, height, border-radius, opacity !important;
+}
+
+.lesson-morph-glider.is-active {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Lớp nội dung Top Capsule trong Glider */
+.lesson-morph-glider .glider-layer-top {
+    position: absolute !important;
+    inset: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    padding: 0 16px !important;
+    white-space: nowrap !important;
+    pointer-events: none !important;
+    width: 100% !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+    z-index: 2 !important;
+    will-change: opacity, transform !important;
+}
+
+/* Lớp nội dung Right Dock trong Glider (Khoá cố định 62px để không bao giờ vỡ hàng chữ) */
+.lesson-morph-glider .glider-layer-dock {
+    position: absolute !important;
+    top: 0 !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 62px !important;
+    height: 100% !important;
+    padding: 10px 6px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 6px !important;
+    box-sizing: border-box !important;
+    pointer-events: none !important;
+    z-index: 3 !important;
+    opacity: 0 !important;
+    will-change: opacity, transform !important;
+}
+
+.lesson-morph-glider .glider-layer-dock .lesson-rail-links {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 4px !important;
 }
 
 .sec-link {
@@ -105,20 +168,55 @@ body {
     right: 20px !important;
     transform: translateY(-50%) !important;
     z-index: 920 !important;
-    pointer-events: auto !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease !important;
+    pointer-events: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transition: opacity 0.22s ease, transform 0.22s ease !important;
 }
 
+/* Điều khiển hiển thị chuyển tiếp giữa Top Capsule và Right Dock trên Desktop */
 @media (min-width: 1025px) {
-    .lesson-sidebar-rail {
-        display: block !important;
+    /* Đỉnh trang: Top Capsule hiện, Right Dock ẩn */
+    body:not(.is-scrolled-dock):not(.is-morphing-to-dock):not(.is-morphing-to-top) .section-nav {
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+    }
+
+    body:not(.is-scrolled-dock) .lesson-sidebar-rail {
+        opacity: 0 !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+    }
+
+    /* Đã cuộn xuống: Top Capsule ẩn, Right Dock hiện */
+    body.is-scrolled-dock:not(.is-morphing-to-dock):not(.is-morphing-to-top) .section-nav {
+        opacity: 0 !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+    }
+
+    body.is-scrolled-dock:not(.is-morphing-to-dock):not(.is-morphing-to-top) .lesson-sidebar-rail {
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+    }
+
+    /* Trong khoảnh khắc Glider đang bay: Cả 2 đều ẩn để Glider morphing tỏa sáng */
+    body.is-morphing-to-dock .section-nav,
+    body.is-morphing-to-dock .lesson-sidebar-rail,
+    body.is-morphing-to-top .section-nav,
+    body.is-morphing-to-top .lesson-sidebar-rail {
+        opacity: 0 !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+        transition: none !important;
     }
 }
 
 @media (max-width: 1024px) {
-    .lesson-sidebar-rail {
+    .lesson-sidebar-rail,
+    .lesson-morph-glider {
         display: none !important;
     }
 }
