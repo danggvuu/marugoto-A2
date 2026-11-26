@@ -1,0 +1,88 @@
+/* Kana practice on the A2.2 lessons 1-4 review page. */
+.kana-review-entry {
+    display: inline-flex;
+    justify-content: center;
+    max-width: 100%;
+    padding: 10px 18px;
+    margin-bottom: 18px;
+    border-radius: var(--radius-md);
+    background: var(--white);
+    color: var(--primary-dark);
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.kana-review-instructions {
+    padding: 14px 16px;
+    margin-bottom: 18px;
+    border-radius: var(--radius-sm);
+    border-left: 3px solid var(--primary);
+    background: var(--gray-100);
+    color: var(--gray-800);
+}
+
+.kana-review-summary,
+.kana-review-controls,
+.kana-review-input-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.kana-review-summary {
+    justify-content: space-between;
+    margin: 18px 0;
+}
+
+.kana-review-summary p,
+.kana-review-vocab {
+    color: var(--gray-600);
+    font-size: 0.88rem;
+}
+
+.kana-review-question .kana-review-prompt {
+    margin: 10px 0 6px;
+    font-weight: 700;
+}
+
+.kana-review-input-label {
+    display: block;
+    margin: 12px 0 6px;
+    font-size: 0.88rem;
+    font-weight: 700;
+}
+
+.kana-review-input {
+    flex: 1 1 300px;
+    min-width: 0;
+    width: 100%;
+    padding: 12px;
+    border: 1.5px solid var(--gray-300);
+    border-radius: var(--radius-sm);
+    color: var(--dark);
+    background: var(--white);
+    font-size: 16px;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+.kana-review-input:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+.kana-review-question.is-correct { border-color: #059669; }
+.kana-review-question.is-wrong { border-color: #dc2626; }
+.kana-review-feedback { min-height: 1.6em; margin-top: 8px; }
+.kana-review-question.is-correct .kana-review-feedback { color: #047857; }
+.kana-review-question.is-wrong .kana-review-feedback { color: #b91c1c; }
+.kana-review-answer { padding: 12px; background: var(--gray-50); border-radius: var(--radius-sm); }
+.kana-review-answer[hidden] { display: none; }
+.kana-review-status { color: var(--gray-600); font-size: 0.85rem; }
+
+@media (max-width: 600px) {
+    .kana-review-controls { width: 100%; }
+    .kana-review-controls .quiz-btn { flex: 1 1 130px; }
+    .kana-review-input-row .quiz-btn { flex: 1 1 100px; }
+    .kana-review-input { flex-basis: 100%; }
+}

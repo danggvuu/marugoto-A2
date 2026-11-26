@@ -202,8 +202,40 @@ assert.strictEqual((reviewHtml.match(/<tr><td>/g) || []).length, 10, 'Review con
 const lesson4Html = read('lessons/Marugoto_A2_2_Lesson_4.html');
 assert(lesson4Html.includes('class="contraction-table"'), 'Lesson 4 must render the canonical contraction data');
 assert.strictEqual((lesson4Html.match(/<tr><td>/g) || []).length, 10, 'Lesson 4 contraction table must have 10 rows');
-assert(reviewHtml.includes('mini-test-a2-2-1-4.js?v=2'));
-assert(reviewHtml.includes('mini_a2_2_1_4_data.js?v=2'));
+assert(reviewHtml.includes('mini-test-a2-2-1-4.js?v=3'));
+assert(reviewHtml.includes('mini_a2_2_1_4_data.js?v=3'));
+assert(reviewHtml.includes('id="tab-kana"') && reviewHtml.includes('href="#tab-kana"'));
+assert.strictEqual(reviewData.kanaReviewLessons.length, 4);
+const kanaIds = new Set();
+reviewData.kanaReviewLessons.forEach((lesson, index) => {
+    assert.strictEqual(lesson.lesson, index + 1);
+    assert.strictEqual(lesson.items.length, 20, `Kana lesson ${lesson.lesson} must contain exactly 20 sentences`);
+    const vocab = reviewData.rawVocab.filter(item => item.l === `L${lesson.lesson}`);
+    const covered = new Set();
+    lesson.items.forEach(item => {
+        assert(item.id && !kanaIds.has(item.id), 'Kana question IDs must be stable and unique');
+        kanaIds.add(item.id);
+        assert(item.vi && item.jp && item.grammar && Array.isArray(item.accepted));
+        for (const answer of [item.jp, ...item.accepted]) {
+            assert(/^[\p{Script=Hiragana}\p{Script=Katakana}ー\p{P}\s]+$/u.test(answer),
+                `Kana answer must contain only hiragana, katakana and punctuation: ${item.id}: ${answer}`);
+        }
+        assert(Array.isArray(item.vocab) && item.vocab.length > 0);
+        item.vocab.forEach(number => {
+            assert(Number.isInteger(number) && number >= 1 && number <= vocab.length, `Unknown vocabulary in ${item.id}`);
+            covered.add(number);
+            const katakana = vocab[number - 1].kana.match(/[\p{Script=Katakana}ー]+/gu) || [];
+            katakana.forEach(word => {
+                for (const answer of [item.jp, ...item.accepted]) {
+                    assert(answer.includes(word), `Katakana vocabulary must keep its spelling in ${item.id}: ${word}`);
+                }
+            });
+        });
+    });
+    assert.deepStrictEqual([...covered].sort((a, b) => a - b), Array.from({ length: vocab.length }, (_, i) => i + 1),
+        `Kana lesson ${lesson.lesson} must cover all of its new vocabulary`);
+});
+assert.strictEqual(kanaIds.size, 80);
 assert.strictEqual(reviewData.part1Data.length, 10);
 assert.strictEqual(reviewData.part2Data.length, 5);
 assert.strictEqual(reviewData.part3Data.length, 5);

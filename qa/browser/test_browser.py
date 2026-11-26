@@ -1271,7 +1271,7 @@ class StudyFlows(unittest.TestCase):
         }""")
         self.assertEqual(len(self.page.evaluate('__copied.trim().split("\\n")')), 13)
 
-        for tab in ['tab-theory', 'tab-vocab', 'tab-kanji', 'tab-quiz', 'tab-cheat']:
+        for tab in ['tab-theory', 'tab-vocab', 'tab-kanji', 'tab-quiz', 'tab-kana', 'tab-cheat']:
             self.page.evaluate(f"switchTab('{tab}')")
             self.assertEqual(self.page.locator('.tab-panel.active').get_attribute('id'), tab)
 
@@ -1308,6 +1308,118 @@ class StudyFlows(unittest.TestCase):
         self.assertEqual(self.page.evaluate('totalSeconds'), remaining)
         self.page.evaluate("switchTab('tab-quiz');toggleTimer()")
         self.assertTrue(self.page.evaluate('isTimerRunning'))
+
+    def test_a2_2_review_kana_sets_grade_all_answers_and_keep_katakana(self):
+        self.go('tests/On_Tap_Mini_Test_A2_2_1_4.html#tab-kana')
+        self.assertTrue(self.page.locator('#tab-kana').is_visible())
+        self.assertEqual(self.page.locator('.kana-review-question').count(), 20)
+        self.assertTrue(self.page.locator('.kana-review-answer').first.is_hidden())
+        first = self.page.locator('.kana-review-input').first
+        first.fill(self.page.evaluate('kanaReviewLessons[0].items[0].jp'))
+        first.evaluate("el=>el.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',keyCode:229,isComposing:true,bubbles:true}))")
+        self.assertEqual(self.page.locator('#kanaReviewProgress').inner_text(), 'Đúng 0 / 20 câu')
+
+        for lesson in range(1, 5):
+            with self.subTest(lesson=lesson):
+                self.page.locator(f'[data-kana-lesson="{lesson}"]').click()
+                self.assertEqual(self.page.locator('.kana-review-input').count(), 20)
+                for width in [360, 390, 768, 1440]:
+                    self.page.set_viewport_size({'width': width, 'height': 900})
+                    self.assertEqual(self.page.evaluate('document.documentElement.scrollWidth'), width)
+                    self.assertTrue(self.page.locator('.kana-review-input').first.evaluate(
+                        'el=>{const box=el.getBoundingClientRect();return box.left>=0&&box.right<=innerWidth+1}'))
+                result = self.page.evaluate("""number => {
+                    const lesson = kanaReviewLessons.find(item => item.lesson === number);
+                    for (const item of lesson.items) {
+                        const input = document.getElementById(`kana-input-${item.id}`);
+                        input.value = item.jp;
+                        input.dispatchEvent(new Event('input', {bubbles:true}));
+                    }
+                    gradeKanaLesson();
+                    return {
+                        count: document.querySelectorAll('.kana-review-question.is-correct').length,
+                        accepted: lesson.items.every(item => item.accepted.every(value => gradeKanaValue(value, item).correct)),
+                        rejectsKanji: !gradeKanaValue('私', lesson.items[0]).correct,
+                        rejectsRomaji: !gradeKanaValue('watashi', lesson.items[0]).correct,
+                        ignoresSpaces: lesson.items.every(item => gradeKanaValue(` ${item.jp} `, item).correct)
+                    };
+                }""", lesson)
+                self.assertEqual(result, {'count': 20, 'accepted': True, 'rejectsKanji': True, 'rejectsRomaji': True, 'ignoresSpaces': True})
+                self.assertEqual(self.page.locator('#kanaReviewProgress').inner_text(), 'Đúng 20 / 20 câu')
+                self.reload()
+                self.assertEqual(self.page.evaluate('kanaLesson'), lesson)
+                self.assertEqual(self.page.locator('#kanaReviewProgress').inner_text(), 'Đúng 20 / 20 câu')
+
+        self.page.locator('[data-kana-lesson="2"]').click()
+        item = self.page.evaluate("kanaReviewLessons[1].items.find(item => /[ァ-ヶ]/.test(item.jp))")
+        hira = self.page.evaluate("item => item.jp.replace(/[ァ-ヶ]/g, char => String.fromCharCode(char.charCodeAt(0)-0x60))", item)
+        card = self.page.locator(f'[data-kana-id="{item["id"]}"]')
+        card.locator('input').fill(hira)
+        card.locator('[data-kana-action="check"]').click()
+        self.assertIn('Chưa đúng', card.locator('.kana-review-status').inner_text())
+        self.assertIn('katakana', card.locator('.kana-review-feedback').inner_text())
+        self.assertTrue(card.locator('.kana-review-answer').is_hidden())
+
+    def test_a2_2_review_kana_drafts_reset_and_timer_stay_scoped(self):
+        self.go('tests/On_Tap_Mini_Test_A2_2_1_4.html')
+        self.page.locator('#optBtn_p1_1_0').click()
+        self.page.evaluate('toggleTimer()')
+        self.page.clock.run_for(2000)
+        self.page.locator('.kana-review-entry').click()
+        remaining = self.page.evaluate('totalSeconds')
+        self.assertFalse(self.page.evaluate('isTimerRunning'))
+        self.page.clock.run_for(3000)
+        self.assertEqual(self.page.evaluate('totalSeconds'), remaining)
+        first = self.page.locator('.kana-review-question').first
+        first.locator('input').fill(self.page.evaluate('kanaReviewLessons[0].items[0].jp'))
+        first.locator('[data-kana-action="check"]').click()
+        second = self.page.locator('.kana-review-question').nth(1)
+        second.locator('input').fill('したがきをほぞんします')
+        second.locator('[data-kana-action="reveal"]').click()
+        self.page.locator('[data-kana-lesson="2"]').click()
+        first = self.page.locator('.kana-review-question').first
+        first.locator('input').fill(self.page.evaluate('kanaReviewLessons[1].items[0].jp'))
+        first.locator('[data-kana-action="check"]').click()
+        self.reload()
+        self.assertEqual(self.page.evaluate('kanaLesson'), 2)
+        self.assertEqual(self.page.locator('#kanaReviewProgress').inner_text(), 'Đúng 1 / 20 câu')
+        self.page.locator('[data-kana-lesson="1"]').click()
+        second = self.page.locator('.kana-review-question').nth(1)
+        self.assertEqual(second.locator('input').input_value(), 'したがきをほぞんします')
+        self.assertTrue(second.locator('.kana-review-answer').is_visible())
+        self.assertEqual(self.page.locator('#kanaReviewProgress').inner_text(), 'Đúng 1 / 20 câu')
+        self.page.get_by_role('button', name='Làm lại bài này', exact=True).click()
+        self.reload()
+        self.assertEqual(self.page.locator('.kana-review-input').first.input_value(), '')
+        self.assertEqual(self.page.locator('#kanaReviewProgress').inner_text(), 'Đúng 0 / 20 câu')
+        self.page.locator('[data-kana-lesson="2"]').click()
+        self.assertEqual(self.page.locator('#kanaReviewProgress').inner_text(), 'Đúng 1 / 20 câu')
+        self.assertEqual(self.page.evaluate('p1Answers[1]'), 0)
+        self.assertEqual(self.page.evaluate('totalSeconds'), remaining)
+        self.page.evaluate("switchTab('tab-quiz')")
+        self.reload()
+        self.assertEqual(self.page.locator('.tab-panel.active').get_attribute('id'), 'tab-quiz')
+
+    def test_a2_2_review_kana_content_changes_keep_only_unchanged_grades(self):
+        self.go('tests/On_Tap_Mini_Test_A2_2_1_4.html#tab-kana')
+        for index in range(2):
+            card = self.page.locator('.kana-review-question').nth(index)
+            card.locator('input').fill(self.page.evaluate(f'kanaReviewLessons[0].items[{index}].jp'))
+            card.locator('[data-kana-action="check"]').click()
+        self.page.locator('.kana-review-question').first.locator('[data-kana-action="reveal"]').click()
+        draft = self.page.locator('.kana-review-input').first.input_value()
+
+        def revise_prompt(route):
+            response = route.fetch()
+            route.fulfill(response=response, body=response.text() + '\nwindow.MINI_A2_2_1_4_DATA.kanaReviewLessons[0].items[0].vi += " (Nội dung mới)";')
+
+        self.page.route('**/assets/data/mini_a2_2_1_4_data.js?*', revise_prompt)
+        self.reload()
+        self.assertEqual(self.page.locator('.kana-review-input').first.input_value(), draft)
+        self.assertEqual(self.page.locator('#kanaReviewProgress').inner_text(), 'Đúng 1 / 20 câu')
+        self.assertTrue(self.page.locator('.kana-review-answer').first.is_hidden())
+        self.assertEqual(self.page.locator('.kana-review-status').first.inner_text(), 'Chưa chấm')
+        self.assertEqual(self.page.locator('.kana-review-status').nth(1).inner_text(), 'Đúng')
 
     def test_timed_mini_tests_restart_timer_after_expiry(self):
         for path, reset in [

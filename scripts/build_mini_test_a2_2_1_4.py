@@ -27,6 +27,7 @@ if WORKSPACE not in sys.path:
     sys.path.insert(0, WORKSPACE)
 
 from scripts.a2_2.official_curriculum import LESSON_CONTENT
+from scripts.a2_2.kana_review_content import KANA_REVIEW_LESSONS
 
 # 1. Load Official Vocab for Lessons 1 - 4
 with open(os.path.join(WORKSPACE, 'data/vocab_a2_2_official.json'), 'r', encoding='utf-8') as f:
@@ -622,7 +623,8 @@ window.MINI_A2_2_1_4_DATA = {{
     part3Data: {json.dumps(PART3_CONJUGATE, ensure_ascii=False, indent=2)},
     part4Data: {json.dumps(PART4_MATCH, ensure_ascii=False, indent=2)},
     part5Data: {json.dumps(PART5_READING, ensure_ascii=False, indent=2)},
-    part6Data: {json.dumps(PART6_TRANSLATION, ensure_ascii=False, indent=2)}
+    part6Data: {json.dumps(PART6_TRANSLATION, ensure_ascii=False, indent=2)},
+    kanaReviewLessons: {json.dumps(KANA_REVIEW_LESSONS, ensure_ascii=False, indent=2)}
 }};
 """
 
@@ -727,6 +729,7 @@ HTML_CONTENT = """<!DOCTYPE html>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
     <script src="../assets/js/audio-engine.js?v=2"></script>
     <link rel="stylesheet" href="../assets/css/mini-test-11-14.css?v=2">
+    <link rel="stylesheet" href="../assets/css/kana-review-practice.css?v=1">
 </head>
 <body class="mini-test-page">
 
@@ -764,8 +767,9 @@ HTML_CONTENT = """<!DOCTYPE html>
         <span class="hero-badge" style="background: #4f46e5; color: #ffffff;">MARUGOTO A2.2 • CHUYÊN ĐỀ BÀI 1 - 4</span>
         <h1 class="hero-title">Cẩm Nang & Đề Thi Thử Bài 1 – 4</h1>
         <p class="hero-desc">
-            Nắm chắc trọn vẹn ngữ pháp Marugoto A2.2 bài 1–4, 81 từ vựng, danh sách Kanji và đề ôn tập Mini Test!
+            Ôn ngữ pháp A2.2 bài 1–4, 81 từ mới và luyện nhập Việt → Nhật: mỗi bài 20 câu bằng hiragana và katakana.
         </p>
+        <a class="kana-review-entry" href="#tab-kana" onclick="switchTab('tab-kana')">Luyện nhập Việt → Nhật: 4 bài × 20 câu</a>
 
         <div class="hero-stats">
             <div class="stat-pill">
@@ -790,6 +794,7 @@ HTML_CONTENT = """<!DOCTYPE html>
     <!-- Tab Bar -->
     <div class="tab-nav-wrapper">
         <div class="tab-nav">
+            <button class="tab-btn" onclick="switchTab('tab-kana', this)">Luyện nhập • 80 câu</button>
             <button class="tab-btn" onclick="switchTab('tab-theory', this)">📖 Lý Thuyết 1–4</button>
             <button class="tab-btn" onclick="switchTab('tab-vocab', this)">🎴 81 Từ Vựng</button>
             <button class="tab-btn" onclick="switchTab('tab-kanji', this)">⛩️ __KANJI_COUNT__ mục Kanji</button>
@@ -1262,6 +1267,39 @@ HTML_CONTENT = """<!DOCTYPE html>
     </div>
 
     <!-- ============================================================== -->
+    <!-- LUYỆN NHẬP VIỆT → NHẬT THEO BÀI                                -->
+    <!-- ============================================================== -->
+    <div id="tab-kana" class="tab-panel">
+        <div class="content-card">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title">Luyện nhập Việt → Nhật</h2>
+                    <p>4 bài, mỗi bài 20 câu. Các câu dùng đủ 81 từ mới và cấu trúc A2.2 bài 1–4.</p>
+                </div>
+            </div>
+            <p class="kana-review-instructions">Đọc câu tiếng Việt rồi gõ trọn câu tiếng Nhật bằng <strong>hiragana</strong>; từ viết bằng <strong>katakana</strong> thì giữ katakana. Không nhập Kanji hoặc romaji. Đáp án chỉ hiện khi bạn bấm “Xem đáp án”.</p>
+            <div class="filter-row" id="kanaLessonFilters" role="group" aria-label="Chọn bài luyện nhập">
+                <button type="button" class="filter-btn active" data-kana-lesson="1" aria-pressed="true" onclick="selectKanaLesson(1)">Bài 1 • 20 câu</button>
+                <button type="button" class="filter-btn" data-kana-lesson="2" aria-pressed="false" onclick="selectKanaLesson(2)">Bài 2 • 20 câu</button>
+                <button type="button" class="filter-btn" data-kana-lesson="3" aria-pressed="false" onclick="selectKanaLesson(3)">Bài 3 • 20 câu</button>
+                <button type="button" class="filter-btn" data-kana-lesson="4" aria-pressed="false" onclick="selectKanaLesson(4)">Bài 4 • 20 câu</button>
+            </div>
+            <div class="kana-review-summary">
+                <div>
+                    <h3 id="kanaLessonTitle">Bài 1</h3>
+                    <p id="kanaLessonScope"></p>
+                    <strong id="kanaReviewProgress" aria-live="polite">Đúng 0 / 20 câu</strong>
+                </div>
+                <div class="kana-review-controls">
+                    <button type="button" class="quiz-btn primary" onclick="gradeKanaLesson()">Chấm 20 câu</button>
+                    <button type="button" class="quiz-btn" onclick="resetKanaLesson()">Làm lại bài này</button>
+                </div>
+            </div>
+            <div id="kanaReviewQuestions" class="kana-review-questions"></div>
+        </div>
+    </div>
+
+    <!-- ============================================================== -->
     <!-- TAB 5: CẨM NANG BỎ TÚI (CHEAT SHEET)                          -->
     <!-- ============================================================== -->
     <div id="tab-cheat" class="tab-panel">
@@ -1380,8 +1418,8 @@ HTML_CONTENT = """<!DOCTYPE html>
 <!-- Toast Notification -->
 <div id="toast" class="toast">Đã sao chép vào bộ nhớ tạm!</div>
 
-<script src="../assets/data/mini_a2_2_1_4_data.js?v=2"></script>
-<script src="../assets/js/mini-test-a2-2-1-4.js?v=2"></script>
+<script src="../assets/data/mini_a2_2_1_4_data.js?v=3"></script>
+<script src="../assets/js/mini-test-a2-2-1-4.js?v=3"></script>
 <script src="../assets/nav.js?v=11" defer></script>
 </body>
 </html>

@@ -25,8 +25,9 @@ function harness(file = MIDTERM, options = {}) {
         if (elements.has(id)) return elements.get(id);
         const classes = new Set();
         const node = { value: '', checked: false, disabled: false, style: {},
-            innerHTML: '', innerText: '', textContent: '', offsetTop: 100,
-            scrollIntoView() {}, addEventListener() {}, getAttribute() { return ''; },
+            innerHTML: '', innerText: '', textContent: '', offsetTop: 100, dataset: {}, children: [],
+            scrollIntoView() {}, addEventListener() {}, getAttribute() { return ''; }, setAttribute() {},
+            appendChild(child) { this.children.push(child); },
             querySelectorAll() { return []; }, querySelector() { return element(id + '_input'); } };
         Object.defineProperty(node, 'className', {
             get: () => [...classes].join(' '),
@@ -71,6 +72,7 @@ function harness(file = MIDTERM, options = {}) {
         },
         document: {
             body: element('body'), visibilityState: 'visible', addEventListener: listen(documentEvents),
+            createElement: tag => element(`${tag}_${nextId++}`),
             getElementById: element,
             querySelector: selector => selector.includes('toggleTimer(') ? element('timerToggleBtn') : null,
             querySelectorAll: selector => selector.includes('#examContentContainer input')
@@ -384,6 +386,19 @@ test('Mini A2.2 accepts valid alternate word orders without changing chip indice
         assert.strictEqual(item.correctOrder.join(','), [[2, 3, 0, 1], [3, 0, 1, 2], [3, 0, 1, 2], [3, 0, 1, 2], [0, 1, 2, 3]][index].join(','));
         assert.strictEqual(item.chips.length, 4);
     });
+});
+
+test('Mini A2.2 kana grading keeps katakana and rejects Kanji, romaji and empty answers', () => {
+    const h = harness('assets/js/mini-test-a2-2-1-4.js', {
+        data: ['assets/data/mini_a2_2_1_4_data.js']
+    });
+    h.run("const kanaFixture = {jp:'わたしはスーツをきています。', accepted:['スーツをきています。']};");
+    for (const answer of ['わたしはスーツをきています。', 'スーツをきています。', ' わたしは ｽｰﾂをきています ']) {
+        assert.strictEqual(h.run(`gradeKanaValue(${JSON.stringify(answer)}, kanaFixture).correct`), true);
+    }
+    for (const answer of ['わたしはすーつをきています。', '私はスーツを着ています。', 'watashi wa suutsu o kiteimasu', '。', '']) {
+        assert.strictEqual(h.run(`gradeKanaValue(${JSON.stringify(answer)}, kanaFixture).correct`), false);
+    }
 });
 
 console.log(`Exam recovery: ${passed} targeted behavior checks passed.`);

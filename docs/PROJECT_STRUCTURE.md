@@ -50,6 +50,7 @@ Website static **HTML/CSS/JavaScript thuần**, có **18 bài Marugoto A2.1 + 18
 | Kiểm tra riêng Từ vựng & Kanji 11–18 | `scripts/build_vocab_kanji_check_11_18.py`, controller `assets/js/pages/vocab-kanji-check-11-18.js` |
 | Mini test A2.1 bài 11–14/15–18 | `scripts/build_mini_test_11_14.py`, `scripts/build_mini_test_15_18.py` và các module dữ liệu được import |
 | Mini test A2.2 bài 1–4 | `scripts/build_mini_test_a2_2_1_4.py` |
+| Luyện nhập kana A2.2 bài 1–4, mỗi bài 20 câu | `scripts/a2_2/kana_review_content.py`; hiển thị và lưu tiến độ trong controller `assets/js/mini-test-a2-2-1-4.js` |
 
 `tests/*.html` là URL lịch sử đang được điều hướng và checkpoint sử dụng. Giữ nguyên đường dẫn để bảo toàn bookmark và tiến độ; không chuyển chúng sang `qa/`.
 

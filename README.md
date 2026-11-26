@@ -33,7 +33,7 @@ Truy cập **http://localhost:8000/**. Không cần build trước khi học b�
 - [Kho từ vựng A1/A2.1](Tu_Vung_Marugoto_A1_16_A2_1_10.html) · [Kanji & luyện viết](kanji_a2.html)
 - [Ngữ pháp](Tong_Hop_Ngu_Phap_Marugoto_A1_A2.html) · [Luyện gõ](tests/On_Tap_Mini_Test_A2_15_18.html#typing)
 - [Tổng hợp A2.1 bài 11–18](tests/De_Thi_Tong_Hop_JLPT_A2_11_18.html) · [Kiểm tra riêng Từ vựng & Kanji 11–18](tests/De_Thi_Tong_Hop_JLPT_A2_11_18.html#vocab-kanji-check)
-- [Mini test A2.2 bài 1–4](tests/On_Tap_Mini_Test_A2_2_1_4.html)
+- [Mini test A2.2 bài 1–4](tests/On_Tap_Mini_Test_A2_2_1_4.html) · [Luyện nhập Việt → Nhật: mỗi bài 20 câu kana](tests/On_Tap_Mini_Test_A2_2_1_4.html#tab-kana)
 - [Kaiwa 5 phút](Luyen_Kaiwa_5_Phut.html) · [3D Lab](demo_3d.html)
 
 ## Tiến độ và kết nối mạng
