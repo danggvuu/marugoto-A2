@@ -700,7 +700,7 @@
     });
 
     // Tự động căn chỉnh khi resize màn hình
-    window.addEventListener('resize', function () {
+    function syncOpenMenus() {
         const mappings = [
             ['hubBtnForms', 'formsDropdownMenu'],
             ['hubBtnKanji', 'kanjiDropdownMenu'],
@@ -712,13 +712,19 @@
         mappings.forEach(([btnId, menuId]) => {
             const m = document.getElementById(menuId);
             if (m && m.classList.contains('show')) {
-                const dockVisible = window.innerWidth >= 1100 && document.body.classList.contains('is-hub-docked');
-                const anchor = dockVisible && lastFocusedBtn?.closest('.global-hub-dock') ? lastFocusedBtn : document.getElementById(btnId);
+                const dockVisible = window.innerWidth >= 1025 && document.body.classList.contains('is-hub-docked');
+                const anchor = (dockVisible && document.querySelector(`#globalHubDock [aria-controls="${menuId}"]`)) || document.getElementById(btnId);
+                if (lastFocusedBtn !== anchor) {
+                    if (lastFocusedBtn) lastFocusedBtn.setAttribute('aria-expanded', 'false');
+                    lastFocusedBtn = anchor;
+                    if (anchor) anchor.setAttribute('aria-expanded', 'true');
+                }
                 positionDesktopMenu(anchor, m);
             }
         });
         syncMenuScrollLock();
-    });
+    }
+    window.addEventListener('resize', syncOpenMenus);
 
     // Tự động cuộn căn giữa active tab trên thiết bị di động
     function scrollToActiveNav() {
@@ -832,23 +838,23 @@
                         <span class="rail-icon">🏠</span>
                         <span class="rail-label">Trang Chủ</span>
                     </a>
-                    <button type="button" class="lesson-rail-link${isFormsActive ? ' active' : ''}" onclick="window.toggleFormsDropdown(event)" title="Động Từ">
+                    <button type="button" class="lesson-rail-link${isFormsActive ? ' active' : ''}" onclick="window.toggleFormsDropdown(event)" title="Động Từ" aria-haspopup="dialog" aria-expanded="false" aria-controls="formsDropdownMenu">
                         <span class="rail-icon">🎴</span>
                         <span class="rail-label">Động Từ</span>
                     </button>
-                    <button type="button" class="lesson-rail-link${isKanjiActive ? ' active' : ''}" onclick="window.toggleKanjiDropdown(event)" title="Kanji">
+                    <button type="button" class="lesson-rail-link${isKanjiActive ? ' active' : ''}" onclick="window.toggleKanjiDropdown(event)" title="Kanji" aria-haspopup="dialog" aria-expanded="false" aria-controls="kanjiDropdownMenu">
                         <span class="rail-icon">⛩️</span>
                         <span class="rail-label">Kanji</span>
                     </button>
-                    <button type="button" class="lesson-rail-link${isVocabActive ? ' active' : ''}" onclick="window.toggleVocabDropdown(event)" title="Từ Vựng">
+                    <button type="button" class="lesson-rail-link${isVocabActive ? ' active' : ''}" onclick="window.toggleVocabDropdown(event)" title="Từ Vựng" aria-haspopup="dialog" aria-expanded="false" aria-controls="vocabDropdownMenu">
                         <span class="rail-icon">📖</span>
                         <span class="rail-label">Từ Vựng</span>
                     </button>
-                    <button type="button" class="lesson-rail-link${isGrammarActive ? ' active' : ''}" onclick="window.toggleGrammarDropdown(event)" title="Ngữ Pháp">
+                    <button type="button" class="lesson-rail-link${isGrammarActive ? ' active' : ''}" onclick="window.toggleGrammarDropdown(event)" title="Ngữ Pháp" aria-haspopup="dialog" aria-expanded="false" aria-controls="grammarDropdownMenu">
                         <span class="rail-icon">📗</span>
                         <span class="rail-label">Ngữ Pháp</span>
                     </button>
-                    <button type="button" class="lesson-rail-link${isTestsActive ? ' active' : ''}" onclick="window.toggleTestsDropdown(event)" title="Đề Thi">
+                    <button type="button" class="lesson-rail-link${isTestsActive ? ' active' : ''}" onclick="window.toggleTestsDropdown(event)" title="Đề Thi" aria-haspopup="dialog" aria-expanded="false" aria-controls="testsDropdownMenu">
                         <span class="rail-icon">🎯</span>
                         <span class="rail-label">Đề Thi</span>
                     </button>
@@ -856,7 +862,7 @@
                         <span class="rail-icon">🎙️</span>
                         <span class="rail-label">Kaiwa 5P</span>
                     </a>
-                    <button type="button" class="lesson-rail-link${isLessonsActive ? ' active' : ''}" onclick="window.toggleLessonsDropdown(event)" title="Bài Học">
+                    <button type="button" class="lesson-rail-link${isLessonsActive ? ' active' : ''}" onclick="window.toggleLessonsDropdown(event)" title="Bài Học" aria-haspopup="dialog" aria-expanded="false" aria-controls="lessonsDropdownMenu">
                         <span class="rail-icon">🚀</span>
                         <span class="rail-label">Bài Học</span>
                     </button>
@@ -879,7 +885,7 @@
         }
 
         window.initNavigationDock({ topNav: hubNav, dock, gliderId: 'hubMorphGlider',
-            dockedClass: 'is-hub-docked' });
+            dockedClass: 'is-hub-docked', onSettled: syncOpenMenus });
     }
 
     if (document.readyState === 'loading') {

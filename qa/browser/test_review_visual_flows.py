@@ -253,6 +253,9 @@ class ReviewVisualFlows(unittest.TestCase):
         menu = self.page.locator('#formsDropdownMenu')
         expect(menu).to_have_class(re.compile(r'\bshow\b'))
         self.assertEqual(menu.evaluate('el => getComputedStyle(el).position'), 'fixed')
+        self.page.set_viewport_size({'width': 1050, 'height': 900})
+        self.page.wait_for_function("getComputedStyle(formsDropdownMenu).position === 'fixed'")
+        self.assertGreaterEqual(menu.bounding_box()['y'], 0)
         self.page.keyboard.press('Escape')
         self.page.evaluate("window.scrollTo({top: 0, behavior: 'instant'})")
         expect(self.page.locator('body')).not_to_have_class(re.compile(r'\bis-hub-docked\b'))
@@ -269,6 +272,16 @@ class ReviewVisualFlows(unittest.TestCase):
         self.assertEqual(self.page.evaluate('document.body.style.overflow'), '')
         self.page.keyboard.press('Escape')
         expect(menu).not_to_have_class(re.compile(r'\bshow\b'))
+
+        self.page.evaluate("window.scrollTo({top: 400, behavior: 'instant'})")
+        expect(self.page.locator('body')).to_have_class(re.compile(r'\bis-hub-docked\b'))
+        self.page.locator('#globalHubDock [aria-controls="formsDropdownMenu"]').click()
+        self.page.set_viewport_size({'width': 390, 'height': 844})
+        expect(self.page.locator('body')).to_have_class(re.compile(r'\bhub-menu-open\b'))
+        self.page.set_viewport_size({'width': 1025, 'height': 900})
+        self.page.wait_for_function("document.body.classList.contains('is-hub-docked') && getComputedStyle(formsDropdownMenu).position === 'fixed'")
+        self.page.keyboard.press('Escape')
+        expect(self.page.locator('#globalHubDock [aria-controls="formsDropdownMenu"]')).to_be_focused()
 
     def test_mobile_menu_obeys_reduced_motion_and_preserves_existing_overflow(self):
         self.go('index.html', 390)
@@ -344,11 +357,13 @@ class ReviewVisualFlows(unittest.TestCase):
         for level in ('A2', 'A2_2'):
             for lesson in range(1, 19):
                 with self.subTest(level=level, lesson=lesson):
-                    self.go(f'lessons/Marugoto_{level}_Lesson_{lesson}.html', 1440)
+                    self.go(f'lessons/Marugoto_{level}_Lesson_{lesson}.html', 1025)
                     dock = self.page.locator('#lessonSidebarRail')
                     self.page.wait_for_selector('#lessonMorphGlider', state='attached')
                     self.assertEqual(self.page.locator('#globalHubDock').count(), 0)
                     self.assertEqual(self.page.locator('.section-nav').evaluate('el => getComputedStyle(el).flexWrap'), 'nowrap')
+                    self.assertTrue(self.page.locator('.section-nav').evaluate('''el =>
+                        el.querySelector('a').getBoundingClientRect().left >= el.getBoundingClientRect().left'''))
                     top_links = self.page.locator('.section-nav a[href^="#sec-"]').evaluate_all('els => els.map(el => el.hash)')
                     dock_links = dock.locator('[data-href]').evaluate_all('els => els.map(el => el.dataset.href)')
                     self.assertEqual(dock_links, top_links)
@@ -383,8 +398,19 @@ class ReviewVisualFlows(unittest.TestCase):
                 self.page.emulate_media(reduced_motion='no-preference')
                 self.page.evaluate("window.scrollTo({top: 400, behavior: 'instant'})")
                 self.page.wait_for_function("document.body.classList.contains('is-morphing-to-dock')")
+                interrupted = self.page.locator('#' + glider_id).evaluate('''el => {
+                    el.getAnimations({subtree: true}).forEach(animation => {
+                        animation.pause(); animation.currentTime = 180;
+                    });
+                    return el.getBoundingClientRect().toJSON();
+                }''')
                 self.page.evaluate("window.scrollTo({top: 0, behavior: 'instant'})")
                 self.page.wait_for_function("document.body.classList.contains('is-morphing-to-top')")
+                reversed_sample = self.sample_morph(glider_id,
+                    'lessonSidebarRail' if glider_id == 'lessonMorphGlider' else 'globalHubDock',
+                    '.section-nav' if glider_id == 'lessonMorphGlider' else '.global-hub-nav')
+                for axis in ('x', 'y', 'width', 'height'):
+                    self.assertAlmostEqual(reversed_sample['start'][axis], interrupted[axis], delta=1)
                 self.page.wait_for_function("!document.body.classList.contains('is-morphing-to-top')")
                 self.assertEqual(self.page.locator('#' + glider_id).evaluate('el => el.getAnimations({subtree: true}).length'), 0)
                 self.page.evaluate("window.scrollTo({top: 400, behavior: 'instant'})")

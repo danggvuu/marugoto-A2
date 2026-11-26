@@ -36,7 +36,8 @@ body {
     z-index: 920 !important;
     display: flex !important;
     flex-wrap: nowrap !important;
-    justify-content: center !important;
+    justify-content: flex-start !important;
+    justify-content: safe center !important;
     align-items: center !important;
     gap: 8px !important;
     padding: 8px 16px !important;
@@ -97,7 +98,7 @@ body {
     inset: 0 !important;
     display: flex !important;
     align-items: center !important;
-    justify-content: center !important;
+    justify-content: center;
     gap: 8px;
     padding: 0 16px;
     white-space: nowrap !important;
