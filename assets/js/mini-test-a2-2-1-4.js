@@ -407,6 +407,12 @@ function renderPart3() {
 }
 
 function handlePart3Input(qId) {
+    delete p3Graded[qId];
+    const input = document.getElementById(`p3_input_${qId}`);
+    if (input) input.classList.remove('correct', 'wrong');
+    const explanation = document.getElementById(`p3_exp_${qId}`);
+    if (explanation) explanation.style.display = 'none';
+    calculateTotalScore();
     saveMiniCheckpoint();
 }
 

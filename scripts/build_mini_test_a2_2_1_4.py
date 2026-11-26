@@ -5,7 +5,7 @@ scripts/build_mini_test_a2_2_1_4.py
 Tạo trang web chuyên đề Ôn Tập Mini Test Bài 1 - 4 (Marugoto A2-2):
 - Tab 1: 📖 Lý Thuyết Toàn Diện 4 Bài (Bài 1 ➔ 4)
 - Tab 2: 🎴 81 Từ Vựng Chuẩn Kèm Nút Copy Quizlet Sạch & Ẩn Nghĩa (Bài 1 - 4)
-- Tab 3: ⛩️ 49 Chữ Hán Kanji (Từ ghép, Nghĩa, Hán Việt, Mẹo nhớ & Copy Quizlet)
+- Tab 3: ⛩️ 62 mục Kanji (49 mục bài học và 13 mục bổ sung từ phiếu)
 - Tab 4: 🎯 ĐỀ THI THỬ ĐA DẠNG NĂNG LỰC (6 Dạng Bài • 32 Câu Chuẩn Sư Phạm 100 Điểm):
     + PHẦN I: Trắc Nghiệm Tổng Hợp Ngữ Pháp & Trợ Từ (10 Câu - 25 Điểm)
     + PHẦN II: Sắp Xếp Từ Thành Câu Hoàn Chỉnh ★ (5 Câu - 15 Điểm)
@@ -19,8 +19,14 @@ Tạo trang web chuyên đề Ôn Tập Mini Test Bài 1 - 4 (Marugoto A2-2):
 import json
 import os
 import re
+import sys
+from html import escape
 
 WORKSPACE = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
+if WORKSPACE not in sys.path:
+    sys.path.insert(0, WORKSPACE)
+
+from scripts.a2_2.official_curriculum import LESSON_CONTENT
 
 # 1. Load Official Vocab for Lessons 1 - 4
 with open(os.path.join(WORKSPACE, 'data/vocab_a2_2_official.json'), 'r', encoding='utf-8') as f:
@@ -49,7 +55,7 @@ for l_key, l_label, l_num in [
 with open(os.path.join(WORKSPACE, 'data/kanji_vocab_a2_2.json'), 'r', encoding='utf-8') as f:
     kanji_raw_dict = json.load(f)
 
-# Sino-Vietnamese (Hán Việt) and Mnemonics Map for the 49 Kanji Compounds
+# Sino-Vietnamese (Hán Việt) and mnemonics for the existing Kanji list.
 KANJI_META = {
     # Lesson 1
     '自己紹介': {'hv': 'TỰ KỶ THIỆU GIỚI', 'strokes': 26, 'formula': '自 (Tự thân) ＋ 己 (Bản thân) ＋ 紹 (Giới thiệu) ＋ 介 (Ở giữa)', 'mnemonic': 'Tự bản thân (自己) đứng ra giới thiệu (紹介) kết nối với mọi người.'},
@@ -106,8 +112,37 @@ KANJI_META = {
     '熱い': {'hv': 'NHIỆT', 'strokes': 15, 'formula': '埶 (Trồng trọt) ＋ 灬 (Lửa nóng)', 'mnemonic': 'Ngọn lửa đỏ rực phía dưới (灬) tỏa ra hơi nóng bừng bừng.'},
     '苦い': {'hv': 'KHỔ', 'strokes': 8, 'formula': '艹 (Cỏ cây) ＋ 古 (Cũ kỹ)', 'mnemonic': 'Cây cỏ dại (艹) lâu năm (古) thường có vị đắng ngắt.'},
     '苦しい': {'hv': 'KHỔ', 'strokes': 8, 'formula': '苦 (Đắng cay) ＋ しい', 'mnemonic': 'Cảm giác đau đớn, khó thở hoặc khốn khổ trong cuộc sống.'},
-    '苦手': {'hv': 'KHỔ THỦ', 'strokes': 12, 'formula': '苦 (Đau khổ) ＋ 手 (Bàn tay)', 'mnemonic': 'Bàn tay (手) thấy khổ sở (苦) khi phải làm việc mình yếu kém, không giỏi.'}
+    '苦手': {'hv': 'KHỔ THỦ', 'strokes': 12, 'formula': '苦 (Đau khổ) ＋ 手 (Bàn tay)', 'mnemonic': 'Bàn tay (手) thấy khổ sở (苦) khi phải làm việc mình yếu kém, không giỏi.'},
+    '紹介': {'hv': 'THIỆU GIỚI', 'strokes': 15, 'formula': '紹 (Tơ 糸 + Triệu 召) ＋ 介 (Người đứng giữa)', 'mnemonic': 'Sợi tơ (糸) kết nối lời mời (召), có người đứng giữa (介) làm cầu nối giới thiệu.'},
+    '一番目': {'hv': 'NHẤT PHIÊN MỤC', 'strokes': 18, 'formula': '一 (Một) ＋ 番 (Thứ tự) ＋ 目 (Mục)', 'mnemonic': 'Mục đầu tiên (一) trong thứ tự (番) được đánh dấu là vị trí thứ nhất (目).'},
+    '住所': {'hv': 'TRÚ SỞ', 'strokes': 15, 'formula': '住 (Người 亻 + Chủ 主) ＋ 所 (Cửa 戶 + Rìu 斤)', 'mnemonic': 'Nơi chốn (所) một người (亻) cư trú (住) chính là địa chỉ.'},
+    '姉妹': {'hv': 'TỶ MUỘI', 'strokes': 16, 'formula': '姉 (Chị gái) ＋ 妹 (Em gái)', 'mnemonic': 'Hai chữ chỉ người nữ (女) ghép thành cặp chị gái và em gái.'},
+    '水族館': {'hv': 'THỦY TỘC QUÁN', 'strokes': 31, 'formula': '水 (Nước) ＋ 族 (Tộc) ＋ 館 (Tòa nhà)', 'mnemonic': 'Tòa nhà (館) nuôi các loài sinh vật (族) sống dưới nước (水) là thủy cung.'},
+    '成長': {'hv': 'THÀNH TRƯỜNG', 'strokes': 14, 'formula': '成 (Thành) ＋ 長 (Dài, trưởng)', 'mnemonic': 'Quá trình lớn lên và đạt đến trạng thái trưởng thành.'},
+    '近所': {'hv': 'CẬN SỞ', 'strokes': 15, 'formula': '近 (Gần) ＋ 所 (Nơi chốn)', 'mnemonic': 'Những nơi chốn (所) ở gần (近) nhà mình là khu lân cận.'},
+    '兄弟': {'hv': 'HUYNH ĐỆ', 'strokes': 12, 'formula': '兄 (Anh trai) ＋ 弟 (Em trai)', 'mnemonic': 'Hai chữ chỉ người anh và người em, ghép lại thành anh em.'},
+    '近い': {'hv': 'CẬN', 'strokes': 7, 'formula': '斤 (Rìu) ＋ 辶 (Bước đi)', 'mnemonic': 'Đi một quãng ngắn là đến nơi gần.'},
+    '一番': {'hv': 'NHẤT PHIÊN', 'strokes': 13, 'formula': '一 (Một) ＋ 番 (Thứ tự)', 'mnemonic': 'Vị trí số một trong thứ tự là đứng đầu, cao nhất.'},
+    '最近': {'hv': 'TỐI CẬN', 'strokes': 19, 'formula': '最 (Nhất, tối) ＋ 近 (Gần)', 'mnemonic': 'Khoảng thời gian gần nhất với hiện tại là gần đây.'},
+    '部屋': {'hv': 'BỘ ỐC', 'strokes': 20, 'formula': '部 (Bộ phận) ＋ 屋 (Nhà)', 'mnemonic': 'Một phần không gian được ngăn trong nhà là căn phòng.'},
+    '歌手': {'hv': 'CA THỦ', 'strokes': 18, 'formula': '歌 (Bài hát) ＋ 手 (Người thực hiện)', 'mnemonic': 'Người (手) thể hiện bài hát (歌) là ca sĩ.'}
 }
+
+SUPPLEMENT_KANJI = [
+    {'word': '紹介', 'lesson': 'L1', 'kana': 'しょうかい', 'mean': 'Giới thiệu'},
+    {'word': '一番目', 'lesson': 'L1', 'kana': 'いちばんめ', 'mean': 'Thứ nhất'},
+    {'word': '住所', 'lesson': 'L1', 'kana': 'じゅうしょ', 'mean': 'Địa chỉ'},
+    {'word': '姉妹', 'lesson': 'L2', 'kana': 'しまい', 'mean': 'Chị em'},
+    {'word': '水族館', 'lesson': 'L2', 'kana': 'すいぞくかん', 'mean': 'Thủy cung'},
+    {'word': '成長', 'lesson': 'L2', 'kana': 'せいちょう', 'mean': 'Trưởng thành, phát triển'},
+    {'word': '近所', 'lesson': 'L1', 'kana': 'きんじょ', 'mean': 'Hàng xóm, lân cận'},
+    {'word': '兄弟', 'lesson': 'L2', 'kana': 'きょうだい', 'mean': 'Anh em'},
+    {'word': '近い', 'lesson': 'L1', 'kana': 'ちかい', 'mean': 'Gần'},
+    {'word': '一番', 'lesson': 'L1', 'kana': 'いちばん', 'mean': 'Nhất, số một'},
+    {'word': '最近', 'lesson': 'L1', 'kana': 'さいきん', 'mean': 'Gần đây'},
+    {'word': '部屋', 'lesson': 'L1', 'kana': 'へや', 'mean': 'Căn phòng'},
+    {'word': '歌手', 'lesson': 'L2', 'kana': 'かしゅ', 'mean': 'Ca sĩ'}
+]
 
 kanji_a2_2_1_4 = []
 for l_key, l_label, l_num in [
@@ -118,12 +153,9 @@ for l_key, l_label, l_num in [
 ]:
     for item in kanji_raw_dict.get(l_key, []):
         w = item.get('word', '')
-        meta = KANJI_META.get(w, {
-            'hv': 'HÁN TỰ',
-            'strokes': 8,
-            'formula': 'Từ vựng chữ Hán Marugoto A2.2',
-            'mnemonic': 'Ghi nhớ cách đọc và ý nghĩa của từ ghép trong bài.'
-        })
+        meta = KANJI_META.get(w)
+        if not meta:
+            raise ValueError(f'Missing Kanji metadata for {w}')
         kanji_a2_2_1_4.append({
             'char': w,
             'word': w,
@@ -143,6 +175,27 @@ for l_key, l_label, l_num in [
                 {'word': w, 'reading': item.get('kana', ''), 'vi': item.get('mean', '')}
             ]
         })
+
+for item in SUPPLEMENT_KANJI:
+    meta = KANJI_META[item['word']]
+    kanji_a2_2_1_4.append({
+        'char': item['word'],
+        'word': item['word'],
+        'kana': item['kana'],
+        'hiragana': item['kana'],
+        'meaning': item['mean'],
+        'shortMeaning': item['mean'].split(',')[0].strip(),
+        'hv': meta['hv'],
+        'lesson': 'SUPPLEMENT',
+        'lessonName': 'Bổ sung • Phiếu',
+        'sourceScope': 'worksheet',
+        'strokes': meta['strokes'],
+        'formula': meta['formula'],
+        'mnemonic': meta['mnemonic'],
+        'kun': item['kana'],
+        'on': '—',
+        'examples': [{'word': item['word'], 'reading': item['kana'], 'vi': item['mean']}]
+    })
 
 # 3. Data for Part I: Multiple Choice (10 Questions - 25 pts)
 PART1_MC = [
@@ -182,7 +235,7 @@ PART1_MC = [
         "id": 5,
         "category": "Bài 2 • Nhận diện người (Vている + N)",
         "q": "あそこで 青い シャツを [____] 人は わたしの 兄です。",
-        "options": ["着ている", "着る", "着た", "着て"],
+        "options": ["着ている", "着る", "着ます", "着て"],
         "correct": 0,
         "explain": "Miêu tả trạng thái trang phục đang mặc để nhận diện người dùng 「V-ている ＋ 人」: 「青いシャツを着ている人」 (Người đang mặc chiếc áo màu xanh)."
     },
@@ -205,7 +258,7 @@ PART1_MC = [
     {
         "id": 8,
         "category": "Bài 3 • Nguyên nhân mềm mại 〜ので",
-        "q": "あしたは 試験が [____] ので、今夜は 早く 家へ 帰って 勉強します。",
+        "q": "あしたは 試験が [____] ので、今夜は 早く 家へ 帰って 勉強します。（「ある」の現在・肯定の普通形を使ってください。）",
         "options": ["ある", "あります", "あって", "あった"],
         "correct": 0,
         "explain": "Đứng trước 「〜ので」 là thể thông thường (普通形). Động từ thể từ điển: 「あるので」 (Vì ngày mai có bài thi...)."
@@ -221,10 +274,10 @@ PART1_MC = [
     {
         "id": 10,
         "category": "Bài 4 • Cấm đoán quy định",
-        "q": "ここは 禁煙ですから、たばこを [____]。外で 吸ってください。",
+        "q": "ここは 禁煙です。「吸う」を「V-ては いけません」の形にすると、どうなりますか。",
         "options": ["吸っては いけません", "吸っても いいです", "吸わないで ください", "吸います"],
         "correct": 0,
-        "explain": "Nêu quy định cấm đoán tuyệt đối ở nơi công cộng: 「V-ては いけません」 (Không được phép hút thuốc / cấm hút thuốc)."
+        "explain": "Câu hỏi yêu cầu dùng đúng mẫu 「V-ては いけません」: 吸う → 吸ってはいけません (Không được hút thuốc). 「吸わないでください」 cũng là lời yêu cầu tự nhiên, nhưng không phải dạng ngữ pháp được hỏi ở đây."
     }
 ]
 
@@ -329,11 +382,11 @@ PART3_CONJUGATE = [
     {
         "id": 19,
         "category": "Bài 3 • Nguyên nhân với tính từ đuôi な + ので",
-        "sentence": "きょうは とても (暇) [_______] ので、映画を 見に 行きませんか。",
+        "sentence": "きょうは とても (暇) [_______] ので、映画を 見に 行きませんか。（現在・肯定の普通形を使ってください。）",
         "baseWord": "暇 (ひま)",
         "accepted": ["暇な", "ひまな", "himana"],
         "displayAnswer": "暇な (ひまな)",
-        "explain": "Trước 「〜ので」, tính từ đuôi な và danh từ phải đi kèm 「な」: 暇 ➔ <strong>暇な</strong>ので. Tuyệt đối không dùng 暇だので ❌."
+        "explain": "Trong câu này yêu cầu thể thông thường, hiện tại khẳng định: tính từ な và danh từ dùng 「な + ので」 (暇なので／学生なので). Dạng lịch sự 「暇ですので」 cũng có thể dùng trong ngữ cảnh phù hợp."
     },
     {
         "id": 20,
@@ -411,7 +464,7 @@ PART5_READING = [
     {
         "passageId": 1,
         "title": "BÀI ĐỌC 1: 国際交流パーティーでの 出会い (Cuộc Gặp Gỡ Tại Bữa Tiệc Giao Lưu Quốc Tế - Bài 1 & 2)",
-        "text": "先週の日曜日、わたしは 市民センターで 開かれた 国際交流パーティーに 参加しました。会場には いろいろな 国から 来た 人たちが たくさん いました。<br>会場で、めがねを かけて、青い シャツを 着ている 男の人に 会いました。「鈴木」という 名前で、大学で 日本語を 教えている 先生でした。鈴木先生は いつも にこにこしていて、とても やさしそうな 人でした。<br>鈴木先生が 好きなのは、ベトナム料理だそうです。特に 「フォー」という 料理が 大好きで、ベトナムにも 3回 行った ことが あると 言っていました。わたしは 先生と 連絡先を 交換して、来週 ベトナム料理の 店へ 一緒に 行く 約束を しました。",
+        "text": "先週の日曜日、わたしは 市民センターで 国際交流パーティーに 参加しました。会場には いろいろな 国から 来た 人たちが たくさん いました。<br>会場で、めがねを かけて、青い シャツを 着ている 男の人に 会いました。「鈴木」という 名前で、大学で 日本語を 教えている 先生でした。鈴木先生は いつも にこにこしていて、とても やさしそうな 人でした。<br>鈴木先生は ベトナム料理が 大好きです。特に 「フォー」という 料理が 好きです。ベトナムに 3回 行きました。わたしは 先生と 連絡先を 交換して、来週 ベトナム料理の 店へ 一緒に 行く 約束を しました。",
         "questions": [
             {
                 "id": 25,
@@ -442,7 +495,7 @@ PART5_READING = [
     {
         "passageId": 2,
         "title": "BÀI ĐỌC 2: 日本料理屋「さくら」の おすすめと ルール (Món Ngon Và Quy Tắc Tại Nhà Hàng Sakura - Bài 3 & 4)",
-        "text": "駅の 近くに「さくら」という 有名な 日本料理の 店が あります。店に入ると、まず 手を 洗ってから、席に 案内されます。<br>この店の おすすめは 天ぷらと 刺身です。刺身なら、毎朝 港から 届く 新鮮な 魚が 一番です。天ぷらを 食べるときは、つゆを つけないで、特別な 塩を 少し つけると、サクサクして とても おいしいです。<br>店の中には いくつか ルールが あります。他のお客さんの 迷惑に なりますから、大声で 話しては いけません。また、全席 禁煙ですので、店内で たばこを 吸ってはいけません。静かに おいしい 和食を 楽しむことが できます。",
+        "text": "駅の 近くに「さくら」という 有名な 日本料理の 店が あります。店に入ると、まず 手を 洗ってから、席に 座ります。<br>この店の おすすめは 天ぷらと 刺身です。刺身なら、毎朝 港から 届く 新鮮な 魚が 一番です。つゆを つけないで、特別な 塩を 少し つけると、天ぷらは サクサクして とても おいしいです。<br>店の中には いくつか ルールが あります。他のお客さんの 迷惑に なりますから、大声で 話しては いけません。また、全席 禁煙ですので、店内で たばこを 吸ってはいけません。静かに おいしい 和食を 楽しむことが できます。",
         "questions": [
             {
                 "id": 27,
@@ -492,7 +545,7 @@ PART6_TRANSLATION = [
     {
         "id": 30,
         "category": "Bài 2 • Trạng từ hóa & Phán đoán",
-        "vi": "Đứa bé đang ăn chiếc bánh kem trông có vẻ rất ngon lành.",
+        "vi": "Đứa bé đang ăn bánh kem một cách ngon lành.",
         "hint": "子ども (đứa bé), ケーキ (bánh kem), おいしそうに (ngon lành - trạng từ), 食べています (đang ăn)",
         "modelSentence": "子どもが ケーキを おいしそうに 食べています。",
         "modelKana": "こどもが けーきを おいしそうに たべています。",
@@ -548,6 +601,88 @@ window.MINI_A2_2_1_4_DATA = {{
 }};
 """
 
+
+def render_review_theory():
+    lesson_cards = []
+    section_number = 0
+    for lesson_number in range(1, 5):
+        lesson = LESSON_CONTENT[lesson_number]
+        quick_links = []
+        sections = []
+        for title, description, formula, examples in lesson['sections']:
+            section_number += 1
+            section_id = f'review-grammar{section_number}'
+            quick_links.append(
+                f'<a class="quicknav-pill" href="#{section_id}">{section_number}. {escape(title)}</a>'
+            )
+            example_rows = '\n'.join(
+                f'''<div class="example-item translation-example">
+                    <div class="ex-text-wrap">
+                        <div class="ex-jp jp-text">{escape(jp)}</div>
+                        <div class="ex-vi"><strong>Bản dịch:</strong> {escape(vi)}</div>
+                    </div>
+                </div>'''
+                for jp, vi in examples
+            )
+            sections.append(f'''<section class="content-section review-grammar-section" id="{section_id}">
+                <div class="section-header">
+                    <h3 class="section-title">{section_number}. {escape(title)}</h3>
+                    <span class="section-tag">Ngữ pháp Marugoto</span>
+                </div>
+                <p class="review-grammar-description">{escape(description)}</p>
+                <div class="grammar-card">
+                    <div class="grammar-body">
+                        <div class="formula-box"><span>Công thức:</span><br>{escape(formula)}</div>
+                        <div class="translation-practice">
+                            <h4>Câu luyện dịch • Đáp án tham khảo</h4>
+                            <div class="example-list">{example_rows}</div>
+                        </div>
+                        {render_review_contractions(lesson.get('contractions', [])) if lesson_number == 4 and section_number == 12 else ''}
+                    </div>
+                </div>
+            </section>''')
+        lesson_cards.append(f'''<div class="content-card" id="theory-b{lesson_number}">
+            <div class="section-header">
+                <div>
+                    <span class="section-badge">BÀI {lesson_number} • {escape(lesson['title'])}</span>
+                    <h2 class="section-title">Bài {lesson_number}: {escape(lesson['title'])}</h2>
+                    <p class="review-lesson-subtitle">{escape(lesson['subtitle'])}</p>
+                </div>
+            </div>
+            <nav class="theory-quicknav review-grammar-nav" aria-label="Ngữ pháp bài {lesson_number}">
+                {''.join(quick_links)}
+            </nav>
+            {''.join(sections)}
+        </div>''')
+    return f'''<!-- TAB 1: LÝ THUYẾT MARUGOTO A2.2 BÀI 1–4 -->
+    <div id="tab-theory" class="tab-panel">
+        <div class="review-theory-intro">15 mục ngữ pháp được đồng bộ từ nội dung bài học. Mỗi câu tiếng Nhật có bản dịch tham khảo để tự luyện dịch.</div>
+        {''.join(lesson_cards)}
+    </div>'''
+
+
+def render_review_contractions(rows):
+    if not rows:
+        return ''
+    table_rows = '\n'.join(
+        f'<tr><td>{escape(masu)}</td><td>{escape(te)}</td><td>{escape(short)}</td></tr>'
+        for masu, te, short in rows
+    )
+    return f'''<div class="contraction-table-wrap" aria-label="Bảng chia dạng cấm rút gọn">
+        <h4>Đổi thể ます sang dạng rút gọn của ～ては／ではだめです</h4>
+        <table class="contraction-table">
+            <thead><tr><th>Thể ます</th><th>Thể て／で</th><th>Rút gọn + だめです</th></tr></thead>
+            <tbody>{table_rows}</tbody>
+        </table>
+    </div>'''
+
+
+OFFICIAL_KANJI_COUNT = sum(
+    len(kanji_raw_dict.get(f'lesson_{n}', [])) for n in range(1, 5)
+)
+KANJI_COUNT = len(kanji_a2_2_1_4)
+SUPPLEMENT_COUNT = len(SUPPLEMENT_KANJI)
+
 data_js_path = os.path.join(WORKSPACE, 'assets/data/mini_a2_2_1_4_data.js')
 with open(data_js_path, 'w', encoding='utf-8') as f:
     f.write(DATA_JS_CONTENT)
@@ -566,7 +701,7 @@ HTML_CONTENT = """<!DOCTYPE html>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
     <script src="../assets/js/audio-engine.js?v=2"></script>
-    <link rel="stylesheet" href="../assets/css/mini-test-11-14.css?v=1">
+    <link rel="stylesheet" href="../assets/css/mini-test-11-14.css?v=2">
 </head>
 <body class="mini-test-page">
 
@@ -604,7 +739,7 @@ HTML_CONTENT = """<!DOCTYPE html>
         <span class="hero-badge" style="background: #4f46e5; color: #ffffff;">MARUGOTO A2.2 • CHUYÊN ĐỀ BÀI 1 - 4</span>
         <h1 class="hero-title">Cẩm Nang & Đề Thi Thử Bài 1 – 4</h1>
         <p class="hero-desc">
-            Nắm chắc trọn vẹn ngữ pháp Nという意味, mệnh đề bổ nghĩa N, phán đoán 〜そう, nguyên nhân 〜ので, cấm đoán 〜てはいけません cùng 81 từ vựng & 49 chữ Hán chuẩn kỳ thi Mini Test!
+            Nắm chắc trọn vẹn ngữ pháp Marugoto A2.2 bài 1–4, 81 từ vựng, danh sách Kanji và đề ôn tập Mini Test!
         </p>
 
         <div class="hero-stats">
@@ -618,7 +753,7 @@ HTML_CONTENT = """<!DOCTYPE html>
             </div>
             <div class="stat-pill">
                 <span class="stat-pill-dot" style="background: #3b82f6;"></span>
-                <span>🎴 <strong>81 Từ Vựng & 49 Kanji</strong></span>
+                <span>🎴 <strong>81 Từ Vựng & __KANJI_COUNT__ mục Kanji</strong></span>
             </div>
             <div class="stat-pill">
                 <span class="stat-pill-dot" style="background: #ec4899;"></span>
@@ -632,7 +767,7 @@ HTML_CONTENT = """<!DOCTYPE html>
         <div class="tab-nav">
             <button class="tab-btn" onclick="switchTab('tab-theory', this)">📖 Lý Thuyết 1–4</button>
             <button class="tab-btn" onclick="switchTab('tab-vocab', this)">🎴 81 Từ Vựng</button>
-            <button class="tab-btn" onclick="switchTab('tab-kanji', this)">⛩️ 49 Kanji</button>
+            <button class="tab-btn" onclick="switchTab('tab-kanji', this)">⛩️ __KANJI_COUNT__ mục Kanji</button>
             <button class="tab-btn active" onclick="switchTab('tab-quiz', this)">🎯 Đề Thi • 32 Câu</button>
             <button class="tab-btn" onclick="switchTab('tab-cheat', this)">⚡ Cẩm Nang Bỏ Túi</button>
         </div>
@@ -944,31 +1079,34 @@ HTML_CONTENT = """<!DOCTYPE html>
     </div>
 
     <!-- ============================================================== -->
-    <!-- TAB 3: KANJI (49 CHỮ HÁN)                                      -->
+    <!-- TAB 3: KANJI                                                   -->
     <!-- ============================================================== -->
     <div id="tab-kanji" class="tab-panel">
         <div class="toolbar-card">
             <div class="filter-row" id="kanjiFilterGroup">
                 <span style="font-size: 0.85rem; font-weight: 800; color: var(--gray-600); margin-right: 4px;">CHỌN BÀI:</span>
-                <button type="button" class="filter-btn active" onclick="filterKanji('ALL', this)">⛩️ Tất Cả (49 Kanji Bài 1-4)</button>
-                <button type="button" class="filter-btn" onclick="filterKanji('L1', this)">Bài 1 (8 chữ)</button>
-                <button type="button" class="filter-btn" onclick="filterKanji('L2', this)">Bài 2 (13 chữ)</button>
-                <button type="button" class="filter-btn" onclick="filterKanji('L3', this)">Bài 3 (18 chữ)</button>
-                <button type="button" class="filter-btn" onclick="filterKanji('L4', this)">Bài 4 (10 chữ)</button>
+                <button type="button" class="filter-btn active" onclick="filterKanji('ALL', this)">⛩️ Tất cả (__KANJI_COUNT__ mục)</button>
+                <button type="button" class="filter-btn" onclick="filterKanji('L1', this)">Bài 1 (8 mục)</button>
+                <button type="button" class="filter-btn" onclick="filterKanji('L2', this)">Bài 2 (13 mục)</button>
+                <button type="button" class="filter-btn" onclick="filterKanji('L3', this)">Bài 3 (18 mục)</button>
+                <button type="button" class="filter-btn" onclick="filterKanji('L4', this)">Bài 4 (10 mục)</button>
+                <button type="button" class="filter-btn" onclick="filterKanji('SUPPLEMENT', this)">Bổ sung từ phiếu (__SUPPLEMENT_COUNT__ mục)</button>
             </div>
             <div class="action-row">
                 <div class="search-input-box">
                     <span class="search-icon">🔍</span>
-                    <input type="text" id="kanjiSearchInput" placeholder="Tìm kiếm chữ Hán, Hán Việt, cách đọc hoặc ý nghĩa..." oninput="handleKanjiSearch()">
+                    <input type="text" id="kanjiSearchInput" placeholder="Tìm từ Kanji, Hán Việt, cách đọc hoặc ý nghĩa..." oninput="handleKanjiSearch()">
                 </div>
                 <button type="button" class="btn-quizlet" onclick="copyKanjiQuizletTabFormat()" title="Định dạng Tab sạch chuẩn Quizlet">
-                    📋 Copy Kanji Tab (<span id="quizletKanjiCount">49</span> chữ)
+                    📋 Copy Kanji Tab (<span id="quizletKanjiCount">__KANJI_COUNT__</span> mục)
                 </button>
-                <button type="button" class="btn-quizlet" onclick="copyKanjiColonFormat()" style="background: linear-gradient(135deg, #059669, #10b981);" title="Chữ Hán, Nghĩa, HÁN VIỆT : Cách Đọc">
+                <button type="button" class="btn-quizlet" onclick="copyKanjiColonFormat()" style="background: linear-gradient(135deg, #059669, #10b981);" title="Từ Kanji, nghĩa, Hán Việt và cách đọc">
                     📋 Copy Kanji Dấu (：)
                 </button>
             </div>
         </div>
+
+        <p class="kanji-scope-note">49 mục đầu giữ nguyên thứ tự từ danh sách Kanji của bài 1–4; 13 mục cuối được thêm riêng theo phiếu và gắn nhãn bổ sung. Danh sách Kanji chính thức toàn A2.2 không thay đổi.</p>
 
         <div class="kanji-grid" id="kanjiContainer">
             <!-- Render via JS -->
@@ -1114,8 +1252,8 @@ HTML_CONTENT = """<!DOCTYPE html>
                 <span class="cheat-badge">BẪY 1 • BỔ NGHĨA CHO DANH TỪ (BÀI 1)</span>
                 <h3 class="cheat-title">Tính từ な và Danh từ khi bổ nghĩa</h3>
                 <p class="cheat-content">
-                    • <strong>Tính từ đuôi な:</strong> Bắt buộc giữ lại <code>な</code> khi đứng trước danh từ (<em>有名な 人</em>). Cấm nói <code>有名だ人</code> ❌!<br>
-                    • <strong>Danh từ:</strong> Nối với danh từ khác bắt buộc phải dùng trợ từ <code>の</code> (<em>日本の 料理</em>, <em>友達の 車</em>).<br>
+                    • <strong>Tính từ な:</strong> Ở hiện tại khẳng định, thể thông thường dùng <code>な ＋ N</code> (<em>有名な人</em>); ở quá khứ dùng <code>だった ＋ N</code> (<em>有名だった人</em>).<br>
+                    • <strong>Danh từ:</strong> Khi nối trực tiếp hai danh từ, dùng <code>N1 の N2</code> (<em>日本の料理</em>). Mệnh đề danh từ ở quá khứ dùng <code>だった ＋ N</code> (<em>学生だった人</em>).<br>
                     • <strong>Động từ:</strong> Dùng thể thông thường (<em>買った本</em> - sách đã mua, <em>買う本</em> - sách sẽ mua).
                 </p>
             </div>
@@ -1135,8 +1273,9 @@ HTML_CONTENT = """<!DOCTYPE html>
                 <p class="cheat-content">
                     • <strong>Tính từ đuôi い:</strong> Bỏ hẳn [い] + そうです (<em>おいしい ➔ おいしそう</em>). Cấm nói <code>おいしいそう</code> ❌!<br>
                     • <strong>Tính từ đuôi な:</strong> Bỏ [な] + そうです (<em>元気な ➔ 元気そう</em>).<br>
-                    • <strong>Ngoại lệ bắt buộc nhớ:</strong> <code>いい ➔ よさそう</code> (Trông có vẻ tốt). Tuyệt đối cấm nói <code>いいそう</code> ❌!<br>
-                    • <strong>Khi bổ nghĩa cho danh từ:</strong> Phải biến thành <code>〜そうな ＋ N</code> (<em>やさしそうな 人</em>).
+                    • <strong>Ngoại lệ:</strong> <code>いい ➔ よさそう</code>, <code>ない ➔ なさそう</code>.<br>
+                    • <strong>Trạng từ:</strong> Gắn <code>に</code> sau dạng vẻ ngoài, như <em>おいしそうに 食べる</em>; mẫu vẻ ngoài này không ghép trực tiếp với danh từ.<br>
+                    • Phân biệt với thể thường + <code>そうです</code> “nghe nói”: <em>おいしいそうです</em>.
                 </p>
             </div>
 
@@ -1144,8 +1283,9 @@ HTML_CONTENT = """<!DOCTYPE html>
                 <span class="cheat-badge">BẪY 4 • TRẠNG TỪ HÓA TÍNH TỪ (BÀI 2)</span>
                 <h3 class="cheat-title">Tính từ đuôi い biến thành 〜く, Tính từ な biến thành 〜に</h3>
                 <p class="cheat-content">
-                    • <strong>Tính từ đuôi い:</strong> Bỏ [い] thay bằng <code>く</code> (<em>短い ➔ 短く 切る</em>, <em>おいしい ➔ おいしそうに 食べる</em>).<br>
+                    • <strong>Tính từ đuôi い:</strong> Bỏ [い] thay bằng <code>く</code> (<em>短い ➔ 短く 切る</em>, <em>おいしい ➔ おいしく 食べる</em>).<br>
                     • <strong>Tính từ đuôi な:</strong> Bỏ [な] thay bằng <code>に</code> (<em>きれいな ➔ きれいに 書く</em>, <em>静かな ➔ 静かに 話す</em>).<br>
+                    • <strong>～そうに ＋ V:</strong> Dùng dạng vẻ ngoài + <code>に</code> để mô tả hành động (<em>おいしそうに 食べる</em>).<br>
                     👉 Ghi nhớ: Phó từ đứng trước động từ để mô tả phương thức, mức độ thực hiện hành động.
                 </p>
             </div>
@@ -1154,8 +1294,8 @@ HTML_CONTENT = """<!DOCTYPE html>
                 <span class="cheat-badge">BẪY 5 • NGUYÊN NHÂN MỀM MẠI (BÀI 3)</span>
                 <h3 class="cheat-title">〜ので vs 〜から & Biến đổi なので</h3>
                 <p class="cheat-content">
-                    • <strong>Tính từ đuôi な & Danh từ:</strong> Trước <code>ので</code> phải dùng chữ <code>な</code> (<em>暇なので</em>, <em>雨なので</em>). Cấm nói <code>暇だので</code> ❌!<br>
-                    • <strong>Sắc thái:</strong> <code>ので</code> mang tính khách quan, trang nhã, thường dùng khi xin phép hoặc nêu lý do nhẹ nhàng. Không đi với câu mệnh lệnh ép buộc như <code>から</code>.
+                    • <strong>Tính từ な & danh từ:</strong> Ở hiện tại khẳng định, thể thông thường dùng <code>なので</code> (<em>暇なので</em>, <em>学生なので</em>); quá khứ dùng <code>だったので</code> (<em>暇だったので</em>). Dạng lịch sự <code>ですので</code> cũng dùng được.<br>
+                    • <strong>Sắc thái:</strong> <code>ので</code> thường trình bày lý do nhẹ nhàng, ít trực tiếp hơn <code>から</code>; không nên xem một dạng là bị cấm trong mọi ngữ cảnh.
                 </p>
             </div>
 
@@ -1183,7 +1323,7 @@ HTML_CONTENT = """<!DOCTYPE html>
                 <h3 class="cheat-title">V-ないで vs V-なくて & Trình tự V-てから</h3>
                 <p class="cheat-content">
                     • <strong>V-ないで:</strong> Làm hành động V2 mà KHÔNG LÀM V1 (trạng thái đồng hành: <em>何もつけないで 食べます</em>).<br>
-                    • <strong>V-なくて:</strong> Chỉ NGUYÊN NHÂN dẫn đến kết quả ngoài ý muốn (<em>お金が なくて 買えません</em>).<br>
+                    • <strong>V-なくて:</strong> Có thể nêu nguyên nhân (<em>お金が なくて 買えません</em>); khi diễn tả làm V2 mà không làm V1, dùng <code>V-ないで</code>.<br>
                     • <strong>V-てから:</strong> Xong hẳn V1 mới làm tiếp V2 (<em>手を 洗ってから ご飯を 食べる</em>).
                 </p>
             </div>
@@ -1215,12 +1355,25 @@ HTML_CONTENT = """<!DOCTYPE html>
 <!-- Toast Notification -->
 <div id="toast" class="toast">Đã sao chép vào bộ nhớ tạm!</div>
 
-<script src="../assets/data/mini_a2_2_1_4_data.js?v=1"></script>
-<script src="../assets/js/mini-test-a2-2-1-4.js?v=1"></script>
+<script src="../assets/data/mini_a2_2_1_4_data.js?v=2"></script>
+<script src="../assets/js/mini-test-a2-2-1-4.js?v=2"></script>
 <script src="../assets/nav.js?v=11" defer></script>
 </body>
 </html>
 """
+
+theory_start_marker = '    <!-- ============================================================== -->\n    <!-- TAB 1: LÝ THUYẾT 1–4'
+theory_end_marker = '    <!-- ============================================================== -->\n    <!-- TAB 2: TỪ VỰNG'
+theory_start = HTML_CONTENT.index(theory_start_marker)
+theory_end = HTML_CONTENT.index(theory_end_marker, theory_start)
+HTML_CONTENT = (
+    HTML_CONTENT[:theory_start]
+    + render_review_theory()
+    + '\n\n'
+    + HTML_CONTENT[theory_end:]
+)
+HTML_CONTENT = HTML_CONTENT.replace('__KANJI_COUNT__', str(KANJI_COUNT))
+HTML_CONTENT = HTML_CONTENT.replace('__SUPPLEMENT_COUNT__', str(SUPPLEMENT_COUNT))
 
 html_path = os.path.join(WORKSPACE, 'tests/On_Tap_Mini_Test_A2_2_1_4.html')
 with open(html_path, 'w', encoding='utf-8') as f:

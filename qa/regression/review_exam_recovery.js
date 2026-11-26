@@ -309,4 +309,58 @@ for (const [name, file, data, reset, key] of [
     });
 }
 
+test('Mini A2.2 restores answers, drafts, self-score, tab, supplement filter and paused timer', () => {
+    const file = 'assets/js/mini-test-a2-2-1-4.js';
+    const data = 'assets/data/mini_a2_2_1_4_data.js';
+    let h = harness(file, { data: [data] });
+    h.run('selectPart1Answer(1, 0)');
+    [2, 3, 0, 1].forEach(index => h.run(`handlePart2ChipClick(11, ${index})`));
+    h.element('p3_input_16').value = '買った';
+    h.run('gradePart3Question(16)');
+    h.run('selectPart4Answer(21, 0); selectPart5Answer(25, 0)');
+    h.element('trans_input_29').value = 'あそこで先生と話している人です。';
+    h.run('handleTransInput(29); toggleModelAnswer(29); setPart6Score(29, 2.5)');
+    h.run("filterKanji('SUPPLEMENT'); switchTab('tab-quiz'); toggleTimer()");
+    h.advance(2300);
+    h.run("switchTab('tab-kanji')");
+    const saved = JSON.parse(h.storage.get('marugoto_mini_a2_2_1_4_cp_v1'));
+    assert.strictEqual(saved.currentKanjiFilter, 'SUPPLEMENT');
+    assert.strictEqual(saved.isTimerRunning, false);
+
+    h = h.reload();
+    assert.strictEqual(h.run('currentTab'), 'tab-kanji');
+    assert.strictEqual(h.run('currentKanjiFilter'), 'SUPPLEMENT');
+    assert.strictEqual(h.run('p1Answers[1]'), 0);
+    assert.deepStrictEqual(h.snapshot('p2Selected[11]'), [2, 3, 0, 1]);
+    assert.strictEqual(h.run('p2Graded[11]'), true);
+    assert.strictEqual(h.element('p3_input_16').value, '買った');
+    assert.strictEqual(h.run('p3Graded[16]'), true);
+    assert.strictEqual(h.run('p4Selected[21]'), 0);
+    assert.strictEqual(h.run('p5Answers[25]'), 0);
+    assert.strictEqual(h.element('trans_input_29').value, 'あそこで先生と話している人です。');
+    assert.strictEqual(h.element('p6_model_29').style.display, 'block');
+    assert.strictEqual(h.run('p6SelfScores[29]'), 2.5);
+    assert.strictEqual(h.run('isTimerRunning'), false);
+    assert.strictEqual(h.run('totalSeconds'), saved.totalSeconds);
+    assert.strictEqual(h.intervals.size, 0);
+    h.run("switchTab('tab-quiz'); toggleTimer()");
+    assert.strictEqual(h.intervals.size, 1);
+});
+
+test('Mini A2.2 editing a conjugation draft clears its old grade', () => {
+    const h = harness('assets/js/mini-test-a2-2-1-4.js', {
+        data: ['assets/data/mini_a2_2_1_4_data.js']
+    });
+    h.element('p3_input_16').value = '買った';
+    h.run('gradePart3Question(16)');
+    assert.strictEqual(h.run('p3Graded[16]'), true);
+    h.element('p3_input_16').value = '買います';
+    h.run('handlePart3Input(16)');
+    assert.strictEqual(h.run('p3Graded[16]'), undefined);
+    assert.strictEqual(h.element('p3_exp_16').style.display, 'none');
+    assert.strictEqual(h.element('p3_input_16').classList.contains('correct'), false);
+    assert.strictEqual(h.element('p3_input_16').classList.contains('wrong'), false);
+    assert.strictEqual(JSON.parse(h.storage.get('marugoto_mini_a2_2_1_4_cp_v1')).p3Inputs[16], '買います');
+});
+
 console.log(`Exam recovery: ${passed} targeted behavior checks passed.`);

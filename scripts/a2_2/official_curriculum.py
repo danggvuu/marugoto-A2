@@ -10,44 +10,129 @@ from pathlib import Path
 LESSON_CONTENT = {
     1: {
         "title": "いいなまえですね", "quote": "いいなまえですね",
-        "subtitle": "Nói ý nghĩa tên, giới thiệu địa danh/người bằng という và bổ nghĩa danh từ bằng thể thông thường.",
+        "subtitle": "Ôn đủ ba mẫu trong phiếu bài 1: giải thích ý nghĩa tên, gọi tên người/vật/địa điểm và bổ nghĩa danh từ bằng thể thông thường.",
         "sections": [
-            ("N という意味 / N というところ", "Giải thích ý nghĩa và nêu tên một địa điểm.", "N1 という意味です。／N1 というところに住んでいます。", [("「あきこ」は「明るい子」という意味です。", "Akiko có nghĩa là “đứa trẻ tươi sáng”."), ("さいたまというところに住んでいます。", "Tôi sống ở một nơi tên là Saitama.")]),
-            ("Thể thông thường + danh từ", "Mệnh đề thể thông thường đứng trước danh từ để bổ nghĩa cho danh từ đó.", "V thể thông thường ＋ N", [("先週買った本です。", "Đây là quyển sách tôi mua tuần trước."), ("私が好きなスポーツはテニスです。", "Môn thể thao tôi thích là quần vợt.")]),
+            ("S は N という意味です", "Giải thích một từ hoặc tên gọi có nghĩa là gì. Nghĩa của tên Nhật phụ thuộc cách viết Kanji: ví dụ trong phiếu dùng 秋子 (あきこ), nghĩa là đứa trẻ của mùa thu; không phải mọi tên Akiko đều có nghĩa này.", "S は（ngôn ngữ で）N という意味です。", [
+                ("「にじ」はベトナム語で「cầu vồng」という意味です。", "“Niji” có nghĩa là “cầu vồng” trong tiếng Việt."),
+                ("「Nguyệt Ánh」は「月の光」という意味です。", "“Nguyệt Ánh” có nghĩa là “ánh sáng của mặt trăng”."),
+                ("「秋子（あきこ）」は「秋の子ども」という意味です。", "Akiko, viết là 秋子, có nghĩa là đứa trẻ của mùa thu."),
+            ]),
+            ("N1 という N2: tên gọi", "N1 là tên riêng; N2 là danh từ chỉ loại người, vật hoặc địa điểm. Cả cụm có nghĩa là N2 có tên là N1.", "N1（tên gọi）という N2（danh từ chung）", [
+                ("「ありがとう」というカフェで友だちに会います。", "Tớ sẽ gặp bạn bè tại quán cà phê có tên là Arigato."),
+                ("「ピカチュウ」という猫を探しています。", "Tớ đang tìm chú mèo tên là Pikachu. 探します（さがします）: tìm kiếm."),
+                ("「フークイ」という島に住んでいます。", "Tớ đang sống ở hòn đảo có tên là Phú Quý."),
+            ]),
+            ("Thể thông thường + danh từ", "Mệnh đề bổ nghĩa đứng ngay trước danh từ. Trong mệnh đề này thường dùng が cho chủ ngữ. Hiện tại khẳng định: tính từ な dùng な, danh từ dùng の khi nối trực tiếp với danh từ; quá khứ dùng だった (好きだった飲み物, 学生だった人).", "V thể thông thường ＋ N ／ Aい ＋ N ／ Aな ＋ N ／ N1 の N2", [
+                ("子どものときに大好きだった飲み物は、りんごジュースです。", "Đồ uống tớ đã rất yêu thích khi còn nhỏ là nước ép táo."),
+                ("毎日、父がくれた時計を使っています。", "Mỗi ngày, tớ sử dụng chiếc đồng hồ bố tặng."),
+                ("自分で作ったかばんが大好きです。", "Tớ rất thích chiếc cặp tự mình làm."),
+                ("これは子どものときに母が買ってくれた自転車です。", "Đây là chiếc xe đạp mẹ đã mua cho tôi khi còn nhỏ."),
+            ]),
         ],
-        "links": ["Nという意味・ところ", "Thể thông thường ＋ N"],
+        "links": ["Nという意味", "N1というN2", "Thể thông thường ＋ N"],
     },
     2: {
         "title": "めがねをかけている人です", "quote": "めがねをかけている人です",
         "subtitle": "Miêu tả ngoại hình/trạng thái, nhận diện người bằng mệnh đề bổ nghĩa, nói ấn tượng với そう và dùng trạng từ ～く／～に.",
         "sections": [
-            ("Tính chất + danh từ / Vている + danh từ", "Dùng mệnh đề trước danh từ để mô tả và nhận diện người.", "かみが長い人／歌を歌っている人", [("かみが長い人です。", "Đó là người có mái tóc dài."), ("歌を歌っている人です。", "Đó là người đang hát.")]),
-            ("～そうです／～そうな N", "そう diễn tả ấn tượng nhìn thấy; tính từ な bỏ な trước そう.", "い形容詞 bỏ い ＋ そう／な形容詞 ＋ そう", [("やさしそうな人です。", "Trông có vẻ là người hiền."), ("上手そうです。", "Trông có vẻ giỏi.")]),
-            ("Tính từ làm trạng từ: ～く／～に", "Dùng dạng trạng từ để mô tả cách thực hiện hành động.", "い形容詞: ～く／な形容詞: ～に", [("短く切ります。", "Cắt ngắn."), ("おいしそうに食べています。", "Đang ăn trông ngon lành.")]),
+            ("Miêu tả tính chất: A は B が", "A là chủ đề chính; B là bộ phận hoặc đặc điểm của A. Dùng が trước tính từ. Khi bổ nghĩa danh từ, giữ cả cụm Bがtính từ; tính từ な cần な trước danh từ.", "A は B が［tính từ］です。／ B が Aい ＋ N ／ B が Aな ＋ N", [
+                ("さくらさんは目が大きいです。", "Sakura san thì đôi mắt to."),
+                ("森くんは髪が長い男の子です。", "Mori kun là bé trai tóc dài."),
+                ("象は耳が大きい動物です。", "Voi là loài động vật tai to."),
+            ]),
+            ("N đang làm V: Vている + N", "Vている đứng trước danh từ để chỉ hành động đang diễn ra, trạng thái hoặc hoạt động thường xuyên. Ví dụ công ty sản xuất dùng 作っている会社.", "Vている ＋ N", [
+                ("ホンダは車やバイクなどを作っている会社です。", "HONDA là công ty sản xuất ô tô và xe máy v.v..."),
+                ("ニョタは髪が短くて、友だちと遊んでいる女の子です。", "Nyota là cô bé tóc ngắn, đang chơi cùng bạn bè."),
+                ("アキはケーキを作っている人です。", "Aki là người đang làm bánh ngọt."),
+                ("リリーは背が高くて、一人で踊っている女の子です。", "Lyly là cô gái vóc dáng cao, đang nhảy múa một mình."),
+            ]),
+            ("Trông có vẻ: ～そうです／～そうな N", "Phán đoán qua vẻ ngoài: tính từ い bỏ い, tính từ な bỏ な rồi thêm そう. Ngoại lệ: いい → よさそう, ない → なさそう. Đây là そう chỉ vẻ ngoài, khác thể thông thường + そうです mang nghĩa nghe nói; danh từ không ghép trực tiếp với そう theo mẫu này.", "Aい bỏ い／Aな bỏ な ＋ そうです。／～そうな ＋ N", [
+                ("ミナさんは親しみやすそうです。", "Mina san trông có vẻ thân thiện. (Cách 1)"),
+                ("ミナさんは親しみやすそうな人です。", "Mina san là người trông có vẻ thân thiện. (Cách 2)"),
+                ("山田さんはまじめそうな社員です。", "Yamada san là nhân viên trông có vẻ nghiêm túc."),
+                ("ジョイさんはやさしそうなおばあさんです。", "Joi san là bà lão trông có vẻ hiền lành."),
+                ("これは大変そうな仕事です。", "Đây là công việc có vẻ vất vả."),
+            ]),
+            ("Làm V một cách ADJ: ～く／～に／～そうに", "Tính từ い đổi い thành く; tính từ な đổi な thành に. ～そうに đứng trước động từ để nói hành động trông có vẻ như thế nào. ていねい（な）: lịch sự, chỉn chu, cẩn thận.", "Aい → Aく ＋ V ／ Aな → Aに ＋ V ／ ～そうに ＋ V", [
+                ("ていねいに字を書いてくださいね。", "Hãy viết chữ thật chỉn chu nha."),
+                ("猫が庭で気持ちよさそうに遊んでいます。", "Chú mèo đang chơi ở vườn trông có vẻ dễ chịu."),
+                ("まじめに日本語を勉強しています。", "Tôi đang học tiếng Nhật thật nghiêm chỉnh."),
+                ("子どもたちが楽しそうに踊っています。", "Lũ trẻ đang nhảy múa có vẻ vui."),
+            ]),
         ],
-        "links": ["Mệnh đề bổ nghĩa danh từ", "～そうです", "Trạng từ ～く／～に"],
+        "links": ["AはBが", "Vている ＋ N", "～そうです", "Trạng từ ～く／～に"],
     },
     3: {
         "title": "おすすめは何ですか", "quote": "おすすめは何ですか",
         "subtitle": "Nêu lý do với ので, danh từ hóa với の, giới hạn/chọn chủ đề bằng なら và diễn tả phân phối với ずつ.",
         "sections": [
-            ("Lý do: ～ので", "Nêu nguyên nhân một cách mềm mại.", "普通形 ＋ ので", [("この店はおいしいので、よく来ます。", "Vì quán này ngon nên tôi thường đến."), ("人気があるので、予約しました。", "Vì nổi tiếng nên tôi đã đặt chỗ.")]),
-            ("Danh từ hóa: ～のは", "Dùng の để biến mệnh đề thành chủ đề/danh từ.", "普通形 ＋ のは ＋ N です", [("私が好きなのは、ステーキです。", "Món tôi thích là bít tết.")]),
-            ("Chủ đề/điều kiện: ～なら", "Nêu lựa chọn phù hợp với chủ đề được nhắc đến.", "N ＋ なら", [("野菜なら、このサラダがいいですよ。", "Nếu chọn rau thì món salad này ngon đấy.")]),
-            ("Phân phối: ～ずつ", "Chỉ chia đều theo số lượng hoặc từng lượt.", "Số lượng ＋ ずつ", [("一つずつください。", "Cho tôi mỗi thứ một phần."), ("二人ずつ座ってください。", "Xin hãy ngồi mỗi nhóm hai người.")]),
+            ("Vì: ～ので", "Nối lý do với kết quả. Động từ và tính từ い dùng thể thông thường; hiện tại khẳng định của tính từ な và danh từ đổi だ thành な: 元気なので／学生なので. Quá khứ giữ だったので.", "普通形 ＋ ので、～。／ Aな・N：だ → な ＋ ので", [
+                ("生の魚が食べられないので、刺身は好きではありません。", "Vì không thể ăn được cá sống, nên tớ không thích sashimi."),
+                ("来月富士山に登るので、毎日運動しています。", "Vì tháng sau sẽ leo núi Phú Sĩ, nên tớ đang tập thể dục mỗi ngày."),
+                ("ダイエット中なので、野菜だけ食べています。", "Vì đang ăn kiêng, nên tớ chỉ ăn rau thôi."),
+                ("家に携帯電話を忘れたので、家に帰りました。", "Vì đã quên điện thoại ở nhà, nên tôi đã về nhà."),
+            ]),
+            ("Nhấn mạnh danh từ: ～のは N です", "の danh từ hóa mệnh đề phía trước; Nです xác định thông tin được nhấn mạnh. Tính từ な dùng な trước のは: 好きなのは. Không bỏ の trong mẫu này.", "普通形 ＋ のは N です。／ Aな ＋ のは～", [
+                ("日本のゲームが好きです。外国で一番有名なのはマリオです。", "Tớ thích game Nhật Bản. Trò chơi nổi tiếng nhất ở nước ngoài là Mario."),
+                ("この店で一番人気があるのは天ぷらです。", "Món ăn được ưa chuộng nhất ở cửa hàng này là Tempura."),
+                ("飲み物の中で、子どもが一番好きなのはチョコレートミルクです。", "Đồ uống mà trẻ em yêu thích nhất chính là sữa socola."),
+                ("乗り物の中で、何が一番速いですか。一番速いのは飛行機です。", "Trong các loại phương tiện, cái nào là nhanh nhất? Thứ nhanh nhất chính là máy bay."),
+            ]),
+            ("Nếu là N thì: Nなら", "Nhắc lại chủ đề người nghe nêu để đưa gợi ý hoặc lời khuyên. Các hội thoại bên dưới là tình huống luyện dịch theo phiếu ôn tập.", "N なら、～がいいです／～がおすすめです。", [
+                ("ホイアンへ旅行に行きたいんですが、いつ行くのがいいですか。", "Tớ muốn đi du lịch Hội An, nên đi khi nào thì được?"),
+                ("ホイアンなら、秋がとてもきれいなので、10月がいいと思います。", "Nếu là Hội An, thì tớ nghĩ tháng 10 tốt đấy. Vì mùa thu của Hội An rất đẹp."),
+                ("温かい食べ物が食べたいんですが、何がいいですか。", "Tớ muốn ăn đồ ăn ấm, cái gì thì tốt nhỉ?"),
+                ("温かい食べ物なら、かに鍋がおすすめです。栄養があって、体にいいですよ。", "Nếu là đồ ăn ấm, tớ đề xuất lẩu cua. Món ăn này có dinh dưỡng và tốt cho cơ thể."),
+            ]),
+            ("Mỗi thứ / mỗi lượt: ～ずつ", "Dùng số lượng kèm lượng từ rồi thêm ずつ để chia đều cho từng đối tượng. Tem và bưu thiếp là vật mỏng nên đếm bằng 枚; cũng có 少しずつ: từng chút một.", "Số lượng ＋ ずつ（例：三つずつ／二枚ずつ）", [
+                ("ホットドッグとシーフードピザを三つずつください。", "Làm ơn hãy cho tôi hotdog và pizza hải sản, mỗi thứ 3 cái."),
+                ("切手とはがきを二枚ずつ買いました。", "Tôi đã mua tem và bưu thiếp, mỗi thứ 2 cái."),
+            ]),
         ],
         "links": ["～ので", "～のは", "～なら", "～ずつ"],
     },
     4: {
         "title": "どうやって食べますか", "quote": "どうやって食べますか",
-        "subtitle": "Nói điều cấm với ～てはいけません, trình tự với ～てから, cách làm không kèm hành động với ～ないで và kết quả với ～と.",
+        "subtitle": "Ôn cấm đoán và dạng rút gọn ～ちゃ／～じゃ, trình tự ～てから, cách làm Vて／Vないで và kết quả thường xảy ra với ～と.",
         "sections": [
-            ("Cấm/không được: ～てはいけません", "Nêu quy định hoặc điều không được phép làm.", "Vて ＋ はいけません／だめです", [("ここで食べてはいけません。", "Không được ăn ở đây."), ("飲んじゃだめです。", "Không được uống.")]),
-            ("Trình tự: ～てから", "Hành động sau bắt đầu sau khi hành động trước hoàn tất.", "Vて ＋ から", [("乾杯してから、飲みましょう。", "Sau khi cụng ly, chúng ta hãy uống.")]),
-            ("Không làm V: ～ないで", "Diễn tả làm việc khác mà không thực hiện hành động V.", "Vない ＋ で", [("何もつけないで食べます。", "Tôi ăn mà không chấm gì."), ("箸を使わないで食べます。", "Tôi ăn mà không dùng đũa.")]),
-            ("Điều kiện/kết quả: ～と", "Nêu kết quả thường xảy ra khi thực hiện hành động trước.", "Vる ＋ と", [("マヨネーズをつけて食べると、おいしいです。", "Chấm mayonnaise vào ăn thì ngon.")]),
+            ("Không được làm V: ～ては／ではいけません", "Nêu điều cấm. Trong văn nói, ては rút thành ちゃ, では rút thành じゃ; giữ nguyên phần đứng trước て／で của thể て. Có thể dùng だめです thay cho いけません.", "Vては／Vでは いけません。／ Vちゃ／Vじゃ だめです。", [
+                ("道で遊んではいけません。", "Không được phép chơi ở đường."),
+                ("試験中は、パソコンや携帯電話などを使ってはいけません。", "Trong giờ kiểm tra, không được phép sử dụng máy tính hay điện thoại..."),
+                ("夜、一人で外に出てはいけません。", "Không được phép ra ngoài một mình vào ban đêm."),
+                ("知らない人と話してはいけません。", "Không được phép nói chuyện với người lạ."),
+            ]),
+            ("Làm V1 xong rồi làm V2: ～てから", "Nhấn mạnh V1 hoàn tất trước khi V2 bắt đầu. Chia động từ V1 sang thể て rồi thêm から; thời của cả câu do V2 quyết định.", "V1てから、V2。", [
+                ("牛肉の色が変わってから、スープに野菜を入れてくださいね。", "Sau khi thịt bò đổi màu, cậu cho rau vào nước súp nha."),
+                ("高校を卒業してから、アメリカに留学しました。", "Sau khi tốt nghiệp cấp ba, tớ đã du học ở Mỹ."),
+                ("大学生になってから、自分で部屋を掃除しました。", "Sau khi trở thành sinh viên đại học, tôi đã tự mình dọn dẹp phòng."),
+            ]),
+            ("Trạng thái / cách thức: Vて／Vないで V2", "Vて diễn tả cách thức hoặc trạng thái đi kèm V2; Vないで diễn tả làm V2 mà không làm V1. Phân biệt với Vてから nhấn mạnh trình tự, và Vなくて có thể nêu nguyên nhân.", "（＋）V1て V2：có làm V1 ／（－）V1ないで V2：không làm V1", [
+                ("牛肉にチーズをのせて焼いてくださいね。", "Hãy phủ phô mai lên thịt bò, rồi nướng nha!"),
+                ("両親に相談しないで、自分で仕事を決めました。", "Tớ đã tự mình quyết định công việc mà không hỏi ý kiến bố mẹ."),
+                ("パンにバターをぬって食べます。", "Tôi phết bơ lên bánh mì rồi ăn."),
+                ("ジュースは甘いので、砂糖を入れないで飲んでください。", "Vì nước ép ngọt, nên hãy uống mà đừng cho đường."),
+            ]),
+            ("Cứ hễ làm V thì: ～と", "Dùng thể từ điển + と cho kết quả tự nhiên, quy luật hoặc việc thường lặp lại. Mệnh đề kết quả trong cách dùng này không dùng lời mời, mệnh lệnh hay ý định chủ động.", "V thể từ điển ＋ と、～。", [
+                ("ピザにチリソースをかけて食べると、もっとおいしくなりますよ。", "Pizza thì rưới tương ớt rồi ăn sẽ càng ngon hơn đấy."),
+                ("魚介類にアレルギーがあるので、えびやかになどを食べると、体がかゆくなります。", "Vì bị dị ứng với hải sản, nên khi ăn tôm, cua v.v..., tớ sẽ bị ngứa người. かゆい: ngứa."),
+                ("夏になると、暑くなります。", "Cứ hễ sang hè, sẽ nóng lên."),
+                ("魚を食べると、お腹が痛くなります。", "Cứ hễ ăn cá, tôi lại trở nên đau bụng."),
+                ("携帯電話を見ると、目が疲れます。", "Cứ hễ xem điện thoại, mắt tôi mỏi."),
+            ]),
         ],
-        "links": ["～てはいけません", "～てから", "～ないで", "～と"],
+        "links": ["～ちゃ／～じゃだめ", "～てから", "Vて／Vないで", "～と"],
+        "contractions": [
+            ("会います（あいます）", "会って（あって）", "会っちゃ（あっちゃ）だめです"),
+            ("書きます（かきます）", "書いて（かいて）", "書いちゃ（かいちゃ）だめです"),
+            ("話します（はなします）", "話して（はなして）", "話しちゃ（はなしちゃ）だめです"),
+            ("見ます（みます）", "見て（みて）", "見ちゃ（みちゃ）だめです"),
+            ("勉強します（べんきょうします）", "勉強して", "勉強しちゃだめです"),
+            ("来ます（きます）", "来て（きて）", "来ちゃ（きちゃ）だめです"),
+            ("泳ぎます（およぎます）", "泳いで（およいで）", "泳いじゃ（およいじゃ）だめです"),
+            ("読みます（よみます）", "読んで（よんで）", "読んじゃ（よんじゃ）だめです"),
+            ("飲みます（のみます）", "飲んで（のんで）", "飲んじゃ（のんじゃ）だめです"),
+            ("聞きます（ききます）", "聞いて（きいて）", "聞いちゃ（きいちゃ）だめです"),
+        ],
     },
     5: {
         "title": "ぼうしを持っていったほうがいいです", "quote": "ぼうしを持っていったほうがいいです",
@@ -274,7 +359,7 @@ QUIZ_OVERRIDES = {
     (18, 14): ("「選びます」の意味はどれですか。", ["Chọn", "Ngủ", "Thay đổi", "Hồi tưởng"], "選びます means to choose."),
     (1, 2): ("さいたま [____] ところに住んでいます。", ["という", "ので", "しか", "まで"], "N1 というところ giới thiệu tên địa điểm: さいたまというところ."),
     (1, 3): ("私は山田さんという [____] を知っています。", ["人", "意味", "ところ", "ため"], "N1というN2 giới thiệu người/vật có tên là N1."),
-    (2, 8): ("あの人は元気 [____] です。", ["そう", "よう", "ため", "しか"], "N／な形容詞 + そう diễn tả ấn tượng: 元気そうです."),
+    (2, 8): ("あの人は元気 [____] です。", ["そう", "よう", "ため", "しか"], "Tính từ な bỏ な rồi thêm そう để nói vẻ ngoài: 元気そうです. Danh từ không ghép trực tiếp với そう theo mẫu này."),
     (2, 14): ("りんごを [____] 切ります。", ["小さく", "小さい", "小さな", "小さくて"], "い形容詞 chuyển sang trạng từ bằng cách đổi い thành く: 小さく切ります."),
     (3, 1): ("この店はおいしい [____]、よく来ます。", ["ので", "のは", "なら", "ずつ"], "ので nối lý do với kết quả: ngon nên thường đến."),
     (3, 2): ("私が好きな [____]、ステーキです。", ["のは", "ので", "なら", "ずつ"], "のは danh từ hóa mệnh đề làm chủ đề câu."),
@@ -347,7 +432,20 @@ GRAMMAR_OVERRIDE_IDS = {
 }
 
 
-def _render_section(index: int, section: tuple) -> str:
+def _render_contraction_table(rows: list[tuple]) -> str:
+    table_rows = "\n".join(
+        f"<tr><td>{html.escape(masu)}</td><td>{html.escape(te)}</td><td>{html.escape(short)}</td></tr>"
+        for masu, te, short in rows
+    )
+    return f'''<div class="contraction-table-wrap" aria-label="Bảng chia dạng cấm rút gọn">
+        <table class="contraction-table">
+            <thead><tr><th>Thể ます</th><th>Thể て／で</th><th>Thể rút gọn + だめです</th></tr></thead>
+            <tbody>{table_rows}</tbody>
+        </table>
+    </div>'''
+
+
+def _render_section(index: int, section: tuple, contractions: list[tuple] | None = None) -> str:
     title, description, formula, examples = section
     example_html = "\n".join(
         f'''<div class="example-item"><div class="ex-text-wrap">
@@ -356,6 +454,7 @@ def _render_section(index: int, section: tuple) -> str:
         </div></div>'''
         for jp, vi in examples
     )
+    contraction_html = _render_contraction_table(contractions) if contractions else ""
     return f'''<section class="content-section" id="sec-grammar{index}">
         <div class="section-header">
             <h2 class="section-title"><span>📘</span> {index}. {html.escape(title)}</h2>
@@ -364,7 +463,7 @@ def _render_section(index: int, section: tuple) -> str:
         <p style="margin-bottom:16px;color:#334155">{html.escape(description)}</p>
         <div class="grammar-card"><div class="rule-box" style="border-left-color:#4f46e5">
             <div class="rule-formula" style="color:#3730a3">{html.escape(formula)}</div>
-        </div><div class="example-list">{example_html}</div></div>
+        </div><div class="example-list">{example_html}</div>{contraction_html}</div>
     </section>'''
 
 
@@ -431,7 +530,10 @@ def apply_official_curriculum(lessons: list[dict], root: Path) -> None:
         cfg["title"] = content["title"]
         cfg["quote"] = content["quote"]
         cfg["subtitle"] = content["subtitle"]
-        cfg["grammar"] = [_render_section(i, section) for i, section in enumerate(content["sections"], 1)]
+        cfg["grammar"] = [
+            _render_section(i, section, content.get("contractions") if number == 4 and i == 1 else None)
+            for i, section in enumerate(content["sections"], 1)
+        ]
         cfg["section_links"] = [
             f'<a href="#sec-grammar{i}" class="sec-link">{i}. {html.escape(label)}</a>'
             for i, label in enumerate(content["links"], 1)

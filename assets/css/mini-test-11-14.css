@@ -405,6 +405,87 @@ body {
     font-size: 0.92rem;
     color: var(--gray-600);
 }
+.review-theory-intro {
+    padding: 16px 20px;
+    margin-bottom: 22px;
+    border: 1px solid #c7d2fe;
+    border-radius: var(--radius-md);
+    background: #eef2ff;
+    color: #312e81;
+    font-weight: 700;
+}
+.review-lesson-subtitle {
+    margin-top: 8px;
+    color: var(--gray-600);
+    line-height: 1.65;
+}
+.review-grammar-nav {
+    margin: 0 0 22px;
+}
+.review-grammar-section {
+    scroll-margin-top: 120px;
+}
+.review-grammar-description {
+    margin-bottom: 16px;
+    color: var(--gray-700);
+    line-height: 1.7;
+}
+.translation-practice h4,
+.contraction-table-wrap h4 {
+    margin: 0 0 12px;
+    color: var(--gray-800);
+    font-size: 1rem;
+    font-weight: 800;
+}
+.translation-example .ex-vi {
+    line-height: 1.65;
+}
+.contraction-table-wrap {
+    margin-top: 22px;
+    overflow-x: auto;
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-sm);
+    -webkit-overflow-scrolling: touch;
+}
+.contraction-table-wrap h4 {
+    min-width: 640px;
+    padding: 14px 16px 0;
+}
+.contraction-table {
+    width: 100%;
+    min-width: 640px;
+    border-collapse: collapse;
+    text-align: left;
+}
+.contraction-table th,
+.contraction-table td {
+    padding: 11px 16px;
+    border-bottom: 1px solid var(--gray-200);
+    line-height: 1.7;
+}
+.contraction-table th {
+    background: var(--gray-50);
+    color: var(--gray-700);
+    font-size: 0.82rem;
+}
+.contraction-table td {
+    color: var(--gray-800);
+    font-family: var(--font-jp);
+    font-size: 0.95rem;
+}
+.contraction-table tr:last-child td {
+    border-bottom: 0;
+}
+.kanji-scope-note {
+    margin: -4px 0 18px;
+    padding: 12px 16px;
+    border-left: 4px solid #7c3aed;
+    border-radius: var(--radius-sm);
+    background: #faf5ff;
+    color: #5b21b6;
+    font-size: 0.9rem;
+    line-height: 1.65;
+}
 .trap-box {
     background: #fff1f2;
     border-left: 5px solid var(--accent);

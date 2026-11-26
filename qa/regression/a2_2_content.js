@@ -118,6 +118,65 @@ for (let lesson = 1; lesson <= 18; lesson++) {
 assert.strictEqual(totalVocab, 439, 'Official A2-2 vocabulary should contain 439 entries');
 assert.strictEqual(totalKanji, 181, 'Official A2-2 Kanji word list should contain 181 entries');
 
+const reviewContext = { window: {} };
+vm.runInNewContext(read('assets/data/mini_a2_2_1_4_data.js'), reviewContext);
+const reviewData = JSON.parse(JSON.stringify(reviewContext.window.MINI_A2_2_1_4_DATA));
+const reviewHtml = read('tests/On_Tap_Mini_Test_A2_2_1_4.html');
+const reviewKanjiSource = [1, 2, 3, 4].flatMap(n => source[`lesson_${n}`]);
+const supplementWords = [
+    '紹介', '一番目', '住所', '姉妹', '水族館', '成長', '近所', '兄弟', '近い', '一番', '最近', '部屋', '歌手'
+];
+const expectedGrammar = [
+    'S は N という意味です', 'N1 という N2: tên gọi', 'Thể thông thường + danh từ',
+    'Miêu tả tính chất: A は B が', 'N đang làm V: Vている + N', 'Trông có vẻ: ～そうです／～そうな N', 'Làm V một cách ADJ: ～く／～に／～そうに',
+    'Vì: ～ので', 'Nhấn mạnh danh từ: ～のは N です', 'Nếu là N thì: Nなら', 'Mỗi thứ / mỗi lượt: ～ずつ',
+    'Không được làm V: ～ては／ではいけません', 'Làm V1 xong rồi làm V2: ～てから', 'Trạng thái / cách thức: Vて／Vないで V2', 'Cứ hễ làm V thì: ～と'
+];
+assert.strictEqual(reviewData.rawKanji.length, 62, 'Review Kanji cards must total 62');
+assert.deepStrictEqual(
+    reviewData.rawKanji.slice(0, 49).map(item => [item.word, item.kana]),
+    reviewKanjiSource.map(item => [item.word, item.kana]),
+    'The original 49 review Kanji must retain their order and content'
+);
+assert.deepStrictEqual(
+    reviewData.rawKanji.slice(49).map(item => item.word),
+    supplementWords,
+    'The 13 worksheet terms must be appended as supplemental cards'
+);
+reviewData.rawKanji.slice(49).forEach(item => {
+    assert.strictEqual(item.lesson, 'SUPPLEMENT');
+    assert(item.kana && item.meaning && item.hv && item.strokes > 0 && item.formula && item.mnemonic,
+        `Supplemental Kanji metadata is incomplete: ${item.word}`);
+});
+assert.strictEqual((reviewHtml.match(/class="content-section review-grammar-section"/g) || []).length, 15,
+    'Review theory must render all 15 canonical grammar sections');
+expectedGrammar.forEach((title, i) => {
+    assert(reviewHtml.includes(title), `Review theory is missing grammar section ${i + 1}: ${title}`);
+});
+assert(reviewHtml.includes('Câu luyện dịch • Đáp án tham khảo'));
+assert(reviewHtml.includes("filterKanji('SUPPLEMENT', this)"));
+assert(reviewHtml.includes('Tất cả (62 mục)'));
+assert(reviewHtml.includes('Bổ sung từ phiếu (13 mục)'));
+assert(!reviewHtml.includes('__KANJI_COUNT__') && !reviewHtml.includes('__SUPPLEMENT_COUNT__'));
+assert.strictEqual((reviewHtml.match(/class="contraction-table"/g) || []).length, 1);
+assert.strictEqual((reviewHtml.match(/<tr><td>/g) || []).length, 10, 'Review contraction table must have 10 verb rows');
+const lesson4Html = read('lessons/Marugoto_A2_2_Lesson_4.html');
+assert(lesson4Html.includes('class="contraction-table"'), 'Lesson 4 must render the canonical contraction data');
+assert.strictEqual((lesson4Html.match(/<tr><td>/g) || []).length, 10, 'Lesson 4 contraction table must have 10 rows');
+assert(reviewHtml.includes('mini-test-a2-2-1-4.js?v=2'));
+assert(reviewHtml.includes('mini_a2_2_1_4_data.js?v=2'));
+assert.strictEqual(reviewData.part1Data.length, 10);
+assert.strictEqual(reviewData.part2Data.length, 5);
+assert.strictEqual(reviewData.part3Data.length, 5);
+assert.strictEqual(reviewData.part4Data.length, 4);
+assert.strictEqual(reviewData.part5Data.reduce((count, passage) => count + passage.questions.length, 0), 4);
+assert.strictEqual(reviewData.part6Data.length, 4);
+assert.strictEqual(reviewData.part1Data[4].options[2], '着ます', 'Ambiguous completed-clothing distractor must be removed without moving its slot');
+assert(reviewData.part1Data[7].q.includes('現在・肯定の普通形'));
+assert(reviewData.part1Data[9].q.includes('V-ては いけません'));
+assert(reviewData.part3Data.find(item => item.id === 19).sentence.includes('現在・肯定の普通形'));
+assert.strictEqual(reviewData.part6Data.find(item => item.id === 30).vi, 'Đứa bé đang ăn bánh kem một cách ngon lành.');
+
 const curriculumSource = read('scripts/a2_2/official_curriculum.py');
 for (const name of ['QUIZ_OVERRIDES', 'GRAMMAR_OVERRIDE_IDS']) {
     const match = curriculumSource.match(new RegExp(`${name}\\s*=\\s*\\{([\\s\\S]*?)\\n\\}`));
