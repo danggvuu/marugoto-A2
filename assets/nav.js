@@ -269,9 +269,8 @@
     const isKanjiActive = (!isLessons && !isTests && currentFileName === 'kanji_a2.html');
     const isVocabActive = (!isLessons && !isTests && currentFileName === 'Tu_Vung_Marugoto_A1_16_A2_1_10.html');
     const isGrammarActive = (!isLessons && !isTests && (currentFileName === 'Tong_Hop_Ngu_Phap_Marugoto_A1_A2.html' || currentFileName === 'kien_thuc_bo_sung.html'));
-    const isTestsActive = isTests;
+    const isTestsActive = isTests || currentFileName === 'Luyen_Kaiwa_5_Phut.html';
     const isLessonsActive = isLessons;
-    const isKaiwaActive = (!isLessons && !isTests && currentFileName === 'Luyen_Kaiwa_5_Phut.html');
     const is3dActive = (!isLessons && !isTests && currentFileName === 'demo_3d.html');
 
     // 5. SINH HTML CHO CÁC MỤC DROPDOWN
@@ -396,11 +395,6 @@
             <button type="button" id="hubBtnTests" class="hub-nav-item${isTestsActive ? ' active-hub' : ''}" onclick="window.toggleTestsDropdown(event)" aria-haspopup="dialog" aria-expanded="false" aria-controls="testsDropdownMenu">
                 <span>🎯 Đề Thi</span><span class="hub-chevron">▾</span>
             </button>
-
-            <!-- 5.5 Kaiwa 5P Direct Pill -->
-            <a href="${rootPrefix}Luyen_Kaiwa_5_Phut.html" class="hub-nav-item${isKaiwaActive ? ' active-hub' : ''}" title="Phòng luyện phỏng vấn Kaiwa 5 phút 4 chủ đề cô giáo">
-                <span>🎙️ Kaiwa 5P</span>
-            </a>
 
             <!-- 6. Bài Học Dropdown -->
             <button type="button" id="hubBtnLessons" class="hub-nav-item${isLessonsActive ? ' active-hub' : ''}" onclick="window.toggleLessonsDropdown(event)" aria-haspopup="dialog" aria-expanded="false" aria-controls="lessonsDropdownMenu">
@@ -858,10 +852,6 @@
                         <span class="rail-icon">🎯</span>
                         <span class="rail-label">Đề Thi</span>
                     </button>
-                    <a href="${rootPrefix}Luyen_Kaiwa_5_Phut.html" class="lesson-rail-link${isKaiwaActive ? ' active' : ''}" title="Kaiwa 5P">
-                        <span class="rail-icon">🎙️</span>
-                        <span class="rail-label">Kaiwa 5P</span>
-                    </a>
                     <button type="button" class="lesson-rail-link${isLessonsActive ? ' active' : ''}" onclick="window.toggleLessonsDropdown(event)" title="Bài Học" aria-haspopup="dialog" aria-expanded="false" aria-controls="lessonsDropdownMenu">
                         <span class="rail-icon">🚀</span>
                         <span class="rail-label">Bài Học</span>

@@ -3115,3 +3115,12 @@ details .details-body, details .details-content, details > *:not(summary), .acco
     .sentence-practice-speak { width: 44px; }
     .sentence-practice-kanji-list { grid-template-columns: 1fr; }
 }
+
+/* Keep exercise controls and their containing panels still while answering. */
+html:root body :is(.question-card, .question-item, .quiz-card, .quiz-opt, .quiz-opt-btn, .opt-btn, .choice-btn, .option-btn, .inline-quiz-opt, .typing-container, .typing-card-view, .typing-table-view, .typing-practice-container, .sentence-practice-card),
+html:root body :is(.question-card, .question-item, .quiz-card, .typing-container, .typing-practice-container, .sentence-practice-card) :is(button, input, textarea, label),
+html:root body :is(.card, .content-card, .content-section, .grammar-card, .test-card, .tab-panel):has(:is(.question-card, .question-item, .quiz-card, .quiz-opt, .quiz-opt-btn, .typing-container, .typing-practice-container, .sentence-practice-card)) {
+    transform: none !important;
+    animation: none !important;
+    transition-property: background-color, border-color, box-shadow, color, opacity !important;
+}

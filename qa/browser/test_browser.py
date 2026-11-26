@@ -1309,6 +1309,45 @@ class StudyFlows(unittest.TestCase):
         self.page.evaluate("switchTab('tab-quiz');toggleTimer()")
         self.assertTrue(self.page.evaluate('isTimerRunning'))
 
+    def test_exercise_controls_and_panels_do_not_move_on_hover_or_press(self):
+        for path, selector in [
+            ('tests/On_Tap_Mini_Test_A2_2_1_4.html#tab-kana', '.kana-review-input'),
+            ('tests/On_Tap_Mini_Test_A2_2_1_4.html', '#optBtn_p1_1_0'),
+            ('lessons/Marugoto_A2_2_Lesson_1.html', '.quiz-opt'),
+            (TYPING, '#tpCardInput'),
+        ]:
+            with self.subTest(page=path):
+                self.go(path)
+                if selector == '#optBtn_p1_1_0':
+                    self.page.evaluate("switchTab('tab-quiz')")
+                control = self.page.locator(selector).first
+                control.scroll_into_view_if_needed()
+                control.hover()
+                self.page.mouse.down()
+                try:
+                    moving = control.evaluate("""el => {
+                        const moving = [];
+                        for (let node = el; node && node !== document.body; node = node.parentElement) {
+                            const style = getComputedStyle(node);
+                            if (style.transform !== 'none' || style.animationName !== 'none') {
+                                moving.push({className: node.className, transform: style.transform, animation: style.animationName});
+                            }
+                        }
+                        return moving;
+                    }""")
+                    self.assertEqual(moving, [])
+                finally:
+                    self.page.mouse.up()
+                if path == TYPING:
+                    control.fill('wrong answer')
+                    self.page.locator('#tpCardCheckBtn').click()
+                    self.assertIn('wrong', control.get_attribute('class'))
+                elif 'Lesson_1' in path:
+                    self.assertEqual(control.evaluate("el=>el.classList.contains('aui-shake')||el.classList.contains('aui-check-pop')"), False)
+                control.evaluate("el=>el.classList.add('aui-shake','aui-check-pop')")
+                self.assertEqual(control.evaluate('el=>getComputedStyle(el).animationName'), 'none')
+                self.assertEqual(control.evaluate('el=>getComputedStyle(el).transform'), 'none')
+
     def test_a2_2_review_kana_sets_grade_all_answers_and_keep_katakana(self):
         self.go('tests/On_Tap_Mini_Test_A2_2_1_4.html#tab-kana')
         self.assertTrue(self.page.locator('#tab-kana').is_visible())
