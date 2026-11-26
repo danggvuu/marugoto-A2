@@ -405,7 +405,7 @@ def build_lesson_html(
 <!-- Scripts -->
 <script src="../assets/js/lessons/{js_filename}?v=2"></script>
 <script src="../assets/js/nav-dropdown.js"></script>
-<script src="../assets/nav.js?v=7" defer></script>
+<script src="../assets/nav.js?v=10" defer></script>
 <script src="../assets/js/jp-typing-grader.js?v=1" defer></script>
 <script src="../assets/js/typing-practice.js" defer></script>
 </body>

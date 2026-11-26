@@ -393,6 +393,7 @@ class ReviewVisualFlows(unittest.TestCase):
                 self.page.wait_for_function("!document.body.className.includes('is-morphing')")
                 self.assertEqual(self.page.locator('#' + glider_id).evaluate('el => el.getAnimations({subtree: true}).length'), 0)
                 self.page.set_viewport_size({'width': 1440, 'height': 900})
+                self.page.wait_for_function("document.body.classList.contains('is-scrolled-dock') || document.body.classList.contains('is-hub-docked')")
                 self.page.evaluate("window.scrollTo({top: 0, behavior: 'instant'})")
                 self.page.wait_for_function("document.body.classList.contains('is-morphing-to-top')")
                 self.page.emulate_media(reduced_motion='reduce')
@@ -419,6 +420,31 @@ class ReviewVisualFlows(unittest.TestCase):
             self.page.wait_for_selector('#lessonSidebarRail .lesson-rail-action', state='attached')
             self.assertEqual(self.page.locator('#lessonSidebarRail .lesson-rail-action').get_attribute('href'),
                              self.page.locator('.section-nav a:not([href^="#sec-"])').evaluate('el => el.href'))
+
+    def test_all_hub_pages_share_dock_and_mobile_navigation(self):
+        paths = sorted(path for pattern in ('*.html', 'tests/*.html')
+                       for path in harness.ROOT.glob(pattern)
+                       if 'assets/nav.js' in path.read_text(encoding='utf-8'))
+        self.assertGreaterEqual(len(paths), 22)
+        for path in paths:
+            with self.subTest(path=path.name):
+                self.go(path.relative_to(harness.ROOT).as_posix(), 1025)
+                self.page.wait_for_selector('#hubMorphGlider', state='attached')
+                self.assertEqual(self.page.locator('#lessonSidebarRail').count(), 0)
+                self.page.evaluate("window.scrollTo({top: 400, behavior: 'instant'})")
+                self.page.wait_for_function("document.body.classList.contains('is-hub-docked')")
+                dock = self.page.locator('#globalHubDock')
+                expect(dock).to_be_visible()
+                self.page.set_viewport_size({'width': 360, 'height': 844})
+                self.page.wait_for_function("!document.body.classList.contains('is-hub-docked')")
+                expect(dock).to_be_hidden()
+                nav = self.page.locator('.global-hub-nav')
+                expect(nav).to_be_visible()
+                self.assertFalse(nav.evaluate('el => el.inert'))
+                self.page.evaluate("window.scrollTo({top: 0, behavior: 'instant'})")
+                self.page.locator('#hubBtnLessons').click()
+                expect(self.page.locator('#lessonsDropdownMenu')).to_have_class(re.compile(r'\bshow\b'))
+                self.page.keyboard.press('Escape')
 
     def test_lesson_rail_supports_external_nav_and_flashcard_keyboard(self):
         for lesson in (1, 10, 11, 18):

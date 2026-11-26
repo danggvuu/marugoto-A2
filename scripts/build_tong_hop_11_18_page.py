@@ -347,7 +347,7 @@ html_content = """<!DOCTYPE html>
     <script src="../assets/js/jp-typing-grader.js?v=2"></script>
     <script src="../assets/js/typing-studio.js?v=9"></script>
     <script src="../assets/js/pages/vocab-kanji-check-11-18.js?v=4"></script>
-    <script src="../assets/nav.js?v=7" defer></script>
+    <script src="../assets/nav.js?v=10" defer></script>
 </body>
 </html>
 """
