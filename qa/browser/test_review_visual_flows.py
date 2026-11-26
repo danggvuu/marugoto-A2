@@ -340,6 +340,86 @@ class ReviewVisualFlows(unittest.TestCase):
             return result;
         }''', {'gliderId': glider_id, 'dockId': dock_id, 'navSelector': nav_selector})
 
+    def test_all_lessons_share_dock_and_mobile_navigation(self):
+        for level in ('A2', 'A2_2'):
+            for lesson in range(1, 19):
+                with self.subTest(level=level, lesson=lesson):
+                    self.go(f'lessons/Marugoto_{level}_Lesson_{lesson}.html', 1440)
+                    dock = self.page.locator('#lessonSidebarRail')
+                    self.page.wait_for_selector('#lessonMorphGlider', state='attached')
+                    self.assertEqual(self.page.locator('#globalHubDock').count(), 0)
+                    self.assertEqual(self.page.locator('.section-nav').evaluate('el => getComputedStyle(el).flexWrap'), 'nowrap')
+                    top_links = self.page.locator('.section-nav a[href^="#sec-"]').evaluate_all('els => els.map(el => el.hash)')
+                    dock_links = dock.locator('[data-href]').evaluate_all('els => els.map(el => el.dataset.href)')
+                    self.assertEqual(dock_links, top_links)
+                    self.page.evaluate("window.scrollTo({top: 400, behavior: 'instant'})")
+                    expect(self.page.locator('body')).to_have_class(re.compile(r'\bis-scrolled-dock\b'))
+                    expect(dock).to_be_visible()
+                    self.assertFalse(dock.evaluate('el => el.inert'))
+                    self.assertTrue(self.page.locator('.section-nav').evaluate('el => el.inert'))
+                    quiz_link = dock.locator('[data-href="#sec-quiz"]')
+                    quiz_link.click()
+                    expect(quiz_link).to_have_class(re.compile(r'\bactive\b'))
+                    expect(self.page.locator('.section-nav a[href="#sec-quiz"]')).to_have_class(re.compile(r'\bactive\b'))
+                    quiz_top = self.page.locator('#sec-quiz').bounding_box()['y']
+                    self.assertGreaterEqual(quiz_top, 0)
+                    self.assertLess(quiz_top, 120)
+                    self.page.set_viewport_size({'width': 390, 'height': 844})
+                    expect(self.page.locator('body')).not_to_have_class(re.compile(r'\bis-scrolled-dock\b'))
+                    expect(dock).to_be_hidden()
+                    self.assertFalse(self.page.locator('.section-nav').evaluate('el => el.inert'))
+                    self.assertEqual(self.page.evaluate('document.documentElement.scrollWidth'), 390)
+                    self.page.evaluate("window.scrollTo({top: 0, behavior: 'instant'})")
+                    first_link = self.page.locator('.section-nav a[href^="#sec-"]').first
+                    first_link.click()
+                    self.assertEqual(self.page.evaluate('location.hash'), top_links[0])
+
+    def test_dock_cancels_cleanly_on_reversal_resize_and_motion_change(self):
+        for path, glider_id in (('lessons/Marugoto_A2_Lesson_14.html', 'lessonMorphGlider'), ('index.html', 'hubMorphGlider')):
+            with self.subTest(path=path):
+                self.page.emulate_media(reduced_motion='reduce')
+                self.go(path, 1440)
+                self.page.wait_for_selector('#' + glider_id, state='attached')
+                self.page.emulate_media(reduced_motion='no-preference')
+                self.page.evaluate("window.scrollTo({top: 400, behavior: 'instant'})")
+                self.page.wait_for_function("document.body.classList.contains('is-morphing-to-dock')")
+                self.page.evaluate("window.scrollTo({top: 0, behavior: 'instant'})")
+                self.page.wait_for_function("document.body.classList.contains('is-morphing-to-top')")
+                self.page.wait_for_function("!document.body.classList.contains('is-morphing-to-top')")
+                self.assertEqual(self.page.locator('#' + glider_id).evaluate('el => el.getAnimations({subtree: true}).length'), 0)
+                self.page.evaluate("window.scrollTo({top: 400, behavior: 'instant'})")
+                self.page.wait_for_function("document.body.classList.contains('is-morphing-to-dock')")
+                self.page.set_viewport_size({'width': 390, 'height': 844})
+                self.page.wait_for_function("!document.body.className.includes('is-morphing')")
+                self.assertEqual(self.page.locator('#' + glider_id).evaluate('el => el.getAnimations({subtree: true}).length'), 0)
+                self.page.set_viewport_size({'width': 1440, 'height': 900})
+                self.page.evaluate("window.scrollTo({top: 0, behavior: 'instant'})")
+                self.page.wait_for_function("document.body.classList.contains('is-morphing-to-top')")
+                self.page.emulate_media(reduced_motion='reduce')
+                self.page.wait_for_function("!document.body.className.includes('is-morphing')")
+                self.assertEqual(self.page.locator('#' + glider_id).evaluate('el => el.getAnimations({subtree: true}).length'), 0)
+
+    def test_dock_retains_lesson_actions_and_unique_ids(self):
+        self.go('lessons/Marugoto_A2_Lesson_14.html', 1440)
+        self.page.wait_for_selector('#lessonMorphGlider', state='attached')
+        self.page.evaluate("window.scrollTo({top: 400, behavior: 'instant'})")
+        action = self.page.locator('#lessonSidebarRail .lesson-rail-action')
+        original = self.page.locator('#furiganaBtnLabel').inner_text()
+        action.click()
+        self.assertNotEqual(self.page.locator('#furiganaBtnLabel').inner_text(), original)
+        self.assertEqual(self.page.locator('#btnFuriganaToggle').count(), 1)
+        self.page.emulate_media(reduced_motion='no-preference')
+        self.page.evaluate("window.scrollTo({top: 0, behavior: 'instant'})")
+        self.page.wait_for_function("document.body.classList.contains('is-morphing-to-top')")
+        self.assertEqual(self.page.locator('#btnFuriganaToggle').count(), 1)
+        self.page.wait_for_function("!document.body.classList.contains('is-morphing-to-top')")
+        self.page.emulate_media(reduced_motion='reduce')
+        for lesson in (15, 16, 17, 18):
+            self.go(f'lessons/Marugoto_A2_Lesson_{lesson}.html', 1440)
+            self.page.wait_for_selector('#lessonSidebarRail .lesson-rail-action', state='attached')
+            self.assertEqual(self.page.locator('#lessonSidebarRail .lesson-rail-action').get_attribute('href'),
+                             self.page.locator('.section-nav a:not([href^="#sec-"])').evaluate('el => el.href'))
+
     def test_lesson_rail_supports_external_nav_and_flashcard_keyboard(self):
         for lesson in (1, 10, 11, 18):
             with self.subTest(lesson=lesson):
