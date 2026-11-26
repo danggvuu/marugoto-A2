@@ -138,10 +138,11 @@ class StudyFlows(unittest.TestCase):
                 return {correct:boxes.filter(el=>el.querySelector('.correct')).length,
                     positions:[...new Set(QUIZ_DATA.map(q=>q.correct))].length};
             }""")
-            self.assertEqual(result, {"correct": 15, "positions": 4})
+            self.assertEqual(result, {"correct": 20 if lesson <= 4 else 15, "positions": 4})
             self.reload()
-            self.assertEqual(self.page.locator("#quizContainer button.correct").count(), 15)
-            self.assertEqual(self.page.locator("#quizContainer button:disabled").count(), 60)
+            quiz_count = 20 if lesson <= 4 else 15
+            self.assertEqual(self.page.locator("#quizContainer button.correct").count(), quiz_count)
+            self.assertEqual(self.page.locator("#quizContainer button:disabled").count(), quiz_count * 4)
 
     def test_a2_2_kanji_filters_audio_and_restore(self):
         self.go("kanji_a2.html")
@@ -1396,6 +1397,65 @@ class StudyFlows(unittest.TestCase):
         self.reload()
         self.assertEqual(cards.nth(0).locator('button:disabled').count(), 4)
         self.assertEqual(cards.nth(6).locator('button.correct').count(), 1)
+
+    def test_a2_2_sentence_and_kanji_typing_checkpoint_and_responsive_layout(self):
+        expected_kanji_counts = [16, 18, 18, 10]
+        for lesson in range(1, 5):
+            with self.subTest(lesson=lesson):
+                self.go(f'lessons/Marugoto_A2_2_Lesson_{lesson}.html')
+                self.assertEqual(self.page.locator('.sentence-practice-card:not(.sentence-practice-kanji-card)').count(), 40)
+                self.assertEqual(self.page.locator('.sentence-practice-kanji-card').count(), expected_kanji_counts[lesson - 1])
+                self.assertTrue(self.page.locator('.sentence-practice-answer').first.is_hidden())
+
+                for width in [360, 390, 768, 1440]:
+                    self.page.set_viewport_size({'width': width, 'height': 900})
+                    self.assertEqual(self.page.evaluate('document.documentElement.scrollWidth'), width)
+                    self.assertTrue(self.page.locator('.sentence-practice-entry').first.evaluate(
+                        "el=>{const r=el.getBoundingClientRect();return r.left>=0&&r.right<=innerWidth+1}"))
+
+                first = self.page.locator('.sentence-practice-card:not(.sentence-practice-kanji-card)').first
+                expected_sentence = self.page.evaluate('SENTENCE_PRACTICE_DATA[0].jp')
+                first.locator('.sentence-practice-input').fill(expected_sentence)
+                first.locator('.sentence-practice-input').evaluate(
+                    "el=>el.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',keyCode:229,which:229,isComposing:true,bubbles:true}))")
+                self.assertIn('Chưa gõ', first.locator('.sentence-practice-status').inner_text())
+                first.locator('.sentence-practice-check').click()
+                self.assertIn('Đúng', first.locator('.sentence-practice-status').inner_text())
+                self.assertEqual(self.page.locator('#sentencePracticeProgress').inner_text(), '1 / 40')
+
+                kanji_card = self.page.locator('.sentence-practice-kanji-card').first
+                kanji_answer = self.page.evaluate("""() => {
+                    const item=KANJI_PRACTICE_DATA[0];
+                    return {word:item.word,kana:item.kana};
+                }""")
+                self.assertIsNotNone(kanji_answer['kana'])
+                kanji_card.locator('.sentence-practice-input').fill(kanji_answer['kana'])
+                kanji_card.locator('.sentence-practice-check').click()
+                self.assertIn('Chưa đúng', kanji_card.locator('.sentence-practice-status').inner_text())
+                self.assertIn('Kanji', kanji_card.locator('.sentence-practice-feedback').inner_text())
+                kanji_card.locator('.sentence-practice-input').fill(kanji_answer['word'])
+                kanji_card.locator('.sentence-practice-check').click()
+                self.assertIn('Đúng', kanji_card.locator('.sentence-practice-status').inner_text())
+
+                second = self.page.locator('.sentence-practice-card:not(.sentence-practice-kanji-card)').nth(1)
+                second.locator('.sentence-practice-input').fill('下書きを保存します')
+                second.locator('.sentence-practice-reveal').click()
+                self.assertEqual(second.locator('.sentence-practice-input').input_value(), '下書きを保存します')
+                self.assertTrue(second.locator('.sentence-practice-answer').is_visible())
+                self.reload()
+                first = self.page.locator('.sentence-practice-card:not(.sentence-practice-kanji-card)').first
+                second = self.page.locator('.sentence-practice-card:not(.sentence-practice-kanji-card)').nth(1)
+                self.assertIn('Đúng', first.locator('.sentence-practice-status').inner_text())
+                self.assertEqual(second.locator('.sentence-practice-input').input_value(), '下書きを保存します')
+                self.assertTrue(second.locator('.sentence-practice-answer').is_visible())
+                self.assertIn('Đúng', self.page.locator('.sentence-practice-kanji-card').first.locator('.sentence-practice-status').inner_text())
+
+                self.page.locator('#sentenceReset').click()
+                self.assertEqual(first.locator('.sentence-practice-input').input_value(), '')
+                self.assertEqual(self.page.locator('#sentencePracticeProgress').inner_text(), '0 / 40')
+                self.reload()
+                self.assertEqual(self.page.locator('.sentence-practice-card:not(.sentence-practice-kanji-card)').first.locator('.sentence-practice-input').input_value(), '')
+                self.assertEqual(self.page.locator('#sentencePracticeProgress').inner_text(), '0 / 40')
 
 
 if __name__ == "__main__":

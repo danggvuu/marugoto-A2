@@ -6,7 +6,14 @@ import html
 import json
 from pathlib import Path
 
-from scripts.a2_2.practice_content import EXTRA_QUIZ, TYPING_SENTENCES
+from scripts.a2_2.practice_content import EXTRA_QUIZ, TYPING_ACCEPTED, TYPING_SENTENCES
+from scripts.a2_2.topic_01 import L1_KANJI_LIST, L2_KANJI_LIST
+
+
+SUPPLEMENTAL_KANJI_WORDS = {
+    1: {"紹介", "一番目", "住所", "近所", "近い", "一番", "最近", "部屋"},
+    2: {"姉妹", "水族館", "成長", "兄弟", "歌手"},
+}
 
 
 LESSON_CONTENT = {
@@ -526,8 +533,13 @@ def _verb_form2_label(value: str) -> str:
 
 def apply_official_curriculum(lessons: list[dict], root: Path) -> None:
     official_kanji = json.loads((root / "data/kanji_vocab_a2_2_official.json").read_text(encoding="utf-8"))
+    supplemental_source = {1: L1_KANJI_LIST, 2: L2_KANJI_LIST}
     for cfg in lessons:
         number = cfg["num"]
+        cfg["quiz"] = [
+            question for question in cfg["quiz"]
+            if question.get("reviewVersion") != "a22-practice20-v1"
+        ]
         content = LESSON_CONTENT[number]
         cfg["title"] = content["title"]
         cfg["quote"] = content["quote"]
@@ -586,7 +598,35 @@ def apply_official_curriculum(lessons: list[dict], root: Path) -> None:
         if number in TYPING_SENTENCES:
             if len(TYPING_SENTENCES[number]) != 40:
                 raise ValueError(f"Lesson {number} typing practice must contain exactly 40 sentences")
+            accepted_by_id = TYPING_ACCEPTED.get(number, {})
             cfg["typing_data"] = [
-                {"id": index, "vi": vi, "jp": jp, "requireKanji": True}
+                {
+                    "id": index,
+                    "vi": vi,
+                    "jp": jp,
+                    "requireKanji": True,
+                    "accepted": accepted_by_id.get(index, accepted_by_id.get(str(index), [])),
+                }
                 for index, (vi, jp) in enumerate(TYPING_SENTENCES[number], 1)
             ]
+            kanji_rows = [
+                {
+                    "id": f"official-{number}-{index}",
+                    "word": item["word"],
+                    "kana": item["kana"],
+                    "mean": item["mean"],
+                    "accepted": ["一番目", "1番目"] if item["word"] == "～番目（１番目）" else [],
+                }
+                for index, item in enumerate(cfg["kanji_list"], 1)
+            ]
+            legacy_rows = {item["word"]: item for item in supplemental_source.get(number, [])}
+            for index, word in enumerate(sorted(SUPPLEMENTAL_KANJI_WORDS.get(number, set())), 1):
+                item = legacy_rows[word]
+                kanji_rows.append({
+                    "id": f"supplement-{number}-{index}",
+                    "word": item["word"],
+                    "kana": item["kana"],
+                    "mean": item["mean"],
+                    "accepted": [],
+                })
+            cfg["kanji_practice_data"] = kanji_rows

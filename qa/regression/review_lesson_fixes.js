@@ -35,7 +35,10 @@ with contextlib.redirect_stdout(io.StringIO()):
     for cfg in LESSONS_CONFIG:
         number = cfg["num"]
         js, html = MemoryFile(), MemoryFile()
-        build_js_file(js, cfg["vocab"], cfg["verbs"], cfg["quiz"], f"Bài {number} (A2-2)")
+        build_js_file(
+            js, cfg["vocab"], cfg["verbs"], cfg["quiz"], f"Bài {number} (A2-2)",
+            typing_list=cfg.get("typing_data"), kanji_practice_list=cfg.get("kanji_practice_data")
+        )
         build_lesson_html(
             dest_path=html, topic_num=cfg["topic_num"], topic_name_jp=cfg["topic_name_jp"],
             lesson_num=number, lesson_title=cfg["title"], quote=cfg["quote"],
@@ -43,7 +46,8 @@ with contextlib.redirect_stdout(io.StringIO()):
             grammar_count=len(cfg["grammar"]), verb_count=len(cfg["verbs"]),
             kanji_count=len(cfg["kanji_list"]), grammar_blocks=cfg["grammar"],
             kanji_cards=cfg["kanji_cards"], js_filename=f"lesson_a2_2_{number:02}.js",
-            section_links=cfg["section_links"], morph_labels=cfg["morph_labels"])
+            section_links=cfg["section_links"], morph_labels=cfg["morph_labels"],
+            quiz_count=len(cfg["quiz"]), sentence_practice_count=len(cfg.get("typing_data", [])))
         result["lessons"].append({"number": number, "code": js.text, "html": html.text})
 
 runtime = (root / "assets/data/kanji_a2_data.js").read_text(encoding="utf-8")
@@ -198,6 +202,7 @@ const expectedLabels = [
 ];
 let verbsChecked = 0;
 let unchangedSignatures = 0;
+let newQuizSignatures = 0;
 for (const lesson of generated.lessons) {
     const { number, code, html } = lesson;
     const verbs = array(code, 'VERB_DATA');
@@ -221,7 +226,18 @@ for (const lesson of generated.lessons) {
     const cards = elements.get('quizContainer').children;
     quiz.forEach((question, index) => {
         const handlers = [...cards[index].innerHTML.matchAll(/onclick="([^"]+)"/g)].map(match => match[1].replace(/\s+/g, ''));
-        if (number === 14 && question.id === 7) {
+        if (question.reviewVersion === 'a22-practice20-v1') {
+            assert(number >= 1 && number <= 4);
+            assert(handlers.every(handler => handler.includes("'a22-practice20-v1'")));
+            const buttons = question.options.map(() => element());
+            buttons.forEach(button => { button.parentElement = { querySelectorAll: () => buttons }; });
+            context.checkQuizAnswer(buttons[question.correct], index, question.correct, 'a22-reviewed-v2');
+            assert(buttons.every(button => !button.disabled), 'Legacy signature must not grade new quiz items');
+            context.checkQuizAnswer(buttons[question.correct], index, question.correct, question.reviewVersion);
+            assert(buttons.every(button => button.disabled));
+            assert(buttons[question.correct].classList.contains('correct'));
+            newQuizSignatures++;
+        } else if (number === 14 && question.id === 7) {
             assert.strictEqual(question.reviewVersion, 'a22-l14-q7-past-v3');
             assert(question.q.includes('Chọn dạng quá khứ'));
             const completed = question.q.replace('[____]', question.options[question.correct]);
@@ -256,5 +272,6 @@ for (const lesson of generated.lessons) {
     }
 }
 assert.strictEqual(unchangedSignatures, 269);
+assert.strictEqual(newQuizSignatures, 20);
 assert.strictEqual(verbsChecked, 91);
-console.log(`✅ Lesson fixes: 144 Kanji lesson assignments, ${launches} rendered 3D launches, ${verbsChecked} verb/label selections, corrected Q7 and ${unchangedSignatures} preserved quiz revisions.`);
+console.log(`✅ Lesson fixes: 144 Kanji lesson assignments, ${launches} rendered 3D launches, ${verbsChecked} verb/label selections, corrected Q7, ${unchangedSignatures} preserved and ${newQuizSignatures} new quiz signatures.`);

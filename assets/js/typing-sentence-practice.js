@@ -119,14 +119,14 @@
         card.classList.toggle('is-wrong', saved.status === 'wrong');
         status.textContent = saved.status === 'correct' ? 'Đúng' : saved.status === 'wrong' ? 'Chưa đúng' : 'Chưa gõ';
         status.className = `sentence-practice-status${saved.status === 'correct' ? ' is-correct' : saved.status === 'wrong' ? ' is-wrong' : ''}`;
-        if (feedback && !saved.feedback) feedback.textContent = '';
+        if (feedback) feedback.textContent = saved.feedback || '';
         updateProgress();
     }
 
     function makeCard(item, isKanji = false) {
         const card = document.createElement('article');
         const id = String(item.id);
-        const store = isKanji ? state.kanjiItems : state.items;
+        const getStore = () => isKanji ? state.kanjiItems : state.items;
         const prompt = isKanji ? item.mean : item.vi;
         card.className = `sentence-practice-card${isKanji ? ' sentence-practice-kanji-card' : ''}`;
         card.dataset.sentenceId = id;
@@ -147,7 +147,7 @@
             <p class="sentence-practice-answer" lang="ja" hidden></p>
         `;
         const input = card.querySelector('.sentence-practice-input');
-        const getCurrent = () => store[id] || {};
+        const getCurrent = () => getStore()[id] || {};
         updateCard(card, item, getCurrent(), isKanji);
 
         function grade() {
@@ -170,7 +170,7 @@
             current.status = correct ? 'correct' : 'wrong';
             current.feedback = missingKanji ? 'Hãy nhập ít nhất một chữ Kanji; chỉ gõ kana chưa đủ.'
                 : correct ? 'Chính xác.' : 'Chưa khớp; có thể xem đáp án tham khảo.';
-            store[id] = current;
+            getStore()[id] = current;
             updateCard(card, item, current, isKanji);
             card.querySelector('.sentence-practice-feedback').textContent = current.feedback;
             saveState();
@@ -181,7 +181,7 @@
         card.querySelector('.sentence-practice-reveal').addEventListener('click', () => {
             const current = getCurrent();
             current.revealed = !current.revealed;
-            store[id] = current;
+            getStore()[id] = current;
             updateCard(card, item, current, isKanji);
             saveState();
         });
@@ -192,7 +192,7 @@
             current.draft = input.value;
             if (current.status) delete current.status;
             if (current.feedback) delete current.feedback;
-            store[id] = current;
+            getStore()[id] = current;
             updateCard(card, item, current, isKanji);
             card.querySelector('.sentence-practice-feedback').textContent = '';
             saveState();

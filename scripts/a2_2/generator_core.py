@@ -29,7 +29,7 @@ def make_svg(label, icon, color1="#4f46e5", color2="#7c3aed"):
 </svg>'''
 
 
-def build_js_file(dest_path, vocab_list, verb_list, quiz_list, badge_name, typing_list=None):
+def build_js_file(dest_path, vocab_list, verb_list, quiz_list, badge_name, typing_list=None, kanji_practice_list=None):
     """
     Builds the lesson JS file with balanced quiz positions (4, 4, 4, 3 distribution)
     and full flashcard / verb lab interactive handlers.
@@ -71,14 +71,25 @@ def build_js_file(dest_path, vocab_list, verb_list, quiz_list, badge_name, typin
             "svg": make_svg(v["vi"], v.get("icon", "📖"))
         })
 
+    practice_data = ""
+    practice_export = ""
+    if typing_list:
+        practice_data = f'''\nconst SENTENCE_PRACTICE_DATA = {json.dumps(typing_list, ensure_ascii=False, indent=2)};
+
+const KANJI_PRACTICE_DATA = {json.dumps(kanji_practice_list or [], ensure_ascii=False, indent=2)};
+'''
+        practice_export = '''
+if (typeof SENTENCE_PRACTICE_DATA !== "undefined") window.SENTENCE_PRACTICE_DATA = SENTENCE_PRACTICE_DATA;
+if (typeof KANJI_PRACTICE_DATA !== "undefined") window.KANJI_PRACTICE_DATA = KANJI_PRACTICE_DATA;
+'''
+
     js_content = f'''/* Marugoto A2-2 {badge_name} - Extracted Data & Logic */
 const VOCAB_DATA = {json.dumps(processed_vocab, ensure_ascii=False, indent=2)};
 
 const VERB_DATA = {json.dumps(verb_list, ensure_ascii=False, indent=2)};
 
 const QUIZ_DATA = {json.dumps(processed_quiz, ensure_ascii=False, indent=2)};
-
-const SENTENCE_PRACTICE_DATA = {json.dumps(typing_list or [], ensure_ascii=False, indent=2)};
+{practice_data}
 
 function escapeLessonText(value) {{
     return String(value).replace(/&/g, '&amp;').replace(/</g, '&lt;')
@@ -201,7 +212,7 @@ if (document.readyState === 'loading') {{
 }}
 
 if (typeof VOCAB_DATA !== "undefined") window.VOCAB_DATA = VOCAB_DATA;
-if (typeof SENTENCE_PRACTICE_DATA !== "undefined") window.SENTENCE_PRACTICE_DATA = SENTENCE_PRACTICE_DATA;
+{practice_export}
 '''
     dest_path.write_text(js_content, encoding="utf-8")
     print(f"Created {dest_path}")
@@ -266,6 +277,8 @@ def build_lesson_html(
             "form3": "Thể Từ Điển (~ru / jisho)"
         }
 
+    site_theme_version = 13 if sentence_practice_count else 12
+
     html_content = f'''<!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -282,7 +295,7 @@ def build_lesson_html(
     <script src="../assets/js/animate-ui.js" defer></script>
     <script src="../assets/js/audio-engine.js?v=2"></script>
     <link rel="stylesheet" href="../assets/css/lesson-a2-core.css?v=1">
-    <link rel="stylesheet" href="../assets/css/site-theme.css?v=12">
+    <link rel="stylesheet" href="../assets/css/site-theme.css?v={site_theme_version}">
     <link rel="stylesheet" href="../assets/css/lesson-a2-2.css?v=1">
 </head>
 <body class="lesson-a2-2">
@@ -423,7 +436,7 @@ def build_lesson_html(
 <script src="../assets/nav.js?v=11" defer></script>
 <script src="../assets/js/jp-typing-grader.js?v=1" defer></script>
 <script src="../assets/js/typing-practice.js" defer></script>
-{f'<script src="../assets/js/typing-sentence-practice.js?v=1" defer></script>' if sentence_practice_count else ''}
+{f'<script src="../assets/js/typing-sentence-practice.js?v=2" defer></script>' if sentence_practice_count else ''}
 </body>
 </html>
 '''

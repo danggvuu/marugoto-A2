@@ -38,7 +38,14 @@ for (let lesson = 1; lesson <= 18; lesson++) {
     const quiz = array('QUIZ_DATA');
 
     assert(vocab.length >= 16 && vocab.length <= 50, `Lesson ${lesson} vocab count ${vocab.length} out of range`);
-    assert.strictEqual(quiz.length, 15, `Lesson ${lesson} quiz must have exactly 15 questions`);
+    assert.strictEqual(quiz.length, lesson <= 4 ? 20 : 15, `Lesson ${lesson} quiz count mismatch`);
+    if (lesson <= 4) {
+        assert.deepStrictEqual(quiz.slice(0, 15).map(q => q.id), Array.from({ length: 15 }, (_, i) => i + 1),
+            `Lesson ${lesson} must retain its original quiz order`);
+        assert.deepStrictEqual(quiz.slice(15).map(q => [q.id, q.reviewVersion]),
+            Array.from({ length: 5 }, (_, i) => [i + 16, 'a22-practice20-v1']),
+            `Lesson ${lesson} must append the five versioned practice questions`);
+    }
     assert(vocab.every(item => item.jp && item.kana && item.romaji && item.vi), `Missing fields in Lesson ${lesson} vocab`);
     assert(vocab.every(item => !/[A-Za-z]/.test(item.kana)), `Kana must not include template placeholders in Lesson ${lesson}`);
     if (lesson === 4) {
@@ -63,6 +70,27 @@ for (let lesson = 1; lesson <= 18; lesson++) {
     const html = read(`lessons/Marugoto_A2_2_Lesson_${lesson}.html`);
     assert(html.includes('lesson-a2-2.css'), `Missing CSS link in Lesson ${lesson} HTML`);
     assert(html.includes('class="flashcard-grid"'), `Missing flashcard grid in Lesson ${lesson} HTML`);
+    if (lesson <= 4) {
+        const sentences = array('SENTENCE_PRACTICE_DATA');
+        const kanjiPractice = array('KANJI_PRACTICE_DATA');
+        assert.strictEqual(sentences.length, 40, `Lesson ${lesson} must have exactly 40 typing prompts`);
+        assert.deepStrictEqual(sentences.map(item => item.id), Array.from({ length: 40 }, (_, i) => i + 1));
+        assert(sentences.every(item => item.vi && item.jp && item.requireKanji === true));
+        assert(kanjiPractice.every(item => item.id && item.word && item.mean));
+        const officialPractice = kanjiPractice.filter(item => item.id.startsWith('official-'));
+        assert.deepStrictEqual(officialPractice.map(item => [item.word, item.mean]),
+            officialKanji[`lesson_${lesson}`].map(item => [item.word, item.mean]),
+            `Lesson ${lesson} Kanji drill must contain its official vocabulary without modification`);
+        if (lesson === 1 || lesson === 2) {
+            const expectedSupplement = lesson === 1
+                ? ['紹介', '一番目', '住所', '近所', '近い', '一番', '最近', '部屋']
+                : ['姉妹', '水族館', '成長', '兄弟', '歌手'];
+            assert.deepStrictEqual(kanjiPractice.filter(item => item.id.startsWith('supplement-'))
+                .map(item => item.word).sort(), expectedSupplement.sort());
+        }
+        assert(html.includes('typing-sentence-practice.js?v=2'));
+        assert(html.includes('Luyện Gõ 40 Câu'));
+    }
 
     const officialRows = officialKanji[`lesson_${lesson}`];
     assert(officialRows, `Missing official Kanji list for Lesson ${lesson}`);
@@ -116,6 +144,7 @@ for (let lesson = 1; lesson <= 18; lesson++) {
 }
 
 assert.strictEqual(totalVocab, 439, 'Official A2-2 vocabulary should contain 439 entries');
+assert.strictEqual(totalQuiz, 290, 'A2-2 should have 290 quiz items after the four lesson expansions');
 assert.strictEqual(totalKanji, 181, 'Official A2-2 Kanji word list should contain 181 entries');
 
 const reviewContext = { window: {} };

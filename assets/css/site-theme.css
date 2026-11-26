@@ -2891,3 +2891,227 @@ details .details-body, details .details-content, details > *:not(summary), .acco
         grid-template-columns: repeat(2, 1fr) !important;
     }
 }
+
+/* A2-2 sentence translation and active Kanji recall */
+.sentence-practice-intro {
+    max-width: 78ch;
+    margin: -2px 0 20px;
+    color: var(--slate-600);
+    line-height: 1.65;
+}
+
+.sentence-practice-toolbar,
+.sentence-practice-kanji-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 14px 16px;
+    border: 1px solid #dbe4f0;
+    border-radius: var(--radius-md);
+    background: linear-gradient(110deg, #f8fafc, #f1f5f9);
+    color: var(--slate-700);
+}
+
+.sentence-practice-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.sentence-practice-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 14px;
+}
+
+.sentence-practice-card {
+    min-width: 0;
+    padding: 18px;
+    border: 1px solid #dbe4f0;
+    border-radius: var(--radius-md);
+    background: #fff;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, .045);
+    transition: border-color .16s ease, background-color .16s ease;
+}
+
+.sentence-practice-card.is-correct {
+    border-color: var(--success-border);
+    background: linear-gradient(145deg, #fff, #f0fdf7);
+}
+
+.sentence-practice-card.is-wrong {
+    border-color: var(--danger-border);
+    background: linear-gradient(145deg, #fff, #fff7f7);
+}
+
+.sentence-practice-card-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.sentence-practice-number {
+    color: #64748b;
+    font-size: .78rem;
+    font-weight: 800;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+}
+
+.sentence-practice-status {
+    color: #64748b;
+    font-size: .78rem;
+    font-weight: 800;
+}
+
+.sentence-practice-status.is-correct { color: #047857; }
+.sentence-practice-status.is-wrong { color: #b91c1c; }
+
+.sentence-practice-prompt {
+    min-height: 3.2em;
+    margin: 0 0 14px;
+    color: #172554;
+    font-size: 1.04rem;
+    font-weight: 750;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+.sentence-practice-label {
+    display: block;
+    margin-bottom: 6px;
+    color: #64748b;
+    font-size: .8rem;
+    font-weight: 700;
+}
+
+.sentence-practice-entry {
+    display: flex;
+    align-items: stretch;
+    gap: 7px;
+    min-width: 0;
+}
+
+.sentence-practice-input {
+    flex: 1 1 180px;
+    min-width: 0;
+    padding: 10px 12px;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 9px;
+    background: #fff;
+    color: #0f172a;
+    font-family: var(--font-jp), sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.sentence-practice-input:focus {
+    border-color: #4f46e5;
+    outline: 3px solid rgba(99, 102, 241, .14);
+}
+
+.sentence-practice-check,
+.sentence-practice-reveal,
+.sentence-practice-speak {
+    flex: 0 0 auto;
+    min-height: 42px;
+    padding: 8px 11px;
+    border: 1px solid #cbd5e1;
+    border-radius: 9px;
+    background: #f8fafc;
+    color: #334155;
+    font: inherit;
+    font-size: .8rem;
+    font-weight: 750;
+    cursor: pointer;
+}
+
+.sentence-practice-check {
+    border-color: #4338ca;
+    background: #4338ca;
+    color: white;
+}
+
+.sentence-practice-check:hover { background: #3730a3; }
+.sentence-practice-reveal:hover,
+.sentence-practice-speak:hover { background: #eef2ff; }
+
+.sentence-practice-feedback {
+    min-height: 1.35em;
+    margin: 8px 0 0;
+    color: #64748b;
+    font-size: .78rem;
+    font-weight: 650;
+}
+
+.sentence-practice-answer {
+    margin: 8px 0 0;
+    padding: 10px 12px;
+    border-left: 3px solid #6366f1;
+    border-radius: 0 8px 8px 0;
+    background: #eef2ff;
+    color: #1e1b4b;
+    font-family: var(--font-jp), sans-serif;
+    font-size: 1.02rem;
+    font-weight: 700;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+.sentence-practice-kanji-head {
+    margin-top: 30px;
+    align-items: flex-start;
+}
+
+.sentence-practice-kanji-head h3 {
+    margin: 0 0 5px;
+    color: #312e81;
+    font-size: 1.08rem;
+}
+
+.sentence-practice-kanji-head p {
+    margin: 0;
+    color: #64748b;
+    font-size: .86rem;
+    line-height: 1.55;
+}
+
+.sentence-practice-kanji-head strong {
+    flex: 0 0 auto;
+    color: #312e81;
+}
+
+.sentence-practice-kanji-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.sentence-practice-kanji-card .sentence-practice-prompt {
+    min-height: 2.8em;
+}
+
+@media (max-width: 900px) {
+    .sentence-practice-list { grid-template-columns: 1fr; }
+    .sentence-practice-kanji-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 640px) {
+    .sentence-practice-toolbar,
+    .sentence-practice-kanji-head {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .sentence-practice-actions { display: grid; grid-template-columns: 1fr 1fr; }
+    .sentence-practice-actions button { min-height: 42px; padding: 8px; }
+    .sentence-practice-card { padding: 15px 13px; }
+    .sentence-practice-entry { flex-wrap: wrap; }
+    .sentence-practice-input { flex-basis: 100%; min-height: 44px; font-size: 16px; }
+    .sentence-practice-check,
+    .sentence-practice-reveal { flex: 1 1 0; }
+    .sentence-practice-speak { width: 44px; }
+    .sentence-practice-kanji-list { grid-template-columns: 1fr; }
+}

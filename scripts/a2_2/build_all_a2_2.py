@@ -453,7 +453,8 @@ def main():
             verb_list=cfg["verbs"],
             quiz_list=cfg["quiz"],
             badge_name=f"Bài {num} (A2-2)",
-            typing_list=cfg.get("typing_data")
+            typing_list=cfg.get("typing_data"),
+            kanji_practice_list=cfg.get("kanji_practice_data")
         )
 
         # 2. Build HTML file
