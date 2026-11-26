@@ -327,14 +327,14 @@ class ReviewVisualFlows(unittest.TestCase):
                 self.go(f'lessons/Marugoto_A2_Lesson_{lesson}.html', 1440)
                 self.page.wait_for_selector('#lessonSidebarRail', state='attached')
                 self.page.locator('#sec-vocab').scroll_into_view_if_needed()
-                self.page.locator('body').click(position={'x': 5, 'y': 5})
+                self.page.mouse.click(5, 400)
                 self.page.keyboard.press('ArrowRight')
                 expect(self.page.locator('#sec-vocab .flashcard.active-card')).to_have_count(1)
                 card = self.page.locator('#sec-vocab .flashcard.active-card')
                 was_flipped = 'flipped' in (card.get_attribute('class') or '').split()
                 self.page.keyboard.press('Space')
                 self.assertNotEqual('flipped' in (card.get_attribute('class') or '').split(), was_flipped)
-        self.assertEqual(self.page_errors, [])
+        self.assertEqual(self.errors, [])
 
     def test_demo_lighting_reset_and_lantern_canvas_selection(self):
         self.go('demo_3d.html', 1440)
@@ -365,7 +365,7 @@ class ReviewVisualFlows(unittest.TestCase):
         self.page.mouse.click(point['x'], point['y'])
         expect(self.page.locator('#cardKanji')).to_have_text('燈籠')
         expect(self.page.locator('#vocabModal')).to_be_visible()
-        self.assertEqual(self.page_errors, [])
+        self.assertEqual(self.errors, [])
 
     def test_out_of_order_svg_cannot_overwrite_new_filtered_character(self):
         old_path, new_path = "M10 10 L90 90", "M90 10 L10 90"
