@@ -494,6 +494,563 @@ const QUIZ_DATA = [
     ],
     "correct": 3,
     "explain": "Haruki Murakami là một nhà văn/tác giả nổi tiếng thế giới: 「作家 (さっか)」."
+  },
+  {
+    "id": 16,
+    "category": "Ngữ pháp",
+    "grammarScope": "official",
+    "q": "「秋子」は「秋の子ども」[____] 意味です。",
+    "options": [
+      "という",
+      "として",
+      "について",
+      "によって"
+    ],
+    "correct": 0,
+    "explain": "N という意味です giải thích ý nghĩa: 「秋の子ども」という意味です. Nghĩa này ứng với tên viết là 秋子.",
+    "reviewVersion": "a22-practice20-v1"
+  },
+  {
+    "id": 17,
+    "category": "Ngữ pháp",
+    "grammarScope": "official",
+    "q": "Cụm nào có nghĩa là ‘một người bạn tên là Sakura’?",
+    "options": [
+      "さくらをいう友だち",
+      "さくらという友だち",
+      "さくらにいう友だち",
+      "さくらでいう友だち"
+    ],
+    "correct": 1,
+    "explain": "Tên gọi + という + danh từ chỉ loại người/vật: さくらという友だち.",
+    "reviewVersion": "a22-practice20-v1"
+  },
+  {
+    "id": 18,
+    "category": "Ngữ pháp",
+    "grammarScope": "official",
+    "q": "‘Đây là cuốn sách tôi đã đọc hôm qua.’ これは昨日私が [____] 本です。",
+    "options": [
+      "読みます",
+      "読む",
+      "読んだ",
+      "読んで"
+    ],
+    "correct": 2,
+    "explain": "Hành động đã xảy ra hôm qua dùng thể thường quá khứ 読んだ trước 本; không dùng thể ます để bổ nghĩa danh từ.",
+    "reviewVersion": "a22-practice20-v1"
+  },
+  {
+    "id": 19,
+    "category": "Chữ Hán",
+    "scopeKanji": "住みます",
+    "q": "「住みます」の読み方はどれですか。",
+    "options": [
+      "はたらきます",
+      "うまれます",
+      "やすみます",
+      "すみます"
+    ],
+    "correct": 3,
+    "explain": "住みます đọc là すみます, nghĩa là sống/cư trú.",
+    "reviewVersion": "a22-practice20-v1"
+  },
+  {
+    "id": 20,
+    "category": "Chữ Hán",
+    "scopeKanji": "近く",
+    "q": "「近く」の読み方はどれですか。",
+    "options": [
+      "とおく",
+      "ちかい",
+      "きんく",
+      "ちかく"
+    ],
+    "correct": 3,
+    "explain": "近く đọc là ちかく, nghĩa là ở gần.",
+    "reviewVersion": "a22-practice20-v1"
+  }
+];
+
+const SENTENCE_PRACTICE_DATA = [
+  {
+    "id": 1,
+    "vi": "Tôi xin tự giới thiệu bản thân.",
+    "jp": "私は自己紹介をします。",
+    "requireKanji": true,
+    "accepted": [
+      "私は自己紹介します。"
+    ]
+  },
+  {
+    "id": 2,
+    "vi": "Tên tôi là Linh.",
+    "jp": "私の名前はリンです。",
+    "requireKanji": true,
+    "accepted": [
+      "私はリンといいます。"
+    ]
+  },
+  {
+    "id": 3,
+    "vi": "Tên tôi là Akiko, viết là 秋子, có nghĩa là ‘đứa trẻ mùa thu’.",
+    "jp": "私の名前は秋子です。「秋の子ども」という意味です。",
+    "requireKanji": true,
+    "accepted": [
+      "私の名前は秋子で、「秋の子ども」という意味です。",
+      "私の名前は秋子です。秋子は秋の子供という意味です。"
+    ]
+  },
+  {
+    "id": 4,
+    "vi": "Hiệu sách ở gần nhà tôi.",
+    "jp": "本屋は私の家の近くにあります。",
+    "requireKanji": true,
+    "accepted": [
+      "私の家の近くに本屋があります。"
+    ]
+  },
+  {
+    "id": 5,
+    "vi": "Tôi sống trong một ngôi làng.",
+    "jp": "私は村に住んでいます。",
+    "requireKanji": true,
+    "accepted": [
+      "私は村で暮らしています。"
+    ]
+  },
+  {
+    "id": 6,
+    "vi": "Chị tôi làm việc ở cửa hàng điện.",
+    "jp": "姉は電気店で働いています。",
+    "requireKanji": true,
+    "accepted": [
+      "姉は電気店に勤めています。"
+    ]
+  },
+  {
+    "id": 7,
+    "vi": "Tôi quan tâm đến các sản phẩm điện tử.",
+    "jp": "私は電気製品に興味があります。",
+    "requireKanji": true,
+    "accepted": [
+      "私は電気製品に関心があります。"
+    ]
+  },
+  {
+    "id": 8,
+    "vi": "Sở thích của tôi là đọc sách.",
+    "jp": "私の趣味は読書です。",
+    "requireKanji": true,
+    "accepted": [
+      "私は読書が趣味です。"
+    ]
+  },
+  {
+    "id": 9,
+    "vi": "Bố tôi đang kinh doanh một cửa tiệm.",
+    "jp": "父は店をやっています。",
+    "requireKanji": true,
+    "accepted": [
+      "父は店を経営しています。"
+    ]
+  },
+  {
+    "id": 10,
+    "vi": "Anh tôi làm công việc biên dịch.",
+    "jp": "兄は翻訳をしています。",
+    "requireKanji": true,
+    "accepted": [
+      "兄は翻訳の仕事をしています。"
+    ]
+  },
+  {
+    "id": 11,
+    "vi": "Tôi sẽ giới thiệu người bạn đang làm việc ở hiệu sách.",
+    "jp": "本屋で働いている友だちを紹介します。",
+    "requireKanji": true,
+    "accepted": [
+      "本屋で働いている友達を紹介します。"
+    ]
+  },
+  {
+    "id": 12,
+    "vi": "Địa chỉ của nhà văn này là một bí mật.",
+    "jp": "この作家の住所は秘密です。",
+    "requireKanji": true,
+    "accepted": [
+      "この作家の住所は内緒です。"
+    ]
+  },
+  {
+    "id": 13,
+    "vi": "Tuổi của tôi là một bí mật.",
+    "jp": "私の年は秘密です。",
+    "requireKanji": true,
+    "accepted": [
+      "私の年齢は秘密です。"
+    ]
+  },
+  {
+    "id": 14,
+    "vi": "Người bạn đang sống ở Hà Nội rất hiền lành.",
+    "jp": "ハノイに住んでいる友だちはとても優しいです。",
+    "requireKanji": true,
+    "accepted": [
+      "ハノイに住んでいる友達はとても優しいです。"
+    ]
+  },
+  {
+    "id": 15,
+    "vi": "Người bạn không uống rượu có sức khỏe tốt.",
+    "jp": "お酒を飲まない友だちは健康です。",
+    "requireKanji": true,
+    "accepted": [
+      "お酒を飲まない友達は健康です。"
+    ]
+  },
+  {
+    "id": 16,
+    "vi": "Người đang học trong thư viện rất nghiêm túc.",
+    "jp": "図書館で勉強している人はとても真面目です。",
+    "requireKanji": true,
+    "accepted": [
+      "図書館で勉強している人はとてもまじめです。"
+    ]
+  },
+  {
+    "id": 17,
+    "vi": "Cô giáo của tôi có tính cách rất vui vẻ.",
+    "jp": "私の先生はとても明るいです。",
+    "requireKanji": true,
+    "accepted": [
+      "私の先生は性格がとても明るいです。"
+    ]
+  },
+  {
+    "id": 18,
+    "vi": "Tên Sakura có nghĩa là hoa anh đào.",
+    "jp": "「さくら」という名前は「桜の花」という意味です。",
+    "requireKanji": true,
+    "accepted": [
+      "「さくら」という名前は「さくらの花」という意味です。"
+    ]
+  },
+  {
+    "id": 19,
+    "vi": "Người viết cuốn sách này là một nhà văn Nhật Bản.",
+    "jp": "この本を書いた人は日本の作家です。",
+    "requireKanji": true,
+    "accepted": [
+      "これは日本の作家が書いた本です。"
+    ]
+  },
+  {
+    "id": 20,
+    "vi": "Nơi tôi đang sinh sống ở gần hiệu sách.",
+    "jp": "私が住んでいるところは本屋の近くです。",
+    "requireKanji": true,
+    "accepted": [
+      "私が住んでいる場所は本屋の近くです。"
+    ]
+  },
+  {
+    "id": 21,
+    "vi": "Tôi sinh ra ở Việt Nam.",
+    "jp": "私はベトナムで生まれました。",
+    "requireKanji": true,
+    "accepted": [
+      "私はベトナム生まれです。"
+    ]
+  },
+  {
+    "id": 22,
+    "vi": "Tôi đang sống trên hòn đảo tên là Phú Quý.",
+    "jp": "私は「フークイ」という島に住んでいます。",
+    "requireKanji": true,
+    "accepted": [
+      "私はフークイという島で暮らしています。"
+    ]
+  },
+  {
+    "id": 23,
+    "vi": "Đây là cuốn sách tôi đã đọc hôm qua.",
+    "jp": "これは昨日読んだ本です。",
+    "requireKanji": true,
+    "accepted": [
+      "これは昨日私が読んだ本です。"
+    ]
+  },
+  {
+    "id": 24,
+    "vi": "Người đang làm việc ở cửa hàng là chị tôi.",
+    "jp": "店で働いている人は姉です。",
+    "requireKanji": true,
+    "accepted": []
+  },
+  {
+    "id": 25,
+    "vi": "Đây là người bạn tên là Sakura.",
+    "jp": "この人は「さくら」という友だちです。",
+    "requireKanji": true,
+    "accepted": [
+      "この人はさくらという友達です。"
+    ]
+  },
+  {
+    "id": 26,
+    "vi": "Thủy cung tôi đã đến hôm qua ở gần hiệu sách.",
+    "jp": "昨日行った水族館は本屋の近くにあります。",
+    "requireKanji": true,
+    "accepted": [
+      "昨日行った水族館は本屋の近くです。"
+    ]
+  },
+  {
+    "id": 27,
+    "vi": "Tôi rất hứng thú với giao lưu quốc tế.",
+    "jp": "私は国際交流にとても興味があります。",
+    "requireKanji": true,
+    "accepted": [
+      "私は国際交流にとても関心があります。"
+    ]
+  },
+  {
+    "id": 28,
+    "vi": "Người bạn sống ở đảo làm việc tại hiệu sách.",
+    "jp": "島に住んでいる友だちは本屋で働いています。",
+    "requireKanji": true,
+    "accepted": [
+      "島に住んでいる友達は本屋で働いています。"
+    ]
+  },
+  {
+    "id": 29,
+    "vi": "Hiệu sách là cửa hàng đầu tiên tính từ ga.",
+    "jp": "本屋は駅から一番目の店です。",
+    "requireKanji": true,
+    "accepted": [
+      "本屋は駅から数えて一番目の店です。"
+    ]
+  },
+  {
+    "id": 30,
+    "vi": "Đồ uống tôi rất thích hồi nhỏ là nước ép táo.",
+    "jp": "子どものころ大好きだった飲み物はりんごジュースです。",
+    "requireKanji": true,
+    "accepted": [
+      "子供のころ大好きだった飲み物はりんごジュースです。",
+      "子供のころ大好きだった飲み物はリンゴジュースです。",
+      "子どものころ大好きだった飲み物はリンゴジュースです。"
+    ]
+  },
+  {
+    "id": 31,
+    "vi": "Người nghiêm túc đang viết một cuốn sách.",
+    "jp": "真面目な人が本を書いています。",
+    "requireKanji": true,
+    "accepted": [
+      "まじめな人が本を書いています。"
+    ]
+  },
+  {
+    "id": 32,
+    "vi": "Người bạn từng là giáo viên hiện đang viết sách.",
+    "jp": "先生だった友だちは今、本を書いています。",
+    "requireKanji": true,
+    "accepted": [
+      "先生だった友達は今、本を書いています。",
+      "教師だった友達は今、本を書いています。"
+    ]
+  },
+  {
+    "id": 33,
+    "vi": "Người đang kinh doanh cửa tiệm trong làng là bố tôi.",
+    "jp": "村で店をやっている人は父です。",
+    "requireKanji": true,
+    "accepted": [
+      "村で店を経営している人は父です。"
+    ]
+  },
+  {
+    "id": 34,
+    "vi": "Cuốn sách chị tôi đã dịch rất thú vị.",
+    "jp": "姉が翻訳した本はとてもおもしろいです。",
+    "requireKanji": true,
+    "accepted": [
+      "姉が訳した本はとてもおもしろいです。",
+      "姉が翻訳した本はとても面白いです。"
+    ]
+  },
+  {
+    "id": 35,
+    "vi": "Tôi đã gặp nhà văn đang sống trên đảo.",
+    "jp": "島に住んでいる作家に会いました。",
+    "requireKanji": true,
+    "accepted": [
+      "島に住んでいる作家と会いました。"
+    ]
+  },
+  {
+    "id": 36,
+    "vi": "Tên của người bạn đang làm ở hiệu sách là Mai.",
+    "jp": "本屋で働いている友だちの名前はマイです。",
+    "requireKanji": true,
+    "accepted": [
+      "本屋で働いている友達の名前はマイです。"
+    ]
+  },
+  {
+    "id": 37,
+    "vi": "Tôi thích sản phẩm điện tử mà công ty này sản xuất.",
+    "jp": "私はこの会社が作っている電気製品が好きです。",
+    "requireKanji": true,
+    "accepted": []
+  },
+  {
+    "id": 38,
+    "vi": "Người bạn sinh ra trong làng tôi hiện sống trong khu tôi ở.",
+    "jp": "私の村で生まれた友だちは今、近所に住んでいます。",
+    "requireKanji": true,
+    "accepted": [
+      "私の村で生まれた友達は今、近所に住んでいます。"
+    ]
+  },
+  {
+    "id": 39,
+    "vi": "Tôi thường đọc sách ở quán cà phê tên là Sakura.",
+    "jp": "私はよく「さくら」というカフェで読書をします。",
+    "requireKanji": true,
+    "accepted": [
+      "私はさくらという喫茶店でよく読書をします。"
+    ]
+  },
+  {
+    "id": 40,
+    "vi": "Tôi muốn sống trong ngôi làng gần biển.",
+    "jp": "私は海に近い村に住みたいです。",
+    "requireKanji": true,
+    "accepted": [
+      "私は海の近くの村に住みたいです。"
+    ]
+  }
+];
+
+const KANJI_PRACTICE_DATA = [
+  {
+    "id": "official-1-1",
+    "word": "自己紹介",
+    "kana": "じこしょうかい",
+    "mean": "Giới thiệu bản thân",
+    "accepted": []
+  },
+  {
+    "id": "official-1-2",
+    "word": "名前",
+    "kana": "なまえ",
+    "mean": "Tên",
+    "accepted": []
+  },
+  {
+    "id": "official-1-3",
+    "word": "意味",
+    "kana": "いみ",
+    "mean": "Ý nghĩa",
+    "accepted": []
+  },
+  {
+    "id": "official-1-4",
+    "word": "本屋",
+    "kana": "ほんや",
+    "mean": "Hiệu sách",
+    "accepted": []
+  },
+  {
+    "id": "official-1-5",
+    "word": "近く",
+    "kana": "ちかく",
+    "mean": "Gần, gần đây",
+    "accepted": []
+  },
+  {
+    "id": "official-1-6",
+    "word": "住みます",
+    "kana": "すみます",
+    "mean": "Sống, cư trú",
+    "accepted": []
+  },
+  {
+    "id": "official-1-7",
+    "word": "働きます",
+    "kana": "はたらきます",
+    "mean": "Làm việc",
+    "accepted": []
+  },
+  {
+    "id": "official-1-8",
+    "word": "～番目（１番目）",
+    "kana": "～ばんめ（いちばんめ）",
+    "mean": "Thứ ～ (thứ nhất)",
+    "accepted": [
+      "一番目",
+      "1番目"
+    ]
+  },
+  {
+    "id": "supplement-1-1",
+    "word": "一番",
+    "kana": "いちばん",
+    "mean": "Nhất, số một",
+    "accepted": []
+  },
+  {
+    "id": "supplement-1-2",
+    "word": "一番目",
+    "kana": "いちばんめ",
+    "mean": "Thứ nhất",
+    "accepted": []
+  },
+  {
+    "id": "supplement-1-3",
+    "word": "住所",
+    "kana": "じゅうしょ",
+    "mean": "Địa chỉ",
+    "accepted": []
+  },
+  {
+    "id": "supplement-1-4",
+    "word": "最近",
+    "kana": "さいきん",
+    "mean": "Gần đây",
+    "accepted": []
+  },
+  {
+    "id": "supplement-1-5",
+    "word": "紹介",
+    "kana": "しょうかい",
+    "mean": "Giới thiệu",
+    "accepted": []
+  },
+  {
+    "id": "supplement-1-6",
+    "word": "近い",
+    "kana": "ちかい",
+    "mean": "Gần",
+    "accepted": []
+  },
+  {
+    "id": "supplement-1-7",
+    "word": "近所",
+    "kana": "きんじょ",
+    "mean": "Hàng xóm, lân cận",
+    "accepted": []
+  },
+  {
+    "id": "supplement-1-8",
+    "word": "部屋",
+    "kana": "へや",
+    "mean": "Căn phòng",
+    "accepted": []
   }
 ];
 
@@ -618,3 +1175,5 @@ if (document.readyState === 'loading') {
 }
 
 if (typeof VOCAB_DATA !== "undefined") window.VOCAB_DATA = VOCAB_DATA;
+if (typeof SENTENCE_PRACTICE_DATA !== "undefined") window.SENTENCE_PRACTICE_DATA = SENTENCE_PRACTICE_DATA;
+if (typeof KANJI_PRACTICE_DATA !== "undefined") window.KANJI_PRACTICE_DATA = KANJI_PRACTICE_DATA;

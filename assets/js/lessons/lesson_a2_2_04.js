@@ -531,6 +531,529 @@ const QUIZ_DATA = [
     "correct": 1,
     "explain": "Vると nêu kết quả thường xảy ra.",
     "grammarScope": "official"
+  },
+  {
+    "id": 16,
+    "category": "Ngữ pháp",
+    "grammarScope": "official",
+    "q": "Đổi 食べる sang đúng mẫu cấm Vてはいけません.",
+    "options": [
+      "食べてはいけません",
+      "食べないでください",
+      "食べてから",
+      "食べると"
+    ],
+    "correct": 0,
+    "explain": "食べる → 食べて → 食べてはいけません. 食べないでください là lời yêu cầu đừng ăn, không phải mẫu Vてはいけません được hỏi.",
+    "reviewVersion": "a22-practice20-v1"
+  },
+  {
+    "id": 17,
+    "category": "Ngữ pháp",
+    "grammarScope": "official",
+    "q": "「飲んではだめです」の短い形はどれですか。",
+    "options": [
+      "飲んちゃだめです",
+      "飲んじゃだめです",
+      "飲みじゃだめです",
+      "飲まじゃだめです"
+    ],
+    "correct": 1,
+    "explain": "飲んでは → 飲んじゃ: giữ 飲ん, đổi では thành じゃ. Với ては thì rút thành ちゃ, như 食べては → 食べちゃ.",
+    "reviewVersion": "a22-practice20-v1"
+  },
+  {
+    "id": 18,
+    "category": "Ngữ pháp",
+    "grammarScope": "official",
+    "q": "Dùng てから để nói ‘Rửa tay xong rồi ăn cơm’: 手を洗って [____]、ご飯を食べます。",
+    "options": [
+      "と",
+      "ないで",
+      "から",
+      "では"
+    ],
+    "correct": 2,
+    "explain": "洗う → 洗ってから: rửa tay xong rồi mới ăn. てから nhấn mạnh trình tự hoàn tất hành động.",
+    "reviewVersion": "a22-practice20-v1"
+  },
+  {
+    "id": 19,
+    "category": "Ngữ pháp",
+    "grammarScope": "official",
+    "q": "‘Hãy ăn mà không chấm xì dầu.’ しょうゆを [____] 食べてください。",
+    "options": [
+      "つけてから",
+      "つけると",
+      "つけちゃ",
+      "つけないで"
+    ],
+    "correct": 3,
+    "explain": "つけないで食べる là ăn mà không chấm xì dầu. つけてから lại có nghĩa là chấm xong rồi mới ăn, trái với yêu cầu.",
+    "reviewVersion": "a22-practice20-v1"
+  },
+  {
+    "id": 20,
+    "category": "Chữ Hán",
+    "scopeKanji": "ご飯",
+    "q": "「ご飯」の読み方はどれですか。",
+    "options": [
+      "ごばん",
+      "ごめし",
+      "ごぱん",
+      "ごはん"
+    ],
+    "correct": 3,
+    "explain": "ご飯 đọc là ごはん, nghĩa là cơm/bữa ăn.",
+    "reviewVersion": "a22-practice20-v1"
+  }
+];
+
+const SENTENCE_PRACTICE_DATA = [
+  {
+    "id": 1,
+    "vi": "Tôi cho muối vào cơm.",
+    "jp": "ご飯に塩を入れます。",
+    "requireKanji": true,
+    "accepted": [
+      "ご飯に塩を加えます。"
+    ]
+  },
+  {
+    "id": 2,
+    "vi": "Hãy cho tất cả nguyên liệu vào nồi.",
+    "jp": "材料を全て鍋に入れてください。",
+    "requireKanji": true,
+    "accepted": [
+      "全ての材料を鍋に入れてください。"
+    ]
+  },
+  {
+    "id": 3,
+    "vi": "Tôi hoàn toàn không ăn món cay.",
+    "jp": "私は辛い料理を全然食べません。",
+    "requireKanji": true,
+    "accepted": [
+      "私は辛い料理をまったく食べません。"
+    ]
+  },
+  {
+    "id": 4,
+    "vi": "Tôi đã ăn hết tất cả cơm.",
+    "jp": "ご飯を全部食べました。",
+    "requireKanji": true,
+    "accepted": [
+      "ご飯を全て食べました。"
+    ]
+  },
+  {
+    "id": 5,
+    "vi": "Phòng này an toàn.",
+    "jp": "この部屋は安全です。",
+    "requireKanji": true,
+    "accepted": []
+  },
+  {
+    "id": 6,
+    "vi": "Món ăn nóng nên hãy cẩn thận.",
+    "jp": "料理が熱いので、気をつけてください。",
+    "requireKanji": true,
+    "accepted": [
+      "料理が熱いので、注意してください。"
+    ]
+  },
+  {
+    "id": 7,
+    "vi": "Cà phê này đắng.",
+    "jp": "このコーヒーは苦いです。",
+    "requireKanji": true,
+    "accepted": [
+      "これは苦いコーヒーです。"
+    ]
+  },
+  {
+    "id": 8,
+    "vi": "Tôi thấy căng tức bụng vì đã ăn nhiều.",
+    "jp": "たくさん食べたので、お腹が苦しいです。",
+    "requireKanji": true,
+    "accepted": [
+      "たくさん食べたので、おなかが苦しいです。"
+    ]
+  },
+  {
+    "id": 9,
+    "vi": "Tôi ngại ăn ớt.",
+    "jp": "私は唐辛子が苦手です。",
+    "requireKanji": true,
+    "accepted": [
+      "私はとうがらしが苦手です。"
+    ]
+  },
+  {
+    "id": 10,
+    "vi": "Hãy chan nước sốt lên cơm.",
+    "jp": "ご飯にソースをかけてください。",
+    "requireKanji": true,
+    "accepted": [
+      "ご飯にたれをかけてください。"
+    ]
+  },
+  {
+    "id": 11,
+    "vi": "Hãy chấm thức ăn vào xì dầu rồi ăn.",
+    "jp": "料理を醤油につけて食べてください。",
+    "requireKanji": true,
+    "accepted": [
+      "料理をしょうゆにつけて食べてください。"
+    ]
+  },
+  {
+    "id": 12,
+    "vi": "Tôi cho hạt tiêu vào súp.",
+    "jp": "スープに胡椒を入れます。",
+    "requireKanji": true,
+    "accepted": [
+      "スープにこしょうを入れます。"
+    ]
+  },
+  {
+    "id": 13,
+    "vi": "Tôi phết bơ lên bánh mì rồi ăn.",
+    "jp": "パンにバターを塗って食べます。",
+    "requireKanji": true,
+    "accepted": [
+      "パンにバターをぬって食べます。"
+    ]
+  },
+  {
+    "id": 14,
+    "vi": "Tôi nướng cá trước bữa tối.",
+    "jp": "晩ご飯の前に魚を焼きます。",
+    "requireKanji": true,
+    "accepted": [
+      "夕ご飯の前に魚を焼きます。",
+      "夕食の前に魚を焼きます。"
+    ]
+  },
+  {
+    "id": 15,
+    "vi": "Từ trong nồi có mùi thơm bay ra.",
+    "jp": "鍋からいいにおいがします。",
+    "requireKanji": true,
+    "accepted": [
+      "鍋からいい匂いがします。",
+      "鍋から良い匂いがします。"
+    ]
+  },
+  {
+    "id": 16,
+    "vi": "Hãy đậy nắp nồi.",
+    "jp": "鍋に蓋をしてください。",
+    "requireKanji": true,
+    "accepted": [
+      "鍋にふたをしてください。",
+      "鍋の蓋を閉めてください。"
+    ]
+  },
+  {
+    "id": 17,
+    "vi": "Hãy đặt bát và đĩa lên bàn.",
+    "jp": "茶碗と皿をテーブルに置いてください。",
+    "requireKanji": true,
+    "accepted": [
+      "お茶碗とお皿をテーブルに置いてください。"
+    ]
+  },
+  {
+    "id": 18,
+    "vi": "Món này cay nhưng tôi vẫn chịu.",
+    "jp": "この料理は辛いですが、我慢します。",
+    "requireKanji": true,
+    "accepted": [
+      "この料理は辛いですけど、我慢します。"
+    ]
+  },
+  {
+    "id": 19,
+    "vi": "Tôi đang đói bụng.",
+    "jp": "お腹が空きました。",
+    "requireKanji": true,
+    "accepted": [
+      "おなかが空きました。",
+      "お腹がすきました。"
+    ]
+  },
+  {
+    "id": 20,
+    "vi": "Vì khát nước nên tôi đã uống trà.",
+    "jp": "喉が渇いたので、お茶を飲みました。",
+    "requireKanji": true,
+    "accepted": [
+      "のどが渇いたので、お茶を飲みました。",
+      "喉がかわいたので、お茶を飲みました。"
+    ]
+  },
+  {
+    "id": 21,
+    "vi": "Sau khi rửa tay, tôi ăn cơm.",
+    "jp": "手を洗ってから、ご飯を食べます。",
+    "requireKanji": true,
+    "accepted": [
+      "手を洗ってから、食事をします。"
+    ]
+  },
+  {
+    "id": 22,
+    "vi": "Sau khi nướng cá, hãy đặt nó lên đĩa.",
+    "jp": "魚を焼いてから、皿にのせてください。",
+    "requireKanji": true,
+    "accepted": [
+      "魚を焼いてから、皿に載せてください。",
+      "魚を焼いてから、お皿にのせてください。"
+    ]
+  },
+  {
+    "id": 23,
+    "vi": "Hãy ăn mà không chấm xì dầu.",
+    "jp": "醤油をつけないで食べてください。",
+    "requireKanji": true,
+    "accepted": [
+      "しょうゆをつけないで食べてください。",
+      "醤油につけないで食べてください。"
+    ]
+  },
+  {
+    "id": 24,
+    "vi": "Hãy ăn mà không để thừa đồ ăn.",
+    "jp": "料理を残さないで食べてください。",
+    "requireKanji": true,
+    "accepted": [
+      "料理を全部食べてください。"
+    ]
+  },
+  {
+    "id": 25,
+    "vi": "Không được gây tiếng động lớn trong phòng này.",
+    "jp": "この部屋で大きな音を立ててはいけません。",
+    "requireKanji": true,
+    "accepted": [
+      "この部屋で大きな音を立ててはだめです。",
+      "この部屋で大きな音を立てちゃだめです。"
+    ]
+  },
+  {
+    "id": 26,
+    "vi": "Khi nướng thịt bò, màu của thịt sẽ thay đổi.",
+    "jp": "牛肉を焼くと、色が変わります。",
+    "requireKanji": true,
+    "accepted": [
+      "牛肉を焼くと、牛肉の色が変わります。"
+    ]
+  },
+  {
+    "id": 27,
+    "vi": "Cứ mở nắp ra thì mùi thơm sẽ bay ra.",
+    "jp": "蓋を開けると、いいにおいがします。",
+    "requireKanji": true,
+    "accepted": [
+      "ふたを開けると、いいにおいがします。",
+      "蓋を開けると、いい匂いがします。"
+    ]
+  },
+  {
+    "id": 28,
+    "vi": "Không được chạm vào món ăn nóng.",
+    "jp": "熱い料理に触ってはいけません。",
+    "requireKanji": true,
+    "accepted": [
+      "熱い料理に触ってはだめです。",
+      "熱い料理に触っちゃだめです。"
+    ]
+  },
+  {
+    "id": 29,
+    "vi": "Hãy uống trà mà không cho đường.",
+    "jp": "砂糖を入れないで、お茶を飲んでください。",
+    "requireKanji": true,
+    "accepted": [
+      "お茶は砂糖を入れないで飲んでください。"
+    ]
+  },
+  {
+    "id": 30,
+    "vi": "Đừng cho hạt tiêu vào súp.",
+    "jp": "スープに胡椒を入れないでください。",
+    "requireKanji": true,
+    "accepted": [
+      "スープにこしょうを入れないでください。"
+    ]
+  },
+  {
+    "id": 31,
+    "vi": "Sau khi cho bơ vào, hãy khuấy đều.",
+    "jp": "バターを入れてから、よく混ぜてください。",
+    "requireKanji": true,
+    "accepted": [
+      "バターを入れてから、よくかき混ぜてください。"
+    ]
+  },
+  {
+    "id": 32,
+    "vi": "Hãy chấm rau vào nước sốt rồi ăn.",
+    "jp": "野菜をたれにつけて食べてください。",
+    "requireKanji": true,
+    "accepted": [
+      "野菜をソースにつけて食べてください。"
+    ]
+  },
+  {
+    "id": 33,
+    "vi": "Cứ nướng thịt thì mùi thơm sẽ lan ra.",
+    "jp": "肉を焼くと、いいにおいがします。",
+    "requireKanji": true,
+    "accepted": [
+      "肉を焼くと、いい匂いがします。"
+    ]
+  },
+  {
+    "id": 34,
+    "vi": "Đừng ăn nhiều ớt nhé.",
+    "jp": "唐辛子をたくさん食べちゃだめです。",
+    "requireKanji": true,
+    "accepted": [
+      "とうがらしをたくさん食べちゃだめです。",
+      "唐辛子をたくさん食べてはいけません。"
+    ]
+  },
+  {
+    "id": 35,
+    "vi": "Không được uống nước này.",
+    "jp": "この水を飲んではいけません。",
+    "requireKanji": true,
+    "accepted": [
+      "この水を飲んではだめです。",
+      "この水を飲んじゃだめです。"
+    ]
+  },
+  {
+    "id": 36,
+    "vi": "Sau khi nâng cốc chúc mừng, mọi người cùng dùng bữa.",
+    "jp": "乾杯してから、みんなで食事をします。",
+    "requireKanji": true,
+    "accepted": [
+      "乾杯してから、みんなでご飯を食べます。"
+    ]
+  },
+  {
+    "id": 37,
+    "vi": "Đừng gây tiếng động trong bữa ăn.",
+    "jp": "食事中、音を立てないでください。",
+    "requireKanji": true,
+    "accepted": [
+      "食事中は、音を立てないでください。"
+    ]
+  },
+  {
+    "id": 38,
+    "vi": "Sau khi thịt bò đổi màu, hãy cho rau vào nồi.",
+    "jp": "牛肉の色が変わってから、野菜を鍋に入れてください。",
+    "requireKanji": true,
+    "accepted": [
+      "牛肉の色が変わってから、鍋に野菜を入れてください。"
+    ]
+  },
+  {
+    "id": 39,
+    "vi": "Cứ ăn món này là tôi lại ngứa người và toát mồ hôi.",
+    "jp": "この料理を食べると、体が痒くなって汗が出ます。",
+    "requireKanji": true,
+    "accepted": [
+      "この料理を食べると、体がかゆくなって汗が出ます。"
+    ]
+  },
+  {
+    "id": 40,
+    "vi": "Không được uống rượu trong phòng này nhé.",
+    "jp": "この部屋でお酒を飲んじゃだめです。",
+    "requireKanji": true,
+    "accepted": [
+      "この部屋でお酒を飲んではいけません。",
+      "この部屋でお酒を飲んではだめです。",
+      "この部屋で酒を飲んじゃだめです。"
+    ]
+  }
+];
+
+const KANJI_PRACTICE_DATA = [
+  {
+    "id": "official-4-1",
+    "word": "ご飯",
+    "kana": "ごはん",
+    "mean": "Cơm, bữa cơm",
+    "accepted": []
+  },
+  {
+    "id": "official-4-2",
+    "word": "塩",
+    "kana": "しお",
+    "mean": "Muối",
+    "accepted": []
+  },
+  {
+    "id": "official-4-3",
+    "word": "全て",
+    "kana": "すべて",
+    "mean": "Tất cả (lịch sự)",
+    "accepted": []
+  },
+  {
+    "id": "official-4-4",
+    "word": "全然",
+    "kana": "ぜんぜん",
+    "mean": "Hoàn toàn (không)",
+    "accepted": []
+  },
+  {
+    "id": "official-4-5",
+    "word": "全部",
+    "kana": "ぜんぶ",
+    "mean": "Tất cả, toàn bộ",
+    "accepted": []
+  },
+  {
+    "id": "official-4-6",
+    "word": "安全",
+    "kana": "あんぜん",
+    "mean": "An toàn",
+    "accepted": []
+  },
+  {
+    "id": "official-4-7",
+    "word": "熱い",
+    "kana": "あつい",
+    "mean": "Nóng",
+    "accepted": []
+  },
+  {
+    "id": "official-4-8",
+    "word": "苦い",
+    "kana": "にがい",
+    "mean": "Đắng",
+    "accepted": []
+  },
+  {
+    "id": "official-4-9",
+    "word": "苦しい",
+    "kana": "くるしい",
+    "mean": "Đau khổ, khó khăn",
+    "accepted": []
+  },
+  {
+    "id": "official-4-10",
+    "word": "苦手",
+    "kana": "にがて",
+    "mean": "Kém, yếu, không hợp, sợ",
+    "accepted": []
   }
 ];
 
@@ -655,3 +1178,5 @@ if (document.readyState === 'loading') {
 }
 
 if (typeof VOCAB_DATA !== "undefined") window.VOCAB_DATA = VOCAB_DATA;
+if (typeof SENTENCE_PRACTICE_DATA !== "undefined") window.SENTENCE_PRACTICE_DATA = SENTENCE_PRACTICE_DATA;
+if (typeof KANJI_PRACTICE_DATA !== "undefined") window.KANJI_PRACTICE_DATA = KANJI_PRACTICE_DATA;

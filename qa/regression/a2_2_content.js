@@ -88,7 +88,7 @@ for (let lesson = 1; lesson <= 18; lesson++) {
             assert.deepStrictEqual(kanjiPractice.filter(item => item.id.startsWith('supplement-'))
                 .map(item => item.word).sort(), expectedSupplement.sort());
         }
-        assert(html.includes('typing-sentence-practice.js?v=2'));
+        assert(html.includes('typing-sentence-practice.js?v=3'));
         assert(html.includes('Luyện Gõ 40 Câu'));
     }
 

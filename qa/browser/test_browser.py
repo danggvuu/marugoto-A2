@@ -1456,6 +1456,92 @@ class StudyFlows(unittest.TestCase):
                 self.reload()
                 self.assertEqual(self.page.locator('.sentence-practice-card:not(.sentence-practice-kanji-card)').first.locator('.sentence-practice-input').input_value(), '')
                 self.assertEqual(self.page.locator('#sentencePracticeProgress').inner_text(), '0 / 40')
+                kanji_card = self.page.locator('.sentence-practice-kanji-card').first
+                self.assertEqual(kanji_card.locator('.sentence-practice-input').input_value(), '')
+                self.assertEqual(self.page.locator('#kanjiPracticeProgress').inner_text(), f'0 / {expected_kanji_counts[lesson - 1]}')
+                first = self.page.locator('.sentence-practice-card:not(.sentence-practice-kanji-card)').first
+                first.locator('.sentence-practice-input').fill(expected_sentence)
+                first.locator('.sentence-practice-check').click()
+                self.reload()
+                self.assertEqual(self.page.locator('#sentencePracticeProgress').inner_text(), '1 / 40')
+
+    def test_a2_2_sentence_typing_migrates_legacy_and_invalidates_only_changed_content(self):
+        self.go('lessons/Marugoto_A2_2_Lesson_1.html')
+        self.page.evaluate("""() => {
+            const legacy = {
+                revision: 'a2-2-typing40-v1',
+                items: {
+                    1: {draft: SENTENCE_PRACTICE_DATA[0].jp, status: 'correct', feedback: 'Chính xác.'},
+                    11: {draft: '私はこの国際交流が好きです。', status: 'correct', feedback: 'Chính xác.'}
+                },
+                kanjiItems: {[KANJI_PRACTICE_DATA[0].id]: {draft: KANJI_PRACTICE_DATA[0].word, status: 'correct'}},
+                showAllAnswers: false
+            };
+            MarugotoCheckpoint.save('typing_sentences_a2_2_v1', legacy);
+            MarugotoCheckpoint.save('inputs', {'id::sentencePracticeInput1': '古い下書き'});
+        }""")
+        self.reload()
+        first = self.page.locator('#sentencePracticeInput1')
+        changed = self.page.locator('#sentencePracticeInput11')
+        expected = self.page.evaluate('SENTENCE_PRACTICE_DATA[0].jp')
+        self.assertEqual(first.input_value(), expected)
+        self.assertIn('Đúng', first.locator('xpath=ancestor::article').locator('.sentence-practice-status').inner_text())
+        self.assertEqual(changed.input_value(), '私はこの国際交流が好きです。')
+        self.assertIn('Chưa gõ', changed.locator('xpath=ancestor::article').locator('.sentence-practice-status').inner_text())
+        self.assertEqual(self.page.locator('#sentencePracticeProgress').inner_text(), '1 / 40')
+        self.assertEqual(self.page.locator('#kanjiPracticeProgress').inner_text(), '1 / 16')
+
+        # Persist content signatures, then change just one prompt in the delivered lesson data.
+        second = self.page.locator('#sentencePracticeInput2')
+        second.fill(self.page.evaluate('SENTENCE_PRACTICE_DATA[1].jp'))
+        second.locator('xpath=ancestor::article').locator('.sentence-practice-check').click()
+
+        def change_prompt(route):
+            response = route.fetch()
+            route.fulfill(response=response, body=response.text() + '\nSENTENCE_PRACTICE_DATA[0].vi = "Changed prompt";')
+
+        self.page.route('**/assets/js/lessons/lesson_a2_2_01.js?*', change_prompt)
+        self.reload()
+        first = self.page.locator('#sentencePracticeInput1')
+        self.assertEqual(first.input_value(), expected)
+        self.assertIn('Chưa gõ', first.locator('xpath=ancestor::article').locator('.sentence-practice-status').inner_text())
+        self.assertEqual(self.page.locator('#sentencePracticeProgress').inner_text(), '1 / 40')
+        self.assertIn('Đúng', self.page.locator('#sentencePracticeInput2').locator('xpath=ancestor::article').locator('.sentence-practice-status').inner_text())
+        self.assertEqual(self.page.locator('#kanjiPracticeProgress').inner_text(), '1 / 16')
+
+        # A reset must also ignore snapshots left behind by the older generic input saver.
+        self.page.locator('#sentenceReset').click()
+        self.reload()
+        self.assertEqual(self.page.locator('#sentencePracticeInput1').input_value(), '')
+        self.assertEqual(self.page.locator('#sentencePracticeProgress').inner_text(), '0 / 40')
+        self.assertEqual(self.page.locator('#kanjiPracticeProgress').inner_text(), '0 / 16')
+
+    def test_a2_2_sentence_typing_uses_one_key_before_checkpoint_engine_loads(self):
+        self.go('lessons/Marugoto_A2_2_Lesson_1.html')
+        expected = self.page.evaluate('SENTENCE_PRACTICE_DATA[0].jp')
+        self.page.evaluate("""() => {
+            localStorage.setItem(MarugotoCheckpoint.getKey('typing_sentences_a2_2_v1'), JSON.stringify({
+                t: 12344,
+                d: {revision: 'a2-2-typing40-v1', items: {}}
+            }));
+            localStorage.setItem(`marugoto_cp_v1::${location.pathname}::typing_sentences_a2_2_v1`, JSON.stringify({
+                t: 12345,
+                d: {revision: 'a2-2-typing40-v1', items: {1: {draft: SENTENCE_PRACTICE_DATA[0].jp, status: 'correct'}}}
+            }));
+        }""")
+        self.page.route('**/checkpoint-sync.js?*', lambda route: route.abort())
+        self.reload()
+        self.assertEqual(self.page.locator('#sentencePracticeInput1').input_value(), expected)
+        self.assertEqual(self.page.locator('#sentencePracticeProgress').inner_text(), '1 / 40')
+        self.assertIsNone(self.page.evaluate('localStorage.getItem(`marugoto_cp_v1::${location.pathname}::typing_sentences_a2_2_v1`)'))
+        first = self.page.locator('#sentencePracticeInput1')
+        first.fill(expected)
+        first.locator('xpath=ancestor::article').locator('.sentence-practice-check').click()
+        self.page.unroute('**/checkpoint-sync.js?*')
+        self.reload()
+        self.assertEqual(self.page.locator('#sentencePracticeInput1').input_value(), expected)
+        self.assertEqual(self.page.locator('#sentencePracticeProgress').inner_text(), '1 / 40')
+        self.assertEqual(self.page.evaluate("MarugotoCheckpoint.load('typing_sentences_a2_2_v1').items[1].status"), 'correct')
 
 
 if __name__ == "__main__":

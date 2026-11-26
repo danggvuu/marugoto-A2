@@ -20,7 +20,7 @@ Truy cập **http://localhost:8000/**. Không cần build trước khi học b�
 | --- | --- |
 | Bài học | A2.1 bài 1–18 và A2.2 bài 1–18; lý thuyết, từ vựng, Kanji và bài tự luyện |
 | Kho từ vựng | A1 bài 3–18 và A2.1 bài 1–18; tìm kiếm, lọc bài, flashcard và quiz |
-| A2.2 | Từ vựng nằm trong từng bài học; 439 thẻ từ vựng, 270 câu quiz và 181 mục từ Kanji trên 18 bài |
+| A2.2 | Từ vựng nằm trong từng bài học; 439 thẻ từ vựng, 290 câu quiz và 181 mục từ Kanji trên 18 bài; bài 1–4 có thêm 40 câu luyện gõ mỗi bài và luyện gõ từ Kanji |
 | Kanji | Tra cứu, lọc bài A2.1/A2.2, thứ tự nét SVG và tập viết |
 | Ngữ pháp và Typing Studio | Mẫu câu, chia động từ, Verb Lab, luyện dịch và gõ tiếng Nhật |
 | Đề ôn tập | Mini test A2.1, Midterm, tổng hợp A2.1 bài 11–18 và mini test A2.2 bài 1–4 |

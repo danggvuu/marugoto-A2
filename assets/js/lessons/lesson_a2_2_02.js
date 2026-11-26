@@ -469,6 +469,571 @@ const QUIZ_DATA = [
     "correct": 2,
     "explain": "Đi với ghế sofa 「ソファーに」 là hành động ngồi: 「座っている (すわっている)」.",
     "grammarScope": "official"
+  },
+  {
+    "id": 16,
+    "category": "Ngữ pháp",
+    "grammarScope": "official",
+    "q": "Miêu tả trực tiếp ‘Anh Miller có đôi mắt to’: ミラーさんは目が [____] です。",
+    "options": [
+      "大きい",
+      "大きく",
+      "大きな",
+      "大きくて"
+    ],
+    "correct": 0,
+    "explain": "A は B が Aいです: 目が大きいです. 大きく là trạng từ, 大きな đứng trước danh từ, còn 大きくて phải nối với một vế tiếp theo.",
+    "reviewVersion": "a22-practice20-v1"
+  },
+  {
+    "id": 17,
+    "category": "Ngữ pháp",
+    "grammarScope": "official",
+    "q": "Cụm danh từ nào có nghĩa là ‘người đang đeo kính’?",
+    "options": [
+      "めがねをかけます人",
+      "めがねをかけている人",
+      "めがねをかけました人",
+      "めがねをかけて人"
+    ],
+    "correct": 1,
+    "explain": "Vている bổ nghĩa trực tiếp cho 人: めがねをかけている人. Không đặt thể ます hoặc riêng thể て trước 人.",
+    "reviewVersion": "a22-practice20-v1"
+  },
+  {
+    "id": 18,
+    "category": "Ngữ pháp",
+    "grammarScope": "official",
+    "q": "Dùng そう chỉ vẻ ngoài: ‘Bộ vest này trông có vẻ tốt.’ このスーツは [____]。",
+    "options": [
+      "いいそうです",
+      "よいそうです",
+      "よさそうです",
+      "よくそうです"
+    ],
+    "correct": 2,
+    "explain": "いい là ngoại lệ: いい → よさそうです. いいそうです có thể là mẫu nghe nói, không diễn tả vẻ ngoài trong câu này.",
+    "reviewVersion": "a22-practice20-v1"
+  },
+  {
+    "id": 19,
+    "category": "Chữ Hán",
+    "scopeKanji": "姉",
+    "q": "「姉」の読み方はどれですか。",
+    "options": [
+      "あに",
+      "いもうと",
+      "おとうと",
+      "あね"
+    ],
+    "correct": 3,
+    "explain": "姉 đọc là あね khi nói về chị gái của mình.",
+    "reviewVersion": "a22-practice20-v1"
+  },
+  {
+    "id": 20,
+    "category": "Chữ Hán",
+    "scopeKanji": "上手",
+    "q": "「上手」の意味はどれですか。",
+    "options": [
+      "Dài",
+      "Thấp",
+      "Gia đình",
+      "Giỏi, khéo"
+    ],
+    "correct": 3,
+    "explain": "上手（じょうず）nghĩa là giỏi, khéo.",
+    "reviewVersion": "a22-practice20-v1"
+  }
+];
+
+const SENTENCE_PRACTICE_DATA = [
+  {
+    "id": 1,
+    "vi": "Cuối tuần này nhà tôi tổ chức tiệc tại gia.",
+    "jp": "今週末、家でホームパーティーをします。",
+    "requireKanji": true,
+    "accepted": [
+      "今週末、うちでホームパーティーをします。"
+    ]
+  },
+  {
+    "id": 2,
+    "vi": "Anh ấy đang mặc một bộ vest.",
+    "jp": "彼はスーツを着ています。",
+    "requireKanji": true,
+    "accepted": []
+  },
+  {
+    "id": 3,
+    "vi": "Người phụ nữ đang mặc sari là chị tôi.",
+    "jp": "サリーを着ている女の人は姉です。",
+    "requireKanji": true,
+    "accepted": [
+      "サリーを着ている女性は姉です。"
+    ]
+  },
+  {
+    "id": 4,
+    "vi": "Người đang mặc áo len màu đỏ là em gái tôi.",
+    "jp": "赤いセーターを着ている人は妹です。",
+    "requireKanji": true,
+    "accepted": []
+  },
+  {
+    "id": 5,
+    "vi": "Anh tôi đang thắt cà vạt.",
+    "jp": "兄はネクタイをしています。",
+    "requireKanji": true,
+    "accepted": [
+      "兄はネクタイを締めています。"
+    ]
+  },
+  {
+    "id": 6,
+    "vi": "Gia đình tôi có bốn người.",
+    "jp": "私の家族は四人です。",
+    "requireKanji": true,
+    "accepted": [
+      "私は四人家族です。"
+    ]
+  },
+  {
+    "id": 7,
+    "vi": "Cô gái đang đeo kính là bạn tôi.",
+    "jp": "めがねをかけている女の人は友だちです。",
+    "requireKanji": true,
+    "accepted": [
+      "眼鏡をかけている女の人は友だちです。",
+      "眼鏡をかけている女の人は友達です。",
+      "めがねをかけている女の人は友達です。",
+      "めがねをかけている女性は友だちです。"
+    ]
+  },
+  {
+    "id": 8,
+    "vi": "Người đang đội mũ đang đứng trước cửa.",
+    "jp": "ぼうしをかぶっている人が入口の前に立っています。",
+    "requireKanji": true,
+    "accepted": [
+      "帽子をかぶっている人が入口の前に立っています。",
+      "帽子をかぶっている人が入り口の前に立っています。",
+      "帽子をかぶっている人がドアの前に立っています。"
+    ]
+  },
+  {
+    "id": 9,
+    "vi": "Người đang mặc váy đang ngồi ở kia.",
+    "jp": "スカートをはいている人があそこに座っています。",
+    "requireKanji": true,
+    "accepted": [
+      "スカートを穿いている人があそこに座っています。",
+      "スカートを履いている人があそこに座っています。"
+    ]
+  },
+  {
+    "id": 10,
+    "vi": "Cậu bé đang đi giày màu đen đang cười.",
+    "jp": "黒いくつをはいている男の子が笑っています。",
+    "requireKanji": true,
+    "accepted": [
+      "黒い靴を履いている男の子が笑っています。",
+      "黒い靴をはいている男の子が笑っています。"
+    ]
+  },
+  {
+    "id": 11,
+    "vi": "Người đang ngồi cạnh cửa sổ là anh trai tôi.",
+    "jp": "窓のそばに座っている人は兄です。",
+    "requireKanji": true,
+    "accepted": [
+      "窓の近くに座っている人は兄です。"
+    ]
+  },
+  {
+    "id": 12,
+    "vi": "Người đang đứng bên cạnh chị tôi là em trai tôi.",
+    "jp": "姉の隣に立っている人は弟です。",
+    "requireKanji": true,
+    "accepted": [
+      "姉のとなりに立っている人は弟です。"
+    ]
+  },
+  {
+    "id": 13,
+    "vi": "Người đang cười với vẻ vui thích là em gái tôi.",
+    "jp": "楽しそうに笑っている人は妹です。",
+    "requireKanji": true,
+    "accepted": []
+  },
+  {
+    "id": 14,
+    "vi": "Đứa trẻ đang khóc trông có vẻ buồn.",
+    "jp": "泣いている子どもは悲しそうです。",
+    "requireKanji": true,
+    "accepted": [
+      "泣いている子供は悲しそうです。"
+    ]
+  },
+  {
+    "id": 15,
+    "vi": "Người đang nói chuyện với chồng chị Tanaka rất nghiêm khắc.",
+    "jp": "田中さんのご主人と話している人はとても厳しいです。",
+    "requireKanji": true,
+    "accepted": []
+  },
+  {
+    "id": 16,
+    "vi": "Tính cả tôi, nhà tôi có ba anh chị em.",
+    "jp": "私は三人兄弟です。",
+    "requireKanji": true,
+    "accepted": [
+      "私たちは三人兄弟です。"
+    ]
+  },
+  {
+    "id": 17,
+    "vi": "Anh tôi thông minh.",
+    "jp": "兄は頭がいいです。",
+    "requireKanji": true,
+    "accepted": [
+      "兄は頭が良いです。"
+    ]
+  },
+  {
+    "id": 18,
+    "vi": "Người hát giỏi là chị gái tôi.",
+    "jp": "歌が上手な人は姉です。",
+    "requireKanji": true,
+    "accepted": [
+      "姉は歌が上手です。"
+    ]
+  },
+  {
+    "id": 19,
+    "vi": "Anh tôi đang hát một bài hát tiếng Nhật.",
+    "jp": "兄は日本語の歌を歌っています。",
+    "requireKanji": true,
+    "accepted": []
+  },
+  {
+    "id": 20,
+    "vi": "Em gái tôi có mái tóc ngắn.",
+    "jp": "妹は髪が短いです。",
+    "requireKanji": true,
+    "accepted": [
+      "妹の髪は短いです。"
+    ]
+  },
+  {
+    "id": 21,
+    "vi": "Anh trai tôi cao, còn em trai tôi thấp.",
+    "jp": "兄は背が高くて、弟は背が低いです。",
+    "requireKanji": true,
+    "accepted": [
+      "兄は背が高いですが、弟は背が低いです。"
+    ]
+  },
+  {
+    "id": 22,
+    "vi": "Người có mái tóc dài đang mặc áo khoác.",
+    "jp": "髪が長い人がコートを着ています。",
+    "requireKanji": true,
+    "accepted": [
+      "髪の長い人がコートを着ています。"
+    ]
+  },
+  {
+    "id": 23,
+    "vi": "Người phụ nữ mặc sari trông có vẻ khỏe mạnh.",
+    "jp": "サリーを着ている女の人は健康そうです。",
+    "requireKanji": true,
+    "accepted": [
+      "サリーを着ている女性は健康そうです。"
+    ]
+  },
+  {
+    "id": 24,
+    "vi": "Người đang đội mũ trông có vẻ lạnh.",
+    "jp": "ぼうしをかぶっている人は寒そうです。",
+    "requireKanji": true,
+    "accepted": [
+      "帽子をかぶっている人は寒そうです。"
+    ]
+  },
+  {
+    "id": 25,
+    "vi": "Người đang cười trông có vẻ hiền lành.",
+    "jp": "笑っている人は優しそうです。",
+    "requireKanji": true,
+    "accepted": [
+      "笑っている人はやさしそうです。"
+    ]
+  },
+  {
+    "id": 26,
+    "vi": "Anh trai của bạn tôi đang đeo kính.",
+    "jp": "友だちのお兄さんはめがねをかけています。",
+    "requireKanji": true,
+    "accepted": [
+      "友だちのお兄さんは眼鏡をかけています。",
+      "友達のお兄さんは眼鏡をかけています。",
+      "友達のお兄さんはめがねをかけています。"
+    ]
+  },
+  {
+    "id": 27,
+    "vi": "Người đang hát là ca sĩ.",
+    "jp": "歌っている人は歌手です。",
+    "requireKanji": true,
+    "accepted": []
+  },
+  {
+    "id": 28,
+    "vi": "Em trai tôi đang mặc áo len màu xanh dương.",
+    "jp": "弟は青いセーターを着ています。",
+    "requireKanji": true,
+    "accepted": [
+      "弟は青色のセーターを着ています。"
+    ]
+  },
+  {
+    "id": 29,
+    "vi": "Người đang mặc váy dài là chị tôi.",
+    "jp": "長いスカートをはいている人は姉です。",
+    "requireKanji": true,
+    "accepted": [
+      "長いスカートを穿いている人は姉です。",
+      "長いスカートを履いている人は姉です。"
+    ]
+  },
+  {
+    "id": 30,
+    "vi": "Người đàn ông đang thắt cà vạt đang đứng.",
+    "jp": "ネクタイをしている男の人が立っています。",
+    "requireKanji": true,
+    "accepted": [
+      "ネクタイをしている男性が立っています。",
+      "ネクタイを締めている男の人が立っています。",
+      "ネクタイを締めている男性が立っています。"
+    ]
+  },
+  {
+    "id": 31,
+    "vi": "Chồng chị Tanaka đang ngồi cười.",
+    "jp": "田中さんのご主人は座って笑っています。",
+    "requireKanji": true,
+    "accepted": []
+  },
+  {
+    "id": 32,
+    "vi": "Người mặc vest đang nói chuyện với gia đình tôi.",
+    "jp": "スーツを着ている人が私の家族と話しています。",
+    "requireKanji": true,
+    "accepted": [
+      "スーツを着ている人が私の家族と話をしています。"
+    ]
+  },
+  {
+    "id": 33,
+    "vi": "Chị tôi và tôi là hai chị em gái.",
+    "jp": "姉と私は二人姉妹です。",
+    "requireKanji": true,
+    "accepted": [
+      "私と姉は二人姉妹です。"
+    ]
+  },
+  {
+    "id": 34,
+    "vi": "Chị gái của bạn tôi hát giỏi.",
+    "jp": "友だちのお姉さんは歌が上手です。",
+    "requireKanji": true,
+    "accepted": [
+      "友達のお姉さんは歌が上手です。"
+    ]
+  },
+  {
+    "id": 35,
+    "vi": "Tôi nói chuyện với một người trông có vẻ hiền lành tại tiệc gia đình.",
+    "jp": "ホームパーティーで優しそうな人と話します。",
+    "requireKanji": true,
+    "accepted": [
+      "ホームパーティーでやさしそうな人と話します。"
+    ]
+  },
+  {
+    "id": 36,
+    "vi": "Người đang đứng cạnh em gái tôi mặc sari.",
+    "jp": "妹の隣に立っている人はサリーを着ています。",
+    "requireKanji": true,
+    "accepted": [
+      "妹のとなりに立っている人はサリーを着ています。"
+    ]
+  },
+  {
+    "id": 37,
+    "vi": "Gần đây, chị tôi thường hát bài hát này.",
+    "jp": "最近、姉はよくこの歌を歌います。",
+    "requireKanji": true,
+    "accepted": [
+      "最近、姉はこの歌をよく歌います。"
+    ]
+  },
+  {
+    "id": 38,
+    "vi": "Bộ vest này trông có vẻ ổn.",
+    "jp": "このスーツはよさそうです。",
+    "requireKanji": true,
+    "accepted": [
+      "このスーツは良さそうです。"
+    ]
+  },
+  {
+    "id": 39,
+    "vi": "Người này trông có vẻ không có tiền.",
+    "jp": "この人はお金がなさそうです。",
+    "requireKanji": true,
+    "accepted": [
+      "この人はお金が無さそうです。"
+    ]
+  },
+  {
+    "id": 40,
+    "vi": "Chị tôi viết chữ to và đẹp.",
+    "jp": "姉は字を大きく、きれいに書きます。",
+    "requireKanji": true,
+    "accepted": [
+      "姉は大きくてきれいな字を書きます。"
+    ]
+  }
+];
+
+const KANJI_PRACTICE_DATA = [
+  {
+    "id": "official-2-1",
+    "word": "兄",
+    "kana": "あに",
+    "mean": "Anh trai (của mình)",
+    "accepted": []
+  },
+  {
+    "id": "official-2-2",
+    "word": "お兄さん",
+    "kana": "おにいさん",
+    "mean": "Anh trai (của người khác)",
+    "accepted": []
+  },
+  {
+    "id": "official-2-3",
+    "word": "姉",
+    "kana": "あね",
+    "mean": "Chị gái (của mình)",
+    "accepted": []
+  },
+  {
+    "id": "official-2-4",
+    "word": "お姉さん",
+    "kana": "おねえさん",
+    "mean": "Chị gái (của người khác)",
+    "accepted": []
+  },
+  {
+    "id": "official-2-5",
+    "word": "弟",
+    "kana": "おとうと",
+    "mean": "Em trai",
+    "accepted": []
+  },
+  {
+    "id": "official-2-6",
+    "word": "妹",
+    "kana": "いもうと",
+    "mean": "Em gái",
+    "accepted": []
+  },
+  {
+    "id": "official-2-7",
+    "word": "家族",
+    "kana": "かぞく",
+    "mean": "Gia đình",
+    "accepted": []
+  },
+  {
+    "id": "official-2-8",
+    "word": "長い",
+    "kana": "ながい",
+    "mean": "Dài",
+    "accepted": []
+  },
+  {
+    "id": "official-2-9",
+    "word": "短い",
+    "kana": "みじかい",
+    "mean": "Ngắn",
+    "accepted": []
+  },
+  {
+    "id": "official-2-10",
+    "word": "低い",
+    "kana": "ひくい",
+    "mean": "Thấp",
+    "accepted": []
+  },
+  {
+    "id": "official-2-11",
+    "word": "上手",
+    "kana": "じょうず",
+    "mean": "Giỏi, khéo",
+    "accepted": []
+  },
+  {
+    "id": "official-2-12",
+    "word": "歌",
+    "kana": "うた",
+    "mean": "Bài hát",
+    "accepted": []
+  },
+  {
+    "id": "official-2-13",
+    "word": "歌います",
+    "kana": "うたいます",
+    "mean": "Hát",
+    "accepted": []
+  },
+  {
+    "id": "supplement-2-1",
+    "word": "兄弟",
+    "kana": "きょうだい",
+    "mean": "Anh em",
+    "accepted": []
+  },
+  {
+    "id": "supplement-2-2",
+    "word": "姉妹",
+    "kana": "しまい",
+    "mean": "Chị em",
+    "accepted": []
+  },
+  {
+    "id": "supplement-2-3",
+    "word": "成長",
+    "kana": "せいちょう",
+    "mean": "Trưởng thành, phát triển",
+    "accepted": []
+  },
+  {
+    "id": "supplement-2-4",
+    "word": "歌手",
+    "kana": "かしゅ",
+    "mean": "Ca sĩ",
+    "accepted": []
+  },
+  {
+    "id": "supplement-2-5",
+    "word": "水族館",
+    "kana": "すいぞくかん",
+    "mean": "Thủy cung",
+    "accepted": []
   }
 ];
 
@@ -593,3 +1158,5 @@ if (document.readyState === 'loading') {
 }
 
 if (typeof VOCAB_DATA !== "undefined") window.VOCAB_DATA = VOCAB_DATA;
+if (typeof SENTENCE_PRACTICE_DATA !== "undefined") window.SENTENCE_PRACTICE_DATA = SENTENCE_PRACTICE_DATA;
+if (typeof KANJI_PRACTICE_DATA !== "undefined") window.KANJI_PRACTICE_DATA = KANJI_PRACTICE_DATA;

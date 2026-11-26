@@ -10,14 +10,55 @@
 
     const revision = 'a2-2-typing40-v1';
     const key = window.MarugotoCheckpoint?.getKey?.('typing_sentences_a2_2_v1')
-        || `marugoto_cp_v1::${location.pathname}::typing_sentences_a2_2_v1`;
+        || `marugoto_cp_v1::lessons/${location.pathname.split('/').pop()}::typing_sentences_a2_2_v1`;
+    const legacyKey = `marugoto_cp_v1::${location.pathname}::typing_sentences_a2_2_v1`;
+
+    function contentSignature(item, isKanji = false) {
+        return JSON.stringify(isKanji
+            ? [item.mean, item.word, item.accepted || []]
+            : [item.vi, item.jp, item.accepted || [], Boolean(item.requireKanji)]);
+    }
+
+    function restoreItems(items, saved, isKanji = false) {
+        const restored = {};
+        items.forEach(item => {
+            const current = saved?.[item.id];
+            if (!current || typeof current !== 'object') return;
+            const signature = contentSignature(item, isKanji);
+            if (current.signature !== signature) {
+                // Legacy checkpoints have no signature; preserve only still-valid correct answers.
+                const validLegacy = !current.signature && current.status === 'correct' &&
+                    (isKanji ? gradeKanji(current.draft || '', item) : gradeSentence(current.draft || '', item)).correct;
+                if (!validLegacy) {
+                    delete current.status;
+                    delete current.feedback;
+                }
+            }
+            restored[item.id] = { ...current, signature };
+        });
+        return restored;
+    }
 
     function loadState() {
         try {
-            const saved = JSON.parse(localStorage.getItem(key) || 'null');
+            const saved = [key, legacyKey].map(storageKey => {
+                try {
+                    return JSON.parse(localStorage.getItem(storageKey) || 'null');
+                } catch (error) {
+                    return null;
+                }
+            }).filter(checkpoint => (checkpoint?.d || checkpoint)?.revision === revision)
+                .sort((a, b) => (Number(b.t) || 0) - (Number(a.t) || 0))[0];
             const state = saved && saved.d ? saved.d : saved;
             if (state?.revision === revision && state.items && typeof state.items === 'object') {
-                state.kanjiItems = state.kanjiItems && typeof state.kanjiItems === 'object' ? state.kanjiItems : {};
+                state.items = restoreItems(sentences, state.items);
+                state.kanjiItems = restoreItems(kanji, state.kanjiItems, true);
+                try {
+                    localStorage.setItem(key, JSON.stringify({ t: saved.t || Date.now(), d: state }));
+                    localStorage.removeItem(legacyKey);
+                } catch (error) {
+                    // A failed migration must not discard the state already loaded into memory.
+                }
                 return state;
             }
         } catch (error) {
@@ -31,6 +72,8 @@
         '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
     })[char]);
 
+    // This section owns its checkpoint; generic input restore must not resurrect reset drafts.
+    section.setAttribute('data-cp-ignore', '');
     section.innerHTML = `
         <div class="section-header">
             <h2 class="section-title"><span aria-hidden="true">⌨</span> Luyện gõ 40 câu Việt → Nhật</h2>
@@ -66,6 +109,7 @@
     function saveState() {
         try {
             localStorage.setItem(key, JSON.stringify({ t: Date.now(), d: state }));
+            localStorage.removeItem(legacyKey);
             window.MarugotoCheckpoint?.notifySaved?.();
         } catch (error) {
             // Storage can be unavailable in private browsing; typing still works for this visit.
@@ -93,6 +137,14 @@
             correct: acceptable.includes(normalize(value)) &&
                 (!item.requireKanji || window.JpTypingGrader?.containsKanji?.(value)),
             missingKanji: item.requireKanji && !window.JpTypingGrader?.containsKanji?.(value)
+        };
+    }
+
+    function gradeKanji(value, item) {
+        const missingKanji = !window.JpTypingGrader?.containsKanji?.(value);
+        return {
+            correct: !missingKanji && [item.word, ...(item.accepted || [])].some(word => normalize(value) === normalize(word)),
+            missingKanji
         };
     }
 
@@ -147,7 +199,7 @@
             <p class="sentence-practice-answer" lang="ja" hidden></p>
         `;
         const input = card.querySelector('.sentence-practice-input');
-        const getCurrent = () => getStore()[id] || {};
+        const getCurrent = () => getStore()[id] || { signature: contentSignature(item, isKanji) };
         updateCard(card, item, getCurrent(), isKanji);
 
         function grade() {
@@ -157,16 +209,7 @@
             }
             const current = getCurrent();
             current.draft = input.value;
-            let correct;
-            let missingKanji = false;
-            if (isKanji) {
-                missingKanji = !window.JpTypingGrader?.containsKanji?.(input.value);
-                correct = !missingKanji && [item.word, ...(item.accepted || [])].some(word => normalize(input.value) === normalize(word));
-            } else {
-                const result = gradeSentence(input.value, item);
-                correct = result.correct;
-                missingKanji = result.missingKanji;
-            }
+            const { correct, missingKanji } = isKanji ? gradeKanji(input.value, item) : gradeSentence(input.value, item);
             current.status = correct ? 'correct' : 'wrong';
             current.feedback = missingKanji ? 'Hãy nhập ít nhất một chữ Kanji; chỉ gõ kana chưa đủ.'
                 : correct ? 'Chính xác.' : 'Chưa khớp; có thể xem đáp án tham khảo.';

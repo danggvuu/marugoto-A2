@@ -63,7 +63,7 @@ python3 scripts/build_all.py
 python3 scripts/build_all.py --check-only
 ```
 
-`build_all.py` vừa **ghi lại đầu ra** vừa kiểm tra 69 trang HTML/87 JS và chạy các regression về runtime, nội dung, checkpoint, phiên thi, Kanji, 3D cùng script build phụ. `--check-only` chạy cùng kiểm tra nhưng bỏ qua generator; đầu ra A2.2 vẫn phải khớp nguồn hiện tại. Danh sách `BUILDERS` và `REGRESSION_CHECKS` trong script xác định pipeline chính thức, không mặc định mọi generator đều nằm trong build tổng.
+`build_all.py` vừa **ghi lại đầu ra** vừa kiểm tra 69 trang HTML/88 JS và chạy các regression về runtime, nội dung, checkpoint, phiên thi, Kanji, 3D cùng script build phụ. `--check-only` chạy cùng kiểm tra nhưng bỏ qua generator; đầu ra A2.2 vẫn phải khớp nguồn hiện tại. Danh sách `BUILDERS` và `REGRESSION_CHECKS` trong script xác định pipeline chính thức, không mặc định mọi generator đều nằm trong build tổng.
 
 Browser tests và cài môi trường: [hướng dẫn trong README](../README.md#3-browser-tests). Test kỹ thuật không thay thế kiểm tra đáp án với tài liệu học hoặc thử bàn phím/IME thực tế.
 

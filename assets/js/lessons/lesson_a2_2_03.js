@@ -506,6 +506,579 @@ const QUIZ_DATA = [
     "correct": 2,
     "explain": "ずつ diễn tả phân chia theo từng đơn vị.",
     "grammarScope": "official"
+  },
+  {
+    "id": 16,
+    "category": "Ngữ pháp",
+    "grammarScope": "official",
+    "q": "Điền mẫu chỉ lý do ので: 明日は休み [____]、ゆっくりします。",
+    "options": [
+      "なので",
+      "だので",
+      "ので",
+      "なで"
+    ],
+    "correct": 0,
+    "explain": "Danh từ ở hiện tại khẳng định nối với ので bằng な: 休みなので. Câu có nghĩa là vì mai được nghỉ nên tôi sẽ nghỉ ngơi thong thả.",
+    "reviewVersion": "a22-practice20-v1"
+  },
+  {
+    "id": 17,
+    "category": "Ngữ pháp",
+    "grammarScope": "official",
+    "q": "Dùng mẫu nhấn mạnh ～のは Nです: 私が一番好きな [____] 和食です。",
+    "options": [
+      "ので",
+      "のは",
+      "なら",
+      "ずつ"
+    ],
+    "correct": 1,
+    "explain": "好き là tính từ な: 好きなのは和食です. の danh từ hóa phần phía trước để xác định món ăn yêu thích nhất.",
+    "reviewVersion": "a22-practice20-v1"
+  },
+  {
+    "id": 18,
+    "category": "Ngữ pháp",
+    "grammarScope": "official",
+    "q": "‘Nếu là đồ ăn Nhật thì tôi gợi ý sukiyaki.’ 和食 [____]、すき焼きがおすすめです。",
+    "options": [
+      "なのは",
+      "ずつ",
+      "なら",
+      "を"
+    ],
+    "correct": 2,
+    "explain": "Nなら nhắc lại chủ đề để đưa gợi ý: 和食なら、すき焼きがおすすめです.",
+    "reviewVersion": "a22-practice20-v1"
+  },
+  {
+    "id": 19,
+    "category": "Ngữ pháp",
+    "grammarScope": "official",
+    "q": "‘Cho tôi bia và trà Ô long, mỗi loại hai ly.’ ビールとウーロン茶を二杯 [____] ください。",
+    "options": [
+      "ので",
+      "なら",
+      "のは",
+      "ずつ"
+    ],
+    "correct": 3,
+    "explain": "二杯ずつ là mỗi loại hai ly. Đồ uống dùng lượng từ 杯; 人 đếm người, không đếm món ăn hay ly nước.",
+    "reviewVersion": "a22-practice20-v1"
+  },
+  {
+    "id": 20,
+    "category": "Chữ Hán",
+    "scopeKanji": "注文",
+    "q": "「注文」の読み方はどれですか。",
+    "options": [
+      "ちゅうい",
+      "ようしょく",
+      "ほうほう",
+      "ちゅうもん"
+    ],
+    "correct": 3,
+    "explain": "注文 đọc là ちゅうもん, nghĩa là gọi món/đặt hàng.",
+    "reviewVersion": "a22-practice20-v1"
+  }
+];
+
+const SENTENCE_PRACTICE_DATA = [
+  {
+    "id": 1,
+    "vi": "Khách đang ngồi ở quầy.",
+    "jp": "お客さんはカウンターに座っています。",
+    "requireKanji": true,
+    "accepted": [
+      "お客さんはカウンター席に座っています。"
+    ]
+  },
+  {
+    "id": 2,
+    "vi": "Tôi đã đặt chiếc bàn cạnh cửa sổ.",
+    "jp": "窓のそばのテーブルを予約しました。",
+    "requireKanji": true,
+    "accepted": [
+      "窓際のテーブルを予約しました。"
+    ]
+  },
+  {
+    "id": 3,
+    "vi": "Khách đang ngồi trong phòng trải chiếu tatami.",
+    "jp": "お客さんは座敷に座っています。",
+    "requireKanji": true,
+    "accepted": [
+      "お客さんはざしきに座っています。"
+    ]
+  },
+  {
+    "id": 4,
+    "vi": "Ghế hút thuốc ở bên phải.",
+    "jp": "喫煙席は右にあります。",
+    "requireKanji": true,
+    "accepted": [
+      "喫煙席は右側にあります。"
+    ]
+  },
+  {
+    "id": 5,
+    "vi": "Cho tôi chỗ ngồi không hút thuốc.",
+    "jp": "禁煙席をお願いします。",
+    "requireKanji": true,
+    "accepted": [
+      "禁煙席にしてください。"
+    ]
+  },
+  {
+    "id": 6,
+    "vi": "Tôi đã đặt chỗ cho bốn người.",
+    "jp": "四人分の席を予約しました。",
+    "requireKanji": true,
+    "accepted": [
+      "四名分の席を予約しました。",
+      "四人の席を予約しました。"
+    ]
+  },
+  {
+    "id": 7,
+    "vi": "Chúng tôi đã gọi món lẩu thập cẩm.",
+    "jp": "私たちは寄せ鍋を注文しました。",
+    "requireKanji": true,
+    "accepted": [
+      "私たちはよせ鍋を注文しました。"
+    ]
+  },
+  {
+    "id": 8,
+    "vi": "Món ăn kiểu Nhật ở đây rất nổi tiếng.",
+    "jp": "ここの和食はとても有名です。",
+    "requireKanji": true,
+    "accepted": [
+      "ここの日本料理はとても有名です。"
+    ]
+  },
+  {
+    "id": 9,
+    "vi": "Vì tôi thích sukiyaki nên tôi sẽ gọi món đó.",
+    "jp": "すき焼きが好きなので、注文します。",
+    "requireKanji": true,
+    "accepted": [
+      "すき焼きが好きなので、それを注文します。"
+    ]
+  },
+  {
+    "id": 10,
+    "vi": "Món ăn này bổ dưỡng.",
+    "jp": "この料理は栄養があります。",
+    "requireKanji": true,
+    "accepted": [
+      "この料理は栄養が豊富です。"
+    ]
+  },
+  {
+    "id": 11,
+    "vi": "Nếu ăn chay thì tôi gợi ý món rau này.",
+    "jp": "ベジタリアンなら、この野菜料理がおすすめです。",
+    "requireKanji": true,
+    "accepted": [
+      "ベジタリアンなら、この野菜の料理がおすすめです。"
+    ]
+  },
+  {
+    "id": 12,
+    "vi": "Vì không thích cua nên tôi không ăn.",
+    "jp": "蟹が好きではないので、食べません。",
+    "requireKanji": true,
+    "accepted": [
+      "かにが好きではないので、食べません。",
+      "かにが好きじゃないので、食べません。"
+    ]
+  },
+  {
+    "id": 13,
+    "vi": "Tôm của nhà hàng này rất tươi.",
+    "jp": "この店の海老はとても新鮮です。",
+    "requireKanji": true,
+    "accepted": [
+      "この店のえびはとても新鮮です。"
+    ]
+  },
+  {
+    "id": 14,
+    "vi": "Tôi gọi nước ngọt.",
+    "jp": "ソフトドリンクを注文します。",
+    "requireKanji": true,
+    "accepted": [
+      "ソフトドリンクを頼みます。"
+    ]
+  },
+  {
+    "id": 15,
+    "vi": "Trà Ô long ở đây rất ngon.",
+    "jp": "ここのウーロン茶はとてもおいしいです。",
+    "requireKanji": true,
+    "accepted": [
+      "ここのウーロン茶はとても美味しいです。",
+      "ここの烏龍茶はとてもおいしいです。",
+      "ここの烏龍茶はとても美味しいです。"
+    ]
+  },
+  {
+    "id": 16,
+    "vi": "Xin hỏi quý khách có mấy vị ạ?",
+    "jp": "何名様ですか。",
+    "requireKanji": true,
+    "accepted": [
+      "何名さまですか。"
+    ]
+  },
+  {
+    "id": 17,
+    "vi": "Quý khách đã chọn món xong chưa ạ?",
+    "jp": "お決まりですか。",
+    "requireKanji": true,
+    "accepted": [
+      "ご注文はお決まりですか。"
+    ]
+  },
+  {
+    "id": 18,
+    "vi": "Tôi ăn cay kém.",
+    "jp": "私は辛い料理が苦手です。",
+    "requireKanji": true,
+    "accepted": [
+      "私は辛い食べ物が苦手です。",
+      "私は辛いものが苦手です。"
+    ]
+  },
+  {
+    "id": 19,
+    "vi": "Khách đã gọi món thịt bò.",
+    "jp": "お客さんは牛肉を注文しました。",
+    "requireKanji": true,
+    "accepted": [
+      "お客さんは牛肉を頼みました。"
+    ]
+  },
+  {
+    "id": 20,
+    "vi": "Vì món ăn nguội nên tôi hâm nóng nó.",
+    "jp": "料理が冷たいので、温めます。",
+    "requireKanji": true,
+    "accepted": [
+      "料理が冷たいので、あたためます。"
+    ]
+  },
+  {
+    "id": 21,
+    "vi": "Vì nhà hàng nổi tiếng nên khách rất đông.",
+    "jp": "店が有名なので、お客さんがたくさんいます。",
+    "requireKanji": true,
+    "accepted": [
+      "店が有名なので、たくさんのお客さんがいます。"
+    ]
+  },
+  {
+    "id": 22,
+    "vi": "Vì hôm nay là sinh nhật nên chúng tôi ăn ở nhà hàng.",
+    "jp": "今日は誕生日なので、レストランで食べます。",
+    "requireKanji": true,
+    "accepted": [
+      "今日は誕生日なので、レストランで食事をします。"
+    ]
+  },
+  {
+    "id": 23,
+    "vi": "Món ăn tôi thích nhất là đồ ăn Nhật.",
+    "jp": "私が一番好きなのは和食です。",
+    "requireKanji": true,
+    "accepted": [
+      "私が一番好きなのは日本料理です。"
+    ]
+  },
+  {
+    "id": 24,
+    "vi": "Món tôi đã gọi là lẩu thập cẩm.",
+    "jp": "私が注文したのは寄せ鍋です。",
+    "requireKanji": true,
+    "accepted": [
+      "私が頼んだのは寄せ鍋です。"
+    ]
+  },
+  {
+    "id": 25,
+    "vi": "Nếu là đồ ăn Tây thì tôi gợi ý món này.",
+    "jp": "洋食なら、この料理がおすすめです。",
+    "requireKanji": true,
+    "accepted": [
+      "洋食なら、この料理をおすすめします。"
+    ]
+  },
+  {
+    "id": 26,
+    "vi": "Nếu là quần áo kiểu Nhật thì tôi thích kimono.",
+    "jp": "和服なら、着物が好きです。",
+    "requireKanji": true,
+    "accepted": [
+      "和服なら、きものが好きです。"
+    ]
+  },
+  {
+    "id": 27,
+    "vi": "Nhà hàng này có một phòng kiểu Nhật.",
+    "jp": "この店には和室があります。",
+    "requireKanji": true,
+    "accepted": [
+      "この店には日本式の部屋があります。"
+    ]
+  },
+  {
+    "id": 28,
+    "vi": "Cách gọi món ở nhà hàng này rất đơn giản.",
+    "jp": "この店の注文の方法は簡単です。",
+    "requireKanji": true,
+    "accepted": [
+      "この店での注文の方法は簡単です。",
+      "この店の注文方法は簡単です。"
+    ]
+  },
+  {
+    "id": 29,
+    "vi": "Vì trẻ em đang lớn nên dinh dưỡng rất quan trọng.",
+    "jp": "子どもは成長しているので、栄養が大切です。",
+    "requireKanji": true,
+    "accepted": [
+      "子供は成長しているので、栄養が大切です。"
+    ]
+  },
+  {
+    "id": 30,
+    "vi": "Sữa bò lạnh nên tôi hâm nóng.",
+    "jp": "牛乳が冷たいので、温めます。",
+    "requireKanji": true,
+    "accepted": [
+      "牛乳が冷たいので、あたためます。"
+    ]
+  },
+  {
+    "id": 31,
+    "vi": "Phòng kiểu Nhật ở nhà hàng này có tính phí sử dụng.",
+    "jp": "この店の和室は有料です。",
+    "requireKanji": true,
+    "accepted": [
+      "この店では和室の利用は有料です。"
+    ]
+  },
+  {
+    "id": 32,
+    "vi": "Cửa hàng này bán quần áo kiểu Tây.",
+    "jp": "この店では洋服を売っています。",
+    "requireKanji": true,
+    "accepted": [
+      "この店では洋服を販売しています。"
+    ]
+  },
+  {
+    "id": 33,
+    "vi": "Hãy chú ý đến cách ăn món này.",
+    "jp": "この料理の食べ方に注意してください。",
+    "requireKanji": true,
+    "accepted": [
+      "この料理の食べ方に気をつけてください。"
+    ]
+  },
+  {
+    "id": 34,
+    "vi": "Tôi đã ăn món ăn của địa phương này.",
+    "jp": "この地方の料理を食べました。",
+    "requireKanji": true,
+    "accepted": [
+      "この地域の料理を食べました。"
+    ]
+  },
+  {
+    "id": 35,
+    "vi": "Vì hôm qua là ngày nghỉ nên tôi đã ăn ở nhà hàng.",
+    "jp": "昨日は休みだったので、レストランで食べました。",
+    "requireKanji": true,
+    "accepted": [
+      "昨日は休日だったので、レストランで食べました。"
+    ]
+  },
+  {
+    "id": 36,
+    "vi": "Món cay nhất ở nhà hàng này là cà ri.",
+    "jp": "この店で一番辛いのはカレーです。",
+    "requireKanji": true,
+    "accepted": [
+      "この店で一番辛い料理はカレーです。"
+    ]
+  },
+  {
+    "id": 37,
+    "vi": "Vì sữa bò đã lạnh rồi nên tôi sẽ uống ngay.",
+    "jp": "牛乳が冷えたので、すぐ飲みます。",
+    "requireKanji": true,
+    "accepted": [
+      "牛乳が冷えたので、すぐに飲みます。"
+    ]
+  },
+  {
+    "id": 38,
+    "vi": "Tôi gọi bia và nước ngọt, mỗi thứ hai ly.",
+    "jp": "ビールとソフトドリンクを二杯ずつ注文します。",
+    "requireKanji": true,
+    "accepted": [
+      "ビールとソフトドリンクを二杯ずつ頼みます。"
+    ]
+  },
+  {
+    "id": 39,
+    "vi": "Tôi sẽ làm lạnh nước và sữa bò, mỗi loại một chai.",
+    "jp": "水と牛乳を一本ずつ冷やします。",
+    "requireKanji": true,
+    "accepted": [
+      "水と牛乳をそれぞれ一本ずつ冷やします。"
+    ]
+  },
+  {
+    "id": 40,
+    "vi": "Nếu là lẩu sukiyaki, thịt bò tươi là ngon nhất.",
+    "jp": "すき焼きなら、新鮮な牛肉が一番です。",
+    "requireKanji": true,
+    "accepted": [
+      "すき焼きなら、新鮮な牛肉が一番おいしいです。"
+    ]
+  }
+];
+
+const KANJI_PRACTICE_DATA = [
+  {
+    "id": "official-3-1",
+    "word": "お客さん",
+    "kana": "おきゃくさん",
+    "mean": "Khách hàng",
+    "accepted": []
+  },
+  {
+    "id": "official-3-2",
+    "word": "注文",
+    "kana": "ちゅうもん",
+    "mean": "Order, gọi món, đặt hàng",
+    "accepted": []
+  },
+  {
+    "id": "official-3-3",
+    "word": "注意",
+    "kana": "ちゅうい",
+    "mean": "Chú ý, nhắc nhở",
+    "accepted": []
+  },
+  {
+    "id": "official-3-4",
+    "word": "洋食",
+    "kana": "ようしょく",
+    "mean": "Đồ ăn kiểu Tây",
+    "accepted": []
+  },
+  {
+    "id": "official-3-5",
+    "word": "洋服",
+    "kana": "ようふく",
+    "mean": "Quần áo kiểu Tây",
+    "accepted": []
+  },
+  {
+    "id": "official-3-6",
+    "word": "和食",
+    "kana": "わしょく",
+    "mean": "Đồ ăn kiểu Nhật",
+    "accepted": []
+  },
+  {
+    "id": "official-3-7",
+    "word": "和服",
+    "kana": "わふく",
+    "mean": "Quần áo kiểu Nhật",
+    "accepted": []
+  },
+  {
+    "id": "official-3-8",
+    "word": "和室",
+    "kana": "わしつ",
+    "mean": "Phòng kiểu Nhật",
+    "accepted": []
+  },
+  {
+    "id": "official-3-9",
+    "word": "方",
+    "kana": "かた",
+    "mean": "Vị, cách làm~",
+    "accepted": []
+  },
+  {
+    "id": "official-3-10",
+    "word": "地方",
+    "kana": "ちほう",
+    "mean": "Địa phương",
+    "accepted": []
+  },
+  {
+    "id": "official-3-11",
+    "word": "方法",
+    "kana": "ほうほう",
+    "mean": "Phương pháp, cách thức",
+    "accepted": []
+  },
+  {
+    "id": "official-3-12",
+    "word": "有名",
+    "kana": "ゆうめい",
+    "mean": "Nổi tiếng",
+    "accepted": []
+  },
+  {
+    "id": "official-3-13",
+    "word": "有料",
+    "kana": "ゆうりょう",
+    "mean": "Có phí, mất phí",
+    "accepted": []
+  },
+  {
+    "id": "official-3-14",
+    "word": "牛肉",
+    "kana": "ぎゅうにく",
+    "mean": "Thịt bò",
+    "accepted": []
+  },
+  {
+    "id": "official-3-15",
+    "word": "牛乳",
+    "kana": "ぎゅうにゅう",
+    "mean": "Sữa bò",
+    "accepted": []
+  },
+  {
+    "id": "official-3-16",
+    "word": "冷たい",
+    "kana": "つめたい",
+    "mean": "Lạnh (cảm giác)",
+    "accepted": []
+  },
+  {
+    "id": "official-3-17",
+    "word": "冷える",
+    "kana": "ひえる",
+    "mean": "Lạnh, cóng",
+    "accepted": []
+  },
+  {
+    "id": "official-3-18",
+    "word": "冷やす",
+    "kana": "ひやす",
+    "mean": "Làm lạnh",
+    "accepted": []
   }
 ];
 
@@ -630,3 +1203,5 @@ if (document.readyState === 'loading') {
 }
 
 if (typeof VOCAB_DATA !== "undefined") window.VOCAB_DATA = VOCAB_DATA;
+if (typeof SENTENCE_PRACTICE_DATA !== "undefined") window.SENTENCE_PRACTICE_DATA = SENTENCE_PRACTICE_DATA;
+if (typeof KANJI_PRACTICE_DATA !== "undefined") window.KANJI_PRACTICE_DATA = KANJI_PRACTICE_DATA;
