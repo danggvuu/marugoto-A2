@@ -13,6 +13,12 @@
 (function () {
     'use strict';
 
+    const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    function prefersReducedMotion() {
+        return motionQuery.matches;
+    }
+
     // Danh mục chuẩn 36 bài học phục vụ chuyển bài và prefetch
     const A2_1_LESSONS = [
         { file: 'Marugoto_A2_Lesson_1.html', num: '01', title: 'Bài 1: Nơi ở & Gia đình', icon: '🌸', level: 'A2-1' },
@@ -69,7 +75,7 @@
         const mainContainer = document.querySelector('.main-container');
         if (!mainContainer) return;
 
-        const sectionNav = mainContainer.querySelector('.section-nav');
+        const sectionNav = document.querySelector('.section-nav');
         if (!sectionNav) return;
 
         const originalLinks = Array.from(sectionNav.querySelectorAll('a[href^="#sec-"]'));
@@ -198,6 +204,7 @@
             glider.id = 'lessonMorphGlider';
             glider.className = 'lesson-morph-glider';
             glider.setAttribute('aria-hidden', 'true');
+            glider.inert = true;
             document.body.appendChild(glider);
         }
 
@@ -224,6 +231,9 @@
                         </div>
                     `).join('')}
                 </div>
+                <div class="macos-sidebar-footer">
+                    <div class="dock-btn-shortcut"><span>⌨️</span></div>
+                </div>
             </div>
         `;
 
@@ -236,12 +246,6 @@
         let activeDockAnim = null;
         let isDockedState = false;
         let isInitialized = false;
-        const motionQuery = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
-
-        function prefersReducedMotion() {
-            return Boolean(motionQuery && motionQuery.matches);
-        }
-
         function cancelMorphAnimations() {
             if (activeGliderAnim) { activeGliderAnim.cancel(); activeGliderAnim = null; }
             if (activeTopAnim) { activeTopAnim.cancel(); activeTopAnim = null; }
@@ -314,7 +318,7 @@
                 activeDockAnim = gliderDockLayer.animate([
                     { opacity: 0, transform: 'translateX(-50%) scale(0.9) translateY(8px)' },
                     { opacity: 1, transform: 'translateX(-50%) scale(1) translateY(0)' }
-                ], { duration: 240, delay: 150, easing: easeCurve, fill: 'forwards' });
+                ], { duration: 240, delay: 80, easing: easeCurve, fill: 'forwards' });
 
                 activeGliderAnim = glider.animate([
                     { transform: 'translate3d(0, 0, 0)', width: `${navRect.width}px`, height: `${navRect.height}px`, borderRadius: '9999px' },
@@ -322,7 +326,7 @@
                 ], { duration: duration, easing: easeCurve, fill: 'forwards' });
 
                 activeGliderAnim.onfinish = () => {
-                    activeGliderAnim = null;
+                    cancelMorphAnimations();
                     document.body.classList.remove('is-morphing-to-dock');
                     document.body.classList.add('is-scrolled-dock');
                     glider.classList.remove('is-active');
@@ -353,7 +357,7 @@
                 activeTopAnim = gliderTopLayer.animate([
                     { opacity: 0, transform: 'scale(0.92)' },
                     { opacity: 1, transform: 'scale(1)' }
-                ], { duration: 240, delay: 150, easing: easeCurve, fill: 'forwards' });
+                ], { duration: 240, delay: 80, easing: easeCurve, fill: 'forwards' });
 
                 activeGliderAnim = glider.animate([
                     { transform: 'translate3d(0, 0, 0)', width: `${dockRect.width}px`, height: `${dockRect.height}px`, borderRadius: '26px' },
@@ -361,7 +365,7 @@
                 ], { duration: duration, easing: easeCurve, fill: 'forwards' });
 
                 activeGliderAnim.onfinish = () => {
-                    activeGliderAnim = null;
+                    cancelMorphAnimations();
                     document.body.classList.remove('is-morphing-to-top');
                     document.body.classList.remove('is-scrolled-dock');
                     glider.classList.remove('is-active');
@@ -848,7 +852,7 @@
                 if (!targetEl) return;
 
                 const matchItem = railItems.find(i => i.href === savedSection);
-                const sectionName = matchItem ? matchItem.label : 'vị trí trước';
+                const sectionName = matchItem ? matchItem.fullTitle : 'vị trí trước';
 
                 // Tạo toast thông báo tiếp tục
                 const toast = document.createElement('div');

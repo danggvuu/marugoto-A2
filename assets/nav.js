@@ -217,7 +217,7 @@
         if (!existingNavCss) {
             const navLink = document.createElement('link');
             navLink.rel = 'stylesheet';
-            navLink.href = rootPrefix + 'assets/css/nav.css?v=2';
+            navLink.href = rootPrefix + 'assets/css/nav.css?v=3';
             document.head.appendChild(navLink);
         }
 
@@ -242,10 +242,10 @@
         if ((isLessons || document.querySelector('.section-nav')) && !document.querySelector('script[src*="lesson-sidebar-rail.js"]')) {
             const railCss = document.createElement('link');
             railCss.rel = 'stylesheet';
-            railCss.href = rootPrefix + 'assets/css/lesson-sidebar-rail.css?v=2';
+            railCss.href = rootPrefix + 'assets/css/lesson-sidebar-rail.css?v=3';
             document.head.appendChild(railCss);
             const railScript = document.createElement('script');
-            railScript.src = rootPrefix + 'assets/js/lesson-sidebar-rail.js?v=2';
+            railScript.src = rootPrefix + 'assets/js/lesson-sidebar-rail.js?v=3';
             railScript.defer = true;
             document.head.appendChild(railScript);
         }
@@ -524,6 +524,7 @@
             }
 
             menu.classList.remove('dock-open');
+            menu.style.position = '';
             menu.style.right = '';
             const wrapper = menu.closest('.global-hub-nav-wrapper') || btn.parentElement;
             const btnRect = btn.getBoundingClientRect();
@@ -543,6 +544,7 @@
             menu.style.left = clampedCenter + 'px';
             menu.style.transform = 'translateX(-50%)';
         } else {
+            menu.classList.remove('dock-open');
             menu.style.position = '';
             menu.style.right = '';
             menu.style.top = '';
@@ -570,6 +572,19 @@
     ];
 
     let lastFocusedBtn = null;
+    let bodyOverflowBeforeMenu = null;
+
+    function syncMenuScrollLock() {
+        const lockScroll = window.innerWidth <= 768 && Boolean(document.querySelector('.hub-dropdown-menu.show'));
+        document.body.classList.toggle('hub-menu-open', lockScroll);
+        if (lockScroll) {
+            if (bodyOverflowBeforeMenu === null) bodyOverflowBeforeMenu = document.body.style.overflow;
+            document.body.style.overflow = 'hidden';
+        } else if (bodyOverflowBeforeMenu !== null) {
+            document.body.style.overflow = bodyOverflowBeforeMenu;
+            bodyOverflowBeforeMenu = null;
+        }
+    }
 
     function closeAllHubDropdowns(restoreFocus = true) {
         ALL_MENU_IDS.forEach(id => {
@@ -585,8 +600,8 @@
         });
         const bd = document.getElementById('hubNavBackdrop');
         if (bd) bd.classList.remove('show');
-        document.body.classList.remove('hub-menu-open');
-        document.body.style.overflow = '';
+        syncMenuScrollLock();
+        if (lastFocusedBtn) lastFocusedBtn.setAttribute('aria-expanded', 'false');
         if (restoreFocus && lastFocusedBtn && typeof lastFocusedBtn.focus === 'function') {
             try { lastFocusedBtn.focus(); } catch (err) {}
             lastFocusedBtn = null;
@@ -610,7 +625,7 @@
         ALL_MENU_IDS.forEach(id => {
             if (id !== menuId) {
                 const m = document.getElementById(id);
-                if (m) m.classList.remove('show');
+                if (m) m.classList.remove('show', 'dock-open');
             }
         });
         ALL_BTN_IDS.forEach(id => {
@@ -624,16 +639,14 @@
         const targetBtn = (clickedBtn && clickedBtn.closest('.global-hub-dock')) ? clickedBtn : btn;
 
         if (willOpen) {
+            if (lastFocusedBtn) lastFocusedBtn.setAttribute('aria-expanded', 'false');
             lastFocusedBtn = targetBtn;
-            positionDesktopMenu(targetBtn, menu);
             menu.classList.add('show');
+            positionDesktopMenu(targetBtn, menu);
             if (btn) btn.setAttribute('aria-expanded', 'true');
             if (targetBtn && targetBtn !== btn) targetBtn.setAttribute('aria-expanded', 'true');
             if (bd) bd.classList.add('show');
-            if (window.innerWidth <= 768) {
-                document.body.classList.add('hub-menu-open');
-                document.body.style.overflow = 'hidden';
-            }
+            syncMenuScrollLock();
             const firstFocusable = menu.querySelector('.hub-drop-close, .hub-drop-link');
             if (firstFocusable && typeof firstFocusable.focus === 'function') {
                 setTimeout(() => { try { firstFocusable.focus(); } catch(err){} }, 50);
@@ -698,9 +711,12 @@
         mappings.forEach(([btnId, menuId]) => {
             const m = document.getElementById(menuId);
             if (m && m.classList.contains('show')) {
-                positionDesktopMenu(document.getElementById(btnId), m);
+                const dockVisible = window.innerWidth >= 1100 && document.body.classList.contains('is-hub-docked');
+                const anchor = dockVisible && lastFocusedBtn?.closest('.global-hub-dock') ? lastFocusedBtn : document.getElementById(btnId);
+                positionDesktopMenu(anchor, m);
             }
         });
+        syncMenuScrollLock();
     });
 
     // Tự động cuộn căn giữa active tab trên thiết bị di động
@@ -905,6 +921,7 @@
                 hubTicking = true;
             }
         }, { passive: true });
+        window.addEventListener('resize', updateHubScroll, { passive: true });
 
         setTimeout(updateHubScroll, 200);
     }

@@ -1877,6 +1877,11 @@ function toggleSoundChime() {
 // ==========================================================================
 // LIGHTING VISUAL MODES
 // ==========================================================================
+function toggleNightMode() {
+    isNight = !isNight;
+    updateLightingVisuals();
+}
+
 function updateLightingVisuals() {
     const btn = document.getElementById('btnNightMode');
 
@@ -1933,9 +1938,10 @@ function onCanvasClick(e) {
     raycaster.setFromCamera(mouse, camera);
 
     const hitObjects = [];
-    ['torii', 'katana', 'wisteria', 'lantern', 'daruma', 'neko'].forEach(key => {
+    ['torii', 'katana', 'wisteria', 'daruma', 'neko'].forEach(key => {
         if (models[key]) hitObjects.push(models[key]);
     });
+    hitObjects.push(...models.lanterns);
 
     const intersects = raycaster.intersectObjects(hitObjects, true);
     if (intersects.length > 0) {
@@ -2087,6 +2093,8 @@ function toggleParticles() {
 }
 
 function resetView() {
+    isTransitioning = false;
+    setCinematicMode(false);
     document.querySelectorAll('.obj-pill').forEach(p => p.classList.remove('active'));
     applyDefaultCameraPose();
     closeModal();

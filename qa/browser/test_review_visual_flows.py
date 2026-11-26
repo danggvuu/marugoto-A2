@@ -245,6 +245,128 @@ class ReviewVisualFlows(unittest.TestCase):
     def test_lesson18_3d_click_renders_and_close_stops_loop(self):
         self.exercise_3d_lesson(18)
 
+    def test_menu_reanchors_after_dock_and_syncs_scroll_lock_on_resize(self):
+        self.go('index.html', 1440)
+        self.page.evaluate("window.scrollTo({top: 400, behavior: 'instant'})")
+        expect(self.page.locator('body')).to_have_class(re.compile(r'\bis-hub-docked\b'))
+        self.page.locator('#globalHubDock button[onclick*="toggleFormsDropdown"]').click()
+        menu = self.page.locator('#formsDropdownMenu')
+        expect(menu).to_have_class(re.compile(r'\bshow\b'))
+        self.assertEqual(menu.evaluate('el => getComputedStyle(el).position'), 'fixed')
+        self.page.keyboard.press('Escape')
+        self.page.evaluate("window.scrollTo({top: 0, behavior: 'instant'})")
+        expect(self.page.locator('body')).not_to_have_class(re.compile(r'\bis-hub-docked\b'))
+        self.page.locator('#hubBtnForms').click()
+        self.assertEqual(menu.evaluate('el => getComputedStyle(el).position'), 'absolute')
+        self.assertGreaterEqual(menu.bounding_box()['x'], 0)
+
+        self.page.set_viewport_size({'width': 390, 'height': 844})
+        expect(self.page.locator('body')).to_have_class(re.compile(r'\bhub-menu-open\b'))
+        self.assertEqual(self.page.evaluate('document.body.style.overflow'), 'hidden')
+        expect(menu).to_be_visible()
+        self.page.set_viewport_size({'width': 1440, 'height': 900})
+        expect(self.page.locator('body')).not_to_have_class(re.compile(r'\bhub-menu-open\b'))
+        self.assertEqual(self.page.evaluate('document.body.style.overflow'), '')
+        self.page.keyboard.press('Escape')
+        expect(menu).not_to_have_class(re.compile(r'\bshow\b'))
+
+    def test_mobile_menu_obeys_reduced_motion_and_preserves_existing_overflow(self):
+        self.go('index.html', 390)
+        self.page.evaluate("document.body.style.overflow = 'auto'")
+        self.page.locator('#hubBtnForms').click()
+        for selector in ('#formsDropdownMenu', '#hubNavBackdrop'):
+            self.assertEqual(self.page.locator(selector).evaluate(
+                'el => getComputedStyle(el).transitionDuration'), '0s')
+        self.page.keyboard.press('Escape')
+        self.assertEqual(self.page.evaluate('document.body.style.overflow'), 'auto')
+
+    def test_lesson_morph_keeps_icons_and_reaches_both_anchors(self):
+        self.go('lessons/Marugoto_A2_Lesson_1.html', 1440)
+        self.page.wait_for_selector('#lessonSidebarRail', state='attached')
+        self.page.emulate_media(reduced_motion='no-preference')
+        self.page.evaluate("window.scrollTo({top: 400, behavior: 'instant'})")
+        self.page.wait_for_function("document.body.classList.contains('is-morphing-to-dock')")
+        samples = self.page.evaluate('''() => {
+            const glider = document.getElementById('lessonMorphGlider');
+            const animations = glider.getAnimations({subtree: true});
+            animations.forEach(animation => animation.pause());
+            const at = time => {
+                animations.forEach(animation => { animation.currentTime = time; });
+                const rect = glider.getBoundingClientRect();
+                return {x: rect.x, y: rect.y, width: rect.width,
+                    opacity: +getComputedStyle(glider.querySelector('.glider-layer-dock')).opacity};
+            };
+            const nav = document.querySelector('.section-nav').getBoundingClientRect();
+            const dock = document.querySelector('#lessonSidebarRail .macos-sidebar-box').getBoundingClientRect();
+            const result = {nav: {x: nav.x, y: nav.y}, dock: {x: dock.x, y: dock.y},
+                start: at(0), middle: at(180), end: at(399), inert: glider.inert,
+                iconHeight: glider.querySelector('.lesson-rail-link').getBoundingClientRect().height};
+            animations.forEach(animation => animation.play());
+            return result;
+        }''')
+        self.assertAlmostEqual(samples['start']['x'], samples['nav']['x'], delta=1)
+        self.assertAlmostEqual(samples['start']['y'], samples['nav']['y'], delta=1)
+        self.assertAlmostEqual(samples['end']['x'], samples['dock']['x'], delta=1)
+        self.assertAlmostEqual(samples['end']['y'], samples['dock']['y'], delta=1)
+        self.assertGreater(samples['middle']['opacity'], 0.5)
+        self.assertGreater(samples['iconHeight'], 40)
+        self.assertTrue(samples['inert'])
+        self.page.wait_for_function("!document.body.classList.contains('is-morphing-to-dock')")
+        self.assertEqual(self.page.evaluate('lessonMorphGlider.getAnimations({subtree: true}).length'), 0)
+        self.page.evaluate("window.scrollTo({top: 0, behavior: 'instant'})")
+        self.page.wait_for_function("!document.body.classList.contains('is-scrolled-dock')")
+        expect(self.page.locator('.section-nav')).to_be_visible()
+        self.page.emulate_media(reduced_motion='reduce')
+        self.page.evaluate("window.scrollTo({top: 400, behavior: 'instant'})")
+        expect(self.page.locator('body')).to_have_class(re.compile(r'\bis-scrolled-dock\b'))
+        self.assertEqual(self.page.evaluate('lessonMorphGlider.getAnimations({subtree: true}).length'), 0)
+
+    def test_lesson_rail_supports_external_nav_and_flashcard_keyboard(self):
+        for lesson in (1, 10, 11, 18):
+            with self.subTest(lesson=lesson):
+                self.go(f'lessons/Marugoto_A2_Lesson_{lesson}.html', 1440)
+                self.page.wait_for_selector('#lessonSidebarRail', state='attached')
+                self.page.locator('#sec-vocab').scroll_into_view_if_needed()
+                self.page.locator('body').click(position={'x': 5, 'y': 5})
+                self.page.keyboard.press('ArrowRight')
+                expect(self.page.locator('#sec-vocab .flashcard.active-card')).to_have_count(1)
+                card = self.page.locator('#sec-vocab .flashcard.active-card')
+                was_flipped = 'flipped' in (card.get_attribute('class') or '').split()
+                self.page.keyboard.press('Space')
+                self.assertNotEqual('flipped' in (card.get_attribute('class') or '').split(), was_flipped)
+        self.assertEqual(self.page_errors, [])
+
+    def test_demo_lighting_reset_and_lantern_canvas_selection(self):
+        self.go('demo_3d.html', 1440)
+        self.page.wait_for_function('typeof renderer !== "undefined" && renderer?.info.render.calls > 0')
+        night_color = self.page.evaluate('scene.background.getHex()')
+        self.page.locator('#btnNightMode').click()
+        self.assertNotEqual(self.page.evaluate('scene.background.getHex()'), night_color)
+        self.page.locator('#btnNightMode').click()
+        self.assertEqual(self.page.evaluate('scene.background.getHex()'), night_color)
+        reset = self.page.locator('#bottomDock [onclick="resetView()"]')
+        self.page.locator('#btnCinematic').click()
+        reset.click()
+        self.assertFalse(self.page.evaluate('isCinematic || isTransitioning'))
+        self.page.locator('#pill-lantern').click()
+        reset.click()
+        self.assertFalse(self.page.evaluate('isCinematic || isTransitioning'))
+        distance = self.page.evaluate('''async () => {
+            const before = camera.position.clone();
+            for (let i = 0; i < 5; i++) await new Promise(resolve => requestAnimationFrame(resolve));
+            return before.distanceTo(camera.position);
+        }''')
+        self.assertLess(distance, 0.001)
+        point = self.page.evaluate('''() => {
+            const position = new THREE.Vector3(0, 2.32, 0);
+            models.lanterns[0].localToWorld(position).project(camera);
+            return {x: (position.x + 1) * innerWidth / 2, y: (1 - position.y) * innerHeight / 2};
+        }''')
+        self.page.mouse.click(point['x'], point['y'])
+        expect(self.page.locator('#cardKanji')).to_have_text('燈籠')
+        expect(self.page.locator('#vocabModal')).to_be_visible()
+        self.assertEqual(self.page_errors, [])
+
     def test_out_of_order_svg_cannot_overwrite_new_filtered_character(self):
         old_path, new_path = "M10 10 L90 90", "M90 10 L10 90"
         for width in WIDTHS:
