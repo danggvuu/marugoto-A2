@@ -462,18 +462,23 @@ body {
 .lesson-sidebar-rail .rail-icon,
 .lesson-morph-glider .rail-icon {
     font-size: 1.15rem !important;
-    line-height: 1 !important;
+    line-height: 1.2 !important;
+    display: grid !important;
+    place-items: center;
+    width: 24px;
+    height: 24px;
+    flex: 0 0 24px;
     margin-bottom: 2px !important;
 }
 
 .lesson-sidebar-rail .rail-label,
 .lesson-morph-glider .rail-label {
-    font-size: 0.6rem !important;
+    font-size: 0.625rem !important;
     font-weight: 800 !important;
     letter-spacing: -0.01em !important;
     white-space: nowrap !important;
     text-align: center !important;
-    line-height: 1 !important;
+    line-height: 1.4 !important;
     max-width: 100% !important;
     overflow: hidden !important;
     text-overflow: ellipsis !important;

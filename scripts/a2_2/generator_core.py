@@ -270,7 +270,7 @@ def build_lesson_html(
     <script src="../assets/js/animate-ui.js" defer></script>
     <script src="../assets/js/audio-engine.js?v=2"></script>
     <link rel="stylesheet" href="../assets/css/lesson-a2-core.css?v=1">
-    <link rel="stylesheet" href="../assets/css/site-theme.css?v=7">
+    <link rel="stylesheet" href="../assets/css/site-theme.css?v=11">
     <link rel="stylesheet" href="../assets/css/lesson-a2-2.css?v=1">
 </head>
 <body class="lesson-a2-2">
@@ -405,7 +405,7 @@ def build_lesson_html(
 <!-- Scripts -->
 <script src="../assets/js/lessons/{js_filename}?v=2"></script>
 <script src="../assets/js/nav-dropdown.js"></script>
-<script src="../assets/nav.js?v=10" defer></script>
+<script src="../assets/nav.js?v=11" defer></script>
 <script src="../assets/js/jp-typing-grader.js?v=1" defer></script>
 <script src="../assets/js/typing-practice.js" defer></script>
 </body>

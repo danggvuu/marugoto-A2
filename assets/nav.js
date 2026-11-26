@@ -208,7 +208,7 @@
         if (!existingLink) {
             const link = document.createElement('link');
             link.rel = 'stylesheet';
-            link.href = rootPrefix + 'assets/css/site-theme.css?v=6';
+            link.href = rootPrefix + 'assets/css/site-theme.css?v=11';
             document.head.appendChild(link);
         }
 
@@ -242,7 +242,7 @@
         if (!document.querySelector('script[src*="lesson-sidebar-rail.js"]')) {
             const railCss = document.createElement('link');
             railCss.rel = 'stylesheet';
-            railCss.href = rootPrefix + 'assets/css/lesson-sidebar-rail.css?v=4';
+            railCss.href = rootPrefix + 'assets/css/lesson-sidebar-rail.css?v=5';
             document.head.appendChild(railCss);
             const railScript = document.createElement('script');
             railScript.src = rootPrefix + 'assets/js/lesson-sidebar-rail.js?v=4';
