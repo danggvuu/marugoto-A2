@@ -1,11 +1,12 @@
-/* Marugoto A2-2 sentence typing practice: 40 Vietnamese prompts per lesson. */
+/* Marugoto A2-2 sentence and Kanji typing practice. */
 (function () {
     'use strict';
 
-    const items = window.SENTENCE_PRACTICE_DATA;
+    const sentences = window.SENTENCE_PRACTICE_DATA;
+    const kanji = window.KANJI_PRACTICE_DATA || [];
     const section = document.getElementById('sec-sentence-practice');
-    if (!section || !Array.isArray(items) || !items.length) return;
-    if (items.length !== 40) throw new Error('Sentence practice must contain exactly 40 prompts.');
+    if (!section || !Array.isArray(sentences) || !sentences.length) return;
+    if (sentences.length !== 40) throw new Error('Sentence practice must contain exactly 40 prompts.');
 
     const revision = 'a2-2-typing40-v1';
     const key = window.MarugotoCheckpoint?.getKey?.('typing_sentences_a2_2_v1')
@@ -15,11 +16,14 @@
         try {
             const saved = JSON.parse(localStorage.getItem(key) || 'null');
             const state = saved && saved.d ? saved.d : saved;
-            if (state?.revision === revision && state.items && typeof state.items === 'object') return state;
+            if (state?.revision === revision && state.items && typeof state.items === 'object') {
+                state.kanjiItems = state.kanjiItems && typeof state.kanjiItems === 'object' ? state.kanjiItems : {};
+                return state;
+            }
         } catch (error) {
             // Ignore an invalid practice-only checkpoint without touching other lesson progress.
         }
-        return { revision, items: {}, showAllAnswers: false };
+        return { revision, items: {}, kanjiItems: {}, showAllAnswers: false };
     }
 
     const state = loadState();
@@ -29,22 +33,34 @@
 
     section.innerHTML = `
         <div class="section-header">
-            <h2 class="section-title"><span>⌨️</span> Luyện gõ 40 câu Việt → Nhật</h2>
-            <span class="section-tag">Có đáp án Kanji • Lưu tiến độ riêng</span>
+            <h2 class="section-title"><span aria-hidden="true">⌨</span> Luyện gõ 40 câu Việt → Nhật</h2>
+            <span class="section-tag">Tự nhập câu có Kanji • Lưu tiến độ riêng</span>
         </div>
-        <p class="sentence-practice-intro">Đọc câu tiếng Việt rồi tự gõ câu tiếng Nhật bằng IME. Đáp án yêu cầu đúng mặt chữ Kanji được học; Hiragana/Katakana, khoảng trắng và dấu câu được chuẩn hóa. Câu mẫu chỉ hiện khi bấm xem đáp án.</p>
+        <p class="sentence-practice-intro">Dịch từng câu sang tiếng Nhật bằng IME. Câu mẫu không hiện trước khi bạn yêu cầu; câu trả lời phải có Kanji và có thể dùng các cách viết tương đương đã duyệt.</p>
         <div class="sentence-practice-toolbar">
-            <strong>Đã đúng: <span id="sentencePracticeProgress">0 / 40</span></strong>
+            <strong>Câu đúng: <span id="sentencePracticeProgress">0 / 40</span></strong>
             <div class="sentence-practice-actions">
                 <button type="button" class="tp-btn-sub" id="sentenceShowAll">Hiện đáp án</button>
-                <button type="button" class="tp-btn-sub" id="sentenceReset">Làm lại 40 câu</button>
+                <button type="button" class="tp-btn-sub" id="sentenceReset">Làm lại</button>
             </div>
         </div>
         <div class="sentence-practice-list" id="sentencePracticeList"></div>
+        ${kanji.length ? `
+            <div class="sentence-practice-kanji-head">
+                <div>
+                    <h3>Gõ từ Kanji theo nghĩa</h3>
+                    <p>${kanji.length} mục gồm danh sách chính thức của bài và từ bổ sung trong phiếu. Phải nhập chữ Kanji, không chỉ nhập cách đọc.</p>
+                </div>
+                <strong>Từ đúng: <span id="kanjiPracticeProgress">0 / ${kanji.length}</span></strong>
+            </div>
+            <div class="sentence-practice-list sentence-practice-kanji-list" id="kanjiPracticeList"></div>
+        ` : ''}
     `;
 
     const list = section.querySelector('#sentencePracticeList');
+    const kanjiList = section.querySelector('#kanjiPracticeList');
     const progress = section.querySelector('#sentencePracticeProgress');
+    const kanjiProgress = section.querySelector('#kanjiPracticeProgress');
     const showAllButton = section.querySelector('#sentenceShowAll');
 
     function saveState() {
@@ -63,98 +79,149 @@
         return normalized.trim().replace(/[()（）「」『』"'…・~～/／、,。.!！?？\s\-‐‑‒–—―_　]/g, '');
     }
 
+    function gradeSentence(value, item) {
+        if (item.requireKanji && window.JpTypingGrader?.grade) {
+            const result = window.JpTypingGrader.grade(value, {
+                vi: item.vi,
+                kanjiModel: item.jp,
+                kanjiAccepted: item.accepted || []
+            }, 'sentence', { allowKanji: true });
+            return { correct: result.ok, missingKanji: !window.JpTypingGrader.containsKanji(value) };
+        }
+        const acceptable = [item.jp, ...(item.accepted || [])].map(normalize);
+        return {
+            correct: acceptable.includes(normalize(value)) &&
+                (!item.requireKanji || window.JpTypingGrader?.containsKanji?.(value)),
+            missingKanji: item.requireKanji && !window.JpTypingGrader?.containsKanji?.(value)
+        };
+    }
+
     function updateProgress() {
-        const count = Object.values(state.items).filter(item => item.status === 'correct').length;
-        progress.textContent = `${count} / ${items.length}`;
+        const sentenceCount = Object.values(state.items).filter(item => item.status === 'correct').length;
+        progress.textContent = `${sentenceCount} / ${sentences.length}`;
+        if (kanjiProgress) {
+            const kanjiCount = Object.values(state.kanjiItems).filter(item => item.status === 'correct').length;
+            kanjiProgress.textContent = `${kanjiCount} / ${kanji.length}`;
+        }
         showAllButton.textContent = state.showAllAnswers ? 'Ẩn đáp án' : 'Hiện đáp án';
     }
 
-    function updateCard(card, item, saved = {}) {
+    function updateCard(card, item, saved = {}, isKanji = false) {
         const input = card.querySelector('.sentence-practice-input');
         const status = card.querySelector('.sentence-practice-status');
         const answer = card.querySelector('.sentence-practice-answer');
+        const feedback = card.querySelector('.sentence-practice-feedback');
         if (document.activeElement !== input || input.value !== (saved.draft || '')) input.value = saved.draft || '';
         const visible = state.showAllAnswers || saved.revealed;
         answer.hidden = !visible;
-        answer.textContent = item.jp;
+        answer.textContent = isKanji ? item.word : item.jp;
         card.classList.toggle('is-correct', saved.status === 'correct');
         card.classList.toggle('is-wrong', saved.status === 'wrong');
-        status.textContent = saved.status === 'correct' ? '✓ Đúng' : saved.status === 'wrong' ? 'Chưa đúng' : 'Chưa gõ';
+        status.textContent = saved.status === 'correct' ? 'Đúng' : saved.status === 'wrong' ? 'Chưa đúng' : 'Chưa gõ';
         status.className = `sentence-practice-status${saved.status === 'correct' ? ' is-correct' : saved.status === 'wrong' ? ' is-wrong' : ''}`;
+        if (feedback && !saved.feedback) feedback.textContent = '';
         updateProgress();
     }
 
-    function grade(item, card) {
-        const input = card.querySelector('.sentence-practice-input');
-        const current = state.items[item.id] || {};
-        if (!input.value.trim()) {
-            input.focus();
-            return;
-        }
-        current.draft = input.value;
-        current.status = normalize(input.value) === normalize(item.jp) ? 'correct' : 'wrong';
-        state.items[item.id] = current;
-        updateCard(card, item, current);
-        saveState();
-        if (current.status === 'correct') window.speakText?.(item.jp);
-    }
-
-    items.forEach(item => {
+    function makeCard(item, isKanji = false) {
         const card = document.createElement('article');
-        card.className = 'sentence-practice-card';
-        card.dataset.sentenceId = String(item.id);
+        const id = String(item.id);
+        const store = isKanji ? state.kanjiItems : state.items;
+        const prompt = isKanji ? item.mean : item.vi;
+        card.className = `sentence-practice-card${isKanji ? ' sentence-practice-kanji-card' : ''}`;
+        card.dataset.sentenceId = id;
         card.innerHTML = `
             <div class="sentence-practice-card-head">
-                <span class="sentence-practice-number">Câu ${item.id}</span>
-                <span class="sentence-practice-status">Chưa gõ</span>
+                <span class="sentence-practice-number">${isKanji ? `Kanji ${item.id}` : `Câu ${item.id}`}</span>
+                <span class="sentence-practice-status" aria-live="polite">Chưa gõ</span>
             </div>
-            <p class="sentence-practice-prompt">${escapeHtml(item.vi)}</p>
-            <label class="sentence-practice-label" for="sentencePracticeInput${item.id}">Gõ câu tiếng Nhật có Kanji:</label>
+            <p class="sentence-practice-prompt">${escapeHtml(prompt)}</p>
+            <label class="sentence-practice-label" for="sentencePracticeInput${isKanji ? `K${item.id}` : item.id}">${isKanji ? 'Gõ từ bằng chữ Kanji:' : 'Gõ câu tiếng Nhật có Kanji:'}</label>
             <div class="sentence-practice-entry">
-                <input class="sentence-practice-input" id="sentencePracticeInput${item.id}" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="日本語を入力してください" lang="ja">
+                <input class="sentence-practice-input" id="sentencePracticeInput${isKanji ? `K${item.id}` : item.id}" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="${isKanji ? '漢字を入力してください' : '日本語を入力してください'}" lang="ja">
                 <button type="button" class="sentence-practice-check">Kiểm tra</button>
                 <button type="button" class="sentence-practice-reveal">Đáp án</button>
-                <button type="button" class="sentence-practice-speak" aria-label="Nghe câu mẫu">🔊</button>
+                ${isKanji ? '' : '<button type="button" class="sentence-practice-speak" aria-label="Nghe câu mẫu">🔊</button>'}
             </div>
-            <p class="sentence-practice-answer" hidden></p>
+            <p class="sentence-practice-feedback" aria-live="polite"></p>
+            <p class="sentence-practice-answer" lang="ja" hidden></p>
         `;
         const input = card.querySelector('.sentence-practice-input');
-        const saved = state.items[item.id] || {};
-        updateCard(card, item, saved);
-        card.querySelector('.sentence-practice-check').addEventListener('click', () => grade(item, card));
+        const getCurrent = () => store[id] || {};
+        updateCard(card, item, getCurrent(), isKanji);
+
+        function grade() {
+            if (!input.value.trim()) {
+                input.focus();
+                return;
+            }
+            const current = getCurrent();
+            current.draft = input.value;
+            let correct;
+            let missingKanji = false;
+            if (isKanji) {
+                missingKanji = !window.JpTypingGrader?.containsKanji?.(input.value);
+                correct = !missingKanji && [item.word, ...(item.accepted || [])].some(word => normalize(input.value) === normalize(word));
+            } else {
+                const result = gradeSentence(input.value, item);
+                correct = result.correct;
+                missingKanji = result.missingKanji;
+            }
+            current.status = correct ? 'correct' : 'wrong';
+            current.feedback = missingKanji ? 'Hãy nhập ít nhất một chữ Kanji; chỉ gõ kana chưa đủ.'
+                : correct ? 'Chính xác.' : 'Chưa khớp; có thể xem đáp án tham khảo.';
+            store[id] = current;
+            updateCard(card, item, current, isKanji);
+            card.querySelector('.sentence-practice-feedback').textContent = current.feedback;
+            saveState();
+            if (correct && !isKanji) window.speakText?.(item.jp);
+        }
+
+        card.querySelector('.sentence-practice-check').addEventListener('click', grade);
         card.querySelector('.sentence-practice-reveal').addEventListener('click', () => {
-            saved.revealed = !saved.revealed;
-            state.items[item.id] = saved;
-            updateCard(card, item, saved);
+            const current = getCurrent();
+            current.revealed = !current.revealed;
+            store[id] = current;
+            updateCard(card, item, current, isKanji);
             saveState();
         });
-        card.querySelector('.sentence-practice-speak').addEventListener('click', () => window.speakText?.(item.jp));
+        const speak = card.querySelector('.sentence-practice-speak');
+        if (speak) speak.addEventListener('click', () => window.speakText?.(item.jp));
         input.addEventListener('input', () => {
-            const current = state.items[item.id] || {};
+            const current = getCurrent();
             current.draft = input.value;
             if (current.status) delete current.status;
-            state.items[item.id] = current;
-            updateCard(card, item, current);
+            if (current.feedback) delete current.feedback;
+            store[id] = current;
+            updateCard(card, item, current, isKanji);
+            card.querySelector('.sentence-practice-feedback').textContent = '';
             saveState();
         });
         input.addEventListener('keydown', event => {
             if (event.key === 'Enter' && !event.isComposing && event.keyCode !== 229) {
                 event.preventDefault();
-                grade(item, card);
+                grade();
             }
         });
-        list.appendChild(card);
-    });
+        return card;
+    }
 
-    section.querySelector('#sentenceShowAll').addEventListener('click', () => {
+    sentences.forEach(item => list.appendChild(makeCard(item)));
+    if (kanjiList) kanji.forEach(item => kanjiList.appendChild(makeCard(item, true)));
+
+    showAllButton.addEventListener('click', () => {
         state.showAllAnswers = !state.showAllAnswers;
-        items.forEach(item => updateCard(list.querySelector(`[data-sentence-id="${item.id}"]`), item, state.items[item.id] || {}));
+        sentences.forEach(item => updateCard(list.querySelector(`[data-sentence-id="${item.id}"]`), item, state.items[item.id] || {}));
+        kanji.forEach(item => updateCard(kanjiList.querySelector(`[data-sentence-id="${item.id}"]`), item, state.kanjiItems[item.id] || {}, true));
         saveState();
     });
     section.querySelector('#sentenceReset').addEventListener('click', () => {
         state.items = {};
+        state.kanjiItems = {};
         state.showAllAnswers = false;
-        items.forEach(item => updateCard(list.querySelector(`[data-sentence-id="${item.id}"]`), item));
+        sentences.forEach(item => updateCard(list.querySelector(`[data-sentence-id="${item.id}"]`), item));
+        kanji.forEach(item => updateCard(kanjiList.querySelector(`[data-sentence-id="${item.id}"]`), item, {}, true));
+        section.querySelectorAll('.sentence-practice-feedback').forEach(el => { el.textContent = ''; });
         saveState();
     });
 })();
