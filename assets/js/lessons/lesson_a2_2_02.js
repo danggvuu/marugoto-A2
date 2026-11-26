@@ -371,7 +371,7 @@ const QUIZ_DATA = [
       "しか"
     ],
     "correct": 2,
-    "explain": "N／な形容詞 + そう diễn tả ấn tượng: 元気そうです.",
+    "explain": "Tính từ な bỏ な rồi thêm そう để nói vẻ ngoài: 元気そうです. Danh từ không ghép trực tiếp với そう theo mẫu này.",
     "grammarScope": "official"
   },
   {

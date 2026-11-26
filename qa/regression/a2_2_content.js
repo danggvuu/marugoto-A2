@@ -16,7 +16,7 @@ let totalKanji = 0;
 
 const curriculumChecks = {
     3: ['ので', 'のは', 'なら', 'ずつ'],
-    4: ['てはいけません', 'てから', 'ないで', 'Vる ＋ と'],
+    4: ['てはいけません', 'てから', 'ないで', 'V thể từ điển ＋ と'],
     6: ['見られます', 'し、'],
     9: ['会えて、よかったです', 'しか', 'だけ'],
     10: ['楽しめるように', '願い事を書いたり', 'ように願います'],
@@ -132,6 +132,15 @@ const expectedGrammar = [
     'Vì: ～ので', 'Nhấn mạnh danh từ: ～のは N です', 'Nếu là N thì: Nなら', 'Mỗi thứ / mỗi lượt: ～ずつ',
     'Không được làm V: ～ては／ではいけません', 'Làm V1 xong rồi làm V2: ～てから', 'Trạng thái / cách thức: Vて／Vないで V2', 'Cứ hễ làm V thì: ～と'
 ];
+const expectedGrammarCounts = [3, 4, 4, 4];
+expectedGrammarCounts.forEach((count, index) => {
+    const lessonHtml = read(`lessons/Marugoto_A2_2_Lesson_${index + 1}.html`);
+    assert.strictEqual(
+        (lessonHtml.match(/<section class="content-section" id="sec-grammar\d+">/g) || []).length,
+        count,
+        `Lesson ${index + 1} must render its canonical grammar section count`
+    );
+});
 assert.strictEqual(reviewData.rawKanji.length, 62, 'Review Kanji cards must total 62');
 assert.deepStrictEqual(
     reviewData.rawKanji.slice(0, 49).map(item => [item.word, item.kana]),
@@ -157,6 +166,7 @@ assert(reviewHtml.includes('Câu luyện dịch • Đáp án tham khảo'));
 assert(reviewHtml.includes("filterKanji('SUPPLEMENT', this)"));
 assert(reviewHtml.includes('Tất cả (62 mục)'));
 assert(reviewHtml.includes('Bổ sung từ phiếu (13 mục)'));
+assert(reviewHtml.includes('49 mục đầu giữ nguyên thứ tự'));
 assert(!reviewHtml.includes('__KANJI_COUNT__') && !reviewHtml.includes('__SUPPLEMENT_COUNT__'));
 assert.strictEqual((reviewHtml.match(/class="contraction-table"/g) || []).length, 1);
 assert.strictEqual((reviewHtml.match(/<tr><td>/g) || []).length, 10, 'Review contraction table must have 10 verb rows');

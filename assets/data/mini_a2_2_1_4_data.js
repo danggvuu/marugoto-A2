@@ -1939,6 +1939,318 @@ window.MINI_A2_2_1_4_DATA = {
         "vi": "Kém, yếu, không hợp, sợ"
       }
     ]
+  },
+  {
+    "char": "紹介",
+    "word": "紹介",
+    "kana": "しょうかい",
+    "hiragana": "しょうかい",
+    "meaning": "Giới thiệu",
+    "shortMeaning": "Giới thiệu",
+    "hv": "THIỆU GIỚI",
+    "lesson": "SUPPLEMENT",
+    "lessonName": "Bổ sung • Phiếu",
+    "sourceScope": "worksheet",
+    "strokes": 15,
+    "formula": "紹 (Tơ 糸 + Triệu 召) ＋ 介 (Người đứng giữa)",
+    "mnemonic": "Sợi tơ (糸) kết nối lời mời (召), có người đứng giữa (介) làm cầu nối giới thiệu.",
+    "kun": "しょうかい",
+    "on": "—",
+    "examples": [
+      {
+        "word": "紹介",
+        "reading": "しょうかい",
+        "vi": "Giới thiệu"
+      }
+    ]
+  },
+  {
+    "char": "一番目",
+    "word": "一番目",
+    "kana": "いちばんめ",
+    "hiragana": "いちばんめ",
+    "meaning": "Thứ nhất",
+    "shortMeaning": "Thứ nhất",
+    "hv": "NHẤT PHIÊN MỤC",
+    "lesson": "SUPPLEMENT",
+    "lessonName": "Bổ sung • Phiếu",
+    "sourceScope": "worksheet",
+    "strokes": 18,
+    "formula": "一 (Một) ＋ 番 (Thứ tự) ＋ 目 (Mục)",
+    "mnemonic": "Mục đầu tiên (一) trong thứ tự (番) được đánh dấu là vị trí thứ nhất (目).",
+    "kun": "いちばんめ",
+    "on": "—",
+    "examples": [
+      {
+        "word": "一番目",
+        "reading": "いちばんめ",
+        "vi": "Thứ nhất"
+      }
+    ]
+  },
+  {
+    "char": "住所",
+    "word": "住所",
+    "kana": "じゅうしょ",
+    "hiragana": "じゅうしょ",
+    "meaning": "Địa chỉ",
+    "shortMeaning": "Địa chỉ",
+    "hv": "TRÚ SỞ",
+    "lesson": "SUPPLEMENT",
+    "lessonName": "Bổ sung • Phiếu",
+    "sourceScope": "worksheet",
+    "strokes": 15,
+    "formula": "住 (Người 亻 + Chủ 主) ＋ 所 (Cửa 戶 + Rìu 斤)",
+    "mnemonic": "Nơi chốn (所) một người (亻) cư trú (住) chính là địa chỉ.",
+    "kun": "じゅうしょ",
+    "on": "—",
+    "examples": [
+      {
+        "word": "住所",
+        "reading": "じゅうしょ",
+        "vi": "Địa chỉ"
+      }
+    ]
+  },
+  {
+    "char": "姉妹",
+    "word": "姉妹",
+    "kana": "しまい",
+    "hiragana": "しまい",
+    "meaning": "Chị em",
+    "shortMeaning": "Chị em",
+    "hv": "TỶ MUỘI",
+    "lesson": "SUPPLEMENT",
+    "lessonName": "Bổ sung • Phiếu",
+    "sourceScope": "worksheet",
+    "strokes": 16,
+    "formula": "姉 (Chị gái) ＋ 妹 (Em gái)",
+    "mnemonic": "Hai chữ chỉ người nữ (女) ghép thành cặp chị gái và em gái.",
+    "kun": "しまい",
+    "on": "—",
+    "examples": [
+      {
+        "word": "姉妹",
+        "reading": "しまい",
+        "vi": "Chị em"
+      }
+    ]
+  },
+  {
+    "char": "水族館",
+    "word": "水族館",
+    "kana": "すいぞくかん",
+    "hiragana": "すいぞくかん",
+    "meaning": "Thủy cung",
+    "shortMeaning": "Thủy cung",
+    "hv": "THỦY TỘC QUÁN",
+    "lesson": "SUPPLEMENT",
+    "lessonName": "Bổ sung • Phiếu",
+    "sourceScope": "worksheet",
+    "strokes": 31,
+    "formula": "水 (Nước) ＋ 族 (Tộc) ＋ 館 (Tòa nhà)",
+    "mnemonic": "Tòa nhà (館) nuôi các loài sinh vật (族) sống dưới nước (水) là thủy cung.",
+    "kun": "すいぞくかん",
+    "on": "—",
+    "examples": [
+      {
+        "word": "水族館",
+        "reading": "すいぞくかん",
+        "vi": "Thủy cung"
+      }
+    ]
+  },
+  {
+    "char": "成長",
+    "word": "成長",
+    "kana": "せいちょう",
+    "hiragana": "せいちょう",
+    "meaning": "Trưởng thành, phát triển",
+    "shortMeaning": "Trưởng thành",
+    "hv": "THÀNH TRƯỜNG",
+    "lesson": "SUPPLEMENT",
+    "lessonName": "Bổ sung • Phiếu",
+    "sourceScope": "worksheet",
+    "strokes": 14,
+    "formula": "成 (Thành) ＋ 長 (Dài, trưởng)",
+    "mnemonic": "Quá trình lớn lên và đạt đến trạng thái trưởng thành.",
+    "kun": "せいちょう",
+    "on": "—",
+    "examples": [
+      {
+        "word": "成長",
+        "reading": "せいちょう",
+        "vi": "Trưởng thành, phát triển"
+      }
+    ]
+  },
+  {
+    "char": "近所",
+    "word": "近所",
+    "kana": "きんじょ",
+    "hiragana": "きんじょ",
+    "meaning": "Hàng xóm, lân cận",
+    "shortMeaning": "Hàng xóm",
+    "hv": "CẬN SỞ",
+    "lesson": "SUPPLEMENT",
+    "lessonName": "Bổ sung • Phiếu",
+    "sourceScope": "worksheet",
+    "strokes": 15,
+    "formula": "近 (Gần) ＋ 所 (Nơi chốn)",
+    "mnemonic": "Những nơi chốn (所) ở gần (近) nhà mình là khu lân cận.",
+    "kun": "きんじょ",
+    "on": "—",
+    "examples": [
+      {
+        "word": "近所",
+        "reading": "きんじょ",
+        "vi": "Hàng xóm, lân cận"
+      }
+    ]
+  },
+  {
+    "char": "兄弟",
+    "word": "兄弟",
+    "kana": "きょうだい",
+    "hiragana": "きょうだい",
+    "meaning": "Anh em",
+    "shortMeaning": "Anh em",
+    "hv": "HUYNH ĐỆ",
+    "lesson": "SUPPLEMENT",
+    "lessonName": "Bổ sung • Phiếu",
+    "sourceScope": "worksheet",
+    "strokes": 12,
+    "formula": "兄 (Anh trai) ＋ 弟 (Em trai)",
+    "mnemonic": "Hai chữ chỉ người anh và người em, ghép lại thành anh em.",
+    "kun": "きょうだい",
+    "on": "—",
+    "examples": [
+      {
+        "word": "兄弟",
+        "reading": "きょうだい",
+        "vi": "Anh em"
+      }
+    ]
+  },
+  {
+    "char": "近い",
+    "word": "近い",
+    "kana": "ちかい",
+    "hiragana": "ちかい",
+    "meaning": "Gần",
+    "shortMeaning": "Gần",
+    "hv": "CẬN",
+    "lesson": "SUPPLEMENT",
+    "lessonName": "Bổ sung • Phiếu",
+    "sourceScope": "worksheet",
+    "strokes": 7,
+    "formula": "斤 (Rìu) ＋ 辶 (Bước đi)",
+    "mnemonic": "Đi một quãng ngắn là đến nơi gần.",
+    "kun": "ちかい",
+    "on": "—",
+    "examples": [
+      {
+        "word": "近い",
+        "reading": "ちかい",
+        "vi": "Gần"
+      }
+    ]
+  },
+  {
+    "char": "一番",
+    "word": "一番",
+    "kana": "いちばん",
+    "hiragana": "いちばん",
+    "meaning": "Nhất, số một",
+    "shortMeaning": "Nhất",
+    "hv": "NHẤT PHIÊN",
+    "lesson": "SUPPLEMENT",
+    "lessonName": "Bổ sung • Phiếu",
+    "sourceScope": "worksheet",
+    "strokes": 13,
+    "formula": "一 (Một) ＋ 番 (Thứ tự)",
+    "mnemonic": "Vị trí số một trong thứ tự là đứng đầu, cao nhất.",
+    "kun": "いちばん",
+    "on": "—",
+    "examples": [
+      {
+        "word": "一番",
+        "reading": "いちばん",
+        "vi": "Nhất, số một"
+      }
+    ]
+  },
+  {
+    "char": "最近",
+    "word": "最近",
+    "kana": "さいきん",
+    "hiragana": "さいきん",
+    "meaning": "Gần đây",
+    "shortMeaning": "Gần đây",
+    "hv": "TỐI CẬN",
+    "lesson": "SUPPLEMENT",
+    "lessonName": "Bổ sung • Phiếu",
+    "sourceScope": "worksheet",
+    "strokes": 19,
+    "formula": "最 (Nhất, tối) ＋ 近 (Gần)",
+    "mnemonic": "Khoảng thời gian gần nhất với hiện tại là gần đây.",
+    "kun": "さいきん",
+    "on": "—",
+    "examples": [
+      {
+        "word": "最近",
+        "reading": "さいきん",
+        "vi": "Gần đây"
+      }
+    ]
+  },
+  {
+    "char": "部屋",
+    "word": "部屋",
+    "kana": "へや",
+    "hiragana": "へや",
+    "meaning": "Căn phòng",
+    "shortMeaning": "Căn phòng",
+    "hv": "BỘ ỐC",
+    "lesson": "SUPPLEMENT",
+    "lessonName": "Bổ sung • Phiếu",
+    "sourceScope": "worksheet",
+    "strokes": 20,
+    "formula": "部 (Bộ phận) ＋ 屋 (Nhà)",
+    "mnemonic": "Một phần không gian được ngăn trong nhà là căn phòng.",
+    "kun": "へや",
+    "on": "—",
+    "examples": [
+      {
+        "word": "部屋",
+        "reading": "へや",
+        "vi": "Căn phòng"
+      }
+    ]
+  },
+  {
+    "char": "歌手",
+    "word": "歌手",
+    "kana": "かしゅ",
+    "hiragana": "かしゅ",
+    "meaning": "Ca sĩ",
+    "shortMeaning": "Ca sĩ",
+    "hv": "CA THỦ",
+    "lesson": "SUPPLEMENT",
+    "lessonName": "Bổ sung • Phiếu",
+    "sourceScope": "worksheet",
+    "strokes": 18,
+    "formula": "歌 (Bài hát) ＋ 手 (Người thực hiện)",
+    "mnemonic": "Người (手) thể hiện bài hát (歌) là ca sĩ.",
+    "kun": "かしゅ",
+    "on": "—",
+    "examples": [
+      {
+        "word": "歌手",
+        "reading": "かしゅ",
+        "vi": "Ca sĩ"
+      }
+    ]
   }
 ],
     part1Data: [
@@ -2001,7 +2313,7 @@ window.MINI_A2_2_1_4_DATA = {
     "options": [
       "着ている",
       "着る",
-      "着た",
+      "着ます",
       "着て"
     ],
     "correct": 0,
@@ -2036,7 +2348,7 @@ window.MINI_A2_2_1_4_DATA = {
   {
     "id": 8,
     "category": "Bài 3 • Nguyên nhân mềm mại 〜ので",
-    "q": "あしたは 試験が [____] ので、今夜は 早く 家へ 帰って 勉強します。",
+    "q": "あしたは 試験が [____] ので、今夜は 早く 家へ 帰って 勉強します。（「ある」の現在・肯定の普通形を使ってください。）",
     "options": [
       "ある",
       "あります",
@@ -2062,7 +2374,7 @@ window.MINI_A2_2_1_4_DATA = {
   {
     "id": 10,
     "category": "Bài 4 • Cấm đoán quy định",
-    "q": "ここは 禁煙ですから、たばこを [____]。外で 吸ってください。",
+    "q": "ここは 禁煙です。「吸う」を「V-ては いけません」の形にすると、どうなりますか。",
     "options": [
       "吸っては いけません",
       "吸っても いいです",
@@ -2070,7 +2382,7 @@ window.MINI_A2_2_1_4_DATA = {
       "吸います"
     ],
     "correct": 0,
-    "explain": "Nêu quy định cấm đoán tuyệt đối ở nơi công cộng: 「V-ては いけません」 (Không được phép hút thuốc / cấm hút thuốc)."
+    "explain": "Câu hỏi yêu cầu dùng đúng mẫu 「V-ては いけません」: 吸う → 吸ってはいけません (Không được hút thuốc). 「吸わないでください」 cũng là lời yêu cầu tự nhiên, nhưng không phải dạng ngữ pháp được hỏi ở đây."
   }
 ],
     part2Data: [
@@ -2094,6 +2406,18 @@ window.MINI_A2_2_1_4_DATA = {
     ],
     "starIndex": 2,
     "starChip": "料理の",
+    "acceptedOrders": [
+      {
+        "order": [
+          3,
+          0,
+          1,
+          2
+        ],
+        "sentence": "昨日 食べた 料理の 名前を レストランで 忘れました。",
+        "starChip": "名前を"
+      }
+    ],
     "fullSentence": "昨日 レストランで 食べた 料理の 名前を 忘れました。",
     "explain": "Mệnh đề bổ nghĩa cho danh từ: 昨日 [レストランで] [食べた] [★ 料理の] [名前を] 忘れました. Vị trí ngôi sao là [料理の]."
   },
@@ -2117,6 +2441,18 @@ window.MINI_A2_2_1_4_DATA = {
     ],
     "starIndex": 2,
     "starChip": "やさしそうな",
+    "acceptedOrders": [
+      {
+        "order": [
+          1,
+          3,
+          0,
+          2
+        ],
+        "sentence": "あそこで やさしそうな 楽しそうに 笑っている 人は 山田さんです。",
+        "starChip": "笑っている"
+      }
+    ],
     "fullSentence": "あそこで 楽しそうに 笑っている やさしそうな 人は 山田さんです。",
     "explain": "Thứ tự từ: あそこで [楽しそうに] [笑っている] [★ やさしそうな] [人は] 山田さんです. Vị trí ngôi sao là [やさしそうな]."
   },
@@ -2140,6 +2476,18 @@ window.MINI_A2_2_1_4_DATA = {
     ],
     "starIndex": 2,
     "starChip": "きれいに",
+    "acceptedOrders": [
+      {
+        "order": [
+          3,
+          2,
+          0,
+          1
+        ],
+        "sentence": "大事な メモですから、ノートに 字を もっと きれいに 書いてください。",
+        "starChip": "もっと"
+      }
+    ],
     "fullSentence": "大事な メモですから、ノートに もっと きれいに 字を 書いてください。",
     "explain": "Trạng từ của tính từ な: きれいに + V. Thứ tự: [ノートに] [もっと] [★ きれいに] [字を] 書いてください. Vị trí ngôi sao là [きれいに]."
   },
@@ -2163,6 +2511,18 @@ window.MINI_A2_2_1_4_DATA = {
     ],
     "starIndex": 2,
     "starChip": "好きな",
+    "acceptedOrders": [
+      {
+        "order": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "sentence": "わたしが いちばん 好きなのは 日本の 食べ物で、母が 作った 料理です。",
+        "starChip": "のは"
+      }
+    ],
     "fullSentence": "わたしが 日本の 食べ物で いちばん 好きな のは 母が 作った 料理です。",
     "explain": "Danh từ hóa mệnh đề: [日本の 食べ物で] [いちばん] [★ 好きな] [のは] 母が 作った 料理です. Vị trí ngôi sao là [好きな]."
   },
@@ -2186,6 +2546,18 @@ window.MINI_A2_2_1_4_DATA = {
     ],
     "starIndex": 2,
     "starChip": "塩だけ",
+    "acceptedOrders": [
+      {
+        "order": [
+          2,
+          3,
+          0,
+          1
+        ],
+        "sentence": "この 料理は 塩だけ かけて しょうゆを つけないで 食べてください。",
+        "starChip": "しょうゆを"
+      }
+    ],
     "fullSentence": "この 料理は しょうゆを つけないで 塩だけ かけて 食べてください。",
     "explain": "Làm V2 mà không làm V1: [しょうゆを] [つけないで] [★ 塩だけ] [かけて] 食べてください. Vị trí ngôi sao là [塩だけ]."
   }
@@ -2233,7 +2605,7 @@ window.MINI_A2_2_1_4_DATA = {
   {
     "id": 19,
     "category": "Bài 3 • Nguyên nhân với tính từ đuôi な + ので",
-    "sentence": "きょうは とても (暇) [_______] ので、映画を 見に 行きませんか。",
+    "sentence": "きょうは とても (暇) [_______] ので、映画を 見に 行きませんか。（現在・肯定の普通形を使ってください。）",
     "baseWord": "暇 (ひま)",
     "accepted": [
       "暇な",
@@ -2241,7 +2613,7 @@ window.MINI_A2_2_1_4_DATA = {
       "himana"
     ],
     "displayAnswer": "暇な (ひまな)",
-    "explain": "Trước 「〜ので」, tính từ đuôi な và danh từ phải đi kèm 「な」: 暇 ➔ <strong>暇な</strong>ので. Tuyệt đối không dùng 暇だので ❌."
+    "explain": "Trong câu này yêu cầu thể thông thường, hiện tại khẳng định: tính từ な và danh từ dùng 「な + ので」 (暇なので／学生なので). Dạng lịch sự 「暇ですので」 cũng có thể dùng trong ngữ cảnh phù hợp."
   },
   {
     "id": 20,
@@ -2319,7 +2691,7 @@ window.MINI_A2_2_1_4_DATA = {
   {
     "passageId": 1,
     "title": "BÀI ĐỌC 1: 国際交流パーティーでの 出会い (Cuộc Gặp Gỡ Tại Bữa Tiệc Giao Lưu Quốc Tế - Bài 1 & 2)",
-    "text": "先週の日曜日、わたしは 市民センターで 開かれた 国際交流パーティーに 参加しました。会場には いろいろな 国から 来た 人たちが たくさん いました。<br>会場で、めがねを かけて、青い シャツを 着ている 男の人に 会いました。「鈴木」という 名前で、大学で 日本語を 教えている 先生でした。鈴木先生は いつも にこにこしていて、とても やさしそうな 人でした。<br>鈴木先生が 好きなのは、ベトナム料理だそうです。特に 「フォー」という 料理が 大好きで、ベトナムにも 3回 行った ことが あると 言っていました。わたしは 先生と 連絡先を 交換して、来週 ベトナム料理の 店へ 一緒に 行く 約束を しました。",
+    "text": "先週の日曜日、わたしは 市民センターで 国際交流パーティーに 参加しました。会場には いろいろな 国から 来た 人たちが たくさん いました。<br>会場で、めがねを かけて、青い シャツを 着ている 男の人に 会いました。「鈴木」という 名前で、大学で 日本語を 教えている 先生でした。鈴木先生は いつも にこにこしていて、とても やさしそうな 人でした。<br>鈴木先生は ベトナム料理が 大好きです。特に 「フォー」という 料理が 好きです。ベトナムに 3回 行きました。わたしは 先生と 連絡先を 交換して、来週 ベトナム料理の 店へ 一緒に 行く 約束を しました。",
     "questions": [
       {
         "id": 25,
@@ -2350,7 +2722,7 @@ window.MINI_A2_2_1_4_DATA = {
   {
     "passageId": 2,
     "title": "BÀI ĐỌC 2: 日本料理屋「さくら」の おすすめと ルール (Món Ngon Và Quy Tắc Tại Nhà Hàng Sakura - Bài 3 & 4)",
-    "text": "駅の 近くに「さくら」という 有名な 日本料理の 店が あります。店に入ると、まず 手を 洗ってから、席に 案内されます。<br>この店の おすすめは 天ぷらと 刺身です。刺身なら、毎朝 港から 届く 新鮮な 魚が 一番です。天ぷらを 食べるときは、つゆを つけないで、特別な 塩を 少し つけると、サクサクして とても おいしいです。<br>店の中には いくつか ルールが あります。他のお客さんの 迷惑に なりますから、大声で 話しては いけません。また、全席 禁煙ですので、店内で たばこを 吸ってはいけません。静かに おいしい 和食を 楽しむことが できます。",
+    "text": "駅の 近くに「さくら」という 有名な 日本料理の 店が あります。店に入ると、まず 手を 洗ってから、席に 座ります。<br>この店の おすすめは 天ぷらと 刺身です。刺身なら、毎朝 港から 届く 新鮮な 魚が 一番です。つゆを つけないで、特別な 塩を 少し つけると、天ぷらは サクサクして とても おいしいです。<br>店の中には いくつか ルールが あります。他のお客さんの 迷惑に なりますから、大声で 話しては いけません。また、全席 禁煙ですので、店内で たばこを 吸ってはいけません。静かに おいしい 和食を 楽しむことが できます。",
     "questions": [
       {
         "id": 27,
@@ -2415,7 +2787,7 @@ window.MINI_A2_2_1_4_DATA = {
   {
     "id": 30,
     "category": "Bài 2 • Trạng từ hóa & Phán đoán",
-    "vi": "Đứa bé đang ăn chiếc bánh kem trông có vẻ rất ngon lành.",
+    "vi": "Đứa bé đang ăn bánh kem một cách ngon lành.",
     "hint": "子ども (đứa bé), ケーキ (bánh kem), おいしそうに (ngon lành - trạng từ), 食べています (đang ăn)",
     "modelSentence": "子どもが ケーキを おいしそうに 食べています。",
     "modelKana": "こどもが けーきを おいしそうに たべています。",

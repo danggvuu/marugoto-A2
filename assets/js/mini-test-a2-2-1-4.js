@@ -260,8 +260,8 @@ function renderPart2() {
             </div>
 
             <div class="q-explain" id="p2_exp_${item.id}">
-                🎯 <strong>Câu hoàn chỉnh:</strong> <span class="jp-text" style="font-weight: 700; color: #166534;">${item.fullSentence}</span><br>
-                ⭐ <strong>Từ tại vị trí ngôi sao [★]:</strong> <span class="jp-text" style="font-weight: 800; color: #92400e;">${item.starChip}</span><br>
+                🎯 <strong>Câu hoàn chỉnh:</strong> <span id="p2_answer_sentence_${item.id}" class="jp-text" style="font-weight: 700; color: #166534;">${item.fullSentence}</span><br>
+                ⭐ <strong>Từ tại vị trí ngôi sao [★]:</strong> <span id="p2_answer_star_${item.id}" class="jp-text" style="font-weight: 800; color: #92400e;">${item.starChip}</span><br>
                 💡 <strong>Giải thích:</strong> ${item.explain}
             </div>
         </div>
@@ -318,11 +318,18 @@ function checkPart2Complete(qId) {
     const chosen = p2Selected[qId] || [];
 
     if (chosen.length === 4) {
-        const isMatch = JSON.stringify(chosen) === JSON.stringify(item.correctOrder);
+        const acceptedAnswer = (item.acceptedOrders || []).find(answer =>
+            JSON.stringify(chosen) === JSON.stringify(answer.order)
+        );
+        const isMatch = JSON.stringify(chosen) === JSON.stringify(item.correctOrder) || Boolean(acceptedAnswer);
         p2Graded[qId] = isMatch;
 
         const exp = document.getElementById(`p2_exp_${qId}`);
         if (exp) exp.style.display = 'block';
+        const answerSentence = document.getElementById(`p2_answer_sentence_${qId}`);
+        if (answerSentence) answerSentence.innerText = acceptedAnswer ? acceptedAnswer.sentence : item.fullSentence;
+        const answerStar = document.getElementById(`p2_answer_star_${qId}`);
+        if (answerStar) answerStar.innerText = acceptedAnswer ? acceptedAnswer.starChip : item.starChip;
 
         for (let i = 0; i < 4; i++) {
             const slotEl = document.getElementById(`p2_slot_${qId}_${i}`);

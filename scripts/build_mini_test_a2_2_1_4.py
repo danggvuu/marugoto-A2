@@ -293,6 +293,11 @@ PART2_ARRANGE = [
         "correctOrder": [2, 3, 0, 1], # レストランで (2) -> 食べた (3) -> ★ 料理の (0) -> 名前を (1)
         "starIndex": 2, # 3rd position (0-based: 2) -> "料理の" (chip 0)
         "starChip": "料理の",
+        "acceptedOrders": [{
+            "order": [3, 0, 1, 2],
+            "sentence": "昨日 食べた 料理の 名前を レストランで 忘れました。",
+            "starChip": "名前を"
+        }],
         "fullSentence": "昨日 レストランで 食べた 料理の 名前を 忘れました。",
         "explain": "Mệnh đề bổ nghĩa cho danh từ: 昨日 [レストランで] [食べた] [★ 料理の] [名前を] 忘れました. Vị trí ngôi sao là [料理の]."
     },
@@ -306,6 +311,11 @@ PART2_ARRANGE = [
         "correctOrder": [3, 0, 1, 2], # 楽しそうに (3) -> 笑っている (0) -> ★ やさしそうな (1) -> 人は (2)
         "starIndex": 2,
         "starChip": "やさしそうな",
+        "acceptedOrders": [{
+            "order": [1, 3, 0, 2],
+            "sentence": "あそこで やさしそうな 楽しそうに 笑っている 人は 山田さんです。",
+            "starChip": "笑っている"
+        }],
         "fullSentence": "あそこで 楽しそうに 笑っている やさしそうな 人は 山田さんです。",
         "explain": "Thứ tự từ: あそこで [楽しそうに] [笑っている] [★ やさしそうな] [人は] 山田さんです. Vị trí ngôi sao là [やさしそうな]."
     },
@@ -319,6 +329,11 @@ PART2_ARRANGE = [
         "correctOrder": [3, 0, 1, 2], # ノートに (3) -> もっと (0) -> ★ きれいに (1) -> 字を (2)
         "starIndex": 2,
         "starChip": "きれいに",
+        "acceptedOrders": [{
+            "order": [3, 2, 0, 1],
+            "sentence": "大事な メモですから、ノートに 字を もっと きれいに 書いてください。",
+            "starChip": "もっと"
+        }],
         "fullSentence": "大事な メモですから、ノートに もっと きれいに 字を 書いてください。",
         "explain": "Trạng từ của tính từ な: きれいに + V. Thứ tự: [ノートに] [もっと] [★ きれいに] [字を] 書いてください. Vị trí ngôi sao là [きれいに]."
     },
@@ -332,6 +347,11 @@ PART2_ARRANGE = [
         "correctOrder": [3, 0, 1, 2], # 日本の 食べ物で (3) -> いちばん (0) -> ★ 好きな (1) -> のは (2)
         "starIndex": 2,
         "starChip": "好きな",
+        "acceptedOrders": [{
+            "order": [0, 1, 2, 3],
+            "sentence": "わたしが いちばん 好きなのは 日本の 食べ物で、母が 作った 料理です。",
+            "starChip": "のは"
+        }],
         "fullSentence": "わたしが 日本の 食べ物で いちばん 好きな のは 母が 作った 料理です。",
         "explain": "Danh từ hóa mệnh đề: [日本の 食べ物で] [いちばん] [★ 好きな] [のは] 母が 作った 料理です. Vị trí ngôi sao là [好きな]."
     },
@@ -345,6 +365,11 @@ PART2_ARRANGE = [
         "correctOrder": [0, 1, 2, 3], # しょうゆを (0) -> つけないで (1) -> ★ 塩だけ (2) -> かけて (3)
         "starIndex": 2,
         "starChip": "塩だけ",
+        "acceptedOrders": [{
+            "order": [2, 3, 0, 1],
+            "sentence": "この 料理は 塩だけ かけて しょうゆを つけないで 食べてください。",
+            "starChip": "しょうゆを"
+        }],
         "fullSentence": "この 料理は しょうゆを つけないで 塩だけ かけて 食べてください。",
         "explain": "Làm V2 mà không làm V1: [しょうゆを] [つけないで] [★ 塩だけ] [かけて] 食べてください. Vị trí ngôi sao là [塩だけ]."
     }
@@ -624,6 +649,8 @@ def render_review_theory():
                 </div>'''
                 for jp, vi in examples
             )
+            contraction_html = render_review_contractions(lesson.get('contractions', [])) \
+                if lesson_number == 4 and section_number == 12 else ''
             sections.append(f'''<section class="content-section review-grammar-section" id="{section_id}">
                 <div class="section-header">
                     <h3 class="section-title">{section_number}. {escape(title)}</h3>
@@ -636,9 +663,7 @@ def render_review_theory():
                         <div class="translation-practice">
                             <h4>Câu luyện dịch • Đáp án tham khảo</h4>
                             <div class="example-list">{example_rows}</div>
-                        </div>
-                        {render_review_contractions(lesson.get('contractions', [])) if lesson_number == 4 and section_number == 12 else ''}
-                    </div>
+                        </div>{contraction_html}</div>
                 </div>
             </section>''')
         lesson_cards.append(f'''<div class="content-card" id="theory-b{lesson_number}">
@@ -1106,7 +1131,7 @@ HTML_CONTENT = """<!DOCTYPE html>
             </div>
         </div>
 
-        <p class="kanji-scope-note">49 mục đầu giữ nguyên thứ tự từ danh sách Kanji của bài 1–4; 13 mục cuối được thêm riêng theo phiếu và gắn nhãn bổ sung. Danh sách Kanji chính thức toàn A2.2 không thay đổi.</p>
+        <p class="kanji-scope-note">__OFFICIAL_KANJI_COUNT__ mục đầu giữ nguyên thứ tự từ danh sách Kanji của bài 1–4; __SUPPLEMENT_COUNT__ mục cuối được thêm riêng theo phiếu và gắn nhãn bổ sung. Danh sách Kanji chính thức toàn A2.2 không thay đổi.</p>
 
         <div class="kanji-grid" id="kanjiContainer">
             <!-- Render via JS -->
@@ -1374,6 +1399,7 @@ HTML_CONTENT = (
 )
 HTML_CONTENT = HTML_CONTENT.replace('__KANJI_COUNT__', str(KANJI_COUNT))
 HTML_CONTENT = HTML_CONTENT.replace('__SUPPLEMENT_COUNT__', str(SUPPLEMENT_COUNT))
+HTML_CONTENT = HTML_CONTENT.replace('__OFFICIAL_KANJI_COUNT__', str(OFFICIAL_KANJI_COUNT))
 
 html_path = os.path.join(WORKSPACE, 'tests/On_Tap_Mini_Test_A2_2_1_4.html')
 with open(html_path, 'w', encoding='utf-8') as f:

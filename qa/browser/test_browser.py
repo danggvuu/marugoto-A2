@@ -76,15 +76,16 @@ class StudyFlows(unittest.TestCase):
         self.page.clock.run_for(400)
 
     def test_a2_2_lesson_links_and_local_dependencies(self):
+        vocab_counts = [20, 17, 21, 23]
         for entry in ["index.html", "lessons/Marugoto_A2_Lesson_1.html"]:
             self.go(entry)
-            for lesson in [1, 2]:
+            for lesson in range(1, 5):
                 link = self.page.locator(f'#lessonsDropdownMenu a[href$="Marugoto_A2_2_Lesson_{lesson}.html"]')
                 self.assertEqual(link.count(), 1)
                 self.assertEqual(self.page.request.get(link.evaluate("(el)=>el.href")).status, 200)
-        for lesson in [1, 2]:
+        for lesson in range(1, 5):
             self.go(f"lessons/Marugoto_A2_2_Lesson_{lesson}.html")
-            self.assertEqual(self.page.locator("#flashcardGrid .fc-item").count(), 20 if lesson == 1 else 17)
+            self.assertEqual(self.page.locator("#flashcardGrid .fc-item").count(), vocab_counts[lesson - 1])
             missing = self.page.evaluate("""async () => {
                 const urls=[...document.querySelectorAll('script[src],link[rel="stylesheet"]')]
                     .map(el=>el.src || el.href).filter(url=>url.startsWith(location.origin));
@@ -94,7 +95,8 @@ class StudyFlows(unittest.TestCase):
             self.assertEqual(missing, [])
 
     def test_a2_2_flashcards_audio_typing_and_responsive_layout(self):
-        for lesson in [1, 2]:
+        vocab_counts = [20, 17, 21, 23]
+        for lesson in range(1, 5):
             self.go(f"lessons/Marugoto_A2_2_Lesson_{lesson}.html")
             self.page.evaluate("() => {window.__spoken=[];window.speakText=text=>__spoken.push(text);}")
             cards = self.page.locator("#flashcardGrid .fc-item")
@@ -123,7 +125,7 @@ class StudyFlows(unittest.TestCase):
             self.assertTrue(self.page.locator("#tpTableModeView").is_visible())
 
     def test_a2_2_quiz_and_verb_lab_restore(self):
-        for lesson in [1, 2]:
+        for lesson in range(1, 5):
             self.go(f"lessons/Marugoto_A2_2_Lesson_{lesson}.html")
             verbs = self.page.evaluate("VERB_DATA")
             for i, verb in enumerate(verbs):
@@ -1240,6 +1242,71 @@ class StudyFlows(unittest.TestCase):
                 self.page.evaluate('toggleTimer()')
                 self.page.clock.run_for(2000)
                 self.assertEqual(self.page.evaluate('totalSeconds'), remaining - 2)
+
+    def test_a2_2_review_canonical_content_supplements_and_restore(self):
+        self.go('tests/On_Tap_Mini_Test_A2_2_1_4.html')
+        self.assertEqual(self.page.evaluate('rawKanji.length'), 62)
+        self.assertEqual(self.page.evaluate('rawVocab.length'), 81)
+        self.page.locator('button[onclick*="tab-theory"]').click()
+        self.assertEqual(self.page.locator('.review-grammar-section').count(), 15)
+        self.assertEqual(self.page.locator('#theory-b4 .contraction-table tbody tr').count(), 10)
+        self.assertTrue(self.page.get_by_text('Câu luyện dịch • Đáp án tham khảo').count() >= 15)
+
+        self.page.evaluate("switchTab('tab-vocab');window.__spoken=[];window.speakText=text=>__spoken.push(text)")
+        self.page.locator('#vocabContainer .sound-btn').first.click()
+        self.assertTrue(self.page.evaluate("__spoken.at(-1).length > 0"))
+        self.page.evaluate("switchTab('tab-kanji')")
+        self.page.locator('#kanjiFilterGroup button[onclick*="SUPPLEMENT"]').click()
+        self.assertEqual(self.page.locator('#kanjiContainer .kanji-card').count(), 13)
+        self.assertIn('紹介', self.page.locator('#kanjiContainer').inner_text())
+        self.assertIn('歌手', self.page.locator('#kanjiContainer').inner_text())
+        self.page.evaluate("""() => {
+            window.__copied = '';
+            Object.defineProperty(navigator, 'clipboard', {
+                configurable: true,
+                value: {writeText(text) { window.__copied = text; return Promise.resolve(); }}
+            });
+            copyKanjiQuizletTabFormat();
+        }""")
+        self.assertEqual(len(self.page.evaluate('__copied.trim().split("\\n")')), 13)
+
+        for tab in ['tab-theory', 'tab-vocab', 'tab-kanji', 'tab-quiz', 'tab-cheat']:
+            self.page.evaluate(f"switchTab('{tab}')")
+            self.assertEqual(self.page.locator('.tab-panel.active').get_attribute('id'), tab)
+
+        self.page.set_viewport_size({'width': 360, 'height': 900})
+        self.page.evaluate("switchTab('tab-theory')")
+        layout = self.page.evaluate("""() => ({
+            pageWidth: document.documentElement.scrollWidth,
+            viewportWidth: innerWidth,
+            tableWidth: document.querySelector('#theory-b4 .contraction-table-wrap').clientWidth,
+            tableScrollWidth: document.querySelector('#theory-b4 .contraction-table-wrap').scrollWidth
+        })""")
+        self.assertEqual(layout['pageWidth'], layout['viewportWidth'])
+        self.assertLessEqual(layout['tableWidth'], layout['viewportWidth'])
+        self.assertGreater(layout['tableScrollWidth'], layout['tableWidth'])
+        self.page.set_viewport_size({'width': 1440, 'height': 900})
+        self.assertEqual(self.page.evaluate('document.documentElement.scrollWidth'), 1440)
+
+        self.page.evaluate("switchTab('tab-quiz')")
+        self.page.locator('#optBtn_p1_1_0').click()
+        self.page.locator('#p3_input_16').fill('買った')
+        self.page.locator('#trans_input_29').fill('あそこで先生と話している人です。')
+        self.page.evaluate("setPart6Score(29, 2.5);switchTab('tab-quiz');toggleTimer()")
+        self.page.clock.run_for(2500)
+        self.page.evaluate("switchTab('tab-theory')")
+        remaining = self.page.evaluate('totalSeconds')
+        self.reload()
+        self.assertEqual(self.page.evaluate('currentTab'), 'tab-theory')
+        self.assertEqual(self.page.evaluate('currentKanjiFilter'), 'SUPPLEMENT')
+        self.assertEqual(self.page.evaluate('p1Answers[1]'), 0)
+        self.assertEqual(self.page.locator('#p3_input_16').input_value(), '買った')
+        self.assertEqual(self.page.locator('#trans_input_29').input_value(), 'あそこで先生と話している人です。')
+        self.assertEqual(self.page.evaluate('p6SelfScores[29]'), 2.5)
+        self.assertFalse(self.page.evaluate('isTimerRunning'))
+        self.assertEqual(self.page.evaluate('totalSeconds'), remaining)
+        self.page.evaluate("switchTab('tab-quiz');toggleTimer()")
+        self.assertTrue(self.page.evaluate('isTimerRunning'))
 
     def test_timed_mini_tests_restart_timer_after_expiry(self):
         for path, reset in [

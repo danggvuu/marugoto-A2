@@ -363,4 +363,27 @@ test('Mini A2.2 editing a conjugation draft clears its old grade', () => {
     assert.strictEqual(JSON.parse(h.storage.get('marugoto_mini_a2_2_1_4_cp_v1')).p3Inputs[16], '買います');
 });
 
+test('Mini A2.2 accepts valid alternate word orders without changing chip indices', () => {
+    const h = harness('assets/js/mini-test-a2-2-1-4.js', {
+        data: ['assets/data/mini_a2_2_1_4_data.js']
+    });
+    const answers = [
+        [11, [3, 0, 1, 2], '名前を'],
+        [12, [1, 3, 0, 2], '笑っている'],
+        [13, [3, 2, 0, 1], 'もっと'],
+        [14, [0, 1, 2, 3], 'のは'],
+        [15, [2, 3, 0, 1], 'しょうゆを']
+    ];
+    answers.forEach(([id, order, starChip]) => {
+        h.run(`p2Selected[${id}] = ${JSON.stringify(order)}; checkPart2Complete(${id})`);
+        assert.strictEqual(h.run(`p2Graded[${id}]`), true, `Alternate order for ${id} should be accepted`);
+        assert.strictEqual(h.element(`p2_answer_star_${id}`).innerText, starChip);
+    });
+    const data = h.snapshot('part2Data');
+    data.forEach((item, index) => {
+        assert.strictEqual(item.correctOrder.join(','), [[2, 3, 0, 1], [3, 0, 1, 2], [3, 0, 1, 2], [3, 0, 1, 2], [0, 1, 2, 3]][index].join(','));
+        assert.strictEqual(item.chips.length, 4);
+    });
+});
+
 console.log(`Exam recovery: ${passed} targeted behavior checks passed.`);
