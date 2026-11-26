@@ -494,6 +494,69 @@ class ReviewVisualFlows(unittest.TestCase):
                     self.assertNotEqual('flipped' in (card.get_attribute('class') or '').split(), was_flipped)
         self.assertEqual(self.errors, [])
 
+    def test_typography_fits_labels_on_all_pages(self):
+        paths = sorted(path for pattern in ('*.html', 'lessons/*.html', 'tests/*.html')
+                       for path in harness.ROOT.glob(pattern))
+        for width in (360, 768, 1440):
+            for path in paths:
+                with self.subTest(path=path.name, width=width):
+                    self.go(path.relative_to(harness.ROOT).as_posix(), width)
+                    if 'assets/nav.js' in path.read_text(encoding='utf-8'):
+                        self.page.wait_for_selector('.lesson-morph-glider', state='attached')
+                    problems = self.page.evaluate('''() => {
+                        const problems = [];
+                        const selectors = '.section-title, .section-tag, .section-badge, .kanji-hv-title, .kanji-readings, .morph-val, .btn-speak, .mode-tab-btn, .tab-btn';
+                        for (const el of document.querySelectorAll(selectors)) {
+                            const box = el.getBoundingClientRect();
+                            if (!box.width || !box.height || getComputedStyle(el).visibility === 'hidden') continue;
+                            const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+                            while (walker.nextNode()) {
+                                const node = walker.currentNode;
+                                if (!node.textContent.trim() || node.parentElement.closest('rt')) continue;
+                                const range = document.createRange();
+                                range.selectNodeContents(node);
+                                if ([...range.getClientRects()].some(r =>
+                                    r.left < box.left - 1 || r.right > box.right + 1 ||
+                                    r.top < box.top - 1 || r.bottom > box.bottom + 1)) {
+                                    problems.push({class: el.className, text: el.textContent.trim().slice(0, 100)});
+                                    break;
+                                }
+                            }
+                        }
+                        return problems;
+                    }''')
+                    self.assertEqual(problems, [])
+
+    def test_lesson_headers_stats_and_dock_keep_readable_space(self):
+        for level in ('A2', 'A2_2'):
+            for lesson in range(1, 19):
+                with self.subTest(level=level, lesson=lesson):
+                    self.go(f'lessons/Marugoto_{level}_Lesson_{lesson}.html', 360)
+                    self.page.wait_for_selector('#lessonMorphGlider', state='attached')
+                    self.assertTrue(self.page.locator('.hero-stats-row').evaluate_all('''rows => rows.every(row => {
+                        const box = row.getBoundingClientRect();
+                        return [...row.children].every(card => {
+                            const r = card.getBoundingClientRect();
+                            return r.left >= box.left - 1 && r.right <= box.right + 1;
+                        });
+                    })'''))
+                    if level == 'A2' and lesson == 10:
+                        self.assertGreater(self.page.locator('.section-title-wrap .section-title').first.bounding_box()['width'], 200)
+                    self.page.set_viewport_size({'width': 1440, 'height': 900})
+                    self.page.evaluate("window.scrollTo({top: 400, behavior: 'instant'})")
+                    self.page.wait_for_function("document.body.classList.contains('is-scrolled-dock')")
+                    self.assertTrue(self.page.locator('#lessonSidebarRail .lesson-rail-link').evaluate_all('''links => links.every(link => {
+                        const box = link.getBoundingClientRect();
+                        return [...link.querySelectorAll('.rail-icon, .rail-label')].every(el => {
+                            const r = el.getBoundingClientRect();
+                            const range = document.createRange(); range.selectNodeContents(el);
+                            const text = range.getBoundingClientRect();
+                            return Math.abs(r.x + r.width / 2 - box.x - box.width / 2) <= 1 &&
+                                r.top >= box.top - 1 && r.bottom <= box.bottom + 1 &&
+                                text.top >= r.top - 1 && text.bottom <= r.bottom + 1;
+                        });
+                    })'''))
+
     def test_demo_lighting_reset_and_lantern_canvas_selection(self):
         self.go('demo_3d.html', 1440)
         self.page.wait_for_function('typeof renderer !== "undefined" && renderer?.info.render.calls > 0')
