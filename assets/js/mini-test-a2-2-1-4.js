@@ -197,6 +197,13 @@ function updateKanaProgress() {
     if (!lesson) return;
     const count = lesson.items.filter(item => kanaAnswers[item.id]?.checked && gradeKanaValue(kanaAnswers[item.id].draft, item).correct).length;
     document.getElementById('kanaReviewProgress').textContent = `Đúng ${count} / 20 câu`;
+    const progressBar = document.getElementById('kanaReviewProgressBar');
+    const progressTrack = progressBar?.parentElement;
+    if (progressBar && progressTrack) {
+        progressBar.style.width = `${Math.round(count / lesson.items.length * 100)}%`;
+        progressTrack.setAttribute('aria-valuenow', String(count));
+        progressTrack.setAttribute('aria-valuetext', `${count} / ${lesson.items.length} câu đúng`);
+    }
 }
 
 function updateKanaQuestion(item, card) {
@@ -221,6 +228,8 @@ function renderKanaReview() {
     document.getElementById('kanaLessonTitle').textContent = `Bài ${lesson.lesson}: ${lesson.title}`;
     const lessonVocab = rawVocab.filter(item => item.l === `L${lesson.lesson}`);
     document.getElementById('kanaLessonScope').textContent = `20 câu dùng đủ ${lessonVocab.length} từ mới của bài. Tiến độ lưu riêng theo từng bài.`;
+    const grammarFocus = document.getElementById('kanaLessonGrammar');
+    if (grammarFocus) grammarFocus.innerHTML = (lesson.grammarFocus || []).map(focus => `<span>${escapeText(focus)}</span>`).join('');
     document.querySelectorAll('#kanaLessonFilters button').forEach(button => {
         const selected = Number(button.dataset.kanaLesson) === kanaLesson;
         button.classList.toggle('active', selected);
@@ -234,7 +243,7 @@ function renderKanaReview() {
         card.innerHTML = `
             <div class="q-header"><span class="q-num">Câu ${index + 1}</span><span class="kana-review-status" aria-live="polite"></span></div>
             <p class="kana-review-prompt">${escapeText(item.vi)}</p>
-            <p class="kana-review-vocab">Từ mới trong câu: ${item.vocab.map(number => escapeText(lessonVocab[number - 1].vi)).join('; ')}</p>
+            <div class="kana-review-vocab"><span class="kana-review-vocab-label">Từ mới</span><div class="kana-review-vocab-list">${item.vocab.map(number => `<span class="kana-review-vocab-chip">${escapeText(lessonVocab[number - 1].vi)}</span>`).join('')}</div></div>
             <label class="kana-review-input-label" for="kana-input-${item.id}">Nhập câu tiếng Nhật bằng hiragana và katakana:</label>
             <div class="kana-review-input-row">
                 <input id="kana-input-${item.id}" class="kana-review-input" type="text" lang="ja" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Nhập câu tiếng Nhật">
@@ -242,7 +251,7 @@ function renderKanaReview() {
                 <button type="button" class="quiz-btn" data-kana-action="reveal" aria-controls="kana-answer-${item.id}" aria-expanded="false">Xem đáp án</button>
             </div>
             <p class="kana-review-feedback" aria-live="polite"></p>
-            <div id="kana-answer-${item.id}" class="kana-review-answer" hidden><p class="jp-text" lang="ja">${escapeText(item.jp)}</p><p>${escapeText(item.grammar)}</p></div>`;
+            <div id="kana-answer-${item.id}" class="kana-review-answer" hidden><p class="jp-text kana-review-answer-jp" lang="ja">${escapeText(item.jp)}</p><p class="kana-review-answer-grammar">${escapeText(item.grammar)}</p></div>`;
         const input = card.querySelector('.kana-review-input');
         input.value = kanaAnswers[item.id]?.draft || '';
         input.addEventListener('input', () => {

@@ -1348,6 +1348,191 @@ class StudyFlows(unittest.TestCase):
                 self.assertEqual(control.evaluate('el=>getComputedStyle(el).animationName'), 'none')
                 self.assertEqual(control.evaluate('el=>getComputedStyle(el).transform'), 'none')
 
+    def test_a2_2_practice_regions_stay_still_during_real_interactions(self):
+        self.go('tests/On_Tap_Mini_Test_A2_2_1_4.html#tab-kana')
+
+        def assert_stationary(control, label):
+            control.scroll_into_view_if_needed()
+            self.page.mouse.move(0, 0)
+            self.page.clock.run_for(300)
+            before = control.evaluate("""element => {
+                const rect = element.getBoundingClientRect();
+                return {x: rect.x + scrollX, y: rect.y + scrollY,
+                    width: rect.width, height: rect.height};
+            }""")
+            control.hover()
+            self.page.mouse.down()
+            try:
+                self.page.clock.run_for(80)
+                after = control.evaluate("""element => {
+                    const rect = element.getBoundingClientRect();
+                    return {x: rect.x + scrollX, y: rect.y + scrollY,
+                        width: rect.width, height: rect.height};
+                }""")
+                self.assertEqual(before, after, f'{label} moved under the pointer')
+                moving_ancestors = control.evaluate("""element => {
+                    const moved = [];
+                    for (let node = element; node; node = node.parentElement) {
+                        const style = getComputedStyle(node);
+                        if (style.transform !== 'none' || style.translate !== 'none' ||
+                            style.scale !== 'none' || style.rotate !== 'none' ||
+                            style.animationName !== 'none' || style.transitionProperty !== 'none') {
+                            moved.push({tag: node.tagName, id: node.id, className: node.className,
+                                transform: style.transform, translate: style.translate, scale: style.scale,
+                                rotate: style.rotate, animation: style.animationName,
+                                transition: style.transitionProperty});
+                        }
+                        if (node.id === 'tab-kana' || node.id === 'tab-quiz' ||
+                            node.classList.contains('tab-nav-wrapper') || node === document.body) break;
+                    }
+                    return moved;
+                }""")
+                self.assertEqual(moving_ancestors, [], f'{label} or an exercise ancestor animates')
+            finally:
+                self.page.mouse.up()
+
+        self.page.set_viewport_size({'width': 390, 'height': 844})
+        assert_stationary(self.page.locator('[data-kana-lesson="2"]'), 'Kana lesson filter')
+        self.page.locator('[data-kana-lesson="2"]').click()
+        assert_stationary(self.page.locator('.kana-review-input').first, 'Kana answer input')
+        assert_stationary(self.page.locator('[data-kana-action="check"]').first, 'Kana check button')
+        self.page.locator('.kana-review-input').first.fill('したがきをほぞんします')
+        self.page.locator('[data-kana-action="check"]').first.click()
+        self.assertIn('Chưa đúng', self.page.locator('.kana-review-status').first.inner_text())
+        assert_stationary(self.page.locator('[data-kana-action="reveal"]').first, 'Kana reveal button')
+        self.assertTrue(self.page.locator('.kana-review-answer').first.is_visible())
+        assert_stationary(self.page.locator('button[onclick="gradeKanaLesson()"]'), 'Kana grade-all button')
+        assert_stationary(self.page.locator('button[onclick="resetKanaLesson()"]'), 'Kana reset button')
+        self.page.locator('button[onclick="resetKanaLesson()"]').click()
+        self.assertEqual(self.page.locator('.kana-review-input').first.input_value(), '')
+        self.assertEqual(self.page.locator('#toast').evaluate('el=>getComputedStyle(el).animationName'), 'none')
+
+        assert_stationary(self.page.locator('.tab-btn[onclick*="tab-quiz"]'), 'Exam tab')
+        self.page.locator('.tab-btn[onclick*="tab-quiz"]').click()
+        self.assertEqual(self.page.locator('#tab-quiz').evaluate('el=>getComputedStyle(el).animationName'), 'none')
+        self.page.set_viewport_size({'width': 1440, 'height': 900})
+
+        controls = [
+            ('#optBtn_p1_1_0', 'Multiple-choice option'),
+            ('#part2Container button[onclick^="handlePart2ChipClick"]', 'Sentence-order chip'),
+            ('#part2Container button[onclick^="checkPart2Explicit"]', 'Sentence-order check button'),
+            ('#part2Container button[onclick^="resetPart2Question"]', 'Sentence-order reset button'),
+            ('#p3_btn_16', 'Conjugation check button'),
+            ('#part4Container .opt-btn', 'Matching option'),
+            ('#part5Container .opt-btn', 'Reading-comprehension option'),
+            ('#p6_score_0_29', 'Translation score control'),
+            ('#timerToggleBtn', 'Timer control'),
+            'button[onclick="submitAndGradeExam()"]',
+        ]
+        for control in controls:
+            selector, label = control if isinstance(control, tuple) else (control, 'Exam grading control')
+            locator = self.page.locator(selector)
+            self.assertGreater(locator.count(), 0, f'Missing {label}')
+            assert_stationary(locator.first, label)
+
+        self.page.locator('#optBtn_p1_1_0').click()
+        self.assertTrue(self.page.locator('#optBtn_p1_1_0.correct, #optBtn_p1_1_0.wrong').count())
+        self.assertEqual(self.page.locator('#p1_exp_1').evaluate('el=>getComputedStyle(el).animationName'), 'none')
+        self.page.locator('#part2Container button[onclick^="handlePart2ChipClick"]').first.click()
+        self.assertTrue(self.page.locator('#part2Container .word-chip.selected').count())
+        self.page.locator('button[onclick="submitAndGradeExam()"]').click()
+        self.assertEqual(self.page.locator('#scoreModal').evaluate('el=>getComputedStyle(el).animationName'), 'none')
+        self.assertEqual(self.page.evaluate('getComputedStyle(document.documentElement).scrollBehavior'), 'auto')
+
+        for width in [360, 768, 1440]:
+            self.page.set_viewport_size({'width': width, 'height': 900})
+            self.assertEqual(self.page.evaluate('document.documentElement.scrollWidth'), width)
+            for selector in ['#tab-kana', '#tab-quiz']:
+                audit = self.page.locator(selector).evaluate("""root => {
+                    const elements = [root, ...root.querySelectorAll('*')];
+                    return elements.filter(element => {
+                        const style = getComputedStyle(element);
+                        return style.animationName !== 'none' || style.transitionProperty !== 'none' ||
+                            style.transform !== 'none' || style.translate !== 'none' ||
+                            style.scale !== 'none' || style.rotate !== 'none' || style.willChange !== 'auto';
+                    }).slice(0, 10).map(element => ({id:element.id, className:element.className,
+                        animation:getComputedStyle(element).animationName,
+                        transition:getComputedStyle(element).transitionProperty,
+                        transform:getComputedStyle(element).transform}));
+                }""")
+                self.assertEqual(audit, [], f'Motion styles remain inside {selector} at {width}px')
+
+    def test_a2_2_kana_practice_redesign_layout_progress_and_checkpoint(self):
+        self.go('tests/On_Tap_Mini_Test_A2_2_1_4.html#tab-kana')
+        self.assertEqual(self.page.locator('.kana-review-question').count(), 20)
+        self.assertEqual(self.page.locator('.kana-review-title').inner_text(), 'Luyện viết câu tiếng Nhật')
+        self.assertEqual(self.page.locator('#kanaLessonFilters button').count(), 4)
+        self.assertEqual(self.page.locator('#kanaLessonGrammar span').count(), 3)
+        self.assertIn('N1 という N2', self.page.locator('#kanaLessonGrammar').inner_text())
+        self.assertEqual(self.page.locator('#kanaReviewProgressBar').evaluate('el=>el.parentElement.getAttribute("role")'), 'progressbar')
+        self.assertEqual(self.page.locator('.kana-review-heading').evaluate('el=>getComputedStyle(el).backgroundImage'), 'none')
+        self.assertEqual(self.page.locator('.kana-review-heading').evaluate('el=>getComputedStyle(el).padding'), '0px')
+
+        for width in [360, 390, 768, 879, 880, 1024, 1440]:
+            self.page.set_viewport_size({'width': width, 'height': 900})
+            self.assertEqual(self.page.evaluate('document.documentElement.scrollWidth'), width)
+            self.assertEqual(self.page.locator('#kanaLessonFilters').evaluate('el=>getComputedStyle(el).display'), 'grid')
+            for selector in ['#kanaLessonFilters', '.kana-review-summary', '.kana-review-question', '.kana-review-input']:
+                self.assertTrue(self.page.locator(selector).first.evaluate(
+                    'el=>{const r=el.getBoundingClientRect();return r.left>=0&&r.right<=innerWidth+1}'),
+                    f'{selector} exceeds viewport at {width}px')
+
+            first = self.page.locator('.kana-review-question').nth(0).bounding_box()
+            second = self.page.locator('.kana-review-question').nth(1).bounding_box()
+            filter_first = self.page.locator('#kanaLessonFilters button').nth(0).bounding_box()
+            filter_second = self.page.locator('#kanaLessonFilters button').nth(1).bounding_box()
+            if width <= 640:
+                filter_third = self.page.locator('#kanaLessonFilters button').nth(2).bounding_box()
+                self.assertEqual(filter_first['y'], filter_second['y'])
+                self.assertGreater(filter_third['y'], filter_first['y'])
+            else:
+                self.assertEqual(filter_first['y'], filter_second['y'])
+            if width >= 880:
+                self.assertEqual(first['y'], second['y'], f'Questions should share a row at {width}px')
+                self.assertGreater(second['x'], first['x'])
+            else:
+                self.assertGreater(second['y'], first['y'], f'Questions should stack at {width}px')
+
+        self.page.set_viewport_size({'width': 390, 'height': 844})
+        answer = self.page.evaluate('kanaReviewLessons[0].items[0].jp')
+        self.page.locator('.kana-review-input').first.fill(answer)
+        self.page.locator('[data-kana-action="check"]').first.click()
+        self.assertIn('is-correct', self.page.locator('.kana-review-question').first.get_attribute('class'))
+        progress = self.page.locator('.kana-review-progress-track')
+        self.assertEqual(progress.get_attribute('aria-valuenow'), '1')
+        self.assertEqual(progress.get_attribute('aria-valuetext'), '1 / 20 câu đúng')
+        self.assertEqual(self.page.locator('#kanaReviewProgressBar').evaluate('el=>el.style.width'), '5%')
+        self.assertTrue(self.page.locator('.kana-review-question').first.evaluate(
+            'el=>getComputedStyle(el).borderTopColor === "rgb(4, 120, 87)"'))
+        self.assertEqual(self.page.locator('.kana-review-heading').evaluate('el=>getComputedStyle(el).textAlign'), 'left')
+
+        filter_button = self.page.locator('[data-kana-lesson="2"]')
+        focus_style = filter_button.evaluate("""el => {
+            el.focus({focusVisible: true});
+            const style = getComputedStyle(el);
+            return {width:el.getBoundingClientRect().height, outline:style.outlineStyle,
+                outlineWidth:style.outlineWidth, pressed:el.getAttribute('aria-pressed')};
+        }""")
+        self.assertGreaterEqual(focus_style['width'], 44)
+        self.assertEqual(focus_style['outline'], 'solid')
+        self.assertEqual(focus_style['outlineWidth'], '2px')
+
+        filter_button.click()
+        self.assertEqual(self.page.locator('.kana-review-question').count(), 20)
+        self.assertIn('Vている + N', self.page.locator('#kanaLessonGrammar').inner_text())
+        self.page.reload()
+        self.assertEqual(self.page.locator('[data-kana-lesson="2"]').get_attribute('aria-pressed'), 'true')
+        self.page.locator('[data-kana-lesson="1"]').click()
+        self.assertEqual(self.page.locator('.kana-review-input').first.input_value(), answer)
+        self.assertIn('is-correct', self.page.locator('.kana-review-question').first.get_attribute('class'))
+
+        self.go('tests/On_Tap_Mini_Test_A2_2_1_4.html')
+        self.page.set_viewport_size({'width': 390, 'height': 844})
+        self.page.locator('.kana-review-entry').click()
+        nav_bottom = self.page.locator('.tab-nav-wrapper').evaluate('el=>el.getBoundingClientRect().bottom')
+        heading_top = self.page.locator('.kana-review-heading').evaluate('el=>el.getBoundingClientRect().top')
+        self.assertGreaterEqual(heading_top, nav_bottom, 'The sticky tab bar must not cover the kana heading')
+
     def test_a2_2_review_kana_sets_grade_all_answers_and_keep_katakana(self):
         self.go('tests/On_Tap_Mini_Test_A2_2_1_4.html#tab-kana')
         self.assertTrue(self.page.locator('#tab-kana').is_visible())

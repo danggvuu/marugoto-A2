@@ -2881,91 +2881,96 @@ window.MINI_A2_2_1_4_DATA = {
   {
     "lesson": 1,
     "title": "Tên hay quá nhỉ",
+    "grammarFocus": [
+      "S は N という意味です",
+      "N1 という N2",
+      "Thể thông thường + danh từ"
+    ],
     "items": [
       {
         "id": "l1-q01",
-        "vi": "Tôi xin tự giới thiệu bản thân.",
-        "jp": "じこしょうかいをします。",
+        "vi": "Lời tự giới thiệu mà người bạn mới nói rất hay.",
+        "jp": "あたらしいともだちがしたじこしょうかいはとてもよかったです。",
         "accepted": [],
         "vocab": [
           1
         ],
-        "grammar": "Câu danh từ, giới thiệu bản thân"
+        "grammar": "Thể quá khứ bổ nghĩa danh từ: 友だちがした自己紹介"
       },
       {
         "id": "l1-q02",
-        "vi": "Tuổi của tôi là bí mật.",
-        "jp": "わたしのとしはひみつです。",
+        "vi": "Tuổi mà cô ấy không nói với mọi người là bí mật.",
+        "jp": "かのじょがみんなにいわないとしはひみつです。",
         "accepted": [],
         "vocab": [
           2,
           12
         ],
-        "grammar": "Câu danh từ"
+        "grammar": "Thể phủ định bổ nghĩa danh từ: みんなに言わない年"
       },
       {
         "id": "l1-q03",
-        "vi": "Tôi quan tâm đến giao lưu quốc tế.",
-        "jp": "わたしはこくさいこうりゅうにきょうみがあります。",
+        "vi": "Giao lưu quốc tế mà tôi đang quan tâm rất thú vị.",
+        "jp": "わたしがきょうみをもっているこくさいこうりゅうはとてもたのしいです。",
         "accepted": [],
         "vocab": [
           3,
           9
         ],
-        "grammar": "Câu với あります"
+        "grammar": "Thể ている bổ nghĩa danh từ: 興味を持っている国際交流"
       },
       {
         "id": "l1-q04",
-        "vi": "Trong làng có một cửa hàng điện.",
-        "jp": "むらにでんきてんがあります。",
+        "vi": "Trong ngôi làng nơi tôi sống có một cửa hàng điện.",
+        "jp": "わたしがすんでいるむらにはでんきてんがあります。",
         "accepted": [],
         "vocab": [
           4,
           10
         ],
-        "grammar": "Câu với あります"
+        "grammar": "Thể ている bổ nghĩa danh từ: 住んでいる村"
       },
       {
         "id": "l1-q05",
-        "vi": "Tôi thích đọc sách.",
-        "jp": "わたしはどくしょがすきです。",
+        "vi": "Tôi thích hình ảnh em gái đang đọc sách.",
+        "jp": "どくしょをしているいもうとのすがたがすきです。",
         "accepted": [],
         "vocab": [
           6
         ],
-        "grammar": "Câu tính từ な"
+        "grammar": "Thể ている bổ nghĩa danh từ: 読書をしている妹"
       },
       {
         "id": "l1-q06",
-        "vi": "Anh trai tôi mở cửa hàng trên đảo.",
-        "jp": "あにはしまでみせをやっています。",
+        "vi": "Anh trai tôi là người kinh doanh cửa hàng trên đảo.",
+        "jp": "あにはしまにあるみせをやっているひとです。",
         "accepted": [],
         "vocab": [
           7,
           11
         ],
-        "grammar": "Thể ている"
+        "grammar": "Thể thông thường bổ nghĩa danh từ: 島にある店をやっている人"
       },
       {
         "id": "l1-q07",
-        "vi": "Bố tôi làm công việc biên dịch.",
-        "jp": "ちちはほんやくをしています。",
+        "vi": "Người đang làm công việc biên dịch là bố tôi.",
+        "jp": "ほんやくをしているひとはわたしのちちです。",
         "accepted": [],
         "vocab": [
           8
         ],
-        "grammar": "Thể ている"
+        "grammar": "Thể ている bổ nghĩa danh từ: 翻訳をしている人"
       },
       {
         "id": "l1-q08",
-        "vi": "Tôi rất hứng thú với các sản phẩm điện tử.",
-        "jp": "わたしはでんきせいひんにとてもきょうみがあります。",
+        "vi": "Sản phẩm điện tử mà tôi đang quan tâm là ti vi.",
+        "jp": "わたしがきょうみをもっているでんきせいひんはテレビです。",
         "accepted": [],
         "vocab": [
           5,
           9
         ],
-        "grammar": "Câu với あります"
+        "grammar": "Thể ている bổ nghĩa danh từ: 興味を持っている電気製品"
       },
       {
         "id": "l1-q09",
@@ -2980,24 +2985,24 @@ window.MINI_A2_2_1_4_DATA = {
       },
       {
         "id": "l1-q10",
-        "vi": "Tôi sống trên một hòn đảo.",
-        "jp": "わたしはしまにすんでいます。",
+        "vi": "Hòn đảo nơi tôi sống nằm ở Việt Nam.",
+        "jp": "わたしがすんでいるしまはベトナムにあります。",
         "accepted": [],
         "vocab": [
           11
         ],
-        "grammar": "Thể ている"
+        "grammar": "Thể ている bổ nghĩa danh từ: 住んでいる島"
       },
       {
         "id": "l1-q11",
-        "vi": "Tôi sinh ra ở một ngôi làng.",
-        "jp": "わたしはむらでうまれました。",
+        "vi": "Ngôi làng nơi tôi sinh ra rất yên bình.",
+        "jp": "わたしがうまれたむらはとてもしずかです。",
         "accepted": [],
         "vocab": [
           13,
           10
         ],
-        "grammar": "Thể quá khứ ました"
+        "grammar": "Thể quá khứ bổ nghĩa danh từ: 生まれた村"
       },
       {
         "id": "l1-q12",
@@ -3012,25 +3017,25 @@ window.MINI_A2_2_1_4_DATA = {
       },
       {
         "id": "l1-q13",
-        "vi": "Người bạn khỏe mạnh đang đọc sách.",
-        "jp": "けんこうなともだちはどくしょをしています。",
+        "vi": "Người bạn đang đọc sách là một người khỏe mạnh.",
+        "jp": "どくしょをしているともだちはけんこうなひとです。",
         "accepted": [],
         "vocab": [
           15,
           6
         ],
-        "grammar": "Tính từ な bổ nghĩa danh từ"
+        "grammar": "Thể ている bổ nghĩa danh từ: 読書をしている友だち"
       },
       {
         "id": "l1-q14",
-        "vi": "Người nghiêm túc đang sống trong làng.",
-        "jp": "まじめなひとがむらにすんでいます。",
+        "vi": "Người nghiêm túc đang sống trong làng là bạn của bố tôi.",
+        "jp": "むらにすんでいるまじめなひとはちちのともだちです。",
         "accepted": [],
         "vocab": [
           16,
           10
         ],
-        "grammar": "Tính từ な bổ nghĩa danh từ"
+        "grammar": "Thể thông thường bổ nghĩa danh từ: 村に住んでいるまじめな人"
       },
       {
         "id": "l1-q15",
@@ -3101,6 +3106,12 @@ window.MINI_A2_2_1_4_DATA = {
   {
     "lesson": 2,
     "title": "Nhận diện và miêu tả người",
+    "grammarFocus": [
+      "A は B が",
+      "Vている + N",
+      "～そうです／～そうな N",
+      "Trạng từ ～く／～に／～そうに"
+    ],
     "items": [
       {
         "id": "l2-q01",
@@ -3337,6 +3348,12 @@ window.MINI_A2_2_1_4_DATA = {
   {
     "lesson": 3,
     "title": "Gọi món và gợi ý món ăn",
+    "grammarFocus": [
+      "～ので",
+      "～のは N です",
+      "N なら",
+      "～ずつ"
+    ],
     "items": [
       {
         "id": "l3-q01",
@@ -3576,6 +3593,12 @@ window.MINI_A2_2_1_4_DATA = {
   {
     "lesson": 4,
     "title": "Cách ăn và phép lịch sự khi ăn",
+    "grammarFocus": [
+      "～てはいけません",
+      "～てから",
+      "Vて／Vないで",
+      "～と"
+    ],
     "items": [
       {
         "id": "l4-q01",

@@ -1,10 +1,11 @@
-/* Kana practice on the A2.2 lessons 1-4 review page. */
+/* Editorial workbook layout for the A2.2 kana practice. */
 .kana-review-entry {
     display: inline-flex;
     justify-content: center;
     max-width: 100%;
     padding: 10px 18px;
     margin-bottom: 18px;
+    border: 1px solid var(--gray-200);
     border-radius: var(--radius-md);
     background: var(--white);
     color: var(--primary-dark);
@@ -12,77 +13,536 @@
     text-decoration: none;
 }
 
-.kana-review-instructions {
-    padding: 14px 16px;
-    margin-bottom: 18px;
-    border-radius: var(--radius-sm);
-    border-left: 3px solid var(--primary);
-    background: var(--gray-100);
-    color: var(--gray-800);
+html:root body.mini-test-page #tab-kana {
+    --kana-ink: var(--gray-900);
+    --kana-muted: var(--gray-600);
+    --kana-border: var(--gray-200);
+    --kana-surface: var(--white);
+    --kana-paper: var(--gray-50);
+    --kana-accent: var(--primary-dark);
+    --kana-correct: #047857;
+    --kana-wrong: #b91c1c;
 }
 
-.kana-review-summary,
-.kana-review-controls,
-.kana-review-input-row {
+html:root body.mini-test-page #tab-kana {
+    scroll-margin-top: 7.5rem;
+}
+
+html:root body.mini-test-page #tab-kana > .kana-review-shell {
+    padding: clamp(20px, 3.5vw, 36px) !important;
+    margin-bottom: 0;
+    border: 1px solid var(--kana-border) !important;
+    border-radius: var(--radius-lg);
+    background: var(--kana-surface) !important;
+    box-shadow: none !important;
+}
+
+html:root body.mini-test-page #tab-kana .kana-review-heading {
+    position: static;
+    max-width: 72ch;
+    padding: 0 !important;
+    margin: 0 0 24px !important;
+    overflow: visible !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    background-image: none !important;
+    color: var(--kana-ink) !important;
+    box-shadow: none !important;
+    text-align: left;
+}
+
+html:root body.mini-test-page #tab-kana .kana-review-heading::before {
+    display: none !important;
+    content: none !important;
+}
+
+html:root body.mini-test-page #tab-kana .kana-review-kicker {
+    margin: 0 0 9px;
+    color: var(--kana-accent);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+html:root body.mini-test-page #tab-kana .kana-review-title {
+    margin: 0 0 9px;
+    color: var(--kana-ink);
+    font-size: clamp(1.7rem, 3vw, 2.25rem);
+    font-weight: 800;
+    letter-spacing: -0.035em;
+    line-height: 1.12;
+}
+
+html:root body.mini-test-page #tab-kana .kana-review-lede {
+    max-width: 68ch;
+    margin: 0;
+    color: var(--kana-muted);
+    opacity: 1;
+    font-size: 0.98rem;
+    line-height: 1.65;
+}
+
+html:root body.mini-test-page #tab-kana .kana-review-instructions {
     display: flex;
-    align-items: center;
     flex-wrap: wrap;
-    gap: 10px;
-}
-
-.kana-review-summary {
-    justify-content: space-between;
-    margin: 18px 0;
-}
-
-.kana-review-summary p,
-.kana-review-vocab {
-    color: var(--gray-600);
+    align-items: center;
+    gap: 9px 20px;
+    padding: 14px 16px;
+    margin-bottom: 20px;
+    border: 1px solid var(--kana-border);
+    border-radius: var(--radius-md);
+    background: var(--kana-paper);
+    color: var(--kana-muted);
     font-size: 0.88rem;
+    line-height: 1.5;
 }
 
-.kana-review-question .kana-review-prompt {
-    margin: 10px 0 6px;
-    font-weight: 700;
+html:root body.mini-test-page #tab-kana .kana-review-instructions strong {
+    color: var(--kana-ink);
 }
 
-.kana-review-input-label {
-    display: block;
-    margin: 12px 0 6px;
-    font-size: 0.88rem;
-    font-weight: 700;
-}
-
-.kana-review-input {
-    flex: 1 1 300px;
-    min-width: 0;
+html:root body.mini-test-page #tab-kana #kanaLessonFilters {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px;
     width: 100%;
-    padding: 12px;
-    border: 1.5px solid var(--gray-300);
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+}
+
+html:root body.mini-test-page #tab-kana #kanaLessonFilters .filter-btn {
+    display: flex;
+    min-width: 0;
+    min-height: 52px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 1px;
+    padding: 8px 14px;
+    border: 1px solid var(--kana-border);
+    border-radius: var(--radius-md);
+    background: var(--kana-surface);
+    color: var(--kana-ink);
+    text-align: left;
+    white-space: normal;
+    box-shadow: none;
+}
+
+html:root body.mini-test-page #tab-kana #kanaLessonFilters .filter-btn:hover:not(.active) {
+    border-color: var(--primary);
+    background: var(--kana-paper);
+    color: var(--kana-accent);
+    box-shadow: none;
+}
+
+html:root body.mini-test-page #tab-kana #kanaLessonFilters .filter-btn.active {
+    border-color: var(--kana-accent);
+    background: var(--kana-accent);
+    color: var(--white) !important;
+    box-shadow: none;
+}
+
+html:root body.mini-test-page #tab-kana .kana-filter-name {
+    font-size: 0.94rem;
+    font-weight: 800;
+    line-height: 1.25;
+}
+
+html:root body.mini-test-page #tab-kana .kana-filter-count {
+    color: var(--kana-muted);
+    font-size: 0.76rem;
+    font-weight: 600;
+}
+
+html:root body.mini-test-page #tab-kana #kanaLessonFilters .filter-btn.active .kana-filter-count {
+    color: var(--white);
+}
+
+html:root body.mini-test-page #tab-kana .kana-review-summary {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 18px 24px;
+    padding: 20px;
+    margin: 20px 0 24px;
+    border: 1px solid var(--kana-border);
+    border-radius: var(--radius-md);
+    background: var(--kana-paper);
+}
+
+html:root body.mini-test-page #tab-kana .kana-review-summary-copy {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 6px 18px;
+}
+
+html:root body.mini-test-page #tab-kana .kana-review-summary h3 {
+    margin: 0;
+    color: var(--kana-ink);
+    font-size: 1.18rem;
+    font-weight: 800;
+}
+
+html:root body.mini-test-page #tab-kana .kana-review-summary p {
+    margin: 3px 0 0;
+    color: var(--kana-muted);
+    font-size: 0.86rem;
+}
+
+html:root body.mini-test-page #tab-kana .kana-review-summary-main {
+    display: grid;
+    gap: 12px;
+    min-width: 0;
+}
+
+html:root body.mini-test-page #tab-kana .kana-review-grammar-focus {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 7px 10px;
+}
+
+html:root body.mini-test-page #tab-kana .kana-review-grammar-label {
+    color: var(--kana-muted);
+    font-size: 0.76rem;
+    font-weight: 800;
+}
+
+html:root body.mini-test-page #tab-kana .kana-review-grammar-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+html:root body.mini-test-page #tab-kana .kana-review-grammar-list span {
+    padding: 4px 9px;
+    border: 1px solid var(--kana-border);
+    border-radius: var(--radius-full);
+    background: var(--kana-surface);
+    color: var(--kana-accent);
+    font-size: 0.77rem;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+html:root body.mini-test-page #tab-kana #kanaReviewProgress {
+    color: var(--kana-accent);
+    font-size: 0.91rem;
+    font-variant-numeric: tabular-nums;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+html:root body.mini-test-page #tab-kana .kana-review-progress-track {
+    height: 8px;
+    margin-top: 12px;
+    overflow: hidden;
+    border-radius: var(--radius-full);
+    background: var(--gray-200);
+}
+
+html:root body.mini-test-page #tab-kana .kana-review-progress-bar {
+    width: 0;
+    height: 100%;
+    border-radius: inherit;
+    background: var(--primary);
+}
+
+html:root body.mini-test-page #tab-kana .kana-review-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+html:root body.mini-test-page #tab-kana .kana-review-controls .quiz-btn,
+html:root body.mini-test-page #tab-kana .kana-review-input-row .quiz-btn {
+    min-height: 44px;
+    padding: 9px 14px;
+    border: 1px solid var(--kana-border);
+    border-radius: var(--radius-md);
+    background: var(--kana-surface);
+    color: var(--kana-ink);
+    font-size: 0.86rem;
+    font-weight: 800;
+    white-space: nowrap;
+    box-shadow: none;
+}
+
+html:root body.mini-test-page #tab-kana .kana-review-controls .quiz-btn.primary,
+html:root body.mini-test-page #tab-kana .kana-review-input-row [data-kana-action="check"] {
+    border-color: var(--kana-accent);
+    background: var(--kana-accent);
+    color: var(--white);
+}
+
+html:root body.mini-test-page #tab-kana .kana-review-controls .quiz-btn:hover,
+html:root body.mini-test-page #tab-kana .kana-review-input-row .quiz-btn:hover {
+    border-color: var(--primary);
+    background: var(--primary-light);
+    color: var(--kana-accent);
+    box-shadow: none;
+}
+
+html:root body.mini-test-page #tab-kana .kana-review-controls .quiz-btn.primary:hover,
+html:root body.mini-test-page #tab-kana .kana-review-input-row [data-kana-action="check"]:hover {
+    border-color: var(--kana-accent);
+    background: var(--primary);
+    color: var(--white);
+}
+
+html:root body.mini-test-page #tab-kana .kana-review-questions {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+}
+
+html:root body.mini-test-page #tab-kana .kana-review-question {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    padding: 18px;
+    margin: 0;
+    border: 1px solid var(--kana-border);
+    border-radius: var(--radius-md);
+    background: var(--kana-surface);
+    box-shadow: none;
+}
+
+html:root body.mini-test-page #tab-kana .kana-review-question .q-header {
+    margin-bottom: 10px;
+}
+
+html:root body.mini-test-page #tab-kana .kana-review-question .q-num {
+    padding: 4px 9px;
     border-radius: var(--radius-sm);
-    color: var(--dark);
-    background: var(--white);
-    font-size: 16px;
+    background: var(--kana-paper);
+    color: var(--kana-accent);
+    font-size: 0.77rem;
+    font-variant-numeric: tabular-nums;
+}
+
+html:root body.mini-test-page #tab-kana .kana-review-status {
+    color: var(--kana-muted);
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+html:root body.mini-test-page #tab-kana .kana-review-prompt {
+    margin: 0 0 13px;
+    color: var(--kana-ink);
+    font-size: 1.04rem;
+    font-weight: 750;
+    line-height: 1.6;
+}
+
+html:root body.mini-test-page #tab-kana .kana-review-vocab {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 6px 10px;
+    margin: 0 0 14px;
+}
+
+html:root body.mini-test-page #tab-kana .kana-review-vocab-label {
+    color: var(--kana-muted);
+    font-size: 0.75rem;
+    font-weight: 800;
+}
+
+html:root body.mini-test-page #tab-kana .kana-review-vocab-list {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+html:root body.mini-test-page #tab-kana .kana-review-vocab-chip {
+    padding: 2px 8px;
+    border: 1px solid var(--kana-border);
+    border-radius: var(--radius-full);
+    background: var(--kana-paper);
+    color: var(--kana-muted);
+    font-size: 0.76rem;
+    line-height: 1.5;
+}
+
+html:root body.mini-test-page #tab-kana .kana-review-input-label {
+    display: block;
+    margin: 0 0 6px;
+    color: var(--kana-ink);
+    font-size: 0.82rem;
+    font-weight: 800;
+}
+
+html:root body.mini-test-page #tab-kana .kana-review-input-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto auto;
+    align-items: center;
+    gap: 8px;
+}
+
+html:root body.mini-test-page #tab-kana .kana-review-input {
+    width: 100%;
+    min-width: 0;
+    min-height: 46px;
+    padding: 10px 12px;
+    border: 1px solid var(--gray-400);
+    border-radius: var(--radius-sm);
+    background: var(--kana-surface);
+    color: var(--kana-ink);
     font-family: 'Noto Sans JP', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
 }
 
-.kana-review-input:focus {
-    outline: 2px solid var(--primary);
-    outline-offset: 2px;
+html:root body.mini-test-page #tab-kana .kana-review-input::placeholder {
+    color: var(--gray-500);
+    opacity: 1;
 }
 
-.kana-review-question.is-correct { border-color: #059669; }
-.kana-review-question.is-wrong { border-color: #dc2626; }
-.kana-review-feedback { min-height: 1.6em; margin-top: 8px; }
-.kana-review-question.is-correct .kana-review-feedback { color: #047857; }
-.kana-review-question.is-wrong .kana-review-feedback { color: #b91c1c; }
-.kana-review-answer { padding: 12px; background: var(--gray-50); border-radius: var(--radius-sm); }
-.kana-review-answer[hidden] { display: none; }
-.kana-review-status { color: var(--gray-600); font-size: 0.85rem; }
+html:root body.mini-test-page #tab-kana .kana-review-feedback {
+    min-height: 1.5em;
+    margin: 7px 0 0;
+    color: var(--kana-muted);
+    font-size: 0.82rem;
+    line-height: 1.5;
+}
 
-@media (max-width: 600px) {
-    .kana-review-controls { width: 100%; }
-    .kana-review-controls .quiz-btn { flex: 1 1 130px; }
-    .kana-review-input-row .quiz-btn { flex: 1 1 100px; }
-    .kana-review-input { flex-basis: 100%; }
+html:root body.mini-test-page #tab-kana .kana-review-question.is-correct {
+    border-color: var(--kana-correct);
+    background: #f0fdf4;
+}
+
+html:root body.mini-test-page #tab-kana .kana-review-question.is-correct .kana-review-status,
+html:root body.mini-test-page #tab-kana .kana-review-question.is-correct .kana-review-feedback {
+    color: var(--kana-correct);
+}
+
+html:root body.mini-test-page #tab-kana .kana-review-question.is-correct .kana-review-input {
+    border-color: var(--kana-correct);
+}
+
+html:root body.mini-test-page #tab-kana .kana-review-question.is-wrong {
+    border-color: var(--kana-wrong);
+    background: #fff7f7;
+}
+
+html:root body.mini-test-page #tab-kana .kana-review-question.is-wrong .kana-review-status,
+html:root body.mini-test-page #tab-kana .kana-review-question.is-wrong .kana-review-feedback {
+    color: var(--kana-wrong);
+}
+
+html:root body.mini-test-page #tab-kana .kana-review-question.is-wrong .kana-review-input {
+    border-color: var(--kana-wrong);
+}
+
+html:root body.mini-test-page #tab-kana .kana-review-answer {
+    padding: 14px;
+    margin-top: 12px;
+    border: 1px solid var(--kana-border);
+    border-radius: var(--radius-md);
+    background: var(--kana-paper);
+    color: var(--kana-ink);
+}
+
+html:root body.mini-test-page #tab-kana .kana-review-answer[hidden] {
+    display: none;
+}
+
+html:root body.mini-test-page #tab-kana .kana-review-answer-jp {
+    margin: 0 0 6px;
+    color: var(--kana-accent);
+    font-size: 1.08rem;
+    font-weight: 800;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+}
+
+html:root body.mini-test-page #tab-kana .kana-review-answer-grammar {
+    margin: 0;
+    color: var(--kana-muted);
+    font-size: 0.84rem;
+    line-height: 1.6;
+}
+
+@media (min-width: 880px) {
+    html:root body.mini-test-page #tab-kana .kana-review-questions {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+    }
+}
+
+@media (max-width: 640px) {
+    html:root body.mini-test-page #tab-kana > .kana-review-shell {
+        padding: 20px 14px !important;
+    }
+
+    html:root body.mini-test-page #tab-kana #kanaLessonFilters {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    html:root body.mini-test-page #tab-kana .kana-review-summary {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 14px;
+        padding: 16px;
+    }
+
+    html:root body.mini-test-page #tab-kana .kana-review-controls {
+        justify-content: stretch;
+    }
+
+    html:root body.mini-test-page #tab-kana .kana-review-controls .quiz-btn {
+        flex: 1 1 130px;
+    }
+
+    html:root body.mini-test-page #tab-kana .kana-review-question {
+        padding: 16px 14px;
+    }
+
+    html:root body.mini-test-page #tab-kana .kana-review-input-row {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    html:root body.mini-test-page #tab-kana .kana-review-input {
+        grid-column: 1 / -1;
+    }
+
+    html:root body.mini-test-page #tab-kana .kana-review-input-row .quiz-btn {
+        width: 100%;
+        padding-inline: 8px;
+        white-space: normal;
+    }
+}
+
+/* Keep every control and panel in this page's exercise areas stationary. */
+html:root body.mini-test-page :is(#tab-kana, #tab-quiz),
+html:root body.mini-test-page :is(#tab-kana, #tab-quiz) *,
+html:root body.mini-test-page :is(#tab-kana, #tab-quiz) *::before,
+html:root body.mini-test-page :is(#tab-kana, #tab-quiz) *::after,
+html:root body.mini-test-page .tab-nav-wrapper,
+html:root body.mini-test-page .tab-nav-wrapper *,
+html:root body.mini-test-page .tab-nav-wrapper *::before,
+html:root body.mini-test-page .tab-nav-wrapper *::after,
+html:root body.mini-test-page :is(#scoreModal, #toast),
+html:root body.mini-test-page :is(#scoreModal, #toast) *,
+html:root body.mini-test-page :is(#scoreModal, #toast) *::before,
+html:root body.mini-test-page :is(#scoreModal, #toast) *::after {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    translate: none !important;
+    scale: none !important;
+    rotate: none !important;
+    will-change: auto !important;
+}
+
+html:root:has(body.mini-test-page) {
+    scroll-behavior: auto !important;
 }

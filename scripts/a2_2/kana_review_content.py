@@ -5,21 +5,22 @@ KANA_REVIEW_LESSONS = [
     {
         "lesson": 1,
         "title": "Tên hay quá nhỉ",
+        "grammarFocus": ["S は N という意味です", "N1 という N2", "Thể thông thường + danh từ"],
         "items": [
-            {"id": "l1-q01", "vi": "Tôi xin tự giới thiệu bản thân.", "jp": "じこしょうかいをします。", "accepted": [], "vocab": [1], "grammar": "Câu danh từ, giới thiệu bản thân"},
-            {"id": "l1-q02", "vi": "Tuổi của tôi là bí mật.", "jp": "わたしのとしはひみつです。", "accepted": [], "vocab": [2, 12], "grammar": "Câu danh từ"},
-            {"id": "l1-q03", "vi": "Tôi quan tâm đến giao lưu quốc tế.", "jp": "わたしはこくさいこうりゅうにきょうみがあります。", "accepted": [], "vocab": [3, 9], "grammar": "Câu với あります"},
-            {"id": "l1-q04", "vi": "Trong làng có một cửa hàng điện.", "jp": "むらにでんきてんがあります。", "accepted": [], "vocab": [4, 10], "grammar": "Câu với あります"},
-            {"id": "l1-q05", "vi": "Tôi thích đọc sách.", "jp": "わたしはどくしょがすきです。", "accepted": [], "vocab": [6], "grammar": "Câu tính từ な"},
-            {"id": "l1-q06", "vi": "Anh trai tôi mở cửa hàng trên đảo.", "jp": "あにはしまでみせをやっています。", "accepted": [], "vocab": [7, 11], "grammar": "Thể ている"},
-            {"id": "l1-q07", "vi": "Bố tôi làm công việc biên dịch.", "jp": "ちちはほんやくをしています。", "accepted": [], "vocab": [8], "grammar": "Thể ている"},
-            {"id": "l1-q08", "vi": "Tôi rất hứng thú với các sản phẩm điện tử.", "jp": "わたしはでんきせいひんにとてもきょうみがあります。", "accepted": [], "vocab": [5, 9], "grammar": "Câu với あります"},
+            {"id": "l1-q01", "vi": "Lời tự giới thiệu mà người bạn mới nói rất hay.", "jp": "あたらしいともだちがしたじこしょうかいはとてもよかったです。", "accepted": [], "vocab": [1], "grammar": "Thể quá khứ bổ nghĩa danh từ: 友だちがした自己紹介"},
+            {"id": "l1-q02", "vi": "Tuổi mà cô ấy không nói với mọi người là bí mật.", "jp": "かのじょがみんなにいわないとしはひみつです。", "accepted": [], "vocab": [2, 12], "grammar": "Thể phủ định bổ nghĩa danh từ: みんなに言わない年"},
+            {"id": "l1-q03", "vi": "Giao lưu quốc tế mà tôi đang quan tâm rất thú vị.", "jp": "わたしがきょうみをもっているこくさいこうりゅうはとてもたのしいです。", "accepted": [], "vocab": [3, 9], "grammar": "Thể ている bổ nghĩa danh từ: 興味を持っている国際交流"},
+            {"id": "l1-q04", "vi": "Trong ngôi làng nơi tôi sống có một cửa hàng điện.", "jp": "わたしがすんでいるむらにはでんきてんがあります。", "accepted": [], "vocab": [4, 10], "grammar": "Thể ている bổ nghĩa danh từ: 住んでいる村"},
+            {"id": "l1-q05", "vi": "Tôi thích hình ảnh em gái đang đọc sách.", "jp": "どくしょをしているいもうとのすがたがすきです。", "accepted": [], "vocab": [6], "grammar": "Thể ている bổ nghĩa danh từ: 読書をしている妹"},
+            {"id": "l1-q06", "vi": "Anh trai tôi là người kinh doanh cửa hàng trên đảo.", "jp": "あにはしまにあるみせをやっているひとです。", "accepted": [], "vocab": [7, 11], "grammar": "Thể thông thường bổ nghĩa danh từ: 島にある店をやっている人"},
+            {"id": "l1-q07", "vi": "Người đang làm công việc biên dịch là bố tôi.", "jp": "ほんやくをしているひとはわたしのちちです。", "accepted": [], "vocab": [8], "grammar": "Thể ている bổ nghĩa danh từ: 翻訳をしている人"},
+            {"id": "l1-q08", "vi": "Sản phẩm điện tử mà tôi đang quan tâm là ti vi.", "jp": "わたしがきょうみをもっているでんきせいひんはテレビです。", "accepted": [], "vocab": [5, 9], "grammar": "Thể ている bổ nghĩa danh từ: 興味を持っている電気製品"},
             {"id": "l1-q09", "vi": "Nơi tôi đang sống là một ngôi làng.", "jp": "わたしがすんでいるところはむらです。", "accepted": [], "vocab": [20, 10], "grammar": "Thể thông thường bổ nghĩa danh từ"},
-            {"id": "l1-q10", "vi": "Tôi sống trên một hòn đảo.", "jp": "わたしはしまにすんでいます。", "accepted": [], "vocab": [11], "grammar": "Thể ている"},
-            {"id": "l1-q11", "vi": "Tôi sinh ra ở một ngôi làng.", "jp": "わたしはむらでうまれました。", "accepted": [], "vocab": [13, 10], "grammar": "Thể quá khứ ました"},
+            {"id": "l1-q10", "vi": "Hòn đảo nơi tôi sống nằm ở Việt Nam.", "jp": "わたしがすんでいるしまはベトナムにあります。", "accepted": [], "vocab": [11], "grammar": "Thể ている bổ nghĩa danh từ: 住んでいる島"},
+            {"id": "l1-q11", "vi": "Ngôi làng nơi tôi sinh ra rất yên bình.", "jp": "わたしがうまれたむらはとてもしずかです。", "accepted": [], "vocab": [13, 10], "grammar": "Thể quá khứ bổ nghĩa danh từ: 生まれた村"},
             {"id": "l1-q12", "vi": "Người bạn hiền lành của tôi sống trên đảo.", "jp": "わたしのやさしいともだちはしまにすんでいます。", "accepted": [], "vocab": [14, 11], "grammar": "Tính từ い bổ nghĩa danh từ"},
-            {"id": "l1-q13", "vi": "Người bạn khỏe mạnh đang đọc sách.", "jp": "けんこうなともだちはどくしょをしています。", "accepted": [], "vocab": [15, 6], "grammar": "Tính từ な bổ nghĩa danh từ"},
-            {"id": "l1-q14", "vi": "Người nghiêm túc đang sống trong làng.", "jp": "まじめなひとがむらにすんでいます。", "accepted": [], "vocab": [16, 10], "grammar": "Tính từ な bổ nghĩa danh từ"},
+            {"id": "l1-q13", "vi": "Người bạn đang đọc sách là một người khỏe mạnh.", "jp": "どくしょをしているともだちはけんこうなひとです。", "accepted": [], "vocab": [15, 6], "grammar": "Thể ている bổ nghĩa danh từ: 読書をしている友だち"},
+            {"id": "l1-q14", "vi": "Người nghiêm túc đang sống trong làng là bạn của bố tôi.", "jp": "むらにすんでいるまじめなひとはちちのともだちです。", "accepted": [], "vocab": [16, 10], "grammar": "Thể thông thường bổ nghĩa danh từ: 村に住んでいるまじめな人"},
             {"id": "l1-q15", "vi": "Cô giáo của tôi là người vui vẻ.", "jp": "わたしのせんせいはあかるいひとです。", "accepted": [], "vocab": [17], "grammar": "Tính từ い bổ nghĩa danh từ"},
             {"id": "l1-q16", "vi": "‘Tự giới thiệu’ nghĩa là việc giới thiệu bản thân.", "jp": "「じこしょうかい」は「じぶんをしょうかいすること」といういみです。", "accepted": [], "vocab": [1, 18], "grammar": "S は N という意味です"},
             {"id": "l1-q17", "vi": "‘Bí mật’ có nghĩa là điều không nói cho người khác biết.", "jp": "「ひみつ」は「ひとにいわないこと」といういみです。", "accepted": [], "vocab": [2, 18], "grammar": "S は N という意味です"},
@@ -31,6 +32,7 @@ KANA_REVIEW_LESSONS = [
     {
         "lesson": 2,
         "title": "Nhận diện và miêu tả người",
+        "grammarFocus": ["A は B が", "Vている + N", "～そうです／～そうな N", "Trạng từ ～く／～に／～そうに"],
         "items": [
             {"id": "l2-q01", "vi": "Tại tiệc gia đình, chồng chị Tanaka đang mặc vest.", "jp": "ホームパーティーで、たなかさんのごしゅじんはスーツをきています。", "accepted": ["たなかさんのごしゅじんはホームパーティーでスーツをきています。"], "vocab": [1, 2, 6, 16], "grammar": "Miêu tả trang phục: Vている"},
             {"id": "l2-q02", "vi": "Người đang mặc sari là chị gái tôi.", "jp": "サリーをきているひとはあねです。", "accepted": ["サリーをきているひとはわたしのあねです。"], "vocab": [3], "grammar": "N đang làm V: Vている + N"},
@@ -57,6 +59,7 @@ KANA_REVIEW_LESSONS = [
     {
         "lesson": 3,
         "title": "Gọi món và gợi ý món ăn",
+        "grammarFocus": ["～ので", "～のは N です", "N なら", "～ずつ"],
         "items": [
             {"id": "l3-q01", "vi": "Vì đi một mình nên tôi sẽ ngồi ở quầy.", "jp": "ひとりでいくので、カウンターにすわります。", "accepted": ["わたしはひとりでいくので、カウンターにすわります。"], "vocab": [1], "grammar": "Vì: động từ + ので"},
             {"id": "l3-q02", "vi": "Vì có bốn người nên tôi sẽ đặt một bàn.", "jp": "よにんなので、テーブルをよやくします。", "accepted": ["よにんいるので、テーブルをよやくします。"], "vocab": [2, 6], "grammar": "Vì: danh từ + なので"},
@@ -83,6 +86,7 @@ KANA_REVIEW_LESSONS = [
     {
         "lesson": 4,
         "title": "Cách ăn và phép lịch sự khi ăn",
+        "grammarFocus": ["～てはいけません", "～てから", "Vて／Vないで", "～と"],
         "items": [
             {"id": "l4-q01", "vi": "Không được rưới sốt lên món này.", "jp": "このりょうりにソースをかけてはいけません。", "accepted": ["このりょうりにソースをかけちゃだめです。"], "vocab": [1, 10], "grammar": "Không được làm V: ～てはいけません"},
             {"id": "l4-q02", "vi": "Hãy ăn cá mà không chấm xì dầu.", "jp": "しょうゆをつけないで、さかなをたべてください。", "accepted": ["さかなをしょうゆにつけないでたべてください。"], "vocab": [2, 11], "grammar": "Trạng thái / cách thức: Vないで V2"},

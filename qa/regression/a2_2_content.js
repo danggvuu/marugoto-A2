@@ -202,14 +202,24 @@ assert.strictEqual((reviewHtml.match(/<tr><td>/g) || []).length, 10, 'Review con
 const lesson4Html = read('lessons/Marugoto_A2_2_Lesson_4.html');
 assert(lesson4Html.includes('class="contraction-table"'), 'Lesson 4 must render the canonical contraction data');
 assert.strictEqual((lesson4Html.match(/<tr><td>/g) || []).length, 10, 'Lesson 4 contraction table must have 10 rows');
-assert(reviewHtml.includes('mini-test-a2-2-1-4.js?v=3'));
-assert(reviewHtml.includes('mini_a2_2_1_4_data.js?v=3'));
+assert(reviewHtml.includes('mini-test-a2-2-1-4.js?v=5'));
+assert(reviewHtml.includes('mini_a2_2_1_4_data.js?v=4'));
+assert(reviewHtml.includes('kana-review-practice.css?v=4'));
 assert(reviewHtml.includes('id="tab-kana"') && reviewHtml.includes('href="#tab-kana"'));
+assert(reviewHtml.includes('kanaReviewProgressBar') && reviewHtml.includes('role="progressbar"'));
+assert(reviewHtml.includes('id="kanaLessonGrammar"'));
 assert.strictEqual(reviewData.kanaReviewLessons.length, 4);
+const kanaGrammarTargets = [
+    ['S は N という意味です', 'N1 という N2', 'Thể thông thường + danh từ'],
+    ['A は B が', 'Vている + N', '～そうです／～そうな N', 'Trạng từ ～く／～に／～そうに'],
+    ['～ので', '～のは N です', 'N なら', '～ずつ'],
+    ['～てはいけません', '～てから', 'Vて／Vないで', '～と'],
+];
 const kanaIds = new Set();
 reviewData.kanaReviewLessons.forEach((lesson, index) => {
     assert.strictEqual(lesson.lesson, index + 1);
     assert.strictEqual(lesson.items.length, 20, `Kana lesson ${lesson.lesson} must contain exactly 20 sentences`);
+    assert.deepStrictEqual(lesson.grammarFocus, kanaGrammarTargets[index], `Kana lesson ${lesson.lesson} must show its official grammar focus`);
     const vocab = reviewData.rawVocab.filter(item => item.l === `L${lesson.lesson}`);
     const covered = new Set();
     lesson.items.forEach(item => {
@@ -236,6 +246,11 @@ reviewData.kanaReviewLessons.forEach((lesson, index) => {
         `Kana lesson ${lesson.lesson} must cover all of its new vocabulary`);
 });
 assert.strictEqual(kanaIds.size, 80);
+const kanaById = new Map(reviewData.kanaReviewLessons.flatMap(lesson => lesson.items.map(item => [item.id, item])));
+assert.strictEqual(kanaById.get('l1-q01').vi, 'Lời tự giới thiệu mà người bạn mới nói rất hay.');
+assert(kanaById.get('l1-q01').jp.includes('ともだちがしたじこしょうかい'));
+assert(kanaById.get('l1-q04').jp.includes('わたしがすんでいるむら'));
+assert(kanaById.get('l1-q11').jp.includes('わたしがうまれたむら'));
 assert.strictEqual(reviewData.part1Data.length, 10);
 assert.strictEqual(reviewData.part2Data.length, 5);
 assert.strictEqual(reviewData.part3Data.length, 5);
