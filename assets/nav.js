@@ -238,15 +238,16 @@
             document.head.appendChild(outlineScript);
         }
 
-        // Tự động nạp thanh điều hướng nổi macOS (lesson-sidebar-rail) cho tất cả bài học
-        if ((isLessons || document.querySelector('.section-nav')) && !document.querySelector('script[src*="lesson-sidebar-rail.js"]')) {
+        // Shared motion controller for lesson navigation and the global navigation dock.
+        if (!document.querySelector('script[src*="lesson-sidebar-rail.js"]')) {
             const railCss = document.createElement('link');
             railCss.rel = 'stylesheet';
-            railCss.href = rootPrefix + 'assets/css/lesson-sidebar-rail.css?v=3';
+            railCss.href = rootPrefix + 'assets/css/lesson-sidebar-rail.css?v=4';
             document.head.appendChild(railCss);
             const railScript = document.createElement('script');
-            railScript.src = rootPrefix + 'assets/js/lesson-sidebar-rail.js?v=3';
+            railScript.src = rootPrefix + 'assets/js/lesson-sidebar-rail.js?v=4';
             railScript.defer = true;
+            railScript.addEventListener('load', initGlobalHubDock);
             document.head.appendChild(railScript);
         }
     })();
@@ -796,13 +797,14 @@
             return;
         }
         if (document.getElementById('globalHubDock')) return;
+        if (typeof window.initNavigationDock !== 'function') return;
 
         const hubNav = document.querySelector('.global-hub-nav');
         if (!hubNav) return;
 
         const dock = document.createElement('aside');
         dock.id = 'globalHubDock';
-        dock.className = 'global-hub-dock';
+        dock.className = 'global-hub-dock lesson-sidebar-rail';
         dock.setAttribute('aria-label', 'Menu điều hướng nhanh');
 
         dock.innerHTML = `
@@ -872,58 +874,12 @@
         if (scrollTopBtn) {
             scrollTopBtn.addEventListener('click', (e) => {
                 e.preventDefault();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+                window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
             });
         }
 
-        let isDocked = false;
-
-        function triggerHubMorph(toDock) {
-            if (toDock) {
-                document.body.classList.add('is-hub-docked');
-            } else {
-                document.body.classList.remove('is-hub-docked');
-            }
-        }
-
-        let hubTicking = false;
-        function updateHubScroll() {
-            if (window.innerWidth >= 1100) {
-                if (!isDocked && window.scrollY > 160) {
-                    isDocked = true;
-                    triggerHubMorph(true);
-                } else if (isDocked && window.scrollY < 100) {
-                    isDocked = false;
-                    triggerHubMorph(false);
-                }
-            } else {
-                if (isDocked) {
-                    isDocked = false;
-                    triggerHubMorph(false, true);
-                }
-            }
-
-            const docHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
-            const maxScroll = docHeight - window.innerHeight;
-            const frac = maxScroll > 0 ? Math.min(1, Math.max(0, window.scrollY / maxScroll)) : 0;
-            const bar = document.getElementById('globalDockProgressBar');
-            if (bar) {
-                bar.style.strokeDashoffset = 125.66 * (1 - frac);
-            }
-        }
-
-        window.addEventListener('scroll', () => {
-            if (!hubTicking) {
-                requestAnimationFrame(() => {
-                    updateHubScroll();
-                    hubTicking = false;
-                });
-                hubTicking = true;
-            }
-        }, { passive: true });
-        window.addEventListener('resize', updateHubScroll, { passive: true });
-
-        setTimeout(updateHubScroll, 200);
+        window.initNavigationDock({ topNav: hubNav, dock, gliderId: 'hubMorphGlider',
+            dockedClass: 'is-hub-docked' });
     }
 
     if (document.readyState === 'loading') {

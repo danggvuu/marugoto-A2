@@ -50,21 +50,6 @@ function scrollToSection(id) {
     }
 }
 
-// Auto-update active tab on scroll (ScrollSpy)
-window.addEventListener('scroll', () => {
-    const sectionIds = ['sec-grammar-1', 'sec-grammar-2', 'sec-grammar-3', 'sec-morph', 'sec-vocab', 'sec-quiz'];
-    const scrollPos = window.pageYOffset + 140;
-    for (let i = sectionIds.length - 1; i >= 0; i--) {
-        const sec = document.getElementById(sectionIds[i]);
-        if (sec && sec.offsetTop <= scrollPos) {
-            const tabs = document.querySelectorAll('.section-nav .tab-btn');
-            tabs.forEach(t => t.classList.remove('active'));
-            if (tabs[i]) tabs[i].classList.add('active');
-            break;
-        }
-    }
-}, { passive: true });
-
 // 3. Render Counting Cards (1 to 10 + nankai)
 const countData = [
     { num: "1回", reading: "いっかい", romaji: "ikkai", isSpecial: true, tag: "Âm ngắt" },

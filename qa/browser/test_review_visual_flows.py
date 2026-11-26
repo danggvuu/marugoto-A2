@@ -281,59 +281,85 @@ class ReviewVisualFlows(unittest.TestCase):
         self.assertEqual(self.page.evaluate('document.body.style.overflow'), 'auto')
 
     def test_lesson_morph_keeps_icons_and_reaches_both_anchors(self):
-        self.go('lessons/Marugoto_A2_Lesson_1.html', 1440)
-        self.page.wait_for_selector('#lessonSidebarRail', state='attached')
-        self.page.emulate_media(reduced_motion='no-preference')
-        self.page.evaluate("window.scrollTo({top: 400, behavior: 'instant'})")
-        self.page.wait_for_function("document.body.classList.contains('is-morphing-to-dock')")
-        samples = self.page.evaluate('''() => {
-            const glider = document.getElementById('lessonMorphGlider');
+        for path, dock_id, glider_id, nav_selector, docked_class in (
+            ('lessons/Marugoto_A2_Lesson_1.html', 'lessonSidebarRail', 'lessonMorphGlider', '.section-nav', 'is-scrolled-dock'),
+            ('lessons/Marugoto_A2_Lesson_10.html', 'lessonSidebarRail', 'lessonMorphGlider', '.section-nav', 'is-scrolled-dock'),
+            ('lessons/Marugoto_A2_Lesson_11.html', 'lessonSidebarRail', 'lessonMorphGlider', '.section-nav', 'is-scrolled-dock'),
+            ('lessons/Marugoto_A2_2_Lesson_18.html', 'lessonSidebarRail', 'lessonMorphGlider', '.section-nav', 'is-scrolled-dock'),
+            ('index.html', 'globalHubDock', 'hubMorphGlider', '.global-hub-nav', 'is-hub-docked'),
+            ('tests/On_Tap_Mini_Test_A2_2_1_4.html', 'globalHubDock', 'hubMorphGlider', '.global-hub-nav', 'is-hub-docked'),
+        ):
+            with self.subTest(path=path):
+                self.page.emulate_media(reduced_motion='reduce')
+                self.go(path, 1440)
+                self.page.wait_for_selector('#' + glider_id, state='attached')
+                self.page.emulate_media(reduced_motion='no-preference')
+                for to_dock in (True, False):
+                    self.page.evaluate("top => window.scrollTo({top, behavior: 'instant'})", 400 if to_dock else 0)
+                    morph_class = 'is-morphing-to-dock' if to_dock else 'is-morphing-to-top'
+                    self.page.wait_for_function('name => document.body.classList.contains(name)', arg=morph_class)
+                    samples = self.sample_morph(glider_id, dock_id, nav_selector)
+                    start_anchor = samples['nav'] if to_dock else samples['dock']
+                    end_anchor = samples['dock'] if to_dock else samples['nav']
+                    for axis in ('x', 'y', 'width', 'height'):
+                        self.assertAlmostEqual(samples['start'][axis], start_anchor[axis], delta=1)
+                        self.assertAlmostEqual(samples['end'][axis], end_anchor[axis], delta=1)
+                    self.assertGreater(samples['middle']['dockOpacity' if to_dock else 'topOpacity'], 0.5)
+                    self.assertGreater(samples['iconHeight'], 40)
+                    self.assertTrue(samples['inert'])
+                    self.assertEqual(samples['duplicateIds'], [])
+                    self.page.wait_for_function('name => !document.body.classList.contains(name)', arg=morph_class)
+                    self.assertEqual(self.page.locator('#' + glider_id).evaluate('el => el.getAnimations({subtree: true}).length'), 0)
+                    self.assertEqual(self.page.locator('body').evaluate('(el, name) => el.classList.contains(name)', docked_class), to_dock)
+                self.page.emulate_media(reduced_motion='reduce')
+                self.page.evaluate("window.scrollTo({top: 400, behavior: 'instant'})")
+                expect(self.page.locator('body')).to_have_class(re.compile(r'\b' + docked_class + r'\b'))
+                self.assertEqual(self.page.locator('#' + glider_id).evaluate('el => el.getAnimations({subtree: true}).length'), 0)
+
+    def sample_morph(self, glider_id, dock_id, nav_selector):
+        return self.page.evaluate('''({gliderId, dockId, navSelector}) => {
+            const glider = document.getElementById(gliderId);
             const animations = glider.getAnimations({subtree: true});
             animations.forEach(animation => animation.pause());
+            const box = el => {
+                const {x, y, width, height} = el.getBoundingClientRect();
+                return {x, y, width, height};
+            };
             const at = time => {
                 animations.forEach(animation => { animation.currentTime = time; });
-                const rect = glider.getBoundingClientRect();
-                return {x: rect.x, y: rect.y, width: rect.width,
-                    opacity: +getComputedStyle(glider.querySelector('.glider-layer-dock')).opacity};
+                return {...box(glider),
+                    dockOpacity: +getComputedStyle(glider.querySelector('.glider-layer-dock')).opacity,
+                    topOpacity: +getComputedStyle(glider.querySelector('.glider-layer-top')).opacity};
             };
-            const nav = document.querySelector('.section-nav').getBoundingClientRect();
-            const dock = document.querySelector('#lessonSidebarRail .macos-sidebar-box').getBoundingClientRect();
-            const result = {nav: {x: nav.x, y: nav.y}, dock: {x: dock.x, y: dock.y},
+            const result = {nav: box(document.querySelector(navSelector)),
+                dock: box(document.querySelector('#' + dockId + ' .macos-sidebar-box')),
                 start: at(0), middle: at(180), end: at(399), inert: glider.inert,
-                iconHeight: glider.querySelector('.lesson-rail-link').getBoundingClientRect().height};
+                duplicateIds: [...glider.querySelectorAll('[id]')].map(el => el.id),
+                iconHeight: glider.querySelector('.lesson-rail-link').offsetHeight};
             animations.forEach(animation => animation.play());
             return result;
-        }''')
-        self.assertAlmostEqual(samples['start']['x'], samples['nav']['x'], delta=1)
-        self.assertAlmostEqual(samples['start']['y'], samples['nav']['y'], delta=1)
-        self.assertAlmostEqual(samples['end']['x'], samples['dock']['x'], delta=1)
-        self.assertAlmostEqual(samples['end']['y'], samples['dock']['y'], delta=1)
-        self.assertGreater(samples['middle']['opacity'], 0.5)
-        self.assertGreater(samples['iconHeight'], 40)
-        self.assertTrue(samples['inert'])
-        self.page.wait_for_function("!document.body.classList.contains('is-morphing-to-dock')")
-        self.assertEqual(self.page.evaluate('lessonMorphGlider.getAnimations({subtree: true}).length'), 0)
-        self.page.evaluate("window.scrollTo({top: 0, behavior: 'instant'})")
-        self.page.wait_for_function("!document.body.classList.contains('is-scrolled-dock')")
-        expect(self.page.locator('.section-nav')).to_be_visible()
-        self.page.emulate_media(reduced_motion='reduce')
-        self.page.evaluate("window.scrollTo({top: 400, behavior: 'instant'})")
-        expect(self.page.locator('body')).to_have_class(re.compile(r'\bis-scrolled-dock\b'))
-        self.assertEqual(self.page.evaluate('lessonMorphGlider.getAnimations({subtree: true}).length'), 0)
+        }''', {'gliderId': glider_id, 'dockId': dock_id, 'navSelector': nav_selector})
 
     def test_lesson_rail_supports_external_nav_and_flashcard_keyboard(self):
         for lesson in (1, 10, 11, 18):
             with self.subTest(lesson=lesson):
                 self.go(f'lessons/Marugoto_A2_Lesson_{lesson}.html', 1440)
                 self.page.wait_for_selector('#lessonSidebarRail', state='attached')
+                self.page.evaluate('window.__spoken = []; window.speakText = text => __spoken.push(text)')
                 self.page.locator('#sec-vocab').scroll_into_view_if_needed()
                 self.page.mouse.click(5, 400)
                 self.page.keyboard.press('ArrowRight')
-                expect(self.page.locator('#sec-vocab .flashcard.active-card')).to_have_count(1)
-                card = self.page.locator('#sec-vocab .flashcard.active-card')
+                card = self.page.locator('#sec-vocab .active-card')
+                expect(card).to_have_count(1)
+                expect(card).to_be_focused()
                 was_flipped = 'flipped' in (card.get_attribute('class') or '').split()
+                before_spoken = self.page.evaluate('__spoken.length')
                 self.page.keyboard.press('Space')
-                self.assertNotEqual('flipped' in (card.get_attribute('class') or '').split(), was_flipped)
+                if lesson == 1:
+                    self.assertEqual(self.page.evaluate('__spoken.length'), before_spoken + 1)
+                    self.assertEqual(self.page.evaluate('__spoken.at(-1)'), self.page.evaluate('VOCAB_DATA[0].kana || VOCAB_DATA[0].jp'))
+                else:
+                    self.assertNotEqual('flipped' in (card.get_attribute('class') or '').split(), was_flipped)
         self.assertEqual(self.errors, [])
 
     def test_demo_lighting_reset_and_lantern_canvas_selection(self):

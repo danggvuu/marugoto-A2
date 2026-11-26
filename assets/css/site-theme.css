@@ -9,7 +9,7 @@
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;600;700;900&display=swap');
-@import url('lesson-sidebar-rail.css?v=1');
+@import url('lesson-sidebar-rail.css?v=4');
 
 /* ==========================================================================
    1. HARMONIOUS COLOR SYSTEM & DESIGN TOKENS
@@ -2801,112 +2801,5 @@ details .details-body, details .details-content, details > *:not(summary), .acco
 
     .kanji-grid {
         grid-template-columns: repeat(2, 1fr) !important;
-    }
-}
-
-/* ==========================================================================
-   GLOBAL HUB DOCK & 1MS TAEKWONDO MORPHING NAVIGATION
-   ========================================================================== */
-.global-hub-dock {
-    position: fixed !important;
-    top: 50% !important;
-    right: 18px !important;
-    transform: translateY(-50%) !important;
-    z-index: 99999 !important;
-    pointer-events: none !important;
-    opacity: 0 !important;
-    visibility: hidden !important;
-    transition: opacity 0.28s cubic-bezier(0.22, 1, 0.36, 1), visibility 0.28s ease !important;
-}
-
-.global-hub-dock .macos-sidebar-box {
-    pointer-events: auto !important;
-    background: rgba(255, 255, 255, 0.88) !important;
-    backdrop-filter: blur(24px) saturate(190%) !important;
-    -webkit-backdrop-filter: blur(24px) saturate(190%) !important;
-    border: 1.5px solid rgba(255, 255, 255, 0.95) !important;
-    border-radius: 28px !important;
-    padding: 10px 8px !important;
-    box-shadow: 0 16px 40px -8px rgba(15, 23, 42, 0.14),
-                0 4px 12px rgba(15, 23, 42, 0.06) !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    gap: 6px !important;
-    user-select: none !important;
-    box-sizing: border-box !important;
-    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
-}
-
-.global-hub-dock .lesson-rail-links {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 4px !important;
-    width: 100% !important;
-    align-items: center !important;
-}
-
-.global-hub-dock .lesson-rail-link {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    width: 58px !important;
-    height: 52px !important;
-    border-radius: 16px !important;
-    padding: 4px !important;
-    text-decoration: none !important;
-    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
-    background: transparent !important;
-    border: none !important;
-    cursor: pointer !important;
-}
-
-.global-hub-dock .lesson-rail-link:hover {
-    background: rgba(79, 70, 229, 0.08) !important;
-    transform: scale(1.05) !important;
-}
-
-.global-hub-dock .rail-icon {
-    font-size: 1.25rem !important;
-    line-height: 1 !important;
-    margin-bottom: 2px !important;
-}
-
-.global-hub-dock .rail-label {
-    font-size: 0.65rem !important;
-    font-weight: 700 !important;
-    color: #475569 !important;
-    text-align: center !important;
-    white-space: nowrap !important;
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
-    max-width: 54px !important;
-}
-
-.global-hub-dock:hover .macos-sidebar-box {
-    background: rgba(255, 255, 255, 0.96) !important;
-    box-shadow: 0 20px 48px -6px rgba(15, 23, 42, 0.18),
-                0 6px 16px rgba(15, 23, 42, 0.08) !important;
-    border-color: #ffffff !important;
-}
-
-.global-hub-dock button.lesson-rail-link {
-    background: transparent !important;
-    border: none !important;
-    cursor: pointer !important;
-}
-
-@media (min-width: 1100px) {
-    body.is-hub-docked .global-hub-dock {
-        opacity: 1 !important;
-        pointer-events: auto !important;
-        visibility: visible !important;
-    }
-    body.is-hub-docked .global-hub-nav {
-        opacity: 0 !important;
-        pointer-events: none !important;
-        visibility: hidden !important;
-        transition: opacity 0.28s cubic-bezier(0.22, 1, 0.36, 1) !important;
     }
 }

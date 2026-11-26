@@ -5,7 +5,7 @@
    1. Bố cục bài học CĂN GIỮA HOÀN HẢO 100% (Không bao giờ bị lệch sang trái)
    2. Cơ chế biến đổi chuyển động lấy cảm hứng từ 1MS Taekwondo (https://1ms.taekwondo.id.vn)
       - Ở đầu trang: Menu con nhộng nằm ngang chính giữa đỉnh trang (.section-nav)
-      - Cuộn xuống (> 140px): Tự động thu gọn và lướt sang phải thành Dock đứng (.lesson-sidebar-rail)
+       - Cuộn xuống (> 130px): Tự động thu gọn và lướt sang phải thành Dock đứng (.lesson-sidebar-rail)
       - Cuộn ngược lên: Tự động bung trở lại vị trí con nhộng trên đỉnh
    ========================================================================== */
 
@@ -35,6 +35,7 @@ body {
     top: 12px !important;
     z-index: 920 !important;
     display: flex !important;
+    flex-wrap: nowrap !important;
     justify-content: center !important;
     align-items: center !important;
     gap: 8px !important;
@@ -42,6 +43,7 @@ body {
     margin: 0 auto 24px auto !important;
     width: fit-content !important;
     max-width: 100% !important;
+    box-sizing: border-box !important;
     background: rgba(255, 255, 255, 0.85) !important;
     backdrop-filter: blur(20px) saturate(190%) !important;
     -webkit-backdrop-filter: blur(20px) saturate(190%) !important;
@@ -85,6 +87,10 @@ body {
     visibility: visible !important;
 }
 
+.lesson-morph-glider.is-global-morph {
+    z-index: 100001 !important;
+}
+
 /* Lớp nội dung Top Capsule trong Glider */
 .lesson-morph-glider .glider-layer-top {
     position: absolute !important;
@@ -92,8 +98,8 @@ body {
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    gap: 8px !important;
-    padding: 0 16px !important;
+    gap: 8px;
+    padding: 0 16px;
     white-space: nowrap !important;
     pointer-events: none !important;
     width: 100% !important;
@@ -109,8 +115,7 @@ body {
     top: 0 !important;
     left: 50% !important;
     transform: translateX(-50%);
-    width: 62px !important;
-    height: 100% !important;
+    width: 62px;
     padding: 10px 6px !important;
     display: flex !important;
     flex-direction: column !important;
@@ -132,7 +137,13 @@ body {
     padding: 3px 0 !important;
     max-height: 54vh !important;
     overflow: hidden !important;
-    flex-shrink: 0;
+    flex-shrink: 1;
+    min-height: 0;
+    position: relative !important;
+}
+
+.lesson-morph-glider .rail-tooltip {
+    display: none !important;
 }
 
 .sec-link {
@@ -178,6 +189,10 @@ body {
     transition: opacity 0.22s ease, transform 0.22s ease !important;
 }
 
+.global-hub-dock {
+    z-index: 99999 !important;
+}
+
 /* Điều khiển hiển thị chuyển tiếp giữa Top Capsule và Right Dock trên Desktop */
 @media (min-width: 1025px) {
     /* Đỉnh trang: Top Capsule hiện, Right Dock ẩn */
@@ -187,7 +202,7 @@ body {
         pointer-events: auto !important;
     }
 
-    body:not(.is-scrolled-dock) .lesson-sidebar-rail {
+    body:not(.is-scrolled-dock):not(.is-hub-docked) .lesson-sidebar-rail {
         opacity: 0 !important;
         visibility: hidden !important;
         pointer-events: none !important;
@@ -200,10 +215,19 @@ body {
         pointer-events: none !important;
     }
 
-    body.is-scrolled-dock:not(.is-morphing-to-dock):not(.is-morphing-to-top) .lesson-sidebar-rail {
+    body:is(.is-scrolled-dock, .is-hub-docked):not(.is-morphing-to-dock):not(.is-morphing-to-top) .lesson-sidebar-rail {
         opacity: 1 !important;
         visibility: visible !important;
         pointer-events: auto !important;
+    }
+
+    body.is-hub-docked .global-hub-nav,
+    body.is-morphing-to-dock .global-hub-nav,
+    body.is-morphing-to-top .global-hub-nav {
+        opacity: 0 !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+        transition: none !important;
     }
 
     /* Trong khoảnh khắc Glider đang bay: Cả 2 đều ẩn để Glider morphing tỏa sáng */
@@ -381,7 +405,8 @@ body {
 }
 
 /* Thanh trượt active indicator lướt êm ái kiểu macOS */
-.lesson-sidebar-rail .rail-active-pill {
+.lesson-sidebar-rail .rail-active-pill,
+.lesson-morph-glider .rail-active-pill {
     position: absolute !important;
     left: 2px !important;
     right: 2px !important;
@@ -415,6 +440,8 @@ body {
     background: transparent !important;
     border: none !important;
     flex-shrink: 0;
+    padding: 0 !important;
+    font-family: inherit !important;
 }
 
 .lesson-sidebar-rail .lesson-rail-link:hover {
@@ -446,6 +473,9 @@ body {
     white-space: nowrap !important;
     text-align: center !important;
     line-height: 1 !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
 }
 
 /* Tooltip nổi bên trái kiểu macOS */
@@ -550,6 +580,7 @@ body {
         margin-bottom: 16px !important;
         padding: 6px 10px !important;
         gap: 6px !important;
+        justify-content: flex-start !important;
     }
 
     .sec-link {
@@ -979,6 +1010,19 @@ kbd.key-cap {
 /* ==========================================================================
    15. VISUAL FEEDBACK CHO PHÍM TRẮC NGHIỆM (.quiz-opt.key-pressed)
    ========================================================================== */
+#sec-vocab .active-card {
+    outline: 2px solid #6366f1;
+    outline-offset: 3px;
+}
+
+/* Visual clones use only the controller's animations, never page hover/reveal effects. */
+.lesson-morph-glider,
+.lesson-morph-glider .glider-layer,
+.lesson-morph-glider .glider-layer * {
+    animation: none !important;
+    transition: none !important;
+}
+
 .quiz-opt.key-pressed {
     transform: scale(0.97) !important;
     background: #e0e7ff !important;
