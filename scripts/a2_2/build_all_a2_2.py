@@ -452,7 +452,8 @@ def main():
             vocab_list=cfg["vocab"],
             verb_list=cfg["verbs"],
             quiz_list=cfg["quiz"],
-            badge_name=f"Bài {num} (A2-2)"
+            badge_name=f"Bài {num} (A2-2)",
+            typing_list=cfg.get("typing_data")
         )
 
         # 2. Build HTML file
@@ -472,7 +473,9 @@ def main():
             kanji_cards=cfg["kanji_cards"],
             js_filename=js_file,
             section_links=cfg.get("section_links"),
-            morph_labels=cfg.get("morph_labels")
+            morph_labels=cfg.get("morph_labels"),
+            quiz_count=len(cfg["quiz"]),
+            sentence_practice_count=len(cfg.get("typing_data", []))
         )
 
     # 3. Update master data and nav

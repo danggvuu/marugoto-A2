@@ -6,6 +6,8 @@ import html
 import json
 from pathlib import Path
 
+from scripts.a2_2.practice_content import EXTRA_QUIZ, TYPING_SENTENCES
+
 
 LESSON_CONTENT = {
     1: {
@@ -576,3 +578,15 @@ def apply_official_curriculum(lessons: list[dict], root: Path) -> None:
             # This biography sentence is useful vocabulary practice, not one of
             # the lesson's listed grammar patterns.
             next(q for q in cfg["quiz"] if q["id"] == 11)["category"] = "Từ vựng"
+        if number in EXTRA_QUIZ:
+            cfg["quiz"].extend(
+                {**question, "reviewVersion": "a22-practice20-v1"}
+                for question in EXTRA_QUIZ[number]
+            )
+        if number in TYPING_SENTENCES:
+            if len(TYPING_SENTENCES[number]) != 40:
+                raise ValueError(f"Lesson {number} typing practice must contain exactly 40 sentences")
+            cfg["typing_data"] = [
+                {"id": index, "vi": vi, "jp": jp, "requireKanji": True}
+                for index, (vi, jp) in enumerate(TYPING_SENTENCES[number], 1)
+            ]

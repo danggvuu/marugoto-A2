@@ -29,16 +29,23 @@ def make_svg(label, icon, color1="#4f46e5", color2="#7c3aed"):
 </svg>'''
 
 
-def build_js_file(dest_path, vocab_list, verb_list, quiz_list, badge_name):
+def build_js_file(dest_path, vocab_list, verb_list, quiz_list, badge_name, typing_list=None):
     """
     Builds the lesson JS file with balanced quiz positions (4, 4, 4, 3 distribution)
     and full flashcard / verb lab interactive handlers.
     """
-    assert len(quiz_list) == 15, f"Quiz must contain exactly 15 questions, got {len(quiz_list)}"
+    expected_quiz_count = 20 if badge_name in {f"Bài {number} (A2-2)" for number in range(1, 5)} else 15
+    assert len(quiz_list) == expected_quiz_count, (
+        f"{badge_name} quiz must contain exactly {expected_quiz_count} questions, got {len(quiz_list)}"
+    )
 
-    # Stable, balanced answer positions keep saved attempts reproducible.
-    positions = [i % 4 for i in range(len(quiz_list))]
+    # Keep the shipped 15 answer positions stable; balance any new practice items separately.
+    legacy_count = 15 if expected_quiz_count == 20 else expected_quiz_count
+    positions = [i % 4 for i in range(legacy_count)]
     random.Random(badge_name).shuffle(positions)
+    if expected_quiz_count > legacy_count:
+        answer_counts = [positions.count(index) for index in range(4)]
+        positions.extend(index for index, count in enumerate(answer_counts) for _ in range(5 - count))
 
     processed_quiz = []
     for q, position in zip(quiz_list, positions):
@@ -70,6 +77,8 @@ const VOCAB_DATA = {json.dumps(processed_vocab, ensure_ascii=False, indent=2)};
 const VERB_DATA = {json.dumps(verb_list, ensure_ascii=False, indent=2)};
 
 const QUIZ_DATA = {json.dumps(processed_quiz, ensure_ascii=False, indent=2)};
+
+const SENTENCE_PRACTICE_DATA = {json.dumps(typing_list or [], ensure_ascii=False, indent=2)};
 
 function escapeLessonText(value) {{
     return String(value).replace(/&/g, '&amp;').replace(/</g, '&lt;')
@@ -192,6 +201,7 @@ if (document.readyState === 'loading') {{
 }}
 
 if (typeof VOCAB_DATA !== "undefined") window.VOCAB_DATA = VOCAB_DATA;
+if (typeof SENTENCE_PRACTICE_DATA !== "undefined") window.SENTENCE_PRACTICE_DATA = SENTENCE_PRACTICE_DATA;
 '''
     dest_path.write_text(js_content, encoding="utf-8")
     print(f"Created {dest_path}")
@@ -213,7 +223,9 @@ def build_lesson_html(
     kanji_cards,
     js_filename,
     section_links=None,
-    morph_labels=None
+    morph_labels=None,
+    quiz_count=15,
+    sentence_practice_count=0
 ):
     grammar_html = "\n".join(grammar_blocks)
 
@@ -261,7 +273,7 @@ def build_lesson_html(
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="referrer" content="no-referrer">
     <title>Cẩm Nang & Luyện Tập Toàn Diện Bài {lesson_num} (A2-2) | {quote}</title>
-    <meta name="description" content="Chinh phục toàn diện Marugoto A2-2 Bài {lesson_num}: {quote}. Đầy đủ ngữ pháp, 3D Flashcard từ vựng, máy biến thể và Mini Test 15 câu có giải thích chi tiết.">
+    <meta name="description" content="Chinh phục toàn diện Marugoto A2-2 Bài {lesson_num}: {quote}. Đầy đủ ngữ pháp, Flashcard từ vựng, luyện gõ và Mini Test {quiz_count} câu có giải thích chi tiết.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -270,7 +282,7 @@ def build_lesson_html(
     <script src="../assets/js/animate-ui.js" defer></script>
     <script src="../assets/js/audio-engine.js?v=2"></script>
     <link rel="stylesheet" href="../assets/css/lesson-a2-core.css?v=1">
-    <link rel="stylesheet" href="../assets/css/site-theme.css?v=11">
+    <link rel="stylesheet" href="../assets/css/site-theme.css?v=12">
     <link rel="stylesheet" href="../assets/css/lesson-a2-2.css?v=1">
 </head>
 <body class="lesson-a2-2">
@@ -285,8 +297,9 @@ def build_lesson_html(
         <a href="#sec-verb-lab" class="sec-link">🔬 Biến Thể Động Từ</a>
         <a href="#sec-vocab" class="sec-link">🎴 {vocab_count} Flashcard</a>
         <a href="#sec-typing-practice" class="sec-link">⌨️ Luyện Gõ Từ Vựng</a>
+        {f'<a href="#sec-sentence-practice" class="sec-link">⌨️ Luyện Gõ {sentence_practice_count} Câu</a>' if sentence_practice_count else ''}
         <a href="#sec-kanji" class="sec-link">⛩️ {kanji_count} Từ Kanji</a>
-        <a href="#sec-quiz" class="sec-link">📝 Mini Test 15 Câu</a>
+        <a href="#sec-quiz" class="sec-link">📝 Mini Test {quiz_count} Câu</a>
     </div>
 
     <!-- Hero Banner -->
@@ -318,7 +331,7 @@ def build_lesson_html(
                 <div class="stat-label">Từ Kanji trong bài</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number">15</div>
+                <div class="stat-number">{quiz_count}</div>
                 <div class="stat-label">Câu Mini Test</div>
             </div>
         </div>
@@ -380,6 +393,8 @@ def build_lesson_html(
     <!-- Typing Practice Section -->
     <section class="content-section" id="sec-typing-practice"></section>
 
+    {f'<section class="content-section" id="sec-sentence-practice"></section>' if sentence_practice_count else ''}
+
     <!-- Kanji Section -->
     <section class="content-section" id="sec-kanji">
         <div class="section-header">
@@ -394,7 +409,7 @@ def build_lesson_html(
     <!-- Mini Test -->
     <section class="content-section" id="sec-quiz">
         <div class="section-header">
-            <h2 class="section-title"><span>📝</span> Mini Test Phản Xạ Bài {lesson_num} (15 Câu)</h2>
+            <h2 class="section-title"><span>📝</span> Mini Test Phản Xạ Bài {lesson_num} ({quiz_count} Câu)</h2>
             <span class="section-tag">Instant Feedback</span>
         </div>
         <p style="margin-bottom: 16px; color: #475569;">Chọn đáp án đúng nhất để kiểm tra khả năng tiếp thu bài học:</p>
@@ -408,6 +423,7 @@ def build_lesson_html(
 <script src="../assets/nav.js?v=11" defer></script>
 <script src="../assets/js/jp-typing-grader.js?v=1" defer></script>
 <script src="../assets/js/typing-practice.js" defer></script>
+{f'<script src="../assets/js/typing-sentence-practice.js?v=1" defer></script>' if sentence_practice_count else ''}
 </body>
 </html>
 '''
