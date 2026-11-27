@@ -28,6 +28,7 @@ let currentFilteredVocab = [...rawVocab];
 let currentFilteredKanji = [...rawKanji];
 let kanaLesson = 1;
 let kanaAnswers = {};
+let kanaQuestionByLesson = {};
 
 // State Tracking for Score
 let p1Answers = {};      // qId -> chosen option index
@@ -80,6 +81,7 @@ function saveMiniCheckpoint() {
             p6ModelsOpen,
             kanaLesson,
             kanaAnswers,
+            kanaQuestionByLesson,
             totalSeconds,
             isTimerRunning,
             timerStarted
@@ -216,9 +218,14 @@ function updateKanaQuestion(item, card) {
     card.querySelector('.kana-review-answer').hidden = !saved.revealed;
     card.querySelector('[data-kana-action="reveal"]').textContent = saved.revealed ? 'Ẩn đáp án' : 'Xem đáp án';
     card.querySelector('[data-kana-action="reveal"]').setAttribute('aria-expanded', String(Boolean(saved.revealed)));
+    const lesson = kanaReviewLessons.find(lesson => lesson.lesson === kanaLesson);
+    const readyToAdvance = Boolean((saved.checked && normalizeKanaAnswer(saved.draft)) || saved.revealed);
+    card.querySelector('[data-kana-action="check"]').textContent = readyToAdvance
+        ? (item.id === lesson.items[lesson.items.length - 1].id ? 'Về câu đầu' : 'Câu tiếp')
+        : 'Kiểm tra';
 }
 
-function renderKanaReview() {
+function renderKanaReview(focusInput = false) {
     const lesson = kanaReviewLessons.find(item => item.lesson === kanaLesson);
     const container = document.getElementById('kanaReviewQuestions');
     if (!lesson || !container) return;
@@ -227,7 +234,7 @@ function renderKanaReview() {
     })[char]);
     document.getElementById('kanaLessonTitle').textContent = `Bài ${lesson.lesson}: ${lesson.title}`;
     const lessonVocab = rawVocab.filter(item => item.l === `L${lesson.lesson}`);
-    document.getElementById('kanaLessonScope').textContent = `20 câu dùng đủ ${lessonVocab.length} từ mới của bài. Tiến độ lưu riêng theo từng bài.`;
+    document.getElementById('kanaLessonScope').textContent = `20 câu dùng đủ ${lessonVocab.length} từ mới. Tự lưu đáp án và vị trí đang học theo bài.`;
     const grammarFocus = document.getElementById('kanaLessonGrammar');
     if (grammarFocus) grammarFocus.innerHTML = (lesson.grammarFocus || []).map(focus => `<span>${escapeText(focus)}</span>`).join('');
     document.querySelectorAll('#kanaLessonFilters button').forEach(button => {
@@ -235,53 +242,79 @@ function renderKanaReview() {
         button.classList.toggle('active', selected);
         button.setAttribute('aria-pressed', String(selected));
     });
+    const savedIndex = lesson.items.findIndex(item => item.id === kanaQuestionByLesson[kanaLesson]);
+    const index = savedIndex < 0 ? 0 : savedIndex;
+    const item = lesson.items[index];
+    kanaQuestionByLesson[kanaLesson] = item.id;
     container.innerHTML = '';
-    lesson.items.forEach((item, index) => {
-        const card = document.createElement('article');
-        card.className = 'question-card kana-review-question';
-        card.dataset.kanaId = item.id;
-        card.innerHTML = `
-            <div class="q-header"><span class="q-num">Câu ${index + 1}</span><span class="kana-review-status" aria-live="polite"></span></div>
+    const card = document.createElement('article');
+    card.className = 'question-card kana-review-question';
+    card.dataset.kanaId = item.id;
+    card.innerHTML = `
+            <div class="q-header"><span class="q-num" id="kanaQuestionPosition">Câu ${index + 1} / ${lesson.items.length}</span><span class="kana-review-status" aria-live="polite"></span></div>
             <p class="kana-review-prompt">${escapeText(item.vi)}</p>
             <div class="kana-review-vocab"><span class="kana-review-vocab-label">Từ mới</span><div class="kana-review-vocab-list">${item.vocab.map(number => `<span class="kana-review-vocab-chip">${escapeText(lessonVocab[number - 1].vi)}</span>`).join('')}</div></div>
             <label class="kana-review-input-label" for="kana-input-${item.id}">Nhập câu tiếng Nhật bằng hiragana và katakana:</label>
             <div class="kana-review-input-row">
-                <input id="kana-input-${item.id}" class="kana-review-input" type="text" lang="ja" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Nhập câu tiếng Nhật">
+                <textarea id="kana-input-${item.id}" class="kana-review-input" rows="2" lang="ja" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Nhập câu tiếng Nhật rồi nhấn Enter"></textarea>
                 <button type="button" class="quiz-btn" data-kana-action="check">Kiểm tra</button>
                 <button type="button" class="quiz-btn" data-kana-action="reveal" aria-controls="kana-answer-${item.id}" aria-expanded="false">Xem đáp án</button>
             </div>
             <p class="kana-review-feedback" aria-live="polite"></p>
-            <div id="kana-answer-${item.id}" class="kana-review-answer" hidden><p class="jp-text kana-review-answer-jp" lang="ja">${escapeText(item.jp)}</p><p class="kana-review-answer-grammar">${escapeText(item.grammar)}</p></div>`;
-        const input = card.querySelector('.kana-review-input');
-        input.value = kanaAnswers[item.id]?.draft || '';
-        input.addEventListener('input', () => {
-            kanaAnswers[item.id] = { ...kanaAnswers[item.id], draft: input.value, checked: false, signature: kanaContentSignature(item) };
-            updateKanaQuestion(item, card);
-            updateKanaProgress();
-            saveMiniCheckpoint();
-        });
-        const check = () => {
-            kanaAnswers[item.id] = { ...kanaAnswers[item.id], draft: input.value, checked: true, signature: kanaContentSignature(item) };
-            updateKanaQuestion(item, card);
-            updateKanaProgress();
-            saveMiniCheckpoint();
-        };
-        card.querySelector('[data-kana-action="check"]').addEventListener('click', check);
-        input.addEventListener('keydown', event => {
-            if (event.key === 'Enter' && !event.isComposing && event.keyCode !== 229) {
-                event.preventDefault();
-                check();
-            }
-        });
-        card.querySelector('[data-kana-action="reveal"]').addEventListener('click', () => {
-            kanaAnswers[item.id] = { ...kanaAnswers[item.id], draft: input.value, revealed: !kanaAnswers[item.id]?.revealed, signature: kanaContentSignature(item) };
-            updateKanaQuestion(item, card);
-            saveMiniCheckpoint();
-        });
+            <div id="kana-answer-${item.id}" class="kana-review-answer" hidden><p class="jp-text kana-review-answer-jp" lang="ja">${escapeText(item.jp)}</p><p class="kana-review-answer-grammar">${escapeText(item.grammar)}</p></div>
+            <div class="kana-review-navigation" role="group" aria-label="Chuyển câu luyện">
+                <button type="button" class="quiz-btn" id="kanaPreviousBtn" ${index === 0 ? 'disabled' : ''}>Câu trước</button>
+                <span class="kana-review-shortcut">Enter: chấm / câu tiếp</span>
+                <button type="button" class="quiz-btn" id="kanaNextBtn" ${index === lesson.items.length - 1 ? 'disabled' : ''}>Câu sau</button>
+            </div>`;
+    const input = card.querySelector('.kana-review-input');
+    input.value = kanaAnswers[item.id]?.draft || '';
+    input.addEventListener('input', () => {
+        kanaAnswers[item.id] = { ...kanaAnswers[item.id], draft: input.value, checked: false, revealed: false, signature: kanaContentSignature(item) };
         updateKanaQuestion(item, card);
-        container.appendChild(card);
+        updateKanaProgress();
+        saveMiniCheckpoint();
     });
+    const check = () => {
+        const saved = kanaAnswers[item.id] || {};
+        if ((saved.checked && normalizeKanaAnswer(saved.draft)) || saved.revealed) {
+            moveKanaQuestion(index === lesson.items.length - 1 ? -index : 1);
+            return;
+        }
+        kanaAnswers[item.id] = { ...kanaAnswers[item.id], draft: input.value, checked: true, signature: kanaContentSignature(item) };
+        updateKanaQuestion(item, card);
+        updateKanaProgress();
+        saveMiniCheckpoint();
+    };
+    card.querySelector('[data-kana-action="check"]').addEventListener('click', check);
+    input.addEventListener('keydown', event => {
+        if (event.key === 'Enter' && !event.shiftKey && !event.isComposing && event.keyCode !== 229) {
+            event.preventDefault();
+            check();
+        }
+    });
+    card.querySelector('[data-kana-action="reveal"]').addEventListener('click', () => {
+        kanaAnswers[item.id] = { ...kanaAnswers[item.id], draft: input.value, revealed: !kanaAnswers[item.id]?.revealed, signature: kanaContentSignature(item) };
+        updateKanaQuestion(item, card);
+        saveMiniCheckpoint();
+    });
+    card.querySelector('#kanaPreviousBtn').addEventListener('click', () => moveKanaQuestion(-1));
+    card.querySelector('#kanaNextBtn').addEventListener('click', () => moveKanaQuestion(1));
+    updateKanaQuestion(item, card);
+    container.appendChild(card);
+    if (focusInput) input.focus({ preventScroll: true });
     updateKanaProgress();
+}
+
+function moveKanaQuestion(offset) {
+    const lesson = kanaReviewLessons.find(item => item.lesson === kanaLesson);
+    if (!lesson || !Number.isInteger(offset)) return;
+    const index = Math.max(0, lesson.items.findIndex(item => item.id === kanaQuestionByLesson[kanaLesson]));
+    const next = Math.max(0, Math.min(lesson.items.length - 1, index + offset));
+    if (next === index) return;
+    kanaQuestionByLesson[kanaLesson] = lesson.items[next].id;
+    renderKanaReview(true);
+    saveMiniCheckpoint();
 }
 
 function selectKanaLesson(number) {
@@ -291,15 +324,12 @@ function selectKanaLesson(number) {
     saveMiniCheckpoint();
 }
 
-function gradeKanaLesson() {
-    document.querySelectorAll('#kanaReviewQuestions [data-kana-action="check"]').forEach(button => button.click());
-}
-
 function resetKanaLesson() {
     if (!confirm(`Làm lại 20 câu của bài ${kanaLesson}? Tiến độ các bài khác được giữ nguyên.`)) return;
     const lesson = kanaReviewLessons.find(item => item.lesson === kanaLesson);
     if (!lesson) return;
     lesson.items.forEach(item => { delete kanaAnswers[item.id]; });
+    delete kanaQuestionByLesson[kanaLesson];
     renderKanaReview();
     saveMiniCheckpoint();
 }
@@ -1347,6 +1377,8 @@ function restoreMiniCheckpoint() {
 
         if (kanaReviewLessons.some(item => item.lesson === data.kanaLesson)) kanaLesson = data.kanaLesson;
         for (const lesson of kanaReviewLessons) {
+            const savedQuestion = data.kanaQuestionByLesson?.[lesson.lesson];
+            if (lesson.items.some(item => item.id === savedQuestion)) kanaQuestionByLesson[lesson.lesson] = savedQuestion;
             for (const item of lesson.items) {
                 const saved = data.kanaAnswers?.[item.id];
                 if (!saved || typeof saved.draft !== 'string') continue;

@@ -202,10 +202,12 @@ assert.strictEqual((reviewHtml.match(/<tr><td>/g) || []).length, 10, 'Review con
 const lesson4Html = read('lessons/Marugoto_A2_2_Lesson_4.html');
 assert(lesson4Html.includes('class="contraction-table"'), 'Lesson 4 must render the canonical contraction data');
 assert.strictEqual((lesson4Html.match(/<tr><td>/g) || []).length, 10, 'Lesson 4 contraction table must have 10 rows');
-assert(reviewHtml.includes('mini-test-a2-2-1-4.js?v=5'));
+assert(reviewHtml.includes('mini-test-a2-2-1-4.js?v=6'));
 assert(reviewHtml.includes('mini_a2_2_1_4_data.js?v=4'));
-assert(reviewHtml.includes('kana-review-practice.css?v=4'));
-assert(reviewHtml.includes('id="tab-kana"') && reviewHtml.includes('href="#tab-kana"'));
+assert(reviewHtml.includes('kana-review-practice.css?v=5'));
+assert(reviewHtml.includes('id="tab-kana"'));
+assert(!reviewHtml.includes('kana-review-entry'), 'Remove the top practice CTA');
+assert(!reviewHtml.includes('gradeKanaLesson()'), 'Grade each visible sentence instead of the whole lesson');
 assert(reviewHtml.includes('kanaReviewProgressBar') && reviewHtml.includes('role="progressbar"'));
 assert(reviewHtml.includes('id="kanaLessonGrammar"'));
 assert.strictEqual(reviewData.kanaReviewLessons.length, 4);

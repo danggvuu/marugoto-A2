@@ -1,17 +1,4 @@
-/* Editorial workbook layout for the A2.2 kana practice. */
-.kana-review-entry {
-    display: inline-flex;
-    justify-content: center;
-    max-width: 100%;
-    padding: 10px 18px;
-    margin-bottom: 18px;
-    border: 1px solid var(--gray-200);
-    border-radius: var(--radius-md);
-    background: var(--white);
-    color: var(--primary-dark);
-    font-weight: 800;
-    text-decoration: none;
-}
+/* Single-question workbook layout for the A2.2 kana practice. */
 
 html:root body.mini-test-page #tab-kana {
     --kana-ink: var(--gray-900);
@@ -263,7 +250,8 @@ html:root body.mini-test-page #tab-kana .kana-review-controls {
 }
 
 html:root body.mini-test-page #tab-kana .kana-review-controls .quiz-btn,
-html:root body.mini-test-page #tab-kana .kana-review-input-row .quiz-btn {
+html:root body.mini-test-page #tab-kana .kana-review-input-row .quiz-btn,
+html:root body.mini-test-page #tab-kana .kana-review-navigation .quiz-btn {
     min-height: 44px;
     padding: 9px 14px;
     border: 1px solid var(--kana-border);
@@ -284,7 +272,8 @@ html:root body.mini-test-page #tab-kana .kana-review-input-row [data-kana-action
 }
 
 html:root body.mini-test-page #tab-kana .kana-review-controls .quiz-btn:hover,
-html:root body.mini-test-page #tab-kana .kana-review-input-row .quiz-btn:hover {
+html:root body.mini-test-page #tab-kana .kana-review-input-row .quiz-btn:hover,
+html:root body.mini-test-page #tab-kana .kana-review-navigation .quiz-btn:hover:not(:disabled) {
     border-color: var(--primary);
     background: var(--primary-light);
     color: var(--kana-accent);
@@ -299,16 +288,15 @@ html:root body.mini-test-page #tab-kana .kana-review-input-row [data-kana-action
 }
 
 html:root body.mini-test-page #tab-kana .kana-review-questions {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    gap: 12px;
+    max-width: 880px;
+    margin-inline: auto;
 }
 
 html:root body.mini-test-page #tab-kana .kana-review-question {
     display: flex;
     min-width: 0;
     flex-direction: column;
-    padding: 18px;
+    padding: clamp(18px, 3vw, 28px);
     margin: 0;
     border: 1px solid var(--kana-border);
     border-radius: var(--radius-md);
@@ -383,12 +371,13 @@ html:root body.mini-test-page #tab-kana .kana-review-input-label {
 
 html:root body.mini-test-page #tab-kana .kana-review-input-row {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) auto auto;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     align-items: center;
     gap: 8px;
 }
 
 html:root body.mini-test-page #tab-kana .kana-review-input {
+    grid-column: 1 / -1;
     width: 100%;
     min-width: 0;
     min-height: 46px;
@@ -400,11 +389,16 @@ html:root body.mini-test-page #tab-kana .kana-review-input {
     font-family: 'Noto Sans JP', sans-serif;
     font-size: 16px;
     line-height: 1.5;
+    resize: vertical;
 }
 
 html:root body.mini-test-page #tab-kana .kana-review-input::placeholder {
     color: var(--gray-500);
     opacity: 1;
+}
+
+html:root body.mini-test-page #tab-kana .kana-review-input:focus {
+    box-shadow: none !important;
 }
 
 html:root body.mini-test-page #tab-kana .kana-review-feedback {
@@ -426,7 +420,8 @@ html:root body.mini-test-page #tab-kana .kana-review-question.is-correct .kana-r
 }
 
 html:root body.mini-test-page #tab-kana .kana-review-question.is-correct .kana-review-input {
-    border-color: var(--kana-correct);
+    border-color: var(--kana-correct) !important;
+    outline-color: var(--kana-correct) !important;
 }
 
 html:root body.mini-test-page #tab-kana .kana-review-question.is-wrong {
@@ -440,7 +435,8 @@ html:root body.mini-test-page #tab-kana .kana-review-question.is-wrong .kana-rev
 }
 
 html:root body.mini-test-page #tab-kana .kana-review-question.is-wrong .kana-review-input {
-    border-color: var(--kana-wrong);
+    border-color: var(--kana-wrong) !important;
+    outline-color: var(--kana-wrong) !important;
 }
 
 html:root body.mini-test-page #tab-kana .kana-review-answer {
@@ -472,11 +468,25 @@ html:root body.mini-test-page #tab-kana .kana-review-answer-grammar {
     line-height: 1.6;
 }
 
-@media (min-width: 880px) {
-    html:root body.mini-test-page #tab-kana .kana-review-questions {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 14px;
-    }
+html:root body.mini-test-page #tab-kana .kana-review-navigation {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding-top: 16px;
+    margin-top: 16px;
+    border-top: 1px solid var(--kana-border);
+}
+
+html:root body.mini-test-page #tab-kana .kana-review-shortcut {
+    color: var(--kana-muted);
+    font-size: 0.78rem;
+}
+
+html:root body.mini-test-page #tab-kana .kana-review-navigation .quiz-btn:disabled {
+    opacity: 0.45;
+    cursor: default;
 }
 
 @media (max-width: 640px) {
@@ -518,6 +528,12 @@ html:root body.mini-test-page #tab-kana .kana-review-answer-grammar {
         width: 100%;
         padding-inline: 8px;
         white-space: normal;
+    }
+
+    html:root body.mini-test-page #tab-kana .kana-review-shortcut {
+        flex-basis: 100%;
+        order: 1;
+        text-align: center;
     }
 }
 

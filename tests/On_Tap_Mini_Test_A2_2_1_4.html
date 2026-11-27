@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
     <script src="../assets/js/audio-engine.js?v=2"></script>
     <link rel="stylesheet" href="../assets/css/mini-test-11-14.css?v=2">
-    <link rel="stylesheet" href="../assets/css/kana-review-practice.css?v=4">
+    <link rel="stylesheet" href="../assets/css/kana-review-practice.css?v=5">
 </head>
 <body class="mini-test-page">
 
@@ -51,7 +51,6 @@
         <p class="hero-desc">
             Ôn ngữ pháp A2.2 bài 1–4, 81 từ mới và luyện nhập Việt → Nhật: mỗi bài 20 câu bằng hiragana và katakana.
         </p>
-        <a class="kana-review-entry" href="#tab-kana" onclick="switchTab('tab-kana')">Luyện nhập Việt → Nhật: 4 bài × 20 câu</a>
 
         <div class="hero-stats">
             <div class="stat-pill">
@@ -892,13 +891,13 @@
             <header class="kana-review-heading">
                 <p class="kana-review-kicker">80 câu • 4 bài A2.2</p>
                 <h2 class="kana-review-title">Luyện viết câu tiếng Nhật</h2>
-                <p class="kana-review-lede">Dịch câu từ tiếng Việt sang tiếng Nhật. Mỗi bài có 20 câu dùng từ mới và cấu trúc ngữ pháp của bài đó.</p>
+                <p class="kana-review-lede">Dịch từng câu từ tiếng Việt sang tiếng Nhật. Nhập đáp án, chấm rồi chuyển sang câu tiếp theo. Mỗi bài có 20 câu.</p>
             </header>
             <div class="kana-review-instructions" role="note" aria-label="Quy tắc nhập đáp án">
                 <span><strong>Chữ chính:</strong> hiragana</span>
                 <span><strong>Từ ngoại lai:</strong> giữ katakana</span>
                 <span><strong>Không nhập:</strong> Kanji hoặc romaji</span>
-                <span>Đáp án và giải thích hiện khi bạn chọn “Xem đáp án”.</span>
+                <span><strong>Enter:</strong> chấm / câu tiếp. Đáp án và ngữ pháp hiện khi chọn “Xem đáp án”.</span>
             </div>
             <div class="filter-row" id="kanaLessonFilters" role="group" aria-label="Chọn bài luyện nhập">
                 <button type="button" class="filter-btn active" data-kana-lesson="1" aria-pressed="true" onclick="selectKanaLesson(1)"><span class="kana-filter-name">Bài 1</span><span class="kana-filter-count">20 câu</span></button>
@@ -924,7 +923,6 @@
                     </div>
                 </div>
                 <div class="kana-review-controls">
-                    <button type="button" class="quiz-btn primary" onclick="gradeKanaLesson()">Chấm 20 câu</button>
                     <button type="button" class="quiz-btn" onclick="resetKanaLesson()">Làm lại bài này</button>
                 </div>
             </div>
@@ -1052,7 +1050,7 @@
 <div id="toast" class="toast">Đã sao chép vào bộ nhớ tạm!</div>
 
 <script src="../assets/data/mini_a2_2_1_4_data.js?v=4"></script>
-    <script src="../assets/js/mini-test-a2-2-1-4.js?v=5"></script>
+    <script src="../assets/js/mini-test-a2-2-1-4.js?v=6"></script>
 <script src="../assets/nav.js?v=11" defer></script>
 </body>
 </html>
