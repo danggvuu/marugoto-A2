@@ -1433,7 +1433,7 @@ HTML_CONTENT = """<!DOCTYPE html>
 
 <script src="../assets/data/mini_a2_2_1_4_data.js?v=4"></script>
     <script src="../assets/js/mini-test-a2-2-1-4.js?v=6"></script>
-<script src="../assets/nav.js?v=11" defer></script>
+<script src="../assets/nav.js?v=12" defer></script>
 </body>
 </html>
 """

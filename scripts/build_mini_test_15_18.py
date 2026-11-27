@@ -1125,7 +1125,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     <script src="../assets/js/jp-typing-grader.js?v=2"></script>
     <script src="../assets/js/typing-studio.js?v=8"></script>
     <script src="../assets/js/mini-test-15-18.js?v=4"></script>
-    <script src="../assets/nav.js?v=11" defer></script>
+    <script src="../assets/nav.js?v=12" defer></script>
 </body>
 </html>
 """

@@ -1108,7 +1108,7 @@ html_content = f"""<!DOCTYPE html>
 
 <script src="../assets/data/mini_11_14_data.js?v=1"></script>
 <script src="../assets/js/mini-test-11-14.js?v=3"></script>
-<script src="../assets/nav.js?v=11" defer></script>
+<script src="../assets/nav.js?v=12" defer></script>
 </body>
 </html>
 """

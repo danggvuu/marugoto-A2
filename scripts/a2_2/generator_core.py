@@ -429,7 +429,7 @@ def build_lesson_html(
 <!-- Scripts -->
 <script src="../assets/js/lessons/{js_filename}?v={3 if sentence_practice_count else 2}"></script>
 <script src="../assets/js/nav-dropdown.js"></script>
-<script src="../assets/nav.js?v=11" defer></script>
+<script src="../assets/nav.js?v=12" defer></script>
 <script src="../assets/js/jp-typing-grader.js?v=1" defer></script>
 <script src="../assets/js/typing-practice.js" defer></script>
 {sentence_script}</body>

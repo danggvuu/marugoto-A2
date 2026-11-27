@@ -374,6 +374,14 @@ function updateVerbLabDisplay(idx) {
     document.getElementById('mNai').textContent = v.nai;
     document.getElementById('mTara').textContent = v.tara;
     document.getElementById('mTari').textContent = v.tari;
+    const volitionalEndings = { 'う': 'おう', 'く': 'こう', 'ぐ': 'ごう', 'す': 'そう', 'つ': 'とう', 'ぬ': 'のう', 'ぶ': 'ぼう', 'む': 'もう', 'る': 'ろう' };
+    document.getElementById('mVolitional').textContent = v.id === 'kuru' ? '来よう (こよう)'
+        : v.id === 'suru' ? 'しよう'
+        : v.group.startsWith('Nhóm 2') ? v.kanji.slice(0, -1) + 'よう'
+        : v.kanji.slice(0, -1) + volitionalEndings[v.kana.slice(-1)];
+    document.getElementById('mVolitional').dataset.kana = v.id === 'kuru' ? 'こよう'
+        : v.id === 'suru' ? 'しよう'
+        : v.kana.slice(0, -1) + (v.group.startsWith('Nhóm 2') ? 'よう' : volitionalEndings[v.kana.slice(-1)]);
 
     document.getElementById('mExJp').innerHTML = v.exRuby || v.ex;
     document.getElementById('mExVi').textContent = v.exVi;

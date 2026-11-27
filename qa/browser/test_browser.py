@@ -2197,6 +2197,412 @@ class StudyFlows(unittest.TestCase):
         self.assertEqual(self.page.locator('#sentencePracticeProgress').inner_text(), '1 / 40')
         self.assertEqual(self.page.evaluate("MarugotoCheckpoint.load('typing_sentences_a2_2_v1').items[1].status"), 'correct')
 
+    def test_volitional_desktop_all_26_verbs_and_enter_navigation(self):
+        self.page.set_viewport_size({'width': 1440, 'height': 1000})
+        self.go('the_y_chi.html')
+        self.page.locator('#volTabPractice').click()
+        expected = [
+            ('行く', 'いく', 'いこう'),
+            ('買う', 'かう', 'かおう'),
+            ('書く', 'かく', 'かこう'),
+            ('泳ぐ', 'およぐ', 'およごう'),
+            ('話す', 'はなす', 'はなそう'),
+            ('待つ', 'まつ', 'まとう'),
+            ('遊ぶ', 'あそぶ', 'あそぼう'),
+            ('飲む', 'のむ', 'のもう'),
+            ('読む', 'よむ', 'よもう'),
+            ('帰る', 'かえる', 'かえろう'),
+            ('入る', 'はいる', 'はいろう'),
+            ('走る', 'はしる', 'はしろう'),
+            ('切る', 'きる', 'きろう'),
+            ('作る', 'つくる', 'つくろう'),
+            ('会う', 'あう', 'あおう'),
+            ('食べる', 'たべる', 'たべよう'),
+            ('見る', 'みる', 'みよう'),
+            ('寝る', 'ねる', 'ねよう'),
+            ('起きる', 'おきる', 'おきよう'),
+            ('借りる', 'かりる', 'かりよう'),
+            ('降りる', 'おりる', 'おりよう'),
+            ('着る', 'きる', 'きよう'),
+            ('来る', 'くる', 'こよう'),
+            ('する', 'する', 'しよう'),
+            ('勉強する', 'べんきょうする', 'べんきょうしよう'),
+            ('持って来る', 'もってくる', 'もってこよう'),
+        ]
+        answer = self.page.locator('#volAnswer')
+        self.assertEqual(self.page.locator('#volGroupFilter option').evaluate_all(
+            'options=>options.map(option=>option.value)'), ['all', '1', '2', '3'])
+        for index, (kanji, reading, volitional) in enumerate(expected):
+            with self.subTest(verb=kanji, reading=reading):
+                self.assertEqual(self.page.locator('#volPracticeCard').count(), 1)
+                self.assertEqual(answer.count(), 1)
+                self.assertEqual(self.page.locator('#volPosition').inner_text(), f'Câu {index + 1} / 26')
+                self.assertEqual(self.page.locator('#volVerb').inner_text(), kanji)
+                self.assertEqual(self.page.locator('#volReading').inner_text(), reading)
+                self.assertEqual(self.page.locator('#volPrevious').is_disabled(), index == 0)
+                self.assertEqual(self.page.locator('#volNext').is_disabled(), index == 25)
+                self.assertEqual(self.page.locator('#volCheck').inner_text(), 'Kiểm tra')
+                answer.fill(volitional)
+                answer.press('Enter')
+                self.assertEqual(self.page.locator('#volPosition').inner_text(), f'Câu {index + 1} / 26')
+                self.assertEqual(self.page.locator('#volPracticeCard.is-correct').count(), 1)
+                self.assertEqual(answer.get_attribute('aria-invalid'), 'false')
+                self.assertIn('Đúng', self.page.locator('#volFeedback').inner_text())
+                self.assertEqual(self.page.locator('#volProgress').inner_text(),
+                                 f'Đã chấm {index + 1}/26 · Đúng {index + 1}/26')
+                self.assertEqual(self.page.locator('#volCheck').inner_text(),
+                                 'Về câu đầu' if index == 25 else 'Câu tiếp')
+                self.assertTrue(self.page.locator('#volExplanation').is_hidden())
+                answer.press('Enter')
+                self.assertTrue(answer.evaluate('el=>el===document.activeElement'))
+        self.assertEqual(self.page.locator('#volPosition').inner_text(), 'Câu 1 / 26')
+        self.assertTrue(self.page.locator('#volPrevious').is_disabled())
+        self.assertFalse(self.page.locator('#volNext').is_disabled())
+        self.assertEqual(answer.input_value(), 'いこう')
+        self.assertEqual(self.page.locator('#volProgress').inner_text(), 'Đã chấm 26/26 · Đúng 26/26')
+        self.assertLessEqual(self.page.evaluate('document.documentElement.scrollWidth'), 1440)
+        directory = os.environ.get('MARUGOTO_SCREENSHOTS_DIR')
+        if directory:
+            output = Path(directory)
+            output.mkdir(parents=True, exist_ok=True)
+            self.page.evaluate('window.scrollTo(0, 0)')
+            self.page.screenshot(path=str(output / 'volitional-desktop.png'), full_page=True)
+
+    def test_volitional_persistence_back_filters_and_scoped_reset(self):
+        self.go('the_y_chi.html')
+        self.assertTrue(self.page.evaluate('window.__MARUGOTO_NATIVE_DOM_DISABLED__ === true'))
+        self.assertIn('marugoto_volitional_v1', self.page.evaluate('window.__MARUGOTO_CP_EXTRA_KEYS__'))
+        self.page.wait_for_function('Boolean(window.MarugotoCheckpoint)')
+        other_storage = {
+            'marugoto_typing_studio_v2': '{"version":2,"history":{"other":{"status":"ok"}}}',
+            'marugoto_cp_v1::lessons/Marugoto_A2_2_Lesson_1.html::typing_sentences_a2_2_v1':
+                '{"t":123,"d":{"items":{"1":{"draft":"keep lesson draft"}}}}',
+        }
+        # A stale generic checkpoint must never replace this page's custom state.
+        self.page.evaluate("""other => {
+            Object.entries(other).forEach(([key,value])=>localStorage.setItem(key,value));
+            MarugotoCheckpoint.save('inputs', {'id::volAnswer':'stale generic draft', 'id::volGroupFilter':'2'});
+            MarugotoCheckpoint.save('tab', {idx:0, oc:''});
+        }""", other_storage)
+        self.page.locator('#volTabPractice').click()
+        answer = self.page.locator('#volAnswer')
+        answer.fill('いこう')
+        self.page.locator('#volCheck').click()
+        self.page.locator('#volNext').click()
+        answer.fill('かお')
+        self.page.locator('#volReveal').click()
+        snapshot = "JSON.parse(localStorage.getItem('marugoto_volitional_v1'))"
+        expected_answers = {
+            'iku': {'draft': 'いこう', 'checked': True, 'revealed': False},
+            'kau': {'draft': 'かお', 'checked': False, 'revealed': True},
+        }
+        self.assertEqual(self.page.evaluate(snapshot), {
+            'tab': 'vol-practice', 'group': 'all', 'current': 'kau', 'answers': expected_answers,
+        })
+        self.reload()
+        self.page.clock.run_for(1200)
+        self.assertTrue(self.page.locator('#vol-practice').is_visible())
+        self.assertEqual(self.page.locator('#volPosition').inner_text(), 'Câu 2 / 26')
+        self.assertEqual(answer.input_value(), 'かお')
+        self.assertTrue(self.page.locator('#volExplanation').is_visible())
+        self.assertEqual(self.page.locator('#volExpected').inner_text(), 'かう → かおう')
+        self.assertEqual(self.page.locator('#volProgress').inner_text(), 'Đã chấm 1/26 · Đúng 1/26')
+        self.assertEqual(self.page.evaluate(snapshot)['answers'], expected_answers)
+        self.page.locator('#volPrevious').click()
+        self.assertEqual(answer.input_value(), 'いこう')
+        self.assertEqual(self.page.locator('#volPracticeCard.is-correct').count(), 1)
+        self.assertTrue(self.page.locator('#volExplanation').is_hidden())
+        self.page.locator('#volNext').click()
+        self.page.locator('#hubBtnHome').click()
+        self.page.clock.run_for(400)
+        self.assertEqual(self.page.url, self.base + 'index.html')
+        self.page.go_back()
+        self.page.clock.run_for(1600)
+        self.assertEqual(self.page.locator('#volPosition').inner_text(), 'Câu 2 / 26')
+        self.assertEqual(answer.input_value(), 'かお')
+        self.assertTrue(self.page.locator('#volExplanation').is_visible())
+        self.assertEqual(self.page.evaluate(snapshot)['answers'], expected_answers)
+
+        for group, kanji, reading, correct, total in [
+            ('2', '食べる', 'たべる', 'たべよう', 7),
+            ('3', '来る', 'くる', 'こよう', 4),
+        ]:
+            with self.subTest(group=group):
+                self.page.locator('#volGroupFilter').select_option(group)
+                self.assertEqual(self.page.locator('#volPosition').inner_text(), f'Câu 1 / {total}')
+                self.assertEqual(self.page.locator('#volVerb').inner_text(), kanji)
+                self.assertEqual(self.page.locator('#volReading').inner_text(), reading)
+                self.assertTrue(self.page.locator('#volPrevious').is_disabled())
+                self.assertEqual(answer.input_value(), '')
+                answer.fill(correct)
+                self.page.locator('#volCheck').click()
+        self.page.locator('#volNext').click()
+        answer.fill('しよ')
+        self.page.locator('#volTabUsage').click()
+        saved = self.page.evaluate(snapshot)
+        self.assertEqual(saved['group'], '3')
+        self.assertEqual(saved['current'], 'suru')
+        self.assertEqual(saved['tab'], 'vol-usage')
+        self.assertEqual(saved['answers'], {
+            **expected_answers,
+            'taberu': {'draft': 'たべよう', 'checked': True, 'revealed': False},
+            'kuru': {'draft': 'こよう', 'checked': True, 'revealed': False},
+            'suru': {'draft': 'しよ', 'checked': False, 'revealed': False},
+        })
+        self.reload()
+        self.page.clock.run_for(1200)
+        self.assertTrue(self.page.locator('#vol-usage').is_visible())
+        self.assertEqual(self.page.locator('#volTabUsage').get_attribute('aria-selected'), 'true')
+        self.page.locator('#volTabPractice').click()
+        self.assertEqual(self.page.locator('#volGroupFilter').input_value(), '3')
+        self.assertEqual(self.page.locator('#volPosition').inner_text(), 'Câu 2 / 4')
+        self.assertEqual(answer.input_value(), 'しよ')
+        self.page.locator('#volGroupFilter').select_option('1')
+        self.assertEqual(self.page.locator('#volPosition').inner_text(), 'Câu 1 / 15')
+        self.assertEqual(answer.input_value(), 'いこう')
+        self.assertEqual(self.page.locator('#volPracticeCard.is-correct').count(), 1)
+        self.page.locator('#volNext').click()
+        self.assertEqual(answer.input_value(), 'かお')
+        self.assertTrue(self.page.locator('#volExplanation').is_visible())
+        self.page.locator('#volGroupFilter').select_option('2')
+        self.assertEqual(answer.input_value(), 'たべよう')
+        self.page.locator('#volNext').click()
+        self.assertEqual(self.page.locator('#volVerb').inner_text(), '見る')
+        self.page.clock.run_for(1200)
+        self.assertEqual(self.page.evaluate("MarugotoCheckpoint.load('inputs')"), {
+            'id::volAnswer': 'stale generic draft', 'id::volGroupFilter': '2',
+        })
+        self.assertEqual(self.page.evaluate("MarugotoCheckpoint.load('tab')"), {'idx': 0, 'oc': ''})
+        dialogs = []
+        self.page.on('dialog', lambda dialog: dialogs.append((dialog.type, dialog.message)))
+        self.page.locator('#volReset').click()
+        self.assertEqual(len(dialogs), 1)
+        self.assertEqual(dialogs[0][0], 'confirm')
+        self.assertIn('thể ý chí', dialogs[0][1])
+        self.assertEqual(self.page.evaluate(snapshot), {
+            'tab': 'vol-practice', 'group': '2', 'current': 'taberu', 'answers': {},
+        })
+        self.reload()
+        self.page.clock.run_for(1200)
+        self.assertEqual(self.page.locator('#volGroupFilter').input_value(), '2')
+        self.assertEqual(self.page.locator('#volPosition').inner_text(), 'Câu 1 / 7')
+        self.assertEqual(answer.input_value(), '')
+        self.assertEqual(self.page.locator('#volCheck').inner_text(), 'Kiểm tra')
+        self.assertTrue(self.page.locator('#volExplanation').is_hidden())
+        self.assertEqual(self.page.locator('#volProgress').inner_text(), 'Đã chấm 0/7 · Đúng 0/7')
+        self.assertEqual(self.page.evaluate(snapshot)['answers'], {})
+        self.assertEqual(self.page.evaluate(
+            'keys=>Object.fromEntries(keys.map(key=>[key,localStorage.getItem(key)]))',
+            list(other_storage)), other_storage)
+
+    def test_volitional_mobile_tabs_ime_validation_and_static_feedback(self):
+        self.page.set_viewport_size({'width': 360, 'height': 800})
+        self.go('the_y_chi.html')
+        tabs = [('volTabRules', 'vol-rules'), ('volTabUsage', 'vol-usage'),
+                ('volTabPractice', 'vol-practice')]
+        self.page.locator('#volTabRules').focus()
+        for key, active in [('ArrowRight', 1), ('ArrowRight', 2), ('ArrowRight', 0),
+                            ('ArrowLeft', 2), ('Home', 0), ('End', 2), ('ArrowLeft', 1)]:
+            with self.subTest(key=key, active=active):
+                self.page.keyboard.press(key)
+                for index, (tab, panel) in enumerate(tabs):
+                    self.assertEqual(self.page.locator('#' + tab).get_attribute('aria-selected'),
+                                     str(index == active).lower())
+                    self.assertEqual(self.page.locator('#' + tab).get_attribute('tabindex'),
+                                     '0' if index == active else '-1')
+                    self.assertEqual(self.page.locator('#' + tab).get_attribute('aria-controls'), panel)
+                    self.assertEqual(self.page.locator('#' + panel).evaluate('el=>el.hidden'), index != active)
+                    self.assertEqual(self.page.locator('#' + panel).is_visible(), index == active)
+                self.assertEqual(self.page.evaluate('document.activeElement.id'), tabs[active][0])
+        for width in [360, 390]:
+            self.page.set_viewport_size({'width': width, 'height': 844})
+            for tab, panel in tabs:
+                with self.subTest(width=width, panel=panel):
+                    self.page.locator('#' + tab).click()
+                    self.assertLessEqual(self.page.evaluate('document.documentElement.scrollWidth'), width)
+                    self.assertTrue(self.page.locator('#' + panel).evaluate("""panel =>
+                        [...panel.querySelectorAll('button,input,select,.vol-card')].every(el=>{
+                            const rect=el.getBoundingClientRect();
+                            return rect.left>=0 && rect.right<=innerWidth+1 && el.scrollWidth<=el.clientWidth+1;
+                        })"""))
+        answer = self.page.locator('#volAnswer')
+        card = self.page.locator('#volPracticeCard')
+        self.page.locator('#volCheck').click()
+        answer.press('Enter')
+        self.assertEqual(self.page.locator('#volPosition').inner_text(), 'Câu 1 / 26')
+        self.assertEqual(self.page.locator('#volCheck').inner_text(), 'Kiểm tra')
+        self.assertIn('Chưa có đáp án', self.page.locator('#volFeedback').inner_text())
+        self.assertEqual(self.page.locator('#volProgress').inner_text(), 'Đã chấm 0/26 · Đúng 0/26')
+        answer.fill('いこう')
+        answer.press('Shift+Enter')
+        for event in [{'isComposing': True}, {'keyCode': 229, 'which': 229}]:
+            answer.dispatch_event('keydown', {'key': 'Enter', 'bubbles': True, **event})
+            self.assertEqual(self.page.locator('#volCheck').inner_text(), 'Kiểm tra')
+            self.assertEqual(self.page.locator('#volPracticeCard.is-correct, #volPracticeCard.is-wrong').count(), 0)
+            self.assertEqual(self.page.locator('#volPosition').inner_text(), 'Câu 1 / 26')
+        neutral_border = answer.evaluate('el=>getComputedStyle(el).borderColor')
+        wrong_border = None
+        for draft in ['行こう', 'ikou', 'イコウ', 'ｲｺｳ', 'いきましょう', 'いく', 'いかう']:
+            with self.subTest(draft=draft):
+                answer.fill(draft)
+                self.assertEqual(self.page.locator('#volCheck').inner_text(), 'Kiểm tra')
+                self.assertEqual(answer.get_attribute('aria-invalid'), 'false')
+                answer.press('Enter')
+                self.assertEqual(self.page.locator('#volPracticeCard.is-wrong').count(), 1)
+                self.assertEqual(self.page.locator('#volPracticeCard.is-correct').count(), 0)
+                self.assertEqual(answer.get_attribute('aria-invalid'), 'true')
+                self.assertEqual(self.page.locator('#volPosition').inner_text(), 'Câu 1 / 26')
+                self.assertEqual(self.page.locator('#volCheck').inner_text(), 'Câu tiếp')
+                self.assertEqual(self.page.locator('#volProgress').inner_text(), 'Đã chấm 1/26 · Đúng 0/26')
+                self.assertTrue(answer.evaluate('el=>el===document.activeElement'))
+                style = answer.evaluate("""el=>{
+                    const css=getComputedStyle(el);
+                    return {border:css.borderColor,outline:css.outlineColor,style:css.outlineStyle,
+                        width:parseFloat(css.outlineWidth)};
+                }""")
+                wrong_border = style['border']
+                self.assertNotEqual(wrong_border, neutral_border)
+                self.assertEqual(wrong_border, card.evaluate('el=>getComputedStyle(el).borderColor'))
+                self.assertEqual(style['outline'], wrong_border)
+                self.assertEqual(style['style'], 'solid')
+                self.assertGreaterEqual(style['width'], 2)
+        answer.fill(' \tい\u3000こ う ')
+        self.page.locator('#volReveal').click()
+        self.assertEqual(self.page.locator('#volReveal').get_attribute('aria-expanded'), 'true')
+        self.assertTrue(self.page.locator('#volExplanation').is_visible())
+        self.assertEqual(self.page.locator('#volExpected').inner_text(), 'いく → いこう')
+        self.assertEqual(self.page.locator('#volPracticeCard.is-correct').count(), 0)
+        self.assertEqual(self.page.locator('#volProgress').inner_text(), 'Đã chấm 0/26 · Đúng 0/26')
+        self.page.locator('#volReveal').click()
+        self.assertEqual(self.page.locator('#volReveal').get_attribute('aria-expanded'), 'false')
+        self.assertTrue(self.page.locator('#volExplanation').is_hidden())
+        self.assertEqual(self.page.locator('#volCheck').inner_text(), 'Kiểm tra')
+        self.page.locator('#volReveal').click()
+        answer.fill('\u3000い こ\tう ')
+        self.assertTrue(self.page.locator('#volExplanation').is_hidden())
+        self.assertEqual(self.page.locator('#volReveal').get_attribute('aria-expanded'), 'false')
+        self.assertEqual(self.page.locator('#volCheck').inner_text(), 'Kiểm tra')
+        answer.press('Enter')
+        self.assertEqual(self.page.locator('#volPracticeCard.is-correct').count(), 1)
+        self.assertEqual(answer.get_attribute('aria-invalid'), 'false')
+        self.assertIn('Đúng', self.page.locator('#volFeedback').inner_text())
+        self.assertEqual(self.page.locator('#volProgress').inner_text(), 'Đã chấm 1/26 · Đúng 1/26')
+        correct_border = answer.evaluate('el=>getComputedStyle(el).borderColor')
+        self.assertNotIn(correct_border, [neutral_border, wrong_border])
+        self.assertEqual(correct_border, card.evaluate('el=>getComputedStyle(el).borderColor'))
+        self.assertEqual(correct_border, answer.evaluate('el=>getComputedStyle(el).outlineColor'))
+        answer.fill('いこう')
+        self.assertEqual(self.page.locator('#volPracticeCard.is-correct, #volPracticeCard.is-wrong').count(), 0)
+        self.assertEqual(self.page.locator('#volCheck').inner_text(), 'Kiểm tra')
+        for _ in range(3):
+            self.page.locator('#volNext').click()
+        self.assertEqual(self.page.locator('#volReading').inner_text(), 'およぐ')
+        answer.fill(' およこ\u3099\u3000う ')
+        answer.press('Enter')
+        self.assertEqual(self.page.locator('#volPracticeCard.is-correct').count(), 1)
+        self.assertEqual(self.page.locator('#volProgress').inner_text(), 'Đã chấm 1/26 · Đúng 1/26')
+        for selector in ['#volAnswer', '#volCheck', '#volReveal']:
+            control = self.page.locator(selector)
+            control.hover()
+            self.page.mouse.down()
+            try:
+                moving = control.evaluate("""el=>{
+                    const failures=[];
+                    for(let node=el;node && node!==document.body;node=node.parentElement){
+                        for(const pseudo of [null,'::before','::after']){
+                            const css=getComputedStyle(node,pseudo);
+                            if(css.transform!=='none' || css.translate!=='none' || css.scale!=='none' ||
+                                css.rotate!=='none' || css.animationName!=='none' ||
+                                css.transitionDuration.split(',').some(value=>parseFloat(value)!==0)){
+                                failures.push({element:node.id || node.className,pseudo,
+                                    transform:css.transform,animation:css.animationName,transition:css.transitionDuration});
+                            }
+                        }
+                    }
+                    return failures;
+                }""")
+                self.assertEqual(moving, [])
+            finally:
+                # Release outside the control so this styling check does not advance the exercise.
+                self.page.mouse.move(0, 0)
+                self.page.mouse.up()
+        self.page.locator('#volReveal').click()
+        self.assertTrue(self.page.locator('#volExplanation').is_visible())
+        self.assertLessEqual(self.page.evaluate('document.documentElement.scrollWidth'), 390)
+        directory = os.environ.get('MARUGOTO_SCREENSHOTS_DIR')
+        if directory:
+            output = Path(directory)
+            output.mkdir(parents=True, exist_ok=True)
+            self.page.evaluate('window.scrollTo(0, 0)')
+            self.page.screenshot(path=str(output / 'volitional-mobile.png'), full_page=True)
+
+    def test_volitional_navigation_search_and_all_15_verb_lab_forms(self):
+        for entry in ['', 'index.html', 'tests/On_Tap_Mini_Test_A2_2_1_4.html']:
+            with self.subTest(entry=entry):
+                self.go(entry)
+                self.page.locator('#hubBtnForms').click()
+                link = self.page.locator('#formsDropdownMenu a[href$="the_y_chi.html"]')
+                self.assertEqual(link.count(), 1)
+                self.assertTrue(link.is_visible())
+                self.assertEqual(link.evaluate('el=>el.href'), self.base + 'the_y_chi.html')
+                link.click()
+                self.page.clock.run_for(400)
+                self.assertEqual(self.page.url, self.base + 'the_y_chi.html')
+                self.assertIn('active-hub', self.page.locator('#hubBtnForms').get_attribute('class').split())
+                self.page.locator('#hubBtnForms').click()
+                current = self.page.locator('#formsDropdownMenu a.active[href$="the_y_chi.html"]')
+                self.assertEqual(current.count(), 1)
+                self.assertTrue(current.is_visible())
+                self.assertEqual(current.locator('.hub-drop-tag').inner_text(), 'Đang mở')
+        self.go('index.html')
+        card = self.page.locator('.hub-card').filter(has=self.page.locator('a[href="the_y_chi.html"]'))
+        self.assertEqual(card.count(), 1)
+        for query in ['the y chi', 'volitional']:
+            self.page.locator('#hubSearchInput').fill(query)
+            self.page.clock.run_for(200)
+            self.assertTrue(card.is_visible())
+            self.assertEqual(self.page.locator('.hub-card:visible').count(), 1)
+        card.locator('a[href="the_y_chi.html"]').click()
+        self.page.clock.run_for(400)
+        self.assertEqual(self.page.url, self.base + 'the_y_chi.html')
+        self.go('Tong_Hop_Ngu_Phap_Marugoto_A1_A2.html')
+        self.page.locator('#btnTabVerbLab').click()
+        self.assertEqual(self.page.locator('.morph-grid > .morph-cell').count(), 8)
+        self.assertEqual(self.page.locator('.morph-grid #mVolitional').count(), 1)
+        self.page.evaluate('() => {window.__spoken=[];window.speakText=text=>__spoken.push(String(text));}')
+        pills = self.page.locator('#verbPickerRow .verb-select-pill')
+        expected = [
+            ('食べる (たべる)', '食べよう', 'たべよう'),
+            ('飲む (のむ)', '飲もう', 'のもう'),
+            ('行く (いく)', '行こう', 'いこう'),
+            ('来る (くる)', '来よう (こよう)', 'こよう'),
+            ('する (する)', 'しよう', 'しよう'),
+            ('買う (かう)', '買おう', 'かおう'),
+            ('待つ (まつ)', '待とう', 'まとう'),
+            ('読む (よむ)', '読もう', 'よもう'),
+            ('話す (はなす)', '話そう', 'はなそう'),
+            ('見る (みる)', '見よう', 'みよう'),
+            ('帰る (かえる)', '帰ろう', 'かえろう'),
+            ('会う (あう)', '会おう', 'あおう'),
+            ('作る (つくる)', '作ろう', 'つくろう'),
+            ('寝る (ねる)', '寝よう', 'ねよう'),
+            ('起きる (おきる)', '起きよう', 'おきよう'),
+        ]
+        self.assertEqual(pills.count(), 15)
+        for index, (verb, volitional, kana) in enumerate(expected):
+            with self.subTest(lab_verb=verb):
+                pills.nth(index).click()
+                self.assertEqual(self.page.locator('#labHeroKanji').inner_text(), verb)
+                self.assertEqual(self.page.locator('#mVolitional').inner_text(), volitional)
+                self.assertEqual(self.page.locator('#mVolitional').get_attribute('data-kana'), kana)
+                self.page.get_by_role('button', name='Nghe thể ý chí', exact=True).click()
+                self.assertEqual(self.page.evaluate('__spoken.at(-1)'), kana)
+                self.assertEqual(self.page.locator('#verbPickerRow .verb-select-pill.active').count(), 1)
+        self.assertEqual(self.page.evaluate('__spoken'), [kana for _, _, kana in expected])
+        self.page.locator('#tabVerbLabView a[href="the_y_chi.html"]').click()
+        self.page.clock.run_for(400)
+        self.assertEqual(self.page.url, self.base + 'the_y_chi.html')
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
